@@ -65,6 +65,7 @@
 import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
+import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
@@ -2813,6 +2814,25 @@ function recoverLegacyPagination(url) {
   });
 }
 
+// Italian per-station pages are generated below /{fuel}/{italy}/{city}/, while
+// the shared Worker recovery chain historically only saw Swiss-shaped station
+// paths. A city daily page is the only identity-safe target for a retired
+// station leaf: the station slug alone cannot prove that a similarly named
+// current station is the same location. The resolver also accepts legacy fuel
+// section names and returns null for unknown route shapes. Verify the derived
+// city page before issuing a permanent redirect so a stale sitemap entry never
+// becomes a 301 into another 404.
+async function recoverFuelStationAlias(url, origin) {
+  const station = resolveFuelStation(url.pathname);
+  if (!station) return null;
+  if (!(await redirectTargetIsLive(station.canonicalPath, origin))) return null;
+  const location = station.canonicalPath + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
 // Whether `slug` is a job the registry has ever tracked: the /job-canon shard is
 // built from the all-known-job-slugs registry (an accumulator keeping every slug,
 // including pruned/expired vacancies). Same URL and cache options as
@@ -3256,6 +3276,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (queryRedirect) return queryRedirect;
     const employerRedirect = await recoverEmployerProfileAlias(url, origin);
     if (employerRedirect) return employerRedirect;
+    const fuelStationRedirect = await recoverFuelStationAlias(url, origin);
+    if (fuelStationRedirect) return fuelStationRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
     if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
@@ -3512,6 +3534,10 @@ const router = {
           if (redirect) return redirect;
           const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);
           if (employerRedirect) return employerRedirect;
+          if (response.status === 404) {
+            const fuelStationRedirect = await recoverFuelStationAlias(url, url.hostname);
+            if (fuelStationRedirect) return fuelStationRedirect;
+          }
           // Blog images live on the CDN only; old absolute apex references 404.
           if (response.status === 404 && url.pathname.startsWith('/images/blog/')) {
             return Response.redirect(new URL(url.pathname, CDN_BASE).toString(), 301);

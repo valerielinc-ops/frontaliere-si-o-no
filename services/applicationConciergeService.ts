@@ -48,6 +48,8 @@ export interface ApplicationConciergeService {
   applicantEmail?: string | null;
   applicantPhone?: string | null;
   applicantLocation?: string | null;
+  /** Explicit selector confirmation; absent on legacy services, so consumers must not infer country from the label. */
+  applicantLocationCountry?: string | null;
   hasConsent: boolean;
   hasCv: boolean;
   consentedAt?: string | null;
@@ -65,6 +67,26 @@ export interface ApplicationConciergeService {
   userId?: string | null;
   consentVersion?: string | null;
   cvStorageKey?: string | null;
+  paidReceiptEmails?: ApplicationConciergePaidReceiptEmail[];
+}
+
+export interface ApplicationConciergePaidReceiptEmail {
+  audience: 'customer' | 'owner' | string;
+  key: string;
+  status: string | null;
+  providerStatus: 'accepted' | 'failed' | 'unknown' | string;
+  deliveryStatus: 'delivered' | 'bounced' | 'complained' | 'unknown' | string;
+  provider: string | null;
+  messageId: string | null;
+  sentAt: string | null;
+  providerAcceptedAt: string | null;
+  deliveredAt: string | null;
+  bouncedAt: string | null;
+  complainedAt: string | null;
+  providerAccepted: number;
+  delivered: number;
+  bounces: number;
+  complaints: number;
 }
 
 export function getCandidateVisibleApplicationConciergeProposals(
@@ -139,6 +161,7 @@ export async function saveApplicationConciergeProfile(
     applicantEmail: string;
     applicantPhone?: string;
     applicantLocation?: string;
+    applicantLocationCountry?: string;
     consent?: boolean;
     cvStorageKey?: string;
     cvFileName?: string;
@@ -151,7 +174,7 @@ export async function saveApplicationConciergeProfile(
 export async function recordApplicationConciergeConsent(
   user: any,
   serviceId: string,
-  input: { applicantName: string; applicantEmail: string; applicantPhone?: string; applicantLocation?: string },
+  input: { applicantName: string; applicantEmail: string; applicantPhone?: string; applicantLocation?: string; applicantLocationCountry?: string },
 ): Promise<ApplicationConciergeService> {
   const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'recordConsent', consent: true, ...input });
   return data.service as ApplicationConciergeService;

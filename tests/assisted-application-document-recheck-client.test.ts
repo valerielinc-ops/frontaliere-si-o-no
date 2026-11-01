@@ -3,13 +3,13 @@ import { createHash, webcrypto } from 'node:crypto';
 import { File } from 'node:buffer';
 import { recheckReviewDocument, type ReviewDocument } from '../services/assistedApplicationReviewService';
 
-vi.mock('../services/assistedApplicationDocumentCheck', () => ({ DOCUMENT_CHECK_VERSION: 4, checkDocumentFile: vi.fn(async () => ({ verdict: 'match', matched: 'esame di laurea', version: 4 })) }));
+vi.mock('../services/assistedApplicationDocumentCheck', () => ({ DOCUMENT_CHECK_VERSION: 5, checkDocumentFile: vi.fn(async () => ({ verdict: 'match', matched: 'esame di laurea', version: 5 })) }));
 const bytes = Buffer.from('%PDF-1.7 existing retained degree certificate');
 const sha256 = createHash('sha256').update(bytes).digest('hex');
 const file = { id: 'degree.pdf', name: 'degree.pdf', detectedType: 'pdf', size: bytes.length, uploadedAt: Date.now(), clientCheck: { verdict: 'mismatch', matched: '' } } as ReviewDocument['files'][number];
 const document: ReviewDocument = { id: 'degree', kind: 'diploma', label: 'degree certificates', keywords: ['degree certificates'], required: true, quote: '', files: [file] };
-const check = { verdict: 'match', matched: 'esame di laurea', version: 4 };
-const ready = { document: { label: 'Current employment reference', kind: 'reference', keywords: ['Arbeitszeugnis'] }, ok: true, state: 'ready', url: 'https://signed.example/degree.pdf?generation=123', descriptor: 'signed-metadata', size: bytes.length, sha256, version: 4 };
+const check = { verdict: 'match', matched: 'esame di laurea', version: 5 };
+const ready = { document: { label: 'Current employment reference', kind: 'reference', keywords: ['Arbeitszeugnis'] }, ok: true, state: 'ready', url: 'https://signed.example/degree.pdf?generation=123', descriptor: 'signed-metadata', size: bytes.length, sha256, version: 5 };
 const json = (body: unknown) => new Response(JSON.stringify(body), { status: 200, headers: { 'content-type': 'application/json' } });
 afterEach(() => { vi.unstubAllGlobals(); vi.clearAllMocks(); });
 

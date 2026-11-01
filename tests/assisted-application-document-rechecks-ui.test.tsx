@@ -5,7 +5,7 @@ import { useAssistedApplicationDocumentRechecks } from '../services/useAssistedA
 import { recheckReviewDocument, type ReviewPayload } from '../services/assistedApplicationReviewService';
 
 vi.mock('../services/assistedApplicationReviewService', () => ({ recheckReviewDocument: vi.fn() }));
-const CHECK = { verdict: 'match' as const, matched: 'esame di laurea', version: 4 };
+const CHECK = { verdict: 'match' as const, matched: 'esame di laurea', version: 5 };
 const payload = () => ({ round: 1, stale: false, answers: { kept: 'candidate answer' }, documents: [{ id: 'degree', kind: 'diploma', label: 'degree certificates', keywords: ['degree certificates'], files: [{ id: 'degree.pdf', name: 'degree.pdf', size: 42, detectedType: 'pdf', uploadedAt: 1, clientCheck: { verdict: 'mismatch', matched: '' } }] }] }) as unknown as ReviewPayload;
 const deferred = () => { let resolve!: (value: typeof CHECK) => void; const promise = new Promise<typeof CHECK>(done => { resolve = done; }); return { promise, resolve }; };
 afterEach(() => { cleanup(); vi.resetAllMocks(); });

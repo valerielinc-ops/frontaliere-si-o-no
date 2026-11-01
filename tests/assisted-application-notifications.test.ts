@@ -742,10 +742,15 @@ describe('paid 30-day concierge notifications', () => {
     store[key] = paidService();
     await handleConciergeServiceWritten({ paymentStatus: 'pending' }, store[key], serviceId, { db, nowMs: NOW });
     expect(payloads()).toHaveLength(2);
-    expect(payloads()[0].tracking).toBe(false);
+    expect(payloads()[0].tracking).toBe(true);
+    expect(payloads()[0].tags).toEqual([
+      { name: 'type', value: 'application-concierge' },
+      { name: 'campaign_id', value: 'ac--bundle-example--concierge_paid_customer' },
+    ]);
     expect(payloads()[0].text).toContain('39,99');
     expect(payloads()[1].text).toContain('30 giorni');
     expect(store[key].notifications.concierge_paid_customer.status).toBe('sent');
+    expect(store[key].notifications.concierge_paid_customer).toMatchObject({ providerStatus: 'accepted', deliveryStatus: 'unknown' });
     expect(store[key].notifications.concierge_paid_owner.status).toBe('sent');
     expect(store[serviceId]).toBeUndefined();
     await handleConciergeServiceWritten(store[key], store[key], serviceId, { db, nowMs: NOW });
@@ -775,6 +780,77 @@ describe('paid 30-day concierge notifications', () => {
     store[key] = { ...paidService(), paidAt: new Date(NOW - 4 * 24 * HOUR) };
     await sweepConciergePaidNotifications({ db, nowMs: NOW });
     expect(payloads()).toHaveLength(0);
+  });
+
+  it('marks a stale concierge send claim ambiguous instead of retrying an unconfirmed receipt', async () => {
+    store[key] = paidService();
+    store[key].notifications = {
+      concierge_paid_customer: {
+        status: 'sending', providerStatus: 'pending', deliveryStatus: 'unknown', claimedAt: new Date(NOW - 11 * 60 * 1000),
+      },
+      concierge_paid_owner: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'unknown' },
+    };
+    sendEmailCascade.mockClear();
+
+    await sweepConciergePaidNotifications({ db, nowMs: NOW });
+    await sweepConciergePaidNotifications({ db, nowMs: NOW + HOUR });
+
+    expect(payloads()).toHaveLength(0);
+    expect(store[key].notifications.concierge_paid_customer).toMatchObject({
+      status: 'ambiguous', providerStatus: 'unknown', deliveryStatus: 'unknown',
+    });
+  });
+
+  it('marks a concierge sending claim without a valid timestamp ambiguous instead of retrying it', async () => {
+    store[key] = paidService();
+    store[key].notifications = {
+      concierge_paid_customer: { status: 'sending', providerStatus: 'pending', deliveryStatus: 'unknown' },
+      concierge_paid_owner: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'unknown' },
+    };
+    sendEmailCascade.mockClear();
+
+    await sweepConciergePaidNotifications({ db, nowMs: NOW });
+
+    expect(payloads()).toHaveLength(0);
+    expect(store[key].notifications.concierge_paid_customer).toMatchObject({
+      status: 'ambiguous', providerStatus: 'unknown', deliveryStatus: 'unknown',
+    });
+  });
+
+  it('preserves provider acceptance while quarantining a stale concierge claim', async () => {
+    store[key] = paidService();
+    store[key].notifications = {
+      concierge_paid_customer: {
+        status: 'sending', providerStatus: 'accepted', deliveryStatus: 'unknown', claimedAt: new Date(NOW - 11 * 60 * 1000),
+      },
+      concierge_paid_owner: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'unknown' },
+    };
+    sendEmailCascade.mockClear();
+
+    await sweepConciergePaidNotifications({ db, nowMs: NOW });
+
+    expect(payloads()).toHaveLength(0);
+    expect(store[key].notifications.concierge_paid_customer).toMatchObject({
+      status: 'ambiguous', providerStatus: 'accepted', deliveryStatus: 'unknown',
+    });
+  });
+
+  it('does not retry a stale concierge claim after terminal delivery evidence', async () => {
+    store[key] = paidService();
+    store[key].notifications = {
+      concierge_paid_customer: {
+        status: 'sending', providerStatus: 'accepted', deliveryStatus: 'delivered', claimedAt: new Date(NOW - 11 * 60 * 1000),
+      },
+      concierge_paid_owner: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'unknown' },
+    };
+    sendEmailCascade.mockClear();
+
+    await sweepConciergePaidNotifications({ db, nowMs: NOW });
+
+    expect(payloads()).toHaveLength(0);
+    expect(store[key].notifications.concierge_paid_customer).toMatchObject({
+      status: 'sending', providerStatus: 'accepted', deliveryStatus: 'delivered',
+    });
   });
 
   it.each(['it', 'en', 'de', 'fr'])('builds a localized %s receipt and escapes owner-facing personal fields', (locale) => {

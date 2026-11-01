@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v39911.title": "Bestätige dein Wohnsitzland",
+ "whatsNew.v39911.applicationResidence.title": "Erst das Land, dann den Wohnort wählen",
+ "whatsNew.v39911.applicationResidence.desc": "Wähle in deinem Profil zuerst das Land und suche oder schreibe danach deinen Wohnort. Ältere Ortsangaben bleiben unbestätigt, bis du ein Land auswählst. So kann der Stellenabgleich deinen Wohnort verwenden, ohne ihn zu erraten.",
  "whatsNew.v39910.title": "Wer schreibt und wie sich die Website finanziert",
  "whatsNew.v39910.authors.title": "Autoren und Signaturen auf einer Seite",
  "whatsNew.v39910.authors.desc": "Die neue Autorenseite trennt reale Personen von den redaktionellen Signaturen. Neben dem Namen steht jetzt, was die Signatur bedeutet und ob KI eingesetzt wurde, und Seiten mit Partnerlinks erklären die Finanzierung der Website.",

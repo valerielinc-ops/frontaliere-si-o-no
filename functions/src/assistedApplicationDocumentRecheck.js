@@ -3,7 +3,7 @@ import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { DOCUMENT_CHECK_VERSION } from './lib/assistedApplicationDocumentCheckVersion.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { MAX_DOCUMENT_BYTES, documentFileId, requiredDocumentsOf, sanitizeClientCheck } from './assistedApplicationExtraDocuments.js';
+import { CLIENT_CHECK_VERDICTS, MAX_DOCUMENT_BYTES, documentFileId, requiredDocumentsOf, sanitizeClientCheck } from './assistedApplicationExtraDocuments.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 
 export class DocumentRecheckError extends Error {
@@ -90,7 +90,7 @@ export async function recheckStoredDocument({ db, bucket, claims, documentId, fi
   }
   const descriptor = verifyDescriptor(body.descriptor, secret, now());
   if (Object.entries(identity).some(([key, value]) => descriptor[key] !== value)) fail('file_changed');
-  if (body.clientCheck?.version !== DOCUMENT_CHECK_VERSION || !['match', 'mismatch', 'looks_like_cv', 'unreadable'].includes(body.clientCheck?.verdict)
+  if (body.clientCheck?.version !== DOCUMENT_CHECK_VERSION || !CLIENT_CHECK_VERDICTS.includes(body.clientCheck?.verdict)
     || !/^[a-f0-9]{64}$/.test(body.sha256 || '') || body.sha256 !== descriptor.sha256) fail('invalid_check', 400);
   const clientCheck = sanitizeClientCheck(body.clientCheck);
   const proof = { version: DOCUMENT_CHECK_VERSION, generation, md5Hash, sha256: descriptor.sha256, contextSha256: initial.contextSha256 };

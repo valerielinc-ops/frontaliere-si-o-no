@@ -61,6 +61,7 @@ jobs:
             /.github/actions/setup-codex-sandbox/
             /scripts/
             /build-plugins/shared/brandSlugData.mjs
+            /build-plugins/shared/fuelRouteSlugs.mjs
             /packages/articles/engine/
             /packages/articles/content/blog-articles-data.ts
             /packages/articles/content/swiss-articles-data.ts

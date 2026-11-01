@@ -22,6 +22,7 @@
 
 import { safeFileStem } from './assistedApplicationAiDraftCore.js';
 import { DOCUMENT_KINDS } from './assistedApplicationConstants.js';
+import { isDegreeCertificateRequirement } from './lib/assistedApplicationDocumentKind.js';
 import { detectCvFileType, isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 
 export { DOCUMENT_KINDS };
@@ -45,7 +46,7 @@ export const DOCUMENT_CONTENT_TYPES = Object.freeze({
 export const MAX_DOCUMENT_BYTES = 10 * 1024 * 1024;
 // What the candidate's browser concluded about the file (owner decision
 // 2026-10-02: a warning, never a block; recorded, never checked again).
-export const CLIENT_CHECK_VERDICTS = Object.freeze(['match', 'mismatch', 'looks_like_cv', 'unreadable']);
+export const CLIENT_CHECK_VERDICTS = Object.freeze(['match', 'mismatch', 'looks_like_cv', 'unreadable', 'unknown']);
 
 const IMAGE_SIGNATURES = [
   { type: 'jpg', bytes: [0xff, 0xd8, 0xff] },
@@ -124,7 +125,9 @@ export function requiredDocumentsOf(draft) {
     out.push({
       id,
       label,
-      kind: DOCUMENT_KINDS.includes(item.kind) ? item.kind : 'other',
+      kind: isDegreeCertificateRequirement(label)
+        ? 'diploma'
+        : DOCUMENT_KINDS.includes(item.kind) ? item.kind : 'other',
       keywords: (Array.isArray(item.keywords) ? item.keywords : []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
       required: item.required !== false,
       quote: text(item.quote, 300),

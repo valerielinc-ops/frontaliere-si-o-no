@@ -24,6 +24,7 @@ import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATION_CONSENT_VERSION } from './assistedApplicationCheckout.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
+import { conciergePaidEmailViews } from './assistedApplicationEmailEvents.js';
 import {
   APPLICATION_CONCIERGE_CONSENT_VERSION,
   APPLICATION_CONCIERGE_CV_PREFIX,
@@ -191,6 +192,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     applicantEmail: optionalString(data.applicantEmail, 320),
     applicantPhone: optionalString(data.applicantPhone, 80),
     applicantLocation: optionalString(data.applicantLocation, 120),
+    applicantLocationCountry: optionalString(data.applicantLocationCountry, 2),
     hasConsent: data.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(data.consentedAt) > 0,
     hasCv: Boolean(cvKeyForService(serviceId, data.cvStorageKey)),
     consentedAt: timestampToIso(data.consentedAt),
@@ -209,6 +211,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
       userId: optionalString(data.userId, 200),
       consentVersion: optionalString(data.consentVersion, 120),
       cvStorageKey: cvKeyForService(serviceId, data.cvStorageKey) || null,
+      paidReceiptEmails: conciergePaidEmailViews(data),
     } : {}),
   };
 }
@@ -266,11 +269,23 @@ function applicantLocationPatch(service, serviceId, body) {
   if (!Object.hasOwn(body, 'applicantLocation')) return {};
   const value = String(body.applicantLocation ?? '').trim();
   if (value.length > 120) throw new ApplicationConciergeError('invalid_candidate_details', 400);
+  const countryWasProvided = Object.hasOwn(body, 'applicantLocationCountry');
+  const requestedCountry = countryWasProvided ? String(body.applicantLocationCountry ?? '').trim() : null;
+  if (requestedCountry && !/^[A-Z]{2}$/.test(requestedCountry)) throw new ApplicationConciergeError('invalid_candidate_details', 400);
   const applicantLocation = value || null;
-  const changed = value !== String(service.applicantLocation || '').trim();
+  const existingCountry = optionalString(service.applicantLocationCountry, 2);
+  const applicantLocationCountry = !applicantLocation ? null
+    : countryWasProvided ? requestedCountry || null
+      : value !== String(service.applicantLocation || '').trim() ? null : existingCountry;
+  const locationChanged = value !== String(service.applicantLocation || '').trim();
   return {
     applicantLocation,
-    ...(changed && cvKeyForService(serviceId, service.cvStorageKey) ? {
+    applicantLocationCountry,
+    // The matcher is triggered by CV or location-text changes. Confirming a
+    // country for an unchanged legacy location is metadata only; queueing it
+    // here would leave the service stuck because the Firestore trigger ignores
+    // country-code-only updates.
+    ...(locationChanged && cvKeyForService(serviceId, service.cvStorageKey) ? {
       matchingStatus: 'queued',
       matchingError: null,
     } : {}),

@@ -55,6 +55,8 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/lib/r2-section-lock.mjs',
   'scripts/lib/is-invoked-directly.mjs',
   'infra/cloudflare-worker/locale-router.js',
+  'scripts/lib/fuel-station-aliases.mjs',
+  'build-plugins/shared/fuelRouteSlugs.mjs',
   'scripts/lib/pharmacySections.mjs',
   'infra/cloudflare-worker/ticino-tree-bucket.js',
   // The Worker's legacy-stub 301 table (generated from legacyRedirectsPlugin)

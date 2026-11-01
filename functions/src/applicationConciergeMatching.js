@@ -10,6 +10,13 @@
 import { CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, dueEligibilityRetries, eligibilityRetryRef, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
+import {
+  isLegacyUnverifiedRetraction,
+  legacyProposalRecoveryRetryFields,
+  legacyProposalRecoveryTerminalFields,
+  selectLegacyProposalRecovery,
+  summarizeLegacyProposalRecovery,
+} from './applicationConciergeProposalRecovery.js';
 import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -375,14 +382,20 @@ export function approvedRolePreference(job, proposals) {
 }
 
 /** A bounded, durable frontier replaces the static top-40 window. */
-export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '', retryUrls = new Set()) {
+export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '', retryUrls = new Set(), recoveryUrls = [], deferredRecoveryUrls = new Set()) {
   const priority = candidates.filter(candidate => proposedUrls.has(candidate.url)).slice(0, MAX_PROPOSALS_PER_RUN);
   const retries = candidates.filter(candidate => retryUrls.has(candidate.url) && !proposedUrls.has(candidate.url)).slice(0, MAX_ELIGIBILITY_RETRIES_PER_RUN);
-  const frontier = candidates.filter(candidate => !proposedUrls.has(candidate.url));
+  const priorityUrls = new Set([...priority, ...retries].map(candidate => candidate.url));
+  const candidatesByUrl = new Map(candidates.map(candidate => [candidate.url, candidate]));
+  const recovery = [...new Set(recoveryUrls)].map(url => candidatesByUrl.get(url))
+    .filter(candidate => candidate && !priorityUrls.has(candidate.url));
+  const recoveryUrlSet = new Set(recovery.map(candidate => candidate.url));
+  const frontier = candidates.filter(candidate => !proposedUrls.has(candidate.url)
+    && !deferredRecoveryUrls.has(candidate.url) && !recoveryUrlSet.has(candidate.url));
   const previous = frontier.findIndex(candidate => candidate.url === cursor);
   const start = previous >= 0 && previous + 1 < frontier.length ? previous + 1 : 0;
   const fresh = frontier.slice(start).filter(candidate => !retryUrls.has(candidate.url));
-  return { work: [...priority, ...retries, ...fresh].slice(0, MAX_ELIGIBILITY_WORK_PER_RUN),
+  return { work: [...priority, ...retries, ...recovery, ...fresh].slice(0, MAX_ELIGIBILITY_WORK_PER_RUN),
     frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
 }
 
@@ -407,6 +420,23 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
     }, { merge: true });
     return true;
   });
+}
+
+async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expectedCvStorageKey) {
+  let appliedUpdate = null;
+  const changed = await db.runTransaction(async (transaction) => {
+    const [serviceSnapshot, snapshot] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
+    const service = serviceSnapshot.data() || {};
+    if (!serviceSnapshot.exists || !serviceIsActive(service) || service.cvStorageKey !== expectedCvStorageKey || !snapshot.exists) return false;
+    const current = snapshot.data() || {};
+    if (!isLegacyUnverifiedRetraction(current)) return false;
+    appliedUpdate = typeof update === 'function' ? update(current) : update;
+    const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
+    if (appliedUpdate.status === 'proposed' && acceptedPositionsCount(service) >= cap) return false;
+    transaction.set(ref, appliedUpdate, { merge: true });
+    return true;
+  });
+  return changed ? appliedUpdate : null;
 }
 
 function expiryTimestamp(value, { calendarDateInclusive = false } = {}) {
@@ -480,6 +510,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const candidateLocation = String(service.applicantLocation || '').trim();
     const matchingNowMs = Date.now();
     const existingData = existing.map(doc => doc.data() || {});
+    const existingUrls = new Set(existingData.map(data => data.jobUrl).filter(Boolean));
     const excludedUrls = new Set(existingData.filter(data => !['proposed', 'retracted'].includes(data.status)).map(data => data.jobUrl));
     const rankedWork = jobs.map((job) => {
       const url = jobUrl(job);
@@ -493,19 +524,60 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         || right.evidenceStrength - left.evidenceStrength
         || String(right.job.datePosted || '').localeCompare(String(left.job.datePosted || ''))
         || left.url.localeCompare(right.url));
-    const rankedCandidates = rankedWork.filter(entry => !known.has(`${entry.job.id || ''}|${entry.url}`));
-
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
     const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
+    const recoveryRows = existing.map(doc => ({ id: doc.id, ref: doc.ref || doc, data: doc.data() || {} }));
+    const retractionOwners = new Map();
+    for (const row of recoveryRows.filter(row => row.data.status === 'retracted')
+      .sort((left, right) => String(left.id).localeCompare(String(right.id)))) {
+      const url = row.data.jobUrl;
+      if (url && !proposedUrls.has(url) && !excludedUrls.has(url) && !retractionOwners.has(url)) retractionOwners.set(url, row.id);
+    }
+    const legacyRecovery = selectLegacyProposalRecovery(recoveryRows, {
+      cursor: service.matchingLegacyRecoveryContext === scanContext ? service.matchingLegacyRecoveryCursor || '' : '',
+      context: scanContext,
+      nowMs: Date.now(),
+    });
+    const allLegacyRecoveryUrls = new Set(legacyRecovery.queued
+      .filter(row => row.data.jobUrl && retractionOwners.get(row.data.jobUrl) === row.id)
+      .map(row => row.data.jobUrl));
+    const rankedCandidates = rankedWork.filter(entry => !known.has(`${entry.job.id || ''}|${entry.url}`)
+      && !existingUrls.has(entry.url));
+    const recoveryPreflight = new Map();
+    const recoveryUrls = [];
+    for (const row of legacyRecovery.selected) {
+      if (row.data.jobUrl && (proposedUrls.has(row.data.jobUrl) || excludedUrls.has(row.data.jobUrl)
+        || retractionOwners.get(row.data.jobUrl) !== row.id)) {
+        recoveryPreflight.set(row.id, { kind: 'terminal', reason: 'duplicate_proposal' });
+        continue;
+      }
+      const job = jobsByUrl.get(row.data.jobUrl);
+      if (!job) {
+        recoveryPreflight.set(row.id, { kind: 'retry', reason: 'listing_not_in_current_index' });
+        continue;
+      }
+      if (explicitlyClosedJob(job, matchingNowMs)) {
+        recoveryPreflight.set(row.id, { kind: 'terminal', reason: 'job_closed', job });
+        continue;
+      }
+      const rescored = scoreJobForProfile(job, profile, candidateLocation);
+      if (rescored.score < MIN_MATCH_SCORE) {
+        recoveryPreflight.set(row.id, { kind: 'retry', reason: 'match_below_threshold' });
+        continue;
+      }
+      recoveryPreflight.set(row.id, { kind: 'eligible', job, rescored });
+      recoveryUrls.push(row.data.jobUrl);
+    }
     const dueRetries = await dueEligibilityRetries(serviceRef, Date.now());
     const relevantUrls = new Set(rankedWork.map(entry => entry.url));
     for (const retry of dueRetries) if (!relevantUrls.has(retry.data()?.jobUrl)) await retry.ref.delete();
     const retryUrls = new Set(dueRetries.map(doc => doc.data()?.jobUrl).filter(url => relevantUrls.has(url)));
     const { work, frontier, cursorUrls } = conciergeMatchingWork(rankedWork, proposedUrls,
-      service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls);
+      service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls,
+      recoveryUrls, allLegacyRecoveryUrls);
     let scannedCursor = service.matchingScanContext === scanContext ? service.matchingScanCursor || '' : '';
     for (let offset = 0; offset < work.length; offset += 4) {
       // Stop starting batches early; the shared signal also bounds the last batch.
@@ -550,9 +622,13 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     });
     let refreshedProposals = 0;
     let retractedProposals = 0;
+    const recoveryOutcomes = new Map();
     for (const doc of existing) {
       const data = doc.data() || {};
       if (!['proposed', 'retracted'].includes(data.status)) continue;
+      if (isLegacyUnverifiedRetraction(data)) continue;
+      if (data.status === 'retracted' && (proposedUrls.has(data.jobUrl) || excludedUrls.has(data.jobUrl)
+        || retractionOwners.get(data.jobUrl) !== doc.id)) continue;
       const job = jobsByUrl.get(data.jobUrl);
       const rescored = job ? scoreJobForProfile(job, profile, candidateLocation) : { score: 0, reasons: [] };
       const result = checks.get(data.jobUrl) || { status: 'unverified' };
@@ -616,6 +692,80 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       }
     }
 
+    for (const row of legacyRecovery.selected) {
+      const proposalRef = row.ref;
+      const preflight = recoveryPreflight.get(row.id) || { kind: 'retry', reason: 'analysis_deferred' };
+      if (preflight.kind === 'terminal') {
+        const retractionReason = preflight.reason === 'job_closed' ? 'job_closed' : 'duplicate_proposal';
+        const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
+          ...legacyProposalRecoveryTerminalFields({ context: scanContext, nowMs: Date.now(), reason: preflight.reason }),
+          retractionReason,
+          updatedAt: FieldValue.serverTimestamp(),
+        }, service.cvStorageKey);
+        if (changed) recoveryOutcomes.set(row.id, { ...changed, eligibilityStatus: 'unverified', retractionReason });
+        continue;
+      }
+
+      if (preflight.kind === 'retry') {
+        const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
+          ...legacyProposalRecoveryRetryFields(current, { context: scanContext, nowMs: Date.now(), reason: preflight.reason }),
+          updatedAt: FieldValue.serverTimestamp(),
+        }), service.cvStorageKey);
+        if (changed) recoveryOutcomes.set(row.id, changed);
+        continue;
+      }
+
+      const result = checks.get(row.data.jobUrl) || { status: 'unverified', reason: 'analysis_deferred' };
+      if (result.status === 'compatible') {
+        const rescored = preflight.rescored;
+        const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
+          ...eligibilityFields(result),
+          matchScore: rescored.score,
+          matchRankingScore: rescored.rankScore ?? rescored.score,
+          matchReasons: rescored.reasons,
+          matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+          matchedAt: Timestamp.now(),
+          updatedAt: FieldValue.serverTimestamp(),
+          status: 'proposed',
+          reactivatedAt: FieldValue.serverTimestamp(),
+          legacyRecoveryStatus: 'recovered',
+          legacyRecoveryContext: scanContext,
+          legacyRecoveryResolvedAt: Date.now(),
+          legacyRecoveryNextAt: null,
+          legacyRecoveryLastReason: 'verified_compatible',
+        }, service.cvStorageKey);
+        if (changed) {
+          refreshedProposals += 1;
+          recoveryOutcomes.set(row.id, { ...changed, status: 'proposed' });
+        }
+      } else if (decisiveIncompatibility(result)) {
+        const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
+          ...eligibilityFields(result),
+          ...legacyProposalRecoveryTerminalFields({ context: scanContext, nowMs: Date.now(), reason: 'decisive_requirement_missing' }),
+          retractionReason: 'decisive_requirement_missing',
+          matchScore: preflight.rescored.score,
+          matchRankingScore: preflight.rescored.rankScore ?? preflight.rescored.score,
+          matchReasons: preflight.rescored.reasons,
+          matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+          updatedAt: FieldValue.serverTimestamp(),
+        }, service.cvStorageKey);
+        if (changed) recoveryOutcomes.set(row.id, { ...changed, retractionReason: 'decisive_requirement_missing', eligibilityStatus: result.status });
+      } else {
+        const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
+          ...(result.status === 'unverified' || result.status === 'clarification_required'
+            ? eligibilityFields({ ...result, status: 'unverified' })
+            : {}),
+          ...legacyProposalRecoveryRetryFields(current, {
+            context: scanContext,
+            nowMs: Date.now(),
+            reason: result.reason || result.status || 'eligibility_unverified',
+          }),
+          updatedAt: FieldValue.serverTimestamp(),
+        }), service.cvStorageKey);
+        if (changed) recoveryOutcomes.set(row.id, changed);
+      }
+    }
+
     let createdProposals = 0;
     for (const candidate of candidates) {
       const ref = serviceRef.collection('proposals').doc(proposalDocumentId(serviceId, candidate.job, candidate.url));
@@ -651,11 +801,19 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (created) createdProposals += 1;
     }
     const retrySummary = await eligibilityRetrySummary(serviceRef);
+    const legacyRecoverySummary = summarizeLegacyProposalRecovery(legacyRecovery.queued, recoveryOutcomes, {
+      context: scanContext,
+      nowMs: Date.now(),
+    });
     await serviceRef.set({
       matchingStatus: 'complete',
       matchingPendingCount: Math.max(0, frontier.length - (frontier.findIndex(entry => entry.url === scannedCursor) + 1)),
       matchingUnverifiedCount: retrySummary.count,
       matchingRetryAt: retrySummary.retryAt,
+      matchingLegacyRecoveryCursor: legacyRecovery.nextCursor,
+      matchingLegacyRecoveryContext: scanContext,
+      matchingLegacyRecoveryPendingCount: legacyRecoverySummary.count,
+      matchingLegacyRecoveryRetryAt: legacyRecoverySummary.retryAt,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
       matchingJobCount: createdProposals + refreshedProposals,
       matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,

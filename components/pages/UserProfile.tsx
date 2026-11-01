@@ -31,6 +31,7 @@ import { fetchApplicationConciergeServices, type ApplicationConciergeService } f
 import { loadSavedJobs, SAVED_JOBS_CHANGED_EVENT, type SavedJobEntry } from '@/services/savedJobsService';
 import { fetchAllJobs } from '@/services/jobsService';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
+import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { useAuth, getUserDisplayName, getUserPhotoURL, promptOneTap, renderGoogleButton, cancelOneTap, deleteCurrentUser, signInWithFacebook, reAuthFacebook, getLinkedProviders, getAuthEmail, consumeFacebookProfilePrefill, eagerAuth, signInWithLinkedIn } from '@/services/authService';
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { useJournalistRole } from '@/hooks/useJournalistRole';
@@ -72,6 +73,10 @@ export interface UserProfileData {
  familySituation: string;
  frontaliereType: string;
  municipality: string;
+ /** Residence used for job applications; absence keeps legacy municipality unconfirmed. */
+ residenceLocation?: string;
+ /** Country chosen in the residence selector, kept separate from free-text suffixes. */
+ residenceCountry?: string;
  children: string;
  familyMembers: string;
  familyMembersList?: FamilyMember[];
@@ -196,6 +201,7 @@ const saveProfileToFirestore = async (uid: string, data: Record<string, unknown>
 };
 
 const PROFILE_STRING_FIELDS = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
+const PRIVATE_PROFILE_STRING_FIELDS = ['residenceLocation', 'residenceCountry'] as const;
 
 type LegacyProfileImportSources = {
  currentProfile: UserProfileData;
@@ -253,6 +259,23 @@ export function mergeLegacyProfileImport(sources: LegacyProfileImportSources): U
  PROFILE_STRING_FIELDS.forEach((field) => {
   merged[field] = resolveLegacyStringField(field, sources);
  });
+ const { currentProfile, cloudProfile, localProfile, editedFields } = sources;
+ PRIVATE_PROFILE_STRING_FIELDS.forEach((field) => {
+  const cloudValue = cloudProfile?.[field];
+  const localValue = localProfile?.[field];
+  const value = editedFields.has(field)
+   ? currentProfile[field]
+   : typeof cloudValue === 'string' && cloudValue.trim()
+    ? cloudValue
+    : typeof localValue === 'string' && localValue.trim()
+     ? localValue
+     : typeof cloudValue === 'string'
+      ? cloudValue
+      : typeof localValue === 'string'
+       ? localValue
+       : currentProfile[field];
+  if (typeof value === 'string') merged[field] = value;
+ });
  merged.familyMembersList = resolveLegacyFamilyMembers(sources);
  return merged;
 }
@@ -301,6 +324,10 @@ const loadProfileFromFirestore = async (uid: string, email: string): Promise<Par
   } else if (typeof legacyValue === 'string' && legacyValue.trim()) {
    merged[field] = legacyValue;
   }
+ });
+ PRIVATE_PROFILE_STRING_FIELDS.forEach((field) => {
+  const value = privateProfile?.[field];
+  if (typeof value === 'string') merged[field] = value;
  });
  const privateFamily = privateProfile?.familyMembersList;
  if (Array.isArray(privateFamily)) {
@@ -830,6 +857,11 @@ const UserProfile: React.FC = () => {
  PROFILE_STRING_FIELDS.forEach(k => {
  if (Object.hasOwn(cloudProfile, k) && !userEditedProfileFieldsRef.current.has(k)) merged[k] = cloudProfile[k]!;
  });
+ PRIVATE_PROFILE_STRING_FIELDS.forEach((field) => {
+  if (Object.hasOwn(cloudProfile, field) && !userEditedProfileFieldsRef.current.has(field)) {
+   merged[field] = cloudProfile[field] as string;
+  }
+ });
  if (Object.hasOwn(cloudProfile, 'familyMembersList') && !userEditedProfileFieldsRef.current.has('familyMembersList')) {
  merged.familyMembersList = cloudProfile.familyMembersList || [];
  }
@@ -898,6 +930,11 @@ const UserProfile: React.FC = () => {
     PROFILE_STRING_FIELDS.forEach((field) => {
      if (userEditedProfileFieldsRef.current.has(field) && latestProfile[field] !== merged[field]) {
       lateEdits[field] = latestProfile[field];
+     }
+    });
+    PRIVATE_PROFILE_STRING_FIELDS.forEach((field) => {
+     if (userEditedProfileFieldsRef.current.has(field) && latestProfile[field] !== merged[field]) {
+      lateEdits[field] = latestProfile[field] || '';
      }
     });
     if (userEditedProfileFieldsRef.current.has('familyMembersList')
@@ -1171,6 +1208,16 @@ const UserProfile: React.FC = () => {
  autoSave(updated);
  return updated;
  });
+ };
+
+ const updateResidenceLocation = (value: string, country: string) => {
+  userEditedProfileFieldsRef.current.add('residenceLocation');
+  userEditedProfileFieldsRef.current.add('residenceCountry');
+  setProfile(prev => {
+   const updated = { ...prev, residenceLocation: value, residenceCountry: country };
+   autoSave(updated);
+   return updated;
+  });
  };
 
  const scrollToProfileForm = useCallback((field?: keyof UserProfileData) => {
@@ -1965,6 +2012,16 @@ const UserProfile: React.FC = () => {
  </div>
 
  {/* Municipality (autocomplete) */}
+ <div className="sm:col-span-2">
+ <ResidenceLocationInput
+  value={profile.residenceLocation || profile.municipality}
+  countryCode={profile.residenceCountry ?? ''}
+  onChange={(value, country) => updateResidenceLocation(value, country || '')}
+  label={t('profile.applicationResidence')}
+ />
+ </div>
+
+ {/* Municipality used by the existing frontier tax and border simulators */}
  <div className="sm:col-span-2">
  <label htmlFor="municipality" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
  <MapPin size={13} />

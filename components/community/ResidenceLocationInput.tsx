@@ -4,23 +4,26 @@ import { useLocale, useTranslation } from '@/services/i18n';
 import { formatResidenceLocation, loadResidenceLocalities, parseResidenceLocation, residenceCountries } from '@/services/residenceLocalities';
 
 /** Preserve the existing location contract while making country provenance explicit. */
-export default function ResidenceLocationInput({ value, onChange, disabled = false, error, label }: { value: string; onChange: (value: string) => void; disabled?: boolean; error?: string; label?: string }) {
+export default function ResidenceLocationInput({ value, onChange, countryCode, disabled = false, error, label }: { value: string; onChange: (value: string, countryCode?: string) => void; countryCode?: string; disabled?: boolean; error?: string; label?: string }) {
   const [locale] = useLocale();
   const { t } = useTranslation();
   const id = useId();
   const initial = parseResidenceLocation(value);
-  const [country, setCountry] = useState(initial.country);
-  const [town, setTown] = useState(initial.town);
+  const initialCountry = countryCode ?? initial.country;
+  const initialTown = countryCode === undefined || (countryCode && initial.country === countryCode) ? initial.town : value;
+  const [country, setCountry] = useState(initialCountry);
+  const [town, setTown] = useState(initialTown);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
-  const lastEmitted = useRef(value);
+  const lastEmitted = useRef({ value, countryCode });
   const options = useMemo(() => residenceCountries(locale), [locale]);
   useEffect(() => {
-    if (value === lastEmitted.current) return;
-    lastEmitted.current = value;
+    if (value === lastEmitted.current.value && countryCode === lastEmitted.current.countryCode) return;
+    lastEmitted.current = { value, countryCode };
     const loaded = parseResidenceLocation(value);
-    setCountry(loaded.country); setTown(loaded.town);
-  }, [value]);
+    setCountry(countryCode ?? loaded.country);
+    setTown(countryCode === undefined || (countryCode && loaded.country === countryCode) ? loaded.town : value);
+  }, [countryCode, value]);
   useEffect(() => {
     let cancelled = false;
     setSuggestions([]);
@@ -33,11 +36,17 @@ export default function ResidenceLocationInput({ value, onChange, disabled = fal
   }, [country]);
   const emit = (nextTown: string, nextCountry: string) => {
     const next = formatResidenceLocation(nextTown, nextCountry, locale);
-    lastEmitted.current = next; onChange(next);
+    lastEmitted.current = { value: next, countryCode: nextCountry }; onChange(next, nextCountry);
   };
   const changeCountry = (nextCountry: string) => {
     // Never carry a town chosen for a different country into the new country.
-    const nextTown = country && nextCountry && nextCountry !== country ? '' : town;
+    let nextTown = country && nextCountry && nextCountry !== country ? '' : town;
+    // For an unconfirmed free-text value, only strip a country suffix after
+    // the user explicitly selects a country; the suffix itself never selects it.
+    if (!country && nextCountry) {
+      const parsed = parseResidenceLocation(town);
+      if (parsed.country) nextTown = parsed.town;
+    }
     setCountry(nextCountry); setTown(nextTown); emit(nextTown, nextCountry);
   };
   const hint = status === 'loading' ? 'residenceLoading' : status === 'error' ? 'residenceUnavailable'

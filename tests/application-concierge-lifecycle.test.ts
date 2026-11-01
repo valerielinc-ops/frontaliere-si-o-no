@@ -329,4 +329,26 @@ describe('candidate withdrawal → trigger → idempotent replenishment worker',
     expect(match).not.toHaveBeenCalled();
     expect(send).not.toHaveBeenCalled();
   });
+
+  it('notifies once when a retracted legacy proposal becomes verified and proposed again', async () => {
+    const store = withdrawalRefreshFixture({ proposalRefreshRequestId: 'legacy-recovery-request' });
+    const recoveredPath = `${WITHDRAWAL_SERVICE_PATH}/proposals/legacy-recovered`;
+    await store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+      .collection('proposals').doc('legacy-recovered').set({ status: 'retracted', eligibilityStatus: 'unverified' });
+    const match = vi.fn(async ({ db }: any) => {
+      await db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+        .collection('proposals').doc('legacy-recovered').set({ status: 'proposed', eligibilityStatus: 'compatible' }, { merge: true });
+      return { status: 'complete' };
+    });
+    const { send, notices } = refreshStubs();
+
+    const first = await refresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID, requestId: 'legacy-recovery-request', nowMs: WITHDRAWAL_NOW, match, send });
+    const second = await refresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID, requestId: 'legacy-recovery-request', nowMs: WITHDRAWAL_NOW, match, send });
+
+    expect(first).toMatchObject({ refreshed: 1, newJobEmails: 1 });
+    expect(second).toEqual({ refreshed: 0, newJobEmails: 0 });
+    expect(notices).toHaveLength(1);
+    expect(notices[0].proposalIds).toContain('legacy-recovered');
+    expect(store.read(recoveredPath)).toMatchObject({ status: 'proposed', eligibilityStatus: 'compatible' });
+  });
 });

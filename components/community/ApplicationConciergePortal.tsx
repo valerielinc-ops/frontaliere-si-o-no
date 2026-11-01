@@ -8,6 +8,7 @@ import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { getAuthEmail, signInWithCustomAuthToken } from '@/services/authService';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
+import { residenceApplicationFields, residenceLocationForEditor, residenceProfilePrefill } from '@/services/residenceLocalities';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import SignupPromptModal, { requestConciergeAccessLink } from '@/components/community/SignupPromptModal';
@@ -180,10 +181,18 @@ export default function ApplicationConciergePortal({
   const [name, setName] = useState(previewService?.applicantName || '');
   const [email, setEmail] = useState(previewService?.applicantEmail || previewService?.customerEmail || '');
   const [phone, setPhone] = useState(previewService?.applicantPhone || '');
-  const [location, setLocation] = useState(previewService?.applicantLocation || '');
+  const initialResidence = residenceLocationForEditor(previewService?.applicantLocation || '', previewService?.applicantLocationCountry || '');
+  const [location, setLocation] = useState(initialResidence.location);
+  const [locationCountryCode, setLocationCountryCode] = useState(initialResidence.countryCode);
+  const locationEditedByUser = useRef(false);
+  const serviceLocationLoaded = useRef(Boolean(previewService?.applicantLocation));
   const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
+  useEffect(() => {
+    locationEditedByUser.current = false;
+    serviceLocationLoaded.current = Boolean(previewService?.applicantLocation);
+  }, [previewService?.applicantLocation, serviceId]);
   const [authPromptOpen, setAuthPromptOpen] = useState(false);
   const [activationPending, setActivationPending] = useState(() => entry && !serviceId && !previewService && readActivationIntent());
   const [confirmEmailStatus, setConfirmEmailStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -291,7 +300,16 @@ export default function ApplicationConciergePortal({
     setName((value) => value || loaded.applicantName || user.displayName || '');
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
     setPhone((value) => value || loaded.applicantPhone || '');
-    setLocation((value) => value || loaded.applicantLocation || '');
+    const serviceResidence = residenceLocationForEditor(loaded.applicantLocation || '', loaded.applicantLocationCountry || '');
+    if (serviceResidence.location) {
+      serviceLocationLoaded.current = true;
+      if (!locationEditedByUser.current) {
+        // The service is authoritative over a profile prefill regardless of
+        // which request resolves first; keep edits the candidate made meanwhile.
+        setLocation(serviceResidence.location);
+        setLocationCountryCode(serviceResidence.countryCode);
+      }
+    }
     setConsent(loaded.hasConsent);
     return loaded;
   }, [ensureUser, serviceId]);
@@ -307,7 +325,11 @@ export default function ApplicationConciergePortal({
       const profileEmail = String(authUser?.email || loaded.applicantEmail || loaded.customerEmail || '').trim();
       if (!profileEmail) return;
       const profile = await loadEnrichmentProfileFields(profileEmail);
-      if (!cancelled && profile.municipality) setLocation((value) => value || profile.municipality.trim());
+      const residence = residenceProfilePrefill(profile.residenceLocation, profile.residenceCountry, profile.municipality);
+      if (!cancelled && residence.location && !locationEditedByUser.current && !serviceLocationLoaded.current) {
+        setLocation(residence.location.trim());
+        setLocationCountryCode(residence.countryCode);
+      }
     })().catch((loadError) => {
       if (!cancelled) setError(errorKey(loadError));
     }).finally(() => {
@@ -633,6 +655,12 @@ export default function ApplicationConciergePortal({
     setSumUpPaymentOpen(false);
   };
 
+  const handleLocationChange = (value: string, countryCode = '') => {
+    locationEditedByUser.current = true;
+    setLocation(value);
+    setLocationCountryCode(countryCode);
+  };
+
   const saveProfile = async (options: { cvStorageKey?: string; cvFileName?: string } = {}) => {
     if (!serviceId) return null;
     const user = await ensureUser();
@@ -644,7 +672,7 @@ export default function ApplicationConciergePortal({
       applicantName: name.trim(),
       applicantEmail: email.trim().toLowerCase(),
       applicantPhone: phone.trim(),
-      applicantLocation: location.trim(),
+      ...residenceApplicationFields(location, locationCountryCode),
       ...(options.cvStorageKey ? { cvStorageKey: options.cvStorageKey } : {}),
       ...(options.cvFileName ? { cvFileName: options.cvFileName } : {}),
     });
@@ -668,7 +696,7 @@ export default function ApplicationConciergePortal({
         applicantName: name.trim(),
         applicantEmail: email.trim().toLowerCase(),
         applicantPhone: phone.trim(),
-        applicantLocation: location.trim(),
+        ...residenceApplicationFields(location, locationCountryCode),
       });
       setService(updated);
       setConsent(updated.hasConsent);
@@ -1025,7 +1053,7 @@ export default function ApplicationConciergePortal({
                     <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
                   </div>
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
-                  <ResidenceLocationInput key={`${serviceId || previewService?.serviceId || "new"}:${authUser?.uid || "anonymous"}`} value={location} onChange={setLocation} />
+                  <ResidenceLocationInput key={`${serviceId || previewService?.serviceId || "new"}:${authUser?.uid || "anonymous"}`} value={location} countryCode={locationCountryCode} onChange={handleLocationChange} />
                   <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>

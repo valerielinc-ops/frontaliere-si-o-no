@@ -467,6 +467,7 @@ describe('application concierge candidate API', () => {
         applicantEmail: 'updated@example.test',
         applicantPhone: '+41 79 000 00 00',
         applicantLocation: 'Mendrisio 6850',
+        applicantLocationCountry: '',
       },
       get: () => 'Bearer candidate-token',
     });
@@ -476,10 +477,84 @@ describe('application concierge candidate API', () => {
       applicantName: 'Candidate Updated',
       applicantEmail: 'updated@example.test',
       applicantLocation: 'Mendrisio 6850',
+      applicantLocationCountry: null,
       matchingStatus: 'queued',
       consentVersion: 'application-concierge-v1',
     }));
     expect((result.body as any).service.applicantLocation).toBe('Mendrisio 6850');
+    expect((result.body as any).service.applicantLocationCountry).toBeNull();
+  });
+
+  it('returns a legacy residence without inventing or persisting country confirmation', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.applicantLocation = 'Como, Italia';
+
+    const result = await handleApplicationConcierge({
+      method: 'GET',
+      query: { serviceId: 'service-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect((result.body as any).service).toMatchObject({
+      applicantLocation: 'Como, Italia',
+      applicantLocationCountry: null,
+    });
+    expect(service).not.toHaveProperty('applicantLocationCountry');
+  });
+
+  it('persists only the selected country and updates it when the candidate changes country', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.applicantLocation = 'Como, Italia';
+    service.applicantLocationCountry = 'IT';
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'saveProfile',
+        applicantName: 'Candidate Example',
+        applicantEmail: 'candidate@example.test',
+        applicantLocation: 'Como, France',
+        applicantLocationCountry: 'FR',
+      },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')).toEqual(expect.objectContaining({
+      applicantLocation: 'Como, France',
+      applicantLocationCountry: 'FR',
+      matchingStatus: 'queued',
+    }));
+    expect((result.body as any).service.applicantLocationCountry).toBe('FR');
+  });
+
+  it('confirms a legacy country without queueing unchanged matching input', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.applicantLocation = 'Como, Italia';
+    service.matchingStatus = 'complete';
+    service.matchingJobCount = 2;
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'saveProfile',
+        applicantName: 'Candidate Example',
+        applicantEmail: 'candidate@example.test',
+        applicantLocation: 'Como, Italia',
+        applicantLocationCountry: 'IT',
+      },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')).toMatchObject({
+      applicantLocation: 'Como, Italia',
+      applicantLocationCountry: 'IT',
+      matchingStatus: 'complete',
+      matchingJobCount: 2,
+    });
   });
 
   it('orders proposals by their capped match score plus private proximity weight', async () => {
@@ -599,6 +674,28 @@ describe('owned child status and private review access from the service', () => 
       services: [expect.objectContaining({ proposals: [expect.objectContaining({
         childApplicationState: 'needs_candidate_action', childCandidateStatus: 'needs_candidate',
       })] })],
+    } });
+  });
+  it('exposes provider acceptance and delivery evidence for parent receipts to admins', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.notifications = {
+      concierge_paid_customer: {
+        status: 'sent', providerStatus: 'accepted', provider: 'maileroo', messageId: 'receipt-1',
+        sentAt: new Date('2026-10-01T10:00:00Z'),
+      },
+    };
+    service.emailEngagement = {
+      concierge_paid_customer: {
+        providerAccepted: 1, delivered: 1,
+        providerAcceptedAt: new Date('2026-10-01T10:00:01Z'),
+        deliveredAt: new Date('2026-10-01T10:00:02Z'),
+      },
+    };
+    const admin = await handleManageApplicationConcierge({ method: 'GET' });
+    expect(admin).toMatchObject({ status: 200, body: {
+      services: [expect.objectContaining({ paidReceiptEmails: expect.arrayContaining([
+        expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'delivered', provider: 'maileroo', providerAccepted: 1, delivered: 1 }),
+      ]) })],
     } });
   });
   it.each([{ userId: 'different-candidate' }, { parentServiceId: 'different-service' }, { retentionPurgedAt: new Date() }])('does not expose a child outside the owned service or after purge: %j', async patch => {
