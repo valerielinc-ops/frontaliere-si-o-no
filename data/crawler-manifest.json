@@ -3046,6 +3046,71 @@
       ]
     },
     {
+      "slug": "avantgarten-ch",
+      "file": "update-jobs-avantgarten-ch.yml",
+      "jobKey": "update-avantgarten-ch-jobs",
+      "timeoutMinutes": 360,
+      "prepSteps": [
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Prepare Firebase credentials (optional)",
+          "env": {
+            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+          },
+          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
+        },
+        {
+          "name": "Load secrets from Remote Config",
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
+        }
+      ],
+      "runStep": {
+        "name": "Run dedicated AvantGarten crawler",
+        "env": {
+          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
+          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
+          "JOBS_AVANTGARTEN_CH_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1",
+          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+        },
+        "run": "node scripts/update-avantgarten-ch-jobs.mjs"
+      },
+      "postSteps": [
+        {
+          "name": "Housekeeping — remove expired job listings (scoped)",
+          "env": {
+            "JOBS_HOUSEKEEPING_SCOPE": "avantgarten-ch",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/avantgarten-ch.json"
+          },
+          "run": "node scripts/cleanup-jobs.mjs",
+          "continue-on-error": true
+        },
+        {
+          "name": "Commit and push",
+          "id": "changes",
+          "env": {
+            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+          },
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update AvantGarten jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
+        },
+        {
+          "name": "Report failure to GitHub Issue",
+          "if": "failure()",
+          "continue-on-error": true,
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
+        }
+      ]
+    },
+    {
       "slug": "axa",
       "file": "update-jobs-axa.yml",
       "jobKey": "crawl",
@@ -4924,6 +4989,71 @@
         },
         {
           "name": "Report failure to GitHub Issues",
+          "if": "failure()",
+          "continue-on-error": true,
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
+        }
+      ]
+    },
+    {
+      "slug": "bodmerfischer-ch",
+      "file": "update-jobs-bodmerfischer-ch.yml",
+      "jobKey": "update-bodmerfischer-ch-jobs",
+      "timeoutMinutes": 360,
+      "prepSteps": [
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Prepare Firebase credentials (optional)",
+          "env": {
+            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+          },
+          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
+        },
+        {
+          "name": "Load secrets from Remote Config",
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
+        }
+      ],
+      "runStep": {
+        "name": "Run dedicated BodmerFischer AG – Rechtsanwälte crawler",
+        "env": {
+          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
+          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
+          "JOBS_BODMERFISCHER_CH_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1",
+          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+        },
+        "run": "node scripts/update-bodmerfischer-ch-jobs.mjs"
+      },
+      "postSteps": [
+        {
+          "name": "Housekeeping — remove expired job listings (scoped)",
+          "env": {
+            "JOBS_HOUSEKEEPING_SCOPE": "bodmerfischer-ch",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/bodmerfischer-ch.json"
+          },
+          "run": "node scripts/cleanup-jobs.mjs",
+          "continue-on-error": true
+        },
+        {
+          "name": "Commit and push",
+          "id": "changes",
+          "env": {
+            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+          },
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update BodmerFischer AG – Rechtsanwälte jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
+        },
+        {
+          "name": "Report failure to GitHub Issue",
           "if": "failure()",
           "continue-on-error": true,
           "env": {
@@ -34723,6 +34853,71 @@
         },
         {
           "name": "Report failure to GitHub Issues",
+          "if": "failure()",
+          "continue-on-error": true,
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
+        }
+      ]
+    },
+    {
+      "slug": "sintio-ch",
+      "file": "update-jobs-sintio-ch.yml",
+      "jobKey": "update-sintio-ch-jobs",
+      "timeoutMinutes": 360,
+      "prepSteps": [
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Prepare Firebase credentials (optional)",
+          "env": {
+            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
+          },
+          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
+        },
+        {
+          "name": "Load secrets from Remote Config",
+          "env": {
+            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+          },
+          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
+        }
+      ],
+      "runStep": {
+        "name": "Run dedicated Sintio crawler",
+        "env": {
+          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
+          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
+          "JOBS_SINTIO_CH_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1",
+          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+        },
+        "run": "node scripts/update-sintio-ch-jobs.mjs"
+      },
+      "postSteps": [
+        {
+          "name": "Housekeeping — remove expired job listings (scoped)",
+          "env": {
+            "JOBS_HOUSEKEEPING_SCOPE": "sintio-ch",
+            "JOBS_SLICE_FILE": "data/jobs/by-crawler/sintio-ch.json"
+          },
+          "run": "node scripts/cleanup-jobs.mjs",
+          "continue-on-error": true
+        },
+        {
+          "name": "Commit and push",
+          "id": "changes",
+          "env": {
+            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
+          },
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Sintio jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
+        },
+        {
+          "name": "Report failure to GitHub Issue",
           "if": "failure()",
           "continue-on-error": true,
           "env": {
