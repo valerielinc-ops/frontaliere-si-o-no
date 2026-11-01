@@ -147,7 +147,8 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   if (!updated.length) return { changed: false, reason: 'no_unique_unanswered_native_contract' };
   const proposed = { ...draft, questions };
   if (Buffer.byteLength(JSON.stringify(proposed)) > 750_000) return { changed: false, reason: 'native_contract_too_large' };
-  const projected = candidateAnswersForQuestions(questions, preservedAnswers, trusted ? flow.questionAnswers || {} : {});
+  const resolverAnswers = (flow?.__answerContextLoaded || trusted) ? flow.questionAnswers || {} : {};
+  const projected = candidateAnswersForQuestions(questions, preservedAnswers, resolverAnswers);
   const todayIso = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date(nowMs));
   for (const question of questions) {
     const preserved = projected[question.id];
