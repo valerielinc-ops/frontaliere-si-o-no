@@ -370,6 +370,7 @@ describe('rerender article hubs workflow', () => {
   });
 
   it('defers a live hub card proven by the runtime overlay until corpus main converges', async () => {
+    const liveOnlySlug = 'startup-innovazione-sociale-open-call';
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
         return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 1 } }) });
@@ -383,7 +384,7 @@ describe('rerender article hubs workflow', () => {
       if (url === 'https://frontaliereticino.ch/articoli-svizzera/') {
         return Promise.resolve({
           ok: true,
-          text: async () => '<main class="ssg-article-grid"><a class="ssg-art-card" href="/articoli-svizzera/live-only/"></a></main>',
+          text: async () => `<main class="ssg-article-grid"><a class="ssg-art-card" href="/articoli-svizzera/${liveOnlySlug}/"></a></main>`,
         });
       }
       if (url.includes('/data/blog-index-svizzera-it.json') && !url.includes('-full')) {
@@ -392,7 +393,7 @@ describe('rerender article hubs workflow', () => {
       if (url.includes('/data/blog-index-svizzera-it-full.json')) {
         return Promise.resolve({
           ok: true,
-          json: async () => ({ articles: [{ id: 'live-only', title: 'Articolo pubblicato' }] }),
+          json: async () => ({ articles: [{ id: liveOnlySlug, title: 'Startup e innovazione sociale' }] }),
         });
       }
       throw new Error(`unexpected fetch: ${url}`);
@@ -405,7 +406,7 @@ describe('rerender article hubs workflow', () => {
       });
       expect(verdict.ok).toBe(false);
       expect(verdict.deferred).toBe(true);
-      expect(verdict.note).toContain('runtime overlay proves live-only');
+      expect(verdict.note).toContain(`runtime overlay proves ${liveOnlySlug}`);
       expect(verdict.note).toContain('deferring hub and client publication');
     } finally {
       __resetCorpusFreshnessCache();
