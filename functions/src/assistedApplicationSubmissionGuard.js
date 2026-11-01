@@ -63,7 +63,7 @@ export function submissionRefFor(db, orderId) {
  * "sending" only when its outcome is unknown). Before the click nothing left.
  */
 export function isUnconfirmedSubmission(record) {
-  return record?.state === 'sending' && (Boolean(record.clickedAt) || record.channel === 'email');
+  return record?.state !== 'sent' && (Boolean(record?.clickedAt) || (record?.state === 'sending' && record.channel === 'email'));
 }
 
 /** When an unconfirmed submission left: the final click, or the start of the e-mail send. */
@@ -99,6 +99,12 @@ export function submissionGuard(db, orderId, round) {
         const current = submission?.[key];
         if (current?.state === 'sent') {
           outcome = { status: 'already_sent', record: current };
+          return;
+        }
+        // `release()` preserves clickedAt. A failed record after the final
+        // click is still ambiguous, so never let a later runner claim it.
+        if (current?.clickedAt) {
+          outcome = { status: 'in_flight', record: current };
           return;
         }
         if (current?.state === 'sending' && !(resumable && !current.clickedAt)) {
