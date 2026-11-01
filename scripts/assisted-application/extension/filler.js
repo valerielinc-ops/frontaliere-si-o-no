@@ -40,7 +40,7 @@
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
   const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
-  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
+  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia|nazione)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 
   const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
 
@@ -849,13 +849,22 @@
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
-    const nativeOwner = validAddressContext(entry.addressContext) ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : '';
+    const hasNativeAddressContext = Object.hasOwn(entry, 'addressContext');
+    const nativeAddressContext = hasNativeAddressContext && validAddressContext(entry.addressContext) ? entry.addressContext : null;
+    const nativeAddressScopes = nativeAddressContext
+      ? [...nativeAddressContext.owners, nativeAddressContext.section] : entry.purposeScopes || [];
+    const nativeOwner = nativeAddressContext ? [nativeAddressContext.section, ...nativeAddressContext.owners].join(' ') : '';
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
     const addressRole = residenceFieldRole(primaryLabel);
+    // Once the native reader has supplied an ownership contract, an address
+    // role may use it only when that contract itself proves candidate
+    // residence. Do not let flattened labels or entry.section rehabilitate an
+    // employer/birthplace owner.
+    if (addressRole && hasNativeAddressContext
+      && (!nativeAddressContext || !hasResidencePurpose(nativeAddressScopes, primaryLabel))) return null;
     const candidateAddress = Boolean(addressRole) && entry.section !== null
-      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext))
-      && hasResidencePurpose(validAddressContext(entry.addressContext)
-        ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || [], primaryLabel)
+      && (!hasNativeAddressContext || Boolean(nativeAddressContext))
+      && hasResidencePurpose(nativeAddressScopes, primaryLabel)
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       && !BIRTHPLACE_RE.test(addressContext)
       // A browser autocomplete token describes a type, not its owner. An

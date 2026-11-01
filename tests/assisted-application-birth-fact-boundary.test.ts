@@ -24,7 +24,7 @@ describe('birth fact boundaries in the extension', () => {
     dom.window.close();
   });
 
-  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth'])('leaves %s unanswered despite a known DOB and residence', async (label) => {
+  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Nazione di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth'])('leaves %s unanswered despite a known DOB and residence', async (label) => {
     const { dom, F } = page(label);
     const result = await F.fillPage(dom.window.document, kit, { getFile: async () => null, attempts: new WeakMap() });
     expect((dom.window.document.getElementById('birth') as HTMLInputElement).value).toBe('');

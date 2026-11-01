@@ -60,6 +60,12 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });
 
+  it('keeps a trusted personal heading immediately before the sole form', () => {
+    const field = nativeField('<h2>Personal details</h2><form><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></form>', reader);
+    expect(field.addressContext.section).toBe('Personal details');
+    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
+  });
+
   it('retains an explicitly named personal group on a form-less page', () => {
     const field = nativeField('<fieldset aria-label="Personal information"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></fieldset>', reader);
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
@@ -71,7 +77,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
   });
 
-  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth', 'Nazionalità / Paese di nascita', 'Nazionalità / Nazione di nascita', 'Nationalität bei Geburt', 'Nationality at birth'])('does not answer %s with a known date of birth or nationality', (label) => {
+  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Nazione di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth', 'Nazionalità / Paese di nascita', 'Nazionalità / Nazione di nascita', 'Nationalität bei Geburt', 'Nationality at birth'])('does not answer %s with a known date of birth or nationality', (label) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city"></form>`, reader);
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });

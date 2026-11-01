@@ -476,6 +476,20 @@ function nativeQuestionText(value, counter = null) {
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
+  // A few ATSes put the sole form after its caption instead of wrapping both
+  // in a semantic section. Trust only an explicit personal/contact heading;
+  // generic page headings such as "My Information" remain unowned.
+  const EXTERNAL_FORM_SECTION_RE = /\b(?:personal\s+(?:details|information|data)|contact\s+(?:details|information)|dati\s+(?:personali|anagrafici)|informazioni\s+personali|donn[ée]es\s+personnelles|informations\s+personnelles|pers[öo]nliche\s+(?:daten|angaben|informationen))\b/i;
+  const headingBeforeSoleForm = (form, element) => [...document.querySelectorAll('h1, h2, h3, h4, legend')]
+    .filter((heading) => {
+      if (!shown(heading) || inSiteChrome(heading)) return false;
+      if (!(heading.compareDocumentPosition(form) & FOLLOWING)) return false;
+      if (heading.closest('form') && heading.closest('form') !== form) return false;
+      const section = heading.closest(SECTIONS);
+      if (section && !section.contains(form)) return false;
+      return EXTERNAL_FORM_SECTION_RE.test(clean(captionText(heading, element)));
+    })
+    .map((heading) => clean(captionText(heading, element))).at(-1) || '';
   // Address ownership is distinct from the flattened sibling-question text.
   // A work-history or birthplace ancestor must survive an inner field group;
   // a birth-date sibling must not become the owner of a residence control.
@@ -547,6 +561,8 @@ function nativeQuestionText(value, counter = null) {
       if (node === boundary) break;
     }
     const section = headingBefore(element);
+    const externalSection = actualForm && boundary === actualForm
+      ? headingBeforeSoleForm(actualForm, element) : '';
     const owned = [...boundary.querySelectorAll('h1, h2, h3, h4, legend')].some(heading => {
       const owner = heading.closest(scopes);
       const matches = owner?.contains(element) && shown(heading)
@@ -555,7 +571,7 @@ function nativeQuestionText(value, counter = null) {
       if (matches && String(heading.innerText || heading.textContent || '').replace(/\s+/g, ' ').trim().length > 300) result.unknown = true;
       return matches;
     });
-    result.section = owned ? section : '';
+    result.section = owned ? section : externalSection;
     return result;
   };
   // The words of a bounded question/upload zone, or a short, immediate
