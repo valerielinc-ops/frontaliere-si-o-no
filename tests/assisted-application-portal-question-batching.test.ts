@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -23,19 +23,22 @@ function inWindow<T>(window: any, run: () => T): T {
   }
 }
 
-function fakePage({ multiStep = false, conditional = true } = {}) {
+function fakePage({ multiStep = false, conditional = true, registration = false } = {}) {
   const url = 'https://careers.example.test/apply';
+  const credentials = registration
+    ? '<label for="password">Password *</label><input id="password" type="password" name="password" required><label for="password-confirm">Confirm password *</label><input id="password-confirm" type="password" name="password-confirm" required>'
+    : '';
   const form = multiStep
     ? `<form action="/apply" data-page="1">
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
         <button id="next" type="button">Next</button>
       </form>`
-    : `<form action="/apply">
+    : `<form action="/apply">${credentials}
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
         <label for="motivation">Why are you interested in this role? *</label><textarea id="motivation" name="motivation" required></textarea>
-        <button id="next" type="button">Next</button>
+        ${registration ? '<button id="create" type="button">Create account</button>' : '<button id="next" type="button">Next</button>'}
       </form>`;
   const dom = new JSDOM(`<!doctype html><html><body>${form}</body></html>`, { url, runScripts: 'outside-only' });
   const { window } = dom;
@@ -166,7 +169,8 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
         <button id="next" type="button">Next</button>`;
     });
   } else {
-    element('#next').addEventListener('click', () => { element('#next').dataset.clicked = 'true'; });
+    if (registration) element('#create').addEventListener('click', () => { element('#create').dataset.clicked = 'true'; });
+    else element('#next').addEventListener('click', () => { element('#next').dataset.clicked = 'true'; });
     if (conditional) {
       let revealedAuthorization = false;
       let scheduledAvailability = false;
@@ -202,6 +206,61 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('replans a registration after known answers reveal conditional questions before asking the candidate', async () => {
+    const fixture = fakePage({ registration: true });
+    const { page, window } = fixture;
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async () => {
+      plannerCalls += 1;
+      const missingRequired = [
+        { fieldId: fieldId('motivation'), question: 'Why are you interested in this role?', why: '', type: 'text', options: [] },
+      ];
+      if (plannerCalls > 1) {
+        missingRequired.push(
+          { fieldId: fieldId('authorization'), question: 'Which work authorization do you hold?', why: '', type: 'text', options: [] },
+          { fieldId: fieldId('availability'), question: 'When could you start?', why: '', type: 'text', options: [] },
+        );
+      }
+      return {
+        actions: plannerCalls === 1
+          ? [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }]
+          : [],
+        missingRequired,
+      };
+    };
+    const accountEvents: string[] = [];
+    const snapshot = await extractFields(page, { listboxOptions: false });
+    const result = await handleAuth({
+      page,
+      snapshot,
+      ctx: {
+        candidate,
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => { accountEvents.push('save'); },
+          mark: async () => { accountEvents.push('mark'); },
+          discard: async () => { accountEvents.push('discard'); },
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(elementValue(window, '#country')).toBe('IT');
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Why are you interested in this role? *',
+      'Which work authorization do you hold? *',
+      'When could you start? *',
+    ]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(accountEvents).toEqual([]);
+  });
+
   it('applies known answers, waits for conditional fields, and sends one stable question batch', async () => {
     const fixture = fakePage();
     const { page, window, extractionTrace } = fixture;

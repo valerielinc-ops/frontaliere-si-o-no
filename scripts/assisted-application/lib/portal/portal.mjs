@@ -2952,7 +2952,53 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
   const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-  const initialRequirements = portalRequirementsFromMissingRequired(others.fields, plan.missingRequired);
+  let registrationSnapshot = snapshot;
+  let registrationPlan = plan;
+  let registrationReplans = 0;
+  const knownAnswerMatches = (field, action) => {
+    if (!field) return false;
+    if (action.action === 'check') return field.checked === true;
+    if (action.action === 'uncheck') return field.checked === false;
+    if (!['fill', 'select'].includes(action.action) || !holdsValue(field)) return false;
+    const normalize = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    const selected = (field.options || []).find((option) => option.value === field.value)?.label;
+    return [field.value, selected].some((value) => normalize(value) === normalize(action.value));
+  };
+  // A known registration answer can reveal more required fields (Coop's
+  // country selection is one example). Apply only guarded, non-upload answers
+  // first; do not ask from the planner's earlier, partial view of the form.
+  while (true) {
+    const actions = registrationPlan.actions.filter((action) =>
+      ['fill', 'select', 'check', 'uncheck'].includes(action.action)
+      && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
+    if (!actions.length) break;
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate' };
+    const registrationUrl = page.url();
+    const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
+    if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
+      return { handoff: 'portal_needs_candidate' };
+    }
+    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
+    const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl);
+    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
+    registrationSnapshot = stable.snapshot;
+    registrationPlan = await planPage({
+      snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      codex: ctx.codex,
+    });
+    registrationReplans += 1;
+  }
+  // The loop has applied all known answers and re-read the stable surface.
+  // Drop those now-confirmed actions so the account creation path cannot
+  // trigger a second redraw by reapplying them after the candidate responds.
+  registrationPlan = {
+    ...registrationPlan,
+    actions: registrationPlan.actions.filter((action) => action.action === 'upload'
+      || !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action)),
+  };
+  const initialRequirements = portalRequirementsFromMissingRequired(registrationSnapshot.fields, registrationPlan.missingRequired);
   if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
   const initialRequest = await portalRequirementsForCandidate(initialRequirements, {
     candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log: ctx.log,
@@ -2968,8 +3014,6 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // Stored (encrypted) before the click: a run that dies afterwards still knows it.
     await ctx.accounts.save(host, { email: candidate.identity.email, password });
   }
-  let registrationSnapshot = snapshot;
-  let registrationPlan = plan;
   let privacy = 'none';
   let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
