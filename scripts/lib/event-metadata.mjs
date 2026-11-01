@@ -449,6 +449,7 @@ const PERFORMER_PATTERNS = [
 ];
 
 const TITLE_PERFORMER_PATTERNS = [
+  /\b(?:präsentiert|presentiert|presented|presenta|présente)\s*:\s*(\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4}(?:\s*(?:&|und|and|e|et)\s*\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4})*)/iu,
   /\b(?:mit|con|avec|with|featuring|feat\.?)\s+[«“„"']([^.!?«„"']{1,120}?)(?:[»”"']|(?=[.!?](?:\s|$)|$))/iu,
   new RegExp(String.raw`\b(?:[Mm]it|[Cc]on|[Aa]vec|[Ww]ith|[Ff]eaturing|[Ff]eat\.?)\s+(\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4}(?:\s*(?:&|und|and|e|et)\s*\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4})*)`, 'u'),
 ];

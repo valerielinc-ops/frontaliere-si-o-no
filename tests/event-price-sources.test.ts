@@ -3,13 +3,12 @@
  *
  * Owner decision 2026-10-04 (FU-2026-10-03-002): event tariffs come from
  * MySwitzerland (primary) and Guidle (secondary), the source travels with the
- * value (`priceSource` + `priceField`), and a price is reliable — published as
- * schema.org `offers`/`isAccessibleForFree` or in the visible price line —
- * only when it was read from a structured field (JSON-LD `offers[].price`,
- * `isAccessibleForFree`). Tariff text (MySwitzerland detail table, Guidle
- * accordion, indexed copy, third-party ticketing pages, tio.ch labels) stays
- * in the data but is never reliable: no Offer in the JSON-LD and no visible
- * price line.
+ * value (`priceSource` + `priceField`), and a numeric price is reliable —
+ * published as `offers.price`/`isAccessibleForFree` and in the visible price
+ * line — only when read from a structured field. Unverified tariff text stays
+ * in the data but is never emitted as a numeric price: JSON-LD still carries
+ * an unpriced Offer without inventing a ticket URL, and the visible page omits
+ * its price line.
  *
  * Fixtures under tests/fixtures/event-price-sources/ are real, PII-free
  * source shapes: a live Guidle page (no JSON-LD Offer, tariff only in the
@@ -119,10 +118,10 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     ['an Eventfrog amount in EUR', { amount: 30, currency: 'EUR', isFree: false, priceSource: 'eventfrog', priceField: 'lowestTicketPrice', currencySource: 'location.country' }],
     ['an Eventfrog zero', { amount: 0, currency: 'CHF', isFree: true, priceSource: 'eventfrog', priceField: 'lowestTicketPrice', currencySource: 'location.country' }],
     ['a classicAscona lowPrice of zero', { amount: 0, currency: 'CHF', isFree: false, priceSource: 'classicascona', priceField: 'offers.lowPrice' }],
-  ])('%s → not admitted by the per-source registry', (_label, price) => {
+  ])('%s → no numeric price is admitted by the per-source registry', (_label, price) => {
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: undefined,
+      offers: { '@type': 'Offer' },
       isAccessibleForFree: undefined,
       priceLine: false,
     });
@@ -141,23 +140,23 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(published.priceLine).toBe(true);
   });
 
-  it('text only (MySwitzerland detail table) → recorded with its field, not reliable, not published', () => {
+  it('text only (MySwitzerland detail table) → recorded with its field, no numeric price published', () => {
     const price = mySwitzerlandPrice('myswitzerland-detail-table.html');
     expect(price).toMatchObject({ amount: 5.3, priceSource: 'myswitzerland', priceField: 'detail-table' });
     expect(hasParsedPrice(price)).toBe(true);
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: undefined,
+      offers: { '@type': 'Offer' },
       isAccessibleForFree: undefined,
       priceLine: false,
     });
   });
 
-  it('text only (Guidle accordion, no JSON-LD Offer on the live page) → no Offer', () => {
+  it('text only (Guidle accordion, no structured Offer on the live page) → no price assertion', () => {
     const mapped = mapDetailPageToLocaleData(fixture('guidle-price-accordion.html'), 'it', GUIDLE_URL);
     expect(mapped?.price).toMatchObject({ amount: 18, priceSource: 'guidle', priceField: 'price-accordion' });
     expect(hasConfidentPrice(mapped?.price)).toBe(false);
-    expect(publishedPrice(mapped?.price).offers).toBeUndefined();
+    expect(publishedPrice(mapped?.price).offers).toEqual({ '@type': 'Offer' });
     expect(publishedPrice(mapped?.price).isAccessibleForFree).toBeUndefined();
   });
 
@@ -176,10 +175,10 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     ['free admission read from text', { amount: 0, currency: 'CHF', isFree: true, priceSource: 'guidle', priceField: 'price-accordion' }],
     ['unknown source with a structured field', { amount: 20, currency: 'CHF', isFree: false, priceSource: 'tio-agenda', priceField: 'offers.price' }],
     ['third-party ticketing page', { amount: 20, currency: 'CHF', isFree: false, priceSource: 'myswitzerland', priceField: 'booking-page' }],
-  ])('%s → no Offer, no visible price line', (_label, price) => {
+  ])('%s → no numeric price, no visible price line', (_label, price) => {
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: undefined,
+      offers: { '@type': 'Offer' },
       isAccessibleForFree: undefined,
       priceLine: false,
     });

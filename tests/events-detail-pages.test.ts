@@ -326,9 +326,9 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('emits no Offer for an unpriced event: zero would claim it is free', () => {
+  it('emits an unpriced Offer without claiming the event is free', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toEqual({ '@type': 'Offer' });
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 
@@ -756,7 +756,8 @@ describe('renderEventDetailPage', () => {
     const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
       .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
       .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.offers).toBeUndefined();
+    expect(eventSchema?.offers).toMatchObject({ '@type': 'Offer' });
+    expect((eventSchema?.offers as Record<string, unknown>)?.price).toBeUndefined();
     expect(eventSchema?.isAccessibleForFree).toBeUndefined();
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
