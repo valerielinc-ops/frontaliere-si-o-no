@@ -169,6 +169,7 @@ export function fitToLength(text, max) {
  * shows the label, a custom control shows the option's text near it.
  */
 async function choiceRegistered(locator, kind, label) {
+  if (typeof locator?.evaluate !== 'function') return false;
   const wanted = normalizedChoice(label);
   return locator.evaluate((element, { kind: fieldKind, wanted: text }) => {
     // Equal, never "contains" (review of #10715: "IT" is not "Italy").

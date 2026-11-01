@@ -327,7 +327,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'When could you start? *',
+      'When could you start?',
       'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('privacy-dialog')).toBeNull();

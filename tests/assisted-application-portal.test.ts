@@ -1168,8 +1168,13 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
   });
 
   it('chooses a localized residence country option from a Workday listbox', async () => {
-    const optionClick = vi.fn(async () => {});
-    const control = { click: vi.fn(async () => {}), press: vi.fn(async () => {}) };
+    let selected = '';
+    const optionClick = vi.fn(async () => { selected = 'Switzerland'; });
+    const control = {
+      click: vi.fn(async () => {}),
+      press: vi.fn(async () => {}),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
     const options = { allInnerTexts: vi.fn(async () => ['Switzerland', 'Italy']) };
     const frame = {
       locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),

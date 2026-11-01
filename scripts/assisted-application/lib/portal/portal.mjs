@@ -39,10 +39,10 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
-import { resolveResidenceAddress } from './residence-address.mjs';
+import { residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
@@ -3353,7 +3353,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!['fill', 'select'].includes(action.action) || !holdsValue(field)) return false;
     const normalize = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
     const selected = (field.options || []).find((option) => option.value === field.value)?.label;
-    return [field.value, selected].some((value) => normalize(value) === normalize(action.value));
+    const currentValues = [field.value, selected];
+    if (currentValues.some((value) => normalize(value) === normalize(action.value))) return true;
+    const topic = questionTopic(field.label, field.context, field);
+    if (topic === 'residence_country') {
+      const wanted = residenceCountryCode(action.value);
+      return Boolean(wanted && currentValues.some((value) => residenceCountryCode(value) === wanted));
+    }
+    if (topic === 'nationality') {
+      const wanted = nationalityOf(action.value)?.code;
+      return Boolean(wanted && currentValues.some((value) => nationalityOf(value)?.code === wanted));
+    }
+    return false;
   };
   const registrationActionSatisfied = (field, action) => action.action === 'upload'
     ? appliedRegistrationUploads.has(action.fieldId)
