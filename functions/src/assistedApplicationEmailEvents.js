@@ -161,60 +161,75 @@ export async function recordAssistedEmailEvent(db, { campaign, type, provider, m
   const at = eventDate(occurredAt);
   const link = eventType === 'click' ? linkWithoutQuery(url) : '';
   const targetRef = eventTargetRef(db, target);
-  const order = await targetRef.get();
-  if (!order.exists) return { assisted: true, recorded: false, reason: 'order_not_found' };
-
   const eventId = createHash('sha256')
     .update([provider, messageId, eventType, at.toISOString(), link].join('|'))
     .digest('hex')
     .slice(0, 40);
+  const eventRef = targetRef.collection(EMAIL_EVENTS_SUBCOLLECTION).doc(eventId);
+  const eventData = {
+    key: target.key,
+    type: eventType,
+    provider: String(provider || '').slice(0, 20),
+    messageId: String(messageId || '').slice(0, 200),
+    at,
+    ...(link ? { url: link } : {}),
+  };
+
+  let outcome;
   try {
-    await targetRef.collection(EMAIL_EVENTS_SUBCOLLECTION).doc(eventId).create({
-      key: target.key,
-      type: eventType,
-      provider: String(provider || '').slice(0, 20),
-      messageId: String(messageId || '').slice(0, 200),
-      at,
-      ...(link ? { url: link } : {}),
+    outcome = await db.runTransaction(async (transaction) => {
+      const [order, existingEvent] = await Promise.all([
+        transaction.get(targetRef),
+        transaction.get(eventRef),
+      ]);
+      if (!order.exists) return 'order_not_found';
+      if (existingEvent.exists) return 'duplicate';
+
+      const base = `emailEngagement.${target.key}`;
+      const update = {
+        [`${base}.${COUNTERS[eventType]}`]: FieldValue.increment(1),
+        [`${base}.${LAST_AT[eventType]}`]: at,
+      };
+      if (eventType === 'open' && !order.get(`${base}.firstOpenAt`)) update[`${base}.firstOpenAt`] = at;
+      if (link) update[`${base}.lastClickUrl`] = link;
+      const notificationBase = `notifications.${target.key}`;
+      const currentDeliveryStatus = order.get(`${notificationBase}.deliveryStatus`);
+      if (target.serviceId && ['send', 'delivered', 'bounce', 'complaint'].includes(eventType)) {
+        // A provider event is durable evidence that the claimed receipt reached
+        // the provider. Close a claim that was still `sending` before a webhook
+        // arrived, so the backstop cannot send it a second time.
+        update[`${notificationBase}.status`] = 'sent';
+        update[`${notificationBase}.providerStatus`] = 'accepted';
+      }
+      if (eventType === 'send') {
+        update[`${notificationBase}.providerStatus`] = 'accepted';
+        update[`${notificationBase}.providerAcceptedAt`] = at;
+      } else if (eventType === 'delivered' && !['bounced', 'complained'].includes(currentDeliveryStatus)) {
+        update[`${notificationBase}.deliveryStatus`] = 'delivered';
+        update[`${notificationBase}.deliveredAt`] = at;
+      } else if (eventType === 'bounce' && currentDeliveryStatus !== 'complained') {
+        update[`${notificationBase}.deliveryStatus`] = 'bounced';
+        update[`${notificationBase}.bouncedAt`] = at;
+      } else if (eventType === 'complaint') {
+        update[`${notificationBase}.deliveryStatus`] = 'complained';
+        update[`${notificationBase}.complainedAt`] = at;
+      }
+
+      transaction.create(eventRef, eventData);
+      transaction.update(targetRef, update);
+      return 'recorded';
     });
   } catch (error) {
-    // ALREADY_EXISTS: the provider delivered the same event again.
+    // Concurrent duplicate delivery can still win between the transaction's
+    // read and commit. Since the event and its projection share one commit,
+    // treating ALREADY_EXISTS as a duplicate cannot leave either half behind.
     if (error?.code === 6 || /already exists/i.test(String(error?.message || ''))) {
       return { assisted: true, recorded: false, reason: 'duplicate' };
     }
     throw error;
   }
-
-  const base = `emailEngagement.${target.key}`;
-  const update = {
-    [`${base}.${COUNTERS[eventType]}`]: FieldValue.increment(1),
-    [`${base}.${LAST_AT[eventType]}`]: at,
-  };
-  if (eventType === 'open' && !order.get(`${base}.firstOpenAt`)) update[`${base}.firstOpenAt`] = at;
-  if (link) update[`${base}.lastClickUrl`] = link;
-  const notificationBase = `notifications.${target.key}`;
-  const currentDeliveryStatus = order.get(`${notificationBase}.deliveryStatus`);
-  if (target.serviceId && ['send', 'delivered', 'bounce', 'complaint'].includes(eventType)) {
-    // A provider event is durable evidence that the claimed receipt reached
-    // the provider. Close a claim that was still `sending` before a webhook
-    // arrived, so the backstop cannot send it a second time.
-    update[`${notificationBase}.status`] = 'sent';
-    update[`${notificationBase}.providerStatus`] = 'accepted';
-  }
-  if (eventType === 'send') {
-    update[`${notificationBase}.providerStatus`] = 'accepted';
-    update[`${notificationBase}.providerAcceptedAt`] = at;
-  } else if (eventType === 'delivered' && !['bounced', 'complained'].includes(currentDeliveryStatus)) {
-    update[`${notificationBase}.deliveryStatus`] = 'delivered';
-    update[`${notificationBase}.deliveredAt`] = at;
-  } else if (eventType === 'bounce' && currentDeliveryStatus !== 'complained') {
-    update[`${notificationBase}.deliveryStatus`] = 'bounced';
-    update[`${notificationBase}.bouncedAt`] = at;
-  } else if (eventType === 'complaint') {
-    update[`${notificationBase}.deliveryStatus`] = 'complained';
-    update[`${notificationBase}.complainedAt`] = at;
-  }
-  await targetRef.update(update);
+  if (outcome === 'order_not_found') return { assisted: true, recorded: false, reason: 'order_not_found' };
+  if (outcome === 'duplicate') return { assisted: true, recorded: false, reason: 'duplicate' };
   return { assisted: true, recorded: true };
 }
 
