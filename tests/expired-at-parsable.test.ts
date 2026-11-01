@@ -249,7 +249,7 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
     }
   });
 
-  it('enumerates every workflow caller and requires the full archive checkout', () => {
+  it('enumerates every workflow caller and requires complete archive access', () => {
     const workflowsDir = path.resolve(__dirname, '..', '.github', 'workflows');
     const callers = fs.readdirSync(workflowsDir)
       .filter((file) => /\.ya?ml$/.test(file))
@@ -279,15 +279,18 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
       const auditAt = source.indexOf('scripts/audit-expired-at-parsable.mjs');
       expect(checkout).toContain('uses: actions/checkout@v7');
       expect(checkoutConfig).not.toMatch(/sparse-checkout/);
-      expect(checkoutConfig).not.toMatch(/filter\s*:/);
       expect(source).toContain('data/jobs/expired/by-crawler');
       expect(auditAt).toBeGreaterThan(setupStart);
 
       if (file === 'backfill-expired-from-history.yml') {
+        expect(checkoutConfig).toContain('filter: blob:none');
+        expect(source).toContain('scripts/ci/prefetch-history-blobs.mjs');
         expect(source).toContain('git-commit-data.sh --slice-only');
         expect(source).toContain('- name: Record self-driven deploy handoff after validated backfill');
         continue;
       }
+
+      expect(checkoutConfig).not.toMatch(/filter\s*:/);
 
       const commitAt = source.indexOf('- name: Commit and push changed slices');
       const convergenceAt = source.indexOf('- name: Verify persisted expired archive convergence');

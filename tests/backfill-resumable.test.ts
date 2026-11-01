@@ -11,6 +11,23 @@ const recoveryWorkflow = readFileSync(
 );
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
+  it('keeps full commit/tree history but prefetches only slice blobs as one pack', () => {
+    const checkoutStart = workflow.indexOf('- name: Checkout (full commit/tree history — slice blobs prefetched below)');
+    const prefetchStart = workflow.indexOf('- name: Prefetch historical job-slice blobs in one pack');
+    const setupStart = workflow.indexOf('- name: Setup Node.js');
+    const checkoutBlock = workflow.slice(checkoutStart, prefetchStart);
+    const prefetchBlock = workflow.slice(prefetchStart, setupStart);
+
+    expect(checkoutStart).toBeGreaterThanOrEqual(0);
+    expect(prefetchStart).toBeGreaterThan(checkoutStart);
+    expect(setupStart).toBeGreaterThan(prefetchStart);
+    expect(checkoutBlock).toContain('fetch-depth: 0');
+    expect(checkoutBlock).toContain('filter: blob:none');
+    expect(prefetchBlock).toContain('scripts/ci/prefetch-history-blobs.mjs');
+    expect(prefetchBlock).toContain('CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
+    expect(prefetchBlock).toContain('REPOSITORY: ${{ github.repository }}');
+  });
+
   it('gives the full active-plus-expired assembly an explicit heap ceiling', () => {
     const backfillStart = workflow.indexOf('  backfill:');
     const stepsStart = workflow.indexOf('    steps:', backfillStart);
