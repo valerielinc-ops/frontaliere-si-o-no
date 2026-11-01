@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-f8121656d167",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich",
+      "slug": "infermiera-iere-diplomata-o-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
+        "it": "infermiera-iere-diplomata-o-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+        "en": "qualified-nursing-professional-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+        "fr": "infirmier-ere-diplome-e-es-hes-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
       },
       "slugDisambiguator": "f8121656",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -55,11 +55,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+          "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656"
+        "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich-f8121656",
+        "dipl-pflegefachfrau-mann-hf-fh-ok-job-sa-succursale-di-mendrisio-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -83,12 +91,12 @@
     },
     {
       "id": "okjob-d6204efafac9",
-      "slug": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
+      "slug": "idraulica-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
       "slugByLocale": {
         "fr": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
-        "it": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
-        "en": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
-        "de": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        "it": "idraulica-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
+        "en": "sanitary-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
+        "de": "sanitar-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
       },
       "slugDisambiguator": "d6204efa",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -150,16 +158,30 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:45:21.976Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        ],
+        "en": [
+          "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        ],
+        "de": [
+          "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        ]
+      },
+      "previousSlugs": [
+        "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+      ]
     },
     {
       "id": "okjob-1393ed912bfa",
-      "slug": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+      "slug": "elettricista-commerciale-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
       "slugByLocale": {
         "de": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
-        "it": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
-        "en": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
-        "fr": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        "it": "elettricista-commerciale-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "en": "business-electrician-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "fr": "electricien-d-affaires-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
       },
       "slugDisambiguator": "1393ed91",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -220,16 +242,30 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T09:45:21.975Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        ],
+        "en": [
+          "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        ],
+        "fr": [
+          "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+      ]
     },
     {
       "id": "okjob-2474d1470a1b",
-      "slug": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel",
+      "slug": "tecnico-di-servizio-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
       "slugByLocale": {
         "de": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
-        "it": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel",
-        "en": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
-        "fr": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
+        "it": "tecnico-di-servizio-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+        "en": "service-technician-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+        "fr": "technicien-de-service-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
       },
       "slugDisambiguator": "2474d147",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -275,11 +311,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+          "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel"
+        ],
+        "en": [
+          "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
+        ],
+        "fr": [
           "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
+        "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+        "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

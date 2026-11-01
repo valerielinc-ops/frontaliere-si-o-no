@@ -3182,7 +3182,7 @@
         "it": "carpentieri-di-assemblaggio-della-cucina-sta-personal-ag-schaffhausen-schaffhausen",
         "en": "kitchen-assembly-carpenters-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
-        "fr": "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
+        "fr": "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -3227,7 +3227,7 @@
       "previousSlugs": [
         "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
         "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-        "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+        "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3238,7 +3238,7 @@
         ],
         "fr": [
           "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-          "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+          "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
         ]
       },
       "salaryMin": 57500,
@@ -31616,12 +31616,12 @@
     },
     {
       "id": "sta-cb8f56b23493",
-      "slug": "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon",
+      "slug": "elettricista-di-montaggio-per-impianti-semaforici-sta-personal-ag-dietikon-zurich",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch",
-        "it": "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon",
-        "en": "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon",
-        "fr": "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
+        "it": "elettricista-di-montaggio-per-impianti-semaforici-sta-personal-ag-dietikon-zurich",
+        "en": "assembly-electrician-for-traffic-signal-systems-sta-personal-ag-dietikon-zurich",
+        "fr": "electricien-ne-de-montage-pour-installations-de-signalisation-lumineuse-sta-personal-ag-dietikon-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -31667,11 +31667,20 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch"
+        "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch",
+        "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon",
+        "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch"
+          "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch",
+          "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
         ]
       },
       "salaryMin": 83000,
@@ -41235,7 +41244,7 @@
       "slug": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "it": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
-        "en": "metalworker-sta-personal-ag-zurich",
+        "en": "metalworkers-sta-personal-ag-zurich-zurich",
         "de": "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "fr": "metaux-sta-personal-ag-zurich-zurich"
       },
@@ -41282,7 +41291,7 @@
       "previousSlugs": [
         "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-        "metalworkers-sta-personal-ag-zurich-zurich"
+        "metalworker-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -41290,7 +41299,7 @@
         ],
         "en": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-          "metalworkers-sta-personal-ag-zurich-zurich"
+          "metalworker-sta-personal-ag-zurich"
         ],
         "fr": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich"
@@ -71075,8 +71084,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-neuinstallationen-e-unterhaltsarbeiten-sta-personal-ag-luzern",
-        "en": "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch",
-        "fr": "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
+        "en": "electrical-installer-fur-neuinstallationen-und-unterhaltsarbeiten-sta-personal-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-neuinstallationen-und-unterhaltsarbeiten-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -71123,6 +71132,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
         ]
       },
@@ -71883,7 +71898,7 @@
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-sta-personal-ag-andelfingen",
         "en": "new-and-conversion-electrical-installers-sta-personal-ag-andelfingen-zurich",
-        "fr": "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen"
+        "fr": "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -71934,7 +71949,7 @@
         "electrical-installer-for-new-builds-and-renovations-sta-personal-ag-andelfingen-zurich",
         "installateur-trice-electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-andelfingen-zurich",
         "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-sta-ch",
-        "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
+        "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -71948,7 +71963,7 @@
           "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-andelfingen",
           "elektroinstallateur-in-fur-neu-und-umbauten-sta-personal-ag-andelfingen",
           "installateur-trice-electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-andelfingen-zurich",
-          "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
+          "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen"
         ]
       },
       "salaryMin": 83000,
@@ -72374,7 +72389,7 @@
         "it": "installatori-elettrici-sta-personal-ag-luzern-luzern",
         "en": "electrical-installers-sta-personal-ag-luzern-luzern",
         "de": "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
+        "fr": "installateurs-electriques-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -72419,7 +72434,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
         "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-        "installateurs-electriques-sta-personal-ag-luzern-luzern"
+        "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72427,7 +72442,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-          "installateurs-electriques-sta-personal-ag-luzern-luzern"
+          "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 78500,
@@ -99644,7 +99659,7 @@
         "it": "installatore-trice-elettrico-a-in-per-wohn-gewerbe-e-industrieinstallationen-sta-personal-ag-lenzburg",
         "en": "residential-commercial-and-industrial-electrical-installers-sta-personal-ag-lenzburg-aargau",
         "de": "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -99689,7 +99704,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
         "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+        "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -99697,7 +99712,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+          "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
         ]
       },
       "salaryMin": 72500,
@@ -107333,8 +107348,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen",
         "it": "installatore-trice-elettrico-a-in-con-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen",
-        "en": "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen",
-        "fr": "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
+        "en": "electrical-installer-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen-aargau",
+        "fr": "installateur-trice-electricien-ne-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -107385,10 +107400,17 @@
         ],
         "de": [
           "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-zofingen-aargau-sta-ch"
+        "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-zofingen-aargau-sta-ch",
+        "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -113527,7 +113549,7 @@
         "it": "carpenter-con-talento-organizzativo-sta-personal-ag-luzern-luzern",
         "en": "carpenter-with-organizational-talent-sta-personal-ag-luzern-luzern",
         "de": "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
-        "fr": "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
+        "fr": "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -113572,7 +113594,7 @@
       "previousSlugs": [
         "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
         "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-        "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+        "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -113580,7 +113602,7 @@
         ],
         "fr": [
           "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-          "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+          "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 69500,
