@@ -194,7 +194,7 @@ describe('border-wait top Auto Ad keeps the header geometry reserved', () => {
   });
 
   it('reserves the same measured insertion geometry for health and fuel drive-by pages', () => {
-    expect(css).toContain('--driveby-top-ad-reserve: 250px;');
+    expect(css).toContain('--driveby-top-ad-reserve: 400px;');
     expect(css).toContain(
       'main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > nav.s-bcr',
     );

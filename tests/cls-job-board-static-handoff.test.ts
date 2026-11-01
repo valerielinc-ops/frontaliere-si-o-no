@@ -83,13 +83,14 @@ const STATIC_OVERLAY_HUB_BODY = `
   <div id="footer-root"></div>`;
 
 describe('initial SPA bootstrap — mobile first paint', () => {
-  it('waits for prerendered content to paint before importing the React runtime', async () => {
+  it('waits for static SEO content to paint before importing the React runtime', async () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
     const paintBootstrap = readFileSync(resolve(ROOT, 'services/initialPaintBootstrap.ts'), 'utf-8');
     const paintGate = entry.indexOf('await waitForInitialPaintOpportunity({');
     expect(paintGate).toBeGreaterThanOrEqual(0);
     expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
-    expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).toContain('main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).not.toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
     expect(entry).toContain('main.seo-static-content.job-board-static-hub');
     expect(entry).toContain('main.seo-static-content.job-board-static-content');
     expect(entry).toContain('main.seo-static-content[data-sector-hub]');

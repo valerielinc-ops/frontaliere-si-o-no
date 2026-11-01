@@ -25,8 +25,13 @@ const HOME_CRITICAL_PATHS = new Set([
 
 const isHomeCriticalPath = (pathname: string): boolean => HOME_CRITICAL_PATHS.has(pathname);
 
+/**
+ * The fixed loading shell is a skeleton overlay, not the page content that
+ * should gate the SPA runtime. Counting its FCP makes the home page wait for
+ * a paint that is immediately covered by the app's real LCP candidate.
+ */
 const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
- '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
+ 'main.seo-static-content, main.cluster-seo-prose',
 );
 
 const JOB_BOARD_STATIC_CONTENT_SELECTOR =

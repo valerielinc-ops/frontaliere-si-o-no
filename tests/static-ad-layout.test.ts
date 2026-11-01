@@ -36,6 +36,7 @@ describe('static AdSense layout recovery', () => {
   });
 
   it('keeps the route-scoped top Auto Ad transfer in the critical sheet', () => {
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain('--driveby-top-ad-reserve:400px');
     expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
       'main.seo-static-content:has(>article[data-ft-driveby-top-ad])',
     );
