@@ -488,7 +488,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
       source: 'answers',
       current: true,
     };
-  }).filter((item) => item.answer);
+  }).filter((item) => String(item.answer ?? '').trim());
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
@@ -498,7 +498,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
-    const answer = String(item?.answer || '').trim();
+    const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
     const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
@@ -716,46 +716,87 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 // manager's decision, not its preferences control.
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
-// Some Deloitte responses expose only the preference-center entry point on
-// the login page. It is a navigation control, not consent by itself: open it
-// and rescan for the same bounded reject/accept decision.
-export const COOKIE_CUSTOMIZE_RE = /^(customi[sz]e cookies|cookie (?:settings|preferences)|manage cookies|modify cookie preferences)$/i;
+export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
+const COOKIE_WORD_RE = /\bcookies?\b/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
-export async function dismissCookieBanner(page, snapshot) {
-  let current = snapshot;
-  let openedCustomizer = false;
-  for (let attempt = 0; attempt < 2; attempt += 1) {
-    const button = findButton(current.buttons, COOKIE_REJECT_RE) || findButton(current.buttons, COOKIE_ACCEPT_RE);
-    if (button) {
-      await clickButton(page, button).catch(() => {});
-      await page.waitForTimeout(800);
-      return true;
-    }
-    if (openedCustomizer) break;
-    const customize = findButton(current.buttons, COOKIE_CUSTOMIZE_RE);
-    if (!customize) break;
-    const clicked = await clickButton(page, customize).then(() => true, () => false);
-    if (!clicked) break;
-    openedCustomizer = true;
-    await page.waitForTimeout(800);
-    current = await extractFields(page, NAVIGATION).catch(() => null);
-    if (!current) break;
+async function cookieControlHasCookieContext(page, button) {
+  const ownContext = [button.text, button.label, button.title, button.ariaLabel, button.context, button.section]
+    .filter(Boolean).join(' ');
+  if (COOKIE_WORD_RE.test(ownContext)) return true;
+  if (!button.dialog || !/^d\d+$/.test(String(button.dialogId || ''))) return false;
+  const frame = page.frames()[button.frame || 0] || page.mainFrame();
+  try {
+    const dialogText = await frame.locator(`[data-aa-dialog-id="${button.dialogId}"]`).innerText({ timeout: 1_000 });
+    return COOKIE_WORD_RE.test(dialogText);
+  } catch {
+    return false;
   }
-  if (openedCustomizer) return true;
-  // A banner inside a shadow root (Usercentrics on Coop's career pages,
-  // 2026-10-02) is out of the page scan's reach while its overlay takes every
-  // click. Only a shadow root's own buttons: marked in the page, clicked by a
-  // CSS locator (it pierces open shadow roots).
-  if (!await markShadowCookieButton(page)) return false;
-  await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 }).catch(() => {});
-  await page.waitForTimeout(800);
-  return true;
 }
 
-async function markShadowCookieButton(page) {
-  return page.evaluate(([reject, accept]) => {
+async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
+  for (const button of snapshot?.buttons || []) {
+    if (button.disabled || button.chrome) continue;
+    const label = String(button.text || '').trim();
+    if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
+    if (await cookieControlHasCookieContext(page, button)) return button;
+  }
+  return null;
+}
+
+async function cookieChoice(page, snapshot) {
+  return await findCookieControl(page, snapshot, COOKIE_REJECT_RE)
+    || await findCookieControl(page, snapshot, COOKIE_ACCEPT_RE);
+}
+
+function pageOrigin(page) {
+  try { return new URL(page.url()).origin; } catch { return ''; }
+}
+
+function cookieDialogRemains(snapshot, button) {
+  return Boolean(button.dialogId && (snapshot?.dialogs || []).some((dialog) => dialog.dialogId === button.dialogId));
+}
+
+async function cookiePageSnapshot(page) {
+  return extractFields(page, NAVIGATION).catch(() => null);
+}
+
+async function clickCookieChoice(page, snapshot, button) {
+  const origin = pageOrigin(page);
+  try {
+    await clickButton(page, button);
+  } catch {
+    return { status: 'unresolved', snapshot };
+  }
+  await page.waitForTimeout(800);
+  const current = await cookiePageSnapshot(page);
+  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  if (await cookieChoice(page, current)
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })
+    || cookieDialogRemains(current, button)) return { status: 'unresolved', snapshot: current };
+  return { status: 'dismissed', snapshot: current };
+}
+
+async function clearShadowCookieMarker(page) {
+  await page.locator('[data-aa-cookie="1"]').first().evaluate((element) => element.removeAttribute('data-aa-cookie')).catch(() => {});
+}
+
+async function clickMarkedShadowCookie(page) {
+  try {
+    await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 });
+    return true;
+  } catch {
+    return false;
+  } finally {
+    await clearShadowCookieMarker(page);
+  }
+}
+
+async function markShadowCookieButton(page, { includePreferences = false } = {}) {
+  try {
+    return await page.evaluate(([reject, accept, customize, genericPreferences, include]) => {
     const roots = [document];
     const shadows = [];
     for (let index = 0; index < roots.length && index < 50; index += 1) {
@@ -765,19 +806,93 @@ async function markShadowCookieButton(page) {
         shadows.push(element.shadowRoot);
       }
     }
-    for (const source of [reject, accept]) {
-      const pattern = new RegExp(source, 'i');
+    const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
+    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: genericPreferences });
+    for (const action of actions) {
+      const pattern = new RegExp(action.source, 'i');
       for (const shadow of shadows) {
+        if (action.kind === 'preferences' && shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
-          .find((element) => element.getBoundingClientRect().width > 0 && pattern.test(String(element.innerText || element.textContent || '').trim()));
+          .find((element) => {
+            const label = String(element.innerText || element.textContent || '').trim();
+            return element.getBoundingClientRect().width > 0
+              && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
+              && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
+          });
         if (button) {
           button.setAttribute('data-aa-cookie', '1');
-          return true;
+          return action.kind;
         }
       }
     }
-    return false;
-  }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source]).catch(() => false);
+    return '';
+    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source,
+      COOKIE_GENERIC_PREFERENCES_RE.source, includePreferences]);
+  } catch {
+    return '';
+  }
+}
+
+export async function dismissCookieBanner(page, snapshot) {
+  let choice = await cookieChoice(page, snapshot);
+  if (choice) return clickCookieChoice(page, snapshot, choice);
+
+  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true });
+  if (preferences) {
+    const origin = pageOrigin(page);
+    try {
+      await clickButton(page, preferences);
+    } catch {
+      return { status: 'unresolved', snapshot };
+    }
+    await page.waitForTimeout(800);
+    let current = await cookiePageSnapshot(page);
+    if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+    choice = await cookieChoice(page, current);
+    if (!choice) return { status: 'unresolved', snapshot: current };
+    return clickCookieChoice(page, current, choice);
+  }
+
+  // A banner inside a shadow root (Usercentrics on Coop's career pages,
+  // 2026-10-02) is out of the page scan's reach while its overlay takes every
+  // click. Only a shadow root's own cookie controls are marked and clicked.
+  let shadowAction = await markShadowCookieButton(page);
+  if (shadowAction === 'decision') {
+    if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
+    await page.waitForTimeout(800);
+    const current = await cookiePageSnapshot(page);
+    if (!current || await cookieChoice(page, current)
+      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+    shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+    if (shadowAction) {
+      await clearShadowCookieMarker(page);
+      return { status: 'unresolved', snapshot: current };
+    }
+    return { status: 'dismissed', snapshot: current };
+  }
+
+  shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+  if (shadowAction !== 'preferences') return { status: 'none', snapshot };
+  const origin = pageOrigin(page);
+  if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
+  await page.waitForTimeout(800);
+  let current = await cookiePageSnapshot(page);
+  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  choice = await cookieChoice(page, current);
+  if (choice) return clickCookieChoice(page, current, choice);
+  shadowAction = await markShadowCookieButton(page);
+  if (shadowAction !== 'decision') return { status: 'unresolved', snapshot: current };
+  if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
+  await page.waitForTimeout(800);
+  current = await cookiePageSnapshot(page);
+  if (!current || await cookieChoice(page, current)
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+  shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+  if (shadowAction) {
+    await clearShadowCookieMarker(page);
+    return { status: 'unresolved', snapshot: current };
+  }
+  return { status: 'dismissed', snapshot: current };
 }
 
 /**
@@ -787,7 +902,9 @@ async function markShadowCookieButton(page) {
  */
 async function openApplicationForm(context, page, snapshot) {
   for (let hop = 0; hop < 3; hop += 1) {
-    if (await dismissCookieBanner(page, snapshot)) snapshot = await extractFields(page, NAVIGATION);
+    const cookies = await dismissCookieBanner(page, snapshot);
+    snapshot = cookies.snapshot || snapshot;
+    if (cookies.status === 'unresolved') return { page, snapshot, handoff: 'cookie_preferences_unresolved' };
     if (hasApplicationForm(snapshot)) return { page, snapshot };
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
@@ -3338,7 +3455,9 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+    ({ page, snapshot } = opened);
+    if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // Solique keeps the later steps mounted with zero-sized controls. The
     // exact host allowlist makes it safe to read those labels and required
     // flags now, without filling or advancing the live form.
@@ -3483,7 +3602,9 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
+    const opened = await openApplicationForm(context, page, snapshot);
+    ({ page, snapshot } = opened);
+    if (opened.handoff) return await handoff(opened.handoff);
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     const formHandoff = initialPortalHandoffReason({ snapshot });
     if (formHandoff) return await handoff(formHandoff);
@@ -3700,7 +3821,9 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+          ({ page, snapshot } = reopened);
+          if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
         step -= 1;
@@ -3790,7 +3913,9 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+          ({ page, snapshot } = reopened);
+          if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
         step -= 1; // a login page is not a form page

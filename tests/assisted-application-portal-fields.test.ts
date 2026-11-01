@@ -58,24 +58,54 @@ describe('portal field extraction', () => {
     expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
   });
 
-  it('opens the Deloitte cookie preferences when only the customizer covers the login', async () => {
-    const url = 'https://apply.deloitte.ch/CHCareers/Login';
-    let customized = false;
+  it('recognizes cookie preference entry points used across portal locales', () => {
+    for (const label of [
+      'Customise Cookies',
+      'Cookie settings',
+      'Cookie-Einstellungen ändern',
+      'Impostazioni cookie',
+      'Paramètres des cookies',
+      'Cookie-instellingen',
+    ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
+  });
+
+  it('opens an active preference center, then applies only its explicit cookie choice', async () => {
+    const url = 'https://careers.example/apply';
+    let stage = 0;
     const clicks: string[] = [];
-    const currentSnapshot = () => ({
-      url,
-      fields: [
-        { id: 'username', kind: 'text', inputType: 'email', label: 'Username (private email address)', required: true },
-        { id: 'password', kind: 'text', inputType: 'password', label: 'Password', required: true },
-      ],
-      buttons: [
-        { id: 'login', text: 'Login', disabled: false },
-        customized
-          ? { id: 'decline', text: 'Decline optional cookies', disabled: false }
-          : { id: 'customize', text: 'Customise Cookies', disabled: false },
-      ],
-      links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
-    });
+    const currentSnapshot = () => stage === 0
+      ? { url, fields: [], buttons: [{ id: 'customize', text: 'Cookie-Einstellungen ändern', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+      : stage === 1
+        ? { url, fields: [], buttons: [{ id: 'reject', text: 'Alle Cookies ablehnen', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+        : { url, fields: [], buttons: [{ id: 'login', text: 'Anmelden', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        innerText: vi.fn(async () => 'Cookie-Einstellungen'),
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(clicks).toEqual(['[data-aa-id="customize"]', '[data-aa-id="reject"]']);
+  });
+
+  it('hands off when preferences reveal no explicit cookie decision', async () => {
+    const url = 'https://careers.example/apply';
+    let stage = 0;
+    const clicks: string[] = [];
+    const currentSnapshot = () => stage === 0
+      ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
+      : { url, fields: [], buttons: [{ id: 'save', text: 'Save preferences', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
     const frame = {
       url: () => url,
       evaluate: vi.fn(async () => currentSnapshot()),
@@ -83,21 +113,39 @@ describe('portal field extraction', () => {
         first: () => ({
           click: vi.fn(async () => {
             clicks.push(selector);
-            if (selector.includes('customize')) customized = true;
+            stage += 1;
           }),
         }),
       })),
     };
-    const page = {
-      url: () => url,
-      frames: () => [frame],
-      waitForTimeout: vi.fn(async () => {}),
-    };
-    const initial = currentSnapshot();
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
 
-    expect(COOKIE_CUSTOMIZE_RE.test('Customise Cookies')).toBe(true);
-    expect(await dismissCookieBanner(page as any, initial as any)).toBe(true);
-    expect(clicks).toEqual(['[data-aa-id="customize"]', '[data-aa-id="decline"]']);
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('unresolved');
+    expect(clicks).toEqual(['[data-aa-id="customize"]']);
+  });
+
+  it('does not open site chrome preferences or accept an unrelated privacy dialog', async () => {
+    const url = 'https://careers.example/apply';
+    const privacy = {
+      url,
+      buttons: [
+        { id: 'site', text: 'Cookie settings', chrome: true, disabled: false },
+        { id: 'accept', text: 'Accept', dialog: true, dialogId: 'd1', context: 'Data privacy notice', disabled: false },
+      ],
+      dialogs: [{ dialogId: 'd1' }],
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => privacy),
+      locator: vi.fn(() => ({ innerText: vi.fn(async () => 'Data privacy notice') })),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
   });
 
   it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {
