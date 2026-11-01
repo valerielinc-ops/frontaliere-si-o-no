@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-zuerich",
-  "assembledAt": "2026-11-01T09:44:44.587Z",
+  "assembledAt": "2026-11-01T12:23:37.792Z",
   "runId": "41292933668",
   "jobs": [
     {
@@ -173,7 +173,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:44:13.004Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1bd8df25834c",
@@ -341,7 +342,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:13.004Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e2d9b07743f6",
@@ -683,7 +685,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:13.004Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-841ca54735c5",
@@ -1018,7 +1021,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:13.004Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f3b762e91ee8",
@@ -1623,7 +1627,7 @@
         "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
         "en": "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-        "fr": "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
+        "fr": "horticulteur-trice-en-paysagisme-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1673,7 +1677,7 @@
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
         "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "horticulteur-trice-en-paysagisme-stadt-zurich"
+        "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1684,7 +1688,7 @@
         ],
         "fr": [
           "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-          "horticulteur-trice-en-paysagisme-stadt-zurich"
+          "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.869Z",
@@ -2421,7 +2425,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:13.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c294f710f178",
@@ -2510,7 +2515,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:44:13.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bdd576930be8",
@@ -3563,7 +3569,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:13.001Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1e8f77f7dbee",
@@ -3645,7 +3652,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:13.001Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1d0f5a03960f",
@@ -3729,7 +3737,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:13.001Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-9a102529ec2d",
@@ -3809,7 +3818,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:13.001Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c96311261391",
@@ -4564,7 +4574,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-07T09:44:13.001Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d9a8866dfc05",
@@ -5872,7 +5883,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.999Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-48afc816e49d",
@@ -6297,7 +6309,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.999Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c993a6081127",
@@ -7065,7 +7078,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-10T09:44:12.998Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-71ab1b7c51e6",
@@ -7151,7 +7165,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-10T09:44:12.998Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f10b9bc5e251",
@@ -8091,7 +8106,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-12T09:44:12.997Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-622f0f454701",
@@ -8869,7 +8885,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-11T09:44:12.997Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0520b53e9f36",
@@ -9834,7 +9851,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:44:12.996Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f3ec1b5ea20c",
@@ -10536,7 +10554,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-694154bc3ea3",
@@ -10622,7 +10641,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:44:12.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-059638d2fe58",
@@ -10969,7 +10989,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:44:12.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e501e68540c3",
@@ -11133,7 +11154,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-dfe068b130bb",
@@ -11305,7 +11327,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-79115d2f3c18",
@@ -11392,7 +11415,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-4c2861306edf",
@@ -11568,7 +11592,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a32ad0282ee4",
@@ -11919,7 +11944,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-9aac51e1a148",
@@ -12093,7 +12119,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-10T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-41b6ed4e3495",
@@ -12175,7 +12202,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-26081ef41352",
@@ -12624,7 +12652,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:44:12.993Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-656d111637af",
@@ -13820,7 +13849,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.992Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c1d2fdf32f46",
@@ -14004,7 +14034,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:12.992Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f9988a5fc9ee",
@@ -15769,7 +15800,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:12.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-98e603af1eec",
@@ -15859,7 +15891,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-02T09:44:12.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0d558285aebc",
@@ -15958,7 +15991,7 @@
         "it": "elettromeccanica-stadt-zurich-zurich",
         "en": "electromechanic-stadt-zurich-zurich",
         "de": "elektromechaniker-in-stadt-zuerich-zurigo-5800",
-        "fr": "electromecanique-stadt-zurich-zurich"
+        "fr": "electromecanicien-ne-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -16008,7 +16041,7 @@
       "previousSlugs": [
         "elektromechaniker-in-stadt-zuerich-zurigo-5800",
         "elektromechaniker-in-stadt-zurich",
-        "electromecanicien-ne-stadt-zurich"
+        "electromecanique-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16019,7 +16052,7 @@
         ],
         "fr": [
           "elektromechaniker-in-stadt-zurich",
-          "electromecanicien-ne-stadt-zurich"
+          "electromecanique-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -16038,7 +16071,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-19T09:44:12.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bda8a44022d0",
@@ -16217,7 +16251,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-21T09:44:12.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-81843a5273ea",
@@ -16710,7 +16745,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-5e126690c809",
@@ -16876,7 +16912,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-21T09:44:12.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-8f02b2cb798e",
@@ -17219,7 +17256,7 @@
       "slug": "assemblaggio-automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
-        "en": "automatic-assembler-stadt-zurich-zurich",
+        "en": "automation-fitter-stadt-zurich",
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "fr": "monteur-automatique-stadt-zurich-zurich"
       },
@@ -17271,7 +17308,7 @@
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "automatikmonteur-in-stadt-zurich",
-        "automation-fitter-stadt-zurich"
+        "automatic-assembler-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17279,7 +17316,7 @@
         ],
         "en": [
           "automatikmonteur-in-stadt-zurich",
-          "automation-fitter-stadt-zurich"
+          "automatic-assembler-stadt-zurich-zurich"
         ],
         "fr": [
           "automatikmonteur-in-stadt-zurich"
@@ -17308,9 +17345,9 @@
       "slug": "automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "automatico-stadt-zurich-zurich",
-        "en": "automatics-stadt-zurich-zurich",
+        "en": "automation-technician-stadt-zurich",
         "de": "automatiker-in-stadt-zuerich-zurigo-5782",
-        "fr": "automatique-stadt-zurich-zurich"
+        "fr": "automaticien-ne-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17360,8 +17397,8 @@
       "previousSlugs": [
         "automatiker-in-stadt-zuerich-zurigo-5782",
         "automatiker-in-stadt-zurich",
-        "automation-technician-stadt-zurich",
-        "automaticien-ne-stadt-zurich"
+        "automatics-stadt-zurich-zurich",
+        "automatique-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17369,11 +17406,11 @@
         ],
         "en": [
           "automatiker-in-stadt-zurich",
-          "automation-technician-stadt-zurich"
+          "automatics-stadt-zurich-zurich"
         ],
         "fr": [
           "automatiker-in-stadt-zurich",
-          "automaticien-ne-stadt-zurich"
+          "automatique-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -17566,7 +17603,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:44:12.989Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-05621ab30adb",
@@ -17755,7 +17793,7 @@
       "slug": "caposquadra-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "caposquadra-stadt-zurich-zurich",
-        "en": "foreman-stadt-zurich-zurich",
+        "en": "foreperson-stadt-zurich",
         "de": "vorarbeiter-in-stadt-zuerich-zurigo-51721",
         "fr": "contremaitre-fe-stadt-zurich-zurich"
       },
@@ -17808,7 +17846,7 @@
         "vorarbeiter-in-stadt-zuerich-zurigo-51721",
         "vorarbeiter-in-stadt-zurich",
         "caposquadra-stadt-zurich-zurich-2e3de81833",
-        "foreperson-stadt-zurich"
+        "foreman-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17818,7 +17856,7 @@
         ],
         "en": [
           "vorarbeiter-in-stadt-zurich",
-          "foreperson-stadt-zurich"
+          "foreman-stadt-zurich-zurich"
         ],
         "fr": [
           "vorarbeiter-in-stadt-zurich"
@@ -17840,7 +17878,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:12.989Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-357bdf44b407",
@@ -17930,7 +17969,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-02T09:44:12.989Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a9ba08247b72",
@@ -18835,7 +18875,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.988Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-8f9e073f5ab2",
@@ -19029,7 +19070,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T09:44:12.987Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-09b61be46483",
@@ -19213,7 +19255,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T09:44:12.987Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b066f40e1466",
@@ -19915,7 +19958,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -19966,11 +20009,15 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51056",
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
@@ -19989,7 +20036,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:44:12.987Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-eeccc142ea6f",
@@ -20612,7 +20660,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T09:44:12.986Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-df32afdc5059",
@@ -20780,7 +20829,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T09:44:12.986Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ff08d2d78717",
@@ -21029,7 +21079,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.986Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-414ad06deb31",
@@ -21204,7 +21255,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-24T09:44:12.986Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-43ca001eb247",
@@ -21626,7 +21678,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2aaa828a4a95",
@@ -21706,7 +21759,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T09:44:12.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-690738f6cef5",
@@ -22055,7 +22109,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:12.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-df46af0d8b43",
@@ -22221,7 +22276,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ad8df314555e",
@@ -23459,7 +23515,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-cd3e6b6ea98f",
@@ -23539,7 +23596,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3af1085c6ba3",
@@ -23621,7 +23679,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-cd8057ac0550",
@@ -23703,7 +23762,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1da0fdcddde3",
@@ -23885,7 +23945,7 @@
       "id": "stadt-zuerich-424168fc48ff",
       "slug": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "it": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-15ad59",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-15ad59"
@@ -23939,14 +23999,18 @@
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-        "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d"
+        "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
+        "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-          "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d"
+          "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
+          "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -23965,13 +24029,14 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:44:12.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bf97b1cf4fd8",
       "slug": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "it": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -24023,12 +24088,16 @@
       "referenceNumber": "51123",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
+        "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
+          "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -24356,7 +24425,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c9ee943891a3",
@@ -24443,13 +24513,14 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:44:12.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "it": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
@@ -24501,12 +24572,16 @@
       "referenceNumber": "51137",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
+        "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
+          "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -24724,7 +24799,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-aee7f5910495",
@@ -24811,7 +24887,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-923b5ec9045c",
@@ -24899,7 +24976,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.982Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-9c9390b1eabb",
@@ -24985,7 +25063,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:44:12.982Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-118c21dce00e",
@@ -25916,7 +25995,7 @@
       "id": "stadt-zuerich-5d9598e38716",
       "slug": "scuola-di-cura-specialista-scherr-stadt-zurich-zurich-b5f89787c4",
       "slugByLocale": {
-        "it": "scuola-di-cura-specialista-scherr-stadt-zurich-zurich",
+        "it": "scuola-di-cura-specialista-scherr-stadt-zurich-zurich-b5f89787c4",
         "en": "specialist-care-school-scherr-stadt-zurich-zurich",
         "de": "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-52094",
         "fr": "ecole-de-soins-specialises-scherr-stadt-zurich-zurich"
@@ -25967,11 +26046,15 @@
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "52094",
       "previousSlugs": [
-        "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-52094"
+        "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-52094",
+        "scuola-di-cura-specialista-scherr-stadt-zurich-zurich-b5f89787c4",
+        "scuola-di-cura-specialista-scherr-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-52094"
+          "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-52094",
+          "scuola-di-cura-specialista-scherr-stadt-zurich-zurich-b5f89787c4",
+          "scuola-di-cura-specialista-scherr-stadt-zurich-zurich"
         ],
         "en": [
           "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-52094"
@@ -26254,7 +26337,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-928d9b73b565",
@@ -26426,7 +26510,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2cee46c7847b",
@@ -26673,7 +26758,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-36e52c4831c8",
@@ -26756,7 +26842,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-28T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a369fd03e303",
@@ -26899,13 +26986,14 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -26960,11 +27048,15 @@
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ],
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
       ],
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
       "salaryMin": 53500,
@@ -26982,7 +27074,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7aadf973320c",
@@ -27085,7 +27178,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e25b917ad8e9",
@@ -27187,7 +27281,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.981Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-acb5576b08d6",
@@ -28025,7 +28120,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:44:12.980Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-643247ece2b9",
@@ -28967,7 +29063,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.979Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-8a306e5aa232",
@@ -29139,7 +29236,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.979Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3ea8b578b7be",
@@ -29889,7 +29987,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-79e99523ed49",
@@ -30059,7 +30158,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-299207b9eef3",
@@ -30338,7 +30438,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-6adfa72fcf3a",
@@ -31128,7 +31229,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-672f8640b677",
@@ -31218,7 +31320,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-738bca364331",
@@ -31342,7 +31445,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3c5dc438a7e8",
@@ -31421,7 +31525,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-30T09:44:12.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-19cbec6fe935",
@@ -31597,7 +31702,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-30T09:44:12.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3f81c02555c9",
@@ -32713,7 +32819,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-29T09:44:12.976Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-16cde502f0fd",
@@ -33207,7 +33314,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:44:12.975Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-84d122a907de",
@@ -33894,7 +34002,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-30T09:44:12.975Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-fffa6d446439",
@@ -33988,7 +34097,7 @@
       "id": "stadt-zuerich-e30e737f06e1",
       "slug": "supervisione-specialistica-capo-delle-cure-del-mattino-scuola-scherr-stadt-zurich-zurich-aa815a821d",
       "slugByLocale": {
-        "it": "scuola-di-cura-specialista-scherr-stadt-zurich-zurich",
+        "it": "supervisione-specialistica-capo-delle-cure-del-mattino-scuola-scherr-stadt-zurich-zurich-aa815a821d",
         "en": "specialist-care-school-scherr-stadt-zurich-zurich",
         "de": "fachperson-betreuung-schule-scherr-stadt-zuerich-zurigo-51795",
         "fr": "ecole-de-soins-specialises-scherr-stadt-zurich-zurich"
@@ -34040,12 +34149,16 @@
       "referenceNumber": "51795",
       "previousSlugs": [
         "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zuerich-zurigo-51795",
-        "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zurich-zurich-a76b8c09e6"
+        "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zurich-zurich-a76b8c09e6",
+        "supervisione-specialistica-capo-delle-cure-del-mattino-scuola-scherr-stadt-zurich-zurich-aa815a821d",
+        "scuola-di-cura-specialista-scherr-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zuerich-zurigo-51795",
-          "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zurich-zurich-a76b8c09e6"
+          "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zurich-zurich-a76b8c09e6",
+          "supervisione-specialistica-capo-delle-cure-del-mattino-scuola-scherr-stadt-zurich-zurich-aa815a821d",
+          "scuola-di-cura-specialista-scherr-stadt-zurich-zurich"
         ],
         "de": [
           "fachperson-betreuung-leitung-der-morgenbetreuung-schule-scherr-stadt-zuerich-zurigo-51795"
@@ -34762,7 +34875,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-29T09:44:12.974Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-402967858127",
@@ -34933,7 +35047,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b4afebbdae1f",
@@ -35016,7 +35131,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-73eda6d1ffd9",
@@ -35347,7 +35463,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.972Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-499ffd8cab29",
@@ -35690,7 +35807,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-04T09:44:12.971Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-4c4a6cbc7cc3",
@@ -35813,7 +35931,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.971Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c0f663ddf0d7",
@@ -35893,7 +36012,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:44:12.971Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2390646ea325",
