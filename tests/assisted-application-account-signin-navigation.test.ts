@@ -88,6 +88,9 @@ describe('verified sign-in navigation from an existing-account registration page
   it.each([
     'Create account or Sign in',
     'Create account — already registered? Sign in',
+    'Accedi / Registrati',
+    'Anmelden / Neues Konto',
+    'Se connecter / Créez-en un',
     'Continue',
     'Register now',
   ])('rejects ambiguous, creation, or generic controls: %s', async (label) => {
