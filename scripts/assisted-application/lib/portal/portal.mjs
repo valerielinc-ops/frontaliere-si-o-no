@@ -2964,7 +2964,13 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     } catch {
       return false;
     }
-    if (!sameSite(frame.url(), portalHost)) return false;
+    let finalUrl;
+    try {
+      finalUrl = new URL(frame.url());
+    } catch {
+      return false;
+    }
+    if (finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
     return true;
   }
   return false;

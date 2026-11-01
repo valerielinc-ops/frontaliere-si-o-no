@@ -132,6 +132,20 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(insecure.page.request.post).not.toHaveBeenCalled();
   });
 
+  it.each([
+    ['HTTP', `http://${HOST}/de/login`],
+    ['userinfo', `https://candidate@${HOST}/de/login`],
+  ])('rejects a same-host redirect with %s after following the verified link', async (_kind, finalUrl) => {
+    const redirected = pageWithLink({ label: 'Sign in', href: '/de/login', finalUrl });
+    await expect(openVerifiedSignInNavigation(redirected.page as any, {
+      dialogs: [], links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
+    } as any)).resolves.toBe(false);
+
+    expect(redirected.frame.goto).toHaveBeenCalledOnce();
+    expect(redirected.locator.click).not.toHaveBeenCalled();
+    expect(redirected.page.request.post).not.toHaveBeenCalled();
+  });
+
   it('refuses an unknown overlay and leaves its sign-in-looking link untouched', async () => {
     const { page, frame, locator } = pageWithLink({ label: 'Sign in', href: '/de/login' });
     const snapshot = {
