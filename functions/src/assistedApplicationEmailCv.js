@@ -25,7 +25,7 @@ import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { detectCvFileType } from './assistedApplicationCvCheck.js';
-import { addressOf, parseMimeMessage, senderAuthenticated } from './lib/mimeMessage.js';
+import { parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
 
 export const MAX_RAW_MESSAGE_BYTES = 9 * 1024 * 1024;
 const MAX_CV_BYTES = 5 * 1024 * 1024;
@@ -90,7 +90,7 @@ export async function handleAssistedApplicationEmailCv(req, deps) {
   if (!raw.length || raw.length > MAX_RAW_MESSAGE_BYTES) return { status: 413, body: { ok: false, error: 'size' } };
 
   const message = parseMimeMessage(raw);
-  const sender = addressOf(message.from);
+  const sender = singleMailboxAddress(message.from);
   if (!sender || !senderAuthenticated(message.headers, sender)) return { status: 200, body: { ok: true, matched: false, reason: 'unauthenticated' } };
   const attachment = message.attachments
     .map((item) => ({ ...item, type: detectCvFileType(item.content.subarray(0, 8)) }))
