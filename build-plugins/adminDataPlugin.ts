@@ -21,6 +21,7 @@ import type { Plugin } from 'vite';
 import { ADMIN_SECTION_SLUGS } from '../components/admin/adminSections';
 import { buildAdminWorkflowSchedulePayload } from './adminWorkflowSchedules';
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
+import { isDirectEmployerBuildEnabled } from '../services/directEmployerFeature';
 
 /** Admin-only files to copy from data/ → dist/data/ (relative to project root). */
 const ADMIN_DATA_FILES = [
@@ -74,7 +75,8 @@ export function trimJobPopularity(source: string): string {
 }
 
 /** Emit a public-safe projection of prospector permanent-application signals. */
-export function buildPermanentEmployerFeed(root: string): string {
+export function buildPermanentEmployerFeed(root: string, enabled = isDirectEmployerBuildEnabled(process.env)): string {
+ if (!enabled) return JSON.stringify({ version: 1, generatedAt: null, employers: [] });
  const sourcePath = path.resolve(root, PROSPECTOR_CANDIDATES_PATH);
  if (!fs.existsSync(sourcePath)) return JSON.stringify({ version: 1, generatedAt: null, employers: [] });
  try {

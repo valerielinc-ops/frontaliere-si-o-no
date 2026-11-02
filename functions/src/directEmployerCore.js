@@ -11,6 +11,7 @@ export const DIRECT_EMPLOYER_SOURCE_KEY = 'direct-employers';
 export const DIRECT_EMPLOYER_VALID_DAYS = 30;
 export const DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS = 51;
 export const DIRECT_EMPLOYER_PII_RETENTION_DAYS = 60;
+export const PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS = 100;
 
 const MAX_FIELD_LENGTHS = Object.freeze({
   companyName: 140,
@@ -431,8 +432,27 @@ export async function markPermanentEmployer({ data, db = getAdminDb(), now = new
   const locationLabel = clean(data?.locationLabel, MAX_FIELD_LENGTHS.location);
   if (!companyName || !website) return { ok: false, error: 'company_and_website_required' };
   const id = hashValue(`${companyName.toLowerCase()}\u0000${website}`).slice(0, 40);
-  await db.collection(PERMANENT_EMPLOYER_COLLECTION).doc(id).set({ companyName, website, locationLabel, status: 'pending_moderation', updatedAt: nowDate(now), candidateMarks: FieldValue.increment(1) }, { merge: true });
-  return { ok: true, status: 'pending_moderation' };
+  const ref = db.collection(PERMANENT_EMPLOYER_COLLECTION).doc(id);
+  const current = nowDate(now);
+  let resultingStatus = 'pending_moderation';
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const existing = snapshot.exists ? snapshot.data() : {};
+    const candidateMarks = Math.min(
+      PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS,
+      Math.max(0, Number(existing.candidateMarks) || 0) + 1,
+    );
+    resultingStatus = existing.status === 'approved' ? 'approved' : 'pending_moderation';
+    transaction.set(ref, {
+      companyName,
+      website,
+      locationLabel,
+      status: existing.status === 'approved' ? 'approved' : 'pending_moderation',
+      updatedAt: current,
+      candidateMarks,
+    }, { merge: true });
+  });
+  return { ok: true, status: resultingStatus };
 }
 
 export async function getDirectEmployerContact({ jobId, db = getAdminDb() }) {

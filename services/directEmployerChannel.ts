@@ -117,7 +117,9 @@ export async function loadPermanentEmployers(): Promise<{ enabled: boolean; empl
   for (const employer of [...(Array.isArray(data.employers) ? data.employers : []), ...(Array.isArray(prospector.employers) ? prospector.employers : [])]) {
     if (!employer?.companyName || !employer.website) continue;
     const key = `${employer.companyName.toLowerCase()}\u0000${employer.website.toLowerCase()}`;
-    merged.set(key, employer);
+    // The runtime list is moderated; the generated prospector feed only fills
+    // keys that are not already present in that authoritative source.
+    if (!merged.has(key)) merged.set(key, employer);
   }
   return { enabled: true, employers: [...merged.values()] };
 }

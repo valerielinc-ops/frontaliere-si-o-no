@@ -2,14 +2,18 @@ import { describe, expect, it } from 'vitest';
 import {
   DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS,
   DIRECT_EMPLOYER_SOURCE_KEY,
+  PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS,
   buildDirectEmployerJob,
   listDirectEmployerSubmissions,
+  markPermanentEmployer,
   normalizeDirectEmployerSubmission,
   purgeDirectEmployerPii,
   renewDirectEmployerListing,
 } from '../functions/src/directEmployerCore.js';
 import { directEmployerSubmissionToRecords } from '../scripts/lib/directEmployerJobProjection.mjs';
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
+import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
+import { buildPermanentEmployerFeed } from '../build-plugins/adminDataPlugin';
 import {
   filterDirectEmployerSitemapXml,
   isDirectEmployerBuildEnabled,
@@ -89,6 +93,23 @@ function moderationDb(records: Array<{ id: string; data: Record<string, unknown>
       update(ref: unknown, patch: Record<string, unknown>) { updates.push({ ref, patch }); },
       commit: async () => updates.forEach(({ ref, patch }) => (ref as { update: (value: Record<string, unknown>) => Promise<void> }).update(patch)),
     }),
+  };
+}
+
+function permanentEmployerDb(initial: Record<string, unknown> = {}) {
+  const state = { ...initial };
+  const ref = { get: async () => ({ exists: Object.keys(state).length > 0, data: () => state }) };
+  type Transaction = {
+    get: () => Promise<{ exists: boolean; data: () => Record<string, unknown> }>;
+    set: (_ref: unknown, patch: Record<string, unknown>) => void;
+  };
+  return {
+    collection: () => ({ doc: () => ref }),
+    runTransaction: async (callback: (transaction: Transaction) => Promise<void>) => callback({
+      get: async () => ({ exists: Object.keys(state).length > 0, data: () => state }),
+      set: (_ref, patch) => Object.assign(state, patch),
+    }),
+    state,
   };
 }
 
@@ -180,6 +201,11 @@ describe('direct employer SEO flag', () => {
     expect(filterDirectEmployerSitemapXml(xml, false)).toContain('/chi-siamo/');
     expect(isDirectEmployerBuildEnabled({ DIRECT_EMPLOYER_CHANNEL_ENABLED: 'true' })).toBe(true);
     expect(filterDirectEmployerSitemapXml(xml, true)).toContain('pubblica-offerta-gratuita');
+    expect(JSON.parse(buildPermanentEmployerFeed(process.cwd(), false)).employers).toEqual([]);
+  });
+
+  it('bridges the owner flag into the static deploy environment', () => {
+    expect(RC_TO_ENV.DIRECT_EMPLOYER_CHANNEL_ENABLED).toEqual(['DIRECT_EMPLOYER_CHANNEL_ENABLED']);
   });
 });
 
@@ -251,5 +277,18 @@ describe('prospector permanent-employer projection', () => {
     });
     expect(feed.employers[0]).not.toHaveProperty('email');
     expect(JSON.stringify(feed)).not.toContain('must-not-leak');
+  });
+});
+
+describe('permanent-employer candidate signals', () => {
+  it('caps repeated marks and preserves an already approved signal', async () => {
+    const db = permanentEmployerDb({ status: 'approved', candidateMarks: PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS });
+    const result = await markPermanentEmployer({
+      data: { companyName: 'Salumeria del Borgo SA', website: 'https://salumeria.example.ch' },
+      db,
+      now: new Date(),
+    });
+    expect(result).toEqual({ ok: true, status: 'approved' });
+    expect(db.state.candidateMarks).toBe(PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS);
   });
 });

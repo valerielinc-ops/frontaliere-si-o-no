@@ -90,6 +90,7 @@ function DirectEmployerPublishContent() {
   const [phoneBusy, setPhoneBusy] = useState(false);
   const [honeypot, setHoneypot] = useState('');
   const phoneConfirmation = useRef<ConfirmationResult | null>(null);
+  const phoneRequestGeneration = useRef(0);
   const recaptchaContainer = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -101,6 +102,8 @@ function DirectEmployerPublishContent() {
   const descriptionWordCount = useMemo(() => words(description), [description]);
 
   async function sendPhoneCode() {
+    const requestGeneration = phoneRequestGeneration.current;
+    const requestedPhone = contactPhone.trim();
     setPhoneBusy(true); setErrorKey('');
     try {
       await ensureAppCheck();
@@ -108,11 +111,15 @@ function DirectEmployerPublishContent() {
       const auth = getAuth(await getApp());
       if (!recaptchaContainer.current) throw new Error('recaptcha');
       const verifier = new RecaptchaVerifier(auth, recaptchaContainer.current, { size: 'invisible' });
-      phoneConfirmation.current = await signInWithPhoneNumber(auth, contactPhone.trim(), verifier);
+      const confirmation = await signInWithPhoneNumber(auth, requestedPhone, verifier);
+      if (phoneRequestGeneration.current !== requestGeneration || contactPhone.trim() !== requestedPhone) return;
+      phoneConfirmation.current = confirmation;
       setPhoneCodeSent(true);
     } catch {
-      setErrorKey('directEmployer.phoneVerificationError');
-    } finally { setPhoneBusy(false); }
+      if (phoneRequestGeneration.current === requestGeneration) setErrorKey('directEmployer.phoneVerificationError');
+    } finally {
+      if (phoneRequestGeneration.current === requestGeneration) setPhoneBusy(false);
+    }
   }
 
   async function confirmPhoneCode() {
@@ -173,7 +180,7 @@ function DirectEmployerPublishContent() {
           <h2 id="direct-employer-contact" className="flex items-center gap-2 font-display text-xl font-semibold text-heading"><ShieldCheck size={20} aria-hidden="true" />{t('directEmployer.contactHeading')}</h2>
           <p className="mt-2 text-sm leading-6 text-subtle">{t('directEmployer.contactIntro')}</p>
           <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label={t('directEmployer.contactChoiceLabel')}><button type="button" className={`min-h-11 rounded-xl border px-4 py-2 text-sm font-semibold ${contactMode === 'email' ? 'border-accent bg-accent-subtle text-accent' : 'border-edge text-body'}`} onClick={() => setContactMode('email')}><Mail size={16} className="mr-2 inline" aria-hidden="true" />{t('directEmployer.email')}</button><button type="button" className={`min-h-11 rounded-xl border px-4 py-2 text-sm font-semibold ${contactMode === 'phone' ? 'border-accent bg-accent-subtle text-accent' : 'border-edge text-body'}`} onClick={() => setContactMode('phone')}><Phone size={16} className="mr-2 inline" aria-hidden="true" />{t('directEmployer.phone')}</button></div>
-          {contactMode === 'email' ? <Field id="direct-contact-email" label={t('directEmployer.contactEmail')} hint={t('directEmployer.emailVerificationHint')}><input id="direct-contact-email" className={inputClass} value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} type="email" inputMode="email" autoComplete="email" required /></Field> : <div className="mt-5 space-y-3"><Field id="direct-contact-phone" label={t('directEmployer.contactPhone')} hint={t('directEmployer.phoneVerificationHint')}><input id="direct-contact-phone" className={inputClass} value={contactPhone} onChange={(event) => { setContactPhone(event.target.value); setPhoneCode(''); setPhoneCodeSent(false); setPhoneVerified(false); phoneConfirmation.current = null; }} type="tel" inputMode="tel" autoComplete="tel" required /></Field>{!phoneCodeSent ? <button type="button" onClick={() => void sendPhoneCode()} disabled={phoneBusy || !contactPhone.trim()} className="min-h-11 rounded-xl border border-edge px-4 py-2.5 text-sm font-semibold text-strong disabled:cursor-not-allowed disabled:opacity-50">{phoneBusy ? t('directEmployer.verifying') : t('directEmployer.sendCode')}</button> : <div className="flex flex-col gap-3 sm:flex-row sm:items-end"><Field id="direct-phone-code" label={t('directEmployer.code')}><input id="direct-phone-code" className={inputClass} value={phoneCode} onChange={(event) => setPhoneCode(event.target.value)} inputMode="numeric" autoComplete="one-time-code" /></Field><button type="button" onClick={() => void confirmPhoneCode()} disabled={phoneBusy || !phoneCode.trim()} className="min-h-11 rounded-xl border border-edge px-4 py-2.5 text-sm font-semibold text-strong disabled:cursor-not-allowed disabled:opacity-50">{phoneBusy ? t('directEmployer.verifying') : t('directEmployer.confirmCode')}</button></div>}{phoneVerified && <p className="text-sm font-medium text-success">{t('directEmployer.phoneVerified')}</p>}<div ref={recaptchaContainer} aria-hidden="true" /></div>}
+          {contactMode === 'email' ? <Field id="direct-contact-email" label={t('directEmployer.contactEmail')} hint={t('directEmployer.emailVerificationHint')}><input id="direct-contact-email" className={inputClass} value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} type="email" inputMode="email" autoComplete="email" required /></Field> : <div className="mt-5 space-y-3"><Field id="direct-contact-phone" label={t('directEmployer.contactPhone')} hint={t('directEmployer.phoneVerificationHint')}><input id="direct-contact-phone" className={inputClass} value={contactPhone} onChange={(event) => { phoneRequestGeneration.current += 1; setContactPhone(event.target.value); setPhoneCode(''); setPhoneCodeSent(false); setPhoneVerified(false); setPhoneBusy(false); phoneConfirmation.current = null; }} type="tel" inputMode="tel" autoComplete="tel" required /></Field>{!phoneCodeSent ? <button type="button" onClick={() => void sendPhoneCode()} disabled={phoneBusy || !contactPhone.trim()} className="min-h-11 rounded-xl border border-edge px-4 py-2.5 text-sm font-semibold text-strong disabled:cursor-not-allowed disabled:opacity-50">{phoneBusy ? t('directEmployer.verifying') : t('directEmployer.sendCode')}</button> : <div className="flex flex-col gap-3 sm:flex-row sm:items-end"><Field id="direct-phone-code" label={t('directEmployer.code')}><input id="direct-phone-code" className={inputClass} value={phoneCode} onChange={(event) => setPhoneCode(event.target.value)} inputMode="numeric" autoComplete="one-time-code" /></Field><button type="button" onClick={() => void confirmPhoneCode()} disabled={phoneBusy || !phoneCode.trim()} className="min-h-11 rounded-xl border border-edge px-4 py-2.5 text-sm font-semibold text-strong disabled:cursor-not-allowed disabled:opacity-50">{phoneBusy ? t('directEmployer.verifying') : t('directEmployer.confirmCode')}</button></div>}{phoneVerified && <p className="text-sm font-medium text-success">{t('directEmployer.phoneVerified')}</p>}<div ref={recaptchaContainer} aria-hidden="true" /></div>}
           <input tabIndex={-1} aria-hidden="true" autoComplete="off" className="absolute left-[-10000px] h-px w-px opacity-0" value={honeypot} onChange={(event) => setHoneypot(event.target.value)} name="websiteConfirm" />
         </section>
 
