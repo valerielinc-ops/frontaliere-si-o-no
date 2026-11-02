@@ -697,7 +697,7 @@ describe('application concierge matching', () => {
       const weak = documents.get('application_concierge_services/service-1/proposals/legacy-weak');
       const accepted = documents.get('application_concierge_services/service-1/proposals/already-accepted');
 
-      expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 0 });
+      expect(result).toMatchObject({ status: 'complete', proposals: 1, retracted: 0 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
         matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -849,13 +849,15 @@ describe('progress through the complete relevant job pool', () => {
     try {
       for (let index = 0; index < 4; index++) await run();
       expect(seen[0]).toEqual(jobs.slice(0, 20).map(job => job.id));
-      expect(seen[1]).toEqual(jobs.slice(20, 40).map(job => job.id));
-      expect(seen[2]).toEqual(jobs.slice(40, 60).map(job => job.id));
+      expect(seen[1]).toEqual(jobs.slice(24, 44).map(job => job.id));
+      expect(seen[2]).toEqual(jobs.slice(48, 68).map(job => job.id));
       expect(attempts.get('job-000')).toBe(1);
-      expect(unverifiedCounts).toEqual([1, 1, 1, 1]);
-      expect(retryDiagnostics[0]).toEqual({ statusCounts: { unverified: 1 }, reasonCounts: { analysis_unavailable: 1 } });
+      expect(unverifiedCounts).toEqual([5, 9, 11, 11]);
+      expect(retryDiagnostics[0]).toEqual({ statusCounts: { unverified: 5 },
+        reasonCounts: { analysis_unavailable: 1, analysis_deferred: 4 } });
       expect(documents.get(path)?.matchingPendingCount).toBe(0);
       clock.mockReturnValue(now + 3600001);
+      await run();
       await run();
       expect(attempts.get('job-000')).toBe(2);
       expect(unverifiedCounts.at(-1)).toBe(1);

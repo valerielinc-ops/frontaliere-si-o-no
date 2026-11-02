@@ -282,6 +282,22 @@ describe('concierge refresh and notification lifecycle', () => {
       matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
     });
   });
+  it('counts ordinary failed matcher runs against the same bounded recovery budget', async () => {
+    const requestId = 'ordinary-failed-match-retry';
+    const store = withdrawalRefreshFixture({ matchingStatus: 'failed', matchingCompletedAt: WITHDRAWAL_NOW - 60 * 60 * 1000,
+      matchingError: 'job_search_failed', proposalRefreshRequestId: requestId });
+    const failedMatch = vi.fn(async () => { throw new Error('simulated matcher failure'); });
+
+    await expect(runConciergeProposalRefresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID, requestId,
+      nowMs: WITHDRAWAL_NOW, match: failedMatch, send })).rejects.toThrow('simulated matcher failure');
+
+    const updated = store.read(WITHDRAWAL_SERVICE_PATH);
+    expect(updated).toMatchObject({ matchingStatus: 'failed', matchingError: 'job_search_failed',
+      matchingStaleRecoveryAttempt: 1, proposalRefreshLastError: 'matching_failed' });
+    expect(updated.matchingStaleRecoveryRetryAt).toBeInstanceOf(Date);
+    expect(conciergeRefreshDue(updated, WITHDRAWAL_NOW)).toBe(false);
+    expect(conciergeRefreshDue(updated, updated.matchingStaleRecoveryRetryAt.getTime())).toBe(true);
+  });
   it('notifies a retracted proposal that becomes available again, once per actual reactivation', async () => {
     records.set('application_concierge_services/service', active());
     await sweep();
