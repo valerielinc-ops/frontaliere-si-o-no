@@ -92,6 +92,8 @@ jobs:
         uses: ./.github/actions/claude-codex-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Generation only reads the checked-out repo; keep Codex's GitHub bridge read-only.
+          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
           exec_timeout_minutes: '15'
           response_artifact: social-copy-response.json
           prompt: |
