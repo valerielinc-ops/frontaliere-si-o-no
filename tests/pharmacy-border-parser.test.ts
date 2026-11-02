@@ -215,4 +215,72 @@ describe('buildTicinoCompleteRecords', () => {
     });
     expect(partialItaly).toMatchObject({ latitude: 45.8, longitude: 9.1, fieldSources: { coordinates: previousSource } });
   });
+
+  it('reserves a preserved OSM element before later records can claim it', () => {
+    const nodeOneUrl = 'https://www.openstreetmap.org/node/1';
+    const previousSource = {
+      url: nodeOneUrl,
+      sourceType: 'directory',
+      checkedAt: '2026-11-02T08:57:51.706Z',
+      license: 'OpenStreetMap contributors, ODbL 1.0',
+    };
+    const previous = {
+      id: 'ti-alpha',
+      name: 'Farmacia Alpha',
+      slug: 'farmacia-alpha-lugano',
+      address: 'Via Uno 1',
+      postalCode: '6900',
+      city: 'Lugano',
+      canton: 'Ticino',
+      country: 'CH',
+      latitude: 46.0,
+      longitude: 8.0,
+      fieldSources: { coordinates: previousSource },
+    };
+    const osmElements = [
+      {
+        type: 'node',
+        id: 1,
+        lat: 46.1,
+        lon: 8.1,
+        tags: {
+          amenity: 'pharmacy',
+          name: 'Farmacia Alpha Beta',
+          'addr:postcode': '6900',
+          'addr:city': 'Lugano',
+          'addr:street': 'Via Uno',
+          'addr:housenumber': '1',
+        },
+      },
+      {
+        type: 'node',
+        id: 2,
+        lat: 46.2,
+        lon: 8.2,
+        tags: {
+          amenity: 'pharmacy',
+          name: 'Farmacia Alpha Gamma',
+          'addr:postcode': '6900',
+          'addr:city': 'Lugano',
+          'addr:street': 'Via Uno',
+          'addr:housenumber': '1',
+        },
+      },
+    ];
+
+    const records = buildTicinoCompleteRecords([
+      { name: 'Farmacia Alpha', address: 'Via Uno 1', postalCode: '6900', city: 'Lugano' },
+      { name: 'Farmacia Beta', address: 'Via Due 2', postalCode: '6900', city: 'Lugano' },
+    ], {
+      previous: [previous],
+      fetchedAt: '2026-11-02T12:36:56.280Z',
+      osmElements,
+    });
+
+    const alpha = records.find((record) => record.name === 'Farmacia Alpha');
+    const beta = records.find((record) => record.name === 'Farmacia Beta');
+    expect(alpha).toMatchObject({ fieldSources: { coordinates: previousSource } });
+    expect(beta?.fieldSources?.coordinates).toBeUndefined();
+    expect(records.filter((record) => record.fieldSources?.coordinates?.url === nodeOneUrl)).toHaveLength(1);
+  });
 });
