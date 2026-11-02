@@ -414,6 +414,49 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
+  it('replaces a stale live-only card excluded by the published registry and runtime overlay', async () => {
+    const staleSlug = 'startup-innovazione-sociale-open-call';
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 1 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ swiss: { known: { it: 'known' } } }),
+        });
+      }
+      if (url === 'https://frontaliereticino.ch/articoli-svizzera/') {
+        return Promise.resolve({
+          ok: true,
+          text: async () => `<main class="ssg-article-grid"><a class="ssg-art-card" href="/articoli-svizzera/${staleSlug}/"></a></main>`,
+        });
+      }
+      if (url.includes('/data/blog-index-svizzera-it-full.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ articles: [] }) });
+      }
+      if (url.includes('/data/blog-index-svizzera-it.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ articles: [] }) });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('svizzera', 1, {
+        localRegistry: { known: { it: 'known' } },
+      });
+      expect(verdict.ok).toBe(true);
+      expect(verdict.deferred).not.toBe(true);
+      expect(verdict.note).toContain(`replacing stale live-only card(s) excluded`);
+      expect(verdict.note).toContain(staleSlug);
+      expect(fetchMock).toHaveBeenCalledTimes(7);
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('fails closed for armed direct invocations without lease enforcement', () => {
     const guardAt = hubDriver.indexOf('assertArticleChunkLease({ required: leaseRequired });');
     const renderAt = hubDriver.indexOf('await renderHubsAndOffload({');
