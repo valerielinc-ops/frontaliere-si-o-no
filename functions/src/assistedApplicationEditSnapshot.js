@@ -15,6 +15,16 @@ export function candidateReviewFlow(flow, runnerContext) {
   };
 }
 
+/** One order-local answer projection feeds both the candidate view and its edit snapshot. */
+export function candidateEditFlow({ orderId, order, flow = {}, draft, nowMs = Date.now() }) {
+  const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
+  return {
+    ...flow,
+    answers: { ...(flow?.answers || {}), ...(orderContext.answers || {}) },
+    questionAnswers: { ...(flow?.questionAnswers || {}), ...(orderContext.orderAnswers || {}) },
+  };
+}
+
 /**
  * Opaque, keyed snapshot of the exact candidate-edit contract shown in review.
  * The HMAC keeps low-entropy personal values (phone, permit, residence) out of
@@ -24,12 +34,7 @@ export function candidateReviewFlow(flow, runnerContext) {
 export function candidateEditContract({ orderId, order, flow, draft, communicationLocale, nowMs = Date.now() }) {
   const locale = normalizeAnswerCommunicationLocale(communicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
-  const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
-  const candidateFlow = {
-    ...flow,
-    answers: { ...(flow?.answers || {}), ...orderContext.answers },
-    questionAnswers: { ...(flow?.questionAnswers || {}), ...orderContext.orderAnswers },
-  };
+  const candidateFlow = candidateEditFlow({ orderId, order, flow, draft, nowMs });
   const { answers } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale })
     .map(field => fieldView(field, { draft, flow: candidateFlow, locale }))

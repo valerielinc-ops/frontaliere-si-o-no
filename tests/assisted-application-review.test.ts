@@ -276,6 +276,34 @@ describe('candidate review API', () => {
     expect(body.can.approve).toBe(true);
   });
 
+  it('uses the validated order answer projection for the displayed edit contract', async () => {
+    const first = { id: 'notice_period', question: 'Qual è il tuo periodo di preavviso?', type: 'text', required: true };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [first],
+    }));
+    expect(await postAnswers({ notice_period: '3 mesi' })).toMatchObject({ status: 200, body: { ok: true } });
+
+    const current = { ...first, id: 'availability' };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [current],
+    }));
+    const shown = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(shown.body.answers).toEqual({ availability: '3 mesi' });
+    expect(shown.body.formAnswers.find((field: any) => field.key === 'availability')).toMatchObject({ value: '3 mesi', locked: 'question' });
+
+    const fields = Object.fromEntries(shown.body.formAnswers
+      .filter((field: any) => field.editable).map((field: any) => [field.key, field.value]));
+    fields.phone = '+41 91 000 00 00';
+    const saved = await handleAssistedApplicationReview({ method: 'POST', body: {
+      t: token(), action: 'edit', editSnapshot: shown.body.editSnapshot,
+      coverLetterText: shown.body.coverLetter.text, fields,
+    } }, deps());
+    expect(saved).toMatchObject({ status: 200, body: { ok: true, changed: ['fields'] } });
+    expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toMatchObject({ phone: '+41 91 000 00 00' });
+  });
+
   it('rejects a stale confirmation when a question id is reused for different text', async () => {
     const first = { id: 'region', question: 'In quale cantone vivi?', type: 'choice', options: ['Ticino', 'Zurigo'], required: true };
     const changed = { ...first, question: 'In quale cantone hai maturato esperienza lavorativa?' };

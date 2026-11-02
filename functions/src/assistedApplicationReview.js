@@ -45,7 +45,7 @@ import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationRe
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
-import { candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
+import { candidateEditFlow, candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
@@ -305,9 +305,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
-  const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
-  const candidateFlow = { ...flow, answers: { ...(flow?.answers || {}), ...orderContext.answers },
-    questionAnswers: { ...(flow?.questionAnswers || {}), ...orderContext.orderAnswers } };
+  const candidateFlow = candidateEditFlow({ orderId, order, flow, draft, nowMs });
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale }).answers;
   const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
@@ -332,7 +330,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const openDocuments = openRequiredDocuments(draft, flow?.documents || {});
   const channel = draft?.channel || {};
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
-  const formAnswers = formAnswersWithEdits({ order, draft, flow, locale });
+  const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale });
   const applicationEmail = channel.type === 'email' && draft?.applicationEmail
     ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers) }
     : null;
@@ -487,7 +485,8 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', s
 async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs, communicationLocale, editSnapshotGuard }) {
   const locale = normalizeAnswerCommunicationLocale(communicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
-  const plan = planCandidateEdits(body, { order, draft, flow, locale, nowMs });
+  const editFlow = candidateEditFlow({ orderId, order, flow, draft, nowMs });
+  const plan = planCandidateEdits(body, { order, draft, flow: editFlow, locale, nowMs });
   if (Object.keys(plan.errors).length) throw new ReviewError('invalid_edits', 400, { fields: plan.errors });
   if (!plan.changed.length) return [];
   const nextFlow = { ...flow, formOverrides: { ...(flow.formOverrides || {}), ...plan.overrides } };
