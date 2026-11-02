@@ -1,18 +1,62 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-11-02T09:41:44.876Z",
-  "total": 32,
-  "newCount": 0,
+  "generatedAt": "2026-11-02T21:23:44.558Z",
+  "total": 33,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 1785,
-  "avgDurationMs": 1785,
+  "durationMs": 1647,
+  "avgDurationMs": 1647,
   "durationHistory": [
-    1785
+    1647
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Praktikant Service Bankett und Room Service 100% (all genders)",
+      "slug": "praktikant-service-bankett-e-room-service-100-all-genders-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68495232/Praktikant-Service-Bankett-und-Room-Service-100-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68495232/Praktikant-Service-Bankett-und-Room-Service-100-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-11-02T14:15:11.626+01:00",
+      "postedDate": "2026-11-02T14:15:11.626+01:00",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-01-31T21:23:29.595Z",
+      "needsRetranslation": true,
+      "id": "the-living-circle-4ac9279fd303",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-02T21:23:29.595Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
@@ -1333,5 +1377,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

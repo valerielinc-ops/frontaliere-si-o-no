@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-02T09:44:22.629Z",
-  "runId": "41417840730",
+  "assembledAt": "2026-11-02T21:27:32.888Z",
+  "runId": "41525136431",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.777Z",
+      "crawledAt": "2026-11-02T21:27:23.552Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T09:44:13.777Z",
+      "validThrough": "2026-12-02T21:27:23.552Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.775Z",
+      "crawledAt": "2026-11-02T21:27:23.551Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -157,7 +157,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T09:44:13.775Z",
+      "validThrough": "2026-12-02T21:27:23.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.773Z",
+      "crawledAt": "2026-11-02T21:27:23.549Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -236,96 +236,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T09:44:13.773Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-77288cd4a877",
-      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-      "slugByLocale": {
-        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-      "titleByLocale": {
-        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
-      },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-      "descriptionByLocale": {
-        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.771Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T13:56:14.338Z",
-      "postedDate": "2026-10-02T13:56:14.338Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000153192441",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "fr": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.539Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T09:44:13.771Z",
+      "validThrough": "2026-12-02T21:27:23.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +271,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.769Z",
+      "crawledAt": "2026-11-02T21:27:23.548Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -404,7 +315,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:44:13.769Z",
+      "validThrough": "2026-12-07T21:27:23.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -439,7 +350,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.767Z",
+      "crawledAt": "2026-11-02T21:27:23.546Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -499,7 +410,96 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:44:13.767Z",
+      "validThrough": "2026-12-24T21:27:23.546Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-77288cd4a877",
+      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+      "slugByLocale": {
+        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
+        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+      "titleByLocale": {
+        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
+        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      },
+      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+      "descriptionByLocale": {
+        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
+        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
+        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
+        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T21:27:23.544Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T13:56:14.338Z",
+      "postedDate": "2026-10-02T13:56:14.338Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "jobReqId": "744000153192441",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.539Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T21:27:23.544Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -534,7 +534,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.764Z",
+      "crawledAt": "2026-11-02T21:27:23.543Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -581,7 +581,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:44:13.764Z",
+      "validThrough": "2026-12-31T21:27:23.543Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -616,7 +616,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.762Z",
+      "crawledAt": "2026-11-02T21:27:23.542Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -660,7 +660,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:44:13.762Z",
+      "validThrough": "2026-12-31T21:27:23.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -695,7 +695,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.760Z",
+      "crawledAt": "2026-11-02T21:27:23.540Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -742,170 +742,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:44:13.760Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-7d591d30432b",
-      "slug": "agente-sviluppatore-talan-geneva-ge-switzerland",
-      "slugByLocale": {
-        "it": "agente-sviluppatore-talan-geneva-ge-switzerland",
-        "en": "agent-developer-talan-geneva-ge-switzerland",
-        "de": "developpeur-agentique-talan-geneva-ge-switzerland",
-        "fr": "developpeur-agentique-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur Agentique",
-      "titleByLocale": {
-        "it": "Agente Sviluppatore",
-        "en": "Agent Developer",
-        "de": "Agent Developer",
-        "fr": "Développeur Agentique"
-      },
-      "description": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\n Intégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\n Déploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\n Compétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\n Soft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs.",
-      "descriptionByLocale": {
-        "it": "Attuazione del quadro di gestione (Hands-on)\n\n• Progettazione, codice e configurazione di agenti AI specializzati in ogni fase del SDLC (mapping applicabile, specificazione, generazione di codici, test di automazione, documentazione).\n\n• Sviluppare competenze riutilizzabili, comandi e directory contestuali per alimentare il lavoro degli agenti.\n\n• Attuazione di meccanismi di orchestrazione multi-agenti, handoff e loop di validazione umana ( Human-in-the-loop ).\nIntegrazione & Technical Socle\n\n• Assicurare l'integrazione di agenti in pipeline CI/CD, ambienti di sviluppo (IDE) e strumenti di gestione del codice.\n\n• Partecipare all'ottimizzazione dell'ingegneria di contesto e al controllo dei consumi (TokenOps ).\n\n• Assicurare la qualità, la sicurezza e la tracciabilità dei consegnabili prodotti o assistiti da AI.\nDistribuzione operativa e supporto alle squadre\n\n• Sviluppare POC riutilizzabili, dimostranti e modelli per gli sviluppatori.\n\n• Accompagna i team pilota nell'acquisizione operativa del quadro e raccogli feedback dal campo per affinare gli agenti.\n\n& esperienza\n\n• da 5 a 10 anni di esperienza globale nello sviluppo e nell'ingegneria del software (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Esperienza concreta (Hands-on) nello sviluppo e nell'attuazione di quadri artificiali applicati all'ingegneria del software.\nPrincipali competenze tecniche\n\n• Mastery di sviluppo software, architettura, codice pulito, DevOps, pratiche CI/CD e test automatizzati.\n\n• Esperienza con LLM, quadri di sviluppo di agenti autonomi/multi-agenti (agenti, competenze, strumenti, suggerimenti), tecniche RAG e Ingegneria del Contesto.\n\n• Mastery delle moderne estensioni AI e assistenti di codice (Copilota, Cursor, Claude Code, Cline, Windsurf, ecc.).\n\n• Inglese attuale e francese.\nAbilità morbide\n\n• Capacità di supportare la distribuzione del campo di attività tecniche e metodologiche ai team di sviluppo.\n\n• Alta capacità di assimilazione, pragmatismo e reattività per tradurre casi di utilizzo in agenti operativi.\n\n• Capacità di collaborare in un team ibrido (consultanti, architetti, sviluppatori) e di supportare lo sviluppo peer.",
-        "en": "Implementing the Management Framework (Hands-on)\n\n• Design, code and configure specialized AI agents at each phase of the SDLC (applicative mapping, specification, code generation, testing automation, documentation).\n\n• Develop reusable skills, commands and context directories to feed the work of agents.\n\n• Implement multi-agent orchestration mechanisms, handoffs and human validation loops ( Human-in-the-loop ).\nIntegration & Technical Socle\n\n• Ensure the integration of agents into CI/CD pipelines, development environments (IDEs) and code management tools.\n\n• Participate in context engineering optimization and token consumption control ( TokenOps ).\n\n• Ensure the quality, safety and traceability of deliverables produced or assisted by AI.\nOperational Deployment & Support to Teams\n\n• Develop reusable POCs, demonstrators and templates for developers.\n\n• Accompany the pilot teams in the operational take-over of the framework and collect feedback from the field to refine the agents.\n\n& Experience\n\n• 5 to 10 years of global experience in software development and engineering (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Concrete experience (Hands-on) in the development and implementation of artificial frameworks applied to software engineering.\nKey Technical Skills\n\n• Mastery of software development, architecture, clean code, DevOps, CI/CD practices and automated testing.\n\n• Experience with LLMs, autonomous/multi-agent agent development frameworks (agents, skills, tools, prompts), RAG techniques and Context Engineering.\n\n• Mastery of modern AI extensions and code assistants (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Current English & French.\nSoft Skills\n\n• Ability to support the field deployment of technical and methodological assets to development teams.\n\n• High assimilation capacity, pragmatism and responsiveness to translate cases of use into operational agents.\n\n• Ability to collaborate in a hybrid team (consultants, architects, developers) and to support peer development.",
-        "de": "Umsetzung des Management Framework (Hands-on)\n\n• Design, Code und Konfiguration von spezialisierten KI-Agenten in jeder Phase des SDLC (applikatives Mapping, Spezifikation, Codegenerierung, Testautomatisierung, Dokumentation).\n\n• Entwickeln Sie wiederverwendbare Fähigkeiten, Befehle und Kontextverzeichnisse, um die Arbeit von Agenten zu füttern.\n\n• Implementieren Sie Multi-Agent-Orchestrierungsmechanismen, Handoffs und menschliche Validierungsschleifen (Human-in-the-Loop).\nIntegration & Technical Socle\n\n• Gewährleistung der Integration von Agenten in CI/CD-Pipelines, Entwicklungsumgebungen (IDEs) und Code-Management-Tools.\n\n• Beteiligen Sie sich an der Kontextoptimierung und Tokenverbrauchskontrolle (TokenOps).\n\n• Gewährleistung der Qualität, Sicherheit und Rückverfolgbarkeit der von KI produzierten oder unterstützten Produkte.\nOperational Deployment & Support für Teams\n\n• Entwicklung wiederverwendbarer POCs, Demonstratoren und Vorlagen für Entwickler.\n\n• Begleiten Sie die Pilotteams bei der operativen Übernahme des Frameworks und sammeln Sie Feedback aus dem Feld, um die Agenten zu verfeinern.\n\n& Erfahrung\n\n• 5 bis 10 Jahre globale Erfahrung in der Softwareentwicklung und -entwicklung (Seniors / Staff Dev, Software Engineer, Tech Lead).\n\n• Konkrete Erfahrung (Hands-on) in der Entwicklung und Implementierung von künstlichen Frameworks für das Software Engineering.\nTechnische Schlüsselkompetenzen\n\n• Beherrschung von Softwareentwicklung, Architektur, Clean Code, DevOps, CI / CD-Praktiken und automatisiertem Testen.\n\n• Erfahrung mit LLMs, autonomen / Multiagenten-Entwicklungs-Frameworks (Agenten, Fähigkeiten, Werkzeuge, Aufforderungen), RAG-Techniken und Context Engineering.\n\n• Beherrschung moderner KI-Erweiterungen und Code-Assistenten (Copilot, Cursor, Claude Code, Cline, Windsurf usw.).\n\n• Aktuelles Englisch & Französisch.\nSoft Skills\n\n• Fähigkeit, den Einsatz technischer und methodischer Assets in Entwicklungsteams vor Ort zu unterstützen.\n\n• Hohe Assimilationsfähigkeit, Pragmatismus und Reaktionsfähigkeit, um Anwendungsfälle in operative Agenten zu übersetzen.\n\n• Fähigkeit, in einem hybriden Team (Berater, Architekten, Entwickler) zusammenzuarbeiten und die Peer-Entwicklung zu unterstützen.",
-        "fr": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\nIntégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\nDéploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\nCompétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\nSoft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.758Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30T09:26:10.373Z",
-      "postedDate": "2026-10-30T09:26:10.373Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
-      "jobReqId": "744000158697280",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-agentique-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-agentique-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "developpeur-agentique-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-30T09:46:18.726Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:44:13.758Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Responsabile tecnico Fullstack .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Technischer Leiter.NET / C#",
-        "fr": "Tech Lead Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.757Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ],
-        "de": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:44:13.757Z",
+      "validThrough": "2027-01-13T21:27:23.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -940,7 +777,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.748Z",
+      "crawledAt": "2026-11-02T21:27:23.538Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -987,7 +824,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:44:13.748Z",
+      "validThrough": "2027-01-21T21:27:23.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1022,7 +859,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000158714650-head-of-presales-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:44:13.741Z",
+      "crawledAt": "2026-11-02T21:27:23.536Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1069,7 +906,170 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:44:13.741Z",
+      "validThrough": "2027-01-28T21:27:23.536Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-dbc24b5b3f3c",
+      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
+        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Tech Lead Fullstack .NET / C#",
+      "titleByLocale": {
+        "it": "Responsabile tecnico Fullstack .NET / C#",
+        "en": "Fullstack Technical Manager .NET / C#",
+        "de": "Technischer Leiter.NET / C#",
+        "fr": "Tech Lead Fullstack .NET / C#"
+      },
+      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
+        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
+        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
+        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T21:27:23.533Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T13:35:09.147Z",
+      "postedDate": "2026-10-23T13:35:09.147Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "jobReqId": "744000157480029",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ],
+        "de": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.471Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T21:27:23.533Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-7d591d30432b",
+      "slug": "agente-sviluppatore-talan-geneva-ge-switzerland",
+      "slugByLocale": {
+        "it": "agente-sviluppatore-talan-geneva-ge-switzerland",
+        "en": "agent-developer-talan-geneva-ge-switzerland",
+        "de": "developpeur-agentique-talan-geneva-ge-switzerland",
+        "fr": "developpeur-agentique-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur Agentique",
+      "titleByLocale": {
+        "it": "Agente Sviluppatore",
+        "en": "Agent Developer",
+        "de": "Agent Developer",
+        "fr": "Développeur Agentique"
+      },
+      "description": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\n Intégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\n Déploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\n Compétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\n Soft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs.",
+      "descriptionByLocale": {
+        "it": "Attuazione del quadro di gestione (Hands-on)\n\n• Progettazione, codice e configurazione di agenti AI specializzati in ogni fase del SDLC (mapping applicabile, specificazione, generazione di codici, test di automazione, documentazione).\n\n• Sviluppare competenze riutilizzabili, comandi e directory contestuali per alimentare il lavoro degli agenti.\n\n• Attuazione di meccanismi di orchestrazione multi-agenti, handoff e loop di validazione umana ( Human-in-the-loop ).\nIntegrazione & Technical Socle\n\n• Assicurare l'integrazione di agenti in pipeline CI/CD, ambienti di sviluppo (IDE) e strumenti di gestione del codice.\n\n• Partecipare all'ottimizzazione dell'ingegneria di contesto e al controllo dei consumi (TokenOps ).\n\n• Assicurare la qualità, la sicurezza e la tracciabilità dei consegnabili prodotti o assistiti da AI.\nDistribuzione operativa e supporto alle squadre\n\n• Sviluppare POC riutilizzabili, dimostranti e modelli per gli sviluppatori.\n\n• Accompagna i team pilota nell'acquisizione operativa del quadro e raccogli feedback dal campo per affinare gli agenti.\n\n& esperienza\n\n• da 5 a 10 anni di esperienza globale nello sviluppo e nell'ingegneria del software (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Esperienza concreta (Hands-on) nello sviluppo e nell'attuazione di quadri artificiali applicati all'ingegneria del software.\nPrincipali competenze tecniche\n\n• Mastery di sviluppo software, architettura, codice pulito, DevOps, pratiche CI/CD e test automatizzati.\n\n• Esperienza con LLM, quadri di sviluppo di agenti autonomi/multi-agenti (agenti, competenze, strumenti, suggerimenti), tecniche RAG e Ingegneria del Contesto.\n\n• Mastery delle moderne estensioni AI e assistenti di codice (Copilota, Cursor, Claude Code, Cline, Windsurf, ecc.).\n\n• Inglese attuale e francese.\nAbilità morbide\n\n• Capacità di supportare la distribuzione del campo di attività tecniche e metodologiche ai team di sviluppo.\n\n• Alta capacità di assimilazione, pragmatismo e reattività per tradurre casi di utilizzo in agenti operativi.\n\n• Capacità di collaborare in un team ibrido (consultanti, architetti, sviluppatori) e di supportare lo sviluppo peer.",
+        "en": "Implementing the Management Framework (Hands-on)\n\n• Design, code and configure specialized AI agents at each phase of the SDLC (applicative mapping, specification, code generation, testing automation, documentation).\n\n• Develop reusable skills, commands and context directories to feed the work of agents.\n\n• Implement multi-agent orchestration mechanisms, handoffs and human validation loops ( Human-in-the-loop ).\nIntegration & Technical Socle\n\n• Ensure the integration of agents into CI/CD pipelines, development environments (IDEs) and code management tools.\n\n• Participate in context engineering optimization and token consumption control ( TokenOps ).\n\n• Ensure the quality, safety and traceability of deliverables produced or assisted by AI.\nOperational Deployment & Support to Teams\n\n• Develop reusable POCs, demonstrators and templates for developers.\n\n• Accompany the pilot teams in the operational take-over of the framework and collect feedback from the field to refine the agents.\n\n& Experience\n\n• 5 to 10 years of global experience in software development and engineering (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Concrete experience (Hands-on) in the development and implementation of artificial frameworks applied to software engineering.\nKey Technical Skills\n\n• Mastery of software development, architecture, clean code, DevOps, CI/CD practices and automated testing.\n\n• Experience with LLMs, autonomous/multi-agent agent development frameworks (agents, skills, tools, prompts), RAG techniques and Context Engineering.\n\n• Mastery of modern AI extensions and code assistants (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Current English & French.\nSoft Skills\n\n• Ability to support the field deployment of technical and methodological assets to development teams.\n\n• High assimilation capacity, pragmatism and responsiveness to translate cases of use into operational agents.\n\n• Ability to collaborate in a hybrid team (consultants, architects, developers) and to support peer development.",
+        "de": "Umsetzung des Management Framework (Hands-on)\n\n• Design, Code und Konfiguration von spezialisierten KI-Agenten in jeder Phase des SDLC (applikatives Mapping, Spezifikation, Codegenerierung, Testautomatisierung, Dokumentation).\n\n• Entwickeln Sie wiederverwendbare Fähigkeiten, Befehle und Kontextverzeichnisse, um die Arbeit von Agenten zu füttern.\n\n• Implementieren Sie Multi-Agent-Orchestrierungsmechanismen, Handoffs und menschliche Validierungsschleifen (Human-in-the-Loop).\nIntegration & Technical Socle\n\n• Gewährleistung der Integration von Agenten in CI/CD-Pipelines, Entwicklungsumgebungen (IDEs) und Code-Management-Tools.\n\n• Beteiligen Sie sich an der Kontextoptimierung und Tokenverbrauchskontrolle (TokenOps).\n\n• Gewährleistung der Qualität, Sicherheit und Rückverfolgbarkeit der von KI produzierten oder unterstützten Produkte.\nOperational Deployment & Support für Teams\n\n• Entwicklung wiederverwendbarer POCs, Demonstratoren und Vorlagen für Entwickler.\n\n• Begleiten Sie die Pilotteams bei der operativen Übernahme des Frameworks und sammeln Sie Feedback aus dem Feld, um die Agenten zu verfeinern.\n\n& Erfahrung\n\n• 5 bis 10 Jahre globale Erfahrung in der Softwareentwicklung und -entwicklung (Seniors / Staff Dev, Software Engineer, Tech Lead).\n\n• Konkrete Erfahrung (Hands-on) in der Entwicklung und Implementierung von künstlichen Frameworks für das Software Engineering.\nTechnische Schlüsselkompetenzen\n\n• Beherrschung von Softwareentwicklung, Architektur, Clean Code, DevOps, CI / CD-Praktiken und automatisiertem Testen.\n\n• Erfahrung mit LLMs, autonomen / Multiagenten-Entwicklungs-Frameworks (Agenten, Fähigkeiten, Werkzeuge, Aufforderungen), RAG-Techniken und Context Engineering.\n\n• Beherrschung moderner KI-Erweiterungen und Code-Assistenten (Copilot, Cursor, Claude Code, Cline, Windsurf usw.).\n\n• Aktuelles Englisch & Französisch.\nSoft Skills\n\n• Fähigkeit, den Einsatz technischer und methodischer Assets in Entwicklungsteams vor Ort zu unterstützen.\n\n• Hohe Assimilationsfähigkeit, Pragmatismus und Reaktionsfähigkeit, um Anwendungsfälle in operative Agenten zu übersetzen.\n\n• Fähigkeit, in einem hybriden Team (Berater, Architekten, Entwickler) zusammenzuarbeiten und die Peer-Entwicklung zu unterstützen.",
+        "fr": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\nIntégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\nDéploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\nCompétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\nSoft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T21:27:23.521Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30T09:26:10.373Z",
+      "postedDate": "2026-10-30T09:26:10.373Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
+      "jobReqId": "744000158697280",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "developpeur-agentique-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-agentique-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "developpeur-agentique-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-30T09:46:18.726Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T21:27:23.521Z",
       "validThroughSource": "last-observed-window"
     }
   ]

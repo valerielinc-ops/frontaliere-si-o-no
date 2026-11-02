@@ -1,7 +1,7 @@
 {
   "key": "riveneuve",
   "label": "Fondation Rive-Neuve",
-  "generatedAt": "2026-11-02T09:28:36.541Z",
+  "generatedAt": "2026-11-02T21:23:57.073Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8866,
-  "avgDurationMs": 8866,
+  "durationMs": 9994,
+  "avgDurationMs": 9994,
   "durationHistory": [
-    8866
+    9994
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:28:12.680Z",
+      "crawledAt": "2026-11-02T21:23:36.040Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:28:12.680Z",
+      "validThrough": "2026-12-02T21:23:36.040Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:28:11.797Z",
+      "crawledAt": "2026-11-02T21:23:34.830Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:28:11.797Z",
+      "validThrough": "2026-12-02T21:23:34.830Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:28:10.850Z",
+      "crawledAt": "2026-11-02T21:23:33.606Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:28:10.850Z",
+      "validThrough": "2026-12-02T21:23:33.606Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:28:09.904Z",
+      "crawledAt": "2026-11-02T21:23:32.464Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salarySource": "estimated",
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:28:09.904Z",
+      "validThrough": "2026-12-02T21:23:32.464Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -208,5 +208,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

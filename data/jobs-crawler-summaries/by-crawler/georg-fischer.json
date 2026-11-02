@@ -1,7 +1,7 @@
 {
   "key": "georg-fischer",
   "label": "Georg Fischer",
-  "generatedAt": "2026-11-02T11:10:54.154Z",
+  "generatedAt": "2026-11-02T21:53:50.896Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 11573,
-  "avgDurationMs": 11573,
+  "durationMs": 11965,
+  "avgDurationMs": 11965,
   "durationHistory": [
-    11573
+    11965
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SachbearbeiterIn-Kundeninnendienst--m-w-d-_JR11120",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:39.176Z",
+      "crawledAt": "2026-11-02T21:53:27.663Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -68,11 +68,12 @@
         "postalCode": "8200",
         "addressLocality": "Schaffhausen",
         "addressRegion": "SH",
-        "checkedAt": "2026-10-31T20:48:52.002Z"
+        "checkedAt": "2026-10-31T20:48:52.002Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T11:10:39.176Z",
+      "validThrough": "2026-12-03T21:53:27.663Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -95,7 +96,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:38.442Z",
+      "crawledAt": "2026-11-02T21:53:27.049Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -118,7 +119,7 @@
       "postalCode": "4450",
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T11:10:38.442Z",
+      "validThrough": "2026-12-28T21:53:27.049Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -141,7 +142,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:37.626Z",
+      "crawledAt": "2026-11-02T21:53:26.412Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -164,7 +165,7 @@
       "postalCode": "4450",
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T11:10:37.626Z",
+      "validThrough": "2027-01-05T21:53:26.412Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -186,7 +187,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Application-Consultant-Product-Labeling--m-w-d-_JR11187",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:10:36.952Z",
+      "crawledAt": "2026-11-02T21:53:25.784Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -216,11 +217,12 @@
         "postalCode": "8200",
         "addressLocality": "Schaffhausen",
         "addressRegion": "SH",
-        "checkedAt": "2026-10-31T20:48:52.002Z"
+        "checkedAt": "2026-10-31T20:48:52.002Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T11:10:36.952Z",
+      "validThrough": "2027-01-07T21:53:25.784Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -242,7 +244,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SAP-Consultant--m-f-d-_JR11485",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:10:36.231Z",
+      "crawledAt": "2026-11-02T21:53:25.154Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -272,11 +274,12 @@
         "postalCode": "8200",
         "addressLocality": "Schaffhausen",
         "addressRegion": "SH",
-        "checkedAt": "2026-10-31T20:48:52.002Z"
+        "checkedAt": "2026-10-31T20:48:52.002Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T11:10:36.231Z",
+      "validThrough": "2027-01-13T21:53:25.154Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -299,7 +302,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/ProduktionsplanerIn--m-w-d---80-_JR11554",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:35.495Z",
+      "crawledAt": "2026-11-02T21:53:24.522Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -329,11 +332,12 @@
         "postalCode": "8200",
         "addressLocality": "Schaffhausen",
         "addressRegion": "SH",
-        "checkedAt": "2026-10-31T20:48:52.002Z"
+        "checkedAt": "2026-10-31T20:48:52.002Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-14T11:10:35.495Z",
+      "validThrough": "2027-01-14T21:53:24.522Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -356,7 +360,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/AutomatikerIn--m-w-d-_JR11484-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:34.714Z",
+      "crawledAt": "2026-11-02T21:53:23.854Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -380,7 +384,7 @@
       "postalCode": "4450",
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T11:10:34.714Z",
+      "validThrough": "2027-01-14T21:53:23.854Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -403,7 +407,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Microscopy---Analytics-Expert--m-f-d-_JR11455-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:34.057Z",
+      "crawledAt": "2026-11-02T21:53:23.223Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -433,11 +437,12 @@
         "postalCode": "8200",
         "addressLocality": "Schaffhausen",
         "addressRegion": "SH",
-        "checkedAt": "2026-10-31T20:48:52.002Z"
+        "checkedAt": "2026-10-31T20:48:52.002Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Amsler-Laffon-Strasse 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-20T11:10:34.057Z",
+      "validThrough": "2027-01-20T21:53:23.223Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -460,7 +465,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:33.251Z",
+      "crawledAt": "2026-11-02T21:53:22.577Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -484,7 +489,7 @@
       "postalCode": "7000",
       "streetAddress": "Seewis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T11:10:33.251Z",
+      "validThrough": "2026-12-20T21:53:22.577Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -507,7 +512,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schlatt-Thurgau/Praktikant-in-GF-Konzernarchiv-und-Eisenbibliothek--w-m-d---100---9---12-Monate_JR11632",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:32.464Z",
+      "crawledAt": "2026-11-02T21:53:21.928Z",
       "addressLocality": "Schlatt, Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -531,7 +536,7 @@
       "postalCode": "8252",
       "streetAddress": "Schlatt, Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T11:10:32.464Z",
+      "validThrough": "2027-01-24T21:53:21.928Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -542,5 +547,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

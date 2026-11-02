@@ -74,8 +74,17 @@ describe('article publisher replay guard', () => {
     expect(hasWorkflowDispatch('name: x\non:\n  workflow_dispatch: {}\n')).toBe(true);
     expect(hasWorkflowDispatch('name: x\non: workflow_dispatch\n')).toBe(true);
     expect(hasWorkflowDispatch('name: x\non: [workflow_dispatch]\n')).toBe(true);
+    expect(hasWorkflowDispatch('name: x\non: [push, "workflow_dispatch"]\n')).toBe(true);
+    expect(hasWorkflowDispatch('name: x\non: { workflow_dispatch: {} }\n')).toBe(true);
+    expect(hasWorkflowDispatch('name: x\non:\n  - push\n  - workflow_dispatch\n')).toBe(true);
     expect(hasWorkflowDispatch('name: x\non:\n  push:\n    branches: [main]\n')).toBe(false);
+    expect(hasWorkflowDispatch('# workflow_dispatch\nname: x\non:\n  push:\n    workflow_dispatch: {}\n')).toBe(false);
     expect(hasWorkflowDispatch('not: [yaml')).toBe(false);
+  });
+
+  it('keeps the bare-checkout recovery script free of runtime YAML dependencies', () => {
+    const source = readFileSync(new URL('../../scripts/ci/request-article-publisher-replay.mjs', import.meta.url), 'utf8');
+    expect(source).not.toMatch(/from ['"]yaml['"]/u);
   });
 
   it('claims the cooldown before dispatching after the issue threshold', () => {

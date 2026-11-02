@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-11-02T09:44:06.078Z",
-  "runId": "41417568328",
+  "assembledAt": "2026-11-02T21:33:44.071Z",
+  "runId": "41524809246",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -34,7 +34,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:44:00.696Z",
+      "crawledAt": "2026-11-02T21:33:35.794Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:44:00.696Z",
+      "validThrough": "2026-12-02T21:33:35.794Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/495789",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:55.204Z",
+      "crawledAt": "2026-11-02T21:33:30.677Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -158,7 +158,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:55.204Z",
+      "validThrough": "2026-12-02T21:33:30.677Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502220",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:43:52.321Z",
+      "crawledAt": "2026-11-02T21:33:28.264Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -237,7 +237,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:52.321Z",
+      "validThrough": "2026-12-02T21:33:28.264Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -271,7 +271,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512222",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:43:49.367Z",
+      "crawledAt": "2026-11-02T21:33:25.953Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -316,7 +316,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:49.367Z",
+      "validThrough": "2026-12-02T21:33:25.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -350,7 +350,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/515121",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:43:46.369Z",
+      "crawledAt": "2026-11-02T21:33:23.725Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -395,7 +395,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:46.369Z",
+      "validThrough": "2026-12-02T21:33:23.725Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/515676",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:43:43.425Z",
+      "crawledAt": "2026-11-02T21:33:21.189Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -477,7 +477,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:43.425Z",
+      "validThrough": "2026-12-02T21:33:21.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -511,7 +511,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/515971",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:43:40.479Z",
+      "crawledAt": "2026-11-02T21:33:18.786Z",
       "addressLocality": "St. Blaise",
       "addressRegion": "NE",
       "streetAddress": "St. Blaise",
@@ -556,7 +556,80 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:40.479Z",
+      "validThrough": "2026-12-02T21:33:18.786Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siemens-890c6a1fdb58",
+      "slug": "ai-data-scientist-80-100-siemens-zug",
+      "slugByLocale": {
+        "en": "ai-data-scientist-80-100-siemens-zug",
+        "fr": "chercheur-en-donnees-ai-80-100-siemens-zug",
+        "it": "ai-data-scientist-80-100-siemens-zug",
+        "de": "ai-data-scientist-80-100-siemens-zug"
+      },
+      "company": "Siemens",
+      "companyKey": "siemens",
+      "companyDomain": "siemens.com",
+      "title": "AI Data Scientist 80-100%",
+      "titleByLocale": {
+        "en": "AI Data Scientist 80-100%",
+        "it": "AI Data Scientist 80-100%",
+        "de": "AI Data Scientist 80-100%",
+        "fr": "AI Data Scientist 80-100%"
+      },
+      "description": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. As a Data Scientist, you will turn data, domain knowledge, and advanced AI methods into scalable, measurable, and trustworthy capabilities for SI Buildings Product (SI B PRO). This is a high-impact role for a hands-on AI and data professional who wants to work at the center of a new team shaping how Generative AI, machine learning, and data-driven decision-making are applied across product development. In this role, you will contribute to design, prototype, validate, and operationalize AI-enabled solutions across software and firmware development lifecycles. You will bring strong analytical, statistical, and machine learning expertise to transform complex engineering data into insights, models, evaluation frameworks, and reusable data products. Working at the intersection of data science, AI engineering and product development, you will help ensure that AI initiatives are not only innovative, but also robust, explainable, valuable for engineering teams, secure and compliant. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of AI Data Scientist – your team is looking forward to meeting you! Your new responsibilities\n• Design, develop, and validate machine learning, Generative AI, and advanced analytics solutions that support product development, engineering productivity, quality improvement, cybersecurity, and decision-making across our SDLC\n• Support the development of AI-assisted and agentic capabilities across requirements engineering, architecture analysis, coding, testing, security, vulnerability management, release readiness, and lifecycle management by applying data science methods to real engineering workflows\n• Build prototypes, proof-of-concepts, and evaluation pipelines for LLM-based applications, RAG solutions, agentic workflows, classification models, prediction models, and AI-assisted engineering use cases, ensuring that feasibility, quality, and measurable value are assessed early and continuously\n• Identify, acquire, clean, structure, and enrich data from engineering toolchains, repositories, documentation, requirements, test systems, vulnerability sources, and enterprise platforms to make it usable for AI and analytics solutions\n• Define and implement evaluation approaches, performance metrics, validation methods, monitoring concepts, and quality criteria for AI models and GenAI applications, with attention to explainability, robustness, bias, privacy, security, and responsible AI principles\n• Create reusable datasets, embeddings, feature stores, notebooks, pipelines, model evaluation assets, and documentation that enable scalable adoption and repeatable delivery of AI capabilities across teams and use cases\n• Explore emerging AI, machine learning, data science, and GenAI techniques, frameworks, and tools, and assess their applicability for SI B PRO use cases in collaboration with the AI Core team and engineering stakeholders Your talents and experience\n• Bachelor’s or Master’s degree in Data Science, Computer Science, Artificial Intelligence, Statistics, Mathematics, Software Engineering, Physics, or a related technical field\n• Several years of hands-on experience in data science, machine learning, AI engineering, applied analytics, or related technical roles, ideally in engineering or industrial technology environments (min. 5 years)\n• Good understanding of data engineering foundations, including data pipelines, APIs, databases, versioning, data quality, metadata, and reproducible experimentation\n• Strong practical experience with programming languages and common data science and machine learning ecosystems, including data processing, model development, experimentation, evaluation, and visualization\n• Understanding of software and firmware development lifecycles, DevSecOps practices, cybersecurity considerations, and how AI can support engineering workflows in a secure and scalable way\n• Hands-on exposure to Generative AI solutions, including LLM-based applications, prompt engineering, embeddings, retrieval-augmented generation, evaluation of GenAI outputs, and ideally agentic AI workflows and experience with machine learning methods\n• Ability to work with complex and heterogeneous engineering data, such as requirements, source code metadata, test results, logs, documentation, vulnerability information, and lifecycle artifacts\n• Awareness of AI governance, privacy, responsible AI, model risk, explainability, and regulatory expectations relevant to enterprise AI adoption\n• Good communication and collaboration skills, with the ability to explain data science concepts to architects, product owners, engineers, cybersecurity experts, and business stakeholders\n• Fluent in English Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+      "descriptionByLocale": {
+        "en": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. As a Data Scientist, you will turn data, domain knowledge, and advanced AI methods into scalable, measurable, and trustworthy capabilities for SI Buildings Product (SI B PRO). This is a high-impact role for a hands-on AI and data professional who wants to work at the center of a new team shaping how Generative AI, machine learning, and data-driven decision-making are applied across product development. In this role, you will contribute to design, prototype, validate, and operationalize AI-enabled solutions across software and firmware development lifecycles. You will bring strong analytical, statistical, and machine learning expertise to transform complex engineering data into insights, models, evaluation frameworks, and reusable data products. Working at the intersection of data science, AI engineering and product development, you will help ensure that AI initiatives are not only innovative, but also robust, explainable, valuable for engineering teams, secure and compliant. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of AI Data Scientist – your team is looking forward to meeting you! Your new responsibilities\n• Design, develop, and validate machine learning, Generative AI, and advanced analytics solutions that support product development, engineering productivity, quality improvement, cybersecurity, and decision-making across our SDLC\n• Support the development of AI-assisted and agentic capabilities across requirements engineering, architecture analysis, coding, testing, security, vulnerability management, release readiness, and lifecycle management by applying data science methods to real engineering workflows\n• Build prototypes, proof-of-concepts, and evaluation pipelines for LLM-based applications, RAG solutions, agentic workflows, classification models, prediction models, and AI-assisted engineering use cases, ensuring that feasibility, quality, and measurable value are assessed early and continuously\n• Identify, acquire, clean, structure, and enrich data from engineering toolchains, repositories, documentation, requirements, test systems, vulnerability sources, and enterprise platforms to make it usable for AI and analytics solutions\n• Define and implement evaluation approaches, performance metrics, validation methods, monitoring concepts, and quality criteria for AI models and GenAI applications, with attention to explainability, robustness, bias, privacy, security, and responsible AI principles\n• Create reusable datasets, embeddings, feature stores, notebooks, pipelines, model evaluation assets, and documentation that enable scalable adoption and repeatable delivery of AI capabilities across teams and use cases\n• Explore emerging AI, machine learning, data science, and GenAI techniques, frameworks, and tools, and assess their applicability for SI B PRO use cases in collaboration with the AI Core team and engineering stakeholders Your talents and experience\n• Bachelor’s or Master’s degree in Data Science, Computer Science, Artificial Intelligence, Statistics, Mathematics, Software Engineering, Physics, or a related technical field\n• Several years of hands-on experience in data science, machine learning, AI engineering, applied analytics, or related technical roles, ideally in engineering or industrial technology environments (min. 5 years)\n• Good understanding of data engineering foundations, including data pipelines, APIs, databases, versioning, data quality, metadata, and reproducible experimentation\n• Strong practical experience with programming languages and common data science and machine learning ecosystems, including data processing, model development, experimentation, evaluation, and visualization\n• Understanding of software and firmware development lifecycles, DevSecOps practices, cybersecurity considerations, and how AI can support engineering workflows in a secure and scalable way\n• Hands-on exposure to Generative AI solutions, including LLM-based applications, prompt engineering, embeddings, retrieval-augmented generation, evaluation of GenAI outputs, and ideally agentic AI workflows and experience with machine learning methods\n• Ability to work with complex and heterogeneous engineering data, such as requirements, source code metadata, test results, logs, documentation, vulnerability information, and lifecycle artifacts\n• Awareness of AI governance, privacy, responsible AI, model risk, explainability, and regulatory expectations relevant to enterprise AI adoption\n• Good communication and collaboration skills, with the ability to explain data science concepts to architects, product owners, engineers, cybersecurity experts, and business stakeholders\n• Fluent in English Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+        "it": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. As a Data Scientist, you will turn data, domain knowledge, and advanced AI methods into scalable, measurable, and trustworthy capabilities for SI Buildings Product (SI B PRO). This is a high-impact role for a hands-on AI and data professional who wants to work at the center of a new team shaping how Generative AI, machine learning, and data-driven decision-making are applied across product development. In this role, you will contribute to design, prototype, validate, and operationalize AI-enabled solutions across software and firmware development lifecycles. You will bring strong analytical, statistical, and machine learning expertise to transform complex engineering data into insights, models, evaluation frameworks, and reusable data products. Working at the intersection of data science, AI engineering and product development, you will help ensure that AI initiatives are not only innovative, but also robust, explainable, valuable for engineering teams, secure and compliant. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of AI Data Scientist – your team is looking forward to meeting you! Your new responsibilities\n• Design, develop, and validate machine learning, Generative AI, and advanced analytics solutions that support product development, engineering productivity, quality improvement, cybersecurity, and decision-making across our SDLC\n• Support the development of AI-assisted and agentic capabilities across requirements engineering, architecture analysis, coding, testing, security, vulnerability management, release readiness, and lifecycle management by applying data science methods to real engineering workflows\n• Build prototypes, proof-of-concepts, and evaluation pipelines for LLM-based applications, RAG solutions, agentic workflows, classification models, prediction models, and AI-assisted engineering use cases, ensuring that feasibility, quality, and measurable value are assessed early and continuously\n• Identify, acquire, clean, structure, and enrich data from engineering toolchains, repositories, documentation, requirements, test systems, vulnerability sources, and enterprise platforms to make it usable for AI and analytics solutions\n• Define and implement evaluation approaches, performance metrics, validation methods, monitoring concepts, and quality criteria for AI models and GenAI applications, with attention to explainability, robustness, bias, privacy, security, and responsible AI principles\n• Create reusable datasets, embeddings, feature stores, notebooks, pipelines, model evaluation assets, and documentation that enable scalable adoption and repeatable delivery of AI capabilities across teams and use cases\n• Explore emerging AI, machine learning, data science, and GenAI techniques, frameworks, and tools, and assess their applicability for SI B PRO use cases in collaboration with the AI Core team and engineering stakeholders Your talents and experience\n• Bachelor’s or Master’s degree in Data Science, Computer Science, Artificial Intelligence, Statistics, Mathematics, Software Engineering, Physics, or a related technical field\n• Several years of hands-on experience in data science, machine learning, AI engineering, applied analytics, or related technical roles, ideally in engineering or industrial technology environments (min. 5 years)\n• Good understanding of data engineering foundations, including data pipelines, APIs, databases, versioning, data quality, metadata, and reproducible experimentation\n• Strong practical experience with programming languages and common data science and machine learning ecosystems, including data processing, model development, experimentation, evaluation, and visualization\n• Understanding of software and firmware development lifecycles, DevSecOps practices, cybersecurity considerations, and how AI can support engineering workflows in a secure and scalable way\n• Hands-on exposure to Generative AI solutions, including LLM-based applications, prompt engineering, embeddings, retrieval-augmented generation, evaluation of GenAI outputs, and ideally agentic AI workflows and experience with machine learning methods\n• Ability to work with complex and heterogeneous engineering data, such as requirements, source code metadata, test results, logs, documentation, vulnerability information, and lifecycle artifacts\n• Awareness of AI governance, privacy, responsible AI, model risk, explainability, and regulatory expectations relevant to enterprise AI adoption\n• Good communication and collaboration skills, with the ability to explain data science concepts to architects, product owners, engineers, cybersecurity experts, and business stakeholders\n• Fluent in English Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+        "de": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. As a Data Scientist, you will turn data, domain knowledge, and advanced AI methods into scalable, measurable, and trustworthy capabilities for SI Buildings Product (SI B PRO). This is a high-impact role for a hands-on AI and data professional who wants to work at the center of a new team shaping how Generative AI, machine learning, and data-driven decision-making are applied across product development. In this role, you will contribute to design, prototype, validate, and operationalize AI-enabled solutions across software and firmware development lifecycles. You will bring strong analytical, statistical, and machine learning expertise to transform complex engineering data into insights, models, evaluation frameworks, and reusable data products. Working at the intersection of data science, AI engineering and product development, you will help ensure that AI initiatives are not only innovative, but also robust, explainable, valuable for engineering teams, secure and compliant. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of AI Data Scientist – your team is looking forward to meeting you! Your new responsibilities\n• Design, develop, and validate machine learning, Generative AI, and advanced analytics solutions that support product development, engineering productivity, quality improvement, cybersecurity, and decision-making across our SDLC\n• Support the development of AI-assisted and agentic capabilities across requirements engineering, architecture analysis, coding, testing, security, vulnerability management, release readiness, and lifecycle management by applying data science methods to real engineering workflows\n• Build prototypes, proof-of-concepts, and evaluation pipelines for LLM-based applications, RAG solutions, agentic workflows, classification models, prediction models, and AI-assisted engineering use cases, ensuring that feasibility, quality, and measurable value are assessed early and continuously\n• Identify, acquire, clean, structure, and enrich data from engineering toolchains, repositories, documentation, requirements, test systems, vulnerability sources, and enterprise platforms to make it usable for AI and analytics solutions\n• Define and implement evaluation approaches, performance metrics, validation methods, monitoring concepts, and quality criteria for AI models and GenAI applications, with attention to explainability, robustness, bias, privacy, security, and responsible AI principles\n• Create reusable datasets, embeddings, feature stores, notebooks, pipelines, model evaluation assets, and documentation that enable scalable adoption and repeatable delivery of AI capabilities across teams and use cases\n• Explore emerging AI, machine learning, data science, and GenAI techniques, frameworks, and tools, and assess their applicability for SI B PRO use cases in collaboration with the AI Core team and engineering stakeholders Your talents and experience\n• Bachelor’s or Master’s degree in Data Science, Computer Science, Artificial Intelligence, Statistics, Mathematics, Software Engineering, Physics, or a related technical field\n• Several years of hands-on experience in data science, machine learning, AI engineering, applied analytics, or related technical roles, ideally in engineering or industrial technology environments (min. 5 years)\n• Good understanding of data engineering foundations, including data pipelines, APIs, databases, versioning, data quality, metadata, and reproducible experimentation\n• Strong practical experience with programming languages and common data science and machine learning ecosystems, including data processing, model development, experimentation, evaluation, and visualization\n• Understanding of software and firmware development lifecycles, DevSecOps practices, cybersecurity considerations, and how AI can support engineering workflows in a secure and scalable way\n• Hands-on exposure to Generative AI solutions, including LLM-based applications, prompt engineering, embeddings, retrieval-augmented generation, evaluation of GenAI outputs, and ideally agentic AI workflows and experience with machine learning methods\n• Ability to work with complex and heterogeneous engineering data, such as requirements, source code metadata, test results, logs, documentation, vulnerability information, and lifecycle artifacts\n• Awareness of AI governance, privacy, responsible AI, model risk, explainability, and regulatory expectations relevant to enterprise AI adoption\n• Good communication and collaboration skills, with the ability to explain data science concepts to architects, product owners, engineers, cybersecurity experts, and business stakeholders\n• Fluent in English Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+        "fr": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. The digital transformation of buildings is a fast-changing, dynamic sector, and it needs more than just great technology - it needs great people, too. We know a business only thrives if its people are thriving, so at Siemens we put our people first. Within our buildings business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. As a Data Scientist, you will turn data, domain knowledge, and advanced AI methods into scalable, measurable, and trustworthy capabilities for SI Buildings Product (SI B PRO). This is a high-impact role for a hands-on AI and data professional who wants to work at the center of a new team shaping how Generative AI, machine learning, and data-driven decision-making are applied across product development. In this role, you will contribute to design, prototype, validate, and operationalize AI-enabled solutions across software and firmware development lifecycles. You will bring strong analytical, statistical, and machine learning expertise to transform complex engineering data into insights, models, evaluation frameworks, and reusable data products. Working at the intersection of data science, AI engineering and product development, you will help ensure that AI initiatives are not only innovative, but also robust, explainable, valuable for engineering teams, secure and compliant. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of AI Data Scientist – your team is looking forward to meeting you! Your new responsibilities\n• Design, develop, and validate machine learning, Generative AI, and advanced analytics solutions that support product development, engineering productivity, quality improvement, cybersecurity, and decision-making across our SDLC\n• Support the development of AI-assisted and agentic capabilities across requirements engineering, architecture analysis, coding, testing, security, vulnerability management, release readiness, and lifecycle management by applying data science methods to real engineering workflows\n• Build prototypes, proof-of-concepts, and evaluation pipelines for LLM-based applications, RAG solutions, agentic workflows, classification models, prediction models, and AI-assisted engineering use cases, ensuring that feasibility, quality, and measurable value are assessed early and continuously\n• Identify, acquire, clean, structure, and enrich data from engineering toolchains, repositories, documentation, requirements, test systems, vulnerability sources, and enterprise platforms to make it usable for AI and analytics solutions\n• Define and implement evaluation approaches, performance metrics, validation methods, monitoring concepts, and quality criteria for AI models and GenAI applications, with attention to explainability, robustness, bias, privacy, security, and responsible AI principles\n• Create reusable datasets, embeddings, feature stores, notebooks, pipelines, model evaluation assets, and documentation that enable scalable adoption and repeatable delivery of AI capabilities across teams and use cases\n• Explore emerging AI, machine learning, data science, and GenAI techniques, frameworks, and tools, and assess their applicability for SI B PRO use cases in collaboration with the AI Core team and engineering stakeholders Your talents and experience\n• Bachelor’s or Master’s degree in Data Science, Computer Science, Artificial Intelligence, Statistics, Mathematics, Software Engineering, Physics, or a related technical field\n• Several years of hands-on experience in data science, machine learning, AI engineering, applied analytics, or related technical roles, ideally in engineering or industrial technology environments (min. 5 years)\n• Good understanding of data engineering foundations, including data pipelines, APIs, databases, versioning, data quality, metadata, and reproducible experimentation\n• Strong practical experience with programming languages and common data science and machine learning ecosystems, including data processing, model development, experimentation, evaluation, and visualization\n• Understanding of software and firmware development lifecycles, DevSecOps practices, cybersecurity considerations, and how AI can support engineering workflows in a secure and scalable way\n• Hands-on exposure to Generative AI solutions, including LLM-based applications, prompt engineering, embeddings, retrieval-augmented generation, evaluation of GenAI outputs, and ideally agentic AI workflows and experience with machine learning methods\n• Ability to work with complex and heterogeneous engineering data, such as requirements, source code metadata, test results, logs, documentation, vulnerability information, and lifecycle artifacts\n• Awareness of AI governance, privacy, responsible AI, model risk, explainability, and regulatory expectations relevant to enterprise AI adoption\n• Good communication and collaboration skills, with the ability to explain data science concepts to architects, product owners, engineers, cybersecurity experts, and business stakeholders\n• Fluent in English Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512374",
+      "source": "Siemens Dedicated Parser (Avature)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-02T21:33:16.230Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Zug",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-03",
+      "postedDate": "2026-08-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512374",
+      "jobReqId": "512374",
+      "hiringOrganizationName": "Siemens Schweiz AG, Smart Infrastructure, Global Headquarters",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T21:33:16.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -590,7 +663,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519495",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:37.678Z",
+      "crawledAt": "2026-11-02T21:33:13.636Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -646,7 +719,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:37.678Z",
+      "validThrough": "2026-12-02T21:33:13.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -680,7 +753,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/520015",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:43:34.891Z",
+      "crawledAt": "2026-11-02T21:33:11.017Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -717,7 +790,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:34.891Z",
+      "validThrough": "2026-12-02T21:33:11.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -751,7 +824,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/520431",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:32.078Z",
+      "crawledAt": "2026-11-02T21:33:08.424Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Reinach",
@@ -796,7 +869,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:32.078Z",
+      "validThrough": "2026-12-02T21:33:08.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -830,7 +903,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/516981",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:29.245Z",
+      "crawledAt": "2026-11-02T21:33:05.972Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Aarau",
@@ -897,7 +970,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:29.245Z",
+      "validThrough": "2026-12-02T21:33:05.972Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -931,7 +1004,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519503",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:26.603Z",
+      "crawledAt": "2026-11-02T21:33:03.663Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -988,7 +1061,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:43:26.603Z",
+      "validThrough": "2026-12-02T21:33:03.663Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1022,7 +1095,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509402",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:43:23.514Z",
+      "crawledAt": "2026-11-02T21:33:01.239Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "Plan",
@@ -1070,7 +1143,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:43:23.514Z",
+      "validThrough": "2026-12-06T21:33:01.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1104,7 +1177,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/521537",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:43:18.374Z",
+      "crawledAt": "2026-11-02T21:32:56.035Z",
       "addressLocality": "Corminboeuf",
       "addressRegion": "FR",
       "streetAddress": "Corminboeuf",
@@ -1152,7 +1225,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:43:18.374Z",
+      "validThrough": "2026-12-13T21:32:56.035Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1186,7 +1259,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519652",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:15.647Z",
+      "crawledAt": "2026-11-02T21:32:53.738Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1231,7 +1304,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:43:15.647Z",
+      "validThrough": "2026-12-15T21:32:53.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1265,7 +1338,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/522590",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:43:12.660Z",
+      "crawledAt": "2026-11-02T21:32:51.181Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "Plan",
@@ -1316,7 +1389,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:43:12.660Z",
+      "validThrough": "2026-12-15T21:32:51.181Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1350,7 +1423,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/521574",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:10.013Z",
+      "crawledAt": "2026-11-02T21:32:48.648Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1395,7 +1468,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:43:10.013Z",
+      "validThrough": "2026-12-16T21:32:48.648Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1429,7 +1502,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523239",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:43:07.365Z",
+      "crawledAt": "2026-11-02T21:32:46.192Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -1480,7 +1553,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:43:07.365Z",
+      "validThrough": "2026-12-20T21:32:46.192Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1514,7 +1587,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509175",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:58.429Z",
+      "crawledAt": "2026-11-02T21:32:38.592Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Basel",
@@ -1570,7 +1643,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:42:58.429Z",
+      "validThrough": "2026-12-22T21:32:38.592Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1604,7 +1677,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523573",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:55.608Z",
+      "crawledAt": "2026-11-02T21:32:34.791Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
@@ -1657,7 +1730,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:42:55.608Z",
+      "validThrough": "2026-12-22T21:32:34.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1691,7 +1764,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/522464",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:52.925Z",
+      "crawledAt": "2026-11-02T21:32:32.447Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -1750,7 +1823,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:42:52.925Z",
+      "validThrough": "2026-12-24T21:32:32.447Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1784,7 +1857,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523703",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:49.482Z",
+      "crawledAt": "2026-11-02T21:32:30.108Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1829,7 +1902,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:42:49.482Z",
+      "validThrough": "2026-12-24T21:32:30.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1863,7 +1936,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524032",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:42:43.614Z",
+      "crawledAt": "2026-11-02T21:32:25.583Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -1911,7 +1984,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:42:43.614Z",
+      "validThrough": "2026-12-27T21:32:25.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1945,7 +2018,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524192",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:40.822Z",
+      "crawledAt": "2026-11-02T21:32:23.461Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1995,7 +2068,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:42:40.822Z",
+      "validThrough": "2026-12-28T21:32:23.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2029,7 +2102,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524205",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:42:38.402Z",
+      "crawledAt": "2026-11-02T21:32:20.941Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2066,7 +2139,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:42:38.402Z",
+      "validThrough": "2026-12-28T21:32:20.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2100,7 +2173,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523745",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:35.769Z",
+      "crawledAt": "2026-11-02T21:32:18.564Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Reinach",
@@ -2151,7 +2224,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:42:35.769Z",
+      "validThrough": "2026-12-31T21:32:18.564Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2185,7 +2258,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524986",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:42:33.360Z",
+      "crawledAt": "2026-11-02T21:32:16.225Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "Plan",
@@ -2230,7 +2303,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:42:33.360Z",
+      "validThrough": "2027-01-05T21:32:16.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2264,7 +2337,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524909",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:30.641Z",
+      "crawledAt": "2026-11-02T21:32:13.929Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Chur",
@@ -2315,7 +2388,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:42:30.641Z",
+      "validThrough": "2027-01-06T21:32:13.929Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2349,7 +2422,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525449",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:42:27.844Z",
+      "crawledAt": "2026-11-02T21:32:11.569Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2394,7 +2467,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:42:27.844Z",
+      "validThrough": "2027-01-11T21:32:11.569Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2428,7 +2501,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525913",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:42:24.998Z",
+      "crawledAt": "2026-11-02T21:32:09.190Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2465,7 +2538,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:42:24.998Z",
+      "validThrough": "2027-01-13T21:32:09.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2499,7 +2572,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526077",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:22.398Z",
+      "crawledAt": "2026-11-02T21:32:06.840Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -2552,7 +2625,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:42:22.398Z",
+      "validThrough": "2027-01-14T21:32:06.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2586,7 +2659,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526146",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:19.708Z",
+      "crawledAt": "2026-11-02T21:32:04.296Z",
       "addressLocality": "Camorino",
       "addressRegion": "TI",
       "streetAddress": "Camorino",
@@ -2623,7 +2696,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:42:19.708Z",
+      "validThrough": "2027-01-17T21:32:04.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2657,7 +2730,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526305",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:17.069Z",
+      "crawledAt": "2026-11-02T21:32:01.724Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2713,7 +2786,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:42:17.069Z",
+      "validThrough": "2027-01-17T21:32:01.724Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2747,7 +2820,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/516019",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T09:42:14.235Z",
+      "crawledAt": "2026-11-02T21:31:59.289Z",
       "addressLocality": "Camorino",
       "addressRegion": "TI",
       "streetAddress": "Camorino",
@@ -2809,7 +2882,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:42:14.235Z",
+      "validThrough": "2026-12-23T21:31:59.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2843,7 +2916,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/518918",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:11.112Z",
+      "crawledAt": "2026-11-02T21:31:56.818Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -2893,7 +2966,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:42:11.112Z",
+      "validThrough": "2026-12-23T21:31:56.818Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2927,7 +3000,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519416",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:07.789Z",
+      "crawledAt": "2026-11-02T21:31:54.483Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -2972,7 +3045,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:42:07.789Z",
+      "validThrough": "2027-01-04T21:31:54.483Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3006,7 +3079,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519890",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:04.503Z",
+      "crawledAt": "2026-11-02T21:31:51.940Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -3051,7 +3124,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:42:04.503Z",
+      "validThrough": "2026-12-23T21:31:51.940Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3085,7 +3158,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/521878",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:42:01.330Z",
+      "crawledAt": "2026-11-02T21:31:49.405Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -3136,7 +3209,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:42:01.330Z",
+      "validThrough": "2026-12-23T21:31:49.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3170,7 +3243,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523770",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:41:58.557Z",
+      "crawledAt": "2026-11-02T21:31:46.850Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -3218,7 +3291,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:41:58.557Z",
+      "validThrough": "2026-12-30T21:31:46.850Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3252,7 +3325,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524996",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:41:55.746Z",
+      "crawledAt": "2026-11-02T21:31:44.387Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -3308,7 +3381,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:41:55.746Z",
+      "validThrough": "2027-01-05T21:31:44.387Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3342,7 +3415,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525570",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:41:52.926Z",
+      "crawledAt": "2026-11-02T21:31:42.074Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "Root",
@@ -3390,7 +3463,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:41:52.926Z",
+      "validThrough": "2027-01-18T21:31:42.074Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3424,7 +3497,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526341",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:41:49.940Z",
+      "crawledAt": "2026-11-02T21:31:39.802Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3477,7 +3550,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:41:49.940Z",
+      "validThrough": "2027-01-19T21:31:39.802Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3511,7 +3584,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526933",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:41:43.902Z",
+      "crawledAt": "2026-11-02T21:31:34.952Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3548,7 +3621,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:41:43.902Z",
+      "validThrough": "2027-01-24T21:31:34.952Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3582,7 +3655,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526594",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:41:41.230Z",
+      "crawledAt": "2026-11-02T21:31:32.615Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -3633,7 +3706,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:41:41.230Z",
+      "validThrough": "2027-01-25T21:31:32.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3667,7 +3740,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523623",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:41:38.196Z",
+      "crawledAt": "2026-11-02T21:31:30.286Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3704,7 +3777,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:41:38.196Z",
+      "validThrough": "2027-01-25T21:31:30.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3738,7 +3811,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527229",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:41:35.236Z",
+      "crawledAt": "2026-11-02T21:31:27.797Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
@@ -3786,7 +3859,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:41:35.236Z",
+      "validThrough": "2027-01-25T21:31:27.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3820,7 +3893,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519646",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:41:32.288Z",
+      "crawledAt": "2026-11-02T21:31:25.194Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bern",
@@ -3879,7 +3952,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:41:32.288Z",
+      "validThrough": "2026-12-08T21:31:25.194Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3913,7 +3986,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527411",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:41:29.348Z",
+      "crawledAt": "2026-11-02T21:31:22.673Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3950,7 +4023,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:41:29.348Z",
+      "validThrough": "2027-01-26T21:31:22.673Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3984,7 +4057,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527481",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:41:26.445Z",
+      "crawledAt": "2026-11-02T21:31:20.131Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -4029,7 +4102,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:41:26.445Z",
+      "validThrough": "2027-01-27T21:31:20.131Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4063,7 +4136,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527239",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:41:23.759Z",
+      "crawledAt": "2026-11-02T21:31:17.778Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "Renens",
@@ -4100,8 +4173,156 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:41:23.759Z",
+      "validThrough": "2027-01-28T21:31:17.778Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siemens-a60c7bbc1b02",
+      "slug": "data-governance-specialist-siemens-si-buildings-80-100-siemens-zug",
+      "slugByLocale": {
+        "en": "data-governance-specialist-siemens-si-buildings-80-100-siemens-zug",
+        "it": "data-governance-specialist-siemens-si-buildings-80-100-siemens-zug",
+        "de": "data-governance-specialist-siemens-si-buildings-80-100-siemens-zug",
+        "fr": "data-governance-specialist-siemens-si-buildings-80-100-siemens-zug"
+      },
+      "company": "Siemens",
+      "companyKey": "siemens",
+      "companyDomain": "siemens.com",
+      "title": "Data Governance Specialist Siemens SI Buildings 80-100%",
+      "titleByLocale": {
+        "en": "Data Governance Specialist Siemens SI Buildings 80-100%",
+        "it": "Data Governance Specialista Siemens SI Buildings 80-100%",
+        "de": "Data Governance Spezialist Siemens SI Buildings 80-100%",
+        "fr": "Data Governance Spécialiste Siemens SI Buildings 80-100%"
+      },
+      "description": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. Within our Siemens Smart Infrastructure Buildings (SI B) business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. About the Role Do you enjoy understanding how data works, solving complex problems, and connecting technical depth with business impact? We are looking for a Data Governance Specialist to join our SI B Data Governance team in Zug. Our team leads the implementation of the Siemens Data Governance Framework for Siemens SI B and helps establish the trusted data foundation for data-driven business decisions. At our core, we are data professionals with a computer science mindset. We understand how data is generated, structured, integrated, and used across business processes and products. We approach challenges analytically, investigate root causes, and look for practical, scalable solutions. We see data governance at the intersection of computer science and business - not as a bureaucratic process. Our aim is to make data more accessible, reliable, and usable. What makes our team distinctive is the combination of this technical foundation with the ability to work effectively with business stakeholders. In this role, you will discuss data requirements and trade-offs with technical teams, work with business partners to understand their priorities, and translate complex topics into recommendations for senior decision-makers. You will have the autonomy to shape and execute initiatives in data quality, data product enablement, data foundation building, and strategy - bridging technical expertise, practical execution, and business value. Your Responsibilities Data Quality & Process Improvement\n• Support and drive the set-up of the data quality remediation mechanism in collaboration with all relevant stakeholders (business, technical teams, and process owners)\n• Ensure the implementation of quality metrics in alignment with business processes Data Product Enablement & Standardisation\n• Partner with delivery teams to ensure data products meet mandatory quality and compliance requirements before release on the Siemens Data Cloud (SDC)\n• Embed these requirements into development and release processes, driving the automation of release-readiness checks within the Definition of Done (DoD) to reduce manual effort and support consistent delivery Business Partnership & Demand Management\n• Drive workshops with business and data domain stakeholders to understand their objectives, clarify data needs, and translate them into structured requirements for data products\n• Partner with Data Domain Coordinators to turn the SI B Data Domain Vision into prioritised initiatives and backlogs, balancing business value, dependencies, and technical feasibility Strategic Research\n• Conduct continuous market research on best practices in data management, quality, and governance. Translate external innovations into actionable, strategic recommendations to expand the capabilities and maturity of SI B Data Governance What We Offer\n• Ownership and autonomy: Shape new initiatives and lead them from concept to implementation, with room to challenge existing approaches and introduce better solutions\n• Meaningful business impact: Help improve the data foundation behind SI B’s data products and business decisions\n• Technical and strategic development: Broaden your expertise through close mentoring and work spanning data governance, data quality, and data product enablement\n• Cross-functional exposure: Collaborate with business and technical teams across SI B, with regular opportunities to engage senior stakeholders\n• A collaborative team: Join data professionals who value technical understanding, practical delivery, curiosity, and innovation Your Profile\n• University degree in Computer Science, Data Science, Data Engineering, Management & Technology, or a related field\n• Three years of practical experience in the data space (e.g. data governance, data quality, data science, data management)\n• At least one year of experience working on strategic topics (e.g. data strategy, organizational transformation, digital transformation, innovation, market strategy)\n• Strong communication and interpersonal skills, ability to interact and deliver presentations to senior stakeholders\n• Ability to work cross-functionally, understand business processes, and translate business needs into data requirements and priorities\n• Ability to take ownership of initiatives and influence stakeholders across business and technical teams\n• Fluency in English; German is a strong plus Location: this role will be located in Zug, Switzerland. Please note that qualified candidates must be legally authorized to work in Switzerland. Employee benefits :\n• 2–3 days per week of mobile working is standard\n• Access to employee share programs\n• Further information about employee benefits can be found here News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly I look forward to receiving your application Carmen Talent Acquisition Partner",
+      "descriptionByLocale": {
+        "en": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. Within our Siemens Smart Infrastructure Buildings (SI B) business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. About the Role Do you enjoy understanding how data works, solving complex problems, and connecting technical depth with business impact? We are looking for a Data Governance Specialist to join our SI B Data Governance team in Zug. Our team leads the implementation of the Siemens Data Governance Framework for Siemens SI B and helps establish the trusted data foundation for data-driven business decisions. At our core, we are data professionals with a computer science mindset. We understand how data is generated, structured, integrated, and used across business processes and products. We approach challenges analytically, investigate root causes, and look for practical, scalable solutions. We see data governance at the intersection of computer science and business - not as a bureaucratic process. Our aim is to make data more accessible, reliable, and usable. What makes our team distinctive is the combination of this technical foundation with the ability to work effectively with business stakeholders. In this role, you will discuss data requirements and trade-offs with technical teams, work with business partners to understand their priorities, and translate complex topics into recommendations for senior decision-makers. You will have the autonomy to shape and execute initiatives in data quality, data product enablement, data foundation building, and strategy - bridging technical expertise, practical execution, and business value. Your Responsibilities Data Quality & Process Improvement\n• Support and drive the set-up of the data quality remediation mechanism in collaboration with all relevant stakeholders (business, technical teams, and process owners)\n• Ensure the implementation of quality metrics in alignment with business processes Data Product Enablement & Standardisation\n• Partner with delivery teams to ensure data products meet mandatory quality and compliance requirements before release on the Siemens Data Cloud (SDC)\n• Embed these requirements into development and release processes, driving the automation of release-readiness checks within the Definition of Done (DoD) to reduce manual effort and support consistent delivery Business Partnership & Demand Management\n• Drive workshops with business and data domain stakeholders to understand their objectives, clarify data needs, and translate them into structured requirements for data products\n• Partner with Data Domain Coordinators to turn the SI B Data Domain Vision into prioritised initiatives and backlogs, balancing business value, dependencies, and technical feasibility Strategic Research\n• Conduct continuous market research on best practices in data management, quality, and governance. Translate external innovations into actionable, strategic recommendations to expand the capabilities and maturity of SI B Data Governance What We Offer\n• Ownership and autonomy: Shape new initiatives and lead them from concept to implementation, with room to challenge existing approaches and introduce better solutions\n• Meaningful business impact: Help improve the data foundation behind SI B’s data products and business decisions\n• Technical and strategic development: Broaden your expertise through close mentoring and work spanning data governance, data quality, and data product enablement\n• Cross-functional exposure: Collaborate with business and technical teams across SI B, with regular opportunities to engage senior stakeholders\n• A collaborative team: Join data professionals who value technical understanding, practical delivery, curiosity, and innovation Your Profile\n• University degree in Computer Science, Data Science, Data Engineering, Management & Technology, or a related field\n• Three years of practical experience in the data space (e.g. data governance, data quality, data science, data management)\n• At least one year of experience working on strategic topics (e.g. data strategy, organizational transformation, digital transformation, innovation, market strategy)\n• Strong communication and interpersonal skills, ability to interact and deliver presentations to senior stakeholders\n• Ability to work cross-functionally, understand business processes, and translate business needs into data requirements and priorities\n• Ability to take ownership of initiatives and influence stakeholders across business and technical teams\n• Fluency in English; German is a strong plus Location: this role will be located in Zug, Switzerland. Please note that qualified candidates must be legally authorized to work in Switzerland. Employee benefits :\n• 2–3 days per week of mobile working is standard\n• Access to employee share programs\n• Further information about employee benefits can be found here News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly I look forward to receiving your application Carmen Talent Acquisition Partner",
+        "it": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. Within our Siemens Smart Infrastructure Buildings (SI B) business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. About the Role Do you enjoy understanding how data works, solving complex problems, and connecting technical depth with business impact? We are looking for a Data Governance Specialist to join our SI B Data Governance team in Zug. Our team leads the implementation of the Siemens Data Governance Framework for Siemens SI B and helps establish the trusted data foundation for data-driven business decisions. At our core, we are data professionals with a computer science mindset. We understand how data is generated, structured, integrated, and used across business processes and products. We approach challenges analytically, investigate root causes, and look for practical, scalable solutions. We see data governance at the intersection of computer science and business - not as a bureaucratic process. Our aim is to make data more accessible, reliable, and usable. What makes our team distinctive is the combination of this technical foundation with the ability to work effectively with business stakeholders. In this role, you will discuss data requirements and trade-offs with technical teams, work with business partners to understand their priorities, and translate complex topics into recommendations for senior decision-makers. You will have the autonomy to shape and execute initiatives in data quality, data product enablement, data foundation building, and strategy - bridging technical expertise, practical execution, and business value. Your Responsibilities Data Quality & Process Improvement\n• Support and drive the set-up of the data quality remediation mechanism in collaboration with all relevant stakeholders (business, technical teams, and process owners)\n• Ensure the implementation of quality metrics in alignment with business processes Data Product Enablement & Standardisation\n• Partner with delivery teams to ensure data products meet mandatory quality and compliance requirements before release on the Siemens Data Cloud (SDC)\n• Embed these requirements into development and release processes, driving the automation of release-readiness checks within the Definition of Done (DoD) to reduce manual effort and support consistent delivery Business Partnership & Demand Management\n• Drive workshops with business and data domain stakeholders to understand their objectives, clarify data needs, and translate them into structured requirements for data products\n• Partner with Data Domain Coordinators to turn the SI B Data Domain Vision into prioritised initiatives and backlogs, balancing business value, dependencies, and technical feasibility Strategic Research\n• Conduct continuous market research on best practices in data management, quality, and governance. Translate external innovations into actionable, strategic recommendations to expand the capabilities and maturity of SI B Data Governance What We Offer\n• Ownership and autonomy: Shape new initiatives and lead them from concept to implementation, with room to challenge existing approaches and introduce better solutions\n• Meaningful business impact: Help improve the data foundation behind SI B’s data products and business decisions\n• Technical and strategic development: Broaden your expertise through close mentoring and work spanning data governance, data quality, and data product enablement\n• Cross-functional exposure: Collaborate with business and technical teams across SI B, with regular opportunities to engage senior stakeholders\n• A collaborative team: Join data professionals who value technical understanding, practical delivery, curiosity, and innovation Your Profile\n• University degree in Computer Science, Data Science, Data Engineering, Management & Technology, or a related field\n• Three years of practical experience in the data space (e.g. data governance, data quality, data science, data management)\n• At least one year of experience working on strategic topics (e.g. data strategy, organizational transformation, digital transformation, innovation, market strategy)\n• Strong communication and interpersonal skills, ability to interact and deliver presentations to senior stakeholders\n• Ability to work cross-functionally, understand business processes, and translate business needs into data requirements and priorities\n• Ability to take ownership of initiatives and influence stakeholders across business and technical teams\n• Fluency in English; German is a strong plus Location: this role will be located in Zug, Switzerland. Please note that qualified candidates must be legally authorized to work in Switzerland. Employee benefits :\n• 2–3 days per week of mobile working is standard\n• Access to employee share programs\n• Further information about employee benefits can be found here News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly I look forward to receiving your application Carmen Talent Acquisition Partner",
+        "de": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. Within our Siemens Smart Infrastructure Buildings (SI B) business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. About the Role Do you enjoy understanding how data works, solving complex problems, and connecting technical depth with business impact? We are looking for a Data Governance Specialist to join our SI B Data Governance team in Zug. Our team leads the implementation of the Siemens Data Governance Framework for Siemens SI B and helps establish the trusted data foundation for data-driven business decisions. At our core, we are data professionals with a computer science mindset. We understand how data is generated, structured, integrated, and used across business processes and products. We approach challenges analytically, investigate root causes, and look for practical, scalable solutions. We see data governance at the intersection of computer science and business - not as a bureaucratic process. Our aim is to make data more accessible, reliable, and usable. What makes our team distinctive is the combination of this technical foundation with the ability to work effectively with business stakeholders. In this role, you will discuss data requirements and trade-offs with technical teams, work with business partners to understand their priorities, and translate complex topics into recommendations for senior decision-makers. You will have the autonomy to shape and execute initiatives in data quality, data product enablement, data foundation building, and strategy - bridging technical expertise, practical execution, and business value. Your Responsibilities Data Quality & Process Improvement\n• Support and drive the set-up of the data quality remediation mechanism in collaboration with all relevant stakeholders (business, technical teams, and process owners)\n• Ensure the implementation of quality metrics in alignment with business processes Data Product Enablement & Standardisation\n• Partner with delivery teams to ensure data products meet mandatory quality and compliance requirements before release on the Siemens Data Cloud (SDC)\n• Embed these requirements into development and release processes, driving the automation of release-readiness checks within the Definition of Done (DoD) to reduce manual effort and support consistent delivery Business Partnership & Demand Management\n• Drive workshops with business and data domain stakeholders to understand their objectives, clarify data needs, and translate them into structured requirements for data products\n• Partner with Data Domain Coordinators to turn the SI B Data Domain Vision into prioritised initiatives and backlogs, balancing business value, dependencies, and technical feasibility Strategic Research\n• Conduct continuous market research on best practices in data management, quality, and governance. Translate external innovations into actionable, strategic recommendations to expand the capabilities and maturity of SI B Data Governance What We Offer\n• Ownership and autonomy: Shape new initiatives and lead them from concept to implementation, with room to challenge existing approaches and introduce better solutions\n• Meaningful business impact: Help improve the data foundation behind SI B’s data products and business decisions\n• Technical and strategic development: Broaden your expertise through close mentoring and work spanning data governance, data quality, and data product enablement\n• Cross-functional exposure: Collaborate with business and technical teams across SI B, with regular opportunities to engage senior stakeholders\n• A collaborative team: Join data professionals who value technical understanding, practical delivery, curiosity, and innovation Your Profile\n• University degree in Computer Science, Data Science, Data Engineering, Management & Technology, or a related field\n• Three years of practical experience in the data space (e.g. data governance, data quality, data science, data management)\n• At least one year of experience working on strategic topics (e.g. data strategy, organizational transformation, digital transformation, innovation, market strategy)\n• Strong communication and interpersonal skills, ability to interact and deliver presentations to senior stakeholders\n• Ability to work cross-functionally, understand business processes, and translate business needs into data requirements and priorities\n• Ability to take ownership of initiatives and influence stakeholders across business and technical teams\n• Fluency in English; German is a strong plus Location: this role will be located in Zug, Switzerland. Please note that qualified candidates must be legally authorized to work in Switzerland. Employee benefits :\n• 2–3 days per week of mobile working is standard\n• Access to employee share programs\n• Further information about employee benefits can be found here News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly I look forward to receiving your application Carmen Talent Acquisition Partner",
+        "fr": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. Within our Siemens Smart Infrastructure Buildings (SI B) business, our diverse global team will support you through your career and challenge you to grow in new and exciting ways, as we transform the world’s infrastructure. About the Role Do you enjoy understanding how data works, solving complex problems, and connecting technical depth with business impact? We are looking for a Data Governance Specialist to join our SI B Data Governance team in Zug. Our team leads the implementation of the Siemens Data Governance Framework for Siemens SI B and helps establish the trusted data foundation for data-driven business decisions. At our core, we are data professionals with a computer science mindset. We understand how data is generated, structured, integrated, and used across business processes and products. We approach challenges analytically, investigate root causes, and look for practical, scalable solutions. We see data governance at the intersection of computer science and business - not as a bureaucratic process. Our aim is to make data more accessible, reliable, and usable. What makes our team distinctive is the combination of this technical foundation with the ability to work effectively with business stakeholders. In this role, you will discuss data requirements and trade-offs with technical teams, work with business partners to understand their priorities, and translate complex topics into recommendations for senior decision-makers. You will have the autonomy to shape and execute initiatives in data quality, data product enablement, data foundation building, and strategy - bridging technical expertise, practical execution, and business value. Your Responsibilities Data Quality & Process Improvement\n• Support and drive the set-up of the data quality remediation mechanism in collaboration with all relevant stakeholders (business, technical teams, and process owners)\n• Ensure the implementation of quality metrics in alignment with business processes Data Product Enablement & Standardisation\n• Partner with delivery teams to ensure data products meet mandatory quality and compliance requirements before release on the Siemens Data Cloud (SDC)\n• Embed these requirements into development and release processes, driving the automation of release-readiness checks within the Definition of Done (DoD) to reduce manual effort and support consistent delivery Business Partnership & Demand Management\n• Drive workshops with business and data domain stakeholders to understand their objectives, clarify data needs, and translate them into structured requirements for data products\n• Partner with Data Domain Coordinators to turn the SI B Data Domain Vision into prioritised initiatives and backlogs, balancing business value, dependencies, and technical feasibility Strategic Research\n• Conduct continuous market research on best practices in data management, quality, and governance. Translate external innovations into actionable, strategic recommendations to expand the capabilities and maturity of SI B Data Governance What We Offer\n• Ownership and autonomy: Shape new initiatives and lead them from concept to implementation, with room to challenge existing approaches and introduce better solutions\n• Meaningful business impact: Help improve the data foundation behind SI B’s data products and business decisions\n• Technical and strategic development: Broaden your expertise through close mentoring and work spanning data governance, data quality, and data product enablement\n• Cross-functional exposure: Collaborate with business and technical teams across SI B, with regular opportunities to engage senior stakeholders\n• A collaborative team: Join data professionals who value technical understanding, practical delivery, curiosity, and innovation Your Profile\n• University degree in Computer Science, Data Science, Data Engineering, Management & Technology, or a related field\n• Three years of practical experience in the data space (e.g. data governance, data quality, data science, data management)\n• At least one year of experience working on strategic topics (e.g. data strategy, organizational transformation, digital transformation, innovation, market strategy)\n• Strong communication and interpersonal skills, ability to interact and deliver presentations to senior stakeholders\n• Ability to work cross-functionally, understand business processes, and translate business needs into data requirements and priorities\n• Ability to take ownership of initiatives and influence stakeholders across business and technical teams\n• Fluency in English; German is a strong plus Location: this role will be located in Zug, Switzerland. Please note that qualified candidates must be legally authorized to work in Switzerland. Employee benefits :\n• 2–3 days per week of mobile working is standard\n• Access to employee share programs\n• Further information about employee benefits can be found here News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly I look forward to receiving your application Carmen Talent Acquisition Partner"
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525645",
+      "source": "Siemens Dedicated Parser (Avature)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-02T21:31:15.221Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Zug",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525645",
+      "jobReqId": "525645",
+      "hiringOrganizationName": "Siemens Schweiz AG, Smart Infrastructure, Global Headquarters",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-31T21:31:15.221Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-02T21:31:15.221Z"
+    },
+    {
+      "id": "siemens-7c924145f26b",
+      "slug": "partner-marketing-specialist-siemens-si-buildings-80-100-siemens-zug",
+      "slugByLocale": {
+        "en": "partner-marketing-specialist-siemens-si-buildings-80-100-siemens-zug",
+        "it": "partner-marketing-specialist-siemens-si-buildings-80-100-siemens-zug",
+        "de": "partner-marketing-specialist-siemens-si-buildings-80-100-siemens-zug",
+        "fr": "partner-marketing-specialist-siemens-si-buildings-80-100-siemens-zug"
+      },
+      "company": "Siemens",
+      "companyKey": "siemens",
+      "companyDomain": "siemens.com",
+      "title": "Partner Marketing Specialist Siemens SI Buildings 80-100%",
+      "titleByLocale": {
+        "en": "Partner Marketing Specialist Siemens SI Buildings 80-100%",
+        "it": "Partner Marketing Specialista Siemens SI Buildings 80-100%",
+        "de": "Partner Marketing Spezialist Siemens SI Buildings 80-100%",
+        "fr": "Partner Marketing Spécialiste Siemens SI Buildings 80-100%"
+      },
+      "description": "We make real what matters Siemens Smart Infrastructure intelligently connects energy systems, buildings and industries. We help our customers to thrive, communities to progress and support sustainable development to protect our planet for the next generation Our global business combines the real and digital worlds, helping customers make buildings and infrastructure more intelligent, efficient, sustainable and future-proof Within Siemens Smart Infrastructure, our Partner Marketing team plays a key role in strengthening our global partner ecosystem. We develop and implement marketing strategies and initiatives that engage our partners, increase Partner Program adoption and support sustainable business growth across international markets To strengthen our team at our global headquarters in Switzerland, we are looking for a proactive and commercially minded Partner Marketing Specialist who combines solid marketing expertise with a good understanding of sales and partner ecosystems Location: this role is based in Zug- Switzerland Your new responsibilities\n• Develop and drive Partner Marketing initiatives: Plan and implement global marketing activities that strengthen partner engagement, increase the partner program adoption and support sustainable partner growth\n• Drive Partner Program activation : Develop and execute marketing campaigns, communication initiatives and activation measures to increase awareness, participation and engagement within our global partner network\n• Manage the Partner Journey: Contribute to the development and continuous improvement of the end-to-end Partner Journey, with a particular focus on partner onboarding, enablement, activation and retention\n• Create marketing and enablement content : Develop compelling marketing materials, presentations, communication toolkits and digital content for partners, including content for the Partner Portal and Market Development Funds (MDF) initiatives\n• Support partner business growth: Identify and implement marketing opportunities that help attract new partners, strengthen existing relationships and generate business opportunities through targeted campaigns and digital marketing activities\n• Coordinate cross-functional initiatives: Work closely with Partner Management, Sales, Product Management, Offer Marketing and regional teams to ensure alignment and successful implementation of global Partner Marketing activities\n• Translate the buildings distribution Strategy into a comprehensive marketing strategy: evolve the current campaign-package approach towards demand creation and partner-driven growth\n• Monitor marketing effectiveness: Track the performance and adoption of Partner Marketing initiatives, analyse relevant KPIs, gather partner feedback and identify opportunities for continuous improvement\n• Drive projects independently: Take ownership of assigned Partner Marketing projects, coordinate stakeholders and ensure timely and effective delivery Your Profile\n• Bachelor's or Master's degree in Marketing, Business Administration, Communications or a related field\n• Proven experience in Marketing, ideally with a specific focus on Partner Marketing, Channel Marketing or B2B Marketing\n• Good understanding of partner ecosystems, channel business models and partner engagement strategies\n• Experience developing and implementing marketing campaigns, partner communication initiatives and marketing enablement materials\n• A combination of marketing and sales experience is a strong advantage, particularly experience working closely with sales teams, channel partners, distributors or strategic business partners\n• Strong project management and organisational skills, with the ability to manage multiple initiatives and coordinate stakeholders across different functions and regions\n• Commercial mindset and the ability to translate marketing initiatives into measurable business impact\n• Creative, proactive and hands-on personality with a structured approach to work and the ability to take ownership of projects\n• Strong communication and presentation skills, including excellent PowerPoint skills and confidence in developing marketing content\n• Affinity for digital marketing tools, platforms and technologies\n• Excellent English skills; German is an advantage Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ For me, customer impact means supporting our customers with customized solutions – making their day-to-day lives simpler, more efficient and more reliable. ” (Project Management Office Professional) News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Olger Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+      "descriptionByLocale": {
+        "en": "We make real what matters Siemens Smart Infrastructure intelligently connects energy systems, buildings and industries. We help our customers to thrive, communities to progress and support sustainable development to protect our planet for the next generation Our global business combines the real and digital worlds, helping customers make buildings and infrastructure more intelligent, efficient, sustainable and future-proof Within Siemens Smart Infrastructure, our Partner Marketing team plays a key role in strengthening our global partner ecosystem. We develop and implement marketing strategies and initiatives that engage our partners, increase Partner Program adoption and support sustainable business growth across international markets To strengthen our team at our global headquarters in Switzerland, we are looking for a proactive and commercially minded Partner Marketing Specialist who combines solid marketing expertise with a good understanding of sales and partner ecosystems Location: this role is based in Zug- Switzerland Your new responsibilities\n• Develop and drive Partner Marketing initiatives: Plan and implement global marketing activities that strengthen partner engagement, increase the partner program adoption and support sustainable partner growth\n• Drive Partner Program activation : Develop and execute marketing campaigns, communication initiatives and activation measures to increase awareness, participation and engagement within our global partner network\n• Manage the Partner Journey: Contribute to the development and continuous improvement of the end-to-end Partner Journey, with a particular focus on partner onboarding, enablement, activation and retention\n• Create marketing and enablement content : Develop compelling marketing materials, presentations, communication toolkits and digital content for partners, including content for the Partner Portal and Market Development Funds (MDF) initiatives\n• Support partner business growth: Identify and implement marketing opportunities that help attract new partners, strengthen existing relationships and generate business opportunities through targeted campaigns and digital marketing activities\n• Coordinate cross-functional initiatives: Work closely with Partner Management, Sales, Product Management, Offer Marketing and regional teams to ensure alignment and successful implementation of global Partner Marketing activities\n• Translate the buildings distribution Strategy into a comprehensive marketing strategy: evolve the current campaign-package approach towards demand creation and partner-driven growth\n• Monitor marketing effectiveness: Track the performance and adoption of Partner Marketing initiatives, analyse relevant KPIs, gather partner feedback and identify opportunities for continuous improvement\n• Drive projects independently: Take ownership of assigned Partner Marketing projects, coordinate stakeholders and ensure timely and effective delivery Your Profile\n• Bachelor's or Master's degree in Marketing, Business Administration, Communications or a related field\n• Proven experience in Marketing, ideally with a specific focus on Partner Marketing, Channel Marketing or B2B Marketing\n• Good understanding of partner ecosystems, channel business models and partner engagement strategies\n• Experience developing and implementing marketing campaigns, partner communication initiatives and marketing enablement materials\n• A combination of marketing and sales experience is a strong advantage, particularly experience working closely with sales teams, channel partners, distributors or strategic business partners\n• Strong project management and organisational skills, with the ability to manage multiple initiatives and coordinate stakeholders across different functions and regions\n• Commercial mindset and the ability to translate marketing initiatives into measurable business impact\n• Creative, proactive and hands-on personality with a structured approach to work and the ability to take ownership of projects\n• Strong communication and presentation skills, including excellent PowerPoint skills and confidence in developing marketing content\n• Affinity for digital marketing tools, platforms and technologies\n• Excellent English skills; German is an advantage Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ For me, customer impact means supporting our customers with customized solutions – making their day-to-day lives simpler, more efficient and more reliable. ” (Project Management Office Professional) News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Olger Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+        "it": "We make real what matters Siemens Smart Infrastructure intelligently connects energy systems, buildings and industries. We help our customers to thrive, communities to progress and support sustainable development to protect our planet for the next generation Our global business combines the real and digital worlds, helping customers make buildings and infrastructure more intelligent, efficient, sustainable and future-proof Within Siemens Smart Infrastructure, our Partner Marketing team plays a key role in strengthening our global partner ecosystem. We develop and implement marketing strategies and initiatives that engage our partners, increase Partner Program adoption and support sustainable business growth across international markets To strengthen our team at our global headquarters in Switzerland, we are looking for a proactive and commercially minded Partner Marketing Specialist who combines solid marketing expertise with a good understanding of sales and partner ecosystems Location: this role is based in Zug- Switzerland Your new responsibilities\n• Develop and drive Partner Marketing initiatives: Plan and implement global marketing activities that strengthen partner engagement, increase the partner program adoption and support sustainable partner growth\n• Drive Partner Program activation : Develop and execute marketing campaigns, communication initiatives and activation measures to increase awareness, participation and engagement within our global partner network\n• Manage the Partner Journey: Contribute to the development and continuous improvement of the end-to-end Partner Journey, with a particular focus on partner onboarding, enablement, activation and retention\n• Create marketing and enablement content : Develop compelling marketing materials, presentations, communication toolkits and digital content for partners, including content for the Partner Portal and Market Development Funds (MDF) initiatives\n• Support partner business growth: Identify and implement marketing opportunities that help attract new partners, strengthen existing relationships and generate business opportunities through targeted campaigns and digital marketing activities\n• Coordinate cross-functional initiatives: Work closely with Partner Management, Sales, Product Management, Offer Marketing and regional teams to ensure alignment and successful implementation of global Partner Marketing activities\n• Translate the buildings distribution Strategy into a comprehensive marketing strategy: evolve the current campaign-package approach towards demand creation and partner-driven growth\n• Monitor marketing effectiveness: Track the performance and adoption of Partner Marketing initiatives, analyse relevant KPIs, gather partner feedback and identify opportunities for continuous improvement\n• Drive projects independently: Take ownership of assigned Partner Marketing projects, coordinate stakeholders and ensure timely and effective delivery Your Profile\n• Bachelor's or Master's degree in Marketing, Business Administration, Communications or a related field\n• Proven experience in Marketing, ideally with a specific focus on Partner Marketing, Channel Marketing or B2B Marketing\n• Good understanding of partner ecosystems, channel business models and partner engagement strategies\n• Experience developing and implementing marketing campaigns, partner communication initiatives and marketing enablement materials\n• A combination of marketing and sales experience is a strong advantage, particularly experience working closely with sales teams, channel partners, distributors or strategic business partners\n• Strong project management and organisational skills, with the ability to manage multiple initiatives and coordinate stakeholders across different functions and regions\n• Commercial mindset and the ability to translate marketing initiatives into measurable business impact\n• Creative, proactive and hands-on personality with a structured approach to work and the ability to take ownership of projects\n• Strong communication and presentation skills, including excellent PowerPoint skills and confidence in developing marketing content\n• Affinity for digital marketing tools, platforms and technologies\n• Excellent English skills; German is an advantage Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ For me, customer impact means supporting our customers with customized solutions – making their day-to-day lives simpler, more efficient and more reliable. ” (Project Management Office Professional) News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Olger Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+        "de": "We make real what matters Siemens Smart Infrastructure intelligently connects energy systems, buildings and industries. We help our customers to thrive, communities to progress and support sustainable development to protect our planet for the next generation Our global business combines the real and digital worlds, helping customers make buildings and infrastructure more intelligent, efficient, sustainable and future-proof Within Siemens Smart Infrastructure, our Partner Marketing team plays a key role in strengthening our global partner ecosystem. We develop and implement marketing strategies and initiatives that engage our partners, increase Partner Program adoption and support sustainable business growth across international markets To strengthen our team at our global headquarters in Switzerland, we are looking for a proactive and commercially minded Partner Marketing Specialist who combines solid marketing expertise with a good understanding of sales and partner ecosystems Location: this role is based in Zug- Switzerland Your new responsibilities\n• Develop and drive Partner Marketing initiatives: Plan and implement global marketing activities that strengthen partner engagement, increase the partner program adoption and support sustainable partner growth\n• Drive Partner Program activation : Develop and execute marketing campaigns, communication initiatives and activation measures to increase awareness, participation and engagement within our global partner network\n• Manage the Partner Journey: Contribute to the development and continuous improvement of the end-to-end Partner Journey, with a particular focus on partner onboarding, enablement, activation and retention\n• Create marketing and enablement content : Develop compelling marketing materials, presentations, communication toolkits and digital content for partners, including content for the Partner Portal and Market Development Funds (MDF) initiatives\n• Support partner business growth: Identify and implement marketing opportunities that help attract new partners, strengthen existing relationships and generate business opportunities through targeted campaigns and digital marketing activities\n• Coordinate cross-functional initiatives: Work closely with Partner Management, Sales, Product Management, Offer Marketing and regional teams to ensure alignment and successful implementation of global Partner Marketing activities\n• Translate the buildings distribution Strategy into a comprehensive marketing strategy: evolve the current campaign-package approach towards demand creation and partner-driven growth\n• Monitor marketing effectiveness: Track the performance and adoption of Partner Marketing initiatives, analyse relevant KPIs, gather partner feedback and identify opportunities for continuous improvement\n• Drive projects independently: Take ownership of assigned Partner Marketing projects, coordinate stakeholders and ensure timely and effective delivery Your Profile\n• Bachelor's or Master's degree in Marketing, Business Administration, Communications or a related field\n• Proven experience in Marketing, ideally with a specific focus on Partner Marketing, Channel Marketing or B2B Marketing\n• Good understanding of partner ecosystems, channel business models and partner engagement strategies\n• Experience developing and implementing marketing campaigns, partner communication initiatives and marketing enablement materials\n• A combination of marketing and sales experience is a strong advantage, particularly experience working closely with sales teams, channel partners, distributors or strategic business partners\n• Strong project management and organisational skills, with the ability to manage multiple initiatives and coordinate stakeholders across different functions and regions\n• Commercial mindset and the ability to translate marketing initiatives into measurable business impact\n• Creative, proactive and hands-on personality with a structured approach to work and the ability to take ownership of projects\n• Strong communication and presentation skills, including excellent PowerPoint skills and confidence in developing marketing content\n• Affinity for digital marketing tools, platforms and technologies\n• Excellent English skills; German is an advantage Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ For me, customer impact means supporting our customers with customized solutions – making their day-to-day lives simpler, more efficient and more reliable. ” (Project Management Office Professional) News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Olger Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
+        "fr": "We make real what matters Siemens Smart Infrastructure intelligently connects energy systems, buildings and industries. We help our customers to thrive, communities to progress and support sustainable development to protect our planet for the next generation Our global business combines the real and digital worlds, helping customers make buildings and infrastructure more intelligent, efficient, sustainable and future-proof Within Siemens Smart Infrastructure, our Partner Marketing team plays a key role in strengthening our global partner ecosystem. We develop and implement marketing strategies and initiatives that engage our partners, increase Partner Program adoption and support sustainable business growth across international markets To strengthen our team at our global headquarters in Switzerland, we are looking for a proactive and commercially minded Partner Marketing Specialist who combines solid marketing expertise with a good understanding of sales and partner ecosystems Location: this role is based in Zug- Switzerland Your new responsibilities\n• Develop and drive Partner Marketing initiatives: Plan and implement global marketing activities that strengthen partner engagement, increase the partner program adoption and support sustainable partner growth\n• Drive Partner Program activation : Develop and execute marketing campaigns, communication initiatives and activation measures to increase awareness, participation and engagement within our global partner network\n• Manage the Partner Journey: Contribute to the development and continuous improvement of the end-to-end Partner Journey, with a particular focus on partner onboarding, enablement, activation and retention\n• Create marketing and enablement content : Develop compelling marketing materials, presentations, communication toolkits and digital content for partners, including content for the Partner Portal and Market Development Funds (MDF) initiatives\n• Support partner business growth: Identify and implement marketing opportunities that help attract new partners, strengthen existing relationships and generate business opportunities through targeted campaigns and digital marketing activities\n• Coordinate cross-functional initiatives: Work closely with Partner Management, Sales, Product Management, Offer Marketing and regional teams to ensure alignment and successful implementation of global Partner Marketing activities\n• Translate the buildings distribution Strategy into a comprehensive marketing strategy: evolve the current campaign-package approach towards demand creation and partner-driven growth\n• Monitor marketing effectiveness: Track the performance and adoption of Partner Marketing initiatives, analyse relevant KPIs, gather partner feedback and identify opportunities for continuous improvement\n• Drive projects independently: Take ownership of assigned Partner Marketing projects, coordinate stakeholders and ensure timely and effective delivery Your Profile\n• Bachelor's or Master's degree in Marketing, Business Administration, Communications or a related field\n• Proven experience in Marketing, ideally with a specific focus on Partner Marketing, Channel Marketing or B2B Marketing\n• Good understanding of partner ecosystems, channel business models and partner engagement strategies\n• Experience developing and implementing marketing campaigns, partner communication initiatives and marketing enablement materials\n• A combination of marketing and sales experience is a strong advantage, particularly experience working closely with sales teams, channel partners, distributors or strategic business partners\n• Strong project management and organisational skills, with the ability to manage multiple initiatives and coordinate stakeholders across different functions and regions\n• Commercial mindset and the ability to translate marketing initiatives into measurable business impact\n• Creative, proactive and hands-on personality with a structured approach to work and the ability to take ownership of projects\n• Strong communication and presentation skills, including excellent PowerPoint skills and confidence in developing marketing content\n• Affinity for digital marketing tools, platforms and technologies\n• Excellent English skills; German is an advantage Employee benefits\n• 2–3 days per week of mobile working is standard\n• Mobility allowance\n• Varied further training opportunities\n• Access to employee share programs\n• Further information about employee benefits can be found here Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! “ For me, customer impact means supporting our customers with customized solutions – making their day-to-day lives simpler, more efficient and more reliable. ” (Project Management Office Professional) News and stories See for yourself how innovative technology can change the present. If you want to find out more about what projects can be implemented using Siemens technology, here are some current examples . Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Olger Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527942",
+      "source": "Siemens Dedicated Parser (Avature)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-02T21:31:07.892Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Zug",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527942",
+      "jobReqId": "527942",
+      "hiringOrganizationName": "Siemens Schweiz AG, Smart Infrastructure, Global Headquarters",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 72500,
+      "salaryMax": 128500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 128500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-31T21:31:07.892Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-02T21:31:07.892Z"
     }
   ]
 }

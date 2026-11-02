@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-11-02T11:23:21.421Z",
+  "generatedAt": "2026-11-02T21:48:13.995Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,31 +12,32 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3867,
-  "avgDurationMs": 3867,
+  "durationMs": 4305,
+  "avgDurationMs": 4305,
   "durationHistory": [
-    3867
+    4305
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-de-montchoisi-42d15fe0c24a",
-      "slug": "technicien-ne-en-radiologie-medicale-50-clinique-de-montchoisi",
+      "slug": "tecnico-di-radiologia-medica-50-clinique-de-montchoisi-lausanne",
       "company": "Clinique de Montchoisi",
       "companyKey": "clinique-de-montchoisi",
       "companyDomain": "swissmedical.net",
       "title": "Technicien(ne) en radiologie médicale (50%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159071929-technicien-ne-en-radiologie-medicale-50-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159071929-technicien-ne-en-radiologie-medicale-50-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:23:06.664Z",
+      "crawledAt": "2026-11-02T21:48:00.488Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,36 +53,36 @@
       "datePosted": "2026-11-02T08:30:57.451Z",
       "postedDate": "2026-11-02T08:30:57.451Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-11-02T11:23:06.664Z",
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T11:23:06.664Z",
+      "validThrough": "2027-01-31T21:48:00.488Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:23:06.664Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "clinique-de-montchoisi-25ec20ee795f",
-      "slug": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
+      "slug": "tecnico-medico-di-radiologia-100-clinique-de-montchoisi-lausanne",
       "company": "Clinique de Montchoisi",
       "companyKey": "clinique-de-montchoisi",
       "companyDomain": "swissmedical.net",
       "title": "Technicien(ne) en radiologie médicale (100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159070604-technicien-ne-en-radiologie-medicale-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159070604-technicien-ne-en-radiologie-medicale-100-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:23:06.664Z",
+      "crawledAt": "2026-11-02T21:48:00.487Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -97,23 +98,22 @@
       "datePosted": "2026-11-02T08:27:30.184Z",
       "postedDate": "2026-11-02T08:27:30.184Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-11-02T11:23:06.664Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T11:23:06.664Z",
+      "validThrough": "2027-01-31T21:48:00.487Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:23:06.664Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -130,7 +130,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:23:06.663Z",
+      "crawledAt": "2026-11-02T21:48:00.488Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salaryMax": 120500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T11:23:06.663Z",
+      "validThrough": "2026-12-13T21:48:00.488Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -162,5 +162,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

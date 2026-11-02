@@ -46,6 +46,10 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import {
+  companyLogoKeyForJob,
+  EMPLOYER_SCOPED_LOGO_SOURCE_KEYS,
+} from './lib/company-logo-key.mjs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -114,8 +118,12 @@ function jobMatchesCity(job, city) {
 }
 
 /** Mirror of `normEmployerKey` in weeklyEmployersPlugin.ts:240. */
-function normEmployerKey(company, companyKey) {
-  const raw = (companyKey || company || '').trim().toLowerCase();
+function normEmployerKey(company, companyKey, companyLogoKey) {
+  const normalizedCompanyKey = String(companyKey || '').trim();
+  const scopedKey = EMPLOYER_SCOPED_LOGO_SOURCE_KEYS.includes(normalizedCompanyKey.toLowerCase())
+    ? companyLogoKeyForJob({ company, companyKey: normalizedCompanyKey.toLowerCase(), companyLogoKey })
+    : normalizedCompanyKey;
+  const raw = (scopedKey || company || '').trim().toLowerCase();
   return raw
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
@@ -143,7 +151,7 @@ function enumerateQualifyingPairs(jobs) {
       if (!jobMatchesCity(job, city)) continue;
       const company = String(job.company || '').trim();
       if (!company) continue;
-      const key = normEmployerKey(company, job.companyKey);
+      const key = normEmployerKey(company, job.companyKey, job.companyLogoKey);
       if (!key) continue;
       const rec = counts.get(key);
       if (rec) rec.active++;

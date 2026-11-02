@@ -9,16 +9,16 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-02T09:32:10.299Z",
+  "generatedAt": "2026-11-02T21:35:13.942Z",
   "total": 22,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 21,
-  "durationMs": 476885,
-  "avgDurationMs": 476885,
+  "durationMs": 427497,
+  "avgDurationMs": 427497,
   "durationHistory": [
-    476885
+    427497
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -110,6 +110,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T09:30:58.483Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -137,7 +138,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-01T22:19:17.931Z",
+      "crawledAt": "2026-11-02T21:33:55.401Z",
       "firstSeenAt": "2026-10-23T21:17:42.290Z",
       "sourceLang": "fr",
       "salaryMin": 68500,
@@ -149,9 +150,8 @@
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T22:19:17.931Z",
+      "validThrough": "2026-12-07T21:33:55.401Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -941,5 +941,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

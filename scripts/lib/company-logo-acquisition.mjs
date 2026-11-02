@@ -167,8 +167,8 @@ function stripSuffixes(slug) {
 /**
  * Audit mode is deliberately source-backed: the audit input never authorizes
  * a domain derived from a company key, a job URL, or generic crawler metadata.
- * It accepts only explicit overrides or domains marked by the trusted source
- * contract (for example the Ticino Comune registry). The legacy mode remains
+ * It accepts only explicit overrides, domains marked by the Ticino Comune
+ * source contract, or verified employer websites from SECO records. The legacy mode remains
  * available for manual recovery and keeps its historical guessed candidates;
  * the weekly workflow must invoke `--from-audit`.
  */
@@ -183,7 +183,12 @@ export function domainCandidates(key, metadata = {}, options = {}) {
   for (const domain of metadata.sourceBackedCompanyDomains || []) {
     if (!isAtsDomain(domain)) add(domain);
   }
-  if (fromAudit) return candidates;
+  for (const domain of metadata.verifiedEmployerDomains || []) {
+    if (!isAtsDomain(domain)) add(domain);
+  }
+  if (fromAudit) {
+    return candidates;
+  }
 
   for (const domain of metadata.companyDomains || []) {
     if (!isAtsDomain(domain)) add(domain);

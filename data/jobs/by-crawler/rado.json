@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-02T09:31:28.733Z",
-  "runId": "41417980457",
+  "assembledAt": "2026-11-02T21:34:27.878Z",
+  "runId": "41525302462",
   "jobs": [
     {
       "id": "company-7uc3px",
@@ -27,7 +27,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-01T22:19:17.931Z",
+      "crawledAt": "2026-11-02T21:33:55.401Z",
       "firstSeenAt": "2026-10-23T21:17:42.290Z",
       "titleByLocale": {
         "fr": "HR Business Partner (100%)",
@@ -84,9 +84,8 @@
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T22:19:17.931Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-07T21:33:55.401Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

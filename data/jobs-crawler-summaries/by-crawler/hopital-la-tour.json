@@ -1,7 +1,7 @@
 {
   "key": "hopital-la-tour",
   "label": "Hôpital de La Tour",
-  "generatedAt": "2026-11-02T09:32:56.498Z",
+  "generatedAt": "2026-11-02T21:32:21.319Z",
   "total": 17,
   "discovered": null,
   "parsed": 17,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 16,
-  "durationMs": 4378,
-  "avgDurationMs": 4378,
+  "durationMs": 5261,
+  "avgDurationMs": 5261,
   "durationHistory": [
-    4378
+    5261
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.149Z",
+      "crawledAt": "2026-11-02T21:32:04.472Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -65,11 +65,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:32:41.149Z",
+      "validThrough": "2027-01-29T21:32:04.472Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -80,121 +81,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "hopital-la-tour-d684c72b4fa2",
-      "slug": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier(-ère) de nuit en Médecine - CDI 80%",
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:30.285Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
-      "firstSeenAt": "2026-09-03T13:43:24.956Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T21:46:30.285Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "hopital-la-tour-43b34ace2c10",
-      "slug": "midwife-in-cdm-7-mesi-all-80-hopital-de-la-tour-meyrin",
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Sage-femme en CDM (7 mois) à 80%",
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:30.280Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
-      "firstSeenAt": "2026-09-25T14:53:58.318Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-24T21:46:30.280Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -208,7 +95,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.175Z",
+      "crawledAt": "2026-11-02T21:32:04.498Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -237,11 +124,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T09:32:41.175Z",
+      "validThrough": "2026-12-02T21:32:04.498Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -263,7 +151,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.174Z",
+      "crawledAt": "2026-11-02T21:32:04.496Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -292,11 +180,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:32:41.174Z",
+      "validThrough": "2026-12-02T21:32:04.496Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -318,7 +207,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.173Z",
+      "crawledAt": "2026-11-02T21:32:04.494Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -347,11 +236,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T09:32:41.173Z",
+      "validThrough": "2026-12-09T21:32:04.494Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -374,7 +264,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.171Z",
+      "crawledAt": "2026-11-02T21:32:04.492Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -403,11 +293,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T09:32:41.171Z",
+      "validThrough": "2026-12-09T21:32:04.492Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -430,7 +321,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/physiotherapeute-cardio-respiratoire-a-90-cdmax-10-mois-possibilite-cdi-1544",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.170Z",
+      "crawledAt": "2026-11-02T21:32:04.491Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -459,11 +350,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:32:41.170Z",
+      "validThrough": "2026-12-19T21:32:04.491Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -486,7 +378,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.168Z",
+      "crawledAt": "2026-11-02T21:32:04.489Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -515,11 +407,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-05T09:32:41.168Z",
+      "validThrough": "2027-01-04T21:32:04.489Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -541,7 +434,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.166Z",
+      "crawledAt": "2026-11-02T21:32:04.488Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -570,11 +463,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:32:41.166Z",
+      "validThrough": "2027-01-12T21:32:04.488Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -597,7 +491,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-service-des-urgences-cdm-12-mois-a-85-1558",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.165Z",
+      "crawledAt": "2026-11-02T21:32:04.487Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -626,11 +520,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:32:41.165Z",
+      "validThrough": "2027-01-12T21:32:04.487Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -653,7 +548,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-aux-urgences-a-70-cdm-6-mois-1557",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.163Z",
+      "crawledAt": "2026-11-02T21:32:04.486Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -682,11 +577,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:32:41.163Z",
+      "validThrough": "2027-01-12T21:32:04.486Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -709,7 +605,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lunite-de-chirurgie-orthopedique-cdm-4-mois-a-80-1559",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.162Z",
+      "crawledAt": "2026-11-02T21:32:04.485Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -738,11 +634,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-15T09:32:41.162Z",
+      "validThrough": "2027-01-14T21:32:04.485Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -764,7 +661,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-90-1561",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.161Z",
+      "crawledAt": "2026-11-02T21:32:04.484Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -793,11 +690,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-19T09:32:41.161Z",
+      "validThrough": "2027-01-19T21:32:04.484Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -819,7 +717,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lucp-cdm-10-mois-80-1560",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.160Z",
+      "crawledAt": "2026-11-02T21:32:04.483Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -848,11 +746,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-19T09:32:41.160Z",
+      "validThrough": "2027-01-19T21:32:04.483Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -874,7 +773,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-en-endoscopie-cdm-10-mois-a-70-1564",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.159Z",
+      "crawledAt": "2026-11-02T21:32:04.482Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -903,11 +802,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:32:41.159Z",
+      "validThrough": "2027-01-27T21:32:04.482Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -930,7 +830,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-pour-le-centre-du-metabolisme-et-nutrition-cdmax-3-mois-a-90-1566",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.157Z",
+      "crawledAt": "2026-11-02T21:32:04.480Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -959,11 +859,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:32:41.157Z",
+      "validThrough": "2027-01-28T21:32:04.480Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -986,7 +887,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.156Z",
+      "crawledAt": "2026-11-02T21:32:04.479Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1015,11 +916,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:32:41.156Z",
+      "validThrough": "2027-01-28T21:32:04.479Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1041,7 +943,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:32:41.154Z",
+      "crawledAt": "2026-11-02T21:32:04.477Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1070,11 +972,12 @@
         "postalCode": "1217",
         "addressLocality": "Meyrin",
         "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z"
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:32:41.154Z",
+      "validThrough": "2027-01-29T21:32:04.477Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1085,5 +988,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }
