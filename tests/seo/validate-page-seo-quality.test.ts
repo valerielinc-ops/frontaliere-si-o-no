@@ -8,6 +8,9 @@ import {
   isIntentionalJobBoardNoindexPage,
   isIntentionalPharmacyNoindexPage,
   isIntentionalEventArchiveNoindexPage,
+  isIntentionalEventDetailNoindexPage,
+  isIntentionalAutoSectorHubNoindexPage,
+  isIntentionalCompanyCantonBridgeNoindexPage,
   isIntentionalPaginationNoindexPage,
   isArticleRoutePage,
   isIntentionalArticleNoindexPage,
@@ -22,6 +25,9 @@ import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobB
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
+import { AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/autoSectorHubNoindexTargetMarker.mjs';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { ARTICLE_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/articleNoindexTargetMarker.mjs';
 import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
@@ -203,6 +209,43 @@ describe('blocking page checks', () => {
     expect(isDeclared(noindex)).toBe(false);
     expect(isDeclared(`${marker}<meta name=robots content=index,follow>`)).toBe(false);
     expect(isDeclared(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
+  });
+
+  it.each([
+    [
+      'event detail',
+      'eventi/ginevra/geneve/ehc-kloten-geneve-servette-hc-2026-11-15',
+      `<div data-events-page="event_detail"></div>${EVENT_DETAIL_NOINDEX_TARGET_MARKER}`,
+      isIntentionalEventDetailNoindexPage,
+    ],
+    [
+      'automatic sector hub',
+      'cerca-lavoro-ticino/settore/tecnica',
+      AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER,
+      isIntentionalAutoSectorHubNoindexPage,
+    ],
+    [
+      'company canton bridge',
+      'fr/trouver-emploi-valais/entreprise-hilti',
+      COMPANY_CANTON_NOINDEX_BRIDGE_MARKER,
+      isIntentionalCompanyCantonBridgeNoindexPage,
+    ],
+  ] as const)('recognizes only marked %s noindex pages', (_name, pagePath, marker, isDeclared) => {
+    const noindex = '<meta name=robots content=noindex,follow>';
+    expect(isDeclared(pagePath, `${marker}${noindex}`)).toBe(true);
+    expect(isDeclared(pagePath, noindex)).toBe(false);
+    expect(isDeclared(pagePath, `${marker}<meta name=robots content=index,follow>`)).toBe(false);
+    expect(isDeclared('en/search/example', `${marker}${noindex}`)).toBe(false);
+  });
+
+  it.each([
+    'eventi/ginevra/geneve/ehc-kloten-geneve-servette-hc-2026-11-15',
+    'en/events/geneva/geneva/ehc-kloten-geneve-servette-hc-2026-11-15',
+    'de/veranstaltungen/genf/geneve/ehc-kloten-geneve-servette-hc-2026-11-15',
+    'fr/evenements/geneve/geneve/ehc-kloten-geneve-servette-hc-2026-11-15',
+  ])('accepts declared noindex on localized event detail route %s', (pagePath) => {
+    const html = `<div data-events-page="event_detail"></div>${EVENT_DETAIL_NOINDEX_TARGET_MARKER}<meta name=robots content=noindex,follow>`;
+    expect(isIntentionalEventDetailNoindexPage(pagePath, html)).toBe(true);
   });
 
   it('recognizes only marked deep-pagination noindex pages', () => {

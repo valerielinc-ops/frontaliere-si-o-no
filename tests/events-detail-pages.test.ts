@@ -44,6 +44,7 @@ import { parsePath } from '../services/router';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
 
 const EVENT = {
   id: 'tio-agenda:42',
@@ -468,6 +469,25 @@ describe('renderEventDetailPage', () => {
     dateStamp: '2026-06-30',
     distDir,
     detailHref: detailHref as never,
+  });
+
+  it('declares demand-gated upcoming details without changing their content or ad policy', () => {
+    const demandGated = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT, other] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: detailHref as never,
+      demandIndexable: false,
+    });
+
+    expect(demandGated.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(demandGated.html).toContain('noindex,follow');
+    expect(demandGated.html).toContain(EVENT_DETAIL_NOINDEX_TARGET_MARKER);
+    expect(demandGated.html).toMatch(/data-ad-placement=["']?event-detail-inline["']?/);
   });
 
   it('keeps event-detail titles and headings concise while retaining the place and date', () => {

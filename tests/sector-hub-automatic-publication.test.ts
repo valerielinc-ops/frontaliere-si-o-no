@@ -17,6 +17,7 @@ import {
   buildJobCategoryPath,
 } from '../build-plugins/shared/autoSectorHubPaths';
 import { buildAutoSectorHubPage } from '../build-plugins/autoSectorHubPagesPlugin';
+import { AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/autoSectorHubNoindexTargetMarker.mjs';
 import { SECTOR_HUB_SECTION } from '../build-plugins/shared/jobSectorPaths';
 import { BASE_URL } from '../build-plugins/constants';
 
@@ -74,6 +75,7 @@ describe('automatic sector hub publication', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const page = buildAutoSectorHubPage('', locale, publication, jobs, '2026-10-20');
       expect(page.indexable).toBe(true);
+      expect(page.html).not.toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
       expect(page.html).toContain('"@type":"BreadcrumbList"');
       expect(page.html).toMatch(/<a\b[^>]*href="\/"[^>]*class(?:="s-bcl"|=s-bcl)[^>]*>/);
       const jsonLdBlocks = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
@@ -83,6 +85,27 @@ describe('automatic sector hub publication', () => {
       } | undefined;
       expect(breadcrumb?.itemListElement?.[0]?.item).toBe(`${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`);
     }
+  });
+
+  it('declares retired-sector bridges even when their live inventory is substantial', () => {
+    const publication = {
+      slug: 'tecnica',
+      routeKind: 'dynamic' as const,
+      label: 'Tecnica',
+      labelByLocale: { it: 'Tecnica' },
+      sourceFields: ['category' as const],
+      matchLabels: ['tecnica'],
+      firstPublishedAt: '2026-10-20T08:22:55.192Z',
+      status: 'retired' as const,
+    } as Parameters<typeof buildAutoSectorHubPage>[2];
+    const jobs = jobsForCategory('tecnica', 'tecnica', 43, 10, new Date('2026-11-02T00:00:00.000Z')) as unknown as Parameters<typeof buildAutoSectorHubPage>[3];
+
+    const page = buildAutoSectorHubPage('', 'it', publication, jobs, '2026-11-02');
+
+    expect(page.indexable).toBe(false);
+    expect(page.html).toContain('noindex,follow');
+    expect(page.html).toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
+    expect(page.html).toContain('43');
   });
 
   it('keeps static category paths owned by the job-board emitter in every locale', () => {
