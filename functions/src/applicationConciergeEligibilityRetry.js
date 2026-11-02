@@ -18,10 +18,6 @@ function allowlisted(value, values) {
   return typeof value === 'string' && values.has(value) ? value : 'unknown';
 }
 
-function increment(counts, key) {
-  counts[key] = (counts[key] || 0) + 1;
-}
-
 function safeProviderFailures(value) {
   if (!Array.isArray(value)) return [];
   return value.slice(0, 8).map(failure => {
@@ -84,20 +80,31 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
 }
 
 export async function eligibilityRetrySummary(serviceRef) {
-  const pending = serviceRef.collection('eligibility').where('retryAt', '>', 0);
-  const snapshot = await pending.get();
+  const eligibility = serviceRef.collection('eligibility');
+  const pending = eligibility.where('retryAt', '>', 0);
+  const count = async query => Number((await query.count().get()).data().count) || 0;
+  const statuses = [...RETRY_STATUSES];
+  const reasons = [...RETRY_REASONS];
+  // Only retry rows have these fields; single-field equality counts avoid full reads and composite indexes.
+  const [pendingCount, first, statusValues, reasonValues] = await Promise.all([
+    count(pending),
+    pending.orderBy('retryAt').limit(1).get(),
+    Promise.all(statuses.map(async status => [status, await count(eligibility.where('lastStatus', '==', status))])),
+    Promise.all(reasons.map(async reason => [reason, await count(eligibility.where('lastReason', '==', reason))])),
+  ]);
   const statusCounts = {};
   const reasonCounts = {};
-  let retryAt = null;
-  for (const doc of snapshot.docs) {
-    const retry = doc.data() || {};
-    const retryTime = Number(retry.retryAt);
-    if (Number.isFinite(retryTime) && retryTime > 0 && (retryAt === null || retryTime < retryAt)) retryAt = retryTime;
-    increment(statusCounts, allowlisted(retry.lastStatus, RETRY_STATUSES));
-    increment(reasonCounts, allowlisted(retry.lastReason, RETRY_REASONS));
-  }
+  for (const [status, total] of statusValues) if (total) statusCounts[status] = total;
+  for (const [reason, total] of reasonValues) if (total) reasonCounts[reason] = total;
+  const knownStatuses = Object.values(statusCounts).reduce((total, countForStatus) => total + countForStatus, 0);
+  const knownReasons = Object.values(reasonCounts).reduce((total, countForReason) => total + countForReason, 0);
+  const unknownStatuses = Math.max(0, pendingCount - knownStatuses);
+  const unknownReasons = Math.max(0, pendingCount - knownReasons);
+  if (unknownStatuses) statusCounts.unknown = unknownStatuses;
+  if (unknownReasons) reasonCounts.unknown = unknownReasons;
+  const retryAt = first.docs[0]?.data()?.retryAt || null;
   return {
-    count: snapshot.docs.length,
+    count: pendingCount,
     retryAt,
     statusCounts,
     reasonCounts,

@@ -4,6 +4,26 @@ import { dueEligibilityRetries, eligibilityRetryRef, eligibilityRetrySummary, re
 import { conciergeMatchingWork } from '../functions/src/applicationConciergeMatching.js';
 
 const now = Date.now();
+
+function aggregateOnlyEligibilityServiceRef(serviceRef: any) {
+  const eligibility = serviceRef.collection('eligibility');
+  const query = (source: any, limit: number | null = null) => ({
+    where: (field: string, operator: string, value: unknown) => query(source.where(field, operator, value), limit),
+    orderBy: (field: string) => query(source.orderBy(field), limit),
+    limit: (value: number) => query(source.limit(value), value),
+    count: () => source.count(),
+    get: () => {
+      if (limit === null) throw new Error('unbounded_retry_read');
+      return source.get();
+    },
+  });
+  return {
+    collection: (name: string) => name === 'eligibility'
+      ? { where: (field: string, operator: string, value: unknown) => query(eligibility.where(field, operator, value)) }
+      : serviceRef.collection(name),
+  };
+}
+
 describe('independent qualification retry queue', () => {
   it('retains unknown jobs, backs off, then removes only a verified outcome', async () => {
     const store = createMemoryFirestore();
@@ -64,6 +84,32 @@ describe('independent qualification retry queue', () => {
 
     expect(await eligibilityRetrySummary(serviceRef)).toMatchObject({
       statusCounts: { unverified: 1 }, reasonCounts: { evidence_source_changed: 1 },
+    });
+  });
+
+  it('summarizes a response-sized queue with aggregates and a bounded earliest-retry read', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_large_queue');
+    const eligibility = serviceRef.collection('eligibility');
+    const oversizedLegacyPayload = 'x'.repeat(50_000);
+    const rows = 220;
+    for (let index = 0; index < rows; index += 1) {
+      await eligibility.doc(`retry-${String(index).padStart(3, '0')}`).set({
+        jobUrl: `https://jobs.example.test/large-${index}`,
+        context: oversizedLegacyPayload,
+        attempts: 1,
+        retryAt: now + index + 1,
+        oversizedLegacyField: oversizedLegacyPayload,
+        ...(index % 3 !== 0 ? { lastStatus: 'unverified' } : {}),
+        ...(index % 2 === 0 ? { lastReason: 'posting_incomplete' } : {}),
+      });
+    }
+
+    expect(await eligibilityRetrySummary(aggregateOnlyEligibilityServiceRef(serviceRef))).toEqual({
+      count: rows,
+      retryAt: now + 1,
+      statusCounts: { unverified: 146, unknown: 74 },
+      reasonCounts: { posting_incomplete: 110, unknown: 110 },
     });
   });
 
