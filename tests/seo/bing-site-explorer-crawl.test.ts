@@ -432,6 +432,23 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(declaredCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     expect(declaredCodes).not.toContain(BING_FRONTIER_NOINDEX);
 
+    const nofollow = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replace('noindex,follow', 'noindex,nofollow'),
+    });
+    expect(nofollow.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(nofollow.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const drift = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replace(`href="${url}"`, `href="${BASE}/articoli-frontaliere/other/"`),
+    });
+    expect(drift.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
     const unmarked = classifyDocument({
       url,
       status: 200,
@@ -440,6 +457,26 @@ describe('Bing-compatible full-tree crawler', () => {
     });
     expect(unmarked.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
     expect(unmarked.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const pageInsideIndexableWindow = `${BASE}/cerca-lavoro-ticino/ricerca/page-10/`;
+    const pageInsideIndexableWindowCodes = classifyDocument({
+      url: pageInsideIndexableWindow,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replaceAll(url, pageInsideIndexableWindow),
+    }).findings.map((item) => item.code);
+    expect(pageInsideIndexableWindowCodes).toContain(BING_FRONTIER_NOINDEX);
+    expect(pageInsideIndexableWindowCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const redirectCodes = classifyDocument({
+      url,
+      status: 301,
+      finalUrl: `${BASE}/cerca-lavoro-ticino/ricerca/`,
+      scope: 'discovered-frontier',
+      html: marked,
+    }).findings.map((item) => item.code);
+    expect(redirectCodes).toContain(BING_FRONTIER_REDIRECT);
+    expect(redirectCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
   });
 
   it('keeps an undeclared job-detail noindex target actionable', () => {
