@@ -2,7 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCantonDisplayName } from './crawler-location-config.mjs';
-import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './swiss-locality-sentence-split.mjs';
+import { splitSwissLocalitySentences } from './swiss-locality-sentence-split.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
@@ -234,12 +234,11 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
       .map((el) => compact(el.textContent || ''))
       .find((text) => /Location/i.test(text) && isAltenSwissLocation(text)) || ''
   );
-  const location = rawLocationNode
-    .replace(/^.*?Location\s*[:.]?\s*/i, '')
+  const location = splitSwissLocalitySentences(
+    rawLocationNode.replace(/^.*?Location\s*[:.]?\s*/i, ''),
+  )[0]
     // Shared cut with sanitizeJobLocationField in scripts/assemble-jobs-dataset.mjs:
-    // negative lookbehind keeps the period after a "St"/"Ste" token (St. Moritz,
-    // St. Gallen, Ste. Croix). See swiss-locality-sentence-split.mjs.
-    .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
+    // preserves "St."/"Ste." locality abbreviations. See swiss-locality-sentence-split.mjs.
     .trim();
   const postedDate =
     compact(

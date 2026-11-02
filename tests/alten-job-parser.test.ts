@@ -10,7 +10,7 @@ import {
   CAREERS_URL,
   isTransientAltenBrowserError,
 } from '../scripts/update-alten-jobs.mjs';
-import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from '../scripts/lib/swiss-locality-sentence-split.mjs';
+import { splitSwissLocalitySentences } from '../scripts/lib/swiss-locality-sentence-split.mjs';
 
 describe('alten-job-parser', () => {
   it('uses the canonical careers listing URL without a query string', () => {
@@ -178,18 +178,14 @@ describe('alten-job-parser', () => {
     expect(parsed.location).toBe(expected);
   });
 
-  // Verification of #1457: the variable-length negative lookbehind in the shared
-  // split constant runs in the MAIN Node V8 (the crawler hands page.content() to
-  // parseAltenDetailHtml as a plain string — NOT inside page.evaluate / a vm
-  // sandbox), so it is fully supported. Assert the shared regex directly so any
-  // drift in either call site (alten-job-parser / assemble-jobs-dataset) is caught,
-  // including "Ste." which the alten whitelist does not currently accept.
+  // Verify the shared splitter used by both parsing paths. The locality
+  // contract includes St. Moritz, St. Gallen, and Ste. Croix.
   it.each([
     ['St. Moritz, Switzerland. Availability…', 'St. Moritz, Switzerland'],
     ['St. Gallen.Trailing prose', 'St. Gallen'],
     ['Ste. Croix, Switzerland. More text', 'Ste. Croix, Switzerland'],
     ['Ticino, Switzerland.Availability', 'Ticino, Switzerland'],
-  ])('SWISS_LOCALITY_SENTENCE_SPLIT_RX cuts %s to the bare locality', (input, expected) => {
-    expect(input.split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0].trim()).toBe(expected);
+  ])('splitSwissLocalitySentences cuts %s to the bare locality', (input, expected) => {
+    expect(splitSwissLocalitySentences(input)[0].trim()).toBe(expected);
   });
 });

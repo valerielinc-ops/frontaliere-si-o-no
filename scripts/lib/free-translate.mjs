@@ -614,7 +614,12 @@ function rejectedAsMetaResponse(tierName, source, out, outcome = null) {
  */
 function _chunkAtSentences(text, maxChars = 480) {
   // Split into sentences at natural boundaries
-  const segments = text.split(/(?<=\.\s)|(?<=\n)|(?<=\?\s)|(?<=!\s)|(?=##\s)|(?=[-*]\s)/).filter(Boolean);
+  const splitParts = text.split(/([.!?]\s|\n|(?=##\s)|(?=[-*]\s))/);
+  const segments = [];
+  for (let index = 0; index < splitParts.length; index += 2) {
+    const segment = `${splitParts[index] ?? ''}${splitParts[index + 1] ?? ''}`;
+    if (segment) segments.push(segment);
+  }
   const chunks = [];
   let current = '';
 
@@ -2291,9 +2296,10 @@ function chunkText(text, maxChars = 1800) {
     if (chunk.length <= maxChars) {
       result.push(chunk);
     } else {
-      const sentences = chunk.split(/(?<=[.!?])\s+/);
+      const sentenceParts = chunk.split(/([.!?])\s+/);
       let cur = '';
-      for (const s of sentences) {
+      for (let index = 0; index < sentenceParts.length; index += 2) {
+        const s = `${sentenceParts[index] ?? ''}${sentenceParts[index + 1] ?? ''}`;
         if (cur && (cur.length + s.length + 1) > maxChars) {
           result.push(cur.trim());
           cur = s;

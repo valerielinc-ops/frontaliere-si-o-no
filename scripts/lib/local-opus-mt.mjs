@@ -72,7 +72,9 @@ function chunkForOpusMt(text, maxChars = 600) {
     if (para.length <= maxChars) { flush(para); continue; }
     // Split long paragraph at sentence boundaries.
     let cur = '';
-    for (const sent of para.split(/(?<=[.!?])\s+/)) {
+    const sentenceParts = para.split(/([.!?])\s+/);
+    for (let index = 0; index < sentenceParts.length; index += 2) {
+      const sent = `${sentenceParts[index] ?? ''}${sentenceParts[index + 1] ?? ''}`;
       if (sent.length > maxChars) {
         // Pathological run with no sentence breaks: hard-split by words.
         flush(cur); cur = '';

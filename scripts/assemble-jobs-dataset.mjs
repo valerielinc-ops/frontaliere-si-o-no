@@ -90,7 +90,7 @@ import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
-import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
+import { splitSwissLocalitySentences } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import {
@@ -425,14 +425,12 @@ function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
   if (trimmedOriginal === '' || /^(undefined|null)$/i.test(trimmedOriginal)) {
     return fallback;
   }
-  let s = original
-    .replace(/^.*?Location\s*[:.]?\s*/i, '')
-    // Sentence-boundary cut that preserves "St."/"Ste." abbreviation periods
-    // in Swiss city names (St. Moritz, St. Gallen, Ste. Croix). The negative
-    // lookbehind keeps the period when it directly follows a "St"/"Ste" token;
-    // prose still cuts on every other period (e.g. "…Switzerland.Availability").
+  let s = splitSwissLocalitySentences(
+    original.replace(/^.*?Location\s*[:.]?\s*/i, ''),
+  )[0]
+    // Shared sentence-boundary cut that preserves "St."/"Ste." abbreviation
+    // periods in Swiss city names and cuts at later prose punctuation.
     // Shared with alten-job-parser.mjs — see swiss-locality-sentence-split.mjs.
-    .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .replace(/^[\s:]+/, '')
     // `Worblaufen & Homeoffice`: un suffisso di lavoro ibrido dopo la città non
     // è prosa. Senza toglierlo, la regola «home office» qui sotto buttava la
