@@ -46,7 +46,7 @@ export function partitionDiscoveryOutcomes(result) {
   const failedItems = result.failed.concat(unidentified.map((item) => ({ ...item, ambiguousDelivery: true, error: 'discovery acknowledgement missing' })));
   return {
     confirmed, failedItems,
-    discoveryUnknown: failedItems.filter((item) => item.meta?.discoveryClaim && item.ambiguousDelivery !== false).length,
+    discoveryUnknown: failedItems.filter((item) => item.meta?.discoveryClaim && item.ambiguousDelivery === true).length,
     // Legacy ambiguous is a subset of provider-accepted targeted sends.
     // Discovery unknown is a separate, unconfirmed category, counted once.
     ambiguous: (result.ambiguous || []).filter((item) => !item.meta?.discoveryClaim).length,
@@ -61,7 +61,9 @@ export async function finalizeDiscoveryDelivery(db, email, claim, outcome, faile
     const snap = await tx.get(ref); const current = snap.data()?.discovery;
     if (!snap.exists || current?.attemptId !== claim.attemptId || current.state !== 'pending') return;
     const accepted = !failed && confirmedDiscoveryOutcome(outcome);
-    const unknown = !accepted && (!failed || outcome?.ambiguousDelivery !== false);
+    // The cascade's failed list is definite unless explicitly marked ambiguous.
+    // An exception outside that result leaves the claim pending in the caller.
+    const unknown = !accepted && (!failed || outcome?.ambiguousDelivery === true);
     tx.set(ref, { discovery: {
       ...current,
       state: accepted ? 'accepted' : unknown ? 'unknown' : 'failed',

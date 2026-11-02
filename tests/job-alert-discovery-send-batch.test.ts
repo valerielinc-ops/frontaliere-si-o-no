@@ -8,6 +8,16 @@ import { buildJobAlertFunnel } from '../scripts/lib/job-alert-funnel.mjs';
 afterEach(() => { vi.clearAllMocks(); __setFirestoreAdminForTest(null); });
 
 describe('discovery provider outcomes', () => {
+  it('does not finalize a transport exception as a definite rejection', async () => {
+    const persist = vi.fn();
+    __setFirestoreAdminForTest({ runTransaction: persist });
+    send.mockRejectedValueOnce(new Error('transport timeout'));
+    await expect(sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
+      discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]))
+      .rejects.toThrow('transport timeout');
+    expect(persist).not.toHaveBeenCalled();
+  });
+
   it('keeps successful targeted bookkeeping available when discovery failure persistence throws', async () => {
     const set = vi.fn(async () => {});
     const ref = { set, collection: () => ({ doc: () => ({ set }) }) };

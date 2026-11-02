@@ -52,6 +52,15 @@ describe('durable discovery delivery claim', () => {
     expect(await claimDiscoveryDelivery(store.db, email)).toBeNull();
   });
 
+  it('retries a definite cascade rejection that has no ambiguity flag', async () => {
+    const store = database(); const now = Date.now();
+    const claim = await claimDiscoveryDelivery(store.db, email, now);
+    await finalizeDiscoveryDelivery(store.db, email, claim, { error: 'provider rejected' }, true, now);
+    expect(store.read()).toMatchObject({ discovery_email: { state: 'failed', retryAt: now + DISCOVERY_RETRY_MS } });
+    expect(await claimDiscoveryDelivery(store.db, email, now + DISCOVERY_RETRY_MS - 1)).toBeNull();
+    expect(await claimDiscoveryDelivery(store.db, email, now + DISCOVERY_RETRY_MS)).toMatchObject({ attempts: 2 });
+  });
+
   it('retries only definitive failures after backoff, with a stable delivery identity and at most three attempts', async () => {
     const store = database(); let now = Date.now(); let firstId;
     for (let attempt = 1; attempt <= 3; attempt++) {
@@ -75,6 +84,12 @@ describe('durable discovery delivery claim', () => {
 
 
 describe('discovery outcome accounting', () => {
+  it('does not count a definite rejection without a flag as unknown', () => {
+    const item = { meta: { discoveryClaim: { attemptId: 'one' } }, error: 'provider rejected' };
+    const r = partitionDiscoveryOutcomes({ sent: [], failed: [item], ambiguous: [] });
+    expect(r.failedItems).toEqual([item]);
+    expect(r.discoveryUnknown).toBe(0);
+  });
   it('counts an unidentifiable ack once and excludes it from accepted/legacy ambiguous', () => {
     const item = { meta: { discoveryClaim: { attemptId: 'one' } }, provider: 'maileroo' };
     const r = partitionDiscoveryOutcomes({ sent: [item], failed: [], ambiguous: [item] });
