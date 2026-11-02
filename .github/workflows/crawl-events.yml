@@ -37,6 +37,11 @@ on:
         required: false
         default: true
         type: boolean
+      tio_ids:
+        description: 'Comma-separated Tio agenda IDs to revisit; mutually exclusive with other targeted sources.'
+        required: false
+        default: ''
+        type: string
       myswitzerland_ids:
         description: 'Comma-separated MySwitzerland IDs to revisit; empty runs all sources normally.'
         required: false
@@ -291,9 +296,14 @@ jobs:
 
       - name: Validate targeted source inputs
         env:
+          INPUT_TIO_IDS: ${{ inputs.tio_ids || '' }}
           INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
           INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
         run: |
+          if [ -n "$INPUT_TIO_IDS" ] && { [ -n "$INPUT_MYSWITZERLAND_IDS" ] || [ -n "$INPUT_GUIDLE_IDS" ]; }; then
+            echo '::error::Select only one targeted source per run.'
+            exit 1
+          fi
           if [ -n "$INPUT_MYSWITZERLAND_IDS" ] && [ -n "$INPUT_GUIDLE_IDS" ]; then
             echo '::error::Select only one targeted source per run.'
             exit 1
@@ -305,7 +315,15 @@ jobs:
         env:
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ github.event.inputs.days || '21' }}
-        run: node scripts/crawl-tio-agenda.mjs --days "$INPUT_DAYS"
+          INPUT_TIO_IDS: ${{ inputs.tio_ids || '' }}
+        run: |
+          args=()
+          if [ -n "$INPUT_TIO_IDS" ]; then
+            args+=(--ids "$INPUT_TIO_IDS")
+          else
+            args+=(--days "$INPUT_DAYS")
+          fi
+          node scripts/crawl-tio-agenda.mjs "${args[@]}"
 
       - name: Persist geo/translation caches (survives downstream failures)
         id: persist-caches
@@ -347,7 +365,7 @@ jobs:
 
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
-        if: ${{ !inputs.myswitzerland_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.tio_ids }}
         env:
           INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
         run: |
@@ -359,7 +377,7 @@ jobs:
 
       - name: Crawl myswitzerland.com (nationwide)
         id: crawl-myswitzerland
-        if: ${{ !inputs.guidle_ids }}
+        if: ${{ !inputs.guidle_ids && !inputs.tio_ids }}
         # continue-on-error: one source must not freeze the whole dataset.
         # From 2026-10-04 the www.myswitzerland.com CDN answers HTTP 406 to
         # every uncached detail page; the fail-closed detail-failure policy
@@ -383,7 +401,7 @@ jobs:
 
       - name: Crawl geneve.ch agenda (GE, pilot)
         id: crawl-ge
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         # continue-on-error: geneve.ch is the newest, least battle-tested of
         # the four sources (own DOM-drift guard exists specifically because
         # selector drift is plausible on a brand-new source) and sits
@@ -405,7 +423,7 @@ jobs:
       # the GE pilot, with its own "Surface …" twin below.
       - name: Crawl OpenAgenda (GE/VD)
         id: crawl-openagenda
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         continue-on-error: true
         run: node scripts/crawl-openagenda-events.mjs
 
@@ -414,25 +432,25 @@ jobs:
       # its "Surface …" twin below fails the job after publication.
       - name: Crawl fr.ch agenda (FR)
         id: crawl-fr
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         continue-on-error: true
         run: node scripts/crawl-fr-agenda.mjs
 
       - name: Crawl nw.ch agenda (NW)
         id: crawl-nw
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         continue-on-error: true
         run: node scripts/crawl-icms-agenda.mjs --source nw-agenda
 
       - name: Crawl ow.ch agenda (OW)
         id: crawl-ow
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         continue-on-error: true
         run: node scripts/crawl-icms-agenda.mjs --source ow-agenda
 
       - name: Crawl stadtluzern.ch agenda (LU)
         id: crawl-lu
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         continue-on-error: true
         run: node scripts/crawl-icms-agenda.mjs --source lu-stadt-agenda
 
@@ -441,7 +459,7 @@ jobs:
       # contract as the agendas above, surfaced by its own "Surface …" step.
       - name: Crawl classicAscona concerts (TI, organizer JSON-LD)
         id: crawl-classicascona
-        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids && !inputs.tio_ids }}
         continue-on-error: true
         # ~60 pages at 2 s each: a stuck host must not eat the job budget.
         timeout-minutes: 10
@@ -502,7 +520,7 @@ jobs:
         # if: always() and continue-on-error for the same reasons as the caches
         # step above — this is a progress ratchet, not the deliverable, and it
         # must never skip-cascade assemble/gate/commit.
-        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: always() && !inputs.tio_ids && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}

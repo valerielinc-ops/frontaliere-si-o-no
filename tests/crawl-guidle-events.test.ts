@@ -633,6 +633,25 @@ describe('mapDetailPageToLocaleData', () => {
     });
   });
 
+  it('uses a source category for a named title performer without treating the event title as a performer', () => {
+    const named = mapDetailPageToLocaleData(
+      buildDetailHtml({
+        jsonLd: JSON.stringify({
+          '@type': 'Event',
+          name: 'Hugo Lioret',
+          description: 'Ein Musikabend.',
+          startDate: '2026-07-04T19:00',
+          location: { name: 'Zytturm', address: { addressLocality: 'Zug' } },
+        }),
+      }),
+      'de',
+    );
+    expect(named?.performer).toEqual({ name: 'Hugo Lioret' });
+
+    const generic = mapDetailPageToLocaleData(buildDetailHtml(), 'de');
+    expect(generic?.performer).toBeUndefined();
+  });
+
   it('fills source people from the full itemprop description when JSON-LD is abbreviated', () => {
     const html = buildDetailHtml({
       jsonLd: JSON.stringify({
