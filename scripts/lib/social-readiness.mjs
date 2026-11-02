@@ -156,18 +156,32 @@ export function classifyTikTok({ env = {}, probe = {} } = {}) {
  */
 export const REDDIT_DATA_API_DENIED_ON = '2026-08-24';
 
+/** Reddit API credentials do not prove that Reddit approved the Data API use case. */
+export function isRedditDataApiApproved(env = {}) {
+  return String(env?.REDDIT_DATA_API_APPROVED ?? '').trim() === 'true';
+}
+
 export function classifyReddit({ env = {} } = {}) {
-  if (present(env, 'REDDIT_CLIENT_ID') && present(env, 'REDDIT_CLIENT_SECRET')) {
+  const hasCredentials = present(env, 'REDDIT_CLIENT_ID') && present(env, 'REDDIT_CLIENT_SECRET');
+  const approved = isRedditDataApiApproved(env);
+  if (approved && hasCredentials) {
     return {
       channel: 'reddit',
       state: READY,
-      reason: 'REDDIT_CLIENT_ID/SECRET are present — the Data API path is open after all; re-enable the classic poster.',
+      reason: 'REDDIT_DATA_API_APPROVED is true and client credentials are present — the explicitly approved Data API path can publish.',
+    };
+  }
+  if (approved) {
+    return {
+      channel: 'reddit',
+      state: CREDENTIAL_MISSING,
+      reason: 'The Data API approval marker is present, but Reddit client credentials are missing.',
     };
   }
   return {
     channel: 'reddit',
     state: PATH_REFUSED,
-    reason: `Reddit denied the Data Access Request on ${REDDIT_DATA_API_DENIED_ON}, so the classic OAuth app cannot be created and these two values will never arrive by this route. The replacement path is the Devvit app (its own review queue) — see docs/REDDIT-POSTING.md.`,
+    reason: `Reddit denied the Data Access Request on ${REDDIT_DATA_API_DENIED_ON}; client credentials alone do not authorize API access. Keep the classic publisher disabled until explicit Reddit approval is recorded as REDDIT_DATA_API_APPROVED=true. The replacement path is the Devvit app — see docs/REDDIT-POSTING.md.`,
   };
 }
 

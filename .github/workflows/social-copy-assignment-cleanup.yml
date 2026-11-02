@@ -1,0 +1,64 @@
+name: Social Copy Assignment Cleanup
+
+on:
+  schedule:
+    - cron: '20 5 15 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: social-copy-assignment-cleanup
+  cancel-in-progress: false
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install Firebase Admin dependency
+        run: npm ci
+      - name: Configure Firebase service account
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for assignment cleanup"
+            exit 1
+          fi
+          sa_path="$RUNNER_TEMP/firebase-social-copy-cleanup.json"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$sa_path"
+          chmod 600 "$sa_path"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$sa_path" >> "$GITHUB_ENV"
+      - name: Prune expired hashed assignments
+        run: node scripts/social-copy/prune-assignment-history.mjs

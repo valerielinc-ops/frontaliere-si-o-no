@@ -69,6 +69,8 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
 
   // Monthly Codex social copy pack.
   'data/social-copy-packs/current.json',
+  'data/reddit-posted-jobs.json',
+  'data/reddit-posted-articles.json',
 
   // Report di qualita' dei parser, riscritto a ogni run del crawler.
   'data/parser-quality-report.json',

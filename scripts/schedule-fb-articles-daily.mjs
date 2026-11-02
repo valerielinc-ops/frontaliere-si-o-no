@@ -56,7 +56,7 @@ import {
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
@@ -271,6 +271,8 @@ export function appendPosted(repoRoot, entries) {
  * @param {string} [opts.repoRoot]
  * @param {(...a: unknown[]) => void} [opts.log]
  * @param {(...a: unknown[]) => void} [opts.warn]
+ * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
+ * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -282,6 +284,8 @@ export async function run(opts = {}) {
   const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
     onWarning: (message) => warn('⚠️', message),
   });
+  const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
+  const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const limit = Number(env.FB_ARTICLE_VOLUME || DEFAULT_VOLUME);
@@ -309,13 +313,16 @@ export async function run(opts = {}) {
   log('ℹ️', `selected ${candidates.length} article(s) to post`);
 
   // 3. Build payloads
-  const payloads = candidates.map((a) => {
-    const socialCopy = selectSocialCopy({
+  const copyReservations = new Map();
+  const payloads = await Promise.all(candidates.map(async (a) => {
+    const socialCopy = await selectSocialCopy({
       pack: socialCopyPack,
       channel: 'facebook',
       kind: 'article',
       assignmentKey: a.id,
+      dryRun,
     });
+    copyReservations.set(a.id, socialCopy);
     return {
       articleId: a.id,
       section: a.section,
@@ -323,7 +330,17 @@ export async function run(opts = {}) {
       message: buildArticleCaption({ ...a, socialCopy }),
       copyFields: socialCopyLedgerFields(socialCopy),
     };
-  });
+  }));
+  const releaseReservation = async (id, reason) => {
+    await releaseUnpublishedSocialCopyAssignment(copyReservations.get(id), {
+      releaseBalancedImpl: releaseSocialCopy,
+      reason,
+    });
+    copyReservations.delete(id);
+  };
+  const releaseAllReservations = async (reason) => {
+    for (const id of copyReservations.keys()) await releaseReservation(id, reason);
+  };
 
   // 4. Dry-run vs real POST
   if (dryRun) {
@@ -334,10 +351,12 @@ export async function run(opts = {}) {
 
   if (!pageId || !token) {
     warn('⚠️', 'FB_PAGE_ID or FB_PAGE_ACCESS_TOKEN missing — skipping');
+    await releaseAllReservations('Facebook credentials missing');
     return { ok: false, posted: 0, dryRun, payloads };
   }
   if (typeof fetchImpl !== 'function') {
     warn('⚠️', 'no fetch impl available — skipping');
+    await releaseAllReservations('Facebook fetch implementation missing');
     return { ok: false, posted: 0, dryRun, payloads };
   }
 
@@ -365,8 +384,15 @@ export async function run(opts = {}) {
     // Pre-flight: this immediate poster links to a freshly-built article page;
     // a slow build/deploy can leave it not-yet-live, so skip on a confirmed
     // 4xx rather than post a link that 404s (see isLandingPageLive doc).
-    if (!(await isLandingPageLive(p.url, { fetchImpl }))) {
+    let pageIsLive = false;
+    try {
+      pageIsLive = await isLandingPageLive(p.url, { fetchImpl });
+    } catch {
+      pageIsLive = false;
+    }
+    if (!pageIsLive) {
       warn('🚧', `landing page not live yet for "${p.articleId}" (${p.url}) — skipping post`);
+      await releaseReservation(p.articleId, 'Facebook article landing-page preflight failed');
       skipped += 1;
       continue;
     }
@@ -390,12 +416,14 @@ export async function run(opts = {}) {
     let data = null;
     let res = null;
     let attempt = 0;
+    let deliveryUncertain = false;
     while (attempt < 2) {
       attempt += 1;
       try {
         res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
         data = await res.json();
       } catch (err) {
+        deliveryUncertain = true;
         warn('⚠️', `POST failed for ${p.articleId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
@@ -410,6 +438,7 @@ export async function run(opts = {}) {
     }
 
     if (res?.ok && data?.id) {
+      copyReservations.delete(p.articleId);
       posted += 1;
       appendPosted(repoRoot, [{
         id: p.articleId,
@@ -421,6 +450,9 @@ export async function run(opts = {}) {
       log('✅', `${p.articleId} → ${data.id}`);
     } else {
       warn('⚠️', `FB API error for ${p.articleId}: ${JSON.stringify(data).slice(0, 300)}`);
+      if (!deliveryUncertain && res && !res.ok) {
+        await releaseReservation(p.articleId, 'Facebook explicitly rejected the article post');
+      }
     }
   }
 

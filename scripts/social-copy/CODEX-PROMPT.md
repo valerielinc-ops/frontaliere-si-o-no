@@ -9,7 +9,9 @@ Read these files first:
 Use natural Italian and adapt each channel's voice. These are reusable hooks
 and calls to action; publishers add verified facts, figures, dates, locations,
 URLs, labels, disclosures, and media. Never invent claims, events, salaries,
-tax or legal advice, reach promises, or audience facts.
+tax or legal advice, reach promises, or audience facts. Reddit copy must read
+as a useful community contribution: no hashtags, engagement bait, or generic
+cross-promotion language.
 
 Return one JSON object with this exact channel/kind hierarchy:
 
@@ -20,7 +22,8 @@ Return one JSON object with this exact channel/kind hierarchy:
     "tiktok": {"article": [], "job": [], "border": [], "video": []},
     "facebook": {"article": [], "job": [], "event": [], "digest": []},
     "linkedin": {"article": [], "job": []},
-    "telegram": {"job": [], "border": []}
+    "telegram": {"job": [], "border": []},
+    "reddit": {"article": [], "job": []}
   }
 }
 ```
@@ -39,10 +42,10 @@ Instagram creative objective.
 
 Provide exactly twelve distinct templates for `facebook.job`, because that
 publisher schedules twenty-four jobs per day. Every other non-Instagram
-channel/kind has exactly three. Keep all hooks and CTAs distinct within each
+channel/kind, including Reddit, has exactly three. Keep all hooks and CTAs distinct within each
 slot. Instagram and TikTok hooks must be at most ninety characters and their
-CTAs at most eighty. Facebook, LinkedIn, and Telegram hooks and CTAs must be
-at most one hundred fifty characters.
+CTAs at most eighty. Facebook, LinkedIn, Telegram, and Reddit hooks and CTAs
+must be at most one hundred fifty characters.
 
 Every hook and CTA is one plain-text line. Each CTA must contain exactly one
 clear imperative action; do not combine actions with "e", "poi", or punctuation.
@@ -53,14 +56,17 @@ URLs, email addresses, handles, placeholders, HTML, or hashtags. Each CTA
 requests one action that the platform post can fulfill. For Instagram and
 TikTok, mention the link in bio when the requested action is to read or apply;
 their captions also retain a publisher-owned destination note. Facebook,
-LinkedIn, and Telegram attach the canonical destination themselves.
+LinkedIn, Telegram, and Reddit attach the canonical destination themselves.
 
 If a recent Instagram copy-performance brief is supplied after this prompt,
 use only template groups with at least three observations as descriptive style
 signals. If a GA4 social-link attribution brief is supplied, use only groups
 marked eligibleForDescription (at least ten attributed sessions); sessions are
 not impressions. Read `copySlot` separately from the source content `kind` so
-video copy is not treated as article-carousel copy. Both inputs are descriptive. Do not declare a winner, infer
+video copy is not treated as article-carousel copy. Keep `assignmentMode` and
+the experiment ID/hash groups separate: Firebase-balanced, deterministic,
+fallback, legacy, and separate experiment cohorts are not interchangeable
+evidence. Both inputs are descriptive. Do not declare a winner, infer
 causality, change objective balance, or optimize for a rate from insufficient
 observations. An unavailable source or empty variant list means there is no
 usable evidence, not that the template received zero traffic or performed

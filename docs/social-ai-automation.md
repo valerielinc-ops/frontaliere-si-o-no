@@ -15,8 +15,9 @@ and deliver through the existing platform API or browser robot.
    copy-performance brief, a minimized 30-day GA4 social-link attribution brief,
    and CODEX_AUTH_JSON. The GA4 query uses the Firebase service account only in
    a separate read-only collection step; Codex receives aggregate sessions,
-   post-click website engagement rates, channel/kind, copy slot, and template
-   IDs, never credentials, post text, media IDs, URLs, or user-level data. GA4 groups
+   post-click website engagement rates, channel/kind, copy slot, template IDs,
+   and assignment mode, never credentials, post text, media IDs, URLs, or
+   user-level data. GA4 groups
    require ten sessions before descriptive use; Instagram groups require three
    observations. Both sources are descriptive and never choose winners or
    change experiment decisions.
@@ -29,10 +30,16 @@ and deliver through the existing platform API or browser robot.
    existing 24-post schedule. Only then does the workflow open a protected PR
    for `data/social-copy-packs/current.json`; required checks and Codex review
    must pass before GitHub's native auto-merge admits the pack to `main`.
-4. Publishers assign templates deterministically from the channel, format,
-   content identity, and (for Instagram) the existing creative objective.
-   Retries keep the same copy; Telegram border copy is keyed to the digest's
-   week window.
+4. Publishers ask Firebase Remote Config whether balanced copy assignment is
+   enabled. When enabled, a Firestore transaction assigns the least-used
+   template within the channel/slot/objective/pack cohort; assignment IDs are
+   hashed and retries reuse the same arm. TikTok releases reserved arms on any
+   pre-delivery failure and releases the video arm before assigning carousel
+   copy when video preparation fails, so unused slots do not skew the balance.
+   Reddit waits for a live token before assigning and releases an arm if every
+   submission fails. A Firebase outage falls back to the stable deterministic
+   selection and records that mode. Dry runs always use deterministic preview
+   selection and never write to Firestore.
 5. Instagram applies the same generated hook and objective-matched CTA to its
    caption and rendered cover/closing card. Its publisher always retains a
    link-in-bio destination note. TikTok receives its hook on the cover and
@@ -44,10 +51,12 @@ and deliver through the existing platform API or browser robot.
 7. Where a publisher has an existing ledger, it records copy mode, pack ID,
    copy slot, template ID, prompt version, hook, CTA, and Instagram objective.
    Tagged destinations retain their existing campaign/creative `utm_content` and
-   append the pack ID, selected copy slot, and template ID, so GA4 can
-   distinguish a TikTok video template from article-carousel copy even when
-   both promote an article. Insights snapshots and reports carry copy
-   attribution without changing sample thresholds or winner selection.
+   append the pack ID, selected copy slot, template ID, assignment mode, and a
+   short hash of the experiment ID, so GA4 keeps experiment cohorts separate
+   and distinguishes balanced exposure from deterministic fallback. It also
+   separates a TikTok video template from article-carousel copy even when both
+   promote an article. Insights snapshots and reports carry copy attribution
+   without changing sample thresholds or winner selection.
    Instagram and TikTok bio-link destinations are not per-post clickable links;
    their UTM values only measure traffic when those destinations are actually
    exposed and clicked.
@@ -66,16 +75,22 @@ platform readiness checks remain in force.
 | Facebook | articles, events/digests, scheduled jobs | existing Graph API schedulers |
 | LinkedIn | member-profile article/job posts and Company Page article path | member token and Posts API; Company Page permission currently denied |
 | Telegram | daily jobs and weekly border digest | existing Bot API |
-| Reddit | not included in this copy pack yet | classic Data API is `path-refused`; Devvit review is underway for articles, with job delivery still needing a published index |
+| Reddit | article and job hooks/CTAs in the shared pack and existing template builders | classic Data API is `path-refused`; Devvit code is not present in this repository, and its review/CDN feed remain external |
+
+Reddit now has article and job copy slots, used by the existing template
+builders for previews and ledger attribution. The classic Data API publisher
+is fail-closed even if stale credentials exist: only explicit written Reddit
+approval plus `REDDIT_DATA_API_APPROVED=true` can enable it. The Devvit
+application is not tracked in this repository, so Reddit still has no live
+automated delivery path here. Devvit submission and the job-index integration
+remain external follow-up work.
 
 The generator does not enable new posting routes. The LinkedIn Company Page
 path consumes the shared LinkedIn article copy when its existing publisher is
-invoked, but its permission is currently denied. Reddit is a concrete coverage
-gap: the pack has no Reddit slots even though copy generation does not require
-the refused classic API. Add article and job slots with the Devvit input path;
-the first Devvit release is article-only, and job delivery needs the CDN
-index. LinkedIn needs the Company Page permission grant before that publisher
-can deliver.
+invoked, but its permission is currently denied. Reddit copy coverage is in
+place; live delivery still requires the Devvit app, its review, and the CDN
+feed integration. The first Devvit release should cover articles; job delivery
+needs a small per-locale index instead of polling the large build dataset.
 
 TikTok's Content Posting API is not cleared for this internal unattended
 workflow by an audit alone. The official guidance says unaudited posts are
@@ -118,8 +133,19 @@ PR passes the required checks and merges, deterministic copy remains active.
   minimum observations, exploration share, and lift thresholds. Copy metadata
   is added to reports without lowering a gate or treating insufficient data as
   a winner.
-- Firebase remains the control plane for experiments and assignment. This copy
-  pack is one deterministic editorial layer, not a new experiment flag.
+- Firebase Remote Config controls the balanced-copy assignment, while Firestore
+  keeps stable, hashed assignment records and per-cohort counts. Publishers
+  release reservations on certain pre-delivery skips and explicit API rejection;
+  they retain assignments after accepted API/enqueue delivery and when a
+  network failure leaves delivery uncertain. TikTok also switches to carousel
+  copy only after releasing the unused video arm. The Reddit classic Data API
+  requires both a token and explicit approval; an uncertain submission keeps its
+  reservation. `.github/workflows/social-copy-experiment-config.yml` reconciles
+  the enabled experiment config on script changes or manual dispatch;
+  `.github/workflows/social-copy-assignment-cleanup.yml`
+  removes assignment records older than 90 days. GA4 and Instagram reports keep
+  `firebase-balanced`, deterministic, fallback, legacy, and separate experiment
+  IDs/hashes in distinct groups; none of these reports declare a winning copy arm.
 - Native performance data in the current feedback loop comes from Instagram
   Insights only. GA4 can describe sessions and on-site engagement that arrive
   through clickable, tagged destinations; it does not measure reach or post
@@ -127,12 +153,13 @@ PR passes the required checks and merges, deterministic copy remains active.
   expose the matching destination before GA4 can attribute a post-level click.
   This is a copy integration and attribution foundation, not yet a complete
   cross-network growth optimizer.
-- The owner has authorized automatic publishing. Existing publishers and the
-  browser robot already use their configured platform credentials without
-  per-post approval; Codex does not need to read token values or persistent
-  browser state to generate copy. If Codex later needs to trigger a platform
-  action, expose the existing publisher as a host-side capability rather than
-  adding credentials to the model prompt.
+- The owner has authorized automatic publishing through existing publisher
+  credentials, subject to each platform's access grants and posting rules. Reddit
+  remains disabled until Reddit grants Data API access and the approval marker
+  is set; credentials alone cannot open that path. Codex does not read token
+  values or persistent browser state to generate copy. If Codex later needs to
+  trigger a platform action, expose the existing publisher as a host-side
+  capability rather than adding credentials to the model prompt.
 - GA4 feedback covers only sessions that arrive through a tagged, clickable
   destination. The initial live query returned no copy-attributed rows; later
   monthly briefs must treat unavailable or absent rows as missing evidence, not
@@ -140,20 +167,21 @@ PR passes the required checks and merges, deterministic copy remains active.
 
 ## Growth work beyond this copy integration
 
-This first phase gives the existing posts platform-specific copy and joins
-some downstream sessions to a copy slot. It does not yet compare native reach
-or engagement across all platforms, control the Instagram/TikTok bio link per
-post, add new formats, or change publishing volume. Those are the inputs needed
-before Codex can optimize cross-network growth instead of only learning from
-Instagram and clickable-site traffic.
+This phase gives existing posts platform-specific copy, balances assignment
+through Firebase, and joins some downstream sessions to a copy slot. It does
+not yet compare native reach or engagement across all platforms, control the
+Instagram/TikTok bio link per post, generate complete storyboards/scripts for
+each format, or change publishing volume. Codex can currently describe
+Instagram-native outcomes and tagged website sessions; it cannot yet optimize
+cross-network growth from a complete view of social reach and engagement.
 
 | Priority | Next work | Dependency |
 |---|---|---|
-| 1 | Add Reddit article and job copy slots to the pack and connect them to the Devvit app. The Devvit app currently covers articles; job delivery needs the published CDN index. | Devvit review is underway; classic Reddit Data API access was refused. |
-| 2 | Capture native post-level reach, views, saves, shares, and replies for Facebook, TikTok, LinkedIn, and Telegram; keep each platform's minimum sample and date window explicit. | Read access to each platform's analytics and a stable post-ID ledger. |
-| 3 | Add a branded, per-post landing route for Instagram and TikTok bio links so clicks can identify the post without claiming ordinary caption links are clickable. | Profile-link update path and stable canonical redirects. |
-| 4 | Compare format and copy performance before expanding cadence or adding formats; use the existing Firebase experiment control plane for balanced assignment and measurement. | Enough native observations; no new PostHog experiments. |
-| 5 | Resolve TikTok API eligibility for an internal publishing workflow and, if approved, provide the required creator-facing post choices; do not assume an audit alone clears the current cron. | Written platform eligibility and a compliant user-facing flow. |
+| 1 | Connect Reddit copy to a Devvit app, submit it for review, and add article/job feeds from the published CDN index. | **blocked: external Reddit review and missing Devvit project.** **Motivo:** classic Data API access was refused and the Devvit app is not in this repository. **Prossimo passo:** create the Devvit app in its deployment project, request the required domain access, and submit it for review. |
+| 2 | Capture native post-level reach, views, saves, shares, and replies for Facebook, TikTok, LinkedIn, and Telegram, joined through stable post IDs. | **blocked: external analytics permissions.** **Motivo:** the current account/app grants do not provide all required native insights. **Prossimo passo:** enable the documented read scopes, then add one bounded adapter and explicit sample window per platform. |
+| 3 | Add a branded, per-post landing route for Instagram and TikTok bio links so clicks can identify the post without treating caption links as clickable. | **blocked: profile-link update path.** **Motivo:** existing publishers do not control the profile bio link per post. **Prossimo passo:** implement a stable redirect and connect it to the approved profile-link update capability. |
+| 4 | Expand Codex from reusable hooks/CTAs to format-specific scripts and storyboards, then evaluate them against native reach and engagement. | **blocked: missing outcome data.** **Motivo:** generation would be optimized against incomplete Instagram and click-only signals. **Prossimo passo:** complete per-channel native metric ingestion before expanding AI-generated creative formats. |
+| 5 | Resolve TikTok API eligibility for unattended publishing and, if approved, provide creator-facing post choices. | **blocked: platform eligibility.** **Motivo:** the current cron lacks TikTok's required creator-facing choices and the internal use case is not cleared. **Prossimo passo:** obtain written eligibility and implement the approved interactive posting flow. |
 
 No platform's external review, audience setting, or rate limit is overridden by
 the owner's authorization or by Codex.
