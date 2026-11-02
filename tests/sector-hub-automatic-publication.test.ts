@@ -105,7 +105,7 @@ describe('automatic sector hub publication', () => {
       slug: 'tecnica',
       routeKind: 'dynamic' as const,
       label: 'Tecnica',
-      labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' },
+      labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'Technique' },
       sourceFields: ['category' as const],
       matchLabels: ['tecnica'],
       firstPublishedAt: '2026-10-20T08:22:55.192Z',
@@ -267,7 +267,7 @@ describe('automatic sector hub publication', () => {
           label: 'Tecnica',
           suggestedSlug: 'tecnica',
           sourceLocale: 'it',
-          labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' },
+          labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'Technique' },
           automaticPromotionEligible: candidate.automaticPromotionEligible ?? true,
           sourceFields: ['category'],
           alternateLabels: [],
@@ -288,7 +288,7 @@ describe('automatic sector hub publication', () => {
     expect(recover({ activeJobCount: 8, employerCount: 3, consecutiveWeeks: 1 }).status).toBe('retired');
     expect(recover({ activeJobCount: 8, employerCount: 3, consecutiveWeeks: 2 }).status).toBe('active');
     expect(recover({ activeJobCount: 43, employerCount: 10, consecutiveWeeks: 2 })?.labelByLocale)
-      .toEqual({ it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' });
+      .toEqual({ it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'Technique' });
   });
 
   it('keeps explicit owner retirements locked even when inventory and traffic gates recover', () => {
@@ -350,7 +350,7 @@ describe('automatic sector hub publication', () => {
       slug: 'tecnica',
       routeKind: 'dynamic' as const,
       label: 'Tecnica',
-      labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' },
+      labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'Technique' },
       sourceFields: ['category' as const],
       matchLabels: ['Tecnica'],
       firstPublishedAt: '2026-10-20T08:22:55.192Z',
