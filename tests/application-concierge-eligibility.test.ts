@@ -32,6 +32,28 @@ function fixture(match: any) {
 }
 
 describe('qualification before proposal publication', () => {
+  it('fails closed when a training title names a formal vocational qualification omitted by the extractor', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    expect(CONCIERGE_ELIGIBILITY_VERSION).toMatch(/requirements-v5-/);
+    expect(await check({ id: 'stage-title', title: 'Stagiste/i ... maturità professionale (52 settimane)', employmentType: 'internship' }))
+      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(f.generate.mock.calls[1][1]).toContain('Stagiste/i ... maturità professionale (52 settimane)');
+    expect(f.generate).toHaveBeenCalledTimes(2);
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+
+  it('does not treat a formal qualification in an ordinary non-training title as a hard eligibility requirement', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    const result = await check({ id: 'ordinary-title', title: 'IT Support Specialist – maturità professionale (52 settimane)' });
+
+    expect(result.reason).not.toBe('requirements_incomplete');
+    expect(f.generate).toHaveBeenCalledTimes(3);
+  });
+
   it('checks the CV storage size before downloading it into the matching worker', async () => {
     const f = fixture({ matches: [], verdict: 'weak', questions: [] });
     const download = vi.fn(async () => [f.bytes]);

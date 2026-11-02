@@ -158,6 +158,8 @@ const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|task
 const PREFERENCE_CUE_RE = /\b(?:advantage|preferred|desirable|useful|nice\s+to\s+have|optional|opzional\w*|facultatif\w*|facultativ\w*|nicht\s+obligatorisch|nicht\s+erforderlich|nicht\s+notwendig|not\s+mandatory|not\s+required|not\s+essential|not\s+necessary|not\s+obligatory|pas\s+obligatoire|pas\s+necessaire|non\s+(?:e\s+)?richiest\w*|non\s+(?:e\s+)?obbligator\w*|non\s+(?:e\s+)?necessar\w*|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|a\s+plus|an\s+optional\s+requirement|preferibil\w*|costituisce\s+un\s+plus)\b/i;
 const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
 const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainees?\b|interns?\b|apprentices?\b|studente\w*|alliev\w*|schueler\w*|schuler\w*|auszubildende\w*|eleve\w*|etudiant\w*|stagiaire\w*|apprenti(?:e|es|s)?\b)\b/i;
+const TRAINING_ROLE_CUE_RE = /\b(?:stage|stagist\w*|stagiaire\w*|intern(?:ship|s)?|apprendist\w*|apprenti\w*|apprentice\w*|lehrstell\w*|lehrling\w*|ausbildung\w*)\b/i;
+const FORMAL_VOCATIONAL_CREDENTIAL_RE = /\b(?:maturita(?:\s+profession\w*)?|maturite\s+professionnelle|professional\s+(?:maturity|baccalaureate|diploma)|vocational\s+(?:maturity|baccalaureate|diploma)|berufsmatur\w*|diploma\s+(?:profession\w*|commercial\w*))\b/i;
 const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|presently|now|ongoing|attending|attend(?:s)?|studying|enrolling|attualmente|frequento|frequentando|sono\s+iscritt\w*|derzeit|aktuell|besuche|studiere|actuellement|je\s+suis\s+inscrit\w*|etudie|en\s+cours)\b/i;
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
 const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
@@ -181,6 +183,7 @@ function classifyHardEligibilityCues(statement) {
     exclusive: EXCLUSIVE_ELIGIBILITY_RE.test(normalized) && ELIGIBILITY_SUBJECT_RE.test(normalized),
     mandatory: EXPLICIT_MANDATORY_RE.test(withoutNegatedHardCues) && QUALIFICATION_CONTEXT_RE.test(normalized),
     threshold: THRESHOLD_REQUIREMENT_RE.test(normalized) && QUALIFICATION_CONTEXT_RE.test(normalized),
+    trainingQualification: TRAINING_ROLE_CUE_RE.test(normalized) && FORMAL_VOCATIONAL_CREDENTIAL_RE.test(normalized),
   };
 }
 
@@ -190,7 +193,7 @@ function splitHardAndSoftConjunction(statement) {
   const hardClause = statement.slice(0, conjunction.index).trim();
   const softClause = statement.slice(conjunction.index + conjunction[0].length).trim();
   const hardCues = classifyHardEligibilityCues(hardClause);
-  const hasHardClause = hardCues.exclusive || hardCues.mandatory || hardCues.threshold;
+  const hasHardClause = hardCues.exclusive || hardCues.mandatory || hardCues.threshold || hardCues.trainingQualification;
   if (!hasHardClause || !PREFERENCE_CUE_RE.test(softClause) || !QUALIFICATION_CONTEXT_RE.test(softClause)) return [statement];
   return [hardClause, softClause];
 }
@@ -204,13 +207,13 @@ function postingEligibilityStatements(postingText) {
   let block = '';
   const flush = () => {
     if (!block.trim()) return;
-    const clauses = block.split(/\s*;\s*|(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean)
+    const clauses = block.split(/\s*;\s*|(?<=[!?])\s+|(?<!\.)\.(?!\.)\s+/u).map(normalizeEligibilityEvidence).filter(Boolean)
       .flatMap(splitHardAndSoftConjunction);
     for (const statement of clauses) {
       if (APPLICATION_METHOD_ONLY_RE.test(statement)) continue;
       const hardCues = classifyHardEligibilityCues(statement);
       const preference = PREFERENCE_CUE_RE.test(statement);
-      const explicitHard = hardCues.exclusive || hardCues.mandatory;
+      const explicitHard = hardCues.exclusive || hardCues.mandatory || hardCues.trainingQualification;
       const thresholdHard = hardCues.threshold;
       if (preference) softClauses.push(statement);
       if (preference && explicitHard) ambiguous = true;
@@ -291,6 +294,8 @@ function postingEligibilityStatements(postingText) {
 /**
  * Explicitly restricted audiences and mandatory profile qualifications must
  * be represented by a source-verified decisive row before candidate matching.
+ * Training roles that name a formal vocational credential in their title or
+ * metadata are also hard eligibility evidence, even when the posting body omits it.
  * This catches omissions that per-quote verification cannot: a valid quote
  * for one requirement does not prove the extractor found every hard clause.
  * Ambiguous or unusually long clauses fail closed and are retried as unknown.

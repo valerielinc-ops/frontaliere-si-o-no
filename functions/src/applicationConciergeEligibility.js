@@ -15,10 +15,12 @@ import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
 import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v4-${SOURCE_CITATIONS_VERSION}`;
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v5-${SOURCE_CITATIONS_VERSION}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
+const ELIGIBILITY_METADATA_FIELDS = ['title', 'category', 'sector', 'description', 'requirements', 'education',
+  'employmentType', 'jobType', 'contractType', 'experience', 'experienceLevel'];
 
 export function normalizeConciergeJobRecord(job = {}) {
   return {
@@ -29,6 +31,19 @@ export function normalizeConciergeJobRecord(job = {}) {
     company: job.company || job.companyName || '',
     location: job.location || '',
   };
+}
+
+function eligibilityMetadata(job) {
+  return ELIGIBILITY_METADATA_FIELDS.flatMap(field => {
+    const value = job[field];
+    return Array.isArray(value) ? value : [value];
+  }).filter(value => typeof value === 'string')
+    .map(value => value.replace(/\s+/g, ' ').trim().slice(0, 4000))
+    .filter(Boolean);
+}
+
+function eligibilityEvidenceText(job, postingText) {
+  return [...eligibilityMetadata(job), String(postingText || '')].filter(Boolean).join('\n\n');
 }
 
 async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
@@ -77,13 +92,14 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
   if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
   const postingHash = sourceHash(posting.text);
+  const eligibilityPostingText = eligibilityEvidenceText(job, posting.text);
   const raw = await generate(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({ jobTitle: job.title, companyName: job.company,
-    location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
+    location: posting.location || job.location, postingText: eligibilityPostingText }), REQUIREMENTS_SCHEMA);
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) {
     return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   }
-  const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
-  if (hasUncoveredHardEligibilityStatements(requirements, posting.text)) {
+  const requirements = verifyQuotes(sanitizeRequirements(raw), eligibilityPostingText);
+  if (hasUncoveredHardEligibilityStatements(requirements, eligibilityPostingText)) {
     return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   }
   const normalizedProfile = profileForEligibility(profile);
@@ -93,7 +109,7 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
-  if (hasUnverifiedCurrentStudentEligibility(posting.text, normalizedProfile, sourceText)) {
+  if (hasUnverifiedCurrentStudentEligibility(eligibilityPostingText, normalizedProfile, sourceText)) {
     return { status: 'unverified', reason: 'current_education_unverified', gaps: [], postingHash, requirements, match, posting };
   }
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
@@ -142,8 +158,10 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
     if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
     const postingHash = sourceHash(posting.text);
-    const postingMetadata = [job.title, job.company, posting.location || job.location].map(value => String(value || '').trim().replace(/\s+/g, ' '));
-    const fingerprint = eligibilityHash([cvHash, answerHash, postingHash, ...postingMetadata, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
+    const postingMetadata = [job.company, posting.location || job.location].map(value => String(value || '').trim().replace(/\s+/g, ' '));
+    const eligibilityMetadataHash = eligibilityHash(JSON.stringify(eligibilityMetadata(job)));
+    const fingerprint = eligibilityHash([cvHash, answerHash, postingHash, ...postingMetadata,
+      eligibilityMetadataHash, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
