@@ -5,6 +5,7 @@ import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import {
@@ -14,6 +15,7 @@ import {
 
 const VERIFIED_SOURCE_GEOGRAPHY = Symbol('ipersonal-source-backed-geography');
 const IPERSONAL_MAINTENANCE_PAGE_RE = /(?:\bun momento,\s*per favore\b|\b(?:wartungsarbeiten|under maintenance)\b|\btemporarily unavailable\b)/iu;
+const IPERSONAL_SOURCE_LOCATION_RE = /\b(?:einsatzort|arbeitsort)\s*:/iu;
 
 /**
  * A 200 maintenance page is not an authoritative empty listing. Keep the
@@ -59,15 +61,20 @@ function canonicalUrl(value = '') {
 
 /**
  * The iPersonal validator requires a source-backed rich body, not merely a
- * long JSON-LD description. Keep the predicate next to the detail fallback so
- * fresh and reused rows cannot disagree about what is publishable.
+ * long JSON-LD description. Current MediPersonal details use both list-based
+ * and paragraph-based bodies: the latter carries an explicit source location
+ * and must still clear the canonical 50-word source-body floor. Keep the
+ * predicate next to the detail fallback so fresh and reused rows cannot
+ * disagree about what is publishable.
  *
  * @param {unknown} value
  * @returns {boolean}
  */
 function hasRichIpersonalDescription(value = '') {
   const description = String(value || '').trim();
-  return isSufficientVacancyDescription(description) && /^\s*[-•*]\s/m.test(description);
+  if (!isSufficientVacancyDescription(description)) return false;
+  if (/^\s*[-•*]\s/m.test(description)) return true;
+  return meetsSourceBodyFloor(description) && IPERSONAL_SOURCE_LOCATION_RE.test(description);
 }
 
 /**
@@ -796,8 +803,8 @@ export function assertCompleteIpersonalSnapshot(jobs) {
     if (!id || !url || ids.has(id) || urls.has(url)) {
       throw new Error('iPersonal snapshot incomplete: missing or duplicate job identity');
     }
-    if (!isSufficientVacancyDescription(description) || !/^\s*[-•*]\s/m.test(description)) {
-      throw new Error(`iPersonal snapshot incomplete: ${id} lacks a rich structured description`);
+    if (!hasRichIpersonalDescription(description)) {
+      throw new Error(`iPersonal snapshot incomplete: ${id} lacks a rich source-backed description`);
     }
     ids.add(id);
     urls.add(url);
