@@ -123,4 +123,14 @@ describe('targeting signals already stored on the alert subscriber', () => {
   it('keeps a genuinely empty profile without matches', () => {
     expect(scoreJobForAlert(listing(), buildAlertProfile({}, mergeAlertSubscriberSignals({}, {})), 'it')).toBe(0);
   });
+
+  it('uses a professional headline as soft intent and ignores placeholder headlines', () => {
+    const job = listing({ title: 'Barista', category: 'Hospitality' });
+    const profile = buildAlertProfile({}, { headline: 'Barista' });
+    expect(profile.hardKeywords.size).toBe(0);
+    expect(scoreJobForAlert(job, profile, 'it')).toBeGreaterThan(0);
+    expect(scoreJobForAlert(listing({ title: 'Backend Developer', category: 'Software' }), profile, 'it')).toBe(0);
+    expect(scoreJobForAlert(job, buildAlertProfile({}, { headline: '--' }), 'it')).toBe(0);
+    expect(scoreJobForAlert(job, buildAlertProfile({}, { headline: { title: 'Barista' } }), 'it')).toBe(0);
+  });
 });

@@ -523,7 +523,7 @@ export function mergeAlertSubscriberSignals(subscriber = null, channelSubscriber
   // and delivery state continue to be evaluated on their original documents.
   for (const key of [
     'job_search_query', 'job_category', 'sector_interest', 'job_title', 'job_slug',
-    'workPosition', 'job_company', 'location_interest', 'job_location', 'geo_city',
+    'workPosition', 'headline', 'job_company', 'location_interest', 'job_location', 'geo_city',
     'municipality',
   ]) {
     const value = merged[key];
@@ -593,6 +593,10 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   // the job title/role the subscriber entered on their profile — same
   // token treatment as sourceJobTitle above.
   addTokens(sub.workPosition);
+  // OAuth professional headlines are already stored on the subscriber. Treat
+  // them like the self-described role, never as an explicit hard criterion.
+  // Placeholder headlines such as "--" yield no tokens.
+  if (typeof sub.headline === 'string') addTokens(sub.headline);
   // Browsing-derived intent (searches + viewed-job categories) from the
   // personalization subdoc.
   for (const t of ex.behaviorTokens || []) addTokens(t);
