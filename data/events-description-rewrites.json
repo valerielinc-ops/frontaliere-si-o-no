@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-02T00:20:58.994Z",
+  "generatedAt": "2026-11-02T01:20:51.257Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -103676,6 +103676,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T02:16:39.161Z"
     },
+    "myswitzerland:6e07ba8557f44d01ab69e5d61654f19a::49ad32b09a3b361c6c0320211bf99b1c6cad7c4f9860d04b4b786994496d616d": {
+      "id": "myswitzerland:6e07ba8557f44d01ab69e5d61654f19a",
+      "sourceDescriptionHash": "49ad32b09a3b361c6c0320211bf99b1c6cad7c4f9860d04b4b786994496d616d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Flims; cantone: GR; categoria: Event; data: 2026-12-27; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Flims; cantone: GR; categoria: Event; data: 2026-12-27; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Flims; canton: GR; category: Event; date: 2026-12-27; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Flims; kanton: GR; kategorie: Event; datum: 2026-12-27; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Flims; canton: GR; catégorie: Event; date: 2026-12-27; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-02T01:15:36.898Z"
+    },
     "myswitzerland:6e121207f7ce42ea9c7990d55d3d210b::4edf80ef88e01f3b2dda4751b179f1f3391187b4f41c73b90fdab660f1fa5a5b": {
       "id": "myswitzerland:6e121207f7ce42ea9c7990d55d3d210b",
       "sourceDescriptionHash": "4edf80ef88e01f3b2dda4751b179f1f3391187b4f41c73b90fdab660f1fa5a5b",
@@ -166228,6 +166242,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T00:15:17.664Z"
     },
+    "myswitzerland:f785eb84b8ad445ebe912ae389068252::dbb60cc04b987165907ac0e623f03aa933aa77070b68675d82b66aafaa419c03": {
+      "id": "myswitzerland:f785eb84b8ad445ebe912ae389068252",
+      "sourceDescriptionHash": "dbb60cc04b987165907ac0e623f03aa933aa77070b68675d82b66aafaa419c03",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Evangelische Kirche Versam; comune: Safiental; cantone: GR; categoria: Music; organizzatore: Karl Kaiser; data: 2026-12-27; ora: 17:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Evangelische Kirche Versam; comune: Safiental; cantone: GR; categoria: Music; organizzatore: Karl Kaiser; data: 2026-12-27; ora: 17:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Evangelische Kirche Versam; municipality: Safiental; canton: GR; category: Music; organiser: Karl Kaiser; date: 2026-12-27; time: 17:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Evangelische Kirche Versam; gemeinde: Safiental; kanton: GR; kategorie: Music; veranstalter: Karl Kaiser; datum: 2026-12-27; uhrzeit: 17:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Evangelische Kirche Versam; commune: Safiental; canton: GR; catégorie: Music; organisateur: Karl Kaiser; date: 2026-12-27; heure: 17:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-02T01:15:36.906Z"
+    },
     "myswitzerland:f787a4befdc84f7f8eac048ab253cd7c::d11cf975b3b62fbd05444c2605294738ef1831dedadd35323c91ce0b5d253dd4": {
       "id": "myswitzerland:f787a4befdc84f7f8eac048ab253cd7c",
       "sourceDescriptionHash": "d11cf975b3b62fbd05444c2605294738ef1831dedadd35323c91ce0b5d253dd4",
@@ -183052,15 +183080,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:6e07ba8557f44d01ab69e5d61654f19a::49ad32b09a3b361c6c0320211bf99b1c6cad7c4f9860d04b4b786994496d616d": {
-      "id": "myswitzerland:6e07ba8557f44d01ab69e5d61654f19a",
-      "sourceDescriptionHash": "49ad32b09a3b361c6c0320211bf99b1c6cad7c4f9860d04b4b786994496d616d",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T04:28:08.508Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:6e48e7e2ba784a6b817843b1642f1f28::563ca89faa80528792bf0b8e72f1449924c6e728d2d320bbbca3c8bcf4c62e65": {
       "id": "myswitzerland:6e48e7e2ba784a6b817843b1642f1f28",
       "sourceDescriptionHash": "563ca89faa80528792bf0b8e72f1449924c6e728d2d320bbbca3c8bcf4c62e65",
@@ -185614,15 +185633,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T04:20:56.766Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:f785eb84b8ad445ebe912ae389068252::dbb60cc04b987165907ac0e623f03aa933aa77070b68675d82b66aafaa419c03": {
-      "id": "myswitzerland:f785eb84b8ad445ebe912ae389068252",
-      "sourceDescriptionHash": "dbb60cc04b987165907ac0e623f03aa933aa77070b68675d82b66aafaa419c03",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T04:27:18.677Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
