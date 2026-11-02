@@ -453,10 +453,11 @@ jobs:
           # history/push operations. A slow shard can consume several minutes
           # before the next locale starts; the shared 120s entrypoint default
           # and the old ten-minute override could kill a partially completed
-          # publication. Keep the npm probe at 120s and give this
-          # side-effecting entrypoint the same bounded 30-minute budget as the
-          # job ceiling, matching the full corpus rerender contract.
-          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '1800'
+          # publication. Keep the npm probe at 120s and cap this
+          # side-effecting entrypoint at 25 minutes, reserving the final five
+          # minutes of the 30-minute job ceiling for post-render lease checks,
+          # release and publication cleanup.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '1500'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
