@@ -32,7 +32,10 @@ import {
   isTrustedComuneUrl,
   loadTicinoComuniRegistry,
 } from '../scripts/lib/ticino-comuni-crawler.mjs';
-import { isTicinoComuneJob } from '../scripts/lib/ticino-comune-employer-identity.mjs';
+import {
+  isTicinoComuneJob,
+  scopedEmployerKey,
+} from '../scripts/lib/ticino-comune-employer-identity.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { extractPdfJobContentFromUrl } from '../scripts/lib/pdf-job-content.mjs';
 
@@ -80,6 +83,23 @@ Le candidature devono pervenire alla Cancelleria comunale, in busta chiusa, entr
 Il Municipio si riserva la facolta di annullare il presente concorso senza indicarne i motivi.`;
 
 describe('identità employer della famiglia comuni-ticino', () => {
+  it('richiede una municipalità valida e un contesto employer provato per lo scope', () => {
+    expect(scopedEmployerKey({ municipalityKey: 'comune-di-lugano' })).toBe('');
+    expect(scopedEmployerKey({ companyKey: 'comuni-ticino' })).toBe('');
+    expect(scopedEmployerKey({
+      companyKey: 'COMUNI-TICINO',
+      municipalityKey: 'comune-di-lugano',
+    })).toBe('comune-di-lugano');
+    expect(scopedEmployerKey({
+      companyKey: 'comuni-ticino',
+      municipalityKey: 'bad',
+    })).toBe('');
+    expect(scopedEmployerKey({
+      companyKey: 'other-employer',
+      municipalityKey: 'comune-di-lugano',
+    })).toBe('');
+  });
+
   it('accetta la chiave legacy o quella scoped solo per un Comune del registro', () => {
     const validKeys = new Set(['comune-di-esempio']);
     expect(isTicinoComuneJob({

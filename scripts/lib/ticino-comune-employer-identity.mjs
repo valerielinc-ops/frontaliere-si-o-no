@@ -19,13 +19,20 @@ export function ticinoComuneEmployerKey(value) {
  * `municipalityKey` must not reassign a job to a different employer.
  */
 export function scopedEmployerKey(job) {
-  const municipalityKey = ticinoComuneEmployerKey(job?.municipalityKey);
-  const companyKey = String(job?.companyKey || '').trim();
-  if (municipalityKey && (!companyKey
-    || companyKey === TICINO_COMUNI_FAMILY_KEY
-    || companyKey.toLowerCase() === municipalityKey)) {
-    return municipalityKey;
+  const rawMunicipalityKey = String(job?.municipalityKey || '').trim();
+  const municipalityKey = ticinoComuneEmployerKey(rawMunicipalityKey);
+  const companyKey = String(job?.companyKey || '').trim().toLowerCase();
+
+  if (municipalityKey) {
+    if (companyKey === TICINO_COMUNI_FAMILY_KEY || companyKey === municipalityKey) {
+      return municipalityKey;
+    }
+    return '';
   }
+
+  // The family key is only a crawler/storage identity. Without a valid
+  // municipality it must never become a logo/employer lookup key.
+  if (companyKey === TICINO_COMUNI_FAMILY_KEY || rawMunicipalityKey) return '';
   return companyKey;
 }
 
