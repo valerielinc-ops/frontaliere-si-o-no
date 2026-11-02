@@ -1,22 +1,20 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-11-02T10:44:30.508Z",
-  "total": 7,
+  "generatedAt": "2026-11-02T21:56:25.821Z",
+  "total": 10,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 0,
+  "newCount": 3,
   "updatedCount": 0,
-  "removedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 38235,
-  "avgDurationMs": 38235,
+  "durationMs": 18226,
+  "avgDurationMs": 18226,
   "durationHistory": [
-    38235
+    18226
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
       "title": "Mechanical Engineer",
       "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
@@ -40,9 +38,10 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-01T22:11:09.290Z",
+      "validThrough": "2026-12-02T21:56:04.040Z",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-d624f7e54b9b",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -51,12 +50,12 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T22:11:09.290Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-11-02T21:56:04.040Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -83,9 +82,10 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-01T22:11:09.290Z",
+      "validThrough": "2026-12-02T21:56:04.040Z",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-bfc600631968",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -94,12 +94,12 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T22:11:09.290Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-11-02T21:56:04.040Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -126,9 +126,10 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-01T22:11:09.290Z",
+      "validThrough": "2026-12-02T21:56:04.040Z",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-572058706020",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -137,16 +138,18 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T22:11:09.290Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-11-02T21:56:04.040Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Application Engineer",
@@ -457,5 +460,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

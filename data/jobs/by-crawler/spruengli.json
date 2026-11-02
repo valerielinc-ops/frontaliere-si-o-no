@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-11-02T10:42:03.929Z",
-  "runId": "41419105724",
+  "assembledAt": "2026-11-02T21:54:50.423Z",
+  "runId": "41526628235",
   "jobs": [
     {
       "id": "spruengli-78a4ca23b87e",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.705Z",
+      "crawledAt": "2026-11-02T21:54:40.923Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -91,7 +91,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.705Z",
+      "validThrough": "2026-12-02T21:54:40.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -125,7 +125,7 @@
       "url": "https://apply.refline.ch/116352/0032/pub/60/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.702Z",
+      "crawledAt": "2026-11-02T21:54:40.921Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -178,7 +178,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.702Z",
+      "validThrough": "2026-12-02T21:54:40.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,7 +212,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/69/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.699Z",
+      "crawledAt": "2026-11-02T21:54:40.919Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -257,6 +257,7 @@
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ]
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-12T22:16:16.792Z",
       "salaryMin": 65500,
       "salaryMax": 100500,
@@ -272,10 +273,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.699Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "validThrough": "2026-12-02T21:54:40.919Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-366607266a85",
@@ -308,7 +307,7 @@
       "url": "https://apply.refline.ch/116352/0015/pub/91/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.695Z",
+      "crawledAt": "2026-11-02T21:54:40.917Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -361,7 +360,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.695Z",
+      "validThrough": "2026-12-02T21:54:40.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -395,7 +394,7 @@
       "url": "https://apply.refline.ch/116352/1263/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.692Z",
+      "crawledAt": "2026-11-02T21:54:40.914Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -444,7 +443,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T10:41:51.692Z",
+      "validThrough": "2026-12-29T21:54:40.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +477,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/48/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.690Z",
+      "crawledAt": "2026-11-02T21:54:40.912Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -533,7 +532,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.690Z",
+      "validThrough": "2026-12-02T21:54:40.912Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -567,7 +566,7 @@
       "url": "https://apply.refline.ch/116352/1260/pub/8/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.688Z",
+      "crawledAt": "2026-11-02T21:54:40.909Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -622,7 +621,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T10:41:51.688Z",
+      "validThrough": "2026-12-08T21:54:40.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -656,7 +655,7 @@
       "url": "https://apply.refline.ch/116352/1280/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.686Z",
+      "crawledAt": "2026-11-02T21:54:40.907Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -709,7 +708,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T10:41:51.686Z",
+      "validThrough": "2027-01-27T21:54:40.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -743,7 +742,7 @@
       "url": "https://apply.refline.ch/116352/1231/pub/10/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.684Z",
+      "crawledAt": "2026-11-02T21:54:40.905Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -794,7 +793,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.684Z",
+      "validThrough": "2026-12-02T21:54:40.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -828,7 +827,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/13/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.683Z",
+      "crawledAt": "2026-11-02T21:54:40.903Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -873,7 +872,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:41:51.683Z",
+      "validThrough": "2026-12-02T21:54:40.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -907,7 +906,7 @@
       "url": "https://apply.refline.ch/116352/1275/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.678Z",
+      "crawledAt": "2026-11-02T21:54:40.899Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Steinenberg 14",
@@ -967,7 +966,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T10:41:51.678Z",
+      "validThrough": "2027-01-20T21:54:40.899Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1001,7 +1000,7 @@
       "url": "https://apply.refline.ch/116352/1276/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.677Z",
+      "crawledAt": "2026-11-02T21:54:40.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Halle Bahnhofplatz",
@@ -1058,7 +1057,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T10:41:51.677Z",
+      "validThrough": "2027-01-20T21:54:40.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1092,7 +1091,7 @@
       "url": "https://apply.refline.ch/116352/1273/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.675Z",
+      "crawledAt": "2026-11-02T21:54:40.893Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -1139,7 +1138,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T10:41:51.675Z",
+      "validThrough": "2027-01-13T21:54:40.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1173,7 +1172,7 @@
       "url": "https://apply.refline.ch/116352/1271/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.673Z",
+      "crawledAt": "2026-11-02T21:54:40.891Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Stadelhoferstrasse 8",
@@ -1226,7 +1225,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T10:41:51.673Z",
+      "validThrough": "2027-01-13T21:54:40.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1260,7 +1259,7 @@
       "url": "https://apply.refline.ch/116352/1272/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:41:51.670Z",
+      "crawledAt": "2026-11-02T21:54:40.888Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -1313,7 +1312,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T10:41:51.670Z",
+      "validThrough": "2027-01-13T21:54:40.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1402,7 +1401,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T22:09:25.715Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

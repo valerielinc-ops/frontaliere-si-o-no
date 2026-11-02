@@ -1,7 +1,7 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-11-02T10:45:22.828Z",
+  "generatedAt": "2026-11-02T21:55:41.644Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4437,
-  "avgDurationMs": 4437,
+  "durationMs": 5962,
+  "avgDurationMs": 5962,
   "durationHistory": [
-    4437
+    5962
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/carriere/candidature-spontanee?offre=infirmierinfirmiere-diplome-e-hf-80-100",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T10:45:01.525Z",
+      "crawledAt": "2026-11-02T21:55:17.101Z",
       "needsRetranslation": false,
       "sourceConditions": "80–100 % · De suite ou à convenir",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -68,11 +68,12 @@
         "postalCode": "3954",
         "addressLocality": "Leukerbad",
         "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:43.447Z"
+        "checkedAt": "2026-10-31T20:49:43.447Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:45:01.525Z",
+      "validThrough": "2026-12-02T21:55:17.101Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -110,7 +111,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/carriere/candidature-spontanee?offre=assistant-e-en-soins-et-sante-communautaire-cfc-as",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T10:45:01.423Z",
+      "crawledAt": "2026-11-02T21:55:16.936Z",
       "sourceConditions": "80–100 % · De suite ou à convenir",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
       "salaryMin": 86500,
@@ -124,11 +125,12 @@
         "postalCode": "3954",
         "addressLocality": "Leukerbad",
         "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:43.447Z"
+        "checkedAt": "2026-10-31T20:49:43.447Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:45:01.423Z",
+      "validThrough": "2026-12-02T21:55:16.936Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -166,7 +168,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=ma-gap",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:45:01.321Z",
+      "crawledAt": "2026-11-02T21:55:16.765Z",
       "needsRetranslation": false,
       "sourceConditions": "100 % · Sofort oder nach Vereinbarung",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -181,11 +183,12 @@
         "postalCode": "3954",
         "addressLocality": "Leukerbad",
         "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:43.447Z"
+        "checkedAt": "2026-10-31T20:49:43.447Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:45:01.321Z",
+      "validThrough": "2026-12-02T21:55:16.765Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -223,7 +226,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=mpa",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:45:01.219Z",
+      "crawledAt": "2026-11-02T21:55:16.599Z",
       "sourceConditions": "60–100 % · sofort oder nach Vereinbarung",
       "firstSeenAt": "2026-10-14T09:30:54.536Z",
       "salaryMin": 86500,
@@ -237,11 +240,12 @@
         "postalCode": "3954",
         "addressLocality": "Leukerbad",
         "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:43.447Z"
+        "checkedAt": "2026-10-31T20:49:43.447Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T10:45:01.219Z",
+      "validThrough": "2027-01-12T21:55:16.599Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -279,7 +283,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=ihre-aufgaben",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:45:01.116Z",
+      "crawledAt": "2026-11-02T21:55:16.432Z",
       "needsRetranslation": false,
       "sourceConditions": "80–100 % · Nach Vereinbarung",
       "firstSeenAt": "2026-10-14T09:30:54.095Z",
@@ -294,11 +298,12 @@
         "postalCode": "3954",
         "addressLocality": "Leukerbad",
         "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:43.447Z"
+        "checkedAt": "2026-10-31T20:49:43.447Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T10:45:01.116Z",
+      "validThrough": "2027-01-12T21:55:16.432Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -309,5 +314,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }
