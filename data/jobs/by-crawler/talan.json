@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-01T22:04:42.794Z",
-  "runId": "41350168358",
+  "assembledAt": "2026-11-02T09:44:22.629Z",
+  "runId": "41417840730",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.078Z",
+      "crawledAt": "2026-11-02T09:44:13.777Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -79,86 +79,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-01T22:04:34.078Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA: Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Engineer Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.077Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-01T22:04:34.077Z",
+      "validThrough": "2026-12-02T09:44:13.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +113,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.076Z",
+      "crawledAt": "2026-11-02T09:44:13.775Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -236,43 +157,43 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-01T22:04:34.076Z",
+      "validThrough": "2026-12-02T09:44:13.775Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
       "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
+      "title": "QA Engineer Ebanking",
       "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA: Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Engineer Ebanking"
       },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
       "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
       },
       "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
+      "location": "Genève, , Switzerland",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.074Z",
-      "addressLocality": "Geneva",
+      "crawledAt": "2026-11-02T09:44:13.773Z",
+      "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
       "streetAddress": "Place Ruth-Bösiger 6",
@@ -285,25 +206,22 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
+        "qa-engineer-ebanking-talan-geneve-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
+          "qa-engineer-ebanking-talan-geneve-switzerland"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -318,7 +236,96 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T22:04:34.074Z",
+      "validThrough": "2026-12-02T09:44:13.773Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-77288cd4a877",
+      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+      "slugByLocale": {
+        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
+        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+      "titleByLocale": {
+        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
+        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      },
+      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+      "descriptionByLocale": {
+        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
+        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
+        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
+        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T09:44:13.771Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T13:56:14.338Z",
+      "postedDate": "2026-10-02T13:56:14.338Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "jobReqId": "744000153192441",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.539Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-01T09:44:13.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -353,7 +360,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.073Z",
+      "crawledAt": "2026-11-02T09:44:13.769Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -397,7 +404,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T22:04:34.073Z",
+      "validThrough": "2026-12-08T09:44:13.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -432,7 +439,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.072Z",
+      "crawledAt": "2026-11-02T09:44:13.767Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -492,7 +499,89 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T22:04:34.072Z",
+      "validThrough": "2026-12-25T09:44:13.767Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
+        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
+        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T09:44:13.764Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:44:13.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -527,7 +616,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.071Z",
+      "crawledAt": "2026-11-02T09:44:13.762Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -571,96 +660,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T22:04:34.071Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-77288cd4a877",
-      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-      "slugByLocale": {
-        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-      "titleByLocale": {
-        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
-      },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-      "descriptionByLocale": {
-        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.070Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T13:56:14.338Z",
-      "postedDate": "2026-10-02T13:56:14.338Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000153192441",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "fr": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.539Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T22:04:34.070Z",
+      "validThrough": "2026-12-31T09:44:13.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -695,7 +695,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.069Z",
+      "crawledAt": "2026-11-02T09:44:13.760Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -742,171 +742,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T22:04:34.069Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Responsabile tecnico Fullstack .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Technischer Leiter.NET / C#",
-        "fr": "Tech Lead Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.068Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ],
-        "de": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T22:04:34.068Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-9f5be93106bb",
-      "slug": "senior-integration-ingegnere-talan-geneve",
-      "slugByLocale": {
-        "it": "senior-integration-ingegnere-talan-geneve",
-        "en": "senior-integration-engineer-talan-geneve-switzerland",
-        "de": "senior-integration-ingenieur-talan-geneve",
-        "fr": "senior-integration-engineer-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Integration Engineer",
-      "titleByLocale": {
-        "it": "Ingegnere senior dell'integrazione",
-        "en": "Senior Integration Engineer",
-        "de": "Senior-Integrationsingenieur",
-        "fr": "Senior Integration Engineer"
-      },
-      "description": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n Vous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n Atouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n Formation : Bachelor ou Master en informatique ou dans un domaine équivalent.\n Environnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement.",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nCerchiamo un/una Senior Integration Engineer per rafforzare un team specializzato nell’integrazione applicativa e nelle API.\n\nTi occuperai della progettazione, dello sviluppo e della manutenzione di soluzioni di integrazione robuste, sicure e scalabili, che consentano di rendere più fluidi gli scambi di dati tra diverse applicazioni e piattaforme.\n\nMansioni\n\n- Progettare, sviluppare e mantenere soluzioni di integrazione in Python, Java e SQL Server.\n- Sviluppare e gestire API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di API Management.\n- Implementare flussi di dati in tempo reale con Kafka e architetture orientate agli eventi e ai microservizi.\n- Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n- Garantire l'affidabilità, la sicurezza, le prestazioni e la disponibilità di servizi critici.\n- Partecipare alla risoluzione di incidenti complessi e al miglioramento continuo delle soluzioni esistenti.\n- Utilizzare strumenti di IA generativa per accelerare lo sviluppo, i test, l'analisi dei log e la documentazione, convalidando al contempo la qualità dei risultati prodotti.\n- Collaborare con i team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\nProfilo ricercato\n\n- Almeno 5 anni di esperienza nell'integrazione applicativa.\n- Ottima padronanza di Python e Java, nonché di SQL Server.\n- Esperienza pratica nello sviluppo di API con FastAPI.\n- Buona padronanza di Kafka e dei meccanismi di streaming e messaggistica.\n- Esperienza con una piattaforma di API Management, idealmente Gravitee.\n- Esperienza pratica con OpenShift e ambienti containerizzati.\n- Competenza nelle architetture a microservizi, nelle architetture orientate agli eventi e negli Enterprise Integration Patterns.\n- Conoscenza dei processi ETL/ELT e delle problematiche di trasformazione e scambio dei dati.\n- Esperienza pratica del Model Context Protocol (MCP) e della sua integrazione in architetture applicative complesse.\n- Utilizzo di assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n- Capacità di progettare e mantenere servizi critici, sicuri e scalabili.\n- Eccellenti capacità di analisi, di risoluzione dei problemi e di comunicazione.\n\nCompetenze aggiuntive:\n\n- conoscenza di Talend ESB, Apache Camel o di altri strumenti di integrazione.\n\nFormazione:\n\n- Laurea triennale o magistrale in informatica o in un ambito equivalente.\n\nAmbiente tecnico:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e strumenti di IA applicati allo sviluppo.",
-        "en": "Description\n\nWe are looking for a Senior Integration Engineer to strengthen a team specializing in application integration and APIs.\n\nYou will work on designing, developing, and maintaining robust, secure, and scalable integration solutions, enabling smoother data exchanges between different applications and platforms.\n\nResponsibilities\n\n- Design, develop, and maintain integration solutions in Python, Java, and SQL Server.\n- Develop and manage APIs, particularly with FastAPI, and contribute to their governance through an API Management platform.\n- Implement real-time data flows with Kafka and event-driven and microservices architectures.\n- Deploy and maintain integration components in OpenShift environments.\n- Ensure the reliability, security, performance, and availability of critical services.\n- Participate in resolving complex incidents and continuously improving existing solutions.\n- Leverage generative AI tools to accelerate development, testing, log analysis, and documentation, while validating the quality of the results produced.\n- Collaborate with technical and functional teams and ensure the documentation of implemented solutions.\n\nDesired profile\n\n- Minimum 5 years of experience in application integration.\n- Very good command of Python and Java, as well as SQL Server.\n- Practical experience developing APIs with FastAPI.\n- Good command of Kafka and streaming and messaging mechanisms.\n- Experience with an API Management platform, ideally Gravitee.\n- Experience with OpenShift and containerized environments.\n- Expertise in microservices architectures, event-driven architectures, and Enterprise Integration Patterns.\n- Knowledge of ETL/ELT processes and data transformation and exchange challenges.\n- Practical experience with the Model Context Protocol (MCP) and its integration into complex application architectures.\n- Use of AI assistants for development and automation, with an ability to critically evaluate generated code.\n- Ability to design and maintain critical, secure, and scalable services.\n- Excellent analytical, problem-solving, and communication skills.\n\nAdditional assets:\n\n- knowledge of Talend ESB, Apache Camel or other integration tools.\n\nEducation:\n\n- Bachelor’s or Master’s degree in computer science or an equivalent field.\n\nTechnical environment:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and AI tools applied to development.",
-        "de": "Beschreibung\n\nWir suchen eine:n Senior Integration Engineer zur Verstärkung eines auf Anwendungsintegration und APIs spezialisierten Teams.\n\nSie werden an der Konzeption, Entwicklung und Wartung robuster, sicherer und skalierbarer Integrationslösungen arbeiten, die einen reibungslosen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\nAufgaben\n\n- Konzipieren, entwickeln und warten Sie Integrationslösungen mit Python, Java und SQL Server.\n- Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine API-Management-Plattform zu deren Governance bei.\n- Setzen Sie Echtzeit-Datenflüsse mit Kafka sowie ereignisorientierte Architekturen und Microservices um.\n- Stellen Sie die Integrationskomponenten in OpenShift-Umgebungen bereit und warten Sie sie.\n- Stellen Sie die Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste sicher.\n- Beteiligen Sie sich an der Behebung komplexer Vorfälle und an der kontinuierlichen Verbesserung bestehender Lösungen.\n- Nutzen Sie generative KI-Tools, um die Entwicklung, die Tests, die Analyse der Logs und die Dokumentation zu beschleunigen, und validieren Sie gleichzeitig die Qualität der erzeugten Ergebnisse.\n- Mit technischen und fachlichen Teams zusammenarbeiten und die Dokumentation der implementierten Lösungen sicherstellen.\n\nGesuchtes Profil\n\n- Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n- Sehr gute Kenntnisse in Python und Java sowie in SQL Server.\n- Praktische Erfahrung in der Entwicklung von APIs mit FastAPI.\n- Gute Kenntnisse in Kafka sowie in Streaming- und Messaging-Mechanismen.\n- Erfahrung mit einer API-Management-Plattform, idealerweise Gravitee.\n- Praktische Erfahrung mit OpenShift und containerisierten Umgebungen.\n- Expertise in Microservice-Architekturen, ereignisgesteuerten Architekturen und Enterprise Integration Patterns.\n- Kenntnisse der ETL/ELT-Prozesse und der Herausforderungen bei der Datentransformation und dem Datenaustausch.\n- Praktische Erfahrung mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n- Einsatz von KI-Assistenten für die Entwicklung und Automatisierung mit der Fähigkeit, generierten Code kritisch zu bewerten.\n- Fähigkeit, kritische, sichere und skalierbare Dienste zu konzipieren und zu warten.\n- Ausgeprägte Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\n\nZusätzliche Stärken:\n\n- Kenntnisse in Talend ESB, Apache Camel oder anderen Integrationstools.\n\nAusbildung:\n\n- Bachelor- oder Masterabschluss in Informatik oder einem gleichwertigen Bereich.\n\nTechnische Umgebung:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und auf die Entwicklung angewandte KI-Tools.",
-        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
-      },
-      "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.066Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T11:59:18.670Z",
-      "postedDate": "2026-10-23T11:59:18.670Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
-      "jobReqId": "744000157455639",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-integration-engineer-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-integration-engineer-talan-geneve-switzerland"
-        ],
-        "de": [
-          "senior-integration-engineer-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.479Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T22:04:34.066Z",
+      "validThrough": "2027-01-14T09:44:13.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -940,7 +776,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.064Z",
+      "crawledAt": "2026-11-02T09:44:13.758Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -987,7 +823,171 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T22:04:34.064Z",
+      "validThrough": "2027-01-28T09:44:13.758Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-dbc24b5b3f3c",
+      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
+        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Tech Lead Fullstack .NET / C#",
+      "titleByLocale": {
+        "it": "Responsabile tecnico Fullstack .NET / C#",
+        "en": "Fullstack Technical Manager .NET / C#",
+        "de": "Technischer Leiter.NET / C#",
+        "fr": "Tech Lead Fullstack .NET / C#"
+      },
+      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
+        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
+        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
+        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T09:44:13.757Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T13:35:09.147Z",
+      "postedDate": "2026-10-23T13:35:09.147Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "jobReqId": "744000157480029",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ],
+        "de": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.471Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:44:13.757Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-9f5be93106bb",
+      "slug": "senior-integration-ingegnere-talan-geneve",
+      "slugByLocale": {
+        "it": "senior-integration-ingegnere-talan-geneve",
+        "en": "senior-integration-engineer-talan-geneve-switzerland",
+        "de": "senior-integration-ingenieur-talan-geneve",
+        "fr": "senior-integration-engineer-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior Integration Engineer",
+      "titleByLocale": {
+        "it": "Ingegnere senior dell'integrazione",
+        "en": "Senior Integration Engineer",
+        "de": "Senior-Integrationsingenieur",
+        "fr": "Senior Integration Engineer"
+      },
+      "description": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n Vous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n Atouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n Formation : Bachelor ou Master en informatique ou dans un domaine équivalent.\n Environnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement.",
+      "descriptionByLocale": {
+        "it": "Descrizione\n\nCerchiamo un/una Senior Integration Engineer per rafforzare un team specializzato nell’integrazione applicativa e nelle API.\n\nTi occuperai della progettazione, dello sviluppo e della manutenzione di soluzioni di integrazione robuste, sicure e scalabili, che consentano di rendere più fluidi gli scambi di dati tra diverse applicazioni e piattaforme.\n\nMansioni\n\n- Progettare, sviluppare e mantenere soluzioni di integrazione in Python, Java e SQL Server.\n- Sviluppare e gestire API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di API Management.\n- Implementare flussi di dati in tempo reale con Kafka e architetture orientate agli eventi e ai microservizi.\n- Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n- Garantire l'affidabilità, la sicurezza, le prestazioni e la disponibilità di servizi critici.\n- Partecipare alla risoluzione di incidenti complessi e al miglioramento continuo delle soluzioni esistenti.\n- Utilizzare strumenti di IA generativa per accelerare lo sviluppo, i test, l'analisi dei log e la documentazione, convalidando al contempo la qualità dei risultati prodotti.\n- Collaborare con i team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\nProfilo ricercato\n\n- Almeno 5 anni di esperienza nell'integrazione applicativa.\n- Ottima padronanza di Python e Java, nonché di SQL Server.\n- Esperienza pratica nello sviluppo di API con FastAPI.\n- Buona padronanza di Kafka e dei meccanismi di streaming e messaggistica.\n- Esperienza con una piattaforma di API Management, idealmente Gravitee.\n- Esperienza pratica con OpenShift e ambienti containerizzati.\n- Competenza nelle architetture a microservizi, nelle architetture orientate agli eventi e negli Enterprise Integration Patterns.\n- Conoscenza dei processi ETL/ELT e delle problematiche di trasformazione e scambio dei dati.\n- Esperienza pratica del Model Context Protocol (MCP) e della sua integrazione in architetture applicative complesse.\n- Utilizzo di assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n- Capacità di progettare e mantenere servizi critici, sicuri e scalabili.\n- Eccellenti capacità di analisi, di risoluzione dei problemi e di comunicazione.\n\nCompetenze aggiuntive:\n\n- conoscenza di Talend ESB, Apache Camel o di altri strumenti di integrazione.\n\nFormazione:\n\n- Laurea triennale o magistrale in informatica o in un ambito equivalente.\n\nAmbiente tecnico:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e strumenti di IA applicati allo sviluppo.",
+        "en": "Description\n\nWe are looking for a Senior Integration Engineer to strengthen a team specializing in application integration and APIs.\n\nYou will work on designing, developing, and maintaining robust, secure, and scalable integration solutions, enabling smoother data exchanges between different applications and platforms.\n\nResponsibilities\n\n- Design, develop, and maintain integration solutions in Python, Java, and SQL Server.\n- Develop and manage APIs, particularly with FastAPI, and contribute to their governance through an API Management platform.\n- Implement real-time data flows with Kafka and event-driven and microservices architectures.\n- Deploy and maintain integration components in OpenShift environments.\n- Ensure the reliability, security, performance, and availability of critical services.\n- Participate in resolving complex incidents and continuously improving existing solutions.\n- Leverage generative AI tools to accelerate development, testing, log analysis, and documentation, while validating the quality of the results produced.\n- Collaborate with technical and functional teams and ensure the documentation of implemented solutions.\n\nDesired profile\n\n- Minimum 5 years of experience in application integration.\n- Very good command of Python and Java, as well as SQL Server.\n- Practical experience developing APIs with FastAPI.\n- Good command of Kafka and streaming and messaging mechanisms.\n- Experience with an API Management platform, ideally Gravitee.\n- Experience with OpenShift and containerized environments.\n- Expertise in microservices architectures, event-driven architectures, and Enterprise Integration Patterns.\n- Knowledge of ETL/ELT processes and data transformation and exchange challenges.\n- Practical experience with the Model Context Protocol (MCP) and its integration into complex application architectures.\n- Use of AI assistants for development and automation, with an ability to critically evaluate generated code.\n- Ability to design and maintain critical, secure, and scalable services.\n- Excellent analytical, problem-solving, and communication skills.\n\nAdditional assets:\n\n- knowledge of Talend ESB, Apache Camel or other integration tools.\n\nEducation:\n\n- Bachelor’s or Master’s degree in computer science or an equivalent field.\n\nTechnical environment:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and AI tools applied to development.",
+        "de": "Beschreibung\n\nWir suchen eine:n Senior Integration Engineer zur Verstärkung eines auf Anwendungsintegration und APIs spezialisierten Teams.\n\nSie werden an der Konzeption, Entwicklung und Wartung robuster, sicherer und skalierbarer Integrationslösungen arbeiten, die einen reibungslosen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\nAufgaben\n\n- Konzipieren, entwickeln und warten Sie Integrationslösungen mit Python, Java und SQL Server.\n- Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine API-Management-Plattform zu deren Governance bei.\n- Setzen Sie Echtzeit-Datenflüsse mit Kafka sowie ereignisorientierte Architekturen und Microservices um.\n- Stellen Sie die Integrationskomponenten in OpenShift-Umgebungen bereit und warten Sie sie.\n- Stellen Sie die Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste sicher.\n- Beteiligen Sie sich an der Behebung komplexer Vorfälle und an der kontinuierlichen Verbesserung bestehender Lösungen.\n- Nutzen Sie generative KI-Tools, um die Entwicklung, die Tests, die Analyse der Logs und die Dokumentation zu beschleunigen, und validieren Sie gleichzeitig die Qualität der erzeugten Ergebnisse.\n- Mit technischen und fachlichen Teams zusammenarbeiten und die Dokumentation der implementierten Lösungen sicherstellen.\n\nGesuchtes Profil\n\n- Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n- Sehr gute Kenntnisse in Python und Java sowie in SQL Server.\n- Praktische Erfahrung in der Entwicklung von APIs mit FastAPI.\n- Gute Kenntnisse in Kafka sowie in Streaming- und Messaging-Mechanismen.\n- Erfahrung mit einer API-Management-Plattform, idealerweise Gravitee.\n- Praktische Erfahrung mit OpenShift und containerisierten Umgebungen.\n- Expertise in Microservice-Architekturen, ereignisgesteuerten Architekturen und Enterprise Integration Patterns.\n- Kenntnisse der ETL/ELT-Prozesse und der Herausforderungen bei der Datentransformation und dem Datenaustausch.\n- Praktische Erfahrung mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n- Einsatz von KI-Assistenten für die Entwicklung und Automatisierung mit der Fähigkeit, generierten Code kritisch zu bewerten.\n- Fähigkeit, kritische, sichere und skalierbare Dienste zu konzipieren und zu warten.\n- Ausgeprägte Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\n\nZusätzliche Stärken:\n\n- Kenntnisse in Talend ESB, Apache Camel oder anderen Integrationstools.\n\nAusbildung:\n\n- Bachelor- oder Masterabschluss in Informatik oder einem gleichwertigen Bereich.\n\nTechnische Umgebung:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und auf die Entwicklung angewandte KI-Tools.",
+        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T09:44:13.748Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T11:59:18.670Z",
+      "postedDate": "2026-10-23T11:59:18.670Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
+      "jobReqId": "744000157455639",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-integration-engineer-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-integration-engineer-talan-geneve-switzerland"
+        ],
+        "de": [
+          "senior-integration-engineer-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.479Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:44:13.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1022,7 +1022,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000158714650-head-of-presales-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:04:34.060Z",
+      "crawledAt": "2026-11-02T09:44:13.741Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1069,7 +1069,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T22:04:34.060Z",
+      "validThrough": "2027-01-29T09:44:13.741Z",
       "validThroughSource": "last-observed-window"
     }
   ]
