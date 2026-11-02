@@ -714,7 +714,7 @@ describe('candidate review API', () => {
       fields: Object.fromEntries(shown.body.formAnswers.filter((field: any) => field.editable).map((field: any) => [field.key, field.value])),
     } }, { ...deps(), bucket });
     expect(saved).toMatchObject({ status: 409, body: { error: 'changed_meanwhile' } });
-    expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toBeUndefined();
+    expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toEqual({ workPermit: 'G' });
     expect(store.read(`${BASE}/ai_drafts/current`)?.candidateEditedAt).toBeUndefined();
   });
 
