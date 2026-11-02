@@ -62,22 +62,32 @@ platform readiness checks remain in force.
 | Channel | Integrated formats | Existing delivery path |
 |---|---|---|
 | Instagram | daily article/job carousels, weekly border carousel, scheduled Reels | Graph API or the existing Playwright robot and queue |
-| TikTok | daily article/job carousels and weekly border content | TikTok Content Posting API or the existing Playwright robot and queue |
+| TikTok | daily article/job carousels and weekly border content | Content Posting API eligibility is unresolved for this internal unattended workflow; existing Playwright route remains subject to platform terms |
 | Facebook | articles, events/digests, scheduled jobs | existing Graph API schedulers |
 | LinkedIn | member-profile article/job posts and Company Page article path | member token and Posts API; Company Page permission currently denied |
 | Telegram | daily jobs and weekly border digest | existing Bot API |
-| Reddit | not included in this copy pack | existing readiness path; classic Data API is `path-refused`, Devvit has its own review path |
+| Reddit | not included in this copy pack yet | classic Data API is `path-refused`; Devvit review is underway for articles, with job delivery still needing a published index |
 
 The generator does not enable new posting routes. The LinkedIn Company Page
 path consumes the shared LinkedIn article copy when its existing publisher is
-invoked, but its permission is currently denied. Reddit remains excluded from
-the pack because Reddit's classic Data API request was refused; its next step
-is a separate Devvit review. LinkedIn needs the Company Page permission grant
-before that publisher can deliver. TikTok's unaudited Content Posting API
-restricts posts to private viewership; public delivery requires its audit. The
-official Direct Post guidance also describes a creator-specific daily cap,
-typically around fifteen posts per creator across API clients, so do not raise
-TikTok volume without checking the approved cap and current creator info
+invoked, but its permission is currently denied. Reddit is a concrete coverage
+gap: the pack has no Reddit slots even though copy generation does not require
+the refused classic API. Add article and job slots with the Devvit input path;
+the first Devvit release is article-only, and job delivery needs the CDN
+index. LinkedIn needs the Company Page permission grant before that publisher
+can deliver.
+
+TikTok's Content Posting API is not cleared for this internal unattended
+workflow by an audit alone. The official guidance says unaudited posts are
+private-only, but it also says API clients should serve authentic creators
+broadly and must not be utilities for uploading to accounts managed by the
+developer or team. It requires an interactive posting flow that fetches
+creator information and has the user choose privacy and interaction options.
+The current scheduled workflow does not provide that user flow, so public API
+delivery stays blocked until TikTok confirms the use case is eligible and the
+product flow meets its requirements. The API also has a creator-specific cap,
+typically around fifteen posts per creator per day across clients; any approved
+flow must query current creator information and respect that cap
 ([TikTok Content Sharing Guidelines](https://developers.tiktok.com/docs/en/content-sharing-guidelines)).
 LinkedIn Company Page delivery requires the approved organization-social
 permission and an eligible Page role; the current grant remains denied
@@ -117,8 +127,12 @@ PR passes the required checks and merges, deterministic copy remains active.
   expose the matching destination before GA4 can attribute a post-level click.
   This is a copy integration and attribution foundation, not yet a complete
   cross-network growth optimizer.
-- Codex receives no publishing token or persistent browser session. The
-  publisher and robot keep their existing credential boundaries.
+- The owner has authorized automatic publishing. Existing publishers and the
+  browser robot already use their configured platform credentials without
+  per-post approval; Codex does not need to read token values or persistent
+  browser state to generate copy. If Codex later needs to trigger a platform
+  action, expose the existing publisher as a host-side capability rather than
+  adding credentials to the model prompt.
 - GA4 feedback covers only sessions that arrive through a tagged, clickable
   destination. The initial live query returned no copy-attributed rows; later
   monthly briefs must treat unavailable or absent rows as missing evidence, not
@@ -135,10 +149,11 @@ Instagram and clickable-site traffic.
 
 | Priority | Next work | Dependency |
 |---|---|---|
-| 1 | Capture native post-level reach, views, saves, shares, and replies for Facebook, TikTok, LinkedIn, and Telegram; keep each platform's minimum sample and date window explicit. | Read access to each platform's analytics and a stable post-ID ledger. |
-| 2 | Add a branded, per-post landing route for Instagram and TikTok bio links so clicks can identify the post without claiming ordinary caption links are clickable. | Profile-link update path and stable canonical redirects. |
-| 3 | Compare format and copy performance before expanding cadence or adding formats; use the existing Firebase experiment control plane for any controlled variant test. | Enough native observations; no new PostHog experiments. |
-| 4 | Bring Reddit into the copy pack after its replacement publishing path is approved. The LinkedIn Company Page already reuses LinkedIn article copy when invoked. | Devvit review for Reddit; Company Page permission grant remains needed for LinkedIn delivery. |
+| 1 | Add Reddit article and job copy slots to the pack and connect them to the Devvit app. The Devvit app currently covers articles; job delivery needs the published CDN index. | Devvit review is underway; classic Reddit Data API access was refused. |
+| 2 | Capture native post-level reach, views, saves, shares, and replies for Facebook, TikTok, LinkedIn, and Telegram; keep each platform's minimum sample and date window explicit. | Read access to each platform's analytics and a stable post-ID ledger. |
+| 3 | Add a branded, per-post landing route for Instagram and TikTok bio links so clicks can identify the post without claiming ordinary caption links are clickable. | Profile-link update path and stable canonical redirects. |
+| 4 | Compare format and copy performance before expanding cadence or adding formats; use the existing Firebase experiment control plane for balanced assignment and measurement. | Enough native observations; no new PostHog experiments. |
+| 5 | Resolve TikTok API eligibility for an internal publishing workflow and, if approved, provide the required creator-facing post choices; do not assume an audit alone clears the current cron. | Written platform eligibility and a compliant user-facing flow. |
 
 No platform's external review, audience setting, or rate limit is overridden by
 the owner's authorization or by Codex.
