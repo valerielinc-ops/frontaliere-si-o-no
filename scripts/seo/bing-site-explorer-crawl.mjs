@@ -29,6 +29,7 @@ import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
 import {
@@ -112,6 +113,28 @@ function searchPrefixForJobBoardSection(section) {
   if (locale === 'fr') return 'recherche-';
   if (locale === 'it') return 'ricerca-';
   return null;
+}
+
+const RELATED_SEARCH_AGGREGATE_SECTION_BY_LOCALE = Object.freeze({
+  it: '/cerca-lavoro-svizzera/',
+  en: '/en/find-jobs-switzerland/',
+  de: '/de/jobs-in-schweiz/',
+  fr: '/fr/trouver-emploi-suisse/',
+});
+
+function relatedSearchPathInfo(value) {
+  const parsed = pathnameAndOrigin(value);
+  if (!parsed) return null;
+
+  const section = getJobBoardSectionPrefix(parsed.pathname);
+  if (!section) return null;
+  const locale = localeForJobBoardSection(section);
+  const searchPrefix = searchPrefixForJobBoardSection(section);
+  const suffix = parsed.pathname.slice(section.length).replace(/\/+$/, '');
+  if (!locale || !searchPrefix || suffix.length <= searchPrefix.length || suffix.includes('/') || !suffix.startsWith(searchPrefix)) {
+    return null;
+  }
+  return { ...parsed, section, locale, suffix };
 }
 
 const EDITORIAL_BRIDGE_SLUGS_BY_SECTION = (() => {
@@ -213,7 +236,7 @@ function isDeclaredEditorialBridge({ url, canonical, html }) {
  */
 function isDeclaredSearchBridge({ url, canonical, html }) {
   if (!String(html || '').includes(REDIRECT_STUB_MARKER)) return false;
-  const source = pathnameAndOrigin(url);
+  const source = relatedSearchPathInfo(url);
   const target = pathnameAndOrigin(canonical);
   if (!source || !target || source.origin !== target.origin) return false;
 
@@ -222,16 +245,29 @@ function isDeclaredSearchBridge({ url, canonical, html }) {
   if (!sourceSection || !targetSection) return false;
   if (targetSection !== sourceSection) return false;
 
-  const sourceLocale = localeForJobBoardSection(sourceSection);
+  const sourceLocale = source.locale;
   if (!sourceLocale || sourceLocale !== localeForJobBoardSection(targetSection)) return false;
   if (target.pathname !== targetSection) return false;
+  return true;
+}
 
-  const searchPrefix = searchPrefixForJobBoardSection(sourceSection);
-  const suffix = source.pathname.slice(sourceSection.length).replace(/\/+$/, '');
-  return Boolean(searchPrefix)
-    && suffix.length > searchPrefix.length
-    && suffix.startsWith(searchPrefix)
-    && !suffix.includes('/');
+/**
+ * Recognise only the legacy per-canton related-search mirrors emitted by
+ * relatedSearchClustersPlugin. The dedicated declaration is necessary but not
+ * sufficient: the source must be a one-segment localized search path and its
+ * canonical must be the same search slug under that locale's Switzerland
+ * aggregate section. A generic bridge marker, a different slug, or a
+ * cross-canton target therefore remains actionable.
+ */
+function isDeclaredRelatedSearchMirror({ url, canonical, html }) {
+  if (!String(html || '').includes(RELATED_SEARCH_MIRROR_MARKER)) return false;
+  const source = relatedSearchPathInfo(url);
+  const target = relatedSearchPathInfo(canonical);
+  if (!source || !target || source.origin !== target.origin || source.locale !== target.locale) return false;
+
+  const aggregateSection = RELATED_SEARCH_AGGREGATE_SECTION_BY_LOCALE[source.locale];
+  if (!aggregateSection || source.section === aggregateSection || target.section !== aggregateSection) return false;
+  return target.suffix === source.suffix;
 }
 
 /**
@@ -937,6 +973,11 @@ export function classifyDocument({
     && isDeclaredSearchBridge({ url: finalUrl || url, canonical, html })
     ? 'search-bridge'
     : null;
+  const relatedSearchMirrorExemption = isFrontier
+    && canonicalMismatch
+    && isDeclaredRelatedSearchMirror({ url: finalUrl || url, canonical, html })
+    ? 'related-search-mirror'
+    : null;
   const companyCantonBridgeExemption = isFrontier
     && noindex
     && followableNoindex
@@ -979,6 +1020,7 @@ export function classifyDocument({
     : null;
   const canonicalExemption = exemption
     || searchBridgeExemption
+    || relatedSearchMirrorExemption
     || companyCantonBridgeExemption
     || weeklyEmployersArchiveExemption
     || editorialBridgeExemption;
