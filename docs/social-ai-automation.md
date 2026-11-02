@@ -74,8 +74,16 @@ invoked, but its permission is currently denied. Reddit remains excluded from
 the pack because Reddit's classic Data API request was refused; its next step
 is a separate Devvit review. LinkedIn needs the Company Page permission grant
 before that publisher can deliver. TikTok's unaudited Content Posting API
-may publish only to the owner; public visibility still depends on TikTok's
-audit. Instagram API permissions remain governed by Meta App Review and the
+restricts posts to private viewership; public delivery requires its audit. The
+official Direct Post guidance also describes a creator-specific daily cap,
+typically around fifteen posts per creator across API clients, so do not raise
+TikTok volume without checking the approved cap and current creator info
+([TikTok Content Sharing Guidelines](https://developers.tiktok.com/docs/en/content-sharing-guidelines)).
+LinkedIn Company Page delivery requires the approved organization-social
+permission and an eligible Page role; the current grant remains denied
+([LinkedIn permissions](https://learn.microsoft.com/en-us/linkedin/marketing/getting-started?view=li-lms-2026-01),
+[LinkedIn app review](https://learn.microsoft.com/en-us/linkedin/marketing/community-management-app-review?view=li-lms-2026-07)).
+Instagram API permissions remain governed by Meta App Review and the
 current readiness probe. The existing `SOCIAL_ROBOT_MODE` and publisher
 credentials stay in their existing publisher/robot processes; this change
 neither exposes them to Codex nor changes the mode. The upstream skill itself
