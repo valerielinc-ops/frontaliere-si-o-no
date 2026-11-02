@@ -1,4 +1,12 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+// The parser imports `slugify` from the full crawler template, whose module
+// also loads generated canton data that is intentionally absent in sparse
+// agent checkouts. Keep this unit test scoped to the Klinik parser contract.
+vi.mock('../scripts/lib/crawler-template.mjs', () => ({
+  slugify: (value: string) => String(value).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+}));
+
 import {
   KLINIK_ADELHEID_KEY,
   PUBLIC_CAREER_URL,
