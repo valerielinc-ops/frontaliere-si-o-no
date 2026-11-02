@@ -6,7 +6,7 @@ import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibili
 import { createStaticAdDelivery } from '../services/staticAdDelivery';
 import { probeIabAdBlock } from '../services/iabAdBlockProbe';
 import { installAdRecovery } from '../services/adRecovery';
-import { FC_ENSURE_JS } from '../build-plugins/constants';
+import { ADSENSE_LOADER_CONTENT, FC_ENSURE_JS } from '../build-plugins/constants';
 
 let dom: JSDOM;
 let w: any;
@@ -32,6 +32,22 @@ beforeEach(() => {
 afterEach(() => { dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
 
 describe('shared manual-slot request contract', () => {
+  it('boots the entire static ad loader without MutationObserver and cleans removed slots', async () => {
+    w.MutationObserver = undefined;
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    const el = slot(300); el.className = 'adsbygoogle';
+    expect(() => w.eval(ADSENSE_LOADER_CONTENT)).not.toThrow();
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    w.document.dispatchEvent(new w.Event('pointerdown'));
+    const script = w.document.querySelector('script[src*="adsbygoogle.js"]');
+    expect(script).not.toBeNull(); script.dispatchEvent(new w.Event('load'));
+    expect(w.adsbygoogle).toHaveLength(1);
+    el.setAttribute('data-ad-status', 'filled');
+    await vi.advanceTimersByTimeAsync(1100);
+    expect(el.getAttribute('data-ft-static-ad-state')).toBe('filled');
+    el.remove(); await vi.advanceTimersByTimeAsync(1100);
+    expect(w.eval('typeof MutationObserver')).toBe('undefined');
+  });
   it('does not push at 161/249px, then requests once at 250px', () => {
     const api = local(createAdSlotRequests)(); const el = slot(161);
     expect(api.request(el).state).toBe('waiting_width');
@@ -181,6 +197,52 @@ describe('IAB detection and independent recovery surface', () => {
   function recovery(result = 'blocked', state = 'failed') {
     return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example' });
   }
+  it('does not promote a stale no-fill while a real ad script is retrying', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const script = w.document.createElement('script');
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    script.dataset.ftScriptState = 'retry_wait'; script.dataset.failed = '1';
+    w.document.head.append(script);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    script.dataset.ftScriptState = 'loaded';
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+  });
+  it('ignores unrelated page mutations but observes a newly filled ad', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    const el = slot(300); el.setAttribute('data-ad-status', 'unfilled');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+    const find = vi.spyOn(w.document, 'querySelector'); find.mockClear();
+    for (let i = 0; i < 100; i++) w.document.querySelector('main').appendChild(w.document.createElement('p'));
+    find.mockClear(); await vi.advanceTimersByTimeAsync(250);
+    expect(find).not.toHaveBeenCalled();
+    el.setAttribute('data-ad-status', 'filled');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+  });
+  it('suspends fallback polling on forbidden routes and resumes through navigation', async () => {
+    w.MutationObserver = undefined;
+    const intervals = vi.spyOn(w, 'setInterval'); const clears = vi.spyOn(w, 'clearInterval');
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(intervals).toHaveBeenCalledTimes(1);
+    w.history.pushState(null, '', '/automatizza-ricerca-lavoro-svizzera/');
+    w.dispatchEvent(new w.Event('seo-tracking:pushstate'));
+    await vi.advanceTimersByTimeAsync(250);
+    const last = intervals.mock.results[0].value;
+    expect(clears).toHaveBeenCalledWith(last);
+    await vi.advanceTimersByTimeAsync(5000); expect(intervals).toHaveBeenCalledTimes(1);
+    w.history.pushState(null, '', '/another-article/');
+    w.dispatchEvent(new w.Event('seo-tracking:pushstate'));
+    await vi.advanceTimersByTimeAsync(250);
+    expect(intervals).toHaveBeenCalledTimes(2);
+  });
   it('offers real instructions and reload, never silently grants consent', async () => {
     recovery(); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);

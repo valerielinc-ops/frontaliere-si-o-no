@@ -25,6 +25,7 @@ export function installAdRecovery(
   let started = Date.now();
   let timer: ReturnType<typeof setTimeout> | undefined;
   let refreshTimer: ReturnType<typeof setTimeout> | undefined;
+  let pollTimer: ReturnType<typeof setInterval> | undefined;
   let reportedState = '';
   let cmpReopenAt = 0;
   let popup: HTMLDialogElement | null = null;
@@ -62,10 +63,12 @@ export function installAdRecovery(
     : !hasDecision() && cmp.state() === 'loaded' && typeof w.googlefc?.showRevocationMessage !== 'function' ? 'cmp_api_missing'
     : !hasDecision() && cmpReopenAt > 0 && Date.now() - cmpReopenAt >= 2000 ? 'cmp_ui_missing'
     : !hasDecision() ? 'consent_pending'
+    : document.querySelector('script[data-ft-script-state="retry_wait"][src*="adsbygoogle.js"],script[data-ft-script-state="loading"][src*="adsbygoogle.js"],script[data-ft-script-state="retry_wait"][src*="gpt.js"],script[data-ft-script-state="loading"][src*="gpt.js"]') ? 'response_pending'
+    : document.querySelector('script[data-ft-script-state="waiting_response"][src*="adsbygoogle.js"],script[data-ft-script-state="waiting_response"][src*="gpt.js"]') ? 'script_timeout'
     : document.querySelector('ins[data-ad-status="unfilled"]') ? 'no_fill'
     : document.querySelector('[data-ft-ad-width-wait]') ? 'invalid_width'
     : document.querySelector('script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
-    : document.querySelector('script[data-ft-script-state="waiting_response"]') ? 'script_timeout' : 'response_pending';
+    : 'response_pending';
   const reload = () => {
     store('ft_ad_recovery_reload', String(Date.now()));
     emit('ad_recovery_action', { action: 'reload', reason: reason() }); location.reload();
@@ -134,6 +137,11 @@ export function installAdRecovery(
   function refresh() {
     clearTimeout(timer);
     if (!document.body) return;
+    // Resume through route/consent/foreground events; forbidden routes and
+    // background documents do not retain an otherwise idle polling loop.
+    if (typeof MutationObserver !== 'function' && permitted()) {
+      if (pollTimer === undefined) pollTimer = setInterval(schedule, 1000);
+    } else { clearInterval(pollTimer); pollTimer = undefined; }
     if (location.pathname !== path) {
       path = location.pathname; started = Date.now(); reportedState = ''; removePromo(); closePopup();
     }
@@ -189,17 +197,19 @@ export function installAdRecovery(
     cmp.load();
     cmp.subscribe(schedule);
     if (typeof MutationObserver === 'function') {
+      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container';
+      const related = (node: Node) => node.nodeType === 1 && ((node as Element).matches(relevant) || !!(node as Element).querySelector(relevant));
       const observer = new MutationObserver((records) => {
-        if (records.every((record) => (record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo'))) return;
+        if (!records.some((record) => {
+          if ((record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo')) return false;
+          if (record.type === 'attributes') return (record.target as Element).matches(relevant);
+          return Array.from(record.addedNodes).some(related) || Array.from(record.removedNodes).some(related);
+        })) return;
         schedule();
       });
       observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state'] });
-    } else {
-      // Older/limited webviews still remove the fallback after a late fill.
-      // Like the observer, this single heartbeat belongs to the document.
-      window.setInterval(schedule, 1000);
     }
-    for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
+    for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
     document.addEventListener('visibilitychange', () => {
       // A background-clamped timeout must not delay checking an ad that
       // filled while the visitor was away from this tab.

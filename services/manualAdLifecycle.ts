@@ -18,6 +18,7 @@ export function observeManualAd(
   let viewable = false;
   let inView = false;
   let responseTimer: ReturnType<typeof setTimeout> | undefined;
+  let pollTimer: ReturnType<typeof setInterval> | undefined;
   let viewTimer: ReturnType<typeof setTimeout> | undefined;
   let offscreen: IntersectionObserver | undefined;
   let visibility: IntersectionObserver | undefined;
@@ -121,6 +122,10 @@ export function observeManualAd(
   };
   const check = () => {
     if (stopped) return;
+    if (!el.isConnected && pollTimer !== undefined) {
+      clearInterval(pollTimer); pollTimer = undefined;
+      return;
+    }
     const status = el.getAttribute('data-ad-status');
     if (status === 'filled' && !filled) {
       filled = true;
@@ -139,8 +144,11 @@ export function observeManualAd(
     }
     if (filled) measure();
   };
-  const observer = new MutationObserver(check);
-  observer.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'style', 'height', 'width'] });
+  const observer = typeof MutationObserver === 'function' ? new MutationObserver(check) : undefined;
+  observer?.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'style', 'height', 'width'] });
+  // Limited webviews still accept late Google responses. This fallback is
+  // owned by the slot and is released on removal or stop(), like the observer.
+  if (!observer) pollTimer = setInterval(check, 1000);
   document.addEventListener('visibilitychange', updateView);
   return {
     request() {
@@ -163,7 +171,8 @@ export function observeManualAd(
       stopped = true;
       clearTimeout(responseTimer);
       clearViewTimer();
-      observer.disconnect();
+      observer?.disconnect();
+      clearInterval(pollTimer); pollTimer = undefined;
       offscreen?.disconnect();
       visibility?.disconnect();
       resize?.disconnect();

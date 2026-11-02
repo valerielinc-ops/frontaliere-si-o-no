@@ -40,6 +40,14 @@ agli slot Google. Compare per blocco, errore, dimensioni insufficienti o no-fill
 si rimuove quando un annuncio risulta effettivamente riempito. Messaggi Google
 già visibili hanno precedenza. Un semplice ritardo o consenso ancora pendente
 non produce la promozione. La UI resta chiudibile e non blocca la lettura.
+Un vecchio no-fill non prevale su un caricamento o retry ancora in corso.
+
+Nelle webview senza `MutationObserver`, gli slot mantengono la lettura delle
+risposte tardive tramite polling, rilasciato alla rimozione dello slot o allo
+stop del controller. Il recovery usa un solo heartbeat, sospeso sulle route
+escluse e in background, che riparte sugli eventi di navigazione e ritorno
+in primo piano. L'osservatore ordinario ignora le mutazioni estranee ad annunci,
+script Google e messaggi CMP.
 
 L'integrazione React è un adattamento locale MIT di `@ctrl/react-adsense`:
 mantiene espliciti gli errori e usa il requester condiviso. La versione 3.x
