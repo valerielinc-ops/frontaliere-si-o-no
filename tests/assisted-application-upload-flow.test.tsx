@@ -128,13 +128,15 @@ describe('assisted application consent and CV upload flow', () => {
     },
   );
 
-  it('does not reopen intake when automation has already submitted', async () => {
-    orderData = paidOrder({ automationState: 'submitted' });
-    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
-    await screen.findByText(itCore['jobBoard.assisted.review.submitted']);
-    expect(screen.queryByRole('button', { name: itCore['jobBoard.assisted.submit'] })).toBeNull();
-    expect(mocks.updateDoc).not.toHaveBeenCalled();
-  });
+  it.each(['drafting', 'candidate_review', 'owner_takeover', 'needs_candidate_action', 'candidate_handoff', 'submitted', 'failed', 'withdrawn', 'future_state'])(
+    'does not reopen intake when automation is already %s', async (automationState) => {
+      orderData = paidOrder({ automationState });
+      render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+      await screen.findByRole('heading', { name: itCore['jobBoard.assisted.trackingTitle'] });
+      expect(screen.queryByRole('button', { name: itCore['jobBoard.assisted.submit'] })).toBeNull();
+      expect(mocks.updateDoc).not.toHaveBeenCalled();
+    },
+  );
 
   it.each(['javascript:alert(1)', 'https://user:password@careers.example.test/', 'not-a-url'])(
     'does not expose an unsafe listing URL: %s', async (jobUrl) => {

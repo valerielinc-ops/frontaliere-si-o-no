@@ -126,8 +126,9 @@ function closePaymentWindow(checkoutWindow: Window | null): void {
 }
 
 function canCompleteIntake(order: AssistedApplicationOrder): boolean {
-  return order.submissionStatus === 'awaiting_upload'
-    && order.automationState !== 'submitted' && order.automationState !== 'withdrawn';
+  // A workflow starts at drafting and can retain awaiting_upload in the
+  // order mirror. Its presence means intake has already completed.
+  return order.submissionStatus === 'awaiting_upload' && !order.automationState;
 }
 
 function safeJobUrl(value: unknown): string | null {
