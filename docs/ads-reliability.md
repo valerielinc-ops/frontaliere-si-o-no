@@ -59,6 +59,14 @@ anzianità e stelle dei detector non dimostrano compatibilità con ogni blocker.
 
 ## Telemetria
 
+Il segnale DOM `data-ft-ad-request-pending` rappresenta richieste effettivamente
+avviate dal lifecycle, non lo stato grafico iniziale di un placeholder GPT.
+Ogni controller rilascia il proprio segnale su fill, no-fill, errore, stop o
+rinvio per larghezza insufficiente. Più controller sullo stesso contenitore
+mantengono evidenze indipendenti; una risposta lenta rimane pending. Le shell
+precedenti sono riconosciute anche tramite gli stati manuali e il query ID GPT,
+senza assumere che ogni `data-ad-state="loading"` sia una richiesta già partita.
+
 Gli eventi GA4 `ad_script_state`, `ad_slot_waiting_width`, `ad_slot_error`,
 `ad_slot_width_timeout`, `ad_cmp_state`, `ad_cmp_recovery`, `ad_block_probe` e
 `ad_reliability_state` distinguono libreria, tentativo, geometria e causa.

@@ -71,7 +71,7 @@ export function installAdRecovery(
     : !hasDecision() ? 'consent_pending'
     : document.querySelector('script[data-ft-script-state="retry_wait"][src*="adsbygoogle.js"],script[data-ft-script-state="loading"][src*="adsbygoogle.js"],script[data-ft-script-state="retry_wait"][src*="gpt.js"],script[data-ft-script-state="loading"][src*="gpt.js"]') ? 'response_pending'
     : document.querySelector('script[data-ft-script-state="waiting_response"][src*="adsbygoogle.js"],script[data-ft-script-state="waiting_response"][src*="gpt.js"]') ? 'script_timeout'
-    : document.querySelector('[data-ft-static-ad-state="loading"],[data-ft-static-ad-state="waiting_response"],[data-ft-ad-state="loading"],[data-ft-ad-state="waiting_response"],[data-ad-state="loading"],[data-ad-state="waiting_response"]') ? 'response_pending'
+    : document.querySelector('[data-ft-ad-request-pending],[data-ft-static-ad-state="loading"],[data-ft-static-ad-state="waiting_response"],[data-ft-ad-state="loading"],[data-ft-ad-state="waiting_response"],[data-ad-state="waiting_response"],[data-ad-state="loading"] [data-google-query-id]') ? 'response_pending'
     : document.querySelector('script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
     : document.querySelector('ins[data-ad-status="unfilled"]') ? 'no_fill'
     : document.querySelector('[data-ft-ad-width-wait]') ? 'invalid_width'
@@ -204,12 +204,13 @@ export function installAdRecovery(
     cmp.load();
     cmp.subscribe(schedule);
     if (typeof MutationObserver === 'function') {
-      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],[data-ft-ad-state],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container';
+      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],[data-ft-ad-state],[data-ft-ad-request-pending],[data-google-query-id],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container';
       const related = (node: Node) => node.nodeType === 1 && ((node as Element).matches(relevant) || !!(node as Element).querySelector(relevant));
       const observer = new MutationObserver((records) => {
         if (!records.some((record) => {
           if ((record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo')) return false;
           if (record.type === 'attributes') {
+            if (record.attributeName === 'data-ft-ad-request-pending' || record.attributeName === 'data-google-query-id') return true;
             if (record.attributeName === 'class' || record.attributeName === 'style') {
               return related(record.target) || /(?:^|\s)fc-(?:consent-root|ab-root|monetization-dialog-container)(?:\s|$)/.test(record.oldValue || '');
             }
@@ -219,7 +220,7 @@ export function installAdRecovery(
         })) return;
         schedule();
       });
-      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state', 'class', 'style'] });
+      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state', 'data-ft-ad-request-pending', 'data-google-query-id', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state', 'class', 'style'] });
     }
     for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
     document.addEventListener('visibilitychange', () => {
