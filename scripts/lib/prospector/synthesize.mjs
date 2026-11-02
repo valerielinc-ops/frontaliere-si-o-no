@@ -89,6 +89,7 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {string} companyKey
  * @property {string} companyName
  * @property {string} companyHost
+ * @property {string} [verifiedEmployerDomain] Domain verified during TRACE; it is the only origin eligible for the employer-site location proof
  * @property {string} platform            registrable domain of the ATS, '' when self-hosted
  * @property {'jsonld'|'microdata'|'template'|'known-template'|'free-text'} mode
  * @property {string[]} seedUrls
@@ -105,6 +106,7 @@ function careerLinksFromPage(body, baseUrl) {
  *   before enrichment. Neither a missing detail marker nor absent target text
  *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {boolean} [employerSiteLocationFallback] Allow the single-site official address proof after offer-specific location evidence is absent
  * @property {Array<{ postalCode: string, locality: string, canton: string }>} [umantisListingCantonOverrides]
  *   Reviewed exact Umantis listing postcode/locality pairs used only to
  *   disambiguate the canton; the shared Swiss geography resolver still validates them.
@@ -675,6 +677,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     companyKey,
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
+    ...(employerDomain ? { verifiedEmployerDomain: employerDomain } : {}),
     platform: candidate.platform || inferredPlatform,
     mode: /** @type {'jsonld'|'microdata'|'template'|'known-template'|'free-text'} */ (via),
     seedUrls: [res.url],
@@ -684,6 +687,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     detailEnrichment: via === FREE_TEXT_MODE
       ? false
       : via === 'known-template' || via === 'template' || listingNeedsDetail,
+    employerSiteLocationFallback: via !== FREE_TEXT_MODE && Boolean(employerDomain),
     detailFetchWorkers: 4,
     pagination,
     sampleVacancyCount: vacancies.length,
