@@ -73,10 +73,9 @@ export const getGptTag = gtag;
 
 function ensureGptScript(): void {
   // ── ADVERTISING CONSENT GATE (#5842) ────────────────────────────────
-  // Placed BEFORE the `gptScriptRequested` latch on purpose: that latch is
-  // sticky and module-scoped, so gating after it would mark the script as
-  // "requested" on a blocked call and permanently lock out a visitor who
-  // accepts later in the same page view. Fails closed — services/adsConsent.ts.
+  // Check before reaching the document-wide loader, which also rechecks on
+  // every retry. An unanswered CMP must not consume an attempt or lock out a
+  // visitor who accepts later in the same page view.
   if (!isAdsConsentGranted()) return;
   if (typeof document === 'undefined') return;
   gtag();

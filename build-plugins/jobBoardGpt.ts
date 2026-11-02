@@ -93,7 +93,8 @@ export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
     if(queued)return;
     queued=true;
     tag.cmd.push(function(){
-      if(!hasConsent()||tag.__frontaliereGptServicesEnabled)return;
+      if(!hasConsent()){queued=false;return;}
+      if(tag.__frontaliereGptServicesEnabled)return;
       try{
         tag.setConfig({singleRequest:true,collapseDiv:'BEFORE_FETCH'});
         tag.enableServices();

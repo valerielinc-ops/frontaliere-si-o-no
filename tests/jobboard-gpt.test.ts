@@ -122,4 +122,18 @@ describe('job-board GPT bootstrap', () => {
     window.dispatchEvent(new Event('online'));
     expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
   });
+  it('can initialize after consent is revoked before load and then granted again', () => {
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    new Function(GPT_LOADER_CONTENT)();
+    const tag = (window as any).googletag;
+    tag.setConfig = vi.fn(); tag.enableServices = vi.fn();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'denied');
+    tag.cmd.shift()();
+    expect(tag.enableServices).not.toHaveBeenCalled();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    window.dispatchEvent(new CustomEvent(ADS_CONSENT_CHANGE_EVENT));
+    tag.cmd.shift()();
+    expect(tag.enableServices).toHaveBeenCalledOnce();
+    expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
+  });
 });
