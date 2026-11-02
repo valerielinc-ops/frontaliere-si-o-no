@@ -10,6 +10,7 @@ import {
   collectSitemapInventory,
   crawlPartition,
   extractInternalLinks,
+  isDeclaredEventMigrationBridge,
   folderFor,
   isDeclaredPaginationTarget,
   isDeclaredPharmacyTarget,
@@ -40,6 +41,7 @@ import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/s
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
@@ -636,6 +638,60 @@ describe('Bing-compatible full-tree crawler', () => {
       expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
       expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
     }
+  });
+
+  it('recognizes only marked event migration bridges with a current event-detail target', () => {
+    const source = `${BASE}/eventi/ticino/lugano/vecchio-evento-2026-09-26/`;
+    const canonical = `${BASE}/eventi/ticino/lugano/evento-2026-09-27/`;
+    const description = 'Una descrizione sufficientemente lunga per rappresentare il bridge di migrazione evento nel controllo SEO completo del sito e mantenere il contratto di crawling.';
+    const bridgeHtml = (target: string, marker = EVENT_SLUG_MIGRATION_BRIDGE_MARKER, robots = 'index,follow') => `${marker}<title>Event migration bridge</title><meta name="robots" content="${robots}"><link rel="canonical" href="${target}"><meta name="description" content="${description}">`;
+
+    const frontier = classifyDocument({
+      url: source,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: bridgeHtml(canonical),
+    });
+    const frontierCodes = frontier.findings.map((item) => item.code);
+    expect(isDeclaredEventMigrationBridge({ url: source, canonical, html: bridgeHtml(canonical) })).toBe(true);
+    expect(frontierCodes).toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    expect(frontierCodes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+    const sitemap = classifyDocument({ url: source, status: 200, scope: 'sitemap', html: bridgeHtml(canonical) });
+    expect(sitemap.findings.map((item) => item.code)).toContain('canonical-drift');
+
+    const undeclared = classifyDocument({
+      url: source,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: bridgeHtml(canonical, REDIRECT_STUB_MARKER),
+    });
+    expect(undeclared.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+    const invalidTargets = [
+      `${BASE}/eventi/ticino/lugano/`,
+      `${BASE}/en/events/ticino/lugano/event-2026-09-27/`,
+    ];
+    for (const target of invalidTargets) {
+      const result = classifyDocument({
+        url: source,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: bridgeHtml(target),
+      });
+      const codes = result.findings.map((item) => item.code);
+      expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    }
+
+    const noindex = classifyDocument({
+      url: source,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: bridgeHtml(canonical, EVENT_SLUG_MIGRATION_BRIDGE_MARKER, 'noindex,follow'),
+    });
+    expect(noindex.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(noindex.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
   });
 
   it('keeps expected canonical consolidations out of the actionable issue body', () => {
