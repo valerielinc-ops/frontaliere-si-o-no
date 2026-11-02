@@ -1192,12 +1192,12 @@
     },
     {
       "id": "postauto-b7094063a992",
-      "slug": "postauto-fahrer-in-postauto-heiden",
+      "slug": "autista-postauto-postauto-ag-heiden",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-heiden",
-        "it": "postauto-fahrer-in-postauto-heiden",
-        "en": "postauto-fahrer-in-postauto-heiden",
-        "fr": "postauto-fahrer-in-postauto-heiden"
+        "it": "autista-postauto-postauto-ag-heiden",
+        "en": "postauto-driver-postauto-ag-heiden",
+        "fr": "conducteur-rice-postauto-postauto-ag-heiden"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1261,7 +1261,21 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T11:26:47.327Z"
+      "firstSeenAt": "2026-11-02T11:26:47.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-heiden"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-heiden"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-heiden"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-heiden"
+      ]
     },
     {
       "id": "postauto-b1289342517b",

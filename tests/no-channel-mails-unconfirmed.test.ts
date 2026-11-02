@@ -692,7 +692,10 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
       readdirSync(path.join(ROOT, dir), { withFileTypes: true })
         .filter((e) => e.isFile() && /\.(mjs|js|ts)$/.test(e.name))
         .map((e) => `${dir}/${e.name}`)
-        .filter((rel) => /(export )?function hasConfirmationProof/.test(stripComments(read(rel)))),
+        .filter((rel) => {
+          const source = read(rel);
+          return source.includes('hasConfirmationProof') && /(export )?function hasConfirmationProof/.test(stripComments(source));
+        }),
     );
     expect(definers).toEqual(['functions/src/lib/subscriberConsent.js']);
   });

@@ -1116,12 +1116,12 @@
     },
     {
       "id": "klinik-sonnenhalde-aad4a450f969",
-      "slug": "koch-kochin-efz-klinik-sonnenhalde-riehen",
+      "slug": "cuoco-cuoca-efz-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "koch-kochin-efz-klinik-sonnenhalde-riehen",
-        "it": "koch-kochin-efz-klinik-sonnenhalde-riehen",
-        "en": "koch-kochin-efz-klinik-sonnenhalde-riehen",
-        "fr": "koch-kochin-efz-klinik-sonnenhalde-riehen"
+        "it": "cuoco-cuoca-efz-klinik-sonnenhalde-riehen",
+        "en": "cook-chef-efz-klinik-sonnenhalde-riehen",
+        "fr": "cuisiniere-chef-efz-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1184,16 +1184,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:27:49.245Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:27:49.245Z"
+      "firstSeenAt": "2026-11-02T11:27:49.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "koch-kochin-efz-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "koch-kochin-efz-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-klinik-sonnenhalde-riehen"
+      ]
     },
     {
       "id": "klinik-sonnenhalde-2634a0f26a14",
-      "slug": "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen",
+      "slug": "capo-della-pastorale-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen",
-        "it": "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen",
-        "en": "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen",
-        "fr": "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen"
+        "it": "capo-della-pastorale-klinik-sonnenhalde-riehen",
+        "en": "head-of-pastoral-care-klinik-sonnenhalde-riehen",
+        "fr": "chef-de-la-pastorale-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1256,7 +1270,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:27:48.624Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:27:48.624Z"
+      "firstSeenAt": "2026-11-02T11:27:48.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-leiter-seelsorge-klinik-sonnenhalde-riehen"
+      ]
     },
     {
       "id": "klinik-sonnenhalde-f966edca4084",

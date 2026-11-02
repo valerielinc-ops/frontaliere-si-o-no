@@ -95,10 +95,14 @@ function htmlToMarkdown(html = '') {
 function extractLastminuteRequirements(description = '') {
   const text = normalizeSpace(description);
   if (!text) return [];
-  const lines = text
-    .split(/[\n\r•·]+|(?<=[.!?;:])\s+/)
-    .map((x) => normalizeSpace(String(x || '').replace(/^[)\]}\-–—:.,\s]+/, '')))
-    .filter(Boolean);
+  const lineParts = text.split(/[\n\r•·]+|([.!?;:])\s+/);
+  const lines = [];
+  for (let index = 0; index < lineParts.length; index += 2) {
+    const line = normalizeSpace(
+      `${lineParts[index] ?? ''}${lineParts[index + 1] ?? ''}`.replace(/^[)\]}\-–—:.,\s]+/, ''),
+    );
+    if (line) lines.push(line);
+  }
 
   const out = [];
   for (const line of lines) {

@@ -35,7 +35,7 @@ import { ARTICLE_DETAIL_ATF_EXPERIMENT_ID } from '../../packages/articles/engine
 
 const COLLECT_JS =
   `function collect(hidden){var ls=function(k){try{return w.localStorage.getItem(k);}catch(e){return null;}};` +
-  `var c=ls('${ADS_CONSENT_STORAGE_KEY}'),consent=c==='${ADS_CONSENT_GRANTED}'?'granted':c==='${ADS_CONSENT_DENIED}'?'denied':'none';` +
+  `var c=w.__ftAdsConsentDecision||ls('${ADS_CONSENT_STORAGE_KEY}'),consent=c==='${ADS_CONSENT_GRANTED}'?'granted':c==='${ADS_CONSENT_DENIED}'?'denied':'none';` +
   `var path=ls('${READER_NOADS_ACTIVE_KEY}')==='true'?'noads_entitlement':isBot()?'bot_gated':consent==='none'?'waiting_consent':'loaded';` +
   `var a=w.adsbygoogle,g=w.googlefc,o=w.__ftOfferwallGate,s=o?o.state:undefined;` +
   `var gate=(s==='held'&&typeof o.release==='function')||s==='released'||s==='suppressed'||s==='off_board'?s:s==='idle'?'off_board':'absent';` +

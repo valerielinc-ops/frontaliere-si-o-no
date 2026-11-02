@@ -36,6 +36,7 @@ export function useAdPageDiag(enabled: boolean = !import.meta.env.DEV): void {
         if (cancelled) return;
         start = (pathname) => mod.startAdPageDiag(pathname);
         fire();
+        void import('@/services/startAdRecovery').then((recovery) => { if (!cancelled) recovery.startAdRecovery(); }).catch(() => {});
       })
       .catch(() => {
         /* chunk failed to load: no diagnosis, nothing else changes */

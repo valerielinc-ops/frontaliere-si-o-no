@@ -1951,12 +1951,12 @@
     },
     {
       "id": "livit-95696e54f74a",
-      "slug": "immobilienbewirtschafter-in-livit-bern",
+      "slug": "amministratore-trice-immobiliare-livit-ag-bern",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-livit-bern",
-        "it": "immobilienbewirtschafter-in-livit-bern",
-        "en": "immobilienbewirtschafter-in-livit-bern",
-        "fr": "immobilienbewirtschafter-in-livit-bern"
+        "it": "amministratore-trice-immobiliare-livit-ag-bern",
+        "en": "property-manager-livit-ag-bern",
+        "fr": "gestionnaire-immobilier-livit-ag-bern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2018,16 +2018,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:25:18.629Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:25:18.629Z"
+      "firstSeenAt": "2026-11-02T11:25:18.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-livit-bern"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-livit-bern"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-livit-bern"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-livit-bern"
+      ]
     },
     {
       "id": "livit-d4fdb3d224a2",
-      "slug": "immobilienbewirtschafter-in-60-livit-luzern",
+      "slug": "amministratore-trice-immobiliare-60-livit-ag-luzern",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-60-livit-luzern",
-        "it": "immobilienbewirtschafter-in-60-livit-luzern",
-        "en": "immobilienbewirtschafter-in-60-livit-luzern",
-        "fr": "immobilienbewirtschafter-in-60-livit-luzern"
+        "it": "amministratore-trice-immobiliare-60-livit-ag-luzern",
+        "en": "property-manager-60-livit-ag-luzern",
+        "fr": "gestionnaire-immobilier-60-livit-ag-luzern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2099,16 +2113,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T11:25:18.627Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:25:18.627Z"
+      "firstSeenAt": "2026-11-02T11:25:18.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-60-livit-luzern"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-60-livit-luzern"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-60-livit-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-60-livit-luzern"
+      ]
     },
     {
       "id": "livit-e3b754010445",
-      "slug": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
+      "slug": "senior-responsabile-della-gestione-di-immobili-commerciali-livit-ag-luzern",
       "slugByLocale": {
         "de": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
-        "it": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
-        "en": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern",
-        "fr": "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern"
+        "it": "senior-responsabile-della-gestione-di-immobili-commerciali-livit-ag-luzern",
+        "en": "senior-commercial-property-manager-livit-ag-luzern",
+        "fr": "gestionnaire-immobilier-senior-des-surfaces-commerciales-livit-ag-luzern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2180,7 +2208,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T11:25:18.606Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:25:18.606Z"
+      "firstSeenAt": "2026-11-02T11:25:18.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-immobilienbewirtschafter-in-geschaftsflachen-livit-luzern"
+      ]
     }
   ]
 }

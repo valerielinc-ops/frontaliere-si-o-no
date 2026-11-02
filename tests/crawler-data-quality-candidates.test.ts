@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   auditCycle,
+  attributeRetranslationDelta,
   buildCrawlerDataQualityReport,
   executeIssuePacket,
   GH_ACTION_TIMEOUT_MS,
@@ -424,6 +425,45 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     });
 
     expect(report.findings).toEqual([]);
+  });
+
+  it('attributes queue movement to crawler slices without changing the aggregate gate', () => {
+    expect(attributeRetranslationDelta(
+      { 'seco-jobroom.json': 300, 'drained.json': 10 },
+      { 'seco-jobroom.json': 150, 'drained.json': 90 },
+    )).toEqual([
+      { file: 'seco-jobroom.json', baseline: 150, current: 300, delta: 150 },
+      { file: 'drained.json', baseline: 90, current: 10, delta: -80 },
+    ]);
+
+    const report = buildCrawlerDataQualityReport({
+      generatedAt: '2026-09-01T00:00:00.000Z',
+      windowDays: 15,
+      runUrl: 'https://github.com/acme/site/actions/runs/12345',
+      fileCount: 2,
+      jobCount: 2,
+      commitCount: 1,
+      contamination: { moved: 0, affected: [] },
+      duplicates: [],
+      translation: {
+        baselineCommit: 'abc123',
+        baselineCount: 100,
+        currentCount: 140,
+        delta: 40,
+        byCrawler: {
+          baseline: { 'seco-jobroom.json': 10 },
+          current: { 'seco-jobroom.json': 50 },
+        },
+      },
+      housekeeping: { emptyLocaleBuckets: [], staleActive: [] },
+    });
+
+    const finding = report.findings.find((entry) => entry.key === 'needs-retranslation-backlog-growth');
+    expect(finding?.evidence).toContain('seco-jobroom.json: baseline=10, HEAD=50, delta=+40');
+    expect(finding?.affectedFiles).toContain('data/jobs/by-crawler/seco-jobroom.json');
+    expect(report.metrics.needsRetranslationMovementByCrawler).toEqual([
+      { file: 'seco-jobroom.json', baseline: 10, current: 50, delta: 40 },
+    ]);
   });
 
   it('degrades gracefully when no baseline commit is found (shallow checkout), instead of throwing', () => {

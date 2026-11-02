@@ -56,6 +56,7 @@ describe('loop-fleet-ledger-reconcile', () => {
     expect(eligibleSourceRun(run(), definition)).toBe(true);
     expect(eligibleSourceRun(run({ headBranch: 'feature' }), definition)).toBe(false);
     expect(eligibleSourceRun(run({ event: 'pull_request' }), definition)).toBe(false);
+    expect(eligibleSourceRun(run({ conclusion: 'failure' }), definition)).toBe(false);
     expect(eligibleSourceRun(run({ conclusion: 'cancelled' }), definition)).toBe(false);
     expect(eligibleSourceRun(run({ headSha: 'short' }), definition)).toBe(false);
     expect(eligibleSourceRun(run({ status: 'in_progress' }), definition)).toBe(false);

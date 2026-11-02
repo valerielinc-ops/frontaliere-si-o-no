@@ -230,6 +230,9 @@ function seedDeletedUser(extra: Record<string, Record<string, unknown>> = {}) {
       applicationIntent: { intents: [{ jobKey: 'acme:old-role' }] },
     },
     [`job_alert_subscribers/${EMAIL}`]: { status: 'active', isActive: true, email: EMAIL },
+    [`job_alert_subscribers/${EMAIL}/delivery_state/first_discovery`]: {
+      ipGeo: { country: 'CH', region: 'Ticino' }, discovery: { state: 'accepted' },
+    },
     ...extra,
   });
 }
@@ -293,6 +296,7 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-b`]).toBeUndefined();
     expect(db.store[`newsletter_subscribers/${EMAIL}/private/personalization`]).toBeUndefined();
+    expect(db.store[`job_alert_subscribers/${EMAIL}/delivery_state/first_discovery`]).toBeUndefined();
 
     const newsletter = db.store[`newsletter_subscribers/${EMAIL}`];
     expect(isAccountDeletedTombstone(newsletter)).toBe(true);
@@ -337,6 +341,9 @@ describe('cleanupUserDataForDeletedAccount', () => {
     );
     const oldEmail = 'old-address@example.com';
     const db = seedDeletedUser({
+      [`job_alert_subscribers/${oldEmail}/delivery_state/first_discovery`]: {
+        ipGeo: { country: 'CH' }, discovery: { state: 'pending' },
+      },
       [`newsletter_subscribers/${oldEmail}`]: {
         email: oldEmail,
         user_id: UID,
@@ -360,6 +367,7 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(isAccountDeletedTombstone(db.store[`newsletter_subscribers/${oldEmail}`])).toBe(true);
     expect(isAccountDeletedTombstone(db.store[`job_alert_subscribers/${oldEmail}`])).toBe(true);
     expect(db.store[`newsletter_subscribers/${oldEmail}/private/personalization`]).toBeUndefined();
+    expect(db.store[`job_alert_subscribers/${oldEmail}/delivery_state/first_discovery`]).toBeUndefined();
   });
 
   it('still wipes saved jobs when the Auth user has no email', async () => {

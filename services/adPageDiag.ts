@@ -89,6 +89,7 @@ type DiagWindow = Window & {
   googlefc?: { getAdBlockerStatus?: unknown; showRevocationMessage?: unknown; MessageTypeEnum?: unknown };
   __ftOfferwallGate?: { state?: string; release?: unknown };
   __ftAdBlock?: { blocked?: boolean };
+  __ftAdsConsentDecision?: string;
   __ftAdDiag?: AdPageDiagHandle;
   gtag?: (...args: unknown[]) => void;
   dataLayer?: unknown[];
@@ -140,7 +141,7 @@ export function collectAdPageDiag(
   isBot: () => boolean = isLikelyBot,
 ): AdPageDiagParams {
   const doc = win.document;
-  const stored = readStorage(win, ADS_CONSENT_STORAGE_KEY);
+  const stored = win.__ftAdsConsentDecision || readStorage(win, ADS_CONSENT_STORAGE_KEY);
   const consent: AdDiagConsentState =
     stored === ADS_CONSENT_GRANTED ? 'granted' : stored === ADS_CONSENT_DENIED ? 'denied' : 'none';
   // Same precedence as the loader and <AdSenseBanner>: entitlement, bot gate, consent.

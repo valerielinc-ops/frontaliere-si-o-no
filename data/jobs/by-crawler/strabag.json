@@ -1018,12 +1018,12 @@
     },
     {
       "id": "strabag-77a59288542c",
-      "slug": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
+      "slug": "capo-a-cantiere-nel-genio-civile-e-nella-costruzione-stradale-strabag-ag-amriswil",
       "slugByLocale": {
         "de": "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
-        "it": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
-        "en": "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
-        "fr": "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil"
+        "it": "capo-a-cantiere-nel-genio-civile-e-nella-costruzione-stradale-strabag-ag-amriswil",
+        "en": "construction-manager-civil-engineering-and-road-construction-strabag-ag-amriswil",
+        "fr": "conducteur-rice-de-travaux-en-genie-civil-et-construction-routiere-strabag-ag-amriswil"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1071,11 +1071,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil"
+        ],
+        "en": [
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil"
+        ],
+        "fr": [
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil"
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil"
       ],
       "salaryMin": 70000,
       "salaryMax": 89000,

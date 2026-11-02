@@ -5,7 +5,7 @@ export function observeManualAd(
   box: HTMLElement,
   timeoutMs: number,
   onState: (state: 'loading' | 'waiting_response' | 'filled' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
-  emitEvent: (event: 'ad_request' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
+  emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
 ) {
   const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const emit: typeof emitEvent = (event, data = {}) => emitEvent(event, { request_id: requestId, ...data });
@@ -18,6 +18,7 @@ export function observeManualAd(
   let viewable = false;
   let inView = false;
   let responseTimer: ReturnType<typeof setTimeout> | undefined;
+  let pollTimer: ReturnType<typeof setInterval> | undefined;
   let viewTimer: ReturnType<typeof setTimeout> | undefined;
   let offscreen: IntersectionObserver | undefined;
   let visibility: IntersectionObserver | undefined;
@@ -30,6 +31,7 @@ export function observeManualAd(
   const metrics = () => ({
     reserved_height: Math.round(parseFloat(getComputedStyle(box).minHeight) || parseFloat(getComputedStyle(el).minHeight) || 0),
     slot_height: Math.round(box.getBoundingClientRect().height),
+    slot_width: Math.round(el.getBoundingClientRect().width),
     creative_height: Math.round(findCreative()?.getBoundingClientRect().height || 0),
   });
   const clearViewTimer = () => { clearTimeout(viewTimer); viewTimer = undefined; };
@@ -106,6 +108,7 @@ export function observeManualAd(
     failureReason = reason;
     clearTimeout(responseTimer);
     terminal = reason;
+    if (reason !== 'unfilled') emit('ad_unavailable', { reason, ...metrics() });
     onState(reason === 'unfilled' ? 'unfilled' : 'unavailable', reason);
     if (belowViewport()) { collapse(); return; }
     if (typeof IntersectionObserver !== 'undefined') {
@@ -119,6 +122,10 @@ export function observeManualAd(
   };
   const check = () => {
     if (stopped) return;
+    if (!el.isConnected && pollTimer !== undefined) {
+      clearInterval(pollTimer); pollTimer = undefined;
+      return;
+    }
     const status = el.getAttribute('data-ad-status');
     if (status === 'filled' && !filled) {
       filled = true;
@@ -137,9 +144,13 @@ export function observeManualAd(
     }
     if (filled) measure();
   };
-  const observer = new MutationObserver(check);
-  observer.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'style', 'height', 'width'] });
-  document.addEventListener('visibilitychange', updateView);
+  const observer = typeof MutationObserver === 'function' ? new MutationObserver(check) : undefined;
+  observer?.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'style', 'height', 'width'] });
+  // Limited webviews still accept late Google responses. This fallback is
+  // owned by the slot and is released on removal or stop(), like the observer.
+  if (!observer) pollTimer = setInterval(check, 1000);
+  const onVisibility = () => { if (document.visibilityState !== 'hidden') check(); updateView(); };
+  document.addEventListener('visibilitychange', onVisibility);
   return {
     request() {
       if (stopped || requested) return;
@@ -161,12 +172,13 @@ export function observeManualAd(
       stopped = true;
       clearTimeout(responseTimer);
       clearViewTimer();
-      observer.disconnect();
+      observer?.disconnect();
+      clearInterval(pollTimer); pollTimer = undefined;
       offscreen?.disconnect();
       visibility?.disconnect();
       resize?.disconnect();
       if (resizeFrame !== undefined) cancelAnimationFrame(resizeFrame);
-      document.removeEventListener('visibilitychange', updateView);
+      document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('scroll', collapse);
       window.removeEventListener('resize', collapse);
     },

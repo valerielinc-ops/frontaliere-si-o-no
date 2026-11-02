@@ -60,6 +60,10 @@ import {
   GTAG_INIT_CONTENT,
   GTAG_INIT_FILENAME,
   GTAG_INIT_VERSIONED_FILENAME,
+  AD_RECOVERY_CONTENT,
+  AD_RECOVERY_FILENAME,
+  AD_RECOVERY_VERSIONED_FILENAME,
+  AD_RECOVERY_SNIPPET,
   ADSENSE_LOADER_CONTENT,
   ADSENSE_LOADER_FILENAME,
   ADSENSE_LOADER_VERSIONED_FILENAME,
@@ -94,6 +98,8 @@ export function listStaticScriptFiles(): Array<readonly [string, string]> {
   return [
     [GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT],
     [GTAG_INIT_FILENAME, GTAG_INIT_CONTENT],
+    [AD_RECOVERY_FILENAME, AD_RECOVERY_CONTENT],
+    [AD_RECOVERY_VERSIONED_FILENAME, AD_RECOVERY_CONTENT],
     [ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_CONTENT],
     [ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT],
     [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
@@ -116,7 +122,8 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
       handler(html) {
         // Root SPA and generated pages consume the same protected producer.
         // Content addressing prevents an older cached vendor from bypassing it.
-        return html.replace('<script src="/assets/partnerize-tag.js"></script>', PARTNERIZE_TAG_SNIPPET);
+        return html.replace('<script src="/assets/partnerize-tag.js"></script>', PARTNERIZE_TAG_SNIPPET)
+          .replace('<script defer data-cfasync="false" src="/assets/site-support.js"></script>', AD_RECOVERY_SNIPPET);
       },
     },
     async closeBundle() {
