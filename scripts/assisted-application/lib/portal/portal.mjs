@@ -1713,12 +1713,16 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   });
 }
 
-/** A reduction without questions or documents never creates a candidate wait. */
+/** A zeroed portal requirement must stop automation instead of looking absent. */
+export function portalQuestionReductionHandoff() {
+  return { handoff: 'portal_question_reduction' };
+}
+
 export async function portalRequirementsForCandidate(requirements, localization = {}) {
   if (requirements?.unreadableFields?.length) throw new Error('portal_question_unreadable');
   const questions = requirements?.questions || [];
   const documents = requirements?.documents || [];
-  if (!questions.length && !documents.length) return null;
+  if (!questions.length && !documents.length) return requirements?.reduction?.kind === 'empty' ? portalQuestionReductionHandoff() : null;
   return { questions: await localizePortalQuestions(questions, localization), documents };
 }
 
@@ -4034,12 +4038,16 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
   const documents = [];
   const readable = [];
   const unreadableFields = [];
+  let reducedRequirement = false;
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // A planner calling a field missing is not proof that it is mandatory.
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
-    if (field?.required === false && !field.invalid) continue;
+    if (field?.required === false && !field.invalid) {
+      reducedRequirement = true;
+      continue;
+    }
     if (unreadableNativeOwner(field || item)) {
       unreadableFields.push(field?.id || item.fieldId || 'unknown');
       continue;
@@ -4104,7 +4112,13 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
   }
-  return { questions: questionsFrom(readable), documents, ...(unreadableFields.length ? { unreadableFields } : {}) };
+  const questions = questionsFrom(readable);
+  return {
+    questions,
+    documents,
+    ...(unreadableFields.length ? { unreadableFields } : {}),
+    ...(reducedRequirement && !questions.length && !documents.length ? { reduction: { kind: 'empty' } } : {}),
+  };
 }
 
 /**
@@ -4501,6 +4515,7 @@ export async function submitViaPortal(ctx) {
         candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
       });
       if (!request) return null;
+      if (request.handoff) return await handoff(request.handoff);
       return {
         event: {
           type: 'submit_needs_candidate',
