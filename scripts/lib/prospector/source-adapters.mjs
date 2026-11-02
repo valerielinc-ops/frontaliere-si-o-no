@@ -22,6 +22,7 @@ import {
 } from '../recruitingapp-2677-job-parser.mjs';
 import { extractPhysioswissListingCandidates } from '../physioswiss-job-parser.mjs';
 import { extractRuntimeDetailFields } from './detail-extract.mjs';
+import { platformListingExtractorFor } from './platform-extractors.mjs';
 import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES, normalizeDetailDrop } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
@@ -93,11 +94,17 @@ const PRODUCTION_RUNTIME_OPTIONS = Object.freeze({
  * Return source-specific parser options used to observe the parser's exact
  * output. Unknown geography stays unexpected.
  *
- * @param {{ companyKey?: string } | null | undefined} spec
+ * @param {{ companyKey?: string, platform?: string } | null | undefined} spec
  * @returns {Record<string, any>|null}
  */
 export function productionRuntimeOptionsFor(spec) {
-  return PRODUCTION_RUNTIME_OPTIONS[String(spec?.companyKey || '')] || null;
+  const familyListingExtractor = platformListingExtractorFor(spec?.platform);
+  const companyOptions = PRODUCTION_RUNTIME_OPTIONS[String(spec?.companyKey || '')] || null;
+  if (!familyListingExtractor && !companyOptions) return null;
+  return {
+    ...(familyListingExtractor ? { listingExtractor: familyListingExtractor } : {}),
+    ...(companyOptions || {}),
+  };
 }
 
 /**

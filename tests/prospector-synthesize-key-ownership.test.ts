@@ -35,6 +35,7 @@ vi.mock('../scripts/lib/prospector/candidate-store.mjs', () => ({
   finishLedgerPhase: vi.fn(),
   recordCandidateAttempt: vi.fn(),
   requeueLegacyNoVacancyCandidates: () => [],
+  requeueRejectedPlatformCandidates: () => [],
   requeueMiskeyedCandidate: (store, key) => {
     const candidate = store.candidates[key];
     if (!candidate) return null;
