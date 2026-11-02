@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+ "whatsNew.v39913.title": "Une première sélection pour commencer",
+ "whatsNew.v39913.discovery.title": "Les offres populaires, puis vos intérêts",
+ "whatsNew.v39913.discovery.desc": "Sans recherche enregistrée, le premier email présente les offres les plus consultées et utilise les indices géographiques disponibles. Les clics et recherches aident à rendre les suggestions suivantes plus pertinentes.",
  "whatsNew.v39912.title": "Un canal direct pour les petits employeurs",
  "whatsNew.v39912.directEmployers.title": "Publier une offre sans compte",
  "whatsNew.v39912.directEmployers.desc": "Un commerce, une charcuterie ou un atelier local peut envoyer gratuitement une offre en quelques étapes. Nous vérifions le contact et modérons chaque annonce avant sa publication.",

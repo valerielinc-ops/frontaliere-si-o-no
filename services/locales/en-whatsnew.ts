@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v39913.title": "A first selection to get started",
+ "whatsNew.v39913.discovery.title": "Popular jobs, then your interests",
+ "whatsNew.v39913.discovery.desc": "If you have not set up a search yet, the first email starts with the most-viewed jobs and available geographic hints. Clicks and searches help make later suggestions more relevant.",
  "whatsNew.v39912.title": "A direct channel for small employers",
  "whatsNew.v39912.directEmployers.title": "Post a job without an account",
  "whatsNew.v39912.directEmployers.desc": "A local shop, butcher or workshop can send a free offer in a few steps. We verify the contact and moderate every listing before showing it.",

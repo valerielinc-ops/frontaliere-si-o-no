@@ -1,18 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { claimDiscoveryDelivery, finalizeDiscoveryDelivery, discoveryCanAttempt, confirmedDiscoveryOutcome, DISCOVERY_RETRY_MS } from '../scripts/lib/job-alert-discovery-delivery.mjs';
+import { claimDiscoveryDelivery, finalizeDiscoveryDelivery, discoveryCanAttempt, confirmedDiscoveryOutcome, partitionDiscoveryOutcomes, DISCOVERY_RETRY_MS } from '../scripts/lib/job-alert-discovery-delivery.mjs';
 
 function database(initial: Record<string, unknown> = {}) {
   let value = structuredClone(initial); let serial = Promise.resolve();
   const ref = {};
+  const owner = { collection: () => ({ doc: () => ref }) };
   const db = {
-    collection: () => ({ doc: () => ref }),
+    collection: () => ({ doc: () => owner }),
     runTransaction: (work: (tx: unknown) => Promise<unknown>) => {
-      const run = serial.then(() => work({ get: async () => ({ exists: true, data: () => structuredClone(value) }),
+      const run = serial.then(() => work({ get: async (target: unknown) => ({ exists: target === owner || Object.keys(value).length > 0, data: () => target === owner ? {} : structuredClone(value) }),
         set: (_ref: unknown, patch: Record<string, unknown>) => { value = { ...value, ...patch }; } }));
       serial = run.then(() => undefined, () => undefined); return run;
     },
   };
-  return { db, read: () => value };
+  return { db, read: () => ({ discovery_email: value.discovery }) };
 }
 const email = 'reader@example.test';
 
@@ -50,7 +51,7 @@ describe('durable discovery delivery claim', () => {
     for (let attempt = 1; attempt <= 3; attempt++) {
       const claim = await claimDiscoveryDelivery(store.db, email, now);
       firstId ??= claim.deliveryId; expect(claim.deliveryId).toBe(firstId); expect(claim.attempts).toBe(attempt);
-      await finalizeDiscoveryDelivery(store.db, email, claim, { error: 'explicit rejection' }, true, now);
+      await finalizeDiscoveryDelivery(store.db, email, claim, { error: 'explicit rejection', ambiguousDelivery: false }, true, now);
       expect(await claimDiscoveryDelivery(store.db, email, now + 1)).toBeNull();
       now += DISCOVERY_RETRY_MS;
     }
@@ -59,9 +60,21 @@ describe('durable discovery delivery claim', () => {
 
   it('ignores a stale outcome for an earlier attempt', async () => {
     const store = database(); const now = Date.now(); const first = await claimDiscoveryDelivery(store.db, email, now);
-    await finalizeDiscoveryDelivery(store.db, email, first, {}, true, now);
+    await finalizeDiscoveryDelivery(store.db, email, first, { ambiguousDelivery: false }, true, now);
     const second = await claimDiscoveryDelivery(store.db, email, now + DISCOVERY_RETRY_MS);
     await finalizeDiscoveryDelivery(store.db, email, first, { provider: 'maileroo', messageId: 'old' });
     expect(store.read()).toMatchObject({ discovery_email: { state: 'pending', attemptId: second.attemptId } });
+  });
+});
+
+
+describe('discovery outcome accounting', () => {
+  it('counts an unidentifiable ack once and excludes it from accepted/legacy ambiguous', () => {
+    const item = { meta: { discoveryClaim: { attemptId: 'one' } }, provider: 'maileroo' };
+    const r = partitionDiscoveryOutcomes({ sent: [item], failed: [], ambiguous: [item] });
+    expect(r.confirmed).toEqual([]);
+    expect(r.failedItems).toHaveLength(1);
+    expect(r.discoveryUnknown).toBe(1);
+    expect(r.ambiguous).toBe(0);
   });
 });

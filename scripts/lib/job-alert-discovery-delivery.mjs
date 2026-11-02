@@ -14,17 +14,18 @@ export function discoveryCanAttempt(subscriber, now = Date.now()) {
 /** Pending/unknown claims never expire into a second send without reconciliation. */
 export async function claimDiscoveryDelivery(db, email, now = Date.now()) {
   const key = String(email || '').trim().toLowerCase();
-  const ref = db.collection('job_alert_subscribers').doc(key);
+  const owner = db.collection('job_alert_subscribers').doc(key);
+  const ref = owner.collection('delivery_state').doc('first_discovery');
   return db.runTransaction(async (tx) => {
-    const snap = await tx.get(ref); const data = snap.data() || {};
-    if (!snap.exists || !discoveryCanAttempt(data, now)) return null;
-    const previous = data.discovery_email;
+    const ownerSnap = await tx.get(owner);
+    const snap = await tx.get(ref); const previous = snap.data()?.discovery;
+    if (!ownerSnap.exists || !discoveryCanAttempt({ discovery_email: previous }, now)) return null;
     const claim = {
       state: 'pending',
       deliveryId: createHash('sha256').update(`job-alert-discovery-v1\0${key}`).digest('hex'),
       attemptId: randomUUID(), attempts: (previous?.attempts || 0) + 1, claimedAt: now,
     };
-    tx.set(ref, { discovery_email: claim }, { merge: true });
+    tx.set(ref, { discovery: claim }, { merge: true });
     return claim;
   });
 }
@@ -35,15 +36,29 @@ export function confirmedDiscoveryOutcome(outcome) {
     && typeof outcome?.messageId === 'string' && outcome.messageId.trim().length > 0;
 }
 
+export function partitionDiscoveryOutcomes(result) {
+  const unidentified = result.sent.filter((item) => item.meta?.discoveryClaim && !confirmedDiscoveryOutcome(item));
+  const confirmed = result.sent.filter((item) => !unidentified.includes(item));
+  const failedItems = result.failed.concat(unidentified.map((item) => ({ ...item, ambiguousDelivery: true, error: 'discovery acknowledgement missing' })));
+  return {
+    confirmed, failedItems,
+    discoveryUnknown: failedItems.filter((item) => item.meta?.discoveryClaim && item.ambiguousDelivery !== false).length,
+    // Legacy ambiguous is a subset of provider-accepted targeted sends.
+    // Discovery unknown is a separate, unconfirmed category, counted once.
+    ambiguous: (result.ambiguous || []).filter((item) => !item.meta?.discoveryClaim).length,
+  };
+}
+
 export async function finalizeDiscoveryDelivery(db, email, claim, outcome, failed = false, now = Date.now()) {
   if (!claim?.attemptId) return;
-  const ref = db.collection('job_alert_subscribers').doc(String(email).trim().toLowerCase());
+  const ref = db.collection('job_alert_subscribers').doc(String(email).trim().toLowerCase())
+    .collection('delivery_state').doc('first_discovery');
   await db.runTransaction(async (tx) => {
-    const snap = await tx.get(ref); const current = snap.data()?.discovery_email;
+    const snap = await tx.get(ref); const current = snap.data()?.discovery;
     if (!snap.exists || current?.attemptId !== claim.attemptId || current.state !== 'pending') return;
     const accepted = !failed && confirmedDiscoveryOutcome(outcome);
-    const unknown = !accepted && (!failed || outcome?.ambiguousDelivery === true);
-    tx.set(ref, { discovery_email: {
+    const unknown = !accepted && (!failed || outcome?.ambiguousDelivery !== false);
+    tx.set(ref, { discovery: {
       ...current,
       state: accepted ? 'accepted' : unknown ? 'unknown' : 'failed',
       resolvedAt: now,

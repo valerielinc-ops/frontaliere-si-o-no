@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildAlertEmail, planAlertMatch } from '../scripts/send-job-alerts.mjs';
-import { createDiscoveryRanker, discoveryGeography, DISCOVERY_COPY } from '../scripts/lib/job-alert-discovery.mjs';
+import { createDiscoveryRanker, discoveryGeography, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from '../scripts/lib/job-alert-discovery.mjs';
 import { summarizeZeroMatchPlans } from '../scripts/lib/job-alert-zero-match-diagnosis.mjs';
 
 const email = 'reader@example.test';
@@ -54,6 +54,14 @@ describe('first discovery email', () => {
 
   it('can block discovery when another alert of the same recipient already has preferences', () => {
     expect(planAlertMatch({ id: 'empty', email }, context([job('popular')], { allowDiscovery: false })).matched).toEqual([]);
+  });
+
+  it('considers paused, company-immediate and weekly not-due scopes before filtering this run', () => {
+    for (const scope of [{ keywords: ['infermiere'], frequency: 'weekly' },
+      { locations: ['Lugano'], paused: true }, { specificCompanyKey: 'example', frequency: 'immediate' }]) {
+      const blocked = findDiscoveryBlockedRecipients([{ email, ...scope }, { email }]);
+      expect(blocked.has(email)).toBe(true);
+    }
   });
 
   it('uses validated registration canton as a preference, without eliminating other locations', () => {

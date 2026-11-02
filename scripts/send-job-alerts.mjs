@@ -85,8 +85,9 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { readNewsletterDataset } from '../services/newsletter-datasets.mjs';
-import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
-import { discoveryCanAttempt, claimDiscoveryDelivery, finalizeDiscoveryDelivery, confirmedDiscoveryOutcome } from './lib/job-alert-discovery-delivery.mjs';
+import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
+import { discoveryCanAttempt, claimDiscoveryDelivery, finalizeDiscoveryDelivery, partitionDiscoveryOutcomes } from './lib/job-alert-discovery-delivery.mjs';
+import { createRegistrationGeoLookup } from './lib/job-alert-ip-geography.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
 import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
@@ -269,6 +270,7 @@ async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, 
     planned: sends.planned ?? 0,
     sent: sends.sent ?? 0,
     failed: sends.failed ?? 0,
+    discoveryUnknown: sends.discoveryUnknown ?? 0,
     ambiguous: sends.ambiguous ?? 0,
     retrySent: retryOutcome.succeeded,
     uniqueRecipients: new Set([...(sends.recipients ?? []), ...retryOutcome.recipients]).size,
@@ -1615,7 +1617,8 @@ export async function persistJobAlertDelivery(item, sendResult) {
       campaign_id: alertId || null,
       ranking_delivery_id: rankingDeliveryId,
       ranking_variant: item.meta?.rankingVariant || null,
-      recommendation_mode: item.meta?.discoveryClaim ? 'discovery' : 'targeted',
+      recommendation_mode: item.meta?.discoveryMode ? 'discovery' : 'targeted',
+      discovery_delivery_id: item.meta?.discoveryClaim?.deliveryId || null,
       subject_experiment: item.meta?.subjectExperiment || null,
       subject_experiment_active: item.meta?.subjectExperimentActive === true,
       subject_experiment_period: item.meta?.subjectExperimentPeriod || null,
@@ -1727,6 +1730,7 @@ async function sendBatch(emails) {
       recipient: { email: e.to },
       meta: {
         type: 'job-alert',
+        discoveryMode: e.discoveryMode === true,
         ...(e.discoveryClaim ? { discoveryClaim: e.discoveryClaim } : {}),
         alertId: e.alertId,
         rankingDeliveryId: e.rankingDeliveryId || null,
@@ -1760,13 +1764,15 @@ async function sendBatch(emails) {
 
   // Discovery has a durable claim, not the historical queue's date-based retry.
   // A timeout/missing acknowledgement stays unknown and cannot send again.
-  const unidentified = result.sent.filter((item) => item.meta?.discoveryClaim && !confirmedDiscoveryOutcome(item));
-  const confirmed = result.sent.filter((item) => !unidentified.includes(item));
-  const failedItems = result.failed.concat(unidentified.map((item) => ({ ...item, ambiguousDelivery: true, error: 'discovery acknowledgement missing' })));
+  const { confirmed, failedItems, ambiguous, discoveryUnknown } = partitionDiscoveryOutcomes(result);
   for (const item of failedItems) {
     if (!item.meta?.discoveryClaim) continue;
-    const db = await getFirestoreAdmin();
-    await finalizeDiscoveryDelivery(db, item.recipient.email, item.meta.discoveryClaim, item, true);
+    try {
+      const db = await getFirestoreAdmin();
+      await finalizeDiscoveryDelivery(db, item.recipient.email, item.meta.discoveryClaim, item, true);
+    } catch (error) {
+      console.warn('⚠️ Discovery failure persistence failed; pending claim retained:', redactEmailAddresses(error?.message));
+    }
   }
 
   // Per-user send-time observability (#3798 follow-up): the cascade returns
@@ -1799,7 +1805,8 @@ async function sendBatch(emails) {
     failed: failedItems.length,
     failedItems,
     scheduleOutcomes,
-    ambiguous: (result.ambiguous?.length ?? 0) + unidentified.length,
+    ambiguous,
+    discoveryUnknown,
     providerBreakdown: result.providerBreakdown ?? {},
   };
 }
@@ -1813,7 +1820,7 @@ async function enqueueFailedEmails(db, failedItems) {
   // Pre-filter so the slice length is a safe upper bound on ops-per-batch, then
   // chunk the writes past the Firestore 500-op batch cap (a mass-failure run can
   // exceed it; a single commit() would throw and enqueue nothing for retry).
-  const toEnqueue = failedItems.filter((item) => item.recipient?.email && !item.meta?.discoveryClaim);
+  const toEnqueue = failedItems.filter((item) => item.recipient?.email && !item.meta?.discoveryMode && !item.meta?.discoveryClaim);
   const enqueued = toEnqueue.length;
 
   if (enqueued > 0) {
@@ -2147,6 +2154,7 @@ function planAlertMatch(alert, {
   now,
   featureCache = null,
   discoveryRanker = null,
+  discoveryGeographies = new Map(),
   allowDiscovery = true,
   applicationIntentRankingEnabled = process.env.APPLICATION_INTENT_RANKING_ENABLED === 'true',
 }) {
@@ -2290,9 +2298,12 @@ function planAlertMatch(alert, {
   // Ticino nurse stops receiving Basel/Zürich roles — while still falling back
   // to out-of-area matches when too few local ones exist (never starves a
   // sparse alert). No-op when the alert already scopes geography itself.
-  const registrationGeo = subscriber.geo_country ? subscriber : channelSubscriber;
+  const ipGeo = discoveryGeographies.get(alert.email.toLowerCase());
+  const personalizationOptOut = subscriber[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true;
+  const registrationGeo = personalizationOptOut ? {} : subscriber.geo_country ? subscriber : channelSubscriber.geo_country ? channelSubscriber
+    : { geo_country: ipGeo?.country, geo_region: ipGeo?.region, geo_city: ipGeo?.city };
   const signupSlug = extractSlugFromSourcePage(subscriber.source_page || channelSubscriber.source_page || '');
-  const signupJobGeo = locationIndex.get(String(signupSlug).toLowerCase())?.geo || [];
+  const signupJobGeo = personalizationOptOut ? [] : locationIndex.get(String(signupSlug).toLowerCase())?.geo || [];
   const ranked = discoveryMode
     ? discoveryRanker(discoveryCandidates, discoveryGeography(registrationGeo, profile, signupJobGeo), now)
     : partitionByGeoPreference(rankedAll, profile);
@@ -2477,6 +2488,9 @@ async function main() {
     // having to rebuild the path.
     return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
   });
+  // Include paused, immediate-company and not-due scopes: these are still
+  // stated preferences, even when that alert is not being sent by this run.
+  const discoveryBlockedRecipients = findDiscoveryBlockedRecipients(alerts);
 
   // Issue #4298 follow-up fix: `paused` is a dedicated flag, orthogonal to
   // `active` (which stays SOLELY the soft-delete flag — see
@@ -2572,7 +2586,7 @@ async function main() {
   // same reads, same billed count, but one round-trip per chunk instead of
   // 3×alertEmails.length serial round-trips (was the dominant Firestore read
   // spike in the daily send-job-alerts run: ~12-21k LOOKUP reads over 2-3h).
-  const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (3 refs/email → ≤600 refs/call)
+  const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (4 refs/email → ≤800 refs/call)
   for (let i = 0; i < alertEmails.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = alertEmails.slice(i, i + LOOKUP_CHUNK_SIZE);
     try {
@@ -2597,10 +2611,13 @@ async function main() {
         // so the matcher can fold it into ranking; absent for users who never
         // browsed while identified — the matcher tolerates an empty profile.
         db.collection('newsletter_subscribers').doc(email).collection('private').doc('personalization'),
+        // Server-only state: the public subscription parent is not an
+        // authoritative idempotency ledger and may be changed by a client.
+        db.collection('job_alert_subscribers').doc(email).collection('delivery_state').doc('first_discovery'),
       ]);
       const snaps = await db.getAll(...refs);
       chunk.forEach((email, idx) => {
-        const [subDoc, alertSubDoc, personDoc] = snaps.slice(idx * 3, idx * 3 + 3);
+        const [subDoc, alertSubDoc, personDoc, discoveryDoc] = snaps.slice(idx * 4, idx * 4 + 4);
 
         if (subDoc.exists) {
           subscriberDocExists.add(email.toLowerCase());
@@ -2625,7 +2642,12 @@ async function main() {
 
         if (alertSubDoc.exists) {
           const alertData = alertSubDoc.data() || {};
-          jobAlertProfiles.set(email.toLowerCase(), alertData);
+          const discoveryData = discoveryDoc.exists ? discoveryDoc.data() || {} : {};
+          jobAlertProfiles.set(email.toLowerCase(), {
+            ...alertData,
+            discovery_email: discoveryData.discovery || null,
+            discovery_ip_geo: discoveryData.ipGeo || null,
+          });
           if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
           // Alert-channel click is the most relevant — overrides the newsletter one.
           if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
@@ -2956,18 +2978,38 @@ async function main() {
   const discoveryRanker = createDiscoveryRanker(new Map(Object.entries(popularity)
     .map(([slug, views]) => [slug, Number(views) || 0])));
   const discoveryRecipientsPlanned = new Set();
-  // An existing scoped alert is already a stated preference: never send that
-  // person a generic discovery through a different empty alert.
-  const discoveryBlockedRecipients = new Set(alerts.filter((alert) =>
-    classifyZeroMatchCause(buildAlertProfile(alert)) !== 'empty-profile')
-    .map((alert) => alert.email.toLowerCase()));
+  const discoveryGeographies = new Map();
+  const lookupRegistrationGeo = createRegistrationGeoLookup();
+  const geoLookupEmails = [...new Set(alerts.filter((alert) => {
+    const email = alert.email.toLowerCase();
+    const sub = subscriberProfiles.get(email) || {};
+    const channel = jobAlertProfiles.get(email) || {};
+    return !discoveryBlockedRecipients.has(email) && discoveryCanAttempt(channel, now)
+      && sub[RANKING_PERSONALIZATION_OPT_OUT_FIELD] !== true
+      && !sub.geo_country && !channel.geo_country
+      && classifyZeroMatchCause(buildAlertProfile(alert, mergeAlertSubscriberSignals(sub, channel),
+        { behaviorTokens: behaviorProfiles.get(email)?.behaviorTokens || [] })) === 'empty-profile';
+  }).map((alert) => alert.email.toLowerCase()))];
+  await runWithConcurrency(geoLookupEmails, 2, async (email) => {
+    const channel = jobAlertProfiles.get(email) || {};
+    const geo = await lookupRegistrationGeo(subscriberProfiles.get(email) || {}, channel.discovery_ip_geo);
+    if (!geo) return;
+    if (geo.country) discoveryGeographies.set(email, geo);
+    if (!DRY_RUN && !ALLOWED_EMAILS) {
+      try {
+        await db.collection('job_alert_subscribers').doc(email).collection('delivery_state').doc('first_discovery')
+          .set({ ipGeo: geo }, { merge: true });
+      } catch { /* Approximate geography is optional; popularity still works. */ }
+    }
+  });
+  console.log(`   🧭 Registration-IP geography: ${discoveryGeographies.size}/${geoLookupEmails.length} approximate hints; missing lookups retain global popularity (no profile fields overwritten)`);
   const rankingVariantCounts = {};
   let rankingProfileCount = 0;
   const subjectCounts = {};
   let activeSubjectAssignments = 0;
   // sent = accettate dal provider (comprese le ambigue); ambiguous è il sottoinsieme
   // il cui esito non è confermato; recipients sono gli indirizzi unici raggiunti.
-  const runStats = { planned: 0, sent: 0, failed: 0, ambiguous: 0, batches: 0, recipients: new Set(), discoveryPlanned: 0, discoveryDeferred: 0 };
+  const runStats = { planned: 0, sent: 0, failed: 0, ambiguous: 0, discoveryUnknown: 0, batches: 0, recipients: new Set(), discoveryPlanned: 0, discoveryDeferred: 0 };
   const scheduleOutcomes = new Map();
   const cadenceStateByEmail = new Map();
   const effectiveTierByEmail = new Map();
@@ -2986,6 +3028,7 @@ async function main() {
     runStats.sent += successfulEmails.length;
     runStats.failed += result.failedItems.length;
     runStats.ambiguous += result.ambiguous ?? 0;
+    runStats.discoveryUnknown += result.discoveryUnknown ?? 0;
     for (const delivery of successfulEmails) runStats.recipients.add(delivery.to.toLowerCase());
 
     for (const delivery of successfulEmails) {
@@ -3110,6 +3153,7 @@ async function main() {
         now,
         featureCache,
         discoveryRanker,
+        discoveryGeographies,
         allowDiscovery: !discoveryRecipientsPlanned.has(alert.email.toLowerCase())
           && !discoveryBlockedRecipients.has(alert.email.toLowerCase()),
       });
@@ -3295,6 +3339,7 @@ async function main() {
       text,
       alertId: alert.id,
       discoveryClaim,
+      discoveryMode,
       ref: alert.ref,
       // The loaded alert doc itself, carried so the post-send batch can ask the
       // cadence engine whether THIS send retires it (#5705) without re-reading
@@ -3550,4 +3595,6 @@ export {
   planAlertMatch,
   rankLiveJobsForEmail,
   runJobAlertMatcherHealth,
+  sendBatch,
+  enqueueFailedEmails,
 };
