@@ -204,7 +204,7 @@ describe('typed facts use the attested answer source contract', () => {
     { id: 'whatsapp_it', question: 'Accetti la comunicazione tramite WhatsApp?', type: 'yes_no', answer: 'Sì' },
   ])('reuses a confirmed generic candidate preference across postings: $id', async testCase => {
     const f = fixture({ question: { id: testCase.id, question: testCase.question, type: testCase.type }, answer: testCase.answer });
-    expect((await f.load())(target).answerEvidence[0]).toMatchObject({ scope: 'candidate', sourceKind: 'direct_user', answer: testCase.answer });
+    expect((await f.load())(target, { purpose: 'form' }).answerEvidence[0]).toMatchObject({ scope: 'candidate', sourceKind: 'direct_user', answer: testCase.answer });
   });
   it.each([
     { id: 'notice_period', question: 'What is your notice period for this position?', type: 'text', answer: '3 months' },

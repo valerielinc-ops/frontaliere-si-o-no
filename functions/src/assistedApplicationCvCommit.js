@@ -120,6 +120,8 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   if (!guard) return true;
   if (Number(guard.draftRound) > 0 && Number(draft?.round) !== Number(guard.draftRound)) return false;
   const answerIds = Array.isArray(guard.answerIds) ? guard.answerIds : [];
+  const guardOrigins = guard.answerOrigins && typeof guard.answerOrigins === 'object' && !Array.isArray(guard.answerOrigins)
+    ? guard.answerOrigins : {};
   let currentFlow;
   if (guard.actor === 'candidate') {
     const runner = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
@@ -130,13 +132,17 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
       answers: { ...(displayLegacyAnswers ? flow?.answers || {} : {}), ...(runner.flow?.answers || {}) },
       questionAnswers: { ...(displayLegacyAnswers ? flow?.questionAnswers || {} : {}), ...(runner.flow?.questionAnswers || {}) },
     } : runner.flow;
-    if (runner.retained) currentFlow.answerOrigins = answerOriginsForQuestions({
-      questions: Array.isArray(draft?.questions) ? draft.questions : [], answers: candidateWithEdits({ order, draft, flow: currentFlow }).answers,
-      answerEvidence: runner.answerEvidence, flow: currentFlow,
-    });
+    if (runner.retained) currentFlow.answerOrigins = {
+      ...answerOriginsForQuestions({
+        questions: Array.isArray(draft?.questions) ? draft.questions : [], answers: candidateWithEdits({ order, draft, flow: currentFlow }).answers,
+        answerEvidence: runner.answerEvidence, flow: currentFlow,
+      }),
+      ...guardOrigins,
+    };
   } else {
     const local = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs: guard.nowMs });
-    currentFlow = { ...flow, answers: local.answers, questionAnswers: local.orderAnswers };
+    currentFlow = { ...flow, answers: local.answers, questionAnswers: local.orderAnswers,
+      answerOrigins: { ...(flow?.answerOrigins && typeof flow.answerOrigins === 'object' && !Array.isArray(flow.answerOrigins) ? flow.answerOrigins : {}), ...guardOrigins } };
   }
   const candidate = candidateWithEdits({ order, draft, flow: currentFlow });
   const questions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, currentFlow.questionAnswers, draft)
@@ -281,7 +287,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         || !await answerSnapshotGuardMatches({ db, transaction, orderId, order: currentOrder.data() || {}, flow: currentFlow.data() || {}, draft: currentDraft.data() || {},
           profileRecord: profileSnapshot?.data() || {},
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
-            draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs } })) return false;
+            answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs } })) return false;
       writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
       transaction.set(flowRef, {
         answers,
@@ -311,7 +317,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}) },
     replaceAnswerMaps: true,
     answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
-      draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs },
+      answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs },
     candidateAnswerLedger,
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });

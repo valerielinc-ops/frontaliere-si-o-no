@@ -17,6 +17,7 @@ const { renderCvPdf } = await import('../functions/src/assistedApplicationPdfRen
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
 
@@ -180,7 +181,8 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     expect([draftNow().tailoredCv.pdfKey, renders()]).toEqual([key, before]);
 
     // The owner's answer, a legacy «B», rebuilds it too.
-    const answerQuestionSnapshots = (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answerQuestionSnapshots;
+    const answerQuestionSnapshots = answerConfirmationSnapshotsFor({ userId: store.read(BASE).userId, orderId: ORDER,
+      order: store.read(BASE), flow: flowNow(), questions: draftNow().questions, draft: draftNow(), sourceKind: 'owner_attested', nowMs: T0 });
     await handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: 'B' }, answerQuestionSnapshots }, 'owner@example.com', { runEffect, bucket, nowMs: T0 });
     expect(printed().personal).toContainEqual(['Arbeitsbewilligung', 'Aufenthaltsbewilligung B']);
     expect(flowNow().answers).toMatchObject({ work_permit: 'B', availability: start, salary_expectation: 'CHF 80000' });
