@@ -192,10 +192,11 @@ export const DRIVEBY_AD_RESERVE_CSS =
  * First-paint mirror for the route-scoped Auto Ad reserve in `index.css`.
  * Google can insert a `.google-auto-placed` sibling between the breadcrumb
  * and the static header after the document has painted. The breadcrumb gap
- * holds the measured 250px footprint until that sibling exists, then the
- * same space transfers to the live Auto Ad. Keep the border-wait contract
- * here as well as the drive-by health/fuel contract: both are the same
- * insertion geometry and the render-blocking sheet must cover both.
+ * holds the desktop `.google-auto-placed` cap (400px) until that sibling
+ * exists, then the same space transfers to the live Auto Ad. Keep the
+ * border-wait contract here as well as the drive-by health/fuel contract:
+ * both are the same insertion geometry and the render-blocking sheet must
+ * cover both.
  */
 export const STATIC_TOP_AUTO_AD_RESERVE_CSS =
   'main.seo-static-content:has([data-bw-crossing]){--border-wait-top-ad-reserve:250px}' +
@@ -203,7 +204,7 @@ export const STATIC_TOP_AUTO_AD_RESERVE_CSS =
   'main.seo-static-content:has([data-bw-crossing])>article:has(>.google-auto-placed+header)>nav[aria-label="Breadcrumb"]{margin-block-end:0}' +
   'main.seo-static-content:has([data-bw-crossing])>article>.google-auto-placed:has(+header){min-height:var(--border-wait-top-ad-reserve)}' +
   `@media(min-width:${MULTIPLEX_DESKTOP_MIN_WIDTH}px){` +
-  'main.seo-static-content:has(>article[data-ft-driveby-top-ad]){--driveby-top-ad-reserve:250px}' +
+  'main.seo-static-content:has(>article[data-ft-driveby-top-ad]){--driveby-top-ad-reserve:400px}' +
   'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article>nav.s-bcr{margin-block-end:var(--driveby-top-ad-reserve)}' +
   'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article:has(>.google-auto-placed+header)>nav.s-bcr{margin-block-end:0}' +
   'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article>.google-auto-placed:has(+header){min-height:var(--driveby-top-ad-reserve)}}';
