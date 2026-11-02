@@ -14,7 +14,6 @@
 import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { parse as parseYaml } from 'yaml';
 
 export const ARTICLE_SYNC_ISSUE_TITLE =
   'Article sync skipped: corpus mirror behind the published API';
@@ -51,6 +50,133 @@ function parseJson(raw, label) {
   }
 }
 
+function stripYamlComment(line) {
+  let quote = null;
+  for (let index = 0; index < line.length; index += 1) {
+    const character = line[index];
+    if (quote === "'") {
+      if (character === "'") {
+        if (line[index + 1] === "'") index += 1;
+        else quote = null;
+      }
+      continue;
+    }
+    if (quote === '"') {
+      if (character === '\\') index += 1;
+      else if (character === '"') quote = null;
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      quote = character;
+      continue;
+    }
+    if (character === '#' && (index === 0 || /\s/u.test(line[index - 1]))) {
+      return line.slice(0, index);
+    }
+  }
+  return line;
+}
+
+function unquoteYamlScalar(value) {
+  const trimmed = value.trim();
+  if (trimmed.length >= 2 && trimmed.startsWith("'") && trimmed.endsWith("'")) {
+    return trimmed.slice(1, -1).replaceAll("''", "'");
+  }
+  if (trimmed.length >= 2 && trimmed.startsWith('"') && trimmed.endsWith('"')) {
+    try {
+      return JSON.parse(trimmed);
+    } catch {
+      return null;
+    }
+  }
+  return trimmed;
+}
+
+function splitFlowItems(value) {
+  const items = [];
+  let quote = null;
+  let depth = 0;
+  let start = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    const character = value[index];
+    if (quote === "'") {
+      if (character === "'") {
+        if (value[index + 1] === "'") index += 1;
+        else quote = null;
+      }
+      continue;
+    }
+    if (quote === '"') {
+      if (character === '\\') index += 1;
+      else if (character === '"') quote = null;
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      quote = character;
+      continue;
+    }
+    if (character === '[' || character === '{') {
+      depth += 1;
+      continue;
+    }
+    if (character === ']' || character === '}') {
+      if (depth === 0) return null;
+      depth -= 1;
+      continue;
+    }
+    if (character === ',' && depth === 0) {
+      items.push(value.slice(start, index).trim());
+      start = index + 1;
+    }
+  }
+  if (quote || depth !== 0) return null;
+  items.push(value.slice(start).trim());
+  return items;
+}
+
+function inlineTriggerHasWorkflowDispatch(value) {
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  if (unquoteYamlScalar(trimmed) === 'workflow_dispatch') return true;
+
+  const opening = trimmed[0];
+  const closing = opening === '[' ? ']' : opening === '{' ? '}' : null;
+  if (!closing || trimmed.at(-1) !== closing) return false;
+  const items = splitFlowItems(trimmed.slice(1, -1));
+  if (!items) return false;
+  if (opening === '[') {
+    return items.some((item) => unquoteYamlScalar(item) === 'workflow_dispatch');
+  }
+  return items.some((item) => {
+    const match = item.match(/^(?:'([^']*)'|"([^"]*)"|([A-Za-z0-9_-]+))\s*:/u);
+    return Boolean(match && (match[1] ?? match[2] ?? match[3]) === 'workflow_dispatch');
+  });
+}
+
+function blockTriggerHasWorkflowDispatch(lines, headerIndex) {
+  let childIndent = null;
+  let sequence = false;
+  for (let index = headerIndex + 1; index < lines.length; index += 1) {
+    const line = stripYamlComment(lines[index]);
+    if (line.trim() === '') continue;
+    const indent = line.match(/^ */u)?.[0].length ?? 0;
+    if (indent === 0) break;
+    const body = line.trim();
+    if (childIndent === null) {
+      childIndent = indent;
+      sequence = body.startsWith('-');
+    }
+    if (indent !== childIndent) continue;
+    if (sequence) {
+      if (!body.startsWith('-')) return false;
+      if (unquoteYamlScalar(body.slice(1)) === 'workflow_dispatch') return true;
+      continue;
+    }
+    if (/^(?:workflow_dispatch|['"]workflow_dispatch['"])\s*:/u.test(body)) return true;
+  }
+  return false;
+}
+
 /** Select exactly one open issue for a stable recovery title. */
 export function findSyncIssue(issues, title = ARTICLE_SYNC_ISSUE_TITLE) {
   if (!Array.isArray(issues)) return null;
@@ -79,24 +205,24 @@ export function findRecentReplayMarker(
   return newest;
 }
 
-/** Parse the publisher workflow and require an explicit manual trigger. */
+/**
+ * Parse only the top-level `on` trigger from the publisher workflow and require
+ * an explicit manual trigger. This intentionally stays dependency-free: L0 is
+ * a bare sparse checkout and does not install devDependencies before recovery.
+ * Ambiguous or unsupported YAML is rejected closed rather than guessed.
+ */
 export function hasWorkflowDispatch(workflowYaml) {
   if (typeof workflowYaml !== 'string' || workflowYaml.trim() === '') return false;
-  let document;
-  try {
-    document = parseYaml(workflowYaml);
-  } catch {
-    return false;
+  const lines = workflowYaml.replace(/^\uFEFF/u, '').split(/\r?\n/u);
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = stripYamlComment(lines[index]);
+    if (line.trim() === '' || !/^\S/u.test(line)) continue;
+    const match = line.match(/^(?:on|['"]on['"]):(?:[ \t]*(.*))?$/u);
+    if (!match) continue;
+    const inline = match[1]?.trim() ?? '';
+    return inline ? inlineTriggerHasWorkflowDispatch(inline) : blockTriggerHasWorkflowDispatch(lines, index);
   }
-  // `yaml` follows YAML 1.2 (`on` is a string), but accept the boolean key as
-  // well so this guard remains correct if the parser configuration changes.
-  const triggers = document?.on ?? document?.true;
-  if (triggers === 'workflow_dispatch') return true;
-  if (Array.isArray(triggers)) return triggers.includes('workflow_dispatch');
-  return Boolean(
-    triggers && typeof triggers === 'object' && !Array.isArray(triggers)
-      && Object.prototype.hasOwnProperty.call(triggers, 'workflow_dispatch'),
-  );
+  return false;
 }
 
 export function replayComment({
