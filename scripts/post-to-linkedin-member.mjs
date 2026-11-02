@@ -74,7 +74,7 @@ import {
   resolveOrganizationUrn,
 } from './lib/linkedin-member-copy.mjs';
 import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -294,12 +294,16 @@ async function main() {
     const excerpt =
       slot.kind === 'job' ? resolveJobDescription(job) : pageMeta.ogDescription;
 
-    const socialCopy = selectSocialCopy({
+    const socialCopy = await selectSocialCopyForPublish({
       pack: SOCIAL_COPY_PACK,
       channel: 'linkedin',
       kind: slot.kind,
       assignmentKey: pick.slug,
+      dryRun,
     });
+    let reservedCopy = socialCopy;
+    let deliveryAttempted = false;
+    try {
     const url = linkedinUrl(
       canonical,
       slot.campaign,
@@ -344,8 +348,10 @@ async function main() {
 
     if (dryRun) continue;
 
+    deliveryAttempted = true;
     const res = await publish({ accessToken, authorUrn, commentary, article });
     if (res.ok) {
+      reservedCopy = null;
       console.log(`✅ posted — ${res.postId}`);
       // Append per successful post, never batched: a throw on the next slot
       // must not cost us this slot's dedup record.
@@ -368,6 +374,21 @@ async function main() {
       recent.add(pick.slug);
     } else {
       console.error(`⚠️  LinkedIn ${res.status}: ${res.body}`);
+      const rejectedCopy = reservedCopy;
+      reservedCopy = null;
+      await releaseUnpublishedSocialCopyAssignment(rejectedCopy, {
+        reason: 'LinkedIn explicitly rejected the member post',
+      });
+    }
+    } catch (err) {
+      // A transport exception after the POST starts can mean LinkedIn accepted
+      // the post but the response was lost; keep the assignment for reconcile.
+      if (deliveryAttempted) reservedCopy = null;
+      throw err;
+    } finally {
+      await releaseUnpublishedSocialCopyAssignment(reservedCopy, {
+        reason: 'LinkedIn member post skipped before delivery',
+      });
     }
   }
 }

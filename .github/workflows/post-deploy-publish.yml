@@ -553,6 +553,7 @@ jobs:
             "$ARTICLE_CATEGORY"
 
       - name: Post to Reddit Communities
+        id: post-reddit
         if: |
           success() &&
           steps.live_identity.outputs.status == 'match' &&
@@ -573,6 +574,26 @@ jobs:
             "$OG_TITLE" \
             "$OG_DESCRIPTION" \
             "$ARTICLE_CATEGORY"
+
+      - name: Commit Reddit article receipts
+        if: always() && steps.post-reddit.outcome != 'skipped'
+        run: |
+          set -euo pipefail
+          if [ ! -f data/reddit-posted-articles.json ]; then
+            echo "no article receipts to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/reddit-posted-articles.json
+          if git diff --cached --quiet; then
+            echo "no article receipts to commit"
+            exit 0
+          fi
+          git commit -m "chore(reddit): track posted article receipts [skip ci]"
+          REDDIT_POSTED_LEDGER_PATH=data/reddit-posted-articles.json \
+            bash scripts/lib/git-push-with-retry.sh \
+              --in-place-resolver-cmd "REDDIT_POSTED_LEDGER_PATH=data/reddit-posted-articles.json node scripts/lib/resolve-reddit-posted-jobs-conflict.mjs && git add -A"
 
       # Google Indexing API (job pages) no longer runs here: it lives in
       # monitor-gsc-seo.yml, which this deploy-publish completion triggers via

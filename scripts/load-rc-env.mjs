@@ -287,6 +287,7 @@ export const RC_TO_ENV = {
   TELEGRAM_CHANNEL_URL:           ['TELEGRAM_CHANNEL_URL', 'VITE_TELEGRAM_CHANNEL_URL'],
 
   // Reddit auto-posting (jobs + articles to communities)
+  REDDIT_DATA_API_APPROVED:       ['REDDIT_DATA_API_APPROVED'],
   REDDIT_CLIENT_ID:               ['REDDIT_CLIENT_ID'],
   REDDIT_USERNAME:                ['REDDIT_USERNAME'],
   REDDIT_USER_AGENT:              ['REDDIT_USER_AGENT'],
@@ -326,6 +327,9 @@ export const RC_TO_ENV = {
   INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: ['INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS'],
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT'],
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS'],
+  // Firebase-owned balanced variant assignment for the shared Codex social
+  // copy pack. The JSON contains only experiment metadata, never credentials.
+  SOCIAL_COPY_EXPERIMENT_CONFIG: ['SOCIAL_COPY_EXPERIMENT_CONFIG'],
 
   // TikTok auto-posting (carousel — scripts/post-to-tiktok.mjs). Account
   // created 2026-08-24. _CLIENT_KEY/_CLIENT_SECRET are the PRODUCTION app;

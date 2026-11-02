@@ -29,6 +29,10 @@ const CHANNEL_CAMPAIGNS = Object.freeze({
     jobs_digest: Object.freeze({ kind: 'job', copySlots: Object.freeze(['job']) }),
     border_ranking: Object.freeze({ kind: 'border', copySlots: Object.freeze(['border']) }),
   }),
+  reddit: Object.freeze({
+    reddit_article: Object.freeze({ kind: 'article', copySlots: Object.freeze(['article']) }),
+    reddit_job: Object.freeze({ kind: 'job', copySlots: Object.freeze(['job']) }),
+  }),
   tiktok: Object.freeze({
     tiktok_daily_article: Object.freeze({ kind: 'article', copySlots: Object.freeze(['article', 'video']) }),
     tiktok_daily_job: Object.freeze({ kind: 'job', copySlots: Object.freeze(['job', 'video']) }),
@@ -41,8 +45,8 @@ const CAMPAIGN_CHANNEL = new Map(
     Object.entries(campaigns).map(([campaign, identity]) => [campaign, { channel, ...identity }]),
   ),
 );
-const COPY_CONTENT_SUFFIX = /--cp([a-f0-9]{16})-([a-z0-9][a-z0-9-]{0,31})\.([a-z0-9][a-z0-9-]{0,31})$/;
-const SOCIAL_COPY_CONTENT_FILTER = '.*--cp[a-f0-9]{16}-[a-z0-9][a-z0-9-]{0,31}\\.[a-z0-9][a-z0-9-]{0,31}$';
+const COPY_CONTENT_SUFFIX = /--cp([a-f0-9]{16})-([a-z0-9][a-z0-9-]{0,31})\.([a-z0-9][a-z0-9-]{0,31})(?:\.(b|d|f)(?:\.([a-f0-9]{8}))?)?$/;
+const SOCIAL_COPY_CONTENT_FILTER = '.*--cp[a-f0-9]{16}-[a-z0-9][a-z0-9-]{0,31}\\.[a-z0-9][a-z0-9-]{0,31}(\\.[bdf](\\.[a-f0-9]{8})?)?$';
 export const SOCIAL_COPY_GA4_WINDOW_DAYS = 30;
 export const SOCIAL_COPY_GA4_LAG_DAYS = 2;
 export const SOCIAL_COPY_GA4_MINIMUM_SESSIONS = 10;
@@ -94,15 +98,19 @@ export function buildSocialCopyGa4Brief(report, {
     const match = content.match(COPY_CONTENT_SUFFIX);
     if (!campaignIdentity || source !== campaignIdentity.channel || !match) continue;
 
-    const [, packId, copySlot, templateId] = match;
+    const [, packId, copySlot, templateId, assignmentCode, experimentIdHash] = match;
+    const assignmentMode = ({ b: 'firebase-balanced', d: 'deterministic', f: 'deterministic-fallback' })[assignmentCode]
+      || 'legacy-unmarked';
     if (!campaignIdentity.copySlots.includes(copySlot)) continue;
-    const key = [source, campaignIdentity.kind, copySlot, packId, templateId].join('|');
+    const key = [source, campaignIdentity.kind, copySlot, packId, templateId, assignmentMode, experimentIdHash || 'unknown'].join('|');
     const group = groups.get(key) || {
       channel: source,
       kind: campaignIdentity.kind,
       copySlot,
       packId,
       templateId,
+      assignmentMode,
+      experimentIdHash: experimentIdHash || null,
       sessions: 0,
       engagedSessions: 0,
     };
@@ -117,7 +125,9 @@ export function buildSocialCopyGa4Brief(report, {
       || a.kind.localeCompare(b.kind)
       || a.copySlot.localeCompare(b.copySlot)
       || a.packId.localeCompare(b.packId)
-      || a.templateId.localeCompare(b.templateId))
+      || a.templateId.localeCompare(b.templateId)
+      || a.assignmentMode.localeCompare(b.assignmentMode)
+      || String(a.experimentIdHash || '').localeCompare(String(b.experimentIdHash || '')))
     .map((group) => {
       const enoughData = group.sessions >= minimumSessions;
       return {
@@ -126,6 +136,8 @@ export function buildSocialCopyGa4Brief(report, {
         copySlot: group.copySlot,
         packId: group.packId,
         templateId: group.templateId,
+        assignmentMode: group.assignmentMode,
+        experimentIdHash: group.experimentIdHash,
         sessions: group.sessions,
         engagedSessions: group.engagedSessions,
         eligibleForDescription: enoughData,
