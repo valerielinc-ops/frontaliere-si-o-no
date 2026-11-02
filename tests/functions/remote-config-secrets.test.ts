@@ -217,6 +217,33 @@ describe('getRemoteConfigValue — in-flight coalescing', () => {
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('timed out'));
   });
 
+  it('rejects a too-old cached value for a feature-control read when refresh times out', async () => {
+    let calls = 0;
+    const hangingFetch = new Promise(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    vi.doMock('firebase-admin/remote-config', () => ({
+      getRemoteConfig: () => ({
+        getTemplate: () => {
+          calls += 1;
+          if (calls === 1) return Promise.resolve({ parameters: { FLAG: { defaultValue: { value: 'true' } } } });
+          return hangingFetch;
+        },
+      }),
+    }));
+
+    const { getRemoteConfigValueWithinMaxStaleAge } = await import('../../functions/src/remoteConfigSecrets.js');
+
+    expect(await getRemoteConfigValueWithinMaxStaleAge('FLAG')).toBe('true');
+    vi.advanceTimersByTime(CACHE_MAX_STALE_MS + 1);
+
+    const staleRead = getRemoteConfigValueWithinMaxStaleAge('FLAG');
+    const staleReadError = expect(staleRead).rejects.toThrow(/maximum stale age/i);
+    await vi.advanceTimersByTimeAsync(REMOTE_CONFIG_FETCH_TIMEOUT_MS);
+    await staleReadError;
+    expect(calls).toBe(2);
+  });
+
   it('keeps the cached value when a background refresh fails', async () => {
     let calls = 0;
     let resolveThirdRefresh: (t: unknown) => void;

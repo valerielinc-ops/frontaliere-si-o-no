@@ -1,6 +1,7 @@
 /** Scheduled lifecycle: refresh active services, deliver new proposals, then offer a renewal on expiry. */
 import { inheritConciergeRenewalMaterials } from './applicationConciergeRenewalMaterials.js';
 import { getNewsletterSecrets } from './remoteConfigSecrets.js';
+import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
 import { paymentReminderUrl } from './applicationConciergePaymentReminders.js';
 import { createHash, randomUUID } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
@@ -324,12 +325,14 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
 
       const current = (await ref.get()).data();
       const offer = conciergeRenewalOffer(current, nowMs);
-      if (offer?.discounted && secret && current.userId) {
+      const renewalEnabled = current.userId && await isApplicationConciergeRenewalEnabledFor(current.userId);
+      if (offer?.discounted && secret && renewalEnabled) {
         const result = await send({ db, recordRef: ref, orderId: ref.id, key: `renewal_day_${offer.reminderStage}`, audience: 'customer', nowMs,
           trackingTarget: { kind: 'application-concierge', id: ref.id },
           eligible: async (service, tx) => {
             const liveOffer = conciergeRenewalOffer(service, Math.max(nowMs, Date.now()));
-            if (!liveOffer?.discounted || liveOffer.reminderStage !== offer.reminderStage || !service.userId) return false;
+            if (!liveOffer?.discounted || liveOffer.reminderStage !== offer.reminderStage || !service.userId
+              || !await isApplicationConciergeRenewalEnabledFor(service.userId)) return false;
             const user = await tx.get(db.collection('users').doc(service.userId));
             return user.data()?.applicationConciergePaymentReminder?.optedOut !== true;
           },

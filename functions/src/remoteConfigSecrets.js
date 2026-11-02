@@ -114,9 +114,7 @@ export async function getRemoteConfigTemplate() {
  * Fetch a Remote Config parameter value by key.
  * Returns empty string if the key doesn't exist.
  */
-export async function getRemoteConfigValue(key) {
- await getRemoteConfigTemplate();
-
+function cachedRemoteConfigValue(key) {
  const param = cachedTemplate.parameters?.[key];
  if (!param) return '';
 
@@ -126,6 +124,21 @@ export async function getRemoteConfigValue(key) {
  return String(defaultVal.value);
  }
  return '';
+}
+
+export async function getRemoteConfigValue(key) {
+ await getRemoteConfigTemplate();
+ return cachedRemoteConfigValue(key);
+}
+
+/** Read a feature-control value only while its cached template is within the stale limit. */
+export async function getRemoteConfigValueWithinMaxStaleAge(key) {
+  await getRemoteConfigTemplate();
+  if (Date.now() - cacheTimestamp > CACHE_MAX_STALE_MS) {
+    throw new Error('Remote Config template exceeds the maximum stale age');
+  }
+
+  return cachedRemoteConfigValue(key);
 }
 
 /**

@@ -12,7 +12,12 @@ import {
 } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
+const renewalRollout = vi.hoisted(() => ({ isEnabledFor: vi.fn(async () => true) }));
+
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: 'test-only-secret' })), getRemoteConfigValue: vi.fn(async () => '') }));
+vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({
+  isApplicationConciergeRenewalEnabledFor: renewalRollout.isEnabledFor,
+}));
 vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicationConciergeMatching: vi.fn() }));
 vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
@@ -72,7 +77,10 @@ const match = vi.fn(async ({ serviceId }: any) => {
 });
 const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, enrichJobCards: passThroughJobCards, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, ...options });
 const refresh = (options: any) => runConciergeProposalRefresh({ db, nowMs: now, match, send, enrichJobCards: passThroughJobCards, ...options });
-beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; trackingTargets.length = 0; vi.clearAllMocks(); });
+beforeEach(() => {
+  records = new Map(); queue = Promise.resolve(); deliveries.length = 0; trackingTargets.length = 0;
+  vi.clearAllMocks(); renewalRollout.isEnabledFor.mockResolvedValue(true);
+});
 
 describe('concierge refresh and notification lifecycle', () => {
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
@@ -334,6 +342,13 @@ describe('concierge refresh and notification lifecycle', () => {
     await ref('application_concierge_services/service').set({ renewedByServiceId: null });
     await sweep({ nowMs: now + 2 * DAY });
     expect(deliveries).toHaveLength(1);
+  });
+  it('does not send a renewal reminder outside the Remote Config rollout', async () => {
+    records.set('application_concierge_services/service', active({ expiresAt: now - DAY }));
+    renewalRollout.isEnabledFor.mockResolvedValue(false);
+    await sweep();
+    expect(renewalRollout.isEnabledFor).toHaveBeenCalledWith('candidate');
+    expect(deliveries).toEqual([]);
   });
   it('delivers exactly the three daily reminder stages and none at the 72-hour deadline', async () => {
     records.set('application_concierge_services/service', active({ expiresAt: now }));
