@@ -119,8 +119,8 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-function artificialyFetchOptions(timeoutMs) {
-  return {
+function fetchArtificialyHtml(fetchImpl, url, timeoutMs) {
+  return fetchImpl(url, {
     timeoutMs,
     headers: {
       Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -130,15 +130,15 @@ function artificialyFetchOptions(timeoutMs) {
       'Sec-Fetch-Mode': 'navigate',
       'Sec-Fetch-Site': 'none',
     },
-  };
+  });
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  return fetchHtml(url, artificialyFetchOptions(timeoutMs));
+  return fetchArtificialyHtml(fetchHtml, url, timeoutMs);
 }
 
 function fetchTextWithImpl(url, timeoutMs = TIMEOUT_MS, fetchImpl = fetchHtml) {
-  return fetchImpl(url, artificialyFetchOptions(timeoutMs));
+  return fetchArtificialyHtml(fetchImpl, url, timeoutMs);
 }
 
 /**
