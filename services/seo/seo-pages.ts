@@ -4504,7 +4504,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Consulenza Fiscale Frontalieri",
  "url": `${BASE_URL}/consulenza/`,
  "description": "Servizio informativo e sessioni di confronto su temi fiscali per lavoratori frontalieri Svizzera-Italia",
- "provider": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
  "serviceType": "Consulenza Fiscale"
  }
  },

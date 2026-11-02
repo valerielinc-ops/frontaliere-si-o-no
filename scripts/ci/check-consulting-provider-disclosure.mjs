@@ -52,7 +52,12 @@ const SURFACES = [
     file: 'services/seo/seo-pages.ts',
     start: ' consulting: {',
     end: '\n\n partners: {',
-    patterns: [/esperto frontaliero/, /Prenota gratis/, /consulenza fiscale specializzata per lavoratori frontalieri/],
+    patterns: [
+      /esperto frontaliero/,
+      /Prenota gratis/,
+      /consulenza fiscale specializzata per lavoratori frontalieri/,
+      /"provider"\s*:/,
+    ],
   },
 ];
 
