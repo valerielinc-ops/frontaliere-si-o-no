@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { decode as decodeHtmlEntities } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { EVENTS_UNRESOLVED_CANTON_SEGMENT } from './eventsSections.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './free-translate.mjs';
@@ -406,12 +407,7 @@ export const OTHER_EVENTS_COMUNE_KEY = '__other-events__';
 export const UNRESOLVED_CANTON_KEY = '__UNRESOLVED-CANTON__';
 
 /** Localized URL segment for the canton-neutral bucket's hub page. */
-export const UNRESOLVED_CANTON_SEGMENT = {
-  it: 'altri-cantoni',
-  en: 'other-cantons',
-  de: 'weitere-kantone',
-  fr: 'autres-cantons',
-};
+export const UNRESOLVED_CANTON_SEGMENT = EVENTS_UNRESOLVED_CANTON_SEGMENT;
 
 /**
  * Localized display copy for the canton-neutral bucket (issue #3739) — the
