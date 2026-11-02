@@ -131,6 +131,36 @@ describe('jobDataNormalization', () => {
     })).toBe('/images/brands/imerys.png');
   });
 
+  it('keeps legacy Ticino Comune jobs scoped to their municipality logo key', () => {
+    const familyKey = 'comuni-ticino';
+    const firstMunicipalityKey = 'comune-di-logo-test';
+    const secondMunicipalityKey = 'comune-di-logo-other';
+    const previousFamilyLogo = CRAWLED_COMPANY_LOGOS[familyKey];
+    const previousFirstLogo = CRAWLED_COMPANY_LOGOS[firstMunicipalityKey];
+    CRAWLED_COMPANY_LOGOS[familyKey] = '/images/brands/shared-family.png';
+    CRAWLED_COMPANY_LOGOS[firstMunicipalityKey] = '/images/brands/scoped-municipality.png';
+
+    try {
+      expect(resolveCompanyLogoUrl({
+        company: 'Comune di Logo Test',
+        companyKey: familyKey,
+        municipalityKey: firstMunicipalityKey,
+        companyDomain: 'logo-test.example',
+      })).toBe('/images/brands/scoped-municipality.png');
+      expect(resolveCompanyLogoUrl({
+        company: 'Comune di Logo Other',
+        companyKey: familyKey,
+        municipalityKey: secondMunicipalityKey,
+        companyDomain: 'logo-other.example',
+      })).toBeNull();
+    } finally {
+      if (previousFamilyLogo) CRAWLED_COMPANY_LOGOS[familyKey] = previousFamilyLogo;
+      else delete CRAWLED_COMPANY_LOGOS[familyKey];
+      if (previousFirstLogo) CRAWLED_COMPANY_LOGOS[firstMunicipalityKey] = previousFirstLogo;
+      else delete CRAWLED_COMPANY_LOGOS[firstMunicipalityKey];
+    }
+  });
+
   it('detects non-geographic multi-location strings', () => {
     expect(isMultiLocation('Schweiz und Ausland (abhängig von Funktion und Einsatzort)')).toBe(true);
     expect(isMultiLocation('Schweiz und Ausland')).toBe(true);

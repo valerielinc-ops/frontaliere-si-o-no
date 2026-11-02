@@ -8,6 +8,7 @@ import {
   assessLogoQuality,
   auditCompanyLogos,
   classifyLogoReference,
+  companyKeyForJob,
   loadCanonicalJobs,
   readImageDimensions,
 } from '../scripts/lib/company-logo-audit.mjs';
@@ -134,6 +135,33 @@ describe('company-logo-audit', () => {
         status: 'broken',
         reason: 'http-404',
       }),
+    ]);
+  });
+
+  it('aggregates legacy Ticino Comune records by municipality employer, not by crawler family', async () => {
+    const jobs = [
+      {
+        company: 'Comune di Uno',
+        companyKey: 'comuni-ticino',
+        municipalityKey: 'comune-di-uno',
+        url: 'https://uno.example/1',
+      },
+      {
+        company: 'Comune di Due',
+        companyKey: 'comuni-ticino',
+        municipalityKey: 'comune-di-due',
+        url: 'https://due.example/1',
+      },
+    ];
+
+    expect(jobs.map(companyKeyForJob)).toEqual(['comune-di-uno', 'comune-di-due']);
+    const report = await auditCompanyLogos(jobs, {
+      resolveLogo: () => null,
+    });
+
+    expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual([
+      'comune-di-due',
+      'comune-di-uno',
     ]);
   });
 

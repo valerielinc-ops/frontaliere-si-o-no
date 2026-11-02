@@ -21,6 +21,7 @@
  */
 
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
+import { scopedEmployerKey } from '../scripts/lib/ticino-comune-employer-identity.mjs';
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
@@ -96,7 +97,7 @@ function loadLogoManifest() {
  */
 export function resolveLogoUrl(job) {
   const manifest = loadLogoManifest();
-  const key = job.companyKey || '';
+  const key = scopedEmployerKey(job);
 
   // Self-hosted logo from manifest → absolute URL (CDN host if offloaded).
   // Anything else → null (template falls back to the coloured initial-letter avatar).
