@@ -288,14 +288,28 @@ export async function run(opts = {}) {
   const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
   const copyReservations = new Map();
   const releaseReservation = async (id, reason) => {
-    await releaseUnpublishedSocialCopyAssignment(copyReservations.get(id), {
-      releaseBalancedImpl: releaseSocialCopy,
-      reason,
-    });
-    copyReservations.delete(id);
+    const reservation = copyReservations.get(id);
+    if (!reservation) return true;
+    if (reservation.copyAssignmentMode !== 'firebase-balanced' || !reservation.copyAssignment) {
+      copyReservations.delete(id);
+      return true;
+    }
+    try {
+      await releaseUnpublishedSocialCopyAssignment(reservation, {
+        releaseBalancedImpl: releaseSocialCopy,
+        reason,
+      });
+      copyReservations.delete(id);
+      return true;
+    } catch (err) {
+      // A Firebase release failure must not stop cleanup for other posts in
+      // the batch. Keep this entry so a later cleanup path can retry it.
+      warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`);
+      return false;
+    }
   };
   const releaseAllReservations = async (reason) => {
-    for (const id of copyReservations.keys()) await releaseReservation(id, reason);
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
   };
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
