@@ -864,8 +864,9 @@ export function withMemberLogExcerpt(run, logFileExpression = `\${${MEMBER_LOG_F
     .split(ISSUE_CREATOR_INVOCATION)
     .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}" --require-persisted`);
 }
-// Fires the per-crawler failure reporter. Any non-zero commit exit still
-// reports EXCEPT the five systemic classes, which are not per-crawler signals.
+// Fires the per-crawler failure reporter. Any non-zero housekeeping or commit
+// exit still reports EXCEPT the five systemic classes, which are not
+// per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0'
   + ` && git_commit_exit != 42 && git_commit_exit != ${GROUP_SHARED_PRECONDITION_EXIT}`
   + ` && git_commit_exit != ${GLOBAL_LEASE_BUSY_EXIT} && git_commit_exit != ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`

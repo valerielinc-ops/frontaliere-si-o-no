@@ -561,6 +561,22 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout, 'a failed retirement pass must not publish the slice').not.toContain('COMMIT_RAN');
   });
 
+  it('timed housekeeping fails -> commit is skipped and the failure-report step fires', () => {
+    const commitDir = writeFixtureCommitScript(0, 'echo COMMIT_RAN\n');
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({
+        housekeepingCommand: 'false',
+        commitCommand: commitDir,
+      })),
+      targetTimeoutMinutes: 30,
+    };
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode, 'a failed retirement pass must fail the timed background step').not.toBe(0);
+    expect(stdout, 'timed housekeeping failure must be reported').toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout, 'a timed housekeeping failure must not publish the slice').not.toContain('COMMIT_RAN');
+  });
+
   // ── OSSERVATORE del cluster `Crawler Failure: Run *` ──────────────────────
   //
   // Il predicato dell'apri-issue per-crawler non distingueva un guasto DEL
