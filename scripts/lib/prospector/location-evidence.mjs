@@ -627,6 +627,7 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
       || String(candidate?.addressRegion || '').trim()
       || String(candidate?.postalCode || '').trim()
       || String(candidate?.streetAddress || '').trim()
+      || String(candidate?.addressCountry || candidate?.country || '').trim()
   ));
   for (const candidate of candidates) {
     const location = String(candidate?.location || '').trim();

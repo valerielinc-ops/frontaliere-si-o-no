@@ -121,14 +121,14 @@ describe('prospector official employer location proof', () => {
       { addressCountry: 'CH' },
       { officialEmployerSiteLocation: proof },
     );
+    expect(countryOnlyDecision).toMatchObject({
+      geography: null,
+      hasDeclaredLocation: true,
+    });
     expect(geographyFieldsForDecision(countryOnlyDecision, {
       recordLocationEvidence: true,
       offerLocation: 'CH',
-    })).toMatchObject({
-      locationSource: 'employer_site',
-      offerLocation: 'CH',
-      locationEvidence: { source: 'employer_site' },
-    });
+    })).toBeNull();
   });
 
   it('uses the official proof only when the detail has no declared workplace', async () => {
