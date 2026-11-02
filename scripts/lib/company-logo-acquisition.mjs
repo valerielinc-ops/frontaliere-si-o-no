@@ -73,6 +73,7 @@ export const DOMAIN_OVERRIDES = {
   'integra-biosciences': ['integra-biosciences.com'],
   benu: ['benu.ch'],
   'pantr-ch': ['pantr.ch'],
+  'rh-expert-ch': ['rh-expert.ch'],
   kone: ['kone.com'],
   fisba: ['fisba.com'],
   'schweizerhof-flims': ['schweizerhof-flims.ch'],
