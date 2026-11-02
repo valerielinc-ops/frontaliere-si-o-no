@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-26T09:18:47.269Z",
-  "totalQueriesAnalyzed": 15683,
-  "qualifyingQueries": 1030,
-  "clustersFound": 469,
+  "generatedAt": "2026-11-02T11:37:12.101Z",
+  "totalQueriesAnalyzed": 15956,
+  "qualifyingQueries": 1041,
+  "clustersFound": 475,
   "pages": [
     {
       "slug": "offerte-di-lavoro-casa-di-riposo-svizzera",
@@ -11,8 +11,8 @@
         "casa",
         "riposo"
       ],
-      "totalClicks": 228,
-      "totalImpressions": 2753,
+      "totalClicks": 233,
+      "totalImpressions": 2798,
       "queryCount": 3,
       "allQueries": [
         "offerte di lavoro casa di riposo svizzera",
@@ -35,8 +35,8 @@
         "ultimi",
         "giorni"
       ],
-      "totalClicks": 205,
-      "totalImpressions": 9143,
+      "totalClicks": 206,
+      "totalImpressions": 9151,
       "queryCount": 20,
       "allQueries": [
         "lavoro ticino negli ultimi 3 giorni",
@@ -76,7 +76,7 @@
         "sociale"
       ],
       "totalClicks": 173,
-      "totalImpressions": 1295,
+      "totalImpressions": 1299,
       "queryCount": 10,
       "allQueries": [
         "educatore sociale offerte lavoro ticino",
@@ -105,8 +105,8 @@
         "case",
         "anziani"
       ],
-      "totalClicks": 162,
-      "totalImpressions": 2408,
+      "totalClicks": 168,
+      "totalImpressions": 2477,
       "queryCount": 2,
       "allQueries": [
         "case anziani ticino offerte di lavoro",
@@ -127,9 +127,9 @@
         "casa",
         "anziani"
       ],
-      "totalClicks": 139,
-      "totalImpressions": 1635,
-      "queryCount": 8,
+      "totalClicks": 146,
+      "totalImpressions": 1701,
+      "queryCount": 9,
       "allQueries": [
         "offerte di lavoro casa anziani ticino",
         "offerte lavoro casa anziani ticino",
@@ -138,7 +138,8 @@
         "casa anziani mendrisio lavoro",
         "casa anziani offerte di lavoro",
         "concorso casa anziani bellinzona",
-        "casa anziani paradiso offerta lavoro"
+        "casa anziani paradiso offerta lavoro",
+        "casa anziani giornico lavoro"
       ],
       "copy": {
         "it": {
@@ -188,7 +189,7 @@
         "noi"
       ],
       "totalClicks": 78,
-      "totalImpressions": 4469,
+      "totalImpressions": 4471,
       "queryCount": 33,
       "allQueries": [
         "ail lavora con noi",
@@ -240,8 +241,8 @@
         "educatrice",
         "italiana"
       ],
-      "totalClicks": 61,
-      "totalImpressions": 532,
+      "totalClicks": 62,
+      "totalImpressions": 533,
       "queryCount": 6,
       "allQueries": [
         "offerte di lavoro educatrice svizzera italiana",
@@ -370,8 +371,8 @@
         "lavora",
         "noi"
       ],
-      "totalClicks": 39,
-      "totalImpressions": 547,
+      "totalClicks": 40,
+      "totalImpressions": 553,
       "queryCount": 3,
       "allQueries": [
         "case di riposo ticino lavora con noi",
@@ -443,7 +444,7 @@
         "italiani"
       ],
       "totalClicks": 31,
-      "totalImpressions": 1638,
+      "totalImpressions": 1640,
       "queryCount": 11,
       "allQueries": [
         "offerte lavoro svizzera per italiani",
@@ -474,7 +475,7 @@
         "jobs"
       ],
       "totalClicks": 29,
-      "totalImpressions": 1094,
+      "totalImpressions": 1096,
       "queryCount": 7,
       "allQueries": [
         "schulassistenz jobs",
@@ -538,6 +539,31 @@
       }
     },
     {
+      "slug": "frontaliere-ticino-offerte-di-lavoro",
+      "query": "frontaliere ticino offerte di lavoro",
+      "filterKeywords": [
+        "frontaliere"
+      ],
+      "totalClicks": 27,
+      "totalImpressions": 1141,
+      "queryCount": 6,
+      "allQueries": [
+        "frontaliere ticino offerte di lavoro",
+        "offerte lavoro frontaliere svizzera",
+        "frontaliere ticino",
+        "lavoro frontaliere svizzera",
+        "frontaliere ticino.ch",
+        "frontaliere"
+      ],
+      "copy": {
+        "it": {
+          "title": "Frontaliere Ticino Offerte di Lavoro | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"frontaliere ticino offerte di lavoro\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Frontaliere Ticino Offerte di Lavoro"
+        }
+      }
+    },
+    {
       "slug": "concorsi-educatore-ticino",
       "query": "concorsi educatore ticino",
       "filterKeywords": [
@@ -558,31 +584,6 @@
           "title": "Concorsi Educatore Ticino - Posizioni Aperte | Frontaliere Ticino",
           "description": "Offerte di lavoro per \"concorsi educatore ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
           "heading": "Concorsi Educatore Ticino"
-        }
-      }
-    },
-    {
-      "slug": "offerte-lavoro-frontaliere-svizzera",
-      "query": "offerte lavoro frontaliere svizzera",
-      "filterKeywords": [
-        "frontaliere"
-      ],
-      "totalClicks": 26,
-      "totalImpressions": 1118,
-      "queryCount": 6,
-      "allQueries": [
-        "offerte lavoro frontaliere svizzera",
-        "frontaliere ticino offerte di lavoro",
-        "frontaliere ticino",
-        "lavoro frontaliere svizzera",
-        "frontaliere ticino.ch",
-        "frontaliere"
-      ],
-      "copy": {
-        "it": {
-          "title": "Offerte Lavoro Frontaliere Svizzera in Ticino | Frontaliere Ticino",
-          "description": "Offerte di lavoro per \"offerte lavoro frontaliere svizzera\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
-          "heading": "Offerte Lavoro Frontaliere Svizzera in Ticino"
         }
       }
     },
@@ -646,14 +647,14 @@
         "manor"
       ],
       "totalClicks": 25,
-      "totalImpressions": 351,
+      "totalImpressions": 801,
       "queryCount": 6,
       "allQueries": [
         "manor offerte di lavoro ticino",
         "manor jobs ticino",
         "manor emploi",
-        "manor lavoro",
         "manor",
+        "manor lavoro",
         "manor offerte di lavoro"
       ],
       "copy": {
@@ -738,6 +739,31 @@
           "title": "Offerte Lavoro Zurigo in Ticino | Frontaliere Ticino",
           "description": "Offerte di lavoro per \"offerte lavoro zurigo\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
           "heading": "Offerte Lavoro Zurigo in Ticino"
+        }
+      }
+    },
+    {
+      "slug": "offerte-lavoro-frontaliere-svizzera",
+      "query": "offerte lavoro frontaliere svizzera",
+      "filterKeywords": [
+        "frontaliere"
+      ],
+      "totalClicks": 26,
+      "totalImpressions": 1118,
+      "queryCount": 6,
+      "allQueries": [
+        "offerte lavoro frontaliere svizzera",
+        "frontaliere ticino offerte di lavoro",
+        "frontaliere ticino",
+        "lavoro frontaliere svizzera",
+        "frontaliere ticino.ch",
+        "frontaliere"
+      ],
+      "copy": {
+        "it": {
+          "title": "Offerte Lavoro Frontaliere Svizzera in Ticino | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte lavoro frontaliere svizzera\" in Ticino. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte Lavoro Frontaliere Svizzera in Ticino"
         }
       }
     },
@@ -2065,6 +2091,29 @@
           "title": "Gessatore Ticino - Posizioni Aperte | Frontaliere Ticino",
           "description": "Offerte di lavoro per \"gessatore ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
           "heading": "Gessatore Ticino"
+        }
+      }
+    },
+    {
+      "slug": "corriere-fattorino-ticino",
+      "query": "corriere / fattorino ticino",
+      "filterKeywords": [
+        "corrier"
+      ],
+      "totalClicks": 203,
+      "totalImpressions": 4667,
+      "queryCount": 1,
+      "allQueries": [
+        "corriere / fattorino ticino"
+      ],
+      "source": "profession-gap",
+      "professionId": "corriere",
+      "professionMatch": true,
+      "copy": {
+        "it": {
+          "title": "Corriere / Fattorino Ticino - Posizioni Aperte | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"corriere / fattorino ticino\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Corriere / Fattorino Ticino"
         }
       }
     }
