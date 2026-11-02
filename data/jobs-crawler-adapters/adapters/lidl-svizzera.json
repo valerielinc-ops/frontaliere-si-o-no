@@ -72,7 +72,6 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-bachenbuelach-727551",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-basel-bs-727547",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-beginn-2027-aegerten-757985",
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-beginn-2027-brig-766261",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-brugg-727563",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-buchs-727513",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-chur-727550",
@@ -243,18 +242,16 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-mont-sur-lausanne-759446",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-759293",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-renens-759722",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-724853",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-neuchatel-758613",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-mont-sur-lausanne-759716",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-giubiasco-727553",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062",
-    "https://team.lidl.ch/it/jobs/ch_-tuttofare-vendita-m-f-d-20-40-locarno-766088"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-02T11:28:55.567Z",
+  "updatedAt": "2026-11-02T21:41:29.623Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -356,15 +353,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-brig-733924": {
-      "location": "Brig",
-      "addressLocality": "Brig",
-      "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-beginn-2027-brig-766261": {
       "location": "Brig",
       "addressLocality": "Brig",
       "canton": "VS",
@@ -2137,15 +2125,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-724853": {
-      "location": "Conthey",
-      "addressLocality": "Conthey",
-      "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471": {
       "location": "Conthey",
       "addressLocality": "Conthey",
@@ -2424,15 +2403,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/ch_-tuttofare-vendita-m-f-d-20-40-locarno-766088": {
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     }
   }
 }
