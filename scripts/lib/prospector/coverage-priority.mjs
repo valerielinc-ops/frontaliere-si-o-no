@@ -1,4 +1,8 @@
 import { CANTONS } from './config.mjs';
+import {
+  classifyStaffingEmployer,
+  loadStaffingRegistry,
+} from './seco-staffing-classifier.mjs';
 
 /**
  * Queue order for the border cantons. The remaining cantons are appended in
@@ -19,6 +23,7 @@ export const SECO_RECENT_DAYS = 30;
 const SECO_RECENT_MS = SECO_RECENT_DAYS * 86_400_000;
 
 const CANTON_RANK = new Map(PROSPECTOR_CANTON_ORDER.map((canton, index) => [canton, index]));
+let staffingRegistry;
 
 export function candidateCanton(value = {}) {
   return String(
@@ -49,9 +54,36 @@ export function hasRecentSecoDemand(candidate, now = Date.now()) {
   return Number.isFinite(observedAt) && age >= 0 && age <= SECO_RECENT_MS;
 }
 
-/** Direct means the SECO employer is not matched to the curated agency list. */
+function staffingRegistryForPriority() {
+  if (!staffingRegistry) staffingRegistry = loadStaffingRegistry();
+  return staffingRegistry;
+}
+
+/**
+ * Recompute the SECO staffing classification from the same classifier used by
+ * the coverage metric. A candidate without an employer name stays unknown;
+ * persisted labels cannot silently override the shared classifier.
+ */
+export function staffingClassificationForCandidate(candidate = {}) {
+  const employer = String(
+    candidate.secoEmployerName
+      || candidate.employerName
+      || candidate.name
+      || '',
+  ).trim();
+  if (!employer) return 'unknown';
+  return classifyStaffingEmployer(employer, staffingRegistryForPriority(), {
+    offerCount: candidate.adCount ?? candidate.offerCount,
+    cantonCount: candidate.cantonCount,
+    cantons: candidate.cantons || (candidate.canton ? [candidate.canton] : undefined),
+    employerDisclosed: candidate.employerDisclosed ?? candidate.secoEmployerDisclosed,
+    undisclosedCount: candidate.undisclosedCount,
+  }).classification;
+}
+
+/** Direct means the SECO employer is not classified as staffing by the shared classifier. */
 export function isDirectRecentSeco(candidate, now = Date.now()) {
-  const classification = candidate?.secoEmployerClassification || candidate?.secoEmployerType;
+  const classification = staffingClassificationForCandidate(candidate);
   return classification === 'direct' && hasRecentSecoDemand(candidate, now);
 }
 

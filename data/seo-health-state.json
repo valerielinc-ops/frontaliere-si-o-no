@@ -1,16 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-01T11:20:52.160Z",
-  "findings": {
-    "http-client-error|https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/": {
-      "code": "http-client-error",
-      "url": "https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-01T11:20:52.160Z",
-      "lastSeenAt": "2026-11-01T11:20:52.160Z",
-      "detail": null
-    }
-  },
-  "cleanRuns": 0,
+  "lastRunAt": "2026-11-02T12:31:43.414Z",
+  "findings": {},
+  "cleanRuns": 1,
   "lastActionable": false
 }

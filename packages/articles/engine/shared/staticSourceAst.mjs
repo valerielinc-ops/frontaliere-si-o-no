@@ -232,17 +232,21 @@ export function staticPropertyName(name) {
 export function decodeStaticString(raw, quote, options = {}) {
   const newlineAs = options.newlineAs ?? '\n';
   const tabAs = options.tabAs ?? ' ';
-  let value = '';
+  // Batch literal spans and join once: retaining one cons-string node per
+  // character makes corpus-sized callers exhaust the Node 22 heap.
+  const parts = [];
   for (let cursor = 0; cursor < raw.length;) {
     if (raw[cursor] !== '\\') {
-      value += raw[cursor];
-      cursor += 1;
+      const nextEscape = raw.indexOf('\\', cursor);
+      const end = nextEscape === -1 ? raw.length : nextEscape;
+      parts.push(raw.slice(cursor, end));
+      cursor = end;
       continue;
     }
 
     const escaped = raw[cursor + 1];
     if (escaped === undefined) {
-      value += '\\';
+      parts.push('\\');
       cursor += 1;
       continue;
     }
@@ -251,14 +255,14 @@ export function decodeStaticString(raw, quote, options = {}) {
       continue;
     }
     if (quote === '`' && (escaped === '`' || escaped === '$')) {
-      value += escaped;
+      parts.push(escaped);
       cursor += 2;
       continue;
     }
 
     const codePoint = decodeTypeScriptCodePointEscape(raw.slice(cursor + 1));
     if (codePoint) {
-      value += codePoint.value;
+      parts.push(codePoint.value);
       cursor += codePoint.length + 1;
       continue;
     }
@@ -267,26 +271,26 @@ export function decodeStaticString(raw, quote, options = {}) {
     const escapeLength = unicode ? 6 : 2;
     const token = raw.slice(cursor, cursor + escapeLength);
     switch (escaped) {
-      case 'n': value += newlineAs; break;
+      case 'n': parts.push(newlineAs); break;
       case 'r': break;
-      case 't': value += tabAs; break;
-      case 'b': value += '\b'; break;
-      case 'f': value += '\f'; break;
-      case 'v': value += '\v'; break;
+      case 't': parts.push(tabAs); break;
+      case 'b': parts.push('\b'); break;
+      case 'f': parts.push('\f'); break;
+      case 'v': parts.push('\v'); break;
       // Legacy octal escapes (`\\01`..`\\07`) are not NUL plus a digit.
       // Keep the source token intact rather than changing the published value.
-      case '0': value += /[0-9]/u.test(raw[cursor + 2] ?? '') ? token : '\0'; break;
-      case '\\': value += '\\'; break;
-      case "'": value += "'"; break;
-      case '"': value += '"'; break;
+      case '0': parts.push(/[0-9]/u.test(raw[cursor + 2] ?? '') ? token : '\0'); break;
+      case '\\': parts.push('\\'); break;
+      case "'": parts.push("'"); break;
+      case '"': parts.push('"'); break;
       case 'u':
-        value += unicode ? String.fromCharCode(Number.parseInt(token.slice(2), 16)) : token;
+        parts.push(unicode ? String.fromCharCode(Number.parseInt(token.slice(2), 16)) : token);
         break;
-      default: value += token;
+      default: parts.push(token);
     }
     cursor += escapeLength;
   }
-  return value;
+  return parts.join('');
 }
 
 /**

@@ -185,13 +185,23 @@ su `isKnownAggregatorDomain()` in `scripts/lib/known-aggregator-domains.mjs`.
 La slice SECO non viene ricontata come aggregatore anche se il suo URL tecnico
 è `job-room.ch`, che è nella denylist dei marketplace.
 
-Un'offerta SECO è **esclusiva** se non trova una riga viva nelle slice degli
-aggregatori. Il confronto è deterministico e dichiarato nel JSON: URL
-normalizzato (hash e tracking rimossi), oppure datore normalizzato + stesso
-cantone (quando presente in entrambe) + similarità del titolo a token `>= 0,80`;
-il datore richiede overlap token `>= 0,75`. La liveness è quella della snapshot
-corrente, salvo stati espliciti `expired`, `inactive`, `archived`, `closed`,
-`filled` o `removed`: non viene inventata una soglia temporale separata.
+Il confronto è deterministico e dichiarato nel JSON: URL normalizzato (hash e
+tracking rimossi), oppure datore normalizzato + stesso cantone (quando presente
+in entrambe) + similarità del titolo a token `>= 0,80`; il datore richiede
+overlap token `>= 0,75`. L'indice usa sia il nome esatto sia i token condivisi,
+così `Acme SA` e `Acme Services` possono arrivare al confronto fuzzy. La
+liveness è quella della snapshot corrente, salvo stati espliciti `expired`,
+`inactive`, `archived`, `closed`, `filled` o `removed`.
+
+L'assenza di un match non è automaticamente un'offerta esclusiva: una slice
+aggregatore può essere assente, incompleta o non allineata temporalmente. Per
+questo la metrica v2 espone per ogni portale `status: nonMisurabile`, le offerte
+osservate e i match normalizzati, ma lascia `exclusiveOffers` e
+`exclusivityRate` a `null` finché non esiste un denominatore completo e
+confrontabile. `job-room.ch`, `arbeit.swiss` ed EURES sono esclusi dal confronto
+indipendente perché sono canali ufficiali/pubblici del feed SECO. Lo storico
+conserva il valore precedente, ma lo marca `invalidated` quando aveva contato
+una popolazione aggregatore vuota come prova di esclusività.
 
 Non esiste nel feed SECO una misura affidabile dei dipendenti. Le fasce
 `micro` (1–4), `small` (5–19), `medium` (20–99) e `large` (100+) sono quindi
@@ -207,27 +217,38 @@ copertura fittizia.
 La distinzione agenzia/datore diretto usa
 `scripts/lib/prospector/seco-staffing-classifier.mjs`. La forma corretta del
 registro è `registry.agencies`, non il documento passato direttamente al
-matcher. Il classificatore costruisce alias di brand e forme legali: per
-esempio `Adecco` combacia con `Adecco Resources SA`. `agency` significa match
-di un'agenzia nella registry curata; `direct` è il residuo non matchato nella
-registry e porta la confidence `curated-registry-residual`, non è la pretesa
-che il registro SECO completo sia stato verificato; `unknown` resta per nome
-mancante o registry non disponibile/malformata. La metrica conserva queste
-confidence e il numero di offerte, quindi il riferimento proprietario del 31%
-resta confrontabile con una misura riproducibile invece di essere nascosto in
-un matching ingenuo. Il benchmark fornito dal proprietario (31% stimato, con
-Adecco 522 su 2.432) è conservato nella metrica come riferimento storico,
-separato dal valore misurato: non modifica il classificatore e non trasforma il
-residuo della registry in una prova legale. La classificazione SECO viene
-salvata nel candidato e riusata dalla coda.
+matcher. Il classificatore v2 costruisce alias di brand e forme legali: per
+esempio `Adecco` combacia con `Adecco Resources SA`; quando il registry non
+basta usa parole del nome (personnel, placement, recrutement, interim, ecc.),
+`employerDisclosed` e la frequenza di offerte su più cantoni. Ogni risultato
+porta `evidence`, confidence e reason. `direct` è il residuo dopo registry e
+segnali, non la pretesa che il registro SECO completo sia stato verificato;
+`unknown` resta per nome mancante o registry non disponibile/malformata.
+Il benchmark fornito dal proprietario (31% stimato, con Adecco 522 su 2.432)
+resta separato dal valore misurato: non modifica il classificatore e non
+trasforma il residuo in una prova legale.
+La snapshot include anche l'audit controllato in
+`data/prospector/staffing-classifier-manual-sample.json`: 100 datori distinti
+scelti per volume, etichettati separatamente dal codice. Il report stampa
+precisione, richiamo e fino a tre esempi per ciascun tipo di errore residuo;
+quando gli array sono vuoti dichiara esplicitamente che non sono emersi errori
+nel campione, senza inventare esempi.
+
+Per l'overlap, il report può mostrare un campione di 30 micro-datori TI con
+`0/30` match osservati su `jobs.ch` e `jobup.ch`. È una verifica del confronto
+normalizzato e della popolazione disponibile, non una stima di esclusività:
+anche uno zero controllato resta `nonMisurabile` se la slice del portale non è
+un denominatore completo e temporalmente allineato.
 
 TRACE, SYNTHESIZE e VALIDATE condividono l'ordine di copertura: `TI → GR → VS
 → GE → VD → BS → BL → JU → NE → SH → TG → SG`, poi gli altri cantoni. Ogni
 lotto riserva il 20% (almeno uno slot se il resto è disponibile) agli altri
 cantoni, per evitare che la frontiera li affami. All'interno della coda, un
 datore classificato `direct` con annunci SECO osservati negli ultimi 30 giorni
-precede gli altri; le quote di fairness e retry già proprie di ciascuno stadio
-restano attive.
+precede gli altri; TRACE, SYNTHESIZE e VALIDATE ricalcolano questa classificazione
+tramite lo stesso modulo v2, invece di fidarsi di un campo storico eventualmente
+stale. Le quote di fairness e retry già proprie di ciascuno stadio restano
+attive.
 
 Le pagine che raccolgono candidature spontanee senza un posto preciso passano
 dal contratto free-text ma finiscono in `candidate.permanentApplications`, con

@@ -69,25 +69,51 @@ if (coverageExclusivity.status !== 'ok') {
   out.push(tableHead('metrica', 'valore'));
   out.push(row('offerte SECO live', population.officialOffers));
   out.push(row('datori SECO distinti', population.officialEmployers));
-  out.push(row('offerte in slice aggregatori', population.aggregatorOffers));
+  out.push(row('offerte in slice aggregatori', `${population.aggregatorOffers} record / ${population.aggregatorPortalOffers || 0} presenze-portale`));
   out.push(row('offerte SECO condivise con aggregatori', population.aggregatorMatchedOffers));
-  out.push(row('offerte SECO esclusive', `${population.exclusiveOffers} (${Math.round((population.exclusivityRate || 0) * 100)}%)`));
+  out.push(row('offerte SECO senza match osservato', population.unmatchedOfficialOffers));
+  out.push(row('misura esclusività', `${population.measurementStatus} · ${population.measurementReason}`));
+  const portalRows = Object.entries(coverageExclusivity.portals || {})
+    .filter(([portal, measurement]) => measurement.observed || ['jobs.ch', 'jobup.ch'].includes(portal));
+  for (const [portal, measurement] of portalRows) {
+    out.push(row(`portale ${portal}`, `${measurement.status} · ${measurement.aggregatorOffers} offerte osservate · ${measurement.matchedOfficialOffers} match · ${measurement.reason}`));
+  }
+  const overlapSample = coverageExclusivity.controlledOverlapSample;
+  if (overlapSample?.sampleSize) {
+    for (const portal of ['jobs.ch', 'jobup.ch']) {
+      const sampleMeasurement = overlapSample.portals?.[portal];
+      if (sampleMeasurement) {
+        out.push(row(`campione ${portal}`, `${sampleMeasurement.matchedEmployers}/${sampleMeasurement.sampleEmployers} datori micro-TI con match osservato; non è un tasso di esclusività`));
+      }
+    }
+  }
   out.push(row('classificazione agency / direct / unknown', [
     coverageExclusivity.classification.agency,
     coverageExclusivity.classification.direct,
     coverageExclusivity.classification.unknown,
   ].map((classification) => `${classification.officialOffers} (${Math.round((classification.offerShare || 0) * 100)}%)`).join(' / ')));
+  const audit = coverageExclusivity.classificationAudit;
+  if (audit?.status === 'ok') {
+    out.push(row('audit manuale classificatore', `${audit.sampleSize} datori · precisione ${Math.round(audit.precision * 100)}% · richiamo ${Math.round(audit.recall * 100)}%`));
+    for (const [kind, examples] of Object.entries(audit.residualErrors || {})) {
+      out.push(row(`errori residui ${kind}`, examples.length
+        ? examples.map((example) => `${example.employer} (${example.expected}→${example.predicted})`).join(' · ')
+        : 'nessuno'));
+    }
+  } else if (audit?.status) {
+    out.push(row('audit manuale classificatore', `${audit.status} · ${audit.reason || 'non disponibile'}`));
+  }
   out.push(row('riferimento proprietario agency', '31% stimato · Adecco 522/2.432 (baseline, non classificazione corrente)'));
-  out.push(row('confidence direct', coverageExclusivity.classification.registryCurated ? 'residuo di registry curata' : 'registry non curata'));
-  out.push(row('metodo', 'match URL normalizzato oppure datore + cantone + titolo; soglia titolo 0,80'));
+  out.push(row('confidence direct', 'residuo dopo registry + segnali nome/employerDisclosed/frequenza multi-cantonale'));
+  out.push(row('metodo', 'URL oppure datore/titolo normalizzati con indice token; unmatched non è esclusiva; soglia titolo 0,80'));
   out.push(row('fascia datore', 'proxy volume offerte SECO live: micro 1–4, small 5–19, medium 20–99, large 100+'));
   out.push(row('storico', 'data/prospector/coverage-exclusivity-history.json'));
-  out.push(md ? '\n**Esclusive per cantone e fascia**\n' : '\n  Esclusive per cantone e fascia:');
+  out.push(md ? '\n**Offerte senza match osservato per cantone e fascia**\n' : '\n  Senza match osservato per cantone e fascia:');
   for (const canton of CANTONS) {
     const bands = coverageExclusivity.byCantonAndSize[canton];
     const values = Object.entries(bands)
       .filter(([, measure]) => measure.officialOffers > 0)
-      .map(([band, measure]) => `${band} ${measure.exclusiveOffers}/${measure.officialOffers}`)
+      .map(([band, measure]) => `${band} ${measure.unmatchedOfficialOffers}/${measure.officialOffers}`)
       .join(' · ');
     if (values) out.push(row(canton, values));
   }

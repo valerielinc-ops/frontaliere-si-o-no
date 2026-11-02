@@ -32,7 +32,9 @@ import { decodeEntities } from './entities.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
 import {
+  officialEmployerLocationLinks,
   resolveDetailOrListingSwissGeography,
+  resolveOfficialEmployerSiteLocation,
   sourceBackedSwissGeographyFields,
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
@@ -365,6 +367,19 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
       || geography.addressCountry
       || (options.requireExplicitCountryEvidence ? '' : 'CH'),
   ).trim();
+  const source = String(candidate.locationSource || options.locationSource || '').trim();
+  // Keep the offer's own declaration as a separate field even when the
+  // selected source is the employer site. Normally the official-site tier is
+  // reached with no offer locality, but a country-only/otherwise unresolved
+  // declaration is still useful provenance and must not be overwritten by
+  // the employer address.
+  const offerLocation = String(options.offerLocation || candidate.offerLocation || '').trim();
+  const evidenceUrl = String(
+    candidate.locationEvidenceUrl || options.locationEvidenceUrl || '',
+  ).trim();
+  const locationEvidence = candidate.locationEvidence || (options.recordLocationEvidence
+    ? { source: source || 'offer', url: evidenceUrl }
+    : null);
   return {
     ...geography,
     addressLocality,
@@ -372,7 +387,106 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
     ...(addressCountry ? { addressCountry, country: addressCountry } : {}),
     ...(candidate.postalCode ? { postalCode: String(candidate.postalCode).trim() } : {}),
     ...(candidate.streetAddress ? { streetAddress: String(candidate.streetAddress).trim() } : {}),
+    ...(options.recordLocationEvidence || source ? {
+      locationSource: source || 'offer',
+      offerLocation,
+      ...(evidenceUrl ? { locationEvidenceUrl: evidenceUrl } : {}),
+      ...(locationEvidence ? { locationEvidence } : {}),
+    } : {}),
   };
+}
+
+function declaredOfferLocation(record = {}) {
+  const direct = String(record?.location || '').replace(/\s+/g, ' ').trim();
+  if (direct) return direct;
+  const candidate = Array.isArray(record?.locationCandidates)
+    ? record.locationCandidates.find((item) => String(item?.location || '').trim())
+    : null;
+  return String(candidate?.location || '').replace(/\s+/g, ' ').trim();
+}
+
+function rowNeedsOfficialEmployerLocation(row = {}) {
+  const decision = resolveDetailOrListingSwissGeography({}, row);
+  return !decision.geography && !decision.explicitlyForeign && !decision.hasDeclaredLocation;
+}
+
+function officialEmployerSeedUrls(domain = '') {
+  const host = normalizeHost(domain);
+  if (!host || !host.includes('.')) return [];
+  return [...new Set([
+    `https://${host}/`,
+    `https://www.${host}/`,
+    `http://${host}/`,
+    `http://www.${host}/`,
+  ])];
+}
+
+/**
+ * Fetch the employer's verified site once per spec and turn only its allowed
+ * address surfaces into a single-site proof. ATS/shared-platform pages never
+ * enter this list because the verified employer domain is a separate policy
+ * origin and is checked again by the resolver.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {Record<string, any>} runtime
+ * @returns {Promise<any|null>}
+ */
+async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
+  const enabled = runtime.employerSiteLocationFallback === true
+    || spec.employerSiteLocationFallback === true;
+  if (!enabled) return null;
+  const domain = String(runtime.verifiedEmployerDomain || spec.verifiedEmployerDomain || '').trim();
+  const context = {
+    verifiedEmployerDomain: domain,
+    platform: spec.platform,
+    companyName: spec.companyName,
+    companyKey: spec.companyKey,
+    ...(runtime.employerAgencyContext && typeof runtime.employerAgencyContext === 'object'
+      ? runtime.employerAgencyContext
+      : {}),
+  };
+  const preflight = resolveOfficialEmployerSiteLocation([], context);
+  if (preflight.reasonCode && preflight.reasonCode !== 'official_address_missing') return preflight;
+  const seeds = officialEmployerSeedUrls(domain);
+  if (!seeds.length) return preflight;
+  const officialPolicy = createSpecUrlPolicy({ seedUrls: seeds }, {
+    lookupImpl: runtime.lookupImpl || dnsLookup,
+  });
+  const pages = [];
+  try {
+    let home;
+    for (const seed of seeds) {
+      try {
+        home = await fetchRuntimePage(seed, officialPolicy, runtime);
+      } catch {
+        continue;
+      }
+      if (home?.ok && typeof home.body === 'string' && home.body) {
+        const homeUrl = home.url || seed;
+        pages.push({ html: home.body, url: homeUrl, kind: 'homepage' });
+        const links = officialEmployerLocationLinks(home.body, homeUrl, domain).slice(0, 4);
+        for (const link of links) {
+          try {
+            const page = await fetchRuntimePage(link.url, officialPolicy, runtime);
+            if (page?.ok && typeof page.body === 'string' && page.body) {
+              pages.push({ html: page.body, url: page.url || link.url, kind: link.kind });
+            }
+          } catch {
+            // One unavailable contact surface does not become a fake address;
+            // the remaining allowed surfaces still have to prove one site.
+          }
+        }
+        break;
+      }
+    }
+    return resolveOfficialEmployerSiteLocation(pages, context);
+  } finally {
+    try {
+      await officialPolicy.dispatcher.close();
+    } catch (error) {
+      console.warn(`[prospector:${spec.companyKey}] official-site dispatcher cleanup failed:`, error);
+    }
+  }
 }
 
 /**
@@ -2147,6 +2261,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
   try {
     const rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    const officialEmployerSiteLocation = rows.some(rowNeedsOfficialEmployerLocation)
+      ? (runtime.officialEmployerSiteLocation
+        || await fetchOfficialEmployerSiteLocation(spec, runtime))
+      : null;
     const listingOutcome = listingFetchOutcomeState(rows);
     const configuredEmptyOutcome = spec.rescueOnEmptyListing === true
       && runtime.disableWafProxy !== true
@@ -2177,9 +2295,17 @@ export async function runSpecInProduction(spec, runtime = {}) {
       };
       let sourceBackedLocationCount = 0;
       const safeRows = rows.flatMap((row) => {
+        const decision = resolveDetailOrListingSwissGeography({}, row, {
+          officialEmployerSiteLocation,
+        });
         const fields = geographyFieldsForDecision(
-          resolveDetailOrListingSwissGeography({}, row),
-          runtime,
+          decision,
+          {
+            ...runtime,
+            recordLocationEvidence: true,
+            locationEvidenceUrl: row.sourceUrl || row.url,
+            offerLocation: declaredOfferLocation(row),
+          },
         );
         if (!fields) {
           dropCounts.source_backed_geography_missing++;
@@ -2310,8 +2436,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
             recordTitle: row.title,
           });
           const rawTitles = rawDetailTitleEvidence(page.body);
-          const decision = resolveDetailOrListingSwissGeography(detail, row);
-          const geography = geographyFieldsForDecision(decision, runtime);
+          const decision = resolveDetailOrListingSwissGeography(detail, row, {
+            officialEmployerSiteLocation,
+          });
+          const geography = geographyFieldsForDecision(decision, {
+            ...runtime,
+            recordLocationEvidence: true,
+            locationEvidenceUrl: page.url || detailUrl,
+            offerLocation: declaredOfferLocation(detail) || declaredOfferLocation(row),
+          });
           const description = isSufficientVacancyDescription(detail.description)
             ? detail.description
             : row.description;

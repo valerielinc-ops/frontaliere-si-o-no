@@ -206,7 +206,13 @@ if (sources.includes('seco')) {
     const filedBefore = perSource.seco || 0;
     const emailDomainHints = emailDomainHintsByEmployer(employers);
     for (const e of employers) {
-      const staffing = classifyStaffingEmployer(e.name, staffingRegistry);
+      const staffing = classifyStaffingEmployer(e.name, staffingRegistry, {
+        adCount: e.adCount,
+        cantonCount: 1,
+        cantons: [canton],
+        employerDisclosed: e.employerDisclosed,
+        undisclosedCount: e.undisclosedCount,
+      });
       file({
         name: e.name,
         secoEmployerName: e.name,
