@@ -86,9 +86,9 @@ export function eligibleSourceRun(run, definition) {
   return Boolean(definition
     && run
     && String(run.status || '') === 'completed'
+    && String(run.conclusion || '') === 'success'
     && String(run.headBranch || '') === 'main'
     && String(run.event || '') !== 'pull_request'
-    && String(run.conclusion || '') !== 'cancelled'
     && /^\d+$/u.test(String(run.databaseId || run.id || ''))
     && RUN_SHA_RE.test(String(run.headSha || '')));
 }
