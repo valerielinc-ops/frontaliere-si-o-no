@@ -104,7 +104,7 @@ export function answerOriginsForQuestions({ questions = [], answers = {}, answer
     const record = byKey.get(key);
     const answer = answers?.[question?.id];
     if (!hasAnswer(answer)) return [];
-    const localSource = object(flow.questionAnswerSources)[key];
+    const localSource = object(flow.questionAnswerSources)[key] || {};
     const localAnswer = object(flow.answers)[question.id];
     const recordOrigin = record && record.originSource !== 'unknown' && sameAnswerForOrigin(answer, record.answer, question, record.question)
       ? { originSource: record.originSource, originCvFingerprint: record.originCvFingerprint } : null;
@@ -154,8 +154,8 @@ export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, fl
     const id = String(question?.id || '').trim();
     if (!id || counts.get(id) !== 1) return [];
     const questionSnapshotHash = answerQuestionSnapshotHash({ orderId, question, draft, nowMs });
-    const source = object(flow.questionAnswerSources)[candidateQuestionAnswerKey(question)];
-    const flowOrigin = object(flow.answerOrigins)[id];
+    const source = object(flow.questionAnswerSources)[candidateQuestionAnswerKey(question)] || {};
+    const flowOrigin = object(flow.answerOrigins)[id] || {};
     const origin = source.originSource
       ? { originSource: source.originSource, originCvFingerprint: source.originCvFingerprint }
       : answerOriginMetadata({ question, flow, answer: flowOrigin.value ?? object(flow.answers)[id] });
@@ -481,7 +481,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   const verified = candidates.filter(record => {
     const key = record.key;
     const source = sources.get(record.provenance.orderId); const current = source?.draft?.questions?.find(question => question.id === record.question.id);
-    const localSource = object(source?.flow?.questionAnswerSources)[key];
+    const localSource = object(source?.flow?.questionAnswerSources)[key] || {};
     const currentCvFingerprint = answerCvFingerprint({ order: source?.order || {}, draft: source?.draft || {} });
     const activeCvMatches = record.sourceKind === 'direct_user' ? !record.cvFingerprint && !record.provenance.cvFingerprint
       : currentCvFingerprint === record.cvFingerprint && record.provenance.cvFingerprint === record.cvFingerprint;
