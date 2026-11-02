@@ -12,6 +12,7 @@ import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
+import { candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -161,17 +162,37 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   return answerIds.every(id => current[id] && guard.snapshots?.[id] === current[id]);
 }
 
-export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, replaceAnswerMaps = false, candidateAnswerLedger = null, nowMs }) {
+async function editSnapshotGuardMatches({ db, transaction, orderId, order, flow, draft, profileRecord, guard }) {
+  if (!guard) return true;
+  if (!order?.userId || order.userId !== guard.userId) return false;
+  const resolvedLocale = await resolveAnswerCommunicationLocale({ db, order, getDocument: ref => transaction.get(ref) });
+  const communicationLocale = resolvedLocale || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
+  if (communicationLocale !== normalizeAnswerCommunicationLocale(guard.communicationLocale)) return false;
+
+  const runnerContext = draft?.questions?.length
+    ? await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
+      getDocument: ref => transaction.get(ref) })
+    : { retained: true, flow };
+  const reviewFlow = candidateReviewFlow(flow, runnerContext);
+  const currentSnapshot = candidateEditSnapshot({ secret: guard.reviewSecret, orderId, order, flow: reviewFlow, draft,
+    communicationLocale, nowMs: guard.nowMs });
+  return sameCandidateEditSnapshot(currentSnapshot, guard.snapshot);
+}
+
+export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, editSnapshotGuard = null, replaceAnswerMaps = false, candidateAnswerLedger = null, nowMs }) {
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
   const profileRef = candidateAnswerLedger?.userId
     ? db.collection('user_cv_profiles').doc(candidateAnswerLedger.userId) : null;
+  const editProfileRef = editSnapshotGuard?.userId
+    ? db.collection('user_cv_profiles').doc(editSnapshotGuard.userId) : null;
+  const transactionProfileRef = profileRef || editProfileRef;
   const same = (left, right) => (left || null) === (right || null);
   const committed = await db.runTransaction(async (transaction) => {
     const [orderSnapshot, flowSnapshot, draftSnapshot, profileSnapshot] = await Promise.all([
       transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
-      profileRef ? transaction.get(profileRef) : Promise.resolve(null),
+      transactionProfileRef ? transaction.get(transactionProfileRef) : Promise.resolve(null),
     ]);
     if (!orderSnapshot.exists || !retentionWriteAllowed(orderSnapshot.data(), Date.now())) return false;
     const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
@@ -179,6 +200,8 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
       && Number(current.flow.round || 1) === Number(flow.round || 1)
       && await answerSnapshotGuardMatches({ db, transaction, orderId, order: orderSnapshot.data() || {}, flow: current.flow, draft: current.draft,
         profileRecord: profileSnapshot?.data() || {}, guard: answerSnapshotGuard })
+      && await editSnapshotGuardMatches({ db, transaction, orderId, order: orderSnapshot.data() || {}, flow: current.flow, draft: current.draft,
+        profileRecord: profileSnapshot?.data() || {}, guard: editSnapshotGuard })
       && same(current.flow.photo?.key, flow.photo?.key)
       && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
       && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));

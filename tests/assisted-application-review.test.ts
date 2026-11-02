@@ -666,7 +666,10 @@ describe('candidate review API', () => {
     expect(fields.phone).toMatchObject({ editable: true, inLetter: true });
 
     const letter = `Gentili Signori,\n\n${'Ho assistito 20 persone al giorno in reparto per sei anni, con turni di notte e di giorno. '.repeat(3)}\n\nCordiali saluti`;
-    const edit = (body: Record<string, unknown>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'edit', ...body } }, { ...deps(), bucket });
+    const edit = async (body: Record<string, unknown>) => {
+      const current = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+      return handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'edit', editSnapshot: current.body.editSnapshot, ...body } }, { ...deps(), bucket });
+    };
     expect(await edit({ coverLetterText: letter, fields: { phone: 'chiamami' } })).toMatchObject({
       status: 400,
       body: { error: 'invalid_edits', fields: { phone: 'Un numero di telefono, per esempio +41 91 123 45 67.' } },
@@ -689,6 +692,51 @@ describe('candidate review API', () => {
     const after = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     expect(after.body.formAnswers.find((field: any) => field.key === 'phone').value).toBe('+41 91 000 00 00');
     expect(after.body.editedAt).toBe(T0);
+  });
+
+  it('rejects locale-specific edits when the concierge locale changes after GET', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    const serviceRef = store.db.collection('application_concierge_services').doc('legacy-service');
+    await orderRef.set({ ...store.read(BASE), locale: null, parentServiceId: 'legacy-service' });
+    await serviceRef.set({ userId: 'candidate-review-test', locale: 'de' });
+    const shown = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(shown.body.locale).toBe('de');
+    expect(shown.body.editSnapshot).toMatch(/^[a-f0-9]{64}$/);
+    const shownFields = Object.fromEntries(shown.body.formAnswers.map((field: any) => [field.key, field]));
+    expect(shownFields.workPermit.value).toBe(permitOptions('de')[4]);
+    await serviceRef.set({ locale: 'it' }, { merge: true });
+
+    const bucket = { file: () => ({ save: async () => { throw new Error('stale edit must not rebuild'); } }) };
+    const saved = await handleAssistedApplicationReview({ method: 'POST', body: {
+      t: token(), action: 'edit', editSnapshot: shown.body.editSnapshot,
+      fields: Object.fromEntries(shown.body.formAnswers.filter((field: any) => field.editable).map((field: any) => [field.key, field.value])),
+    } }, { ...deps(), bucket });
+    expect(saved).toMatchObject({ status: 409, body: { error: 'changed_meanwhile' } });
+    expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toBeUndefined();
+    expect(store.read(`${BASE}/ai_drafts/current`)?.candidateEditedAt).toBeUndefined();
+  });
+
+  it('rechecks a legacy concierge locale inside the edit transaction before persisting', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    const serviceRef = store.db.collection('application_concierge_services').doc('legacy-service');
+    await orderRef.set({ ...store.read(BASE), locale: null, parentServiceId: 'legacy-service' });
+    await serviceRef.set({ userId: 'candidate-review-test', locale: 'de' });
+    const shown = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    const savedKeys: string[] = [];
+    const deletedKeys: string[] = [];
+    const bucket = { file: (key: string) => ({
+      save: async () => { savedKeys.push(key); await serviceRef.delete(); },
+      delete: async () => { deletedKeys.push(key); },
+    }) };
+    const saved = await handleAssistedApplicationReview({ method: 'POST', body: {
+      t: token(), action: 'edit', editSnapshot: shown.body.editSnapshot,
+      fields: { phone: '+41 91 000 00 00' },
+    } }, { ...deps(), bucket });
+    expect(saved).toMatchObject({ status: 409, body: { error: 'changed_meanwhile' } });
+    expect(savedKeys).toHaveLength(1);
+    expect(deletedKeys).toEqual(savedKeys);
+    expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toBeUndefined();
+    expect(store.read(`${BASE}/ai_drafts/current`)?.candidateEditedAt).toBeUndefined();
   });
 
   it('accepts edits only while the candidate reviews the current round', async () => {

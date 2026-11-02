@@ -45,6 +45,7 @@ import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationRe
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
+import { candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
@@ -102,7 +103,8 @@ async function authorize(token, deps) {
   const verified = verifyReviewToken({ secret, token, nowMs: deps.nowMs });
   if (!verified.ok) throw new ReviewError(verified.error === 'expired' ? 'link_expired' : 'invalid_link', 403);
   if (verified.consentBound) await requireConsentStillGiven(deps.db, verified);
-  return verified;
+  // Kept server-side for opaque edit snapshots; never returned in an API body.
+  return { ...verified, reviewSecret: secret };
 }
 
 /**
@@ -298,7 +300,7 @@ export function sendReviewResponse(res, { status, body, file, noStore }) {
 }
 
 export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, answerEvidence = [],
-  communicationLocale = order?.locale || 'it', nowMs = Date.now() }) {
+  communicationLocale = order?.locale || 'it', editSnapshotSecret = '', nowMs = Date.now() }) {
   const locale = normalizeAnswerCommunicationLocale(communicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
   const current = Number(flow?.round) || 1;
@@ -331,6 +333,11 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const channel = draft?.channel || {};
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow, locale });
+  const applicationEmail = channel.type === 'email' && draft?.applicationEmail
+    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers) }
+    : null;
+  const editSnapshot = candidateEditSnapshot({ secret: editSnapshotSecret, orderId, order, flow, draft,
+    communicationLocale: locale, nowMs });
   const stale = round !== current;
   const ready = Boolean(draft && draft.status === 'ready' && Number(draft.round) === current);
   return {
@@ -360,10 +367,9 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     ready,
     coverLetter: draft ? { subject: draft.coverLetter?.subject || '', text: draft.coverLetter?.text || '' } : null,
     coverLetterUrl: coverLetterUrl || null,
-    applicationEmail: channel.type === 'email' && draft?.applicationEmail
-      ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers) }
-      : null,
+    applicationEmail,
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
+    editSnapshot,
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
     questions,
@@ -478,7 +484,7 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', s
  * own words become a fact source, and the texts are judged with the status
  * the candidate has now.
  */
-async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs, communicationLocale }) {
+async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs, communicationLocale, editSnapshotGuard }) {
   const locale = normalizeAnswerCommunicationLocale(communicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
   const plan = planCandidateEdits(body, { order, draft, flow, locale, nowMs });
@@ -516,6 +522,7 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     db, bucket, orderId, flow, draft, nowMs,
     // Every edit builds on the letter and the texts on the draft (fact-checked again), rebuilt or not.
     edits: true,
+    editSnapshotGuard,
     created: [coverLetterPdfKey, tailored?.pdfKey],
     // Only the fields this request changed: the merge leaves the others as another request wrote them.
     flowPatch: Object.keys(plan.overrides).length ? { formOverrides: plan.overrides } : null,
@@ -732,7 +739,8 @@ export async function handleAssistedApplicationReview(req, deps) {
   try {
     if (method === 'GET') {
       const token = String(req.query?.t || '');
-      const { orderId, round, kind } = await authorize(token, { ...deps, nowMs });
+      const authorization = await authorize(token, { ...deps, nowMs });
+      const { orderId, round, kind } = authorization;
       // An editable Word copy: the page's token checks, then built in memory and answered as a file.
       if (req.query?.file !== undefined) {
         if (kind !== 'review' || !WORD_FILES.has(String(req.query.file))) throw new ReviewError('not_found', 404);
@@ -755,13 +763,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       // The candidate may inspect and confirm a legacy answer on this page.
       // Keep that display-only projection here, but never pass it to the
       // runner/fill-kit path (loadRunnerAnswerContext remains fail-closed).
-      const displayLegacyAnswers = runnerContext.retained
-        && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
-      const reviewFlow = runnerContext.retained ? {
-        ...runnerContext.flow,
-        answers: { ...(displayLegacyAnswers ? flow?.answers || {} : {}), ...(runnerContext.flow?.answers || {}) },
-        questionAnswers: { ...(displayLegacyAnswers ? flow?.questionAnswers || {} : {}), ...(runnerContext.flow?.questionAnswers || {}) },
-      } : runnerContext.flow;
+      const reviewFlow = candidateReviewFlow(flow, runnerContext);
       // One signature per key and request: the letter can be both the review's and a kept file.
       const signed = new Map();
       const sign = (key) => {
@@ -792,7 +794,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission,
         answerEvidence: runnerContext.answerEvidence,
         communicationLocale: normalizeAnswerCommunicationLocale(runnerContext.communicationLocale)
-          || normalizeAnswerCommunicationLocale(order?.locale) || 'it', nowMs }),
+          || normalizeAnswerCommunicationLocale(order?.locale) || 'it', editSnapshotSecret: authorization.reviewSecret, nowMs }),
         employerResponse: employerResponseView(employerResponse),
         employerResponseTimeline: employerResponseTimelineView(employerResponseTimeline),
       } };
@@ -839,9 +841,18 @@ export async function handleAssistedApplicationReview(req, deps) {
       if (flow.state !== 'candidate_review' || !draft || draft.status !== 'ready' || Number(draft.round) !== round) {
         throw new ReviewError('not_allowed', 409);
       }
-      const communicationLocale = await resolveAnswerCommunicationLocale({ db: deps.db, order })
+      const runnerContext = draft?.questions?.length
+        ? await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs })
+        : { retained: true, flow };
+      const reviewFlow = candidateReviewFlow(flow, runnerContext);
+      const communicationLocale = normalizeAnswerCommunicationLocale(runnerContext.communicationLocale)
+        || await resolveAnswerCommunicationLocale({ db: deps.db, order })
         || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
-      const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, body, nowMs, communicationLocale });
+      const currentSnapshot = candidateEditSnapshot({ secret: claims.reviewSecret, orderId, order, flow: reviewFlow, draft,
+        communicationLocale, nowMs });
+      if (!sameCandidateEditSnapshot(body.editSnapshot, currentSnapshot)) throw new ReviewError('changed_meanwhile', 409);
+      const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow: reviewFlow, draft, body, nowMs,
+        communicationLocale, editSnapshotGuard: { snapshot: currentSnapshot, reviewSecret: claims.reviewSecret, communicationLocale, userId: order.userId, nowMs } });
       return { status: 200, body: { ok: true, state: flow.state, changed } };
     }
     if (action === 'cv_lines') {
