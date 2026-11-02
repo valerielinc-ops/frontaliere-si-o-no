@@ -1521,8 +1521,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(localizedBody);
- const articleWithheldFromIndex = articleBodyHasPromptPlaceholder
-  || articleIndexExclusions.has(articleIndexExclusionKey(SECTION.name, en.articleId));
+ const articleWithheldFromIndex = SECTION.kind !== 'canton' && (
+  articleBodyHasPromptPlaceholder
+  || articleIndexExclusions.has(articleIndexExclusionKey(SECTION.name, en.articleId))
+ );
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
  const na = parseInt(a.replace('body', ''), 10);
  const nb = parseInt(b.replace('body', ''), 10);
