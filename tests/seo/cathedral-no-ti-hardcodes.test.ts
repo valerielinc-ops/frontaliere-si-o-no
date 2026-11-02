@@ -129,7 +129,8 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/seo-audit-employer-slugs.mjs': 8,
   'scripts/seo-audit-visual.mjs': 5,
   'scripts/validate-spa-render.mjs': 5,
-  'scripts/verify-post-deploy-seo.mjs': 4,
+  // 4 → 2 with #15695: route classification moved to `isJobDetailPath`.
+  'scripts/verify-post-deploy-seo.mjs': 2,
   'services/analyticsPageContext.ts': 4,
   // 9 → 10 con #11769: l'`@id` del nodo WebSite della job board deve
   // coincidere con la `url` TI della riga accanto. Qui il marker inline NON e'

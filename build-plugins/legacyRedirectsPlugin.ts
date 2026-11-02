@@ -30,7 +30,7 @@ import { loadArticleRedirects, loadArticleCanonicalOverrides, assertNoCanonicalO
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
-import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { LEGACY_TI_STATIC_REDIRECTS, SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 import {
  getSafeDistPageTargets,
@@ -116,13 +116,9 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  // tests/article-rename-redirects.test.ts fails on any key declared twice.
  const redirects: Record<string, string> = {
  ...LEGACY_LUGANO_COMPETITION_REDIRECTS,
- // Obsolete search-combination bridges confirmed by SE Ranking. The Worker
- // promotes the marked fallback to HTTP 301; a future real page still wins.
- '/cerca-lavoro-ticino/ricerca-ambiente-bern/': '/cerca-lavoro-ticino/',
- '/cerca-lavoro-ticino/ricerca-ambiente-luzern/': '/cerca-lavoro-ticino/',
- // Same Post ATS vacancy 73995-it_IT (stable id posta-svizzera-centro-regionale-9aea4c466375).
- // The old Italian locale URL is absent from previousSlugs; other locales link to this canonical.
- '/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-la-posta-svizzera-lugano/': '/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-post/',
+ // Obsolete TI search-combination bridges and the verified Post ATS alias.
+ // The shared map is also consumed by the generated Edge table.
+ ...LEGACY_TI_STATIC_REDIRECTS,
  '/guida-frontalieri/': '/guida-frontaliere/',
  '/guida-frontalieri/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
  '/pianificatore-pensione/': '/tasse-e-pensione/calcola-previdenza/',

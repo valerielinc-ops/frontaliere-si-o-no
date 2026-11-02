@@ -3,6 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from '../../build-plugins/jobSectorLanding';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { isIntentionalRedirectPage } from '../../scripts/validate-page-seo-quality.mjs';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
@@ -216,6 +217,16 @@ describe('cathedral — Switzerland aggregate sector hubs', () => {
  * listings for jobs from that company in that specific canton.
  */
 describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
+  it('classifies only marked noindex/refresh bridge documents outside the indexable hub contract', () => {
+    expect(isIntentionalRedirectPage(
+      `<!doctype html><html><head>${REDIRECT_STUB_MARKER}<meta content="noindex,follow" name="robots"></head></html>`,
+    )).toBe(true);
+    expect(isIntentionalRedirectPage(
+      `<!doctype html><html><head>${REDIRECT_STUB_MARKER}<meta name="robots" content="index,follow"></head></html>`,
+    )).toBe(false);
+    expect(isIntentionalRedirectPage('<meta name="robots" content="noindex,follow">')).toBe(false);
+  });
+
   it('per-canton company hubs emit when canton has the company with ≥3 jobs', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const nonTiSections = [
@@ -304,10 +315,20 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
 
     const drifted: Array<{ entry: string; canonical: string }> = [];
     let checked = 0;
+    let redirectStubsSkipped = 0;
     for (const entry of aziendaEntries) {
       const f = path.join(tiDir, entry, 'index.html');
       if (!fs.existsSync(f)) continue;
       const html = fs.readFileSync(f, 'utf-8');
+      // The reassembled deploy corpus can retain old job-title slugs that
+      // happen to start with `azienda-`. A marked noindex bridge is served
+      // through the edge 301 path and is not an indexable company hub; keep
+      // checking every real hub, while requiring bridge pages to prove their
+      // intentional redirect contract before excluding them from canonicals.
+      if (isIntentionalRedirectPage(html)) {
+        redirectStubsSkipped++;
+        continue;
+      }
       const m = html.match(canonicalRe);
       expect(m, `${entry} must declare a <link rel=canonical>`).not.toBeNull();
       const canonical = m![1];
@@ -317,7 +338,7 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
       }
     }
 
-    expect(checked, 'No readable TI company-hub index.html found').toBeGreaterThan(0);
+    expect(checked, `No readable TI company-hub index.html found (${redirectStubsSkipped} marked noindex bridge(s) skipped)`).toBeGreaterThan(0);
     expect(
       drifted,
       `TI company hub(s) canonicalize to a foreign canton (must be TI-self or ${SWISS_AGGREGATOR}):\n` +
