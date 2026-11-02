@@ -162,10 +162,12 @@ function stripSuffixes(slug) {
 }
 
 /**
- * Audit mode is deliberately override-only: the audit input never authorizes
- * a domain derived from a company key, a job URL, or crawler metadata. The
- * legacy mode remains available for manual recovery and keeps its historical
- * guessed candidates; the weekly workflow must invoke `--from-audit`.
+ * Audit mode is deliberately source-backed: the audit input never authorizes
+ * a domain derived from a company key, a job URL, or generic crawler metadata.
+ * It accepts only explicit overrides or domains marked by the trusted source
+ * contract (for example the Ticino Comune registry). The legacy mode remains
+ * available for manual recovery and keeps its historical guessed candidates;
+ * the weekly workflow must invoke `--from-audit`.
  */
 export function domainCandidates(key, metadata = {}, options = {}) {
   const fromAudit = options === true || options?.fromAudit === true;
@@ -175,6 +177,9 @@ export function domainCandidates(key, metadata = {}, options = {}) {
   const add = (value) => addUnique(candidates, seen, value);
 
   for (const domain of DOMAIN_OVERRIDES[companyKey] || []) add(domain);
+  for (const domain of metadata.sourceBackedCompanyDomains || []) {
+    if (!isAtsDomain(domain)) add(domain);
+  }
   if (fromAudit) return candidates;
 
   for (const domain of metadata.companyDomains || []) {
@@ -217,6 +222,7 @@ const ACQUISITION_REASON_LABELS = {
 export function selectAuditCandidates(entries = []) {
   return entries.filter((entry) => (
     (entry?.status === 'missing'
+      || entry?.status === 'partial'
       || entry?.status === 'external'
       || Number(entry?.externalJobCount || 0) > 0
       || entry?.status === 'low-quality'

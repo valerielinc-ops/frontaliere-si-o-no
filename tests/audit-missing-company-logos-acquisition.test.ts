@@ -88,6 +88,46 @@ describe('missing company-logo acquisition', () => {
     expect(domainCandidates('acme')).toEqual(['acme.ch', 'acme.com']);
   });
 
+  it('uses a source-backed Ticino Comune domain in audit mode without trusting generic metadata', async () => {
+    const metadata = {
+      companyDomains: new Set(['generic.example']),
+      urlHosts: new Set(['jobs.example']),
+      sourceBackedCompanyDomains: new Set(['comune.example']),
+    };
+    expect(domainCandidates('comune-di-esempio', metadata, { fromAudit: true }))
+      .toEqual(['comune.example']);
+    expect(domainCandidates('comune-di-esempio', {
+      companyDomains: new Set(['comune.example']),
+      urlHosts: new Set(),
+    }, { fromAudit: true })).toEqual([]);
+    expect(domainCandidates('comune-di-esempio', {
+      sourceBackedCompanyDomains: new Set(['jobs.ch']),
+    }, { fromAudit: true })).toEqual([]);
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (url) => {
+      if (url === 'https://comune.example/') {
+        return new Response('<link rel="icon" href="https://comune.example/logo.png">', {
+          headers: { 'content-type': 'text/html' },
+        });
+      }
+      if (url === 'https://comune.example/logo.png') {
+        return new Response(pngBytes(), { headers: { 'content-type': 'image/png' } });
+      }
+      throw new Error(`unexpected network probe: ${url}`);
+    };
+    try {
+      const result = await downloadForKey('comune-di-esempio', metadata, { fromAudit: true });
+      expect(result).toEqual(expect.objectContaining({
+        accepted: true,
+        source: 'official-html-icon',
+        sourceDomain: 'comune.example',
+      }));
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
   it('declares an official domain for every company in the current #6504 residual', () => {
     for (const [key, domains] of Object.entries(CURRENT_RESIDUAL_DOMAIN_OVERRIDES)) {
       expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
@@ -101,11 +141,12 @@ describe('missing company-logo acquisition', () => {
   it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {
     const entries = [
       { companyKey: 'yellowshark', status: 'missing', companyName: 'yellowshark AG' },
+      { companyKey: 'comune-di-esempio', status: 'partial', companyName: 'Comune di Esempio' },
       { companyKey: 'broken', status: 'broken', companyName: 'Broken AG' },
       { companyKey: 'low-quality', status: 'low-quality', companyName: 'Low Quality AG' },
     ];
 
-    expect(selectAuditCandidates(entries)).toEqual([entries[0], entries[2]]);
+    expect(selectAuditCandidates(entries)).toEqual([entries[0], entries[1], entries[3]]);
   });
 
   it('selects external references for stable CDN mirroring', () => {

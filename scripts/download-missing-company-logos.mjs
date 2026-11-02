@@ -9,9 +9,10 @@
  * an HTML page, and an HTTP error are all rejected.
  *
  * `--from-audit` is the only mode used by the weekly workflow and accepts
- * only explicit DOMAIN_OVERRIDES domains or declared logo URLs from the
- * registry/canonical job data; it never guesses from a company key or job
- * metadata. Legacy mode (known-company-slugs.json + latest history) remains
+ * only explicit DOMAIN_OVERRIDES domains, declared logo URLs, or domains
+ * marked source-backed by a trusted registry/crawler contract; it never
+ * guesses from a company key or generic job metadata. Legacy mode
+ * (known-company-slugs.json + latest history) remains
  * available for manual recovery and retains historical guesses, but the
  * workflow must never invoke it:
  *
@@ -28,6 +29,10 @@ import {
   fetchVerifiedLogo,
   MAX_LOGO_BODY_BYTES,
 } from './lib/company-logo-audit.mjs';
+import {
+  hasSourceBackedTicinoComuneDomain,
+  scopedEmployerKey,
+} from './lib/ticino-comune-employer-identity.mjs';
 import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { directLogoSources, loadLogoRegistry } from './lib/company-logo-registry.mjs';
@@ -77,7 +82,7 @@ async function readJson(file, fallback = null) {
 }
 
 function jobKey(job) {
-  return String(job?.companyKey || '').trim() || slugify(job?.company || job?.employer || '');
+  return scopedEmployerKey(job) || slugify(job?.company || job?.employer || '');
 }
 
 function metadataFromJobs(jobs) {
@@ -88,6 +93,7 @@ function metadataFromJobs(jobs) {
     const current = metadata.get(key) || {
       names: new Set(),
       companyDomains: new Set(),
+      sourceBackedCompanyDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
       declaredLogoUrls: new Set(),
@@ -96,6 +102,9 @@ function metadataFromJobs(jobs) {
     if (name) current.names.add(name);
     const companyDomain = normalizeDomain(job.companyDomain);
     if (companyDomain) current.companyDomains.add(companyDomain);
+    if (companyDomain && hasSourceBackedTicinoComuneDomain(job)) {
+      current.sourceBackedCompanyDomains.add(companyDomain);
+    }
     for (const declaredLogo of [
       job.companyLogo,
       job.logoUrl,
@@ -159,6 +168,7 @@ async function loadAuditTargets(reportPath, jobsPath) {
     const current = metadata.get(key) || {
       names: new Set(),
       companyDomains: new Set(),
+      sourceBackedCompanyDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
       declaredLogoUrls: new Set(),
@@ -208,6 +218,7 @@ async function loadLegacyTargets() {
     const current = metadata.get(key) || {
       names: new Set(),
       companyDomains: new Set(),
+      sourceBackedCompanyDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
     };

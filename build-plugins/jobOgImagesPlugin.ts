@@ -28,6 +28,7 @@ import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
+import { scopedEmployerKey } from '../scripts/lib/ticino-comune-employer-identity.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -556,7 +557,8 @@ export default function jobOgImagesPlugin(): Plugin {
           }
         }
 
-        const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
+        const logoKey = scopedEmployerKey(job);
+        const logoMfPath = logoKey ? manifest[logoKey] : undefined;
         const model: CardModel = {
           // Prefer the Italian-translated title when present. The plugin's
           // audience is Italian-speaking frontalieri, the slug is built from
