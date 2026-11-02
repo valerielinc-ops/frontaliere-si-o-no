@@ -354,8 +354,8 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
   });
 
   it('does not collapse non-ASSOLO postings with the same short hash', () => {
-    const first = 'https://other.example/jobs/a-14e5fc00?i=1';
-    const second = 'https://other.example/jobs/b-14e5fc00?i=1';
+    const first = 'https://other.ch/jobs/a-14e5fc00?i=1';
+    const second = 'https://other.ch/jobs/b-14e5fc00?i=1';
 
     expect(mergeUrlKey(first)).not.toBe('hex:14e5fc00');
     expect(mergeUrlKey(first)).not.toBe(mergeUrlKey(second));

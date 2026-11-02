@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 /**
  * Canonical URL-key normalization for job identity — single source of truth.
  *
@@ -248,11 +250,30 @@ const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 // job id for every vendor.
 const ASSOLO_ITEM_LEAF_RE = /-([0-9a-f]{8})$/i;
 const ASSOLO_ITEM_QUERY_RE = /[?&]i=1(?:&|$)/i;
-// ASSOLO publishes the item slug from the municipality's Swiss site (the
-// covered registry uses `.ch` and `.swiss` hosts), not from a generic jobs
-// portal. Keep the short-hash rule scoped to that host/path family so an
-// unrelated vendor cannot inherit the hostless `hex:` key.
-const ASSOLO_HOST_RE = /^https?:\/\/(?:www\.)?[a-z0-9-]+\.(?:ch|swiss)(?::\d+)?\//i;
+// ASSOLO publishes the item slug from the municipality's Swiss site, not from
+// a generic jobs portal. Derive the host allowlist from the same registry that
+// selects the ASSOLO crawlers so a random `.ch`/`.swiss` host cannot inherit
+// the hostless `hex:` key. Subdomains remain valid, matching the crawler's
+// trusted-domain policy (`www.<domain>` is the common canonical form).
+const ASSOLO_HOSTS = new Set(
+  JSON.parse(readFileSync(new URL('../../data/ticino-comuni-registry.json', import.meta.url), 'utf8')).comuni
+    .filter((entry) => entry.status === 'covered'
+      && entry.cms === 'assolo'
+      && entry.listing?.type === 'assolo')
+    .flatMap((entry) => [entry.domain, ...(entry.extraHosts || [])])
+    .map((host) => String(host || '').trim().toLowerCase())
+    .filter(Boolean),
+);
+
+function isAssoloHost(url) {
+  let hostname;
+  try {
+    hostname = new URL(url).hostname.toLowerCase();
+  } catch {
+    return false;
+  }
+  return [...ASSOLO_HOSTS].some((host) => hostname === host || hostname.endsWith(`.${host}`));
+}
 const ASSOLO_ITEM_PATH_RE = /^https?:\/\/[^/?#]+\/(?:[^/?#]+\/)*[^/?#]+-[0-9a-f]{8}$/i;
 
 // A per-job id carried in the QUERY string behind a generic/file leaf
@@ -428,7 +449,7 @@ export function mergeUrlKey(url) {
   // per-item hash so sibling notices do not share one merge key.
   const assoloItem = leaf.match(ASSOLO_ITEM_LEAF_RE);
   const pathOnly = u.split(/[?#]/)[0];
-  if (ASSOLO_HOST_RE.test(u) && ASSOLO_ITEM_PATH_RE.test(pathOnly)
+  if (isAssoloHost(u) && ASSOLO_ITEM_PATH_RE.test(pathOnly)
       && assoloItem && /[a-f]/i.test(assoloItem[1]) && ASSOLO_ITEM_QUERY_RE.test(u)) {
     return `hex:${assoloItem[1]}`;
   }
