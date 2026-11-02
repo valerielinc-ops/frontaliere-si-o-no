@@ -49,6 +49,7 @@ const KNOWN_WEBCAM_KEYS = new Set([
   'license',
   'licenseNote',
   'embedAllowed',
+  'deferLoad',
   'robots',
   'updateFrequency',
   'minBytes',
@@ -161,6 +162,7 @@ describe('borderCrossings — structural integrity', () => {
           }
           if (cam.licenseNote !== undefined) expect(typeof cam.licenseNote).toBe('string');
           if (cam.embedAllowed !== undefined) expect(typeof cam.embedAllowed).toBe('boolean');
+          if (cam.deferLoad !== undefined) expect(typeof cam.deferLoad).toBe('boolean');
           if (cam.robots !== undefined) expect(['allowed', 'disallowed', 'unknown']).toContain(cam.robots);
           if (cam.updateFrequency !== undefined) expect(typeof cam.updateFrequency).toBe('string');
           if (cam.minBytes !== undefined) expect(typeof cam.minBytes).toBe('number');
