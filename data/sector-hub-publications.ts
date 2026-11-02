@@ -88,12 +88,8 @@ export function isIndexableSectorHubPublication(
   employerCount: number,
   locale?: SectorPublicationLocale,
 ): boolean {
-  const automaticallyRecovered = publication.status === 'retired'
-    && !publication.retirementReason?.trim()
-    && activeJobCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
-    && employerCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS;
   return !publication.retirementReason?.trim()
-    && (publication.status === 'active' || automaticallyRecovered)
+    && publication.status === 'active'
     && (locale === undefined || Boolean(publication.labelByLocale[locale]?.trim()))
     && activeJobCount >= AUTO_SECTOR_HUB_MIN_JOBS
     && employerCount >= AUTO_SECTOR_HUB_MIN_EMPLOYERS;

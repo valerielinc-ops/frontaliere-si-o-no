@@ -20,8 +20,6 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { SECTOR_HUB_LOCALE_PREFIX, SECTOR_HUB_SECTION } from './shared/jobSectorPaths';
 import {
-  AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS,
-  AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS,
   isIndexableSectorHubPublication,
   type SectorPublicationLocale,
 } from '../data/sector-hub-publications';
@@ -345,7 +343,6 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       const dateStamp = BUILD_DATE_STAMP;
       const collector = new WriteCollector({ distDir, pluginName: 'autoSectorHubPagesPlugin' });
       const sitemapEntries: string[] = [];
-      const reactivated: string[] = [];
       let emitted = 0;
       let indexable = 0;
 
@@ -370,12 +367,6 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
           publication, jobs.length, employers, locale,
         ));
         if (!allIndexedLocales.length) continue;
-        if (publication.status === 'retired'
-          && !publication.retirementReason?.trim()
-          && jobs.length >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
-          && employers >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS) {
-          reactivated.push(`${publication.slug} (${jobs.length} offers, ${employers} employers)`);
-        }
         const alternates = allIndexedLocales.map((locale) =>
           `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${buildAutoSectorHubPath(locale, publication.slug, publication.routeKind)}" />`,
         ).join('\n');
@@ -387,9 +378,6 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       }
 
       await collector.flush();
-      if (reactivated.length) {
-        console.log(`[auto-sector-hubs] automatically reactivated ${reactivated.length} retired hub(s): ${reactivated.join('; ')}.`);
-      }
       const sitemapFile = np.join(distDir, 'sitemap-auto-sector-hubs.xml');
       if (sitemapEntries.length === 0) {
         fs.rmSync(sitemapFile, { force: true });

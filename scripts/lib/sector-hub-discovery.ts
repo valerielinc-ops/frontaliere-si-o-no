@@ -155,6 +155,8 @@ export interface TrafficSnapshot {
 export type PreviousSectorHubCandidate = {
   suggestedSlug?: string;
   observedWeeks?: string[];
+  consecutiveEligibleWeeks?: number;
+  lastEligibleWeek?: string;
   firstSeenAt?: string;
   lastSeenAt?: string;
   slugConflict?: boolean;
@@ -260,6 +262,31 @@ function consecutiveWeekCount(weeks: readonly string[]): number {
     previousStart = start;
   }
   return count;
+}
+
+function nextConsecutiveEligibleWeeks({
+  previousCount,
+  previousWeek,
+  currentWeek,
+  eligible,
+}: {
+  previousCount?: number;
+  previousWeek?: string;
+  currentWeek: string;
+  eligible: boolean;
+}): { count: number; lastWeek?: string } {
+  if (!eligible) return { count: 0 };
+  const count = Number.isInteger(previousCount) && Number(previousCount) > 0
+    ? Number(previousCount)
+    : 0;
+  if (previousWeek === currentWeek) return { count: Math.max(count, 1), lastWeek: currentWeek };
+  const previousStart = previousWeek ? isoWeekStart(previousWeek) : null;
+  const currentStart = isoWeekStart(currentWeek);
+  return {
+    count: count > 0 && previousStart !== null && currentStart !== null
+      && currentStart - previousStart === WEEK_MS ? count + 1 : 1,
+    lastWeek: currentWeek,
+  };
 }
 
 function normalizePath(value: string): string {
@@ -618,6 +645,17 @@ export function buildSectorHubDiscoveryReport({
     const slugConflicts = Object.entries(SECTOR_HUB_SLUG).some(([, slugs]) =>
       Object.values(slugs).some((knownSlug) => knownSlug === slug))
       || (SECTOR_HUB_KEYS as readonly string[]).includes(slug);
+    const reactivationEligible = !slugConflicts
+      && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)
+      && activeJobCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
+      && employers.size >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS
+      && trafficEvidence;
+    const eligibleWeeks = nextConsecutiveEligibleWeeks({
+      previousCount: old?.consecutiveEligibleWeeks,
+      previousWeek: old?.lastEligibleWeek,
+      currentWeek,
+      eligible: reactivationEligible,
+    });
     const automaticPromotionEligible = !slugConflicts
       && activeJobCount >= MIN_PROMOTION_JOBS
       && employers.size >= MIN_PROMOTION_EMPLOYERS
@@ -645,6 +683,9 @@ export function buildSectorHubDiscoveryReport({
       gscQueryClicks28d: Math.round(queryMetrics.clicks),
       score,
       consecutiveWeeks: candidateAgeWeeks,
+      trafficEvidence,
+      consecutiveEligibleWeeks: eligibleWeeks.count,
+      lastEligibleWeek: eligibleWeeks.lastWeek,
       observedWeeks,
       firstSeenAt: old?.firstSeenAt || generatedAt,
       lastSeenAt: generatedAt,
@@ -674,6 +715,8 @@ export function buildSectorHubDiscoveryReport({
       gscQueryImpressions28d: 0,
       gscQueryClicks28d: 0,
       score: 0,
+      consecutiveEligibleWeeks: 0,
+      lastEligibleWeek: undefined,
       status: 'dormant',
       automaticPromotionEligible: false,
       requiresCuratedTaxonomy: true,
@@ -776,6 +819,8 @@ type AutomaticHubCandidate = {
   ga4Sessions28d: number;
   gscJobPageImpressions28d: number;
   consecutiveWeeks: number;
+  trafficEvidence?: boolean;
+  consecutiveEligibleWeeks?: number;
   status: string;
   slugConflict: boolean;
 };
@@ -784,6 +829,15 @@ function qualifiesForAutomaticPublication(candidate: AutomaticHubCandidate): boo
   return candidate.automaticPromotionEligible === true
     && !candidate.slugConflict
     && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.suggestedSlug);
+}
+
+function qualifiesForAutomaticReactivation(candidate: AutomaticHubCandidate): boolean {
+  return !candidate.slugConflict
+    && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.suggestedSlug)
+    && candidate.trafficEvidence === true
+    && candidate.activeJobCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
+    && candidate.employerCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS
+    && (candidate.consecutiveEligibleWeeks || 0) >= AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS;
 }
 
 function labelsForCandidate(
@@ -816,9 +870,9 @@ function samePublicationState(
  * Promote all quality-qualified candidates into the compact public registry.
  * The weekly lifecycle has hysteresis: a missing gate moves an active hub to
  * cooling-off and a second consecutive miss retires it. Automatic recovery
- * needs two consecutive eligible weeks plus the existing promising-candidate
- * inventory floor (8 jobs / 3 employers). A non-empty retirementReason is an
- * owner-directed lock and is never cleared by discovery.
+ * needs two consecutive weeks meeting its inventory and traffic gates; its
+ * counter is independent of candidate age. A non-empty retirementReason is
+ * an owner-directed lock and is never cleared by discovery.
  */
 export function buildAutomaticSectorHubPublicationRegistry({
   report,
@@ -847,14 +901,11 @@ export function buildAutomaticSectorHubPublicationRegistry({
   const previousBySlug = new Map(previousHubs.map((hub) => [hub.slug, hub]));
   const qualifying = report.candidates
     .filter((candidate) => {
-      if (!qualifiesForAutomaticPublication(candidate)) return false;
       const old = previousBySlug.get(candidate.suggestedSlug);
-      if (!old) return true;
-      if (old.retirementReason?.trim()) return false;
-      if (old.status !== 'retired') return true;
-      return candidate.activeJobCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
-        && candidate.employerCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS
-        && candidate.consecutiveWeeks >= AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS;
+      if (old?.status === 'retired') {
+        return !old.retirementReason?.trim() && qualifiesForAutomaticReactivation(candidate);
+      }
+      return qualifiesForAutomaticPublication(candidate);
     })
     .sort((a, b) => b.activeJobCount - a.activeJobCount || a.suggestedSlug.localeCompare(b.suggestedSlug));
   const qualifyingSlugs = new Set(qualifying.map((candidate) => candidate.suggestedSlug));
