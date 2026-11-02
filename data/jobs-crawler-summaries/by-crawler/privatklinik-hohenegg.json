@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-11-01T22:16:50.377Z",
+  "generatedAt": "2026-11-02T09:20:28.613Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5693,
-  "avgDurationMs": 5693,
+  "durationMs": 6230,
+  "avgDurationMs": 6230,
   "durationHistory": [
-    5693
+    6230
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T22:16:33.743Z",
+      "crawledAt": "2026-11-02T09:20:14.061Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:16:33.743Z",
+      "validThrough": "2026-12-02T09:20:14.061Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T22:16:33.323Z",
+      "crawledAt": "2026-11-02T09:20:13.585Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:16:33.323Z",
+      "validThrough": "2026-12-02T09:20:13.585Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T22:16:32.901Z",
+      "crawledAt": "2026-11-02T09:20:13.106Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:16:32.901Z",
+      "validThrough": "2026-12-02T09:20:13.106Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -182,7 +182,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T22:16:32.481Z",
+      "crawledAt": "2026-11-02T09:20:12.630Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:16:32.481Z",
+      "validThrough": "2026-12-02T09:20:12.630Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -231,7 +231,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T22:16:32.038Z",
+      "crawledAt": "2026-11-02T09:20:12.135Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:16:32.038Z",
+      "validThrough": "2026-12-02T09:20:12.135Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -268,5 +268,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }

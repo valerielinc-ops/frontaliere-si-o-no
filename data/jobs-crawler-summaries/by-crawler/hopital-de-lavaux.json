@@ -1,7 +1,7 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-11-01T22:13:33.486Z",
+  "generatedAt": "2026-11-02T09:26:49.573Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3275,
-  "avgDurationMs": 3275,
+  "durationMs": 5583,
+  "avgDurationMs": 5583,
   "durationHistory": [
-    3275
+    5583
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:13:15.229Z",
+      "crawledAt": "2026-11-02T09:26:34.137Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T22:13:15.229Z",
+      "validThrough": "2027-01-07T09:26:34.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:13:15.228Z",
+      "crawledAt": "2026-11-02T09:26:34.136Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T22:13:15.228Z",
+      "validThrough": "2027-01-31T09:26:34.136Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "url": "https://app.beehire.com/invite/SQHUP0Mz6",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:13:15.226Z",
+      "crawledAt": "2026-11-02T09:26:34.135Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T22:13:15.226Z",
+      "validThrough": "2027-01-12T09:26:34.135Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -168,5 +168,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }
