@@ -1,16 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-11-02T10:07:24.592Z",
+  "generatedAt": "2026-11-02T21:59:46.201Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1890,
-  "avgDurationMs": 1890,
+  "durationMs": 1644,
+  "avgDurationMs": 1644,
   "durationHistory": [
-    1890
+    1644
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -54,7 +54,8 @@
         "postalCode": "6855",
         "addressLocality": "Stabio",
         "addressRegion": "TI",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Via Croce Campagna 2",
       "streetAddressSource": "zefix-registry",
@@ -70,5 +71,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }
