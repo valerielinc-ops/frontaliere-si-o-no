@@ -29,6 +29,9 @@ export interface WebcamRef {
  licenseNote?: string;
  /** False when the provider permits only an external link, not an embed/hotlink. */
  embedAllowed?: boolean;
+ /** Defer the frame URL to the browser runtime so static crawlers do not
+  * fetch a crawler-blocked image. */
+ deferLoad?: boolean;
  /** robots policy checked for the public source URL. */
  robots?: 'allowed' | 'disallowed' | 'unknown';
  /** Human-readable provider cadence or observation note. */
@@ -164,6 +167,9 @@ export const borderCrossings: BorderCrossing[] = [
    sourceName: TI_POLCA_SOURCE_NAME,
    sourceUrl: TI_POLCA_SOURCE_URL,
    refreshIntervalMs: 60000,
+   // The direct frame intermittently returns 403 to crawlers. Keep the
+   // interactive embed, but defer its URL until the browser runtime.
+   deferLoad: true,
   },
  ],
  },
@@ -192,6 +198,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  {
  label: 'A2 – Coldrerio (corridoio Chiasso-Mendrisio) direzione nord',
@@ -199,6 +206,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  ],
  },
@@ -226,6 +234,7 @@ export const borderCrossings: BorderCrossing[] = [
    sourceName: TI_POLCA_SOURCE_NAME,
    sourceUrl: TI_POLCA_SOURCE_URL,
    refreshIntervalMs: 60000,
+  deferLoad: true,
   },
  ],
  },
@@ -400,6 +409,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  {
  label: 'A2 – Maroggia (riva lago, corridoio Lugano-Chiasso) direzione sud',
@@ -407,6 +417,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  ],
  },
@@ -464,6 +475,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  {
  label: 'A2 – Mendrisio-Stabio direzione sud',
@@ -471,6 +483,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  // NOTE: 'A2 – Mendrisio (uscita Stabio) direzione nord' (07.2N.gif) was
  // removed 2026-07-03 (issue #3372) — upstream www4.ti.ch feed returns a
@@ -505,6 +518,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  {
  label: 'A2 – Mendrisio-Stabio direzione sud',
@@ -512,6 +526,7 @@ export const borderCrossings: BorderCrossing[] = [
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
+ deferLoad: true,
  },
  ],
  },

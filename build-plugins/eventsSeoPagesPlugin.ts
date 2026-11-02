@@ -113,6 +113,7 @@ import { extractEventPeopleFromTitle, fillEventPeopleDefaults, normalizeEventPeo
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
+import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from './shared/eventDetailNoindexTargetMarker.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -4536,7 +4537,10 @@ export function renderEventDetailPage(params: {
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
-  return { urlPath: canonicalPath, html, wordCount };
+  const declaredHtml = indexable && demandIndexable
+    ? html
+    : html.replace('</head>', ` ${EVENT_DETAIL_NOINDEX_TARGET_MARKER}\n </head>`);
+  return { urlPath: canonicalPath, html: declaredHtml, wordCount };
 }
 
 // ── Time-window digests (weekend / this week) ───────────────────────────────

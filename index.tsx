@@ -1,7 +1,11 @@
 import './index.css';
 import './services/consentDecisionMark';
 import { startScrollRegionObserver } from './services/scrollRegions';
-import { shouldWaitForJobBoardLcp, waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
+import {
+ shouldWaitForJobBoardLcp,
+ shouldWaitForStaticArticleLcp,
+ waitForInitialPaintOpportunity,
+} from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';
 
 const rootElement = document.getElementById('root');
@@ -31,9 +35,18 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
 
 const JOB_BOARD_STATIC_CONTENT_SELECTOR =
  'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
+const JOB_BOARD_CONSENT_LCP_SELECTOR =
+ 'div.fc-dialog-content > div.fc-dialog-scrollable-content > div.fc-footer > p';
+const STATIC_ARTICLE_LCP_SELECTOR = 'main.seo-static-content article.ft-blog-article';
 
 const hasJobBoardPreRenderedPaintContent = (): boolean =>
  !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
+const hasVisibleJobBoardConsentLcpCandidate = (): boolean => {
+ const candidate = document.querySelector<HTMLElement>(JOB_BOARD_CONSENT_LCP_SELECTOR);
+ return !!candidate && candidate.getClientRects().length > 0;
+};
+const hasStaticArticlePaintContent = (): boolean =>
+ !!document.querySelector(STATIC_ARTICLE_LCP_SELECTOR);
 
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
@@ -123,6 +136,9 @@ const bootstrapApp = async () => {
  const shouldWaitForJobBoardStaticLcp =
    hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth);
  if (shouldWaitForJobBoardStaticLcp) {
+   const jobBoardLcpSelector = hasVisibleJobBoardConsentLcpCandidate()
+     ? JOB_BOARD_CONSENT_LCP_SELECTOR
+     : JOB_BOARD_STATIC_CONTENT_SELECTOR;
    // The job-board static main is the intended first LCP candidate on
    // sub-desktop viewports. Root hubs are emitted inside #root, while sector
    // hubs remain outside it; both need to settle before the large React runtime
@@ -130,12 +146,25 @@ const bootstrapApp = async () => {
    // post-takeover JobBoard render or a late static-layout shift. On desktop,
    // keep the existing FCP handoff: waiting for static LCP leaves more time for
    // ad/third-party layout writes inside the fallback before React replaces it,
-   // which regressed field CLS on this route (#15770). The selector excludes
-   // CMP UI and the bounded fallback remains in place when LCP cannot be
-   // observed.
+   // which regressed field CLS on this route (#15770). The bounded fallback
+   // remains in place when LCP cannot be observed. PSI's current
+   // /cerca-lavoro-ticino/ trace names the visible Funding Choices paragraph
+   // as LCP; when that exact measured node exists, wait for it so React's
+   // shared runtime cannot delay its paint.
    await waitForInitialPaintOpportunity({
      waitForLargestContentfulPaint: true,
-     largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR,
+     largestContentfulPaintSelector: jobBoardLcpSelector,
+   });
+ }
+ const shouldWaitForArticleStaticLcp =
+   hasStaticArticlePaintContent() && shouldWaitForStaticArticleLcp(window.innerWidth);
+ if (shouldWaitForArticleStaticLcp) {
+   // The article and hero image are already complete in the HTML. Keep React's
+   // shared runtime and the article catalogs off the mobile image-render window;
+   // the existing article handoff still owns the body until SPA data is ready.
+   await waitForInitialPaintOpportunity({
+     waitForLargestContentfulPaint: true,
+     largestContentfulPaintSelector: STATIC_ARTICLE_LCP_SELECTOR,
    });
  }
 
@@ -231,8 +260,8 @@ const bootstrapApp = async () => {
  // jumping the footer (live desktop CLS ~0.2 job detail, up to ~0.9 thin
  // search). MOVE that fallback into #root so React+s createRoot().render()
  // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
- // external collapse. The current job-board generator already emits its main
- // inside #root, so it skips this move and keeps its painted DOM stable.
+ // external collapse. Most job-board hubs already emit inside #root; the bare
+ // Ticino listing keeps its external snapshot outside until its first result set.
  // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
  // route registries stay out of the entry chunk — it is already loaded with App
  // above, so this resolves from cache.
@@ -248,6 +277,8 @@ const bootstrapApp = async () => {
    const parsedRoute = parsePath(window.location.pathname).route;
    const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
      ? 'article'
+     : fallback?.classList.contains('job-board-static-content')
+       ? 'job-board'
      : parsedRoute.activeTab === 'blog' && parsedRoute.cantonTopic
        ? 'canton-topic'
        : 'generic';

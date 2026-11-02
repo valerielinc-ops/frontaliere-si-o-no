@@ -9,6 +9,7 @@ import {
   type AutoSectorJob,
 } from './shared/autoSectorHubPublicationData';
 import { autoSectorHubPathOwner, buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
+import { AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER } from './shared/autoSectorHubNoindexTargetMarker.mjs';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { renderJobCardListHtml, type JobCardJob, type JobCardListItem } from './shared/jobCardHtml';
@@ -208,7 +209,7 @@ export function buildAutoSectorHubPage(
   });
   if (!indexable) {
     const sectionRoot = `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}/`.replace(/\/+/g, '/');
-    const bodyHtml = `<nav class="s-bcr" aria-label="Breadcrumb">
+    const bodyHtml = `${AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER}<nav class="s-bcr" aria-label="Breadcrumb">
       <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a><span> / </span>
       <a href="${esc(sectionRoot)}" class="s-bcl">${esc(copy.breadcrumbJobs)}</a><span> / </span>
       <span>${esc(label)}</span>

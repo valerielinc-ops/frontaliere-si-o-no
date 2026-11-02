@@ -410,6 +410,7 @@ const App: React.FC = () => {
  const currentArticleRoute = typeof window !== 'undefined'
   ? parsePath(window.location.pathname).route
   : null;
+ const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
  const isArticleDetailForAuth = activeTab === 'blog' && Boolean(
   blogArticle || swissArticle || cantonArticle || articleStaticFallbackKey
   || currentArticleRoute?.blogSlug || currentArticleRoute?.blogArticle
@@ -429,6 +430,15 @@ const App: React.FC = () => {
  const markCantonTopicReady = useCallback((key: string) => {
    afterRootCrossfade(() => setCantonTopicReadyKey(key));
  }, []);
+ const [jobBoardSnapshotReadyPath, setJobBoardSnapshotReadyPath] = useState<string | null>(null);
+ const markJobBoardSnapshotReady = useCallback(() => {
+   const route = parsePath(contextualPath).route;
+   const fallback = document.querySelector<HTMLElement>('main.seo-static-content.job-board-static-content');
+   const root = document.getElementById('root');
+   if (!fallback || root?.contains(fallback)
+     || !shouldKeepStaticFallbackOutsideRoot(route, 'job-board', true)) return;
+   afterRootCrossfade(() => setJobBoardSnapshotReadyPath(contextualPath));
+ }, [contextualPath]);
  const cantonTopicRouteKey = blogSection.startsWith('canton-') && cantonTopic
    ? `${blogSection}:${cantonTopic}:${locale}`
    : null;
@@ -443,6 +453,17 @@ const App: React.FC = () => {
    && typeof document !== 'undefined'
    && !!document.querySelector('main.seo-static-content');
  const articleStaticFallback = !!articleStaticFallbackKey;
+ const jobBoardStaticFallbackNode = typeof document !== 'undefined'
+   ? document.querySelector<HTMLElement>('main.seo-static-content.job-board-static-content')
+   : null;
+ const jobBoardStaticFallback = jobBoardSnapshotReadyPath !== contextualPath
+   && !!jobBoardStaticFallbackNode
+   && !document.getElementById('root')?.contains(jobBoardStaticFallbackNode)
+   && shouldKeepStaticFallbackOutsideRoot(
+     currentArticleRoute ?? { activeTab: 'calculator' },
+     'job-board',
+     true,
+   );
  // A static snapshot (article, or canton topic hub) still owns the body. On a
  // SPA handoff the React <main> has to mount to load and announce readiness,
  // but until then it must take no space and paint nothing: left in the flow it
@@ -450,9 +471,7 @@ const App: React.FC = () => {
  // line above it (0.05 of layout shift on a desktop article, and 0.86 more when
  // that line jumped below the article at the swap). Cold frontaliere articles
  // stay in staticOverlay mode and skip this duplicate main entirely.
- const staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback;
-
- const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+ const staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback || jobBoardStaticFallback;
  const contextualConversion = useMemo(
   () => getContextualConversionContext(contextualPath, locale),
   [contextualPath, locale],
@@ -609,8 +628,8 @@ const App: React.FC = () => {
        staticMain.style.removeProperty('display');
        continue;
      }
-     // An article has a React equivalent, and so does a canton topic hub, but
-     // the first HTML of both is the corpus snapshot. Do not take that
+ // An article, canton topic hub, and bare Ticino job board have React
+ // equivalents, but their first HTML is the useful snapshot. Do not take that
      // snapshot away until the SPA view has rendered (for the hub: the runtime
      // payload with the matching edge commit); on a soft navigation the old
      // static main has already been removed, so the React loading shell is
@@ -3391,6 +3410,7 @@ const App: React.FC = () => {
  initialFilterParams={jobBoardFilterParams}
  initialFilterCanton={typeof window !== 'undefined' ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null) : null}
  onFilterParamsConsumed={() => setJobBoardFilterParams(null)}
+ onInitialContentReady={markJobBoardSnapshotReady}
  isLoggedIn={!!authUser}
  authUser={authUser}
  authLoading={authLoading}

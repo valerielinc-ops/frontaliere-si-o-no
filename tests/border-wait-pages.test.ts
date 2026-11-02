@@ -348,16 +348,18 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(types).toContain('BreadcrumbList');
   });
 
-  it('Brogeda leaf page renders the webcam <figure> + attribution + loading="lazy"', () => {
+  it('Brogeda leaf page defers the crawler-blocked frame while keeping the live embed and official link', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('<figure');
     expect(html).toMatch(/\bloading=["']?lazy["']?/);
     expect(html).toMatch(/\brel=["']?noopener["']?/);
-    expect(html).not.toMatch(/\brel=["']?nofollow noopener["']?/);
+    expect(html).not.toMatch(/\bsrc=["']?https:\/\/www4\.ti\.ch\/fileadmin\/DT\/temi\/webcams\/wct_immagini\/(?:03\.3S|04\.4N)\.gif/);
+    expect(html).toMatch(/data-webcam-base-url=["']?https:\/\/www4\.ti\.ch\/fileadmin\/DT\/temi\/webcams\/wct_immagini\/03\.3S\.gif/);
     expect(html).toContain('data-webcam-refresh=');
-    expect(html).toContain('data-webcam-base-url=');
     expect(html).toMatch(/\bwidth=["']?640["']?/);
     expect(html).toMatch(/\bheight=["']?360["']?/);
+    expect(html).toContain('setInterval');
+    expect(html).toContain('https://www.ti.ch/webcam');
   });
 
   it('link-only webcam is rendered as an external link without an image or refresh script', () => {

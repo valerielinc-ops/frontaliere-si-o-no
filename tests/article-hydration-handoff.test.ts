@@ -19,6 +19,7 @@ import {
   stashStaticArticleFallback,
 } from '@/services/staticArticleFallback';
 import { judgeStaticHandoff, type HandoffRecord, type HandoffState } from './helpers/staticHandoffProbe';
+import { shouldWaitForStaticArticleLcp } from '@/services/initialPaintBootstrap';
 
 const ARTICLE_HTML = `
   <div id="root"><div class="ft-hdr-reserve"></div></div>
@@ -109,10 +110,36 @@ describe('static article hydration handoff', () => {
 describe('frontaliere article first-render work', () => {
   const navigationSource = readFileSync(resolve(__dirname, '../hooks/useNavigationState.ts'), 'utf8');
   const appSource = readFileSync(resolve(__dirname, '../App.tsx'), 'utf8');
+  const entrySource = readFileSync(resolve(__dirname, '../index.tsx'), 'utf8');
+  const jobBoardSource = readFileSync(resolve(__dirname, '../components/community/JobBoard.tsx'), 'utf8');
   const prefetchSource = readFileSync(resolve(__dirname, '../services/prefetch.ts'), 'utf8');
   const articleEmitterSource = readFileSync(resolve(__dirname, '../packages/articles/engine/ogPagesPlugin.ts'), 'utf8');
   const newsletterSource = readFileSync(resolve(__dirname, '../components/community/Newsletter.tsx'), 'utf8');
   const newsletterPopupSource = readFileSync(resolve(__dirname, '../components/community/NewsletterPopup.tsx'), 'utf8');
+
+  it('waits for the static article LCP before importing the React runtime on mobile', () => {
+    expect(shouldWaitForStaticArticleLcp(390)).toBe(true);
+    expect(shouldWaitForStaticArticleLcp(1024)).toBe(false);
+    expect(entrySource).toContain("const STATIC_ARTICLE_LCP_SELECTOR = 'main.seo-static-content article.ft-blog-article'");
+    const articleGate = entrySource.indexOf('if (shouldWaitForArticleStaticLcp)');
+    const reactImport = entrySource.indexOf("import('react')");
+    expect(articleGate).toBeGreaterThanOrEqual(0);
+    expect(entrySource.indexOf('largestContentfulPaintSelector: STATIC_ARTICLE_LCP_SELECTOR', articleGate)).toBeGreaterThan(articleGate);
+    expect(reactImport).toBeGreaterThan(articleGate);
+  });
+
+  it('keeps the bare Ticino job-board snapshot outside #root until results are ready', () => {
+    const route = { activeTab: 'job-board' as const, jobBoardCanton: 'TI' };
+    expect(shouldKeepStaticFallbackOutsideRoot(route, 'job-board', true)).toBe(true);
+    expect(shouldAdoptStaticFallbackIntoRoot(route, false, 'job-board', true)).toBe(false);
+    expect(shouldKeepStaticFallbackOutsideRoot({ ...route, jobSlug: 'offerta' }, 'job-board', true)).toBe(false);
+    expect(shouldKeepStaticFallbackOutsideRoot({ ...route, staticOverlay: true }, 'job-board', true)).toBe(false);
+    expect(entrySource).toContain("fallback?.classList.contains('job-board-static-content')");
+    expect(appSource).toContain('onInitialContentReady={markJobBoardSnapshotReady}');
+    expect(appSource).toContain('staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback || jobBoardStaticFallback');
+    expect(appSource).toContain('fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}');
+    expect(jobBoardSource).toContain('onInitialContentReady?.()');
+  });
 
   it('leaves the complete static article in charge without resolving or mounting a duplicate body', () => {
     expect(navigationSource).toMatch(/const initialFrontaliereStaticArticle = initialKeepsStaticArticle/);

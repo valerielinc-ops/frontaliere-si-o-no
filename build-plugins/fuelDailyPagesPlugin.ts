@@ -225,10 +225,10 @@ export function renderFuelBelowFloorBridge(path: string): string {
     noindex: true,
     hreflangEntries,
   });
-  return html.replace(
-    '</head>',
-    `    <meta http-equiv="refresh" content="0; url=${targetUrl}">\n  </head>`,
-  );
+  // GitHub Pages cannot emit an HTTP 3xx from this static bridge. Keep the
+  // canonical/noindex contract and the visible CTA from buildCanonicalBridgePage
+  // instead of adding a meta-refresh, which crawlers report as a redirect issue.
+  return html;
 }
 
 function buildFuelDiscoverMoreCtas(

@@ -42,6 +42,7 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import { ARTICLE_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/articleNoindexTargetMarker.mjs';
 import { CANONICAL_OVERRIDE_FILES } from '../packages/articles/engine/shared/canonicalOverrideFiles.mjs';
 import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
@@ -5822,6 +5823,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  ? blogBodyByLocale[localeKey as 'it' | 'en' | 'de' | 'fr'][articleId] ?? blogBodyByLocale.it[articleId]
  : undefined;
  const articleBodyHasPromptPlaceholder = isBlogDetailPage && hasArticleBodyPromptPlaceholder(localizedBody);
+ const articleNoindexTargetMarker = articleBodyHasPromptPlaceholder
+ ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}`
+ : '';
  const articleRobots = NOINDEX_CANONICAL_PATHS.has(canonicalPath)
  ? 'noindex, nofollow'
  : articleBodyHasPromptPlaceholder
@@ -6365,7 +6369,7 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
- <meta name="robots" content="${articleRobots}">
+ <meta name="robots" content="${articleRobots}">${articleNoindexTargetMarker}
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
