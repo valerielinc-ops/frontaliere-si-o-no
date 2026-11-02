@@ -301,6 +301,23 @@ describe('tryCodexFallback — errori del backend: un risultato, mai un throw n�
       .resolves.toEqual({ ok: false, notConfigured: false, error: 'The operation was aborted due to timeout' });
   });
 
+  it('usa il timeout esteso solo per i worker background e propaga il segnale del worker', async () => {
+    rc = { CODEX_AUTH_JSON: codexLogin() };
+    const worker = new AbortController();
+    fetchMock.mockImplementationOnce(async (_url: string, init: RequestInit) => {
+      expect(init.signal).toBeInstanceOf(AbortSignal);
+      expect(init.signal).not.toBe(worker.signal);
+      worker.abort();
+      throw new DOMException('The operation was aborted', 'AbortError');
+    });
+    const { tryCodexFallback, CODEX_FALLBACK_TIMEOUT_MS, CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS } = await import('../../functions/src/codexFallback.js');
+    expect(CODEX_FALLBACK_TIMEOUT_MS).toBe(18_000);
+    expect(CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS).toBe(60_000);
+
+    await expect(tryCodexFallback({ messages: [{ role: 'user', content: 'x' }], background: true, signal: worker.signal }))
+      .resolves.toMatchObject({ ok: false, error: 'The operation was aborted' });
+  });
+
   it('un timeout a metà stream (stesso AbortSignal) diventa un risultato', async () => {
     rc = { CODEX_AUTH_JSON: codexLogin() };
     const encoder = new TextEncoder();

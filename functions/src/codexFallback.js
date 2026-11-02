@@ -69,7 +69,10 @@ export const CODEX_ORIGINATOR = 'codex_exec';
 export const CODEX_FALLBACK_DEFAULT_MODEL = 'gpt-5.6-luna';
 /**
  * Lo sforzo più basso che gpt-5.6-luna accetta (models.json: low…max): è un
- * fallback di chat, non un task agentico, e deve stare nei 18s.
+ * fallback di chat, non un task agentico. Il percorso interattivo resta corto;
+ * il matcher del concierge è invece un worker con budget di minuti e usa il
+ * timeout background per non scartare una risposta valida solo perché il
+ * provider ha superato la soglia HTTP interattiva.
  */
 export const CODEX_FALLBACK_REASONING_EFFORT = 'low';
 /**
@@ -78,7 +81,13 @@ export const CODEX_FALLBACK_REASONING_EFFORT = 'low';
  * finestra, si salta il rung invece di rinfrescare.
  */
 export const ACCESS_TOKEN_MIN_REMAINING_MS = 5 * 60_000;
-const PROVIDER_TIMEOUT_MS = 18000;
+export const CODEX_FALLBACK_TIMEOUT_MS = 18_000;
+export const CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS = 60_000;
+
+function codexRequestSignal(signal, timeoutMs) {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  return signal ? AbortSignal.any([signal, timeout]) : timeout;
+}
 
 // Una CLI nuova per processo: la CI crea un CODEX_HOME effimero a ogni run, quindi
 // un installation id nuovo (client_metadata, core/src/responses_metadata.rs:303-312).
@@ -310,11 +319,13 @@ export async function readCodexSse(body) {
  * {ok, notConfigured?, skipped?, error?, text?, model?}. `skipped` = il rung non
  * ha fatto rete (login illeggibile o scaduto).
  * Nessun tetto di output: la richiesta della CLI non ne ha (common.rs:275-300);
- * latenza e costo restano limitati dal timeout di 18s e dalla subscription.
- * @param {{systemPrompt?:string, messages:Array<{role:string,content:string}>}} params
+ * latenza e costo restano limitati dal timeout per il contesto e dalla
+ * subscription. Il segnale del worker viene composto con il timeout locale,
+ * così una cancellazione del matcher chiude anche lo stream Codex.
+ * @param {{systemPrompt?:string, messages:Array<{role:string,content:string}>, background?:boolean, signal?:AbortSignal|null}} params
  * @returns {Promise<{ok:true,text:string,model:string}|{ok:false,notConfigured:boolean,skipped?:boolean,error?:string}>}
  */
-export async function tryCodexFallback({ systemPrompt, messages }) {
+export async function tryCodexFallback({ systemPrompt, messages, background = false, signal = null }) {
   try {
     const raw = (await getRemoteConfigValue('CODEX_AUTH_JSON')).trim();
     if (!raw) return { ok: false, notConfigured: true };
@@ -329,12 +340,14 @@ export async function tryCodexFallback({ systemPrompt, messages }) {
     }
     const model = (await getRemoteConfigValue('CODEX_FALLBACK_MODEL')).trim() || CODEX_FALLBACK_DEFAULT_MODEL;
     const sessionId = randomUUID();
-    const signal = AbortSignal.timeout(PROVIDER_TIMEOUT_MS);
+    const requestSignal = codexRequestSignal(signal, background
+      ? CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS
+      : CODEX_FALLBACK_TIMEOUT_MS);
     const res = await fetch(CODEX_RESPONSES_URL, {
       method: 'POST',
       headers: codexRequestHeaders({ ...login, model, sessionId }),
       body: JSON.stringify(codexRequestBody({ model, systemPrompt, messages, sessionId })),
-      signal,
+      signal: requestSignal,
     });
     if (!res.ok) {
       const detail = await res.text().catch(() => '');
@@ -343,7 +356,8 @@ export async function tryCodexFallback({ systemPrompt, messages }) {
       }
       throw new Error(`codex_error_${res.status}: ${detail.slice(0, 120)}`);
     }
-    // Lo stesso AbortSignal copre anche la lettura dello stream: budget unico di 18s.
+    // Lo stesso AbortSignal copre anche la lettura dello stream: budget unico
+    // per il contesto (18s interattivo, 60s per il worker background).
     const text = await readCodexSse(res.body);
     return { ok: true, text, model };
   } catch (err) {

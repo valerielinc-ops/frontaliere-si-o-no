@@ -167,6 +167,8 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
   const codexResult = allowCodexFallback ? await tryCodexFallback({
     systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
+    background,
+    signal,
   }) : { ok: false, notConfigured: true };
   if (codexResult.ok) {
     console.log('[geminiGenerate] served by fallback codex');
