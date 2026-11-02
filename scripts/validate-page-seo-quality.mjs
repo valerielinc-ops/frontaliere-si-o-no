@@ -438,7 +438,7 @@ function isIntentionalEventDetailNoindexPage(pagePath, html) {
     && hasNoindex(html);
 }
 
-const AUTO_SECTOR_HUB_PATH_RE = /^(?:cerca-lavoro-ticino\/settore|en\/find-jobs-ticino\/sector|de\/jobs-im-tessin\/branche|fr\/trouver-emploi-tessin\/secteur)\/[a-z0-9]+(?:-[a-z0-9]+)*\/?$/;
+const AUTO_SECTOR_HUB_PATH_RE = /^(?:cerca-lavoro-ticino\/settore|en\/find-jobs-ticino\/sector|de\/jobs-im-tessin\/branche|fr\/trouver-emploi-tessin\/secteur)\/[a-z0-9]+(?:-[a-z0-9]+)*\/?$/; // cathedral-allow: route locali degli hub settore, classificate sul path di dist
 
 function isIntentionalAutoSectorHubNoindexPage(pagePath, html) {
   const normalizedPath = String(pagePath || '').replace(/^\/+/, '');
