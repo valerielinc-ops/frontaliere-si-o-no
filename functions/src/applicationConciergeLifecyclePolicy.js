@@ -82,11 +82,11 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
     const retryAt = timestampMillis(service.matchingRetryAt);
     if (retryAt) return nowMs >= Math.min(lastRefresh + CONCIERGE_REFRESH_INTERVAL_MS, retryAt);
   }
-  const interval = service.matchingStatus === 'failed'
-    ? CONCIERGE_RETRY_INTERVAL_MS
-    : freshPending
-      ? CONCIERGE_FRESH_PENDING_INTERVAL_MS
-      : Number(service.matchingUnverifiedCount) > 0 ? CONCIERGE_RETRY_INTERVAL_MS : CONCIERGE_REFRESH_INTERVAL_MS;
+  const interval = freshPending
+    ? CONCIERGE_FRESH_PENDING_INTERVAL_MS
+    : service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0
+      ? CONCIERGE_RETRY_INTERVAL_MS
+      : CONCIERGE_REFRESH_INTERVAL_MS;
   return lastRefresh > 0 && nowMs >= lastRefresh + interval;
 }
 

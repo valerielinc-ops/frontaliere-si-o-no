@@ -57,9 +57,13 @@ describe('three-day proposal refresh', () => {
     expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
     expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
 
-    const failed = { ...pending, matchingStatus: 'failed' };
-    expect(conciergeRefreshDue(failed, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
-    expect(conciergeRefreshDue(failed, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
+    const failedPending = { ...pending, matchingStatus: 'failed' };
+    expect(conciergeRefreshDue(failedPending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS - 1)).toBe(false);
+    expect(conciergeRefreshDue(failedPending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS)).toBe(true);
+
+    const failedRetryOnly = { ...failedPending, matchingPendingCount: 0 };
+    expect(conciergeRefreshDue(failedRetryOnly, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
+    expect(conciergeRefreshDue(failedRetryOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
   });
 });
 
