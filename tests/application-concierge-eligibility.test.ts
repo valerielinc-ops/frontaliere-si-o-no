@@ -71,6 +71,7 @@ describe('qualification before proposal publication', () => {
       'Aucun diplôme professionnel requis pour ce stage.',
       'Ce stage ne nécessite pas de diplôme professionnel.',
       'Aucun diplôme professionnel n’est requis pour ce stage.',
+      'Stagiaire — pas de maturite professionnelle requise.',
       'Berufsmaturität nicht erforderlich für dieses Praktikum.',
       'Das Praktikum erfordert keinen Berufsabschluss.',
       'Keine Berufsmaturität ist für diese Ausbildung erforderlich.',
