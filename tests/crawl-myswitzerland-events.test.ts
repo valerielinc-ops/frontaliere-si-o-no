@@ -949,6 +949,25 @@ describe('mapEventRecord', () => {
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');
   });
 
+  it('uses a source category to identify a named performer and rejects generic concert titles', () => {
+    const named = mapEventRecord('named-artist', {
+      it: { ...hitIt, title: 'Hugo Lioret', category: 'Altri musica' },
+    })?.event as never as Record<string, unknown>;
+    expect(named.performer).toEqual({ name: 'Hugo Lioret' });
+
+    const generic = mapEventRecord('generic-concert', {
+      it: { ...hitIt, title: 'Zytturm Konzert', category: 'Konzert' },
+    })?.event as never as Record<string, unknown>;
+    expect(generic.performer).toBeUndefined();
+
+    const structuredCategory = mapEventRecord('structured-music', {
+      it: { ...hitIt, title: 'Hugo Lioret' },
+    }, {
+      detailLd: { '@type': 'MusicEvent' },
+    })?.event as never as Record<string, unknown>;
+    expect(structuredCategory.performer).toEqual({ name: 'Hugo Lioret' });
+  });
+
   it('keeps a safe Algolia locality when detail JSON-LD contains corrupt venue bytes', () => {
     const mapped = mapEventRecord(
       'glarona-corrupt',
@@ -1213,6 +1232,50 @@ describe('source optional metadata fallbacks', () => {
     expect(extractEventPeopleFromTitle('Konzert mit Thorsten Ahlrichs')).toEqual({
       performer: { name: 'Thorsten Ahlrichs' },
     });
+  });
+
+  it('extracts source-named performers from descriptions and performance titles', () => {
+    expect(extractEventPeopleFromText('Luca e Isa adattano la loro risposta a ciò che fanno i bambini.')).toEqual({
+      performer: [{ name: 'Luca' }, { name: 'Isa' }],
+    });
+    expect(extractEventPeopleFromText('Il trio jazz riunisce Moncef Genoud, Tim Verdesca e François Christe.')).toEqual({
+      performer: [{ name: 'Moncef Genoud' }, { name: 'Tim Verdesca' }, { name: 'François Christe' }],
+    });
+    expect(
+      extractEventPeopleFromText(
+        'Le jazz réunit la chanteuse Elina Duni, le guitariste Rob Luft, le flicorniste Matthieu Michel et le Vision String Quartet.',
+      ),
+    ).toEqual({
+      performer: [
+        { name: 'Elina Duni' },
+        { name: 'Rob Luft' },
+        { name: 'Matthieu Michel' },
+        { '@type': 'PerformingGroup', name: 'Vision String Quartet' },
+      ],
+    });
+    expect(extractEventPeopleFromText("L'appuntamento presenta Pascal Gamboni nell'ambito della canzone d'autore.")).toEqual({
+      performer: { name: 'Pascal Gamboni' },
+    });
+
+    expect(extractEventPeopleFromTitle('Barbara Hutzenlaub – Sprechstunde', { category: 'Cabaret' })).toEqual({
+      performer: { name: 'Barbara Hutzenlaub' },
+    });
+    expect(extractEventPeopleFromTitle('Hugo Lioret', { category: 'Altri musica' })).toEqual({
+      performer: { name: 'Hugo Lioret' },
+    });
+    expect(extractEventPeopleFromTitle('Open Air', { category: 'Music' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Open Air – Summer Sounds', { category: 'Music' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Open Air', { category: 'MusicEvent' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Hugo Lioret', { category: 'Music' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Hugo Lioret', { category: 'MusicEvent' })).toEqual({
+      performer: { name: 'Hugo Lioret' },
+    });
+    expect(extractEventPeopleFromTitle('Steiner & Madlaina', { category: 'Pop generalmente' })).toEqual({
+      performer: [{ name: 'Steiner' }, { name: 'Madlaina' }],
+    });
+    expect(extractEventPeopleFromTitle('La traviata', { category: 'Opera' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Hugo Lioret')).toEqual({});
+    expect(extractEventPeopleFromTitle('Zytturm Konzert', { category: 'Konzert' })).toEqual({});
   });
 
   it('reads event-scoped OpenGraph/itemprop images and named contact blocks', () => {

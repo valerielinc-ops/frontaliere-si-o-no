@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { realpathSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
+import { isDeepStrictEqual } from 'node:util';
 /**
  * Crawler — Tio.ch Agenda (events for the whole canton of Ticino).
  *
@@ -28,6 +29,7 @@ import { realpathSync } from 'node:fs';
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
  *   node scripts/crawl-tio-agenda.mjs --days 30       # custom horizon
+ *   node scripts/crawl-tio-agenda.mjs --ids 123,456   # refresh existing events by Tio ID
  *   node scripts/crawl-tio-agenda.mjs --dry-run       # parse + report, no write
  *
  * Exit code is always 0 unless an unexpected crash occurs (CI-soft).
@@ -116,6 +118,64 @@ function categoryFromCard(card) {
 
 function text(el) {
   return (el?.textContent || '').replace(/\s+/g, ' ').trim();
+}
+
+export function parseTioEventIds(args) {
+  const idsIndex = args.indexOf('--ids');
+  if (idsIndex < 0) return [];
+  const rawIds = args[idsIndex + 1] || '';
+  const ids = [...new Set(rawIds.split(',').map((id) => id.trim()).filter(Boolean))];
+  if (!ids.length || ids.some((id) => !/^\d+$/.test(id))) {
+    throw new Error('--ids requires a comma-separated list of numeric Tio event IDs');
+  }
+  if (args.includes('--days')) throw new Error('--ids cannot be combined with --days');
+  return ids;
+}
+
+export function selectTioEventsByIds(events, ids) {
+  const byId = new Map(events.map((event) => [event.id, event]));
+  const requestedIds = new Set(ids.map((id) => eventStableId(SOURCE.key, id)));
+  const selected = ids.map((id) => byId.get(eventStableId(SOURCE.key, id)));
+  const missing = ids.filter((_, index) => !selected[index]);
+  if (missing.length) {
+    throw new Error(`[tio-agenda] event ID(s) not found in the existing source slice: ${missing.join(', ')}`);
+  }
+  // Keep the canonical source-slice order so equivalent --ids inputs do not
+  // create ordering-only diffs.
+  return events.filter((event) => requestedIds.has(event.id));
+}
+
+export function mergeTioEventsById(existingEvents, refreshedEvents) {
+  const refreshedById = new Map(refreshedEvents.map((event) => [event.id, event]));
+  const seen = new Set();
+  const changedEvents = [];
+  const events = existingEvents.map((previous) => {
+    const refreshed = refreshedById.get(previous.id);
+    if (!refreshed) return previous;
+    seen.add(previous.id);
+
+    const previousData = sanitizeEventForPublication(previous);
+    const refreshedData = sanitizeEventForPublication(refreshed);
+    delete previousData.crawledAt;
+    delete refreshedData.crawledAt;
+    if (isDeepStrictEqual(previousData, refreshedData)) {
+      return { ...refreshed, crawledAt: previous.crawledAt };
+    }
+    changedEvents.push(refreshed);
+    return refreshed;
+  });
+  const missing = refreshedEvents.filter((event) => !seen.has(event.id)).map((event) => event.id);
+  if (missing.length) {
+    throw new Error(`[tio-agenda] refreshed event(s) missing from the existing source slice: ${missing.join(', ')}`);
+  }
+  return { events, changedEvents };
+}
+
+function loadExistingTioEvents() {
+  const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
+  const parsed = JSON.parse(readFileSync(slicePath, 'utf8'));
+  if (!Array.isArray(parsed?.events)) throw new Error(`[tio-agenda] invalid source slice: ${slicePath}`);
+  return parsed.events;
 }
 
 /**
@@ -505,6 +565,7 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const daysIdx = args.indexOf('--days');
   const days = daysIdx >= 0 ? Math.max(1, Number.parseInt(args[daysIdx + 1] || '21', 10)) : 21;
+  const requestedIds = parseTioEventIds(args);
 
   const crawledAt = new Date().toISOString();
   const today = new Date(`${isoDay(new Date())}T00:00:00Z`);
@@ -512,29 +573,38 @@ async function main() {
   let pagesOk = 0;
   let pagesFail = 0;
 
-  for (let i = 0; i < days; i += 1) {
-    const date = new Date(today.getTime() + i * 86400000);
-    const compact = compactDay(date);
-    const html = await fetchHtml(DAY_URL(compact));
-    if (!html) {
-      pagesFail += 1;
-      continue;
-    }
-    pagesOk += 1;
-    for (const ev of parseDayHtml(html, compact)) {
-      // Multi-day events recur on each day page; keep the earliest start and
-      // extend endDate so we emit one record per event, not one per day.
-      const existing = byId.get(ev.id);
-      if (existing) {
-        existing.endDate = ev.startDate;
-      } else {
-        byId.set(ev.id, { ...ev, crawledAt });
+  let events;
+  let existingTioEvents;
+  if (requestedIds.length) {
+    existingTioEvents = loadExistingTioEvents();
+    events = selectTioEventsByIds(existingTioEvents, requestedIds)
+      .map((event) => ({ ...event, crawledAt }));
+    console.log(`[tio-agenda] targeted refresh of ${events.length} existing event(s)`);
+  } else {
+    for (let i = 0; i < days; i += 1) {
+      const date = new Date(today.getTime() + i * 86400000);
+      const compact = compactDay(date);
+      const html = await fetchHtml(DAY_URL(compact));
+      if (!html) {
+        pagesFail += 1;
+        continue;
       }
+      pagesOk += 1;
+      for (const ev of parseDayHtml(html, compact)) {
+        // Multi-day events recur on each day page; keep the earliest start and
+        // extend endDate so we emit one record per event, not one per day.
+        const existing = byId.get(ev.id);
+        if (existing) {
+          existing.endDate = ev.startDate;
+        } else {
+          byId.set(ev.id, { ...ev, crawledAt });
+        }
+      }
+      if (i < days - 1) await sleep(POLITE_DELAY_MS);
     }
-    if (i < days - 1) await sleep(POLITE_DELAY_MS);
+    events = [...byId.values()];
   }
 
-  const events = [...byId.values()];
   const resolved = events.filter((e) => e.comune).length;
   const byMethod = events.reduce((acc, e) => {
     const k = e.comuneMatch || 'none';
@@ -543,7 +613,7 @@ async function main() {
   }, {});
 
   console.log(
-    `[tio-agenda] ${events.length} events over ${days} days ` +
+    `[tio-agenda] ${events.length} event(s)${requestedIds.length ? ' targeted' : ` over ${days} days`} ` +
       `(${pagesOk} pages ok, ${pagesFail} failed) — comune resolved ${resolved}/${events.length} ` +
       `(exact ${byMethod.exact || 0}, region ${byMethod.region || 0}, none ${byMethod.none || 0})`,
   );
@@ -605,11 +675,28 @@ async function main() {
     return;
   }
 
-  // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
-  // invocation never pollutes the tracked cache files with speculative data.
-  saveGeocodeCache(geocodeCache);
-  stripDescriptionTranslationCache(translationCache);
-  saveEventTitleTranslationCache(translationCache);
+  let eventsToWrite = translatedEvents;
+  if (requestedIds.length) {
+    const update = mergeTioEventsById(existingTioEvents, translatedEvents);
+    if (!update.changedEvents.length) {
+      console.log('[tio-agenda] targeted refresh unchanged; source slice and shared caches left untouched');
+      return;
+    }
+    eventsToWrite = update.changedEvents;
+  }
+
+  // Targeted historical refreshes update only the event slice. Their shared
+  // geo/translation caches stay untouched so the cache-publisher step remains
+  // a no-op for this operation.
+  if (requestedIds.length) {
+    console.log('[tio-agenda] targeted refresh leaves shared geo/translation caches untouched');
+  } else {
+    // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
+    // invocation never pollutes the tracked cache files with speculative data.
+    saveGeocodeCache(geocodeCache);
+    stripDescriptionTranslationCache(translationCache);
+    saveEventTitleTranslationCache(translationCache);
+  }
 
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
   const total = mergeEventsIntoSlice({
@@ -617,13 +704,13 @@ async function main() {
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
-    freshEvents: translatedEvents,
+    freshEvents: eventsToWrite,
     goneIds: [],
     crawledAt,
     detailFailureIds,
     detailAttemptCount,
   });
-  console.log(`[tio-agenda] merged ${translatedEvents.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[tio-agenda] merged ${eventsToWrite.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so

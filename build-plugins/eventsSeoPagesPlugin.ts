@@ -109,7 +109,7 @@ export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
-import { extractEventPeopleFromTitle, fillEventPeopleDefaults, normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
+import { extractEventPeopleFromText, extractEventPeopleFromTitle, fillEventPeopleDefaults, normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
@@ -1717,13 +1717,17 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     : factualDescription;
   const sourceUrl = eventSourceUrl(event.url, event);
   const eventSource = eventSourceRecord(event.sourceKey);
-  const titlePerformer = extractEventPeopleFromTitle(event.title).performer;
+  const descriptionPerformer = extractEventPeopleFromText(event.description, { includePerformer: 'explicit' }).performer
+    || (rewriteDescription
+      ? extractEventPeopleFromText(rewriteDescription, { includePerformer: 'explicit' }).performer
+      : undefined);
+  const titlePerformer = extractEventPeopleFromTitle(event.title, { category: event.category }).performer;
   const eventWithDefaults = fillEventPeopleDefaults(
     withoutAddressPeople({ ...event, title, venue: venueName || undefined }, eventSource),
     eventSource,
   ) as SiteEvent;
   const performer = eventWithDefaults.performer
-    || normalizeEventPeople(titlePerformer, sourceUrl, sourceUrl);
+    || normalizeEventPeople(descriptionPerformer || titlePerformer, sourceUrl, sourceUrl);
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
   const confidentlyFree = confidentPrice && (

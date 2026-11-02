@@ -426,10 +426,73 @@ function splitPerformerNames(value) {
   const raw = sourceEntityName(value);
   if (!raw) return [];
   const parts = raw
-    .split(/\s+(?:und|and|e|et)\s+|\s*&\s*/iu)
+    .split(/\s*,\s*|\s+(?:und|and|e|et)\s+|\s*&\s*/iu)
     .map((part) => sourceEntityName(part))
     .filter(Boolean);
   return parts.length > 1 ? parts : [raw];
+}
+
+const PERFORMER_NAME_TOKEN = String.raw`\p{Lu}[\p{L}\p{M}'’\-]*`;
+const PERFORMER_NAME = String.raw`${PERFORMER_NAME_TOKEN}(?:\s+${PERFORMER_NAME_TOKEN}){0,2}`;
+const PERFORMER_PERSON_NAME = String.raw`${PERFORMER_NAME_TOKEN}(?:\s+${PERFORMER_NAME_TOKEN}){1,3}`;
+const PERFORMER_GROUP_NAME_RE = /\b(?:string\s+quartet|trio|quartet|quartett|quartetto|ensemble|orchestra|orchester|band|duo)\s*$/iu;
+const PERFORMANCE_CATEGORY_RE = /\b(?:music[\s-]?event|music(?:al)?|musik|musique|musica|pop|jazz|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|concert|konzert|cabaret|kabarett)\b/iu;
+const SOLO_PERFORMER_CATEGORY_RE = /\b(?:music[\s-]?event|altri\s+musica(?:le)?|altre?\s+musiche?|other\s+music|autres?\s+musiques?|(?:andere|sonstige)\s+musik)\b/iu;
+const PERFORMER_TITLE_RESERVED_PHRASE_RE = /\bopen\s+air\b/iu;
+const PERFORMER_TITLE_RESERVED_WORD_RE = /^(?:music(?:al)?|musik|musique|musica|concert|konzert|concerto|festival|fest|gala|show|event|evento|veranstaltung|abend|evening|soiree|soirée|serata|party|opera|oper|operette|cabaret|kabarett|jazz|pop|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|dance|tanz|ballet|ballett|theater|theatre|fair|fiera|foire|messe|exhibition|ausstellung|exposition|conference|konferenz|summit|award(?:s)?|prize|preis)$/iu;
+
+function isCapitalizedPerformerName(value) {
+  const name = sourceEntityName(value);
+  if (!name) return false;
+  return name.split(/\s+/u).every((token) => (
+    /^(?:and|und|e|et|de|del|della|di|da|du|der|den|van|von|la|le|al|bin|ibn|of)$/iu.test(token)
+    || /^\p{Lu}/u.test(token)
+  ));
+}
+
+function isSpecificPerformerTitle(value) {
+  const name = sourceEntityName(value);
+  return Boolean(name)
+    && isCapitalizedPerformerName(name)
+    && !PERFORMER_TITLE_RESERVED_PHRASE_RE.test(name)
+    && !name.split(/\s+/u).some((token) => PERFORMER_TITLE_RESERVED_WORD_RE.test(token));
+}
+
+function collectCapturedNames(text, patterns) {
+  const names = [];
+  for (const pattern of patterns) {
+    const flags = pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`;
+    const expression = new RegExp(pattern.source, flags);
+    let match;
+    while ((match = expression.exec(text))) {
+      const captured = sourceEntityName(match[1]?.replace(/\s+(?:und|and|e|et)$/iu, ''));
+      if (captured) {
+        for (const name of splitPerformerNames(captured)) {
+          if (isCapitalizedPerformerName(name)) names.push(name);
+        }
+      }
+      if (match[0].length === 0) expression.lastIndex += 1;
+    }
+  }
+  const unique = new Map();
+  for (const name of names) {
+    const key = name.toLocaleLowerCase();
+    if (!unique.has(key)) unique.set(key, name);
+  }
+  return [...unique.values()];
+}
+
+function performerEntities(names, forceGroup = false) {
+  return names.map((name) => ({
+    ...((forceGroup || PERFORMER_GROUP_NAME_RE.test(name)) ? { '@type': 'PerformingGroup' } : {}),
+    name,
+  }));
+}
+
+function performerValue(names, forceGroup = false) {
+  const entities = performerEntities(names, forceGroup);
+  if (!entities.length) return undefined;
+  return entities.length === 1 ? entities[0] : entities;
 }
 
 const ORGANIZER_PATTERNS = [
@@ -445,6 +508,11 @@ const PERFORMER_PATTERNS = [
   /\bGestaltet\s+wird\s+(?:der|die|das)\s+.+?\s+von\s+([^.!?]+?)(?=[.!?](?:\s|$)|$)/iu,
   /\bvon\s+und\s+mit\s+([^.!?]+?)(?=[.!?](?:\s|$)|$)/iu,
   /\b(?:di\s+e\s+con|de\s+et\s+avec)\s+([A-ZÀ-ÖØ-Þ][^.!?]{1,120}?)(?=[.!?](?:\s|$)|$)/iu,
+  new RegExp(String.raw`\b(${PERFORMER_NAME}(?:\s+(?:und|and|e|et)\s+${PERFORMER_NAME}){1,3})\s+(?:greifen|spielen|musizieren|singen|performen|adattano|adapts?|play(?:s|ed|ing)?|perform(?:s|ed|ing)?|sing(?:s|ing)?|joue(?:nt)?|suon(?:a|ano)|interpret(?:a|ano|an))\b`, 'gu'),
+  new RegExp(String.raw`\b(?:[Tt]rio|[Qq]uartet|[Qq]uartett|[Qq]uartetto|[Ee]nsemble|[Bb]and|[Oo]rchestra|[Oo]rchester)\b[^.!?]{0,80}?\b(?:[Bb]rings\s+together|[Ii]s\s+made\s+up\s+of|[Cc]onsists\s+of|[Cc]omprises|[Ii]ncludes|[Gg]athers|[Bb]esteht\s+aus|[Bb]ringt\s+.+?\s+zusammen|[Rr]éunit|[Rr]eunit|[Rr]iunisce|[Cc]omprend|[Cc]omprende)\s+(${PERFORMER_NAME}(?:\s*,\s*${PERFORMER_NAME})*(?:\s+(?:and|und|e|et)\s+${PERFORMER_NAME}){0,3})`, 'gu'),
+  new RegExp(String.raw`\b(?:[Mm]usic(?:al)?|[Mm]usik|[Mm]usique|[Mm]usica|[Pp]op|[Jj]azz|[Rr]ock|[Cc]oncert|[Kk]onzert|[Cc]abaret|[Kk]abarett|[Ee]vent|[Ee]vento|[Aa]ppuntamento|[Vv]eranstaltung|[Éé]vénement|[Ee]venement|[Rr]endez-vous)[\p{L}\p{M}\s-]{0,48}?\b(?:[Pp]resents|[Pp]resented|[Ff]eatures|[Pp]räsentiert|[Pp]resentiert|[Pp]resenta|[Pp]résente)\s+(${PERFORMER_NAME})\b`, 'gu'),
+  new RegExp(String.raw`\b(?:[Cc]antante|[Cc]hitarrista|[Ff]licornista|[Ff]licorniste|[Ff]lugelhorn|[Ff]lügelhorn|[Ff]lugelhornist|[Pp]ianista|[Mm]usicista|[Vv]iolinista|[Ss]inger|[Vv]ocalist|[Gg]uitarist|[Pp]ianist|[Mm]usician|[Aa]ctor|[Aa]ctress|[Pp]erformer|[Cc]hanteur|[Cc]hanteuse|[Gg]uitariste|[Mm]usicien|[Mm]usicienne|[Ss]änger(?:in)?|[Gg]itarrist(?:in)?|[Mm]usiker(?:in)?|[Kk]ünstler(?:in)?)[^,;.!?]{0,80}?\b(${PERFORMER_NAME})\b`, 'gu'),
+  new RegExp(String.raw`\b(${PERFORMER_NAME}\s+(?:[Ss]tring\s+[Qq]uartet|[Tt]rio|[Qq]uartet|[Qq]uartett|[Qq]uartetto|[Ee]nsemble|[Oo]rchestra|[Oo]rchester|[Bb]and|[Dd]uo))\b`, 'gu'),
   /\b(?:mit|con|avec|with|featuring|feat\.?)\s+([A-ZÀ-ÖØ-Þ][^.!?]{1,120}?)(?=[.!?](?:\s|$)|$)/iu,
 ];
 
@@ -470,12 +538,10 @@ export function extractEventPeopleFromText(value, options = {}) {
     : options.includePerformer === 'explicit'
       ? PERFORMER_PATTERNS.slice(0, -1)
       : PERFORMER_PATTERNS;
-  const performerNames = splitPerformerNames(firstCaptured(text, performerPatterns));
+  const performerNames = collectCapturedNames(text, performerPatterns);
   return {
     ...(organizerName ? { organizer: { '@type': 'Organization', name: organizerName } } : {}),
-    ...(performerNames.length
-      ? { performer: performerNames.length === 1 ? { name: performerNames[0] } : performerNames.map((name) => ({ name })) }
-      : {}),
+    ...(performerNames.length ? { performer: performerValue(performerNames) } : {}),
   };
 }
 
@@ -485,12 +551,34 @@ export function extractEventPeopleFromText(value, options = {}) {
  * such as "Menschen mit Demenz" or "Klangmeditation mit Bergkristall" do
  * not become false performers merely because they contain "mit".
  */
-export function extractEventPeopleFromTitle(value) {
+export function extractEventPeopleFromTitle(value, options = {}) {
   const text = sourceText(value);
   if (!text) return {};
-  const performerNames = splitPerformerNames(firstCaptured(text, TITLE_PERFORMER_PATTERNS));
-  return performerNames.length
-    ? { performer: performerNames.length === 1 ? { name: performerNames[0] } : performerNames.map((name) => ({ name })) }
+  const explicitName = firstCaptured(text, TITLE_PERFORMER_PATTERNS);
+  if (explicitName) return { performer: performerValue(splitPerformerNames(explicitName)) };
+  const category = sourceText(options.category);
+  if (!PERFORMANCE_CATEGORY_RE.test(category)) return {};
+
+  const groupMatch = new RegExp(String.raw`^\s*(${PERFORMER_NAME}(?:\s+${PERFORMER_NAME_TOKEN}){0,1}\s+(?:[Ss]tring\s+[Qq]uartet|[Tt]rio|[Qq]uartet|[Qq]uartett|[Qq]uartetto|[Ee]nsemble|[Oo]rchestra|[Oo]rchester|[Bb]and|[Dd]uo))\s*$`, 'u').exec(text);
+  if (groupMatch && isSpecificPerformerTitle(groupMatch[1])) return { performer: performerValue([groupMatch[1]], true) };
+
+  const nameBeforeShow = new RegExp(String.raw`^\s*(${PERFORMER_PERSON_NAME})\s+[«“„"'][^.!?«„"']+[»”„"']\s*$`, 'u').exec(text)?.[1];
+  if (nameBeforeShow && isSpecificPerformerTitle(nameBeforeShow)) return { performer: performerValue([nameBeforeShow]) };
+
+  const nameBeforeSubtitle = new RegExp(String.raw`^\s*(${PERFORMER_PERSON_NAME})\s*[–—-]\s+.+$`, 'u').exec(text)?.[1];
+  if (nameBeforeSubtitle && isSpecificPerformerTitle(nameBeforeSubtitle)) return { performer: performerValue([nameBeforeSubtitle]) };
+
+  const duoName = new RegExp(String.raw`^\s*(${PERFORMER_NAME}(?:\s+${PERFORMER_NAME_TOKEN}){0,1}\s*&\s*${PERFORMER_NAME}(?:\s+${PERFORMER_NAME_TOKEN}){0,1})\s*$`, 'u').exec(text)?.[1];
+  if (duoName) {
+    const names = splitPerformerNames(duoName);
+    if (names.length === 2 && names.every(isSpecificPerformerTitle)) return { performer: performerValue(names) };
+  }
+
+  const personName = new RegExp(String.raw`^\s*(${PERFORMER_PERSON_NAME})\s*$`, 'u').exec(text)?.[1];
+  // Standalone names need a source category that identifies a music act;
+  // broad labels like "Music" also classify events titled "Open Air".
+  return personName && SOLO_PERFORMER_CATEGORY_RE.test(category) && isSpecificPerformerTitle(personName)
+    ? { performer: performerValue([personName]) }
     : {};
 }
 
