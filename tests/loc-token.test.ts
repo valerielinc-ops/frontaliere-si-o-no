@@ -53,3 +53,22 @@ describe('locTokenHit — whole-token geo match (#2630)', () => {
     expect(locTokenHit('zurichsee zh', 'zurich')).toBe(false);
   });
 });
+
+
+describe('legacy canton labels retain geographic scope', () => {
+  it.each(['Canton Ticino', 'Cantone Ticino', 'Canton Tessin', 'Kanton Tessin'])('recognizes %s as the existing Ticino alias', (location) => {
+    expect(locTokenHit('Bellinzona TI', location)).toBe(true);
+    expect(locTokenHit('Chur GR', location)).toBe(false);
+  });
+
+  it.each(['Lugano, Ticino', 'Lugano (TI)', 'Mendrisio, Tessin'])('keeps the city constraint in %s', (location) => {
+    const city = location.startsWith('Lugano') ? 'Lugano' : 'Mendrisio';
+    expect(locTokenHit(`${city} TI`, location)).toBe(true);
+    expect(locTokenHit('Bellinzona TI', location)).toBe(false);
+  });
+
+  it.each(['Coira, Ticino', 'Chur, TI', 'Unknown, Ticino', 'Lugano, Unknown', 'Lugano/Mendrisio, Ticino'])('keeps unknown or conflicting compound %s fail-closed', (location) => {
+    expect(locTokenHit('Bellinzona TI', location)).toBe(false);
+    expect(locTokenHit('Lugano TI', location)).toBe(false);
+  });
+});
