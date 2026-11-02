@@ -795,13 +795,14 @@ export const adminDirectEmployerListings = onRequest(
       }
       if (req.method === 'GET') {
         const status = req.query?.status || 'pending_moderation';
+        const cursor = req.query?.cursor || '';
         if (req.query?.kind === 'permanent') {
-          const signals = await listPermanentEmployerSignals({ status });
-          res.status(200).json({ ok: true, signals });
+          const page = await listPermanentEmployerSignals({ status, cursor });
+          res.status(200).json({ ok: true, signals: page.items, nextPageToken: page.nextPageToken });
           return;
         }
-        const listings = await listDirectEmployerSubmissions({ status });
-        res.status(200).json({ ok: true, listings });
+        const page = await listDirectEmployerSubmissions({ status, cursor });
+        res.status(200).json({ ok: true, listings: page.items, nextPageToken: page.nextPageToken });
         return;
       }
       if (req.method === 'POST') {

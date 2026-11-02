@@ -30,6 +30,7 @@ export function directEmployerSubmissionToRecords(submission, { now = new Date()
   const expiry = asDate(submission.expiresAt);
   if (!expiry || expiry.getTime() <= nowDate.getTime()) return [];
   if (wordCount(submission.description) < DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS) return [];
+  if (!submission.contactEmail && !submission.contactPhone) return [];
 
   const job = buildDirectEmployerJob(submission, nowDate);
   const baseSlug = truncatePublisherSlug(slugifyPublisher(`${job.title}-${job.location}-${job.company}`));

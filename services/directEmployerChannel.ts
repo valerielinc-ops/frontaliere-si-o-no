@@ -1,6 +1,7 @@
 import { FUNCTIONS_BASE } from './functionsBase';
 import { ensureAppCheck, fetchAndActivate, getConfigValue } from './firebase';
 import { cdnDataUrl } from './cdnDataBase';
+import { DIRECT_EMPLOYER_CHANNEL_FLAG } from './directEmployerFeature';
 
 export const DIRECT_EMPLOYER_VERIFY_ENDPOINT = `${FUNCTIONS_BASE}/verifyDirectEmployerListing/`;
 export const DIRECT_EMPLOYER_RENEW_ENDPOINT = `${FUNCTIONS_BASE}/renewDirectEmployerListing/`;
@@ -50,6 +51,11 @@ export interface DirectEmployerModerationListing {
   createdAt?: { _seconds?: number } | string;
 }
 
+export interface DirectEmployerModerationPage<T> {
+  items: T[];
+  nextPageToken: string | null;
+}
+
 export interface PermanentEmployerSignal {
   id: string;
   companyName: string;
@@ -61,7 +67,7 @@ export interface PermanentEmployerSignal {
 
 async function assertFeatureEnabled(): Promise<boolean> {
   await fetchAndActivate();
-  return (await getConfigValue('DIRECT_EMPLOYER_CHANNEL_ENABLED')).trim().toLowerCase() === 'true';
+  return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
 }
 
 async function callFunction<T>(name: string, data: unknown): Promise<T> {
@@ -126,12 +132,14 @@ export async function getDirectEmployerContact(jobId: string): Promise<{ ok: boo
   return callFunction('getDirectEmployerContact', { jobId });
 }
 
-export async function fetchAdminDirectEmployerListings(user: { getIdToken: () => Promise<string> } | null, status = 'pending_moderation'): Promise<DirectEmployerModerationListing[]> {
+export async function fetchAdminDirectEmployerListings(user: { getIdToken: () => Promise<string> } | null, status = 'pending_moderation', cursor = ''): Promise<DirectEmployerModerationPage<DirectEmployerModerationListing>> {
   if (!user) throw new Error('Admin authentication required.');
-  const response = await fetch(`${DIRECT_EMPLOYER_ADMIN_ENDPOINT}?status=${encodeURIComponent(status)}`, { headers: { Authorization: `Bearer ${await user.getIdToken()}` } });
+  const query = new URLSearchParams({ status });
+  if (cursor) query.set('cursor', cursor);
+  const response = await fetch(`${DIRECT_EMPLOYER_ADMIN_ENDPOINT}?${query.toString()}`, { headers: { Authorization: `Bearer ${await user.getIdToken()}` } });
   const data = await response.json().catch(() => ({}));
   if (!response.ok || !data.ok) throw new Error(data.error || 'Moderation queue unavailable.');
-  return Array.isArray(data.listings) ? data.listings as DirectEmployerModerationListing[] : [];
+  return { items: Array.isArray(data.listings) ? data.listings as DirectEmployerModerationListing[] : [], nextPageToken: typeof data.nextPageToken === 'string' ? data.nextPageToken : null };
 }
 
 export async function moderateDirectEmployerListing(user: { getIdToken: () => Promise<string> } | null, id: string, action: 'approve' | 'reject'): Promise<void> {
@@ -141,12 +149,14 @@ export async function moderateDirectEmployerListing(user: { getIdToken: () => Pr
   if (!response.ok || !data.ok) throw new Error(data.error || 'Moderation action failed.');
 }
 
-export async function fetchAdminPermanentEmployerSignals(user: { getIdToken: () => Promise<string> } | null, status = 'pending_moderation'): Promise<PermanentEmployerSignal[]> {
+export async function fetchAdminPermanentEmployerSignals(user: { getIdToken: () => Promise<string> } | null, status = 'pending_moderation', cursor = ''): Promise<DirectEmployerModerationPage<PermanentEmployerSignal>> {
   if (!user) throw new Error('Admin authentication required.');
-  const response = await fetch(`${DIRECT_EMPLOYER_ADMIN_ENDPOINT}?kind=permanent&status=${encodeURIComponent(status)}`, { headers: { Authorization: `Bearer ${await user.getIdToken()}` } });
+  const query = new URLSearchParams({ kind: 'permanent', status });
+  if (cursor) query.set('cursor', cursor);
+  const response = await fetch(`${DIRECT_EMPLOYER_ADMIN_ENDPOINT}?${query.toString()}`, { headers: { Authorization: `Bearer ${await user.getIdToken()}` } });
   const data = await response.json().catch(() => ({}));
   if (!response.ok || !data.ok) throw new Error(data.error || 'Permanent-employer queue unavailable.');
-  return Array.isArray(data.signals) ? data.signals as PermanentEmployerSignal[] : [];
+  return { items: Array.isArray(data.signals) ? data.signals as PermanentEmployerSignal[] : [], nextPageToken: typeof data.nextPageToken === 'string' ? data.nextPageToken : null };
 }
 
 export async function moderatePermanentEmployerSignal(user: { getIdToken: () => Promise<string> } | null, id: string, action: 'approve' | 'reject'): Promise<void> {

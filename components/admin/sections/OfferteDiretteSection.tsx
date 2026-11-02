@@ -27,19 +27,28 @@ export default function OfferteDiretteSection() {
   const { requestConfirmation } = useAdminConfirm();
   const [listings, setListings] = useState<DirectEmployerModerationListing[]>([]);
   const [signals, setSignals] = useState<PermanentEmployerSignal[]>([]);
+  const [listingNextPageToken, setListingNextPageToken] = useState<string | null>(null);
+  const [signalNextPageToken, setSignalNextPageToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [pending, setPending] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<AdminMessage | null>(null);
 
-  const load = async () => {
+  const load = async (mode: 'initial' | 'listings' | 'signals' = 'initial') => {
     setLoading(true); setError(null);
     try {
       const [nextListings, nextSignals] = await Promise.all([
-        fetchAdminDirectEmployerListings(user),
-        fetchAdminPermanentEmployerSignals(user),
+        mode === 'signals' ? Promise.resolve(null) : fetchAdminDirectEmployerListings(user, 'pending_moderation', mode === 'listings' ? listingNextPageToken || '' : ''),
+        mode === 'listings' ? Promise.resolve(null) : fetchAdminPermanentEmployerSignals(user, 'pending_moderation', mode === 'signals' ? signalNextPageToken || '' : ''),
       ]);
-      setListings(nextListings); setSignals(nextSignals);
+      if (nextListings) {
+        setListings((current) => mode === 'listings' ? [...current, ...nextListings.items] : nextListings.items);
+        setListingNextPageToken(nextListings.nextPageToken);
+      }
+      if (nextSignals) {
+        setSignals((current) => mode === 'signals' ? [...current, ...nextSignals.items] : nextSignals.items);
+        setSignalNextPageToken(nextSignals.nextPageToken);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Coda di moderazione non disponibile.');
     } finally { setLoading(false); }
@@ -78,10 +87,12 @@ export default function OfferteDiretteSection() {
         <section aria-labelledby="direct-listings-heading" className="space-y-3">
           <div className="flex items-center gap-2"><Store size={18} className="text-accent" aria-hidden="true" /><h2 id="direct-listings-heading" className="font-display text-xl font-semibold text-heading">Offerte da moderare ({listings.length})</h2></div>
           {listings.length === 0 ? <p className="rounded-stripe border border-edge bg-surface px-4 py-5 text-sm text-subtle">Nessuna offerta in attesa.</p> : <div className="space-y-3">{listings.map((listing) => <article key={listing.id} className="rounded-stripe border border-edge bg-surface p-4"><div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between"><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-display text-lg font-semibold text-heading">{listing.title}</h3><AdminStatusPill tone={listing.riskFlags?.length ? 'warning' : 'info'}>{listing.riskFlags?.length ? 'Revisione attenta' : 'Controllo umano'}</AdminStatusPill></div><p className="mt-1 text-sm font-medium text-body">{listing.companyName} · {listing.locationLabel}</p><p className="mt-2 max-w-3xl text-sm leading-6 text-subtle">{listing.description}</p><dl className="mt-3 grid gap-1 text-xs text-subtle sm:grid-cols-2"><div><dt className="inline font-semibold text-body">Contatto verificato: </dt><dd className="inline">{listing.contactEmail || listing.contactPhone || listing.contactType || '—'}</dd></div><div><dt className="inline font-semibold text-body">Ricevuta: </dt><dd className="inline">{dateLabel(listing.createdAt)}</dd></div></dl>{listing.riskFlags?.length ? <p className="mt-2 text-xs text-warning">Indicatori: {listing.riskFlags.join(', ')}</p> : null}</div><div className="flex shrink-0 flex-wrap gap-2"><AdminButton variant="primary" icon={<Check size={15} aria-hidden="true" />} loading={pending === `listing:${listing.id}`} disabled={pending !== null} onClick={() => void moderate('listing', listing.id, 'approve', `l’offerta di ${listing.companyName}`)}>Approva</AdminButton><AdminButton variant="danger" icon={<X size={15} aria-hidden="true" />} loading={pending === `listing:${listing.id}`} disabled={pending !== null} onClick={() => void moderate('listing', listing.id, 'reject', `l’offerta di ${listing.companyName}`)}>Rifiuta</AdminButton></div></div></article>)}</div>}
+          {listingNextPageToken && <AdminButton loading={loading} disabled={pending !== null} onClick={() => void load('listings')}>Carica altre offerte</AdminButton>}
         </section>
         <section aria-labelledby="permanent-signals-heading" className="space-y-3">
           <div className="flex items-center gap-2"><Store size={18} className="text-accent" aria-hidden="true" /><h2 id="permanent-signals-heading" className="font-display text-xl font-semibold text-heading">Candidature spontanee da moderare ({signals.length})</h2></div>
           {signals.length === 0 ? <p className="rounded-stripe border border-edge bg-surface px-4 py-5 text-sm text-subtle">Nessuna segnalazione in attesa.</p> : <div className="space-y-3">{signals.map((signal) => <article key={signal.id} className="rounded-stripe border border-edge bg-surface p-4"><div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><h3 className="font-display text-lg font-semibold text-heading">{signal.companyName}</h3><p className="mt-1 text-sm text-subtle">{signal.locationLabel || 'Località non indicata'} · {signal.candidateMarks || 1} segnalazioni · <a className="text-accent underline-offset-2 hover:underline" href={signal.website} target="_blank" rel="noreferrer">sito ufficiale</a></p></div><div className="flex flex-wrap gap-2"><AdminButton variant="primary" icon={<Check size={15} aria-hidden="true" />} loading={pending === `signal:${signal.id}`} disabled={pending !== null} onClick={() => void moderate('signal', signal.id, 'approve', `la segnalazione per ${signal.companyName}`)}>Approva</AdminButton><AdminButton variant="danger" icon={<X size={15} aria-hidden="true" />} loading={pending === `signal:${signal.id}`} disabled={pending !== null} onClick={() => void moderate('signal', signal.id, 'reject', `la segnalazione per ${signal.companyName}`)}>Rifiuta</AdminButton></div></div></article>)}</div>}
+          {signalNextPageToken && <AdminButton loading={loading} disabled={pending !== null} onClick={() => void load('signals')}>Carica altre segnalazioni</AdminButton>}
         </section>
       </>}
     </div>

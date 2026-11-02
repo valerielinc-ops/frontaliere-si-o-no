@@ -318,10 +318,25 @@ export async function verifyDirectEmployerEmail({ token: rawToken, db = getAdmin
   return { ok: true, status: 'pending_moderation' };
 }
 
-export async function listDirectEmployerSubmissions({ db = getAdminDb(), status = 'pending_moderation', limit = 50 }) {
+async function listModerationPage({ db, collectionName, status, limit, cursor }) {
   const safeLimit = Math.min(Math.max(Number(limit) || 50, 1), 100);
-  const snapshot = await db.collection(DIRECT_EMPLOYER_COLLECTION).where('status', '==', clean(status, 40) || 'pending_moderation').limit(safeLimit).get();
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  const collection = db.collection(collectionName);
+  let query = collection.where('status', '==', clean(status, 40) || 'pending_moderation').orderBy('__name__').limit(safeLimit + 1);
+  const cursorId = clean(cursor, 160);
+  if (cursorId) {
+    const cursorSnapshot = await collection.doc(cursorId).get();
+    if (cursorSnapshot.exists) query = query.startAfter(cursorSnapshot);
+  }
+  const snapshot = await query.get();
+  const pageDocs = snapshot.docs.slice(0, safeLimit);
+  return {
+    items: pageDocs.map((doc) => ({ id: doc.id, ...doc.data() })),
+    nextPageToken: snapshot.docs.length > safeLimit ? pageDocs[pageDocs.length - 1]?.id || null : null,
+  };
+}
+
+export async function listDirectEmployerSubmissions({ db = getAdminDb(), status = 'pending_moderation', limit = 50, cursor = '' }) {
+  return listModerationPage({ db, collectionName: DIRECT_EMPLOYER_COLLECTION, status, limit, cursor });
 }
 
 export async function moderateDirectEmployerSubmission({ id, action, db = getAdminDb(), now = new Date(), sendApprovalEmail, approvalUrlBase = 'https://frontaliereticino.ch/rinnova-offerta/' }) {
@@ -371,6 +386,7 @@ export async function renewDirectEmployerListing({ token: rawToken, auth = null,
   const snapshot = await ref.get();
   const data = snapshot.data();
   if (!data || data.status !== 'approved') return { ok: false, error: 'not_renewable' };
+  if (!data.contactEmail && !data.contactPhone) return { ok: false, error: 'contact_retention_expired' };
   if (!rawToken && !verifyPhoneAuth(auth, data.contactPhone)) return { ok: false, error: 'phone_verification_required' };
   const nextExpiry = new Date(current.getTime() + DIRECT_EMPLOYER_VALID_DAYS * 86400000);
   await ref.update({ expiresAt: nextExpiry, updatedAt: current, renewalCount: Number(data.renewalCount || 0) + 1 });
@@ -385,10 +401,8 @@ export async function listPermanentEmployers({ db = getAdminDb(), limit = 50 }) 
   }).filter((item) => item.companyName && item.website);
 }
 
-export async function listPermanentEmployerSignals({ db = getAdminDb(), status = 'pending_moderation', limit = 50 }) {
-  const safeLimit = Math.min(Math.max(Number(limit) || 50, 1), 100);
-  const snapshot = await db.collection(PERMANENT_EMPLOYER_COLLECTION).where('status', '==', clean(status, 40) || 'pending_moderation').limit(safeLimit).get();
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+export async function listPermanentEmployerSignals({ db = getAdminDb(), status = 'pending_moderation', limit = 50, cursor = '' }) {
+  return listModerationPage({ db, collectionName: PERMANENT_EMPLOYER_COLLECTION, status, limit, cursor });
 }
 
 export async function moderatePermanentEmployerSignal({ id, action, db = getAdminDb(), now = new Date() }) {
@@ -429,6 +443,7 @@ export async function getDirectEmployerContact({ jobId, db = getAdminDb() }) {
   const data = snapshot.data();
   const expiresAt = asDate(data.expiresAt, new Date(0));
   if (data.status !== 'approved' || expiresAt.getTime() <= Date.now()) return { ok: false, error: 'listing_expired' };
+  if (!data.contactEmail && !data.contactPhone) return { ok: false, error: 'contact_unavailable' };
   return { ok: true, email: data.contactEmail || null, phone: data.contactPhone || null };
 }
 
@@ -437,12 +452,11 @@ export async function purgeDirectEmployerPii({ db = getAdminDb(), now = new Date
   if (snapshot.empty) return 0;
   const batch = db.batch();
   snapshot.docs.forEach((doc) => batch.update(doc.ref, {
+    ...(doc.data().status === 'approved' ? { status: 'expired', publicEligible: false, expiresAt: nowDate(now) } : {}),
     contactEmail: FieldValue.delete(),
     contactPhone: FieldValue.delete(),
     emailVerificationTokenHash: FieldValue.delete(),
     emailVerificationExpiresAt: FieldValue.delete(),
-    // This is a non-PII capability hash. Keep it so an approved listing can
-    // still be renewed after the contact retention window has elapsed.
     piiPurgedAt: nowDate(now),
   }));
   await batch.commit();

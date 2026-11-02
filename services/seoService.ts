@@ -54,6 +54,7 @@ import {
  applyHreflangEntries,
  resolveRobotsDirective,
 } from './seo/staticHeadAuthority';
+import { DIRECT_EMPLOYER_CHANNEL_FLAG, isDirectEmployerSeoPath } from './directEmployerFeature';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -92,6 +93,16 @@ type PharmacyRuntimeSeoModule = typeof import('./pharmacies/runtimeSeo');
 
 let pharmacyRuntimeSeoPromise: Promise<PharmacyRuntimeSeoModule> | null = null;
 let seoUpdateEpoch = 0;
+
+async function isDirectEmployerRuntimeEnabled(): Promise<boolean> {
+ try {
+  const { fetchAndActivate, getConfigValue } = await import('./firebase');
+  await fetchAndActivate();
+  return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
+ } catch {
+  return false;
+ }
+}
 
 /**
  * Keep the pharmacy resolver and its snapshot dependencies out of the
@@ -1880,6 +1891,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  const canonicalLocalePath = isApplicationConciergeEntry
  ? getApplicationConciergePath(locale)
  : withTrailingSlashPath(localePath);
+ const directEmployerRouteDisabled = isDirectEmployerSeoPath(canonicalLocalePath)
+  && !(await isDirectEmployerRuntimeEnabled());
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
@@ -2091,7 +2104,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  }
  })();
  const articleBodyUnavailable = isBlogArticle && articleBodyLoadFailed;
- const spaRobotsDirective = isApplicationConciergeService
+ const spaRobotsDirective = directEmployerRouteDisabled
+ ? 'noindex, follow'
+ : isApplicationConciergeService
  ? 'noindex, nofollow'
  : hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'

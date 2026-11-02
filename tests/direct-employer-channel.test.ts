@@ -3,10 +3,18 @@ import {
   DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS,
   DIRECT_EMPLOYER_SOURCE_KEY,
   buildDirectEmployerJob,
+  listDirectEmployerSubmissions,
   normalizeDirectEmployerSubmission,
+  purgeDirectEmployerPii,
+  renewDirectEmployerListing,
 } from '../functions/src/directEmployerCore.js';
 import { directEmployerSubmissionToRecords } from '../scripts/lib/directEmployerJobProjection.mjs';
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
+import {
+  filterDirectEmployerSitemapXml,
+  isDirectEmployerBuildEnabled,
+  isDirectEmployerSeoPath,
+} from '../services/directEmployerFeature';
 
 function daysFrom(reference: Date, days: number): Date {
   return new Date(reference.getTime() + days * 24 * 60 * 60 * 1000);
@@ -29,9 +37,58 @@ function submission(over: Record<string, unknown> = {}) {
     canton: 'TI',
     employmentType: 'FULL_TIME',
     description: description(),
+    contactEmail: 'datore@example.ch',
     approvedAt: daysFrom(new Date(), -1),
     expiresAt: daysFrom(new Date(), 29),
     ...over,
+  };
+}
+
+function moderationDb(records: Array<{ id: string; data: Record<string, unknown> }>) {
+  const docs = new Map(records.map(({ id, data }) => {
+    const state = { ...data };
+    const snapshot = { id, exists: true, data: () => state } as { id: string; exists: boolean; data: () => Record<string, unknown>; ref: { get: () => Promise<unknown>; update: (patch: Record<string, unknown>) => Promise<void> } };
+    const ref = {
+      get: async () => snapshot,
+      update: async (patch: Record<string, unknown>) => Object.assign(state, patch),
+    };
+    snapshot.ref = ref;
+    return [id, snapshot];
+  }));
+  const missing = (id: string) => ({ id, exists: false, data: () => undefined, get: async () => ({ id, exists: false, data: () => undefined }), update: async () => undefined });
+  const collection = {
+    doc(id: string) { return docs.get(id)?.ref || missing(id); },
+    where(field: string, operator: string, value: unknown) {
+      let cursor = '';
+      let limit = 50;
+      const query = {
+        orderBy() { return query; },
+        limit(value: number) { limit = value; return query; },
+        startAfter(doc: { id: string }) { cursor = doc.id; return query; },
+        async get() {
+          const matching = [...docs.values()]
+            .filter((doc) => {
+              const candidate = doc.data()[field];
+              if (operator === '==' && field === 'status') return candidate === value;
+              if (operator === '<=') return candidate instanceof Date && candidate.getTime() <= new Date(String(value)).getTime();
+              return true;
+            })
+            .sort((left, right) => left.id.localeCompare(right.id));
+          const start = cursor ? matching.findIndex((doc) => doc.id === cursor) + 1 : 0;
+          const page = matching.slice(Math.max(start, 0), Math.max(start, 0) + limit);
+          return { docs: page, size: page.length, empty: page.length === 0 };
+        },
+      };
+      return query;
+    },
+  };
+  const updates: Array<{ ref: unknown; patch: Record<string, unknown> }> = [];
+  return {
+    collection: () => collection,
+    batch: () => ({
+      update(ref: unknown, patch: Record<string, unknown>) { updates.push({ ref, patch }); },
+      commit: async () => updates.forEach(({ ref, patch }) => (ref as { update: (value: Record<string, unknown>) => Promise<void> }).update(patch)),
+    }),
   };
 }
 
@@ -95,12 +152,66 @@ describe('direct employer job projection', () => {
     expect(directEmployerSubmissionToRecords(submission({ description: description(DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS - 1) }), { now })).toEqual([]);
   });
 
+  it('excludes an approved listing after contact retention purges its contact', () => {
+    const now = new Date();
+    expect(directEmployerSubmissionToRecords(submission({ contactEmail: undefined, contactPhone: undefined }), { now })).toEqual([]);
+  });
+
   it('fills safe address and salary defaults for structured data consumers', () => {
     const job = buildDirectEmployerJob(submission({ streetAddress: '', postalCode: '', salaryMin: null, salaryMax: null }), new Date());
     expect(job.addressRegion).toBe('TI');
     expect(job.addressCountry).toBe('CH');
     expect(job.currency).toBe('CHF');
     expect(job.employmentType).toBeTruthy();
+  });
+});
+
+describe('direct employer SEO flag', () => {
+  it('fails closed and filters both public feature routes until explicitly enabled', () => {
+    const xml = [
+      '<url><loc>https://frontaliereticino.ch/pubblica-offerta-gratuita/</loc></url>',
+      '<url><loc>https://frontaliereticino.ch/aziende-candidature-spontanee/</loc></url>',
+      '<url><loc>https://frontaliereticino.ch/chi-siamo/</loc></url>',
+    ].join('');
+    expect(isDirectEmployerBuildEnabled({})).toBe(false);
+    expect(isDirectEmployerSeoPath('/pubblica-offerta-gratuita/')).toBe(true);
+    expect(filterDirectEmployerSitemapXml(xml, false)).not.toContain('pubblica-offerta-gratuita');
+    expect(filterDirectEmployerSitemapXml(xml, false)).not.toContain('aziende-candidature-spontanee');
+    expect(filterDirectEmployerSitemapXml(xml, false)).toContain('/chi-siamo/');
+    expect(isDirectEmployerBuildEnabled({ DIRECT_EMPLOYER_CHANNEL_ENABLED: 'true' })).toBe(true);
+    expect(filterDirectEmployerSitemapXml(xml, true)).toContain('pubblica-offerta-gratuita');
+  });
+});
+
+describe('direct employer moderation retention', () => {
+  it('paginates moderation results with a stable cursor', async () => {
+    const db = moderationDb([
+      { id: 'a', data: { status: 'pending_moderation' } },
+      { id: 'b', data: { status: 'pending_moderation' } },
+    ]);
+    const first = await listDirectEmployerSubmissions({ db, limit: 1 });
+    const second = await listDirectEmployerSubmissions({ db, limit: 1, cursor: first.nextPageToken });
+    expect(first.items.map((item) => item.id)).toEqual(['a']);
+    expect(second.items.map((item) => item.id)).toEqual(['b']);
+    expect(second.nextPageToken).toBeNull();
+  });
+
+  it('revokes an approved listing before removing retained contact data', async () => {
+    const db = moderationDb([{ id: 'approved-1', data: { status: 'approved', contactEmail: 'datore@example.ch', piiRetentionUntil: new Date(Date.now() - 86400000) } }]);
+    expect(await purgeDirectEmployerPii({ db, now: new Date() })).toBe(1);
+    const page = await listDirectEmployerSubmissions({ db, status: 'expired' });
+    expect(page.items[0]).toMatchObject({ id: 'approved-1', status: 'expired', publicEligible: false });
+  });
+
+  it('rejects renewal after contact retention has been purged', async () => {
+    const db = moderationDb([{ id: 'approved-1', data: { status: 'approved', manageTokenHash: 'kept-capability-only' } }]);
+    const result = await renewDirectEmployerListing({
+      submissionId: 'approved-1',
+      auth: { token: { phone_number: '+41791234567' } },
+      db,
+      now: new Date(),
+    });
+    expect(result).toEqual({ ok: false, error: 'contact_retention_expired' });
   });
 });
 
