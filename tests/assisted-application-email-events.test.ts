@@ -201,6 +201,28 @@ describe('assisted e-mail events', () => {
     ]));
   });
 
+  it('joins a Maileroo delivery for a new-proposals campaign to the concierge service, idempotently', async () => {
+    const serviceId = 'proposal-service';
+    const key = 'new_proposals_abc123';
+    const campaign = conciergeCampaignId(serviceId, key);
+    const servicePath = `application_concierge_services/${serviceId}`;
+    const { db, docs } = memoryDb({
+      [servicePath]: { notifications: { [key]: { status: 'sent', provider: 'maileroo', messageId: 'proposal-ref' } } },
+      'newsletter_subscribers/_meta_/maileroo_refs/proposal-ref': {
+        email: EMAIL, campaign_id: campaign, is_job_alert: false,
+      },
+    });
+    const event = {
+      event_type: 'delivered', event_id: 'proposal-delivery-1', message_reference_id: 'proposal-ref',
+      event_data: {}, event_time: 1790793660,
+    };
+
+    expect(await persistMailerooEvent(db, event)).toMatchObject({ processed: true, campaignId: campaign });
+    expect(docs.get(servicePath)!.notifications[key]).toMatchObject({ deliveryStatus: 'delivered' });
+    expect(await persistMailerooEvent(db, event)).toEqual({ skipped: true, reason: 'duplicate' });
+    expect(docs.get(servicePath)!.emailEngagement[key]).toMatchObject({ delivered: 1 });
+  });
+
   it('routes payment-recovery engagement to the digest ledger and keeps the tag bounded', async () => {
     const digestId = `digest-${'a'.repeat(24)}`;
     const campaign = assistedCampaignId(digestId, 'customer_payment_recovery');

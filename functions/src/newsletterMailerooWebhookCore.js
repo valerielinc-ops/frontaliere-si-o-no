@@ -258,7 +258,10 @@ export async function persistMailerooEvent(db, event) {
   // as newsletter engagement or a job ranking click.
   // Opens and clicks find the campaign in the reference record written at send.
   if (parseAssistedCampaign(campaignId)) {
-    return recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'maileroo', messageId, occurredAt, url: clickedUrl });
+    const result = await recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'maileroo', messageId, occurredAt, url: clickedUrl });
+    if (result.recorded) return { ...result, processed: true, campaignId };
+    if (result.reason === 'duplicate') return { skipped: true, reason: 'duplicate' };
+    return { ...result, campaignId };
   }
 
   if (type === 'click' && clickedUrl) {
