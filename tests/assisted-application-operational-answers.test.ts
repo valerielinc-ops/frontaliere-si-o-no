@@ -108,6 +108,8 @@ describe('scope, languages and actual field options', () => {
       { label: 'Grado di occupazione', context: 'night shifts', options: ['80%', '100%'] },
       { label: 'Taux d’activité', options: ['100% on shifts', '80%'] },
       { label: 'Grado di occupazione', options: ['Fino all’80%', '100%'] },
+      { label: 'Workload', context: 'What workload are you available for?', options: ['80%', '100%'] },
+      { label: 'Workload', options: ['Available 80%', '100%'] },
     ]) {
       expect(operationalQuestionTopic(question)).toBeNull();
       expect(operationalDefaultAnswer(question)).toBeNull();
@@ -126,6 +128,7 @@ describe('scope, languages and actual field options', () => {
     'Grado di occupazione su turni', 'Workload in shifts', 'Pensum im Schichtdienst', 'Taux d’activité en horaires postés',
     'Workload must be at least 80%', 'At least 80% workload', 'Grado di occupazione almeno 80%',
     'Pensum muss mindestens 80%', 'Taux d’activité d’au moins 80%',
+    'What workload are you available for?', 'What workload availability do you have?', 'What workload are you unavailable for?',
   ])('does not default workload with a hard constraint: %s', label => {
     expect(operationalQuestionTopic({ label })).toBeNull();
     expect(operationalDefaultAnswer({ label })).toBeNull();
