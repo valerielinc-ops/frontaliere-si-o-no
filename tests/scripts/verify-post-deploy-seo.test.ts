@@ -122,6 +122,28 @@ describe('post-deploy SEO verification', () => {
     });
   });
 
+  it('does not let an authoritative sitemap signal promote known landing routes', () => {
+    const landingUrls = [
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/foglio-ufficiale-offerte-di-lavoro-ticino/',
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-autista-ticino/',
+    ];
+    const signals = new Map(landingUrls.map((url) => [url, true] as const));
+
+    for (const pageUrl of landingUrls) {
+      expect(isLikelyJobDetailUrl(pageUrl, signals)).toBe(false);
+      expect(classifyLiveJobCandidate(pageUrl, {
+        isJobPage: false,
+        isListingPage: true,
+        errors: [],
+      }, signals)).toMatchObject({
+        detailPageSignal: false,
+        shouldInspect: false,
+        issue: null,
+        skipped: true,
+      });
+    }
+  });
+
   it('requires both the detail priority and listing lastmod in the jobs sitemap', () => {
     const officialGazetteUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/foglio-ufficiale-offerte-di-lavoro-ticino/';
     const driverSearchUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-autista-ticino/';
