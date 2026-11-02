@@ -44,7 +44,7 @@ export const JOB_LOCATION_VALUE_CLASS_TOKENS = new Set(['jobgeolocation']);
 
 const OFFICIAL_LOCATION_LINK_RX = /(?:impressum|imprint|contact|kontakt|contatti?|contactez|adresse|address|indirizzo|chi[\s_-]*siamo|about[\s_-]*(?:us|company)?)/iu;
 const OFFICIAL_LOCATION_SECTION_RX = /(?:impressum|imprint|contact|kontakt|contatti?|contactez|adresse|address|indirizzo|chi[\s_-]*siamo|about[\s_-]*(?:us|company)?)/iu;
-const AGENCY_EMPLOYER_RX = /(?:\bpersonal(?:beratung|vermittlung|dienstleistungen|leasing)?\b|placement(?:\s+de\s+personnel)?|staffing(?:\s+agency)?|employment\s+agency|recruitment\s+agency|agenzia\s+(?:per\s+il\s+lavoro|di\s+collocamento|interinale)|agence\s+(?:de\s+placement|de\s+recrutement|d['’]?emploi)|\binteriman\b|\binterim\b|\b(?:adecco|manpower|randstad|kelly\s+services|pemsa|coopers|anker\s+swiss)\b)/iu;
+const AGENCY_EMPLOYER_RX = /(?:\bpersonal(?:beratung|vermittlung|dienstleistungen|leasing|agentur)?\b|placement(?:\s+de\s+personnel)?|staffing(?:\s+agency)?|(?:employment|recruitment|work|personnel|job|talent)\s+agency|agency\s+(?:for\s+)?(?:employment|recruitment|staffing|work|personnel|jobs?)|agenzia\s+(?:per\s+il\s+lavoro|di\s+collocamento|interinale)|agence\s+(?:de\s+placement|de\s+recrutement|d['’]?emploi)|\b(?:adecco|manpower|randstad|kelly\s+services|pemsa|coopers|anker\s+swiss|flexsis|interiman|sintex|axxon(?:\s+services)?|trenkwalder)\b|\binterim\b)/iu;
 
 /**
  * Structured location evidence selected by the shared resolver. Known address

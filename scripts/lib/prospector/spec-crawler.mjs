@@ -368,9 +368,12 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
       || (options.requireExplicitCountryEvidence ? '' : 'CH'),
   ).trim();
   const source = String(candidate.locationSource || options.locationSource || '').trim();
-  const offerLocation = source === 'employer_site'
-    ? ''
-    : String(options.offerLocation || candidate.offerLocation || candidate.location || geography.location || '').trim();
+  // Keep the offer's own declaration as a separate field even when the
+  // selected source is the employer site. Normally the official-site tier is
+  // reached with no offer locality, but a country-only/otherwise unresolved
+  // declaration is still useful provenance and must not be overwritten by
+  // the employer address.
+  const offerLocation = String(options.offerLocation || candidate.offerLocation || '').trim();
   const evidenceUrl = String(
     candidate.locationEvidenceUrl || options.locationEvidenceUrl || '',
   ).trim();
@@ -400,6 +403,11 @@ function declaredOfferLocation(record = {}) {
     ? record.locationCandidates.find((item) => String(item?.location || '').trim())
     : null;
   return String(candidate?.location || '').replace(/\s+/g, ' ').trim();
+}
+
+function rowNeedsOfficialEmployerLocation(row = {}) {
+  const decision = resolveDetailOrListingSwissGeography({}, row);
+  return !decision.geography && !decision.explicitlyForeign && !decision.hasDeclaredLocation;
 }
 
 function officialEmployerSeedUrls(domain = '') {
@@ -2253,7 +2261,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
   try {
     const rows = await collectSpecListingRows(spec, runtime, validateUrl);
-    const officialEmployerSiteLocation = rows.length > 0
+    const officialEmployerSiteLocation = rows.some(rowNeedsOfficialEmployerLocation)
       ? (runtime.officialEmployerSiteLocation
         || await fetchOfficialEmployerSiteLocation(spec, runtime))
       : null;

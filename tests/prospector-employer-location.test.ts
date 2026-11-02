@@ -4,8 +4,10 @@ import {
   officialEmployerLocationLinks,
   resolveDetailOrListingSwissGeography,
   resolveOfficialEmployerSiteLocation,
+  sourceBackedCrawlerBlockReport,
 } from '../scripts/lib/prospector/location-evidence.mjs';
 import { geographyFieldsForDecision, observeSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { gradeVacancy } from '../scripts/lib/prospector/validate.mjs';
 
 const PUBLIC_IP = [{ address: '93.184.216.34', family: 4 }];
 const daysAgo = (days: number) => new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -81,6 +83,15 @@ describe('prospector official employer location proof', () => {
       verifiedEmployerDomain: 'staffing.example',
       companyName: 'Example Personalberatung AG',
     }).reasonCode).toBe('agency_employer');
+
+    expect(resolveOfficialEmployerSiteLocation([], {
+      verifiedEmployerDomain: 'campobasso-work.ch',
+      companyName: 'Campobasso Work Agency GmbH',
+    }).reasonCode).toBe('agency_employer');
+    expect(resolveOfficialEmployerSiteLocation([], {
+      verifiedEmployerDomain: 'flexsis.ch',
+      companyName: 'Flexsis AG',
+    }).reasonCode).toBe('agency_employer');
   });
 
   it('lets a vacancy location win over the employer site address', () => {
@@ -103,6 +114,20 @@ describe('prospector official employer location proof', () => {
       locationSource: 'offer',
       offerLocation: 'Zürich',
       locationEvidence: { source: 'offer', url: 'https://jobs.example/job/1' },
+    });
+
+    const countryOnlyDecision = resolveDetailOrListingSwissGeography(
+      {},
+      { addressCountry: 'CH' },
+      { officialEmployerSiteLocation: proof },
+    );
+    expect(geographyFieldsForDecision(countryOnlyDecision, {
+      recordLocationEvidence: true,
+      offerLocation: 'CH',
+    })).toMatchObject({
+      locationSource: 'employer_site',
+      offerLocation: 'CH',
+      locationEvidence: { source: 'employer_site' },
     });
   });
 
@@ -169,6 +194,76 @@ describe('prospector official employer location proof', () => {
       publishableCount: 1,
       sourceBackedLocationCount: 1,
       dropCounts: {},
+    });
+  });
+
+  it('does not let an employer-site seat satisfy the independent jobLike proof', async () => {
+    const graded = await gradeVacancy({
+      title: 'Platform Engineer',
+      url: 'https://employer.example/jobs/platform-engineer',
+      location: 'Bellinzona, TI',
+      locationSource: 'employer_site',
+    } as any, {
+      observedDetail: {
+        body: `<h1>Platform Engineer</h1>${'opaque structured page '.repeat(80)}`,
+        status: 200,
+        url: 'https://employer.example/jobs/platform-engineer',
+        detail: {
+          title: 'Platform Engineer',
+          hasStructuredVacancy: true,
+          locationCandidates: [],
+        },
+      },
+      titleEvidence: {
+        detailTitle: 'Platform Engineer',
+        finalTitle: 'Platform Engineer',
+        titleSource: 'detail',
+      },
+      spec: {
+        companyName: 'Example AG',
+        companyHost: 'employer.example',
+      },
+    });
+
+    expect(graded).toMatchObject({
+      sourceBackedLocation: true,
+      jobLikeEvidence: null,
+      jobLikeEvidenceMode: 'unmeasured',
+    });
+  });
+
+  it('reports source-backed crawler blocks without changing their publication state', () => {
+    const report = sourceBackedCrawlerBlockReport([
+      {
+        companyKey: 'blocked',
+        validationHistory: [{
+          runtimeObservation: {
+            listingCount: 2,
+            publishableCount: 0,
+            dropCounts: { source_backed_geography_missing: 2 },
+          },
+        }],
+      },
+      {
+        companyKey: 'partial',
+        observation: {
+          listingCount: 3,
+          publishableCount: 1,
+          dropCounts: { source_backed_geography_missing: 1 },
+        },
+      },
+    ]);
+
+    expect(report).toMatchObject({
+      candidateCount: 2,
+      listingRows: 5,
+      publishableRows: 1,
+      sourceBackedGeographyMissingRows: 3,
+      allRowsFiltered: 1,
+      records: [
+        expect.objectContaining({ key: 'blocked', allRowsFiltered: true }),
+        expect.objectContaining({ key: 'partial', allRowsFiltered: false }),
+      ],
     });
   });
 });

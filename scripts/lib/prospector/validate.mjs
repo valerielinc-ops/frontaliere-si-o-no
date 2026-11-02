@@ -487,7 +487,11 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   } else if (detail.hasStructuredVacancy === true
     && out.titleMatch >= 0.8
     && identity.status === 'match'
-    && (Boolean(detail.employmentType) || out.sourceBackedLocation)) {
+    // An employer-site seat proves the address only. It is not an
+    // offer-specific workplace signal and must not make an opaque structured
+    // page pass the independent jobLike gate.
+    && (Boolean(detail.employmentType)
+      || (out.sourceBackedLocation && vacancy.locationSource !== 'employer_site'))) {
     // A PDF or opaque detail can still be proven semantically when the page
     // carries a selected schema.org JobPosting with a matching title and
     // employer, plus an employment type or source-backed workplace.
