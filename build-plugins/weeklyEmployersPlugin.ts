@@ -1,5 +1,8 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
+import {
+  companyLogoKeyForJob,
+  EMPLOYER_SCOPED_LOGO_SOURCE_KEYS,
+} from '../scripts/lib/company-logo-key.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -336,10 +339,13 @@ export function jobMatchesCity(
 }
 
 function normEmployerKey(company: string, companyKey?: string, companyLogoKey?: string | null): string {
-  // SECO/job-room uses one crawler key for many employers. Use the same
-  // employer-scoped identity as logo lookup so one employer cannot absorb
-  // another employer's jobs (and then inherit its logo) in weekly hubs.
-  const scopedKey = companyLogoKeyForJob({ company, companyKey, companyLogoKey });
+  const normalizedCompanyKey = String(companyKey || '').trim();
+  // Only sources that share one crawler key across employers need a derived
+  // grouping key. Other families, including Ticino municipalities, keep their
+  // existing company identity; their logo key may be narrower than the group.
+  const scopedKey = EMPLOYER_SCOPED_LOGO_SOURCE_KEYS.includes(normalizedCompanyKey.toLowerCase())
+    ? companyLogoKeyForJob({ company, companyKey: normalizedCompanyKey.toLowerCase(), companyLogoKey })
+    : normalizedCompanyKey;
   const raw = (scopedKey || company || '').trim().toLowerCase();
   return raw
     .normalize('NFD')
