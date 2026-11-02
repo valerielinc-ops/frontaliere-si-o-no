@@ -107,6 +107,7 @@ describe('scope, languages and actual field options', () => {
       { label: 'Pensum', applicationQuestion: 'Required workload', options: ['80%', '100%'] },
       { label: 'Grado di occupazione', context: 'night shifts', options: ['80%', '100%'] },
       { label: 'Taux d’activité', options: ['100% on shifts', '80%'] },
+      { label: 'Grado di occupazione', options: ['Fino all’80%', '100%'] },
     ]) {
       expect(operationalQuestionTopic(question)).toBeNull();
       expect(operationalDefaultAnswer(question)).toBeNull();
@@ -119,6 +120,7 @@ describe('scope, languages and actual field options', () => {
     'Employer requires a 100% workload', 'Il datore richiede un grado di occupazione del 100%',
     'Der Arbeitgeber verlangt ein Pensum von 100%', 'Le poste exige un taux d’activité de 100%',
     'Workload max 80%', 'Workload up to 80%', 'Grado di occupazione max 80%', 'Grado di occupazione fino a 80%',
+    'Grado di occupazione fino al 80%', 'Grado di occupazione fino all’80%',
     'Pensum max. 80%', 'Pensum bis zu 80%', 'Taux d’activité max 80%', 'Taux d’activité jusqu’à 80%',
     'Grado di occupazione in ore', 'Workload in hours', 'Beschäftigungsgrad in Stunden', 'Taux d’activité en heures',
     'Grado di occupazione su turni', 'Workload in shifts', 'Pensum im Schichtdienst', 'Taux d’activité en horaires postés',
