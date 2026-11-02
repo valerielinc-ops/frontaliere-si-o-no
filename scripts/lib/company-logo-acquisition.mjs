@@ -109,6 +109,7 @@ export const DOMAIN_OVERRIDES = {
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
 };
