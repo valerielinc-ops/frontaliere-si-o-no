@@ -17,6 +17,7 @@ const { renderCvPdf } = await import('../functions/src/assistedApplicationPdfRen
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
 
@@ -77,12 +78,14 @@ const runEffect = vi.fn(async ({ effect }: any) => {
 function seed({ draft = {}, flow = {}, person = {} }: { draft?: Record<string, any>, flow?: Record<string, any>, person?: Record<string, any> } = {}) {
   store = createMemoryFirestore({
     [BASE]: {
+      userId: 'personal-data-test', jobId: 'personal-data-job', jobUrl: 'https://example.test/jobs/personal-data/',
+      cvStorageKey: `assisted-application-uploads/${ORDER}/source-cv.pdf`, cvUploadedAt: T0,
       paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital Beispiel', locale: 'de',
       applicantName: 'Giulia Verdi', applicantEmail: 'giulia.verdi@example.com', applicantPhone: '+39 333 000 0000',
     },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [], ...flow },
     [`${BASE}/ai_drafts/current`]: {
-      status: 'ready', round: 1, language: 'de', candidateLocale: 'de', profile: { ...profile, ...person }, job: { title: 'Pflegefachperson HF', applyUrl: '' },
+      status: 'ready', round: 1, cvKey: `assisted-application-uploads/${ORDER}/source-cv.pdf`, language: 'de', candidateLocale: 'de', profile: { ...profile, ...person }, job: { title: 'Pflegefachperson HF', applyUrl: '' },
       channel: { type: 'email', label: 'E-mail', email: 'hr@spital-beispiel.ch', applyUrl: '' },
       coverLetter: { subject: 'Bewerbung', text: 'Sehr geehrte Damen und Herren\n\nIch bewerbe mich um die Stelle in der Akutpflege.\n\nFreundliche Grüsse' },
       applicationEmail: { to: 'hr@spital-beispiel.ch', subject: 'Bewerbung', body: 'Guten Tag\n\nIm Anhang finden Sie meine Unterlagen.\n\nFreundliche Grüsse' },
@@ -178,7 +181,8 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     expect([draftNow().tailoredCv.pdfKey, renders()]).toEqual([key, before]);
 
     // The owner's answer, a legacy «B», rebuilds it too.
-    const answerQuestionSnapshots = (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answerQuestionSnapshots;
+    const answerQuestionSnapshots = answerConfirmationSnapshotsFor({ userId: store.read(BASE).userId, orderId: ORDER,
+      order: store.read(BASE), flow: flowNow(), questions: draftNow().questions, draft: draftNow(), sourceKind: 'owner_attested', nowMs: T0 });
     await handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: 'B' }, answerQuestionSnapshots }, 'owner@example.com', { runEffect, bucket, nowMs: T0 });
     expect(printed().personal).toContainEqual(['Arbeitsbewilligung', 'Aufenthaltsbewilligung B']);
     expect(flowNow().answers).toMatchObject({ work_permit: 'B', availability: start, salary_expectation: 'CHF 80000' });
