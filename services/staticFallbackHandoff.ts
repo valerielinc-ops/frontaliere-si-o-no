@@ -7,8 +7,9 @@
  * usually wrapped in the build-time `.ft-rail-grid`. index.tsx moves it INTO
  * `#root` right before `createRoot().render()`, so React replaces it in place
  * under the reserved height instead of App.tsx collapsing it from outside.
- * The current job-board generator emits its static main inside `#root` and
- * therefore does not need this runtime move.
+ * Most job-board hub emitters keep their static main inside `#root`. The bare
+ * Ticino listing instead keeps its external `.job-board-static-content` main
+ * outside the root until the first real result set is ready.
  *
  * Legacy generic hub fallbacks can also emit the static hub sub-nav
  * `nav.seo-hub-subnav` as a BODY-DIRECT sibling BETWEEN `#root` and the
@@ -26,7 +27,7 @@
 import type { AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 
-export type StaticFallbackKind = 'article' | 'canton-topic' | 'generic';
+export type StaticFallbackKind = 'article' | 'canton-topic' | 'job-board' | 'generic';
 
 /** Return the unresolved article identity carried by a route, if any. */
 export function pendingArticleSlug(route: AppRoute): { section: ArticleSection; slug: string } | null {
@@ -70,6 +71,12 @@ export function shouldKeepStaticFallbackOutsideRoot(
   if (!fallbackPresent) return false;
   if (kind === 'article') return isArticleDetailRoute(route);
   if (kind === 'canton-topic') return route.activeTab === 'blog' && !!route.cantonTopic && !route.staticOverlay;
+  if (kind === 'job-board') {
+    return route.activeTab === 'job-board'
+      && route.jobBoardCanton === 'TI'
+      && !route.jobSlug
+      && !route.staticOverlay;
+  }
   return false;
 }
 

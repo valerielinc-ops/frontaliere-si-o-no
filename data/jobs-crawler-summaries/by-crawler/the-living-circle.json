@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-11-01T22:49:09.204Z",
+  "generatedAt": "2026-11-02T09:41:44.876Z",
   "total": 32,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 1692,
-  "avgDurationMs": 1692,
+  "durationMs": 1785,
+  "avgDurationMs": 1785,
   "durationHistory": [
-    1692
+    1785
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1291,15 +1291,15 @@
       }
     },
     {
-      "title": "Chef de Rang Frühstück Widder 60-100% (all genders)",
-      "slug": "chef-de-rang-colazione-ariete-60-100-tutti-i-generi-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/68359572/Chef-de-Rang-Fr%C3%BChst%C3%BCck-Widder-60-100-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68359572/Chef-de-Rang-Fr%C3%BChst%C3%BCck-Widder-60-100-all-genders-/",
+      "title": "Room Attendant Aushilfe 20-40%  (all genders)",
+      "slug": "aiuto-20-40-tutti-i-generi-the-living-circle-thalwil",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68364672/Room-Attendant-Aushilfe-20-40-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68364672/Room-Attendant-Aushilfe-20-40-all-genders-/",
       "company": "The Living Circle",
       "companyKey": "the-living-circle",
       "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
+      "location": "Thalwil",
+      "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
@@ -1308,20 +1308,20 @@
       "sector": "Hotellerie & Ospitalità",
       "source": "living-circle-dedicated-crawler",
       "sourceLang": "de",
-      "datePosted": "2026-10-27T16:56:45.464+01:00",
-      "postedDate": "2026-10-27T16:56:45.464+01:00",
+      "datePosted": "2026-10-28T09:22:39.751+01:00",
+      "postedDate": "2026-10-28T09:22:39.751+01:00",
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "2027-01-25T21:19:47.483Z",
-      "id": "the-living-circle-a0387eae2733",
-      "firstSeenAt": "2026-10-27T21:19:47.483Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
+      "validThrough": "2027-01-26T09:13:21.987Z",
+      "id": "the-living-circle-cf0921426359",
+      "firstSeenAt": "2026-10-28T09:13:21.987Z",
+      "salaryMin": 29200,
+      "salaryMax": 36600,
       "currency": "CHF",
       "salarySource": "estimated",
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
+      "postalCode": "8800",
+      "streetAddress": "Thalwil",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
@@ -1333,5 +1333,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }

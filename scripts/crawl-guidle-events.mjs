@@ -444,9 +444,10 @@ export function mapDetailPageToLocaleData(html, locale, baseUrl) {
   if (!title) return null;
   const description = cleanText(first.description) || undefined;
   const doc = new JSDOM(html).window.document;
+  const category = extractCategory(doc, locale);
   const sourceDescription = cleanText(doc.querySelector('[itemprop="description"]')?.textContent) || undefined;
   const textPeople = extractEventPeopleFromText([sourceDescription, description].filter(Boolean).join('. '));
-  const titlePeople = extractEventPeopleFromTitle(title);
+  const titlePeople = extractEventPeopleFromTitle(title, { category });
   const venue = cleanText(first.location?.name) || undefined;
   const address = extractAddress(first.location?.address);
   const addressLocality = cleanText(first.location?.address?.addressLocality) || undefined;
@@ -457,7 +458,6 @@ export function mapDetailPageToLocaleData(html, locale, baseUrl) {
     || normalizeEventPeople(textPeople.performer, SITE_ORIGIN)
     || normalizeEventPeople(titlePeople.performer, SITE_ORIGIN);
 
-  const category = extractCategory(doc, locale);
   // Guidle's structured field is the Event JSON-LD `offers`/`isAccessibleForFree`
   // (rarely filled); when present it wins over the accordion text.
   const structuredPrice = occurrences

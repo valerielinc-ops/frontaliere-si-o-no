@@ -40,6 +40,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { isIntentionalRedirectPage } from './validate-page-seo-quality.mjs';
 
 // Match every salary-landing scenario URL across the 4 locales. The trailing
 // segment must be a real slug (`[^/]+`) — the hub root pages `/calcola-stipendio/`
@@ -61,11 +62,10 @@ const SEO_STATIC_RE =
 const THIN_H1_RE = /<h1\s+style="font-size:1\.25rem;font-weight:700;margin-bottom:\.5rem">/i;
 // Empty calculator placeholder div from the default branch.
 const PLACEHOLDER_DIV_RE = /<div\s+style="[^"]*;height:38rem;margin-top:1\.5rem"><\/div>/i;
-// Legacy-redirect bridge detection: pages whose `<link rel="canonical">`
-// points to a different URL than the page's own path are intentional
-// redirects (handled by legacyRedirectsPlugin / shell helpers), NOT
-// salary-landing templates. Same exclusion pattern used by
-// audit-content-duplicates.mjs.
+// Legacy bridges predating #16014 are recognized below through their
+// cross-URL canonical. Newer edge-owned bridges deliberately omit canonicals
+// and instead use the shared REDIRECT_STUB_MARKER + noindex/refresh contract.
+// Both are redirects, not indexable salary landings.
 // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
 const CANONICAL_RE = /<link[^>]+rel=["']?canonical["']?[^>]*href=["']?([^"'\s>]+)["']?/i;
 
@@ -84,17 +84,12 @@ export function createAuditor(opts = {}) {
       // Normalize to a posix-style path so the regex matches on Windows too.
       const posixPath = file.replace(/\\/g, '/');
       if (!SALARY_LANDING_PATH_RE.test(posixPath)) return;
+      if (isIntentionalRedirectPage(html)) return;
 
-      // Skip legacy-redirect bridge pages. legacyRedirectsPlugin emits
-      // ~10 historical-slug-bridge HTML pages at /calcola-stipendio/{old}/
-      // whose canonical points to the new slug (`/calcola-stipendio/{new}/`)
-      // or to a target outside the salary-calculator hub. These are
-      // intentionally thin (meta-refresh + JS location.replace) — they're
-      // NOT salary-landing templates and must not trigger this audit.
-      //
-      // Detection: parse the canonical href, compare to the page's own
-      // URL path (derived from the file path). If they differ, skip.
-      // Mirror pattern used by audit-content-duplicates.mjs.
+      // Older historical-slug bridge pages predate the explicit marker and
+      // still identify themselves with a cross-URL canonical. They are
+      // intentionally thin redirects, not salary landing pages.
+      // Parse their canonical and compare it with the file's own URL path.
       const canonicalMatch = html.match(CANONICAL_RE);
       if (canonicalMatch) {
         const canonicalHref = canonicalMatch[1].trim();

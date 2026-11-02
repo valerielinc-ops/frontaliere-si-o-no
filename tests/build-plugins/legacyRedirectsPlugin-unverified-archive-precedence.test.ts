@@ -4,7 +4,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { isUnverifiedJobArchiveHtml } from '../../build-plugins/shared/unverifiedJobArchiveHtml';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { legacyRedirectsPlugin } from '../../build-plugins/legacyRedirectsPlugin';
+import { createAuditor as createSalaryLandingAuditor } from '../../scripts/audit-salary-landing-template.mjs';
 // @ts-expect-error — the Worker is plain JS.
 import { upgradeLegacyStub } from '../../infra/cloudflare-worker/locale-router.js';
 
@@ -104,5 +106,68 @@ describe('canonical aliases versus existing HTML ownership', () => {
     expect(fs.readFileSync(recorded, 'utf8')).toBe(recordedHtml);
     expect(fs.readFileSync(mixedIndex, 'utf8')).toBe(mixedHtml);
     expect(fs.existsSync(path.join(root, 'dist/guida-frontalieri/index.html'))).toBe(false);
+  });
+
+  it('emits the declared TI search aliases with their unchanged target', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-search-alias-targets-'));
+    roots.push(root);
+    fs.mkdirSync(path.join(root, 'data'));
+    fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+    fs.writeFileSync(path.join(root, 'data/article-redirects.json'), '{}');
+    const hook = legacyRedirectsPlugin(root).closeBundle as unknown as { handler: () => Promise<void> };
+    await hook.handler();
+
+    for (const slug of ['ricerca-ambiente-bern', 'ricerca-ambiente-luzern']) {
+      const from = `/cerca-lavoro-ticino/${slug}/`;
+      const html = fs.readFileSync(path.join(root, 'dist', from.slice(1), 'index.html'), 'utf8');
+      expect(html, `${from} keeps the section-root target`).toContain(`${ORIGIN}/cerca-lavoro-ticino/`);
+    }
+  });
+
+  it('emits forced legacy salary aliases as marked noindex bridges without canonicals', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'salary-legacy-bridge-contract-'));
+    roots.push(root);
+    fs.mkdirSync(path.join(root, 'data'));
+    fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+    fs.writeFileSync(path.join(root, 'data/article-redirects.json'), '{}');
+    const hook = legacyRedirectsPlugin(root).closeBundle as unknown as { handler: () => Promise<void> };
+    await hook.handler();
+
+    const aliases = [
+      ['calcola-stipendio/confronta-permesso-g-vs-b', '/guida-frontaliere/confronta-permesso-g-vs-b/'],
+      ['en/calculate-salary/compare-salaries', '/en/statistics/compare-salaries/'],
+      ['en/calculate-salary/what-if', '/en/calculate-salary/what-if-scenarios/'],
+    ] as const;
+    const auditor = createSalaryLandingAuditor();
+    for (const [slug, target] of aliases) {
+      const bridgePath = path.join(root, 'dist', slug, 'index.html');
+      const html = fs.readFileSync(bridgePath, 'utf8');
+      expect(html).toContain(REDIRECT_STUB_MARKER);
+      expect(html).toMatch(/<meta\b[^>]*name="robots"[^>]*content="noindex,follow"/i);
+      expect(html).not.toMatch(/<link\b[^>]*rel="canonical"/i);
+      expect(html).toContain(`${ORIGIN}${target}`);
+      auditor.collect(bridgePath, html);
+    }
+    const audit = await auditor.report();
+    expect(audit.extra.scanned).toBe(0);
+    expect(audit.offendersTotal).toBe(0);
+  });
+
+  it('keeps a non-TI job whose slug begins azienda- as a marked redirect bridge', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-company-namespace-job-bridge-'));
+    roots.push(root);
+    fs.mkdirSync(path.join(root, 'data'));
+    const slug = 'azienda-di-consulenza-clienti-tutti-i-tipi-regione-broye-nord-vaudois-tempo-pieno-o-parziale-helvetia-versicherungen';
+    fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([{ canton: 'VD', slug }]));
+    fs.writeFileSync(path.join(root, 'data/article-redirects.json'), '{}');
+    const hook = legacyRedirectsPlugin(root).closeBundle as unknown as { handler: () => Promise<void> };
+    await hook.handler();
+
+    const bridgePath = path.join(root, 'dist', 'cerca-lavoro-ticino', slug, 'index.html');
+    const html = fs.readFileSync(bridgePath, 'utf8');
+    expect(html).toContain(REDIRECT_STUB_MARKER);
+    expect(html).toMatch(/<meta\b[^>]*name="robots"[^>]*content="noindex,follow"/i);
+    expect(html).not.toMatch(/<link\b[^>]*rel="canonical"/i);
+    expect(html).toContain(`${ORIGIN}/cerca-lavoro-vaud/${slug}/`);
   });
 });

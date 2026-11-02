@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { localizePortalQuestions, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -410,6 +410,13 @@ it('does not create a candidate request when the real reduction contains no ques
   expect(codex).not.toHaveBeenCalled();
 });
 
+it('hands off when a non-core required portal request is reduced to zero', async () => {
+  const requirements = portalRequirementsFromMissingRequired([{ id: 'optional', kind: 'text', label: 'Optional field', required: false }], [{ fieldId: 'optional', question: 'Optional field' }]);
+  expect(requirements).toMatchObject({ questions: [], documents: [], reduction: { kind: 'empty' } });
+  expect(portalQuestionReductionHandoff(requirements)).toEqual({ handoff: 'portal_question_reduction' });
+  await expect(portalRequirementsForCandidate(requirements)).resolves.toEqual({ handoff: 'portal_question_reduction' });
+});
+
 it.each([false, true])('preserves a real document request and hard question without manufacturing answers: %s', async withQuestion => {
   const question = { id: 'permit', source: 'portal', type: 'choice', question: 'Do you hold a Swiss work permit?', applicationQuestion: 'Do you hold a Swiss work permit?', options: ['Yes', 'No'], required: true };
   const requirements = { questions: withQuestion ? [question] : [], documents: [{ id: 'diploma', label: 'Diploma', required: true }] };
@@ -471,6 +478,31 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(frame.evaluate).toHaveBeenCalled();
   expect(browser.close).toHaveBeenCalledOnce();
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
+});
+
+it('does not expose fallback-language questions from a pre-read when localization is unavailable', async () => {
+  const url = 'https://jobs.lever.co/example/1/apply';
+  const snapshot = {
+    url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
+    fields: [
+      { id: 'cv', kind: 'file', label: 'Resume / CV', required: true },
+      { id: 'motivation', kind: 'text', label: 'Warum interessiert dich diese Stelle?', required: true },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}) };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async ({ prompt }: any) => String(prompt).includes('You localize questions from an online job application')
+    ? { questions: [] }
+    : { actions: [], missingRequired: [{ fieldId: 'motivation', question: 'Warum interessiert dich diese Stelle?' }] });
+  const ctx = { channelType: 'lever', applyUrl: url, language: 'de', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
+
+  const result = await readPortalRequirements(ctx);
+  expect(result).toEqual({ questions: [], documents: [] });
+  expect(codex).toHaveBeenCalledTimes(2);
+  expect(browser.close).toHaveBeenCalledOnce();
 });
 
 it('detects the ATS question language even when the posting language matches the candidate locale', async () => {

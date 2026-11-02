@@ -16,9 +16,14 @@
 import { lookup as dnsLookup } from 'node:dns/promises';
 import { politeFetch } from './polite-fetch.mjs';
 import { registrableDomain } from './registrable.mjs';
-import { textOf } from './extract.mjs';
+import { decodeEntities } from './entities.mjs';
+import { jsonLdBlocks, textOf } from './extract.mjs';
 import { NON_PLATFORM_HOSTS } from './config.mjs';
 import { createSpecUrlPolicy, resolveProspectorFetch } from './public-fetch-policy.mjs';
+import {
+  googlePlacesStatus,
+  isGooglePlacesStopStatus,
+} from '../google-places-budget.mjs';
 
 function retryableResponse(response) {
   if (response?.policyBlocked || response?.blockedByRobots) return false;
@@ -122,6 +127,17 @@ function nameRuns(words) {
 }
 
 const MAX_GUESSES = 36;
+const GOOGLE_PLACES_SEARCH_URL = 'https://places.googleapis.com/v1/places:searchText';
+const GOOGLE_PLACES_FIELD_MASK = 'places.id,places.displayName,places.websiteUri';
+const SHARED_OR_AGENCY_DOMAINS = new Set([
+  'admin.ch',
+  'manpower.ch',
+  'adecco.ch',
+  'randstad.ch',
+  'michaelpage.ch',
+  'hays.ch',
+  'easyapply.jobs',
+]);
 
 /**
  * Domains an employer of this name plausibly owns, best first.
@@ -161,6 +177,59 @@ function mentions(text, token) {
   return new RegExp(`(?:^|[^a-z0-9])${token}(?:$|[^a-z0-9])`).test(text);
 }
 
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function pageMetaIdentityText(html) {
+  const values = [];
+  const source = String(html || '');
+  for (const match of source.matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0];
+    const attributes = Object.fromEntries([...tag.matchAll(/([a-z:-]+)\s*=\s*["']([^"']*)["']/gi)]
+      .map((entry) => [entry[1].toLowerCase(), decodeEntities(entry[2])]));
+    const key = String(attributes.name || attributes.property || '').toLowerCase();
+    if (['og:title', 'og:site_name'].includes(key) && attributes.content) {
+      values.push(attributes.content);
+    }
+  }
+  return values.join(' ');
+}
+
+function jsonLdIdentityText(html) {
+  const values = [];
+  const identityKeys = new Set([
+    'name', 'legalname', 'streetaddress', 'addresslocality', 'postalcode',
+    'addresscountry',
+  ]);
+  const visit = (value, key = '') => {
+    if (values.length >= 60) return;
+    if (typeof value === 'string') {
+      if (identityKeys.has(key.toLowerCase())) values.push(value.slice(0, 600));
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+    for (const [childKey, childValue] of Object.entries(value)) visit(childValue, childKey);
+  };
+  for (const block of jsonLdBlocks(html)) visit(block);
+  return values.join(' ');
+}
+
+function pageIdentityText(html) {
+  return [
+    textOf(html),
+    /<title[^>]*>([\s\S]{0,500}?)<\/title>/i.exec(String(html || ''))?.[1] || '',
+    pageMetaIdentityText(html),
+    jsonLdIdentityText(html),
+  ].map(decodeEntities).join(' ');
+}
+
+function hasNamePhrase(text, tokens) {
+  if (tokens.length < 2) return false;
+  const phrase = tokens.map(escapeRegExp).join('[^a-z0-9]+');
+  return new RegExp(`(?:^|[^a-z0-9])${phrase}(?:$|[^a-z0-9])`).test(text);
+}
+
 /**
  * Score how strongly a fetched page belongs to this employer.
  *
@@ -175,8 +244,8 @@ export function verifyOwnership(html, employer) {
   // page means an accented employer name can never match its own website —
   // silently unresolvable, and the failure looks like "no site found".
   const fold = (v) => String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  const body = fold(textOf(html));
-  const title = fold(/<title[^>]*>([\s\S]{0,300}?)<\/title>/i.exec(html)?.[1] || '');
+  const body = fold(decodeEntities(pageIdentityText(html)));
+  const title = fold(decodeEntities(/<title[^>]*>([\s\S]{0,300}?)<\/title>/i.exec(html)?.[1] || ''));
   const tokens = nameTokens(employer.name);
   if (!tokens.length || body.length < 200) return { score: 0, evidence };
 
@@ -185,6 +254,8 @@ export function verifyOwnership(html, employer) {
   let score = 0;
   if (coverage === 1 && tokens.length >= 2) { score += 2; evidence.push('all-tokens'); }
   else if (coverage >= 0.5) { score += 1; evidence.push(`tokens:${hits.length}/${tokens.length}`); }
+
+  if (hasNamePhrase(body, tokens)) evidence.push('name-phrase');
 
   if (tokens.filter((t) => mentions(title, t)).length >= Math.min(2, tokens.length)) {
     score += 1.5; evidence.push('title');
@@ -244,6 +315,74 @@ function identifiesEmployer(evidence, domain, name) {
   return domainWords(tradingName(name))
     .filter((word) => !CONNECTOR_RX.test(word))
     .every((word) => label.includes(word));
+}
+
+function compactDomainLabel(domain) {
+  return registrableDomain(domain).split('.')[0].replace(/[^a-z0-9]/g, '');
+}
+
+function domainLabelAlignsWithEmployer(domain, name) {
+  const label = compactDomainLabel(domain);
+  const tokens = nameTokens(tradingName(name));
+  return tokens.length > 0 && tokens.every((token) => label.includes(token));
+}
+
+function domainOwnerNames(domain, owners) {
+  if (!owners) return [];
+  const raw = owners instanceof Map ? owners.get(domain) : owners[domain];
+  const values = raw instanceof Set ? [...raw] : (Array.isArray(raw) ? raw : raw ? [raw] : []);
+  return values.map((value) => (typeof value === 'string' ? value : value?.name)).filter(Boolean);
+}
+
+function sameEmployerName(left, right) {
+  const a = nameTokens(left).join(' ');
+  const b = nameTokens(right).join(' ');
+  return Boolean(a && b && a === b);
+}
+
+/**
+ * A Places result is a lead, not proof that the returned domain belongs to the
+ * candidate. Shared staffing/government domains and domains already attached
+ * to another employer are rejected before a result can be persisted.
+ */
+function googleDomainAllowed(domain, employer, evidence, knownDomainOwners) {
+  if (SHARED_OR_AGENCY_DOMAINS.has(registrableDomain(domain))) return false;
+  const owners = domainOwnerNames(registrableDomain(domain), knownDomainOwners);
+  if (owners.length > 1 || (owners.length === 1 && !sameEmployerName(owners[0], employer.name))) return false;
+  if (domainLabelAlignsWithEmployer(domain, employer.name)) return true;
+  return evidence.includes('name-phrase') && evidence.includes('title') && evidence.includes('zip');
+}
+
+function rememberGoogleDomainOwner(domain, employer, knownDomainOwners) {
+  if (!(knownDomainOwners instanceof Map)) return;
+  const key = registrableDomain(domain);
+  const owners = knownDomainOwners.get(key) || new Set();
+  owners.add(employer.name);
+  knownDomainOwners.set(key, owners);
+}
+
+function googleDisplayName(place) {
+  return typeof place?.displayName === 'string'
+    ? place.displayName
+    : (place?.displayName?.text || '');
+}
+
+function googleDisplayNameMatches(place, employer) {
+  const display = String(googleDisplayName(place)).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const tokens = nameTokens(employer.name);
+  return tokens.length > 0 && tokens.every((token) => mentions(display, token));
+}
+
+function websiteHint(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) return null;
+    const domain = registrableDomain(url.hostname);
+    if (!domain || NON_PLATFORM_HOSTS.has(domain)) return null;
+    return { url: url.toString(), domain };
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -346,13 +485,165 @@ async function fetchSite(domain, hosts, budget) {
 }
 
 /**
+ * Fetch the transient Google website hint first, then its apex/www fallbacks.
+ * The path matters: several Swiss SME sites put their identity on a landing
+ * page while the root is a thin CMS shell. The URL is never returned or
+ * persisted; only a domain that independently passes verifyOwnership is.
+ */
+async function fetchWebsiteHint(hint, budget) {
+  const urls = [
+    hint.url,
+    `https://${hint.domain}/`,
+    `https://www.${hint.domain}/`,
+  ].filter((url, index, all) => all.indexOf(url) === index);
+  const urlPolicy = createSpecUrlPolicy(
+    { seedUrls: urls },
+    { lookupImpl: budget.opts.lookupImpl },
+  );
+  const failures = [];
+  try {
+    for (const url of urls) {
+      if (budget.left <= 0) break;
+      let response;
+      try {
+        response = await politeFetch(url, { ...budget.opts, urlPolicy, dispatcher: urlPolicy.dispatcher });
+      } catch {
+        response = { ok: false, status: 0, body: '', transportError: 'network' };
+      }
+      if (budget.refused) break;
+      if (response.ok && response.body.length >= MIN_SITE_BODY_CHARS) return { response, failures: [] };
+      if (!response.ok) failures.push(response);
+    }
+    return { response: null, failures };
+  } finally {
+    await urlPolicy.dispatcher?.close?.();
+  }
+}
+
+async function googleResponsePayload(response) {
+  if (!response || typeof response !== 'object' || response.ok === undefined) return response;
+  if (!response.ok) {
+    const error = new Error(`Google Places HTTP ${response.status}`);
+    error.status = response.status;
+    throw error;
+  }
+  if (typeof response.json === 'function') return response.json();
+  if (typeof response.text === 'function') return JSON.parse(await response.text());
+  return response;
+}
+
+/**
+ * Search Places once. This function deliberately has no retry loop: a quota,
+ * credential, or rate-limit response stops the lane immediately, and every
+ * attempted request was reserved before entering it.
+ */
+async function resolveViaGooglePlaces(employer, minScore, budget, google, http) {
+  const stats = {
+    attempted: false,
+    requests: 0,
+    places: 0,
+    websites: 0,
+    verified: 0,
+    rejected: 0,
+    outcome: 'not_attempted',
+    failureCode: null,
+  };
+  const apiKey = google?.apiKey ?? process.env.GOOGLE_MAPS_API_KEY;
+  if (!apiKey) return { stats: { ...stats, outcome: 'api_key_missing' }, result: null };
+  if (!budget?.reserve || !budget.reserve()) {
+    const reason = budget?.reason?.() || 'budget_exhausted';
+    return {
+      stats: {
+        ...stats,
+        outcome: /^http_/.test(reason) ? 'api_stopped' : reason,
+        failureCode: /^http_/.test(reason) ? reason : null,
+      },
+      result: null,
+    };
+  }
+  stats.attempted = true;
+  stats.requests = 1;
+
+  const request = google.fetchJson || (async (url, init) => {
+    const requestFetch = resolveProspectorFetch(google.fetchImpl);
+    return requestFetch(url, init);
+  });
+  const query = [employer.name, employer.city].filter(Boolean).join(' ').trim();
+  try {
+    const raw = await request(GOOGLE_PLACES_SEARCH_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': GOOGLE_PLACES_FIELD_MASK,
+      },
+      body: JSON.stringify({ textQuery: query, regionCode: 'CH', pageSize: 1 }),
+    });
+    const payload = await googleResponsePayload(raw);
+    const places = Array.isArray(payload?.places) ? payload.places : [];
+    stats.places = places.length;
+    const place = places[0];
+    if (!place) return { stats: { ...stats, outcome: 'no_place' }, result: null };
+    const hint = websiteHint(place.websiteUri);
+    if (!hint) return { stats: { ...stats, outcome: 'no_website' }, result: null };
+    stats.websites = 1;
+    if (!googleDisplayNameMatches(place, employer)) {
+      return { stats: { ...stats, rejected: 1, outcome: 'display_name_mismatch' }, result: null };
+    }
+    const { response, failures } = await fetchWebsiteHint(hint, http);
+    if (!response) {
+      for (const failure of failures) {
+        const status = Number(failure?.status) || 0;
+        if (status) stats.failureCode = `http_${status}`;
+      }
+      return {
+        stats: { ...stats, outcome: 'site_unavailable' },
+        result: null,
+        failures,
+      };
+    }
+    const verified = verifyOwnership(response.body, employer);
+    if (verified.score < minScore || !googleDomainAllowed(hint.domain, employer, verified.evidence, google.knownDomainOwners)) {
+      return { stats: { ...stats, rejected: 1, outcome: 'unverified' }, result: null };
+    }
+    rememberGoogleDomainOwner(hint.domain, employer, google.knownDomainOwners);
+    stats.verified = 1;
+    return {
+      stats: { ...stats, outcome: 'resolved' },
+      result: {
+        domain: hint.domain,
+        score: verified.score,
+        evidence: [...verified.evidence, 'google-places'],
+        ...(typeof place.id === 'string' && place.id ? { placeId: place.id } : {}),
+      },
+    };
+  } catch (error) {
+    const status = googlePlacesStatus(error);
+    if (isGooglePlacesStopStatus(status)) {
+      budget.stop(status);
+      return {
+        stats: { ...stats, outcome: 'api_stopped', failureCode: `http_${status}` },
+        result: null,
+        stopped: true,
+      };
+    }
+    const retryable = status === 0 || status >= 500;
+    return {
+      stats: { ...stats, outcome: 'unavailable', failureCode: status ? `http_${status}` : 'transport' },
+      result: null,
+      retryable,
+    };
+  }
+}
+
+/**
  * @param {{ name: string, city?: string, zip?: string, domainHints?: string[] }} employer
- * @param {{ minScore?: number, lookupImpl?: typeof dnsLookup }} [opts]
- * @returns {Promise<{ domain: string|null, score: number, evidence: string[], tried: number, retryable: boolean, failureStatuses: number[], dnsAbsent: number }>}
+ * @param {{ minScore?: number, lookupImpl?: typeof dnsLookup, googlePlaces?: { apiKey?: string, budget?: { reserve?: () => boolean, stop?: (status: number) => void, reason?: () => string, }, fetchJson?: Function, fetchImpl?: typeof fetch, knownDomainOwners?: Map<string, Set<string>> } }} [opts]
+ * @returns {Promise<{ domain: string|null, score: number, evidence: string[], tried: number, retryable: boolean, failureStatuses: number[], dnsAbsent: number, source?: string|null, placeId?: string, googlePlaces?: object }>}
  */
 export async function resolveDomain(employer, opts = {}) {
   const minScore = opts.minScore ?? 3;
-  let best = { domain: null, score: 0, evidence: [], tried: 0, retryable: false, failureStatuses: [], dnsAbsent: 0 };
+  let best = { domain: null, score: 0, evidence: [], tried: 0, retryable: false, failureStatuses: [], dnsAbsent: 0, source: null };
   const recordFailures = (failures) => {
     for (const failure of failures) {
       best.failureStatuses.push(Number(failure.status) || 0);
@@ -412,5 +703,24 @@ export async function resolveDomain(employer, opts = {}) {
     }
     if (best.score >= minScore + 1) break; // decisive, stop paying for more probes
   }
-  return best.score >= minScore ? { ...best, triedHints } : { ...best, domain: null, triedHints };
+  // Free channels always get first refusal: email SECO hints, explicit name
+  // domains, and the DNS-filtered generator above remain useful when the
+  // Places allocation is exhausted or the key is unavailable.
+  if (best.score >= minScore) return { ...best, triedHints };
+
+  if (opts.googlePlaces) {
+    const google = await resolveViaGooglePlaces(employer, minScore, opts.googlePlaces.budget, opts.googlePlaces, budget);
+    best = { ...best, googlePlaces: google.stats };
+    if (google.failures?.length) recordFailures(google.failures);
+    if (google.retryable) best.retryable = true;
+    if (google.result) {
+      best = {
+        ...best,
+        ...google.result,
+        source: 'google_places',
+      };
+      return { ...best, triedHints };
+    }
+  }
+  return { ...best, domain: null, triedHints };
 }

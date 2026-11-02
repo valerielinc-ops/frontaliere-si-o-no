@@ -208,6 +208,7 @@ async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
     return false;
   }
   const result = await send({ db, recordRef: ref, orderId: ref.id, key: pending.key, audience: 'customer', nowMs,
+    trackingTarget: { kind: 'application-concierge', id: ref.id },
     eligible: (current) => serviceIsActive(current, Math.max(nowMs, Date.now())) && underCap(current),
     build: async (current, options) => {
       const cardProposals = await enrichJobCards(proposals.slice(0, 3));
@@ -325,6 +326,7 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
       const offer = conciergeRenewalOffer(current, nowMs);
       if (offer?.discounted && secret && current.userId) {
         const result = await send({ db, recordRef: ref, orderId: ref.id, key: `renewal_day_${offer.reminderStage}`, audience: 'customer', nowMs,
+          trackingTarget: { kind: 'application-concierge', id: ref.id },
           eligible: async (service, tx) => {
             const liveOffer = conciergeRenewalOffer(service, Math.max(nowMs, Date.now()));
             if (!liveOffer?.discounted || liveOffer.reminderStage !== offer.reminderStage || !service.userId) return false;

@@ -26,7 +26,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition } from './assistedApplicationFlow.js';
@@ -702,9 +702,9 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     error: data.error ? String(data.error).slice(0, 120) : undefined,
     reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
     ...(accountFailure ? { accountFailure } : {}),
-    questions: Array.isArray(data.questions) ? data.questions.slice(0, 20) : undefined,
-    questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, 20) : undefined,
-    documents: Array.isArray(data.documents) ? data.documents.slice(0, 20) : undefined,
+    questions: Array.isArray(data.questions) ? data.questions.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
+    questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
+    documents: Array.isArray(data.documents) ? data.documents.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
   };
   const result = await applyAutomationEvent({
     db,

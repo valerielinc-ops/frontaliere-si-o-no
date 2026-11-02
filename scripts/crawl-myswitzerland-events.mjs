@@ -702,7 +702,10 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
   const indexedTitlePeople = LOCALES
-    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title, {
+      category: perLocaleHits[locale]?.category
+        || (detailLd?.['@type'] === 'MusicEvent' ? 'MusicEvent' : humanizeCategory(detailLd?.['@type'])),
+    }).performer)
     .find(Boolean);
   const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
   const sourcePeople = {
@@ -808,7 +811,9 @@ export async function fetchDetailEnrichment(perLocaleHits, {
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
   const sourceTitlePeople = LOCALES
-    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title, {
+      category: perLocaleHits[locale]?.category,
+    }).performer)
     .find(Boolean);
   if (!sourcePeople.performer && sourceTitlePeople) sourcePeople.performer = sourceTitlePeople;
   for (const locale of LOCALES) {

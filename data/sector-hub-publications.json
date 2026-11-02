@@ -64,7 +64,10 @@
       "routeKind": "dynamic",
       "label": "Tecnica",
       "labelByLocale": {
-        "it": "Tecnica"
+        "it": "Tecnica",
+        "en": "Technical",
+        "de": "Technik",
+        "fr": "Technique"
       },
       "sourceFields": [
         "category"
@@ -73,7 +76,7 @@
         "Tecnica"
       ],
       "firstPublishedAt": "2026-10-20T08:22:55.192Z",
-      "status": "retired"
+      "status": "active"
     }
   ]
 }

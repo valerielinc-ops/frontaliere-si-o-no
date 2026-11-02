@@ -1603,6 +1603,13 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   };
 }
 
+export class PortalQuestionLocalizationError extends Error {
+  constructor() {
+    super('portal_question_localization_unavailable');
+    this.code = 'portal_question_localization_unavailable';
+  }
+}
+
 /**
  * Translate the candidate-facing copy after the portal planner/agent has
  * identified a required field. The ATS label and options remain attached so
@@ -1656,7 +1663,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  return items.map((item) => {
+  const localizedQuestions = items.map((item) => {
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -1711,15 +1718,24 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       localizationStatus: 'translated',
     };
   });
+  return localizedQuestions;
 }
 
-/** A reduction without questions or documents never creates a candidate wait. */
+/** A zeroed portal requirement must stop automation instead of looking absent. */
+export function portalQuestionReductionHandoff() {
+  return { handoff: 'portal_question_reduction' };
+}
+
 export async function portalRequirementsForCandidate(requirements, localization = {}) {
   if (requirements?.unreadableFields?.length) throw new Error('portal_question_unreadable');
   const questions = requirements?.questions || [];
   const documents = requirements?.documents || [];
-  if (!questions.length && !documents.length) return null;
-  return { questions: await localizePortalQuestions(questions, localization), documents };
+  if (!questions.length && !documents.length) return requirements?.reduction?.kind === 'empty' ? portalQuestionReductionHandoff() : null;
+  const localized = await localizePortalQuestions(questions, localization);
+  if (localized.some((question) => question.localizationStatus === 'fallback')) {
+    throw new PortalQuestionLocalizationError();
+  }
+  return { questions: localized, documents };
 }
 
 /**
@@ -3800,15 +3816,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
       })));
-      const questions = await localizePortalQuestions(openQuestions, {
+      const request = await portalRequirementsForCandidate({ questions: openQuestions, documents: [] }, {
         candidateLocale: ctx.candidateLocale,
         applicationLocale: ctx.language,
         codex: ctx.codex,
         log: ctx.log,
       });
-      if (questions.length) {
+      if (request?.questions.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
-        return noted({ questions });
+        return noted(request);
       }
     }
 
@@ -4034,12 +4050,16 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
   const documents = [];
   const readable = [];
   const unreadableFields = [];
+  let reducedRequirement = false;
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     // A planner calling a field missing is not proof that it is mandatory.
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
-    if (field?.required === false && !field.invalid) continue;
+    if (field?.required === false && !field.invalid) {
+      reducedRequirement = true;
+      continue;
+    }
     if (unreadableNativeOwner(field || item)) {
       unreadableFields.push(field?.id || item.fieldId || 'unknown');
       continue;
@@ -4104,7 +4124,13 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
   }
-  return { questions: questionsFrom(readable), documents, ...(unreadableFields.length ? { unreadableFields } : {}) };
+  const questions = questionsFrom(readable);
+  return {
+    questions,
+    documents,
+    ...(unreadableFields.length ? { unreadableFields } : {}),
+    ...(reducedRequirement && !questions.length && !documents.length ? { reduction: { kind: 'empty' } } : {}),
+  };
 }
 
 /**
@@ -4164,15 +4190,16 @@ export async function readPortalRequirements(ctx) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
     }
-    return {
-      ...requirements,
-      questions: await localizePortalQuestions(requirements.questions, {
-        candidateLocale: ctx.candidateLocale,
-        applicationLocale: ctx.language,
-        codex: ctx.codex,
-        log: ctx.log,
-      }),
-    };
+    const questions = await localizePortalQuestions(requirements.questions, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (questions.some((question) => question.localizationStatus === 'fallback')) {
+      throw new PortalQuestionLocalizationError();
+    }
+    return { ...requirements, questions };
   } catch (error) {
     (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
     return { questions: [], documents: [] };
@@ -4497,10 +4524,19 @@ export async function submitViaPortal(ctx) {
     const askCandidate = async (questions) => {
       const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
-      const request = await portalRequirementsForCandidate(requirements, {
-        candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
-      });
+      let request;
+      try {
+        request = await portalRequirementsForCandidate(requirements, {
+          candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
+        });
+      } catch (error) {
+        if (error?.code === 'portal_question_localization_unavailable') {
+          return await handoff('question_localization_unavailable');
+        }
+        throw error;
+      }
       if (!request) return null;
+      if (request.handoff) return await handoff(request.handoff);
       return {
         event: {
           type: 'submit_needs_candidate',

@@ -6,13 +6,14 @@ import { TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplica
 import { emailInfrastructureFailure, legacyTransportHoldReason, navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { reconcileTransportHolds } from '../scripts/reconcile-assisted-application-transport-holds.mjs';
 import { buildOwnerAutomationEmail } from '../functions/src/assistedApplicationAutomationEmails.js';
+import { navigationHandoffFor } from '../scripts/assisted-application/lib/submit.mjs';
 
 const now = Date.now();
 const draft = { status: 'ready', round: 1, questions: [], job: { source: 'job_detail' }, channel: { type: 'email' } };
 const approved = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 } };
 
 describe('infrastructure failures use the scheduler without a manual retry', () => {
-  it.each(['navigation_unavailable', 'email_provider_unavailable', 'captcha_provider_unavailable'])('backs off %s, notifies operations once and continues without manual intervention', reason => {
+  it.each(['navigation_unavailable', 'email_provider_unavailable', 'captcha_provider_unavailable', 'question_localization_unavailable'])('backs off %s, notifies operations once and continues without manual intervention', reason => {
     let flow: any = approved;
     let at = now;
     const fail = reason === 'email_provider_unavailable' ? { type: 'submit_failed', error: reason } : { type: 'submit_handoff', reason };
@@ -49,8 +50,20 @@ describe('infrastructure failures use the scheduler without a manual retry', () 
     expect(emailInfrastructureFailure({ error: 'Maileroo 400: invalid recipient' })).toBe(false);
     expect(emailInfrastructureFailure({ error: 'Maileroo 503', ambiguousDelivery: true })).toBe(false);
     expect(emailInfrastructureFailure({ error: 'Maileroo 400: invalid payload' })).toBe(false);
-    expect(navigationInfrastructureFailure('page.goto: net::ERR_NAME_NOT_RESOLVED')).toBe(true);
+    for (const error of [
+      'page.goto: net::ERR_NAME_NOT_RESOLVED',
+      'page.goto: net::ERR_ADDRESS_UNREACHABLE',
+      'page.goto: net::ERR_NETWORK_ACCESS_DENIED',
+      'getaddrinfo EAI_AGAIN portal.example.test',
+      'connect ENETUNREACH 203.0.113.10:443',
+      'connect EHOSTUNREACH 203.0.113.10:443',
+    ]) expect(navigationInfrastructureFailure(error)).toBe(true);
+    expect(navigationInfrastructureFailure(Object.assign(new Error('connect failed'), { code: 'ENETUNREACH' }))).toBe(true);
+    expect(navigationInfrastructureFailure(Object.assign(new Error('fetch failed'), { cause: { code: 'EHOSTUNREACH' } }))).toBe(true);
     expect(navigationInfrastructureFailure('portal_validation')).toBe(false);
+    expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'))).toEqual({ type: 'submit_handoff', reason: 'navigation_unavailable' });
+    expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'), { clicked: true })).toBeNull();
+    expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'), { succeeded: true })).toBeNull();
     for (const error of ['email_ambiguous', 'portal_ambiguous', 'portal_antibot_ambiguous']) {
       const result = transition(approved, { type: 'submit_failed', error }, { draft, nowMs: now });
       expect(computeDueAt(result.flow)).toBeNull();

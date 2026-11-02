@@ -301,6 +301,38 @@ describe('tryCodexFallback — errori del backend: un risultato, mai un throw n�
       .resolves.toEqual({ ok: false, notConfigured: false, error: 'The operation was aborted due to timeout' });
   });
 
+  it('usa il timeout esteso solo per i worker background e propaga il segnale del worker', async () => {
+    rc = { CODEX_AUTH_JSON: codexLogin() };
+    const worker = new AbortController();
+    const timeoutSpy = vi.spyOn(AbortSignal, 'timeout').mockImplementation(() => new AbortController().signal);
+    fetchMock.mockImplementationOnce(async (_url: string, init: RequestInit) => {
+      expect(init.signal).toBeInstanceOf(AbortSignal);
+      expect(init.signal).not.toBe(worker.signal);
+      worker.abort();
+      throw new DOMException('The operation was aborted', 'AbortError');
+    });
+    const { tryCodexFallback, CODEX_FALLBACK_TIMEOUT_MS, CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS } = await import('../../functions/src/codexFallback.js');
+    expect(CODEX_FALLBACK_TIMEOUT_MS).toBe(18_000);
+    expect(CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS).toBe(60_000);
+
+    await expect(tryCodexFallback({ messages: [{ role: 'user', content: 'x' }], background: true, signal: worker.signal }))
+      .resolves.toMatchObject({ ok: false, error: 'The operation was aborted' });
+    expect(timeoutSpy).toHaveBeenCalledWith(CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS);
+  });
+
+  it('una cancellazione durante Codex restituisce generation_cancelled, non all_providers_failed', async () => {
+    rc = { CODEX_AUTH_JSON: codexLogin() };
+    const worker = new AbortController();
+    fetchMock.mockImplementationOnce(async (_url: string, _init: RequestInit) => {
+      worker.abort(new Error('matching deadline'));
+      throw new DOMException('The operation was aborted', 'AbortError');
+    });
+    const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
+
+    await expect(generateServerText({ userPrompt: 'qualification', background: true, signal: worker.signal }))
+      .resolves.toEqual({ status: 503, body: { ok: false, error: 'generation_cancelled' } });
+  });
+
   it('un timeout a metà stream (stesso AbortSignal) diventa un risultato', async () => {
     rc = { CODEX_AUTH_JSON: codexLogin() };
     const encoder = new TextEncoder();
@@ -470,6 +502,26 @@ describe('handleGeminiGenerate — rung Codex', () => {
     expect(codexCalls()).toHaveLength(0);
   });
 
+  it('espone diagnostica strutturata solo al caller background trusted', async () => {
+    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n', CODEX_AUTH_JSON: codexLogin() };
+    fetchMock.mockImplementation(async (url: string) => {
+      if (String(url) === CODEX_URL) return new Response('codex down', { status: 500 });
+      return new Response('quota detail must not become retry metadata', { status: 429 });
+    });
+    const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
+
+    const result = await generateServerText({ userPrompt: 'qualification', maxProviderAttempts: 3, background: true });
+
+    expect(result).toMatchObject({ status: 502, body: { error: 'all_providers_failed' } });
+    expect(result.body.providerFailures).toEqual([
+      { provider: 'gemini', cause: 'rate_limited', status: 429 },
+      { provider: 'groq-gpt-oss-120b', cause: 'rate_limited', status: 429 },
+      { provider: 'nvidia-gpt-oss-20b', cause: 'rate_limited', status: 429 },
+      { provider: 'codex', cause: 'provider_http', status: 500 },
+    ]);
+    expect(JSON.stringify(result.body.providerFailures)).not.toContain('quota detail');
+  });
+
   it('senza CODEX_AUTH_JSON risponde all_providers_failed con codex: not_configured', async () => {
     rc = {};
     const { handleGeminiGenerate } = await import('../../functions/src/geminiGenerate.js');
@@ -479,6 +531,7 @@ describe('handleGeminiGenerate — rung Codex', () => {
     expect(res.status).toBe(502);
     expect(res.body).toMatchObject({ ok: false, error: 'all_providers_failed' });
     expect(res.body.detail).toContain('codex: not_configured');
+    expect(res.body.providerFailures).toBeUndefined();
     expect(fetchMock).not.toHaveBeenCalled();
   });
 

@@ -156,9 +156,14 @@ describe('static article body preview source reader', () => {
     const placeholder = parseStaticArticleBodyPreviews(placeholderSource, 'placeholder-robots.ts');
     expect(hasArticleBodyPromptPlaceholder(placeholder['placeholder-robots'])).toBe(true);
 
+  });
+
+  it('marks fallback article pages when placeholder content makes them noindex', () => {
     const pluginSource = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
-    expect(pluginSource).toContain('parseStaticArticleBodyPreviews(src, np.join(dir, file))');
-    expect(pluginSource).toContain('const articleBodyHasPromptPlaceholder = isBlogDetailPage && hasArticleBodyPromptPlaceholder(localizedBody)');
+    expect(pluginSource).toContain("import { ARTICLE_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/articleNoindexTargetMarker.mjs'");
+    expect(pluginSource).toContain('articleNoindexTargetMarker = articleBodyHasPromptPlaceholder');
+    expect(pluginSource).toContain('${ARTICLE_NOINDEX_TARGET_MARKER}');
+    expect(pluginSource).toContain('${articleNoindexTargetMarker}');
     expect(pluginSource).toContain('<meta name="robots" content="${articleRobots}">');
   });
 });

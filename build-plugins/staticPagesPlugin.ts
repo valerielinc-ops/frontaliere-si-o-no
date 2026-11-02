@@ -42,6 +42,7 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import { ARTICLE_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/articleNoindexTargetMarker.mjs';
 import { CANONICAL_OVERRIDE_FILES } from '../packages/articles/engine/shared/canonicalOverrideFiles.mjs';
 import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
@@ -5456,7 +5457,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  `<p class="s-F2hp6o"><strong>Come funziona la tassazione dei frontalieri nel 2026?</strong> Ai fini fiscali dell’accordo Italia–Svizzera occorrono residenza in un comune dell’elenco ufficiale entro 20 km dal confine, lavoro in Ticino, Grigioni o Vallese e rientro in linea di principio quotidiano. Il rientro settimanale riguarda invece il permesso G UE/AELS. Il regime dei vecchi frontalieri richiede attività frontaliera qualificata tra il 31 dicembre 2018 e il 17 luglio 2023 e mantiene la tassazione esclusiva svizzera sul salario interessato. Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’imposta alla fonte ordinaria e l’Italia riconosce il credito per l’imposta svizzera: l’80% non è un tetto a quel credito. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>. Approfondisci nella <a class="s-OsohZU" href="/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/">guida completa</a>.</p>` +
  `<p class="s-F2hp6o"><strong>Quale assicurazione sanitaria scegliere come frontaliere?</strong> I frontalieri hanno 3 mesi per scegliere tra LAMal svizzera (CHF 200-600/mese) e SSN italiano. La scelta dipende da dove si vive e dalle esigenze familiari. Leggi il <a class="s-OsohZU" href="/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/">confronto LAMal vs SSN</a>.</p>` +
  `<p class="s-F2hp6o"><strong>Quali sono i vantaggi del permesso G?</strong> Il permesso G consente di lavorare in Svizzera mantenendo la residenza all'estero. Il vantaggio economico dipende da salario, comune di residenza, spese, copertura sanitaria e pendolarismo; non esiste una percentuale di risparmio valida per tutti. Consulta la <a class="s-OsohZU" href="/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/">guida Permesso G</a> e confronta i costi della tua situazione.</p>` +
- `<p class="s-F2hp6o"><strong>Come trovare lavoro in Ticino?</strong> La bacheca elenca ${activeJobsPhrase('it', jobBoardCounts.it)} in settori come banca, pharma, IT, edilizia e sanità. Consulta la <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro</a> e leggi la <a class="s-OsohZU" href="/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/">guida per trovare lavoro</a>.</p>` +
+  `<p class="s-F2hp6o"><strong>Come trovare lavoro in Ticino?</strong> La bacheca elenca ${activeJobsPhrase('it', jobBoardCounts.it)} in settori come banca, pharma, IT, edilizia e sanità. Consulta la <a class="s-OsohZU" href="${SECTION_LEGACY_TI_PATH.it}">bacheca lavoro</a> e leggi la <a class="s-OsohZU" href="/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/">guida per trovare lavoro</a>.</p>` +
  `<p class="s-c06OMF">Fonte: <a class="s-OsohZU" href="${bfsHomeUrl}" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
  `</div></details>`,
  );
@@ -5822,6 +5823,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  ? blogBodyByLocale[localeKey as 'it' | 'en' | 'de' | 'fr'][articleId] ?? blogBodyByLocale.it[articleId]
  : undefined;
  const articleBodyHasPromptPlaceholder = isBlogDetailPage && hasArticleBodyPromptPlaceholder(localizedBody);
+ const articleNoindexTargetMarker = articleBodyHasPromptPlaceholder
+ ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}`
+ : '';
  const articleRobots = NOINDEX_CANONICAL_PATHS.has(canonicalPath)
  ? 'noindex, nofollow'
  : articleBodyHasPromptPlaceholder
@@ -6365,7 +6369,7 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
- <meta name="robots" content="${articleRobots}">
+ <meta name="robots" content="${articleRobots}">${articleNoindexTargetMarker}
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">

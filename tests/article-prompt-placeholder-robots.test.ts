@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 
 import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
+import { ARTICLE_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/articleNoindexTargetMarker.mjs';
 import miazzinaFrenchBody from './fixtures/miazzina-french-body';
 
 const rootDir = process.cwd();
@@ -114,6 +115,7 @@ describe('article prompt-placeholder robots protection', () => {
     for (const locale of ['en', 'de', 'fr'] as const) {
       const html = fs.readFileSync(path.join(distDir, entry.paths[locale]), 'utf8');
       expect(html).toContain('<meta name="robots" content="noindex,follow">');
+      expect(html).toContain(ARTICLE_NOINDEX_TARGET_MARKER);
     }
 
     const italian = fs.readFileSync(path.join(distDir, entry.paths.it), 'utf8');

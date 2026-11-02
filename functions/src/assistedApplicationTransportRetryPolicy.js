@@ -1,7 +1,7 @@
 /** Retry only a definite infrastructure failure, never an uncertain send or a hard rejection. */
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
 
-const NAVIGATION_FAILURE = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_(?:RESET|CLOSED|REFUSED|TIMED_OUT)|ERR_(?:NETWORK_CHANGED|INTERNET_DISCONNECTED|TIMED_OUT)|\b(?:ENOTFOUND|EAI_AGAIN|ECONNRESET|ECONNREFUSED|ETIMEDOUT)\b|page\.goto:[\s\S]*?Timeout/i;
+const NAVIGATION_FAILURE = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_(?:RESET|CLOSED|REFUSED|TIMED_OUT)|ERR_(?:ADDRESS_UNREACHABLE|NETWORK_ACCESS_DENIED|NETWORK_CHANGED|INTERNET_DISCONNECTED|TIMED_OUT)|\b(?:ENETUNREACH|EHOSTUNREACH|ENOTFOUND|EAI_AGAIN|ECONNRESET|ECONNREFUSED|ETIMEDOUT)\b|page\.goto:[\s\S]*?Timeout/i;
 const PERMANENT_EMAIL_FAILURE = /invalid.{0,25}(?:recipient|email|address)|(?:recipient|address).{0,25}(?:invalid|suppressed|blocked)|suppression|complaint|hard.bounce/i;
 const TRANSIENT_EMAIL_FAILURE = /(?:maileroo|resend)\s+(?:408|425|429|5\d\d)\b|quota exhausted|cooling down|not configured|no (?:email )?providers configured/i;
 
@@ -12,7 +12,11 @@ export function emailInfrastructureFailure(failure) {
 }
 
 export function navigationInfrastructureFailure(error) {
-  return NAVIGATION_FAILURE.test(String(error?.message || error || ''));
+  const text = [error?.message, error?.code, error?.cause?.message, error?.cause?.code, error]
+    .filter(value => value != null)
+    .map(String)
+    .join(' ');
+  return NAVIGATION_FAILURE.test(text);
 }
 
 /** Legacy normalization also requires the caller to verify payment and approval. */

@@ -184,11 +184,11 @@ describe('recorded versus URL-inferred job identity', () => {
     expect(source).toContain("const expiredAt = hasRealTitle ? ejData?.expiredAt || '' : ''");
     expect(source).toContain('if (hasRealTitle && jobDatePosted) detailItems.push(');
     expect(source).toContain('if (hasRealTitle && jobExpiredAt) detailItems.push(');
-    const start = source.indexOf('const jobPostingLd = (() => {');
-    const end = source.indexOf('const realTitle =', start);
+    const start = source.indexOf('const getCurrentJobPostingLd = ');
+    const end = source.indexOf('const jobPostingLd = getCurrentJobPostingLd();', start);
     expect(start).toBeGreaterThan(-1);
     expect(end).toBeGreaterThan(start);
-    expect(source.slice(start, end)).toContain("if (!hasRealTitle) return '';");
+    expect(source.slice(start, end)).toMatch(/if \(!hasRealTitle\) \{\s+currentJobPostingLd = '';/);
     const search = source.slice(source.indexOf('// --- Search suggestions ---'), source.indexOf('// --- Frontalier info section:'));
     expect(search.match(/hasRealTitle && jobLocation/g)).toHaveLength(4);
     expect(source).toContain("${recordedIdentity ? `${copy.nextBody} ` : ''}");

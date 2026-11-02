@@ -1,6 +1,6 @@
 import { addressContextContract } from './lib/addressContextContract.js';
 import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
-import { hasPortalQuestionEvidence, portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
+import { hasPortalQuestionEvidence, portalQuestionText, readablePortalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 /**
  * What the candidate may change on the review page before approving (owner
@@ -39,6 +39,7 @@ import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, per
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
+const QUESTION_OPTION_DESCRIPTOR_LIMIT = 40;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
 const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
 const LANGUAGE_ORAL_RE = /\b(?:oral|spoken|muendlich|mündlich|parlato|parlata|parle|parlé)\b/i;
@@ -83,7 +84,69 @@ const UNKNOWN_ANSWER_VALUES = new Set([
 ]);
 
 export function isUnknownAnswer(value) {
+  if (Array.isArray(value)) return value.length > 0 && value.every(isUnknownAnswer);
   return typeof value === 'string' && UNKNOWN_ANSWER_VALUES.has(normalizeQuestionValue(value));
+}
+
+function sortedOptionValues(question) {
+  return [...new Set(optionValues(question))].sort();
+}
+
+function optionsIdentity(question) {
+  const optionDescriptors = Array.isArray(question?.options) ? question.options : [];
+  const suppliedFingerprint = String(question?.applicationOptionsFingerprint || '').trim();
+  if (/^v1_[a-z0-9]{1,10}$/.test(suppliedFingerprint)) return suppliedFingerprint;
+  const values = sortedOptionValues(question);
+  // A full source list decides from its raw descriptor count, before unique
+  // values are collapsed. Otherwise a duplicated early option plus a unique
+  // 41st option would serialize to 40 rows with no stable identity.
+  if (optionDescriptors.length > QUESTION_OPTION_DESCRIPTOR_LIMIT) return `v1_${questionHash(values.join('|'))}`;
+  return values.length > QUESTION_OPTION_DESCRIPTOR_LIMIT
+    ? `v1_${questionHash(values.join('|'))}`
+    : values.join('|');
+}
+
+function questionTextIdentity(question, text) {
+  const normalized = normalizeQuestionValue(text);
+  if (String(text || '').length > 240) return `v1_${questionHash(normalized)}`;
+  const suppliedFingerprint = String(question?.questionIdentityFingerprint || '').trim();
+  if (/^v1_[a-z0-9]{1,10}$/.test(suppliedFingerprint)) return suppliedFingerprint;
+  return normalized;
+}
+
+/** Use the native portal prompt for identity while retaining candidate copy for display and answer validation. */
+function questionForAnswerIdentity(question) {
+  if (!hasPortalQuestionEvidence(question)) return question;
+  const nativeQuestion = readablePortalQuestionText(question?.applicationQuestion)
+    || readablePortalQuestionText(question?.portalQuestion);
+  const nativeOptions = Array.isArray(question?.applicationOptions) ? question.applicationOptions : [];
+  const hasNativeOptions = nativeOptions.length > 0 && optionValues({ ...question, options: nativeOptions }).length > 0;
+  return {
+    ...question,
+    ...(nativeQuestion ? { question: nativeQuestion } : {}),
+    ...(hasNativeOptions ? { options: nativeOptions } : {}),
+  };
+}
+
+/** Compact identity for native option lists omitted from bounded runner events. */
+export function candidateQuestionOptionsFingerprint(question) {
+  const identityQuestion = questionForAnswerIdentity(question);
+  const descriptors = Array.isArray(identityQuestion?.options) ? identityQuestion.options : [];
+  const supplied = String(question?.applicationOptionsFingerprint || '').trim();
+  if (/^v1_[a-z0-9]{1,10}$/.test(supplied)) return supplied;
+  const values = sortedOptionValues(identityQuestion);
+  return descriptors.length > QUESTION_OPTION_DESCRIPTOR_LIMIT
+    ? `v1_${questionHash(values.join('|'))}`
+    : '';
+}
+
+/** Compact identity for a native prompt omitted from bounded runner events. */
+export function candidateQuestionTextFingerprint(question) {
+  const identityQuestion = questionForAnswerIdentity(question);
+  const text = String(identityQuestion?.question || '').trim();
+  if (text.length > 240) return `v1_${questionHash(normalizeQuestionValue(text))}`;
+  const supplied = String(question?.questionIdentityFingerprint || '').trim();
+  return /^v1_[a-z0-9]{1,10}$/.test(supplied) ? supplied : '';
 }
 
 function hasQuestionAnswer(value) {
@@ -139,37 +202,38 @@ export function isGeneralCandidateLanguageQuestion(value) {
 
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
-  const fact = candidateQuestionFact(question);
-  if (fact) return `fact_${questionHash(candidateFactIdentity(fact))}`;
-  const text = String(question?.question ?? '').trim();
+  const identityQuestion = questionForAnswerIdentity(question);
+  const text = String(identityQuestion?.question ?? '').trim();
   if (!text) return '';
-  const context = questionContextKey(question?.context);
-  const section = normalizeQuestionValue(question?.section);
-  const autocomplete = normalizeQuestionValue(question?.autocomplete);
-  const originalQuestion = normalizeQuestionValue(question?.applicationQuestion);
-  const originalContext = originalQuestion && originalQuestion !== normalizeQuestionValue(text) ? originalQuestion : '';
-  const ownership = addressContextContract(question);
+  const suppliedTextFingerprint = String(identityQuestion?.questionIdentityFingerprint || '').trim();
+  const hasBoundedTextIdentity = text.length > 240
+    || /^v1_[a-z0-9]{1,10}$/.test(suppliedTextFingerprint);
+  const fact = hasBoundedTextIdentity ? null : candidateQuestionFact(identityQuestion);
+  if (fact) return `fact_${questionHash(candidateFactIdentity(fact))}`;
+  const context = questionContextKey(identityQuestion?.context);
+  const section = normalizeQuestionValue(identityQuestion?.section);
+  const autocomplete = normalizeQuestionValue(identityQuestion?.autocomplete);
+  const ownership = addressContextContract(identityQuestion);
   if (ownership === null || ownership?.unknown) return '';
   const ownershipKey = ownership === undefined ? '' : JSON.stringify(ownership);
-  const languageCodes = languageCodesIn(text);
-  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
+  const languageCodes = hasBoundedTextIdentity ? [] : languageCodesIn(text);
+  if (!hasBoundedTextIdentity && !context && !section && !autocomplete && !ownershipKey && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
     const kind = threshold ? `threshold_${threshold}` : LANGUAGE_LEVEL_RE.test(normalized) ? 'proficiency' : 'ability';
-    const levelField = kind === 'proficiency' && ['text', 'choice'].includes(question?.type || 'text')
-      && !optionValues(question).some(option => /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(option));
-    const binaryField = kind === 'ability' && ['yes_no', 'checkbox'].includes(question?.type);
+    const levelField = kind === 'proficiency' && ['text', 'choice'].includes(identityQuestion?.type || 'text')
+      && !optionValues(identityQuestion).some(option => /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(option));
+    const binaryField = kind === 'ability' && ['yes_no', 'checkbox'].includes(identityQuestion?.type);
     if (levelField || binaryField) return `language_${languageCodes[0]}_${modality}_${kind}`;
   }
-  const normalized = normalizeQuestionValue(text);
+  const normalized = questionTextIdentity(identityQuestion, text);
   if (!normalized) return '';
-  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  if (!hasBoundedTextIdentity && !context && !section && !autocomplete && !ownershipKey && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
   const metadataContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
-  const originalQuestionContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
-  const scopedContext = ownershipKey ? `${originalQuestionContext}\u0000${ownershipKey}` : originalQuestionContext;
-  const type = normalizeQuestionValue(question?.type) || 'unknown';
-  const options = [...new Set(optionValues(question))].sort().join('|');
+  const scopedContext = ownershipKey ? `${metadataContext}\u0000${ownershipKey}` : metadataContext;
+  const type = normalizeQuestionValue(identityQuestion?.type) || 'unknown';
+  const options = optionsIdentity(identityQuestion);
   return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
 }
 

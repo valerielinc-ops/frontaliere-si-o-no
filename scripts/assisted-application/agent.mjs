@@ -35,6 +35,7 @@ import { automationEligibility } from '../../functions/src/assistedApplicationAu
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
 import { createAnswerSourceGuard } from '../../functions/src/assistedApplicationAnswerSourceGuard.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
+import { boundRunnerEvent, questionDetailsForEvent } from './lib/question-details.mjs';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -74,45 +75,6 @@ export function safeErrorCode(error) {
     .replace(/\+?\d[\d\s/.-]{6,}\d/g, '<number>')
     .replace(/[^A-Za-z0-9_:.<> -]/g, '_')
     .slice(0, 120);
-}
-
-/**
- * Question metadata is safe to keep with the runner event (it contains no
- * candidate answer) and lets the backend match a regenerated portal id to
- * the answer ledger. Keep only the fields used by the semantic key.
- */
-function questionDetailsForEvent(rawQuestions) {
-  return (Array.isArray(rawQuestions) ? rawQuestions : []).map((question) => {
-    if (!question || typeof question !== 'object') return null;
-    const id = typeof question.id === 'string' || typeof question.id === 'number' ? String(question.id).trim() : '';
-    const label = String(question.question || '').trim();
-    if (!id || !label) return null;
-    const result = { id, question: label.slice(0, 240) };
-    for (const key of ['context', 'section']) {
-      const value = String(question[key] || '').trim();
-      if (value) result[key] = value.slice(0, 240);
-    }
-    const autocomplete = String(question.autocomplete || '').trim();
-    if (autocomplete) result.autocomplete = autocomplete.slice(0, 100);
-    const type = String(question.type || '').trim();
-    if (type) result.type = type.slice(0, 40);
-    // Keep the portal's topic key beside the bounded descriptor.  The label
-    // and options are intentionally shortened below, while this key is what
-    // lets the backend match a regenerated field to the answer ledger.
-    const semanticKey = portalQuestionKey(question);
-    if (semanticKey) result.semanticKey = semanticKey.slice(0, 500);
-    if (Array.isArray(question.options) && question.options.length) {
-      result.options = question.options.slice(0, 40).map((option) => {
-        if (typeof option === 'string') return option.slice(0, 160);
-        if (!option || typeof option !== 'object') return String(option ?? '').slice(0, 160);
-        return {
-          ...(option.label ? { label: String(option.label).slice(0, 160) } : {}),
-          ...(option.value ? { value: String(option.value).slice(0, 160) } : {}),
-        };
-      });
-    }
-    return result;
-  }).filter(Boolean);
 }
 
 /** Add the same stable key to answers kept on the draft for later retries. */
@@ -226,7 +188,7 @@ async function main() {
   const report = async (event) => {
     // A dry run writes no event: whatever it finds (a closed ad, a question
     // for the candidate) must not move the flow, and the watchdog never sees it.
-    if (!dryRun) await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
+    if (!dryRun) await events.add(boundRunnerEvent({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null }));
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
 
@@ -315,7 +277,7 @@ async function main() {
         summary(`mode=${mode} round=${round} skipped: requirement context changed`);
         return;
       }
-      const details = questionDetailsForEvent(event.questionDetails);
+      const details = questionDetailsForEvent(event.questionDetails, portalQuestionKey);
       if (details.length) event.questionDetails = details;
       else delete event.questionDetails;
     }

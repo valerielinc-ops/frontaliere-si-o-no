@@ -9,6 +9,7 @@ import {
   type AutoSectorJob,
 } from './shared/autoSectorHubPublicationData';
 import { autoSectorHubPathOwner, buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
+import { AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER } from './shared/autoSectorHubNoindexTargetMarker.mjs';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { renderJobCardListHtml, type JobCardJob, type JobCardListItem } from './shared/jobCardHtml';
@@ -18,7 +19,10 @@ import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, countHtmlBodyWords } f
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { SECTOR_HUB_LOCALE_PREFIX, SECTOR_HUB_SECTION } from './shared/jobSectorPaths';
-import { isIndexableSectorHubPublication, type SectorPublicationLocale } from '../data/sector-hub-publications';
+import {
+  isIndexableSectorHubPublication,
+  type SectorPublicationLocale,
+} from '../data/sector-hub-publications';
 import { clampMetaDescription, TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 
 const LOCALES: readonly JobBoardLocale[] = ['it', 'en', 'de', 'fr'];
@@ -208,7 +212,7 @@ export function buildAutoSectorHubPage(
   });
   if (!indexable) {
     const sectionRoot = `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}/`.replace(/\/+/g, '/');
-    const bodyHtml = `<nav class="s-bcr" aria-label="Breadcrumb">
+    const bodyHtml = `${AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER}<nav class="s-bcr" aria-label="Breadcrumb">
       <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a><span> / </span>
       <a href="${esc(sectionRoot)}" class="s-bcl">${esc(copy.breadcrumbJobs)}</a><span> / </span>
       <span>${esc(label)}</span>
@@ -348,6 +352,7 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
         // sitemap entries remain owned by jobsSeoPagesPlugin.
         if (autoSectorHubPathOwner(publication.routeKind) !== 'autoSectorHubPagesPlugin') continue;
         const jobs = jobsBySlug.get(publication.slug) || [];
+        const employers = countAutoSectorHubEmployers(jobs);
         for (const locale of LOCALES) {
           if (!shouldEmitLocale(locale)) continue;
           if (!publication.labelByLocale[locale]) continue;
@@ -359,7 +364,7 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
         }
 
         const allIndexedLocales = LOCALES.filter((locale) => isIndexableSectorHubPublication(
-          publication, jobs.length, countAutoSectorHubEmployers(jobs), locale,
+          publication, jobs.length, employers, locale,
         ));
         if (!allIndexedLocales.length) continue;
         const alternates = allIndexedLocales.map((locale) =>

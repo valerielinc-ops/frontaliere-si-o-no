@@ -8594,14 +8594,16 @@
       "lastAttemptAt": "2026-10-08T19:19:42.591Z"
     },
     "mcdonald-s-switzerland-f7df4e572efd|fr|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-28T10:31:04.350Z",
-      "source": "5d285367ec5d"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:19.974Z",
+      "source": "5d285367ec5d",
+      "rung": "unserved"
     },
     "mcdonald-s-switzerland-f7df4e572efd|fr|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-28T07:32:43.947Z",
-      "source": "5d285367ec5d"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:13.317Z",
+      "source": "5d285367ec5d",
+      "rung": "codex"
     },
     "richemont-6184a1795c69|fr|en": {
       "attempts": 1,
@@ -9736,9 +9738,10 @@
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-6b257021fa06|fr|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-29T11:53:10.772Z",
-      "source": "5d285367ec5d"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:13.318Z",
+      "source": "5d285367ec5d",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-828379c77929|de|en": {
       "attempts": 2,
@@ -36818,21 +36821,22 @@
       "rung": "codex"
     },
     "mcdonald-s-switzerland-67a137592166|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-29T23:45:15.065Z",
-      "source": "5d285367ec5d",
-      "rung": "mozhiDdg"
-    },
-    "mcdonald-s-switzerland-67a137592166|fr|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-29T16:52:36.169Z",
-      "source": "5d285367ec5d"
-    },
-    "mcdonald-s-switzerland-67a137592166|fr|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:44:20.844Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:12.441Z",
       "source": "5d285367ec5d",
       "rung": "deepl"
+    },
+    "mcdonald-s-switzerland-67a137592166|fr|en": {
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:19.974Z",
+      "source": "5d285367ec5d",
+      "rung": "unserved"
+    },
+    "mcdonald-s-switzerland-67a137592166|fr|it": {
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:13.317Z",
+      "source": "5d285367ec5d",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-f197b0d9e3f2|de|en": {
       "attempts": 1,
@@ -39728,10 +39732,10 @@
       "lastAttemptAt": "2026-10-05T07:54:16.590Z"
     },
     "mcdonald-s-switzerland-9c365d17d859|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-29T23:45:15.065Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:12.441Z",
       "source": "5d285367ec5d",
-      "rung": "mozhiDdg"
+      "rung": "deepl"
     },
     "mcdonald-s-switzerland-9c365d17d859|fr|en": {
       "attempts": 3,
@@ -65129,9 +65133,10 @@
       "lastAttemptAt": "2026-10-06T02:37:54.169Z"
     },
     "komax-b5882ca23e19|de|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-20T18:27:25.771Z",
-      "source": "74c1f8bde1c6"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:20.757Z",
+      "source": "74c1f8bde1c6",
+      "rung": "unserved"
     },
     "mcdonald-s-switzerland-b521c2367e5d|fr|de": {
       "attempts": 1,
@@ -65140,10 +65145,10 @@
       "rung": "deepl"
     },
     "mcdonald-s-switzerland-6b257021fa06|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-29T23:45:15.065Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:12.442Z",
       "source": "5d285367ec5d",
-      "rung": "mozhiDdg"
+      "rung": "deepl"
     },
     "stadler-rail-2970b1afb240|de|en": {
       "attempts": 30,
@@ -96749,7 +96754,9 @@
     },
     "posta-svizzera-centro-regionale-7b6d2c2c9948|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-07T02:51:01.450Z"
+      "lastAttemptAt": "2026-11-02T08:00:09.965Z",
+      "source": "3092896f6bfb",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-936ee491a046|de|it": {
       "attempts": 1,
@@ -174092,9 +174099,10 @@
       "rung": "deepl"
     },
     "spitex-ch-0bc3605855d8|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-23T10:59:21.175Z",
-      "source": "e24fe9d1ffaf"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:20.613Z",
+      "source": "e24fe9d1ffaf",
+      "rung": "codex"
     },
     "company-he2mq7|fr|it": {
       "attempts": 5,
@@ -174117,9 +174125,10 @@
       "rung": "myMemory"
     },
     "spitex-ch-0bc3605855d8|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-23T10:59:35.601Z",
-      "source": "e24fe9d1ffaf"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:23.732Z",
+      "source": "e24fe9d1ffaf",
+      "rung": "codex"
     },
     "spitex-ch-f7bfb6da43d7|de|fr": {
       "attempts": 1,
@@ -174289,9 +174298,10 @@
       "rung": "myMemory"
     },
     "spitex-ch-0bc3605855d8|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-23T10:59:35.083Z",
-      "source": "e24fe9d1ffaf"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:31.322Z",
+      "source": "e24fe9d1ffaf",
+      "rung": "codex"
     },
     "spitex-ch-f7bfb6da43d7|de|it": {
       "attempts": 1,
@@ -183148,9 +183158,10 @@
       "source": "eab03ee3511a"
     },
     "opus-personal-6db2e16d4cb7|de|fr": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-25T06:23:12.854Z",
-      "source": "eab03ee3511a"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:23.733Z",
+      "source": "eab03ee3511a",
+      "rung": "codex"
     },
     "opus-personal-989f8966a43c|de|fr": {
       "attempts": 1,
@@ -183188,9 +183199,10 @@
       "source": "eab03ee3511a"
     },
     "opus-personal-6db2e16d4cb7|de|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-25T06:23:00.683Z",
-      "source": "eab03ee3511a"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:20.614Z",
+      "source": "eab03ee3511a",
+      "rung": "codex"
     },
     "opus-personal-989f8966a43c|de|en": {
       "attempts": 1,
@@ -183228,9 +183240,10 @@
       "source": "eab03ee3511a"
     },
     "opus-personal-6db2e16d4cb7|de|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-25T06:23:22.470Z",
-      "source": "eab03ee3511a"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:31.322Z",
+      "source": "eab03ee3511a",
+      "rung": "codex"
     },
     "opus-personal-989f8966a43c|de|it": {
       "attempts": 1,
@@ -184042,19 +184055,22 @@
       "rung": "azure"
     },
     "opus-personal-4328dd5cebb1|de|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-25T06:23:00.683Z",
-      "source": "0c8ae058aced"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:20.614Z",
+      "source": "0c8ae058aced",
+      "rung": "codex"
     },
     "opus-personal-4328dd5cebb1|de|fr": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-25T06:23:12.854Z",
-      "source": "0c8ae058aced"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:23.733Z",
+      "source": "0c8ae058aced",
+      "rung": "codex"
     },
     "opus-personal-4328dd5cebb1|de|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-25T06:23:22.470Z",
-      "source": "0c8ae058aced"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:31.322Z",
+      "source": "0c8ae058aced",
+      "rung": "codex"
     },
     "opus-personal-80a883435dcc|de|it": {
       "attempts": 1,
@@ -184362,9 +184378,10 @@
       "source": "b0050f392085"
     },
     "opus-personal-6739c2d199b3|de|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-22T13:46:06.006Z",
-      "source": "b0050f392085"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-02T08:00:25.113Z",
+      "source": "b0050f392085",
+      "rung": "codex"
     },
     "opus-personal-d9f94c679831|de|it": {
       "attempts": 4,
@@ -207279,9 +207296,10 @@
       "source": "413030cdf302"
     },
     "posta-svizzera-centro-regionale-86dfc6ed05e3|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-17T11:48:08.547Z",
-      "source": "41c904618814"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:03.032Z",
+      "source": "41c904618814",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-f6a6ddf5cb44|de|fr": {
       "attempts": 1,
@@ -207356,9 +207374,10 @@
       "source": "108b71db0635"
     },
     "posta-svizzera-centro-regionale-86dfc6ed05e3|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-17T11:48:16.708Z",
-      "source": "41c904618814"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:09.523Z",
+      "source": "41c904618814",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-f6a6ddf5cb44|de|en": {
       "attempts": 1,
@@ -231802,9 +231821,10 @@
       "source": "26f907e828eb"
     },
     "posta-svizzera-centro-regionale-9b5ab5bda907|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-24T05:57:10.404Z",
-      "source": "41c904618814"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:03.031Z",
+      "source": "41c904618814",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-723708ad2463|de|fr": {
       "attempts": 2,
@@ -232012,9 +232032,10 @@
       "source": "26f907e828eb"
     },
     "posta-svizzera-centro-regionale-9b5ab5bda907|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-24T05:57:36.249Z",
-      "source": "41c904618814"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:09.523Z",
+      "source": "41c904618814",
+      "rung": "codex"
     },
     "posta-svizzera-centro-regionale-723708ad2463|de|en": {
       "attempts": 2,
@@ -263772,10 +263793,10 @@
       "rung": "azure"
     },
     "mcdonald-s-switzerland-647d5f09b932|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-29T23:45:15.065Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:12.441Z",
       "source": "5d285367ec5d",
-      "rung": "mozhiDdg"
+      "rung": "deepl"
     },
     "mcdonald-s-switzerland-c681162b3ae9|fr|de": {
       "attempts": 3,
@@ -267288,14 +267309,14 @@
       "rung": "deepl"
     },
     "mcdonald-s-switzerland-98e045590fab|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:44:13.338Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:12.441Z",
       "source": "5d285367ec5d",
       "rung": "deepl"
     },
     "mcdonald-s-switzerland-b2cedd3d16de|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:44:13.338Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:12.441Z",
       "source": "5d285367ec5d",
       "rung": "deepl"
     },
@@ -273048,8 +273069,8 @@
       "rung": "codex"
     },
     "roche-f22514a7fb12|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:45:08.427Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:34.530Z",
       "source": "0a44df877360",
       "rung": "unserved"
     },
@@ -273150,8 +273171,8 @@
       "rung": "codex"
     },
     "talan-1136cde917a9|fr|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:45:00.964Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:21.560Z",
       "source": "b62b95ddb16a",
       "rung": "unserved"
     },
@@ -273210,8 +273231,8 @@
       "rung": "codex"
     },
     "fincons-group-3e74c65460f2|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:44:59.945Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:21.075Z",
       "source": "6a11d32f67db",
       "rung": "deepl"
     },
@@ -273300,8 +273321,8 @@
       "rung": "codex"
     },
     "implenia-6ab6dd78a83f|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-31T07:45:00.015Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-02T08:00:27.395Z",
       "source": "457abbe8fa2a",
       "rung": "deepl"
     },
@@ -275388,10 +275409,10 @@
       "rung": "codex"
     },
     "mcdonald-s-switzerland-f7df4e572efd|fr|de": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-01T08:32:58.735Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:12.440Z",
       "source": "5d285367ec5d",
-      "rung": "azure"
+      "rung": "deepl"
     },
     "liebherr-ab478a2d512a|de|fr": {
       "attempts": 1,
@@ -304128,10 +304149,10 @@
       "rung": "codex"
     },
     "seco-jobroom-79edb970-03a3-4d66-929f-c90720847375|fr|de": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-01T22:51:44.235Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:12.442Z",
       "source": "5d285367ec5d",
-      "rung": "azure"
+      "rung": "deepl"
     },
     "seco-jobroom-79edb970-03a3-4d66-929f-c90720847375|fr|it": {
       "attempts": 1,
@@ -304200,16 +304221,16 @@
       "rung": "codex"
     },
     "seco-jobroom-79edb970-03a3-4d66-929f-c90720847375|fr|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-01T22:51:51.829Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:19.974Z",
       "source": "5d285367ec5d",
       "rung": "unserved"
     },
     "yellowshark-ba70f9b18b53|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-01T22:51:55.738Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:27.373Z",
       "source": "f9f0cb8f2fd4",
-      "rung": "mozhiGoogle"
+      "rung": "deepl"
     },
     "new-yorker-28441|de|it": {
       "attempts": 1,
@@ -304230,10 +304251,10 @@
       "rung": "codex"
     },
     "yellowshark-338c249153ad|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-01T22:52:00.140Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-02T08:00:27.446Z",
       "source": "e493bb1c19e0",
-      "rung": "unserved"
+      "rung": "deepl"
     },
     "seco-jobroom-e27b7d16-0043-4cf2-a9a4-f034c0f60d57|de|fr": {
       "attempts": 1,
@@ -304263,6 +304284,78 @@
       "attempts": 1,
       "lastAttemptAt": "2026-11-01T22:52:05.391Z",
       "source": "4ced75dfb5f3",
+      "rung": "codex"
+    },
+    "posta-svizzera-centro-regionale-7b6d2c2c9948|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:03.030Z",
+      "source": "3092896f6bfb",
+      "rung": "codex"
+    },
+    "kanton-zuerich-84800d514b8a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:03.030Z",
+      "source": "6af47edf5bcb",
+      "rung": "codex"
+    },
+    "physioswiss-e73b5c6163d4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:03.031Z",
+      "source": "955bd921a60a",
+      "rung": "codex"
+    },
+    "spitex-ch-96f3ea63d160|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:03.031Z",
+      "source": "94b64c5bd14b",
+      "rung": "codex"
+    },
+    "posta-svizzera-centro-regionale-7b6d2c2c9948|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:09.514Z",
+      "source": "3092896f6bfb",
+      "rung": "codex"
+    },
+    "kanton-zuerich-84800d514b8a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:09.520Z",
+      "source": "6af47edf5bcb",
+      "rung": "codex"
+    },
+    "physioswiss-e73b5c6163d4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:09.520Z",
+      "source": "955bd921a60a",
+      "rung": "codex"
+    },
+    "spitex-ch-96f3ea63d160|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:09.522Z",
+      "source": "94b64c5bd14b",
+      "rung": "codex"
+    },
+    "spitex-ch-96f3ea63d160|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:09.965Z",
+      "source": "94b64c5bd14b",
+      "rung": "codex"
+    },
+    "kanton-zuerich-84800d514b8a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:10.436Z",
+      "source": "6af47edf5bcb",
+      "rung": "codex"
+    },
+    "physioswiss-e73b5c6163d4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:10.436Z",
+      "source": "955bd921a60a",
+      "rung": "codex"
+    },
+    "spitex-ch-452527dcc148|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-02T08:00:10.437Z",
+      "source": "7f26be76894f",
       "rung": "codex"
     }
   }

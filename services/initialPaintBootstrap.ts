@@ -15,6 +15,11 @@ export function shouldWaitForJobBoardLcp(viewportWidth: number): boolean {
   return viewportWidth < JOB_BOARD_LCP_WAIT_MAX_WIDTH;
 }
 
+/** The static article snapshot is the useful mobile LCP surface before hydration. */
+export function shouldWaitForStaticArticleLcp(viewportWidth: number): boolean {
+  return shouldWaitForJobBoardLcp(viewportWidth);
+}
+
 export type LargestContentfulPaintCandidateFilter = (element: Element | null) => boolean;
 
 export interface InitialPaintBootstrapOptions {

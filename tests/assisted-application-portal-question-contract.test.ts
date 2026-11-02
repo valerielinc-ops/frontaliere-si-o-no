@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { localizePortalQuestions, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { localizePortalQuestions, portalRequirementsForCandidate, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalAnswerForApplication } from '../scripts/assisted-application/lib/portal/question-key.mjs';
 import { validateAnswer } from '../functions/src/lib/answerRules.js';
 
@@ -72,7 +72,9 @@ describe('portal candidate question contract', () => {
   });
 
   it('does not ask the candidate for a proven optional field wrongly called missing by the planner', () => {
-    expect(portalRequirementsFromMissingRequired([{ ...field, required: false }], [planned])).toEqual({ questions: [], documents: [] });
+    expect(portalRequirementsFromMissingRequired([{ ...field, required: false }], [planned])).toEqual({
+      questions: [], documents: [], reduction: { kind: 'empty' },
+    });
   });
 
   it('retains a live rejected field without a mandatory marker', () => {
@@ -123,17 +125,24 @@ describe('portal candidate question contract', () => {
     expect(questions[0].applicationOptions).toBeUndefined();
   });
 
-  it('keeps a complete explicit translation map and the exact ATS catalogue', async () => {
+  it('keeps candidate copy Italian when the ATS and posting language hints are German or English', async () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
-    const localized = await localizePortalQuestions(questions, {
-      candidateLocale: 'it', applicationLocale: 'de',
-      codex: async () => ({ questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }, { candidate: 'Raccomandazione', application: 'Empfehlung' }] }] }),
-    });
-    expect(localized[0]).toMatchObject({ type: 'choice', required: true, options: ['Sito aziendale', 'Raccomandazione'], applicationOptions: ['Homepage', 'Empfehlung'] });
-    expect(portalAnswerForApplication(localized[0], 'Raccomandazione')).toBe('Empfehlung');
+    for (const applicationLocale of ['de', 'en']) {
+      let prompt = '';
+      const localized = await localizePortalQuestions(questions, {
+        candidateLocale: 'it', applicationLocale,
+        codex: async (request: any) => {
+          prompt = request.prompt;
+          return { questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }, { candidate: 'Raccomandazione', application: 'Empfehlung' }] }] };
+        },
+      });
+      expect(prompt).toContain('candidate language is Italian');
+      expect(localized[0]).toMatchObject({ type: 'choice', required: true, question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], applicationOptions: ['Homepage', 'Empfehlung'] });
+      expect(portalAnswerForApplication(localized[0], 'Raccomandazione')).toBe('Empfehlung');
+    }
   });
 
-  it('preserves the complete catalogue on a partial or unmapped translation', async () => {
+  it('keeps readable fallback copy for diagnostics when a translation is partial or unmapped', async () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
     for (const copy of [
       { options: ['Sito aziendale'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }] },
@@ -143,18 +152,25 @@ describe('portal candidate question contract', () => {
         candidateLocale: 'it', applicationLocale: 'de',
         codex: async () => ({ questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, ...copy }] }),
       });
+      expect(localized[0]).toMatchObject({ localizationStatus: 'fallback', applicationQuestion: field.label });
       expect(localized[0].options).toEqual(['Homepage', 'Empfehlung']);
-      expect(portalAnswerForApplication(localized[0], 'Empfehlung')).toBe('Empfehlung');
     }
   });
 
-  it('preserves the full catalogue and mapping when localization fails', async () => {
+  it('keeps readable fallback copy when localization is unavailable', async () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
     const localized = await localizePortalQuestions(questions, {
       candidateLocale: 'it', applicationLocale: 'de',
       codex: async () => { throw new Error('unavailable'); },
     });
-    expect(localized[0].options).toEqual(['Homepage', 'Empfehlung']);
-    expect(portalAnswerForApplication(localized[0], 'Empfehlung')).toBe('Empfehlung');
+    expect(localized[0]).toMatchObject({ localizationStatus: 'fallback', applicationQuestion: field.label });
+  });
+
+  it('fails closed only at the candidate-facing request boundary when localization is unavailable', async () => {
+    const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
+    await expect(portalRequirementsForCandidate({ questions, documents: [] }, {
+      candidateLocale: 'it', applicationLocale: 'de',
+      codex: async () => { throw new Error('unavailable'); },
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
   });
 });

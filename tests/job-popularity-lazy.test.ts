@@ -72,7 +72,16 @@ describe('job-popularity is not bundled into the JobBoard chunk', () => {
         const p = path.join(dir, e.name);
         if (e.isDirectory()) { walk(p); continue; }
         if (!/\.tsx?$/.test(e.name)) continue;
-        const src = fs.readFileSync(p, 'utf8');
+        let src: string;
+        try {
+          src = fs.readFileSync(p, 'utf8');
+        } catch (error) {
+          // Sparse agent worktrees can contain a tracked source symlink whose
+          // target is intentionally outside the sparse checkout. Full CI
+          // checkouts still scan that target; ordinary unreadable files fail.
+          if ((error as { code?: string }).code === 'ENOENT' && fs.lstatSync(p).isSymbolicLink()) continue;
+          throw error;
+        }
         if (/^\s*import\s+[^;]*from\s+['"][^'"]*job-popularity\.json['"]/m.test(src)) {
           offenders.push(path.relative(ROOT, p));
         }
@@ -82,17 +91,23 @@ describe('job-popularity is not bundled into the JobBoard chunk', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('starts the runtime fetch after the first rendered frames and at idle', () => {
+  it('starts the runtime fetch only near the recommendation section, after LCP and at idle', () => {
     const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf8');
-    const effectStart = src.indexOf('// Fetch it at idle, and only when personalization is on');
-    const effectEnd = src.indexOf('// Keep one previous-visit boundary stable', effectStart);
-    const effect = src.slice(effectStart, effectEnd);
-
-    expect(effectStart).toBeGreaterThanOrEqual(0);
-    expect(effectEnd).toBeGreaterThan(effectStart);
-    expect(effect).toMatch(/firstFrame = window\.requestAnimationFrame\(\(\) =>\s*\{\s*secondFrame = window\.requestAnimationFrame\(scheduleAtIdle\)/);
-    expect(effect).toContain("w.requestIdleCallback(start, { timeout: 8000 })");
-    expect(effect).toMatch(/if \(idleHandle !== null\) w\.cancelIdleCallback\?\.\(idleHandle\)/);
+    // The comment is deliberately asserted too: moving this request back to
+    // mount-time idle reintroduces the 600 KB catalog into mobile startup.
+    expect(src).toContain('Popularity only changes the below-fold recommendation order.');
+    const updatedEffectStart = src.indexOf('Popularity only changes the below-fold recommendation order.');
+    const updatedEffectEnd = src.indexOf('// Keep one previous-visit boundary stable', updatedEffectStart);
+    const updatedEffect = src.slice(updatedEffectStart, updatedEffectEnd);
+    expect(updatedEffectStart).toBeGreaterThanOrEqual(0);
+    expect(updatedEffectEnd).toBeGreaterThan(updatedEffectStart);
+    expect(updatedEffect).toContain('new IntersectionObserver');
+    expect(updatedEffect).toContain("{ rootMargin: '400px 0px' }");
+    expect(updatedEffect).toContain('waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true })');
+    expect(updatedEffect.indexOf('waitForInitialPaintOpportunity')).toBeLessThan(updatedEffect.indexOf('requestIdleCallback(start'));
+    expect(updatedEffect).toContain('observer.observe(target)');
+    expect(updatedEffect).toContain("w.requestIdleCallback(start, { timeout: 8000 })");
+    expect(updatedEffect).toMatch(/if \(idleHandle !== null\) w\.cancelIdleCallback\?\.\(idleHandle\)/);
   });
 });
 

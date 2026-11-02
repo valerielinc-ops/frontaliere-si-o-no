@@ -53,13 +53,15 @@ function active(patch = {}) {
     matchingCompletedAt: now - 3 * DAY, matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION, acceptedPositionsCount: 2, ...patch };
 }
 const deliveries: string[] = [];
+const trackingTargets: Array<{ key: string; trackingTarget?: any }> = [];
 const passThroughJobCards = async (proposals: any[]) => proposals;
-const send = vi.fn(async ({ recordRef, key, build, eligible }: any) => db.runTransaction(async (transaction: any) => {
+const send = vi.fn(async ({ recordRef, key, build, eligible, trackingTarget }: any) => db.runTransaction(async (transaction: any) => {
   const current = (await transaction.get(recordRef)).data();
   if (eligible && !await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
   if (current.notifications?.[key]) return { ok: false, reason: 'already_sent' };
   await build(current, {});
   deliveries.push(key);
+  trackingTargets.push({ key, trackingTarget });
   await transaction.set(recordRef, { notifications: { ...current.notifications, [key]: { status: 'sent' } } });
   return { ok: true };
 }));
@@ -70,7 +72,7 @@ const match = vi.fn(async ({ serviceId }: any) => {
 });
 const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, enrichJobCards: passThroughJobCards, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, ...options });
 const refresh = (options: any) => runConciergeProposalRefresh({ db, nowMs: now, match, send, enrichJobCards: passThroughJobCards, ...options });
-beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; vi.clearAllMocks(); });
+beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; trackingTargets.length = 0; vi.clearAllMocks(); });
 
 describe('concierge refresh and notification lifecycle', () => {
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
@@ -86,6 +88,16 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 30 * 60 * 1000 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
+  });
+  it('polls more often than the hourly gate so a near-boundary tick cannot miss a refresh phase', () => {
+    const completion = now - (56 * 60 * 1000 + 56 * 1000);
+    const service = active({ matchingStatus: 'complete', matchingCompletedAt: completion,
+      matchingPendingCount: 20, matchingUnverifiedCount: 0 });
+    expect(conciergeRefreshDue(service, now)).toBe(false);
+    expect(conciergeRefreshDue(service, completion + 60 * 60 * 1000)).toBe(true);
+    const source = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
+    const start = source.indexOf('export const sweepApplicationConciergeLifecycle = onSchedule(');
+    expect(source.slice(start, start + 600)).toContain("schedule: 'every 15 minutes'");
   });
   it('recovers stale matcher runs with input-scoped, bounded backoff', () => {
     const stale = active({ matchingStatus: 'running', matchingStartedAt: now - CONCIERGE_MATCHING_STALE_AFTER_MS - 1 });
@@ -122,6 +134,7 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(match).toHaveBeenCalledTimes(1);
     expect(deliveries).toHaveLength(1);
     expect(deliveries[0]).toMatch(/^new_proposals_/);
+    expect(trackingTargets[0]).toEqual({ key: deliveries[0], trackingTarget: { kind: 'application-concierge', id: 'service' } });
     await sweep();
     expect(deliveries).toHaveLength(1);
   });
@@ -309,6 +322,7 @@ describe('concierge refresh and notification lifecycle', () => {
     records.set('application_concierge_services/service', active({ expiresAt: now - DAY }));
     await sweep(); await sweep();
     expect(deliveries).toEqual(['renewal_day_1']);
+    expect(trackingTargets[0]).toEqual({ key: 'renewal_day_1', trackingTarget: { kind: 'application-concierge', id: 'service' } });
     records.set('users/candidate', { applicationConciergePaymentReminder: { optedOut: true } });
     await sweep({ nowMs: now + DAY });
     expect(deliveries).toHaveLength(1);

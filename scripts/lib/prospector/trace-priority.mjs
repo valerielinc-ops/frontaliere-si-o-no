@@ -13,6 +13,7 @@ import { hasUntriedEmailDomainHint } from './candidate-store.mjs';
 export const TRACE_SECO_FRESHNESS_DAYS = 30;
 export const TRACE_LIMIT_MAX = 1200;
 const TRACE_SECO_FRESHNESS_MS = TRACE_SECO_FRESHNESS_DAYS * 86_400_000;
+const FRONTIER_CANTONS = new Set(['AG', 'BS', 'BL', 'GE', 'GR', 'JU', 'NE', 'SH', 'SO', 'SG', 'TG', 'TI', 'VD', 'VS']);
 const TRACE_BUCKETS = Object.freeze([
   { key: 'careersUrl', weight: 5, matches: (candidate) => Boolean(candidate?.careersUrl) },
   { key: 'domain', weight: 3, matches: (candidate) => hasDomainLead(candidate) },
@@ -49,6 +50,12 @@ export function hasRecentSecoDemand(candidate, now = Date.now()) {
   return Number.isFinite(observedAt) && age >= 0 && age <= TRACE_SECO_FRESHNESS_MS;
 }
 
+function cantonPriority(candidate) {
+  const canton = String(candidate?.canton || '').toUpperCase();
+  if (canton === 'TI') return 2;
+  return FRONTIER_CANTONS.has(canton) ? 1 : 0;
+}
+
 /**
  * @param {Record<string, any>} a
  * @param {Record<string, any>} b
@@ -64,6 +71,9 @@ export function compareTraceCandidates(a, b, now = Date.now()) {
 
   const recentDemand = Number(hasRecentSecoDemand(b, now)) - Number(hasRecentSecoDemand(a, now));
   if (recentDemand) return recentDemand;
+
+  const borderDemand = cantonPriority(b) - cantonPriority(a);
+  if (borderDemand) return borderDemand;
 
   if (hasRecentSecoDemand(a, now) && hasRecentSecoDemand(b, now)) {
     const fresh = String(b.sourceSeenAt.seco).localeCompare(String(a.sourceSeenAt.seco));

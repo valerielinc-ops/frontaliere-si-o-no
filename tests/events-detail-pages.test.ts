@@ -44,6 +44,7 @@ import { parsePath } from '../services/router';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
 
 const EVENT = {
   id: 'tio-agenda:42',
@@ -273,6 +274,34 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.performer).toEqual(withPeople.performer);
   });
 
+  it('uses explicitly named source-description performers and leaves generic concert copy unknown', () => {
+    const description = 'Il trio con la cantante albanese-svizzera Elina Duni, il chitarrista britannico Rob Luft e il flicornista svizzero Matthieu Michel è noto per il suo dialogo fluido tra jazz, folk e chanson. Incontra il Vision String Quartet di Berlino.';
+    const sourceEvent = {
+      ...EVENT,
+      id: 'tio-agenda:63833',
+      title: 'JazzAscona meets classicAscona',
+      description,
+      performer: { '@type': 'Organization', name: 'Teatro del Gatto' },
+      venue: 'Teatro del Gatto',
+      url: 'https://www.tio.ch/agenda/day/20260928/63833',
+    };
+    const ld = eventLd(sourceEvent as never, 'it') as Record<string, any>;
+    expect(ld.performer).toEqual([
+      { name: 'Elina Duni', url: sourceEvent.url },
+      { name: 'Rob Luft', url: sourceEvent.url },
+      { name: 'Matthieu Michel', url: sourceEvent.url },
+      { '@type': 'PerformingGroup', name: 'Vision String Quartet', url: sourceEvent.url },
+    ]);
+
+    const unknown = eventLd({
+      ...EVENT,
+      title: 'Zytturm Konzert',
+      category: 'Konzert',
+      description: 'Ein toller Abend mit Musik.',
+    } as never, 'it') as Record<string, any>;
+    expect(unknown.performer).toBeUndefined();
+  });
+
   it('fills a missing organizer URL with the verified source event page', () => {
     const withOrganizer = {
       ...EVENT,
@@ -468,6 +497,25 @@ describe('renderEventDetailPage', () => {
     dateStamp: '2026-06-30',
     distDir,
     detailHref: detailHref as never,
+  });
+
+  it('declares demand-gated upcoming details without changing their content or ad policy', () => {
+    const demandGated = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT, other] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: detailHref as never,
+      demandIndexable: false,
+    });
+
+    expect(demandGated.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(demandGated.html).toContain('noindex,follow');
+    expect(demandGated.html).toContain(EVENT_DETAIL_NOINDEX_TARGET_MARKER);
+    expect(demandGated.html).toMatch(/data-ad-placement=["']?event-detail-inline["']?/);
   });
 
   it('keeps event-detail titles and headings concise while retaining the place and date', () => {

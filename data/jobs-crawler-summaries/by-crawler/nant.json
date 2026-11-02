@@ -1,27 +1,122 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-11-01T21:21:03.680Z",
-  "total": 4,
+  "generatedAt": "2026-11-02T10:20:01.687Z",
+  "total": 6,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 5,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 4,
-  "resurrectedJobs": 0,
+  "written": 6,
+  "resurrectedJobs": 1,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 2,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 3776,
-  "avgDurationMs": 3776,
+  "unchangedCount": 2,
+  "durationMs": 4630,
+  "avgDurationMs": 4630,
   "durationHistory": [
-    3776
+    4630
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "nant-a5ce73bd8694",
+      "slug": "infermiere-cliniche-100-specializzate-empa-fondation-de-nant-corsier-sur-vevey",
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Infirmier·ère clinicien·ne spécialisé·e à 100% (EMPA)",
+      "needsRetranslation": true,
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/bIZr6lj9a",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T10:19:44.367Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://app.beehire.com/invite/bIZr6lj9a",
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "streetAddress": "Corsier-sur-Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T10:19:44.367Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-01T08:38:15.483Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "nant-37ad31e543ad",
+      "slug": "educateur-trice-mistral-90-nant-corsier-sur-vevey",
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Educateur-trice Mistral 90%",
+      "needsRetranslation": true,
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/GhP4UCz1f",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-02T10:19:44.364Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://app.beehire.com/invite/GhP4UCz1f",
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "salaryMin": 77900,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "streetAddress": "Corsier-sur-Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T10:19:44.364Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-08T21:13:10.492Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "nant-daa915ec4a40",
@@ -36,7 +131,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T21:20:46.135Z",
+      "crawledAt": "2026-11-02T10:19:44.365Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -60,7 +155,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:20:46.135Z",
+      "validThrough": "2026-12-19T10:19:44.365Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -69,10 +164,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "nant-5bed28d501c2",
       "slug": "frequenza-variabile-fondation-de-nant-corsier-sur-vevey",
@@ -80,7 +172,6 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Aide-soignant-e à taux variable",
-      "needsRetranslation": false,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/PdTkBFu_5",
@@ -111,6 +202,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T21:20:46.136Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,7 +210,10 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "nant-098a38d24c44",
       "slug": "imparare-la-cucina-swc-fondation-de-nant-corsier-sur-vevey",
@@ -132,7 +227,7 @@
       "url": "https://app.beehire.com/invite/vOH7Zsw7M",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T21:20:46.131Z",
+      "crawledAt": "2026-11-02T10:19:44.363Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -156,7 +251,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:20:46.131Z",
+      "validThrough": "2027-01-10T10:19:44.363Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -178,7 +273,7 @@
       "url": "https://app.beehire.com/invite/PzPmrtqqv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T21:20:46.129Z",
+      "crawledAt": "2026-11-02T10:19:44.362Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -202,7 +297,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:20:46.129Z",
+      "validThrough": "2027-01-26T10:19:44.362Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -213,5 +308,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }

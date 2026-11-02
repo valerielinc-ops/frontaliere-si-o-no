@@ -243,6 +243,29 @@ async function getLiveBuildMarker() {
   }
 }
 
+/**
+ * Parse the detail signal from the live jobs sitemap without treating every
+ * sitemap URL as a JobPosting page. `jobsSeoPagesPlugin` reserves the
+ * priority+lastmod pair for active job details; listing/landing entries can
+ * share priority 0.6, but they do not carry a listing lastmod.
+ */
+export function parseLiveJobSitemapSignals(xml) {
+  const signals = new Map();
+  for (const match of String(xml ?? '').matchAll(/<url>([\s\S]*?)<\/url>/gi)) {
+    const entry = match[1];
+    const loc = entry.match(/<loc>\s*([^<]+?)\s*<\/loc>/i)?.[1];
+    const normalized = normalizedPublicUrl(loc);
+    if (!normalized) continue;
+    const priority = entry.match(/<priority>\s*([^<]+?)\s*<\/priority>/i)?.[1]?.trim();
+    const hasLastmod = /<lastmod>\s*[^<]+?\s*<\/lastmod>/i.test(entry);
+    // jobsSeoPagesPlugin emits active detail URLs at priority 0.6 with a
+    // listing date; landing/search/company entries use other priorities or
+    // omit lastmod. Both signals are required to avoid a landing false positive.
+    signals.set(normalized, hasLastmod && priority === '0.6');
+  }
+  return signals;
+}
+
 async function getLiveJobSitemapSignals() {
   try {
     const response = await fetchWithTimeout(
@@ -251,20 +274,7 @@ async function getLiveJobSitemapSignals() {
       SITEMAP_FETCH_TIMEOUT_MS,
     );
     if (!response.ok) return new Map();
-    const xml = await response.text();
-    const signals = new Map();
-    for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/gi)) {
-      const entry = match[1];
-      const loc = entry.match(/<loc>\s*([^<]+?)\s*<\/loc>/i)?.[1];
-      const normalized = normalizedPublicUrl(loc);
-      if (!normalized) continue;
-      const priority = entry.match(/<priority>\s*([^<]+?)\s*<\/priority>/i)?.[1];
-      const hasLastmod = /<lastmod>\s*[^<]+?\s*<\/lastmod>/i.test(entry);
-      // jobsSeoPagesPlugin emits active detail URLs at priority 0.6 with a
-      // listing date; landing/search/company entries use other priorities.
-      signals.set(normalized, hasLastmod || priority === '0.6');
-    }
-    return signals;
+    return parseLiveJobSitemapSignals(await response.text());
   } catch {
     return new Map();
   }

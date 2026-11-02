@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-11-01T21:25:59.846Z",
+  "generatedAt": "2026-11-02T10:23:07.342Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2932,
-  "avgDurationMs": 2932,
+  "durationMs": 2745,
+  "avgDurationMs": 2745,
   "durationHistory": [
-    2932
+    2745
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-01T21:25:46.250Z",
+      "validThrough": "2026-12-02T10:22:56.324Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -49,7 +49,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-01T21:25:46.250Z",
+      "crawledAt": "2026-11-02T10:22:56.324Z",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
@@ -82,7 +82,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T21:25:46.263Z",
+      "validThrough": "2026-12-29T10:22:56.336Z",
       "id": "tarchini-group-e3e32d44df83",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -91,7 +91,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-01T21:25:46.263Z",
+      "crawledAt": "2026-11-02T10:22:56.336Z",
       "postalCode": "6850",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -105,5 +105,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }

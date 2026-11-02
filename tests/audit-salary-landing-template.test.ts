@@ -36,6 +36,27 @@ describe('audit-salary-landing-template', () => {
     expect(report.offenders[0].reasons).toContain('thin default H1 (font-size:1.25rem)');
     expect(report.offenders[0].reasons).toContain('empty calculator placeholder (height:38rem)');
   });
+
+  it('excludes an explicit noindex redirect bridge even when it has no canonical', async () => {
+    const report = await collectSingle(`<!doctype html>
+      <html><head><!--REDIRECT_STUB--><meta name="robots" content="noindex,follow">
+      <meta http-equiv="refresh" content="0;url=https://frontaliereticino.ch/fr/calculer-salaire/"></head>
+      <body><h1>Pagina spostata</h1></body></html>`);
+
+    expect(report.passed).toBe(true);
+    expect(report.extra.scanned).toBe(0);
+    expect(report.offendersTotal).toBe(0);
+  });
+
+  it('keeps the zero-tolerance template check for marked pages that remain indexable', async () => {
+    const report = await collectSingle(`<!doctype html>
+      <html><head><!--REDIRECT_STUB--><meta name="robots" content="index,follow"></head>
+      <body><h1>Pagina stipendio</h1></body></html>`);
+
+    expect(report.passed).toBe(false);
+    expect(report.extra.scanned).toBe(1);
+    expect(report.offendersTotal).toBe(1);
+  });
 });
 
 describe('static salary landing title overrides', () => {

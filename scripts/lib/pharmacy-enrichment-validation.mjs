@@ -6,6 +6,8 @@
  * that the monitor does not pull the optional HTML parser into its closure.
  */
 
+import { PHARMACY_GOOGLE_PLACES_MONTHLY_LIMIT } from './google-places-budget.mjs';
+
 export const SOURCE_TYPES = new Set([
   'official',
   'association',
@@ -17,7 +19,9 @@ export const SOURCE_TYPES = new Set([
 ]);
 export const SOURCE_KINDS = new Set(['html', 'pdf']);
 export const FIELDS = new Set(['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail', 'vatNumber']);
-export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = 10_000;
+// Kept under the Text Search Pro free-use cap and under the shared-key
+// allocation reserved alongside the prospector's Enterprise requests.
+export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = PHARMACY_GOOGLE_PLACES_MONTHLY_LIMIT;
 
 export function safeHttpsUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return undefined;
