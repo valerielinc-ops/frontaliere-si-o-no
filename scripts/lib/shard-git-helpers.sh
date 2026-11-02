@@ -232,6 +232,135 @@ shard_count_files() {
   find "$dir" -type f -print0 | perl -0ne '$count += 1; END { print $count + 0 }'
 }
 
+# shard_assert_source_paths_indexed <stage> <source_root> <target_prefix> <label>
+# Every regular file emitted under <source_root> must be present at the same
+# relative path under <target_prefix> in the staged Git index. A file-count
+# floor cannot catch a route being replaced by a different file, so it can
+# report a healthy copy while the sitemap's exact URL is absent. Compare the
+# NUL-safe, byte-sorted path streams instead of materializing the whole source
+# or index inventory in a shell array; locale shards can contain ~1M files.
+# Extra indexed paths are allowed here: Ticino's physical _tree fan-out and
+# service metadata deliberately add paths that are not in the source subtree.
+shard_assert_source_paths_indexed() {
+  local stage="$1" source_root="$2" target_prefix="$3" label="${4:-shard}"
+  local work source_paths index_records indexed_paths missing_file
+  local missing_count shown path reason limit
+
+  source_root="${source_root%/}"
+  target_prefix="${target_prefix%/}"
+  work="$(mktemp -d)" || return 1
+  source_paths="$work/source-paths"
+  index_records="$work/index-records"
+  indexed_paths="$work/indexed-paths"
+  missing_file="$work/missing-paths"
+
+  if ! find "$source_root" -type f -print0 \
+      | perl -0e '
+          use strict;
+          use warnings;
+          use bytes;
+          my ($root, $out) = @ARGV;
+          $root =~ s{/\z}{};
+          open my $input, "<&", \*STDIN or die "open stdin: $!";
+          open my $output, ">:raw", $out or die "open $out: $!";
+          local $/ = "\0";
+          while (defined(my $path = <$input>)) {
+            chop $path;
+            next if $path eq q{};
+            die "source path outside source root" unless index($path, "$root/") == 0;
+            print {$output} substr($path, length($root) + 1), "\0";
+          }
+          close $output or die "close $out: $!";
+        ' "$source_root" "$source_paths" \
+      && LC_ALL=C sort -z -o "$source_paths" "$source_paths"; then
+    echo "::error::$label source path integrity check could not enumerate $source_root" >&2
+    rm -rf "$work"
+    return 1
+  fi
+
+  if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target_prefix/" > "$index_records"; then
+    echo "::error::$label source path integrity check could not read the staged index" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  if ! perl -0e '
+      use strict;
+      use warnings;
+      use bytes;
+      my ($input, $output) = @ARGV;
+      open my $in, "<:raw", $input or die "open $input: $!";
+      open my $out, ">:raw", $output or die "open $output: $!";
+      local $/ = "\0";
+      while (defined(my $record = <$in>)) {
+        chop $record;
+        next if $record eq q{};
+        my $tab = index($record, "\t");
+        die "index record without path separator" if $tab < 0;
+        print {$out} substr($record, $tab + 1), "\0";
+      }
+      close $out or die "close $output: $!";
+    ' "$index_records" "$indexed_paths" \
+      && LC_ALL=C sort -z -o "$indexed_paths" "$indexed_paths"; then
+    echo "::error::$label source path integrity check could not normalize the staged index" >&2
+    rm -rf "$work"
+    return 1
+  fi
+
+  if ! perl -e '
+      use strict;
+      use warnings;
+      use bytes;
+      my ($expected_file, $indexed_file, $prefix, $missing_file) = @ARGV;
+      $prefix =~ s{/\z}{};
+      open my $expected_fh, "<:raw", $expected_file or die "open $expected_file: $!";
+      open my $indexed_fh, "<:raw", $indexed_file or die "open $indexed_file: $!";
+      open my $missing_fh, ">:raw", $missing_file or die "open $missing_file: $!";
+      local $/ = "\0";
+      my $expected = <$expected_fh>;
+      my $indexed = <$indexed_fh>;
+      while (defined $expected) {
+        chop $expected;
+        my $target = $prefix eq q{} ? $expected : "$prefix/$expected";
+        while (defined $indexed) {
+          chop $indexed;
+          last if $indexed ge $target;
+          $indexed = <$indexed_fh>;
+        }
+        if (!defined($indexed) || $indexed ne $target) {
+          print {$missing_fh} "$target\0source payload path missing from indexed tree\0";
+        } else {
+          $indexed = <$indexed_fh>;
+        }
+        $expected = <$expected_fh>;
+      }
+      close $missing_fh or die "close $missing_file: $!";
+    ' "$source_paths" "$indexed_paths" "$target_prefix" "$missing_file"; then
+    echo "::error::$label source path integrity comparison failed" >&2
+    rm -rf "$work"
+    return 1
+  fi
+
+  if [ -s "$missing_file" ]; then
+    missing_count="$(perl -0ne '$count += 1 if $_ ne q{}; END { print int(($count + 0) / 2) }' < "$missing_file")"
+    limit="${SHARD_DELTA_DIAGNOSTIC_LIMIT:-10}"
+    if ! [[ "$limit" =~ ^[0-9]+$ ]] || [ "$limit" -lt 1 ]; then limit=10; fi
+    echo "::error::$label source path integrity failed: missing=$missing_count (showing up to $limit)" >&2
+    shown=0
+    while [ "$shown" -lt "$limit" ] \
+      && IFS= read -r -d '' path \
+      && IFS= read -r -d '' reason; do
+      echo "::error::$label missing path=$path reason=$reason" >&2
+      shown=$((shown + 1))
+    done < "$missing_file"
+    SHARD_DELTA_REASON='source payload path missing from indexed tree'
+    rm -rf "$work"
+    return 1
+  fi
+
+  rm -rf "$work"
+  return 0
+}
+
 # shard_index_has_content_changes <stage>
 # A NUL-safe equivalent of the old quiet diff check. `--name-only -z` keeps the
 # path transport lossless even though the result is consumed only as a boolean.

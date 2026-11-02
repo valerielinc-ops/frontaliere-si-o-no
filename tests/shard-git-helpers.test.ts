@@ -149,6 +149,14 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
     }
   });
 
+  it('both shard pushers verify every source path after staging, not only the file count', () => {
+    for (const script of ['scripts/lib/push-section-shard.sh', 'scripts/lib/push-locale-shard.sh']) {
+      const source = readFileSync(join(process.cwd(), script), 'utf8');
+      expect(source).toContain('shard_assert_source_paths_indexed');
+      expect(source).toContain('source path integrity check failed');
+    }
+  });
+
   describe('shard_orphan_init', () => {
     it('creates a fresh repo on branch main with zero commits', () => {
       const dir = join(root, 'orphan-init-target');
@@ -263,6 +271,43 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       expect(output).toContain('unchanged payload check failed: missing=1');
       expect(output).toContain('missing path=en/jobs/gone/index.html reason=absent from indexed HEAD');
       expect(output).toContain('RC=1 REASON=unchanged payload missing from indexed HEAD');
+    });
+
+    it('rifiuta un overlay quando il conteggio è salvo ma manca una route esatta', () => {
+      const stage = stageWithFiles('source-path-missing-stage', {
+        'en/jobs/kept/index.html': '<html>kept</html>',
+        'en/jobs/extra/index.html': '<html>extra</html>',
+      });
+      const source = join(root, 'source-path-missing-source');
+      sh(`mkdir -p "${join(source, 'jobs/kept')}" "${join(source, 'jobs/gone')}"`);
+      writeFileSync(join(source, 'jobs/kept/index.html'), '<html>kept</html>');
+      writeFileSync(join(source, 'jobs/gone/index.html'), '<html>gone</html>');
+
+      const output = runHelperScript(
+        `SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" en test-shard 2>&1; `
+          + 'rc=$?; echo "RC=$rc REASON=$SHARD_DELTA_REASON"',
+      );
+      expect(output).toContain('test-shard source path integrity failed: missing=1');
+      expect(output).toContain('missing path=en/jobs/gone/index.html');
+      expect(output).toContain('RC=1 REASON=source payload path missing from indexed tree');
+    });
+
+    it('accetta tutti i path della sorgente anche quando lo shard ha file extra', () => {
+      const stage = stageWithFiles('source-path-complete-stage', {
+        'en/jobs/kept/index.html': '<html>kept</html>',
+        'en/jobs/gone/index.html': '<html>gone</html>',
+        'en/jobs/extra/index.html': '<html>extra</html>',
+      });
+      const source = join(root, 'source-path-complete-source');
+      sh(`mkdir -p "${join(source, 'jobs/kept')}" "${join(source, 'jobs/gone')}"`);
+      writeFileSync(join(source, 'jobs/kept/index.html'), '<html>kept</html>');
+      writeFileSync(join(source, 'jobs/gone/index.html'), '<html>gone</html>');
+
+      const output = runHelperScript(
+        `SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" en test-shard; `
+          + 'echo "RC=$? REASON=$SHARD_DELTA_REASON"',
+      );
+      expect(output).toBe('RC=0 REASON=');
     });
 
     it('fallisce chiuso se manca l’inventario dei file coperti dal manifest', () => {

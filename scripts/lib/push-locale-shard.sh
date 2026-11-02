@@ -277,6 +277,13 @@ push_shard() {
             if ! shard_delta_add_file "$stage" "$delta_snapshot" "$delta_sidecar"; then delta_apply_ok=0; fi
           fi
           if [ "$delta_apply_ok" = 1 ]; then
+            if ! shard_assert_source_paths_indexed \
+                "$stage" "$dist_dir/$loc" "$loc" "$loc shard"; then
+              delta_apply_ok=0
+              delta_fallback_reason="${SHARD_DELTA_REASON:-delta source path integrity check failed}"
+            fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
             n="$(shard_delta_count_files "$stage" "$loc")"
             built_n="$(( n + stripped_n ))"
             if [ ! -s "$dist_dir/$loc/index.html" ]; then
@@ -483,6 +490,10 @@ push_shard() {
     git config user.email "valerielinc@gmail.com"
     git config user.name "Valerie Linc"
     git add -A
+    if ! shard_assert_source_paths_indexed \
+        "$stage" "$dist_dir/$loc" "$loc" "$loc shard"; then
+      exit 1
+    fi
     # Nothing changed since the last deploy → no commit, skip the push
     # entirely (idempotent; the remote already serves this exact tree).
     # The no-change check EXCLUDES the bookkeeping markers (.shard-deploys
