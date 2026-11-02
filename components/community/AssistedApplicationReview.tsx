@@ -456,6 +456,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       coverLetterText: edits.coverLetterText,
       ...(data?.applicationEmail ? { emailSubject: edits.emailSubject, emailBody: edits.emailBody } : {}),
       fields: edits.fields,
+      editSnapshot: data?.editSnapshot || '',
     });
     if (saved) setEditing(false);
   };
