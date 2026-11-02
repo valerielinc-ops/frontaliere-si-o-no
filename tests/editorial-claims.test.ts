@@ -161,9 +161,13 @@ describe('tassa salute', () => {
     ['it', 'La tassa sulla salute prevede un contributo del 6,1% del reddito netto.'],
     ['it', 'La tassa sulla salute prevede un contributo del 2,9% del reddito netto.'],
     ['it', 'La tassa sulla salute è stata introdotta con la Legge di Bilancio 2019.'],
+    ['it', 'La tassa sulla salute è pari al 100% del salario netto.'],
     ['en', 'The health tax amounts to 1,000 euros a year.'],
+    ['en', 'The health tax is 100% of net salary.'],
     ['de', 'Die Gesundheitssteuer beträgt 5 % des Bruttolohns.'],
+    ['de', 'Die Gesundheitssteuer beträgt 100 % des Nettolohns.'],
     ['fr', 'La taxe santé est de 500 francs par mois.'],
+    ['fr', 'La taxe santé est de 100 % du salaire net.'],
   ])('%s: %s', (locale, sentence) => {
     expect(classes(sentence, locale)).toContain('tassa-salute');
     expect(repairEditorialClaims(sentence, { locale }).value).toBe('');

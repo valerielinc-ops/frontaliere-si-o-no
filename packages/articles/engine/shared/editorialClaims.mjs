@@ -596,10 +596,10 @@ function hasMonthlyAmountOutOfRange(sentence, locale) {
 }
 
 const PERCENT_OF_PAY = {
-  it: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|per\s+cento)\s+(?:del(?:lo|l['’])?|sul(?:lo|l['’])?)\s+(?:salario|stipendio|reddito|netto|lordo|imposta)/gi,
-  en: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|percent)\s+(?:of|on)\s+(?:the\s+)?(?:gross|net|salary|income|wage)/gi,
-  de: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|Prozent)\s+(?:des|vom|auf\s+das)\s+(?:Brutto|Netto|Lohn\w*|Einkommen\w*|Gehalt\w*)/gi,
-  fr: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|pour\s+cent)\s+(?:du|sur\s+le)\s+(?:salaire|revenu|brut|net)/gi,
+  it: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|per\s+cento)\s+(?:del(?:lo|l['’])?|sul(?:lo|l['’])?)\s+(?:salario|stipendio|reddito|netto|lordo|imposta)/gi,
+  en: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|percent)\s+(?:of|on)\s+(?:the\s+)?(?:gross|net|salary|income|wage)/gi,
+  de: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|Prozent)\s+(?:des|vom|auf\s+das)\s+(?:Brutto|Netto|Lohn\w*|Einkommen\w*|Gehalt\w*)/gi,
+  fr: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|pour\s+cent)\s+(?:du|sur\s+le)\s+(?:salaire|revenu|brut|net)/gi,
 };
 const GROSS_PAY_BASE = {
   it: /\b(?:lord[oaie])\b/i,
