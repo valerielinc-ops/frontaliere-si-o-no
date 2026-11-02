@@ -62,11 +62,10 @@ describe('renderFuelBelowFloorBridge (#4553 below-floor bridge)', () => {
     );
   });
 
-  it('injects an instant client-side meta-refresh to the canonical target', () => {
+  it('does not emit a meta-refresh and keeps the visible CTA to the canonical target', () => {
     const html = renderFuelBelowFloorBridge('/statistiche/prezzi-benzina-confine/oggi/benzina/');
-    expect(html).toContain(
-      `<meta http-equiv="refresh" content="0; url=${BASE_URL}${HUB_PATH.it}">`,
-    );
+    expect(html).not.toContain('http-equiv="refresh"');
+    expect(html).toContain(`href="${HUB_PATH.it}"`);
   });
 
   it('never leaves the below-floor URL as a dead end (CTA links to the hub)', () => {
