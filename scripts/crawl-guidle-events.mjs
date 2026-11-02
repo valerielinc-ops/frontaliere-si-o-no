@@ -757,6 +757,7 @@ async function main() {
       detailOutcomes.push({
         id: eventStableId(SOURCE.key, code),
         kind: classifyUnmappedGuidleDetail(localeStatuses, localeUndated),
+        pathSuffix,
       });
     } else {
       detailOutcomes.push({ id: eventStableId(SOURCE.key, code), kind: 'mapped' });
@@ -791,6 +792,7 @@ async function main() {
 
   const { goneIds, undatedIds, detailFailureIds, detailAttemptCount, driftIds, unreachableIds } =
     guidleDetailFailureAccounting(detailOutcomes);
+  const detailOutcomeById = new Map(detailOutcomes.map((outcome) => [outcome.id, outcome]));
   console.log(
     `[guidle] visited ${visited}/${entries.length} event(s) this run — ${events.length} mapped (${goneIds.length} expired/gone, ` +
       `${undatedIds.length} undated listing(s), ${driftIds.length} suspected drift, ${unreachableIds.length} unreachable) — ` +
@@ -801,7 +803,7 @@ async function main() {
   }
   if (driftIds.length > 0) {
     console.warn(
-      `[guidle] ${driftIds.length} event(s) returned real HTML but failed to parse — left untouched in the slice this run, check JSON-LD/DOM selectors for partial drift: ${driftIds.join(', ')}`,
+      `[guidle] ${driftIds.length} event(s) returned real HTML but failed to parse — left untouched in the slice this run, check JSON-LD/DOM selectors for partial drift: ${driftIds.map((id) => `${id} (${detailOutcomeById.get(id)?.pathSuffix || 'path unknown'})`).join(', ')}`,
     );
   }
   if (unreachableIds.length > 0) {
