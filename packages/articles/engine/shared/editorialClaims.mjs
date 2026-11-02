@@ -435,7 +435,7 @@ export function stripPromptTitleLabels(text, { title = '' } = {}) {
     const standaloneLabel = PROMPT_TITLE_STANDALONE_PREFIX.test(linePrefix);
     let cut = afterLabel;
     if (title && rest.startsWith(title)) cut = afterLabel + title.length;
-    else if (standaloneLabel) cut = lineEnd;
+    else if (standaloneLabel && !rest.trim()) cut = lineEnd;
     const before = value.slice(0, start).replace(PROMPT_TITLE_TRAILING_HWS, '');
     const after = value.slice(cut);
     if (cut === lineEnd) {
