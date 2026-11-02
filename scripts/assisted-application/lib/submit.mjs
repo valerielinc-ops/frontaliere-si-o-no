@@ -595,6 +595,9 @@ export async function submitApplication(ctx) {
       }
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
       if (error instanceof Error && error.message === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
+      if (error?.code === 'portal_question_localization_unavailable') {
+        return { type: 'submit_handoff', reason: 'question_localization_unavailable' };
+      }
       const navigationHandoff = navigationHandoffFor(error, { clicked, succeeded });
       if (navigationHandoff) return navigationHandoff;
       throw error;

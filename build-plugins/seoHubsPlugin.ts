@@ -88,9 +88,10 @@ import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from '
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { logoUrlForRenderedOutput } from '../services/jobDataNormalization';
-import { readAutoSectorHubInventory, countAutoSectorHubEmployers } from './shared/autoSectorHubPublicationData';
-import { isIndexableSectorHubPublication } from '../data/sector-hub-publications';
-import { buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
+import {
+  listIndexableAutoSectorHubLinks,
+  readAutoSectorHubInventory,
+} from './shared/autoSectorHubPublicationData';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -2932,15 +2933,10 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
           : `${sectionRoot}/`;
         items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
-      for (const publication of autoSectorInventory.registry.hubs) {
-        const jobs = autoSectorInventory.jobsBySlug.get(publication.slug) || [];
-        const label = publication.labelByLocale[locale];
-        if (!label || !isIndexableSectorHubPublication(
-          publication, jobs.length, countAutoSectorHubEmployers(jobs), locale,
-        )) continue;
+      for (const link of listIndexableAutoSectorHubLinks(autoSectorInventory, locale)) {
         items.push({
-          href: buildAutoSectorHubPath(locale, publication.slug, publication.routeKind),
-          label,
+          href: link.href,
+          label: link.label,
           emoji: '🔎',
         });
       }

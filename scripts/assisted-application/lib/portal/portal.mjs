@@ -1603,6 +1603,13 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   };
 }
 
+export class PortalQuestionLocalizationError extends Error {
+  constructor() {
+    super('portal_question_localization_unavailable');
+    this.code = 'portal_question_localization_unavailable';
+  }
+}
+
 /**
  * Translate the candidate-facing copy after the portal planner/agent has
  * identified a required field. The ATS label and options remain attached so
@@ -1656,7 +1663,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  return items.map((item) => {
+  const localizedQuestions = items.map((item) => {
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -1711,6 +1718,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       localizationStatus: 'translated',
     };
   });
+  return localizedQuestions;
 }
 
 /** A zeroed portal requirement must stop automation instead of looking absent. */
@@ -1723,7 +1731,11 @@ export async function portalRequirementsForCandidate(requirements, localization 
   const questions = requirements?.questions || [];
   const documents = requirements?.documents || [];
   if (!questions.length && !documents.length) return requirements?.reduction?.kind === 'empty' ? portalQuestionReductionHandoff() : null;
-  return { questions: await localizePortalQuestions(questions, localization), documents };
+  const localized = await localizePortalQuestions(questions, localization);
+  if (localized.some((question) => question.localizationStatus === 'fallback')) {
+    throw new PortalQuestionLocalizationError();
+  }
+  return { questions: localized, documents };
 }
 
 /**
@@ -3804,15 +3816,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
       })));
-      const questions = await localizePortalQuestions(openQuestions, {
+      const request = await portalRequirementsForCandidate({ questions: openQuestions, documents: [] }, {
         candidateLocale: ctx.candidateLocale,
         applicationLocale: ctx.language,
         codex: ctx.codex,
         log: ctx.log,
       });
-      if (questions.length) {
+      if (request?.questions.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
-        return noted({ questions });
+        return noted(request);
       }
     }
 
@@ -4178,15 +4190,16 @@ export async function readPortalRequirements(ctx) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
     }
-    return {
-      ...requirements,
-      questions: await localizePortalQuestions(requirements.questions, {
-        candidateLocale: ctx.candidateLocale,
-        applicationLocale: ctx.language,
-        codex: ctx.codex,
-        log: ctx.log,
-      }),
-    };
+    const questions = await localizePortalQuestions(requirements.questions, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (questions.some((question) => question.localizationStatus === 'fallback')) {
+      throw new PortalQuestionLocalizationError();
+    }
+    return { ...requirements, questions };
   } catch (error) {
     (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
     return { questions: [], documents: [] };
@@ -4511,9 +4524,17 @@ export async function submitViaPortal(ctx) {
     const askCandidate = async (questions) => {
       const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
-      const request = await portalRequirementsForCandidate(requirements, {
-        candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
-      });
+      let request;
+      try {
+        request = await portalRequirementsForCandidate(requirements, {
+          candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
+        });
+      } catch (error) {
+        if (error?.code === 'portal_question_localization_unavailable') {
+          return await handoff('question_localization_unavailable');
+        }
+        throw error;
+      }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
       return {

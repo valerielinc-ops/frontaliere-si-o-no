@@ -1,7 +1,7 @@
 {
   "crawlerKey": "endeso",
-  "assembledAt": "2026-10-30T21:26:42.778Z",
-  "runId": "41129540455",
+  "assembledAt": "2026-11-02T10:42:44.280Z",
+  "runId": "41419105724",
   "jobs": [
     {
       "id": "endeso-7684fbb2268f",
@@ -34,13 +34,13 @@
       "url": "https://endeso.ch/jobs/job-28017-haushaltshilfe-raumpflege-teilzeit-region-zuerich-stadt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.654Z",
+      "crawledAt": "2026-11-02T10:42:35.565Z",
       "addressLocality": "Zürich Stadt",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich Stadt",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -87,7 +87,10 @@
           "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:46:03.738Z"
+      "firstSeenAt": "2026-10-23T09:46:03.738Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T10:42:35.565Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-8933cf765b98",
@@ -120,13 +123,13 @@
       "url": "https://endeso.ch/jobs/job-28018-webentwickler-in-backend-php/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.652Z",
+      "crawledAt": "2026-11-02T10:42:35.563Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8500",
-      "streetAddress": "",
+      "streetAddress": "Thurgau",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -173,7 +176,10 @@
           "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:46:03.738Z"
+      "firstSeenAt": "2026-10-23T09:46:03.738Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T10:42:35.563Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-8c8dd52323ac",
@@ -206,13 +212,13 @@
       "url": "https://endeso.ch/jobs/job-28019-personalberater-in-hr-funktionen/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.651Z",
+      "crawledAt": "2026-11-02T10:42:35.561Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8500",
-      "streetAddress": "",
+      "streetAddress": "Zürcherstrasse 353b",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -255,7 +261,20 @@
           "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:46:03.737Z"
+      "firstSeenAt": "2026-10-23T09:46:03.737Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "endeso GmbH",
+        "streetAddress": "Zürcherstrasse 353b",
+        "postalCode": "8500",
+        "addressLocality": "Frauenfeld",
+        "addressRegion": "TG",
+        "checkedAt": "2026-10-31T20:48:51.295Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-20T10:42:35.561Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-e3c2710ddb50",
@@ -288,13 +307,13 @@
       "url": "https://endeso.ch/jobs/job-28020-regionalbetreiber-luzern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.650Z",
+      "crawledAt": "2026-11-02T10:42:35.560Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "",
+      "streetAddress": "Luzern",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -337,7 +356,10 @@
           "regionalbetreiber-luzern-endeso-gmbh-luzern"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:46:03.737Z"
+      "firstSeenAt": "2026-10-23T09:46:03.737Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T10:42:35.560Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-c27e32a5cbd3",
@@ -370,13 +392,13 @@
       "url": "https://endeso.ch/jobs/job-28021-regionalbetreiber-zug/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.649Z",
+      "crawledAt": "2026-11-02T10:42:35.559Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6300",
-      "streetAddress": "",
+      "streetAddress": "Zug",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -415,7 +437,10 @@
           "regionalbetreiber-zug-endeso-gmbh-zug"
         ]
       },
-      "firstSeenAt": "2026-10-08T21:30:36.198Z"
+      "firstSeenAt": "2026-10-08T21:30:36.198Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T10:42:35.559Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-6e816e6105d9",
@@ -448,13 +473,13 @@
       "url": "https://endeso.ch/jobs/job-28022-regionalbetreiber-bern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.648Z",
+      "crawledAt": "2026-11-02T10:42:35.558Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3001",
-      "streetAddress": "",
+      "streetAddress": "Region Bern",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -489,7 +514,10 @@
           "regionalbetreiber-bern-region-bern-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.195Z"
+      "firstSeenAt": "2026-09-19T23:00:29.195Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T10:42:35.558Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-9ff67f59b668",
@@ -522,13 +550,13 @@
       "url": "https://endeso.ch/jobs/job-28023-regionale-repraesentantin-swissbutler/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.644Z",
+      "crawledAt": "2026-11-02T10:42:35.547Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "",
+      "streetAddress": "Luzern",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -563,7 +591,10 @@
           "regionale-reprasentantin-swissbutler-luzern-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.190Z"
+      "firstSeenAt": "2026-09-19T23:00:29.190Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T10:42:35.547Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-62f2b0fadffb",
@@ -596,13 +627,13 @@
       "url": "https://endeso.ch/jobs/job-28024-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.643Z",
+      "crawledAt": "2026-11-02T10:42:35.545Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6300",
-      "streetAddress": "",
+      "streetAddress": "Zug",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -637,7 +668,10 @@
           "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.189Z"
+      "firstSeenAt": "2026-09-19T23:00:29.189Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T10:42:35.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-5f71ebf97740",
@@ -670,13 +704,13 @@
       "url": "https://endeso.ch/jobs/job-28025-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.641Z",
+      "crawledAt": "2026-11-02T10:42:35.541Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6300",
-      "streetAddress": "",
+      "streetAddress": "Zug",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -713,7 +747,10 @@
           "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.183Z"
+      "firstSeenAt": "2026-09-19T23:00:29.183Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T10:42:35.541Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-643460c9c447",
@@ -746,13 +783,13 @@
       "url": "https://endeso.ch/jobs/job-28026-projektleiter-in-elektroinstallation/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:33.640Z",
+      "crawledAt": "2026-11-02T10:42:35.539Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8500",
-      "streetAddress": "",
+      "streetAddress": "Zürcherstrasse 353b",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -787,7 +824,20 @@
           "projektleiter-in-elektroinstallation-frauenfeld-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.181Z"
+      "firstSeenAt": "2026-09-19T23:00:29.181Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "endeso GmbH",
+        "streetAddress": "Zürcherstrasse 353b",
+        "postalCode": "8500",
+        "addressLocality": "Frauenfeld",
+        "addressRegion": "TG",
+        "checkedAt": "2026-10-31T20:48:51.295Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T10:42:35.539Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
