@@ -4,6 +4,21 @@
     {
       "id": "preferred-source-announcement-2026-08",
       "ts": "2026-08-25T03:31:39.494Z"
+    },
+    {
+      "id": "border-ranking:2026-10-26",
+      "ts": "2026-11-02T16:48:19.508Z",
+      "weekStart": "2026-10-26",
+      "weekEnd": "2026-11-01",
+      "copyMode": "codex",
+      "copySlot": "border",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "border-plan-movement",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Un aggiornamento da leggere prima di organizzare lo spostamento.",
+      "copyCta": "Consulta la guida."
     }
   ]
 }
