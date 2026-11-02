@@ -43,4 +43,9 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(readiness).toContain('jobsLoading || jobs.length === 0 || resultsResolving');
     expect(readiness).toContain('onInitialContentReady?.()');
   });
+  it('releases the catalog when a filter is already active, without any board interaction', () => {
+    expect(JOB_BOARD_SOURCE).toContain('const filterAwaitsCatalog = fullLoadPending && (activeFilterCount > 0 || salaryRangeFilter.min !== null);');
+    expect(JOB_BOARD_SOURCE).toContain('if (filterAwaitsCatalog) noteJobBoardInteraction();');
+    expect(JOB_BOARD_SOURCE).toMatch(/\|\| filterAwaitsCatalog\)\s+&& !clusterSeedApplies/);
+  });
 });

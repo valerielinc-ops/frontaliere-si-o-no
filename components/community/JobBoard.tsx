@@ -5947,11 +5947,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
+ // A filter already active while the catalog waits (URL, restored state) is
+ // expressed intent: release the catalog, or the guard below would hold the
+ // results on the skeleton until an interaction that may never come.
+ const filterAwaitsCatalog = fullLoadPending && (activeFilterCount > 0 || salaryRangeFilter.min !== null);
+ useEffect(() => {
+  if (filterAwaitsCatalog) noteJobBoardInteraction();
+ }, [filterAwaitsCatalog, noteJobBoardInteraction]);
  const resultsResolving = (
   (jobsLoading
    || resultDerivationPending
    || fallbackResultsResolving
-   || (fullLoadPending && (activeFilterCount > 0 || salaryRangeFilter.min !== null)))
+   || filterAwaitsCatalog)
    && !clusterSeedApplies
  ) || returnVisitResultsPending;
  const initialContentReadyRef = useRef(false);
