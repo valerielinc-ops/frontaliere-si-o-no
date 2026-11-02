@@ -429,7 +429,8 @@ export function stripPromptTitleLabels(text, { title = '' } = {}) {
       const previous = standaloneLabel ? value.slice(0, lineStart) : before;
       value = `${previous.replace(/\n+$/, '')}${after}`;
     } else {
-      value = `${before}${before ? ' ' : ''}${after.replace(/^\s+/, '')}`;
+      const separator = before && !/\s$/.test(before) && after && !/^\s/.test(after) ? ' ' : '';
+      value = `${before}${separator}${after.replace(/^\s+/, '')}`;
     }
     removed += 1;
   }

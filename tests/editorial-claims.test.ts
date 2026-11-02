@@ -126,6 +126,8 @@ describe('stringhe di prompt', () => {
   it('rimuove l\'etichetta inline ma conserva la prosa senza un titolo noto', () => {
     const text = 'La fonte precisa TITOLO ARTICOLO: i documenti restano necessari dopo la domanda.';
     expect(stripPromptTitleLabels(text).value).toBe('La fonte precisa i documenti restano necessari dopo la domanda.');
+    expect(stripPromptTitleLabels("Fine.\n\nTITRE DE L'ARTICLE : Una frase della fonte resta valida.").value)
+      .toBe('Fine.\n\nUna frase della fonte resta valida.');
   });
 });
 
