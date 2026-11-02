@@ -24,7 +24,7 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(JOB_BOARD_SOURCE).toContain('jobBoardInteractionSeenRef.current = true');
     expect(JOB_BOARD_SOURCE).toContain('if (!event.isTrusted) return;');
     expect(JOB_BOARD_SOURCE).toContain("'pointerdown', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'");
-    expect(JOB_BOARD_SOURCE).toContain("input, select, textarea, [role=\"group\"] button, [data-job-board-filter-control]");
+    expect(JOB_BOARD_SOURCE).toContain("input, select, textarea, nav button, [role=\"group\"] button, [data-job-board-filter-control]");
     expect(JOB_BOARD_SOURCE).toContain('data-job-board-filter-control');
     expect(JOB_BOARD_SOURCE).not.toContain("'pointerdown', 'keydown', 'wheel', 'touchstart', 'focusin'");
     expect(JOB_BOARD_SOURCE).toContain('if (jobBoardInteractionSeenRef.current)');
