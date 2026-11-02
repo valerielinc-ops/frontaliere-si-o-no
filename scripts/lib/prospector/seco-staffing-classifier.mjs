@@ -8,9 +8,34 @@ import { DATA_ROOT } from './config.mjs';
  * classification, and the result keeps its confidence/reason so reports do
  * not present that residual as an independently verified legal status.
  */
-export const STAFFING_CLASSIFIER_VERSION = 1;
+export const STAFFING_CLASSIFIER_VERSION = 2;
 export const STAFFING_REGISTRY_RELATIVE_PATH = 'seco-staffing-registry.json';
 export const STAFFING_REGISTRY_PATH = path.join(DATA_ROOT, STAFFING_REGISTRY_RELATIVE_PATH);
+
+// The SECO file is intentionally a curated registry, not an exhaustive list.
+// These are stable, high-signal brands observed in the feed; the registry
+// remains the stronger evidence and is reported separately from this fallback.
+const KNOWN_STAFFING_BRAND_ALIASES = Object.freeze([
+  'agat', 'albedis', 'anker swiss', 'avenir emplois', 'baumont', 'bellini personal',
+  'careerplus', 'carejob', 'das team', 'experis', 'fed group', 'ficoba',
+  'flexsis', 'g and l partner', 'gi group', 'gi life sciences', 'hays',
+  'hotelis', 'il team', 'job ticino', 'le job', 'leteam', 'medicalis',
+  'michael page', 'mito personal', 'moreno placements', 'north south', 'opus emploi',
+  'opus personale', 'pemsa', 'prime international jobs', 'proactif personnel',
+  'provia personal', 'sago personal', 'sigma talent', 'sigma valais', 'sorgeco',
+  'swag swiss work', 'swiss link interim', 'team personnel', 'uniman',
+  'valjob', 'wio personal', 'work management', 'work selection',
+]);
+
+const STRONG_STAFFING_TERMS = Object.freeze([
+  'agence', 'agenzia', 'agentur', 'agency',
+  'human resource', 'human resources', 'personaldienst', 'personalberatung',
+  'personalvermittlung', 'personnel', 'placement', 'recruit', 'recrut',
+  'ressources humaines', 'staffing', 'temporar', 'temporaire', 'interim',
+  'emploi', 'emplois', 'personal',
+]);
+
+const MEDIUM_STAFFING_TERMS = new Set(['job', 'jobs', 'talent', 'team', 'work']);
 
 const LEGAL_FORM_TOKENS = new Set([
   'ag', 'gmbh', 'inc', 'llc', 'ltd', 'sa', 'sagl', 'sarl', 'sasu', 'spa', 'srl',
@@ -101,7 +126,17 @@ export function loadStaffingRegistry(registryPath = STAFFING_REGISTRY_PATH) {
   try {
     document = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
   } catch (error) {
-    if (error?.code !== 'ENOENT') throw error;
+    if (error?.code !== 'ENOENT') {
+      return {
+        available: false,
+        malformed: true,
+        path: registryPath,
+        agencies: [],
+        fetchedAt: null,
+        curated: false,
+        missing: false,
+      };
+    }
     return {
       available: false,
       malformed: false,
@@ -124,15 +159,59 @@ function aliasMatchesEmployer(alias, employerTokens) {
   return false;
 }
 
+function firstKnownBrandAlias(employerName, employerTokens) {
+  const rawTokens = tokenize(employerName);
+  return KNOWN_STAFFING_BRAND_ALIASES.find((alias) =>
+    aliasMatchesEmployer(alias, employerTokens) || aliasMatchesEmployer(alias, rawTokens)) || null;
+}
+
+function staffingEvidence(employerName, context = {}) {
+  const tokens = meaningfulTokens(employerName);
+  const normalized = tokens.join(' ');
+  const offerCount = Math.max(
+    0,
+    Number(context.offerCount ?? context.adCount ?? context.officialOffers ?? 0) || 0,
+  );
+  const cantons = Array.isArray(context.cantons)
+    ? unique(context.cantons.map((canton) => String(canton).toUpperCase()))
+    : [];
+  const cantonCount = Math.max(
+    cantons.length,
+    Number(context.cantonCount ?? 0) || 0,
+  );
+  const undisclosedCount = Math.max(
+    0,
+    Number(context.undisclosedCount ?? 0) || 0,
+    context.employerDisclosed === false ? 1 : 0,
+  );
+  const strongTerms = STRONG_STAFFING_TERMS.filter((term) => normalized.includes(term));
+  const mediumTerms = tokens.filter((token) => MEDIUM_STAFFING_TERMS.has(token));
+  const crossCantonHighVolume = cantonCount >= 3 && offerCount >= 12;
+  const undisclosedAcrossCantons = undisclosedCount > 0 && cantonCount >= 2;
+  const mediumAcrossCantons = mediumTerms.length > 0 && cantonCount >= 2 && offerCount >= 8;
+  return {
+    offerCount,
+    cantonCount,
+    undisclosedCount,
+    strongTerms,
+    mediumTerms,
+    crossCantonHighVolume,
+    undisclosedAcrossCantons,
+    mediumAcrossCantons,
+  };
+}
+
 /**
  * Classify one SECO employer name against a normalized registry.
  *
  * @param {string} employerName
  * @param {ReturnType<typeof loadStaffingRegistry>} [registry]
+ * @param {{ offerCount?: number, adCount?: number, officialOffers?: number, cantonCount?: number, cantons?: string[], employerDisclosed?: boolean, undisclosedCount?: number }} [context]
  */
-export function classifyStaffingEmployer(employerName, registry = loadStaffingRegistry()) {
+export function classifyStaffingEmployer(employerName, registry = loadStaffingRegistry(), context = {}) {
   const name = String(employerName || '').trim();
   const employerTokens = meaningfulTokens(name);
+  const evidence = staffingEvidence(name, context);
   const base = {
     classifierVersion: STAFFING_CLASSIFIER_VERSION,
     employerName: name,
@@ -149,6 +228,7 @@ export function classifyStaffingEmployer(employerName, registry = loadStaffingRe
       classification: 'unknown',
       confidence: registry?.malformed ? 'malformed-registry' : 'registry-unavailable',
       reason: registry?.missing ? 'registry-missing' : 'registry-unavailable',
+      evidence,
     };
   }
 
@@ -163,16 +243,62 @@ export function classifyStaffingEmployer(employerName, registry = loadStaffingRe
       matchedAgency: agency.name,
       matchedAlias,
       agencyType: agency.type || null,
+      evidence,
+    };
+  }
+
+  const matchedBrand = firstKnownBrandAlias(name, employerTokens);
+  if (matchedBrand) {
+    return {
+      ...base,
+      classification: 'agency',
+      confidence: 'known-brand-signal',
+      reason: 'matched-staffing-brand-signal',
+      matchedAgency: null,
+      matchedAlias: matchedBrand,
+      agencyType: 'heuristic-staffing-signal',
+      evidence,
+    };
+  }
+
+  if (evidence.strongTerms.length) {
+    return {
+      ...base,
+      classification: 'agency',
+      confidence: 'name-signal',
+      reason: 'matched-staffing-name-signal',
+      matchedAgency: null,
+      matchedAlias: null,
+      agencyType: 'heuristic-staffing-signal',
+      evidence,
+    };
+  }
+
+  if (evidence.crossCantonHighVolume || evidence.undisclosedAcrossCantons || evidence.mediumAcrossCantons) {
+    return {
+      ...base,
+      classification: 'agency',
+      confidence: evidence.undisclosedAcrossCantons
+        ? 'undisclosed-and-cross-canton-signal'
+        : evidence.crossCantonHighVolume
+          ? 'volume-and-cross-canton-signal'
+          : 'name-and-cross-canton-signal',
+      reason: 'matched-staffing-behavior-signal',
+      matchedAgency: null,
+      matchedAlias: null,
+      agencyType: 'heuristic-staffing-signal',
+      evidence,
     };
   }
 
   return {
     ...base,
     classification: 'direct',
-    confidence: registry.curated ? 'curated-registry-residual' : 'registry-residual',
-    reason: 'not-matched-in-staffing-registry',
+    confidence: registry.curated ? 'curated-registry-and-signal-residual' : 'registry-and-signal-residual',
+    reason: 'not-matched-in-registry-or-staffing-signals',
     matchedAgency: null,
     matchedAlias: null,
     agencyType: null,
+    evidence,
   };
 }

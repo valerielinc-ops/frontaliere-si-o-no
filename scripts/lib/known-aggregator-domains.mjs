@@ -36,6 +36,11 @@ export const KNOWN_AGGREGATOR_DOMAINS = new Set([
   'job-too.ch', 'jobeo.ch', 'valjob.digital', 'hoteljob-schweiz.de',
 ]);
 
+/** Known domains that are official/public SECO channels, not independent boards. */
+export const OFFICIAL_SECO_CHANNEL_DOMAINS = new Set([
+  'arbeit.swiss', 'eures.europa.eu', 'job-room.ch',
+]);
+
 /**
  * Shared client modules (basenames under `scripts/lib/`) that fetch job data
  * FROM one of `KNOWN_AGGREGATOR_DOMAINS` and hand back a detail URL on that

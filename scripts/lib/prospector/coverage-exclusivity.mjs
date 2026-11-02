@@ -1,7 +1,12 @@
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { writeJsonAtomic } from '../atomic-write-json.mjs';
-import { isKnownAggregatorDomain, KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
+import {
+  isKnownAggregatorDomain,
+  KNOWN_AGGREGATOR_DOMAINS,
+  OFFICIAL_SECO_CHANNEL_DOMAINS,
+} from '../known-aggregator-domains.mjs';
 import { CANTONS, DATA_ROOT, PROSPECTOR_DIR, ROOT } from './config.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
 import {
@@ -10,9 +15,10 @@ import {
   STAFFING_CLASSIFIER_VERSION,
   STAFFING_REGISTRY_RELATIVE_PATH,
 } from './seco-staffing-classifier.mjs';
+import { auditStaffingClassifier, STAFFING_AUDIT_FILENAME } from './staffing-classifier-audit.mjs';
 
-export const COVERAGE_EXCLUSIVITY_VERSION = 1;
-export const COVERAGE_HISTORY_VERSION = 1;
+export const COVERAGE_EXCLUSIVITY_VERSION = 2;
+export const COVERAGE_HISTORY_VERSION = 2;
 export const OFFICIAL_CRAWLER_KEY = 'seco-jobroom';
 export const OFFICIAL_SLICE_RELATIVE_PATH = path.join('jobs', 'by-crawler', `${OFFICIAL_CRAWLER_KEY}.json`);
 export const COVERAGE_HISTORY_FILENAME = 'coverage-exclusivity-history.json';
@@ -32,6 +38,18 @@ export const OFFER_VOLUME_BANDS = Object.freeze([
   { key: 'medium', min: 20, max: 99, label: '20–99 offerte SECO vive' },
   { key: 'large', min: 100, max: Number.POSITIVE_INFINITY, label: '100+ offerte SECO vive' },
 ]);
+
+// These domains are known job boards, but these three are the official/public
+// channels behind the SECO slice rather than independent aggregator evidence.
+// Counting them would compare the official feed with itself.
+export const NON_COMPARABLE_AGGREGATOR_DOMAINS = Object.freeze([
+  ...OFFICIAL_SECO_CHANNEL_DOMAINS,
+]);
+export const COMPARABLE_AGGREGATOR_DOMAINS = Object.freeze(
+  [...KNOWN_AGGREGATOR_DOMAINS]
+    .filter((domain) => !NON_COMPARABLE_AGGREGATOR_DOMAINS.includes(domain))
+    .sort(),
+);
 
 const SOURCE_URL_FIELDS = Object.freeze([
   'url', 'applyUrl', 'sourceUrl', 'sourcePageUrl', 'originalUrl',
@@ -94,6 +112,26 @@ export function knownAggregatorUrlsOf(job = {}) {
   return sourceUrlsOf(job).filter((url) => isKnownAggregatorDomain(url));
 }
 
+function knownAggregatorDomainForUrl(url) {
+  let host;
+  try { host = new URL(url).hostname.toLowerCase().replace(/^www\./, ''); } catch { return null; }
+  return [...KNOWN_AGGREGATOR_DOMAINS]
+    .sort((left, right) => right.length - left.length)
+    .find((domain) => host === domain || host.endsWith(`.${domain}`)) || null;
+}
+
+export function comparableAggregatorDomainsOf(job = {}) {
+  return [...new Set(knownAggregatorUrlsOf(job)
+    .map(knownAggregatorDomainForUrl)
+    .filter((domain) => domain && !NON_COMPARABLE_AGGREGATOR_DOMAINS.includes(domain)))];
+}
+
+function nonComparableAggregatorDomainsOf(job = {}) {
+  return [...new Set(knownAggregatorUrlsOf(job)
+    .map(knownAggregatorDomainForUrl)
+    .filter((domain) => domain && NON_COMPARABLE_AGGREGATOR_DOMAINS.includes(domain)))];
+}
+
 export function isLiveOffer(job = {}) {
   if (!job || typeof job !== 'object') return false;
   if (job.expired === true || job.active === false) return false;
@@ -130,6 +168,10 @@ function employerFingerprint(name) {
   return normalizeCompanyName(name).replace(/\s+/g, ' ').trim();
 }
 
+function employerTokens(fingerprint) {
+  return new Set(String(fingerprint || '').split(' ').filter((token) => token.length >= 3));
+}
+
 function titleTokens(title) {
   return new Set(String(title || '')
     .toLowerCase()
@@ -159,7 +201,10 @@ function employerSimilarity(left, right) {
   const b = new Set(right.split(' ').filter(Boolean));
   if (!a.size || !b.size) return 0;
   const intersection = [...a].filter((token) => b.has(token)).length;
-  return Math.min(intersection / Math.min(a.size, b.size), intersection / Math.max(a.size, b.size) + 0.25 * (intersection / Math.min(a.size, b.size)));
+  return Math.min(
+    intersection / Math.min(a.size, b.size),
+    intersection / Math.max(a.size, b.size) + 0.25 * (intersection / Math.min(a.size, b.size)),
+  );
 }
 
 function stableOfferKey(job) {
@@ -214,17 +259,30 @@ function rate(numerator, denominator) {
   return denominator ? Number((numerator / denominator).toFixed(6)) : null;
 }
 
+function emptyTypedMeasure() {
+  return {
+    officialOffers: 0,
+    aggregatorMatchedOffers: 0,
+    unmatchedOfficialOffers: 0,
+    // Absence from a partial aggregator population is not exclusivity.
+    exclusiveOffers: null,
+    exclusivityRate: null,
+    employers: 0,
+  };
+}
+
 function emptyMeasure() {
   return {
     officialOffers: 0,
     aggregatorMatchedOffers: 0,
-    exclusiveOffers: 0,
+    unmatchedOfficialOffers: 0,
+    exclusiveOffers: null,
     exclusivityRate: null,
     employers: 0,
     byEmployerType: {
-      agency: { officialOffers: 0, aggregatorMatchedOffers: 0, exclusiveOffers: 0, exclusivityRate: null, employers: 0 },
-      direct: { officialOffers: 0, aggregatorMatchedOffers: 0, exclusiveOffers: 0, exclusivityRate: null, employers: 0 },
-      unknown: { officialOffers: 0, aggregatorMatchedOffers: 0, exclusiveOffers: 0, exclusivityRate: null, employers: 0 },
+      agency: emptyTypedMeasure(),
+      direct: emptyTypedMeasure(),
+      unknown: emptyTypedMeasure(),
     },
   };
 }
@@ -232,24 +290,23 @@ function emptyMeasure() {
 function addMeasure(target, offer, matched, classification) {
   target.officialOffers += 1;
   if (matched) target.aggregatorMatchedOffers += 1;
-  else target.exclusiveOffers += 1;
+  else target.unmatchedOfficialOffers += 1;
   const type = target.byEmployerType[classification] ? classification : 'unknown';
   const typed = target.byEmployerType[type];
   typed.officialOffers += 1;
   if (matched) typed.aggregatorMatchedOffers += 1;
-  else typed.exclusiveOffers += 1;
+  else typed.unmatchedOfficialOffers += 1;
   target._employers.add(employerFingerprint(employerNameOf(offer)));
   target._employersByType[type].add(employerFingerprint(employerNameOf(offer)));
 }
 
 function finalizeMeasure(target) {
-  target.exclusivityRate = rate(target.exclusiveOffers, target.officialOffers);
+  target.exclusiveOffers = null;
+  target.exclusivityRate = null;
   target.employers = target._employers.size;
   for (const type of Object.keys(target.byEmployerType)) {
-    target.byEmployerType[type].exclusivityRate = rate(
-      target.byEmployerType[type].exclusiveOffers,
-      target.byEmployerType[type].officialOffers,
-    );
+    target.byEmployerType[type].exclusiveOffers = null;
+    target.byEmployerType[type].exclusivityRate = null;
     target.byEmployerType[type].employers = target._employersByType[type].size;
   }
   delete target._employers;
@@ -271,16 +328,18 @@ function baseMethod() {
       liveDefinition: 'record presente nella snapshot corrente e non marcato expired, inactive, archived, closed, filled o removed',
     },
     aggregatorSource: {
-      inclusion: 'ogni record live delle altre slice by-crawler con almeno un url/applyUrl/sourceUrl/sourcePageUrl/originalUrl su un dominio noto',
-      domains: [...KNOWN_AGGREGATOR_DOMAINS].sort(),
+      inclusion: 'record live delle altre slice by-crawler con URL su un dominio noto e comparabile',
+      domains: [...COMPARABLE_AGGREGATOR_DOMAINS],
+      excludedDomains: Object.fromEntries(NON_COMPARABLE_AGGREGATOR_DOMAINS.map((domain) => [domain, 'canale ufficiale/pubblico SECO, non evidenza indipendente'])),
       registry: 'scripts/lib/known-aggregator-domains.mjs:isKnownAggregatorDomain',
     },
     comparison: {
-      deduplication: 'id/jobId, altrimenti URL normalizzato (hash e tracking rimossi), altrimenti datore+titolo+cantone+località',
-      employer: 'normalizzazione Unicode, rimozione forme legali, overlap token >= 0.75',
+      deduplication: 'per slice: id/jobId, altrimenti URL normalizzato (hash e tracking rimossi), altrimenti datore+titolo+cantone+località; le slice non condividono ID implicitamente',
+      employer: 'normalizzazione Unicode, rimozione forme legali, indice esatto + token condivisi, overlap token >= 0.75',
       canton: 'se entrambe le offerte hanno il cantone, deve coincidere; cantone mancante non forza il rifiuto',
       title: 'token overlap >= 0.80 dopo rimozione di stopword, percentuali e token numerici',
-      exclusiveOffer: 'offerta SECO live senza almeno una corrispondenza nella popolazione aggregatori',
+      unmatched: 'offerta SECO senza match osservato nelle slice presenti; non significa esclusiva',
+      exclusivity: 'nonMisurabile finché non è attestata una popolazione aggregatore completa e confrontabile per portale',
     },
     employerSizeProxy: {
       definition: 'fascia di volume del datore, non numero di dipendenti: conteggio globale delle offerte SECO live per nome normalizzato',
@@ -289,9 +348,10 @@ function baseMethod() {
     staffingClassification: {
       classifierVersion: STAFFING_CLASSIFIER_VERSION,
       registry: `data/${STAFFING_REGISTRY_RELATIVE_PATH}`,
-      agency: 'nome SECO che matcha un alias di registry.agencies',
-      direct: 'residuo non matchato nella registry curata; non equivale a verifica completa del registro SECO',
+      agency: 'registry.agencies oppure segnali di nome, employerDisclosed e frequenza multi-cantonale; l evidence resta nel report',
+      direct: 'residuo non riconosciuto dal registry e dai segnali; non equivale a verifica completa del registro SECO',
       unknown: 'nome mancante o registry non disponibile/malformata',
+      manualAudit: `data/prospector/${STAFFING_AUDIT_FILENAME}`,
       referenceEstimate: OWNER_STAFFING_REFERENCE,
     },
   };
@@ -326,21 +386,157 @@ function registryPathFor(dataRoot, explicitPath) {
   return explicitPath || path.join(dataRoot, STAFFING_REGISTRY_RELATIVE_PATH);
 }
 
-function sourceFingerprint(officialDocument, population) {
+function sourceRelativePath(filePath) {
+  return path.relative(ROOT, filePath).replaceAll(path.sep, '/');
+}
+
+function sourceRecordKey(sourceSlice, offerKey) {
+  return `${sourceSlice}|${offerKey}`;
+}
+
+function aggregatorEntriesForSlice(filePath, slice) {
+  const sourceSlice = sourceRelativePath(filePath);
+  const jobsByKey = new Map();
+  for (const job of deduplicateLiveJobs(slice.jobs)) {
+    const domains = comparableAggregatorDomainsOf(job);
+    if (!domains.length) continue;
+    const offerKey = stableOfferKey(job);
+    if (!jobsByKey.has(offerKey)) jobsByKey.set(offerKey, { job, offerKey, sourceSlice, domains });
+  }
+  return [...jobsByKey.values()].flatMap(({ job, offerKey, sourceSlice, domains }) => domains.map((portal) => ({
+    key: `${sourceRecordKey(sourceSlice, offerKey)}|${portal}`,
+    recordKey: sourceRecordKey(sourceSlice, offerKey),
+    sourceSlice,
+    portal,
+    job,
+  })));
+}
+
+function addIndexValue(index, key, entry) {
+  if (!key) return;
+  if (!index.has(key)) index.set(key, []);
+  index.get(key).push(entry);
+}
+
+function buildEmployerCandidateIndex(entries) {
+  const byEmployer = new Map();
+  const byEmployerAndCanton = new Map();
+  const byToken = new Map();
+  for (const entry of entries) {
+    const employer = employerFingerprint(employerNameOf(entry.job));
+    addIndexValue(byEmployer, employer, entry);
+    addIndexValue(byEmployerAndCanton, groupKey(employer, cantonOf(entry.job)), entry);
+    for (const token of employerTokens(employer)) addIndexValue(byToken, token, entry);
+  }
+  return { byEmployer, byEmployerAndCanton, byToken };
+}
+
+function candidateEntriesFor(offer, index) {
+  const employer = employerFingerprint(employerNameOf(offer));
+  const exact = [
+    ...(index.byEmployerAndCanton.get(groupKey(employer, cantonOf(offer))) || []),
+    ...(index.byEmployer.get(employer) || []),
+  ];
+  const fuzzy = [];
+  for (const token of employerTokens(employer)) fuzzy.push(...(index.byToken.get(token) || []));
+  const seen = new Set();
+  return [...exact, ...fuzzy].filter((entry) => {
+    if (seen.has(entry.key)) return false;
+    seen.add(entry.key);
+    return true;
+  });
+}
+
+function matchOfficialOffers(officialOffers, entries) {
+  const index = buildEmployerCandidateIndex(entries);
+  const matchedOfficialKeys = new Set();
+  const matchedAggregatorKeys = new Set();
+  const reasons = {};
+  for (const official of officialOffers) {
+    const candidates = candidateEntriesFor(official, index);
+    const match = candidates
+      .map((entry) => ({ entry, result: matchOfficialOffer(official, entry.job) }))
+      .find(({ result }) => result.matched);
+    if (!match) continue;
+    matchedOfficialKeys.add(stableOfferKey(official));
+    matchedAggregatorKeys.add(match.entry.key);
+    reasons[match.result.reason] = (reasons[match.result.reason] || 0) + 1;
+  }
+  return { matchedOfficialKeys, matchedAggregatorKeys, reasons };
+}
+
+function aggregatorIdentity(portalEntries) {
+  const material = [...portalEntries.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([portal, entries]) => `${portal}:${entries.map((entry) => entry.key).sort().join(',')}`)
+    .join(';');
+  return crypto.createHash('sha256').update(material).digest('hex').slice(0, 24);
+}
+
+function sourceFingerprint(officialDocument, population, aggregatorIdentityValue) {
   return [
     officialDocument.assembledAt || 'unknown',
     officialDocument.runId || 'unknown',
     population.officialOffers,
     population.aggregatorOffers,
     population.aggregatorMatchedOffers,
-    population.exclusiveOffers,
+    aggregatorIdentityValue,
   ].join('|');
 }
 
+function controlledPortalMeasurement(entries, sampleOffers, sampleEmployerKeys) {
+  const matches = matchOfficialOffers(sampleOffers, entries);
+  const matchedEmployerKeys = new Set(sampleOffers
+    .filter((offer) => matches.matchedOfficialKeys.has(stableOfferKey(offer)))
+    .map((offer) => employerFingerprint(employerNameOf(offer))));
+  return {
+    sampleEmployers: sampleEmployerKeys.size,
+    matchedEmployers: matchedEmployerKeys.size,
+    matchedEmployerRate: null,
+  };
+}
+
+function portalMeasurement(portal, entries, officialOffers, controlledSample) {
+  const matches = matchOfficialOffers(officialOffers, entries);
+  const sourceSlices = [...new Set(entries.map((entry) => entry.sourceSlice))].sort();
+  return {
+    portal,
+    status: 'nonMisurabile',
+    observed: entries.length > 0,
+    reason: entries.length
+      ? 'slice presente, ma completezza e stessa finestra temporale del SECO non sono attestate; gli unmatched non sono esclusive'
+      : 'nessuna offerta live comparabile osservata nelle slice by-crawler disponibili',
+    sourceSlices,
+    officialOffers: officialOffers.length,
+    aggregatorOffers: entries.length,
+    matchedOfficialOffers: matches.matchedOfficialKeys.size,
+    unmatchedOfficialOffers: officialOffers.length - matches.matchedOfficialKeys.size,
+    unmatchedAggregatorOffers: entries.length - matches.matchedAggregatorKeys.size,
+    observedMatchReasons: matches.reasons,
+    controlledSample: controlledPortalMeasurement(
+      entries,
+      controlledSample.offers,
+      controlledSample.employerKeys,
+    ),
+    exclusiveOffers: null,
+    exclusivityRate: null,
+  };
+}
+
+function invalidEmptyExclusivitySnapshot(item) {
+  const population = item?.population;
+  return item?.status === 'ok'
+    && Number(population?.aggregatorOffers) === 0
+    && Number(population?.aggregatorSlices) === 0
+    && Number(population?.aggregatorMatchedOffers) === 0
+    && Number(population?.exclusiveOffers) === Number(population?.officialOffers)
+    && Number(population?.exclusivityRate) === 1;
+}
+
 /**
- * Measure the official-vs-aggregator gap without materializing the large
- * dataset in the sparse agent worktree. CI passes its normal data root; tests
- * pass a tiny fixture root.
+ * Measure observed overlap without turning an incomplete aggregator corpus
+ * into a proof of exclusivity. CI passes its normal data root; tests pass a
+ * tiny fixture root.
  */
 export function measureCoverageExclusivity({
   dataRoot = DATA_ROOT,
@@ -376,100 +572,127 @@ export function measureCoverageExclusivity({
 
   const officialOffers = deduplicateLiveJobs(officialDocument.jobs);
   const allFiles = sourceSliceFiles(dataRoot);
-  const aggregatorSlices = [];
-  const aggregatorOffersByKey = new Map();
+  const aggregatorSlices = new Set();
+  const aggregatorRecords = new Map();
+  const portalEntries = new Map(COMPARABLE_AGGREGATOR_DOMAINS.map((domain) => [domain, []]));
   const observedAggregatorDomains = new Set();
+  const observedNonComparableDomains = new Set();
   for (const filePath of allFiles) {
     if (path.resolve(filePath) === path.resolve(officialPath)) continue;
     let slice;
     try { slice = loadSliceDocument(filePath); } catch { continue; }
-    const liveAggregatorOffers = deduplicateLiveJobs(slice.jobs)
-      .filter((job) => knownAggregatorUrlsOf(job).length);
-    if (!liveAggregatorOffers.length) continue;
-    aggregatorSlices.push(path.relative(ROOT, filePath));
-    for (const job of liveAggregatorOffers) {
-      for (const url of knownAggregatorUrlsOf(job)) {
-        try { observedAggregatorDomains.add(new URL(url).hostname.toLowerCase().replace(/^www\./, '')); } catch { /* normalized above */ }
-      }
-      const key = stableOfferKey(job);
-      if (!aggregatorOffersByKey.has(key)) aggregatorOffersByKey.set(key, job);
+    for (const job of deduplicateLiveJobs(slice.jobs)) {
+      for (const domain of nonComparableAggregatorDomainsOf(job)) observedNonComparableDomains.add(domain);
+    }
+    const entries = aggregatorEntriesForSlice(filePath, slice);
+    if (!entries.length) continue;
+    const sourceSlice = sourceRelativePath(filePath);
+    aggregatorSlices.add(sourceSlice);
+    for (const entry of entries) {
+      observedAggregatorDomains.add(entry.portal);
+      if (!portalEntries.has(entry.portal)) portalEntries.set(entry.portal, []);
+      portalEntries.get(entry.portal).push(entry);
+      if (!aggregatorRecords.has(entry.recordKey)) aggregatorRecords.set(entry.recordKey, entry);
     }
   }
-  const aggregatorOffers = [...aggregatorOffersByKey.values()];
-  const byEmployerAndCanton = new Map();
-  const byEmployer = new Map();
-  for (const offer of aggregatorOffers) {
-    const employer = employerFingerprint(employerNameOf(offer));
-    const canton = cantonOf(offer);
-    const exactKey = groupKey(employer, canton);
-    if (!byEmployerAndCanton.has(exactKey)) byEmployerAndCanton.set(exactKey, []);
-    byEmployerAndCanton.get(exactKey).push(offer);
-    if (!byEmployer.has(employer)) byEmployer.set(employer, []);
-    byEmployer.get(employer).push(offer);
-  }
 
-  const officialEmployerCounts = new Map();
+  const allAggregatorEntries = [...portalEntries.values()].flat();
+  const globalMatches = matchOfficialOffers(officialOffers, allAggregatorEntries);
+  const matchedRecords = new Set(allAggregatorEntries
+    .filter((entry) => globalMatches.matchedAggregatorKeys.has(entry.key))
+    .map((entry) => entry.recordKey));
+  const aggregatorIdentityValue = aggregatorIdentity(portalEntries);
+
+  const officialEmployerProfiles = new Map();
+  const officialOffersByEmployer = new Map();
   for (const offer of officialOffers) {
     const employer = employerFingerprint(employerNameOf(offer));
-    officialEmployerCounts.set(employer, (officialEmployerCounts.get(employer) || 0) + 1);
+    if (!officialEmployerProfiles.has(employer)) officialEmployerProfiles.set(employer, {
+      offerCount: 0,
+      cantons: new Set(),
+      undisclosedCount: 0,
+    });
+    const profile = officialEmployerProfiles.get(employer);
+    if (!officialOffersByEmployer.has(employer)) officialOffersByEmployer.set(employer, []);
+    officialOffersByEmployer.get(employer).push(offer);
+    profile.offerCount += 1;
+    profile.cantons.add(cantonOf(offer));
+    if (offer.employerDisclosed === false) profile.undisclosedCount += 1;
   }
   const registry = loadStaffingRegistry(registryPathFor(dataRoot, registryPath));
   const classificationCache = new Map();
   const classificationFor = (offer) => {
     const employer = employerNameOf(offer);
-    if (!classificationCache.has(employer)) classificationCache.set(employer, classifyStaffingEmployer(employer, registry));
+    if (!classificationCache.has(employer)) {
+      const profile = officialEmployerProfiles.get(employerFingerprint(employer));
+      classificationCache.set(employer, classifyStaffingEmployer(employer, registry, {
+        offerCount: profile?.offerCount,
+        cantons: profile ? [...profile.cantons] : [cantonOf(offer)],
+        cantonCount: profile?.cantons.size || 0,
+        employerDisclosed: offer.employerDisclosed,
+        undisclosedCount: profile?.undisclosedCount,
+      }));
+    }
     return classificationCache.get(employer);
   };
-  const groups = newGroups();
-  let aggregatorMatchedOffers = 0;
-  const byType = {
-    agency: { officialOffers: 0, aggregatorMatchedOffers: 0, exclusiveOffers: 0, employers: new Set() },
-    direct: { officialOffers: 0, aggregatorMatchedOffers: 0, exclusiveOffers: 0, employers: new Set() },
-    unknown: { officialOffers: 0, aggregatorMatchedOffers: 0, exclusiveOffers: 0, employers: new Set() },
+  const controlledSampleEmployers = [...officialEmployerProfiles.entries()]
+    .filter(([employer, profile]) => profile.offerCount <= 4
+      && profile.cantons.size === 1
+      && profile.cantons.has('TI')
+      && classificationFor(officialOffersByEmployer.get(employer)[0]).classification === 'direct')
+    .sort(([left], [right]) => left.localeCompare(right))
+    .slice(0, 30)
+    .map(([employer]) => employer);
+  const controlledSample = {
+    status: controlledSampleEmployers.length === 30 ? 'ok' : 'insufficient',
+    selection: '30 datori distinti con 1–4 offerte vive, solo TI, classificati direct; ordinamento per nome normalizzato',
+    sampleSize: controlledSampleEmployers.length,
+    employerKeys: new Set(controlledSampleEmployers),
+    employers: controlledSampleEmployers,
+    offers: officialOffers.filter((offer) => controlledSampleEmployers.includes(employerFingerprint(employerNameOf(offer)))),
+    note: 'campione di overlap osservato, non denominatore di esclusività; anche 0 match non dimostra che le offerte siano esclusive',
   };
 
+  const groups = newGroups();
+  const byType = {
+    agency: { officialOffers: 0, aggregatorMatchedOffers: 0, unmatchedOfficialOffers: 0, employers: new Set() },
+    direct: { officialOffers: 0, aggregatorMatchedOffers: 0, unmatchedOfficialOffers: 0, employers: new Set() },
+    unknown: { officialOffers: 0, aggregatorMatchedOffers: 0, unmatchedOfficialOffers: 0, employers: new Set() },
+  };
   for (const offer of officialOffers) {
     const employer = employerFingerprint(employerNameOf(offer));
     const canton = cantonOf(offer);
-    const band = bandForCount(officialEmployerCounts.get(employer) || 1);
-    const candidates = [
-      ...(byEmployerAndCanton.get(groupKey(employer, canton)) || []),
-      ...(byEmployer.get(employer) || []),
-    ];
-    const seen = new Set();
-    const match = candidates
-      .filter((candidate) => {
-        const key = stableOfferKey(candidate);
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      })
-      .map((candidate) => matchOfficialOffer(offer, candidate))
-      .find((result) => result.matched);
-    const matched = Boolean(match);
+    const profile = officialEmployerProfiles.get(employer);
+    const band = bandForCount(profile?.offerCount || 1);
+    const matched = globalMatches.matchedOfficialKeys.has(stableOfferKey(offer));
     const classification = classificationFor(offer).classification;
-    const group = groups[canton][band];
-    addMeasure(group, offer, matched, classification);
+    addMeasure(groups[canton][band], offer, matched, classification);
     const type = byType[classification] ? classification : 'unknown';
     byType[type].officialOffers += 1;
     byType[type].employers.add(employer);
-    if (matched) {
-      aggregatorMatchedOffers += 1;
-      byType[type].aggregatorMatchedOffers += 1;
-    } else {
-      byType[type].exclusiveOffers += 1;
-    }
+    if (matched) byType[type].aggregatorMatchedOffers += 1;
+    else byType[type].unmatchedOfficialOffers += 1;
   }
 
   const population = {
     officialOffers: officialOffers.length,
     officialEmployers: new Set(officialOffers.map((offer) => employerFingerprint(employerNameOf(offer)))).size,
-    aggregatorOffers: aggregatorOffers.length,
-    aggregatorSlices: aggregatorSlices.length,
-    aggregatorMatchedOffers,
-    exclusiveOffers: officialOffers.length - aggregatorMatchedOffers,
-    exclusivityRate: rate(officialOffers.length - aggregatorMatchedOffers, officialOffers.length),
+    aggregatorOffers: aggregatorRecords.size,
+    aggregatorPortalOffers: allAggregatorEntries.length,
+    aggregatorSlices: aggregatorSlices.size,
+    aggregatorMatchedOffers: globalMatches.matchedOfficialKeys.size,
+    unmatchedOfficialOffers: officialOffers.length - globalMatches.matchedOfficialKeys.size,
+    unmatchedAggregatorOffers: aggregatorRecords.size - matchedRecords.size,
+    // This is deliberately null: the observed slices are not a complete,
+    // time-aligned denominator for any portal.
+    exclusiveOffers: null,
+    exclusivityRate: null,
+    measurementStatus: 'nonMisurabile',
+    measurementReason: aggregatorRecords.size
+      ? 'slice aggregatori presenti ma popolazione non attestata completa e temporalmente allineata'
+      : 'nessuna slice aggregatore comparabile con offerte live osservata',
   };
+
   for (const groupByCanton of Object.values(groups)) {
     for (const band of Object.keys(groupByCanton)) finalizeMeasure(groupByCanton[band]);
   }
@@ -477,11 +700,19 @@ export function measureCoverageExclusivity({
     officialOffers: values.officialOffers,
     offerShare: rate(values.officialOffers, officialOffers.length),
     aggregatorMatchedOffers: values.aggregatorMatchedOffers,
-    exclusiveOffers: values.exclusiveOffers,
-    exclusivityRate: rate(values.exclusiveOffers, values.officialOffers),
+    unmatchedOfficialOffers: values.unmatchedOfficialOffers,
+    exclusiveOffers: null,
+    exclusivityRate: null,
     employers: values.employers.size,
   }]));
-
+  const classificationAudit = auditStaffingClassifier({
+    dataRoot,
+    registryPath: registryPathFor(dataRoot, registryPath),
+  });
+  const portals = Object.fromEntries(COMPARABLE_AGGREGATOR_DOMAINS.map((portal) => [
+    portal,
+    portalMeasurement(portal, portalEntries.get(portal) || [], officialOffers, controlledSample),
+  ]));
   return {
     schemaVersion: COVERAGE_EXCLUSIVITY_VERSION,
     metric: 'official-seco-offer-exclusivity-vs-known-aggregator-slices',
@@ -491,11 +722,22 @@ export function measureCoverageExclusivity({
       officialSlice: `data/${OFFICIAL_SLICE_RELATIVE_PATH}`,
       officialAssembledAt: officialDocument.assembledAt,
       officialRunId: officialDocument.runId,
-      aggregatorSlices,
+      aggregatorSlices: [...aggregatorSlices].sort(),
       observedAggregatorDomains: [...observedAggregatorDomains].sort(),
-      snapshotKey: sourceFingerprint(officialDocument, population),
+      observedNonComparableDomains: [...observedNonComparableDomains].sort(),
+      snapshotKey: sourceFingerprint(officialDocument, population, aggregatorIdentityValue),
+      aggregatorIdentity: aggregatorIdentityValue,
     },
     population,
+    portals,
+    controlledOverlapSample: {
+      status: controlledSample.status,
+      selection: controlledSample.selection,
+      sampleSize: controlledSample.sampleSize,
+      employers: controlledSample.employers,
+      note: controlledSample.note,
+      portals: Object.fromEntries(Object.entries(portals).map(([portal, measurement]) => [portal, measurement.controlledSample])),
+    },
     classification: {
       registryAvailable: registry.available,
       registryCurated: registry.curated,
@@ -504,6 +746,7 @@ export function measureCoverageExclusivity({
       referenceEstimate: OWNER_STAFFING_REFERENCE,
       ...classificationCounts,
     },
+    classificationAudit,
     byCantonAndSize: groups,
     method,
   };
@@ -536,6 +779,17 @@ export function appendCoverageHistory(metric, outputPath = coverageHistoryPath()
   const history = loadCoverageHistory(outputPath);
   const runId = metric.source?.snapshotKey || `${metric.generatedAt}:${metric.population?.officialOffers || 0}`;
   const run = { ...metric, runId };
+  const invalidatedAt = metric.generatedAt;
+  history.runs = history.runs.map((item) => {
+    if (item.runId === runId || !invalidEmptyExclusivitySnapshot(item) || item.status === 'invalidated') return item;
+    return {
+      ...item,
+      status: 'invalidated',
+      invalidatedAt,
+      invalidatedReason: 'popolazione aggregatori vuota contata erroneamente come prova di esclusività',
+      supersededBy: runId,
+    };
+  });
   const existingIndex = history.runs.findIndex((item) => item.runId === runId);
   if (existingIndex >= 0) history.runs[existingIndex] = run;
   else history.runs.push(run);
