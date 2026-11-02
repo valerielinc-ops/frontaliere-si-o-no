@@ -38,6 +38,7 @@ export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DS
 export const TICINO_PHARMACY_PDF_CURRENT_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
+export const TICINO_PHARMACY_DIRECTORY_MIRROR_URL = 'https://m4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
