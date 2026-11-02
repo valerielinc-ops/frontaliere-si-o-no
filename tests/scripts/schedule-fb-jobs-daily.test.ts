@@ -653,7 +653,7 @@ describe('run() — DRY_RUN mode', () => {
       // OG rescrape verify GET call (checks og_object.image resolved).
       if (u.includes('graph.facebook.com') && !init?.method) {
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og/jobs/x.webp' }] } }),
+          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og/jobs/operaio-mendrisio.webp?v=v5-2026-11-02-portrait-q72' }] } }),
           { status: 200 },
         );
       }
@@ -710,8 +710,12 @@ describe('run() — DRY_RUN mode', () => {
         return new Response(JSON.stringify({ scraped: true }), { status: 200 });
       }
       if (u.includes('graph.facebook.com') && !init?.method) {
+        const linkedUrl = new URL(u).searchParams.get('id');
+        const linkedSlug = linkedUrl
+          ? new URL(linkedUrl).pathname.split('/').filter(Boolean).at(-1)
+          : '';
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og.webp' }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/${linkedSlug}.webp?v=v5-2026-11-02-portrait-q72` }] } }),
           { status: 200 },
         );
       }

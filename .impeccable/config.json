@@ -35,7 +35,14 @@
         "value": "manrope",
         "createdAt": "2026-10-31T19:39:30.003Z",
         "reason": "The value appears only in a negative test assertion that verifies the remote Google Fonts loader is absent; it does not declare or use a font."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "roboto",
+        "createdAt": "2026-11-02T14:09:23.108Z",
+        "reason": "Agent: generated Open Graph poster uses the renderer's bundled static Roboto TTF because Satori does not support the documented WOFF2 fonts; DESIGN.md describes interactive site typography."
       }
     ]
-  }
+  },
+  "buildPath": "code"
 }

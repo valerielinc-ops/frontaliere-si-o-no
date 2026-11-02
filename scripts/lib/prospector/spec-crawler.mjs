@@ -315,6 +315,39 @@ function listingFetchOutcomeState(rows) {
 }
 
 /**
+ * Keep the source-backed geography gate fail-closed while recording why a row
+ * was not publishable. These are overlapping diagnostic flags, not alternate
+ * ways to accept a location: a page may both declare an unresolved workplace
+ * and belong to an employer with multiple official sites.
+ *
+ * @param {Record<string, any>} decision
+ * @param {{ detail?: Record<string, any>, listing?: Record<string, any>, officialEmployerSiteLocation?: Record<string, any>|null }} [context]
+ * @returns {string[]}
+ */
+function geographyDropClasses(decision = {}, context = {}) {
+  const classes = [];
+  if (decision.explicitlyForeign) classes.push('explicit_foreign_location');
+  const renderedFields = [
+    ...(Array.isArray(context.detail?.renderedJobLocationFields)
+      ? context.detail.renderedJobLocationFields : []),
+    ...(Array.isArray(context.listing?.renderedJobLocationFields)
+      ? context.listing.renderedJobLocationFields : []),
+  ].filter(Boolean);
+  if (renderedFields.length) classes.push('rendered_location_unresolved');
+  if (decision.hasDeclaredLocation) classes.push('declared_location_unresolved');
+  if (context.officialEmployerSiteLocation?.reasonCode === 'multiple_official_sedes') {
+    classes.push('multiple_official_sedes');
+  }
+  if (!classes.length) classes.push('no_source_backed_location');
+  return classes;
+}
+
+/** @param {Record<string, number>} counts @param {string[]} classes */
+function countGeographyDropClasses(counts, classes) {
+  for (const className of classes) counts[className] = (counts[className] || 0) + 1;
+}
+
+/**
  * Legacy template specs predate the explicit flag, but their index rows never
  * carry authoritative per-job fields. Mode is therefore the invariant; the
  * flag remains useful for non-template specs that opt into detail enrichment.
@@ -632,6 +665,9 @@ function logRuntimeObservation(spec, observation) {
   const drops = Object.entries(observation.dropCounts || {})
     .filter(([, count]) => Number(count) > 0)
     .map(([reason, count]) => `${reason}=${count}/${observation.listingCount}`);
+  const geographyReasons = Object.entries(observation.geographyDropReasons || {})
+    .filter(([, count]) => Number(count) > 0)
+    .map(([reason, count]) => `${reason}=${count}/${observation.listingCount}`);
   console.info(
     `[prospector:${spec.companyKey}] runtime output ${observation.runtimeOutputCount}/`
     + `${observation.listingCount} listing candidates; ${observation.publishableCount} row(s) publishable; `
@@ -639,7 +675,8 @@ function logRuntimeObservation(spec, observation) {
     + `quality-drop denominator ${observation.qualityDropDenominator}; `
     + `production snapshot ${observation.productionSnapshotAccepted ? 'accepted' : 'rejected'}; `
     + `promotion observation ${observation.promotionObservationComplete ? 'complete' : 'incomplete'}; `
-    + `drops ${drops.length ? drops.join(', ') : '0'}`,
+    + `drops ${drops.length ? drops.join(', ') : '0'}; `
+    + `geography classes ${geographyReasons.length ? geographyReasons.join(', ') : '0'}`,
   );
 }
 
@@ -2294,6 +2331,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
         ...(listingOutcome.unverifiedEmpty ? { unverified_empty_listing: 1 } : {}),
       };
       let sourceBackedLocationCount = 0;
+      const geographyDropReasons = {};
       const safeRows = rows.flatMap((row) => {
         const decision = resolveDetailOrListingSwissGeography({}, row, {
           officialEmployerSiteLocation,
@@ -2309,6 +2347,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
         );
         if (!fields) {
           dropCounts.source_backed_geography_missing++;
+          countGeographyDropClasses(geographyDropReasons, geographyDropClasses(decision, {
+            listing: row,
+            officialEmployerSiteLocation,
+          }));
           return [];
         }
         sourceBackedLocationCount++;
@@ -2352,6 +2394,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
         expectedFilterCount: 0,
         expectedFilters: {},
         dropCounts,
+        geographyDropReasons,
         sourceBackedLocationCount,
         sourceBackedLocationDenominator: locationDenominator,
         sourceBackedLocationRate: locationDenominator
@@ -2413,6 +2456,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     let expectedGeographyFilters = 0;
     let titleDrops = 0;
     let sourceBackedLocationCount = 0;
+    const geographyDropReasons = {};
     let next = 0;
     const worker = async () => {
       while (next < rows.length) {
@@ -2488,6 +2532,11 @@ export async function runSpecInProduction(spec, runtime = {}) {
               expectedGeographyFilters++;
             } else {
               geographyDrops++;
+              countGeographyDropClasses(geographyDropReasons, geographyDropClasses(decision, {
+                detail,
+                listing: row,
+                officialEmployerSiteLocation,
+              }));
             }
             continue;
           }
@@ -2642,6 +2691,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
         detail_not_found: expectedNotFoundFilters,
       },
       dropCounts,
+      geographyDropReasons,
       sourceBackedLocationCount,
       sourceBackedLocationDenominator: locationDenominator,
       sourceBackedLocationRate: locationDenominator

@@ -1,0 +1,21 @@
+{
+  "companyKey": "orienta-ch",
+  "companyName": "Orienta SA",
+  "companyHost": "orienta.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.orienta.ch/de/orienta-job/registrieren-sie-sich-um-ihre-bewerbung-einzureichen.html"
+  ],
+  "detailTemplate": "/de/orienta-job/zugang-fuer-bewerber.html",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Zugang für Bewerber"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T13:24:42.254Z",
+  "candidateKey": "orienta@manno"
+}

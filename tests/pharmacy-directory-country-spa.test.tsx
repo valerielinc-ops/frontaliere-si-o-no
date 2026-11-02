@@ -7,6 +7,7 @@ import { ITALY_BORDER_PHARMACIES, ITALY_BORDER_PROVINCES, TICINO_CITIES, TICINO_
 import { buildDutyCoverageMatrix } from '../services/pharmacies/dutyCoverageMatrix';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { buildAtomicItalyDutySnapshots, type ItalyDutySnapshot } from '../services/pharmacies/italyRelease';
+import { hasValidPharmacyCoordinates } from '../services/pharmacies/cityEnrichment';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
 import {
@@ -122,7 +123,7 @@ describe('pharmacy country SPA route', () => {
     expect(container.querySelector('#pharmacy-map-heading')).toBeNull();
   });
 
-  it.each(locales)('shows nearby pharmacies, published hours and duty context for singleton Ticino towns (%s)', (locale) => {
+  it.each(locales)('renders singleton Ticino town enrichment from published fields (%s)', (locale) => {
     const airoloPharmacy = TICINO_PHARMACIES.find((pharmacy) => pharmacy.city === 'Airolo');
     expect(TICINO_PHARMACIES.filter((pharmacy) => pharmacy.city === 'Airolo')).toHaveLength(1);
     expect(airoloPharmacy).toBeDefined();
@@ -130,7 +131,10 @@ describe('pharmacy country SPA route', () => {
     const enrichment = container.querySelector('[data-single-pharmacy-city-enrichment="true"]');
 
     expect(enrichment).toBeInTheDocument();
-    expect(enrichment?.querySelector('[data-distance-km]')).toBeInTheDocument();
+    const distanceSelector = hasValidPharmacyCoordinates(airoloPharmacy!)
+      ? '[data-distance-km]'
+      : '[data-distance-unavailable="coordinates"]';
+    expect(enrichment?.querySelector(distanceSelector)).toBeInTheDocument();
     expect(enrichment?.textContent).toContain(airoloPharmacy!.name);
     expect(enrichment?.querySelector('[data-city-duty-verified="true"], [data-city-duty-available="false"]')).toBeInTheDocument();
   });

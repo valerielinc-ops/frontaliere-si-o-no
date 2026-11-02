@@ -13,7 +13,7 @@
  * canton geo-filter selector.
  */
 
-import CANTON_URL_SLUGS_RAW from '../data/canton-url-slugs.json';
+import CANTON_URL_SLUGS_RAW from '../data/canton-url-slugs.json' with { type: 'json' };
 
 export type CantonLocale = 'it' | 'en' | 'de' | 'fr';
 

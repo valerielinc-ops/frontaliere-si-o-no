@@ -589,6 +589,33 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Work with the warehouse team');
   });
 
+  it('uses one vacancy-scoped rendered workplace when structured location is absent', () => {
+    const html = '<h1>Platform Engineer</h1>'
+      + '<article class="vacancy-description"><dl class="job-location"><dd>Bellinzona</dd></dl>'
+      + '<p>Plan and deliver reliable customer services.</p></article>';
+    const detail = extractDetailFields(html, 'https://example.ch/jobs/platform-engineer/');
+    expect(detail.location).toBe('Bellinzona');
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Bellinzona' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(detail).geography).toMatchObject({
+      location: 'Bellinzona',
+      canton: 'TI',
+    });
+  });
+
+  it('does not choose the first workplace from an ambiguous multi-site field', () => {
+    const html = '<h1>Platform Engineer</h1>'
+      + '<article class="vacancy-description"><div class="job-location">'
+      + '<span class="jobgeolocation">Bellinzona</span>'
+      + '<span class="jobgeolocation">Lugano</span></div>'
+      + '<p>Plan and deliver reliable customer services.</p></article>';
+    const detail = extractDetailFields(html, 'https://example.ch/jobs/platform-engineer/');
+    expect(detail.renderedJobLocationFields).toEqual(['Bellinzona', 'Lugano']);
+    expect(detail.locationCandidates).toEqual([]);
+    expect(resolveDetailOrListingSwissGeography(detail).geography).toBeNull();
+  });
+
   it('prefers the structured vacancy title and semantic detail sections', () => {
     const html = '<h1>ParMag AG</h1>'
       + '<script type="application/ld+json">' + JSON.stringify({
