@@ -84,6 +84,7 @@ const UNKNOWN_ANSWER_VALUES = new Set([
 ]);
 
 export function isUnknownAnswer(value) {
+  if (Array.isArray(value)) return value.length > 0 && value.every(isUnknownAnswer);
   return typeof value === 'string' && UNKNOWN_ANSWER_VALUES.has(normalizeQuestionValue(value));
 }
 

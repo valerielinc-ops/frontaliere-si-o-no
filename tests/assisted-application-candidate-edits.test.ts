@@ -159,6 +159,13 @@ describe('candidate edits', () => {
     expect(candidateQuestionAnswerKey(translatedChoices)).toBe(candidateQuestionAnswerKey(nativeChoices));
   });
 
+  it('does not replace an explicit unknown multi-choice answer from memory', () => {
+    const question = { id: 'contact_channels', question: 'How can we contact you?', type: 'multi_choice', options: ['Email', 'WhatsApp'] };
+    const key = candidateQuestionAnswerKey(question);
+    expect(candidateAnswersForQuestions([question], { [question.id]: ['unknown'] }, { [key]: ['Email'] }))
+      .toEqual({});
+  });
+
   it('reuses an explicit workload percentage across languages, wording and generated ids', () => {
     const first = { id: 'workload', question: 'What is your desired workload (in %)?', type: 'number', validation: { min: 0, max: 100 } };
     const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100' }, changed: { workload: '100' } });
