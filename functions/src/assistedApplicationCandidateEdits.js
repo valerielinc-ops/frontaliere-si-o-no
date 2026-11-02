@@ -82,7 +82,7 @@ const UNKNOWN_ANSWER_VALUES = new Set([
   'je ne sais pas', 'je ne sais plus', 'inconnu', 'inconnue', 'non renseigne', 'non renseignee',
 ]);
 
-function isUnknownAnswer(value) {
+export function isUnknownAnswer(value) {
   return typeof value === 'string' && UNKNOWN_ANSWER_VALUES.has(normalizeQuestionValue(value));
 }
 

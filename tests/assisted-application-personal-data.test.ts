@@ -77,12 +77,14 @@ const runEffect = vi.fn(async ({ effect }: any) => {
 function seed({ draft = {}, flow = {}, person = {} }: { draft?: Record<string, any>, flow?: Record<string, any>, person?: Record<string, any> } = {}) {
   store = createMemoryFirestore({
     [BASE]: {
+      userId: 'personal-data-test', jobId: 'personal-data-job', jobUrl: 'https://example.test/jobs/personal-data/',
+      cvStorageKey: `assisted-application-uploads/${ORDER}/source-cv.pdf`, cvUploadedAt: T0,
       paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital Beispiel', locale: 'de',
       applicantName: 'Giulia Verdi', applicantEmail: 'giulia.verdi@example.com', applicantPhone: '+39 333 000 0000',
     },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [], ...flow },
     [`${BASE}/ai_drafts/current`]: {
-      status: 'ready', round: 1, language: 'de', candidateLocale: 'de', profile: { ...profile, ...person }, job: { title: 'Pflegefachperson HF', applyUrl: '' },
+      status: 'ready', round: 1, cvKey: `assisted-application-uploads/${ORDER}/source-cv.pdf`, language: 'de', candidateLocale: 'de', profile: { ...profile, ...person }, job: { title: 'Pflegefachperson HF', applyUrl: '' },
       channel: { type: 'email', label: 'E-mail', email: 'hr@spital-beispiel.ch', applyUrl: '' },
       coverLetter: { subject: 'Bewerbung', text: 'Sehr geehrte Damen und Herren\n\nIch bewerbe mich um die Stelle in der Akutpflege.\n\nFreundliche Grüsse' },
       applicationEmail: { to: 'hr@spital-beispiel.ch', subject: 'Bewerbung', body: 'Guten Tag\n\nIm Anhang finden Sie meine Unterlagen.\n\nFreundliche Grüsse' },

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { candidateAnswersForQuestions, candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
-import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionCompatibilityHash, answerQuestionSnapshotHash, orderQuestionAnswerContext,
+import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionCompatibilityHash, answerQuestionSnapshotHash, answerQuestionSnapshotsFor, orderQuestionAnswerContext,
   rememberCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, loadCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { createAnswerSourceGuard } from '../functions/src/assistedApplicationAnswerSourceGuard.js';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
@@ -28,10 +28,11 @@ function fixture(testCase = cases[0], actor: 'candidate' | 'owner' = 'candidate'
   const sourceKind = actor === 'candidate' ? 'direct_user' : 'owner_attested';
   const flow = { round: 1, answers: { [question.id]: answer }, answerOrigins,
     orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION };
+  const questionSnapshots = answerQuestionSnapshotsFor({ orderId: 'source', questions: [question], draft, nowMs: now });
   const confirmationSnapshots = answerConfirmationSnapshotsFor({ userId: order.userId, orderId: 'source', order, flow,
     questions: [question], draft, sourceKind, nowMs: now });
   const local = rememberOrderQuestionAnswerSnapshots({ orderId: 'source', order, flow, questions: [question], draft,
-    answers: flow.answers, changed: flow.answers, questionAnswers: { [key]: answer }, confirmed: confirmationSnapshots,
+    answers: flow.answers, changed: flow.answers, questionAnswers: { [key]: answer }, confirmed: questionSnapshots,
     sourceKind, nowMs: now });
   Object.assign(flow, { questionAnswers: { [key]: answer }, questionAnswerSnapshots: local.snapshots,
     questionAnswerSnapshotIds: local.questionIds, questionAnswerCompatibility: local.compatibility,
