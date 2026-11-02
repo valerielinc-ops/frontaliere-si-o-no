@@ -1,4 +1,8 @@
 import { qualityContractVersionOf } from './quality-contract.mjs';
+import {
+  compareCoveragePriority,
+  selectWithRestCantonQuota,
+} from './coverage-priority.mjs';
 
 export function parseValidationLimit(value) {
   const limit = Number(value);
@@ -151,7 +155,14 @@ export function prioritizeProductionAuditSpecs(specs, candidateForSpec, options 
   return specs.slice().sort((a, b) => {
     const aAt = lastAt(a, candidateForSpec(a), adapterVersionFor, previousValidationForSpec);
     const bAt = lastAt(b, candidateForSpec(b), adapterVersionFor, previousValidationForSpec);
-    return aAt.localeCompare(bAt) || String(a.companyKey).localeCompare(String(b.companyKey));
+    const aCandidate = { ...(candidateForSpec(a) || {}), canton: candidateForSpec(a)?.canton || a?.canton };
+    const bCandidate = { ...(candidateForSpec(b) || {}), canton: candidateForSpec(b)?.canton || b?.canton };
+    return compareCoveragePriority(
+      aCandidate,
+      bCandidate,
+      options.date instanceof Date ? options.date.getTime() : Date.parse(String(options.date || '')) || Date.now(),
+      () => aAt.localeCompare(bAt) || String(a.companyKey).localeCompare(String(b.companyKey)),
+    );
   });
 }
 
@@ -206,9 +217,18 @@ export function prioritizeValidationSpecs(specs, candidateForSpec, options = {})
     }
   }
 
-  const compareOldest = (a, b) => validationSortAt(a, candidateForSpec(a), options.adapterVersionFor, options.previousValidationForSpec)
-    .localeCompare(validationSortAt(b, candidateForSpec(b), options.adapterVersionFor, options.previousValidationForSpec))
-    || String(a.companyKey).localeCompare(String(b.companyKey));
+  const candidateForPriority = (spec) => {
+    const candidate = candidateForSpec(spec) || {};
+    return { ...candidate, canton: candidate.canton || spec?.canton || candidate.addressRegion };
+  };
+  const compareOldest = (a, b) => compareCoveragePriority(
+    candidateForPriority(a),
+    candidateForPriority(b),
+    now.getTime(),
+    () => validationSortAt(a, candidateForSpec(a), options.adapterVersionFor, options.previousValidationForSpec)
+      .localeCompare(validationSortAt(b, candidateForSpec(b), options.adapterVersionFor, options.previousValidationForSpec))
+      || String(a.companyKey).localeCompare(String(b.companyKey)),
+  );
   dueSecondDay.sort(compareOldest);
   retryable.sort(compareOldest);
   alreadyStable.sort(compareOldest);
@@ -222,5 +242,17 @@ export function prioritizeValidationSpecs(specs, candidateForSpec, options = {})
     ...dueSecondDay.slice(reservedSlots),
     ...alreadyStable,
   ];
-  return [...reserved, ...remaining].slice(0, limit);
+  const remainingLimit = Math.max(0, limit - reserved.length);
+  const remainingOrder = new Map(remaining.map((spec, index) => [spec, index]));
+  const compareRemaining = (a, b) => compareCoveragePriority(
+    candidateForPriority(a),
+    candidateForPriority(b),
+    now.getTime(),
+    () => remainingOrder.get(a) - remainingOrder.get(b),
+  );
+  const selected = selectWithRestCantonQuota(remaining, remainingLimit, {
+    compare: compareRemaining,
+    cantonFor: (spec) => candidateForPriority(spec).canton,
+  });
+  return [...reserved, ...selected].slice(0, limit);
 }

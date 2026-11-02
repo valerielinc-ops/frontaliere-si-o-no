@@ -421,11 +421,11 @@ export function isExpectedSynthesisError(err) {
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate
- * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, reasonCode?: string, vacancies: any[], retryable?: boolean, diagnostics?: Record<string, any> }>}
+ * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, reasonCode?: string, vacancies: any[], permanentApplications?: any[], retryable?: boolean, diagnostics?: Record<string, any> }>}
  */
 export async function synthesizeSpec(candidate, runtime = {}) {
   const { priority, alternates } = synthesisSeeds(candidate);
-  if (!priority.length && !alternates.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
+  if (!priority.length && !alternates.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [], permanentApplications: [] };
 
   const pendingPriority = [...priority];
   const pendingInitial = [...alternates];
@@ -572,6 +572,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
             : 'no_verified_vacancies',
         retryable: true,
         vacancies: [],
+        permanentApplications: freeTextPermanentApplications,
         diagnostics: {
           attemptedUrls: attempted.size,
           reachablePages,
@@ -595,6 +596,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
       reason: `seed irraggiungibile (${failure.status || 0})`,
       reasonCode: retryableFailures.length ? 'transient_seed_failure' : (blocked ? 'policy_blocked' : 'seed_unreachable'),
       vacancies: [],
+      permanentApplications: [],
       retryable: retryableFailures.length > 0,
       diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
     };
@@ -681,7 +683,14 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     sourceLang: detectPageLang(res.body),
     learnedAt: new Date().toISOString(),
   };
-  return { spec, vacancies };
+  return {
+    spec,
+    vacancies,
+    permanentApplications: [
+      ...(freeText?.permanentApplications || []),
+      ...freeTextPermanentApplications,
+    ].slice(0, 12),
+  };
 }
 
 /**

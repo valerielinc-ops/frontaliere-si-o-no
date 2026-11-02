@@ -15,10 +15,15 @@ import fs from 'node:fs';
 import { loadCandidates, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { loadRegistry, enumerablePlatforms, sharedHostPlatforms } from './lib/prospector/platform-registry.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
-import { VALIDATION_PATH } from './lib/prospector/config.mjs';
+import { CANTONS, VALIDATION_PATH } from './lib/prospector/config.mjs';
 import { loadChannelHealth, loadCursor } from './lib/prospector/sources/commoncrawl-careers.mjs';
 import { isTransportLogistics } from './lib/prospector/sector-signal.mjs';
 import { loadDiscoveryHealth, DISCOVERY_SOURCE_NAMES, DISCOVERY_SOURCE_OUTCOMES } from './lib/prospector/source-health.mjs';
+import {
+  appendCoverageHistory,
+  measureCoverageExclusivity,
+} from './lib/prospector/coverage-exclusivity.mjs';
+import { FRONTIER_CANTONS, REST_CANTON_QUOTA } from './lib/prospector/coverage-priority.mjs';
 
 const md = process.argv.includes('--markdown');
 const store = loadCandidates();
@@ -26,6 +31,8 @@ const registry = loadRegistry();
 const coverage = loadCoverage();
 const counts = statusCounts(store);
 const all = Object.values(store.candidates);
+const coverageExclusivity = measureCoverageExclusivity();
+if (coverageExclusivity.status === 'ok') appendCoverageHistory(coverageExclusivity);
 
 let validation = null;
 try { validation = JSON.parse(fs.readFileSync(VALIDATION_PATH, 'utf8')); } catch { /* not graded yet */ }
@@ -47,6 +54,46 @@ out.push(row('in produzione verificata dal loop', counts.production || 0));
 out.push(row('in attesa di sintesi (tracciati)', counts.traced || 0));
 out.push(row('da tracciare (nuovi)', counts.new || 0));
 out.push(row('esauriti (nessuna pagina carriere)', counts.dead || 0));
+
+out.push(h('Esclusività delle offerte SECO'));
+if (coverageExclusivity.status !== 'ok') {
+  out.push(row('stato', `non disponibile · ${coverageExclusivity.source?.reason || 'sorgente assente'}`));
+} else {
+  const population = coverageExclusivity.population;
+  out.push(tableHead('metrica', 'valore'));
+  out.push(row('offerte SECO live', population.officialOffers));
+  out.push(row('datori SECO distinti', population.officialEmployers));
+  out.push(row('offerte in slice aggregatori', population.aggregatorOffers));
+  out.push(row('offerte SECO condivise con aggregatori', population.aggregatorMatchedOffers));
+  out.push(row('offerte SECO esclusive', `${population.exclusiveOffers} (${Math.round((population.exclusivityRate || 0) * 100)}%)`));
+  out.push(row('classificazione agency / direct / unknown', [
+    coverageExclusivity.classification.agency,
+    coverageExclusivity.classification.direct,
+    coverageExclusivity.classification.unknown,
+  ].map((classification) => `${classification.officialOffers} (${Math.round((classification.offerShare || 0) * 100)}%)`).join(' / ')));
+  out.push(row('riferimento proprietario agency', '31% stimato · Adecco 522/2.432 (baseline, non classificazione corrente)'));
+  out.push(row('confidence direct', coverageExclusivity.classification.registryCurated ? 'residuo di registry curata' : 'registry non curata'));
+  out.push(row('metodo', 'match URL normalizzato oppure datore + cantone + titolo; soglia titolo 0,80'));
+  out.push(row('fascia datore', 'proxy volume offerte SECO live: micro 1–4, small 5–19, medium 20–99, large 100+'));
+  out.push(row('storico', 'data/prospector/coverage-exclusivity-history.json'));
+  out.push(md ? '\n**Esclusive per cantone e fascia**\n' : '\n  Esclusive per cantone e fascia:');
+  for (const canton of CANTONS) {
+    const bands = coverageExclusivity.byCantonAndSize[canton];
+    const values = Object.entries(bands)
+      .filter(([, measure]) => measure.officialOffers > 0)
+      .map(([band, measure]) => `${band} ${measure.exclusiveOffers}/${measure.officialOffers}`)
+      .join(' · ');
+    if (values) out.push(row(canton, values));
+  }
+}
+
+out.push(h('Priorità della copertura'));
+out.push(row('cantoni frontiera', FRONTIER_CANTONS.join(' → ')));
+out.push(row('quota minima resto', `${Math.round(REST_CANTON_QUOTA * 100)}% del lotto, almeno uno slot se disponibile`));
+const permanentOnly = all.filter((candidate) => candidate.permanentApplicationOnly === true).length;
+const permanentObserved = all.filter((candidate) => Array.isArray(candidate.permanentApplications) && candidate.permanentApplications.length).length;
+out.push(row('candidati solo candidatura permanente', permanentOnly));
+out.push(row('candidature permanenti osservate', permanentObserved));
 
 if (validation) {
   out.push(h('Qualità dell\'estrazione'));

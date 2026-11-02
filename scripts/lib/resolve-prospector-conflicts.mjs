@@ -200,7 +200,15 @@ function mergeCandidate(upstream, local) {
       && (!Number.isFinite(localSecoAt) || upstreamSecoAt > localSecoAt)
       ? upstream
       : local;
-    for (const field of ['adCount', 'sampleTitles', 'applyHosts', 'secoEmployerName']) {
+    for (const field of [
+      'adCount',
+      'sampleTitles',
+      'applyHosts',
+      'secoEmployerName',
+      'secoEmployerClassification',
+      'secoStaffingAgency',
+      'secoStaffingMatchConfidence',
+    ]) {
       if (hasOwn(secoWinner, field)) merged[field] = clone(secoWinner[field]);
       else delete merged[field];
     }
