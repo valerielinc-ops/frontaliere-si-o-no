@@ -76,6 +76,13 @@ describe('shared manual-slot request contract', () => {
     expect(w.adsbygoogle).toHaveLength(2); expect(watch(narrow).request).toHaveBeenCalledOnce();
     delivery.arm(); expect(w.adsbygoogle).toHaveLength(2);
   });
+  it('rearming static delivery keeps one resize callback for its document controller', () => {
+    slot(161);
+    const listeners = vi.spyOn(w, 'addEventListener');
+    const delivery = local(createStaticAdDelivery)(local(createAdSlotRequests)(), local(createStaticAdSlotEligibility)(), () => ({ request() {}, fail() {} }), () => true, emit, '200px 0px');
+    delivery.arm(); delivery.arm(); delivery.arm();
+    expect(listeners.mock.calls.filter(([name]) => name === 'resize')).toHaveLength(1);
+  });
 });
 
 describe('singleton script recovery', () => {
@@ -127,7 +134,10 @@ describe('singleton script recovery', () => {
   it('reuses Funding Choices when the HTML bootstrap completed before recovery attached', () => {
     w.eval(`${FC_ENSURE_JS};ensureFc();`);
     const script = w.document.querySelector('script[data-fc-loader]');
+    const concurrent = vi.fn(); script.onload = concurrent;
     script.dispatchEvent(new w.Event('load'));
+    expect(concurrent).toHaveBeenCalledOnce();
+    expect(script.getAttribute('data-loaded')).toBe('1');
     const loader = local(createAdScriptLoader)('cmp', script.src, () => true, emit);
     loader.load();
     expect(loader.state()).toBe('loaded');
@@ -136,7 +146,10 @@ describe('singleton script recovery', () => {
   it('counts an earlier Funding Choices error and keeps the legacy/recovery race singleton', () => {
     w.eval(`${FC_ENSURE_JS};ensureFc();`);
     const first = w.document.querySelector('script[data-fc-loader]');
+    const concurrent = vi.fn(); first.onerror = concurrent;
     first.dispatchEvent(new w.Event('error'));
+    expect(concurrent).toHaveBeenCalledOnce();
+    expect(first.getAttribute('data-failed')).toBe('1');
     const loader = local(createAdScriptLoader)('cmp', first.src, () => true, emit);
     loader.load();
     const next = w.document.querySelector('script[data-fc-loader]');
@@ -184,6 +197,40 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog')?.textContent).not.toContain('Abbiamo rilevato un blocco pubblicitario');
     expect(w.localStorage.getItem('frontaliere_ads_consent')).toBeNull();
   });
+  it.each([
+    'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+    'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+  ])('observes a terminal head-script failure after the initial recovery deadline: %s', async (src) => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog')).toBeNull();
+    const script = w.document.createElement('script'); script.src = src;
+    script.setAttribute('data-ft-script-state', 'retry_wait');
+    w.document.head.appendChild(script); script.setAttribute('data-failed', '1');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('dialog')).toBeNull();
+    script.setAttribute('data-ft-script-state', 'loaded');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('dialog')).toBeNull();
+    script.setAttribute('data-ft-script-state', 'failed');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('dialog')?.textContent).toContain('Gli annunci non si caricano');
+    expect(emit.mock.calls.some(([event, props]) => event === 'ad_reliability_state' && props.reason === 'script_failed')).toBe(true);
+  });
+  it.each(['script', 'cmp'])('does not cover a merely slow %s download with recovery UI', async (kind) => {
+    if (kind === 'script') {
+      w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+      const script = w.document.createElement('script');
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+      script.setAttribute('data-ft-script-state', 'waiting_response'); w.document.head.appendChild(script);
+    }
+    recovery('clear', kind === 'cmp' ? 'waiting_response' : 'loaded');
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(30000);
+    expect(w.document.querySelector('dialog')).toBeNull();
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+  });
   it('never stacks on a Google consent message and removes the promotion on late fill', async () => {
     w.localStorage.setItem('frontaliere_ads_consent', 'denied');
     const el = slot(300); el.setAttribute('data-ad-status', 'unfilled');
@@ -203,12 +250,35 @@ describe('IAB detection and independent recovery surface', () => {
   });
   it('degrades without dialog or MutationObserver and still removes fallback on late fill', async () => {
     w.MutationObserver = undefined; w.HTMLDialogElement = undefined;
+    const intervals = vi.spyOn(w, 'setInterval');
     recovery(); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
     expect(w.document.querySelector('dialog')).toBeNull();
     expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
     slot(300).setAttribute('data-ad-status', 'filled');
     await vi.advanceTimersByTimeAsync(1200);
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+    recovery();
+    const filled = w.document.querySelector('ins[data-ad-status="filled"]'); filled.remove();
+    w.history.pushState(null, '', '/another-article/');
+    await vi.advanceTimersByTimeAsync(15000);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+    expect(intervals).toHaveBeenCalledOnce();
+  });
+  it('rechecks a late fill on foreground even when background timers did not run', async () => {
+    w.MutationObserver = undefined; w.HTMLDialogElement = undefined;
+    let visibility = 'visible';
+    Object.defineProperty(w.document, 'visibilityState', { configurable: true, get: () => visibility });
+    const nativeTimeout = w.setTimeout.bind(w);
+    w.setTimeout = (callback: any, delay = 0, ...args: any[]) => nativeTimeout(callback, visibility === 'hidden' ? 60000 : delay, ...args);
+    recovery(); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+    visibility = 'hidden'; w.document.dispatchEvent(new w.Event('visibilitychange'));
+    slot(300).setAttribute('data-ad-status', 'filled');
+    // No timer advancement here models a throttled background tab.
+    visibility = 'visible'; w.document.dispatchEvent(new w.Event('visibilitychange'));
+    await vi.advanceTimersByTimeAsync(150);
     expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
   });
   it('does not cover an existing Google consent message', async () => {

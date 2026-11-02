@@ -233,15 +233,19 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     const loader = createAdScriptLoader('gpt', GPT_SCRIPT_SRC, canUseGpt, emitAdDiagnostic);
     const unsubscribeLoader = loader.subscribe((state) => { if (state === 'failed') lifecycle.fail('gpt_script_error'); });
     let defined = false;
-    const defineAndDisplay = () => {
-      if (defined || disposed || !canUseGpt()) return;
+    let queued = false;
+    const measureSizes = () => {
       const width = Math.floor(wrapper.getBoundingClientRect().width);
-      const fitting = sizes.filter((size) => size === 'fluid' || size[0] <= width);
-      if (width <= 0 || !fitting.length) {
+      return { width, fitting: width > 0 ? sizes.filter((size) => size === 'fluid' || size[0] <= width) : [] };
+    };
+    const defineAndDisplay = () => {
+      if (defined || queued || disposed || !canUseGpt()) return;
+      const { width, fitting } = measureSizes();
+      if (!fitting.length) {
         emitAdDiagnostic('ad_slot_waiting_width', { slot: adUnitPath, width, render_path: 'gpt' });
         return;
       }
-      defined = true;
+      queued = true;
       // Start outside gt.cmd: a blocked/slow script may never drain its queue.
       // The shared deadline means waiting_response; it is not a no-fill.
       lifecycle.request();
@@ -260,8 +264,17 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       initGptFramework();
       const gt = gtag();
       gt.cmd.push(() => {
-        if (disposed || !canUseGpt()) return;
+        queued = false;
+        if (defined || disposed || !canUseGpt()) return;
+        // The queue can wait for a network load while the device rotates or
+        // its rail changes width. Only this measurement may reach GPT/Prebid.
+        const { width, fitting } = measureSizes();
+        if (!fitting.length) {
+          emitAdDiagnostic('ad_slot_waiting_width', { slot: adUnitPath, width, render_path: 'gpt' });
+          return;
+        }
         try {
+          defined = true;
           const slot = gt.defineSlot(adUnitPath, fitting, divId)?.addService(gt.pubads());
           if (!slot) { lifecycle.fail('gpt_define_failed'); emitAdDiagnostic('ad_slot_error', { slot: adUnitPath, reason: 'gpt_define_failed', render_path: 'gpt' }); return; }
           slotRef.current = slot;
@@ -289,7 +302,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           // unconfigured and always resolves (fail-soft + hard timeout), so GPT
           // display is never blocked by the auction.
           if (!headerBiddingKilled && prebidActiveFor(adUnitPath)) {
-            void requestHeaderBids({ code: divId, adUnitPath, sizes }).finally(() => {
+            void requestHeaderBids({ code: divId, adUnitPath, sizes: fitting }).finally(() => {
               gt.cmd.push(() => {
                 if (disposed || !canUseGpt()) return;
                 try {

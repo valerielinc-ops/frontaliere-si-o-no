@@ -7,7 +7,9 @@
  */
 import { useEffect, useRef, type ComponentProps } from 'react';
 
-type Props = Omit<ComponentProps<'ins'>, 'onError'> & {
+// Internal banner primitive: eligibility class and display style are owned
+// here; callers configure the surrounding AdSenseBanner instead.
+type Props = Omit<ComponentProps<'ins'>, 'onError' | 'className' | 'style'> & {
   client: string;
   slot: string;
   format: string;

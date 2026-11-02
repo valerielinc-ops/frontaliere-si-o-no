@@ -6,10 +6,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import GptAdSlot, { type GptSize } from '@/components/shared/GptAdSlot';
 import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
 
-const { trackAdEvent, consent } = vi.hoisted(() => ({ trackAdEvent: vi.fn(), consent: { granted: true } }));
+const { trackAdEvent, consent, bidding, requestHeaderBids } = vi.hoisted(() => ({ trackAdEvent: vi.fn(), consent: { granted: true }, bidding: { active: false }, requestHeaderBids: vi.fn() }));
 vi.mock('@/components/shared/AdSenseBanner', () => ({ isAdSenseProductionHost: () => true }));
 vi.mock('@/services/adAnalytics', () => ({ trackAdEvent, isLikelyBot: () => false }));
-vi.mock('@/services/headerBidding', () => ({ prebidActiveFor: () => false, requestHeaderBids: vi.fn() }));
+vi.mock('@/services/headerBidding', () => ({ prebidActiveFor: () => bidding.active, requestHeaderBids }));
 vi.mock('@/services/adsConsent', () => ({ isAdsConsentGranted: () => consent.granted, onAdsConsentChange: () => () => {} }));
 const sizes: GptSize[] = [[300, 600]];
 let observers: Array<{ callback: IntersectionObserverCallback; target?: Element; disconnected: boolean }>;
@@ -18,17 +18,22 @@ let commands: Array<() => void>;
 let slot: { addService: () => unknown };
 let top: number;
 let display: ReturnType<typeof vi.fn>;
+let defineSlot: ReturnType<typeof vi.fn>;
+let width: number;
 
 beforeEach(() => {
   vi.useFakeTimers();
   consent.granted = true;
+  bidding.active = false; requestHeaderBids.mockReset().mockResolvedValue(undefined);
   trackAdEvent.mockClear();
   top = 100;
+  width = 300;
   observers = [];
   handlers = new Map();
   commands = [];
   display = vi.fn();
   slot = { addService: () => slot };
+  defineSlot = vi.fn(() => slot);
   vi.stubGlobal('IntersectionObserver', class {
     record: typeof observers[number];
     constructor(callback: IntersectionObserverCallback) { this.record = { callback, disconnected: false }; observers.push(this.record); }
@@ -36,16 +41,16 @@ beforeEach(() => {
     disconnect() { this.record.disconnected = true; }
   });
   vi.stubGlobal('googletag', {
-    cmd: commands, defineSlot: () => slot, setConfig: vi.fn(), enableServices: vi.fn(), display,
+    cmd: commands, defineSlot, setConfig: vi.fn(), enableServices: vi.fn(), display,
     destroySlots: vi.fn(), pubads: () => ({ addEventListener: (name: string, cb: (event: unknown) => void) => handlers.set(name, cb), removeEventListener: (name: string) => handlers.delete(name) }),
   });
 });
 afterEach(() => { cleanup(); document.querySelectorAll('script[src*="gpt.js"]').forEach((el) => el.remove()); vi.clearAllTimers(); vi.useRealTimers(); vi.unstubAllGlobals(); });
-function mount(collapseOnEmpty = true) {
+function mount(collapseOnEmpty = true, slotSizes = sizes) {
   const onEmptyChange = vi.fn();
-  const result = render(<GptAdSlot adUnitPath="/test/rail" sizes={sizes} minHeight={600} collapseOnEmpty={collapseOnEmpty} onEmptyChange={onEmptyChange} />);
+  const result = render(<GptAdSlot adUnitPath="/test/rail" sizes={slotSizes} minHeight={600} collapseOnEmpty={collapseOnEmpty} onEmptyChange={onEmptyChange} />);
   const box = result.container.firstElementChild as HTMLElement;
-  box.getBoundingClientRect = () => ({ top, bottom: top + 600, left: 0, right: 300, width: 300, height: 600, x: 0, y: top, toJSON() {} });
+  box.getBoundingClientRect = () => ({ top, bottom: top + 600, left: 0, right: width, width, height: 600, x: 0, y: top, toJSON() {} });
   act(() => observers[0]?.callback([{ target: box, isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver));
   return { ...result, box, onEmptyChange };
 }
@@ -57,6 +62,26 @@ function leaveViewport() {
 }
 
 describe('GPT manual reserve lifecycle', () => {
+  it('remeasures sizes when the delayed GPT command drains after a shrink', () => {
+    width = 400;
+    mount(true, [[300, 250], [160, 600]]);
+    width = 240; loadGpt();
+    expect(defineSlot).toHaveBeenCalledWith('/test/rail', [[160, 600]], expect.any(String));
+  });
+  it('waits for width again if no size fits when the queued command drains', () => {
+    width = 400; mount();
+    width = 240; loadGpt();
+    expect(defineSlot).not.toHaveBeenCalled();
+    width = 400; act(() => window.dispatchEvent(new Event('resize'))); loadGpt();
+    expect(defineSlot).toHaveBeenCalledOnce();
+  });
+  it('bids only on the sizes accepted by the current GPT definition', async () => {
+    width = 320; bidding.active = true;
+    mount(true, [[300, 250], [728, 90]]); loadGpt();
+    expect(requestHeaderBids).toHaveBeenCalledWith(expect.objectContaining({ sizes: [[300, 250]] }));
+    await act(async () => { await Promise.resolve(); });
+    loadGpt();
+  });
   it('keeps the reserve while the script queue is slow, then accepts a late fill', async () => {
     const { box, onEmptyChange } = mount();
     act(() => vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS));

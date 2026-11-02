@@ -64,7 +64,7 @@ export function installAdRecovery(
     : !hasDecision() ? 'consent_pending'
     : document.querySelector('ins[data-ad-status="unfilled"]') ? 'no_fill'
     : document.querySelector('[data-ft-ad-width-wait]') ? 'invalid_width'
-    : document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"][src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
+    : document.querySelector('script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
     : document.querySelector('script[data-ft-script-state="waiting_response"]') ? 'script_timeout' : 'response_pending';
   const reload = () => {
     store('ft_ad_recovery_reload', String(Date.now()));
@@ -173,7 +173,8 @@ export function installAdRecovery(
       emit('ad_reliability_state', { reason: why, cmp_state: state, probe: probeResult, decision: hasDecision() ? 'present' : 'none', elapsed_ms: Math.min(600000, Date.now() - started) });
     }
     if (why === 'adblock_detected' || why === 'script_failed' || why === 'cmp_unavailable') showPopup();
-    if (why !== 'response_pending' && why !== 'consent_pending') showPromo();
+    if (why !== 'response_pending' && why !== 'consent_pending' && why !== 'script_timeout' && why !== 'cmp_timeout') showPromo();
+    else { closePopup(); removePromo(); }
     const pending = Number(storageRead('ft_ad_recovery_reload'));
     if (pending > 0 && Date.now() - pending < 300000 && lastOutcome !== why) {
       lastOutcome = why; emit('ad_recovery_outcome', { outcome: 'not_restored', reason: why });
@@ -192,14 +193,18 @@ export function installAdRecovery(
         if (records.every((record) => (record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo'))) return;
         schedule();
       });
-      observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state'] });
+      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state'] });
     } else {
       // Older/limited webviews still remove the fallback after a late fill.
       // Like the observer, this single heartbeat belongs to the document.
       window.setInterval(schedule, 1000);
     }
     for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
-    document.addEventListener('visibilitychange', schedule);
+    document.addEventListener('visibilitychange', () => {
+      // A background-clamped timeout must not delay checking an ad that
+      // filled while the visitor was away from this tab.
+      clearTimeout(refreshTimer); refreshTimer = undefined; refresh();
+    });
     window.addEventListener('online', schedule);
     refresh();
   };
