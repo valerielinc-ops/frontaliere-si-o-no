@@ -460,8 +460,8 @@ async function readOsmInput() {
     return { elements: parsed.elements || [], source: 'https://www.openstreetmap.org/' };
   } catch (error) {
     // OSM is optional enrichment. A rate limit or temporary Overpass outage
-    // must not block the official identity/address refresh; the output keeps a
-    // warning and simply omits secondary fields for this run.
+    // must not block the official identity/address refresh; the parser keeps a
+    // warning and carries forward previously verified field-level enrichment.
     const message = error instanceof Error ? error.message : String(error);
     return { elements: [], source: null, warning: `OpenStreetMap enrichment unavailable: ${message}` };
   }

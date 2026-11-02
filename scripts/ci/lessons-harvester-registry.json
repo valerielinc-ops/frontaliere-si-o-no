@@ -75,9 +75,9 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
       "outcome": "declined",
-      "decidedAt": "2026-10-05T12:25:34Z",
-      "ref": "#11577, #11125, #10805",
-      "reason": "Fingerprint catch-all creato dalla ripetizione di `scripts/`: gli esempi nuovi coprono contesto di una guardia, selettore crawler e telemetria GCP, senza una bug class preventiva comune."
+      "decidedAt": "2026-11-02T13:46:33Z",
+      "ref": "#16312, #15918, #15046",
+      "reason": "Fingerprint catch-all eterogeneo: #16312 riguarda il confine di superficie attiva cookie, #15918 identita' e default dei parser, #15046 replay/audit e metadata; non esiste una regola preventiva comune senza duplicare AGENTS.md #6."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
@@ -110,9 +110,9 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
       "outcome": "declined",
-      "decidedAt": "2026-10-08T12:10:56Z",
-      "ref": "#12331, #12286, #12264, #12232, #11732",
-      "reason": "Catch-all eterogeneo: retry di side effect, predicate localizzati, validazione di contratti e collisioni di identita' non formano una bug class preventiva unica; AGENTS.md #6 copre gia' sibling e invarianti condivisi."
+      "decidedAt": "2026-11-02T13:46:33Z",
+      "ref": "#16145, #16130, #14110",
+      "reason": "Fingerprint catch-all eterogeneo: #16145 riguarda contesto dei campi, #16130 segmenti e guard route ATS, #14110 identita' e validator CAS delle lease; AGENTS.md #6 copre gia' contesto, confini, unknown e invarianti, mentre una clausola unica sarebbe troppo generica."
     },
     {
       "key": "reviewer-finding/fp:scripts-correctness-sends-every",

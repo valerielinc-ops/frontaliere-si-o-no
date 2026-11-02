@@ -541,6 +541,95 @@ describe('Prospector production validation', () => {
     expect(graded.jobLike).toBe(false);
   });
 
+  it('uses matching JobPosting detail evidence when the description lexicon misses a real offer', async () => {
+    const url = 'https://employer.example/jobs/platform-engineer';
+    const detail = {
+      title: 'Platform Engineer',
+      description: 'Prenota una camera e scopri le nostre offerte speciali.',
+      hasStructuredVacancy: true,
+      employmentType: 'FULL_TIME',
+      locationCandidates: [{ location: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' }],
+    };
+    const graded = await gradeVacancy({
+      url,
+      title: 'Platform Engineer',
+      description: detail.description,
+    }, {
+      observedDetail: {
+        body: `<html><h1>Platform Engineer</h1>${'Prenota una camera e scopri le nostre offerte speciali. '.repeat(8)}</html>`,
+        status: 200,
+        url,
+        detail,
+      },
+      spec: { companyName: 'Employer', companyHost: 'employer.example' },
+    });
+
+    expect(graded).toMatchObject({
+      titleMatch: 1,
+      employerIdentityStatus: 'match',
+      sourceBackedLocation: true,
+      jobLike: true,
+      jobLikeEvidence: true,
+      jobLikeEvidenceMode: 'structured_job_posting',
+    });
+    expect(graded.jobSignals).toContain('structured_job_posting');
+
+    const commercialPage = await gradeVacancy({
+      url: 'https://hotel-international.example/it/camera-deluxe',
+      title: 'Camera Deluxe',
+      description: 'Prenota una camera e scopri le nostre offerte speciali.',
+    }, {
+      observedDetail: {
+        body: `<html><h1>Camera Deluxe</h1>${'Prenota una camera e scopri le nostre offerte speciali. '.repeat(8)}</html>`,
+        status: 200,
+        url: 'https://hotel-international.example/it/camera-deluxe',
+        detail: {
+          title: 'Camera Deluxe',
+          description: 'Prenota una camera e scopri le nostre offerte speciali.',
+          hasStructuredVacancy: false,
+          locationCandidates: [{ location: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' }],
+        },
+      },
+      spec: { companyName: 'Hotel International', companyHost: 'hotel-international.example' },
+    });
+    expect(commercialPage.jobLike).toBe(false);
+    expect(commercialPage.jobLikeEvidence).toBe(false);
+
+    const spontaneousApplication = await gradeVacancy({
+      url: 'https://employer.example/jobs/spontaneous-application',
+      title: 'Employer AG',
+      description: 'Wir suchen Macher:innen und engagierte Mitarbeitende. '
+        + 'Bewerbungsunterlagen und Lebenslauf an Human Resources. '
+        + 'Eigeninitiative, Zuverlässigkeit und Teamfähigkeit sind uns wichtig. '.repeat(3),
+    }, {
+      observedDetail: {
+        body: '<html><h1>Spontanbewerbung</h1><p>'
+          + 'Wir suchen Macher:innen und engagierte Mitarbeitende. '
+          + 'Bewerbungsunterlagen und Lebenslauf an Human Resources. '
+          + 'Eigeninitiative, Zuverlässigkeit und Teamfähigkeit sind uns wichtig. '.repeat(3)
+          + '</p></html>',
+        status: 200,
+        url: 'https://employer.example/jobs/spontaneous-application',
+        detail: {
+          title: 'Spontanbewerbung',
+          company: 'Employer AG',
+          description: 'Wir suchen Macher:innen und engagierte Mitarbeitende. '
+            + 'Bewerbungsunterlagen und Lebenslauf an Human Resources. '
+            + 'Eigeninitiative, Zuverlässigkeit und Teamfähigkeit sind uns wichtig. '.repeat(3),
+          hasStructuredVacancy: true,
+          employmentType: 'FULL_TIME',
+          locationCandidates: [{ location: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' }],
+        },
+        detailTitle: 'Spontanbewerbung',
+        finalTitle: 'Employer AG',
+        listingTitle: 'Employer AG',
+      },
+      spec: { companyName: 'Employer', companyHost: 'employer.example' },
+    });
+    expect(spontaneousApplication.jobLike).toBe(false);
+    expect(spontaneousApplication.jobLikeEvidence).toBe(false);
+  });
+
   it('accepts the PhysioSwiss listing-title fallback when raw detail headings are Header chrome', async () => {
     const title = 'Dipl. Physiotherapeut/-in (40-100%)';
     expect(selectPublishableTitle('Header', title)).toBe(title);

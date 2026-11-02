@@ -29,6 +29,7 @@ const STATUS_TRANSLATION_KEYS: Record<AssistedApplicationCandidateStatus, string
   under_review: 'profile.paidApplications.status.underReview',
   submitted: 'profile.paidApplications.status.submitted',
   refunded: 'profile.paidApplications.status.refunded',
+  withdrawn: 'profile.paidApplications.status.withdrawn',
 };
 
 const STATUS_HELP_KEYS: Partial<Record<AssistedApplicationCandidateStatus, string>> = {
@@ -46,7 +47,7 @@ function statusStyle(status: AssistedApplicationCandidateStatus): string {
   if (status === 'submitted') return 'border-success/30 bg-success-subtle text-success-strong-hover dark:text-success';
   if (status === 'needs_candidate' || status === 'awaiting_materials') return 'border-warning/30 bg-warning-subtle text-warning-strong-hover dark:text-warning';
   if (status === 'under_review') return 'border-info-border bg-info-subtle text-info-strong-hover dark:text-info';
-  if (status === 'refunded') return 'border-edge bg-surface-alt text-subtle';
+  if (status === 'refunded' || status === 'withdrawn') return 'border-edge bg-surface-alt text-subtle';
   return 'border-accent-border bg-accent-subtle text-accent';
 }
 

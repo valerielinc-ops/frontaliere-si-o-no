@@ -113,6 +113,90 @@ describe('assisted application consent and CV upload flow', () => {
     cleanup();
   });
 
+  it.each(['ready_for_manual_submission', 'submitted', 'blocked', 'withdrawn', 'unknown_state'])(
+    'opens %s as status rather than a new intake', async (submissionStatus) => {
+      orderData = paidOrder({ submissionStatus, consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
+      render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+      await screen.findByRole('heading', { name: itCore['jobBoard.assisted.trackingTitle'] });
+      expect(screen.queryByRole('button', { name: itCore['jobBoard.assisted.submit'] })).toBeNull();
+      expect(screen.queryByLabelText(itCore['jobBoard.assisted.name'])).toBeNull();
+      expect(screen.queryByText(itCore['jobBoard.assisted.paidConfirmed'])).toBeNull();
+      expect(mocks.updateDoc).not.toHaveBeenCalled();
+      expect(screen.getByRole('button', { name: itCore['jobBoard.assisted.openCv'] })).toBeTruthy();
+      if (submissionStatus === 'submitted') expect(screen.getByText(itCore['jobBoard.assisted.review.submitted'])).toBeTruthy();
+      if (submissionStatus === 'withdrawn') expect(screen.getByText(itCore['jobBoard.assisted.review.withdrawn'])).toBeTruthy();
+    },
+  );
+
+  it.each(['drafting', 'candidate_review', 'owner_takeover', 'needs_candidate_action', 'candidate_handoff', 'submitted', 'failed', 'withdrawn', 'future_state'])(
+    'does not reopen intake when automation is already %s', async (automationState) => {
+      orderData = paidOrder({ automationState });
+      render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+      await screen.findByRole('heading', { name: itCore['jobBoard.assisted.trackingTitle'] });
+      expect(screen.queryByRole('button', { name: itCore['jobBoard.assisted.submit'] })).toBeNull();
+      expect(mocks.updateDoc).not.toHaveBeenCalled();
+    },
+  );
+
+  it.each(['javascript:alert(1)', 'https://user:password@careers.example.test/', 'not-a-url'])(
+    'does not expose an unsafe listing URL: %s', async (jobUrl) => {
+      orderData = paidOrder({ submissionStatus: 'submitted', jobUrl });
+      render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+      await screen.findByText(itCore['jobBoard.assisted.review.submitted']);
+      expect(screen.queryByRole('link', { name: itCore['jobBoard.concierge.openJob'] })).toBeNull();
+    },
+  );
+
+  it('shows an employer document request and the native listing without requeueing the application', async () => {
+    const jobUrl = 'https://careers.example.test/job/123/';
+    orderData = paidOrder({
+      submissionStatus: 'submitted', automationState: 'submitted', jobUrl,
+      employerResponse: { category: 'documents_request', receivedAt: Date.now(), needsReply: false },
+    });
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByText(itCore['jobBoard.assisted.employerResponse.documents_request']);
+    expect(screen.getByText(itCore['jobBoard.assisted.employerResponse.emailHint'])).toBeTruthy();
+    expect(screen.getByRole('link', { name: itCore['jobBoard.concierge.openJob'] }).getAttribute('href')).toBe(jobUrl);
+    expect(mocks.updateDoc).not.toHaveBeenCalled();
+  });
+
+  it.each([false, true])('refreshes an advanced order on a stale page (transition during write: %s)', async (duringWrite) => {
+    orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    const submit = await screen.findByRole('button', { name: itCore['jobBoard.assisted.submit'] });
+    const advance = () => { orderData = { ...orderData, submissionStatus: 'submitted' }; };
+    if (duringWrite) mocks.updateDoc.mockImplementationOnce(async () => { advance(); throw { code: 'permission-denied' }; });
+    else advance();
+    await user.click(submit);
+    await screen.findByText(itCore['jobBoard.assisted.review.submitted']);
+    expect(mocks.updateDoc).toHaveBeenCalledTimes(duringWrite ? 1 : 0);
+    expect(screen.queryByText(itCore['jobBoard.assisted.submitError'])).toBeNull();
+    expect(mocks.trackEvent).not.toHaveBeenCalledWith('manual_submission_queued', expect.anything());
+  });
+
+  it('still queues a new intake exactly once', async () => {
+    orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await user.click(await screen.findByRole('button', { name: itCore['jobBoard.assisted.submit'] }));
+    await screen.findByText(itCore['jobBoard.assisted.submittedTitle']);
+    expect(mocks.updateDoc).toHaveBeenCalledTimes(1);
+    expect(mocks.updateDoc).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ submissionStatus: 'ready_for_manual_submission' }));
+    expect(mocks.trackEvent).toHaveBeenCalledWith('manual_submission_queued', expect.anything());
+  });
+
+  it('keeps a genuine intake save failure actionable without retrying the write', async () => {
+    orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
+    mocks.updateDoc.mockRejectedValueOnce(new Error('unavailable'));
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await user.click(await screen.findByRole('button', { name: itCore['jobBoard.assisted.submit'] }));
+    await screen.findByText(itCore['jobBoard.assisted.submitError']);
+    expect(mocks.updateDoc).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: itCore['jobBoard.assisted.submit'] })).toBeEnabled();
+  });
+
   it('records the mandate once, then reveals an enabled CV picker and uploads the selected file', async () => {
     const user = userEvent.setup();
     const { container } = render(<AssistedApplicationUpload orderId={ORDER_ID} />);

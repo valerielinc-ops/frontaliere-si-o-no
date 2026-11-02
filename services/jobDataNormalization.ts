@@ -16,6 +16,7 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 // so every lookup serves a local file (no Clearbit / Google-favicon flakiness).
 // Relative path (not `@/data/...`) so this resolves under Node when build
 // plugins import it without the Vite path-alias resolver kicking in.
+import { normalizeJobCategory as normalizeJobCategoryCore } from './jobCategoryNormalization.mjs';
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
@@ -684,31 +685,6 @@ for (const key of Object.keys(CRAWLED_COMPANY_LOGOS)) {
  }
 }
 
-const CATEGORY_ALIASES: Record<string, CanonicalJobCategory> = {
- tech: 'tech',
- it: 'tech',
- software: 'tech',
- engineering: 'engineering',
- 'quality assurance': 'engineering',
- quality: 'engineering',
- operations: 'engineering',
- production: 'engineering',
- regulatory: 'health',
- 'medical affairs': 'health',
- health: 'health',
- healthcare: 'health',
- finance: 'finance',
- admin: 'admin',
- administration: 'admin',
- hr: 'admin',
- 'human resources': 'admin',
- 'general services': 'admin',
- sales: 'sales',
- marketing: 'sales',
- hospitality: 'hospitality',
- other: 'other',
-};
-
 function normalizeText(value: unknown): string {
  return String(value || '')
  .trim()
@@ -757,28 +733,7 @@ function looksLike(value: string, regex: RegExp): boolean {
 }
 
 export function normalizeJobCategory(raw: unknown, hintText = ''): CanonicalJobCategory {
- const rawNorm = normalizeText(raw);
- const hintNorm = normalizeText(hintText);
-
- if (rawNorm && CATEGORY_ALIASES[rawNorm]) {
- if (rawNorm === 'general services' && looksLike(hintNorm, /(manutent|mainten|elettro|mechanic|tecnic|facility)/)) {
- return 'engineering';
- }
- return CATEGORY_ALIASES[rawNorm];
- }
-
- const combined = `${rawNorm} ${hintNorm}`.trim();
- if (!combined) return 'other';
-
- if (looksLike(combined, /(web developer|software|sistemista|devops|cloud|robotics|c\+\+)/)) return 'tech';
- if (looksLike(combined, /(manutent|mainten|elettro|mechanic|ingegner|engineer|fresator|tornitor|quality|operations|production|r d|research|sviluppo)/)) return 'engineering';
- if (looksLike(combined, /(medical|clinical|healthcare|health care|medic|orthopedic|orthopaedic|regulatory|medical affairs)/)) return 'health';
- if (looksLike(combined, /(finance|account|audit|treasury|contabil|controll)/)) return 'finance';
- if (looksLike(combined, /(sales|marketing|commercial|product manager|business development|communication)/)) return 'sales';
- if (looksLike(combined, /(hr|human resources|recruit|talent|admin|amministr|servizi general|event|travel)/)) return 'admin';
- if (looksLike(combined, /(hotel|hospitality|ristor|bar|chef|camerier)/)) return 'hospitality';
-
- return 'other';
+ return normalizeJobCategoryCore(raw, hintText) as CanonicalJobCategory;
 }
 
 export function normalizeJobContract(raw: unknown, title = '', description = ''): CanonicalContractType {

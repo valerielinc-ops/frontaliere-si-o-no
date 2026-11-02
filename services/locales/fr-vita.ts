@@ -336,6 +336,7 @@ const frVita: Record<string, string> = {
  'profile.paidApplications.status.needsCandidate': 'Une action est requise de votre part',
  'profile.paidApplications.status.underReview': 'En vérification',
  'profile.paidApplications.status.submitted': 'Envoyée à l’employeur',
+ 'profile.paidApplications.status.withdrawn': "Retirée",
  'profile.paidApplications.status.refunded': 'Remboursée',
  'profile.paidApplications.help.awaitingMaterials': 'Importez votre CV pour démarrer la candidature.',
  'profile.paidApplications.help.needsCandidate': 'Nous vous avons envoyé un e-mail avec l’étape à compléter.',
