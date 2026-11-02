@@ -76,6 +76,7 @@ scripts/lib/dup-stoplist.mjs
 scripts/lib/ensure-chromium.mjs
 scripts/lib/events-digest-content.mjs
 scripts/lib/events-utils.mjs
+scripts/lib/eventsSections.mjs
 scripts/lib/evergreen-article-refresh.mjs
 scripts/lib/evergreen-topic-generator.mjs
 scripts/lib/extract-article-text.mjs
@@ -245,6 +246,7 @@ scripts/lib/topic-sources/wordpressSearch.mjs
 # imports it by a relative specifier from here, so it is invisible to the
 # closure check and stays prose.
 build-plugins/borderWaitData.ts
+build-plugins/shared/eventSlugMigrationMarker.mjs
 data/borderCrossings.ts
 data/canton-url-slugs.json
 data/municipalities.ts
