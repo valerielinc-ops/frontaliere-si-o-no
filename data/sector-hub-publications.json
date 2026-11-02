@@ -64,7 +64,10 @@
       "routeKind": "dynamic",
       "label": "Tecnica",
       "labelByLocale": {
-        "it": "Tecnica"
+        "it": "Tecnica",
+        "en": "Technical",
+        "de": "Technik",
+        "fr": "techniques"
       },
       "sourceFields": [
         "category"

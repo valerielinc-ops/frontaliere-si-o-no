@@ -18,6 +18,9 @@ import { isListingInventoryJob, normalizeListingIdentity } from '../../services/
 import { jobQueuedAtMs, jobTrafficScore } from './job-traffic-priority.mjs';
 import { isFixtureJob } from './fixture-data-filter.mjs';
 import {
+  AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS,
+  AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS,
+  AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS,
   AUTO_SECTOR_HUB_MIN_EMPLOYERS,
   AUTO_SECTOR_HUB_MIN_JOBS,
   type SectorHubPublication,
@@ -26,7 +29,8 @@ import {
 
 export const HUB_DISCOVERY_WINDOW_DAYS = 28;
 export const MIN_TRACKED_JOBS = 3;
-export const MIN_PROMISING_JOBS = 8;
+export const MIN_PROMISING_JOBS = AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS;
+export const MIN_PROMISING_EMPLOYERS = AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS;
 export const MIN_PROMOTION_JOBS = AUTO_SECTOR_HUB_MIN_JOBS;
 export const MIN_PROMOTION_EMPLOYERS = AUTO_SECTOR_HUB_MIN_EMPLOYERS;
 export const MIN_PROMOTION_WEEKS = 1;
@@ -646,7 +650,7 @@ export function buildSectorHubDiscoveryReport({
       lastSeenAt: generatedAt,
       automaticPromotionEligible,
       status: automaticPromotionEligible ? 'eligible-for-publication'
-        : activeJobCount >= MIN_PROMISING_JOBS && employers.size >= 3 && trafficEvidence ? 'promising' : 'watch',
+        : activeJobCount >= MIN_PROMISING_JOBS && employers.size >= MIN_PROMISING_EMPLOYERS && trafficEvidence ? 'promising' : 'watch',
       requiresCuratedTaxonomy: !automaticPromotionEligible,
       slugConflict: slugConflicts,
     });
@@ -693,6 +697,11 @@ export function buildSectorHubDiscoveryReport({
       minActiveJobs: MIN_PROMOTION_JOBS,
       minDistinctEmployers: MIN_PROMOTION_EMPLOYERS,
       minConsecutiveWeeks: MIN_PROMOTION_WEEKS,
+      reactivation: {
+        minActiveJobs: AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS,
+        minDistinctEmployers: AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS,
+        minConsecutiveWeeks: AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS,
+      },
       requiresTrafficEvidence: true,
       trafficEvidenceRule: 'Automatic publication needs at least one positive signal from a fresh or complete traffic source plus minimum inventory and employer counts.',
       trafficSources: ['active-ad views', 'GA4 job-page sessions', 'GSC impressions and clicks'],
@@ -806,9 +815,10 @@ function samePublicationState(
 /**
  * Promote all quality-qualified candidates into the compact public registry.
  * The weekly lifecycle has hysteresis: a missing gate moves an active hub to
- * cooling-off, a second consecutive miss retires it, and a recovered hub is
- * reactivated. The registry changes only when its published state changes,
- * so weekly evidence refreshes do not dispatch a needless site deployment.
+ * cooling-off and a second consecutive miss retires it. Automatic recovery
+ * needs two consecutive eligible weeks plus the existing promising-candidate
+ * inventory floor (8 jobs / 3 employers). A non-empty retirementReason is an
+ * owner-directed lock and is never cleared by discovery.
  */
 export function buildAutomaticSectorHubPublicationRegistry({
   report,
@@ -836,7 +846,16 @@ export function buildAutomaticSectorHubPublicationRegistry({
   };
   const previousBySlug = new Map(previousHubs.map((hub) => [hub.slug, hub]));
   const qualifying = report.candidates
-    .filter((candidate) => qualifiesForAutomaticPublication(candidate))
+    .filter((candidate) => {
+      if (!qualifiesForAutomaticPublication(candidate)) return false;
+      const old = previousBySlug.get(candidate.suggestedSlug);
+      if (!old) return true;
+      if (old.retirementReason?.trim()) return false;
+      if (old.status !== 'retired') return true;
+      return candidate.activeJobCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
+        && candidate.employerCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS
+        && candidate.consecutiveWeeks >= AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS;
+    })
     .sort((a, b) => b.activeJobCount - a.activeJobCount || a.suggestedSlug.localeCompare(b.suggestedSlug));
   const qualifyingSlugs = new Set(qualifying.map((candidate) => candidate.suggestedSlug));
   const currentBySlug = new Map(report.candidates.map((candidate) => [candidate.suggestedSlug, candidate]));
@@ -869,6 +888,12 @@ export function buildAutomaticSectorHubPublicationRegistry({
 
   for (const old of previousHubs) {
     if (qualifyingSlugs.has(old.slug)) continue;
+    // Owner-directed retirements are durable regardless of subsequent
+    // inventory; only an explicit registry edit can remove this reason.
+    if (old.retirementReason?.trim()) {
+      hubs.push(old);
+      continue;
+    }
     // The report is capped. An absent slug may have fallen below MAX_CANDIDATES
     // rather than lost its live inventory, so only an observed miss advances
     // the retirement lifecycle.

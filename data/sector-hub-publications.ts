@@ -4,6 +4,12 @@ export type SectorHubPublicationStatus = 'active' | 'cooling-off' | 'retired';
 
 export const AUTO_SECTOR_HUB_MIN_JOBS = 5;
 export const AUTO_SECTOR_HUB_MIN_EMPLOYERS = 2;
+// Recovery uses the existing "promising candidate" inventory floor as a
+// hysteresis band above first publication. A retired page needs headroom to
+// return automatically, so small 4/5 inventory swings do not oscillate.
+export const AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS = 8;
+export const AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS = 3;
+export const AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS = 2;
 
 export interface SectorHubPublication {
   slug: string;
@@ -14,6 +20,12 @@ export interface SectorHubPublication {
   matchLabels: string[];
   firstPublishedAt: string;
   status: SectorHubPublicationStatus;
+  /**
+   * A non-empty value marks an explicit, owner-directed retirement and blocks
+   * automatic recovery. Omit it for retirements produced by the inventory
+   * lifecycle; legacy retired entries without this field are automatic.
+   */
+  retirementReason?: string;
 }
 
 export interface SectorHubPublicationRegistry {
@@ -76,7 +88,12 @@ export function isIndexableSectorHubPublication(
   employerCount: number,
   locale?: SectorPublicationLocale,
 ): boolean {
-  return publication.status === 'active'
+  const automaticallyRecovered = publication.status === 'retired'
+    && !publication.retirementReason?.trim()
+    && activeJobCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS
+    && employerCount >= AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS;
+  return !publication.retirementReason?.trim()
+    && (publication.status === 'active' || automaticallyRecovered)
     && (locale === undefined || Boolean(publication.labelByLocale[locale]?.trim()))
     && activeJobCount >= AUTO_SECTOR_HUB_MIN_JOBS
     && employerCount >= AUTO_SECTOR_HUB_MIN_EMPLOYERS;

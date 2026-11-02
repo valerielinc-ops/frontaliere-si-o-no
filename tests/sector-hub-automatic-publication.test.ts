@@ -1,5 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, expect, it, vi } from 'vitest';
 import {
+  AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS,
+  AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS,
+  AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS,
   AUTO_SECTOR_HUB_MIN_EMPLOYERS,
   AUTO_SECTOR_HUB_MIN_JOBS,
   isIndexableSectorHubPublication,
@@ -16,7 +22,14 @@ import {
   buildAutoSectorHubPath,
   buildJobCategoryPath,
 } from '../build-plugins/shared/autoSectorHubPaths';
-import { buildAutoSectorHubPage } from '../build-plugins/autoSectorHubPagesPlugin';
+import {
+  autoSectorHubPagesPlugin,
+  buildAutoSectorHubPage,
+} from '../build-plugins/autoSectorHubPagesPlugin';
+import {
+  listIndexableAutoSectorHubLinks,
+  readAutoSectorHubInventory,
+} from '../build-plugins/shared/autoSectorHubPublicationData';
 import { AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/autoSectorHubNoindexTargetMarker.mjs';
 import { SECTOR_HUB_SECTION } from '../build-plugins/shared/jobSectorPaths';
 import { BASE_URL } from '../build-plugins/constants';
@@ -87,12 +100,12 @@ describe('automatic sector hub publication', () => {
     }
   });
 
-  it('declares retired-sector bridges even when their live inventory is substantial', () => {
+  it('automatically recovers retired hubs after crossing the inventory hysteresis band', () => {
     const publication = {
       slug: 'tecnica',
       routeKind: 'dynamic' as const,
       label: 'Tecnica',
-      labelByLocale: { it: 'Tecnica' },
+      labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' },
       sourceFields: ['category' as const],
       matchLabels: ['tecnica'],
       firstPublishedAt: '2026-10-20T08:22:55.192Z',
@@ -100,12 +113,38 @@ describe('automatic sector hub publication', () => {
     } as Parameters<typeof buildAutoSectorHubPage>[2];
     const jobs = jobsForCategory('tecnica', 'tecnica', 43, 10, new Date('2026-11-02T00:00:00.000Z')) as unknown as Parameters<typeof buildAutoSectorHubPage>[3];
 
-    const page = buildAutoSectorHubPage('', 'it', publication, jobs, '2026-11-02');
+    expect(AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS).toBe(8);
+    expect(AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS).toBe(3);
+    expect(AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS).toBe(2);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const page = buildAutoSectorHubPage('', locale, publication, jobs, '2026-11-02');
+      const canonicalUrl = `${BASE_URL}${buildAutoSectorHubPath(locale, 'tecnica')}`;
+      const canonical = page.html.match(/<link rel=canonical href="([^"]+)"/)?.[1];
+      const robots = page.html.match(/<meta name=robots content="([^"]+)"/)?.[1];
 
-    expect(page.indexable).toBe(false);
-    expect(page.html).toContain('noindex,follow');
-    expect(page.html).toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
-    expect(page.html).toContain('43');
+      expect(page.indexable).toBe(true);
+      expect(page.html).not.toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
+      expect(robots).toBeDefined();
+      expect(robots).not.toMatch(/noindex/i);
+      expect(canonical).toBe(canonicalUrl);
+      for (const alternateLocale of ['it', 'en', 'de', 'fr'] as const) {
+        expect(page.html).toContain(`${BASE_URL}${buildAutoSectorHubPath(alternateLocale, 'tecnica')}`);
+      }
+    }
+
+    const nearFloorJobs = jobsForCategory(
+      'tecnica', 'tecnica-near-floor', AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS - 1,
+      AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS, new Date('2026-11-02T00:00:00.000Z'),
+    ) as unknown as Parameters<typeof buildAutoSectorHubPage>[3];
+    const bridge = buildAutoSectorHubPage('', 'it', publication, nearFloorJobs, '2026-11-02');
+    expect(bridge.indexable).toBe(false);
+    expect(bridge.html).toContain('noindex,follow');
+    expect(bridge.html).toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
+
+    const explicitlyRetired = { ...publication, retirementReason: 'Owner decision: duplicate hub.' };
+    const explicitBridge = buildAutoSectorHubPage('', 'it', explicitlyRetired, jobs, '2026-11-02');
+    expect(explicitBridge.indexable).toBe(false);
+    expect(explicitBridge.html).toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
   });
 
   it('keeps static category paths owned by the job-board emitter in every locale', () => {
@@ -189,6 +228,182 @@ describe('automatic sector hub publication', () => {
     expect(isIndexableSectorHubPublication(publication, 5, 2, 'it')).toBe(true);
     expect(isIndexableSectorHubPublication(publication, 4, 2, 'it')).toBe(false);
     expect(isIndexableSectorHubPublication(publication, 5, 1, 'it')).toBe(false);
+    expect(isIndexableSectorHubPublication({ ...publication, status: 'retired' }, 8, 3, 'it')).toBe(true);
+    expect(isIndexableSectorHubPublication({ ...publication, status: 'retired' }, 7, 3, 'it')).toBe(false);
+    expect(isIndexableSectorHubPublication({
+      ...publication,
+      status: 'retired',
+      retirementReason: 'Owner decision: duplicate hub.',
+    }, 43, 10, 'it')).toBe(false);
+  });
+
+  it('requires two consecutive recovery weeks and 8 jobs / 3 employers after retirement', () => {
+    const previous = {
+      schemaVersion: 1 as const,
+      generatedAt: '2026-10-30T21:53:11.196Z',
+      sourceWeek: '2026-W44',
+      hubs: [{
+        slug: 'tecnica',
+        routeKind: 'dynamic' as const,
+        label: 'Tecnica',
+        labelByLocale: { it: 'Tecnica' },
+        sourceFields: ['category' as const],
+        matchLabels: ['Tecnica'],
+        firstPublishedAt: '2026-10-20T08:22:55.192Z',
+        status: 'retired' as const,
+      }],
+    };
+    const recover = (candidate: {
+      activeJobCount: number;
+      employerCount: number;
+      consecutiveWeeks: number;
+      automaticPromotionEligible?: boolean;
+    }) => buildAutomaticSectorHubPublicationRegistry({
+      previous,
+      report: {
+        generatedAt: '2026-11-09T06:00:00.000Z',
+        week: '2026-W46',
+        candidates: [{
+          label: 'Tecnica',
+          suggestedSlug: 'tecnica',
+          sourceLocale: 'it',
+          labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' },
+          automaticPromotionEligible: candidate.automaticPromotionEligible ?? true,
+          sourceFields: ['category'],
+          alternateLabels: [],
+          activeJobCount: candidate.activeJobCount,
+          employerCount: candidate.employerCount,
+          activeJobsWithViews: candidate.activeJobCount,
+          viewsPerLiveDay: 1,
+          ga4Sessions28d: 0,
+          gscJobPageImpressions28d: 0,
+          consecutiveWeeks: candidate.consecutiveWeeks,
+          status: 'eligible-for-publication',
+          slugConflict: false,
+        }],
+      },
+    }).hubs[0];
+
+    expect(recover({ activeJobCount: 7, employerCount: 3, consecutiveWeeks: 3 }).status).toBe('retired');
+    expect(recover({ activeJobCount: 8, employerCount: 3, consecutiveWeeks: 1 }).status).toBe('retired');
+    expect(recover({ activeJobCount: 8, employerCount: 3, consecutiveWeeks: 2 }).status).toBe('active');
+    expect(recover({ activeJobCount: 43, employerCount: 10, consecutiveWeeks: 2 })?.labelByLocale)
+      .toEqual({ it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' });
+  });
+
+  it('keeps explicit owner retirements locked even when inventory and traffic gates recover', () => {
+    const previous = {
+      schemaVersion: 1 as const,
+      generatedAt: '2026-10-30T21:53:11.196Z',
+      sourceWeek: '2026-W44',
+      hubs: [{
+        slug: 'tecnica',
+        routeKind: 'dynamic' as const,
+        label: 'Tecnica',
+        labelByLocale: { it: 'Tecnica' },
+        sourceFields: ['category' as const],
+        matchLabels: ['Tecnica'],
+        firstPublishedAt: '2026-10-20T08:22:55.192Z',
+        status: 'retired' as const,
+        retirementReason: 'Owner decision: duplicate of another dedicated hub.',
+      }],
+    };
+    const registry = buildAutomaticSectorHubPublicationRegistry({
+      previous,
+      report: {
+        generatedAt: '2026-11-09T06:00:00.000Z',
+        week: '2026-W46',
+        candidates: [{
+          label: 'Tecnica',
+          suggestedSlug: 'tecnica',
+          sourceLocale: 'it',
+          labelByLocale: { it: 'Tecnica' },
+          automaticPromotionEligible: true,
+          sourceFields: ['category'],
+          alternateLabels: [],
+          activeJobCount: 43,
+          employerCount: 10,
+          activeJobsWithViews: 43,
+          viewsPerLiveDay: 1,
+          ga4Sessions28d: 10,
+          gscJobPageImpressions28d: 100,
+          consecutiveWeeks: 20,
+          status: 'eligible-for-publication',
+          slugConflict: false,
+        }],
+      },
+    });
+
+    expect(registry.hubs[0]).toMatchObject({
+      status: 'retired',
+      retirementReason: 'Owner decision: duplicate of another dedicated hub.',
+    });
+  });
+
+  it('emits recovered locale pages, sitemap alternates, build log and sector-directory links', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'auto-sector-hub-recovery-'));
+    const distDir = path.join(rootDir, 'dist');
+    const dataDir = path.join(rootDir, 'data');
+    fs.mkdirSync(distDir, { recursive: true });
+    fs.mkdirSync(dataDir, { recursive: true });
+    const publication = {
+      slug: 'tecnica',
+      routeKind: 'dynamic' as const,
+      label: 'Tecnica',
+      labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'techniques' },
+      sourceFields: ['category' as const],
+      matchLabels: ['Tecnica'],
+      firstPublishedAt: '2026-10-20T08:22:55.192Z',
+      status: 'retired' as const,
+    };
+    const jobs = jobsForCategory('Tecnica', 'tecnica', 43, 10, new Date('2026-11-02T00:00:00.000Z'));
+    fs.writeFileSync(path.join(dataDir, 'sector-hub-publications.json'), JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: '2026-10-30T21:53:11.196Z',
+      sourceWeek: '2026-W44',
+      hubs: [publication],
+    }));
+    fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify(jobs));
+    const inventory = readAutoSectorHubInventory(rootDir);
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    try {
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        expect(listIndexableAutoSectorHubLinks(inventory, locale)).toContainEqual({
+          slug: 'tecnica',
+          href: buildAutoSectorHubPath(locale, 'tecnica'),
+          label: publication.labelByLocale[locale],
+        });
+      }
+
+      const plugin = autoSectorHubPagesPlugin(rootDir);
+      if (typeof plugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
+      const closeBundle = plugin.closeBundle as () => Promise<void>;
+      await closeBundle();
+
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const localePath = buildAutoSectorHubPath(locale, 'tecnica');
+        const html = fs.readFileSync(path.join(distDir, localePath.slice(1), 'index.html'), 'utf-8');
+        const canonical = html.match(/<link rel=canonical href="([^"]+)"/)?.[1];
+        const robots = html.match(/<meta name=robots content="([^"]+)"/)?.[1];
+        expect(html).not.toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
+        expect(robots).toBeDefined();
+        expect(robots).not.toMatch(/noindex/i);
+        expect(canonical).toBe(`${BASE_URL}${localePath}`);
+        for (const alternateLocale of ['it', 'en', 'de', 'fr'] as const) {
+          expect(html).toContain(`${BASE_URL}${buildAutoSectorHubPath(alternateLocale, 'tecnica')}`);
+        }
+      }
+      const sitemap = fs.readFileSync(path.join(distDir, 'sitemap-auto-sector-hubs.xml'), 'utf-8');
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        expect(sitemap).toContain(`<loc>${BASE_URL}${buildAutoSectorHubPath(locale, 'tecnica')}</loc>`);
+        expect(sitemap).toContain(`hreflang="${locale}"`);
+      }
+      expect(log.mock.calls.flat().join('\n')).toContain('automatically reactivated 1 retired hub(s): tecnica (43 offers, 10 employers)');
+    } finally {
+      log.mockRestore();
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
   });
 
   it('drops prior locale labels when a candidate source label changes', () => {
