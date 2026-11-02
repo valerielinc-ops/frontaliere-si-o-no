@@ -142,6 +142,34 @@ describe('missing company-logo acquisition', () => {
     }
   });
 
+  it('uses only a verified SECO employer website domain in audit mode', () => {
+    const secoMetadata = metadataFromJobs([{
+      company: 'Adecco SA',
+      companyKey: 'seco-jobroom',
+      companyLogoKey: 'adecco-sa',
+      companyDomain: 'adecco.com',
+      companyDomainSource: 'seco-jobroom-api-company-website',
+    }]).get('adecco-sa')!;
+    expect([...secoMetadata.verifiedEmployerDomains]).toEqual(['adecco.com']);
+    expect(domainCandidates('adecco-sa', secoMetadata, { fromAudit: true })).toEqual(['adecco.com']);
+
+    const genericMetadata = metadataFromJobs([{
+      company: 'Example AG',
+      companyKey: 'generic-crawler',
+      companyDomain: 'unverified-name-derived.example',
+    }]).get('generic-crawler')!;
+    expect([...genericMetadata.verifiedEmployerDomains]).toEqual([]);
+    expect(domainCandidates('generic-crawler', genericMetadata, { fromAudit: true })).toEqual([]);
+
+    const unmarkedSecoMetadata = metadataFromJobs([{
+      company: 'Adecco SA',
+      companyKey: 'seco-jobroom',
+      companyLogoKey: 'adecco-sa',
+      companyDomain: 'adecco.com',
+    }]).get('adecco-sa')!;
+    expect(domainCandidates('adecco-sa', unmarkedSecoMetadata, { fromAudit: true })).toEqual([]);
+  });
+
   it('declares an official domain for every company in the current #6504 residual', () => {
     for (const [key, domains] of Object.entries(CURRENT_RESIDUAL_DOMAIN_OVERRIDES)) {
       expect(DOMAIN_OVERRIDES[key]).toEqual(domains);

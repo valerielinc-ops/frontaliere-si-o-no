@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
-import { scopedEmployerKey } from './lib/ticino-comune-employer-identity.mjs';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { renderBrandJobCard } from '../functions/src/assistedApplicationEmailLayout.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import { companyLogoKeyForJob } from './lib/company-logo-key.mjs';
 /**
  * FRO-333: Send Job Alert emails to subscribed users.
  *
@@ -736,7 +736,7 @@ function resolveAvatarSrc(job) {
   // grey globe for domains it can't resolve (and the wrong logo for aggregator
   // hosts), both of which look broken in an inbox. A null result renders the
   // coloured initial-letter avatar instead.
-  const bundled = brandLogoUrl(job.company, scopedEmployerKey(job));
+  const bundled = brandLogoUrl(job.company, companyLogoKeyForJob(job));
   if (bundled) return { src: bundled, kind: 'bundled' };
   return null;
 }

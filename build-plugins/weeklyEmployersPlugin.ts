@@ -1,4 +1,8 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import {
+  companyLogoKeyForJob,
+  EMPLOYER_SCOPED_LOGO_SOURCE_KEYS,
+} from '../scripts/lib/company-logo-key.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -216,6 +220,7 @@ export interface WeeklyCountableJob {
   company?: string;
   companyKey?: string;
   municipalityKey?: string;
+  companyLogoKey?: string | null;
   location?: string;
   addressLocality?: string;
   postingDateSource?: string;
@@ -262,6 +267,7 @@ export interface JobsSnapshot {
     slug: string;
     employer: string;
     employerKey?: string;
+    companyLogoKey?: string;
     city: string;
     role?: string;
     postingDateSource?: string;
@@ -276,10 +282,11 @@ export interface CityWeeklyStats {
   topCompanies: Array<{
     employer: string;
     employerKey?: string;
+    companyLogoKey?: string;
     active: number;
     delta: number; // current active - previous active (0 if no history)
   }>;
-  newcomers: Array<{ employer: string; employerKey?: string; active: number }>;
+  newcomers: Array<{ employer: string; employerKey?: string; companyLogoKey?: string; active: number }>;
   topRoles: Array<{ role: string; count: number }>;
 }
 
@@ -331,8 +338,15 @@ export function jobMatchesCity(
   return candidates.some((c) => c.includes(needle));
 }
 
-function normEmployerKey(company: string, companyKey?: string): string {
-  const raw = (companyKey || company || '').trim().toLowerCase();
+function normEmployerKey(company: string, companyKey?: string, companyLogoKey?: string | null): string {
+  const normalizedCompanyKey = String(companyKey || '').trim();
+  // Only sources that share one crawler key across employers need a derived
+  // grouping key. Other families, including Ticino municipalities, keep their
+  // existing company identity; their logo key may be narrower than the group.
+  const scopedKey = EMPLOYER_SCOPED_LOGO_SOURCE_KEYS.includes(normalizedCompanyKey.toLowerCase())
+    ? companyLogoKeyForJob({ company, companyKey: normalizedCompanyKey.toLowerCase(), companyLogoKey })
+    : normalizedCompanyKey;
+  const raw = (scopedKey || company || '').trim().toLowerCase();
   return raw
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -433,7 +447,7 @@ export function partitionWeeklyEmployerJobs(
     if (jobIsActive(job, 'it')) {
       const company = String(job.company || '').trim();
       if (company) {
-        const key = normEmployerKey(company, job.companyKey);
+        const key = normEmployerKey(company, job.companyKey, job.companyLogoKey);
         if (key) {
           for (const city of WEEKLY_EMPLOYERS_COMPANY_CITY_LIST) {
             if (!jobMatchesCity(job, city)) continue;
@@ -650,7 +664,7 @@ export function buildCantonJobsIndex(
     bucket.jobs.push(job);
     const company = String(job.company || '').trim();
     if (!company) continue;
-    const key = normEmployerKey(company, job.companyKey);
+    const key = normEmployerKey(company, job.companyKey, job.companyLogoKey);
     if (!key) continue;
     const list = bucket.byEmployer.get(key);
     if (list) list.push(job);
@@ -729,12 +743,12 @@ export function buildCityWeeklyStats(opts: {
   // Count per employer (active)
   const activeCounts = new Map<
     string,
-    { employer: string; employerKey?: string; active: number }
+    { employer: string; employerKey?: string; companyLogoKey?: string; active: number }
   >();
   for (const j of cityJobs) {
     const company = String(j.company || '').trim();
     if (!company) continue;
-    const key = normEmployerKey(company, j.companyKey);
+    const key = normEmployerKey(company, j.companyKey, j.companyLogoKey);
     const rec = activeCounts.get(key);
     if (rec) {
       rec.active++;
@@ -742,6 +756,7 @@ export function buildCityWeeklyStats(opts: {
       activeCounts.set(key, {
         employer: company,
         employerKey: j.companyKey || key,
+        companyLogoKey: companyLogoKeyForJob(j) || undefined,
         active: 1,
       });
     }
@@ -761,7 +776,7 @@ export function buildCityWeeklyStats(opts: {
           continue;
         }
       }
-      const key = normEmployerKey(row.employer || '', row.employerKey);
+      const key = normEmployerKey(row.employer || '', row.employerKey, row.companyLogoKey);
       prevCounts.set(key, (prevCounts.get(key) || 0) + 1);
     }
   }
@@ -771,13 +786,13 @@ export function buildCityWeeklyStats(opts: {
   const historicallyKnown = new Set<string>();
   for (const snap of historicalSnapshots) {
     for (const row of snap.jobs || []) {
-      const key = normEmployerKey(row.employer || '', row.employerKey);
+      const key = normEmployerKey(row.employer || '', row.employerKey, row.companyLogoKey);
       if (key) historicallyKnown.add(key);
     }
   }
   if (previousSnapshot?.jobs) {
     for (const row of previousSnapshot.jobs) {
-      const key = normEmployerKey(row.employer || '', row.employerKey);
+      const key = normEmployerKey(row.employer || '', row.employerKey, row.companyLogoKey);
       if (key) historicallyKnown.add(key);
     }
   }
@@ -788,6 +803,7 @@ export function buildCityWeeklyStats(opts: {
       return {
         employer: rec.employer,
         employerKey: rec.employerKey,
+        companyLogoKey: rec.companyLogoKey,
         active: rec.active,
         delta: rec.active - prev,
       };
@@ -803,6 +819,7 @@ export function buildCityWeeklyStats(opts: {
     .map(([key, rec]) => ({
       employer: rec.employer,
       employerKey: rec.employerKey ?? key,
+      companyLogoKey: rec.companyLogoKey,
       active: rec.active,
     }))
     .sort((a, b) => b.active - a.active)
@@ -890,6 +907,7 @@ export interface CompanyCityActiveJob {
    */
   companySlug?: string;
   municipalityKey?: string;
+  companyLogoKey?: string;
 }
 
 export interface CompanyCityStats {
@@ -910,6 +928,8 @@ export interface CompanyCityStats {
   avgSalary?: number;
   /** Company domain (e.g. "lonza.com") for favicon-based logo fallback. */
   companyDomain?: string;
+  /** Employer-scoped key for multi-employer sources such as SECO/job-room. */
+  companyLogoKey?: string;
 }
 
 /**
@@ -1049,7 +1069,7 @@ export function buildCompanyCityStats(opts: {
         if (!jobMatchesCity(j, city)) return false;
         const company = String(j.company || '').trim();
         if (!company) return false;
-        const jobKey = normEmployerKey(company, j.companyKey);
+        const jobKey = normEmployerKey(company, j.companyKey, j.companyLogoKey);
         return jobKey === employerKey;
       });
 
@@ -1118,6 +1138,7 @@ export function buildCompanyCityStats(opts: {
           ? j.addressLocality.trim()
           : undefined,
       companySlug,
+      companyLogoKey: companyLogoKeyForJob(j) || undefined,
     };
   });
 
@@ -1126,7 +1147,7 @@ export function buildCompanyCityStats(opts: {
   if (previousSnapshot?.jobs) {
     for (const row of previousSnapshot.jobs) {
       if (!row.employer) continue;
-      const rowKey = normEmployerKey(row.employer, row.employerKey);
+      const rowKey = normEmployerKey(row.employer, row.employerKey, row.companyLogoKey);
       if (rowKey !== employerKey) continue;
       if (
         !String(row.city || '')
@@ -1177,6 +1198,7 @@ export function buildCompanyCityStats(opts: {
     topRoles,
     avgSalary,
     companyDomain: String(matching[0]?.companyDomain || '').trim() || undefined,
+    companyLogoKey: companyLogoKeyForJob(matching[0]) || undefined,
   };
 }
 
@@ -1227,7 +1249,7 @@ export function enumerateCompanyCityPairs(
         if (!jobMatchesCity(j, city)) continue;
         const company = String(j.company || '').trim();
         if (!company) continue;
-        const key = normEmployerKey(company, j.companyKey);
+        const key = normEmployerKey(company, j.companyKey, j.companyLogoKey);
         if (!key) continue;
         const rec = counts.get(key);
         if (rec) rec.active++;
@@ -1299,7 +1321,7 @@ export function findOrphanedCompanyCityPairs(
         skippedEmptyEmployer++;
         continue;
       }
-      const employerKey = normEmployerKey(employer, job.employerKey);
+      const employerKey = normEmployerKey(employer, job.employerKey, job.companyLogoKey);
       if (!employerKey) continue;
       const cityLower = String(job.city || '').toLowerCase();
       if (!cityLower) continue;
@@ -2448,7 +2470,7 @@ export interface TopHubPageInputs {
    * employer names on the hub itself, not 2 clicks deeper. Optional so
    * existing callers/tests that only need the city-index keep working.
    */
-  topCompanies?: ReadonlyArray<{ employer: string; employerKey?: string; active: number; delta: number }>;
+  topCompanies?: ReadonlyArray<{ employer: string; employerKey?: string; companyLogoKey?: string; active: number; delta: number }>;
   /** Company slug registry — resolves curated brand-hub links for the top-companies cards. */
   knownSlugs?: ReadonlySet<string>;
   /** Canonical slugs for the emitted `/aziende/<slug>/` employer profiles. */
@@ -2597,12 +2619,15 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
           ? copy.deltaPositive(c.delta)
           : copy.deltaZero;
       const href = employerBrandPath(c.employerKey, c.employer, inp.knownSlugs) ?? cityJobsHubPath(locale, 'ticino');
-      const logoSlug = c.employerKey || slugifyEmployer(c.employer);
+      const logoSlug = c.companyLogoKey
+        || companyLogoKeyForJob({ company: c.employer, companyKey: c.employerKey })
+        || slugifyEmployer(c.employer);
       const explicitLogo = logoUrlForRenderedOutput(inp.rootDir ? resolveBrandLogoUrl(inp.rootDir, logoSlug) : null) ?? null;
       return {
         employer: {
           name: c.employer,
           companyKey: c.employerKey ?? undefined,
+          companyLogoKey: c.companyLogoKey,
           logo: explicitLogo,
           rank: idx + 1,
           subtitle: deltaLabel ?? undefined,
@@ -3045,12 +3070,15 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       const subtitle = deltaLabel
         ? `${cityDisplay} · ${deltaLabel}`
         : cityDisplay;
-      const logoSlug = c.employerKey || slugifyEmployer(c.employer);
+      const logoSlug = c.companyLogoKey
+        || companyLogoKeyForJob({ company: c.employer, companyKey: c.employerKey })
+        || slugifyEmployer(c.employer);
       const explicitLogo = logoUrlForRenderedOutput(rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null) ?? null;
       return {
         employer: {
           name: c.employer,
           companyKey: c.employerKey ?? undefined,
+          companyLogoKey: c.companyLogoKey,
           logo: explicitLogo,
           rank: idx + 1,
           subtitle,
@@ -3087,12 +3115,15 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       return `<p class="s-R4vH2z">${esc(copy.newcomersEmpty)}</p>`;
     }
     const items = stats.newcomers.map((n) => {
-      const logoSlug = n.employerKey || slugifyEmployer(n.employer);
+      const logoSlug = n.companyLogoKey
+        || companyLogoKeyForJob({ company: n.employer, companyKey: n.employerKey })
+        || slugifyEmployer(n.employer);
       const explicitLogo = logoUrlForRenderedOutput(rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null) ?? null;
       return {
         employer: {
           name: n.employer,
           companyKey: n.employerKey ?? undefined,
+          companyLogoKey: n.companyLogoKey,
           logo: explicitLogo,
           subtitle: `${cityDisplay} · ${newcomerBadge[locale]}`,
           metric: copy.jobsCountLabel(n.active),
@@ -3579,7 +3610,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // source the SPA job-board uses, so cards on this page match the listing
   // exactly). Falls back to a local `public/images/brands/{slug}.png` if the
   // registry has no entry, then to the neutral building icon.
-  const brandLogoSlug = stats.employerKey || slugifyEmployer(employer);
+  const brandLogoSlug = stats.companyLogoKey || stats.employerKey || slugifyEmployer(employer);
   const brandLogoUrl = logoUrlForRenderedOutput(
     (CRAWLED_COMPANY_LOGOS[brandLogoSlug] as string | undefined) ??
     (rootDir ? resolveBrandLogoUrl(rootDir, brandLogoSlug) : null) ??
@@ -3587,6 +3618,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       company: employer,
       companyKey: stats.employerKey,
       municipalityKey: stats.municipalityKey,
+      companyLogoKey: stats.companyLogoKey,
       companyDomain: stats.companyDomain,
     }),
   );
@@ -3627,6 +3659,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
               company: employer,
               companyKey: stats.employerKey,
               municipalityKey: job.municipalityKey,
+              companyLogoKey: job.companyLogoKey,
               location: job.addressLocality || cityDisplay,
               addressLocality: job.addressLocality || cityDisplay,
               canton: job.addressRegion,
@@ -4209,7 +4242,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   const totalCompanies = new Set(
     opts.jobs
       .filter((j) => jobIsActive(j, 'it'))
-      .map((j) => normEmployerKey(String(j.company || ''), j.companyKey))
+      .map((j) => normEmployerKey(String(j.company || ''), j.companyKey, j.companyLogoKey))
       .filter((k) => k.length > 0),
   ).size;
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
@@ -4329,6 +4362,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         title: row.role || 'Posizione',
         company: row.employer,
         companyKey: row.employerKey,
+        companyLogoKey: row.companyLogoKey,
         location: row.city,
         addressLocality: row.city,
         postingDateSource: row.postingDateSource,
@@ -4737,6 +4771,7 @@ export function renderTopCompaniesSectionForTest(
   topCompanies: ReadonlyArray<{
     employer: string;
     employerKey?: string | null;
+    companyLogoKey?: string | null;
     active: number;
     delta: number;
   }>,
@@ -4766,6 +4801,7 @@ export function renderTopCompaniesSectionForTest(
       employer: {
         name: c.employer,
         companyKey: c.employerKey ?? undefined,
+        companyLogoKey: c.companyLogoKey,
         logo: null,
         rank: idx + 1,
         subtitle,

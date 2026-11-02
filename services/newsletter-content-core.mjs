@@ -21,7 +21,7 @@
  */
 
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
-import { scopedEmployerKey } from '../scripts/lib/ticino-comune-employer-identity.mjs';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
@@ -91,13 +91,13 @@ function loadLogoManifest() {
  * Exported (#5536) so scripts/send-saved-jobs-digest.mjs joins against the
  * SAME manifest the coverage measurement was taken against (72.9% of jobs /
  * 81.16% of companies, `data/company-logos-manifest.json`, 453 companies) —
- * a second companyKey→logo join (e.g. re-deriving from
+ * a second company-key→logo join (e.g. re-deriving from
  * public/images/brands/ like scripts/send-job-alerts.mjs does) would drift
  * from that number.
  */
 export function resolveLogoUrl(job) {
   const manifest = loadLogoManifest();
-  const key = scopedEmployerKey(job);
+  const key = companyLogoKeyForJob(job);
 
   // Self-hosted logo from manifest → absolute URL (CDN host if offloaded).
   // Anything else → null (template falls back to the coloured initial-letter avatar).

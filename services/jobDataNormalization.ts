@@ -18,13 +18,11 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 // plugins import it without the Vite path-alias resolver kicking in.
 import { normalizeJobCategory as normalizeJobCategoryCore } from './jobCategoryNormalization.mjs';
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
 import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
-import {
-  scopedEmployerKey,
-  ticinoComuneEmployerKey,
-} from '../scripts/lib/ticino-comune-employer-identity.mjs';
+import { ticinoComuneEmployerKey } from '../scripts/lib/ticino-comune-employer-identity.mjs';
 
 // Keep shared helpers available from this browser module for independently
 // cached SPA chunks emitted by earlier builds.
@@ -39,6 +37,7 @@ type JobLike = {
  company?: string;
  companyKey?: string | null;
  municipalityKey?: string;
+ companyLogoKey?: string | null;
  companyDomain?: string;
  url?: string;
  /** Publisher-provided logo URL (projected from the publish form, https-only). */
@@ -922,7 +921,7 @@ export function resolveCompanyWebsiteHost(job: JobLike): string {
 }
 
 export function companyLogoLookupKey(job: JobLike): string {
- return scopedEmployerKey(job);
+ return companyLogoKeyForJob(job);
 }
 
 export function resolveCompanyLogoUrl(job: JobLike): string | null {

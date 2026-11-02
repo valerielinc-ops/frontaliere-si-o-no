@@ -49,6 +49,7 @@ export interface JobCardJob {
   company?: string;
   companyKey?: string;
   municipalityKey?: string;
+  companyLogoKey?: string | null;
   location?: string;
   addressLocality?: string;
   canton?: string;

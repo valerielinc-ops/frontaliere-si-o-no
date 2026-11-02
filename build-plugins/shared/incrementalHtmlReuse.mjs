@@ -539,7 +539,7 @@ export function jobsSeoProbeShapeHints(job) {
   };
   return {
     salary: hasText(job.salaryMin) || hasText(job.salaryMax),
-    logo: hasText(job.companyDomain) || hasText(job.companyLogo) || hasText(job.logo),
+    logo: hasText(job.companyDomain) || hasText(job.companyLogo) || hasText(job.companyLogoKey) || hasText(job.logo),
     multiLocation: /[,;/|]|\s(?:e|and|und|et)\s/i.test(location),
     requirements: hasText(job.requirements) || hasText(job.requirementsByLocale),
     street: hasText(job.streetAddress),

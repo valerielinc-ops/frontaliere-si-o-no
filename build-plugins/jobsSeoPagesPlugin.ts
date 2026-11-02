@@ -136,7 +136,8 @@ import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, finalizeJobBoardTitle, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { JOB_TITLE_LOCALE_LABELS, jobTitleLocaleKeys, jobTitleLocaleQualifiers } from './shared/jobTitleLocaleCollision';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
-import { CRAWLED_COMPANY_LOGOS, companyLogoLookupKey, logoUrlForRenderedOutput } from '../services/jobDataNormalization';
+import { resolveCompanyLogoUrlForRenderedOutput } from '../services/jobDataNormalization';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
 import {
  renderJobCardHtml,
  renderJobCardListHtml,
@@ -2943,11 +2944,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // image in every job card of every company without a curated logo.
  const COMPANY_LOGO_JSONLD_FALLBACK = `${BASE_URL}/og-image.png`;
  const companyLogo = (job: any): string => {
- // Publisher-provided logo (projected from the publish form, https-only).
- const ownLogo = String(job?.companyLogo || '').trim();
- if (/^https:\/\/\S+$/i.test(ownLogo)) return logoUrlForRenderedOutput(ownLogo) as string;
- const key = companyLogoLookupKey(job);
- if (key && CRAWLED_COMPANY_LOGOS[key]) return logoUrlForRenderedOutput(CRAWLED_COMPANY_LOGOS[key]) as string;
+ const resolved = resolveCompanyLogoUrlForRenderedOutput(job);
+ if (resolved) return resolved;
  // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
  // where Schema.org expects a value. `renderLogoImg` skips emitting an <img> tag
  // when the resolved URL is this placeholder (saves ~230 B × ~5 occurrences/page).
@@ -5544,7 +5542,7 @@ ${staticAnalyticsHtml}
  slug: cSlug,
  name: companyName,
  jobs: companyJobs.length,
- logoKey: String((companyJobs[0] as any)?.companyKey || (companyJobs[0] as any)?.employerKey || cSlug),
+ logoKey: companyLogoKeyForJob(companyJobs[0]) || cSlug,
  });
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -9894,7 +9892,7 @@ ${staticAnalyticsHtml}
  slug: cSlug,
  name: companyName,
  jobs: companyJobs.length,
- logoKey: String((sortedJobs[0] as any)?.companyKey || (sortedJobs[0] as any)?.employerKey || cSlug),
+ logoKey: companyLogoKeyForJob(sortedJobs[0]) || cSlug,
  });
  // Keep the live total in the intro, but use one shared payload boundary for
  // cards and ItemList so structured data describes every visible card.
