@@ -557,7 +557,7 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
 
     expect(exitCode, 'a failed retirement pass must fail the background step').not.toBe(0);
-    expect(stdout, 'housekeeping failure must be reported').toContain('REPORTED_FAILURE');
+    expect(stdout, 'housekeeping failure must be reported').toContain('TITLE=Crawler Failure: Run test-crawler');
     expect(stdout, 'a failed retirement pass must not publish the slice').not.toContain('COMMIT_RAN');
   });
 
