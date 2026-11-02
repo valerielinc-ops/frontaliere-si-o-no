@@ -87,6 +87,7 @@ jobs:
         id: stale-recovery
         env:
           AUDIT_OUTCOME: ${{ steps.audit-manifest.outcome }}
+          RECOVERY_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l0
         run: |
           set -euo pipefail
@@ -96,7 +97,7 @@ jobs:
             quality="$(jq -r '.quality // empty' "$result" 2>/dev/null || true)"
           fi
           needed=false
-          if [ "$AUDIT_OUTCOME" = 'failure' ] && [ "$quality" = 'stale' ]; then
+          if [ "$AUDIT_OUTCOME" = 'failure' ] && [ "$quality" = 'stale' ] && [ "$RECOVERY_ENABLED" = 'true' ]; then
             needed=true
           fi
           echo "needed=$needed" >> "$GITHUB_OUTPUT"

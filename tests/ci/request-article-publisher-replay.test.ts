@@ -201,6 +201,8 @@ describe('article publisher replay guard', () => {
     expect(audit?.name).toBe('Audit corpus manifest');
     expect(decision?.if).toBe('always()');
     expect(decision?.run).toContain('l0-result.json');
+    expect(decision?.run).toContain('RECOVERY_ENABLED');
+    expect(decision?.run).toContain("[ \"$RECOVERY_ENABLED\" = 'true' ]");
     expect(recovery?.if).toContain("steps.stale-recovery.outputs.needed == 'true'");
     expect(recovery?.run).toContain('request-article-publisher-replay.mjs');
     expect(recovery?.run).toContain('GITHUB_PAT_NANAKO');
