@@ -47,7 +47,9 @@ risposte tardive tramite polling, rilasciato alla rimozione dello slot o allo
 stop del controller. Il recovery usa un solo heartbeat, sospeso sulle route
 escluse e in background, che riparte sugli eventi di navigazione e ritorno
 in primo piano. L'osservatore ordinario ignora le mutazioni estranee ad annunci,
-script Google e messaggi CMP.
+script Google e messaggi CMP. Il bootstrap statico scopre anche slot aggiunti
+dopo il caricamento, conserva un solo monitor di documento senza MutationObserver
+e verifica di nuovo consenso, entitlement e privacy prima di ogni richiesta.
 
 L'integrazione React è un adattamento locale MIT di `@ctrl/react-adsense`:
 mantiene espliciti gli errori e usa il requester condiviso. La versione 3.x
@@ -63,6 +65,11 @@ Gli eventi GA4 `ad_script_state`, `ad_slot_waiting_width`, `ad_slot_error`,
 `ad_recovery_prompt`, `ad_recovery_action` e `ad_recovery_outcome` separano la
 richiesta di aiuto dal risultato: solo un DOM Google filled conferma
 `ads_restored`. `ad_fallback_shown/click/dismiss` misurano il servizio alternativo.
+Nei report GA4, filtrare per `eventName` e usare le dimensioni EVENT già
+registrate: `reason` per la causa, `action` per state/outcome/result o azione,
+`component` per la libreria e `cta_surface` per la superficie del fallback.
+I parametri originari restano nell'evento. Questa mappatura evita di inviare
+stati e risultati consultabili solo nel debug quando la quota dimensioni è piena.
 `ad_unavailable` registra subito i fallimenti degli slot anche quando la
 riserva visibile viene mantenuta per evitare CLS.
 

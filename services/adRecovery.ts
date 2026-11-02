@@ -39,7 +39,13 @@ export function installAdRecovery(
   const storageRead = (key: string) => { try { return sessionStorage.getItem(key); } catch { return null; } };
   const store = (key: string, value: string) => { try { sessionStorage.setItem(key, value); } catch { /* visit-local fallback */ } };
   const hasDecision = () => { try { return /^(granted|denied)$/.test((w as RecoveryWindow & { __ftAdsConsentDecision?: string }).__ftAdsConsentDecision || localStorage.getItem(config.consentKey) || ''); } catch { return false; } };
-  const onScreen = (el: Element) => { const css = getComputedStyle(el); return css.display !== 'none' && css.visibility !== 'hidden'; };
+  const onScreen = (el: Element) => {
+    for (let node: Element | null = el; node; node = node.parentElement) {
+      const css = getComputedStyle(node);
+      if (css.display === 'none' || css.visibility === 'hidden') return false;
+    }
+    return true;
+  };
   const googleMessage = () => Array.from(document.querySelectorAll('.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(onScreen);
   const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-anchor-status="displayed"],[data-ad-state="filled"]');
   const permitted = () => {
@@ -65,9 +71,10 @@ export function installAdRecovery(
     : !hasDecision() ? 'consent_pending'
     : document.querySelector('script[data-ft-script-state="retry_wait"][src*="adsbygoogle.js"],script[data-ft-script-state="loading"][src*="adsbygoogle.js"],script[data-ft-script-state="retry_wait"][src*="gpt.js"],script[data-ft-script-state="loading"][src*="gpt.js"]') ? 'response_pending'
     : document.querySelector('script[data-ft-script-state="waiting_response"][src*="adsbygoogle.js"],script[data-ft-script-state="waiting_response"][src*="gpt.js"]') ? 'script_timeout'
+    : document.querySelector('[data-ft-static-ad-state="loading"],[data-ft-static-ad-state="waiting_response"],[data-ft-ad-state="loading"],[data-ft-ad-state="waiting_response"],[data-ad-state="loading"],[data-ad-state="waiting_response"]') ? 'response_pending'
+    : document.querySelector('script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
     : document.querySelector('ins[data-ad-status="unfilled"]') ? 'no_fill'
     : document.querySelector('[data-ft-ad-width-wait]') ? 'invalid_width'
-    : document.querySelector('script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
     : 'response_pending';
   const reload = () => {
     store('ft_ad_recovery_reload', String(Date.now()));
@@ -197,17 +204,22 @@ export function installAdRecovery(
     cmp.load();
     cmp.subscribe(schedule);
     if (typeof MutationObserver === 'function') {
-      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container';
+      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],[data-ft-ad-state],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container';
       const related = (node: Node) => node.nodeType === 1 && ((node as Element).matches(relevant) || !!(node as Element).querySelector(relevant));
       const observer = new MutationObserver((records) => {
         if (!records.some((record) => {
           if ((record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo')) return false;
-          if (record.type === 'attributes') return (record.target as Element).matches(relevant);
+          if (record.type === 'attributes') {
+            if (record.attributeName === 'class' || record.attributeName === 'style') {
+              return related(record.target) || /(?:^|\s)fc-(?:consent-root|ab-root|monetization-dialog-container)(?:\s|$)/.test(record.oldValue || '');
+            }
+            return (record.target as Element).matches(relevant);
+          }
           return Array.from(record.addedNodes).some(related) || Array.from(record.removedNodes).some(related);
         })) return;
         schedule();
       });
-      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state'] });
+      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state', 'class', 'style'] });
     }
     for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
     document.addEventListener('visibilitychange', () => {

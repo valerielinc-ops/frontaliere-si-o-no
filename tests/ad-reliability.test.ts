@@ -10,6 +10,7 @@ import { ADSENSE_LOADER_CONTENT, FC_ENSURE_JS } from '../build-plugins/constants
 
 let dom: JSDOM;
 let w: any;
+let mutationObservers: Array<{ disconnect: () => void }>;
 const emit = vi.fn();
 function local<T extends (...args: any[]) => any>(fn: T): T { return w.eval(`(${fn.toString()})`); }
 function slot(width: number, layout = 'in-article') {
@@ -21,6 +22,11 @@ beforeEach(() => {
   vi.useFakeTimers(); emit.mockClear();
   dom = new JSDOM('<!doctype html><html lang="it"><head></head><body><main>Article</main></body></html>', { url: 'https://frontaliereticino.ch/articolo/', runScripts: 'outside-only', pretendToBeVisual: true });
   w = dom.window; w.Date = Date;
+  mutationObservers = [];
+  const NativeObserver = w.MutationObserver;
+  w.MutationObserver = class extends NativeObserver {
+    constructor(callback: any) { super(callback); mutationObservers.push(this); }
+  };
   w.adsbygoogle = []; w.gtag = emit;
   w.HTMLDialogElement.prototype.showModal = function () { this.setAttribute('open', ''); };
   w.HTMLDialogElement.prototype.close = function () { this.removeAttribute('open'); };
@@ -29,7 +35,7 @@ beforeEach(() => {
     return { width, height: 100, top: 0, left: 0, bottom: 100, right: width };
   };
 });
-afterEach(() => { dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
+afterEach(() => { mutationObservers.forEach((observer) => observer.disconnect()); dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
 
 describe('shared manual-slot request contract', () => {
   it('boots the entire static ad loader without MutationObserver and cleans removed slots', async () => {
@@ -47,6 +53,23 @@ describe('shared manual-slot request contract', () => {
     expect(el.getAttribute('data-ft-static-ad-state')).toBe('filled');
     el.remove(); await vi.advanceTimersByTimeAsync(1100);
     expect(w.eval('typeof MutationObserver')).toBe('undefined');
+    const next = slot(300); next.className = 'adsbygoogle';
+    await vi.advanceTimersByTimeAsync(1100);
+    expect(w.adsbygoogle).toHaveLength(2);
+    expect(next.getAttribute('data-ft-static-ad-state')).toBe('loading');
+    next.setAttribute('data-ad-status', 'filled');
+    w.document.dispatchEvent(new w.Event('visibilitychange'));
+    expect(next.getAttribute('data-ft-static-ad-state')).toBe('filled');
+  });
+  it('requests a manual slot inserted after a MutationObserver-enabled bootstrap', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    w.eval(ADSENSE_LOADER_CONTENT); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    w.document.dispatchEvent(new w.Event('pointerdown'));
+    w.document.querySelector('script[src*="adsbygoogle.js"]').dispatchEvent(new w.Event('load'));
+    const el = slot(300); el.className = 'adsbygoogle';
+    await vi.advanceTimersByTimeAsync(100);
+    expect(w.adsbygoogle).toHaveLength(1);
+    expect(el.getAttribute('data-ft-static-ad-state')).toBe('loading');
   });
   it('does not push at 161/249px, then requests once at 250px', () => {
     const api = local(createAdSlotRequests)(); const el = slot(161);
@@ -98,6 +121,17 @@ describe('shared manual-slot request contract', () => {
     const delivery = local(createStaticAdDelivery)(local(createAdSlotRequests)(), local(createStaticAdSlotEligibility)(), () => ({ request() {}, fail() {} }), () => true, emit, '200px 0px');
     delivery.arm(); delivery.arm(); delivery.arm();
     expect(listeners.mock.calls.filter(([name]) => name === 'resize')).toHaveLength(1);
+  });
+  it('rechecks document eligibility before resize retries and resumes on verified consent', async () => {
+    const el = slot(161); let permitted = true;
+    const delivery = local(createStaticAdDelivery)(local(createAdSlotRequests)(), local(createStaticAdSlotEligibility)(), () => ({ request() {}, fail() {} }), () => true, emit, '200px 0px', () => permitted, 'frontaliere:ads-consent');
+    delivery.arm(); permitted = false;
+    el.dataset.width = '300'; el.parentElement.dataset.width = '300';
+    w.dispatchEvent(new w.Event('resize')); await vi.advanceTimersByTimeAsync(50);
+    expect(w.adsbygoogle).toHaveLength(0);
+    permitted = true; w.dispatchEvent(new w.Event('frontaliere:ads-consent'));
+    await vi.advanceTimersByTimeAsync(50);
+    expect(w.adsbygoogle).toHaveLength(1);
   });
 });
 
@@ -197,6 +231,46 @@ describe('IAB detection and independent recovery surface', () => {
   function recovery(result = 'blocked', state = 'failed') {
     return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example' });
   }
+  it.each(['data-ft-static-ad-state', 'data-ft-ad-state', 'data-ad-state'])('does not cover a pending slot (%s) because an earlier slot had no fill', async (attribute) => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const pending = slot(300); pending.setAttribute(attribute, 'loading');
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    pending.setAttribute(attribute, 'waiting_response');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    pending.setAttribute(attribute, 'unfilled');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+  });
+  it('keeps a terminal script error visible even with a previous no-fill', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const script = w.document.createElement('script'); script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    script.dataset.failed = '1'; script.dataset.ftScriptState = 'failed'; w.document.head.append(script);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog')?.textContent).toContain('Gli annunci non si caricano');
+    expect(emit.mock.calls.some(([event, props]) => event === 'ad_reliability_state' && props.reason === 'script_failed')).toBe(true);
+  });
+  it.each(['class', 'style'])('reacts to Google CMP visibility changes through %s', async (attribute) => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const style = w.document.createElement('style'); style.textContent = '.hidden-cmp{display:none}'; w.document.head.append(style);
+    const parent = w.document.createElement('section'); const message = w.document.createElement('div'); message.className = 'fc-consent-root';
+    parent.append(message); w.document.body.append(parent);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+    parent.setAttribute(attribute, attribute === 'class' ? 'hidden-cmp' : 'display:none');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+    parent.removeAttribute(attribute);
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+  });
   it('does not promote a stale no-fill while a real ad script is retrying', async () => {
     w.localStorage.setItem('frontaliere_ads_consent', 'granted');
     slot(300).setAttribute('data-ad-status', 'unfilled');

@@ -149,7 +149,8 @@ export function observeManualAd(
   // Limited webviews still accept late Google responses. This fallback is
   // owned by the slot and is released on removal or stop(), like the observer.
   if (!observer) pollTimer = setInterval(check, 1000);
-  document.addEventListener('visibilitychange', updateView);
+  const onVisibility = () => { if (document.visibilityState !== 'hidden') check(); updateView(); };
+  document.addEventListener('visibilitychange', onVisibility);
   return {
     request() {
       if (stopped || requested) return;
@@ -177,7 +178,7 @@ export function observeManualAd(
       visibility?.disconnect();
       resize?.disconnect();
       if (resizeFrame !== undefined) cancelAnimationFrame(resizeFrame);
-      document.removeEventListener('visibilitychange', updateView);
+      document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('scroll', collapse);
       window.removeEventListener('resize', collapse);
     },

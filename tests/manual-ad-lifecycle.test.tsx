@@ -39,6 +39,15 @@ function intersect(index: number, ratio: number) {
   record.callback([{ target: record.target, isIntersecting: ratio > 0, intersectionRatio: ratio } as IntersectionObserverEntry], {} as IntersectionObserver);
 }
 describe('limited webview lifecycle', () => {
+  it('updates a static owner synchronously on foreground without waiting for a clamped poll', async () => {
+    vi.stubGlobal('MutationObserver', undefined);
+    const visibility = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden');
+    cleanups.push(() => visibility.mockRestore());
+    const { el, lifecycle, states } = setup(); lifecycle.request();
+    await status(el, 'filled'); expect(states).not.toHaveBeenCalledWith('filled');
+    visibility.mockReturnValue('visible'); document.dispatchEvent(new Event('visibilitychange'));
+    expect(states).toHaveBeenCalledWith('filled');
+  });
   it('observes late fill without MutationObserver and releases its polling on stop', async () => {
     vi.stubGlobal('MutationObserver', undefined);
     const { el, lifecycle, states } = setup(); lifecycle.request();

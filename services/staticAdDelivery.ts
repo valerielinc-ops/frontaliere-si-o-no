@@ -7,6 +7,8 @@ export function createStaticAdDelivery(
   isTarget: (el: Element) => boolean,
   emit: (event: string, data: Record<string, string | number>) => void,
   margin: string,
+  allowed: () => boolean = () => true,
+  consentEvent?: string,
 ) {
   let io: IntersectionObserver | null = null;
   let resize: ResizeObserver | null = null;
@@ -15,7 +17,7 @@ export function createStaticAdDelivery(
   const reported = new WeakSet<Element>();
   let frame: number | undefined;
   const push = (element: Element) => {
-    if (!near.has(element) || !eligibility.activate(element)) return;
+    if (!allowed() || !near.has(element) || !eligibility.activate(element)) return;
     const el = element as HTMLElement;
     const result = requests.request(el);
     if (result.state === 'waiting_width') {
@@ -59,5 +61,6 @@ export function createStaticAdDelivery(
     }
   };
   window.addEventListener('resize', retry);
+  if (consentEvent) window.addEventListener(consentEvent, retry);
   return { arm };
 }
