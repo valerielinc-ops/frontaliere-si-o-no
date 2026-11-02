@@ -126,21 +126,22 @@ describe('post-deploy SEO verification', () => {
     const officialGazetteUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/foglio-ufficiale-offerte-di-lavoro-ticino/';
     const driverSearchUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-autista-ticino/';
     const detailUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/driver-acme/';
+    const lastmod = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10);
     const signals = parseLiveJobSitemapSignals(`
       <urlset>
         <url>
           <loc>${officialGazetteUrl}</loc>
-          <lastmod>2026-11-02</lastmod>
+          <lastmod>${lastmod}</lastmod>
           <priority>0.85</priority>
         </url>
         <url>
           <loc>${driverSearchUrl}</loc>
-          <lastmod>2026-11-02</lastmod>
+          <lastmod>${lastmod}</lastmod>
           <priority>0.5</priority>
         </url>
         <url>
           <loc>${detailUrl}</loc>
-          <lastmod>2026-11-02</lastmod>
+          <lastmod>${lastmod}</lastmod>
           <priority>0.6</priority>
         </url>
         <url>
