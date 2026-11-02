@@ -261,6 +261,8 @@ describe('rerender-article-hubs entrypoint budget', () => {
     const entrypointTimeoutSeconds = Number(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS);
     const jobTimeoutSeconds = jobTimeoutMinutes * 60;
 
+    expect(jobTimeoutMinutes).toBe(45);
+    expect(entrypointTimeoutSeconds).toBe(2400);
     expect(entrypointTimeoutSeconds).toBeGreaterThan(0);
     expect(entrypointTimeoutSeconds).toBeLessThan(jobTimeoutSeconds);
     expect(jobTimeoutSeconds - entrypointTimeoutSeconds).toBeGreaterThanOrEqual(300);
