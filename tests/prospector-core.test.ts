@@ -702,6 +702,7 @@ describe('vacancy extraction', () => {
     const cases: Array<[string, string[]]> = [
       [`<main><label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span></main>`,
         ['Reckenholzstrasse 191, 8046 Zürich']],
+      [`<main><p>Einsatzort: Bäretswil und Umgebung</p></main>`, ['Bäretswil und Umgebung']],
       [`<main><p>Lieu de travail : 1201 Genève</p></main>`, ['1201 Genève']],
       [`<main><dl><dt>Luogo di lavoro</dt><dd>6900 Lugano</dd></dl></main>`, ['6900 Lugano']],
       // Etichetta nuda: non è un luogo, e non deve diventare una prova.

@@ -169,10 +169,6 @@ describe('MediPersonal crawler parser', () => {
             '@context': 'https://schema.org', '@type': 'JobPosting',
             title: 'Dipl. Expertin / Experte Intensivpflege NDS', url: detailUrl,
             description: paragraph,
-            jobLocation: { '@type': 'Place', address: {
-              '@type': 'PostalAddress', addressLocality: 'Winden',
-              addressRegion: 'St. Gallen', addressCountry: 'CH',
-            } },
           })}</script>
           <main><article>
             <h1>Dipl. Expertin / Experte Intensivpflege NDS</h1>
@@ -196,6 +192,8 @@ describe('MediPersonal crawler parser', () => {
       expect(jobs).toHaveLength(1);
       expect(jobs[0].description).toContain('Einsatzort: Winden und Umgebung');
       expect(jobs[0].description).not.toContain('vollständigen Bewerbungsunterlagen');
+      expect(jobs[0].location).toContain('Winden');
+      expect(jobs[0].canton).toBe('SG');
       expect((jobs as any).qualityDroppedCount).toBe(0);
     });
 
