@@ -45,20 +45,20 @@ describe('three-day proposal refresh', () => {
     expect(conciergeRefreshDue(pending, now)).toBe(true);
   });
 
-  it('refreshes fresh pending work every 15 minutes but keeps retry-only work hourly', () => {
-    const pending = active({ matchingStatus: 'complete', matchingCompletedAt: now - CONCIERGE_FRESH_PENDING_INTERVAL_MS + 1,
+  it('refreshes fresh pending work at the exact 15-minute boundary but keeps retry-only work hourly', () => {
+    const pending = active({ matchingStatus: 'complete', matchingCompletedAt: now,
       matchingPendingCount: 203, matchingUnverifiedCount: 172, matchingRetryAt: now + 12 * DAY,
       matchingLegacyRecoveryPendingCount: 5, matchingLegacyRecoveryRetryAt: now + 3 * DAY });
-    expect(conciergeRefreshDue(pending, now)).toBe(false);
+    expect(conciergeRefreshDue(pending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS - 1)).toBe(false);
     expect(conciergeRefreshDue(pending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS)).toBe(true);
 
-    const retryOnly = active({ matchingStatus: 'complete', matchingCompletedAt: now - CONCIERGE_RETRY_INTERVAL_MS + 1,
+    const retryOnly = active({ matchingStatus: 'complete', matchingCompletedAt: now,
       matchingPendingCount: 0, matchingUnverifiedCount: 172, matchingRetryAt: 0 });
-    expect(conciergeRefreshDue(retryOnly, now)).toBe(false);
+    expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
     expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
 
-    const failed = { ...pending, matchingStatus: 'failed', matchingCompletedAt: now - CONCIERGE_RETRY_INTERVAL_MS + 1 };
-    expect(conciergeRefreshDue(failed, now)).toBe(false);
+    const failed = { ...pending, matchingStatus: 'failed' };
+    expect(conciergeRefreshDue(failed, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
     expect(conciergeRefreshDue(failed, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
   });
 });
