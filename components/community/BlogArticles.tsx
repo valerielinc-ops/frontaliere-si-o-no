@@ -1439,9 +1439,8 @@ function BlogArticlesContent({
  // here the record is in hand and can be merged synchronously. Without it
  // `articleById.get(selectedArticle)` misses on the very first render and
  // the article view returns null: a blank page where the static article
- // used to be, which is exactly the failure this whole path exists to
- // avoid. The overlay fetch below still runs and is still authoritative
- // for the list; this only closes the gap before it lands.
+ // used to be. The mutable publisher index below is reserved for archive
+ // lists; the resolved record already supplies the selected detail page.
  const runtimeOverlay = runtimeArticleRecords(section);
  const seededArticles = isCanton
   ? mergeArticleRecords(
@@ -1478,6 +1477,16 @@ function BlogArticlesContent({
 
  setArticles(listArticles);
  setBlogReady(true);
+
+ // A detail page renders its complete body from the local registry or the
+ // exact runtime article record that resolved its URL. The mutable publisher
+ // index only changes archive and card lists, so keep those requests off the
+ // detail route. When the reader opens the archive, this effect runs again
+ // and performs the same freshness-checked overlay merge there.
+ if (selectedArticle) {
+  setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+  return;
+ }
 
  // Articles published since this bundle was built (issue #4974 item 3).
  // The registry above is compiled in, so anything the articles repo has
@@ -1547,7 +1556,7 @@ function BlogArticlesContent({
   setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
  });
  return () => { cancelled = true; };
- }, [section, locale, registryRetry]);
+ }, [section, locale, registryRetry, selectedArticle]);
 
  // Lazy-load article BODY when a specific article is selected
  useEffect(() => {
