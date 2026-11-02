@@ -74,7 +74,7 @@ import {
   resolveOrganizationUrn,
 } from './lib/linkedin-member-copy.mjs';
 import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -376,8 +376,9 @@ async function main() {
       console.error(`⚠️  LinkedIn ${res.status}: ${res.body}`);
       const rejectedCopy = reservedCopy;
       reservedCopy = null;
-      await releaseUnpublishedSocialCopyAssignment(rejectedCopy, {
+      await releaseUnpublishedSocialCopyAssignmentBestEffort(rejectedCopy, {
         reason: 'LinkedIn explicitly rejected the member post',
+        onFailure: (err) => console.error(`⚠️  Could not release LinkedIn ${slot.kind} copy reservation for ${pick.slug}: ${err.message}`),
       });
     }
     } catch (err) {
@@ -386,8 +387,9 @@ async function main() {
       if (deliveryAttempted) reservedCopy = null;
       throw err;
     } finally {
-      await releaseUnpublishedSocialCopyAssignment(reservedCopy, {
+      await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
         reason: 'LinkedIn member post skipped before delivery',
+        onFailure: (err) => console.error(`⚠️  Could not release LinkedIn ${slot.kind} copy reservation for ${pick.slug}: ${err.message}`),
       });
     }
   }

@@ -98,7 +98,7 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -318,7 +318,10 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     // assignment until the ledger can reconcile it; release only certain
     // skips before the publish attempt.
     if (deliveryStarted && route?.api && !publishRejected) reservedCopy = null;
-    await releaseUnpublishedSocialCopyAssignment(reservedCopy, { reason: 'Instagram carousel skipped before delivery' });
+    await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
+      reason: 'Instagram carousel skipped before delivery',
+      onFailure: (err) => console.warn('⚠️', `could not release social-copy reservation for Instagram ${kind}: ${err.message}`),
+    });
   }
 }
 
@@ -449,7 +452,10 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
   });
   } finally {
     if (deliveryStarted && route?.api && !publishRejected) reservedCopy = null;
-    await releaseUnpublishedSocialCopyAssignment(reservedCopy, { reason: 'Instagram border carousel skipped before delivery' });
+    await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
+      reason: 'Instagram border carousel skipped before delivery',
+      onFailure: (err) => console.warn('⚠️', `could not release social-copy reservation for Instagram border: ${err.message}`),
+    });
   }
 }
 

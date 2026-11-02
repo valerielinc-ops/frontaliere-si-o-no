@@ -56,7 +56,7 @@ import {
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
@@ -332,14 +332,16 @@ export async function run(opts = {}) {
     };
   }));
   const releaseReservation = async (id, reason) => {
-    await releaseUnpublishedSocialCopyAssignment(copyReservations.get(id), {
+    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
       releaseBalancedImpl: releaseSocialCopy,
       reason,
+      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
     });
-    copyReservations.delete(id);
+    if (released) copyReservations.delete(id);
+    return released;
   };
   const releaseAllReservations = async (reason) => {
-    for (const id of copyReservations.keys()) await releaseReservation(id, reason);
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
   };
 
   // 4. Dry-run vs real POST
