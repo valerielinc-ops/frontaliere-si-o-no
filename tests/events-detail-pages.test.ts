@@ -286,10 +286,10 @@ describe('eventLd source attribution (#3125)', () => {
     };
     const ld = eventLd(sourceEvent as never, 'it') as Record<string, any>;
     expect(ld.performer).toEqual([
-      { name: 'Elina Duni' },
-      { name: 'Rob Luft' },
-      { name: 'Matthieu Michel' },
-      { '@type': 'PerformingGroup', name: 'Vision String Quartet' },
+      { name: 'Elina Duni', url: sourceEvent.url },
+      { name: 'Rob Luft', url: sourceEvent.url },
+      { name: 'Matthieu Michel', url: sourceEvent.url },
+      { '@type': 'PerformingGroup', name: 'Vision String Quartet', url: sourceEvent.url },
     ]);
 
     const unknown = eventLd({
