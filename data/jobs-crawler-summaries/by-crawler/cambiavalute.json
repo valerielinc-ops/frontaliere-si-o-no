@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-11-01T22:06:26.072Z",
+  "generatedAt": "2026-11-02T11:26:27.376Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 212449,
-  "avgDurationMs": 212449,
+  "durationMs": 160268,
+  "avgDurationMs": 160268,
   "durationHistory": [
-    212449
+    160268
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-11-01T22:06:10.384Z",
+      "crawledAt": "2026-11-02T11:26:04.828Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -55,7 +55,7 @@
       "postalCode": "6500",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:06:10.384Z",
+      "validThrough": "2026-12-02T11:26:04.828Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-11-01T09:48:31.655Z",
+      "crawledAt": "2026-11-02T11:26:04.828Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -104,9 +104,8 @@
       "postalCode": "6500",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:48:31.655Z",
+      "validThrough": "2026-12-02T11:26:04.828Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -116,5 +115,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }

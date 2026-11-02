@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-11-01T22:06:15.291Z",
-  "runId": "41351679092",
+  "assembledAt": "2026-11-02T11:26:11.260Z",
+  "runId": "41420122803",
   "jobs": [
     {
       "id": "company-fooban",
@@ -28,7 +28,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-11-01T22:06:10.384Z",
+      "crawledAt": "2026-11-02T11:26:04.828Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -97,7 +97,7 @@
       "postalCode": "6500",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T22:06:10.384Z",
+      "validThrough": "2026-12-02T11:26:04.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -125,7 +125,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-11-01T09:48:31.655Z",
+      "crawledAt": "2026-11-02T11:26:04.828Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -198,9 +198,8 @@
       "postalCode": "6500",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:48:31.655Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-02T11:26:04.828Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
