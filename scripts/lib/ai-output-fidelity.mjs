@@ -281,7 +281,9 @@ function composedUnits(output) {
     const line = rawLine.trim();
     if (!line || /^#{1,6}\s/.test(line)) continue;
     const text = line.replace(/^[-*•]\s+/, '');
-    for (const sentence of text.split(/(?<=[.!?])\s+(?=[\p{Lu}"«„])/u)) {
+    const sentenceParts = text.split(/([.!?])\s+(?=[\p{Lu}"«„])/u);
+    for (let index = 0; index < sentenceParts.length; index += 2) {
+      const sentence = `${sentenceParts[index] ?? ''}${sentenceParts[index + 1] ?? ''}`;
       if (sentence.trim()) units.push(sentence.trim());
     }
   }
