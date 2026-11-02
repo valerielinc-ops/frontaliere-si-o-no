@@ -11,18 +11,29 @@
  * storage cost of thousands of 1080×1350 social cards.
  *
  * Lifecycle: main thread spawns N workers (one per CPU, capped at 4),
- * each receives the font buffers + four shared job photos once via
- * `workerData`, then loops on `parentPort.on('message')` rendering
- * each `{ tree, jobId }` payload. Worker exits when main calls
+ * each receives the font buffers + four shared fallback photos once via
+ * `workerData`. Offer-specific photos are read on demand and cached within
+ * that worker. It then loops on `parentPort.on('message')` rendering each
+ * `{ tree, jobId }` payload. Worker exits when main calls
  * `worker.terminate()` after all jobs are done.
  */
 
 import { parentPort, workerData } from 'node:worker_threads';
+import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
 
-const { fontRegular, fontBold, brandBgFrom, photoDataUrls, width, height } = workerData;
+const {
+  fontRegular,
+  fontBold,
+  brandBgFrom,
+  photoDataUrls: fallbackPhotoDataUrls,
+  photoFilePaths,
+  width,
+  height,
+} = workerData;
+const photoDataUrls = { ...fallbackPhotoDataUrls };
 
 const fonts = [
   { name: 'Roboto', data: fontRegular, weight: 400, style: 'normal' },
@@ -44,7 +55,11 @@ function resolveJobPhotoSources(node) {
   if (!node || typeof node !== 'object') return;
   if (node.type === 'img' && typeof node.props?.src === 'string' && node.props.src.startsWith('job-photo:')) {
     const photoKey = node.props.src.slice('job-photo:'.length);
-    const source = photoDataUrls?.[photoKey];
+    let source = photoDataUrls[photoKey];
+    if (!source && photoFilePaths?.[photoKey]) {
+      source = `data:image/jpeg;base64,${readFileSync(photoFilePaths[photoKey]).toString('base64')}`;
+      photoDataUrls[photoKey] = source;
+    }
     if (!source) throw new Error(`missing generated job photo: ${photoKey}`);
     node.props.src = source;
   }
