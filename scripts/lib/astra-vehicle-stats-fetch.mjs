@@ -65,15 +65,14 @@ export async function fetchWithRetry(
     throw new RangeError("fetchWithRetry attempts must be a positive integer");
   }
 
-  const method = (typeof requestOptions === "function"
-    ? requestOptions().method
-    : requestOptions?.method) || "GET";
+  let method = requestOptions?.method || "GET";
 
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     let response;
     try {
       const options =
         typeof requestOptions === "function" ? requestOptions() : requestOptions;
+      method = options?.method || method;
       response = await fetchImpl(url, options);
     } catch (error) {
       if (!isRetryableFetchError(error) || attempt === attempts) {
