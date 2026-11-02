@@ -43,6 +43,12 @@ import {
 import { getAccessToken, submitPost, userAgent } from './lib/reddit-client.mjs';
 import { buildJobPost } from './lib/reddit-templates.mjs';
 import { automationEligibleSubs } from './lib/redditAutomationPolicy.mjs';
+import {
+  loadSocialCopyPack,
+  releaseSocialCopyAssignment,
+  selectSocialCopyForPublish,
+  socialCopyLedgerFields,
+} from './lib/social-copy-pack.mjs';
 
 // Re-export the channel-agnostic helpers so tests can import them from
 // this module directly (mirrors the FB scheduler).
@@ -187,6 +193,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * @param {string} [opts.repoRoot]
  * @param {(...a: unknown[]) => void} [opts.log]
  * @param {(...a: unknown[]) => void} [opts.warn]
+ * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
+ * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -195,6 +203,8 @@ export async function run(opts = {}) {
   const repoRoot = opts.repoRoot || defaultRepoRoot();
   const log = opts.log || console.log;
   const warn = opts.warn || console.warn;
+  const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
+  const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || releaseSocialCopyAssignment;
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const volumeRaw = Number(env.REDDIT_JOB_VOLUME);
@@ -215,6 +225,10 @@ export async function run(opts = {}) {
   const path = postedPath(repoRoot);
   const ledger = loadLedger(path);
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
+  const socialCopyPack = opts.socialCopyPack ?? loadSocialCopyPack({
+    filePath: resolve(repoRoot, 'data', 'social-copy-packs', 'current.json'),
+    onWarning: (message) => warn('⚠️', message),
+  });
 
   // 3. Pick top-N never-posted jobs.
   const candidates = selectUnpostedJobs(jobs, postedSet, volume);
@@ -276,7 +290,25 @@ export async function run(opts = {}) {
       log('⚠️', `skipping job ${job.id} — no slug`);
       continue;
     }
-    const post = buildJobPost(job);
+
+    // Do not persist a live assignment for a scheduled post when Reddit has
+    // no usable token; dry runs remain side-effect free.
+    if (!dryRun && !acquiredToken) {
+      acquiredToken = await getAccessToken(env, fetchImpl);
+      if (!acquiredToken) {
+        warn('⚠️', 'Reddit access token unavailable (missing credentials?) — skipping');
+        return { ok: false, posted, dryRun, payloads };
+      }
+    }
+
+    const socialCopy = await selectSocialCopy({
+      pack: socialCopyPack,
+      channel: 'reddit',
+      kind: 'job',
+      assignmentKey: String(job.id || ''),
+      dryRun,
+    });
+    const post = buildJobPost(job, { socialCopy });
     const payload = {
       jobId: job.id,
       url,
@@ -294,19 +326,11 @@ export async function run(opts = {}) {
       continue;
     }
 
-    // Lazily acquire the token on the first real post.
-    if (!acquiredToken) {
-      acquiredToken = await getAccessToken(env, fetchImpl);
-      if (!acquiredToken) {
-        warn('⚠️', 'Reddit access token unavailable (missing credentials?) — skipping');
-        return { ok: false, posted, dryRun, payloads };
-      }
-    }
-
     const ua = userAgent(env);
     let res = null;
     try {
       res = await submitPost({
+        env,
         token: acquiredToken,
         subreddit: target.name,
         kind: payload.kind,
@@ -333,11 +357,19 @@ export async function run(opts = {}) {
         ts: new Date().toISOString(),
         redditPostId: res.name || res.id,
         redditUrl: res.url,
+        ...socialCopyLedgerFields(socialCopy, {
+          fallbackHook: job?.titleByLocale?.it || job?.title || '',
+          fallbackCta: 'Vedi l’offerta e candidati',
+        }),
       }], POSTED_TRIM_LIMIT);
       lastPostMs.set(target.name, now.getTime());
       log('✅', `${job.id} → r/${target.name} → ${res.url || res.name || res.id || ''}`.trim());
     } else {
       warn('⚠️', `Reddit submit error for ${job.id} → r/${target.name}: ${res?.error || 'unknown error'}`);
+      if (!res?.deliveryUncertain && socialCopy?.copyAssignmentMode === 'firebase-balanced'
+        && !await releaseSocialCopy(socialCopy)) {
+        throw new Error(`Reddit copy assignment could not be released after ${job.id} submission failed`);
+      }
     }
 
     // Self-pace between posts.

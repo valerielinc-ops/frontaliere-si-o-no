@@ -112,6 +112,7 @@ describe('frontaliere article first-render work', () => {
   const appSource = readFileSync(resolve(__dirname, '../App.tsx'), 'utf8');
   const entrySource = readFileSync(resolve(__dirname, '../index.tsx'), 'utf8');
   const jobBoardSource = readFileSync(resolve(__dirname, '../components/community/JobBoard.tsx'), 'utf8');
+  const blogArticlesSource = readFileSync(resolve(__dirname, '../components/community/BlogArticles.tsx'), 'utf8');
   const prefetchSource = readFileSync(resolve(__dirname, '../services/prefetch.ts'), 'utf8');
   const articleEmitterSource = readFileSync(resolve(__dirname, '../packages/articles/engine/ogPagesPlugin.ts'), 'utf8');
   const newsletterSource = readFileSync(resolve(__dirname, '../components/community/Newsletter.tsx'), 'utf8');
@@ -150,9 +151,12 @@ describe('frontaliere article first-render work', () => {
     expect(appSource).toContain('{!staticOverlay && (');
   });
 
-  it('warms article modules only on load/idle or when related links are relevant', () => {
+  it('warms article modules on reader interaction or when related links are reached', () => {
     expect(navigationSource).toContain('main.seo-static-content article.ft-blog-article [data-article-related]');
-    expect(navigationSource).toContain("window.addEventListener('load', onLoad, { once: true })");
+    expect(navigationSource).toContain("window.addEventListener('pointerdown', onInteraction");
+    expect(navigationSource).toContain("window.addEventListener('keydown', onInteraction");
+    expect(navigationSource).not.toContain("window.addEventListener('load', onLoad");
+    expect(navigationSource).not.toContain('scheduleIdleTakeover');
     expect(navigationSource).toContain("document.addEventListener('focusin', onRelatedIntent, true)");
     expect(prefetchSource).toContain("() => import('@/components/community/BlogArticles')");
     expect(prefetchSource).toContain("import('@/services/i18n').then(m => m.loadBlogMeta())");
@@ -160,6 +164,15 @@ describe('frontaliere article first-render work', () => {
     expect(articleEmitterSource).toContain('data-article-related="true"');
     expect(articleEmitterSource).not.toContain("stableChunkFile('blog-meta-it')");
     expect(articleEmitterSource).not.toContain('blogMetaItChunk');
+  });
+
+  it('keeps the mutable article index off detail routes and loads it for archive lists', () => {
+    const detailGuard = blogArticlesSource.indexOf('if (selectedArticle) {', blogArticlesSource.indexOf('setBlogReady(true);'));
+    const overlayFetch = blogArticlesSource.indexOf('void fetchArticleOverlay(section, getLocale(), data.length', detailGuard);
+    expect(detailGuard).toBeGreaterThanOrEqual(0);
+    expect(overlayFetch).toBeGreaterThan(detailGuard);
+    expect(blogArticlesSource.slice(detailGuard, overlayFetch)).toContain("setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });");
+    expect(blogArticlesSource).toMatch(/\}, \[section, locale, registryRetry, selectedArticle\]\);/);
   });
 
   it('does not invoke automatic One Tap on article detail routes', () => {

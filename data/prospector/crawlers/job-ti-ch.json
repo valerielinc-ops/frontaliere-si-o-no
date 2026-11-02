@@ -1,0 +1,25 @@
+{
+  "companyKey": "job-ti-ch",
+  "companyName": "JOB Ticino SA",
+  "companyHost": "job-ti.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://job-ti.ch/cerca-lavoro/"
+  ],
+  "detailTemplate": "/cerca-lavoro/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "IMPIEGATO/A COMMERCIALE",
+    "Addetto al trattamento termico",
+    "PITTORE DIPLOMATO",
+    "PITTORE DIPLOMATO",
+    "Tecnico di cantiere settore pittura"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-02T13:24:47.209Z",
+  "candidateKey": "job@stabio"
+}

@@ -1,0 +1,27 @@
+{
+  "companyKey": "larag",
+  "companyName": "LARAG",
+  "companyHost": "recruitingapp-3017.umantis.com",
+  "verifiedEmployerDomain": "larag.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-3017.umantis.com/Jobs/All"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Serviceleiter:in VW",
+    "Kundendienstberater:in VW und VW Nutzfahrzeuge",
+    "Verkaufsberater VW Nutzfahrzeuge",
+    "Mitarbeiter:in Bau und Administration",
+    "Spezialist:in Geschäftsprozesse & Systeme"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:14:45.564Z",
+  "candidateKey": "larag@monthey"
+}

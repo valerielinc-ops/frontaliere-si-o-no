@@ -2,17 +2,18 @@ import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { candidateAnswersForQuestions, candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionCompatibilityHash, answerQuestionSnapshotHash, answerQuestionSnapshotsFor, orderQuestionAnswerContext,
-  rememberCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, loadCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
+  rememberCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, loadCandidateAnswerEvidence, resolveAnswerCommunicationLocale } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { createAnswerSourceGuard } from '../functions/src/assistedApplicationAnswerSourceGuard.js';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
-import { answerCvFingerprint } from '../functions/src/assistedApplicationAnswerConfirmation.js';
+import { answerConfirmationHash, answerConfirmationId, answerCvFingerprint, answerEvidenceFingerprint } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const now = Date.now();
-const target = { id: 'target', url: 'https://example.test/jobs/target/' };
+const target = { id: 'target', url: 'https://example.test/jobs/target/', communicationLocale: 'it' };
 const order = { userId: 'synthetic', jobId: 'source', jobUrl: 'https://example.test/jobs/source/',
-  cvStorageKey: 'assisted-application-uploads/source/cv.pdf', cvUploadedAt: now };
+  locale: 'it', cvStorageKey: 'assisted-application-uploads/source/cv.pdf', cvUploadedAt: now };
+const sourceJobView = (sourceOrder: Record<string, any>) => ({ ...sourceOrder, communicationLocale: sourceOrder.locale });
 const birth = `${new Date(now).getUTCFullYear() - 30}-02-20`;
 const cases = [
   { question: { id: 'dob', question: 'What is your date of birth?', type: 'date' }, answer: birth, category: 'personal', unit: 'calendar_date', fact: { type: 'birth_date', subject: 'candidate' } },
@@ -39,7 +40,7 @@ function fixture(testCase = cases[0], actor: 'candidate' | 'owner' = 'candidate'
     questionAnswerConfirmationHashes: local.confirmations, questionAnswerSources: local.sources });
   const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: flow.answers,
     confirmedQuestionSnapshots: confirmationSnapshots,
-    orderId: 'source', order, flow, draft, actor, nowMs: now });
+    orderId: 'source', order, flow, draft, actor, nowMs: now, communicationLocale: order.locale });
   const profileRecord = { applicationQuestionAnswers: { [key]: answer }, applicationQuestionAnswerEvidence: evidence };
   const store = createMemoryFirestore({ 'assisted_applications/source': order, 'assisted_applications/source/automation/flow': flow,
     'assisted_applications/source/ai_drafts/current': draft, 'user_cv_profiles/synthetic': profileRecord });
@@ -65,6 +66,53 @@ describe('typed facts use the attested answer source contract', () => {
     expect(f.evidence[f.key]).toMatchObject({ sourceKind: 'direct_user', originSource: 'unknown' });
     expect(f.evidence[f.key]).not.toHaveProperty('cvFingerprint');
     expect((await f.load())(target).fingerprint).toBe(result.fingerprint);
+  });
+  it('binds confirmed evidence and reads to the communication locale without cross-language reuse', async () => {
+    const f = fixture(cases[1]);
+    const sameLanguage = (await f.load())(target).answerEvidence;
+    expect(sameLanguage).toHaveLength(1);
+    expect(sameLanguage[0]).toMatchObject({ communicationLocale: 'it', provenance: { communicationLocale: 'it' } });
+    expect((await f.load())({ ...target, communicationLocale: 'de' }).answerEvidence).toEqual([]);
+    expect((await f.load())({ ...target, communicationLocale: 'es' }).answerEvidence).toEqual([]);
+    expect((await f.load())({ id: target.id, url: target.url }).answerEvidence).toEqual([]);
+
+    const germanConfirmation = answerConfirmationSnapshotsFor({ userId: order.userId, orderId: 'source', order, flow: f.flow,
+      questions: [cases[1].question], draft: f.draft, sourceKind: 'direct_user', communicationLocale: 'de', nowMs: now });
+    expect(germanConfirmation.experience).not.toBe(f.flow.questionAnswerConfirmationHashes[f.key]);
+    const germanEvidence = rememberCandidateAnswerEvidence({ questions: [cases[1].question], changed: { experience: cases[1].answer },
+      confirmedQuestionSnapshots: germanConfirmation,
+      orderId: 'source', order, flow: f.flow, draft: f.draft, actor: 'candidate', nowMs: now, communicationLocale: 'de' });
+    expect(germanEvidence[f.key].confirmationHash).not.toBe(f.evidence[f.key].confirmationHash);
+    expect(answerEvidenceFingerprint([germanEvidence[f.key]])).not.toBe(answerEvidenceFingerprint([f.evidence[f.key]]));
+  });
+  it('resolves an older order locale only through a supported service owned by that candidate', async () => {
+    const store = createMemoryFirestore({ 'application_concierge_services/owned': { userId: 'synthetic', locale: 'fr' },
+      'application_concierge_services/other': { userId: 'someone-else', locale: 'de' } });
+    expect(await resolveAnswerCommunicationLocale({ db: store.db, order: { userId: 'synthetic', parentServiceId: 'owned' } })).toBe('fr');
+    expect(await resolveAnswerCommunicationLocale({ db: store.db, order: { userId: 'synthetic', parentServiceId: 'other' } })).toBeNull();
+    expect(await resolveAnswerCommunicationLocale({ db: store.db, order: { userId: 'synthetic', parentServiceId: 'owned', locale: 'es' } })).toBeNull();
+  });
+  it('reads legacy confirmed evidence only in its source locale and never writes a locale backfill', async () => {
+    const f = fixture(cases[1]);
+    const current = f.evidence[f.key];
+    const confirmationHash = answerConfirmationHash({ userId: order.userId, orderId: 'source', order: f.order, flow: f.flow,
+      draft: f.draft, questionSnapshotHash: current.questionCompatibilityHash, sourceKind: current.sourceKind,
+      originSource: current.originSource, originCvFingerprint: current.originCvFingerprint });
+    const legacyRecord: any = { ...current, version: 'confirmed-question-evidence-v3', confirmationHash,
+      confirmationId: answerConfirmationId({ confirmationHash, answer: current.answer, actor: 'candidate', confirmedAt: now }),
+      provenance: { ...current.provenance } };
+    delete legacyRecord.communicationLocale;
+    delete legacyRecord.provenance.communicationLocale;
+    const legacyProfile = { ...f.profileRecord, applicationQuestionAnswerEvidence: { [f.key]: legacyRecord } };
+    const read = await loadCandidateAnswerEvidence({ db: f.store.db, profileRecord: legacyProfile, userId: order.userId, nowMs: now });
+    expect(read(target).answerEvidence[0]).toMatchObject({ communicationLocale: 'it', provenance: { communicationLocale: 'it' } });
+    expect(read({ ...target, communicationLocale: 'fr' }).answerEvidence).toEqual([]);
+    expect(legacyProfile.applicationQuestionAnswerEvidence[f.key]).not.toHaveProperty('communicationLocale');
+
+    f.store.docs.set('assisted_applications/source', { ...f.order, locale: undefined, parentServiceId: 'changed-service' });
+    f.store.docs.set('application_concierge_services/changed-service', { userId: order.userId, locale: 'de' });
+    const missingSnapshotRead = await loadCandidateAnswerEvidence({ db: f.store.db, profileRecord: legacyProfile, userId: order.userId, nowMs: now });
+    expect(missingSnapshotRead({ ...target, communicationLocale: 'de' }).answerEvidence).toEqual([]);
   });
   it('binds confirmation to the shown question text and excludes answer-shaped payload fields', () => {
     const question = { id: 'experience', question: 'How many years of Python experience?', type: 'number', required: true,
@@ -126,7 +174,7 @@ describe('typed facts use the attested answer source contract', () => {
     const f = fixture({ ...cases[3], answer: permitOptions('en')[4] });
     const context = await f.load();
     expect(context(target).answerEvidence).toEqual([]);
-    expect(context(order).answerEvidence[0]).toMatchObject({ scope: 'job', fact: { status: 'permit_g', relation: 'reported_possession_not_work_right' } });
+    expect(context(sourceJobView(order)).answerEvidence[0]).toMatchObject({ scope: 'job', fact: { status: 'permit_g', relation: 'reported_possession_not_work_right' } });
   });
   it.each(['B (will be sponsored by employer)', 'B (only if the employer sponsors me)', 'C (role-specific condition)'])('does not promote a conditional permit answer to a portable fact: %s', answer => {
     const f = fixture({ ...cases[3], answer, question: { ...cases[3].question, options: [answer] } });
@@ -176,12 +224,12 @@ describe('typed facts use the attested answer source contract', () => {
   });
   it('keeps an owner-attested local answer and candidate fact dependent on the current CV', async () => {
     const f = fixture(cases[1], 'owner');
-    expect((await f.load())(f.order).answerEvidence).toHaveLength(1);
+    expect((await f.load())(sourceJobView(f.order)).answerEvidence).toHaveLength(1);
     const nextKey = 'assisted-application-uploads/source/replacement.pdf';
     f.store.docs.set('assisted_applications/source', { ...f.order, cvStorageKey: nextKey, cvUploadedAt: now + 1 });
     f.store.docs.set('assisted_applications/source/ai_drafts/current', { ...f.draft, cvKey: nextKey });
     const context = await f.load();
-    expect(context(f.order).answerEvidence).toEqual([]);
+    expect(context(sourceJobView(f.order)).answerEvidence).toEqual([]);
     expect(orderQuestionAnswerContext({ orderId: 'source', order: { ...f.order, cvStorageKey: nextKey, cvUploadedAt: now + 1 },
       flow: f.flow, draft: { ...f.draft, cvKey: nextKey }, nowMs: now }).answers).toEqual({});
   });
@@ -196,7 +244,7 @@ describe('typed facts use the attested answer source contract', () => {
     const question = { id: 'consulting', question: 'Have you got experience in consulting?', type: 'yes_no' };
     const f = fixture({ question, answer: 'Yes' });
     expect((await f.load())(target).answerEvidence).toEqual([]);
-    expect((await f.load())(f.order).answerEvidence[0]).toMatchObject({ scope: 'job', sourceKind: 'direct_user' });
+    expect((await f.load())(sourceJobView(f.order)).answerEvidence[0]).toMatchObject({ scope: 'job', sourceKind: 'direct_user' });
   });
   it.each([
     { id: 'notice_period', question: 'What is your notice period?', type: 'text', answer: '3 months' },
@@ -242,7 +290,7 @@ describe('typed facts use the attested answer source contract', () => {
   it('keeps a direct user answer usable after the source CV is replaced', async () => {
     const f = fixture(cases[1]);
     const targetOrder = { userId: order.userId, jobId: 'target', jobUrl: target.url,
-      cvStorageKey: 'assisted-application-uploads/target/cv.pdf', cvUploadedAt: now };
+      locale: 'it', cvStorageKey: 'assisted-application-uploads/target/cv.pdf', cvUploadedAt: now };
     const targetFlow = { state: 'submitting', round: 1, answers: {} };
     const targetDraft = { round: 1, cvKey: targetOrder.cvStorageKey,
       questions: [{ ...cases[1].question, id: 'target_experience' }] };
@@ -264,7 +312,7 @@ describe('typed facts use the attested answer source contract', () => {
   it('blocks a pending final click when the source question changes after claim', async () => {
     const f = fixture(cases[1]);
     const targetOrder = { userId: order.userId, jobId: 'target', jobUrl: target.url,
-      cvStorageKey: 'assisted-application-uploads/target/cv.pdf', cvUploadedAt: now };
+      locale: 'it', cvStorageKey: 'assisted-application-uploads/target/cv.pdf', cvUploadedAt: now };
     const targetFlow = { state: 'submitting', round: 1, answers: {} };
     const targetDraft = { round: 1, cvKey: targetOrder.cvStorageKey,
       questions: [{ ...cases[1].question, id: 'target_experience' }] };
@@ -288,7 +336,7 @@ describe('typed facts use the attested answer source contract', () => {
     const draft = { round: 1, cvKey: order.cvStorageKey, questions: [question] };
     const records = rememberCandidateAnswerEvidence({ questions: [question], changed: { experience: '3' },
       confirmedQuestionSnapshots: answerConfirmationSnapshotsFor({ userId: order.userId, orderId: 'source', order, flow, questions: [question], draft, nowMs: now }),
-      orderId: 'source', order, flow, draft, actor: 'candidate', nowMs: now });
+      orderId: 'source', order, flow, draft, actor: 'candidate', nowMs: now, communicationLocale: 'it' });
     expect(records[candidateQuestionAnswerKey(question)]).toMatchObject({ cleared: true });
     expect(records[candidateQuestionAnswerKey(question)]).not.toHaveProperty('fact');
   });

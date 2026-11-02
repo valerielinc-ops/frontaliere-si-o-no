@@ -1,0 +1,24 @@
+{
+  "companyKey": "gemmi-ch",
+  "companyName": "Gemmi Holding AG",
+  "companyHost": "gemmi.ch",
+  "verifiedEmployerDomain": "gemmi.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.gemmi.ch/de/destination/jobs"
+  ],
+  "detailTemplate": "/de/destination/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr erfahren <h2 class=\"content-news-jobs--headlin",
+    "Mehr erfahren"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:16:05.521Z",
+  "candidateKey": "gemmi@leukerbad"
+}

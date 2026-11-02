@@ -16,10 +16,15 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 // so every lookup serves a local file (no Clearbit / Google-favicon flakiness).
 // Relative path (not `@/data/...`) so this resolves under Node when build
 // plugins import it without the Vite path-alias resolver kicking in.
+import { normalizeJobCategory as normalizeJobCategoryCore } from './jobCategoryNormalization.mjs';
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
 import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
+import {
+  scopedEmployerKey,
+  ticinoComuneEmployerKey,
+} from '../scripts/lib/ticino-comune-employer-identity.mjs';
 
 // Keep shared helpers available from this browser module for independently
 // cached SPA chunks emitted by earlier builds.
@@ -33,6 +38,7 @@ export { sameOrg } from '../scripts/lib/prospector/registrable.mjs';
 type JobLike = {
  company?: string;
  companyKey?: string | null;
+ municipalityKey?: string;
  companyDomain?: string;
  url?: string;
  /** Publisher-provided logo URL (projected from the publish form, https-only). */
@@ -684,31 +690,6 @@ for (const key of Object.keys(CRAWLED_COMPANY_LOGOS)) {
  }
 }
 
-const CATEGORY_ALIASES: Record<string, CanonicalJobCategory> = {
- tech: 'tech',
- it: 'tech',
- software: 'tech',
- engineering: 'engineering',
- 'quality assurance': 'engineering',
- quality: 'engineering',
- operations: 'engineering',
- production: 'engineering',
- regulatory: 'health',
- 'medical affairs': 'health',
- health: 'health',
- healthcare: 'health',
- finance: 'finance',
- admin: 'admin',
- administration: 'admin',
- hr: 'admin',
- 'human resources': 'admin',
- 'general services': 'admin',
- sales: 'sales',
- marketing: 'sales',
- hospitality: 'hospitality',
- other: 'other',
-};
-
 function normalizeText(value: unknown): string {
  return String(value || '')
  .trim()
@@ -757,28 +738,7 @@ function looksLike(value: string, regex: RegExp): boolean {
 }
 
 export function normalizeJobCategory(raw: unknown, hintText = ''): CanonicalJobCategory {
- const rawNorm = normalizeText(raw);
- const hintNorm = normalizeText(hintText);
-
- if (rawNorm && CATEGORY_ALIASES[rawNorm]) {
- if (rawNorm === 'general services' && looksLike(hintNorm, /(manutent|mainten|elettro|mechanic|tecnic|facility)/)) {
- return 'engineering';
- }
- return CATEGORY_ALIASES[rawNorm];
- }
-
- const combined = `${rawNorm} ${hintNorm}`.trim();
- if (!combined) return 'other';
-
- if (looksLike(combined, /(web developer|software|sistemista|devops|cloud|robotics|c\+\+)/)) return 'tech';
- if (looksLike(combined, /(manutent|mainten|elettro|mechanic|ingegner|engineer|fresator|tornitor|quality|operations|production|r d|research|sviluppo)/)) return 'engineering';
- if (looksLike(combined, /(medical|clinical|healthcare|health care|medic|orthopedic|orthopaedic|regulatory|medical affairs)/)) return 'health';
- if (looksLike(combined, /(finance|account|audit|treasury|contabil|controll)/)) return 'finance';
- if (looksLike(combined, /(sales|marketing|commercial|product manager|business development|communication)/)) return 'sales';
- if (looksLike(combined, /(hr|human resources|recruit|talent|admin|amministr|servizi general|event|travel)/)) return 'admin';
- if (looksLike(combined, /(hotel|hospitality|ristor|bar|chef|camerier)/)) return 'hospitality';
-
- return 'other';
+ return normalizeJobCategoryCore(raw, hintText) as CanonicalJobCategory;
 }
 
 export function normalizeJobContract(raw: unknown, title = '', description = ''): CanonicalContractType {
@@ -961,12 +921,17 @@ export function resolveCompanyWebsiteHost(job: JobLike): string {
  return '';
 }
 
+export function companyLogoLookupKey(job: JobLike): string {
+ return scopedEmployerKey(job);
+}
+
 export function resolveCompanyLogoUrl(job: JobLike): string | null {
  // 0. A mirrored manifest entry is the stable runtime contract. This check
  // comes before publisher-provided URLs so a declared external logo can be
  // acquired once and then reused by every renderer, including email.
- const key = job.companyKey || '';
- const mirroredLogo = key ? COMPANY_LOGOS_MANIFEST[key] : null;
+ const lookupKey = companyLogoLookupKey(job);
+ const municipalityKey = ticinoComuneEmployerKey(job.municipalityKey);
+ const mirroredLogo = lookupKey ? COMPANY_LOGOS_MANIFEST[lookupKey] : null;
  if (mirroredLogo && String(mirroredLogo).startsWith('/images/')) return mirroredLogo;
 
  // 1. Publisher-provided logo (projected from the publish form; validated
@@ -976,9 +941,14 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
 
  // 2. Explicit crawled-company logo map (most reliable)
- if (key && CRAWLED_COMPANY_LOGOS[key]) {
- return CRAWLED_COMPANY_LOGOS[key];
+ if (lookupKey && CRAWLED_COMPANY_LOGOS[lookupKey]) {
+ return CRAWLED_COMPANY_LOGOS[lookupKey];
  }
+
+ // A Comune record is employer-scoped even while legacy data still carries
+ // the family key. Never let a family-level map entry or a company-name
+ // identity fallback assign one municipality's logo to another municipality.
+ if (municipalityKey) return null;
 
  // 3. Identity-based fallbacks for variant company names / keys
  if (isMedacta(job)) return CRAWLED_COMPANY_LOGOS['medacta-international'];

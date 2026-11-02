@@ -1,11 +1,13 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 1;
-export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v1';
+export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 2;
+export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v2';
 export const SOCIAL_COPY_PACK_MAX_AGE_DAYS = 45;
+const LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION = 1;
+const LEGACY_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v1';
 
 export const SOCIAL_COPY_CHANNELS = Object.freeze({
   instagram: Object.freeze(['article', 'job', 'border', 'reel']),
@@ -13,6 +15,14 @@ export const SOCIAL_COPY_CHANNELS = Object.freeze({
   facebook: Object.freeze(['article', 'job', 'event', 'digest']),
   linkedin: Object.freeze(['article', 'job']),
   telegram: Object.freeze(['job', 'border']),
+  reddit: Object.freeze(['article', 'job']),
+});
+const LEGACY_SOCIAL_COPY_CHANNELS = Object.freeze({
+  instagram: SOCIAL_COPY_CHANNELS.instagram,
+  tiktok: SOCIAL_COPY_CHANNELS.tiktok,
+  facebook: SOCIAL_COPY_CHANNELS.facebook,
+  linkedin: SOCIAL_COPY_CHANNELS.linkedin,
+  telegram: SOCIAL_COPY_CHANNELS.telegram,
 });
 
 const MAX_TEMPLATES_PER_KIND = 3;
@@ -39,7 +49,7 @@ const INSTAGRAM_OBJECTIVE_CTA_PREFIX_RE = Object.freeze({
 });
 const INSTAGRAM_NEGATED_ACTION_RE = /\bnon\s+(?:condivid\p{L}*|salv\p{L}*|conserv\p{L}*|metti\s+da\s+parte|aggiungi\s+ai\s+preferiti|comment\p{L}*|scriv\p{L}*|raccont\p{L}*|dicc\p{L}*|rispond\p{L}*|lascia\s+un\s+commento)\b/iu;
 const INSTAGRAM_OPEN_QUESTION_RE = /^\s*(?:che\s+cosa|cosa|quale|quali|qual|come|dove|quando|chi|quanto|quanta|quanti|quante|perch[eé]|in\s+che\s+modo)\b[^?]*\?/iu;
-const CTA_ACTION_RE = /\b(?:condividi(?:lo|la|li|le|ne)?|salva(?:lo|la|li|le|ne)?|conserva(?:lo|la|li|le|ne)?|metti\s+da\s+parte|aggiungi\s+ai\s+preferiti|commenta|scrivi(?:lo|la|li|le|ne|ci)?|racconta(?:lo|la|li|le|ne|ci|celo|cela)?|dicci|rispondi(?:ci)?|lascia\s+un\s+commento|leggi|approfondisci|apri|consulta|visita|vai|clicca|scopri|guarda|ascolta|candidati|invia(?:lo|la|li|le|ci)?|manda|compila|segui|iscriviti|partecipa|verifica|controlla|esplora|trova|prenota)\b/giu;
+const CTA_ACTION_RE = /\b(?:condividi(?:lo|la|li|le|ne)?|salva(?:lo|la|li|le|ne)?|conserva(?:lo|la|li|le|ne)?|metti\s+da\s+parte|aggiungi\s+ai\s+preferiti|commenta|scrivi(?:lo|la|li|le|ne|ci)?|racconta(?:lo|la|li|le|ne|ci|celo|cela)?|dicci|rispondi(?:ci)?|lascia\s+un\s+commento|leggi|approfondisci|apri|consulta|visita|vai|clicca|scopri|guarda|ascolta|candidati|invia(?:lo|la|li|le|ci)?|manda|compila|segui|iscriviti|partecipa|verifica|controlla|esplora|trova|prenota|tagga(?:mi|lo|la|li|le|ci)?|menziona(?:mi|lo|la|li|le|ci)?|invita(?:mi|lo|la|li|le|ci)?|inoltra(?:mi|lo|la|li|le|ci)?)\b/giu;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const DEFAULT_SOCIAL_COPY_PACK_PATH = path.join(ROOT, 'data', 'social-copy-packs', 'current.json');
 
@@ -86,9 +96,9 @@ function validateSingleActionCta(cta, field, { ignoreQuestionLead = false } = {}
   }
 }
 
-function packChannels(raw) {
+function packChannels(raw, channelSchema = SOCIAL_COPY_CHANNELS) {
   if (!isRecord(raw?.channels)) throw new Error('channels must be an object');
-  const channelNames = Object.keys(SOCIAL_COPY_CHANNELS);
+  const channelNames = Object.keys(channelSchema);
   const actualChannels = Object.keys(raw.channels).sort();
   if (actualChannels.join('|') !== channelNames.slice().sort().join('|')) {
     throw new Error('channels must contain exactly: ' + channelNames.join(', '));
@@ -98,7 +108,7 @@ function packChannels(raw) {
   for (const channel of channelNames) {
     const sourceKinds = raw.channels[channel];
     if (!isRecord(sourceKinds)) throw new Error(channel + ' must be an object');
-    const requiredKinds = SOCIAL_COPY_CHANNELS[channel];
+    const requiredKinds = channelSchema[channel];
     const actualKinds = Object.keys(sourceKinds).sort();
     if (actualKinds.join('|') !== requiredKinds.slice().sort().join('|')) {
       throw new Error(channel + ' must contain exactly: ' + requiredKinds.join(', '));
@@ -160,19 +170,24 @@ function packChannels(raw) {
   return channels;
 }
 
-export function normalizeSocialCopyPack(raw, { generatedAt = new Date() } = {}) {
-  const channels = packChannels(raw);
+function normalizePack(raw, {
+  generatedAt = new Date(),
+  schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION,
+  promptVersion = SOCIAL_COPY_PROMPT_VERSION,
+  channelSchema = SOCIAL_COPY_CHANNELS,
+} = {}) {
+  const channels = packChannels(raw, channelSchema);
   const generated = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
   if (!Number.isFinite(generated.getTime())) throw new Error('generatedAt must be a valid timestamp');
   const canonical = JSON.stringify(channels);
   const packId = createHash('sha256')
-    .update(SOCIAL_COPY_PROMPT_VERSION + '\n' + canonical)
+    .update(promptVersion + '\n' + canonical)
     .digest('hex')
     .slice(0, 16);
   const validUntil = new Date(generated.getTime() + SOCIAL_COPY_PACK_MAX_AGE_DAYS * 86400000);
   return {
-    schemaVersion: SOCIAL_COPY_PACK_SCHEMA_VERSION,
-    promptVersion: SOCIAL_COPY_PROMPT_VERSION,
+    schemaVersion,
+    promptVersion,
     packId,
     generatedAt: generated.toISOString(),
     validUntil: validUntil.toISOString(),
@@ -180,14 +195,29 @@ export function normalizeSocialCopyPack(raw, { generatedAt = new Date() } = {}) 
   };
 }
 
+export function normalizeSocialCopyPack(raw, { generatedAt = new Date() } = {}) {
+  return normalizePack(raw, { generatedAt });
+}
+
 export function validatePersistedSocialCopyPack(pack, { now = new Date() } = {}) {
-  if (!isRecord(pack) || Number(pack.schemaVersion) !== SOCIAL_COPY_PACK_SCHEMA_VERSION) {
+  if (!isRecord(pack)) {
     throw new Error('unsupported schemaVersion');
   }
-  if (pack.promptVersion !== SOCIAL_COPY_PROMPT_VERSION) throw new Error('unsupported promptVersion');
-  const normalized = normalizeSocialCopyPack(
+  const legacyPack = Number(pack.schemaVersion) === LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && pack.promptVersion === LEGACY_SOCIAL_COPY_PROMPT_VERSION
+    && isRecord(pack.channels)
+    && !Object.hasOwn(pack.channels, 'reddit');
+  const currentPack = Number(pack.schemaVersion) === SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && pack.promptVersion === SOCIAL_COPY_PROMPT_VERSION;
+  if (!legacyPack && !currentPack) throw new Error('unsupported social-copy schema or prompt version');
+  const normalized = normalizePack(
     { channels: pack.channels },
-    { generatedAt: pack.generatedAt },
+    {
+      generatedAt: pack.generatedAt,
+      schemaVersion: legacyPack ? LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION : SOCIAL_COPY_PACK_SCHEMA_VERSION,
+      promptVersion: legacyPack ? LEGACY_SOCIAL_COPY_PROMPT_VERSION : SOCIAL_COPY_PROMPT_VERSION,
+      channelSchema: legacyPack ? LEGACY_SOCIAL_COPY_CHANNELS : SOCIAL_COPY_CHANNELS,
+    },
   );
   if (pack.packId !== normalized.packId || pack.validUntil !== normalized.validUntil) {
     throw new Error('pack metadata does not match the validated copy');
@@ -247,7 +277,130 @@ export function selectSocialCopy({
     copySlot: slot,
     copyPromptVersion: pack.promptVersion,
     copyPackId: pack.packId,
+    copyAssignmentMode: 'deterministic',
   };
+}
+
+function parseSocialCopyExperimentConfig(value) {
+  let config = value;
+  if (typeof config === 'string') {
+    try {
+      config = JSON.parse(config);
+    } catch {
+      return null;
+    }
+  }
+  if (
+    !isRecord(config)
+    || Number(config.schemaVersion) !== 1
+    || config.enabled !== true
+    || !/^[a-z0-9][a-z0-9-]{0,63}$/.test(String(config.experimentId || ''))
+  ) return null;
+  return { experimentId: String(config.experimentId) };
+}
+
+/**
+ * Select a stable copy variant, balanced across concurrent social publishers
+ * when the Firebase Remote Config experiment is enabled.
+ */
+export async function selectSocialCopyForPublish(options = {}) {
+  const selected = selectSocialCopy(options);
+  if (!selected) return null;
+  // A preview must never create Firestore assignments or change the future
+  // balance of arms. It intentionally shows the deterministic preview arm.
+  if (options.dryRun === true) return selected;
+  const config = parseSocialCopyExperimentConfig(
+    options.experimentConfig ?? process.env.SOCIAL_COPY_EXPERIMENT_CONFIG,
+  );
+  if (!config) return selected;
+
+  const slot = options.format || options.kind;
+  const objective = options.channel === 'instagram' ? String(options.expectedObjective || '') : '';
+  const candidates = options.pack.channels[options.channel][slot]
+    .filter((template) => options.channel !== 'instagram' || template.objective === objective);
+  const attemptId = randomUUID();
+  try {
+    const assign = options.assignBalancedImpl
+      || (await import('./firebase-social-copy-assignment.mjs')).assignBalancedSocialCopy;
+    const result = await assign({
+      experimentId: config.experimentId,
+      packId: options.pack.packId,
+      channel: options.channel,
+      slot,
+      objective,
+      assignmentKey: options.assignmentKey,
+      attemptId,
+      templateIds: candidates.map((template) => template.id),
+    });
+    const template = candidates.find((candidate) => candidate.id === result?.templateId);
+    if (!template) throw new Error('Firebase returned an unknown copy template');
+    return {
+      ...template,
+      copyMode: 'codex',
+      copySlot: slot,
+      copyPromptVersion: options.pack.promptVersion,
+      copyPackId: options.pack.packId,
+      copyAssignmentMode: 'firebase-balanced',
+      copyExperimentId: config.experimentId,
+      copyAssignment: {
+        experimentId: config.experimentId,
+        packId: options.pack.packId,
+        channel: options.channel,
+        slot,
+        objective,
+        assignmentKey: options.assignmentKey,
+        attemptId: result?.attemptId || attemptId,
+      },
+    };
+  } catch {
+    options.onWarning?.('Firebase social copy balancing unavailable; keeping stable deterministic assignment');
+    return {
+      ...selected,
+      copyAssignmentMode: 'deterministic-fallback',
+      copyExperimentId: config.experimentId,
+    };
+  }
+}
+
+export async function releaseSocialCopyAssignment(copy, { releaseBalancedImpl } = {}) {
+  if (copy?.copyAssignmentMode !== 'firebase-balanced' || !isRecord(copy.copyAssignment)) return false;
+  const release = releaseBalancedImpl
+    || (await import('./firebase-social-copy-assignment.mjs')).releaseBalancedSocialCopyAssignment;
+  return release(copy.copyAssignment);
+}
+
+/** Release one Firebase-balanced reservation after a certain pre-delivery skip. */
+export async function releaseUnpublishedSocialCopyAssignment(copy, {
+  releaseBalancedImpl,
+  reason = 'delivery was skipped before acceptance',
+} = {}) {
+  if (copy?.copyAssignmentMode !== 'firebase-balanced' || !isRecord(copy.copyAssignment)) return false;
+  const released = await releaseSocialCopyAssignment(copy, { releaseBalancedImpl });
+  if (!released) throw new Error('Social copy assignment could not be released: ' + reason);
+  return true;
+}
+
+/**
+ * Best-effort release for publishers that process multiple independent posts.
+ * A failed release is reported to the caller but does not abort the remaining
+ * posts; callers must provide an error handler so a stranded reservation stays
+ * observable. Use `releaseUnpublishedSocialCopyAssignment` when failure should
+ * still reject the current operation.
+ */
+export async function releaseUnpublishedSocialCopyAssignmentBestEffort(copy, {
+  releaseBalancedImpl,
+  reason = 'delivery was skipped before acceptance',
+  onFailure,
+} = {}) {
+  if (copy?.copyAssignmentMode !== 'firebase-balanced' || !isRecord(copy.copyAssignment)) return true;
+  if (typeof onFailure !== 'function') throw new Error('onFailure is required for best-effort social copy release');
+  try {
+    await releaseUnpublishedSocialCopyAssignment(copy, { releaseBalancedImpl, reason });
+    return true;
+  } catch (error) {
+    onFailure(error);
+    return false;
+  }
 }
 
 export function socialCopyLedgerFields(copy, {
@@ -261,6 +414,8 @@ export function socialCopyLedgerFields(copy, {
       copyPromptVersion: copy.copyPromptVersion,
       copyPackId: copy.copyPackId,
       copyTemplateId: copy.id,
+      copyAssignmentMode: copy.copyAssignmentMode || 'deterministic',
+      ...(copy.copyExperimentId ? { copyExperimentId: copy.copyExperimentId } : {}),
       ...(copy.objective ? { copyObjective: copy.objective } : {}),
       copyHook: copy.hook,
       copyCta: copy.cta,
@@ -271,6 +426,7 @@ export function socialCopyLedgerFields(copy, {
     copyPromptVersion: 'deterministic-v1',
     copyPackId: 'deterministic',
     copyTemplateId: 'baseline',
+    copyAssignmentMode: 'deterministic',
     copyHook: String(fallbackHook || ''),
     copyCta: String(fallbackCta || ''),
   };
@@ -283,10 +439,22 @@ export function socialCopyLedgerFields(copy, {
  */
 export function socialCopyTrackingContent(content, copy) {
   const base = String(content || '').trim();
-  if (!base || copy?.copyMode !== 'codex') return base;
+  const balancedAssignment = copy?.copyAssignmentMode === 'firebase-balanced';
+  if (!base || (copy?.copyMode !== 'codex' && !balancedAssignment)) return base;
   const packId = String(copy.copyPackId || '').trim();
   const copySlot = String(copy.copySlot || '').trim();
   const templateId = String(copy.id || copy.copyTemplateId || '').trim();
   if (!/^[a-f0-9]{16}$/.test(packId) || !TEMPLATE_ID_RE.test(copySlot) || !TEMPLATE_ID_RE.test(templateId)) return base;
-  return `${base}--cp${packId}-${copySlot}.${templateId}`;
+  const assignmentCode = {
+    'firebase-balanced': 'b',
+    deterministic: 'd',
+    'deterministic-fallback': 'f',
+  }[String(copy.copyAssignmentMode || 'deterministic')];
+  if (!assignmentCode) return base;
+  const experimentId = String(copy.copyExperimentId || '').trim();
+  if (experimentId && !/^[a-z0-9][a-z0-9-]{0,63}$/.test(experimentId)) return base;
+  const experimentHash = experimentId
+    ? createHash('sha256').update(experimentId).digest('hex').slice(0, 8)
+    : '';
+  return `${base}--cp${packId}-${copySlot}.${templateId}.${assignmentCode}${experimentHash ? '.' + experimentHash : ''}`;
 }

@@ -35,6 +35,10 @@
  */
 
 import { extractKeywords } from './newsletter-content.mjs';
+import { normalizeJobCategory } from './jobCategoryNormalization.mjs';
+import { buildStemmedHaystack, normalizeSearchText, stemSearchToken } from './textUtils.ts';
+import { cantonSearchTokens } from './cantonList.ts';
+import { STOPWORDS } from '../scripts/lib/query-tokenizer.mjs';
 import {
   expandKeywordsWithSynonymPhrases,
   professionSynonymText,
@@ -71,6 +75,13 @@ const SWISS_CANTONS = new Set([
   'sh', 'ar', 'ai', 'sg', 'gr', 'ag', 'tg', 'ti', 'vd', 'vs', 'ne', 'ge', 'ju',
 ]);
 
+const SOFT_SEARCH_STOP_WORDS = new Set([...STOPWORDS].map(normalizeSearchText));
+
+function hasSearchIntent(query) {
+  return normalizeSearchText(query).split(' ')
+    .some((token) => token.length >= 2 && !SOFT_SEARCH_STOP_WORDS.has(token));
+}
+
 /**
  * One-tap board/category alerts predate a structured category field and store
  * the localized board label in `keywords` (for example, "Tecnologia"). Keep
@@ -105,6 +116,7 @@ const ALERT_CATEGORY_LABELS = new Map([
   ['ingenieurwesen', 'engineering'],
   ['ingenierie', 'engineering'],
   ['administration', 'admin'],
+  ['admin', 'admin'],
   ['amministrazione', 'admin'],
   ['verwaltung', 'admin'],
   ['hospitality', 'hospitality'],
@@ -228,11 +240,19 @@ function jobCategoryKey(value) {
 }
 
 function jobCategoryKeys(job) {
-  return new Set(
+  const keys = new Set(
     [job?.category, job?.sector]
       .map(jobCategoryKey)
       .filter(Boolean),
   );
+  // The board presents canonical categories inferred from category + title /
+  // department. Alerts persist those board values, while the sender receives
+  // the raw crawler row. Use the board's exact normalizer as well as the
+  // existing structured aliases (never classify from an email's translation).
+  if (typeof job?.title === 'string' && job.title.trim()) {
+    keys.add(normalizeJobCategory(job.category, `${job.title} ${String(job.department || '')}`));
+  }
+  return keys;
 }
 
 function jobTaxonomyValues(job) {
@@ -292,6 +312,8 @@ export function freshnessBoost(job, nowMs) {
 /**
  * @typedef {object} AlertProfile
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
+ * @property {string[]} hardSearchQueries Untouched backfill searches, matched as board search tokens.
+ * @property {string[]} softSearchQueries Existing profile/browsing searches, used only as fallback intent.
  * @property {Set<string>} hardCategoryKeys  Board taxonomy labels persisted as
  *                                           keywords, matched against structured
  *                                           job category/sector fields.
@@ -300,6 +322,7 @@ export function freshnessBoost(job, nowMs) {
  *                                             structured job category/sector fields.
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
  * @property {string}    company       Normalized company affinity token ('' when none).
+ * @property {string[]}  companyKeys   Exact display identities, including declared aliases and legal forms.
  * @property {string[]}  locations     Lowercased location signals (soft — ranking only).
  * @property {string[]}  alertLocations Lowercased locations the user explicitly set ON THE ALERT.
  *                                       HARD filter when non-empty: a job outside these (and the
@@ -339,10 +362,11 @@ function sameCriteriaOrder(left, right) {
  * here so existing alerts self-heal at read time without a destructive data
  * migration.
  */
-function hardKeywordValuesForAlert(alert, subscriber) {
+function hardCriteriaForAlert(alert, subscriber) {
   const values = Array.isArray(alert?.keywords) ? alert.keywords : [];
+  const literal = { keywords: values, searchQueries: [] };
   const marker = String(alert?.backfilled_from || alert?.backfilledFrom || '').trim();
-  if (!marker.startsWith('newsletter_subscribers:') || values.length === 0) return values;
+  if (!marker.startsWith('newsletter_subscribers:') || values.length === 0) return literal;
 
   const sub = subscriber || {};
   const query = String(sub.job_search_query || '').trim();
@@ -361,14 +385,22 @@ function hardKeywordValuesForAlert(alert, subscriber) {
   });
   const generatedForms = [legacyContext, legacyWriterContext, uniq([query])]
     .filter((form) => form.length > 0);
-  if (!generatedForms.some((form) => sameCriteriaOrder(values, form))) return values;
+  if (!generatedForms.some((form) => sameCriteriaOrder(values, form))) return literal;
 
   const generatedValues = new Set(normalizedCriteria([query, category, title]));
   const explicitQuery = recoveredSourceJobContext ? '' : query.toLowerCase();
-  return values.filter((value) => {
+  const keywords = values.filter((value) => {
     const normalized = String(value || '').trim().toLowerCase();
     return normalized === explicitQuery || !generatedValues.has(normalized);
   });
+  return {
+    keywords,
+    // A search captured from the board is an AND of normalized tokens over
+    // listing fields, not a quoted, contiguous phrase in its description.
+    // Only untouched generated arrays get this treatment; edited criteria
+    // retain the explicit alert's literal keyword contract.
+    searchQueries: explicitQuery ? [query] : [],
+  };
 }
 
 /**
@@ -494,6 +526,25 @@ function preferenceCities(preferences) {
  * @property {number} [now] Fixed epoch for deterministic retention checks/tests.
  */
 
+/** Fill missing targeting signals from the subscriber’s own alert channel. */
+export function mergeAlertSubscriberSignals(subscriber = null, channelSubscriber = null) {
+  const merged = { ...(subscriber || {}) };
+  // Only targeting fields cross this boundary. Consent, suppression, cadence
+  // and delivery state continue to be evaluated on their original documents.
+  for (const key of [
+    'job_search_query', 'job_category', 'sector_interest', 'job_title', 'job_slug',
+    'workPosition', 'headline', 'job_company', 'location_interest', 'job_location', 'geo_city',
+    'municipality',
+  ]) {
+    const value = merged[key];
+    const fallback = channelSubscriber?.[key];
+    if ((value == null || (typeof value === 'string' && !value.trim()))
+      && typeof fallback === 'string' && fallback.trim()) merged[key] = fallback;
+  }
+  merged.preferences = { ...(channelSubscriber?.preferences || {}), ...(subscriber?.preferences || {}) };
+  return merged;
+}
+
 /**
  * Build the matching profile for one alert, enriched with the subscriber's
  * newsletter document (may be null when the user has no newsletter record) and
@@ -511,7 +562,8 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
 
   // 1. Explicit user keywords — hard requirement when present (legacy contract).
   const hardKeywordInputs = [];
-  for (const kw of hardKeywordValuesForAlert(a, sub)) {
+  const hardCriteria = hardCriteriaForAlert(a, sub);
+  for (const kw of hardCriteria.keywords) {
     const t = String(kw || '').toLowerCase().trim();
     if (t) hardKeywordInputs.push(t);
   }
@@ -551,12 +603,21 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   // the job title/role the subscriber entered on their profile — same
   // token treatment as sourceJobTitle above.
   addTokens(sub.workPosition);
+  // OAuth professional headlines are already stored on the subscriber. Treat
+  // them like the self-described role, never as an explicit hard criterion.
+  // Placeholder headlines such as "--" yield no tokens.
+  if (typeof sub.headline === 'string') addTokens(sub.headline);
   // Browsing-derived intent (searches + viewed-job categories) from the
   // personalization subdoc.
   for (const t of ex.behaviorTokens || []) addTokens(t);
+  const softSearchQueries = uniq([sub.job_search_query, ...(ex.behaviorTokens || [])]
+    .filter((query) => typeof query === 'string' && query.trim())
+    .map((query) => query.trim()))
+    .filter(hasSearchIntent);
 
   // 3. Company affinity — same employer the user already engaged with.
   const company = normalizeCompanyToken(sub.job_company);
+  const companyKeys = companyDisplayIdentityKeys(sub.job_company).map(canonicalCompanyToken).filter(Boolean);
 
   // 4. Location signals.
   //    `alertLocations` = the locations the user explicitly picked ON THE ALERT
@@ -652,7 +713,8 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   );
 
   return {
-    hardKeywords, hardCategoryKeys, hardTaxonomyValues, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
+    hardKeywords, hardCategoryKeys, hardTaxonomyValues, hardSearchQueries: hardCriteria.searchQueries,
+    softTokens, softSearchQueries, company, companyKeys, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
     applicationIntentJobKeys: activeApplicationIntentJobKeys(ex.applicationIntent, ex.now),
   };
@@ -736,7 +798,7 @@ export function jobMatchFeatures(job, locale) {
     jobTokens: extractKeywords(
       `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
     ),
-    jobCompany: normalizeCompanyToken(job.companyKey || job.company),
+    jobCompany: normalizeCompanyToken(job.company),
     jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
     jobCanton: String(job.canton || '').toLowerCase(),
     jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
@@ -794,6 +856,28 @@ function paddedLocNeedles(needles) {
 function includesAny(haystack, needles) {
   for (let i = 0; i < needles.length; i++) if (haystack.includes(needles[i])) return true;
   return false;
+}
+
+function searchHaystack(job, features, locale) {
+  const category = normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`);
+  const cantonNames = cantonSearchTokens(job.canton);
+  const title = job.titleByLocale?.[locale] || job.title;
+  const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
+  return buildStemmedHaystack(`${features.titleText} ${description} ${job.company || ''} ${features.jobLoc} ${job.contract || ''} ${category} ${features.jobSector} ${cantonNames} ${professionSynonymText(title)}`);
+}
+
+function compileSearchQuery(query) {
+  const tokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+  return { query: String(query).toLowerCase(), tokens };
+}
+
+function matchesSearchQuery(compiled, job, features, locale, cached = null) {
+  // Unknown/unsupported script is never an empty AND matching everything.
+  if (compiled.tokens.length === 0) return features.fullText.includes(compiled.query);
+  const haystack = cached
+    ? (cached.searchHaystack ??= searchHaystack(job, features, locale))
+    : searchHaystack(job, features, locale);
+  return compiled.tokens.every((token) => haystack.includes(` ${token}`));
 }
 
 /**
@@ -895,12 +979,12 @@ export function createJobFeatureCache() {
   let jobCount = 0;
   /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
   const descriptionMemos = new Map();
-  /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
+  /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
   const spaces = new Map();
   const spaceFor = (key) => {
     let space = spaces.get(key);
     if (!space) {
-      space = { size: 0, keywordMemos: new Map() };
+      space = { size: 0, keywordMemos: new Map(), searchMemos: new Map() };
       spaces.set(key, space);
     }
     return space;
@@ -920,7 +1004,7 @@ export function createJobFeatureCache() {
         jobIndexByJob.set(job, jobIndex);
       }
       const features = jobMatchFeatures(job, locale);
-      found = { features, index: spaceFor(key).size++, jobIndex, locHaystack: null };
+      found = { features, index: spaceFor(key).size++, jobIndex, locHaystack: null, searchHaystack: null };
       byLocale.set(key, found);
     }
     return found;
@@ -952,6 +1036,22 @@ export function createJobFeatureCache() {
         descriptionMemos.set(keyword, descriptionMemo);
       }
       return (entry) => memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword);
+    },
+    searchTest(locale, query) {
+      const space = spaceFor(locale || '');
+      let memo = space.searchMemos.get(query);
+      if (!memo) {
+        memo = createSubstringMemo();
+        space.searchMemos.set(query, memo);
+      }
+      const compiled = compileSearchQuery(query);
+      return (job, cached) => {
+        const known = memoRead(memo, cached.index);
+        if (known !== -1) return known === 1;
+        const hit = matchesSearchQuery(compiled, job, cached.features, locale, cached);
+        memoWrite(memo, cached.index, hit);
+        return hit;
+      };
     },
     /** Internal to {@link createAlertScorer}: {@link pinnedCompanyIdentityKeys}, once per job. */
     pinnedKeys(job) {
@@ -1031,26 +1131,38 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     contractTypes,
   } = profile;
   const hardList = [...hardKeywords];
+  const compileQueryTest = (query) => {
+    if (featureCache) return featureCache.searchTest(locale, query);
+    const compiled = compileSearchQuery(query);
+    return (job, cached, features) => matchesSearchQuery(compiled, job, features, locale);
+  };
+  const searchTests = (profile.hardSearchQueries || []).map(compileQueryTest);
+  const softSearchTests = hardList.length === 0
+    ? (profile.softSearchQueries || []).map(compileQueryTest)
+    : [];
+  const companyKeys = profile.companyKeys || [profile.company].filter(Boolean);
   const keywordTests = featureCache ? hardList.map((kw) => featureCache.keywordTest(locale, kw)) : null;
   const alertLocationNeedles = paddedLocNeedles(profile.alertLocations);
   const locationNeedles = paddedLocNeedles(profile.locations);
   const needsLocation = alertLocationNeedles.length > 0 || locationNeedles.length > 0;
   const hasGeoScope = profile.alertLocations.length > 0 || cantons.length > 0;
-  const hasIntentProfile = softTokens.size > 0 || Boolean(profile.company);
+  const hasLegacyIntentProfile = softTokens.size > 0 || Boolean(profile.company);
   // A profile without a single signal scores every job 0 (nothing can add to
   // the score, and the no-keyword/no-intent policy then drops score 0): answer
   // that without touching the job — 588 of 5.157 alerts in run 36097910375.
-  const neverMatches = hardList.length === 0 && !hasGeoScope && !hasIntentProfile
+  const neverMatches = hardList.length === 0 && !hasGeoScope && !hasLegacyIntentProfile
+    && softSearchTests.length === 0
     && locationNeedles.length === 0 && sectors.length === 0 && contractTypes.length === 0;
 
   return (job) => {
     if (!job || neverMatches) return 0;
     const cached = featureCache ? featureCache.entry(job, locale) : null;
+    const features = cached ? cached.features : jobMatchFeatures(job, locale);
     const {
       titleText, fullText, jobTokens, jobCategoryKeys: jobCategories,
       jobTaxonomyValues: jobTaxonomy = new Set(),
-      jobCompany, jobLoc, jobCanton, jobSector, jobContract,
-    } = cached ? cached.features : jobMatchFeatures(job, locale);
+      jobLoc, jobCanton, jobSector, jobContract,
+    } = features;
     let locHaystack = '';
     if (needsLocation) {
       if (cached) {
@@ -1081,12 +1193,13 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     //    this same field, so an exact taxonomy comparison is necessary; never use
     //    a substring match against structured values.
     if (hardList.length > 0) {
-      let hit = false;
-      for (let k = 0; k < hardList.length; k++) {
+      let hit = searchTests.length > 0
+        && searchTests.every((test) => test(job, cached, features));
+      for (let k = 0; searchTests.length === 0 && k < hardList.length; k++) {
         const found = keywordTests ? keywordTests[k](cached) : fullText.includes(hardList[k]);
         if (found) { hit = true; break; }
       }
-      if (!hit && hardCategoryKeys.size > 0) {
+      if (!hit && searchTests.length === 0 && hardCategoryKeys.size > 0) {
         for (const category of hardCategoryKeys) {
           if (jobCategories.has(category)) {
             hit = true;
@@ -1094,7 +1207,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
           }
         }
       }
-      if (!hit && hardTaxonomyValues.size > 0) {
+      if (!hit && searchTests.length === 0 && hardTaxonomyValues.size > 0) {
         for (const taxonomyValue of hardTaxonomyValues) {
           if (jobTaxonomy.has(taxonomyValue)) {
             hit = true;
@@ -1111,7 +1224,12 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     }
 
     // Company affinity (strong signal — same employer).
-    const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
+    // A crawler key may cover unrelated employers. Match display identities,
+    // including their declared aliases/legal forms, exactly as company pins do.
+    const jobCompanyKeys = profile.company
+      ? (featureCache ? featureCache.pinnedKeys(job) : pinnedCompanyIdentityKeys(job))
+      : [];
+    const companyMatch = Boolean(profile.company && companyKeys.some((key) => jobCompanyKeys.includes(key)));
     if (companyMatch) score += 4;
 
     // Soft keyword overlap (tokenized, proportional, capped).
@@ -1135,14 +1253,16 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
 
     // 2. Filtering policy when there are NO explicit keywords.
     if (hardList.length === 0) {
-      if (hasIntentProfile) {
-        // One-tap / onboarding subscriber: require at least ONE targeted signal,
-        // otherwise we'd surface every recent job (the legacy noise this fixes).
-        if (softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch) return 0;
-      } else if (score === 0) {
-        // Pure location/sector alert with no intent profile (legacy behavior):
-        // location / sector / contract sufficient; nothing matched → exclude.
-        return 0;
+      // Preserve the pre-existing policy, including geo/contract-only matches.
+      // A newly readable short search is a fallback, never a new hard filter.
+      const needsFallback = hasLegacyIntentProfile
+        ? softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch
+        : score === 0;
+      if (needsFallback) {
+        // A searched employer/locality need not occur in the role's title.
+        // Every query token must match, and the hard scope above still holds.
+        if (!softSearchTests.some((test) => test(job, cached, features))) return 0;
+        score += 2;
       }
     }
 

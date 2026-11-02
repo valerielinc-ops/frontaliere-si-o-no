@@ -988,6 +988,9 @@ const enCore: Record<string, string> = {
   'jobBoard.rewardedOffer.handoffDirectTitleJob': 'Open “{jobTitle}”',
   'jobBoard.rewardedOffer.handoffDirectText': 'The listing opens in a new tab and this page stays open.',
   'jobBoard.assisted.pageEyebrow': 'Assisted application',
+ 'jobBoard.assisted.trackingTitle': "Application status",
+ 'jobBoard.assisted.trackingBody': "Open your applications to check the status and any required next steps.",
+ 'jobBoard.assisted.trackingCta': "My applications",
  'jobBoard.assisted.pageTitle': 'Complete your application',
  'jobBoard.assisted.loading': 'Checking payment status…',
  'jobBoard.assisted.authRequired': 'Sign in first to protect your order and CV.',
@@ -3053,6 +3056,10 @@ Rules:
 
  // Publisher portal — post a job ad
  'publisher.title': 'Post a job ad',
+ 'seo.directEmployer.title': 'Post a free job offer | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Small businesses and local shops can post a free Ticino job without an account: employer verification, human moderation and automatic expiry after 30 days.',
+ 'seo.permanentEmployer.title': 'Employers open to spontaneous applications | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Public list of employers who may consider spontaneous applications, signalled by candidates and checked by the team. These are not open jobs.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

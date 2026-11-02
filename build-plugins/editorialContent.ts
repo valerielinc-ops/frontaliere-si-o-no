@@ -2956,19 +2956,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  // ───── Consulting ─────────────────────────────────────────────
  '/consulenza': {
  en: [
- 'The tax consulting service is designed for cross-border workers who need personalised assistance with taxation, pensions, and fiscal optimisation in the Swiss-Italian cross-border context. Consultants specialise in the regulations of both countries and are up to date on the 2026 New Tax Agreement.',
+ 'The tax consulting service is designed for cross-border workers who want to discuss taxation, pensions, and fiscal topics in the Swiss-Italian cross-border context. The sessions are informational and follow the areas listed below.',
  'Key areas include: Italian tax returns for Swiss income, choosing the tax regime (old vs new cross-border workers), calculating and applying the €10,000 exemption, optimising foreign tax credits (Art. 165 TUIR), AVS/LPP/pillar 3a pension planning, and choosing between LAMal and NHS.',
- 'Each consultation starts from an analysis of your individual situation — marital status, distance from the border, years of employment in Switzerland, gross income — to identify the most advantageous tax strategy.',
+ 'Each consultation starts from an analysis of your individual situation — marital status, distance from the border, years of employment in Switzerland, gross income — to structure the discussion around your case.',
  ],
  de: [
- 'Der Steuerberatungsservice richtet sich an Grenzgänger, die persönliche Unterstützung bei Besteuerung, Vorsorge und steuerlicher Optimierung im schweizerisch-italienischen Grenzgängerkontext benötigen. Die Berater sind auf die Regelungen beider Länder spezialisiert und auf dem aktuellen Stand des Neuen Steuerabkommens 2026.',
+ 'Der Steuerberatungsservice richtet sich an Grenzgänger, die Besteuerung, Vorsorge und steuerliche Themen im schweizerisch-italienischen Grenzgängerkontext besprechen möchten. Die Sitzungen sind informativ und orientieren sich an den unten aufgeführten Bereichen.',
  'Die Hauptbereiche umfassen: italienische Steuererklärung für Schweizer Einkommen, Wahl des Steuerregimes (alte vs. neue Grenzgänger), Berechnung und Anwendung des Freibetrags von €10.000, Optimierung der Steuergutschriften für im Ausland gezahlte Steuern (Art. 165 TUIR), AHV/BVG/Säule-3a-Vorsorgeplanung.',
- 'Jede Beratung beginnt mit einer Analyse der individuellen Situation — Familienstand, Entfernung zur Grenze, Beschäftigungsjahre in der Schweiz, Bruttoeinkommen — um die vorteilhafteste Steuerstrategie zu identifizieren.',
+ 'Jede Beratung beginnt mit einer Analyse der individuellen Situation — Familienstand, Entfernung zur Grenze, Beschäftigungsjahre in der Schweiz, Bruttoeinkommen — um das Gespräch über den konkreten Fall zu strukturieren.',
  ],
  fr: [
- 'Le service de consultation fiscale s\'adresse aux travailleurs frontaliers ayant besoin d\'une assistance personnalisée en matière de fiscalité, prévoyance et optimisation fiscale dans le contexte transfrontalier Suisse-Italie. Les consultants sont spécialisés dans les réglementations des deux pays et à jour sur le Nouvel Accord Fiscal 2026.',
+ 'Le service de consultation fiscale s\'adresse aux travailleurs frontaliers qui souhaitent discuter de fiscalité, prévoyance et sujets fiscaux dans le contexte transfrontalier Suisse-Italie. Les sessions sont informatives et suivent les domaines indiqués ci-dessous.',
  'Les domaines principaux incluent : déclaration de revenus italienne pour les revenus suisses, choix du régime fiscal (anciens vs nouveaux frontaliers), calcul et application de la franchise de 10 000 €, optimisation des crédits d\'impôt pour impôts payés à l\'étranger (Art. 165 TUIR), planification AVS/LPP/3e pilier.',
- 'Chaque consultation part de l\'analyse de la situation individuelle — état civil, distance de la frontière, années d\'emploi en Suisse, revenu brut — pour identifier la stratégie fiscale la plus avantageuse.',
+ 'Chaque consultation part de l\'analyse de la situation individuelle — état civil, distance de la frontière, années d\'emploi en Suisse, revenu brut — pour structurer l\'échange autour du cas présenté.',
  ],
  },
 

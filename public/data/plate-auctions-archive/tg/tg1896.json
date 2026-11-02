@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "tg-109688",
+      "id": "tg-109876",
       "sourceKey": "TG",
-      "sourceRecordId": "109688",
+      "sourceRecordId": "109876",
       "canton": "Turgovia",
       "platePrefix": "TG",
       "plateNumber": "1896",
@@ -14,16 +14,16 @@
       "auctionStatus": "closed",
       "currentBidChf": 500,
       "bidCount": 0,
-      "endsAt": "2026-10-21T17:00:00.000Z",
-      "closedAt": "2026-10-21T17:00:00.000Z",
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-10-28T05:47:05.200Z",
       "officialAuctionUrl": "https://auktion.tg.ch/de/",
-      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109688",
-      "sourceFetchedAt": "2026-10-19T05:47:04.828Z",
-      "lastVerifiedAt": "2026-10-19T05:47:04.828Z",
-      "firstSeenAt": "2026-10-07T06:06:06.221Z",
-      "lastSeenAt": "2026-10-19T05:47:04.828Z",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109876",
+      "sourceFetchedAt": "2026-10-28T05:47:05.200Z",
+      "lastVerifiedAt": "2026-10-28T05:47:05.200Z",
+      "firstSeenAt": "2026-10-22T17:12:02.218Z",
+      "lastSeenAt": "2026-10-28T05:47:05.200Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "a60a15e389a2"
+      "rawSnapshotHash": "5f51de554881"
     }
   ]
 }

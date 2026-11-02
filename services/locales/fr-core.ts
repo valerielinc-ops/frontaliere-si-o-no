@@ -965,6 +965,9 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.consentUploadHint': 'Confirmez d’abord le consentement pour activer le téléversement.',
  'jobBoard.assisted.disclaimer': "En continuant, vous acceptez les Conditions d’utilisation (section 6, candidature assistée) et prenez connaissance de la Politique de confidentialité. Le mandat spécifique vous est demandé avant l’envoi du CV ; rien n’est présélectionné.",
  'jobBoard.assisted.pageEyebrow': 'Candidature assistée',
+ 'jobBoard.assisted.trackingTitle': "Statut de la candidature",
+ 'jobBoard.assisted.trackingBody': "Ouvre tes candidatures pour consulter leur statut et les éventuelles étapes à compléter.",
+ 'jobBoard.assisted.trackingCta': "Mes candidatures",
  'jobBoard.assisted.pageTitle': 'Complétez votre candidature',
  'jobBoard.assisted.loading': 'Vérification du paiement…',
  'jobBoard.assisted.authRequired': 'Connectez-vous d’abord pour protéger votre commande et votre CV.',
@@ -3031,6 +3034,10 @@ Règles :
 
  // Publisher portal — publier une offre d'emploi
  'publisher.title': 'Publier une offre d\'emploi',
+ 'seo.directEmployer.title': 'Publier gratuitement une offre | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Les petites entreprises et commerces locaux peuvent publier gratuitement une offre au Tessin sans compte : vérification de l’employeur, modération humaine et expiration automatique après 30 jours.',
+ 'seo.permanentEmployer.title': 'Employeurs ouverts aux candidatures spontanées | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Liste publique d’employeurs susceptibles d’étudier des candidatures spontanées, signalés par des candidats et vérifiés par l’équipe. Ce ne sont pas des postes ouverts.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

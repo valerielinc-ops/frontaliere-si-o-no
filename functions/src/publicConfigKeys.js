@@ -8,6 +8,7 @@
  * `tests/public-config-allowlist.test.ts` fails if an obvious secret is.
  */
 export const PUBLIC_CONFIG_KEYS = [
+  'DIRECT_EMPLOYER_CHANNEL_ENABLED',
   'ADBLOCK_GATE_EXPERIMENT_ENABLED',
   'ADBLOCK_GATE_TEST_SHARE',
   'APPLICATION_INTENT_RANKING_ENABLED',

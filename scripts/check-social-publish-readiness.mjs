@@ -15,9 +15,8 @@
  *              Succeeds only for a developer app that exists and is enabled.
  *              Separates "no app" from "app exists, audit queued".
  *
- *   Reddit     no probe — the Data Access Request was denied outright
- *              (see the lib's header and docs/REDDIT-POSTING.md); there is no
- *              queue left to poll.
+ *   Reddit     no probe — the Data Access Request was denied outright. The
+ *              classic publisher stays closed without explicit approval.
  *
  * Fail-soft on purpose, like every poster it watches: any probe error becomes
  * a negative probe result, never a throw, and the process always exits 0. A
@@ -39,7 +38,7 @@
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
  *   FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN          Instagram probe
  *   TIKTOK_CLIENT_KEY + TIKTOK_CLIENT_SECRET   TikTok probe
- *   INSTAGRAM_ACCESS_TOKEN / TIKTOK_ACCESS_TOKEN / REDDIT_CLIENT_ID …
+ *   INSTAGRAM_ACCESS_TOKEN / TIKTOK_ACCESS_TOKEN / REDDIT_DATA_API_APPROVED / REDDIT_CLIENT_ID …
  *                                              read (never printed) to detect
  *                                              a channel that is already ready
  */

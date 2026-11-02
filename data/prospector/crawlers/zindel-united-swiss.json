@@ -1,0 +1,25 @@
+{
+  "companyKey": "zindel-united-swiss",
+  "companyName": "Zindel + Co. AG",
+  "companyHost": "zindel-united.swiss",
+  "verifiedEmployerDomain": "zindel-united.swiss",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zindel-united.swiss/karriere/lehrstellen/"
+  ],
+  "detailTemplate": "/lehrstellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Sommer 2028, Ausbildung zum: Kauffrau/Kaufmann EFZ Branche Bauen und Wohnen",
+    "Sommer 2028, Ausbildung zum: Strassentransport&shy;fachleute",
+    "Sommer 2029, Ausbildung zum: Zeichner:in Fach&shy;richtung Architektur"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:14:08.062Z",
+  "candidateKey": "zindel@maienfeld"
+}

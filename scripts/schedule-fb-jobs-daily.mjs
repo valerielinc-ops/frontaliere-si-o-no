@@ -36,7 +36,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
 
 import {
   stripHtml,
@@ -500,30 +501,59 @@ function loadJobs(repoRoot, log) {
 
 // ── FB Graph OG rescrape (shared by the jobs + events schedulers) ──
 //
+function expectedJobOgImagePath(url) {
+  try {
+    const segments = new URL(url).pathname.split('/').filter(Boolean);
+    const slug = segments.at(-1);
+    return slug ? `/og/jobs/${slug}.webp` : null;
+  } catch {
+    return null;
+  }
+}
+
 // Force-rescrape OG metadata for a URL, then verify the scrape actually
-// resolved an image (GET without scrape=true, check og_object.image) before
-// considering the card ready — a bare fire-and-forget POST doesn't confirm
-// FB's cache picked up the per-page image, which on first deploys can leave
-// a generic fallback image live in the card. Retries with backoff give FB's
-// scraper time to catch up; still best-effort — a persistent miss logs a
-// warning but never blocks posting (issue #3382).
-export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}) {
+// resolved the expected image (GET without scrape=true, check og_object.image)
+// before considering the card ready. Optional strict checks let the jobs
+// scheduler reject generic or archived offer previews while event posts retain
+// their existing best-effort behavior.
+export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}, options = {}) {
   const scrapeUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
   const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&access_token=${encodeURIComponent(token)}`;
   const backoffMs = [0, 1500, 3000];
+  const fallbackTitlePattern = /offerta\s+non\s+(?:verificata|trovata|disponibile)|job\s+not\s+found|position\s+not\s+verified|offre\s+(?:introuvable|non\s+v[ée]rifi[ée]e)|stelle\s+nicht\s+gefunden/i;
   for (let i = 0; i < backoffMs.length; i += 1) {
     if (backoffMs[i]) await new Promise((r) => setTimeout(r, backoffMs[i]));
     try {
-      await fetchImpl(scrapeUrl, { method: 'POST' });
+      const scrapeResponse = await fetchImpl(scrapeUrl, { method: 'POST' });
+      if (!scrapeResponse.ok) continue;
+      const scrapeData = typeof scrapeResponse.clone === 'function'
+        ? await scrapeResponse.clone().json().catch(() => null)
+        : null;
+      if (scrapeData?.error) continue;
       const res = await fetchImpl(checkUrl);
+      if (!res.ok) continue;
       const data = await res.json();
       const image = data?.og_object?.image;
-      if (Array.isArray(image) ? image.length > 0 : Boolean(image)) return true;
+      const images = Array.isArray(image) ? image : image ? [image] : [];
+      const hasExpectedImage = !options.requiredImagePath || images.some((candidate) => {
+        const imageUrl = typeof candidate === 'string' ? candidate : candidate?.url;
+        if (!imageUrl) return false;
+        try {
+          const parsedImageUrl = new URL(imageUrl);
+          return parsedImageUrl.pathname === options.requiredImagePath
+            && (!options.requiredImageVersion || parsedImageUrl.searchParams.get('v') === options.requiredImageVersion);
+        } catch {
+          return false;
+        }
+      });
+      const title = String(data?.og_object?.title || '');
+      const isFallbackOffer = options.rejectFallbackTitle && fallbackTitlePattern.test(title);
+      if (images.length > 0 && hasExpectedImage && !isFallbackOffer) return true;
     } catch {
       /* transient — retried by the loop, best-effort overall */
     }
   }
-  warn('⚠️', `OG rescrape unverified for ${url} — proceeding with whatever FB's cache holds`);
+  warn('⚠️', `OG rescrape unverified for ${url}`);
   return false;
 }
 
@@ -537,6 +567,8 @@ export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}
  * @param {string} [opts.repoRoot]
  * @param {(...a: unknown[]) => void} [opts.log]
  * @param {(...a: unknown[]) => void} [opts.warn]
+ * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
+ * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -548,6 +580,8 @@ export async function run(opts = {}) {
   const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
     onWarning: (message) => warn('⚠️', message),
   });
+  const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
+  const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const volumeRaw = Number(env.FB_JOB_VOLUME || 144);
@@ -593,6 +627,7 @@ export async function run(opts = {}) {
   let placedCount = 0;
   const unmappedCities = new Map(); // city → count
   const payloads = [];
+  const copyReservations = new Map();
   for (let i = 0; i < usable; i++) {
     const job = candidates[i];
     const url = buildJobUrl(job);
@@ -600,12 +635,14 @@ export async function run(opts = {}) {
       log('⚠️', `skipping job ${job.id} — no slug`);
       continue;
     }
-    const socialCopy = selectSocialCopy({
+    const socialCopy = await selectSocialCopy({
       pack: socialCopyPack,
       channel: 'facebook',
       kind: 'job',
       assignmentKey: job.id,
+      dryRun,
     });
+    copyReservations.set(job.id, socialCopy);
     const message = buildJobCaption(job, { socialCopy });
     const placeId = lookupPlaceId(job.location, placeIds);
     if (placeId) {
@@ -622,6 +659,18 @@ export async function run(opts = {}) {
       scheduled_publish_time: slots[i],
     });
   }
+  const releaseReservation = async (id, reason) => {
+    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
+      releaseBalancedImpl: releaseSocialCopy,
+      reason,
+      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
+    });
+    if (released) copyReservations.delete(id);
+    return released;
+  };
+  const releaseAllReservations = async (reason) => {
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
+  };
   log('📍', `place tag resolved for ${placedCount}/${payloads.length} payloads`);
   if (unmappedCities.size > 0) {
     // Log top unmapped locations so we can extend lookupPlaceId aliases
@@ -646,10 +695,12 @@ export async function run(opts = {}) {
 
   if (!pageId || !token) {
     warn('⚠️', 'FB_PAGE_ID or FB_PAGE_ACCESS_TOKEN missing — skipping');
+    await releaseAllReservations('Facebook credentials missing');
     return { ok: false, scheduled: 0, dryRun, payloads };
   }
   if (typeof fetchImpl !== 'function') {
     warn('⚠️', 'no fetch impl available — skipping');
+    await releaseAllReservations('Facebook fetch implementation missing');
     return { ok: false, scheduled: 0, dryRun, payloads };
   }
 
@@ -665,7 +716,12 @@ export async function run(opts = {}) {
   const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
 
+  // Each payload is a separate promise in Promise.all below. Returning false
+  // here skips only this payload; later payloads and batches still run.
   const scheduleOne = async (p) => {
+    let accepted = false;
+    let deliveryUncertain = false;
+    try {
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
     const link = facebookUrl(
@@ -673,7 +729,20 @@ export async function run(opts = {}) {
       FACEBOOK_CAMPAIGN_JOB,
       socialCopyTrackingContent(p.jobId, p.copyFields),
     );
-    await rescrapeOgAndVerify(fetchImpl, link, token, warn);
+    const requiredImagePath = expectedJobOgImagePath(p.url);
+    if (!requiredImagePath) {
+      warn('⚠️', `skipping ${p.jobId} — invalid job URL for OG image verification`);
+      return false;
+    }
+    const ogReady = await rescrapeOgAndVerify(fetchImpl, link, token, warn, {
+      requiredImagePath,
+      requiredImageVersion: JOB_OG_IMAGE_VERSION,
+      rejectFallbackTitle: true,
+    });
+    if (!ogReady) {
+      warn('⚠️', `skipping ${p.jobId} — Facebook did not resolve a verified job image`);
+      return false;
+    }
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
       const b = new URLSearchParams({
@@ -696,6 +765,7 @@ export async function run(opts = {}) {
         res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
         data = await res.json();
       } catch (err) {
+        deliveryUncertain = true;
         warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
@@ -710,6 +780,8 @@ export async function run(opts = {}) {
     }
 
     if (res?.ok && data?.id) {
+      accepted = true;
+      copyReservations.delete(p.jobId);
       appendPosted(repoRoot, [{
         id: p.jobId,
         url: p.url,
@@ -722,6 +794,16 @@ export async function run(opts = {}) {
       return true;
     } else {
       warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
+      if (!deliveryUncertain && res && !res.ok) {
+        await releaseReservation(p.jobId, 'Facebook explicitly rejected the scheduled job post');
+      }
+      return false;
+    }
+    } catch (err) {
+      warn('⚠️', `FB scheduler failed for ${p.jobId}: ${err.message}`);
+      if (!accepted && !deliveryUncertain) {
+        await releaseReservation(p.jobId, 'Facebook job failed before delivery attempt');
+      }
       return false;
     }
   };

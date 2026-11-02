@@ -3,6 +3,9 @@ import type { FormEvent } from 'react';
 import { CheckCircle2, CreditCard, Eye, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
+import { parseEmployerResponse, parseEmployerResponseTimeline } from '@/services/assistedApplicationEmployerResponse';
+import { buildPath } from '@/services/router';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { trackAssistedApplicationCompletionOnce } from '@/services/assistedApplicationCompletionTracking';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
@@ -39,6 +42,10 @@ interface AssistedApplicationOrder {
   layoutVariant?: AssistedApplicationLayoutVariant;
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
+  automationState?: string;
+  jobUrl?: string;
+  employerResponse?: unknown;
+  employerResponseTimeline?: unknown;
   paymentFailureReason?: string | null;
   paymentProvider?: string;
   sumupCheckoutId?: string;
@@ -52,7 +59,7 @@ interface AssistedApplicationOrder {
   amountTotal?: number | string | null;
 }
 
-type PageStatus = 'loading' | 'pending' | 'paid' | 'submitted' | 'auth_required' | 'error';
+type PageStatus = 'loading' | 'pending' | 'paid' | 'submitted' | 'tracking' | 'auth_required' | 'error';
 
 export interface AssistedApplicationUploadProps {
   orderId: string;
@@ -115,6 +122,22 @@ function closePaymentWindow(checkoutWindow: Window | null): void {
     checkoutWindow.close();
   } catch {
     // A browser can revoke the WindowProxy while a cross-origin checkout is opening.
+  }
+}
+
+function canCompleteIntake(order: AssistedApplicationOrder): boolean {
+  // A workflow starts at drafting and can retain awaiting_upload in the
+  // order mirror. Its presence means intake has already completed.
+  return order.submissionStatus === 'awaiting_upload' && !order.automationState;
+}
+
+function safeJobUrl(value: unknown): string | null {
+  if (typeof value !== 'string') return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
+  } catch {
+    return null;
   }
 }
 
@@ -223,8 +246,10 @@ export default function AssistedApplicationUpload({
       const hasPersistedConsent = hasAssistedApplicationConsent(data);
       setConsent(hasPersistedConsent);
       setConsentPersisted(hasPersistedConsent);
-      if (data.submissionStatus === 'ready_for_manual_submission') {
-        setStatus('submitted');
+      // Only the initial intake may write awaiting_upload → ready. All later
+      // states belong to the server workflow, including orders opened from email.
+      if (data.paymentStatus === 'paid' && !canCompleteIntake(data)) {
+        setStatus('tracking');
         return true;
       }
       if (data.paymentStatus === 'paid') {
@@ -492,6 +517,11 @@ export default function AssistedApplicationUpload({
     setConsentSaving(true);
     setError(null);
     try {
+      const current = await readOrder();
+      if (!current || current.paymentStatus !== 'paid' || !canCompleteIntake(current)) {
+        await refreshOrder();
+        return;
+      }
       const firestoreModule = await import('firebase/firestore');
       await updateOrder({
         applicantName: name.trim(),
@@ -582,7 +612,8 @@ export default function AssistedApplicationUpload({
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (!order || order.paymentStatus !== 'paid' || !consentPersisted || !cvStorageKey) return;
+    if (!order || order.paymentStatus !== 'paid' || !canCompleteIntake(order)
+      || submitBusy || !consentPersisted || !cvStorageKey) return;
     if (!name.trim() || !isValidEmail(email)) {
       setError(t('jobBoard.assisted.formError'));
       return;
@@ -591,6 +622,11 @@ export default function AssistedApplicationUpload({
     setSubmitBusy(true);
     setError(null);
     try {
+      const current = await readOrder();
+      if (!current || current.paymentStatus !== 'paid' || !canCompleteIntake(current)) {
+        await refreshOrder();
+        return;
+      }
       const firestoreModule = await import('firebase/firestore');
       await updateOrder({
         applicantName: name.trim(),
@@ -604,12 +640,20 @@ export default function AssistedApplicationUpload({
       setStatus('submitted');
       trackAssistedApplicationEvent('manual_submission_queued', orderEventContext(order));
     } catch {
+      // A server transition can win after our read. The rules reject the stale
+      // write; show the current state without retrying or queueing another send.
+      const current = await readOrder().catch(() => null);
+      if (current && !canCompleteIntake(current)) {
+        await refreshOrder();
+        return;
+      }
       setError(t('jobBoard.assisted.submitError'));
     } finally {
       setSubmitBusy(false);
     }
   };
 
+  const jobUrl = safeJobUrl(order?.jobUrl);
   const jobTitle = order?.jobTitle || t('jobBoard.assisted.jobFallback');
   const displayedCvFileName = cvFileName || fileNameFromStorageKey(cvStorageKey, orderId);
   const uploadedCvCard = cvStorageKey ? (
@@ -647,7 +691,7 @@ export default function AssistedApplicationUpload({
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.assisted.pageEyebrow')}</p>
-            <h1 className="mt-1 text-2xl font-bold font-display text-heading">{t('jobBoard.assisted.pageTitle')}</h1>
+            <h1 className="mt-1 text-2xl font-bold font-display text-heading">{t(status === 'tracking' ? 'jobBoard.assisted.trackingTitle' : 'jobBoard.assisted.pageTitle')}</h1>
             <p className="mt-1 text-sm text-subtle">{jobTitle}</p>
           </div>
         </div>
@@ -684,6 +728,39 @@ export default function AssistedApplicationUpload({
                 {t(paymentResumeBusy ? 'jobBoard.assisted.pendingStarting' : 'jobBoard.assisted.pendingCta')}
               </button>
             </div>
+          </div>
+        )}
+
+        {status === 'tracking' && order && (
+          <div className="space-y-4">
+            <p className="text-sm leading-relaxed text-body" role="status">
+              {t(order.submissionStatus === 'submitted' || order.automationState === 'submitted'
+                ? 'jobBoard.assisted.review.submitted'
+                : order.submissionStatus === 'withdrawn' || order.automationState === 'withdrawn'
+                  ? 'jobBoard.assisted.review.withdrawn'
+                  : 'jobBoard.assisted.trackingBody')}
+            </p>
+            <AssistedApplicationEmployerResponse
+              response={parseEmployerResponse(order.employerResponse)}
+              timeline={parseEmployerResponseTimeline(order.employerResponseTimeline) || []}
+            />
+            {uploadedCvCard}
+            <a
+              href={`${buildPath({ activeTab: 'profile' }, locale)}?profile_view=applications`}
+              className="inline-flex min-h-[44px] items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent"
+            >
+              {t('jobBoard.assisted.trackingCta')}
+            </a>
+            {jobUrl && (
+              <a
+                href={jobUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[44px] items-center text-sm font-semibold text-link hover:underline"
+              >
+                {t('jobBoard.concierge.openJob')}
+              </a>
+            )}
           </div>
         )}
 

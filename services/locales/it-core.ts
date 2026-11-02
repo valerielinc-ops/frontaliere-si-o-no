@@ -1031,6 +1031,9 @@ const translations: Record<string, string> = {
 'jobBoard.rewardedOffer.handoffDirectTitleJob': 'Apri «{jobTitle}»',
 'jobBoard.rewardedOffer.handoffDirectText': 'L’offerta si apre in una nuova scheda e questa pagina resta aperta.',
 'jobBoard.assisted.pageEyebrow': 'Candidatura assistita',
+ 'jobBoard.assisted.trackingTitle': "Stato della candidatura",
+ 'jobBoard.assisted.trackingBody': "Apri le tue candidature per controllare lo stato e gli eventuali passaggi richiesti.",
+ 'jobBoard.assisted.trackingCta': "Le mie candidature",
  'jobBoard.assisted.pageTitle': 'Completa la candidatura',
  'jobBoard.assisted.loading': 'Verifica dello stato del pagamento…',
  'jobBoard.assisted.authRequired': 'Per proteggere il tuo ordine e il CV, accedi prima di continuare.',
@@ -3142,6 +3145,10 @@ Regole:
 
  // Publisher portal — pubblica un annuncio di lavoro
  'publisher.title': 'Pubblica un\'offerta di lavoro',
+ 'seo.directEmployer.title': 'Pubblica gratis un’offerta di lavoro | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino senza account: verifica del datore, moderazione umana e scadenza automatica dopo 30 giorni.',
+ 'seo.permanentEmployer.title': 'Aziende aperte a candidature spontanee | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Elenco pubblico di aziende che possono valutare candidature spontanee, segnalate dai candidati e verificate dal team. Non sono posti di lavoro aperti.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

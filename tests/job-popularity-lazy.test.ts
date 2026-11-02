@@ -91,7 +91,7 @@ describe('job-popularity is not bundled into the JobBoard chunk', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('starts the runtime fetch only near the recommendation section, after LCP and at idle', () => {
+  it('starts the runtime fetch only after board interaction and near the recommendation section', () => {
     const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf8');
     // The comment is deliberately asserted too: moving this request back to
     // mount-time idle reintroduces the 600 KB catalog into mobile startup.
@@ -101,6 +101,7 @@ describe('job-popularity is not bundled into the JobBoard chunk', () => {
     const updatedEffect = src.slice(updatedEffectStart, updatedEffectEnd);
     expect(updatedEffectStart).toBeGreaterThanOrEqual(0);
     expect(updatedEffectEnd).toBeGreaterThan(updatedEffectStart);
+    expect(updatedEffect).toContain('if (!enablePersonalization || !jobBoardInteractionObserved) return;');
     expect(updatedEffect).toContain('new IntersectionObserver');
     expect(updatedEffect).toContain("{ rootMargin: '400px 0px' }");
     expect(updatedEffect).toContain('waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true })');

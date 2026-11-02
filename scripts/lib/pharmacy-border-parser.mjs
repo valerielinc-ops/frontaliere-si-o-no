@@ -38,6 +38,7 @@ export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DS
 export const TICINO_PHARMACY_PDF_CURRENT_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
+export const TICINO_PHARMACY_DIRECTORY_MIRROR_URL = 'https://m4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
@@ -512,6 +513,77 @@ function applyOsmEnrichment(pharmacy, candidates, checkedAt, usedElementKeys = n
   return pharmacy;
 }
 
+const OSM_ENRICHED_FIELDS = Object.freeze(['coordinates', 'phone', 'website', 'openingHours', 'services']);
+
+function hasPublishedValue(record, field) {
+  if (field === 'coordinates') {
+    return Number.isFinite(record?.latitude) && Number.isFinite(record?.longitude);
+  }
+  if (field === 'openingHours' || field === 'services') {
+    return Array.isArray(record?.[field]) && record[field].length > 0;
+  }
+  return typeof record?.[field] === 'string' && record[field].trim().length > 0;
+}
+
+function isOsmFieldSource(source) {
+  return source?.sourceType === OSM_SOURCE_TYPE && /odbl/i.test(String(source.license || ''));
+}
+
+function osmElementKeyFromSource(source) {
+  const sourceUrl = text(source?.url);
+  if (!sourceUrl) return undefined;
+  try {
+    const url = new URL(sourceUrl);
+    if (
+      url.protocol !== 'https:'
+      || url.hostname !== 'www.openstreetmap.org'
+      || url.port
+      || url.username
+      || url.password
+      || url.search
+      || url.hash
+    ) return undefined;
+    const parts = url.pathname.split('/').filter(Boolean);
+    if (parts.length !== 2 || !['node', 'way', 'relation'].includes(parts[0]) || !/^\d+$/.test(parts[1])) return undefined;
+    return `${parts[0]}/${parts[1]}`;
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * An optional response that does not yield a match for this record is not
+ * evidence that its previously verified OSM facts disappeared. Keep those
+ * facts, with their original field-level provenance, until a later response
+ * can confirm or replace them.
+ */
+function preservePreviousOsmEnrichment(record, previous, usedOsmElementKeys = new Set()) {
+  if (!previous || typeof previous !== 'object') return record;
+  for (const field of OSM_ENRICHED_FIELDS) {
+    const source = previous.fieldSources?.[field];
+    if (!isOsmFieldSource(source) || hasPublishedValue(record, field)) continue;
+
+    if (field === 'coordinates') {
+      if (!Number.isFinite(previous.latitude) || !Number.isFinite(previous.longitude)) continue;
+      record.latitude = previous.latitude;
+      record.longitude = previous.longitude;
+    } else if (field === 'openingHours' || field === 'services') {
+      if (!Array.isArray(previous[field]) || previous[field].length === 0) continue;
+      record[field] = previous[field].map((value) => (typeof value === 'object' && value !== null ? { ...value } : value));
+    } else {
+      if (typeof previous[field] !== 'string' || previous[field].trim().length === 0) continue;
+      record[field] = field === 'website' ? safeExternalUrl(previous[field]) : previous[field];
+      if (!record[field]) continue;
+    }
+
+    record.fieldSources ||= {};
+    record.fieldSources[field] = { ...source };
+    const sourceElementKey = osmElementKeyFromSource(source);
+    if (sourceElementKey) usedOsmElementKeys.add(sourceElementKey);
+  }
+  return record;
+}
+
 function availability(pharmacy, officialFieldsNotPublished = false) {
   const sourceStatus = (field, value) => value ? 'verified' : (officialFieldsNotPublished ? 'not_published' : 'not_checked');
   return {
@@ -685,6 +757,7 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
       ...(urlAliases.length ? { urlAliases } : {}),
     };
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
+    preservePreviousOsmEnrichment(record, previousRecord, usedOsmElementKeys);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }
@@ -784,6 +857,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       record.fieldSources = { address: { url: addressOverride.url, sourceType: 'official', checkedAt: fetchedAt } };
     }
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
+    preservePreviousOsmEnrichment(record, previousRecord, usedOsmElementKeys);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }

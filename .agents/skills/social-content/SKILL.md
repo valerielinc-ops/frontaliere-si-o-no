@@ -23,8 +23,8 @@ docs/third-party/instagram-agent-skill/UPSTREAM.md.
 - Prefer practical information people can save or share with a colleague.
   Avoid rage bait, fake urgency, engagement bait, and guaranteed reach claims.
 - For Instagram and TikTok, keep read/apply CTAs compatible with the existing
-  link-in-bio destination. Facebook, LinkedIn, and Telegram publishers attach
-  the canonical destination to the CTA.
+  link-in-bio destination. Facebook, LinkedIn, Telegram, and Reddit publishers
+  attach the canonical destination to the CTA.
 - Never invent salary, tax, legal, employment, border, performance, or company
   facts. The publisher supplies verified titles, figures, dates, locations,
   and links. AI-generated copy may only provide a short hook and CTA.
@@ -63,9 +63,11 @@ intact.
   never cold-message, scrape, follow, like, or comment on unrelated accounts.
 - Do not simulate interactive Story stickers where the current publishing API
   cannot create them.
-- Keep Reddit and LinkedIn Company Page out of automated publishing while
-  their current access checks report that the required platform access is
-  unavailable.
+- Keep Reddit's refused classic Data API publisher disabled; the copy pack may
+  prepare Reddit copy for the in-repository templates, but Devvit remains the
+  supported publishing path until its app and CDN domain pass review. Keep the
+  LinkedIn Company Page out of automated delivery while its current access
+  check reports that the required platform permission is unavailable.
 - Treat the upstream numeric limits and trend claims as unverified. Confirm
   current platform behavior from official documentation before changing a
   publisher contract.

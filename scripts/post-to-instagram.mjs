@@ -98,7 +98,7 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -144,12 +144,13 @@ function getBusinessAccountId() {
 // written here only for an API publish; a queued post reaches the ledger once
 // the robot has seen Instagram's confirmation (scripts/social-robot/confirm.mjs).
 
-async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish }) {
-  await deliverSocialPost({
+async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish, onAccepted }) {
+  return deliverSocialPost({
     route,
     label: 'Instagram',
     publish,
     recordPublished: (res) => {
+      onAccepted?.();
       console.log(`✅ posted — ${res.mediaId}`);
       const ts = new Date().toISOString();
       appendLedger(
@@ -168,6 +169,7 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
         QUEUE_PATH,
         buildQueueEntry({ channel: 'instagram', kind, day, caption, imageUrls: urls, ledgerEntries }),
       );
+      onAccepted?.();
     },
     // The API covered this kind: an older queued post of it must not reach the robot.
     dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind }),
@@ -238,13 +240,19 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const socialCopy = selectSocialCopy({
+  const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
     kind,
     expectedObjective: creative.objective,
     assignmentKey: kind + ':' + day,
+    dryRun,
   });
+  let reservedCopy = socialCopy;
+  let route = null;
+  let deliveryStarted = false;
+  let publishRejected = false;
+  try {
   const visualCopy = instagramSocialVisualCopy(creative, socialCopy);
   const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative, socialCopy });
 
@@ -253,7 +261,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   console.log('───');
 
   if (dryRun) return;
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
   if (!route.render) {
     console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
     return;
@@ -290,7 +298,31 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     ...instagramCarouselBackgroundLedgerFields(background),
     ...socialCopyLedgerFields(socialCopy, { fallbackHook: creative.lead, fallbackCta: creative.cta }),
   }));
-  await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
+  await deliver({
+    route,
+    kind,
+    day,
+    caption,
+    urls,
+    ledgerEntries,
+    publish: async () => {
+      deliveryStarted = true;
+      const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
+      publishRejected = result?.ok === false;
+      return result;
+    },
+    onAccepted: () => { reservedCopy = null; },
+  });
+  } finally {
+    // A thrown API request has an unknown delivery outcome. Keep its stable
+    // assignment until the ledger can reconcile it; release only certain
+    // skips before the publish attempt.
+    if (deliveryStarted && route?.api && !publishRejected) reservedCopy = null;
+    await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
+      reason: 'Instagram carousel skipped before delivery',
+      onFailure: (err) => console.warn('⚠️', `could not release social-copy reservation for Instagram ${kind}: ${err.message}`),
+    });
+  }
 }
 
 // ─────────────────────────── border (weekly) ───────────────────────────
@@ -334,13 +366,19 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const socialCopy = selectSocialCopy({
+  const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
     kind: 'border',
     expectedObjective: creative.objective,
     assignmentKey: 'border:' + weekStart,
+    dryRun,
   });
+  let reservedCopy = socialCopy;
+  let route = null;
+  let deliveryStarted = false;
+  let publishRejected = false;
+  try {
   const visualCopy = instagramSocialVisualCopy(creative, socialCopy);
   const caption = buildInstagramCaption({
     kind: 'border',
@@ -355,7 +393,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
   console.log('───');
 
   if (dryRun) return;
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
   if (!route.render) {
     console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
     return;
@@ -397,7 +435,28 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
       ...socialCopyLedgerFields(socialCopy, { fallbackHook: creative.lead, fallbackCta: creative.cta }),
     },
   ];
-  await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
+  await deliver({
+    route,
+    kind: 'border',
+    day: weekStart,
+    caption,
+    urls,
+    ledgerEntries,
+    publish: async () => {
+      deliveryStarted = true;
+      const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
+      publishRejected = result?.ok === false;
+      return result;
+    },
+    onAccepted: () => { reservedCopy = null; },
+  });
+  } finally {
+    if (deliveryStarted && route?.api && !publishRejected) reservedCopy = null;
+    await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
+      reason: 'Instagram border carousel skipped before delivery',
+      onFailure: (err) => console.warn('⚠️', `could not release social-copy reservation for Instagram border: ${err.message}`),
+    });
+  }
 }
 
 // ─────────────────────────── main ───────────────────────────

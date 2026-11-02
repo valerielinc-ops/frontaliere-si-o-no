@@ -1,0 +1,25 @@
+{
+  "companyKey": "uch",
+  "companyName": "University City Housing Company",
+  "companyHost": "uch.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://uch.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Fire Alarm Technician",
+    "Leasing and Sales Consultant",
+    "Licensed Plumber",
+    "Maintenance Technician",
+    "Maintenance Technician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:05:00.532Z",
+  "candidateKey": "uch@applytojob.com"
+}

@@ -42,6 +42,7 @@ import {
 } from './extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
+import { isSpontaneousApplicationTitle } from '../spontaneous-application.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 import { selectValidationSample } from './validation-sample.mjs';
@@ -466,6 +467,18 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
   out.bodySignature = bodySignature(bodyText);
+  const structuredJobPostingProof = detail.hasStructuredVacancy === true
+    // A listing fallback can replace a standing "spontaneous application"
+    // heading with the employer name. Do not let that generic detail page
+    // become a job merely because its schema carries JobPosting fields.
+    && !isGenericVacancyTitle(detail.title)
+    && out.titleMatch >= 0.8
+    && identity.status === 'match'
+    // An employer-site seat proves the address only. It is not an
+    // offer-specific workplace signal and must not make an opaque structured
+    // page pass the independent jobLike gate.
+    && (Boolean(detail.employmentType)
+      || (out.sourceBackedLocation && vacancy.locationSource !== 'employer_site'));
   // Grade the exact description the runtime would publish. Navigation/footer
   // prose must not make a description-less shell pass validation only to be
   // dropped by production under the shared sufficiency contract.
@@ -479,19 +492,30 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const publishableDescriptionText = textOf(publishableDescription);
   if (publishableDescriptionText && isReadableText(publishableDescriptionText)) {
     const jl = gradeJobLike(publishableDescriptionText);
-    out.jobLike = jl.jobLike;
+    // A standing spontaneous-application page often contains apply/CV/HR
+    // vocabulary while offering no role. Keep that semantic negative separate
+    // from ordinary generic layout headings such as "Jobs" or "Header", which
+    // may still accompany a real vacancy description.
+    const spontaneousApplication = isSpontaneousApplicationTitle(detail.title);
+    out.jobLike = !spontaneousApplication && jl.jobLike;
     out.jobSignals = jl.jobHits;
     out.notJobSignals = jl.notJobHits;
-    out.jobLikeEvidence = jl.jobLike;
+    out.jobLikeEvidence = out.jobLike;
     out.jobLikeEvidenceMode = 'published_description';
-  } else if (detail.hasStructuredVacancy === true
-    && out.titleMatch >= 0.8
-    && identity.status === 'match'
-    // An employer-site seat proves the address only. It is not an
-    // offer-specific workplace signal and must not make an opaque structured
-    // page pass the independent jobLike gate.
-    && (Boolean(detail.employmentType)
-      || (out.sourceBackedLocation && vacancy.locationSource !== 'employer_site'))) {
+    // Some real detail pages publish a short teaser or boilerplate in the
+    // selected description while the same response carries a matching,
+    // employer-owned JobPosting. The structured node is independent semantic
+    // evidence: it may rescue the measurement, but only with the existing
+    // title, identity, and employment/workplace proofs. The 75% promotion
+    // threshold is unchanged. A commercial page without JobPosting data still
+    // fails the lexical check below (hotel-international is the regression).
+    if (!jl.jobLike && structuredJobPostingProof) {
+      out.jobLike = true;
+      out.jobSignals = [...jl.jobHits, 'structured_job_posting'];
+      out.jobLikeEvidence = true;
+      out.jobLikeEvidenceMode = 'structured_job_posting';
+    }
+  } else if (structuredJobPostingProof) {
     // A PDF or opaque detail can still be proven semantically when the page
     // carries a selected schema.org JobPosting with a matching title and
     // employer, plus an employment type or source-backed workplace.

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 // Pure-ESM module; side-effect-free to import.
 import * as templates from '../../scripts/lib/reddit-templates.mjs';
+import * as redditPoster from '../../scripts/post-to-reddit.mjs';
 
 interface JobLike {
   id?: string;
@@ -33,8 +34,9 @@ interface JobPost {
 
 interface ArticlePost {
   title: string;
-  kind: 'link';
-  url: string;
+  kind: 'link' | 'self';
+  url?: string;
+  text?: string;
   topic: 'articles';
 }
 
@@ -46,8 +48,8 @@ const {
   buildArticlePost,
 } = templates as unknown as {
   buildJobTitle: (job: JobLike) => string;
-  buildJobBody: (job: JobLike) => string;
-  buildJobPost: (job: JobLike) => JobPost;
+  buildJobBody: (job: JobLike, opts?: { socialCopy?: Record<string, string> }) => string;
+  buildJobPost: (job: JobLike, opts?: { socialCopy?: Record<string, string> }) => JobPost;
   buildArticleTitle: (ogTitle: string) => string;
   buildArticlePost: (opts: {
     id?: string;
@@ -55,10 +57,26 @@ const {
     ogTitle: string;
     ogDescription?: string;
     category?: string;
+    socialCopy?: Record<string, string>;
+    destinationUrl?: string;
   }) => ArticlePost;
+};
+const { articleHasPostedReceipt } = redditPoster as unknown as {
+  articleHasPostedReceipt: (articleId: string, ledger: { posted?: Array<Record<string, unknown>> }) => boolean;
 };
 
 const REDDIT_TITLE_MAX = 300;
+
+describe('Reddit article copy assignment receipts', () => {
+  it('keeps an already-exposed copy arm when a later subreddit attempt fails', () => {
+    expect(articleHasPostedReceipt('article-a', {
+      posted: [{ id: 'article-a', subreddit: 'frontaliere', redditPostId: 't3_1' }],
+    })).toBe(true);
+    expect(articleHasPostedReceipt('article-b', {
+      posted: [{ id: 'article-a', subreddit: 'frontaliere', redditPostId: 't3_1' }],
+    })).toBe(false);
+  });
+});
 
 // ── buildJobTitle ─────────────────────────────────────────
 
@@ -141,6 +159,26 @@ describe('buildJobBody', () => {
     const body = buildJobBody(fullJob);
     expect(body).toContain('Annuncio pubblicato automaticamente da Frontaliere Ticino');
   });
+
+  it('uses generated hook and CTA while preserving the tagged apply destination', () => {
+    const body = buildJobBody(fullJob, {
+      socialCopy: {
+        copyMode: 'codex',
+        copyAssignmentMode: 'firebase-balanced',
+        copyPackId: '0123456789abcdef',
+        copySlot: 'job',
+        id: 'reddit-job-one',
+        hook: 'Una selezione utile per chi cerca un nuovo percorso',
+        cta: 'Candidati attraverso l’annuncio',
+      },
+    });
+
+    expect(body.startsWith('Una selezione utile per chi cerca un nuovo percorso')).toBe(true);
+    expect(body).toContain('**[Candidati attraverso l’annuncio →]');
+    expect(body).toContain('utm_source=reddit');
+    expect(body).toContain('--cp0123456789abcdef-job.reddit-job-one.b');
+    expect(body).toContain('Annuncio pubblicato automaticamente');
+  });
 });
 
 // ── buildJobPost ──────────────────────────────────────────
@@ -201,5 +239,26 @@ describe('buildArticlePost', () => {
       ogTitle: 'B'.repeat(400),
     });
     expect(post.title.length).toBeLessThanOrEqual(REDDIT_TITLE_MAX);
+  });
+
+  it('uses a self post with generated hook and linked CTA when the copy pack is active', () => {
+    const destinationUrl = 'https://frontaliereticino.ch/blog/permesso-g/?utm_source=reddit';
+    const post = buildArticlePost({
+      url: 'https://frontaliereticino.ch/blog/permesso-g/',
+      destinationUrl,
+      ogTitle: 'Permesso G: guida pratica',
+      ogDescription: 'Una guida basata su fonti ufficiali.',
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'Un percorso concreto per orientarsi',
+        cta: 'Leggi la guida completa',
+      },
+    });
+
+    expect(post).toMatchObject({ kind: 'self', title: 'Permesso G: guida pratica' });
+    expect(post.text).toContain('Un percorso concreto per orientarsi');
+    expect(post.text).toContain('[Leggi la guida completa →]');
+    expect(post.text).toContain(destinationUrl);
+    expect(post.text).toContain('Articolo pubblicato da Frontaliere Ticino');
   });
 });

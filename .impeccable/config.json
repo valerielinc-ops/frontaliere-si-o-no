@@ -35,7 +35,35 @@
         "value": "manrope",
         "createdAt": "2026-10-31T19:39:30.003Z",
         "reason": "The value appears only in a negative test assertion that verifies the remote Google Fonts loader is absent; it does not declare or use a font."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "roboto",
+        "files": [
+          "build-plugins/jobOgImagesPlugin.ts"
+        ],
+        "createdAt": "2026-11-02T15:22:38.348Z",
+        "reason": "Agent: per-job OG cards are rasterized with Satori, which requires the committed static TTF font files; the product fonts are committed as WOFF2 and the Roboto choice predates this card-label edit"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(7,20,52,0.96)",
+        "files": [
+          "build-plugins/jobOgImagesPlugin.ts"
+        ],
+        "createdAt": "2026-11-02T15:24:21.788Z",
+        "reason": "Agent: the committed OG-card art intentionally darkens its navy photo overlay so white recruitment copy remains legible"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "files": [
+          "build-plugins/jobsSeoPagesPlugin.ts"
+        ],
+        "createdAt": "2026-11-02T15:24:22.593Z",
+        "reason": "Agent: the existing 14px SSG exploration links are compact navigation labels, not body text; this task changes only their social metadata wrapper"
       }
     ]
-  }
+  },
+  "buildPath": "code"
 }

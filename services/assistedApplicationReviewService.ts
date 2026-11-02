@@ -183,6 +183,8 @@ export interface ReviewPayload {
   coverLetterUrl: string | null;
   applicationEmail: { to: string; subject: string; body: string } | null;
   formAnswers: ReviewFormField[];
+  /** Opaque HMAC of the exact locale-specific edit contract shown on this review. */
+  editSnapshot?: string | null;
   /** Letter and e-mail lengths accepted by an edit. */
   editLimits?: Record<'coverLetterText' | 'emailSubject' | 'emailBody', { min: number; max: number }>;
   /** When the candidate last saved their own changes. */
@@ -282,6 +284,7 @@ export async function sendReviewAction(
     contentBase64?: string;
     clientCheck?: { verdict: string; matched: string; version?: number };
     fileId?: string;
+    editSnapshot?: string;
   } = {},
 ): Promise<{ ok: true; state: string }> {
   return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {

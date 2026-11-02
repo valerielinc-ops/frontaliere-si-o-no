@@ -11,6 +11,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { readBoundedResponseBytes } from './bounded-response-body.mjs';
 import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './google-favicon.mjs';
+import { scopedEmployerKey } from './ticino-comune-employer-identity.mjs';
 
 export const DEFAULT_ASSET_BASE_URL = 'https://cdn.frontaliereticino.ch';
 export const DEFAULT_FETCH_TIMEOUT_MS = 8_000;
@@ -33,7 +34,7 @@ export function slugify(value = '') {
 }
 
 export function companyKeyForJob(job) {
-  return String(job?.companyKey || '').trim()
+  return scopedEmployerKey(job)
     || slugify(job?.company || job?.employer || '');
 }
 

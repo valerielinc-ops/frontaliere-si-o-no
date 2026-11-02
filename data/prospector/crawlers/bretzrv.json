@@ -1,0 +1,25 @@
+{
+  "companyKey": "bretzrv",
+  "companyName": "Bretz RV & Marine",
+  "companyHost": "bretzrv.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bretzrv.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "RV Service Advisor",
+    "RV Technician",
+    "RV Technician Apprenticeship",
+    "Show Salesperson",
+    "Transport Driver"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:51.534Z",
+  "candidateKey": "bretzrv@applytojob.com"
+}

@@ -3,7 +3,7 @@
   "sourceKey": "tio-agenda",
   "sourceName": "Tio.ch Agenda",
   "canton": "TI",
-  "assembledAt": "2026-10-30T11:38:50.807Z",
+  "assembledAt": "2026-11-02T13:09:12.398Z",
   "events": [
     {
       "id": "tio-agenda:63135",
@@ -4946,7 +4946,7 @@
       "url": "https://www.tio.ch/agenda/day/20260928/63833",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-09-28T12:00:23.616Z",
+      "crawledAt": "2026-11-02T13:09:12.398Z",
       "address": {
         "street": "Via Muraccio 21",
         "postalCode": "6612",
@@ -4962,10 +4962,21 @@
         "name": "Tio.ch Agenda",
         "url": "https://www.tio.ch/agenda"
       },
-      "performer": {
-        "@type": "Organization",
-        "name": "Teatro del Gatto"
-      },
+      "performer": [
+        {
+          "name": "Elina Duni"
+        },
+        {
+          "name": "Rob Luft"
+        },
+        {
+          "name": "Matthieu Michel"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Vision String Quartet"
+        }
+      ],
       "geo": {
         "lat": 46.1544856,
         "lng": 8.7749307

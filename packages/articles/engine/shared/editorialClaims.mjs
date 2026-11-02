@@ -616,8 +616,7 @@ function isHealthTaxClaim(sentence, locale) {
   if (hasMonthlyAmountOutOfRange(sentence, locale)) return true;
   return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some((match) => {
     const rate = Number(match[1].replace(',', '.'));
-    const claimContext = sentence.slice(match.index, match.index + match[0].length + 24);
-    return !Number.isFinite(rate) || rate < 3 || rate > 6 || GROSS_PAY_BASE[locale].test(claimContext);
+    return !Number.isFinite(rate) || rate < 3 || rate > 6 || GROSS_PAY_BASE[locale].test(match[0]);
   });
 }
 
@@ -664,6 +663,36 @@ export function findEditorialClaims(text, { locale = 'it' } = {}) {
   return found;
 }
 
+function removeClaimSegment(segments, index, { structural = false } = {}) {
+  const before = segments[index - 2] ?? '';
+  const after = segments[index + 2] ?? '';
+  const beforeSeparator = segments[index - 1] ?? '';
+  const afterSeparator = segments[index + 1] ?? '';
+  segments[index] = '';
+
+  // In ordinary prose keep one of the original boundaries. Clearing both
+  // separators is what turns two valid neighbours into Prima.Dopo.
+  if (!structural) {
+    if (before && after) {
+      if (beforeSeparator) segments[index + 1] = '';
+      else if (afterSeparator) segments[index - 1] = '';
+      else segments[index + 1] = ' ';
+    } else if (!before && after) {
+      segments[index + 1] = '';
+    } else if (before && !after) {
+      segments[index - 1] = /^\s+$/u.test(beforeSeparator)
+        ? ''
+        : beforeSeparator.replace(/\s+$/u, '');
+    }
+    return;
+  }
+
+  // FAQ JSON and tables carry their own punctuation/delimiters. Preserve that
+  // structure and retain the historical whitespace cleanup at the edges.
+  if (/^\s+$/.test(afterSeparator)) segments[index + 1] = '';
+  else if (!afterSeparator && /^\s+$/.test(beforeSeparator)) segments[index - 1] = '';
+}
+
 /**
  * Applica le riparazioni deterministiche a un campo. Una stessa frase canonica
  * non si ripete nello stesso campo: la seconda occorrenza si toglie, tranne nei
@@ -690,11 +719,11 @@ export function repairEditorialClaims(text, { locale = 'it', title = '' } = {}) 
     }
     if (current === sentence) continue;
     if (!current) {
-      segments[index] = '';
-      // La frase sparisce con il suo separatore, salvo i confini di FAQ e tabelle.
-      const after = segments[index + 1] ?? '';
-      if (/^\s+$/.test(after)) segments[index + 1] = '';
-      else if (!after && /^\s+$/.test(segments[index - 1] ?? '')) segments[index - 1] = '';
+      const prev = segments[index - 1] ?? '';
+      const next = segments[index + 1] ?? '';
+      const structural = /^\s*(?:[-*•|]|\d+[.)])/.test(sentence) || /\|/.test(prev) || /\|/.test(next)
+        || /"/.test(prev) || /"/.test(next);
+      removeClaimSegment(segments, index, { structural });
       continue;
     }
     const canonical = [
@@ -708,8 +737,7 @@ export function repairEditorialClaims(text, { locale = 'it', title = '' } = {}) 
     const structural = /^\s*(?:[-*•|]|\d+[.)])/.test(current) || /\|/.test(prev) || /\|/.test(next)
       || /"/.test(prev) || /"/.test(next);
     if (canonical && used.has(canonical) && !structural) {
-      segments[index] = '';
-      if (index + 1 < segments.length) segments[index + 1] = prev && /\n/.test(next) ? next : '';
+      removeClaimSegment(segments, index);
       continue;
     }
     if (canonical) used.add(canonical);

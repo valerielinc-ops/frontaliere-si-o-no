@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
+import { scopedEmployerKey } from './lib/ticino-comune-employer-identity.mjs';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { renderBrandJobCard } from '../functions/src/assistedApplicationEmailLayout.js';
 import { pathToFileURL } from 'node:url';
@@ -46,6 +47,7 @@ import { htmlToText } from '../functions/src/lib/mimeMessage.js';
 import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import {
   buildAlertProfile,
+  mergeAlertSubscriberSignals,
   createAlertScorer,
   createJobFeatureCache,
   partitionByGeoPreference,
@@ -728,7 +730,7 @@ function resolveAvatarSrc(job) {
   // grey globe for domains it can't resolve (and the wrong logo for aggregator
   // hosts), both of which look broken in an inbox. A null result renders the
   // coloured initial-letter avatar instead.
-  const bundled = brandLogoUrl(job.company, job.companyKey);
+  const bundled = brandLogoUrl(job.company, scopedEmployerKey(job));
   if (bundled) return { src: bundled, kind: 'bundled' };
   return null;
 }
@@ -2105,6 +2107,7 @@ function planAlertMatch(alert, {
   locationIndex,
   cityToCanton,
   subscriberProfiles,
+  jobAlertProfiles = new Map(),
   applicationIntentAccountProfiles = new Map(),
   recentJobs,
   now,
@@ -2143,7 +2146,10 @@ function planAlertMatch(alert, {
   };
   const profile = buildAlertProfile(
     alert,
-    subscriberProfiles.get(alert.email.toLowerCase()) || null,
+    mergeAlertSubscriberSignals(
+      subscriberProfiles.get(alert.email.toLowerCase()) || null,
+      jobAlertProfiles.get(alert.email.toLowerCase()) || null,
+    ),
     extras,
   );
   // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
@@ -3050,6 +3056,7 @@ async function main() {
         locationIndex,
         cityToCanton,
         subscriberProfiles,
+        jobAlertProfiles,
         applicationIntentAccountProfiles,
         // `planAlertMatch` keeps its historical property name for the test
         // oracle, but the value is now the recipient-aware candidate pool.
