@@ -58,4 +58,20 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     expect(history?.run).toContain('"+refs/heads/main:refs/remotes/origin/main"');
     expect(history?.run).not.toMatch(/\+refs\/(?:heads|tags)\/\*/u);
   });
+
+  it('refreshes keyword pages after the ranking writer succeeds, not only on a racing schedule', () => {
+    const configWorkflow = workflow('refresh-keyword-config.yml');
+
+    expect(configWorkflow.on.workflow_run).toEqual({
+      workflows: ['Profession Keyword Opportunities'],
+      types: ['completed'],
+      branches: ['main'],
+    });
+    expect(configWorkflow.concurrency).toEqual({
+      group: 'refresh-keyword-config',
+      'cancel-in-progress': false,
+    });
+    expect(configWorkflow.jobs.refresh.if).toContain("github.event_name != 'workflow_run'");
+    expect(configWorkflow.jobs.refresh.if).toContain("github.event.workflow_run.conclusion == 'success'");
+  });
 });
