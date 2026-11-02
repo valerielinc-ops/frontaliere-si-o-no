@@ -10,6 +10,11 @@ senza contenuto nell'iframe non dimostra l'assenza di annunci.
   sia nel contenuto del contenitore. Restano esclusi dalla coda implicita Google
   finché non hanno spazio e non si avvicinano al viewport. Un ridimensionamento
   può recuperarli senza una seconda richiesta sullo stesso nodo.
+- Sotto 360 px, il contenitore dell'articolo usa tutta la larghezza e margini
+  interni di 3 px. La regola resta nel layer `utilities`: una dichiarazione
+  `!important` senza layer non supera la classe Tailwind `!w-[95%]`.
+  La fixture con il CSS compilato, a 275 px e scrollbar di 8 px, misura 253 px
+  per lo slot e nessun overflow orizzontale (prima della correzione: circa 236 px).
 - Un singleton per libreria condivide caricamento e tentativi fra HTML statico
   e React: un tentativo iniziale e due retry, dopo 2 e 6 secondi, solo su errore
   effettivo. Dopo 12 secondi senza risposta lo stato è `waiting_response`:

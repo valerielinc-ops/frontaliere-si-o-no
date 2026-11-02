@@ -3302,9 +3302,13 @@ main.seo-static-content .fuel-map-ssr-description {
   .pharmacy-province-link { transition: none; transform: none; }
 }
 
-/* Keep narrow article screens wide enough for a 250px In-article unit. This
-   removes nested page/body gutters rather than overflowing or clipping ads. */
-@media (max-width: 359px) {
-  #main-content:has([data-ft-article-reading]) { width: 100% !important; padding-inline: 4px; }
-  [data-ft-article-reading] [data-ft-article-body] { padding-inline: 4px; }
+/* Keep narrow article screens wide enough for a 250px In-article unit.
+   Important declarations in Tailwind's utilities layer outrank unlayered
+   important rules. Stay in that layer so the id can override !w-[95%].
+   3px gutters leave 253px at a 275px viewport with an 8px scrollbar. */
+@layer utilities {
+  @media (max-width: 359px) {
+    #main-content:has([data-ft-article-reading]) { width: 100% !important; padding-inline: 3px; }
+    [data-ft-article-reading] [data-ft-article-body] { padding-inline: 3px; }
+  }
 }
