@@ -860,7 +860,10 @@ export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}, 
       candidate: official.candidate,
     };
   }
-  return listingDecision;
+  return {
+    ...listingDecision,
+    hasDeclaredLocation: offerDeclared,
+  };
 }
 
 function structuredText(value) {

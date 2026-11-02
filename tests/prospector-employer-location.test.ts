@@ -117,8 +117,8 @@ describe('prospector official employer location proof', () => {
     });
 
     const countryOnlyDecision = resolveDetailOrListingSwissGeography(
-      {},
       { addressCountry: 'CH' },
+      {},
       { officialEmployerSiteLocation: proof },
     );
     expect(countryOnlyDecision).toMatchObject({
