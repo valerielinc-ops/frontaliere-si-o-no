@@ -36,7 +36,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
 
 import {
@@ -660,14 +660,16 @@ export async function run(opts = {}) {
     });
   }
   const releaseReservation = async (id, reason) => {
-    await releaseUnpublishedSocialCopyAssignment(copyReservations.get(id), {
+    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
       releaseBalancedImpl: releaseSocialCopy,
       reason,
+      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
     });
-    copyReservations.delete(id);
+    if (released) copyReservations.delete(id);
+    return released;
   };
   const releaseAllReservations = async (reason) => {
-    for (const id of copyReservations.keys()) await releaseReservation(id, reason);
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
   };
   log('📍', `place tag resolved for ${placedCount}/${payloads.length} payloads`);
   if (unmappedCities.size > 0) {

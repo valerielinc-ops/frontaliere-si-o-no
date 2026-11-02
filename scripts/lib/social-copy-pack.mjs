@@ -380,6 +380,29 @@ export async function releaseUnpublishedSocialCopyAssignment(copy, {
   return true;
 }
 
+/**
+ * Best-effort release for publishers that process multiple independent posts.
+ * A failed release is reported to the caller but does not abort the remaining
+ * posts; callers must provide an error handler so a stranded reservation stays
+ * observable. Use `releaseUnpublishedSocialCopyAssignment` when failure should
+ * still reject the current operation.
+ */
+export async function releaseUnpublishedSocialCopyAssignmentBestEffort(copy, {
+  releaseBalancedImpl,
+  reason = 'delivery was skipped before acceptance',
+  onFailure,
+} = {}) {
+  if (copy?.copyAssignmentMode !== 'firebase-balanced' || !isRecord(copy.copyAssignment)) return true;
+  if (typeof onFailure !== 'function') throw new Error('onFailure is required for best-effort social copy release');
+  try {
+    await releaseUnpublishedSocialCopyAssignment(copy, { releaseBalancedImpl, reason });
+    return true;
+  } catch (error) {
+    onFailure(error);
+    return false;
+  }
+}
+
 export function socialCopyLedgerFields(copy, {
   fallbackHook = '',
   fallbackCta = '',

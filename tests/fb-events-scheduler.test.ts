@@ -150,6 +150,35 @@ describe('run() dry-run', () => {
     expect(res.posted).toBe(0);
     expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
   });
+
+  it('continues releasing the batch when one Firebase reservation release fails', async () => {
+    const root = fixtureRepo();
+    const release = vi.fn(async (assignment: { assignmentKey: string }) => {
+      if (assignment.assignmentKey === EVENT.id) throw new Error('temporary Firestore error');
+      return true;
+    });
+    const warnings: string[] = [];
+    const res = await run({
+      env: { FB_EVENT_VOLUME: '2' },
+      repoRoot: root,
+      todayIso: '2099-01-01',
+      selectSocialCopyForPublishImpl: async ({ assignmentKey }: { assignmentKey: string }) => ({
+        copyAssignmentMode: 'firebase-balanced',
+        copyAssignment: { assignmentKey },
+      }),
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: (...args: unknown[]) => warnings.push(args.join(' ')),
+    });
+
+    expect(res.ok).toBe(false);
+    expect(release).toHaveBeenCalledTimes(2);
+    expect(release.mock.calls.map(([assignment]) => assignment.assignmentKey)).toEqual([
+      EVENT.id,
+      'tio-agenda:2',
+    ]);
+    expect(warnings.join('\n')).toContain('temporary Firestore error');
+  });
 });
 
 describe('buildWeekendDigestCaption', () => {

@@ -504,6 +504,40 @@ describe('run()', () => {
     expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
   });
 
+  it('continues releasing all article reservations after one Firebase release fails', async () => {
+    const tmp = setupRepo({ articles: [
+      { id: 'a1', date: '2026-06-12' },
+      { id: 'a2', date: '2026-06-12' },
+    ] });
+    const release = vi.fn(async (assignment: object) => {
+      const assignmentKey = (assignment as { assignmentKey: string }).assignmentKey;
+      if (assignmentKey === 'a1') throw new Error('temporary Firestore error');
+      return true;
+    });
+    const warns: string[] = [];
+    const result = await run({
+      env: { FB_ARTICLE_MAX_AGE_DAYS: '2' },
+      now: NOW,
+      repoRoot: tmp,
+      selectSocialCopyForPublishImpl: async (options: object) => {
+        const assignmentKey = (options as { assignmentKey: string }).assignmentKey;
+        return {
+          copyAssignmentMode: 'firebase-balanced',
+          copyAssignment: { assignmentKey },
+        };
+      },
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: (...args) => warns.push(args.join(' ')),
+    });
+
+    expect(result.ok).toBe(false);
+    expect(release).toHaveBeenCalledTimes(2);
+    expect(release.mock.calls.map(([assignment]) => (assignment as { assignmentKey: string }).assignmentKey))
+      .toEqual(['a1', 'a2']);
+    expect(warns.join('\n')).toContain('temporary Firestore error');
+  });
+
   it('exits gracefully when no recent articles exist', async () => {
     const tmp = setupRepo({ articles: [{ id: 'old', date: '2026-01-01' }] });
     const fetchSpy = vi.fn<typeof fetch>();
