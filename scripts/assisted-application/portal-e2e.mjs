@@ -7,6 +7,9 @@
  *   node scripts/assisted-application/portal-e2e.mjs
  *   (PLAYWRIGHT_CHROMIUM_PATH=<binary> to use a local Chromium build)
  *   AA_PORTAL_E2E_FOCUS=coop node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=agent-birth-date node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=diagnostics node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=umantis node scripts/assisted-application/portal-e2e.mjs
  *
  * posting → sign-in page → "Konto erstellen" → register (two passwords, the
  * required consent, a newsletter box left alone) → "check your e-mail" →
@@ -35,13 +38,23 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
 const stopContext = ({ event = {}, evidence = {} }) => ({
-  type: event.type, reason: event.reason, stage: event.stage,
+  type: event.type, reason: event.reason, error: event.error, stage: event.stage,
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
+  ...(Array.isArray(evidence.finalOutcomes) ? { finalOutcomes: evidence.finalOutcomes } : {}),
+  ...(evidence.finalUrl ? { finalUrl: (() => {
+    try {
+      const url = new URL(evidence.finalUrl);
+      return { host: url.hostname, path: url.pathname, hasPostingKey: [...url.searchParams.keys()].some(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key)) };
+    } catch { return null; }
+  })() } : {}),
+  ...(evidence.finalButton ? { finalButton: { label: evidence.finalButton.label, by: evidence.finalButton.by } } : {}),
+  ...(evidence.postingMatch ? { postingMatch: evidence.postingMatch, postingMatchVia: evidence.postingMatchVia } : {}),
   questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
     typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
   steps: (evidence.steps || []).slice(-2).map(step => ({
     step: step.step, fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
     failures: (step.failures || []).length,
+    actionDocuments: (step.actions || []).map(action => action.document).filter(Boolean),
     ...(step.auth ? { auth: { kind: step.auth.kind, outcome: step.auth.outcome, privacy: step.auth.privacy } } : {}),
   })),
 });
@@ -170,8 +183,8 @@ function fakePortal() {
     + '<label for="od">Other documents</label><input id="od" type="file" name="other">';
   // closed: the photo and the documents come into the page only once «Expand all sections» is pressed,
   // so the page first shows a password and a send button, and no file field.
-  const umantisForm = (error = '', { closed = false } = {}) => page('Concierge - Application | Application Tracking System', `<nav><a href="/umantis-login">Login</a><a role="button" tabindex="0" href="/umantis-recruiters">Login for recruiters</a></nav>
-    <h1>Concierge</h1><p>Click on Login if you have already set up your profile.</p>${error ? `<p role="alert">${error}</p>` : ''}
+  const umantisForm = (error = '', { closed = false } = {}) => page('Concierge Host - Application | Application Tracking System', `<nav><a href="/umantis-login">Login</a><a role="button" tabindex="0" href="/umantis-recruiters">Login for recruiters</a></nav>
+    <h1>Concierge Host</h1><p>Click on Login if you have already set up your profile.</p>${error ? `<p role="alert">${error}</p>` : ''}
     ${closed ? '<button type="button" id="expand">Expand all sections</button>' : ''}
     ${form(closed ? UMANTIS_CLOSED_FORM : UMANTIS_FORM, `${closed ? '<div id="photo-section"></div>' : umantisPhoto}
       <fieldset><legend>Title *</legend><label><input type="radio" name="title" value="ms"> Ms</label><label><input type="radio" name="title" value="mr"> Mr</label><label><input type="radio" name="title" value="other"> Other</label></fieldset>
@@ -800,7 +813,7 @@ function fakePortal() {
     }
     // Client validation and a JSON error with HTTP 200 were invisible to the old diagnostics.
     if (route === 'GET /diagnostic-refused') {
-      return send(page('Candidatura', `<h1>La tua candidatura</h1><input id="profile" type="url" aria-label="LinkedIn" hidden><div id="toast" role="status"></div><button onclick="submitTest()">Conferma e applica</button><script>
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><form id="diagnostic" method="post" action="/diagnostic-refused"><input id="profile" type="url" aria-label="LinkedIn" required hidden><div id="toast" role="status"></div><button type="button" onclick="submitTest()">Conferma e applica</button></form><script>
         async function submitTest() {
           document.getElementById('profile').value = 'invalid-url';
           const result = await fetch('/diagnostic-error', {method:'POST'}).then(response => response.json());
@@ -817,6 +830,7 @@ function fakePortal() {
       res.flushHeaders();
       return res.end(body);
     }
+    if (route === 'GET /thank-you') return send(page('Application', '<h1>Thank you very much for your application for Concierge Host (m/w/d)</h1><p>We will get in touch with you.</p>'));
     // The refusal shown on an error page the portal moves to (review of #10741).
     if (route === 'GET /refused-moved') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1>${form('/refused-moved', '<button type="submit">Conferma e applica</button>')}`));
@@ -830,12 +844,12 @@ function fakePortal() {
     }
     // A hotel's own career page: «Apply» opens umantis, on another host, in a new tab.
     if (route === 'GET /hotel-job') {
-      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<h1>Concierge Host (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
         <button type="button">ACCEPT COOKIES</button><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a>`));
     }
     if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
     if (route === 'GET /hotel-job-closed') {
-      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<h1>Concierge Host (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
         <a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a>`));
     }
     if (route === `GET ${UMANTIS_CLOSED_FORM}`) return send(umantisForm('', { closed: true }));
@@ -862,12 +876,15 @@ function fakePortal() {
         first: value('first'), title: value('title'), hear: value('hear'), release: value('release'), employee: Boolean(value('employee')),
         cv: /name="cv"; filename="CV_/.test(raw), letter: sent('letter'), photo: sent('photo'), other: sent('other'),
       });
-      return send(page('Application', '<h1>Thank you very much for your application</h1><p>We will get in touch with you.</p>'));
+      return redirect(`/thank-you${url.search}`);
     }
     res.writeHead(404);
     res.end();
   });
-  return { server, state, coop, umantis, workday, bindReceiptJobId };
+  const hasCurrentReceiptKey = (value) => {
+    try { return new URL(value).searchParams.get(receiptJobParam) === receiptJobId; } catch { return false; }
+  };
+  return { server, state, coop, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey };
 }
 
 /**
@@ -902,9 +919,19 @@ async function fakeCodex({ prompt }) {
     const end = prompt.lastIndexOf('\n\nReturn exactly one JSON object');
     const request = JSON.parse(prompt.slice(start, end));
     return { questions: request.questions.map((question) => {
-      if (!/valid work permit/i.test(question.applicationQuestion || question.question || '')) {
-        throw new Error('fake_localizer_unknown_fixture');
+      const applicationQuestion = question.applicationQuestion || question.question || '';
+      if (/geburtsdatum|birth date|date of birth/i.test(applicationQuestion)) {
+        return {
+          id: question.id,
+          sourceLocale: 'de',
+          question: 'Qual è la tua data di nascita?',
+          why: 'Il portale richiede la tua data di nascita.',
+          options: [],
+          optionMap: [],
+          validationMessage: '',
+        };
       }
+      if (!/valid work permit/i.test(applicationQuestion)) throw new Error('fake_localizer_unknown_fixture');
       const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
         candidate: /^yes$/i.test(application) ? 'Sì' : /^no$/i.test(application) ? 'No' : application,
         application,
@@ -1136,7 +1163,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
 }
 
 async function main() {
-  const { server, state, coop, umantis, workday, bindReceiptJobId } = fakePortal();
+  const { server, state, coop, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey } = fakePortal();
   const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
   const tlsFixture = await createWorkdayTlsFixture(dir);
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -1194,6 +1221,45 @@ async function main() {
     console.log(`${ok ? '✓' : '✗'} ${name}`);
     if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
   };
+  const runUmantisChecks = async () => {
+    const hotelSaved = new Map();
+    const hotelAccounts = {
+      async load(host) { return hotelSaved.get(host) || null; },
+      async save(host, { email, password }) { hotelSaved.set(host, { email, password, status: 'pending', createdAt: Date.now(), verifiedAt: null }); },
+      async mark(host, patch) { hotelSaved.set(host, { ...hotelSaved.get(host), ...patch }); },
+      async discard(host) { hotelSaved.delete(host); },
+      async waitForVerification() { return null; },
+    };
+    const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)' };
+    const hotelHost = new URL(umantisOrigin(server)).hostname;
+    const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
+      && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
+      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'), stopContext(hotelDry));
+    check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
+    let guardCalls = 0;
+    const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });
+    const sentToHotel = umantis.applications[0] || {};
+    const hotelPassword = hotelSaved.get(hotelHost)?.password || '';
+    check('umantis: the form is sent once behind the submission guard, with the CV and the letter stored one after the other in their own fields, and no photo', hotel.event.type === 'submit_succeeded'
+      && guardCalls === 1 && umantis.applications.length === 1 && umantis.refused.length === 0 && sentToHotel.cv && sentToHotel.letter && !sentToHotel.photo && !sentToHotel.other
+      && sentToHotel.first === 'Luca' && sentToHotel.title === 'mr' && sentToHotel.hear === 'board' && sentToHotel.release === 'delete' && !sentToHotel.employee,
+    { ...stopContext(hotel), guardCalls, applicationCount: umantis.applications.length, refusalReasons: umantis.refused.slice(-2), receiptKeyPreserved: hasCurrentReceiptKey(hotel.evidence.finalUrl) });
+    check('umantis: the account is the order’s (alias, the stored password) and is marked created', hotelPassword.length >= 7
+      && umantis.accounts.get(ALIAS) === hotelPassword && hotelSaved.get(hotelHost)?.status === 'created',
+    { ...stopContext(hotel), accountCreated: hotelSaved.get(hotelHost)?.status === 'created', accountPasswordPresent: Boolean(hotelPassword) });
+    check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
+      && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
+    const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
+    check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
+      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
+    // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
+    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
+    check('umantis: a password page whose CV field sits in a closed section is opened first, then filled as the form (never taken for a login)', closedSections.event.type === 'dry_run_ready'
+      && !closedSections.event.stage && closedSections.evidence.finalButton?.label === 'Submit final application' && closedAuth.length > 0 && closedAuth.every(kind => kind === 'inline')
+      && closedSections.evidence.postingMatch === 'match' && closedSections.evidence.steps.some((step) => (step.actions || []).some((action) => action.document === 'cv')), stopContext(closedSections));
+  };
   const runCoopChecks = async () => {
     // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
     const coopSaved = new Map();
@@ -1247,11 +1313,33 @@ async function main() {
   const focusWorkday = workdayFocus === 'workday-assisted' || workdayFocus === 'workday-auth';
   const focusCoop = workdayFocus === 'coop';
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
+  const focusAgentBirthDate = workdayFocus === 'agent-birth-date';
+  const focusDiagnostics = workdayFocus === 'diagnostics';
+  const focusUmantis = workdayFocus === 'umantis';
   try {
     if (focusWorkday) {
       await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId }, workdayFocus === 'workday-assisted');
     } else if (focusCoop) {
       await runCoopChecks();
+    } else if (focusAgentBirthDate) {
+      const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
+      const asked = unknown.event.questions || [];
+      check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
+        && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && asked[0].question === 'Qual è la tua data di nascita?'
+        && asked[0].type === 'date' && state.widgetApplications.length === 0, stopContext(unknown));
+    } else if (focusDiagnostics) {
+      const diagnosticRefusal = await run({ applyUrl: `${base}/diagnostic-refused` });
+      const diagnostics = diagnosticRefusal.evidence.diagnostics;
+      check('a refused submit records console and uncaught browser errors privately', diagnosticRefusal.event.error === 'portal_refused'
+        && diagnostics.console.some((entry) => entry.text.includes('Profile URL invalid'))
+        && diagnostics.pageErrors.some((entry) => entry.message === 'client_submit_validation')
+        && !JSON.stringify(diagnostics).includes('private-test-token'), stopContext(diagnosticRefusal));
+      const capturedChunkedError = diagnostics.responses.some((entry) => entry.source === 'browser_stream' && entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'));
+      const capturedInvalidLinkedIn = diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn')));
+      check('chunked HTTP 200 application errors and native field validation are captured', capturedChunkedError && capturedInvalidLinkedIn,
+        { capturedChunkedError, capturedInvalidLinkedIn });
+    } else if (focusUmantis) {
+      await runUmantisChecks();
     } else if (!focusRegistration) {
     // Keep this timing-sensitive portal first in the full suite; the same
     // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.
@@ -1607,8 +1695,10 @@ async function main() {
       && diagnostics.console.some((entry) => entry.text.includes('Profile URL invalid'))
       && diagnostics.pageErrors.some((entry) => entry.message === 'client_submit_validation')
       && !JSON.stringify(diagnostics).includes('private-test-token'));
-    check('chunked HTTP 200 application errors and native field validation are captured', diagnostics.responses.some((entry) => entry.source === 'browser_stream' && entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'))
-      && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
+    const capturedChunkedError = diagnostics.responses.some((entry) => entry.source === 'browser_stream' && entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'));
+    const capturedInvalidLinkedIn = diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn')));
+    check('chunked HTTP 200 application errors and native field validation are captured', capturedChunkedError && capturedInvalidLinkedIn,
+      { capturedChunkedError, capturedInvalidLinkedIn });
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && new URL(moved.evidence.finalUrl || '/', `${base}/`).pathname === '/refused-moved/error');
@@ -1629,48 +1719,14 @@ async function main() {
     await slowBrowser.close();
     // Grand Hotel Kronenhof (2026-10-03): the posting's «Apply» opens umantis in a new tab; its form
     // asks for the account's password itself and names the role, never the company.
-    const hotelSaved = new Map();
-    const hotelAccounts = {
-      async load(host) { return hotelSaved.get(host) || null; },
-      async save(host, { email, password }) { hotelSaved.set(host, { email, password, status: 'pending', createdAt: Date.now(), verifiedAt: null }); },
-      async mark(host, patch) { hotelSaved.set(host, { ...hotelSaved.get(host), ...patch }); },
-      async discard(host) { hotelSaved.delete(host); },
-      async waitForVerification() { return null; },
-    };
-    const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
-    const hotelHost = new URL(umantisOrigin(server)).hostname;
-    const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
-    check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
-      && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
-      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'), stopContext(hotelDry));
-    check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
-    let guardCalls = 0;
-    const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });
-    const sentToHotel = umantis.applications[0] || {};
-    const hotelPassword = hotelSaved.get(hotelHost)?.password || '';
-    check('umantis: the form is sent once behind the submission guard, with the CV and the letter stored one after the other in their own fields, and no photo', hotel.event.type === 'submit_succeeded'
-      && guardCalls === 1 && umantis.applications.length === 1 && umantis.refused.length === 0 && sentToHotel.cv && sentToHotel.letter && !sentToHotel.photo && !sentToHotel.other
-      && sentToHotel.first === 'Luca' && sentToHotel.title === 'mr' && sentToHotel.hear === 'board' && sentToHotel.release === 'delete' && !sentToHotel.employee);
-    check('umantis: the account is the order’s (alias, the stored password) and is marked created', hotelPassword.length >= 7
-      && umantis.accounts.get(ALIAS) === hotelPassword && hotelSaved.get(hotelHost)?.status === 'created');
-    check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
-      && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
-    const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
-    check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
-      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
-    // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
-    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
-    const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
-    check('umantis: a password page whose CV field sits in a closed section is opened first, then filled as the form (never taken for a login)', closedSections.event.type === 'dry_run_ready'
-      && !closedSections.event.stage && closedSections.evidence.finalButton?.label === 'Submit final application' && closedAuth.join(',') === 'inline'
-      && closedSections.evidence.postingMatch === 'match' && closedSections.evidence.steps.some((step) => (step.actions || []).some((action) => action.document === 'cv')));
+    await runUmantisChecks();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
     await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId });
     }
 
-    if (!focusWorkday && !focusCoop) {
+    if (!focusWorkday && !focusCoop && !focusAgentBirthDate && !focusDiagnostics && !focusUmantis) {
       const resetRegistration = () => {
         state.accounts.clear();
         state.verified.clear();
