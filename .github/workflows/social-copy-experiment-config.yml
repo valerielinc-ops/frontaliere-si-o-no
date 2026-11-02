@@ -1,0 +1,31 @@
+name: Social Copy Experiment Config
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/experiments/social-copy-rc.mjs
+  workflow_dispatch:
+
+concurrency:
+  group: social-copy-experiment-config
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install Firebase Admin dependency
+        run: npm ci
+      - name: Reconcile Firebase Remote Config
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/experiments/social-copy-rc.mjs

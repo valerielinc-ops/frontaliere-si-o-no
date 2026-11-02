@@ -36,7 +36,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 import {
   stripHtml,
@@ -537,6 +537,8 @@ export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}
  * @param {string} [opts.repoRoot]
  * @param {(...a: unknown[]) => void} [opts.log]
  * @param {(...a: unknown[]) => void} [opts.warn]
+ * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
+ * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -548,6 +550,8 @@ export async function run(opts = {}) {
   const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
     onWarning: (message) => warn('⚠️', message),
   });
+  const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
+  const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const volumeRaw = Number(env.FB_JOB_VOLUME || 144);
@@ -593,6 +597,7 @@ export async function run(opts = {}) {
   let placedCount = 0;
   const unmappedCities = new Map(); // city → count
   const payloads = [];
+  const copyReservations = new Map();
   for (let i = 0; i < usable; i++) {
     const job = candidates[i];
     const url = buildJobUrl(job);
@@ -600,12 +605,14 @@ export async function run(opts = {}) {
       log('⚠️', `skipping job ${job.id} — no slug`);
       continue;
     }
-    const socialCopy = selectSocialCopy({
+    const socialCopy = await selectSocialCopy({
       pack: socialCopyPack,
       channel: 'facebook',
       kind: 'job',
       assignmentKey: job.id,
+      dryRun,
     });
+    copyReservations.set(job.id, socialCopy);
     const message = buildJobCaption(job, { socialCopy });
     const placeId = lookupPlaceId(job.location, placeIds);
     if (placeId) {
@@ -622,6 +629,16 @@ export async function run(opts = {}) {
       scheduled_publish_time: slots[i],
     });
   }
+  const releaseReservation = async (id, reason) => {
+    await releaseUnpublishedSocialCopyAssignment(copyReservations.get(id), {
+      releaseBalancedImpl: releaseSocialCopy,
+      reason,
+    });
+    copyReservations.delete(id);
+  };
+  const releaseAllReservations = async (reason) => {
+    for (const id of copyReservations.keys()) await releaseReservation(id, reason);
+  };
   log('📍', `place tag resolved for ${placedCount}/${payloads.length} payloads`);
   if (unmappedCities.size > 0) {
     // Log top unmapped locations so we can extend lookupPlaceId aliases
@@ -646,10 +663,12 @@ export async function run(opts = {}) {
 
   if (!pageId || !token) {
     warn('⚠️', 'FB_PAGE_ID or FB_PAGE_ACCESS_TOKEN missing — skipping');
+    await releaseAllReservations('Facebook credentials missing');
     return { ok: false, scheduled: 0, dryRun, payloads };
   }
   if (typeof fetchImpl !== 'function') {
     warn('⚠️', 'no fetch impl available — skipping');
+    await releaseAllReservations('Facebook fetch implementation missing');
     return { ok: false, scheduled: 0, dryRun, payloads };
   }
 
@@ -666,6 +685,9 @@ export async function run(opts = {}) {
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
 
   const scheduleOne = async (p) => {
+    let accepted = false;
+    let deliveryUncertain = false;
+    try {
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
     const link = facebookUrl(
@@ -696,6 +718,7 @@ export async function run(opts = {}) {
         res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
         data = await res.json();
       } catch (err) {
+        deliveryUncertain = true;
         warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
@@ -710,6 +733,8 @@ export async function run(opts = {}) {
     }
 
     if (res?.ok && data?.id) {
+      accepted = true;
+      copyReservations.delete(p.jobId);
       appendPosted(repoRoot, [{
         id: p.jobId,
         url: p.url,
@@ -722,6 +747,16 @@ export async function run(opts = {}) {
       return true;
     } else {
       warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
+      if (!deliveryUncertain && res && !res.ok) {
+        await releaseReservation(p.jobId, 'Facebook explicitly rejected the scheduled job post');
+      }
+      return false;
+    }
+    } catch (err) {
+      warn('⚠️', `FB scheduler failed for ${p.jobId}: ${err.message}`);
+      if (!accepted && !deliveryUncertain) {
+        await releaseReservation(p.jobId, 'Facebook job failed before delivery attempt');
+      }
       return false;
     }
   };

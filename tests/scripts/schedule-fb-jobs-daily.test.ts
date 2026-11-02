@@ -96,6 +96,8 @@ const {
     now?: Date;
     repoRoot?: string;
     fetchImpl?: typeof fetch;
+    selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
+    releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
   }) => Promise<{
@@ -744,17 +746,22 @@ describe('run() — DRY_RUN mode', () => {
     ]);
     const fetchSpy = vi.fn<typeof fetch>();
     const warns: string[] = [];
+    const socialCopy = { copyAssignmentMode: 'firebase-balanced', copyAssignment: { assignmentKey: 'job-Y' } };
+    const release = vi.fn(async () => true);
     const result = await run({
       env: { FB_JOB_VOLUME: '24' }, // no creds
       now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
       repoRoot: tmp,
       fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
       log: () => {},
       warn: (...a) => warns.push(a.join(' ')),
     });
     expect(fetchSpy).not.toHaveBeenCalled();
     expect(result.ok).toBe(false);
     expect(warns.some((w) => w.toLowerCase().includes('missing'))).toBe(true);
+    expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
   });
 
   it('exits gracefully when no jobs are available', async () => {

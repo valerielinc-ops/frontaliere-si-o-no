@@ -10,6 +10,7 @@ const cases = [
   ['resolve-fb-posted-articles-conflict.mjs', 'data/fb-posted-articles.json'],
   ['resolve-fb-posted-jobs-conflict.mjs', 'data/fb-posted-jobs.json'],
   ['resolve-reddit-posted-jobs-conflict.mjs', 'data/reddit-posted-jobs.json'],
+  ['resolve-reddit-posted-jobs-conflict.mjs', 'data/reddit-posted-articles.json'],
 ] as const;
 const dirs: string[] = [];
 
@@ -60,6 +61,7 @@ describe('social posted-ledger conflict resolvers', () => {
         ...process.env,
         PATH: `${fakeBin}${path.delimiter}${process.env.PATH || ''}`,
         TARGET_PATH: target,
+        ...(target.startsWith('data/reddit-') ? { REDDIT_POSTED_LEDGER_PATH: target } : {}),
       },
     });
 

@@ -134,6 +134,23 @@ describe('both entry points share one gate', () => {
   });
 });
 
+describe('Reddit article receipts prevent duplicate subreddit submissions', () => {
+  it('filters only article/subreddit pairs already present in the receipt ledger', async () => {
+    const poster = await import('../../scripts/post-to-reddit.mjs');
+    const targets = ['frontaliere', 'FrontaliereTicino'];
+    const ledger = {
+      posted: [
+        { id: 'article-1', subreddit: 'frontaliere', redditPostId: 't3_one' },
+        { id: 'article-2', subreddit: 'FrontaliereTicino', redditPostId: 't3_two' },
+      ],
+    };
+
+    expect(poster.unpostedArticleTargets('article-1', targets, ledger)).toEqual(['FrontaliereTicino']);
+    expect(poster.unpostedArticleTargets('article-3', targets, ledger)).toEqual(targets);
+    expect(poster.unpostedArticleTargets('', targets, ledger)).toEqual([]);
+  });
+});
+
 describe('the approval list documents WHY each entry is there', () => {
   it('every approved subreddit carries a non-empty justification', () => {
     for (const [name, reason] of Object.entries(AUTOMATION_APPROVED_SUBREDDITS)) {

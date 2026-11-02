@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * In-place rebase resolver for `data/reddit-posted-jobs.json`.
+ * In-place rebase resolver for the Reddit job or article receipt ledger.
  *
  * The reddit-jobs-daily-schedule workflow's "Commit posted-jobs tracking"
  * step appends the just-posted jobs to the ledger and pushes. If another
@@ -28,7 +28,16 @@ import path from 'node:path';
 import { gitShowStage } from './git-show-stage.mjs';
 import { parseLedger } from './social-publish-queue.mjs';
 
-const TARGET = 'data/reddit-posted-jobs.json';
+const REDDIT_LEDGER_PATHS = new Set([
+  'data/reddit-posted-jobs.json',
+  'data/reddit-posted-articles.json',
+]);
+const requestedTarget = process.env.REDDIT_POSTED_LEDGER_PATH || 'data/reddit-posted-jobs.json';
+if (!REDDIT_LEDGER_PATHS.has(requestedTarget)) {
+  process.stderr.write(`[resolve-reddit-posted] unsupported ledger path: ${requestedTarget}\n`);
+  process.exit(1);
+}
+const TARGET = requestedTarget;
 const TRIM_LIMIT = 1000;
 
 function readStage(stage) {

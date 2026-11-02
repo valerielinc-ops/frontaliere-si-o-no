@@ -241,6 +241,8 @@ function buildLedgerLookup(ledger) {
       engagementLoop: firstString(entry.engagementLoop, entry.engagement_loop),
       followUpFormat: firstString(entry.followUpFormat, entry.follow_up_format),
       copyMode: firstString(entry.copyMode, entry.copy_mode),
+      copyAssignmentMode: firstString(entry.copyAssignmentMode, entry.copy_assignment_mode),
+      copyExperimentId: firstString(entry.copyExperimentId, entry.copy_experiment_id),
       copyPromptVersion: firstString(entry.copyPromptVersion, entry.copy_prompt_version),
       copyPackId: firstString(entry.copyPackId, entry.copy_pack_id),
       copyTemplateId: firstString(entry.copyTemplateId, entry.copy_template_id),
@@ -393,6 +395,8 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       ledgerMetadata?.followUpFormat,
     );
     const copyMode = firstString(raw.copyMode, raw.copy_mode, ledgerMetadata?.copyMode);
+    const copyAssignmentMode = firstString(raw.copyAssignmentMode, raw.copy_assignment_mode, ledgerMetadata?.copyAssignmentMode);
+    const copyExperimentId = firstString(raw.copyExperimentId, raw.copy_experiment_id, ledgerMetadata?.copyExperimentId);
     const copyPromptVersion = firstString(raw.copyPromptVersion, raw.copy_prompt_version, ledgerMetadata?.copyPromptVersion);
     const copyPackId = firstString(raw.copyPackId, raw.copy_pack_id, ledgerMetadata?.copyPackId);
     const copyTemplateId = firstString(raw.copyTemplateId, raw.copy_template_id, ledgerMetadata?.copyTemplateId);
@@ -451,6 +455,8 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       engagementLoop,
       followUpFormat,
       copyMode,
+      copyAssignmentMode,
+      copyExperimentId,
       copyPromptVersion,
       copyPackId,
       copyTemplateId,
@@ -546,12 +552,16 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     if (row.copyMode || row.copyTemplateId) {
       const copyKey = [
         row.copyMode || 'unknown',
+        row.copyAssignmentMode || 'unknown',
+        row.copyExperimentId || 'unknown',
         row.copyPackId || 'unknown',
         row.copyTemplateId || 'unknown',
         row.copyObjective || 'unknown',
       ].join('|');
       const copyGroup = group.copyVariants.get(copyKey) || {
         copyMode: row.copyMode || null,
+        copyAssignmentMode: row.copyAssignmentMode || null,
+        copyExperimentId: row.copyExperimentId || null,
         copyPromptVersion: row.copyPromptVersion || null,
         copyPackId: row.copyPackId || null,
         copyTemplateId: row.copyTemplateId || null,
