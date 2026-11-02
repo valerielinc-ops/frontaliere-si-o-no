@@ -19,6 +19,7 @@ import {
   createTsvAccumulator,
   parseDelimitedLine,
 } from "./lib/astra-vehicle-stats-parser.mjs";
+import { fetchAstraDownload } from "./lib/astra-download.mjs";
 import { httpFetchWithRetry } from "./lib/transient-fetch.mjs";
 
 const FIRESTORE_COLLECTION = "config";
@@ -104,7 +105,7 @@ function assertContentLength(bytesRead, metadata, url) {
 }
 
 async function fetchTsvAggregate(url, metadata, dataset) {
-  const response = await httpFetchWithRetry(
+  return fetchAstraDownload(
     url,
     {
       headers: REQUEST_HEADERS,
@@ -113,50 +114,51 @@ async function fetchTsvAggregate(url, metadata, dataset) {
       timeout: dataset === "best" ? BEST_FETCH_TIMEOUT_MS : FETCH_TIMEOUT_MS,
       label: `ASTRA GET ${url}`,
     },
+    async (response) => {
+      if (!response.body) throw new Error(`ASTRA response senza body per ${url}`);
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      let carry = "";
+      let bytesRead = 0;
+      let headers = null;
+      let accumulator = null;
+
+      const consumeLine = (line) => {
+        if (!line.trim()) return;
+        const row = parseDelimitedLine(line);
+        if (!headers) {
+          headers = row;
+          accumulator = createTsvAccumulator(headers, { dataset });
+          return;
+        }
+        accumulator.addRow(row);
+      };
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        bytesRead += value.byteLength;
+        carry += decoder.decode(value, { stream: true });
+        const lines = carry.split(/\r?\n/);
+        carry = lines.pop() || "";
+        for (const line of lines) consumeLine(line);
+      }
+      carry += decoder.decode();
+      consumeLine(carry);
+      assertContentLength(bytesRead, metadata, url);
+
+      if (!accumulator) throw new Error(`ASTRA ${dataset}: header mancante`);
+      const result = accumulator.finish();
+      if (result.sourceRows === 0)
+        throw new Error(`ASTRA ${dataset}: nessuna riga dati`);
+      return result;
+    },
   );
-  if (!response.ok) throw new Error(`ASTRA GET ${response.status} for ${url}`);
-  if (!response.body) throw new Error(`ASTRA response senza body per ${url}`);
-
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder("utf-8");
-  let carry = "";
-  let bytesRead = 0;
-  let headers = null;
-  let accumulator = null;
-
-  const consumeLine = (line) => {
-    if (!line.trim()) return;
-    const row = parseDelimitedLine(line);
-    if (!headers) {
-      headers = row;
-      accumulator = createTsvAccumulator(headers, { dataset });
-      return;
-    }
-    accumulator.addRow(row);
-  };
-
-  while (true) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    bytesRead += value.byteLength;
-    carry += decoder.decode(value, { stream: true });
-    const lines = carry.split(/\r?\n/);
-    carry = lines.pop() || "";
-    for (const line of lines) consumeLine(line);
-  }
-  carry += decoder.decode();
-  consumeLine(carry);
-  assertContentLength(bytesRead, metadata, url);
-
-  if (!accumulator) throw new Error(`ASTRA ${dataset}: header mancante`);
-  const result = accumulator.finish();
-  if (result.sourceRows === 0)
-    throw new Error(`ASTRA ${dataset}: nessuna riga dati`);
-  return result;
 }
 
 async function fetchWeeklyAggregate(url, metadata) {
-  const response = await httpFetchWithRetry(
+  return fetchAstraDownload(
     url,
     {
       headers: REQUEST_HEADERS,
@@ -165,11 +167,12 @@ async function fetchWeeklyAggregate(url, metadata) {
       timeout: FETCH_TIMEOUT_MS,
       label: `ASTRA GET ${url}`,
     },
+    async (response) => {
+      const buffer = Buffer.from(await response.arrayBuffer());
+      assertContentLength(buffer.length, metadata, url);
+      return aggregateWeeklyXlsx(buffer);
+    },
   );
-  if (!response.ok) throw new Error(`ASTRA GET ${response.status} for ${url}`);
-  const buffer = Buffer.from(await response.arrayBuffer());
-  assertContentLength(buffer.length, metadata, url);
-  return aggregateWeeklyXlsx(buffer);
 }
 
 async function loadDataset(key, url, previousSource, previousData) {
