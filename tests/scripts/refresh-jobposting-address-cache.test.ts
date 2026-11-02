@@ -207,6 +207,22 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
     });
     expect(queried).toBe(true);
     expect(result.entries[request.key]).toEqual(expiredMatch);
+
+    const refreshed = await processLookupBatches([request], {
+      entries: { [request.key]: expiredMatch },
+      now,
+      postalCodes: new Map([[request.key, new Set(['8048'])]]),
+      queryBatch: async () => [zefixBinding({ postalCode: '8048' })],
+      checkedAt: () => new Date(now).toISOString(),
+      batchDelayMs: 0,
+    });
+    expect(refreshed.entries[request.key]).toMatchObject({
+      status: 'matched',
+      streetAddress: 'Bahnhofstrasse 10',
+      postalCode: '8048',
+      jobPostalCode: '8048',
+      checkedAt: new Date(now).toISOString(),
+    });
   });
 
   it('filters matched cache entries before applying retry offset and limit', () => {
