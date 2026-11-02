@@ -198,7 +198,7 @@ purpose/rollback. Rule 3 is the subject of this doc:
 - **Rule id:** `593219bc66044a4ca3e571a2e522703a`
 - **Expression:** `cdn.frontaliereticino.ch`, path under `/assets/`, excluding the
   prefixes in `CDN_BROWSER_LONG_CACHE_PREFIXES`: `/assets/releases/`,
-  `/assets/gtag-init-`, `/assets/adsense-loader-`, `/assets/partnerize-tag-`.
+  `/assets/gtag-init-`, `/assets/adsense-loader-`, `/assets/partnerize-tag-`, `/assets/site-support-`.
 - **Action:** rewrite response header `Cache-Control: public, max-age=600, must-revalidate`
 - **Applied:** 2026-06-25; exclusions added 2026-10-31.
 - **Purpose:** stable-named chunks change bytes under the same URL (see

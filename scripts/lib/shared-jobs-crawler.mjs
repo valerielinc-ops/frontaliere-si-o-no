@@ -960,10 +960,14 @@ function isKnownAtsHost(host = '') {
 function extractRequirements(description) {
   const text = normalizeSpace(description);
   if (!text) return [];
-  const lines = text
-    .split(/[\n\r•·]+|(?<=[.!?;:])\s+/)
-    .map((x) => normalizeSpace(String(x || '').replace(/^[)\]}\-–—:.,\s]+/, '')))
-    .filter(Boolean);
+  const lineParts = text.split(/[\n\r•·]+|([.!?;:])\s+/);
+  const lines = [];
+  for (let index = 0; index < lineParts.length; index += 2) {
+    const line = normalizeSpace(
+      `${lineParts[index] ?? ''}${lineParts[index + 1] ?? ''}`.replace(/^[)\]}\-–—:.,\s]+/, ''),
+    );
+    if (line) lines.push(line);
+  }
   const out = [];
   for (const line of lines) {
     if (line.length < 14 || line.length > 120) continue;
@@ -2245,7 +2249,7 @@ function extractAlternateLocaleUrls(html, currentUrl) {
   let m;
   while ((m = rx.exec(String(html))) !== null) {
     const tag = m[0];
-    if (!/(?<![\w-])rel\s*=\s*(["'])alternate\1/i.test(tag)) continue;
+    if (!/(?:^|[^\w-])rel\s*=\s*(["'])alternate\1/i.test(tag)) continue;
     const hreflang = normalizeSpace(readAttr(tag, 'hreflang')).toLowerCase();
     const href = tryUrl(readAttr(tag, 'href'), currentUrl);
     if (!href || !hreflang || hreflang === 'x-default') continue;
@@ -3196,7 +3200,7 @@ function parseDuckDuckGoHtmlLinks(html) {
   let m;
   while ((m = rx.exec(String(html))) !== null) {
     const tag = m[0];
-    if (!/(?<![\w-])class\s*=\s*(["'])[^<]*?result__a[^<]*?\1/i.test(tag)) continue;
+    if (!/(?:^|[^\w-])class\s*=\s*(["'])[^<]*?result__a[^<]*?\1/i.test(tag)) continue;
     const href = readAttr(tag, 'href');
     if (!href) continue;
     const decoded = decodeSearchRedirectUrl(href);

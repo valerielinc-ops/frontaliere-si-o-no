@@ -17,6 +17,8 @@ export class ExpiredSliceOverflow<T> {
   constructor(private readonly tempRoot = os.tmpdir()) {}
 
   get size(): number { return this.entries.size; }
+  /** Enumerate retained aliases without reading any spilled job record. */
+  keys(): IterableIterator<string> { return this.entries.keys(); }
   has(slug: string): boolean { return this.entries.has(slug); }
   recency(slug: string): number | undefined { return this.entries.get(slug)?.recency; }
 

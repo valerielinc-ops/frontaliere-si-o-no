@@ -922,7 +922,7 @@
         "it": "libraio-70-a-orell-fussli-thalia-bern",
         "en": "bookseller-70-a-orell-fussli-thalia-bern",
         "de": "buchhandler-in-70-a-orell-fuessli-thalia-bern",
-        "fr": "libraire-70-a-orell-fussli-thalia-bern"
+        "fr": "librairie-70-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -970,7 +970,7 @@
       "previousSlugs": [
         "buchhandler-in-70-a-orell-fuessli-thalia-bern",
         "buchhandler-in-70-a-orell-fussli-thalia-bern",
-        "librairie-70-a-orell-fussli-thalia-bern"
+        "libraire-70-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
         ],
         "fr": [
           "buchhandler-in-70-a-orell-fussli-thalia-bern",
-          "librairie-70-a-orell-fussli-thalia-bern"
+          "libraire-70-a-orell-fussli-thalia-bern"
         ]
       },
       "firstSeenAt": "2026-10-16T09:32:54.743Z",
@@ -1089,12 +1089,12 @@
     },
     {
       "id": "orell-fuessli-thalia-5444e3a466dc",
-      "slug": "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur",
+      "slug": "addetto-a-alla-logistica-delle-spedizioni-80-100-a-orell-fussli-thalia-winterthur",
       "slugByLocale": {
         "de": "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur",
-        "it": "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur",
-        "en": "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur",
-        "fr": "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur"
+        "it": "addetto-a-alla-logistica-delle-spedizioni-80-100-a-orell-fussli-thalia-winterthur",
+        "en": "shipping-logistics-employee-80-100-a-orell-fussli-thalia-winterthur",
+        "fr": "collaborateur-rice-en-logistique-d-expedition-80-100-a-orell-fussli-thalia-winterthur"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1141,14 +1141,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur",
+          "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur"
+        ],
+        "en": [
+          "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur"
+        ],
+        "fr": [
           "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur"
+        "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur",
+        "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

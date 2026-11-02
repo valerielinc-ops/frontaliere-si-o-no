@@ -6,9 +6,9 @@
  * The assembler and the static renderers share this extractor so a repaired
  * corpus field and a display-only fallback make the same decision.
  */
-// The lookarounds are intentional: a `***brand***` run must never be read as
-// a `**brand**` segment beginning at its second asterisk.
-const BOLD_SEGMENT_RE = /(?<!\*)\*\*([^*\n]{1,240})\*\*(?!\*)/g;
+// The captured boundary and trailing lookahead ensure a `***brand***` run is never
+// read as a `**brand**` segment beginning at its second asterisk.
+const BOLD_SEGMENT_RE = /(^|[^*])\*\*([^*\n]{1,240})\*\*(?!\*)/g;
 
 // A title is recoverable when a narrative sentence structurally introduces
 // the following bold segment. This avoids length/suffix heuristics: the
@@ -48,8 +48,9 @@ export function extractNarrativeJobTitle(value) {
   let narrativeRank = Number.POSITIVE_INFINITY;
   for (let index = 0; index < matches.length; index += 1) {
     const match = matches[index];
-    const candidate = String(match[1] || '').trim();
-    const start = Number(match.index ?? -1);
+    const candidate = String(match[2] || '').trim();
+    const matchStart = Number(match.index ?? -1);
+    const start = matchStart < 0 ? -1 : matchStart + String(match[1] || '').length;
     if (!candidate || start < 0) continue;
     const prefix = source.slice(0, start);
     const rank = narrativeTitleRank(prefix);

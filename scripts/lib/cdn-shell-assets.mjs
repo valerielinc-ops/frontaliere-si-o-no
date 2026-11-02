@@ -92,6 +92,13 @@ const variantLabel = (pageOrigin) => (pageOrigin ? `Origin ${pageOrigin}` : 'no 
  */
 export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=600,must-revalidate';
 
+/** A digest in the filename makes these bytes immutable; stable aliases still
+ * revalidate so already-published HTML can receive a corrected loader. */
+export function shellAssetCacheControl(key) {
+  return /(?:^|\/)(?:gtag-init|adsense-loader|partnerize-tag|site-support)-[a-f0-9]{12}\.js$/.test(key)
+    ? 'public,max-age=31536000,immutable' : SHELL_ASSET_CACHE_CONTROL;
+}
+
 // fetch() sends no User-Agent of its own, and the zone challenges a request
 // without one: the probe would read every file as not served.
 const PROBE_USER_AGENT = 'FrontaliereTicino-ShellAssets/1.0 (+https://frontaliereticino.ch)';
@@ -268,7 +275,7 @@ export function uploadShellAsset(key, content, options) {
   try {
     const file = path.join(dir, path.basename(key));
     writeFileSync(file, content, 'utf-8');
-    const output = runUploadHelper([file, key, SHELL_ASSET_CACHE_CONTROL], options);
+    const output = runUploadHelper([file, key, shellAssetCacheControl(key)], options);
     process.stdout.write(output);
     return output.includes('✅ uploaded');
   } finally {

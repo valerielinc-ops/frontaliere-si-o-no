@@ -695,7 +695,7 @@ const APEX_STRICT_TRANSPORT_SECURITY = 'max-age=31536000; includeSubDomains';
 // `max-age=31536000,immutable` and the edge honours it (`age: 6055` on a GET,
 // 2026-10-31), but the browser was told 600 s and revalidated ~90 modules on
 // every repeat visit. The exclusion list is the set of URLs whose bytes can never
-// change: the build-scoped release plus the three content-addressed loaders
+// change: the build-scoped release plus the content-addressed loaders
 // (`<name>-<sha256/12>.js`, build-plugins/constants.ts). The trailing `-` keeps
 // the stable aliases (`gtag-init.js`, `adsense-loader.js`, `partnerize-tag.js`)
 // under the rule. Prefixes, not `matches`: this zone is on the Free plan.
@@ -704,6 +704,7 @@ const CDN_BROWSER_LONG_CACHE_PREFIXES = [
   '/assets/gtag-init-',
   '/assets/adsense-loader-',
   '/assets/partnerize-tag-',
+  '/assets/site-support-',
 ];
 const LEGACY_CDN_ASSETS_REVALIDATE_DESCRIPTION =
   'cdn-assets-revalidate: override GitHub Pages immutable on stable-named SPA chunks (max-age=600 must-revalidate, matches public/_headers)';

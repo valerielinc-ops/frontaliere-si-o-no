@@ -339,12 +339,12 @@
     },
     {
       "id": "proman-fleurier-08bbf583a2e6",
-      "slug": "carreleur-h-f-neuchatel-proman-08bbf583",
+      "slug": "carver-m-f-proman-bm-emploi-sa-fleurier-neuchatel-08bbf583",
       "slugByLocale": {
         "fr": "carreleur-h-f-neuchatel-proman-08bbf583",
-        "it": "carreleur-h-f-neuchatel-proman-08bbf583",
+        "it": "carver-m-f-proman-bm-emploi-sa-fleurier-neuchatel-08bbf583",
         "en": "carreleur-h-f-neuchatel-proman-08bbf583",
-        "de": "carreleur-h-f-neuchatel-proman-08bbf583"
+        "de": "carver-m-w-proman-bm-emploi-sa-fleurier-neuchatel-08bbf583"
       },
       "slugDisambiguator": "08bbf583",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -405,7 +405,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:08:01.270Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:08:01.270Z"
+      "firstSeenAt": "2026-11-02T11:08:01.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carreleur-h-f-neuchatel-proman-08bbf583"
+        ],
+        "de": [
+          "carreleur-h-f-neuchatel-proman-08bbf583"
+        ]
+      },
+      "previousSlugs": [
+        "carreleur-h-f-neuchatel-proman-08bbf583"
+      ]
     },
     {
       "id": "proman-fleurier-65429fd7f428",
@@ -455,7 +466,6 @@
       "applyUrl": "https://www.proman-group.ch/job/25627/Charpentiers-HF",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "charpentiers-h-f-neuchatel-proman-65429fd7"
@@ -532,7 +542,6 @@
       "applyUrl": "https://www.proman-group.ch/job/25625/Menuisier-HF",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "menuisier-h-f-la-chaux-de-fonds-proman-8450407d"

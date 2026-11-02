@@ -3301,3 +3301,10 @@ main.seo-static-content .fuel-map-ssr-description {
   .pharmacy-list-item,
   .pharmacy-province-link { transition: none; transform: none; }
 }
+
+/* Keep narrow article screens wide enough for a 250px In-article unit. This
+   removes nested page/body gutters rather than overflowing or clipping ads. */
+@media (max-width: 359px) {
+  #main-content:has([data-ft-article-reading]) { width: 100% !important; padding-inline: 4px; }
+  [data-ft-article-reading] [data-ft-article-body] { padding-inline: 4px; }
+}

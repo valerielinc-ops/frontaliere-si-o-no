@@ -695,6 +695,16 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('pull-requests: read');
   });
 
+  it('does not start the durable bridge for unsuccessful workflow runs', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    const workflow = YAML.parse(source) as { jobs?: { persist?: { if?: string } } };
+
+    expect(workflow.jobs?.persist?.if).toBe(
+      "github.event_name == 'workflow_dispatch' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.conclusion == 'success')",
+    );
+    expect(source).not.toContain("github.event.workflow_run.conclusion != 'cancelled'");
+  });
+
   it('treats a successful source run without evidence as a no-op, not a failed bridge', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('id: source_artifact');

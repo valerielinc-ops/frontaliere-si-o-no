@@ -18792,12 +18792,12 @@
     },
     {
       "id": "physioswiss-b48b0d48d22d",
-      "slug": "physiotherapeut-in-30-50-physio-swiss-thal",
+      "slug": "fisioterapista-30-50-physio-swiss-9425-thal",
       "slugByLocale": {
         "de": "physiotherapeut-in-30-50-9425-thal-physioswiss-ch",
-        "it": "physiotherapeut-in-30-50-physio-swiss-thal",
-        "en": "physiotherapeut-in-30-50-physio-swiss-thal",
-        "fr": "physiotherapeut-in-30-50-physio-swiss-thal"
+        "it": "fisioterapista-30-50-physio-swiss-9425-thal",
+        "en": "physiotherapist-30-50-physio-swiss-9425-thal",
+        "fr": "physiotherapeute-30-50-physio-swiss-9425-thal"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -18843,11 +18843,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-30-50-9425-thal-physioswiss-ch"
+          "physiotherapeut-in-30-50-9425-thal-physioswiss-ch",
+          "physiotherapeut-in-30-50-physio-swiss-thal"
+        ],
+        "en": [
+          "physiotherapeut-in-30-50-physio-swiss-thal"
+        ],
+        "fr": [
+          "physiotherapeut-in-30-50-physio-swiss-thal"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-30-50-9425-thal-physioswiss-ch"
+        "physiotherapeut-in-30-50-9425-thal-physioswiss-ch",
+        "physiotherapeut-in-30-50-physio-swiss-thal"
       ],
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -18871,12 +18879,12 @@
     },
     {
       "id": "physioswiss-957408b8a721",
-      "slug": "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains",
+      "slug": "fisioterapista-50-scalabile-fino-al-100-physio-swiss-1350-orbe",
       "slugByLocale": {
         "fr": "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains",
-        "it": "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains",
-        "en": "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains",
-        "de": "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains"
+        "it": "fisioterapista-50-scalabile-fino-al-100-physio-swiss-1350-orbe",
+        "en": "physiotherapist-50-scalable-up-to-100-physio-swiss-1350-orbe",
+        "de": "physiotherapeut-50-skalierbar-bis-100-physio-swiss-1350-orbe"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -18938,16 +18946,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:35:47.415Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:35:47.415Z"
+      "firstSeenAt": "2026-11-02T11:35:47.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains"
+        ],
+        "en": [
+          "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains"
+        ],
+        "de": [
+          "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-50-evolutif-jusqu-a-100-cabinet-domiciles-region-orbe-yverdon-les-bains"
+      ]
     },
     {
       "id": "physioswiss-4e49ca371aef",
-      "slug": "physiotherapeut-in-80-bis-100-physio-swiss-ilanz",
+      "slug": "fisioterapista-dall-80-al-100-physio-swiss-7130-ilanz",
       "slugByLocale": {
         "de": "physiotherapeut-in-80-bis-100-7130-ilanz-physioswiss-ch",
-        "it": "physiotherapeut-in-80-bis-100-physio-swiss-ilanz",
-        "en": "physiotherapeut-in-80-bis-100-physio-swiss-ilanz",
-        "fr": "physiotherapeut-in-80-bis-100-physio-swiss-ilanz"
+        "it": "fisioterapista-dall-80-al-100-physio-swiss-7130-ilanz",
+        "en": "physiotherapist-80-to-100-physio-swiss-7130-ilanz",
+        "fr": "physiotherapeute-80-a-100-physio-swiss-7130-ilanz"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -18995,11 +19017,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-80-bis-100-7130-ilanz-physioswiss-ch"
+          "physiotherapeut-in-80-bis-100-7130-ilanz-physioswiss-ch",
+          "physiotherapeut-in-80-bis-100-physio-swiss-ilanz"
+        ],
+        "en": [
+          "physiotherapeut-in-80-bis-100-physio-swiss-ilanz"
+        ],
+        "fr": [
+          "physiotherapeut-in-80-bis-100-physio-swiss-ilanz"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-80-bis-100-7130-ilanz-physioswiss-ch"
+        "physiotherapeut-in-80-bis-100-7130-ilanz-physioswiss-ch",
+        "physiotherapeut-in-80-bis-100-physio-swiss-ilanz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -19022,12 +19052,12 @@
     },
     {
       "id": "physioswiss-4b06855c45d2",
-      "slug": "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen",
+      "slug": "fisioterapista-40-60-a-partire-dal-1-gennaio-2027-presso-physioteam-oensingen-physio-swiss-4702-oensingen",
       "slugByLocale": {
         "de": "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-4702-oensingen",
-        "it": "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen",
-        "en": "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen",
-        "fr": "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen"
+        "it": "fisioterapista-40-60-a-partire-dal-1-gennaio-2027-presso-physioteam-oensingen-physio-swiss-4702-oensingen",
+        "en": "physiotherapist-40-60-starting-january-1-2027-in-the-oensingen-physiotherapy-team-physio-swiss-4702-oensingen",
+        "fr": "physiotherapeute-40-60-a-partir-du-1er-janvier-2027-chez-physioteam-oensingen-physio-swiss-4702-oensingen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19072,14 +19102,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-4702-oensingen"
+          "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-4702-oensingen",
+          "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen"
+        ],
+        "en": [
+          "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen"
+        ],
+        "fr": [
+          "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-4702-oensingen"
+        "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-4702-oensingen",
+        "physiotherapeut-in-40-60-ab-1-januar-2027-im-physioteam-oensingen-physio-swiss-oensingen"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,

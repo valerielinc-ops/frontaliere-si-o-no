@@ -1628,12 +1628,12 @@
     },
     {
       "id": "spital-davos-f0c54be52456",
-      "slug": "sachbearbeiter-in-patienten-e-leistungsmanagement-50-100-spital-davos",
+      "slug": "impiegato-a-gestione-pazienti-e-prestazioni-50-100-spital-davos-davos",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch",
-        "it": "sachbearbeiter-in-patienten-e-leistungsmanagement-50-100-spital-davos",
-        "en": "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch",
-        "fr": "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch"
+        "it": "impiegato-a-gestione-pazienti-e-prestazioni-50-100-spital-davos-davos",
+        "en": "administrative-specialist-patient-and-benefits-management-50-100-spital-davos-davos",
+        "fr": "employe-e-administratif-ve-en-gestion-des-patients-et-des-prestations-50-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1682,14 +1682,21 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch",
+          "sachbearbeiter-in-patienten-e-leistungsmanagement-50-100-spital-davos"
+        ],
+        "en": [
+          "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch"
+        ],
+        "fr": [
           "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch"
+        "sachbearbeiter-in-patienten-und-leistungsmanagement-50-100-spital-davos-ch",
+        "sachbearbeiter-in-patienten-e-leistungsmanagement-50-100-spital-davos"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

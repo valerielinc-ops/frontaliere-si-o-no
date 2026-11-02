@@ -55,6 +55,7 @@ export function createZeroMatchSummaryAccumulator() {
     evaluatedAlertCount: 0,
     noEligibleCandidateCount: 0,
     emptyProfileCount: 0,
+    discoveryCount: 0,
     zeroMatchCount: 0,
     zeroMatchByCause: {},
   };
@@ -67,6 +68,10 @@ export function addZeroMatchPlanToSummary(summary, plan) {
     return summary;
   }
   if ((plan?.rankedCount ?? 0) > 0) {
+    if (plan?.discoveryMode === true) {
+      summary.discoveryCount += 1;
+      return summary;
+    }
     summary.evaluatedAlertCount += 1;
     return summary;
   }

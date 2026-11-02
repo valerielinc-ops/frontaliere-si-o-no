@@ -9,6 +9,7 @@ import {
   __setFirestoreAdminForTest,
 } from '../scripts/send-job-alerts.mjs';
 import { NEWSLETTER_SPONSORS } from '../services/newsletter/recommendedBlock.mjs';
+import { diversifyJobEmployers } from '../scripts/lib/job-alert-discovery.mjs';
 
 // Minimal Firestore fake capturing .collection().doc().collection().doc().set() chains,
 // recording the final docId + payload so the maileroo-meta writer can be asserted.
@@ -749,13 +750,10 @@ describe('job alert email — brand alias logo lookup', () => {
 });
 
 describe('job alert dedup — per-company cap', () => {
-  it('source contains a per-company cap that allows max 2 jobs per company before overflow', () => {
-    const src = fs.readFileSync(
-      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
-      'utf8',
-    );
-    expect(src).toMatch(/PER_COMPANY_CAP\s*=\s*2/);
-    expect(src).toMatch(/perCompany\.get\(key\)\s*\|\|\s*0/);
+  it('allows at most two jobs per employer before preserving overflow in order', () => {
+    const jobs = ['Acme', 'ACME', 'Acme', 'Beta', 'Beta', 'Beta', 'Gamma']
+      .map((company, id) => ({ company, id }));
+    expect(diversifyJobEmployers(jobs).map((job) => job.id)).toEqual([0, 1, 3, 4, 6, 2, 5]);
   });
 });
 

@@ -3057,12 +3057,12 @@
     },
     {
       "id": "mediamarkt-98210",
-      "slug": "aushilfe-vendita-40-m-w-d-mediamarkt-buchs",
+      "slug": "addetto-a-alle-vendite-40-m-f-d-mediamarkt-buchs",
       "slugByLocale": {
         "de": "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
-        "it": "aushilfe-vendita-40-m-w-d-mediamarkt-buchs",
-        "en": "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
-        "fr": "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
+        "it": "addetto-a-alle-vendite-40-m-f-d-mediamarkt-buchs",
+        "en": "sales-assistant-40-m-f-d-mediamarkt-buchs",
+        "fr": "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3110,14 +3110,33 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
+          "aiuto-alle-vendite-40-m-f-d-mediamarkt-buchs",
+          "sales-assistant-40-m-f-d-mediamarkt-buchs",
+          "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
+          "aushilfe-sales-40-m-w-d-mediamarkt-buchs",
+          "aushilfe-vente-40-m-w-d-mediamarkt-buchs",
+          "aushilfe-vendita-40-m-w-d-mediamarkt-buchs"
+        ],
+        "en": [
+          "sales-assistant-40-m-f-d-mediamarkt-buchs",
+          "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
+        ],
+        "fr": [
+          "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
           "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
         ]
       },
       "previousSlugs": [
-        "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
+        "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
+        "aiuto-alle-vendite-40-m-f-d-mediamarkt-buchs",
+        "sales-assistant-40-m-f-d-mediamarkt-buchs",
+        "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
+        "aushilfe-sales-40-m-w-d-mediamarkt-buchs",
+        "aushilfe-vente-40-m-w-d-mediamarkt-buchs",
+        "aushilfe-vendita-40-m-w-d-mediamarkt-buchs"
       ],
       "salaryMin": 29600,
       "salaryMax": 45400,
@@ -3305,12 +3324,12 @@
     },
     {
       "id": "mediamarkt-99870",
-      "slug": "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch",
+      "slug": "black-friday-assistance-40-2-mesi-mediamarkt-amriswil",
       "slugByLocale": {
         "de": "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch",
-        "it": "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch",
-        "en": "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch",
-        "fr": "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch"
+        "it": "black-friday-assistance-40-2-mesi-mediamarkt-amriswil",
+        "en": "black-friday-assistance-40-2-months-mediamarkt-amriswil",
+        "fr": "aide-au-vendredi-noir-40-2-mois-mediamarkt-amriswil"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3374,7 +3393,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T11:25:28.918Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:57:57.165Z"
+      "firstSeenAt": "2026-10-05T21:57:57.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch"
+        ],
+        "en": [
+          "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch"
+        ],
+        "fr": [
+          "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch"
+        ]
+      },
+      "previousSlugs": [
+        "black-friday-aushilfe-40-2-monate-mediamarkt-amriswil-ch"
+      ]
     },
     {
       "id": "mediamarkt-99888",
@@ -3792,12 +3825,12 @@
     },
     {
       "id": "mediamarkt-100970",
-      "slug": "collaboratore-trice-in-vendita-50-mediamarkt-winterthur",
+      "slug": "addetto-a-alle-vendite-50-mediamarkt-winterthur",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch",
-        "it": "collaboratore-trice-in-vendita-50-mediamarkt-winterthur",
-        "en": "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch",
-        "fr": "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch"
+        "it": "addetto-a-alle-vendite-50-mediamarkt-winterthur",
+        "en": "sales-associate-50-mediamarkt-winterthur",
+        "fr": "collaborateur-trice-de-vente-50-mediamarkt-winterthur"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3845,14 +3878,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch",
+          "collaboratore-trice-in-vendita-50-mediamarkt-winterthur"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch"
+        "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch",
+        "collaboratore-trice-in-vendita-50-mediamarkt-winterthur"
       ],
       "salaryMin": 41500,
       "salaryMax": 63800,

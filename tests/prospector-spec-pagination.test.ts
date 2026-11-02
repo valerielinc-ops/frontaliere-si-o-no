@@ -153,6 +153,36 @@ describe('spec.pagination', () => {
     ]);
   });
 
+  it('completa una listing strutturata parziale con i link del template noto', async () => {
+    const structured = {
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Posizione sa1 strutturata',
+      url: `${ORIGIN}/job/sa1/`,
+      description: 'Descrizione della posizione strutturata con contenuto sufficiente.',
+      jobLocation: {
+        '@type': 'Place',
+        address: { addressLocality: 'Lugano', addressCountry: 'CH' },
+      },
+    };
+    const page = `<html><head><script type="application/ld+json">${JSON.stringify(structured)}</script></head><body>
+      <a href="${ORIGIN}/jobs/">Jobs</a>
+      <div class="job"><a href="${ORIGIN}/job/sa1/">Posizione sa1 a Lugano</a></div>
+      <div class="job"><a href="${ORIGIN}/job/sa2/">Posizione sa2 a Lugano</a></div>
+      <div class="job"><a href="${ORIGIN}/job/sa3/">Posizione sa3 a Lugano</a></div>
+    </body></html>`;
+
+    const { rows } = await collect(specWith({ sampleVacancyCount: 3 }), { [`${ORIGIN}/`]: page });
+
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/sa1/`,
+      `${ORIGIN}/job/sa2/`,
+      `${ORIGIN}/job/sa3/`,
+    ]);
+    expect(rows[0]).toMatchObject({ title: 'Posizione sa1 strutturata', via: 'jsonld' });
+    expect(rows.slice(1).map((row) => row.via)).toEqual(['known-template', 'known-template']);
+  });
+
   it('segue controlli numerici solo quando la spec dichiara la loro route', async () => {
     const seed = `${ORIGIN}/Vacancyboard/`;
     const secondPage = `${ORIGIN}/Vacancyboard/2?jobtitle=&occupationGroup=0&place=0`;

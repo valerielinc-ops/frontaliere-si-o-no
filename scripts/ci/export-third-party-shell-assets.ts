@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 import { URL as NodeURL } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
+ AD_RECOVERY_CONTENT, AD_RECOVERY_VERSIONED_FILENAME,
  ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_VERSIONED_FILENAME,
  PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_VERSIONED_FILENAME, THIRD_PARTY_DOCUMENT_INITIAL_GUARD,
 } from '../../build-plugins/constants';
@@ -22,7 +23,7 @@ export function thirdPartyShellAssetSnapshot() {
   initialDocumentGuard: {
    sha256: digest(THIRD_PARTY_DOCUMENT_INITIAL_GUARD), content: THIRD_PARTY_DOCUMENT_INITIAL_GUARD,
   },
-  assets: [[ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT], [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT]]
+  assets: [[AD_RECOVERY_VERSIONED_FILENAME, AD_RECOVERY_CONTENT], [ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT], [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT]]
    .map(([name, content]) => ({ name, sha256: digest(content), content })),
  };
 }

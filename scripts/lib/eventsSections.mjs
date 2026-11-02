@@ -46,6 +46,14 @@ export const EVENTS_ROOT_SEGMENTS = Object.freeze([
   'evenements',
 ]);
 
+/** Localized route segment for events whose canton is unresolved. */
+export const EVENTS_UNRESOLVED_CANTON_SEGMENT = Object.freeze({
+  it: 'altri-cantoni',
+  en: 'other-cantons',
+  de: 'weitere-kantone',
+  fr: 'autres-cantons',
+});
+
 const EVENTS_ROOT_PATTERN = EVENTS_ROOT_SEGMENTS.join('|');
 
 /**

@@ -8578,12 +8578,12 @@
     },
     {
       "id": "eth-zurich-44307e8f1661",
-      "slug": "direktionsassistent-in-per-den-prasidenten-m-w-d-eth-zurich",
+      "slug": "assistente-di-direzione-per-il-presidente-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch",
-        "it": "direktionsassistent-in-per-den-prasidenten-m-w-d-eth-zurich",
-        "en": "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch",
-        "fr": "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch"
+        "it": "assistente-di-direzione-per-il-presidente-m-f-d-eth-zurich-zurich",
+        "en": "executive-assistant-for-the-president-m-f-d-eth-zurich-zurich",
+        "fr": "assistant-e-de-direction-pour-le-president-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8626,14 +8626,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch",
+          "direktionsassistent-in-per-den-prasidenten-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch"
+        "direktionsassistent-in-fur-den-prasidenten-m-w-d-eth-zurich-ch",
+        "direktionsassistent-in-per-den-prasidenten-m-w-d-eth-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8662,7 +8669,7 @@
       "slugByLocale": {
         "en": "teaching-and-research-assistant-3-positions-eth-zurich-ch",
         "it": "teaching-and-research-assistant-3-positions-eth-zurich-ch",
-        "de": "teaching-and-research-assistant-3-positions-eth-zurich-ch",
+        "de": "teaching-and-forschung-assistent-3-positions-eth-zurich-zurich",
         "fr": "teaching-and-research-assistant-3-positions-eth-zurich-ch"
       },
       "company": "ETH Zürich",

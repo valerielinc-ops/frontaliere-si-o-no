@@ -8,6 +8,7 @@ import {
   buildNativeJobPrefixIndex,
   nativeJobPathRecoveredByWorker,
 } from '../build-plugins/jobsSeoPagesPlugin';
+import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from '../build-plugins/shared/expiredSliceOverflow';
 import { sanitizeSitemapHreflangReciprocity } from '../build-plugins/sitemapAliasPlugin';
 
 type Locale = (typeof JOB_SEO_LOCALES)[number];
@@ -151,6 +152,79 @@ describe('native job route ownership with interned prefixes', () => {
       tracking,
       index,
     )).toBe(false);
+  });
+
+  it('keeps active master identifiers and expired locale variants in the bounded snapshot', () => {
+    // Active jobs whose master slug differs from the localized route used to
+    // be omitted when the snapshot was filtered only by currentSlugs. The
+    // compat merge then added the localized route as a legacy-TI key and the
+    // self-healing pass could emit a canonical-less page at that alias.
+    const activeTracking: Tracking = {
+      'active-master-slug': {
+        en: '/en/find-jobs-vaud/localized-active-slug',
+      },
+    };
+    const activeCandidates = new Set(['localized-active-slug', 'active-master-slug']);
+    const activeIndex = buildNativeJobPrefixIndex(activeTracking, prefixes, sections, activeCandidates);
+    activeTracking['localized-active-slug'] = {
+      en: '/en/find-jobs-ticino/localized-active-slug',
+    };
+    expect(nativeJobPathRecoveredByWorker(
+      'en',
+      'localized-active-slug',
+      '/en/find-jobs-ticino/localized-active-slug',
+      activeTracking,
+      activeIndex,
+    )).toBe(true);
+
+    // Expired records use locale-specific variants too. They are merged into
+    // a second bounded index after the compat pass, while the native row stays
+    // authoritative and must still suppress a TI copy.
+    const expiredTracking: Tracking = {
+      'expired-master-slug': {
+        de: '/de/jobs-in-der-waadt/expired-locale-slug',
+      },
+    };
+    const expiredIndex = buildNativeJobPrefixIndex(
+      expiredTracking,
+      prefixes,
+      sections,
+      new Set(['expired-master-slug', 'expired-locale-slug']),
+    );
+    expiredTracking['expired-locale-slug'] = {
+      de: '/de/jobs-im-tessin/expired-locale-slug',
+    };
+    expect(nativeJobPathRecoveredByWorker(
+      'de',
+      'expired-locale-slug',
+      '/de/jobs-im-tessin/expired-locale-slug',
+      expiredTracking,
+      expiredIndex,
+    )).toBe(true);
+  });
+
+  it('recovers a native alias retained only in expired slice overflow', () => {
+    const primary = new Map<string, { slug: string; slugByLocale: { de: string } }>();
+    const overflow = new ExpiredSliceOverflow<{ slug: string; slugByLocale: { de: string } }>();
+    const late = { slug: 'late-master-slug', slugByLocale: { de: 'late-locale-slug' } };
+    const emittedSlugs = new Set(['late-master-slug', 'late-locale-slug']);
+    try {
+      augmentExpiredSliceIndex([late], emittedSlugs, primary, overflow, 1, () => 0);
+      expect([...overflow.keys()]).toEqual(['late-locale-slug']);
+      const candidates = new Set([...primary.keys(), ...overflow.keys()]);
+      const tracking: Tracking = {
+        'late-master-slug': { de: '/de/jobs-in-der-waadt/late-locale-slug' },
+      };
+      const index = buildNativeJobPrefixIndex(tracking, prefixes, sections, candidates);
+      tracking['late-locale-slug'] = { de: '/de/jobs-im-tessin/late-locale-slug' };
+      expect(nativeJobPathRecoveredByWorker(
+        'de',
+        'late-locale-slug',
+        '/de/jobs-im-tessin/late-locale-slug',
+        tracking,
+        index,
+      )).toBe(true);
+    } finally { overflow.close(); }
   });
 
   it('keeps foreign ownership, expired/self-healing decisions and reciprocal canonical paths after compat merge', () => {

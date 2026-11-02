@@ -21,6 +21,10 @@ import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
 import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
+import {
+  scopedEmployerKey,
+  ticinoComuneEmployerKey,
+} from '../scripts/lib/ticino-comune-employer-identity.mjs';
 
 // Keep shared helpers available from this browser module for independently
 // cached SPA chunks emitted by earlier builds.
@@ -34,6 +38,7 @@ export { sameOrg } from '../scripts/lib/prospector/registrable.mjs';
 type JobLike = {
  company?: string;
  companyKey?: string | null;
+ municipalityKey?: string;
  companyDomain?: string;
  url?: string;
  /** Publisher-provided logo URL (projected from the publish form, https-only). */
@@ -916,12 +921,17 @@ export function resolveCompanyWebsiteHost(job: JobLike): string {
  return '';
 }
 
+export function companyLogoLookupKey(job: JobLike): string {
+ return scopedEmployerKey(job);
+}
+
 export function resolveCompanyLogoUrl(job: JobLike): string | null {
  // 0. A mirrored manifest entry is the stable runtime contract. This check
  // comes before publisher-provided URLs so a declared external logo can be
  // acquired once and then reused by every renderer, including email.
- const key = job.companyKey || '';
- const mirroredLogo = key ? COMPANY_LOGOS_MANIFEST[key] : null;
+ const lookupKey = companyLogoLookupKey(job);
+ const municipalityKey = ticinoComuneEmployerKey(job.municipalityKey);
+ const mirroredLogo = lookupKey ? COMPANY_LOGOS_MANIFEST[lookupKey] : null;
  if (mirroredLogo && String(mirroredLogo).startsWith('/images/')) return mirroredLogo;
 
  // 1. Publisher-provided logo (projected from the publish form; validated
@@ -931,9 +941,14 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
 
  // 2. Explicit crawled-company logo map (most reliable)
- if (key && CRAWLED_COMPANY_LOGOS[key]) {
- return CRAWLED_COMPANY_LOGOS[key];
+ if (lookupKey && CRAWLED_COMPANY_LOGOS[lookupKey]) {
+ return CRAWLED_COMPANY_LOGOS[lookupKey];
  }
+
+ // A Comune record is employer-scoped even while legacy data still carries
+ // the family key. Never let a family-level map entry or a company-name
+ // identity fallback assign one municipality's logo to another municipality.
+ if (municipalityKey) return null;
 
  // 3. Identity-based fallbacks for variant company names / keys
  if (isMedacta(job)) return CRAWLED_COMPANY_LOGOS['medacta-international'];
