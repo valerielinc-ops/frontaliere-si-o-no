@@ -68,12 +68,19 @@ describe('GPT manual reserve lifecycle', () => {
     width = 240; loadGpt();
     expect(defineSlot).toHaveBeenCalledWith('/test/rail', [[160, 600]], expect.any(String));
   });
-  it('waits for width again if no size fits when the queued command drains', () => {
-    width = 400; mount();
+  it('waits for width again if no size fits when the queued command drains', async () => {
+    width = 400; const { box } = mount();
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(true);
     width = 240; loadGpt();
     expect(defineSlot).not.toHaveBeenCalled();
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+    expect(box.hasAttribute('data-ft-ad-width-wait')).toBe(true);
     width = 400; act(() => window.dispatchEvent(new Event('resize'))); loadGpt();
     expect(defineSlot).toHaveBeenCalledOnce();
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(true);
+    expect(box.hasAttribute('data-ft-ad-width-wait')).toBe(false);
+    await response(false);
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
   });
   it('bids only on the sizes accepted by the current GPT definition', async () => {
     width = 320; bidding.active = true;

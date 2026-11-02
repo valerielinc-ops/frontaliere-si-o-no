@@ -4,13 +4,14 @@ export function observeManualAd(
   el: HTMLElement,
   box: HTMLElement,
   timeoutMs: number,
-  onState: (state: 'loading' | 'waiting_response' | 'filled' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
+  onState: (state: 'waiting_width' | 'loading' | 'waiting_response' | 'filled' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
   emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
 ) {
   const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const emit: typeof emitEvent = (event, data = {}) => emitEvent(event, { request_id: requestId, ...data });
   let stopped = false;
   let requested = false;
+  let requestPending = false;
   let filled = false;
   let terminal = '';
   let failureReason = '';
@@ -25,6 +26,17 @@ export function observeManualAd(
   let resize: ResizeObserver | undefined;
   let resizeFrame: number | undefined;
   let creativeTarget: HTMLElement | null = null;
+  const setRequestPending = (active: boolean) => {
+    if (requestPending === active) return;
+    requestPending = active;
+    // Rendered GPT placeholders start as loading even before display(). This
+    // marker records actual requests, with independent owners for shared boxes.
+    const attribute = 'data-ft-ad-request-pending';
+    const previous = Math.max(0, parseInt(box.getAttribute(attribute) || '0', 10) || 0);
+    const next = Math.max(0, previous + (active ? 1 : -1));
+    if (next) box.setAttribute(attribute, String(next));
+    else box.removeAttribute(attribute);
+  };
   const findCreative = (): HTMLElement | null => Array.from(el.querySelectorAll('iframe'))
     .filter((frame) => { const r = frame.getBoundingClientRect(); return r.width > 1 && r.height > 1; })
     .sort((a, b) => { const ar = a.getBoundingClientRect(); const br = b.getBoundingClientRect(); return br.width * br.height - ar.width * ar.height; })[0] ?? null;
@@ -105,6 +117,7 @@ export function observeManualAd(
   };
   const fail = (reason: string) => {
     if (stopped || filled || failureReason === reason) return;
+    setRequestPending(false);
     failureReason = reason;
     clearTimeout(responseTimer);
     terminal = reason;
@@ -123,11 +136,13 @@ export function observeManualAd(
   const check = () => {
     if (stopped) return;
     if (!el.isConnected && pollTimer !== undefined) {
-      clearInterval(pollTimer); pollTimer = undefined;
+      // The owner stops removed slots. A temporary detach/reinsert must not
+      // permanently discard polling before the document cleanup sees it.
       return;
     }
     const status = el.getAttribute('data-ad-status');
     if (status === 'filled' && !filled) {
+      setRequestPending(false);
       filled = true;
       terminal = '';
       clearTimeout(responseTimer);
@@ -147,14 +162,22 @@ export function observeManualAd(
   const observer = typeof MutationObserver === 'function' ? new MutationObserver(check) : undefined;
   observer?.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'style', 'height', 'width'] });
   // Limited webviews still accept late Google responses. This fallback is
-  // owned by the slot and is released on removal or stop(), like the observer.
+  // released by the lifecycle owner's stop(), like the observer. Static HTML
+  // stops removed owners in its document monitor; React stops on unmount.
   if (!observer) pollTimer = setInterval(check, 1000);
   const onVisibility = () => { if (document.visibilityState !== 'hidden') check(); updateView(); };
   document.addEventListener('visibilitychange', onVisibility);
   return {
+    defer() {
+      if (stopped || filled) return;
+      setRequestPending(false); clearTimeout(responseTimer);
+      requested = false; terminal = ''; failureReason = '';
+      onState('waiting_width');
+    },
     request() {
       if (stopped || requested) return;
       requested = true;
+      setRequestPending(true);
       onState('loading');
       emit('ad_request', metrics());
       responseTimer = setTimeout(() => {
@@ -169,6 +192,7 @@ export function observeManualAd(
     },
     fail,
     stop() {
+      setRequestPending(false);
       stopped = true;
       clearTimeout(responseTimer);
       clearViewTimer();
