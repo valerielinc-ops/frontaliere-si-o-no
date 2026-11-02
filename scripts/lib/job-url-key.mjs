@@ -248,6 +248,12 @@ const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 // job id for every vendor.
 const ASSOLO_ITEM_LEAF_RE = /-([0-9a-f]{8})$/i;
 const ASSOLO_ITEM_QUERY_RE = /[?&]i=1(?:&|$)/i;
+// ASSOLO publishes the item slug from the municipality's Swiss site (the
+// covered registry uses `.ch` and `.swiss` hosts), not from a generic jobs
+// portal. Keep the short-hash rule scoped to that host/path family so an
+// unrelated vendor cannot inherit the hostless `hex:` key.
+const ASSOLO_HOST_RE = /^https?:\/\/(?:www\.)?[a-z0-9-]+\.(?:ch|swiss)(?::\d+)?\//i;
+const ASSOLO_ITEM_PATH_RE = /^https?:\/\/[^/?#]+\/(?:[^/?#]+\/)*[^/?#]+-[0-9a-f]{8}$/i;
 
 // A per-job id carried in the QUERY string behind a generic/file leaf
 // (`…/index.html?id=NNN`, `…/apply.php?jobId=ABC123`). Anchored to a query-param
@@ -421,7 +427,9 @@ export function mergeUrlKey(url) {
   // contain a long year/range such as `20252026`; prefer the vendor's
   // per-item hash so sibling notices do not share one merge key.
   const assoloItem = leaf.match(ASSOLO_ITEM_LEAF_RE);
-  if (assoloItem && /[a-f]/i.test(assoloItem[1]) && ASSOLO_ITEM_QUERY_RE.test(u)) {
+  const pathOnly = u.split(/[?#]/)[0];
+  if (ASSOLO_HOST_RE.test(u) && ASSOLO_ITEM_PATH_RE.test(pathOnly)
+      && assoloItem && /[a-f]/i.test(assoloItem[1]) && ASSOLO_ITEM_QUERY_RE.test(u)) {
     return `hex:${assoloItem[1]}`;
   }
 

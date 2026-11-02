@@ -348,9 +348,17 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
     expect(mergeUrlKey(kitchen)).not.toBe('num:20252026');
   });
 
-  it('ASSOLO short hashes stay shape-gated', () => {
+  it('ASSOLO short hashes stay host/path-gated', () => {
     const url = 'https://example.com/jobs/20252026-14e5fc00';
     expect(mergeUrlKey(url)).toBe('num:20252026');
+  });
+
+  it('does not collapse non-ASSOLO postings with the same short hash', () => {
+    const first = 'https://other.example/jobs/a-14e5fc00?i=1';
+    const second = 'https://other.example/jobs/b-14e5fc00?i=1';
+
+    expect(mergeUrlKey(first)).not.toBe('hex:14e5fc00');
+    expect(mergeUrlKey(first)).not.toBe(mergeUrlKey(second));
   });
 
   it('ASSOLO all-numeric suffixes stay on the numeric path', () => {
