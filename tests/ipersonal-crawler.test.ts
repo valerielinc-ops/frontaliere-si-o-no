@@ -156,10 +156,10 @@ describe('MediPersonal crawler parser', () => {
       expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
     });
 
-    it('keeps a current paragraph-only detail body when the source location and word floor are present', async () => {
+    it('keeps a paragraph-bodied detail when its source location and word floor are present', async () => {
       const seedUrl = 'https://ipersonal-paragraph-detail.example/';
-      const detailUrl = `${seedUrl}jobs/winden/`;
-      const paragraph = 'Hier findest du offene Stellen und Jobs in der Intensivpflege NDS Winden, sodass du die passende Position wählen kannst und dich weiterentwickelst. Du kannst offene Stellen ansehen, damit du einen Überblick bekommst, und gleichzeitig kannst du dich direkt auf freie Jobs bewerben. Unser Temporärbüro Pflege Winden hilft dir, damit du schnell starten kannst, und begleitet dich persönlich im gesamten Bewerbungsprozess.';
+      const detailUrl = `${seedUrl}jobs/zuerich/`;
+      const paragraph = 'Hier findest du offene Stellen und Jobs in der Intensivpflege NDS Zürich, sodass du die passende Position wählen kannst und dich weiterentwickelst. Du kannst offene Stellen ansehen, damit du einen Überblick bekommst, und gleichzeitig kannst du dich direkt auf freie Jobs bewerben. Unser Temporärbüro Pflege Zürich hilft dir, damit du schnell starten kannst, und begleitet dich persönlich im gesamten Bewerbungsprozess.';
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -167,16 +167,13 @@ describe('MediPersonal crawler parser', () => {
         return new Response(`
           <script type="application/ld+json">${JSON.stringify({
             '@context': 'https://schema.org', '@type': 'JobPosting',
-            title: 'Dipl. Expertin / Experte Intensivpflege NDS', url: detailUrl,
+            title: 'Teamleitung Pflege 80-100% in Zürich', url: detailUrl,
             description: paragraph,
-            jobLocation: { '@type': 'Place', address: {
-              '@type': 'PostalAddress', addressLocality: 'Winden',
-              addressRegion: 'St. Gallen', addressCountry: 'CH',
-            } },
           })}</script>
           <main><article>
-            <h1>Dipl. Expertin / Experte Intensivpflege NDS</h1>
-            <p>Einsatzort: Winden und Umgebung</p>
+            <h1>Teamleitung Pflege 80-100% in Zürich</h1>
+            <p>Einsatzort: Zürich und Umgebung</p>
+            <h2>Ihre Aufgaben</h2>
             <p>${paragraph}</p>
             <h2>Interessiert?</h2>
             <p>Bitte senden Sie Ihre vollständigen Bewerbungsunterlagen per E-Mail.</p>
@@ -194,8 +191,10 @@ describe('MediPersonal crawler parser', () => {
       });
 
       expect(jobs).toHaveLength(1);
-      expect(jobs[0].description).toContain('Einsatzort: Winden und Umgebung');
+      expect(jobs[0].description).toContain('Einsatzort: Zürich und Umgebung');
       expect(jobs[0].description).not.toContain('vollständigen Bewerbungsunterlagen');
+      expect(jobs[0].location).toContain('Zürich');
+      expect(jobs[0].canton).toBe('ZH');
       expect((jobs as any).qualityDroppedCount).toBe(0);
     });
 

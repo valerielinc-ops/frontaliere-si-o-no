@@ -173,9 +173,17 @@ function normalizeKnownIpersonalLocalities(html = '') {
  * @returns {Record<string, any>}
  */
 function preferIpersonalRenderedWorkplace(detail = {}) {
-  const values = Array.isArray(detail.renderedJobLocationFields)
-    ? detail.renderedJobLocationFields.map((value) => String(value || '').trim()).filter(Boolean)
-    : [];
+  // Current MediPersonal/iPersonal detail pages render the vacancy workplace
+  // as plain text (`Einsatzort: ...`) instead of a job-location class. The
+  // generic extractor keeps those values in the vacancy-scoped
+  // `workplaceLabels`; combine both representations here, but only for these
+  // two sister sources. This prevents a missing/changed JSON-LD jobLocation
+  // from dropping every detail while preserving the fail-closed ambiguity
+  // check below.
+  const values = [
+    ...(Array.isArray(detail.renderedJobLocationFields) ? detail.renderedJobLocationFields : []),
+    ...(Array.isArray(detail.workplaceLabels) ? detail.workplaceLabels : []),
+  ].map((value) => String(value || '').trim()).filter(Boolean);
   const uniqueValues = [...new Map(values.map((value) => [
     value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(),
     value,
