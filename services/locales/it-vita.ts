@@ -343,6 +343,7 @@ const translations: Record<string, string> = {
  'profile.paidApplications.status.needsCandidate': 'Serve il tuo intervento',
  'profile.paidApplications.status.underReview': 'In verifica',
  'profile.paidApplications.status.submitted': 'Inviata all’azienda',
+ 'profile.paidApplications.status.withdrawn': "Ritirata",
  'profile.paidApplications.status.refunded': 'Rimborsata',
  'profile.paidApplications.help.awaitingMaterials': 'Carica il CV per avviare la candidatura.',
  'profile.paidApplications.help.needsCandidate': 'Ti abbiamo inviato un’email con il passaggio da completare.',

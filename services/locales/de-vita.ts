@@ -336,6 +336,7 @@ const deVita: Record<string, string> = {
  'profile.paidApplications.status.needsCandidate': 'Deine Mitwirkung ist erforderlich',
  'profile.paidApplications.status.underReview': 'Wird geprüft',
  'profile.paidApplications.status.submitted': 'An den Arbeitgeber gesendet',
+ 'profile.paidApplications.status.withdrawn': "Zurückgezogen",
  'profile.paidApplications.status.refunded': 'Erstattet',
  'profile.paidApplications.help.awaitingMaterials': 'Lade deinen Lebenslauf hoch, damit die Bewerbung starten kann.',
  'profile.paidApplications.help.needsCandidate': 'Wir haben dir eine E-Mail mit dem nächsten Schritt geschickt.',
