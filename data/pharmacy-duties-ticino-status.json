@@ -7,29 +7,26 @@
     "https://www.ofct.ch/biasca-e-valli/",
     "https://www.farmacielocarnese.ch/"
   ],
-  "_fetchedAt": "2026-11-02T01:53:41.592Z",
-  "_attemptedAt": "2026-11-02T01:53:41.592Z",
-  "_lastSuccessfulFetchAt": "2026-11-02T01:53:41.592Z",
-  "_lastStaticRefreshAt": "2026-11-02T01:53:41.592Z",
+  "_fetchedAt": "2026-11-02T08:56:51.710Z",
+  "_attemptedAt": "2026-11-02T08:56:51.710Z",
+  "_lastSuccessfulFetchAt": "2026-11-02T08:56:51.710Z",
+  "_lastStaticRefreshAt": "2026-11-02T08:56:51.710Z",
   "_successfulRegions": [
     "mendrisiotto",
     "luganese",
     "bellinzonese",
-    "biasca-e-valli"
-  ],
-  "_preservedRegions": [
+    "biasca-e-valli",
     "locarnese"
   ],
+  "_preservedRegions": [],
   "_allRegionsFailed": false,
-  "_errors": [
-    "locarnese: fetch failed"
-  ],
+  "_errors": [],
   "_warnings": [
     "mendrisiotto: last source row retained as boundary-only and not published",
     "luganese: last source row retained as boundary-only and not published",
     "bellinzonese: last source row retained as boundary-only and not published",
     "biasca-e-valli: last source row retained as boundary-only and not published",
-    "locarnese: preserved 9 previous interval(s); fetchedAt not renewed"
+    "locarnese: last source row retained as boundary-only and not published"
   ],
   "_release": {
     "version": 1,
@@ -45,17 +42,17 @@
       ]
     },
     "timezone": "Europe/Zurich",
-    "state": "partial",
+    "state": "fresh",
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "8df3b6face9691fe751b16d701c13e626252a52482c24a488c5672b3cdbb1629",
+        "sha256": "595eda520a812c074d201e221685d7a7294ba66d76005a0f92e88284e69ff13e",
         "fetchedAt": "2026-10-21T16:03:10.483Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "a800a82c8ab89e0e7f6fc6a495627d3a3a8f492d920cf5e212ab579b485edfe5",
-        "fetchedAt": "2026-11-02T01:53:41.592Z"
+        "sha256": "6d8b265f29e20a27b3f04e3bac84f2531990916fa2755b9059e8e5221cd572c1",
+        "fetchedAt": "2026-11-02T08:56:51.710Z"
       }
     },
     "regions": {
@@ -63,7 +60,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 8,
-        "fetchedAt": "2026-11-02T01:53:41.592Z",
+        "fetchedAt": "2026-11-02T08:56:51.710Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -73,7 +70,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 4,
-        "fetchedAt": "2026-11-02T01:53:41.592Z",
+        "fetchedAt": "2026-11-02T08:56:51.710Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -83,7 +80,7 @@
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
         "dutyCount": 6,
-        "fetchedAt": "2026-11-02T01:53:41.592Z",
+        "fetchedAt": "2026-11-02T08:56:51.710Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -93,7 +90,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 4,
-        "fetchedAt": "2026-11-02T01:53:41.592Z",
+        "fetchedAt": "2026-11-02T08:56:51.710Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -103,13 +100,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-11-01T22:40:41.989Z",
+        "fetchedAt": "2026-11-02T08:56:51.710Z",
         "freshness": "fresh",
-        "coverage": "partial",
-        "state": "partial",
-        "preserved": true
+        "coverage": "covered",
+        "state": "fresh",
+        "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-84e7733e1649c457f0ac60a0565081324de5e7247d42b8dd26bba8d7a9d02a10"
+    "releaseId": "pharmacy-v1-448ce8204863398af1d85d360deb3f8e5a8d4bd67e82192b2107cfccb874aa54"
   }
 }
