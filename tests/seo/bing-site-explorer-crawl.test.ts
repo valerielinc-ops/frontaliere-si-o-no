@@ -14,10 +14,12 @@ import {
   folderFor,
   isDeclaredEventDetailTarget,
   isDeclaredPaginationTarget,
+  isDeclaredPlateAuctionTarget,
   isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
   isEventDetailPath,
   isJobBoardDetailPath,
+  isPlateAuctionDetailPath,
   normalizeUrl,
   parseSitemapDocument,
   partitionFor,
@@ -44,6 +46,7 @@ import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharm
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
+import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
@@ -521,6 +524,67 @@ describe('Bing-compatible full-tree crawler', () => {
     }).findings.map((item) => item.code);
     expect(redirectCodes).toContain(BING_FRONTIER_REDIRECT);
     expect(redirectCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+  });
+
+  it('recognizes only marked plate-auction detail targets', () => {
+    const markerHtml = `${PLATE_AUCTION_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`;
+    const detailUrls = [
+      `${BASE}/aste-targhe-svizzera/sciaffusa-sh/sh21212/`,
+      `${BASE}/en/swiss-plate-auctions/schaffhausen-sh/sh21212-moto/`,
+      `${BASE}/de/schweizer-nummernschildauktionen/schaffhausen-sh/sh21212-rimorchio/`,
+      `${BASE}/fr/encheres-plaques-suisses/schaffhouse-sh/sh21212-altro/`,
+    ];
+
+    for (const url of detailUrls) {
+      expect(isPlateAuctionDetailPath(url)).toBe(true);
+      expect(isDeclaredPlateAuctionTarget({ url, html: markerHtml })).toBe(true);
+      expect(isDeclaredPlateAuctionTarget({ url, html: '<meta name="robots" content="noindex,follow">' })).toBe(false);
+    }
+
+    const nearbyUrls = [
+      `${BASE}/aste-targhe-svizzera/sciaffusa-sh/`,
+      `${BASE}/en/swiss-plate-auctions/schaffhausen-sh/catalogue/`,
+      `${BASE}/de/schweizer-nummernschildauktionen/schaffhausen-sh/seite-2/`,
+      `${BASE}/fr/encheres-plaques-suisses/schaffhouse-sh/zh21212/`,
+      `${BASE}/fr/encheres-plaques-suisses/schaffhouse-sh/sh21212/details/`,
+    ];
+    for (const url of nearbyUrls) {
+      expect(isPlateAuctionDetailPath(url)).toBe(false);
+      expect(isDeclaredPlateAuctionTarget({ url, html: markerHtml })).toBe(false);
+    }
+  });
+
+  it('keeps undeclared and nearby plate-auction noindex routes actionable', () => {
+    const detailUrl = `${BASE}/en/swiss-plate-auctions/schaffhausen-sh/sh21212/`;
+    const nearbyUrl = `${BASE}/en/swiss-plate-auctions/schaffhausen-sh/catalogue/`;
+    const html = (marker = '') => `${marker}<title>Plate auction</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="URL">`;
+
+    const declared = classifyDocument({
+      url: detailUrl,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: html(PLATE_AUCTION_NOINDEX_TARGET_MARKER).replace('URL', detailUrl),
+    });
+    expect(declared.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(declared.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX);
+
+    const undeclared = classifyDocument({
+      url: detailUrl,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: html().replace('URL', detailUrl),
+    });
+    expect(undeclared.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(undeclared.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const nearby = classifyDocument({
+      url: nearbyUrl,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: html(PLATE_AUCTION_NOINDEX_TARGET_MARKER).replace('URL', nearbyUrl),
+    });
+    expect(nearby.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(nearby.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
   });
 
   it('keeps an undeclared job-detail noindex target actionable', () => {
