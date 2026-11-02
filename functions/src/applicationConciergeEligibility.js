@@ -50,8 +50,8 @@ function eligibilityMetadata(job, postingLocation = '') {
     if (!value.trim()) return true;
     const normalized = value.replace(/\s+/g, ' ').trim();
     if (!normalized) return true;
-    const entry = `${field}: ${normalized}`;
-    const entryChars = entry.length + 2;
+    const entry = { field, value: normalized };
+    const entryChars = `${field}: ${normalized}`.length + 2;
     if (totalChars + entryChars > MAX_ELIGIBILITY_METADATA_CHARS) {
       truncated = true;
       return false;
@@ -73,8 +73,10 @@ function eligibilityMetadata(job, postingLocation = '') {
   return { values, truncated };
 }
 
-function eligibilityEvidenceText(metadata, postingText) {
-  return [...metadata.values, String(postingText || '')].filter(Boolean).join('\n\n');
+/** Keep quote verification on original source values; labels are prompt context, not source evidence. */
+function eligibilityEvidenceText(metadata, postingText, { includeLabels = false } = {}) {
+  const metadataValues = metadata.values.map(({ field, value }) => includeLabels ? `${field}: ${value}` : value);
+  return [...metadataValues, String(postingText || '')].filter(Boolean).join('\n\n');
 }
 
 async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
@@ -125,14 +127,15 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   metadata = metadata || eligibilityMetadata(job, posting.location);
   if (metadata.truncated) return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   const postingHash = sourceHash(posting.text);
-  const eligibilityPostingText = eligibilityEvidenceText(metadata, posting.text);
+  const eligibilityEvidence = eligibilityEvidenceText(metadata, posting.text);
+  const eligibilityPromptText = eligibilityEvidenceText(metadata, posting.text, { includeLabels: true });
   const raw = await generate(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({ jobTitle: job.title, companyName: job.company,
-    location: posting.location || job.location, postingText: eligibilityPostingText }), REQUIREMENTS_SCHEMA);
+    location: posting.location || job.location, postingText: eligibilityPromptText }), REQUIREMENTS_SCHEMA);
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) {
     return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   }
-  const requirements = verifyQuotes(sanitizeRequirements(raw), eligibilityPostingText);
-  if (hasUncoveredHardEligibilityStatements(requirements, eligibilityPostingText)) {
+  const requirements = verifyQuotes(sanitizeRequirements(raw), eligibilityEvidence);
+  if (hasUncoveredHardEligibilityStatements(requirements, eligibilityEvidence)) {
     return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   }
   const normalizedProfile = profileForEligibility(profile);
@@ -142,7 +145,7 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
-  if (hasUnverifiedCurrentStudentEligibility(eligibilityPostingText, normalizedProfile, sourceText)) {
+  if (hasUnverifiedCurrentStudentEligibility(eligibilityEvidence, normalizedProfile, sourceText)) {
     return { status: 'unverified', reason: 'current_education_unverified', gaps: [], postingHash, requirements, match, posting };
   }
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });

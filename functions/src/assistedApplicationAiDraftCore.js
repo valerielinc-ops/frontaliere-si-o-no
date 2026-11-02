@@ -161,6 +161,12 @@ const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainees?\b|interns?\b|
 const TRAINING_ROLE_CUE_RE = /\b(?:stagist\w*|stagiaire\w*|intern(?:ship|s)?|apprendist\w*|apprenti\w*|apprentice\w*|lehrstell\w*|lehrling\w*|ausbildung\w*)\b/i;
 const FORMAL_VOCATIONAL_CREDENTIAL_RE = /\b(?:maturita(?:\s+profession\w*)?|maturite\s+professionnelle|professional\s+(?:maturity|baccalaureate|diploma)|vocational\s+(?:maturity|baccalaureate|diploma)|berufsmatur\w*|diploma\s+(?:profession\w*|commercial\w*))\b/i;
 const NEGATED_DIRECT_REQUIREMENT_RE = /\b(?:(?:do(?:es)?|did)\s+not|do(?:es)?n't)\s+(?:require|need)\b/i;
+const VOCATIONAL_CREDENTIAL_NEGATION_TERM = String.raw`(?:(?:(?:formal|professional|vocational|profession\w*)\s+)?(?:maturit\w*(?:\s+profession\w*)?|diplom\w*(?:\s+(?:profession\w*|commercial\w*))?|degree\w*|qualification\w*|certificate\w*|berufsmatur\w*|berufsabschluss\w*|abschluss\w*|qualifica\w*|titol\w*|diplome\w*|certificat\w*)|(?:professional|vocational|profession\w*)\s+(?:baccalaureate|maturity|degree|qualification|certificate))`;
+const VOCATIONAL_CREDENTIAL_NEGATION_STATUS = String.raw`(?:required|needed|mandatory|essential|necessary|obligatory|richiest\w*|obbligator\w*|necessar\w*|requis\w*|obligatoir\w*|erforderlich|notwendig|noetig|notig)`;
+const NEGATED_VOCATIONAL_REQUIREMENT_SOURCE = String.raw`\b(?:no\s+(?:(?:a|an|the)\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+(?:is\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+(?:is\s+)?not\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|without\s+(?:(?:a|an|the)\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|nessun\w*\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|senza\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+non\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|non\s+(?:e\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}\s+(?:un\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|aucun\w*\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|sans\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+pas\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|pas\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}\s+(?:de\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|kein\w*\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|ohne\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+nicht\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS})\b`;
+const NEGATED_VOCATIONAL_REQUIREMENT_RE = new RegExp(NEGATED_VOCATIONAL_REQUIREMENT_SOURCE, 'i');
+const NEGATED_VOCATIONAL_REQUIREMENT_GLOBAL_RE = new RegExp(NEGATED_VOCATIONAL_REQUIREMENT_SOURCE, 'gi');
+const ELIGIBILITY_METADATA_LABEL_RE = /^(?:title|company|location|category|sector|description|requirements|education|employmenttype|jobtype|contracttype|experience|experiencelevel|posting\.location)\s*:\s*/i;
 const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|presently|now|ongoing|attending|attend(?:s)?|studying|enrolling|attualmente|frequento|frequentando|sono\s+iscritt\w*|derzeit|aktuell|besuche|studiere|actuellement|je\s+suis\s+inscrit\w*|etudie|en\s+cours)\b/i;
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
 const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
@@ -176,16 +182,23 @@ function normalizeEligibilityEvidence(value) {
     .replace(/^(?:[-*•▪◦]|\d+[.)])\s+/, '').replace(/[.!?;:,]+$/, '').trim();
 }
 
+/** Field labels added for model context are not part of the cited source wording. */
+function normalizeEligibilityMetadataStatement(value) {
+  return normalizeEligibilityEvidence(value).replace(ELIGIBILITY_METADATA_LABEL_RE, '').trim();
+}
+
 function classifyHardEligibilityCues(statement) {
   const normalized = normalizeEligibilityEvidence(statement);
   if (APPLICATION_METHOD_ONLY_RE.test(normalized)) return { exclusive: false, mandatory: false, threshold: false };
-  const withoutNegatedHardCues = normalized.replace(NEGATED_HARD_REQUIREMENT_RE, ' ');
+  const withoutNegatedHardCues = normalized.replace(NEGATED_HARD_REQUIREMENT_RE, ' ')
+    .replace(NEGATED_VOCATIONAL_REQUIREMENT_GLOBAL_RE, ' ');
   return {
     exclusive: EXCLUSIVE_ELIGIBILITY_RE.test(normalized) && ELIGIBILITY_SUBJECT_RE.test(normalized),
     mandatory: EXPLICIT_MANDATORY_RE.test(withoutNegatedHardCues) && QUALIFICATION_CONTEXT_RE.test(normalized),
     threshold: THRESHOLD_REQUIREMENT_RE.test(normalized) && QUALIFICATION_CONTEXT_RE.test(normalized),
     trainingQualification: TRAINING_ROLE_CUE_RE.test(normalized) && FORMAL_VOCATIONAL_CREDENTIAL_RE.test(normalized)
-      && !PREFERENCE_CUE_RE.test(normalized) && !NEGATED_DIRECT_REQUIREMENT_RE.test(normalized),
+      && !PREFERENCE_CUE_RE.test(normalized) && !NEGATED_DIRECT_REQUIREMENT_RE.test(normalized)
+      && !NEGATED_VOCATIONAL_REQUIREMENT_RE.test(normalized),
   };
 }
 
@@ -312,11 +325,14 @@ export function hasUncoveredHardEligibilityStatements(requirements, postingText)
   const quotes = rows
     .filter((item) => item?.basis === 'stated' && ['critical', 'high'].includes(item?.importance) && !item?.quoteUnverified)
     .map((item) => ({
-      quote: normalizeEligibilityEvidence(item?.quote),
-      sourceRequirement: normalizeEligibilityEvidence(item?.sourceRequirement),
+      quote: normalizeEligibilityMetadataStatement(item?.quote),
+      sourceRequirement: normalizeEligibilityMetadataStatement(item?.sourceRequirement),
     })).filter((item) => item.quote && item.sourceRequirement);
-  return statements.some((statement) => !quotes.some((item) =>
-    item.quote.includes(statement) && item.sourceRequirement === statement));
+  return statements.some((statement) => {
+    const normalizedStatement = normalizeEligibilityMetadataStatement(statement);
+    return !quotes.some((item) =>
+      item.quote.includes(normalizedStatement) && item.sourceRequirement === normalizedStatement);
+  });
 }
 
 /** Past employment or model-only profile fields cannot prove a current student placement. */

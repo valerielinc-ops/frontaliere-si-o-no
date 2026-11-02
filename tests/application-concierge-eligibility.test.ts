@@ -58,9 +58,23 @@ describe('qualification before proposal publication', () => {
     for (const text of [
       'This internship does not require a professional maturity qualification.',
       'A professional maturity qualification is not required for this internship.',
+      'No professional diploma required for this internship.',
+      'A professional diploma is not needed for this internship.',
+      'Internship without a professional diploma.',
+      'Nessun diploma professionale richiesto per questo stage.',
+      'Aucun diplôme professionnel requis pour ce stage.',
+      'Berufsmaturität nicht erforderlich für dieses Praktikum.',
       'This internship: a professional maturity qualification is a plus.',
       'Stage Manager — a professional maturity qualification is a plus.',
     ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, text)).toBe(false);
+  });
+
+  it('matches an extracted hard requirement to its source when the source is labelled as job metadata', () => {
+    const title = 'Stagiste/i ... maturità professionale (52 settimane)';
+    const requirement = { requirement: 'Maturità professionale', sourceRequirement: title, quote: title,
+      basis: 'stated', importance: 'critical' };
+
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [requirement] }, `title: ${title}`)).toBe(false);
   });
 
   it('bounds aggregate metadata and fails closed when the relevant context cannot be fully analyzed', async () => {
