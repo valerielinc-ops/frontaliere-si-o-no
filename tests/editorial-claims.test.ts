@@ -7,6 +7,7 @@ import {
   repairEditorialClaims,
   repairHealthTaxSentence,
   splitClaimSegments,
+  stripPromptTitleLabels,
 } from '../packages/articles/engine/shared/editorialClaims.mjs';
 
 const classes = (text: string, locale: string) =>
@@ -239,5 +240,14 @@ describe('rilievi di review', () => {
 
   it('il gate legge anche array e oggetti annidati', () => {
     expect(() => assertNoEditorialClaims({ it: { faq: [{ answer: 'La tassa sulla salute è 500 CHF.' }] } })).toThrow(/tassa-salute/);
+  });
+
+  it('conserva il newline dopo un marker titolo inline a fine riga', () => {
+    expect(stripPromptTitleLabels('Intro TITOLO ARTICOLO:\nDopo').value).toBe('Intro\nDopo');
+  });
+
+  it('rifiuta aliquote sul lordo anche quando il nome della base precede l’aggettivo', () => {
+    expect(repairHealthTaxSentence('La tassa sulla salute è del 5% del salario lordo.', 'it')).toBe('');
+    expect(repairHealthTaxSentence('La taxe santé est de 5 % du salaire brut.', 'fr')).toBe('');
   });
 });
