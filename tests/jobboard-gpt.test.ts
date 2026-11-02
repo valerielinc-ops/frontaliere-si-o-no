@@ -136,4 +136,18 @@ describe('job-board GPT bootstrap', () => {
     expect(tag.enableServices).toHaveBeenCalledOnce();
     expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
   });
+  it('rechecks document privacy before retrying the static GPT bootstrap', () => {
+    vi.useFakeTimers();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    new Function(GPT_LOADER_CONTENT)();
+    const initial = document.querySelector(GPT_SELECTOR)!;
+    window.history.replaceState(null, '', '/cerca-lavoro-ticino/?ac=synthetic-code');
+    initial.dispatchEvent(new Event('error'));
+    vi.advanceTimersByTime(10000);
+    expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
+    expect(document.querySelector(GPT_SELECTOR)).toBe(initial);
+    window.history.replaceState(null, '', '/cerca-lavoro-ticino/');
+    window.dispatchEvent(new CustomEvent(ADS_CONSENT_CHANGE_EVENT));
+    expect(document.querySelector(GPT_SELECTOR)).not.toBe(initial);
+  });
 });

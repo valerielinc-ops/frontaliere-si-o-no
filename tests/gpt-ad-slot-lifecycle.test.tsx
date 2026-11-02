@@ -106,6 +106,17 @@ describe('GPT manual reserve lifecycle', () => {
     expect(display).not.toHaveBeenCalled();
     expect(handlers.size).toBe(0);
   });
+  it('does not retry or display after the route becomes credential-bearing', () => {
+    mount();
+    window.history.replaceState(null, '', '/?ac=synthetic-code');
+    const selector = 'script[src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"]';
+    const initial = document.querySelector(selector)!;
+    act(() => { initial.dispatchEvent(new Event('error')); vi.advanceTimersByTime(10000); });
+    expect(document.querySelectorAll(selector)).toHaveLength(1);
+    expect(document.querySelector(selector)).toBe(initial);
+    loadGpt();
+    expect(display).not.toHaveBeenCalled();
+  });
   it('does not request before advertising consent', () => {
     consent.granted = false;
     const { box, onEmptyChange } = mount();

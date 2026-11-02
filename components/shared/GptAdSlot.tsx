@@ -26,6 +26,10 @@ import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import { createAdScriptLoader } from '@/services/adScriptLoader';
 import { emitAdDiagnostic } from '@/services/adDiagnostics';
+import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
+import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
+import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
+import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { observeManualAd } from '@/services/manualAdLifecycle';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/adsenseSlots';
 
@@ -68,6 +72,11 @@ const gtag = (): any => {
   return gt;
 };
 
+function canUseGpt(): boolean {
+  return isAdsConsentGranted() && !hasActiveReaderNoAdsEntitlement() &&
+    !isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, window, document, wasNewsletterAutologinAttempted());
+}
+
 /** Shared GPT access for out-of-page formats (for example rewarded ads). */
 export const getGptTag = gtag;
 
@@ -76,20 +85,21 @@ function ensureGptScript(): void {
   // Check before reaching the document-wide loader, which also rechecks on
   // every retry. An unanswered CMP must not consume an attempt or lock out a
   // visitor who accepts later in the same page view.
-  if (!isAdsConsentGranted()) return;
+  if (!canUseGpt()) return;
   if (typeof document === 'undefined') return;
   gtag();
-  createAdScriptLoader('gpt', GPT_SCRIPT_SRC, isAdsConsentGranted, emitAdDiagnostic).load();
+  createAdScriptLoader('gpt', GPT_SCRIPT_SRC, canUseGpt, emitAdDiagnostic).load();
 }
 
 /** Initialise the GPT framework once (post-load idle, not on scroll): the GAM
  *  Offerwall evaluates at page entry, so GPT must be present then. The ad slots
  *  themselves stay lazy to protect CWV. */
 export function initGptFramework(): void {
-  if (typeof window === 'undefined' || !GPT_ENABLED || !IS_PROD || SKIP_FOR_BOT || !isAdsConsentGranted()) return;
+  if (typeof window === 'undefined' || !GPT_ENABLED || !IS_PROD || SKIP_FOR_BOT || !canUseGpt()) return;
   ensureGptScript();
   const gt = gtag();
   gt.cmd.push(() => {
+    if (!canUseGpt()) return;
     try {
       if (gptServicesEnabled || gt.__frontaliereGptServicesEnabled) return;
       // Modern GPT config API (pubads().enableSingleRequest()/collapseEmptyDivs() are deprecated).
@@ -180,7 +190,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     // that terminal state to the parent so ad-only gutters do not remain as
     // empty 160/300px columns. A later consent decision re-enters this effect
     // and reports `false`, restoring the reserve before requesting GPT.
-    if (!active || !isAdsConsentGranted()) {
+    if (!active || !canUseGpt()) {
       if (collapseOnEmpty) {
         setCollapsed(true);
         onEmptyChangeRef.current?.(true);
@@ -220,11 +230,11 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       if (event === 'ad_viewable' || (event === 'ad_collapsed' && !collapseOnEmpty)) return;
       trackAdEvent(event, { slot: adUnitPath, format: 'gpt', network: 'gpt', ...metrics });
     });
-    const loader = createAdScriptLoader('gpt', GPT_SCRIPT_SRC, isAdsConsentGranted, emitAdDiagnostic);
+    const loader = createAdScriptLoader('gpt', GPT_SCRIPT_SRC, canUseGpt, emitAdDiagnostic);
     const unsubscribeLoader = loader.subscribe((state) => { if (state === 'failed') lifecycle.fail('gpt_script_error'); });
     let defined = false;
     const defineAndDisplay = () => {
-      if (defined || disposed || !isAdsConsentGranted()) return;
+      if (defined || disposed || !canUseGpt()) return;
       const width = Math.floor(wrapper.getBoundingClientRect().width);
       const fitting = sizes.filter((size) => size === 'fluid' || size[0] <= width);
       if (width <= 0 || !fitting.length) {
@@ -250,7 +260,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       initGptFramework();
       const gt = gtag();
       gt.cmd.push(() => {
-        if (disposed || !isAdsConsentGranted()) return;
+        if (disposed || !canUseGpt()) return;
         try {
           const slot = gt.defineSlot(adUnitPath, fitting, divId)?.addService(gt.pubads());
           if (!slot) { lifecycle.fail('gpt_define_failed'); emitAdDiagnostic('ad_slot_error', { slot: adUnitPath, reason: 'gpt_define_failed', render_path: 'gpt' }); return; }
@@ -281,7 +291,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           if (!headerBiddingKilled && prebidActiveFor(adUnitPath)) {
             void requestHeaderBids({ code: divId, adUnitPath, sizes }).finally(() => {
               gt.cmd.push(() => {
-                if (disposed || !isAdsConsentGranted()) return;
+                if (disposed || !canUseGpt()) return;
                 try {
                   gt.display(divId);
                 } catch {

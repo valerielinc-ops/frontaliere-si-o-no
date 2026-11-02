@@ -3,7 +3,7 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
-import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS, TELEMETRY_SANITIZER_JS, THIRD_PARTY_DOCUMENT_GUARD_JS } from './constants';
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 import { serializeStaticFunction } from './shared/serializeStaticFunction';
 import { URL as NodeURL } from 'node:url';
@@ -83,9 +83,14 @@ export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
   function hasConsent(){
     try{return (window.__ftAdsConsentDecision||window.localStorage.getItem(CONSENT_KEY))===CONSENT_GRANTED;}catch(e){return false;}
   }
-  var loader=createLoader('gpt',SCRIPT_SRC,hasConsent,emit);
+  function canServe(){
+    if(!hasConsent())return false;
+    try{if(window.localStorage.getItem('reader_noads_active')==='true')return false;}catch(e){}
+    return !(${THIRD_PARTY_DOCUMENT_GUARD_JS})((${TELEMETRY_SANITIZER_JS}),window,document,false);
+  }
+  var loader=createLoader('gpt',SCRIPT_SRC,canServe,emit);
   function ensure(){
-    if(!hasConsent()||typeof document==='undefined')return;
+    if(typeof document==='undefined'||!canServe())return;
     var tag=window.googletag=window.googletag||{};
     tag.cmd=tag.cmd||[];
     if(typeof tag.cmd.push!=='function')tag.cmd=[];
@@ -93,7 +98,7 @@ export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
     if(queued)return;
     queued=true;
     tag.cmd.push(function(){
-      if(!hasConsent()){queued=false;return;}
+      if(!canServe()){queued=false;return;}
       if(tag.__frontaliereGptServicesEnabled)return;
       try{
         tag.setConfig({singleRequest:true,collapseDiv:'BEFORE_FETCH'});
