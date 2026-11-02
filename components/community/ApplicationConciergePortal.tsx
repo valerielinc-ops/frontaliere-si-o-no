@@ -23,6 +23,7 @@ import {
   recoverApplicationConciergePaymentSession,
   getCandidateVisibleApplicationConciergeProposals,
   conciergeProposalDisplayStatus,
+  groupApplicationConciergeProposals,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
@@ -969,6 +970,7 @@ export default function ApplicationConciergePortal({
     || (pending && !['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase()));
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
   const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
+  const proposalGroups = groupApplicationConciergeProposals(visibleProposals);
 
   const matchingStatus = String(service.matchingStatus || '');
   const matchingActive = MATCHING_STATES.has(matchingStatus);
@@ -1095,7 +1097,18 @@ export default function ApplicationConciergePortal({
                 {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
                 <div className="mt-5 space-y-3">
                   {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                  {proposalGroups.map(({ category, proposals: groupProposals }) => {
+                    const labelStatus = category === 'reviewing' ? 'technical_review' : category;
+                    return <div key={category} className="mt-5" role="group" aria-labelledby={'concierge-proposal-group-' + category}>
+                      <div className="mb-2 flex items-center justify-between gap-3">
+                        <h3 id={'concierge-proposal-group-' + category} className="text-sm font-semibold text-heading">{t('jobBoard.concierge.proposalStatus.' + labelStatus)}</h3>
+                        <span className="rounded-full bg-surface-raised px-2.5 py-1 text-xs font-semibold text-muted">{groupProposals.length}</span>
+                      </div>
+                      <div className="space-y-3">
+                        {groupProposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                      </div>
+                    </div>;
+                  })}
                 </div>
               </section>
             </div>
@@ -1166,20 +1179,23 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     const controller = new AbortController();
     let cancelled = false;
     setJobHref(null); setJobLinkError(false);
-    if (!proposed) return () => controller.abort();
     const timer = window.setTimeout(() => { controller.abort(); if (!cancelled) setJobLinkError(true); }, 10_000);
     void conciergeProposalJobHref(proposal, serviceId, locale, controller.signal).then(href => {
       if (!controller.signal.aborted) setJobHref(href);
     }).catch(() => { if (!cancelled) setJobLinkError(true); }).finally(() => window.clearTimeout(timer));
     return () => { cancelled = true; controller.abort(); window.clearTimeout(timer); };
-  }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
+  }, [proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const displayStatus = conciergeProposalDisplayStatus(proposal);
   const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
+    : displayStatus === 'failed' ? 'bg-danger-subtle text-danger'
     : ['proposed', 'needs_verification', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
+    : ['queued', 'sending', 'retry_scheduled', 'technical_review', 'unknown'].includes(displayStatus) ? 'bg-info-subtle text-info'
     : 'bg-surface-raised text-muted';
   const childKey = displayStatus === 'needs_answers' ? 'childNeedsAnswers'
     : displayStatus === 'needs_review' ? 'childNeedsReview'
     : displayStatus === 'submitted' || displayStatus.startsWith('employer_') ? 'childSubmitted'
+    : displayStatus === 'failed' ? 'childFailed'
+    : displayStatus === 'unknown' ? 'childUnknown'
     : displayStatus === 'technical_review' || displayStatus === 'retry_scheduled' ? 'childProcessing'
     : 'childPreparing';
   return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border">
@@ -1196,8 +1212,10 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(displayStatus === 'withdrawn' ? 'jobBoard.concierge.proposalStatus.withdrawn' : `jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} timeline={proposal.childEmployerResponseTimeline} compact /></div>
       <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${displayStatus === 'needs_answers' ? 'answerChild' : displayStatus === 'needs_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
     </div>}
-    {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
+    <div className="mt-4 flex flex-wrap items-center gap-2">
       {jobHref ? <a href={jobHref} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a> : jobLinkError ? <button type="button" onClick={() => setLinkAttempt(value => value + 1)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.retryJob')}</button> : <span className="text-xs text-subtle">{t('jobBoard.concierge.loading')}</span>}
+    </div>
+    {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
       <button type="button" disabled={disabled || !canAccept || displayStatus === 'needs_verification'} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
       <button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{t('jobBoard.concierge.decline')}</button>
     </div>}

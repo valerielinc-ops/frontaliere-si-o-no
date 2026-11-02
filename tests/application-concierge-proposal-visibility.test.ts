@@ -17,7 +17,7 @@ function proposal(proposalId: string, status: string): ApplicationConciergePropo
 }
 
 describe('candidate-visible application concierge proposals', () => {
-  it('hides retracted proposals while keeping the remaining status history', () => {
+  it('keeps retracted proposals visible as part of the application history', () => {
     const proposals = [
       proposal('proposed', 'proposed'),
       proposal('accepted', 'accepted'),
@@ -31,6 +31,7 @@ describe('candidate-visible application concierge proposals', () => {
       'accepted',
       'declined',
       'expired',
+      'retracted',
     ]);
   });
 });

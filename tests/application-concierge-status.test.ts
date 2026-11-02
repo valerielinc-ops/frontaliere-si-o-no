@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { conciergeProposalDisplayStatus, type ApplicationConciergeProposal } from '../services/applicationConciergeService';
+import {
+  conciergeProposalDisplayCategory,
+  conciergeProposalDisplayStatus,
+  groupApplicationConciergeProposals,
+  type ApplicationConciergeProposal,
+} from '../services/applicationConciergeService';
 
 const proposal = { status: 'accepted', proposalId: 'proposal_test' } as ApplicationConciergeProposal;
 describe('proposal decision and actual application progress', () => {
@@ -7,6 +12,7 @@ describe('proposal decision and actual application progress', () => {
     ['submitted', 'submitted'], ['candidate_review', 'needs_review'], ['needs_candidate_action', 'needs_answers'],
     ['submitting', 'queued'], ['drafting', 'preparing'], ['regenerating', 'preparing'],
     ['owner_review', 'technical_review'], ['owner_takeover', 'technical_review'], ['withdrawn', 'withdrawn'],
+    ['failed', 'failed'], ['future_state', 'unknown'],
   ])('shows %s as %s', (state, expected) => {
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: state })).toBe(expected);
   });
@@ -33,5 +39,56 @@ describe('proposal decision and actual application progress', () => {
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'submitting', childSendState: 'sending' })).toBe('sending');
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'owner_takeover', childRetryScheduled: true })).toBe('retry_scheduled');
     expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined' })).toBe('declined');
+  });
+  it('keeps an accepted proposal with a child application but no known state unconfirmed', () => {
+    expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationId: 'child-test' })).toBe('unknown');
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'future_decision' })).toBe('unknown');
+  });
+  it('shows a confirmed submission before a conflicting failure state', () => {
+    expect(conciergeProposalDisplayStatus({
+      ...proposal,
+      childApplicationId: 'child-test',
+      childApplicationState: 'failed',
+      childSubmissionStatus: 'submitted',
+    })).toBe('submitted');
+    expect(conciergeProposalDisplayCategory({
+      ...proposal,
+      childApplicationId: 'child-test',
+      childApplicationState: 'failed',
+      childSubmissionStatus: 'submitted',
+    })).toBe('submitted');
+  });
+  it('shows an explicit failed submission as failed rather than accepted or unknown', () => {
+    expect(conciergeProposalDisplayStatus({
+      ...proposal,
+      childApplicationId: 'child-test',
+      childSubmissionStatus: 'failed',
+    })).toBe('failed');
+  });
+  it('groups proposals by candidate-facing progress without losing decision history', () => {
+    const proposals = [
+      { ...proposal, proposalId: 'proposed', status: 'proposed' },
+      { ...proposal, proposalId: 'needs-information', childApplicationId: 'child-1', childApplicationState: 'candidate_review' },
+      { ...proposal, proposalId: 'accepted', childApplicationId: null },
+      { ...proposal, proposalId: 'queued', childApplicationId: 'child-2', childApplicationState: 'submitting' },
+      { ...proposal, proposalId: 'submitted', childApplicationId: 'child-3', childSubmissionStatus: 'submitted' },
+      { ...proposal, proposalId: 'failed', childApplicationId: 'child-4', childApplicationState: 'failed' },
+      { ...proposal, proposalId: 'unknown', childApplicationId: 'child-5', childApplicationState: 'future_state' },
+      { ...proposal, proposalId: 'declined', status: 'declined' },
+      { ...proposal, proposalId: 'retracted', status: 'retracted' },
+    ] as ApplicationConciergeProposal[];
+
+    expect(groupApplicationConciergeProposals(proposals).map(({ category }) => category)).toEqual([
+      'proposed',
+      'needs_information',
+      'accepted',
+      'queued',
+      'submitted',
+      'failed',
+      'unknown',
+      'declined',
+      'retracted',
+    ]);
+    expect(conciergeProposalDisplayCategory(proposals.find(({ proposalId }) => proposalId === 'submitted')!)).toBe('submitted');
   });
 });
