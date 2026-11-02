@@ -792,7 +792,7 @@ describe('submit mode', () => {
       codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(db, ORDER_ID, 1),
     });
     const sent = createMemoryFirestore();
-    const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
+    const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
     expect(await submit(sent.db, clicksAndSends)).toMatchObject({ type: 'submit_succeeded', channel: 'lever' });
     // The replay hands over the record of the first send, as the e-mail's does.
     expect(await submit(sent.db, clicksAndSends)).toEqual({ type: 'submit_succeeded', channel: 'lever', replayed: true, sent: expect.objectContaining({ packaging: 'portal', channel: 'lever', files: [] }) });
@@ -800,7 +800,7 @@ describe('submit mode', () => {
 
     // Died after pressing submit: the outcome is unknown, the retry does not press it again.
     const afterClick = createMemoryFirestore();
-    await expect(submit(afterClick.db, async (ctx: any) => { await ctx.onBeforeSubmit(); throw new Error('browser crashed'); })).rejects.toThrow('browser crashed');
+    await expect(submit(afterClick.db, async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); throw new Error('browser crashed'); })).rejects.toThrow('browser crashed');
     const neverAgain = vi.fn();
     expect(await submit(afterClick.db, neverAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
     expect(neverAgain).not.toHaveBeenCalled();
@@ -845,7 +845,7 @@ describe('submit mode', () => {
     // A CAPTCHA that shows up after the final click: the portal may have the
     // application, so the claim stays "sending" and no later run presses it again.
     const captchaAfterClick = createMemoryFirestore();
-    const clicksThenCaptcha = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }; };
+    const clicksThenCaptcha = async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }; };
     expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     expect(captchaAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
     expect(await submissionGuard(captchaAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'in_flight' });
@@ -856,7 +856,7 @@ describe('submit mode', () => {
     // The portal said in words, after the click, that it did not send (JOIN
     // «Non siamo riusciti a inviare…»): released, Valerie's retry claims it again.
     const refusedAfterClick = createMemoryFirestore();
-    const clicksThenRefused = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: { steps: [], antibot: true } }; };
+    const clicksThenRefused = async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: { steps: [], antibot: true } }; };
     expect(await submit(refusedAfterClick.db, clicksThenRefused)).toMatchObject({ type: 'submit_failed', error: 'portal_refused' });
     expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({
       r1: { state: 'failed', reason: 'portal_refused', clickedAt: expect.any(Number), confirmedNotSent: true },
@@ -866,7 +866,7 @@ describe('submit mode', () => {
     // Coop's SuccessFactors, 2026-10-03: «Bewerben» answered with the portal's own
     // validation, then questions for the candidate: nothing left, released.
     const validationAfterClick = createMemoryFirestore();
-    const clicksThenValidation = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_needs_candidate', questions: [{ question: 'Strasse und Hausnummer', type: 'text' }] }, evidence: { steps: [], finalOutcomes: ['validation'] } }; };
+    const clicksThenValidation = async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_needs_candidate', questions: [{ question: 'Strasse und Hausnummer', type: 'text' }] }, evidence: { steps: [], finalOutcomes: ['validation'] } }; };
     expect(await submit(validationAfterClick.db, clicksThenValidation)).toMatchObject({ type: 'submit_needs_candidate' });
     expect(validationAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({
       r1: { state: 'failed', reason: 'portal_validation', clickedAt: expect.any(Number), confirmedNotSent: true },
@@ -874,11 +874,53 @@ describe('submit mode', () => {
     expect(await submissionGuard(validationAfterClick.db, ORDER_ID, 1).claim('portal', Date.now())).toMatchObject({ status: 'claimed' });
     // A validation, then a click whose outcome is unknown: kept "sending".
     const validationThenUnknown = createMemoryFirestore();
-    const clicksTwice = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { steps: [], finalOutcomes: ['validation', 'ambiguous'] } }; };
+    const clicksTwice = async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { steps: [], finalOutcomes: ['validation', 'ambiguous'] } }; };
     expect(await submit(validationThenUnknown.db, clicksTwice)).toMatchObject({ type: 'submit_failed', error: 'portal_ambiguous' });
     expect(validationThenUnknown.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
     expect(await submissionGuard(validationThenUnknown.db, ORDER_ID, 1).claim('portal', Date.now())).toMatchObject({ status: 'in_flight' });
   });
+
+  it('persists a confirmed portal receipt before later runner failures can obscure it', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } };
+    const store = createMemoryFirestore();
+    const portalRunner = async (ctx: any) => {
+      await ctx.onBeforeSubmit({ uploads: [{ document: 'cv' }], formBinding: 'f'.repeat(64) });
+      await ctx.onReceipt({ finalUrl: 'https://jobs.lever.co/ospedale/1/confirmation' });
+      throw new Error('diagnostics failed after receipt');
+    };
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: {} }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(store.db, ORDER_ID, 1),
+    });
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'lever', finalUrl: 'https://jobs.lever.co/ospedale/1/confirmation' });
+    expect(store.read(`assisted_applications/${ORDER_ID}/automation/submission`)!.r1)
+      .toMatchObject({ state: 'sent', formBinding: 'f'.repeat(64), finalUrl: 'https://jobs.lever.co/ospedale/1/confirmation' });
+  }, 60_000);
+
+  it('reclaims the submission only after a portal validation proves the first form was not sent', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } };
+    const store = createMemoryFirestore();
+    const guard = submissionGuard(store.db, ORDER_ID, 1);
+    const portalRunner = async (ctx: any) => {
+      await ctx.onBeforeSubmit({ uploads: [], formBinding: 'a'.repeat(64) });
+      await ctx.onConfirmedNotSent({ reason: 'portal_validation' });
+      await ctx.onBeforeSubmit({ uploads: [], formBinding: 'b'.repeat(64) });
+      await ctx.onReceipt({ finalUrl: 'https://jobs.lever.co/ospedale/1/confirmation' });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: [] } };
+    };
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: {} }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      codex: vi.fn(), portalRunner, submissionGuard: guard,
+    });
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'lever' });
+    expect(await guard.read()).toMatchObject({ state: 'sent', formBinding: 'b'.repeat(64) });
+  }, 60_000);
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {
     const store = createMemoryFirestore();

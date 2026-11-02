@@ -306,7 +306,7 @@ describe('typed facts use the attested answer source contract', () => {
     const replacementKey = 'assisted-application-uploads/source/replacement.pdf';
     await f.store.db.collection('assisted_applications').doc('source').set({ ...f.order, cvStorageKey: replacementKey, cvUploadedAt: now + 1 });
     await f.store.db.collection('assisted_applications').doc('source').collection('ai_drafts').doc('current').set({ ...f.draft, cvKey: replacementKey });
-    await guard.markClicked(now + 2);
+    await guard.markClicked(now + 2, { formBinding: 'b'.repeat(64) });
     expect(await guard.read()).toMatchObject({ state: 'sending', clickedAt: now + 2 });
   });
   it('blocks a pending final click when the source question changes after claim', async () => {
@@ -327,7 +327,7 @@ describe('typed facts use the attested answer source contract', () => {
     await f.store.db.collection('assisted_applications').doc('target').collection('ai_drafts').doc('current').set({
       ...targetDraft, questions: [{ ...targetDraft.questions[0], question: 'How many years of experience with SQL?' }],
     });
-    await expect(guard.markClicked(now + 2)).rejects.toThrow('answer_source_changed');
+    await expect(guard.markClicked(now + 2, { formBinding: 'b'.repeat(64) })).rejects.toThrow('answer_source_changed');
     expect(await guard.read()).toMatchObject({ state: 'sending', clickedAt: null });
   });
   it('validates options and the full contract before promoting a positive typed subject', () => {

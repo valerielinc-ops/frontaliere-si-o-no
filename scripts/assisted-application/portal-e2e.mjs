@@ -36,6 +36,7 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
 const stopContext = ({ event = {}, evidence = {} }) => ({
   type: event.type, reason: event.reason, stage: event.stage,
+  ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
   questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
     typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
   steps: (evidence.steps || []).slice(-2).map(step => ({
@@ -896,6 +897,29 @@ let plannerSawPassword = false;
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
   if (prompt.includes('{"agentPage"')) return fakeAgent(prompt);
+  if (prompt.includes('You localize questions from an online job application')) {
+    const start = prompt.lastIndexOf('{"questions":');
+    const end = prompt.lastIndexOf('\n\nReturn exactly one JSON object');
+    const request = JSON.parse(prompt.slice(start, end));
+    return { questions: request.questions.map((question) => {
+      if (!/valid work permit/i.test(question.applicationQuestion || question.question || '')) {
+        throw new Error('fake_localizer_unknown_fixture');
+      }
+      const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
+        candidate: /^yes$/i.test(application) ? 'Sì' : /^no$/i.test(application) ? 'No' : application,
+        application,
+      }));
+      return {
+        id: question.id,
+        sourceLocale: 'en',
+        question: 'Possiedi un permesso di lavoro valido?',
+        why: 'Indica se possiedi un permesso di lavoro valido.',
+        options: optionMap.map((pair) => pair.candidate),
+        optionMap,
+        validationMessage: '',
+      };
+    }) };
+  }
   const request = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly')));
   const { form, candidate } = request;
   if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;

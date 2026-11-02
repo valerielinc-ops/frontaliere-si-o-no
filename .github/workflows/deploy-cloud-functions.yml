@@ -129,6 +129,9 @@ jobs:
       - name: Reconcile definitely unsent assisted applications
         # The migration arrives in a dependent PR. Run only after this deploy
         # has published the transport fixes; never dispatch a send directly.
+        # This PR opts out of automated application recovery because its
+        # production verification is intentionally read-only.
+        if: ${{ !contains(github.event.head_commit.message, '[no-application-recovery]') }}
         run: |
           if [ -f scripts/reconcile-assisted-application-transport-holds.mjs ]; then
             timeout 180s node scripts/reconcile-assisted-application-transport-holds.mjs --apply
@@ -137,6 +140,7 @@ jobs:
       - name: Reconcile resolved operational preferences
         # Run after the new receiver is deployed; the normal clock rechecks
         # consent, hard questions and the submission guard before any send.
+        if: ${{ !contains(github.event.head_commit.message, '[no-application-recovery]') }}
         run: |
           if [ -f scripts/assisted-application/reconcile-operational-answers.mjs ]; then
             timeout 180s node scripts/assisted-application/reconcile-operational-answers.mjs --apply

@@ -477,6 +477,9 @@ export async function submitApplication(ctx) {
     // Set once `clickedAt` is on record, right before the final click.
     let clicked = false;
     let succeeded = false;
+    let armedSentRecord = null;
+    let receiptPersisted = false;
+    let receiptFinalUrl = null;
     // The attempt on the draft at the final click: kept, or not durable (then no click).
     let attemptKept = false;
     let attemptNotStored = false;
@@ -520,7 +523,10 @@ export async function submitApplication(ctx) {
       // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
       const release = async (reason, accountFailure = null) => {
         await guard.release(reason, undefined, accountFailure ? { accountFailure } : {});
-        if (attemptKept) await keepAttempt(null);
+        if (attemptKept) {
+          if (!(await keepAttempt(null))) throw new Error('sent_attempt_clear_failed');
+          attemptKept = false;
+        }
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
@@ -544,21 +550,48 @@ export async function submitApplication(ctx) {
           // From here the outcome may stay unknown: what the form holds goes on the draft first, durably, or
           // the click does not happen (submitViaPortal does not catch this throw: see the catch below).
           const attempt = await portalRecord(form.uploads, 'sent').catch(() => null);
-          if (attempt) {
-            if (!(await keepAttempt(attempt))) {
-              attemptNotStored = true;
-              throw new Error('sent_attempt_not_stored');
-            }
-            attemptKept = true;
+          if (!attempt || !(await keepAttempt(attempt))) {
+            attemptNotStored = true;
+            throw new Error('sent_attempt_not_stored');
           }
-          await guard.markClicked(Date.now());
+          attemptKept = true;
+          armedSentRecord = attempt;
+          await guard.markClicked(Date.now(), { formBinding: form.formBinding });
           clicked = true;
         } : null,
+        onConfirmedNotSent: guard ? async ({ reason = 'portal_validation' } = {}) => {
+          await release(reason);
+          attemptKept = false;
+          armedSentRecord = null;
+          clicked = false;
+          const claim = await guard.claim('portal', Date.now());
+          if (claim.status !== 'claimed') throw new Error('portal_retry_claim_unavailable');
+        } : null,
+        onReceipt: guard ? async ({ finalUrl = null } = {}) => {
+          receiptFinalUrl = typeof finalUrl === 'string' ? finalUrl : null;
+          let lastError = null;
+          for (let attempt = 0; attempt < 3; attempt += 1) {
+            try {
+              if (!armedSentRecord) throw new Error('portal_receipt_without_attempt');
+              await guard.markSent({ channel: channelType, finalUrl: receiptFinalUrl, sent: armedSentRecord });
+              receiptPersisted = true;
+              return;
+            } catch (error) {
+              lastError = error;
+              if (attempt < 2) await new Promise(resolve => setTimeout(resolve, 150 * (2 ** attempt)));
+            }
+          }
+          throw lastError;
+        } : null,
       });
-      succeeded = event.type === 'submit_succeeded';
+      succeeded = event.type === 'submit_succeeded' || receiptPersisted;
       const portalPass = portalPassFrom({ applyUrl, channel: channelType, event, evidence, dryRun: Boolean(ctx.dryRun) });
       // A dry run keeps its files under dry-run-… and its record in the evidence only.
-      const sentRecord = succeeded || event.type === 'dry_run_ready' ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent') : null;
+      const sentRecord = receiptPersisted
+        ? armedSentRecord
+        : succeeded || event.type === 'dry_run_ready'
+          ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent')
+          : null;
       if (guard) {
         // Sent: on record. After the final click any other outcome (ambiguous,
         // a CAPTCHA or an error page that appeared afterwards) is left
@@ -570,8 +603,14 @@ export async function submitApplication(ctx) {
         // fields missing, the form still there: Coop's SuccessFactors
         // 2026-10-03) sent nothing either.
         const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
-        if (event.type === 'submit_succeeded') await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
+        if (event.type === 'submit_succeeded' && !receiptPersisted) {
+          await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
+          receiptPersisted = true;
+          receiptFinalUrl = evidence.finalUrl || null;
+        }
+        if (receiptPersisted) succeeded = true;
         else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused', event.accountFailure);
+        else if (event.type === 'submit_failed' && event.error === 'form_changed_before_click') await release('form_changed_before_click', event.accountFailure);
         else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation', event.accountFailure);
         else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type, event.accountFailure);
       }
@@ -582,10 +621,17 @@ export async function submitApplication(ctx) {
       // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
       const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
       const pass = portalPass ? { portalPass } : {};
-      return event.type === 'submit_succeeded'
-        ? { ...event, channel: channelType, portalAnswers, sent: sentRecord, ...pass }
+      return succeeded
+        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...pass }
         : { ...event, portalAnswers, ...stopReport, ...pass };
     } catch (error) {
+      if (receiptPersisted) {
+        return {
+          type: 'submit_succeeded', channel: channelType,
+          ...(receiptFinalUrl ? { finalUrl: receiptFinalUrl } : {}),
+          ...(armedSentRecord ? { sent: armedSentRecord } : {}),
+        };
+      }
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.
       if (guard && !clicked && !succeeded) {

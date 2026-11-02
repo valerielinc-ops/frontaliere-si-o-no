@@ -644,7 +644,7 @@ export async function advanceLocator(page, ref) {
  * name says sending or confirming (FINAL_RE) and nothing of going back,
  * leaving or signing in. The runner checks the page has nothing left to
  * answer and presses it behind the submission guard; a dry run stops before.
- * @returns {Promise<{locator: import('playwright').Locator, name: string}|null>}
+ * @returns {Promise<{locator: import('playwright').Locator, frame: import('playwright').Frame, name: string, buttonId: string, formId: string}|null>}
  */
 export async function submitLocator(page, ref) {
   if (!REF_RE.test(ref || '')) return null;
@@ -653,7 +653,17 @@ export async function submitLocator(page, ref) {
   if (!info?.button || !info.name || info.leaves || NOT_ADVANCE_RE.test(info.name)) return null;
   if (!FINAL_RE.test(info.name) && !SUBMIT_RE.test(info.name)) return null;
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
-  return { locator, name: info.name };
+  const binding = await locator.evaluate(element => {
+    const form = element.form || element.closest?.('form');
+    return {
+      buttonId: String(element.getAttribute('data-aa-id') || ''),
+      formId: String(form?.getAttribute('data-aa-id') || ''),
+    };
+  }).catch(() => null);
+  if (!binding?.buttonId || !binding.formId) return null;
+  const handle = await locator.elementHandle().catch(() => null);
+  const frame = await handle?.ownerFrame().catch(() => null) || page.mainFrame();
+  return { locator, frame, name: info.name, ...binding };
 }
 
 /**
