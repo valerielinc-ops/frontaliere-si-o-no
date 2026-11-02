@@ -117,9 +117,9 @@ const translations: Record<string, string> = {
  // Affiliate & Partners
  'consulting.badge': 'Consulenza Personalizzata',
  'consulting.title': 'Consulenza Fiscale per Frontalieri',
- 'consulting.subtitle': 'Prenota una sessione personalizzata con un esperto. Analizziamo la tua situazione specifica e ti aiutiamo a ottimizzare tasse, pensione e costi.',
+ 'consulting.subtitle': 'Prenota una sessione informativa sui temi fiscali dei frontalieri. La sessione parte dalla tua situazione e dalle domande che vuoi discutere.',
  'consulting.trust.secure': 'Pagamento sicuro',
- 'consulting.trust.experts': 'Esperti del settore',
+ 'consulting.trust.experts': 'Temi transfrontalieri',
  'consulting.trust.satisfaction': 'Soddisfatti o rimborsati',
  'consulting.popular': 'Più scelto',
  'consulting.perSession': 'sessione',
