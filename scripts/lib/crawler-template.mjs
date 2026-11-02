@@ -866,9 +866,9 @@ export async function runStandardCrawlerPipeline(config) {
   // INFER a cause by comparing counts; this reports one observed at the
   // fetch/parse boundary, which is the only place an anti-bot block and a dead
   // selector are distinguishable at all. It rides the same `counts` object so
-  // the exit-guard slice carries it too — the zero-match soft exit below is
-  // precisely the run whose cause matters most. Parsers that don't set
-  // `.fetchOutcome` leave it null: unchanged behaviour.
+  // the exit-guard slice carries it too — the zero-match boundary is precisely
+  // the run whose cause matters most. Parsers that don't set `.fetchOutcome`
+  // leave it null: unchanged behaviour.
   const counts = {
     discovered: null,
     parsed: null,
@@ -899,13 +899,16 @@ export async function runStandardCrawlerPipeline(config) {
     }),
     assemble: () => assembleJobsDataset(),
   });
-  // The one exit for a run that ends without publishing after the fetch
-  // returned. Every such run leaves the same exit-guard receipt (`total: 0,
-  // earlyExit: true`), so the cause has to travel in `counts.abortKind` or the
-  // monitor can only say "cause not reported". All of them stay ABORTS: naming
-  // the exit never makes the run healthy. `rewriteStoredJobs` is the branch's
-  // own stored-slice housekeeping (thin-source quarantine lives there) and is
-  // passed in, not decided here, so each branch keeps exactly its own call.
+  // The exit for a run that ends without publishing after the fetch returned
+  // and cannot prove a source-level zero. Such a run leaves the same
+  // exit-guard receipt (`total: 0, earlyExit: true`), so the cause has to
+  // travel in `counts.abortKind` or the monitor can only say "cause not
+  // reported". A parser-proven `filtered_empty` result is handled separately
+  // below: it writes a non-abort summary because the source was observed and
+  // the parser proved that its own geographic filter removed every candidate.
+  // `rewriteStoredJobs` is the branch's own stored-slice housekeeping
+  // (thin-source quarantine lives there) and is passed in, not decided here,
+  // so each abort branch keeps exactly its own call.
   const finishWithoutPublish = async ({ kind, rewriteStoredJobs = null }) => {
     if (!CRAWLER_ABORT_KINDS.has(kind)) {
       // The exit guard drops an unknown name to `null`: fail loudly instead.
@@ -1092,6 +1095,53 @@ export async function runStandardCrawlerPipeline(config) {
       fetchOutcome: reportedFetchOutcome,
     },
   );
+
+  // A parser may prove that it saw candidates and that its own geographic (or
+  // ownership) filter discarded every one. This is a successful observation,
+  // not the unobserved `no-jobs-parsed` abort: keep the existing slice under
+  // the normal miss-grace policy and write the parser's evidence as a
+  // non-abort summary. Require a positive discovered count so a malformed or
+  // empty source cannot opt into this path with only the outcome label.
+  const filteredEmptySnapshot = Array.isArray(parsedJobs)
+    && parsedJobs.length === 0
+    && !authoritativeEmptySnapshot
+    && reportedFetchOutcome === 'filtered_empty'
+    && Number.isFinite(counts.discovered)
+    && counts.discovered > 0;
+  if (filteredEmptySnapshot) {
+    const durationMs = getCrawlerElapsedMs();
+    console.log(
+      `\n🧭 ${companyLabel}: ${counts.discovered} source candidates were observed but all were filtered; `
+      + 'keeping existing jobs and recording a filtered-empty run.\n',
+    );
+    writeSummaryCrawlerSlice({
+      key: companyKey,
+      label: companyLabel,
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: counts.discovered,
+      parsed: counts.parsed,
+      lastFetchOutcome: 'filtered_empty',
+      authoritativeEmptySnapshot: false,
+      sourceBodyFailureCount: counts.sourceBodyFailures.length,
+      sourceBodyFailures: counts.sourceBodyFailures,
+      written: 0,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: 0,
+      unchangedCount: 0,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: [],
+      unchangedJobs: [],
+      earlyExit: false,
+      exitCode: 0,
+    });
+    return;
+  }
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);

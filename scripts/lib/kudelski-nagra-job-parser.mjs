@@ -358,6 +358,13 @@ function listingTitle(listing) {
   return normalizeSpace(listing?.title || listing?.name || '');
 }
 
+function listingLocation(listing) {
+  const rawLocation = listing?.location?.name || listing?.location || listing?.city || '';
+  return normalizeSpace(
+    typeof rawLocation === 'string' ? rawLocation : rawLocation?.name || '',
+  );
+}
+
 /**
  * Fetch all Kudelski NAGRA jobs.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -400,10 +407,7 @@ export async function fetchAllKudelskiNagraJobs() {
   }
 
   // Filter for Swiss locations across the full canton set.
-  const swissListings = listings.filter((l) => {
-    const loc = l.location?.name || l.location || l.city || '';
-    return isSwissListingCandidate(typeof loc === 'string' ? loc : loc?.name || '');
-  });
+  const swissListings = listings.filter((listing) => isSwissListingCandidate(listingLocation(listing)));
 
   console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
 
@@ -418,8 +422,7 @@ export async function fetchAllKudelskiNagraJobs() {
     if (title.length < 3) continue;
 
     // Greenhouse returns location as { name: "..." } or a string.
-    const rawLoc = listing.location?.name || listing.location || listing.city || '';
-    let location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '');
+    let location = listingLocation(listing);
 
     // The NAGRA listing table carries no description at all, and gives some
     // Swiss offers only as "Switzerland". The official detail page has both:
@@ -543,13 +546,29 @@ export async function fetchAllKudelskiNagraJobs() {
   // Pre-filter candidate count (issue #6271, mirrors update-baronie-jobs.mjs)
   // — lets the crawler-template pipeline report "found N listings, 0 Swiss
   // after filtering" as healthy instead of broken (check-crawler-health.mjs
-  // autoFilteredEmpty, issue #5945). All 11 current listings are Spain/
-  // Germany/France; that is the source's genuine state, not a selector break.
+  // filtered-empty evidence, issue #5945). Only explicit foreign locations
+  // qualify for this outcome; an empty or ambiguous location remains
+  // fail-closed so a location-selector drift cannot be laundered as a quiet
+  // source.
   // It counts post-title-gate, not `listings.length` (issue #7707): if title
   // extraction broke the outcome would otherwise be `discovered > 0,
   // written === 0` — a real selector break disguised as filtered-empty.
+  const titleEligibleListings = listings.filter((listing) => listingTitle(listing).length >= 3);
+  const filteredEmpty = jobs.length === 0
+    && titleEligibleListings.length > 0
+    && swissListings.length === 0
+    && titleEligibleListings.every((listing) => {
+      const location = listingLocation(listing);
+      return Boolean(location) && isLocationExplicitlyForeign(location);
+    });
   Object.defineProperty(jobs, 'discoveredCount', {
     value: titleEligible,
+    enumerable: false,
+    writable: true,
+    configurable: true,
+  });
+  Object.defineProperty(jobs, 'fetchOutcome', {
+    value: filteredEmpty ? 'filtered_empty' : null,
     enumerable: false,
     writable: true,
     configurable: true,
