@@ -1,26 +1,24 @@
 /**
- * Generates per-job Open Graph images (1200×630 WebP) for every job in
+ * Generates per-job Open Graph images (1080×1350 WebP) for every job in
  * `data/jobs.json`. Output is written to `dist/og/jobs/<slug>.webp` and
  * referenced by `og:image` on the corresponding job page (see
  * jobsSeoPagesPlugin → jobOgImageUrl).
  *
  * Why per-job: Facebook/LinkedIn previews show a single OG card per link.
  * A generic site-wide image yields zero context (just the brand). A per-job
- * image with title + company logo + city + salary gives a much richer
- * preview, lifting CTR from organic FB/LinkedIn shares and from the
- * scheduled posting pipeline (scripts/schedule-fb-jobs-daily.mjs).
+ * image with a generated workplace photo, title, city, and salary gives people
+ * more context when a role is shared on Facebook or LinkedIn.
  *
  * Performance: satori (HTML/JSX → SVG) + @resvg/resvg-js (SVG → PNG) +
- * sharp (PNG → WebP q80) renders each card in ~30-60ms. 2100 jobs ≈ 1-2 min
- * in CI. Skipped under FAST_BUILD=1 (gating happens in vite.config.ts).
+ * sharp (PNG → WebP q72) render cards through a bounded worker pool.
+ * Skipped under FAST_BUILD=1 (gating happens in vite.config.ts).
  *
- * Why WebP: at quality 65 + effort 6 each card is ~20 KB vs ~160 KB for
- * PNG (−87%). FB/X/LinkedIn show 600×315 previews so q65 has no visible
- * degradation. Saves ~390 MB vs PNG + an extra ~60 MB vs the previous q80
- * baseline across the ~6k active jobs.
+ * Why WebP: quality 72 + effort 6 keeps photo detail while limiting the
+ * storage cost of thousands of generated cards. Facebook receives a portrait
+ * 4:5 image; other preview clients can crop it as needed.
  *
- * Caching: idempotent. If the output WebP already exists for a slug, we skip
- * regeneration. To force regeneration of one job, delete its WebP.
+ * Caching: filenames include the job slug, selected photo, and render version.
+ * To force regeneration, bump OG_RENDER_VERSION.
  */
 
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
@@ -31,37 +29,37 @@ import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { JOB_OG_IMAGE_VERSION, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
 
 const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
-// restores this between CI runs so unchanged jobs keep their PNG.
+// restores this between CI runs so unchanged jobs keep their WebP.
 const CACHE_SUBDIR = '.cache/og-jobs';
 
 /**
  * Bump this string when the rendering pipeline changes shape (layout,
- * colors, fonts, brand wordmark, chip style, …). Embedded into every
- * cached PNG's filename so layout-only changes invalidate the cache
+ * colors, photo treatment, fonts, CTA, dimensions, …). Embedded into every
+ * cached WebP's filename so layout-only changes invalidate the cache
  * cleanly even when the actions/cache restore-keys cascade rehydrates
  * an older cache layer. Same pattern used by pdfWhitepapersPlugin
  * (PDF_RENDER_VERSION).
  *
- * Cache filename is `<jobId>.<OG_RENDER_VERSION>.webp`. When this version
+ * Cache filename is `<slug>.<photoKey>.<OG_RENDER_VERSION>.webp`. When this version
  * bumps, the new build looks for new filenames, doesn't find them, and
  * re-renders. Old cached files become orphaned and age out automatically
  * when the GitHub Actions cache evicts them (~7-day TTL).
  */
-const OG_RENDER_VERSION = 'v4-2026-05-28-q65';
-const PNG_WIDTH = 1200;
-const PNG_HEIGHT = 630;
+const OG_RENDER_VERSION = JOB_OG_IMAGE_VERSION;
+const OG_WIDTH = 1080;
+const OG_HEIGHT = 1350;
 
 // Brand palette (Frontaliere Ticino). Kept inline to avoid coupling the
 // plugin to runtime CSS — these are the design tokens for OG only.
 const BRAND_BG_FROM = '#0F2557'; // deep navy
-const BRAND_BG_TO = '#1E3D8F'; // mid blue
 const BRAND_ACCENT = '#FFB300'; // amber (price/CTA)
+const CTA_RED = '#DC2626';
 const TEXT_PRIMARY = '#FFFFFF';
 const TEXT_MUTED = 'rgba(255,255,255,0.78)';
-const SURFACE = '#FFFFFF';
 
 interface JobMinimal {
   id: string;
@@ -101,16 +99,6 @@ function readFontPair(rootDir: string): { regular: Buffer; bold: Buffer } | null
   }
 }
 
-function readLogosManifest(rootDir: string): Record<string, string> {
-  const file = path.join(rootDir, 'data/company-logos-manifest.json');
-  try {
-    if (!existsSync(file)) return {};
-    return JSON.parse(readFileSync(file, 'utf-8')) as Record<string, string>;
-  } catch {
-    return {};
-  }
-}
-
 function readJobsJson(rootDir: string): JobMinimal[] {
   const candidates = [
     path.join(rootDir, 'data/jobs.json'),
@@ -130,23 +118,61 @@ function readJobsJson(rootDir: string): JobMinimal[] {
   return [];
 }
 
-function logoDataUrl(rootDir: string, manifestPath: string): string | null {
-  // manifestPath looks like "/images/brands/<slug>.png"
-  if (!manifestPath || !manifestPath.startsWith('/')) return null;
-  const abs = path.join(rootDir, 'public', manifestPath);
-  if (!existsSync(abs)) return null;
+const JOB_PHOTO_KEYS = ['healthcare', 'hospitality', 'trades', 'office'] as const;
+type JobPhotoKey = (typeof JOB_PHOTO_KEYS)[number];
+
+const JOB_PHOTO_KEYWORDS: Record<JobPhotoKey, string[]> = {
+  healthcare: [
+    'health', 'sanit', 'inferm', 'medic', 'farmac', 'pharma', 'biotech',
+    'osped', 'clinica', 'assistenz', 'cura', 'pflege', 'soins', 'sante',
+    'nursing', 'nurse', 'arzt',
+  ],
+  hospitality: [
+    'hotel', 'hospitality', 'albergo', 'ristor', 'restaurant', 'camerier',
+    'cuoc', 'chef', 'cucina', 'barista', 'housekeep', 'reception', 'turism',
+    'catering', 'gastronom', 'servicefach', 'restauration', 'hoteller',
+  ],
+  trades: [
+    'tecnic', 'elettric', 'idraulic', 'meccanic', 'ingegner', 'engineer',
+    'manutenz', 'montator', 'saldat', 'produzion', 'magazzin', 'operator',
+    'logistic', 'liefer', 'lager', 'werkstatt', 'bau', 'construction',
+    'instandhalt', 'automation', 'technicien', 'atelier', 'installator',
+    'technical', 'tech', 'manufacturing', 'industr', 'agricol', 'farm',
+  ],
+  office: [
+    'office', 'admin', 'amministr', 'administr', 'contab', 'segreter',
+    'commercial', 'marketing', 'sales', 'vendit', 'commerc', 'retail',
+    'dettaglio', 'back-office', 'risorse umane', 'human resources', 'hr',
+    'analyst', 'finanz', 'finance', 'assicuraz', 'insurance', 'account',
+    'legal', 'bureau', 'impiegat', 'assistant', 'education', 'formazione',
+    'it',
+  ],
+};
+
+function classifyJobPhoto(job: JobMinimal): JobPhotoKey {
+  const searchText = [job.category, job.sector, job.titleByLocale?.it, job.title]
+    .filter(Boolean)
+    .join(' ')
+    .toLocaleLowerCase('it')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  const searchTerms = new Set(searchText.split(/[^a-z0-9]+/).filter(Boolean));
+  return JOB_PHOTO_KEYS.find((key) => JOB_PHOTO_KEYWORDS[key].some((keyword) => {
+    if (keyword.length <= 3) return searchTerms.has(keyword);
+    return searchText.includes(keyword);
+  })) ?? 'office';
+}
+
+function readJobPhotoDataUrls(rootDir: string): Record<JobPhotoKey, string> | null {
+  const photoDir = path.join(rootDir, 'build-plugins/assets/facebook-jobs');
+  const photos = {} as Record<JobPhotoKey, string>;
   try {
-    const ext = path.extname(abs).toLowerCase();
-    const mime =
-      ext === '.png'
-        ? 'image/png'
-        : ext === '.jpg' || ext === '.jpeg'
-        ? 'image/jpeg'
-        : ext === '.svg'
-        ? 'image/svg+xml'
-        : 'image/png';
-    const buf = readFileSync(abs);
-    return `data:${mime};base64,${buf.toString('base64')}`;
+    for (const key of JOB_PHOTO_KEYS) {
+      const file = path.join(photoDir, `${key}.jpg`);
+      if (!existsSync(file)) return null;
+      photos[key] = `data:image/jpeg;base64,${readFileSync(file).toString('base64')}`;
+    }
+    return photos;
   } catch {
     return null;
   }
@@ -220,7 +246,7 @@ interface CardModel {
   city: string | null;
   salary: string | null;
   employmentLabel: string | null;
-  logoDataUrl: string | null;
+  photoKey: JobPhotoKey;
 }
 
 function buildCardJsx(model: CardModel): unknown {
@@ -230,79 +256,80 @@ function buildCardJsx(model: CardModel): unknown {
     props: {
       style: {
         display: 'flex',
-        backgroundColor: accent ? BRAND_ACCENT : 'rgba(255,255,255,0.16)',
-        color: accent ? '#0F2557' : TEXT_PRIMARY,
-        fontSize: 28,
+        backgroundColor: accent ? BRAND_ACCENT : 'rgba(255,255,255,0.18)',
+        color: accent ? BRAND_BG_FROM : TEXT_PRIMARY,
+        fontSize: 25,
         fontWeight: 600,
-        padding: '10px 22px',
-        borderRadius: 999,
-        marginRight: 16,
+        padding: '12px 20px',
+        borderRadius: 14,
+        marginRight: 14,
+        marginBottom: 14,
       },
       children: text,
     },
   });
 
-  // No emoji in chips: Roboto has no emoji glyphs and shipping a colored
-  // emoji font would inflate the build for marginal value. Pill backgrounds
-  // + colors give enough visual hierarchy.
   const chips = [
-    model.city ? pill(model.city) : null,
+    model.city ? pill(truncateText(model.city, 32)) : null,
     model.salary ? pill(model.salary, true) : null,
     model.employmentLabel ? pill(model.employmentLabel) : null,
   ].filter(Boolean);
-
-  const logoBlock = model.logoDataUrl
-    ? {
-        type: 'div',
-        props: {
-          style: {
-            display: 'flex',
-            width: 180,
-            height: 180,
-            backgroundColor: SURFACE,
-            borderRadius: 24,
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 16,
-            boxShadow: '0 12px 28px rgba(0,0,0,0.35)',
-          },
-          children: {
-            type: 'img',
-            props: {
-              src: model.logoDataUrl,
-              width: 148,
-              height: 148,
-              style: { objectFit: 'contain' },
-            },
-          },
-        },
-      }
-    : null;
 
   return {
     type: 'div',
     props: {
       style: {
-        width: PNG_WIDTH,
-        height: PNG_HEIGHT,
+        width: OG_WIDTH,
+        height: OG_HEIGHT,
         display: 'flex',
         flexDirection: 'column',
-        backgroundImage: `linear-gradient(135deg, ${BRAND_BG_FROM} 0%, ${BRAND_BG_TO} 100%)`,
+        backgroundColor: BRAND_BG_FROM,
         color: TEXT_PRIMARY,
         fontFamily: 'Roboto',
-        padding: 60,
         position: 'relative',
+        overflow: 'hidden',
       },
       children: [
-        // Top: brand row + logo
+        {
+          type: 'img',
+          props: {
+            src: 'job-photo:' + model.photoKey,
+            width: OG_WIDTH,
+            height: OG_HEIGHT,
+            style: {
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: OG_WIDTH,
+              height: OG_HEIGHT,
+              objectFit: 'cover',
+            },
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: OG_WIDTH,
+              height: OG_HEIGHT,
+              backgroundImage: 'linear-gradient(90deg, rgba(7,20,52,0.96) 0%, rgba(7,20,52,0.9) 58%, rgba(7,20,52,0.68) 82%, rgba(7,20,52,0.28) 100%)',
+            },
+          },
+        },
         {
           type: 'div',
           props: {
             style: {
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: 'column',
               justifyContent: 'space-between',
-              alignItems: 'flex-start',
+              width: OG_WIDTH,
+              height: OG_HEIGHT,
+              padding: 64,
+              position: 'relative',
             },
             children: [
               {
@@ -311,106 +338,135 @@ function buildCardJsx(model: CardModel): unknown {
                   style: {
                     display: 'flex',
                     flexDirection: 'column',
+                    alignItems: 'flex-start',
                   },
                   children: [
                     {
                       type: 'div',
                       props: {
                         style: {
-                          fontSize: 26,
+                          fontSize: 30,
                           fontWeight: 700,
-                          letterSpacing: 1,
-                          color: BRAND_ACCENT,
+                          letterSpacing: 1.4,
+                          color: TEXT_PRIMARY,
                         },
-                        children: 'FRONTALIERE TICINO',
+                        children: 'FRONTALIERETICINO.CH',
                       },
                     },
                     {
                       type: 'div',
                       props: {
                         style: {
-                          fontSize: 22,
-                          color: TEXT_MUTED,
-                          marginTop: 4,
+                          width: 92,
+                          height: 7,
+                          backgroundColor: BRAND_ACCENT,
+                          marginTop: 18,
                         },
-                        children: 'Lavoro in Svizzera per frontalieri',
                       },
                     },
                   ],
                 },
               },
-              logoBlock,
-            ].filter(Boolean),
-          },
-        },
-        // Middle: title + company
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex',
-              flexDirection: 'column',
-              flexGrow: 1,
-              justifyContent: 'center',
-              marginTop: 30,
-              marginBottom: 30,
-            },
-            children: [
               {
                 type: 'div',
                 props: {
                   style: {
-                    fontSize: 64,
-                    fontWeight: 800,
-                    lineHeight: 1.1,
-                    color: TEXT_PRIMARY,
-                    display: 'block',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    maxWidth: 850,
+                    marginTop: 55,
+                    marginBottom: 45,
                   },
-                  children: model.title,
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: 62,
+                          fontWeight: 800,
+                          lineHeight: 1.05,
+                          color: TEXT_PRIMARY,
+                          display: 'block',
+                        },
+                        children: model.title,
+                      },
+                    },
+                    model.company
+                      ? {
+                          type: 'div',
+                          props: {
+                            style: {
+                              fontSize: 32,
+                              fontWeight: 600,
+                              color: TEXT_MUTED,
+                              marginTop: 20,
+                            },
+                            children: truncateText(model.company, 52),
+                          },
+                        }
+                      : null,
+                    chips.length
+                      ? {
+                          type: 'div',
+                          props: {
+                            style: {
+                              display: 'flex',
+                              flexDirection: 'row',
+                              flexWrap: 'wrap',
+                              alignItems: 'center',
+                              marginTop: 28,
+                            },
+                            children: chips,
+                          },
+                        }
+                      : null,
+                  ].filter(Boolean),
                 },
               },
-              model.company
-                ? {
-                    type: 'div',
-                    props: {
-                      style: {
-                        fontSize: 36,
-                        fontWeight: 600,
-                        color: TEXT_MUTED,
-                        marginTop: 18,
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: CTA_RED,
+                    borderRadius: 18,
+                    width: 850,
+                    padding: '24px 30px',
+                  },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: 23,
+                          lineHeight: 1.1,
+                          fontWeight: 700,
+                          letterSpacing: 1.2,
+                          color: TEXT_PRIMARY,
+                        },
+                        children: 'CANDIDATI SU',
                       },
-                      children: model.company,
                     },
-                  }
-                : null,
-            ].filter(Boolean),
-          },
-        },
-        // Bottom: chips
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-            },
-            children: chips,
-          },
-        },
-        // Watermark
-        {
-          type: 'div',
-          props: {
-            style: {
-              position: 'absolute',
-              right: 60,
-              bottom: 36,
-              fontSize: 22,
-              color: TEXT_MUTED,
-            },
-            children: 'frontaliereticino.ch',
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          fontSize: 34,
+                          lineHeight: 1.1,
+                          fontWeight: 700,
+                          color: TEXT_PRIMARY,
+                          marginTop: 7,
+                        },
+                        children: 'frontaliereticino.ch',
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
           },
         },
       ],
@@ -423,7 +479,7 @@ function ogPathForSlug(slug: string): string {
 }
 
 /**
- * The cache filename uses `slug` + `OG_RENDER_VERSION`.
+ * The cache filename uses `slug` + `photoKey` + `OG_RENDER_VERSION`.
  *
  * Why slug (not job.id, not a custom hash):
  * - The crawler `job.id` is URL-derived (sha1 of the source URL), so
@@ -438,15 +494,14 @@ function ogPathForSlug(slug: string): string {
  *   which makes debugging and one-off invalidation trivial
  *   (`rm .cache/og-jobs/aiuto-flessibile-tally-weijl-chur.*`).
  *
- * Coverage gap: salary edits, employment-type changes, and logo-manifest
- * updates DON'T change the slug, so a stale OG could be served until
- * the title or city eventually changes. Empirically <0.5 %/week of
- * jobs (mostly translation refinements) — accepted in exchange for
- * simpler code and no separate visual-hash maintenance.
+ * Coverage gap: salary and employment-type edits DON'T change the slug
+ * or photo key. Empirically <0.5 %/week of jobs (mostly translation
+ * refinements) — accepted in exchange for simpler code and no separate
+ * visual-hash maintenance.
  *
- * Cache filename: `<slug>.<OG_RENDER_VERSION>.webp`
+ * Cache filename: `<slug>.<photoKey>.<OG_RENDER_VERSION>.webp`
  *
- * slug + design stable    → same filename → cache hit
+ * slug + photo + design stable → same filename → cache hit
  * title/company/city edit → new slug      → re-render
  * design bump             → new version   → re-render
  *
@@ -455,8 +510,7 @@ function ogPathForSlug(slug: string): string {
  */
 
 export function jobOgImageUrl(baseUrl: string, slug: string | null): string | null {
-  if (!slug) return null;
-  return `${baseUrl}/${OUT_SUBDIR}/${slug}.webp`;
+  return versionedJobOgImageUrl(baseUrl, slug);
 }
 
 interface Stats {
@@ -509,7 +563,12 @@ export default function jobOgImagesPlugin(): Plugin {
         return;
       }
 
-      const manifest = readLogosManifest(rootDir);
+      const photoDataUrls = readJobPhotoDataUrls(rootDir);
+      if (!photoDataUrls) {
+        // eslint-disable-next-line no-console
+        console.warn('[job-og-images] generated workplace photos are missing — skipping OG images.');
+        return;
+      }
       const outRoot = path.join(rootDir, outDir, OUT_SUBDIR);
       const cacheRoot = path.join(rootDir, CACHE_SUBDIR);
       mkdirSync(outRoot, { recursive: true });
@@ -519,7 +578,7 @@ export default function jobOgImagesPlugin(): Plugin {
       const startMs = Date.now();
 
       // ── Pass 1: drain the cache (synchronous I/O, no satori needed) ──
-      // For each job, decide whether we already have a fresh PNG. If yes,
+      // For each job, decide whether we already have a fresh WebP. If yes,
       // copy cache → dist and skip. If no, queue for render in pass 2.
       interface RenderJob {
         jobId: string;
@@ -538,11 +597,12 @@ export default function jobOgImagesPlugin(): Plugin {
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
+        const photoKey = classifyJobPhoto(job);
         // See the doc-comment above the deleted cacheKeyForJob for why
-        // we cache by slug + version (not job.id + visualHash).
+        // we cache by slug + photo key + version (not job.id + visualHash).
         const cachePath = path.join(
           cacheRoot,
-          `${slug}.${OG_RENDER_VERSION}.webp`,
+          `${slug}.${photoKey}.${OG_RENDER_VERSION}.webp`,
         );
 
         if (existsSync(cachePath)) {
@@ -556,7 +616,6 @@ export default function jobOgImagesPlugin(): Plugin {
           }
         }
 
-        const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
         const model: CardModel = {
           // Prefer the Italian-translated title when present. The plugin's
           // audience is Italian-speaking frontalieri, the slug is built from
@@ -565,7 +624,7 @@ export default function jobOgImagesPlugin(): Plugin {
           // English source) leaks the wrong language into the social card.
           title: truncateText(
             job.titleByLocale?.it ?? job.title ?? '',
-            110,
+            82,
           ),
           company: deriveCompany(job),
           city: deriveCity(job),
@@ -573,7 +632,7 @@ export default function jobOgImagesPlugin(): Plugin {
           employmentLabel: job.employmentType
             ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
             : null,
-          logoDataUrl: logoMfPath ? logoDataUrl(rootDir, logoMfPath) : null,
+          photoKey,
         };
         renderQueue.push({
           jobId: slug,
@@ -591,8 +650,8 @@ export default function jobOgImagesPlugin(): Plugin {
           Math.min(
             renderQueue.length,
             Number(process.env.OG_WORKER_COUNT) || cpus().length || 2,
-            // Cap at 4 — diminishing returns beyond that on a 2-core CI
-            // runner, and font buffers are duplicated per worker (2× 45KB).
+            // Cap at 4 — each worker keeps the static fonts and four compact
+            // JPEG photo data URLs in memory while it renders the queue.
             4,
           ),
         );
@@ -649,8 +708,9 @@ export default function jobOgImagesPlugin(): Plugin {
                 fontRegular: fontPair.regular,
                 fontBold: fontPair.bold,
                 brandBgFrom: BRAND_BG_FROM,
-                width: PNG_WIDTH,
-                height: PNG_HEIGHT,
+                photoDataUrls,
+                width: OG_WIDTH,
+                height: OG_HEIGHT,
               },
             });
 
@@ -701,7 +761,7 @@ export default function jobOgImagesPlugin(): Plugin {
       // previous version's cached files alongside the freshly-rendered ones.
       // Without cleanup the cache size grows by ~180 MB per version bump,
       // which both wastes the GitHub Actions cache budget and slows future
-      // restores. Filenames are `<slug>.<OG_RENDER_VERSION>.<ext>` so we drop
+      // restores. Filenames are `<slug>.<photoKey>.<OG_RENDER_VERSION>.<ext>` so we drop
       // any entry whose suffix doesn't match the current version+extension.
       const versionSuffix = `.${OG_RENDER_VERSION}.webp`;
       let pruned = 0;
