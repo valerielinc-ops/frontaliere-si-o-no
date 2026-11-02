@@ -367,7 +367,12 @@ const STAGE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
 const MAX_SYNTHESIS_RETRIES = 5;
 const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
 const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
-const SECO_IDENTITY_FIELDS = new Set(['secoEmployerName']);
+const SECO_IDENTITY_FIELDS = new Set([
+  'secoEmployerName',
+  'secoEmployerClassification',
+  'secoStaffingAgency',
+  'secoStaffingMatchConfidence',
+]);
 const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
 const TRACE_RETRY_DISCOVERY_SOURCES = new Set(['own', 'seco', 'osm', 'web']);
 const TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE = new Map([

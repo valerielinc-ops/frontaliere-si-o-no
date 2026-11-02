@@ -10,10 +10,14 @@ const state = vi.hoisted(() => ({
   store: { version: 1, candidates: {}, rejectedTombstones: {} } as any,
 }));
 
-vi.mock('../scripts/lib/prospector/config.mjs', () => ({
-  get ROOT() { return state.root; },
-  get PROSPECTOR_DIR() { return state.prospectorDir; },
-}));
+vi.mock('../scripts/lib/prospector/config.mjs', async (importOriginal) => {
+  const original = await importOriginal<typeof import('../scripts/lib/prospector/config.mjs')>();
+  return {
+    ...original,
+    get ROOT() { return state.root; },
+    get PROSPECTOR_DIR() { return state.prospectorDir; },
+  };
+});
 
 vi.mock('../scripts/lib/prospector/coverage.mjs', () => ({
   loadCoverage: () => ({ keys: state.productionKeys }),

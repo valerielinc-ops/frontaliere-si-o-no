@@ -50,6 +50,7 @@ import { CANTONS } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 import { appendDiscoveryHealth, recordDiscoverySourceOutcome, startDiscoveryHealthRun } from './lib/prospector/source-health.mjs';
 import { loadSecoPageCursors, saveSecoPageCursors } from './lib/prospector/sources/seco-page-cursors.mjs';
+import { classifyStaffingEmployer, loadStaffingRegistry } from './lib/prospector/seco-staffing-classifier.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -93,6 +94,7 @@ const discoveryHealthRun = startDiscoveryHealthRun();
 const coverage = loadCoverage();
 const store = loadCandidates();
 const registry = loadRegistry();
+const staffingRegistry = loadStaffingRegistry();
 const duplicateReconciliation = reconcileCandidateDuplicates(store, dryRun ? null : undefined);
 const secoPageCursors = sources.includes('seco') ? loadSecoPageCursors() : null;
 const zefixCursors = sources.includes('zefix') ? loadZefixCursors() : null;
@@ -204,9 +206,13 @@ if (sources.includes('seco')) {
     const filedBefore = perSource.seco || 0;
     const emailDomainHints = emailDomainHintsByEmployer(employers);
     for (const e of employers) {
+      const staffing = classifyStaffingEmployer(e.name, staffingRegistry);
       file({
         name: e.name,
         secoEmployerName: e.name,
+        secoEmployerClassification: staffing.classification,
+        secoStaffingAgency: staffing.matchedAgency || null,
+        secoStaffingMatchConfidence: staffing.confidence,
         city: e.city,
         zip: e.zip,
         canton,

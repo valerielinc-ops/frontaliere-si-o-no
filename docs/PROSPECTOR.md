@@ -175,6 +175,66 @@ da un aggregatore esattamente nel modo in cui il prospector e' costruito per non
 fare mai. Quel percorso e' coperto da un gate distinto, non da questo loop —
 vedi `docs/CRAWLERS.md#aggregator-sourced-crawlers--the-data-can-be-genuine-and-the-destination-still-wrong`.
 
+## Misura di copertura esclusiva e classificazione del datore
+
+Ogni report misura anche la parte che i grandi motori non mostrano. La sorgente
+ufficiale è la snapshot viva `data/jobs/by-crawler/seco-jobroom.json`; le altre
+slice vengono considerate aggregatori solo quando almeno uno dei loro URL di
+origine (`url`, `applyUrl`, `sourceUrl`, `sourcePageUrl` o `originalUrl`) cade
+su `isKnownAggregatorDomain()` in `scripts/lib/known-aggregator-domains.mjs`.
+La slice SECO non viene ricontata come aggregatore anche se il suo URL tecnico
+è `job-room.ch`, che è nella denylist dei marketplace.
+
+Un'offerta SECO è **esclusiva** se non trova una riga viva nelle slice degli
+aggregatori. Il confronto è deterministico e dichiarato nel JSON: URL
+normalizzato (hash e tracking rimossi), oppure datore normalizzato + stesso
+cantone (quando presente in entrambe) + similarità del titolo a token `>= 0,80`;
+il datore richiede overlap token `>= 0,75`. La liveness è quella della snapshot
+corrente, salvo stati espliciti `expired`, `inactive`, `archived`, `closed`,
+`filled` o `removed`: non viene inventata una soglia temporale separata.
+
+Non esiste nel feed SECO una misura affidabile dei dipendenti. Le fasce
+`micro` (1–4), `small` (5–19), `medium` (20–99) e `large` (100+) sono quindi
+un proxy versionato del **volume di offerte SECO vive per datore**, non la
+dimensione legale dell'impresa. Il risultato completo per cantone e fascia,
+con denominatori e tassi, vive in
+`data/prospector/coverage-exclusivity-history.json`: ogni snapshot ha versione,
+metodo, sorgente, popolazione, classificazione e `byCantonAndSize`. Lo stesso
+report viene riversato nel summary di `prospector-loop.yml`, così uno zero
+dovuto a una sorgente assente resta visibile come `unavailable` e non diventa
+copertura fittizia.
+
+La distinzione agenzia/datore diretto usa
+`scripts/lib/prospector/seco-staffing-classifier.mjs`. La forma corretta del
+registro è `registry.agencies`, non il documento passato direttamente al
+matcher. Il classificatore costruisce alias di brand e forme legali: per
+esempio `Adecco` combacia con `Adecco Resources SA`. `agency` significa match
+di un'agenzia nella registry curata; `direct` è il residuo non matchato nella
+registry e porta la confidence `curated-registry-residual`, non è la pretesa
+che il registro SECO completo sia stato verificato; `unknown` resta per nome
+mancante o registry non disponibile/malformata. La metrica conserva queste
+confidence e il numero di offerte, quindi il riferimento proprietario del 31%
+resta confrontabile con una misura riproducibile invece di essere nascosto in
+un matching ingenuo. Il benchmark fornito dal proprietario (31% stimato, con
+Adecco 522 su 2.432) è conservato nella metrica come riferimento storico,
+separato dal valore misurato: non modifica il classificatore e non trasforma il
+residuo della registry in una prova legale. La classificazione SECO viene
+salvata nel candidato e riusata dalla coda.
+
+TRACE, SYNTHESIZE e VALIDATE condividono l'ordine di copertura: `TI → GR → VS
+→ GE → VD → BS → BL → JU → NE → SH → TG → SG`, poi gli altri cantoni. Ogni
+lotto riserva il 20% (almeno uno slot se il resto è disponibile) agli altri
+cantoni, per evitare che la frontiera li affami. All'interno della coda, un
+datore classificato `direct` con annunci SECO osservati negli ultimi 30 giorni
+precede gli altri; le quote di fairness e retry già proprie di ciascuno stadio
+restano attive.
+
+Le pagine che raccolgono candidature spontanee senza un posto preciso passano
+dal contratto free-text ma finiscono in `candidate.permanentApplications`, con
+`permanentApplicationOnly: true` quando non c'è un annuncio concreto. Non
+generano una spec né una `JobPosting`, e questa PR non aggiunge alcuna pagina
+pubblica.
+
 ## Qualità: contro la pagina ufficiale, non contro il numero di righe
 
 Il monitor di salute esistente conta le righe tornate. Un parser che restituisce

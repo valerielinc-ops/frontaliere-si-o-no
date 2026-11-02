@@ -145,6 +145,33 @@ describe('Prospector free-text offers', () => {
     expect(result.reasonCode).toBe('permanent_application_only');
   });
 
+  it('returns permanent-application evidence without creating a vacancy spec', async () => {
+    const page = '<p>Posizioni aperte: candidature spontanee sempre benvenute.</p>';
+    const synthesized = await synthesizeSpec({
+      careersUrl: URL,
+      domain: 'tecno.example',
+      name: 'Tecno Montaggi',
+      ...location,
+    }, {
+      fetchImpl: async () => new Response(page),
+      callLLM: async () => ({
+        vacancies: [],
+        permanentApplications: [{
+          label: 'Candidatura spontanea',
+          description: 'Invia il tuo profilo per future opportunità.',
+          sourceText: 'candidature spontanee sempre benvenute',
+          applyUrl: '',
+        }],
+      }),
+      sleepImpl: async () => {},
+    });
+
+    expect(synthesized.spec).toBeNull();
+    expect(synthesized.reasonCode).toBe('permanent_application_only');
+    expect(synthesized.vacancies).toEqual([]);
+    expect(synthesized.permanentApplications).toHaveLength(1);
+  });
+
   it('synthesizes and runs the same free-text contract in production', async () => {
     const callLLM = async () => llmResponse();
     const fetchImpl = async () => new Response(PAGE);

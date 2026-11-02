@@ -9,11 +9,17 @@
  */
 
 import { hasUntriedEmailDomainHint } from './candidate-store.mjs';
+import {
+  compareCoveragePriority,
+  hasRecentSecoDemand,
+  isDirectRecentSeco,
+  selectWithRestCantonQuota,
+  SECO_RECENT_DAYS,
+} from './coverage-priority.mjs';
 
-export const TRACE_SECO_FRESHNESS_DAYS = 30;
+export const TRACE_SECO_FRESHNESS_DAYS = SECO_RECENT_DAYS;
 export const TRACE_LIMIT_MAX = 1200;
-const TRACE_SECO_FRESHNESS_MS = TRACE_SECO_FRESHNESS_DAYS * 86_400_000;
-const FRONTIER_CANTONS = new Set(['AG', 'BS', 'BL', 'GE', 'GR', 'JU', 'NE', 'SH', 'SO', 'SG', 'TG', 'TI', 'VD', 'VS']);
+export { hasRecentSecoDemand };
 const TRACE_BUCKETS = Object.freeze([
   { key: 'careersUrl', weight: 5, matches: (candidate) => Boolean(candidate?.careersUrl) },
   { key: 'domain', weight: 3, matches: (candidate) => hasDomainLead(candidate) },
@@ -39,30 +45,16 @@ export function parseTraceLimit(rawValue, fallback = 40) {
 }
 
 /**
- * @param {Record<string, any>} candidate
- * @param {number} [now]
- * @returns {boolean}
- */
-export function hasRecentSecoDemand(candidate, now = Date.now()) {
-  if (!(Number(candidate?.adCount) > 0)) return false;
-  const observedAt = Date.parse(String(candidate?.sourceSeenAt?.seco || ''));
-  const age = now - observedAt;
-  return Number.isFinite(observedAt) && age >= 0 && age <= TRACE_SECO_FRESHNESS_MS;
-}
-
-function cantonPriority(candidate) {
-  const canton = String(candidate?.canton || '').toUpperCase();
-  if (canton === 'TI') return 2;
-  return FRONTIER_CANTONS.has(canton) ? 1 : 0;
-}
-
-/**
  * @param {Record<string, any>} a
  * @param {Record<string, any>} b
  * @param {number} [now]
  * @returns {number}
  */
 export function compareTraceCandidates(a, b, now = Date.now()) {
+  return compareCoveragePriority(a, b, now, compareTraceEvidence);
+}
+
+function compareTraceEvidence(a, b, now) {
   const directCareers = Number(Boolean(b?.careersUrl)) - Number(Boolean(a?.careersUrl));
   if (directCareers) return directCareers;
 
@@ -71,9 +63,6 @@ export function compareTraceCandidates(a, b, now = Date.now()) {
 
   const recentDemand = Number(hasRecentSecoDemand(b, now)) - Number(hasRecentSecoDemand(a, now));
   if (recentDemand) return recentDemand;
-
-  const borderDemand = cantonPriority(b) - cantonPriority(a);
-  if (borderDemand) return borderDemand;
 
   if (hasRecentSecoDemand(a, now) && hasRecentSecoDemand(b, now)) {
     const fresh = String(b.sourceSeenAt.seco).localeCompare(String(a.sourceSeenAt.seco));
@@ -88,18 +77,15 @@ export function compareTraceCandidates(a, b, now = Date.now()) {
   return seen || String(a?.key || '').localeCompare(String(b?.key || ''));
 }
 
-/**
- * @param {Record<string, any>[]} candidates
- * @param {number} limit
- * @param {number} [now]
- * @returns {Record<string, any>[]}
- */
-export function prioritizeTraceCandidates(candidates, limit, now = Date.now()) {
-  const max = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : candidates.length;
-  if (!max) return [];
+function selectTracePool(candidates, max, now) {
+  const directRecent = candidates
+    .filter((candidate) => isDirectRecentSeco(candidate, now))
+    .sort((a, b) => compareTraceCandidates(a, b, now));
+  if (directRecent.length >= max) return directRecent.slice(0, max);
 
+  const nonDirectRecent = candidates.filter((candidate) => !isDirectRecentSeco(candidate, now));
   const buckets = Object.fromEntries(TRACE_BUCKETS.map(({ key }) => [key, []]));
-  for (const candidate of candidates) {
+  for (const candidate of nonDirectRecent) {
     const bucket = TRACE_BUCKETS.find(({ matches }) => matches(candidate, now));
     buckets[bucket.key].push(candidate);
   }
@@ -109,13 +95,8 @@ export function prioritizeTraceCandidates(candidates, limit, now = Date.now()) {
 
   const selectedCounts = Object.fromEntries(TRACE_BUCKETS.map(({ key }) => [key, 0]));
   const selected = [];
-
-  // Weighted fair allocation yields 5/3/2/1 at limit 11. A bucket at capacity
-  // drops out, so its remaining share is redistributed over the other buckets.
-  // Keeping fallback in the same allocation prevents a persistent primary
-  // backlog from indefinitely postponing candidates with weaker evidence.
   const candidateCount = TRACE_BUCKETS.reduce((count, { key }) => count + buckets[key].length, 0);
-  for (let slot = 0; slot < Math.min(max, candidateCount); slot += 1) {
+  for (let slot = 0; slot < Math.min(max - directRecent.length, candidateCount); slot += 1) {
     const available = TRACE_BUCKETS.filter(({ key }) => selectedCounts[key] < buckets[key].length);
     available.sort((a, b) => {
       const aNextShare = (selectedCounts[a.key] + 1) / a.weight;
@@ -127,6 +108,21 @@ export function prioritizeTraceCandidates(candidates, limit, now = Date.now()) {
     selected.push(buckets[bucket.key][selectedCounts[bucket.key]]);
     selectedCounts[bucket.key] += 1;
   }
+  return [...directRecent, ...selected];
+}
 
-  return selected;
+/**
+ * @param {Record<string, any>[]} candidates
+ * @param {number} limit
+ * @param {number} [now]
+ * @returns {Record<string, any>[]}
+ */
+export function prioritizeTraceCandidates(candidates, limit, now = Date.now()) {
+  const max = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : candidates.length;
+  if (!max) return [];
+
+  return selectWithRestCantonQuota(candidates, max, {
+    compare: (a, b) => compareTraceCandidates(a, b, now),
+    selectPool: (pool, budget) => selectTracePool(pool, budget, now),
+  });
 }
