@@ -248,12 +248,12 @@ describe('rilievi di review', () => {
 
   it('rileva marker titolo con spazi Unicode prima dei due punti', () => {
     for (const space of ['\u00a0', '\u202f']) {
-      const text = `TITRE ARTICLE${space}: titre`;
+      const text = `Intro TITRE ARTICLE${space}: titre`;
       expect(findEditorialClaims(text, { locale: 'fr' })).toContainEqual({
         class: 'stringa-prompt',
         sentence: `TITRE ARTICLE${space}:`,
       });
-      expect(stripPromptTitleLabels(text).value).toBe('titre');
+      expect(stripPromptTitleLabels(text).value).toBe('Intro titre');
     }
     expect(stripPromptTitleLabels('\u00a0TITRE ARTICLE\u202f:\nDopo').value).toBe('Dopo');
   });
