@@ -1609,7 +1609,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1678,14 +1678,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -8121,10 +8121,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8199,21 +8199,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -9190,7 +9189,7 @@
       "id": "helvetia-a0e74f7477fc",
       "slug": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
       "slugByLocale": {
-        "it": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
+        "it": "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne",
         "en": "team-leader-real-estate-management-lausanne-m-f-d-part-time-full-time-helvetia-versicherungen-lausanne",
         "de": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
         "fr": "chef-d-equipe-gestion-immobiliere-lausanne-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-lausanne"
@@ -9269,13 +9268,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-          "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
         ],
         "en": [
           "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
@@ -11462,12 +11459,12 @@
     },
     {
       "id": "helvetia-228ac32bab6f",
-      "slug": "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel",
+      "slug": "giovane-assicurazione-professionale-m-f-d-2027-vita-collettiva-sede-centrale-basilea-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel",
-        "it": "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel",
-        "en": "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel",
-        "fr": "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel"
+        "it": "giovane-assicurazione-professionale-m-f-d-2027-vita-collettiva-sede-centrale-basilea-helvetia-versicherungen-basel",
+        "en": "young-insurance-professional-m-f-d-2027-collective-life-headquarters-basel-helvetia-versicherungen-basel",
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-vie-collective-siege-bale-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11529,16 +11526,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.194Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.194Z"
+      "firstSeenAt": "2026-11-02T09:35:14.194Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel"
+        ],
+        "en": [
+          "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-w-m-d-2027-kollektivleben-hauptsitz-basel-helvetia-basel"
+      ]
     },
     {
       "id": "helvetia-be99c1d1c313",
-      "slug": "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel",
+      "slug": "giovane-assicurazione-professionale-m-f-d-2027-servizio-clienti-indennita-giornaliera-sanitaria-sede-centrale-di-basilea",
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel",
-        "it": "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel",
-        "en": "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel",
-        "fr": "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel"
+        "it": "giovane-assicurazione-professionale-m-f-d-2027-servizio-clienti-indennita-giornaliera-sanitaria-sede-centrale-di-basilea",
+        "en": "young-insurance-professional-m-f-d-2027-customer-services-health-day-allowance-headquarters-basel-helvetia",
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-service-a-la-clientele-indemnite-journaliere-de-sante-siege-bale-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11600,7 +11611,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.193Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.193Z"
+      "firstSeenAt": "2026-11-02T09:35:14.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel"
+        ],
+        "en": [
+          "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-w-m-d-2027-kundenleistungen-krankentaggeld-hauptsitz-basel"
+      ]
     },
     {
       "id": "helvetia-8eff0d1027f9",
@@ -11812,7 +11837,7 @@
         "de": "young-insurance-professional-w-m-d-2027-generalagentur-thurgau-helvetia-frauenfeld",
         "it": "young-insurance-professional-m-w-d-2027-agenzia-generale-thurgau-helvetia-versicherungen-frauenfeld",
         "en": "young-insurance-professional-w-m-d-2027-generalagentur-thurgau-helvetia-frauenfeld",
-        "fr": "young-insurance-professional-w-m-d-2027-generalagentur-thurgau-helvetia-frauenfeld"
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-agence-generale-thurgau-helvetia-versicherungen-frauenfeld"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11861,6 +11886,9 @@
       "previousSlugsByLocale": {
         "it": [
           "young-insurance-professional-w-m-d-2027-generalagentur-thurgau-helvetia-frauenfeld"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-generalagentur-thurgau-helvetia-frauenfeld"
         ]
       },
       "previousSlugs": [
@@ -11886,12 +11914,12 @@
     },
     {
       "id": "helvetia-1945fdf6b399",
-      "slug": "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st",
+      "slug": "giovane-assicurazione-professional-m-f-d-servizio-clienti-digatura-st-gallen-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st",
-        "it": "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st",
-        "en": "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st",
-        "fr": "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st"
+        "it": "giovane-assicurazione-professional-m-f-d-servizio-clienti-digatura-st-gallen-helvetia-versicherungen-st-gallen",
+        "en": "young-insurance-professional-m-f-d-customer-services-property-damage-st-gallen-helvetia-versicherungen-st-gallen",
+        "fr": "young-insurance-professional-h-f-d-services-a-la-clientele-dommages-materiels-st-gallen-helvetia-versicherungen-st"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11953,7 +11981,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.188Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.188Z"
+      "firstSeenAt": "2026-11-02T09:35:14.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st"
+        ],
+        "en": [
+          "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-w-m-d-kundenleistungen-sach-schaden-st-gallen-helvetia-st"
+      ]
     },
     {
       "id": "helvetia-db6e2d3159af",
@@ -12041,12 +12083,12 @@
     },
     {
       "id": "helvetia-d9e51921998e",
-      "slug": "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden",
+      "slug": "young-insurance-professional-m-f-d-2027-assicurazione-per-la-responsabilita-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden",
-        "it": "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden",
-        "en": "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden",
-        "fr": "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden"
+        "it": "young-insurance-professional-m-f-d-2027-assicurazione-per-la-responsabilita-helvetia-versicherungen-st-gallen",
+        "en": "young-insurance-professional-m-f-d-2027-liability-damage-corporate-property-insurance-helvetia-versicherungen-st-gallen",
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-assurance-dommages-et-biens-d-entreprise-helvetia-versicherungen-st-gallen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12108,7 +12150,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.184Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.184Z"
+      "firstSeenAt": "2026-11-02T09:35:14.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden"
+        ],
+        "en": [
+          "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-w-m-d-2027-haftpflicht-schaden-amp-firmenkunden"
+      ]
     },
     {
       "id": "helvetia-3247cff5e0b5",
@@ -12196,7 +12252,7 @@
         "de": "young-insurance-professional-w-m-d-2027-generalagentur-schwyz-helvetia-schwyz",
         "it": "young-insurance-professional-m-w-d-2027-agenzia-generale-schwyz-helvetia-versicherungen-schwyz",
         "en": "young-insurance-professional-w-m-d-2027-generalagentur-schwyz-helvetia-schwyz",
-        "fr": "young-insurance-professional-w-m-d-2027-generalagentur-schwyz-helvetia-schwyz"
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-agence-generale-schwyz-helvetia-versicherungen-schwyz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12245,6 +12301,9 @@
       "previousSlugsByLocale": {
         "it": [
           "young-insurance-professional-w-m-d-2027-generalagentur-schwyz-helvetia-schwyz"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-generalagentur-schwyz-helvetia-schwyz"
         ]
       },
       "previousSlugs": [
@@ -12270,12 +12329,12 @@
     },
     {
       "id": "helvetia-ab2c606cfb34",
-      "slug": "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia",
+      "slug": "young-insurance-professional-m-f-d-2027-servizio-clienti-non-vita-sede-di-basilea-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia",
-        "it": "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia",
-        "en": "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia",
-        "fr": "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia"
+        "it": "young-insurance-professional-m-f-d-2027-servizio-clienti-non-vita-sede-di-basilea-helvetia-versicherungen-basel",
+        "en": "young-insurance-professional-m-f-d-2027-customer-service-non-life-headquarters-basel-helvetia-versicherungen-basel",
+        "fr": "young-insurance-professional-h-f-d-2027-service-a-la-clientele-non-vie-siege-bale-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12337,16 +12396,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.179Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.179Z"
+      "firstSeenAt": "2026-11-02T09:35:14.179Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia"
+        ],
+        "en": [
+          "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-w-m-d-2027-kundendienst-nichtleben-hauptsitz-basel-helvetia"
+      ]
     },
     {
       "id": "helvetia-113895dfa1bd",
-      "slug": "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen",
+      "slug": "young-insurance-professional-m-f-d-2027-linee-specializzate-san-gallo-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen",
-        "it": "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen",
+        "it": "young-insurance-professional-m-f-d-2027-linee-specializzate-san-gallo-helvetia-versicherungen-st-gallen",
         "en": "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen",
-        "fr": "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen"
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-lignes-specialisees-st-gallen-helvetia-versicherungen-st-gallen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12409,7 +12482,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.177Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.177Z"
+      "firstSeenAt": "2026-11-02T09:35:14.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen"
+        ],
+        "fr": [
+          "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-w-m-d-2027-specialty-lines-st-gallen-helvetia-st-gallen"
+      ]
     },
     {
       "id": "helvetia-b176296d5af6",
@@ -12417,8 +12501,8 @@
       "slugByLocale": {
         "de": "young-insurance-professional-w-m-d-2027-generalagentur-urschweiz-helvetia-uri",
         "it": "young-insurance-professional-m-w-d-2027-agenzia-generale-urschweiz-helvetia-versicherungen-uri",
-        "en": "young-insurance-professional-w-m-d-2027-generalagentur-urschweiz-helvetia-uri",
-        "fr": "young-insurance-professional-w-m-d-2027-generalagentur-urschweiz-helvetia-uri"
+        "en": "young-insurance-professional-m-f-d-2027-central-switzerland-general-agency-helvetia-versicherungen-uri",
+        "fr": "young-insurance-professional-h-f-d-2027-agence-generale-de-suisse-centrale-helvetia-versicherungen-uri"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12467,6 +12551,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "young-insurance-professional-w-m-d-2027-generalagentur-urschweiz-helvetia-uri"
+        ],
+        "en": [
+          "young-insurance-professional-w-m-d-2027-generalagentur-urschweiz-helvetia-uri"
+        ],
+        "fr": [
           "young-insurance-professional-w-m-d-2027-generalagentur-urschweiz-helvetia-uri"
         ]
       },
@@ -12696,7 +12786,7 @@
         "de": "young-insurance-professional-w-m-d-2027-generalagentur-zurich-nord-helvetia-generalagentur",
         "it": "young-insurance-professional-m-w-d-2027-agenzia-generale-zurich-nord-helvetia-versicherungen-generalagentur-zurich-nord",
         "en": "young-insurance-professional-w-m-d-2027-generalagentur-zurich-nord-helvetia-generalagentur",
-        "fr": "young-insurance-professional-w-m-d-2027-generalagentur-zurich-nord-helvetia-generalagentur"
+        "fr": "jeune-professionnel-d-assurance-h-f-d-2027-agence-generale-zurich-nord-helvetia-versicherungen-generalagentur-zurich"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12744,6 +12834,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "young-insurance-professional-w-m-d-2027-generalagentur-zurich-nord-helvetia-generalagentur"
+        ],
+        "fr": [
           "young-insurance-professional-w-m-d-2027-generalagentur-zurich-nord-helvetia-generalagentur"
         ]
       },
@@ -13135,12 +13228,12 @@
     },
     {
       "id": "helvetia-ccf9c8cc2c52",
-      "slug": "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia",
+      "slug": "young-insurance-professional-2027-tutti-i-generi-disaster-service-helvetia-versicherungen-givisiez",
       "slugByLocale": {
         "fr": "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia",
-        "it": "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia",
-        "en": "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia",
-        "de": "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia"
+        "it": "young-insurance-professional-2027-tutti-i-generi-disaster-service-helvetia-versicherungen-givisiez",
+        "en": "young-insurance-professional-2027-all-genera-disaster-service-helvetia-versicherungen-givisiez",
+        "de": "young-insurance-professional-2027-alle-gattungen-katastrophendienst-helvetia-versicherungen-givisiez"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13202,16 +13295,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:35:14.135Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.135Z"
+      "firstSeenAt": "2026-11-02T09:35:14.135Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia"
+        ],
+        "en": [
+          "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia"
+        ],
+        "de": [
+          "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-2027-tous-genres-service-des-sinistres-choses-helvetia"
+      ]
     },
     {
       "id": "helvetia-54ea949b4c52",
-      "slug": "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern",
+      "slug": "consulente-clienti-m-f-d-assicurazione-berne-part-time-full-time-helvetia-versicherungen-bern",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern",
-        "it": "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern",
-        "en": "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern",
-        "fr": "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern"
+        "it": "consulente-clienti-m-f-d-assicurazione-berne-part-time-full-time-helvetia-versicherungen-bern",
+        "en": "customer-consultant-m-f-d-insurance-berne-part-time-full-time-helvetia-versicherungen-bern",
+        "fr": "consultant-client-h-f-d-assurance-berne-temps-partiel-temps-plein-helvetia-versicherungen-bern"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13273,16 +13380,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:35:14.134Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.134Z"
+      "firstSeenAt": "2026-11-02T09:35:14.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherungen-bern-teilzeit-vollzeit-helvetia-bern"
+      ]
     },
     {
       "id": "helvetia-51f9bebfb8ac",
-      "slug": "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia",
+      "slug": "young-insurance-professional-tutti-i-generi-2027-lavaux-riviera-general-agency-helvetia-versicherungen-vevey",
       "slugByLocale": {
         "fr": "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia",
-        "it": "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia",
-        "en": "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia",
-        "de": "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia"
+        "it": "young-insurance-professional-tutti-i-generi-2027-lavaux-riviera-general-agency-helvetia-versicherungen-vevey",
+        "en": "young-insurance-professional-all-genera-2027-lavaux-riviera-general-agency-helvetia-versicherungen-vevey",
+        "de": "young-insurance-professional-alle-gattungen-2027-lavaux-riviera-general-agency-helvetia-versicherungen-vevey"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13344,16 +13465,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:35:14.132Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.132Z"
+      "firstSeenAt": "2026-11-02T09:35:14.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia"
+        ],
+        "en": [
+          "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia"
+        ],
+        "de": [
+          "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-tous-genres-2027-agence-generale-lavaux-riviera-helvetia"
+      ]
     },
     {
       "id": "helvetia-fb45e1943bad",
-      "slug": "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges",
+      "slug": "young-insurance-professional-tutti-i-generi-2027-agenzia-generale-la-costa-helvetia-versicherungen-morges",
       "slugByLocale": {
         "fr": "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges",
-        "it": "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges",
-        "en": "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges",
-        "de": "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges"
+        "it": "young-insurance-professional-tutti-i-generi-2027-agenzia-generale-la-costa-helvetia-versicherungen-morges",
+        "en": "young-insurance-professional-all-genera-2027-general-agency-the-coast-helvetia-versicherungen-morges",
+        "de": "young-insurance-professional-alle-gattungen-2027-general-agency-the-coast-helvetia-versicherungen-morges"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13415,7 +13550,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:35:14.117Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:35:14.117Z"
+      "firstSeenAt": "2026-11-02T09:35:14.117Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges"
+        ],
+        "en": [
+          "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges"
+        ],
+        "de": [
+          "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges"
+        ]
+      },
+      "previousSlugs": [
+        "young-insurance-professional-tous-genres-2027-agence-generale-la-cote-helvetia-morges"
+      ]
     },
     {
       "id": "helvetia-93340a6062b8",

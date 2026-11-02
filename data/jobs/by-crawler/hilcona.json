@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-hilcona-oensingen",
         "it": "collaboratore-trice-mitarbeiterin-gebaeudeunterhalt-e-technik-hlkk-bell-schweiz-ag-oensingen",
-        "en": "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-bell-schweiz-ag-oensingen",
-        "fr": "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-bell-schweiz-ag-oensingen"
+        "en": "employee-employee-building-maintenance-and-technology-hlkk-bell-schweiz-ag-oensingen",
+        "fr": "employes-maintenance-des-batiments-et-technologie-hlkk-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -54,10 +54,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-hilcona-oensingen"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-hilcona-oensingen"
+        "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-hilcona-oensingen",
+        "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,

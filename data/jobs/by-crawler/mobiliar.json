@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-e7cb339a40d3",
-      "slug": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
+      "slug": "damage-inspector-property-damage-direzione-m-f-d-die-mobiliar-zurich",
       "slugByLocale": {
         "de": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
-        "it": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
-        "en": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
-        "fr": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        "it": "damage-inspector-property-damage-direzione-m-f-d-die-mobiliar-zurich",
+        "en": "damage-inspector-property-damage-directorate-m-f-d-die-mobiliar-zurich",
+        "fr": "inspecteur-des-dommages-direction-des-dommages-materiels-h-f-d-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -88,7 +88,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:44:46.076Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-30T21:13:43.196Z"
+      "firstSeenAt": "2026-10-30T21:13:43.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-2e0fc3f5be63",
@@ -3415,12 +3429,12 @@
     },
     {
       "id": "mobiliar-7214fe3ae6c1",
-      "slug": "apprentissage-d-employe-de-commerce-cfc-aout-2027-m-w-d-die-mobiliar-nyon",
+      "slug": "apprendistato-di-impiegato-di-commercio-afc-agosto-2027-m-f-d-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch",
-        "it": "apprentissage-d-employe-de-commerce-cfc-aout-2027-m-w-d-die-mobiliar-nyon",
-        "en": "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch",
-        "de": "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch"
+        "it": "apprendistato-di-impiegato-di-commercio-afc-agosto-2027-m-f-d-die-mobiliar-nyon",
+        "en": "business-employee-learning-cfc-august-2027-m-f-d-die-mobiliar-nyon",
+        "de": "business-employee-learning-cfc-august-2027-m-w-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3468,11 +3482,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch",
+          "apprentissage-d-employe-de-commerce-cfc-aout-2027-m-w-d-die-mobiliar-nyon"
+        ],
+        "en": [
+          "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch"
+        ],
+        "de": [
           "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch"
+        "apprentissage-d-employe-de-commerce-cfc-aout-2027-f-h-d-mobiliar-ch",
+        "apprentissage-d-employe-de-commerce-cfc-aout-2027-m-w-d-die-mobiliar-nyon"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -8183,9 +8205,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -8249,17 +8271,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

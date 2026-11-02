@@ -8985,12 +8985,12 @@
     },
     {
       "id": "uzh-5cdfa7c339a1",
-      "slug": "studentische-aushilfe-gis-uzh-zurich",
+      "slug": "assistenza-agli-studenti-gis-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-aushilfe-gis-uzh-zurich",
-        "it": "studentische-aushilfe-gis-uzh-zurich",
-        "en": "studentische-aushilfe-gis-uzh-zurich",
-        "fr": "studentische-aushilfe-gis-uzh-zurich"
+        "it": "assistenza-agli-studenti-gis-universitat-zurich-zurich",
+        "en": "student-assistance-gis-universitat-zurich-zurich",
+        "fr": "aide-aux-etudiants-sig-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9052,7 +9052,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:41:13.447Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:41:13.447Z"
+      "firstSeenAt": "2026-11-02T09:41:13.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-aushilfe-gis-uzh-zurich"
+        ],
+        "en": [
+          "studentische-aushilfe-gis-uzh-zurich"
+        ],
+        "fr": [
+          "studentische-aushilfe-gis-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-aushilfe-gis-uzh-zurich"
+      ]
     }
   ]
 }

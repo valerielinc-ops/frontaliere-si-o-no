@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -260,7 +260,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -319,7 +319,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -342,7 +342,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -452,7 +452,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -502,7 +502,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,7 +512,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -540,7 +540,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -590,14 +590,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -952,7 +950,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1010,14 +1008,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -10612,12 +10610,12 @@
     },
     {
       "id": "raiffeisen-ef9ca16708da",
-      "slug": "collaboratore-trice-strategiekommunikation-berichterstattung-m-w-d-befristet-raiffeisen-st-gallen",
+      "slug": "collaboratore-comunicazione-strategica-e-reporting-m-f-d-a-tempo-determinato-raiffeisen-st-gallen",
       "slugByLocale": {
         "de": "mitarbeiter-strategiekommunikation-amp-berichterstattung-w-m-d-befristet-raiffeisen-st",
-        "it": "collaboratore-trice-strategiekommunikation-berichterstattung-m-w-d-befristet-raiffeisen-st-gallen",
-        "en": "mitarbeiter-strategiekommunikation-berichterstattung-w-m-d-befristet-raiffeisen-st-gallen",
-        "fr": "mitarbeiter-strategiekommunikation-berichterstattung-w-m-d-befristet-raiffeisen-st-gallen"
+        "it": "collaboratore-comunicazione-strategica-e-reporting-m-f-d-a-tempo-determinato-raiffeisen-st-gallen",
+        "en": "employee-strategy-communication-reporting-m-f-d-temporary-raiffeisen-st-gallen",
+        "fr": "strategie-des-employes-communication-et-rapports-h-f-d-temporaire-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10666,11 +10664,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-strategiekommunikation-amp-berichterstattung-w-m-d-befristet-raiffeisen-st"
+          "mitarbeiter-strategiekommunikation-amp-berichterstattung-w-m-d-befristet-raiffeisen-st",
+          "collaboratore-trice-strategiekommunikation-berichterstattung-m-w-d-befristet-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-strategiekommunikation-berichterstattung-w-m-d-befristet-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-strategiekommunikation-berichterstattung-w-m-d-befristet-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-strategiekommunikation-amp-berichterstattung-w-m-d-befristet-raiffeisen-st"
+        "mitarbeiter-strategiekommunikation-amp-berichterstattung-w-m-d-befristet-raiffeisen-st",
+        "collaboratore-trice-strategiekommunikation-berichterstattung-m-w-d-befristet-raiffeisen-st-gallen",
+        "mitarbeiter-strategiekommunikation-berichterstattung-w-m-d-befristet-raiffeisen-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -10692,12 +10699,12 @@
     },
     {
       "id": "raiffeisen-be901b235b1f",
-      "slug": "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne",
+      "slug": "specialista-presso-il-centro-servizi-clienti-m-f-d-raiffeisen-lausanne",
       "slugByLocale": {
         "fr": "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne",
-        "it": "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne",
-        "en": "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne",
-        "de": "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne"
+        "it": "specialista-presso-il-centro-servizi-clienti-m-f-d-raiffeisen-lausanne",
+        "en": "customer-service-centre-specialist-m-f-d-raiffeisen-lausanne",
+        "de": "kundendienstzentrum-spezialist-m-w-d-raiffeisen-lausanne"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10759,7 +10766,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:56:45.243Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne"
+        ],
+        "en": [
+          "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne"
+        ],
+        "de": [
+          "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-au-centre-de-service-a-la-clientele-f-h-d-raiffeisen-lausanne"
+      ]
     },
     {
       "id": "raiffeisen-7ad191cd96e3",
@@ -10767,8 +10788,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-spedition-w-m-d-raiffeisen-zurich",
         "it": "collaboratore-trice-spedition-m-w-d-raiffeisen-zurich",
-        "en": "mitarbeiter-spedition-w-m-d-raiffeisen-zurich",
-        "fr": "mitarbeiter-spedition-w-m-d-raiffeisen-zurich"
+        "en": "employee-forwarding-m-f-d-raiffeisen-zurich",
+        "fr": "expedier-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10817,6 +10838,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-spedition-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "mitarbeiter-spedition-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-spedition-w-m-d-raiffeisen-zurich"
         ]
       },
       "previousSlugs": [
@@ -10845,8 +10872,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-kasse-edelmetall-w-m-d-raiffeisen-zurich",
         "it": "collaboratore-trice-kasse-edelmetall-m-w-d-raiffeisen-zurich",
-        "en": "mitarbeiter-kasse-edelmetall-w-m-d-raiffeisen-zurich",
-        "fr": "mitarbeiter-kasse-edelmetall-w-m-d-raiffeisen-zurich"
+        "en": "employee-checkout-precious-metal-m-f-d-raiffeisen-zurich",
+        "fr": "employe-commander-metal-precieux-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10894,6 +10921,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kasse-edelmetall-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "mitarbeiter-kasse-edelmetall-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
           "mitarbeiter-kasse-edelmetall-w-m-d-raiffeisen-zurich"
         ]
       },

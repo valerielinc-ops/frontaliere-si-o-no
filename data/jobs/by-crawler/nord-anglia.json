@@ -409,10 +409,10 @@
     },
     {
       "id": "nord-anglia-2ddaeb9dcedc",
-      "slug": "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon",
+      "slug": "assistente-di-imbarco-2027-2028-nord-anglia-education-switzerland-villars-sur-ollon",
       "slugByLocale": {
         "en": "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon",
-        "it": "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon",
+        "it": "assistente-di-imbarco-2027-2028-nord-anglia-education-switzerland-villars-sur-ollon",
         "de": "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon",
         "fr": "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon"
       },
@@ -477,16 +477,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:28:30.622Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:28:30.622Z"
+      "firstSeenAt": "2026-11-02T09:28:30.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon"
+        ]
+      },
+      "previousSlugs": [
+        "boarding-assistant-2027-2028-nord-anglia-villars-sur-ollon"
+      ]
     },
     {
       "id": "nord-anglia-74e6a06a5d35",
-      "slug": "stagiaire-mpc-nord-anglia-villars-sur-ollon",
+      "slug": "stagista-mpc-nord-anglia-education-switzerland-villars-sur-ollon",
       "slugByLocale": {
         "en": "stagiaire-mpc-nord-anglia-villars-sur-ollon",
-        "it": "stagiaire-mpc-nord-anglia-villars-sur-ollon",
-        "de": "stagiaire-mpc-nord-anglia-villars-sur-ollon",
-        "fr": "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+        "it": "stagista-mpc-nord-anglia-education-switzerland-villars-sur-ollon",
+        "de": "stagiares-mpc-nord-anglia-education-switzerland-villars-sur-ollon",
+        "fr": "mpc-de-l-appareil-de-controle-nord-anglia-education-switzerland-villars-sur-ollon"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -550,7 +558,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:28:29.703Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:28:29.703Z"
+      "firstSeenAt": "2026-11-02T09:28:29.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+        ],
+        "de": [
+          "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+        ],
+        "fr": [
+          "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+      ]
     },
     {
       "id": "nord-anglia-5f89b28eef85",

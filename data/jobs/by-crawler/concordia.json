@@ -570,7 +570,7 @@
         "it": "ufficio-consulente-clienti-circa-87-in-grosswangen-concordia-grosswangen",
         "en": "customer-consultant-office-about-87-in-grosswangen-concordia-grosswangen",
         "de": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
-        "fr": "conseiller-ere-a-la-clientele-en-agence-env-87-a-grosswangen-concordia-grosswangen"
+        "fr": "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -617,14 +617,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
-        "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
+        "conseiller-ere-a-la-clientele-en-agence-env-87-a-grosswangen-concordia-grosswangen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
         ],
         "fr": [
-          "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
+          "conseiller-ere-a-la-clientele-en-agence-env-87-a-grosswangen-concordia-grosswangen"
         ]
       },
       "firstSeenAt": "2026-09-11T13:39:25.610Z",
@@ -3226,7 +3226,7 @@
         "de": "spezialist-in-customer-experience-management-cem-50-concordia-luzern",
         "it": "spezialist-in-customer-experience-management-cem-50-concordia-luzern",
         "en": "spezialist-in-customer-experience-management-cem-50-concordia-luzern",
-        "fr": "spezialist-in-customer-experience-management-cem-50-concordia-luzern"
+        "fr": "specialiste-de-la-gestion-de-l-experience-client-cem-50-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3298,7 +3298,7 @@
         "de": "fachspezialist-in-social-media-80-concordia-luzern",
         "it": "fachspezialist-in-social-media-80-concordia-luzern",
         "en": "fachspezialist-in-social-media-80-concordia-luzern",
-        "fr": "fachspezialist-in-social-media-80-concordia-luzern"
+        "fr": "specialiste-des-medias-sociaux-80-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3365,12 +3365,12 @@
     },
     {
       "id": "concordia-36a682fd54bb",
-      "slug": "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich",
+      "slug": "consulente-alla-clientela-in-filiale-50-a-eich-concordia-eich",
       "slugByLocale": {
         "de": "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich",
-        "it": "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich",
-        "en": "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich",
-        "fr": "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich"
+        "it": "consulente-alla-clientela-in-filiale-50-a-eich-concordia-eich",
+        "en": "customer-advisor-branch-office-50-in-eich-concordia-eich",
+        "fr": "conseiller-ere-clientele-en-agence-50-a-eich-concordia-eich"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3433,7 +3433,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:44:59.231Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:44:59.231Z"
+      "firstSeenAt": "2026-11-02T09:44:59.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich"
+        ],
+        "en": [
+          "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich"
+        ],
+        "fr": [
+          "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-geschaftsstelle-50-in-eich-concordia-eich"
+      ]
     }
   ]
 }

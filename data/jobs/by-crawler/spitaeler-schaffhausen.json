@@ -3915,12 +3915,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-395689f4e9f2",
-      "slug": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+      "slug": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "it": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        "it": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-assistant-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
+        "fr": "assistant-assistant-de-la-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3982,16 +3982,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:00:55.849Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:00:55.849Z"
+      "firstSeenAt": "2026-11-02T10:00:55.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-883cc4b1ef69",
-      "slug": "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen",
+      "slug": "anestesia-subassista-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-anasthesie-spitaeler-schaffhausen-schaffhausen",
-        "it": "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen"
+        "it": "anestesia-subassista-spitaler-schaffhausen-schaffhausen",
+        "en": "sub-assistant-anesthesia-spitaler-schaffhausen-schaffhausen",
+        "fr": "anesthesie-sous-assistante-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4039,11 +4053,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-anasthesie-spitaeler-schaffhausen-schaffhausen"
+          "unterassistentin-unterassistent-anasthesie-spitaeler-schaffhausen-schaffhausen",
+          "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-anasthesie-spitaeler-schaffhausen-schaffhausen"
+        "unterassistentin-unterassistent-anasthesie-spitaeler-schaffhausen-schaffhausen",
+        "unterassistentin-unterassistent-anasthesie-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4065,12 +4087,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-0f2ba86beb4b",
-      "slug": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
+      "slug": "medico-specialista-in-medicina-nucleare-interessato-a-a-una-doppia-specializzazione-in-radiologia-e-medicina-nucleare",
       "slugByLocale": {
         "de": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
-        "it": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
-        "en": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
-        "fr": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+        "it": "medico-specialista-in-medicina-nucleare-interessato-a-a-una-doppia-specializzazione-in-radiologia-e-medicina-nucleare",
+        "en": "specialist-specialist-nuclear-medicine-with-interest-in-dual-specialist-training-radiology-and-nuclear-medicine-spitaler",
+        "fr": "specialiste-specialiste-medecine-nucleaire-avec-interet-pour-la-formation-double-specialiste-radiologie-et-medecine"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4133,16 +4155,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:00:55.844Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:00:55.844Z"
+      "firstSeenAt": "2026-11-02T10:00:55.844Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+        ],
+        "en": [
+          "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+        ],
+        "fr": [
+          "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-6f005aa03d8d",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+      "slug": "assistente-medico-ambulatorio-psichiatrico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "it": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "en": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        "it": "assistente-medico-ambulatorio-psichiatrico-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-doctor-assistant-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-assistant-clinique-psychiatrique-assistante-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4204,16 +4240,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:00:55.835Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:00:55.835Z"
+      "firstSeenAt": "2026-11-02T10:00:55.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-d6a7fca45f98",
-      "slug": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen",
+      "slug": "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen",
-        "it": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
+        "it": "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
+        "en": "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
+        "fr": "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4275,16 +4325,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:00:55.832Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:00:55.832Z"
+      "firstSeenAt": "2026-11-02T10:00:55.832Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-1fec2f29ad96",
-      "slug": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
+      "slug": "assistente-medico-assistente-medico-chirurgia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
-        "it": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
-        "en": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
-        "fr": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
+        "it": "assistente-medico-assistente-medico-chirurgia-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-doctor-assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen",
+        "fr": "assistant-medecin-assistant-medecin-chirurgie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4332,11 +4396,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen"
+          "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen"
+        "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
+        "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4358,12 +4430,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-20810868c130",
-      "slug": "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen",
+      "slug": "assistente-assistente-medicina-di-emergenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-notfallmedizin-spitaeler-schaffhausen-schaffhausen",
-        "it": "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen"
+        "it": "assistente-assistente-medicina-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-assistant-emergency-medicine-spitaler-schaffhausen-schaffhausen",
+        "fr": "assistant-assistant-en-medecine-d-urgence-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4411,11 +4483,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-notfallmedizin-spitaeler-schaffhausen-schaffhausen"
+          "unterassistentin-unterassistent-notfallmedizin-spitaeler-schaffhausen-schaffhausen",
+          "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-notfallmedizin-spitaeler-schaffhausen-schaffhausen"
+        "unterassistentin-unterassistent-notfallmedizin-spitaeler-schaffhausen-schaffhausen",
+        "unterassistentin-unterassistent-notfallmedizin-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4437,12 +4517,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-03165fb80aa0",
-      "slug": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+      "slug": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "it": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "en": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "fr": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        "it": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4504,16 +4584,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:00:55.823Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:00:55.823Z"
+      "firstSeenAt": "2026-11-02T10:00:55.823Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-4fc52cab4415",
-      "slug": "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen",
+      "slug": "geriatria-subassista-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-geriatrie-spitaeler-schaffhausen-schaffhausen",
-        "it": "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen"
+        "it": "geriatria-subassista-spitaler-schaffhausen-schaffhausen",
+        "en": "sub-assistant-geriatrics-spitaler-schaffhausen-schaffhausen",
+        "fr": "geriatriques-secondaires-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4561,11 +4655,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-geriatrie-spitaeler-schaffhausen-schaffhausen"
+          "unterassistentin-unterassistent-geriatrie-spitaeler-schaffhausen-schaffhausen",
+          "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-geriatrie-spitaeler-schaffhausen-schaffhausen"
+        "unterassistentin-unterassistent-geriatrie-spitaeler-schaffhausen-schaffhausen",
+        "unterassistentin-unterassistent-geriatrie-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4587,12 +4689,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-0df7de2a4c00",
-      "slug": "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen",
+      "slug": "manipolatore-caso-terapia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-therapien-spitaeler-schaffhausen-schaffhausen",
-        "it": "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen",
-        "en": "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen",
-        "fr": "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen"
+        "it": "manipolatore-caso-terapia-spitaler-schaffhausen-schaffhausen",
+        "en": "case-handler-case-handler-therapy-spitaler-schaffhausen-schaffhausen",
+        "fr": "traitement-des-cas-traitement-des-cas-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4640,11 +4742,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-therapien-spitaeler-schaffhausen-schaffhausen"
+          "sachbearbeiterin-sachbearbeiter-therapien-spitaeler-schaffhausen-schaffhausen",
+          "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-therapien-spitaeler-schaffhausen-schaffhausen"
+        "sachbearbeiterin-sachbearbeiter-therapien-spitaeler-schaffhausen-schaffhausen",
+        "sachbearbeiterin-sachbearbeiter-therapien-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4666,12 +4776,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-33a0c3ab4581",
-      "slug": "handtherapeut-in-spitaeler-schaffhausen-schaffhausen",
+      "slug": "terapista-della-mano-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "handtherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "it": "handtherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "en": "handtherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "handtherapeut-in-spitaeler-schaffhausen-schaffhausen"
+        "it": "terapista-della-mano-spitaler-schaffhausen-schaffhausen",
+        "en": "hand-therapist-spitaler-schaffhausen-schaffhausen",
+        "fr": "therapeute-de-la-main-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4734,7 +4844,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:00:55.779Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:00:55.779Z"
+      "firstSeenAt": "2026-11-02T10:00:55.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "handtherapeut-in-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "handtherapeut-in-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "handtherapeut-in-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "handtherapeut-in-spitaeler-schaffhausen-schaffhausen"
+      ]
     }
   ]
 }

@@ -600,12 +600,12 @@
     },
     {
       "id": "spitex-basel-d8a94e9fbfec",
-      "slug": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
+      "slug": "operatore-trice-sociosanitario-a-fage-possibili-anche-esclusivamente-turni-mattutini-o-esclusivamente-serali-a-spitex",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "it": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-        "en": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fr": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        "it": "operatore-trice-sociosanitario-a-fage-possibili-anche-esclusivamente-turni-mattutini-o-esclusivamente-serali-a-spitex",
+        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
+        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -654,11 +654,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+          "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "fr": [
           "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+        "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

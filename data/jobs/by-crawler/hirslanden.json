@@ -20377,12 +20377,12 @@
     {
       "id": "hirslanden-d52f4ab8086f",
       "externalId": "1450782833",
-      "slug": "mitarbeiterin-collaboratore-trice-reception-a-60-hirslanden-klinik-st-anna",
+      "slug": "addetta-addetto-alla-reception-a-60-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna",
-        "it": "mitarbeiterin-collaboratore-trice-reception-a-60-hirslanden-klinik-st-anna",
-        "en": "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna",
-        "fr": "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna"
+        "it": "addetta-addetto-alla-reception-a-60-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "employee-reception-a-60-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "reception-des-employes-a-60-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -20430,11 +20430,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna",
+          "mitarbeiterin-collaboratore-trice-reception-a-60-hirslanden-klinik-st-anna"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna"
+        "mitarbeiterin-mitarbeiter-reception-a-60-hirslanden-hirslanden-klinik-st-anna",
+        "mitarbeiterin-collaboratore-trice-reception-a-60-hirslanden-klinik-st-anna"
       ],
       "salaryMin": 51900,
       "salaryMax": 72300,
@@ -25576,8 +25584,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau",
         "it": "mitarbeiterin-collaboratore-trice-guest-relations-a-70-hirslanden-klinik-aarau",
-        "en": "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau",
-        "fr": "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau"
+        "en": "employee-guest-relations-a-70-hirslanden-klinik-hirslanden-klinik-aarau",
+        "fr": "relations-entre-employes-et-clients-a-70-hirslanden-klinik-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25625,6 +25633,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-hirslanden-klinik-aarau"
         ]
       },

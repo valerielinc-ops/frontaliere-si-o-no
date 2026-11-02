@@ -1193,7 +1193,7 @@
         "it": "fx-trader-di-esecuzione-swissquote-gland",
         "en": "fx-execution-trader-swissquote-gland",
         "de": "fx-ausfuhrungshandler-swissquote-gland",
-        "fr": "fx-executeur-swissquote-gland"
+        "fr": "operateur-de-change-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1242,7 +1242,7 @@
       "previousSlugs": [
         "fx-execution-trader-swissquote-gland",
         "commerce-fx-execution-swissquote-gland",
-        "operateur-de-change-d-execution-swissquote-gland"
+        "fx-executeur-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1254,7 +1254,7 @@
         "fr": [
           "commerce-fx-execution-swissquote-gland",
           "fx-execution-trader-swissquote-gland",
-          "operateur-de-change-d-execution-swissquote-gland"
+          "fx-executeur-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",
@@ -2833,12 +2833,12 @@
     },
     {
       "id": "swissquote-08247d50fe8a",
-      "slug": "sales-support-executive-6-months-contract-swissquote-zurich",
+      "slug": "sales-support-executive-contratto-da-6-mesi-swissquote-zurich",
       "slugByLocale": {
         "de": "sales-support-executive-6-months-contract-swissquote-zurich",
-        "it": "sales-support-executive-6-months-contract-swissquote-zurich",
+        "it": "sales-support-executive-contratto-da-6-mesi-swissquote-zurich",
         "en": "sales-support-executive-6-months-contract-swissquote-zurich",
-        "fr": "sales-support-executive-6-months-contract-swissquote-zurich"
+        "fr": "sales-support-executive-contrat-de-6-mois-swissquote-zurich"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2901,7 +2901,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:02:54.478Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:02:54.478Z"
+      "firstSeenAt": "2026-11-02T10:02:54.478Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-executive-6-months-contract-swissquote-zurich"
+        ],
+        "fr": [
+          "sales-support-executive-6-months-contract-swissquote-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-executive-6-months-contract-swissquote-zurich"
+      ]
     },
     {
       "id": "swissquote-bd66ae137a6f",

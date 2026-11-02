@@ -9362,12 +9362,12 @@
     },
     {
       "id": "roche-30684fc30142",
-      "slug": "imp-qa-manager-clinical-packaging-roche-ch",
+      "slug": "imp-qa-manager-imballaggio-clinico-roche-kaiseraugst",
       "slugByLocale": {
         "de": "imp-qa-manager-clinical-packaging-roche-ch",
-        "it": "imp-qa-manager-clinical-packaging-roche-ch",
-        "en": "imp-qa-manager-clinical-packaging-roche-ch",
-        "fr": "imp-qa-manager-clinical-packaging-roche-ch"
+        "it": "imp-qa-manager-imballaggio-clinico-roche-kaiseraugst",
+        "en": "imp-qa-managersc-l-roche-kaiseraugst",
+        "fr": "pim-qa-manager-emballage-clinique-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9429,7 +9429,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:32:23.251Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:32:23.251Z"
+      "firstSeenAt": "2026-11-02T09:32:23.251Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "imp-qa-manager-clinical-packaging-roche-ch"
+        ],
+        "en": [
+          "imp-qa-manager-clinical-packaging-roche-ch"
+        ],
+        "fr": [
+          "imp-qa-manager-clinical-packaging-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "imp-qa-manager-clinical-packaging-roche-ch"
+      ]
     },
     {
       "id": "roche-d3c38ba57b18",

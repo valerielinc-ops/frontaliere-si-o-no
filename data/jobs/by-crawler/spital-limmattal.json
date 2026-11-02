@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-ecf2b762ca26",
-      "slug": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
+      "slug": "esperto-a-in-cure-infermieristiche-cas-mas-apn-con-specializzazione-in-assistenza-a-lungo-termine-geriatria-spital",
       "slugByLocale": {
         "de": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
-        "it": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
-        "en": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
-        "fr": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch"
+        "it": "esperto-a-in-cure-infermieristiche-cas-mas-apn-con-specializzazione-in-assistenza-a-lungo-termine-geriatria-spital",
+        "en": "nursing-expert-cas-mas-apn-specializing-in-long-term-care-geriatrics-spital-limmattal-schlieren",
+        "fr": "expert-e-en-soins-cas-mas-apn-specialise-e-dans-les-soins-de-longue-duree-la-geriatrie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-02T10:20:16.366Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:20:16.366Z"
+      "firstSeenAt": "2026-11-02T10:20:16.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch"
+        ],
+        "en": [
+          "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch"
+        ],
+        "fr": [
+          "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-b1397066d484",
-      "slug": "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren",
+      "slug": "soccorritore-trice-diplomato-a-hf-per-il-nostro-reparto-di-emergenza-40-70-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
-        "it": "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren",
-        "en": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
-        "fr": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch"
+        "it": "soccorritore-trice-diplomato-a-hf-per-il-nostro-reparto-di-emergenza-40-70-spital-limmattal-schlieren",
+        "en": "certified-paramedic-hf-for-our-emergency-department-40-70-spital-limmattal-schlieren",
+        "fr": "ambulancier-ere-diplome-e-es-pour-notre-service-des-urgences-40-70-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -133,11 +147,19 @@
       "pensum": "40 - 70%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
+          "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch"
+        ],
+        "fr": [
           "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch"
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
+        "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren"
       ],
       "salaryMin": 64000,
       "salaryMax": 89600,
@@ -160,12 +182,12 @@
     },
     {
       "id": "spital-limmattal-5ca9f906232c",
-      "slug": "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren",
+      "slug": "infermiere-a-diplomato-a-hf-fh-per-un-reparto-di-degenza-chirurgico-o-medico-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
-        "it": "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital"
+        "it": "infermiere-a-diplomato-a-hf-fh-per-un-reparto-di-degenza-chirurgico-o-medico-spital-limmattal-schlieren",
+        "en": "dipl-nursing-professional-hf-fh-for-a-surgical-or-medical-bed-station-spital-limmattal-schlieren",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-fh-pour-un-poste-de-lits-chirurgicaux-ou-medicaux-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -213,11 +235,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
+          "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital"
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital",
+        "dipl-pflegefachperson-hf-fh-per-eine-chirurgische-o-medizinische-bettenstation-spital-limmattal-schlieren"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2384,7 +2414,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2445,9 +2475,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

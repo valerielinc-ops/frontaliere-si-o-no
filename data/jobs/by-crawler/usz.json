@@ -16731,12 +16731,12 @@
     },
     {
       "id": "usz-0da41f6b7e13",
-      "slug": "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch",
+      "slug": "gestione-del-gruppo-specialisti-di-radiologia-ct-rx-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch",
-        "it": "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch",
-        "en": "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch",
-        "fr": "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch"
+        "it": "gestione-del-gruppo-specialisti-di-radiologia-ct-rx-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "group-management-radiology-specialists-ct-rx-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "gestion-de-groupe-specialistes-en-radiologie-ct-rx-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16798,7 +16798,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:40:32.341Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:40:32.341Z"
+      "firstSeenAt": "2026-11-02T09:40:32.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch"
+        ],
+        "en": [
+          "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch"
+        ],
+        "fr": [
+          "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleitung-radiologiefachpersonen-ct-rx-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-3673b83d883c",
@@ -16892,7 +16906,7 @@
         "de": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
         "it": "senior-system-ingegnere-architetto-fokus-oneidentity-e-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz-zurich",
         "en": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
-        "fr": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
+        "fr": "ingenieur-systeme-architecte-senior-focus-sur-oneidentity-et-l-architecture-globale-iam-80-100-universitatsspital-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16940,6 +16954,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
+        ],
+        "fr": [
           "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
         ]
       },
@@ -17124,12 +17141,12 @@
     },
     {
       "id": "usz-583bd684ba4a",
-      "slug": "oberarztin-oberarzt-m-w-d-klinik-per-infektiologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "medica-dirigente-medico-dirigente-m-f-d-clinica-di-infettivologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch",
-        "it": "oberarztin-oberarzt-m-w-d-klinik-per-infektiologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch",
-        "fr": "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch"
+        "it": "medica-dirigente-medico-dirigente-m-f-d-clinica-di-infettivologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "senior-physician-senior-physician-m-f-d-clinic-of-infectiology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-principal-medecin-principal-h-f-d-clinique-d-infectiologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17177,11 +17194,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch",
+          "oberarztin-oberarzt-m-w-d-klinik-per-infektiologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch"
+        "oberarztin-oberarzt-w-m-d-klinik-fur-infektiologie-80-100-usz-ch",
+        "oberarztin-oberarzt-m-w-d-klinik-per-infektiologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17364,7 +17389,7 @@
       "id": "usz-aa52f0f9fa81",
       "slug": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich-8a350c97bd",
       "slugByLocale": {
-        "it": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich-8a350c97bd",
+        "it": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich",
         "en": "cardiology-and-cardiac-surgery-nurse-40-100-universitatsspital-zurich-usz-zurich",
         "de": "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
         "fr": "infirmiere-en-cardiologie-et-chirurgie-cardiaque-40-100-universitatsspital-zurich-usz-zurich"
@@ -17412,14 +17437,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
-        "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich",
-        "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich"
+        "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
-          "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich",
-          "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich"
+          "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
@@ -17531,7 +17554,7 @@
       "id": "usz-f3d686a1e6cf",
       "slug": "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich-cec7b73f2c",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich-cec7b73f2c",
+        "it": "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich",
         "en": "radiology-specialist-neuroradiology-80-100-universitatsspital-zurich-usz-zurich",
         "de": "radiologiefachperson-neuroradiologie-80-100-usz-ch",
         "fr": "specialiste-en-radiologie-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich"
@@ -17578,13 +17601,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "radiologiefachperson-neuroradiologie-80-100-usz-ch",
-        "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich"
+        "radiologiefachperson-neuroradiologie-80-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-neuroradiologie-80-100-usz-ch",
-          "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich"
+          "radiologiefachperson-neuroradiologie-80-100-usz-ch"
         ],
         "en": [
           "radiologiefachperson-neuroradiologie-80-100-usz-ch"
@@ -17617,7 +17638,7 @@
       "id": "usz-577bbe5b0470",
       "slug": "esperto-a-di-settore-in-terapia-occupazionale-neurologia-80-universitatsspital-zurich-usz-zurich-4668cdc031",
       "slugByLocale": {
-        "it": "esperto-a-di-settore-in-terapia-occupazionale-neurologia-80-universitatsspital-zurich-usz-zurich-4668cdc031",
+        "it": "esperto-a-di-settore-in-terapia-occupazionale-neurologia-80-universitatsspital-zurich-usz-zurich",
         "en": "subject-matter-expert-in-neurological-occupational-therapy-80-universitatsspital-zurich-usz-zurich",
         "de": "fachbereichsexpert-in-ergotherapie-neurologie-80-usz-ch",
         "fr": "expert-e-du-domaine-de-l-ergotherapie-en-neurologie-80-universitatsspital-zurich-usz-zurich"
@@ -17664,13 +17685,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachbereichsexpert-in-ergotherapie-neurologie-80-usz-ch",
-        "esperto-a-di-settore-in-terapia-occupazionale-neurologia-80-universitatsspital-zurich-usz-zurich"
+        "fachbereichsexpert-in-ergotherapie-neurologie-80-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachbereichsexpert-in-ergotherapie-neurologie-80-usz-ch",
-          "esperto-a-di-settore-in-terapia-occupazionale-neurologia-80-universitatsspital-zurich-usz-zurich"
+          "fachbereichsexpert-in-ergotherapie-neurologie-80-usz-ch"
         ],
         "en": [
           "fachbereichsexpert-in-ergotherapie-neurologie-80-usz-ch"

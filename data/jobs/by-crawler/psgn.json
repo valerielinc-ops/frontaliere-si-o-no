@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "psgn-c2a5ca74c004",
-      "slug": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+      "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
-        "it": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "fr": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
+        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers",
+        "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -57,11 +57,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-psgn-pfafers"
+          "ergotherapeutin-ergotherapeut-psgn-pfafers",
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-psgn-pfafers"
+        "ergotherapeutin-ergotherapeut-psgn-pfafers",
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-a61ba9812033",
-      "slug": "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
+      "slug": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
       "slugByLocale": {
         "fr": "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
-        "it": "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
+        "it": "menuisier-wood-workshop-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
         "en": "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981",
-        "de": "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
+        "de": "menuisierwood-workshop-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
       },
       "slugDisambiguator": "a61ba981",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:06:36.469Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:45:21.992Z"
+      "firstSeenAt": "2026-11-01T09:45:21.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
+        ],
+        "de": [
+          "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
+        ]
+      },
+      "previousSlugs": [
+        "menuisier-bois-atelier-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a61ba981"
+      ]
     },
     {
       "id": "okjob-66c8a8119be1",
-      "slug": "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811",
+      "slug": "operatrice-operatore-sociosanitario-efz-con-funzione-di-formatrice-formatore-professionale-ok-job-sa-succursale-66c8a811",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811",
-        "it": "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811",
-        "en": "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811",
-        "fr": "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811"
+        "it": "operatrice-operatore-sociosanitario-efz-con-funzione-di-formatrice-formatore-professionale-ok-job-sa-succursale-66c8a811",
+        "en": "professional-health-efz-with-job-training-function-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811",
+        "fr": "professionnel-sante-efz-avec-fonction-de-formation-professionnelle-ok-job-sa-succursale-di-mendrisio-8001-66c8a811"
       },
       "slugDisambiguator": "66c8a811",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -146,16 +157,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:06:36.467Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:45:21.991Z"
+      "firstSeenAt": "2026-11-01T09:45:21.991Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-mit-berufsbildnerfunktion-ok-job-sa-succursale-di-mendrisio-8001-zurich-66c8a811"
+      ]
     },
     {
       "id": "okjob-c75de57285b1",
-      "slug": "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+      "slug": "operatrice-operatore-sociosanitario-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
-        "it": "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
-        "en": "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
-        "fr": "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+        "it": "operatrice-operatore-sociosanitario-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+        "en": "professional-health-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572",
+        "fr": "sante-professionnelle-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
       },
       "slugDisambiguator": "c75de572",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -219,16 +244,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:06:36.466Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:45:21.990Z"
+      "firstSeenAt": "2026-11-01T09:45:21.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-40-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-c75de572"
+      ]
     },
     {
       "id": "okjob-c0aba0be4fa8",
-      "slug": "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
+      "slug": "piper-saldatore-in-acciaio-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
       "slugByLocale": {
         "fr": "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
-        "it": "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
-        "en": "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
-        "de": "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be"
+        "it": "piper-saldatore-in-acciaio-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
+        "en": "piper-stainless-steel-welder-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be",
+        "de": "piper-schwei-er-aus-rostfreiem-stahl-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be"
       },
       "slugDisambiguator": "c0aba0be",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -291,16 +330,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T10:06:36.462Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-26T09:37:37.055Z"
+      "firstSeenAt": "2026-10-26T09:37:37.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be"
+        ],
+        "en": [
+          "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be"
+        ],
+        "de": [
+          "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be"
+        ]
+      },
+      "previousSlugs": [
+        "tuyauteur-soudeur-inox-ok-job-sa-succursale-di-mendrisio-1630-bulle-c0aba0be"
+      ]
     },
     {
       "id": "okjob-61c9b66ea811",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich",
+      "slug": "infermiere-a-diplomato-a-hf-fh-con-responsabilita-rai-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
+        "it": "infermiere-a-diplomato-a-hf-fh-con-responsabilita-rai-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+        "en": "dipl-registered-nurse-hf-fh-with-rai-responsibility-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+        "fr": "infirmier-ere-diplome-e-es-hes-avec-responsabilite-rai-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
       },
       "slugDisambiguator": "61c9b66e",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -349,11 +402,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+          "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e"
+        "dipl-pflegefachfrau-mann-hf-fh-mit-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-8001-zurich-61c9b66e",
+        "dipl-pflegefachfrau-mann-hf-fh-con-rai-verantwortung-ok-job-sa-succursale-di-mendrisio-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -376,12 +437,12 @@
     },
     {
       "id": "okjob-d6204efafac9",
-      "slug": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
+      "slug": "health-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
       "slugByLocale": {
         "fr": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
-        "it": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
+        "it": "health-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
         "en": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa",
-        "de": "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        "de": "gesundheit-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
       },
       "slugDisambiguator": "d6204efa",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -444,16 +505,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T10:06:36.451Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-26T09:37:37.053Z"
+      "firstSeenAt": "2026-10-26T09:37:37.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        ],
+        "de": [
+          "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+        ]
+      },
+      "previousSlugs": [
+        "sanitaire-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d6204efa"
+      ]
     },
     {
       "id": "okjob-2474d1470a1b",
-      "slug": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel",
+      "slug": "tecnico-di-servizio-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
       "slugByLocale": {
         "de": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
-        "it": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel",
-        "en": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
-        "fr": "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
+        "it": "tecnico-di-servizio-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+        "en": "service-technician-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+        "fr": "technicien-de-service-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
       },
       "slugDisambiguator": "2474d147",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -501,11 +573,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+          "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel"
+        ],
+        "en": [
+          "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
+        ],
+        "fr": [
           "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147"
+        "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-2474d147",
+        "servicetechniker-m-w-d-ok-job-sa-succursale-di-mendrisio-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

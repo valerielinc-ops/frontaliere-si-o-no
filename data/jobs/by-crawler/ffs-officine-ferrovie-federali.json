@@ -111,12 +111,12 @@
     },
     {
       "id": "sbb-896a7fad1cec",
-      "slug": "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten",
+      "slug": "responsabile-di-produzione-regione-est-ffs-officine-ferrovie-federali-zurich-altstetten",
       "slugByLocale": {
-        "it": "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "en": "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "it": "responsabile-di-produzione-regione-est-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "en": "production-manager-eastern-region-ffs-officine-ferrovie-federali-zurich-altstetten",
         "de": "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "fr": "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "fr": "responsable-de-production-region-est-ffs-officine-ferrovie-federali-zurich-altstetten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -214,16 +214,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:07:05.285Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:07:05.285Z"
+      "firstSeenAt": "2026-11-02T10:07:05.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "en": [
+          "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "fr": [
+          "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmanager-in-region-ost-ffs-officine-ferrovie-federali-zurich-altstetten"
+      ]
     },
     {
       "id": "sbb-2e67c15c3575",
-      "slug": "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern",
+      "slug": "corso-di-laurea-integrato-nella-scienza-informatica-informatica-aziendale-2027-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern",
-        "en": "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern",
+        "it": "corso-di-laurea-integrato-nella-scienza-informatica-informatica-aziendale-2027-ffs-officine-ferrovie-federali-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-business-informatics-2027-ffs-officine-ferrovie-federali-bern",
         "de": "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern",
-        "fr": "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern"
+        "fr": "baccalaureat-integre-en-informatique-informatique-des-affaires-2027-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -310,7 +324,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:07:03.770Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:07:03.770Z"
+      "firstSeenAt": "2026-11-02T10:07:03.770Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "praxisintegriertes-bachelor-studium-informatik-wirtschaftsinformatik-2027-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-d37ce7bfeb2d",
@@ -7536,7 +7564,7 @@
       "slugByLocale": {
         "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -7603,7 +7631,7 @@
       "crawledAt": "2026-11-02T10:06:49.802Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7614,7 +7642,7 @@
         ],
         "de": [
           "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -9878,9 +9906,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -9949,8 +9977,8 @@
       "crawledAt": "2026-11-02T10:07:31.283Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9958,11 +9986,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:30.948Z",
@@ -12662,9 +12690,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12725,8 +12753,8 @@
       "crawledAt": "2026-11-02T10:06:55.784Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12734,11 +12762,11 @@
         ],
         "en": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf"
+          "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-10-24T21:25:04.967Z",

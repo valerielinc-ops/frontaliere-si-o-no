@@ -1247,12 +1247,12 @@
     },
     {
       "id": "kanton-solothurn-e871d11cfb51",
-      "slug": "stv-responsabile-administration-80-100-kanton-solothurn",
+      "slug": "vice-responsabile-dell-amministrazione-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn",
-        "it": "stv-responsabile-administration-80-100-kanton-solothurn",
-        "en": "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn",
-        "fr": "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn"
+        "it": "vice-responsabile-dell-amministrazione-80-100-kanton-solothurn-solothurn",
+        "en": "deputy-head-of-administration-80-100-kanton-solothurn-solothurn",
+        "fr": "responsable-adjoint-e-de-l-administration-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1301,11 +1301,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn",
+          "stv-responsabile-administration-80-100-kanton-solothurn"
+        ],
+        "en": [
+          "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn"
+        "stv-leiter-in-administration-80-100-kanton-solothurn-solothurn",
+        "stv-responsabile-administration-80-100-kanton-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

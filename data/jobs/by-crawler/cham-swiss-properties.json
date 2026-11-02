@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "cham-swiss-properties-7b32cc364098",
-      "slug": "responsabile-di-progetto-bauherrenvertretung-cham-swiss-properties-cham",
+      "slug": "responsabile-di-progetto-per-la-rappresentanza-della-committenza-cham-swiss-properties-cham",
       "slugByLocale": {
         "de": "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham",
-        "it": "responsabile-di-progetto-bauherrenvertretung-cham-swiss-properties-cham",
-        "en": "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham",
-        "fr": "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham"
+        "it": "responsabile-di-progetto-per-la-rappresentanza-della-committenza-cham-swiss-properties-cham",
+        "en": "project-manager-owner-s-representative-cham-swiss-properties-cham",
+        "fr": "chef-fe-de-projet-en-representation-du-maitre-d-ouvrage-cham-swiss-properties-cham"
       },
       "company": "Cham Swiss Properties",
       "companyKey": "cham-swiss-properties",
@@ -60,11 +60,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham",
+          "responsabile-di-progetto-bauherrenvertretung-cham-swiss-properties-cham"
+        ],
+        "en": [
+          "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham"
+        ],
+        "fr": [
           "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham"
+        "projektleiter-in-bauherrenvertretung-cham-swiss-properties-cham",
+        "responsabile-di-progetto-bauherrenvertretung-cham-swiss-properties-cham"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,

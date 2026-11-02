@@ -680,12 +680,12 @@
     },
     {
       "id": "planzer-17e726973158",
-      "slug": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
+      "slug": "sorter-pacchetto-strato-tardivo-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-        "it": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-        "en": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-        "fr": "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        "it": "sorter-pacchetto-strato-tardivo-m-f-d-planzer-seewen",
+        "en": "package-sorter-late-layer-m-f-d-planzer-seewen",
+        "fr": "trieuse-de-paquets-couche-tardive-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -748,16 +748,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:21:03.463Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:21:03.463Z"
+      "firstSeenAt": "2026-11-02T09:21:03.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-1eb2c41c4b63",
-      "slug": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
+      "slug": "sorter-del-pacchetto-strato-iniziale-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-        "it": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-        "en": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-        "fr": "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        "it": "sorter-del-pacchetto-strato-iniziale-m-f-d-planzer-seewen",
+        "en": "package-sorter-early-layer-m-f-d-planzer-seewen",
+        "fr": "trieuse-de-paquets-au-debut-du-calque-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -820,7 +834,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:21:02.580Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:21:02.580Z"
+      "firstSeenAt": "2026-11-02T09:21:02.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-61bdeaf4c049",

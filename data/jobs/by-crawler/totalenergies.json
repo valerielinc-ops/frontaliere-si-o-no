@@ -1327,12 +1327,12 @@
     },
     {
       "id": "totalenergies-20b18a8bf9e1",
-      "slug": "procurement-analyst-intern-totalenergies-geneve",
+      "slug": "procurement-analista-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "procurement-analyst-intern-totalenergies-geneve",
-        "it": "procurement-analyst-intern-totalenergies-geneve",
+        "it": "procurement-analista-tirocinante-totalenergies-geneve",
         "de": "procurement-analyst-intern-totalenergies-geneve",
-        "fr": "procurement-analyst-intern-totalenergies-geneve"
+        "fr": "procurement-analyste-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -1396,7 +1396,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-17T09:48:56.273Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:48:56.273Z"
+      "firstSeenAt": "2026-11-02T09:48:56.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-analyst-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "procurement-analyst-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-analyst-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-9386a03419b4",

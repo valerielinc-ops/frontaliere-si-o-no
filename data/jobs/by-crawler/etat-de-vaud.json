@@ -3104,12 +3104,12 @@
     },
     {
       "id": "etat-de-vaud-6109",
-      "slug": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536",
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne",
-        "it": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2",
-        "de": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
+        "it": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536",
+        "en": "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536",
+        "de": "spezialisierter-dateimanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3158,12 +3158,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne",
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2",
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
+        ],
+        "de": [
           "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
         ]
       },
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2",
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3185,10 +3193,10 @@
     },
     {
       "id": "etat-de-vaud-6076",
-      "slug": "gestionnaire-de-parc-informatique-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "it-fleet-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne",
-        "it": "gestionnaire-de-parc-informatique-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "it-fleet-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne",
         "de": "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne"
       },
@@ -3238,11 +3246,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne"
+          "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne",
+          "gestionnaire-de-parc-informatique-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne"
+        "gestionnaire-de-parc-informatique-etat-de-vaud-lausanne",
+        "gestionnaire-de-parc-informatique-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3264,12 +3274,12 @@
     },
     {
       "id": "etat-de-vaud-6070",
-      "slug": "secretaire-d-unite-etat-de-vaud-lausanne",
+      "slug": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "secretaire-d-unite-etat-de-vaud-lausanne",
-        "it": "secretaire-d-unite-etat-de-vaud-lausanne",
-        "en": "secretaire-d-unite-etat-de-vaud-lausanne",
-        "de": "secretaire-d-unite-etat-de-vaud-lausanne"
+        "it": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "secretary-of-unit-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "referatssekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3331,16 +3341,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:56:13.074Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-d-unite-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "secretaire-d-unite-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "secretaire-d-unite-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-d-unite-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6068",
-      "slug": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+      "slug": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey",
       "slugByLocale": {
         "fr": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
-        "it": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
-        "en": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
-        "de": "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        "it": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "en": "staff-counsellor-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "de": "personalberater-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3402,16 +3426,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:56:12.630Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        ],
+        "en": [
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        ],
+        "de": [
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+      ]
     },
     {
       "id": "etat-de-vaud-6062",
-      "slug": "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne",
+      "slug": "agente-civile-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne",
-        "it": "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne",
-        "en": "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne",
-        "de": "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne"
+        "it": "agente-civile-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "civil-registry-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "zivilregisterbeamter-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3473,7 +3511,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T10:56:12.178Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:56:12.178Z"
+      "firstSeenAt": "2026-11-02T10:56:12.178Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "officier-ere-de-l-etat-civil-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5985",

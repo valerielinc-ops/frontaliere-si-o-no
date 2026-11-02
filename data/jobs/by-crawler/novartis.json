@@ -2642,12 +2642,12 @@
     },
     {
       "id": "novartis-bd24a8215f32",
-      "slug": "qc-specialist-ii-novartis-ch",
+      "slug": "qc-specialista-ii-novartis-muttenz-with-canteen",
       "slugByLocale": {
         "en": "qc-specialist-ii-novartis-ch",
-        "it": "qc-specialist-ii-novartis-ch",
-        "de": "qc-specialist-ii-novartis-ch",
-        "fr": "qc-specialist-ii-novartis-ch"
+        "it": "qc-specialista-ii-novartis-muttenz-with-canteen",
+        "de": "qc-spezialist-ii-novartis-muttenz-with-canteen",
+        "fr": "qc-specialiste-ii-novartis-muttenz-with-canteen"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2708,7 +2708,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:04:21.076Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:04:21.076Z"
+      "firstSeenAt": "2026-11-02T10:04:21.076Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qc-specialist-ii-novartis-ch"
+        ],
+        "de": [
+          "qc-specialist-ii-novartis-ch"
+        ],
+        "fr": [
+          "qc-specialist-ii-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qc-specialist-ii-novartis-ch"
+      ]
     },
     {
       "id": "novartis-8a337c355ba4",

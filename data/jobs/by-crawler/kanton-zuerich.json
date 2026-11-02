@@ -566,12 +566,12 @@
     },
     {
       "id": "kanton-zuerich-a2e88249ac8f",
-      "slug": "aufseher-in-betreuer-in-kanton-zuerich-horgen",
+      "slug": "sorvegliante-assistente-kantonale-verwaltung-zurich-horgen",
       "slugByLocale": {
         "de": "aufseher-in-betreuer-in-kanton-zuerich-horgen",
-        "it": "aufseher-in-betreuer-in-kanton-zuerich-horgen",
-        "en": "aufseher-in-betreuer-in-kanton-zuerich-horgen",
-        "fr": "aufseher-in-betreuer-in-kanton-zuerich-horgen"
+        "it": "sorvegliante-assistente-kantonale-verwaltung-zurich-horgen",
+        "en": "supervisor-attendant-kantonale-verwaltung-zurich-horgen",
+        "fr": "surveillant-e-accompagnateur-trice-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -637,7 +637,21 @@
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:59:23.690Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufseher-in-betreuer-in-kanton-zuerich-horgen"
+        ],
+        "en": [
+          "aufseher-in-betreuer-in-kanton-zuerich-horgen"
+        ],
+        "fr": [
+          "aufseher-in-betreuer-in-kanton-zuerich-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "aufseher-in-betreuer-in-kanton-zuerich-horgen"
+      ]
     },
     {
       "id": "kanton-zuerich-2c4a3e9b9d7b",
@@ -6119,12 +6133,12 @@
     },
     {
       "id": "kanton-zuerich-cd2fc7716551",
-      "slug": "apprendistato-come-ict-fachfrau-ict-fachmann-cfc-2027-kantonale-verwaltung-zurich",
+      "slug": "posto-di-apprendistato-come-specialista-ict-specialista-ict-afc-2027-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich",
-        "it": "apprendistato-come-ict-fachfrau-ict-fachmann-cfc-2027-kantonale-verwaltung-zurich",
-        "en": "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich",
-        "fr": "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich"
+        "it": "posto-di-apprendistato-come-specialista-ict-specialista-ict-afc-2027-kantonale-verwaltung-zurich-zurich",
+        "en": "apprenticeship-as-ict-specialist-ict-specialist-efz-2027-kantonale-verwaltung-zurich-zurich",
+        "fr": "apprentissage-en-tant-que-specialiste-des-tic-specialiste-des-tic-efz-2027-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6176,11 +6190,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich",
+          "apprendistato-come-ict-fachfrau-ict-fachmann-cfc-2027-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich"
+        "lehrstelle-als-ict-fachfrau-ict-fachmann-efz-2027-kanton-zuerich-zurich",
+        "apprendistato-come-ict-fachfrau-ict-fachmann-cfc-2027-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -6490,12 +6512,12 @@
     },
     {
       "id": "kanton-zuerich-817051e94352",
-      "slug": "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil",
+      "slug": "responsabile-del-team-manutenzione-gestione-degli-edifici-kantonale-verwaltung-zurich-wadenswil",
       "slugByLocale": {
         "de": "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil",
-        "it": "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil",
-        "en": "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil",
-        "fr": "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil"
+        "it": "responsabile-del-team-manutenzione-gestione-degli-edifici-kantonale-verwaltung-zurich-wadenswil",
+        "en": "team-leader-building-maintenance-building-operations-kantonale-verwaltung-zurich-wadenswil",
+        "fr": "responsable-d-equipe-conciergerie-exploitation-des-batiments-kantonale-verwaltung-zurich-wadenswil"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6562,7 +6584,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:58:52.459Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:58:52.459Z"
+      "firstSeenAt": "2026-11-02T10:58:52.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil"
+        ],
+        "en": [
+          "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil"
+        ],
+        "fr": [
+          "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-hauswartung-gebaudebetrieb-kanton-zuerich-wadenswil"
+      ]
     },
     {
       "id": "kanton-zuerich-d6f612631cd5",
@@ -7854,8 +7890,8 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kanton-zuerich-zurich",
         "it": "wissenschaftliche-r-collaboratore-trice-im-fachstab-finanzielle-hilfen-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kantonale-verwaltung-zurich-zurich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kantonale-verwaltung-zurich-zurich"
+        "en": "research-associate-in-the-specialist-unit-for-financial-assistance-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-rice-scientifique-au-sein-de-l-etat-major-specialise-aides-financieres-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7908,10 +7944,17 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kanton-zuerich-zurich"
+        "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kanton-zuerich-zurich",
+        "wissenschaftliche-r-mitarbeiter-in-im-fachstab-finanzielle-hilfen-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12072,12 +12115,12 @@
     },
     {
       "id": "kanton-zuerich-9c64dc3381aa",
-      "slug": "fachspezialist-in-larmschutz-kanton-zuerich-zurich",
+      "slug": "specialista-in-protezione-dal-rumore-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-larmschutz-kanton-zuerich-zurich",
-        "it": "fachspezialist-in-larmschutz-kanton-zuerich-zurich",
-        "en": "fachspezialist-in-larmschutz-kanton-zuerich-zurich",
-        "fr": "fachspezialist-in-larmschutz-kanton-zuerich-zurich"
+        "it": "specialista-in-protezione-dal-rumore-kantonale-verwaltung-zurich-zurich",
+        "en": "noise-protection-specialist-kantonale-verwaltung-zurich-zurich",
+        "fr": "specialiste-en-protection-contre-le-bruit-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12144,7 +12187,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:58:22.022Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:58:22.022Z"
+      "firstSeenAt": "2026-11-02T10:58:22.022Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-larmschutz-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "fachspezialist-in-larmschutz-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "fachspezialist-in-larmschutz-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-larmschutz-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-98cb5f3b290e",

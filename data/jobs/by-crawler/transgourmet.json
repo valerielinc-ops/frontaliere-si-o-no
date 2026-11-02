@@ -1906,12 +1906,12 @@
     },
     {
       "id": "transgourmet-801620a8-584",
-      "slug": "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
+      "slug": "supporto-ict-supporto-ict-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
-        "it": "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
+        "it": "supporto-ict-supporto-ict-transgourmet-moosseedorf",
         "en": "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
-        "fr": "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+        "fr": "supporteur-tic-supporteur-tic-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1994,7 +1994,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:20:13.609Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:20:13.609Z"
+      "firstSeenAt": "2026-11-02T09:20:13.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-4451a3b3-362",
@@ -2101,9 +2112,9 @@
       "slug": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino",
       "slugByLocale": {
         "it": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino",
-        "en": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino",
-        "de": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino",
-        "fr": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino"
+        "en": "driver-cat-c-transgourmet-quartino",
+        "de": "fahrerkatze-c-transgourmet-quartino",
+        "fr": "chauffeur-c-transgourmet-quartino"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2198,8 +2209,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach",
         "it": "mitarbeiterin-addetto-a-alle-vendite-getranke-e-tabak-transgourmet-reinach",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach",
-        "fr": "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
+        "en": "beverage-and-tobacco-sales-employee-transgourmet-reinach",
+        "fr": "collaboratrice-collaborateur-en-vente-de-boissons-et-de-tabac-transgourmet-reinach"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2265,6 +2276,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
         ]
       },

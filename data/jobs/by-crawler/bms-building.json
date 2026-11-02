@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bms-building-4a9d5af619eb",
-      "slug": "logistiker-m-w-d-100-bms-building-materials-hunzenschwil",
+      "slug": "logistica-m-f-d-100-bms-building-materials-hunzenschwil",
       "slugByLocale": {
         "de": "logistiker-w-m-d-100-bms-building-ch",
-        "it": "logistiker-m-w-d-100-bms-building-materials-hunzenschwil",
-        "en": "logistiker-w-m-d-100-bms-building-ch",
-        "fr": "logistiker-w-m-d-100-bms-building-ch"
+        "it": "logistica-m-f-d-100-bms-building-materials-hunzenschwil",
+        "en": "logistics-m-f-d-100-bms-building-materials-hunzenschwil",
+        "fr": "logistique-h-f-d-100-bms-building-materials-hunzenschwil"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -88,11 +88,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-w-m-d-100-bms-building-ch",
+          "logistiker-m-w-d-100-bms-building-materials-hunzenschwil"
+        ],
+        "en": [
+          "logistiker-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
           "logistiker-w-m-d-100-bms-building-ch"
         ]
       },
       "previousSlugs": [
-        "logistiker-w-m-d-100-bms-building-ch"
+        "logistiker-w-m-d-100-bms-building-ch",
+        "logistiker-m-w-d-100-bms-building-materials-hunzenschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -116,12 +124,12 @@
     },
     {
       "id": "bms-building-01e96e8e47e3",
-      "slug": "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch",
+      "slug": "logistica-macchinista-taglio-m-f-d-100-bms-building-materials-hunzenschwil",
       "slugByLocale": {
         "de": "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch",
-        "it": "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch",
-        "en": "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch",
-        "fr": "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch"
+        "it": "logistica-macchinista-taglio-m-f-d-100-bms-building-materials-hunzenschwil",
+        "en": "logistics-machinist-cut-m-f-d-100-bms-building-materials-hunzenschwil",
+        "fr": "logistique-machiniste-coupe-h-f-d-100-bms-building-materials-hunzenschwil"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -211,7 +219,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:46:14.856Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T09:46:14.856Z"
+      "firstSeenAt": "2026-11-02T09:46:14.856Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistik-maschinist-zuschnitt-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-d47aeb29939f",
@@ -219,8 +241,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hr-administration-deutsch-franzosisch-w-m-d-60-80-bms-building-ch",
         "it": "collaboratore-trice-risorse-umane-administration-deutsch-franzosisch-m-w-d-60-80-bms-building-materials-rumlang",
-        "en": "mitarbeiter-in-hr-administration-deutsch-franzosisch-w-m-d-60-80-bms-building-ch",
-        "fr": "mitarbeiter-in-hr-administration-deutsch-franzosisch-w-m-d-60-80-bms-building-ch"
+        "en": "hr-administration-employee-german-french-m-f-d-60-80-bms-building-materials-rumlang",
+        "fr": "collaborateur-rice-en-administration-rh-allemand-francais-h-f-d-60-80-bms-building-materials-rumlang"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -293,6 +315,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hr-administration-deutsch-franzosisch-w-m-d-60-80-bms-building-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-hr-administration-deutsch-franzosisch-w-m-d-60-80-bms-building-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-hr-administration-deutsch-franzosisch-w-m-d-60-80-bms-building-ch"
         ]
       },

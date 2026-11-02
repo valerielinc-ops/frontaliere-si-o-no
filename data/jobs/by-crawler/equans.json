@@ -9125,12 +9125,12 @@
     },
     {
       "id": "equans-758d79861f80",
-      "slug": "luftungstechniker-in-equans-switzerland-opfikon",
+      "slug": "tecnico-a-della-ventilazione-equans-switzerland-opfikon",
       "slugByLocale": {
         "de": "luftungstechniker-in-equans-opfikon",
-        "it": "luftungstechniker-in-equans-switzerland-opfikon",
-        "en": "luftungstechniker-in-equans-switzerland-opfikon",
-        "fr": "luftungstechniker-in-equans-switzerland-opfikon"
+        "it": "tecnico-a-della-ventilazione-equans-switzerland-opfikon",
+        "en": "ventilation-technician-equans-switzerland-opfikon",
+        "fr": "technicien-ne-en-ventilation-equans-switzerland-opfikon"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9179,11 +9179,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "luftungstechniker-in-equans-opfikon"
+          "luftungstechniker-in-equans-opfikon",
+          "luftungstechniker-in-equans-switzerland-opfikon"
+        ],
+        "en": [
+          "luftungstechniker-in-equans-switzerland-opfikon"
+        ],
+        "fr": [
+          "luftungstechniker-in-equans-switzerland-opfikon"
         ]
       },
       "previousSlugs": [
-        "luftungstechniker-in-equans-opfikon"
+        "luftungstechniker-in-equans-opfikon",
+        "luftungstechniker-in-equans-switzerland-opfikon"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

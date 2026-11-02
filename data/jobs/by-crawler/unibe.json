@@ -1196,7 +1196,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -1246,7 +1246,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1255,7 +1255,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4353,12 +4353,12 @@
     },
     {
       "id": "unibe-9ee400ee3bbc",
-      "slug": "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe",
+      "slug": "posizione-post-dottorale-in-rilevazione-a-raman-di-micro-e-nanoplastici-mnp-universitat-bern-dubendorf",
       "slugByLocale": {
         "en": "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe",
-        "it": "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe",
-        "de": "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe",
-        "fr": "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe"
+        "it": "posizione-post-dottorale-in-rilevazione-a-raman-di-micro-e-nanoplastici-mnp-universitat-bern-dubendorf",
+        "de": "postdoktorandenposition-beim-raman-basierten-nachweis-von-mikro-und-nanoplastik-mnp-universitat-bern-dubendorf",
+        "fr": "position-postdoctorale-dans-la-detection-des-micro-et-nanoplastiques-pnm-par-raman-universitat-bern-dubendorf"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4420,16 +4420,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:04:04.632Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:04:04.632Z"
+      "firstSeenAt": "2026-11-02T10:04:04.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe"
+        ],
+        "de": [
+          "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe"
+        ],
+        "fr": [
+          "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-raman-based-detection-of-micro-and-nanoplastics-mnp-unibe"
+      ]
     },
     {
       "id": "unibe-d4c50183341b",
-      "slug": "wissenschaftliche-assistenz-universitat-bern-bern",
+      "slug": "assistenza-scientifica-universitat-bern-bern",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-unibe-bern",
-        "it": "wissenschaftliche-assistenz-universitat-bern-bern",
-        "en": "wissenschaftliche-assistenz-universitat-bern-bern",
-        "fr": "wissenschaftliche-assistenz-universitat-bern-bern"
+        "it": "assistenza-scientifica-universitat-bern-bern",
+        "en": "scientific-assistance-universitat-bern-bern",
+        "fr": "assistance-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4477,11 +4491,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-unibe-bern"
+          "wissenschaftliche-assistenz-unibe-bern",
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-assistenz-unibe-bern"
+        "wissenschaftliche-assistenz-unibe-bern",
+        "wissenschaftliche-assistenz-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

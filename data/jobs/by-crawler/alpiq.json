@@ -203,9 +203,12 @@
     },
     {
       "id": "alpiq-e0e5871380c3",
-      "slug": "green-power-business-development-investments-alpiq-lausanne-switzerland",
+      "slug": "sviluppo-e-investimenti-di-imprese-di-energia-verde-alpiq-lausanne-switzerland",
       "slugByLocale": {
-        "en": "green-power-business-development-investments-alpiq-lausanne-switzerland"
+        "en": "green-power-business-development-investments-alpiq-lausanne-switzerland",
+        "it": "sviluppo-e-investimenti-di-imprese-di-energia-verde-alpiq-lausanne-switzerland",
+        "de": "green-power-geschaftsentwicklung-investitionen-alpiq-lausanne-switzerland",
+        "fr": "energie-verte-developpement-des-entreprises-et-investissements-alpiq-lausanne-switzerland"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -264,7 +267,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-02T10:03:48.969Z"
+      "firstSeenAt": "2026-11-02T10:03:48.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "green-power-business-development-investments-alpiq-lausanne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "green-power-business-development-investments-alpiq-lausanne-switzerland"
+      ]
     },
     {
       "id": "alpiq-98de3cfe5599",

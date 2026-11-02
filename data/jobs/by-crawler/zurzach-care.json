@@ -421,7 +421,7 @@
         "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
         "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -478,13 +478,13 @@
         ],
         "fr": [
           "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
       ],
       "firstSeenAt": "2026-10-08T21:15:07.730Z",
       "salaryMin": 70400,
@@ -5747,12 +5747,12 @@
     },
     {
       "id": "zurzach-care-d2c59f22511f",
-      "slug": "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern",
+      "slug": "presenza-medico-presenza-medico-o-medico-notturno-40-100-zurzach-care-luzern",
       "slugByLocale": {
         "de": "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern",
-        "it": "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern",
-        "en": "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern",
-        "fr": "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern"
+        "it": "presenza-medico-presenza-medico-o-medico-notturno-40-100-zurzach-care-luzern",
+        "en": "presence-doctor-presence-doctor-or-night-doctor-40-100-zurzach-care-luzern",
+        "fr": "presence-medecin-presence-medecin-ou-nuit-medecin-40-100-zurzach-care-luzern"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5813,7 +5813,21 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:21:26.293Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern"
+        ],
+        "en": [
+          "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern"
+        ],
+        "fr": [
+          "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "prasenzarztin-prasenzarzt-bzw-nachtarztin-nachtarzt-40-100-zurzach-care-luzern"
+      ]
     },
     {
       "id": "zurzach-care-6e20c223b8f4",
