@@ -20,6 +20,7 @@ import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
+import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
 import { answerConfirmationSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
@@ -63,10 +64,11 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
 const OWNER_FLAGS = new Set(['fact_check', 'no_posting', 'channel_unknown', 'legitimacy']);
 
 export class AutomationAdminError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -414,17 +416,19 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const suppliedSnapshots = raw.answerQuestionSnapshots && typeof raw.answerQuestionSnapshots === 'object' && !Array.isArray(raw.answerQuestionSnapshots)
         ? raw.answerQuestionSnapshots : {};
       if (Object.keys(answers).some(id => !visibleIds.has(id) || !currentSnapshots[id] || suppliedSnapshots[id] !== currentSnapshots[id])) {
-        throw new AutomationAdminError('changed_meanwhile', 409);
+        const strict = deps.requireAnswerContracts === true;
+        throw new AutomationAdminError(strict ? 'answer_contract_required' : 'changed_meanwhile', 409,
+          strict ? answerContractRequiredDetails : null);
       }
       // An answer the tailored CV prints (the permit status, the availability): rebuilt and committed with the
       // answers, before the event can dispatch the submission (decision 7), as the candidate's answers are.
       try {
         await saveAnswersWithCv({
           db, bucket: deps.bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots: suppliedSnapshots,
-          answerSnapshotQuestions: visibleQuestions, nowMs, answerActor: 'owner',
+          answerSnapshotQuestions: visibleQuestions, nowMs, answerActor: 'owner', requireAnswerContracts: deps.requireAnswerContracts === true,
         });
       } catch (error) {
-        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);
+        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status, error.details);
         throw error;
       }
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });

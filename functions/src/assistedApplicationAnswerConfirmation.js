@@ -8,6 +8,33 @@ const hash = value => createHash('sha256').update(serialized(value)).digest('hex
 
 export const ANSWER_CONFIRMATION_VERSION = 'candidate-answer-confirmation-v2';
 
+// Migration switch for callers that still receive an answer without the
+// opaque question contract returned by the review endpoint. Remote Config is
+// deliberately fail-open here: an absent, malformed or unavailable value must
+// never turn a transient configuration failure into a candidate-facing block.
+export const ANSWER_CONTRACT_REQUIRED_RC_KEY = 'ASSISTED_APPLICATION_ANSWER_CONTRACT_REQUIRED';
+
+/**
+ * Read the contract migration switch without giving truthy aliases authority.
+ * Remote Config normally returns strings, but String() also handles the
+ * boolean values used by unit/integration callers. Only the canonical value
+ * `true` enables the strict path; absent, `false`, whitespace and unknown
+ * values all remain on the compatibility path.
+ */
+export async function answerContractRequired(getValue) {
+  if (typeof getValue !== 'function') return false;
+  try {
+    return String(await getValue(ANSWER_CONTRACT_REQUIRED_RC_KEY)).trim().toLowerCase() === 'true';
+  } catch {
+    return false;
+  }
+}
+
+export const answerContractRequiredDetails = Object.freeze({
+  reviewRequired: true,
+  answerConfirmation: Object.freeze({ status: 'review_required', authority: false }),
+});
+
 function timestampMillis(value) {
   if (value instanceof Date) return value.getTime();
   if (typeof value === 'number') return value;

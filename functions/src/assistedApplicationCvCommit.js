@@ -11,6 +11,7 @@
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots } from './assistedApplicationAnswerEvidence.js';
+import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -18,10 +19,11 @@ import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './a
 
 /** A refused commit or rebuild, answered with its status and code (409 changed_meanwhile, 503 storage_unavailable). */
 export class CvCommitError extends Error {
-  constructor(code, status) {
+  constructor(code, status, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -217,7 +219,7 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots = {}, answerSnapshotQuestions = null,
-  answerSuggestionDismissals = null, confirmedAnswerOrigins = {}, nowMs, answerActor = null }) {
+  answerSuggestionDismissals = null, confirmedAnswerOrigins = {}, nowMs, answerActor = null, requireAnswerContracts = false }) {
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
   const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
   const localQuestionDescriptors = Array.isArray(answerSnapshotQuestions) ? answerSnapshotQuestions
@@ -227,7 +229,8 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const currentConfirmationSnapshots = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow,
     questions: localQuestionDescriptors, draft, sourceKind: answerSourceKind, nowMs });
   if (Object.keys(answers || {}).some(id => !currentConfirmationSnapshots[id] || answerQuestionSnapshots[id] !== currentConfirmationSnapshots[id])) {
-    throw new CvCommitError('changed_meanwhile', 409);
+    throw new CvCommitError(requireAnswerContracts ? 'answer_contract_required' : 'changed_meanwhile', 409,
+      requireAnswerContracts ? answerContractRequiredDetails : null);
   }
   const confirmedQuestionSnapshots = Object.fromEntries(Object.entries(answers || {}).flatMap(([id]) =>
     answerQuestionSnapshots[id] && answerQuestionSnapshots[id] === currentConfirmationSnapshots[id] && currentQuestionSnapshots[id]
