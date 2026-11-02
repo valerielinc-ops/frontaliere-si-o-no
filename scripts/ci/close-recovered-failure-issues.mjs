@@ -1573,6 +1573,14 @@ export function assessProvenBranchRecovery(workflowName, runs, readJobs, options
  *   - `owner`: il prefisso dei titoli della famiglia che il verdetto ha già aperto.
  */
 export const VERDICT_STEPS = Object.freeze({
+  '.github/workflows/loop-l0-data-truth.yml': Object.freeze({
+    workflowName: 'Loop L0 data truth',
+    verdict: 'Audit corpus manifest',
+    // L0 persists its owner issue inside the same step that returns the
+    // fail-closed verdict; there is no separate producer step to register.
+    producers: Object.freeze(['Audit corpus manifest']),
+    owner: 'L0 Data Truth: ',
+  }),
   '.github/workflows/crawler-health-monitor.yml': Object.freeze({
     workflowName: 'crawler-health-monitor',
     verdict: 'Fail if any crawler stale',
