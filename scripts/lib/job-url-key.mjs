@@ -255,15 +255,40 @@ const ASSOLO_ITEM_QUERY_RE = /[?&]i=1(?:&|$)/i;
 // selects the ASSOLO crawlers so a random `.ch`/`.swiss` host cannot inherit
 // the hostless `hex:` key. Subdomains remain valid, matching the crawler's
 // trusted-domain policy (`www.<domain>` is the common canonical form).
-const ASSOLO_HOSTS = new Set(
-  JSON.parse(readFileSync(new URL('../../data/ticino-comuni-registry.json', import.meta.url), 'utf8')).comuni
-    .filter((entry) => entry.status === 'covered'
-      && entry.cms === 'assolo'
-      && entry.listing?.type === 'assolo')
-    .flatMap((entry) => [entry.domain, ...(entry.extraHosts || [])])
-    .map((host) => String(host || '').trim().toLowerCase())
-    .filter(Boolean),
-);
+let assoloHostsCache;
+
+function loadAssoloHosts() {
+  if (assoloHostsCache) return assoloHostsCache;
+
+  // This helper is also imported by DOM-tested modules. In that graph Vite
+  // gives import.meta.url an http(s) URL, which is not a readable filesystem
+  // URL; defer the registry read until the server-side path actually needs it.
+  const registryUrl = new URL('../../data/ticino-comuni-registry.json', import.meta.url);
+  if (registryUrl.protocol !== 'file:') {
+    assoloHostsCache = new Set();
+    return assoloHostsCache;
+  }
+
+  try {
+    assoloHostsCache = new Set(
+      JSON.parse(readFileSync(registryUrl, 'utf8')).comuni
+        .filter((entry) => entry.status === 'covered'
+          && entry.cms === 'assolo'
+          && entry.listing?.type === 'assolo')
+        .flatMap((entry) => [entry.domain, ...(entry.extraHosts || [])])
+        .map((host) => String(host || '').trim().toLowerCase())
+        .filter(Boolean),
+    );
+  } catch (error) {
+    // Isolated script sandboxes may deliberately provide only the data files
+    // under test. Missing registry data must not make the URL-key module
+    // unusable for unrelated hosts; a malformed present registry still fails
+    // loudly so the production host policy cannot silently disappear.
+    if (error?.code !== 'ENOENT') throw error;
+    assoloHostsCache = new Set();
+  }
+  return assoloHostsCache;
+}
 
 function isAssoloHost(url) {
   let hostname;
@@ -272,7 +297,7 @@ function isAssoloHost(url) {
   } catch {
     return false;
   }
-  return [...ASSOLO_HOSTS].some((host) => hostname === host || hostname.endsWith(`.${host}`));
+  return [...loadAssoloHosts()].some((host) => hostname === host || hostname.endsWith(`.${host}`));
 }
 const ASSOLO_ITEM_PATH_RE = /^https?:\/\/[^/?#]+\/(?:[^/?#]+\/)*[^/?#]+-[0-9a-f]{8}$/i;
 
