@@ -484,7 +484,10 @@ it('does not expose fallback-language questions from a pre-read when localizatio
   const url = 'https://jobs.lever.co/example/1/apply';
   const snapshot = {
     url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
-    fields: [{ id: 'motivation', kind: 'text', label: 'Warum interessiert dich diese Stelle?', required: true }],
+    fields: [
+      { id: 'cv', kind: 'file', label: 'Resume / CV', required: true },
+      { id: 'motivation', kind: 'text', label: 'Warum interessiert dich diese Stelle?', required: true },
+    ],
   };
   const frame = { evaluate: vi.fn(async () => snapshot) };
   const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),

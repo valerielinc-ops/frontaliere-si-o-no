@@ -841,7 +841,10 @@ describe('assisted portal question batching', () => {
     const plannerTrace: any[] = [];
     const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
-    const codex = async () => {
+    const codex = async ({ prompt }: any) => {
+      if (String(prompt).includes('You localize questions from an online job application')) {
+        return sameLanguageLocalization(prompt);
+      }
       plannerCalls.push([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
       const missingRequired = [
         { fieldId: fieldId('motivation'), question: 'Why are you interested in this role?', why: '', type: 'text', options: [] },
@@ -907,7 +910,10 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const plannerTrace: any[] = [];
     const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia', city: 'Como', postalCode: '22100' } }, profile: {} };
-    const codex = async () => {
+    const codex = async ({ prompt }: any) => {
+      if (String(prompt).includes('You localize questions from an online job application')) {
+        return sameLanguageLocalization(prompt);
+      }
       const pageNumber = Number(window.document.querySelector('form')?.getAttribute('data-page') || '1');
       const fields = new Set([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
       if (pageNumber === 1 && !fields.has('city')) {
