@@ -36,9 +36,9 @@ describe('qualification before proposal publication', () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
 
-    expect(CONCIERGE_ELIGIBILITY_VERSION).toMatch(/requirements-v5-/);
+    expect(CONCIERGE_ELIGIBILITY_VERSION).toMatch(/requirements-v6-/);
     expect(await check({ id: 'stage-title', title: 'Stagiste/i ... maturità professionale (52 settimane)', employmentType: 'internship' }))
-      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+      .toMatchObject({ status: 'unverified', reason: 'hard_requirement_uncovered' });
     expect(f.generate.mock.calls[1][1]).toContain('Stagiste/i ... maturità professionale (52 settimane)');
     expect(f.generate).toHaveBeenCalledTimes(2);
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
@@ -98,7 +98,7 @@ describe('qualification before proposal publication', () => {
 
     expect(await check({ id: 'large-metadata', title: 'IT Manager', description: ['a'.repeat(3_500), 'b'.repeat(3_500),
       'c'.repeat(3_500), 'd'.repeat(3_500), 'e'.repeat(3_500)] }))
-      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+      .toMatchObject({ status: 'unverified', reason: 'eligibility_metadata_incomplete' });
     expect(f.generate).toHaveBeenCalledTimes(1);
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
   });
@@ -143,7 +143,7 @@ describe('qualification before proposal publication', () => {
     f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? omitted : { matches: [{ index: 0, status: 'met', evidence: 'Comunicazione efficace' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
 
-    expect(await check({ id: 'school-placement' })).toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(await check({ id: 'school-placement' })).toMatchObject({ status: 'unverified', reason: 'hard_requirement_uncovered' });
     expect(f.generate).toHaveBeenCalledTimes(2);
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
   });
@@ -468,7 +468,7 @@ describe('qualification before proposal publication', () => {
     f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? omitted : { matches: [{ index: 0, status: 'met', evidence: 'IT Manager' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     for (let retry = 0; retry < 2; retry++) expect(await check({ id: 'omitted-language' }))
-      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete', gaps: [] });
+      .toMatchObject({ status: 'unverified', reason: 'language_requirement_uncovered', gaps: [] });
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(2);
   });
@@ -504,7 +504,7 @@ describe('qualification before proposal publication', () => {
     const incomplete = { requirements: [{ requirement: 'German', importance: 'high', basis: 'stated', quote: 'German' }],
       languageRequirements: [{ language: 'German', level: '', quote: 'Strong German and English communication skills' }] };
     expect(conciergeProposalEligibility(incomplete, { matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good' }))
-      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete', gaps: [] });
+      .toMatchObject({ status: 'unverified', reason: 'language_requirement_uncovered', gaps: [] });
   });
   it('keeps an empty partial mobility citation a technical failure before and after the guard', async () => {
     const { guardMobilityMatch } = await import('../functions/src/lib/mobilityRequirements.js');
@@ -574,6 +574,26 @@ describe('qualification before proposal publication', () => {
     await check({ jobId: 'job-a', jobUrl: 'https://example.test/a', jobTitle: 'Changed title', companyName: 'Alpha' });
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(3);
   });
+  it('records an unavailable primary posting as unknown and fingerprints its recovery', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    f.readPosting.mockRejectedValueOnce(new Error('temporary posting read failure'));
+    const required = { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2 required', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
+    f.generate.mockImplementation(async (system: string) => system === PROFILE_SYSTEM_PROMPT ? rawProfile
+      : system === REQUIREMENTS_SYSTEM_PROMPT ? required : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'recovering-source', title: 'IT Manager', company: 'Example' };
+
+    const unavailable = await check(job);
+    expect(unavailable).toMatchObject({ status: 'unverified', reason: 'posting_unavailable', cacheId: expect.any(String), fingerprint: expect.any(String) });
+    expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(0);
+
+    f.readPosting.mockResolvedValue({ text: `English B2 required. ${'IT infrastructure duties. '.repeat(12)}`,
+      textTruncated: false, source: 'job_detail' });
+    const recovered = await check(job);
+    expect(recovered.fingerprint).not.toBe(unavailable.fingerprint);
+    expect(recovered.status).toBe('compatible');
+    expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(1);
+  });
   it('reuses a verified positive only for identical CV and posting, ignoring opaque legacy answers', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const required = { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2 required', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
@@ -625,7 +645,7 @@ describe('qualification before proposal publication', () => {
       ? { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'An invented requirement quote' }] }
       : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
-    expect(await check({ id: 'bad-quote' })).toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(await check({ id: 'bad-quote' })).toMatchObject({ status: 'unverified', reason: 'hard_requirement_uncovered' });
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
   });
   it('uses a ready private CV projection for the single-checkout preflight', async () => {

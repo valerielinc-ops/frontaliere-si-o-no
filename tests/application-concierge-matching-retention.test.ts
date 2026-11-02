@@ -100,6 +100,19 @@ describe('application concierge proposal retention', () => {
     expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'proposed', eligibilityStatus: 'unverified', matchScore: 72 });
   });
 
+  it('never publishes a new proposal when eligibility remains unknown', async () => {
+    const store = matchingFixture();
+    store.docs.delete(PROPOSAL_PATH);
+    stubJobIndex([matchingJob]);
+    const eligibility = vi.fn(async () => ({ status: 'unverified', reason: 'posting_unavailable' }));
+
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 0 });
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(store.list(`${SERVICE_PATH}/proposals/`)).toEqual([]);
+  });
+
   it('reactivates an ambiguous legacy retraction only after current listing and eligibility checks pass', async () => {
     const store = matchingFixture();
     store.docs.set(PROPOSAL_PATH, {

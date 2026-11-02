@@ -19,7 +19,7 @@ export const CONCIERGE_MATCHING_STALE_AFTER_MS = 10 * 60 * 1000;
 export const CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS = 3;
 export const CONCIERGE_STALE_RECOVERY_BACKOFF_MS = Object.freeze([60 * 60 * 1000, 3 * 60 * 60 * 1000, 12 * 60 * 60 * 1000]);
 
-/** Stable per-input scope for bounded automatic recovery of a crashed matcher. */
+/** Stable per-input scope for bounded automatic recovery of a failed or crashed matcher run. */
 export function conciergeMatchingRecoveryContext(service) {
   return createHash('sha256').update(JSON.stringify([
     String(service?.cvStorageKey || ''),
@@ -61,7 +61,7 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
     return started > 0 && nowMs - started >= CONCIERGE_MATCHING_STALE_AFTER_MS
       && staleRecoveryDue(service, nowMs);
   }
-  // A failed attempt in a stale-run recovery episode follows its bounded backoff.
+  // Failed and crashed matcher runs share one bounded recovery budget.
   if (service.matchingStatus === 'failed' && staleRecoveryState(service).attempts > 0
     && !staleRecoveryDue(service, nowMs)) return false;
   if (service.proposalRefreshRerunAfterWorker === true
@@ -82,9 +82,13 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
     const retryAt = timestampMillis(service.matchingRetryAt);
     if (retryAt) return nowMs >= Math.min(lastRefresh + CONCIERGE_REFRESH_INTERVAL_MS, retryAt);
   }
+  const onlyExhaustedEligibility = Number(service.matchingUnverifiedCount) > 0
+    && Number(service.matchingPendingCount || 0) === 0
+    && Number(service.matchingRetryCount || 0) === 0
+    && Number(service.matchingRetryExhaustedCount || 0) > 0;
   const interval = freshPending
     ? CONCIERGE_FRESH_PENDING_INTERVAL_MS
-    : service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0
+    : service.matchingStatus === 'failed' || (Number(service.matchingUnverifiedCount) > 0 && !onlyExhaustedEligibility)
       ? CONCIERGE_RETRY_INTERVAL_MS
       : CONCIERGE_REFRESH_INTERVAL_MS;
   return lastRefresh > 0 && nowMs >= lastRefresh + interval;

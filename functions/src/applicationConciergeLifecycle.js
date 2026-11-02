@@ -61,8 +61,8 @@ function staleRecoveryAttempt(service, nowMs) {
   const startedAt = timestampMillis(service?.matchingStartedAt);
   const staleRunning = service?.matchingStatus === 'running' && startedAt > 0
     && nowMs - startedAt >= CONCIERGE_MATCHING_STALE_AFTER_MS;
-  const retryingFailedRecovery = service?.matchingStatus === 'failed' && attempts > 0;
-  return { context, attempts, retryAt, isRecovery: staleRunning || retryingFailedRecovery };
+  const failedRunRecovery = service?.matchingStatus === 'failed';
+  return { context, attempts, retryAt, isRecovery: staleRunning || failedRunRecovery };
 }
 
 async function claimMatchingWorkerLease({ db, ref, workerLeaseId, requestId = null, nowMs }) {
@@ -187,7 +187,9 @@ async function reconcileExhaustedStaleMatching(db, ref, nowMs) {
     if (workerLeaseExpires > nowMs) return false;
     tx.set(ref, {
       matchingStatus: 'failed',
-      matchingError: 'stale_worker_retry_exhausted',
+      matchingError: service.matchingStatus === 'running'
+        ? 'stale_worker_retry_exhausted'
+        : service.matchingError || 'matching_retry_exhausted',
       matchingCompletedAt: new Date(nowMs),
       matchingStaleRecoveryExhaustedAt: new Date(nowMs),
       updatedAt: new Date(nowMs),
