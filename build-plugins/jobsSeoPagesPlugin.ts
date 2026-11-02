@@ -13316,6 +13316,7 @@ ${staticAnalyticsHtml}
  // aliases without retaining a prefix entry for every historical row in the
  // registry.
  const expiredNativeRouteSlugs = new Set(expiredBySlug.keys());
+ for (const slug of expiredSliceOverflow.keys()) expiredNativeRouteSlugs.add(slug);
  if (expiredNativeRouteSlugs.size > 0) {
   const expiredNativeIndex = buildNativeJobPrefixIndex(
    tracking,

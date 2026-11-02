@@ -8,6 +8,7 @@ import {
   buildNativeJobPrefixIndex,
   nativeJobPathRecoveredByWorker,
 } from '../build-plugins/jobsSeoPagesPlugin';
+import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from '../build-plugins/shared/expiredSliceOverflow';
 import { sanitizeSitemapHreflangReciprocity } from '../build-plugins/sitemapAliasPlugin';
 
 type Locale = (typeof JOB_SEO_LOCALES)[number];
@@ -200,6 +201,30 @@ describe('native job route ownership with interned prefixes', () => {
       expiredTracking,
       expiredIndex,
     )).toBe(true);
+  });
+
+  it('recovers a native alias retained only in expired slice overflow', () => {
+    const primary = new Map<string, { slug: string; slugByLocale: { de: string } }>();
+    const overflow = new ExpiredSliceOverflow<{ slug: string; slugByLocale: { de: string } }>();
+    const late = { slug: 'late-master-slug', slugByLocale: { de: 'late-locale-slug' } };
+    const emittedSlugs = new Set(['late-master-slug', 'late-locale-slug']);
+    try {
+      augmentExpiredSliceIndex([late], emittedSlugs, primary, overflow, 1, () => 0);
+      expect([...overflow.keys()]).toEqual(['late-locale-slug']);
+      const candidates = new Set([...primary.keys(), ...overflow.keys()]);
+      const tracking: Tracking = {
+        'late-master-slug': { de: '/de/jobs-in-der-waadt/late-locale-slug' },
+      };
+      const index = buildNativeJobPrefixIndex(tracking, prefixes, sections, candidates);
+      tracking['late-locale-slug'] = { de: '/de/jobs-im-tessin/late-locale-slug' };
+      expect(nativeJobPathRecoveredByWorker(
+        'de',
+        'late-locale-slug',
+        '/de/jobs-im-tessin/late-locale-slug',
+        tracking,
+        index,
+      )).toBe(true);
+    } finally { overflow.close(); }
   });
 
   it('keeps foreign ownership, expired/self-healing decisions and reciprocal canonical paths after compat merge', () => {
