@@ -80,12 +80,18 @@ function readSlices(dataDir) {
   });
 }
 
-function countCurrentRetranslation(slices) {
-  let count = 0;
-  for (const { jobs } of slices) {
-    for (const job of jobs) if (job?.needsRetranslation === true) count += 1;
+function countRetranslationByCrawler(slices) {
+  const byCrawler = {};
+  for (const { file, jobs } of slices) {
+    const count = jobs.filter((job) => job?.needsRetranslation === true).length;
+    if (count > 0) byCrawler[file] = count;
   }
-  return count;
+  return byCrawler;
+}
+
+function countCurrentRetranslation(slices) {
+  return Object.values(countRetranslationByCrawler(slices))
+    .reduce((total, count) => total + count, 0);
 }
 
 function runGit(args) {
@@ -116,7 +122,7 @@ function baselineRetranslation(windowDays, relativeDataDir) {
   const commit = runGit(['rev-list', '-1', `--before=${windowDays} days ago`, 'HEAD']);
   if (!commit) return null;
   const result = spawnSync('git', [
-    'grep', '-h', '-E', '"needsRetranslation"[[:space:]]*:[[:space:]]*true',
+    'grep', '-n', '-E', '"needsRetranslation"[[:space:]]*:[[:space:]]*true',
     commit, '--', relativeDataDir,
   ], {
     cwd: ROOT,
@@ -126,8 +132,50 @@ function baselineRetranslation(windowDays, relativeDataDir) {
   if (result.status !== 0 && result.status !== 1) {
     throw new Error(`git grep baseline failed: ${normalizeText(result.stderr || result.stdout, 800)}`);
   }
-  const count = result.stdout.split(/\r?\n/).filter(Boolean).length;
-  return { commit, count };
+  const byCrawler = {};
+  const matches = result.stdout.split(/\r?\n/).filter(Boolean);
+  for (const match of matches) {
+    const separator = match.indexOf(':');
+    if (separator < 1) continue;
+    const file = path.posix.basename(match.slice(0, separator));
+    byCrawler[file] = (byCrawler[file] || 0) + 1;
+  }
+  return { commit, count: matches.length, byCrawler };
+}
+
+/**
+ * Attribute the net queue movement to crawler slices without changing the
+ * aggregate threshold. A positive delta is an ingress signal; a negative
+ * delta records a drain, so a transient snapshot can be distinguished from a
+ * crawler that keeps re-flagging jobs across the lookback window.
+ */
+export function attributeRetranslationDelta(
+  currentByCrawler = {},
+  baselineByCrawler = {},
+  limit = MAX_EXAMPLES,
+) {
+  const files = new Set([
+    ...Object.keys(currentByCrawler || {}),
+    ...Object.keys(baselineByCrawler || {}),
+  ]);
+  return [...files]
+    .map((file) => {
+      const baseline = Number(baselineByCrawler?.[file] || 0);
+      const current = Number(currentByCrawler?.[file] || 0);
+      return {
+        file,
+        baseline,
+        current,
+        delta: current - baseline,
+      };
+    })
+    .filter((entry) => entry.delta !== 0)
+    .sort((left, right) => (
+      Math.abs(right.delta) - Math.abs(left.delta)
+      || right.delta - left.delta
+      || left.file.localeCompare(right.file)
+    ))
+    .slice(0, limit);
 }
 
 function scanContamination(slices) {
@@ -263,6 +311,12 @@ export function buildCrawlerDataQualityReport({
   const translationThreshold = translation
     ? Math.max(25, Math.ceil(translation.baselineCount * 0.05))
     : null;
+  const translationAttribution = translation?.byCrawler
+    ? attributeRetranslationDelta(
+      translation.byCrawler.current,
+      translation.byCrawler.baseline,
+    )
+    : [];
   if (translation && translation.delta >= translationThreshold) {
     findings.push(finding({
       key: 'needs-retranslation-backlog-growth',
@@ -273,8 +327,15 @@ export function buildCrawlerDataQualityReport({
         `baseline ${translation.baselineCommit}: ${translation.baselineCount}`,
         `HEAD: ${translation.currentCount}`,
         `soglia crescita: ${translationThreshold} (max 25 o 5% baseline)`,
+        ...translationAttribution.map((entry) => (
+          `${entry.file}: baseline=${entry.baseline}, HEAD=${entry.current}, `
+          + `delta=${entry.delta >= 0 ? '+' : ''}${entry.delta}`
+        )),
       ],
-      affectedFiles: ['data/jobs/by-crawler/'],
+      affectedFiles: [
+        'data/jobs/by-crawler/',
+        ...translationAttribution.map((entry) => `data/jobs/by-crawler/${entry.file}`),
+      ],
       nextStep: 'Misurare ingressi/uscite della coda per crawler e correggere il punto che reflagga o non drena, senza sopprimere needsRetranslation.',
     }));
   }
@@ -320,6 +381,7 @@ export function buildCrawlerDataQualityReport({
       needsRetranslationCurrent: translation ? translation.currentCount : null,
       needsRetranslationBaseline: translation ? translation.baselineCount : null,
       needsRetranslationDelta: translation ? translation.delta : null,
+      needsRetranslationMovementByCrawler: translation ? translationAttribution : null,
       needsRetranslationBaselineUnavailable: !translation,
       emptyLocaleBuckets: housekeeping.emptyLocaleBuckets.length,
       staleActiveRecords: housekeeping.staleActive.length,
@@ -622,6 +684,7 @@ function main() {
         + ' translation-queue finding for this run, other scanners unaffected\n',
     );
   }
+  const currentRetranslationByCrawler = countRetranslationByCrawler(slices);
   const currentTranslation = countCurrentRetranslation(slices);
   const contamination = scanContamination(slices);
   const duplicates = stableIdDuplicates(slices);
@@ -643,6 +706,10 @@ function main() {
       baselineCount: baseline.count,
       currentCount: currentTranslation,
       delta: currentTranslation - baseline.count,
+      byCrawler: {
+        baseline: baseline.byCrawler,
+        current: currentRetranslationByCrawler,
+      },
     } : null,
     housekeeping,
   });
