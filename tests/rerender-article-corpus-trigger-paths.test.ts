@@ -29,6 +29,7 @@ const HUB_WORKFLOW = '.github/workflows/rerender-article-hubs.yml';
 const DRIVER = 'scripts/rerender-article-corpus.mjs';
 const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
 const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
+const PINNED_TSX_RUNNER = 'scripts/ci/run-pinned-tsx.sh';
 const CORPUS_OVERLAY_SOURCES = [
   'scripts/lib/article-corpus-overlay.mjs',
   'scripts/lib/article-image-postcondition.mjs',
@@ -250,7 +251,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
 });
 
 describe('rerender-article-hubs entrypoint budget', () => {
-  it('gives the side-effecting hub fan-out a bounded timeout without extending bootstrap', () => {
+  it('covers the side-effecting fan-out, wrapper retries and post-render cleanup', () => {
     const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
     const steps = workflow?.jobs?.rerender?.steps;
     const jobTimeoutMinutes = Number(workflow?.jobs?.rerender?.['timeout-minutes']);
@@ -260,12 +261,32 @@ describe('rerender-article-hubs entrypoint budget', () => {
     );
     const entrypointTimeoutSeconds = Number(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS);
     const jobTimeoutSeconds = jobTimeoutMinutes * 60;
+    const runner = fs.readFileSync(path.join(ROOT, PINNED_TSX_RUNNER), 'utf8');
+    const shellNumber = (name: string) => {
+      const value = runner.match(new RegExp(`^readonly ${name}=([0-9]+)$`, 'm'))?.[1];
+      if (!value) throw new Error(`${PINNED_TSX_RUNNER} is missing numeric ${name}`);
+      return Number(value);
+    };
+    const retryDelays = runner.match(/^readonly RETRY_DELAYS_SECONDS=\(([^)]+)\)$/m)?.[1]
+      ?.trim()
+      .split(/\s+/)
+      .map(Number);
+    if (!retryDelays?.length || retryDelays.some((delay) => !Number.isFinite(delay))) {
+      throw new Error(`${PINNED_TSX_RUNNER} is missing numeric retry delays`);
+    }
+    const wrapperWorstCaseSeconds = (
+      shellNumber('MAX_ATTEMPTS') * (shellNumber('ATTEMPT_TIMEOUT_SECONDS') + shellNumber('KILL_AFTER_SECONDS'))
+      + retryDelays.reduce((total, delay) => total + delay, 0)
+      + entrypointTimeoutSeconds
+      + shellNumber('KILL_AFTER_SECONDS')
+    );
+    const setupAndCleanupReserveSeconds = 10 * 60;
 
-    expect(jobTimeoutMinutes).toBe(45);
+    expect(jobTimeoutMinutes).toBe(60);
     expect(entrypointTimeoutSeconds).toBe(2400);
     expect(entrypointTimeoutSeconds).toBeGreaterThan(0);
     expect(entrypointTimeoutSeconds).toBeLessThan(jobTimeoutSeconds);
-    expect(jobTimeoutSeconds - entrypointTimeoutSeconds).toBeGreaterThanOrEqual(300);
+    expect(jobTimeoutSeconds).toBeGreaterThanOrEqual(wrapperWorstCaseSeconds + setupAndCleanupReserveSeconds);
     expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
   });
 });
