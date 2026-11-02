@@ -197,11 +197,12 @@ jobs:
       matrix:
         section: ${{ fromJson(needs.plan.outputs.sections) }}
     runs-on: ubuntu-latest
-    # Minutes, not hours — a hub fan-out is normally a couple of minutes per
-    # section, including four serial shard clone/push round trips. Keep enough
-    # room for slow but bounded network retries without turning this into a
-    # corpus-sized job.
-    timeout-minutes: 30
+    # Minutes, not hours — a full section can now take more than 30 minutes
+    # when four serial shard clone/push round trips hit their slow path. The
+    # shared wrapper can spend 2,840s on three 135s probes, their 20s backoffs,
+    # the 2,400s entrypoint and its 15s kill-after; 60m leaves a 10m reserve
+    # for setup and post-render cleanup without turning this into a corpus job.
+    timeout-minutes: 60
     # Serialised per SECTION, never cancelled. Two runs on the same section
     # would push overlapping relpath sets to the same four shard repos, and a
     # CANCELLED run is worse than a queued one: it leaves some locales pushed
@@ -450,14 +451,13 @@ jobs:
         if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
         env:
           # The hub fan-out writes ~1400 paths and serializes four shard
-          # history/push operations. A slow shard can consume several minutes
-          # before the next locale starts; the shared 120s entrypoint default
-          # and the old ten-minute override could kill a partially completed
-          # publication. Keep the npm probe at 120s and cap this
-          # side-effecting entrypoint at 25 minutes, reserving the final five
-          # minutes of the 30-minute job ceiling for post-render lease checks,
-          # release and publication cleanup.
-          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '1500'
+          # history/push operations. The 2026-11-02 run completed the first
+          # three frontaliere locales in just over 24 minutes and killed the
+          # fourth at the old 25-minute entrypoint limit. Keep the npm probe
+          # at 120s and cap this side-effecting entrypoint at 40 minutes. The
+          # 60-minute job ceiling above also covers the wrapper's retry/kill
+          # budget before post-render lease checks, release and cleanup.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '2400'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
