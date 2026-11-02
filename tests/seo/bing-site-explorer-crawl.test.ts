@@ -11,6 +11,7 @@ import {
   crawlPartition,
   extractInternalLinks,
   folderFor,
+  isDeclaredPaginationTarget,
   isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
   isJobBoardDetailPath,
@@ -37,6 +38,7 @@ import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
@@ -414,6 +416,30 @@ describe('Bing-compatible full-tree crawler', () => {
       url: `${BASE}/en/find-jobs-geneva/lugano/`,
       html: `${PHARMACY_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`,
     })).toBe(false);
+  });
+
+  it('recognizes only marked deep pagination targets and keeps nearby pages actionable', () => {
+    const url = `${BASE}/cerca-lavoro-ticino/ricerca/page-11/`;
+    const marked = `${PAGINATION_NOINDEX_TARGET_MARKER}<title>Ricerca</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina profonda di ricerca nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+
+    expect(isDeclaredPaginationTarget({ url, html: marked })).toBe(true);
+    expect(isDeclaredPaginationTarget({ url: `${BASE}/cerca-lavoro-ticino/ricerca/page-10/`, html: marked })).toBe(false);
+    expect(isDeclaredPaginationTarget({ url, html: marked.replace(PAGINATION_NOINDEX_TARGET_MARKER, '') })).toBe(false);
+    expect(isDeclaredPaginationTarget({ url: `${BASE}/cerca-lavoro-ticino/ricerca/page-11/details/`, html: marked })).toBe(false);
+
+    const declared = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: marked });
+    const declaredCodes = declared.findings.map((item) => item.code);
+    expect(declaredCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(declaredCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
+    const unmarked = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replace(PAGINATION_NOINDEX_TARGET_MARKER, ''),
+    });
+    expect(unmarked.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(unmarked.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
   });
 
   it('keeps an undeclared job-detail noindex target actionable', () => {
