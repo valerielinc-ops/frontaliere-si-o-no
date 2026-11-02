@@ -228,12 +228,27 @@
       "previousSlugsByLocale": {
         "it": [
           "wir-suchen-eine-tp-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40647",
-          "stiamo-cercando-un-insegnante-di-tp-per-il-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil"
+          "stiamo-cercando-un-insegnante-di-tp-per-il-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil",
+          "wir-suchen-eine-tp-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40615",
+          "stiamo-cercando-un-insegnante-di-tp-per-il-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-a35b2d9a05"
+        ],
+        "en": [
+          "we-are-looking-for-a-tp-teacher-for-the-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40615"
+        ],
+        "de": [
+          "wir-suchen-eine-tp-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40615"
+        ],
+        "fr": [
+          "nous-cherchons-un-professeur-de-tp-pour-le-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40615"
         ]
       },
       "previousSlugs": [
         "wir-suchen-eine-tp-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40647",
-        "stiamo-cercando-un-insegnante-di-tp-per-il-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil"
+        "stiamo-cercando-un-insegnante-di-tp-per-il-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil",
+        "wir-suchen-eine-tp-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40615",
+        "stiamo-cercando-un-insegnante-di-tp-per-il-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-a35b2d9a05",
+        "we-are-looking-for-a-tp-teacher-for-the-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40615",
+        "nous-cherchons-un-professeur-de-tp-pour-le-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40615"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -7491,7 +7506,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "logopadin-logopade-8-lektionen-mr-und-3-l-bvsa-primarschule-frauenkappelen-frauenkappelen-38290"
@@ -13240,7 +13254,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -17724,7 +17737,7 @@
           "teilpensenlehrperson-16-lektionen-schulen-krauchthal-krauchthal-40075"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:21:54.909Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -17742,7 +17755,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T22:24:29.039Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-41760a09c7c2",

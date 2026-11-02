@@ -1,25 +1,31 @@
 {
-  "run": 282,
+  "run": 283,
   "companies": {
     "fielmann": {
-      "sterile": 1,
-      "signature": "8d912bf111bc74eb"
+      "sterile": 0,
+      "signature": "8d912bf111bc74eb",
+      "skipUntilRun": 286
     },
     "migrolino": {
-      "sterile": 1,
-      "signature": "b7c5f981ef83f8c3"
-    },
-    "pemsa": {
-      "sterile": 1,
-      "signature": "d4cdb525ea223104"
+      "sterile": 0,
+      "signature": "b7c5f981ef83f8c3",
+      "skipUntilRun": 286
     },
     "ferrovia-retica": {
       "sterile": 1,
       "signature": "42670fdf54acbb36"
     },
+    "pemsa": {
+      "sterile": 1,
+      "signature": "d4cdb525ea223104"
+    },
     "bosch-thermotechnik-ag": {
       "sterile": 1,
       "signature": "7265c545ae9fe9c4"
+    },
+    "spruengli": {
+      "sterile": 1,
+      "signature": "64d5949b3bedf71e"
     }
   }
 }

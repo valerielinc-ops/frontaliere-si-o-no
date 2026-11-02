@@ -3110,14 +3110,29 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
+          "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
+          "aiuto-alle-vendite-40-m-f-d-mediamarkt-buchs",
+          "sales-assistant-40-m-f-d-mediamarkt-buchs",
+          "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
+          "aushilfe-sales-40-m-w-d-mediamarkt-buchs",
+          "aushilfe-vente-40-m-w-d-mediamarkt-buchs"
+        ],
+        "en": [
+          "sales-assistant-40-m-f-d-mediamarkt-buchs"
+        ],
+        "fr": [
+          "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs"
         ]
       },
       "previousSlugs": [
-        "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
+        "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
+        "aiuto-alle-vendite-40-m-f-d-mediamarkt-buchs",
+        "sales-assistant-40-m-f-d-mediamarkt-buchs",
+        "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
+        "aushilfe-sales-40-m-w-d-mediamarkt-buchs",
+        "aushilfe-vente-40-m-w-d-mediamarkt-buchs"
       ],
       "salaryMin": 29600,
       "salaryMax": 45400,
@@ -3845,7 +3860,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-50-mediamarkt-winterthur-ch"
