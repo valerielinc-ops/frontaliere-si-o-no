@@ -243,19 +243,24 @@ shard_count_files() {
 # service metadata deliberately add paths that are not in the source subtree.
 shard_assert_source_paths_indexed() {
   local stage="$1" source_root="$2" target_prefix="$3" label="${4:-shard}"
-  local work source_paths index_records indexed_paths missing_file
+  local work source_records source_paths index_records indexed_paths missing_file
   local missing_count shown path reason limit
 
   source_root="${source_root%/}"
   target_prefix="${target_prefix%/}"
   work="$(mktemp -d)" || return 1
+  source_records="$work/source-records"
   source_paths="$work/source-paths"
   index_records="$work/index-records"
   indexed_paths="$work/indexed-paths"
   missing_file="$work/missing-paths"
 
-  if ! find "$source_root" -type f -print0 \
-      | perl -0e '
+  if ! find "$source_root" -type f -print0 > "$source_records"; then
+    echo "::error::$label source path integrity check could not enumerate $source_root" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  if ! perl -0e '
           use strict;
           use warnings;
           use bytes;
@@ -271,9 +276,13 @@ shard_assert_source_paths_indexed() {
             print {$output} substr($path, length($root) + 1), "\0";
           }
           close $output or die "close $out: $!";
-        ' "$source_root" "$source_paths" \
-      && LC_ALL=C sort -z -o "$source_paths" "$source_paths"; then
-    echo "::error::$label source path integrity check could not enumerate $source_root" >&2
+        ' "$source_root" "$source_paths" < "$source_records"; then
+    echo "::error::$label source path integrity check could not normalize $source_root" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  if ! LC_ALL=C sort -z -o "$source_paths" "$source_paths"; then
+    echo "::error::$label source path integrity check could not sort $source_root" >&2
     rm -rf "$work"
     return 1
   fi
@@ -299,9 +308,13 @@ shard_assert_source_paths_indexed() {
         print {$out} substr($record, $tab + 1), "\0";
       }
       close $out or die "close $output: $!";
-    ' "$index_records" "$indexed_paths" \
-      && LC_ALL=C sort -z -o "$indexed_paths" "$indexed_paths"; then
+    ' "$index_records" "$indexed_paths"; then
     echo "::error::$label source path integrity check could not normalize the staged index" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  if ! LC_ALL=C sort -z -o "$indexed_paths" "$indexed_paths"; then
+    echo "::error::$label source path integrity check could not sort the staged index" >&2
     rm -rf "$work"
     return 1
   fi
@@ -318,15 +331,17 @@ shard_assert_source_paths_indexed() {
       local $/ = "\0";
       my $expected = <$expected_fh>;
       my $indexed = <$indexed_fh>;
+      my $indexed_path = q{};
       while (defined $expected) {
         chop $expected;
         my $target = $prefix eq q{} ? $expected : "$prefix/$expected";
         while (defined $indexed) {
-          chop $indexed;
-          last if $indexed ge $target;
+          $indexed_path = $indexed;
+          chop $indexed_path;
+          last if $indexed_path ge $target;
           $indexed = <$indexed_fh>;
         }
-        if (!defined($indexed) || $indexed ne $target) {
+        if (!defined($indexed) || $indexed_path ne $target) {
           print {$missing_fh} "$target\0source payload path missing from indexed tree\0";
         } else {
           $indexed = <$indexed_fh>;
