@@ -11,13 +11,25 @@ function employerIdentity(candidate) {
   return { ...identity, domainHints: [...hints.filter((d) => !tried.has(d)), ...hints.filter((d) => tried.has(d))] };
 }
 
+function domainResolverOptions(deps) {
+  if (!deps.googlePlaces && !deps.knownDomainOwners) return undefined;
+  return {
+    ...(deps.googlePlaces
+      ? { googlePlaces: { ...deps.googlePlaces, knownDomainOwners: deps.knownDomainOwners } }
+      : {}),
+    ...(deps.knownDomainOwners && !deps.googlePlaces
+      ? { knownDomainOwners: deps.knownDomainOwners }
+      : {}),
+  };
+}
+
 /**
  * Trace one candidate, preferring a supplied careers URL over guessing an
  * employer domain. A URL without an independently known employer domain is
  * still fetched, but its host is not promoted to an employer identity here.
  *
  * @param {Record<string, any>} candidate
- * @param {{ resolveDomain?: typeof defaultResolveDomain, traceCareers?: typeof defaultTraceCareers, traceFromCareersUrl?: (careersUrl: string, employerDomain: string|null) => ReturnType<typeof defaultTraceFromCareersUrl> }} [deps]
+ * @param {{ resolveDomain?: typeof defaultResolveDomain, traceCareers?: typeof defaultTraceCareers, traceFromCareersUrl?: (careersUrl: string, employerDomain: string|null) => ReturnType<typeof defaultTraceFromCareersUrl>, googlePlaces?: object, knownDomainOwners?: Map<string, Set<string>> }} [deps]
  * @returns {Promise<Record<string, any>>}
  */
 export async function traceCandidate(candidate, deps = {}) {
@@ -28,7 +40,9 @@ export async function traceCandidate(candidate, deps = {}) {
   let domain = candidate.domain ? registrableDomain(candidate.domain) : null;
   let resolution = null;
   if (!domain && !candidate.careersUrl) {
-    resolution = await resolve(employerIdentity(candidate));
+    const identity = employerIdentity(candidate);
+    const resolverOptions = domainResolverOptions(deps);
+    resolution = resolverOptions ? await resolve(identity, resolverOptions) : await resolve(identity);
     domain = resolution.domain;
   }
   if (!domain && !candidate.careersUrl) {
@@ -86,7 +100,9 @@ export async function traceCandidate(candidate, deps = {}) {
   // the employer independently before allowing the candidate into SYNTHESIZE
   // or attributing any outbound host to it.
   if (!domain && candidate.careersUrl) {
-    resolution = await resolve(employerIdentity(candidate));
+    const identity = employerIdentity(candidate);
+    const resolverOptions = domainResolverOptions(deps);
+    resolution = resolverOptions ? await resolve(identity, resolverOptions) : await resolve(identity);
     domain = resolution?.domain ? registrableDomain(resolution.domain) : null;
   }
   if (!domain) {

@@ -17,6 +17,12 @@ import {
   validatePharmacyEnrichmentConfig,
   validatePharmacyEnrichmentSnapshot,
 } from './pharmacy-enrichment-validation.mjs';
+import {
+  googlePlacesProviderUsage,
+  googlePlacesMonthlyLimit,
+  isGooglePlacesStopStatus,
+  reserveGooglePlacesRequest,
+} from './google-places-budget.mjs';
 
 export { validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot };
 
@@ -38,34 +44,17 @@ const SOURCE_RANK = Object.freeze({
   directory: 10,
 });
 
-function monthKey(value) {
-  const parsed = new Date(value);
-  if (!Number.isFinite(parsed.getTime())) return '';
-  return `${parsed.getUTCFullYear()}-${String(parsed.getUTCMonth() + 1).padStart(2, '0')}`;
-}
-
 function providerUsageFor(previous, checkedAt) {
-  const month = monthKey(checkedAt);
-  const previousUsage = previous?.providerUsage;
-  const previousRequests = previousUsage?.month === month
-    ? Number(previousUsage?.googlePlaces?.requests)
-    : 0;
-  return {
-    month,
-    googlePlaces: {
-      // A malformed or already-exhausted ledger fails closed: it can never
-      // authorize a request above the hard monthly ceiling.
-      requests: Number.isInteger(previousRequests)
-        ? Math.min(Math.max(previousRequests, 0), MAX_GOOGLE_PLACES_MONTHLY_REQUESTS)
-        : MAX_GOOGLE_PLACES_MONTHLY_REQUESTS,
-    },
-  };
+  // A malformed or already-exhausted ledger fails closed: it can never
+  // authorize a request above the hard monthly ceiling.
+  return googlePlacesProviderUsage(previous, checkedAt, MAX_GOOGLE_PLACES_MONTHLY_REQUESTS);
 }
 
 function googleMonthlyLimit(provider) {
-  const configured = Number(provider?.monthlyRequestLimit);
-  if (!Number.isInteger(configured) || configured <= 0) return MAX_GOOGLE_PLACES_MONTHLY_REQUESTS;
-  return Math.min(configured, MAX_GOOGLE_PLACES_MONTHLY_REQUESTS);
+  return Math.min(
+    googlePlacesMonthlyLimit(provider?.monthlyRequestLimit, MAX_GOOGLE_PLACES_MONTHLY_REQUESTS),
+    MAX_GOOGLE_PLACES_MONTHLY_REQUESTS,
+  );
 }
 
 function text(value) {
@@ -593,13 +582,10 @@ async function enrichGoogleProvider(records, pharmacies, provider, checkedAt, fe
   const monthlyLimit = googleMonthlyLimit(provider);
   for (const pharmacy of pharmacies.filter((candidate) => ids.includes(candidate.id))) {
     if (providerSourceIsFresh(records[pharmacy.id], 'google_business_profile', checkedAt, provider.maxAgeDays)) continue;
-    if (providerUsage.googlePlaces.requests >= monthlyLimit) {
+    if (!reserveGooglePlacesRequest(providerUsage, monthlyLimit)) {
       warnings.push(`googlePlaces: monthly request limit reached (${monthlyLimit}); remaining pharmacies were skipped`);
       return;
     }
-    // Reserve before the request. Failed responses are counted too: a retry
-    // cannot turn a transient error into a quota overrun in the same month.
-    providerUsage.googlePlaces.requests += 1;
     try {
       const payload = await fetchJson('https://places.googleapis.com/v1/places:searchText', {
         method: 'POST',
@@ -641,12 +627,15 @@ async function enrichGoogleProvider(records, pharmacies, provider, checkedAt, fe
       addExternalSource(records[pharmacy.id], source, checkedAt, []);
     } catch (error) {
       const status = Number(error?.status ?? error?.response?.status);
-      if (status === 401 || status === 403) {
+      if (isGooglePlacesStopStatus(status)) {
         // A credential/project restriction is deterministic for the whole
         // run. Stop before burning the remaining free-tier budget against the
-        // same invalid key; the owner deliberately keeps the key in place and
-        // can repair the restriction without a code-side rotation.
-        warnings.push(`googlePlaces: disabled for this run after HTTP ${status}; API key/project restriction requires owner action`);
+        // same invalid key, quota response, or rate limit; the owner can
+        // repair the restriction without a code-side rotation. There is no
+        // retry path for any of these statuses.
+        warnings.push(status === 429
+          ? 'googlePlaces: disabled for this run after HTTP 429; rate limit/quota response is not retried'
+          : `googlePlaces: disabled for this run after HTTP ${status}; API key/project restriction requires owner action`);
         return;
       }
       warnings.push(`googlePlaces:${pharmacy.id}: ${error instanceof Error ? error.message : String(error)}`);
