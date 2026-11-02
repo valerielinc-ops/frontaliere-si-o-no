@@ -19288,12 +19288,12 @@
     },
     {
       "id": "jumbo-39f5dff1-783",
-      "slug": "verkaufsberater-in-do-it-jumbo-dietlikon",
+      "slug": "consulente-di-vendita-do-it-jumbo-dietlikon",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-dietlikon",
-        "it": "verkaufsberater-in-do-it-jumbo-dietlikon",
-        "en": "verkaufsberater-in-do-it-jumbo-dietlikon",
-        "fr": "verkaufsberater-in-do-it-jumbo-dietlikon"
+        "it": "consulente-di-vendita-do-it-jumbo-dietlikon",
+        "en": "sales-advisor-do-it-jumbo-dietlikon",
+        "fr": "conseiller-ere-de-vente-do-it-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19369,16 +19369,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T11:22:57.346Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:22:57.346Z"
+      "firstSeenAt": "2026-11-02T11:22:57.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-dietlikon"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-dietlikon"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-35802e9f-b69",
-      "slug": "verkaufer-in-kassen-services-jumbo-schattdorf",
+      "slug": "addetto-a-alle-vendite-casse-servizi-jumbo-schattdorf",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-schattdorf",
-        "it": "verkaufer-in-kassen-services-jumbo-schattdorf",
-        "en": "verkaufer-in-kassen-services-jumbo-schattdorf",
-        "fr": "verkaufer-in-kassen-services-jumbo-schattdorf"
+        "it": "addetto-a-alle-vendite-casse-servizi-jumbo-schattdorf",
+        "en": "sales-associate-checkout-services-jumbo-schattdorf",
+        "fr": "vendeur-se-caisses-services-jumbo-schattdorf"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19454,7 +19468,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T11:22:57.342Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:22:57.342Z"
+      "firstSeenAt": "2026-11-02T11:22:57.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-schattdorf"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-schattdorf"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-schattdorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-schattdorf"
+      ]
     }
   ]
 }

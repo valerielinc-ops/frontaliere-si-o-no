@@ -1895,12 +1895,12 @@
     },
     {
       "id": "csem-023e3b949c30",
-      "slug": "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem",
+      "slug": "internship-in-sviluppo-di-rf-mmwave-e-sub-thz-setup-di-misura-m-f-d-csem-landquart-neuchatel",
       "slugByLocale": {
         "en": "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem",
-        "it": "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem",
-        "de": "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem",
-        "fr": "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem"
+        "it": "internship-in-sviluppo-di-rf-mmwave-e-sub-thz-setup-di-misura-m-f-d-csem-landquart-neuchatel",
+        "de": "praktikum-in-der-entwicklung-von-rf-mmwave-und-sub-thz-messaufbau-m-w-d-csem-landquart-neuchatel",
+        "fr": "stage-dans-le-developpement-des-configurations-de-mesure-rf-mmwave-et-sous-thz-h-f-d-csem-landquart-neuchatel"
       },
       "company": "CSEM Landquart",
       "companyKey": "csem",
@@ -1962,7 +1962,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:10:33.273Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:10:33.273Z"
+      "firstSeenAt": "2026-11-02T11:10:33.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem"
+        ],
+        "de": [
+          "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem"
+        ],
+        "fr": [
+          "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-development-of-rf-mmwave-and-sub-thz-measurement-setups-f-m-d-neuchatel-csem"
+      ]
     }
   ]
 }
