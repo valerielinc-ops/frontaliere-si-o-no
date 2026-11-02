@@ -350,7 +350,7 @@ function buildCardJsx(model: CardModel): unknown {
                           letterSpacing: 1.4,
                           color: TEXT_PRIMARY,
                         },
-                        children: 'FRONTALIERETICINO.CH',
+                        children: 'STIAMO ASSUMENDO',
                       },
                     },
                     {
