@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  buildUniqueSuffixOwnerMap,
   buildUniqueSuffixOwnerFiles,
   resolveForeignRecoveryOwnerFile,
   resolveRecoveryTarget,
@@ -181,5 +182,22 @@ describe('cross-file recovery ownership', () => {
     const baselSlug = `verkaufer-in-food-coop-basel-stadt-${stableSlugHash(basel)}`;
 
     expect(resolveForeignRecoveryOwnerFile('claimant.json', baselSlug, ownerFiles)).toBeNull();
+  });
+});
+
+describe('same-slice recovery ownership', () => {
+  it('fails closed on duplicate hashes regardless of record order', () => {
+    const duplicateZurich = { ...zurich, id: 'company-duplicate' };
+    const route = `verkaufer-in-food-coop-zurich-${stableSlugHash(zurich)}`;
+    const forwardOwners = buildUniqueSuffixOwnerMap([zurich, duplicateZurich]);
+    const reverseOwners = buildUniqueSuffixOwnerMap([duplicateZurich, zurich]);
+
+    expect(forwardOwners).toEqual(new Map());
+    expect(reverseOwners).toEqual(new Map());
+    expect(resolveRecoveryTarget(basel, route, forwardOwners)).toEqual({
+      targetJob: basel,
+      skip: false,
+      redirected: false,
+    });
   });
 });
