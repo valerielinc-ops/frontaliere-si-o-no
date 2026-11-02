@@ -2196,7 +2196,10 @@ export const resumeAssistedApplicationPayment = onRequest(
 // Expire active concierge entitlements after their fixed 30-day window. The
 // candidate endpoints enforce the same timestamp, so this is only a backstop.
 export const sweepApplicationConciergeLifecycle = onSchedule(
-  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
+  // Poll more frequently than the one-hour eligibility interval so scheduler
+  // phase drift cannot postpone a due refresh by another full hour. claimRefresh
+  // keeps the Firestore lease/idempotency boundary unchanged.
+  { region: 'europe-west6', schedule: 'every 15 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
   async () => { await runConciergeLifecycleSweep({ db: getAdminDb() }); },
 );
 
