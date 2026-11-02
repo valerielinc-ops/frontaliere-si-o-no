@@ -125,38 +125,41 @@ describe('portal candidate question contract', () => {
     expect(questions[0].applicationOptions).toBeUndefined();
   });
 
-  it('keeps a complete explicit translation map and the exact ATS catalogue', async () => {
+  it('keeps candidate copy Italian when the ATS and posting language hints are German or English', async () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
-    const localized = await localizePortalQuestions(questions, {
-      candidateLocale: 'it', applicationLocale: 'de',
-      codex: async () => ({ questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }, { candidate: 'Raccomandazione', application: 'Empfehlung' }] }] }),
-    });
-    expect(localized[0]).toMatchObject({ type: 'choice', required: true, options: ['Sito aziendale', 'Raccomandazione'], applicationOptions: ['Homepage', 'Empfehlung'] });
-    expect(portalAnswerForApplication(localized[0], 'Raccomandazione')).toBe('Empfehlung');
+    for (const applicationLocale of ['de', 'en']) {
+      let prompt = '';
+      const localized = await localizePortalQuestions(questions, {
+        candidateLocale: 'it', applicationLocale,
+        codex: async (request: any) => {
+          prompt = request.prompt;
+          return { questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }, { candidate: 'Raccomandazione', application: 'Empfehlung' }] }] };
+        },
+      });
+      expect(prompt).toContain('candidate language is Italian');
+      expect(localized[0]).toMatchObject({ type: 'choice', required: true, question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], applicationOptions: ['Homepage', 'Empfehlung'] });
+      expect(portalAnswerForApplication(localized[0], 'Raccomandazione')).toBe('Empfehlung');
+    }
   });
 
-  it('preserves the complete catalogue on a partial or unmapped translation', async () => {
+  it('does not expose source-language questions when a translation is partial or unmapped', async () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
     for (const copy of [
       { options: ['Sito aziendale'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }] },
       { options: ['Sito aziendale', 'Raccomandazione'], optionMap: [] },
     ]) {
-      const localized = await localizePortalQuestions(questions, {
+      await expect(localizePortalQuestions(questions, {
         candidateLocale: 'it', applicationLocale: 'de',
         codex: async () => ({ questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, ...copy }] }),
-      });
-      expect(localized[0].options).toEqual(['Homepage', 'Empfehlung']);
-      expect(portalAnswerForApplication(localized[0], 'Empfehlung')).toBe('Empfehlung');
+      })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
     }
   });
 
-  it('preserves the full catalogue and mapping when localization fails', async () => {
+  it('fails closed when localization is unavailable instead of asking in the ATS language', async () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
-    const localized = await localizePortalQuestions(questions, {
+    await expect(localizePortalQuestions(questions, {
       candidateLocale: 'it', applicationLocale: 'de',
       codex: async () => { throw new Error('unavailable'); },
-    });
-    expect(localized[0].options).toEqual(['Homepage', 'Empfehlung']);
-    expect(portalAnswerForApplication(localized[0], 'Empfehlung')).toBe('Empfehlung');
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
   });
 });

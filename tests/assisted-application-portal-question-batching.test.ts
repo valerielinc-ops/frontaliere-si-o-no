@@ -23,6 +23,25 @@ function inWindow<T>(window: any, run: () => T): T {
   }
 }
 
+function sameLanguageLocalization(prompt: unknown) {
+  const text = String(prompt || '');
+  const start = text.lastIndexOf('\n\n{');
+  const end = text.indexOf('\n\nReturn exactly one JSON object', start);
+  const input = JSON.parse(text.slice(start + 2, end)) as { questions?: Array<Record<string, any>> };
+  return { questions: (input.questions || []).map((question) => {
+    const options = Array.isArray(question.applicationOptions) ? question.applicationOptions : [];
+    return {
+      id: question.id,
+      sourceLocale: 'en',
+      question: question.applicationQuestion,
+      why: question.why || 'The portal requires this information.',
+      options,
+      optionMap: options.map((option: string) => ({ candidate: option, application: option })),
+      validationMessage: question.validationMessage || 'Enter a valid answer.',
+    };
+  }) };
+}
+
 function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, workdayUploadUnconfirmed = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false } = {}) {
   const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile || privacyRevealsKnownAnswer;
   const url = workdayUploadUnconfirmed ? 'https://acme.wd1.myworkdayjobs.com/apply' : 'https://careers.example.test/apply';
@@ -313,7 +332,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       return {
         actions: [],
@@ -363,7 +382,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       const missingRequired = [
         { fieldId: fieldId('initial-requirement'), question: 'When could you start?', why: '', type: 'text', options: [] },
@@ -411,7 +430,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       return {
         actions: [],
@@ -454,7 +473,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       const missingRequired = [
         { fieldId: fieldId('motivation'), question: 'Why are you interested in this role?', why: '', type: 'text', options: [] },
@@ -511,7 +530,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       return {
         actions: plannerCalls === 1
@@ -559,7 +578,7 @@ describe('assisted portal question batching', () => {
     };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       return {
         actions: [{ fieldId: fieldId('resume'), action: 'upload', document: 'cv', source: 'candidate_document', evidence: '' }],
         missingRequired: [],
@@ -596,7 +615,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       return {
         actions: plannerCalls === 2
@@ -638,7 +657,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       return {
         actions: [],
@@ -680,7 +699,7 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       return {
         actions: [],
@@ -724,7 +743,7 @@ describe('assisted portal question batching', () => {
     const plannerInputs: string[] = [];
     const codex = async ({ prompt }: any) => {
       const serializedPrompt = JSON.stringify(prompt);
-      if (serializedPrompt.includes('You localize questions from an online job application')) return { questions: [] };
+      if (serializedPrompt.includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       plannerInputs.push(serializedPrompt);
       return {
@@ -770,7 +789,7 @@ describe('assisted portal question batching', () => {
     let plannerCalls = 0;
     const plannerInputs: string[] = [];
     const codex = async ({ prompt }: any) => {
-      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
       plannerCalls += 1;
       plannerInputs.push(JSON.stringify(prompt));
       return {

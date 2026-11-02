@@ -1603,6 +1603,13 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   };
 }
 
+export class PortalQuestionLocalizationError extends Error {
+  constructor() {
+    super('portal_question_localization_unavailable');
+    this.code = 'portal_question_localization_unavailable';
+  }
+}
+
 /**
  * Translate the candidate-facing copy after the portal planner/agent has
  * identified a required field. The ATS label and options remain attached so
@@ -1630,7 +1637,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   if (!items.length || !candidateLanguage) return items;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
-  if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
+  if (typeof codex !== 'function') throw new PortalQuestionLocalizationError();
   const input = items.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
@@ -1653,10 +1660,10 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     });
   } catch (error) {
     log(`portal question localization skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
+    throw new PortalQuestionLocalizationError();
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  return items.map((item) => {
+  const localizedQuestions = items.map((item) => {
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -1711,6 +1718,14 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       localizationStatus: 'translated',
     };
   });
+  // Do not open a candidate-review request with employer-language copy when
+  // localization was partial, unreadable, or returned the original question.
+  // The runner treats this bounded provider failure as transient and retries;
+  // the native ATS text remains attached to the draft for diagnostics.
+  if (localizedQuestions.some((question) => question.localizationStatus === 'fallback')) {
+    throw new PortalQuestionLocalizationError();
+  }
+  return localizedQuestions;
 }
 
 /** A zeroed portal requirement must stop automation instead of looking absent. */
