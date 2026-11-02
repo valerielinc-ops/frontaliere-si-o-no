@@ -1,7 +1,7 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-11-01T22:15:56.047Z",
+  "generatedAt": "2026-11-02T11:23:48.597Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 13766,
-  "avgDurationMs": 13766,
+  "unchangedCount": 1,
+  "durationMs": 12516,
+  "avgDurationMs": 12516,
   "durationHistory": [
-    13766
+    12516
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "technic-emplois-f77ae95a82d2",
       "slug": "apparecchi-elettrici-geneva-technic-emplois-sa-geneve",
@@ -41,7 +39,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:15:38.617Z",
+      "crawledAt": "2026-11-02T11:23:31.848Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -55,13 +53,14 @@
       "postedAt": "2026-10-26T01:42:39+01:00",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "firstSeenAt": "2026-10-16T21:32:31.560Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1201",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T22:15:38.617Z",
+      "validThrough": "2027-01-14T11:23:31.848Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -70,7 +69,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "technic-emplois-e2ddc456f219",
       "slug": "montaggio-elettrico-qualificato-vaud-technic-emplois-sa-vaud",
@@ -87,7 +89,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5edd81f1-0ca1-4303-a921-af73073f18cd/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T22:15:37.788Z",
+      "crawledAt": "2026-11-02T11:23:30.803Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -107,7 +109,7 @@
       "postalCode": "1003",
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T22:15:37.788Z",
+      "validThrough": "2027-01-13T11:23:30.803Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -118,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }
