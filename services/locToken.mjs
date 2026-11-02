@@ -35,16 +35,26 @@ export function normalizeLocToken(value) {
     .trim();
 }
 
-// Some Swiss cities are stored under the local-language name by crawlers while
-// the alert UI stores the Italian name. Keep this list deliberately explicit:
-// it covers the GR names emitted by the corpus and the "Coira / Chur" choice
-// shown by JobAlertForm without turning arbitrary words into aliases.
+// Some Swiss places are stored under a different local-language name/code by
+// crawlers than the alert uses. Keep aliases deliberately explicit: this covers
+// the GR names emitted by the corpus, the "Coira / Chur" choice shown by
+// JobAlertForm, and the common Ticino/Tessin canton labels and code.
 const LOCATION_TOKEN_ALIAS_GROUPS = Object.freeze([
   Object.freeze(['coira', 'chur', 'coire', 'cuira']),
+  Object.freeze(['ticino', 'tessin', 'ti']),
 ]);
 const LOCATION_TOKEN_ALIASES = new Map(
   LOCATION_TOKEN_ALIAS_GROUPS.flatMap((group) => group.map((name) => [name, group])),
 );
+
+// JobAlertForm offers these cities as individual choices. Historical alerts
+// can contain a pair in one value (for example "Lugano Mendrisio"); expand
+// only when every component is a known city so arbitrary multi-word areas keep
+// their whole-token semantics.
+const COMPOSABLE_CITY_TOKENS = new Set([
+  'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
+  ...LOCATION_TOKEN_ALIAS_GROUPS[0],
+]);
 
 /**
  * Return the normalized spelling variants for a location token.
@@ -55,7 +65,14 @@ const LOCATION_TOKEN_ALIASES = new Map(
 export function locationTokenVariants(value) {
   const normalized = normalizeLocToken(value);
   if (!normalized) return [];
-  return LOCATION_TOKEN_ALIASES.get(normalized) || [normalized];
+  const aliases = LOCATION_TOKEN_ALIASES.get(normalized);
+  if (aliases) return aliases;
+
+  const parts = normalized.split(' ');
+  if (parts.length > 1 && parts.every((part) => COMPOSABLE_CITY_TOKENS.has(part))) {
+    return Array.from(new Set(parts.flatMap((part) => LOCATION_TOKEN_ALIASES.get(part) || [part])));
+  }
+  return [normalized];
 }
 
 // @param {string} haystack lowercased joined job-location text
