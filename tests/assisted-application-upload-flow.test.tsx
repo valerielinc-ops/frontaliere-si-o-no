@@ -122,6 +122,7 @@ describe('assisted application consent and CV upload flow', () => {
       expect(screen.queryByLabelText(itCore['jobBoard.assisted.name'])).toBeNull();
       expect(screen.queryByText(itCore['jobBoard.assisted.paidConfirmed'])).toBeNull();
       expect(mocks.updateDoc).not.toHaveBeenCalled();
+      expect(screen.getByRole('button', { name: itCore['jobBoard.assisted.openCv'] })).toBeTruthy();
       if (submissionStatus === 'submitted') expect(screen.getByText(itCore['jobBoard.assisted.review.submitted'])).toBeTruthy();
       if (submissionStatus === 'withdrawn') expect(screen.getByText(itCore['jobBoard.assisted.review.withdrawn'])).toBeTruthy();
     },
@@ -170,6 +171,28 @@ describe('assisted application consent and CV upload flow', () => {
     expect(mocks.updateDoc).toHaveBeenCalledTimes(duringWrite ? 1 : 0);
     expect(screen.queryByText(itCore['jobBoard.assisted.submitError'])).toBeNull();
     expect(mocks.trackEvent).not.toHaveBeenCalledWith('manual_submission_queued', expect.anything());
+  });
+
+  it('still queues a new intake exactly once', async () => {
+    orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await user.click(await screen.findByRole('button', { name: itCore['jobBoard.assisted.submit'] }));
+    await screen.findByText(itCore['jobBoard.assisted.submittedTitle']);
+    expect(mocks.updateDoc).toHaveBeenCalledTimes(1);
+    expect(mocks.updateDoc).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ submissionStatus: 'ready_for_manual_submission' }));
+    expect(mocks.trackEvent).toHaveBeenCalledWith('manual_submission_queued', expect.anything());
+  });
+
+  it('keeps a genuine intake save failure actionable without retrying the write', async () => {
+    orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
+    mocks.updateDoc.mockRejectedValueOnce(new Error('unavailable'));
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await user.click(await screen.findByRole('button', { name: itCore['jobBoard.assisted.submit'] }));
+    await screen.findByText(itCore['jobBoard.assisted.submitError']);
+    expect(mocks.updateDoc).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: itCore['jobBoard.assisted.submit'] })).toBeEnabled();
   });
 
   it('records the mandate once, then reveals an enabled CV picker and uploads the selected file', async () => {
