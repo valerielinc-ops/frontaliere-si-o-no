@@ -38,6 +38,24 @@ function providerSignal(signal, timeoutMs) {
   return signal ? AbortSignal.any([signal, timeout]) : timeout;
 }
 
+/**
+ * Keep retry diagnostics bounded and provider-neutral. Raw provider responses
+ * can echo prompt material, so only retain a conservative cause/status tuple.
+ */
+function providerFailure(provider, value) {
+  const message = value instanceof Error ? value.message : String(value ?? '');
+  const match = message.match(/(?:error_|http_)([45]\d{2})\b/u);
+  const status = match ? Number(match[1]) : null;
+  let cause = 'provider_error';
+  if (/not_configured|no_key/u.test(message)) cause = 'not_configured';
+  else if (status === 429) cause = 'rate_limited';
+  else if (/timeout|timed out|aborted due to timeout/u.test(message)) cause = 'timeout';
+  else if (/invalid_auth|auth_expired/u.test(message)) cause = 'auth';
+  else if (/econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|fetch failed/u.test(message.toLowerCase())) cause = 'network';
+  else if (status !== null) cause = 'provider_http';
+  return { provider, cause, status };
+}
+
 // Free OpenAI-compatible fallbacks, tried in order when Gemini fails. Keys are
 // already present in Remote Config (hydrated into CI via load-rc-env.mjs).
 // The shared catalog uses current Groq models with independent model budgets.
@@ -123,6 +141,12 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
   if (signal?.aborted) return cancelled();
   let attempts = 0;
   const failures = [];
+  const providerFailures = [];
+  const noteFailure = (provider, value) => {
+    const detail = value instanceof Error ? value.message : String(value ?? '');
+    failures.push(`${provider}: ${detail}`);
+    providerFailures.push(providerFailure(provider, value));
+  };
 
   // 1. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
   const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
@@ -133,10 +157,10 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
       const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature, signal });
       return { status: 200, body: { ok: true, text, provider: 'gemini' } };
     } catch (err) {
-      failures.push(`gemini: ${err instanceof Error ? err.message : String(err)}`);
+      noteFailure('gemini', err);
     }
   } else {
-    failures.push('gemini: not_configured');
+    noteFailure('gemini', 'not_configured');
   }
 
   // 2. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
@@ -146,7 +170,7 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     const key = await getRemoteConfigValue(fb.rcKey);
     if (signal?.aborted) return cancelled();
     if (!key) {
-      failures.push(`${fb.label}: no_key`);
+      noteFailure(fb.label, 'no_key');
       continue;
     }
     attempts += 1;
@@ -155,7 +179,7 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
       console.log(`[geminiGenerate] served by fallback ${fb.label}`);
       return { status: 200, body: { ok: true, text, provider: fb.label } };
     } catch (err) {
-      failures.push(`${fb.label}: ${err instanceof Error ? err.message : String(err)}`);
+      noteFailure(fb.label, err);
     }
   }
 
@@ -178,9 +202,13 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     console.log('[geminiGenerate] served by fallback codex');
     return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };
   }
-  failures.push(codexResult.notConfigured ? 'codex: not_configured' : `codex: ${codexResult.error}`);
+  noteFailure('codex', codexResult.notConfigured ? 'not_configured' : codexResult.error);
 
   // Every provider failed.
   console.error('[geminiGenerate] all providers failed —', failures.join(' | '));
-  return { status: 502, body: { ok: false, error: 'all_providers_failed', detail: failures.join(' | ').slice(0, 300) } };
+  const body = { ok: false, error: 'all_providers_failed', detail: failures.join(' | ').slice(0, 300) };
+  // This is consumed only by trusted background qualification. Keep provider
+  // availability details out of the interactive HTTP response.
+  if (background) body.providerFailures = providerFailures;
+  return { status: 502, body };
 }

@@ -502,6 +502,26 @@ describe('handleGeminiGenerate — rung Codex', () => {
     expect(codexCalls()).toHaveLength(0);
   });
 
+  it('espone diagnostica strutturata solo al caller background trusted', async () => {
+    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n', CODEX_AUTH_JSON: codexLogin() };
+    fetchMock.mockImplementation(async (url: string) => {
+      if (String(url) === CODEX_URL) return new Response('codex down', { status: 500 });
+      return new Response('quota detail must not become retry metadata', { status: 429 });
+    });
+    const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
+
+    const result = await generateServerText({ userPrompt: 'qualification', maxProviderAttempts: 3, background: true });
+
+    expect(result).toMatchObject({ status: 502, body: { error: 'all_providers_failed' } });
+    expect(result.body.providerFailures).toEqual([
+      { provider: 'gemini', cause: 'rate_limited', status: 429 },
+      { provider: 'groq-gpt-oss-120b', cause: 'rate_limited', status: 429 },
+      { provider: 'nvidia-gpt-oss-20b', cause: 'rate_limited', status: 429 },
+      { provider: 'codex', cause: 'provider_http', status: 500 },
+    ]);
+    expect(JSON.stringify(result.body.providerFailures)).not.toContain('quota detail');
+  });
+
   it('senza CODEX_AUTH_JSON risponde all_providers_failed con codex: not_configured', async () => {
     rc = {};
     const { handleGeminiGenerate } = await import('../../functions/src/geminiGenerate.js');
@@ -511,6 +531,7 @@ describe('handleGeminiGenerate — rung Codex', () => {
     expect(res.status).toBe(502);
     expect(res.body).toMatchObject({ ok: false, error: 'all_providers_failed' });
     expect(res.body.detail).toContain('codex: not_configured');
+    expect(res.body.providerFailures).toBeUndefined();
     expect(fetchMock).not.toHaveBeenCalled();
   });
 

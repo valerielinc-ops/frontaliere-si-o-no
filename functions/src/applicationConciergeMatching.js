@@ -589,7 +589,13 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (retry?.context === scanContext && Number(retry.retryAt) > Date.now()) result = { status: 'unverified', reason: 'retry_backoff' };
         else {
           try { result = await evaluate(job); }
-          catch { result = { status: 'unverified', reason: eligibilitySignal.aborted ? 'analysis_deferred' : 'analysis_unavailable' }; }
+          catch (error) {
+            result = {
+              status: 'unverified',
+              reason: eligibilitySignal.aborted ? 'analysis_deferred' : 'analysis_unavailable',
+              ...(Array.isArray(error?.providerFailures) ? { providerFailures: error.providerFailures } : {}),
+            };
+          }
         }
         if (result?.status === 'incompatible' && !decisiveIncompatibility(result)) {
           result = { status: 'unverified', reason: 'incompatibility_not_proven' };

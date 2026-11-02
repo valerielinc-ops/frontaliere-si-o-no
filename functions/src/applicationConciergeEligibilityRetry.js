@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 
 const DELAYS = [60 * 60_000, 3 * 60 * 60_000, 12 * 60 * 60_000, 3 * 86400_000];
+const FAILURE_CAUSES = new Set(['not_configured', 'rate_limited', 'timeout', 'auth', 'network', 'provider_http', 'provider_error']);
 export const MAX_ELIGIBILITY_RETRIES_PER_RUN = 8;
 export function eligibilityRetryRef(serviceRef, url) {
   return serviceRef.collection('eligibility').doc(`retry-${createHash('sha256').update(url).digest('hex').slice(0, 32)}`);
@@ -23,8 +24,17 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
       return;
     }
     const attempts = previous?.context === context ? (Number(previous.attempts) || 0) + 1 : 1;
+    const providerFailures = Array.isArray(result?.providerFailures)
+      ? result.providerFailures.slice(0, 8).map(failure => {
+        const provider = String(failure?.provider || '').trim().slice(0, 64);
+        const cause = String(failure?.cause || 'provider_error');
+        const status = Number.isInteger(failure?.status) && failure.status >= 400 && failure.status <= 599 ? failure.status : null;
+        return provider && FAILURE_CAUSES.has(cause) ? { provider, cause, status } : null;
+      }).filter(Boolean)
+      : [];
     transaction.set(ref, { jobUrl: url, context, attempts,
-      retryAt: nowMs + DELAYS[Math.min(attempts - 1, DELAYS.length - 1)] });
+      retryAt: nowMs + DELAYS[Math.min(attempts - 1, DELAYS.length - 1)],
+      ...(providerFailures.length ? { providerFailures } : {}) });
   });
 }
 
