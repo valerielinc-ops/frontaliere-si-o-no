@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import type { ApplicationConciergeProposal, ApplicationConciergeProposalGroup } from '@/services/applicationConciergeService';
 
 const mocks = vi.hoisted(() => ({
   user: { uid: 'owner', getIdToken: async () => 'owner-token' }, services: vi.fn(), orders: vi.fn(), queue: vi.fn(), fetchService: vi.fn(), checkout: vi.fn(), ensureAuth: vi.fn(), analytics: vi.fn(),
@@ -23,6 +24,9 @@ vi.mock('@/services/applicationConciergeService', () => ({
   fetchApplicationConciergeService: mocks.fetchService, recoverApplicationConciergePaymentSession: vi.fn(),
   openApplicationConciergeChildReview: vi.fn(), acceptApplicationConciergeProposal: vi.fn(), declineApplicationConciergeProposal: vi.fn(),
   recordApplicationConciergeConsent: vi.fn(), saveApplicationConciergeProfile: vi.fn(), getCandidateVisibleApplicationConciergeProposals: (rows: any[]) => rows.filter(row => row.status !== 'retracted'),
+  groupApplicationConciergeProposals: (rows: readonly ApplicationConciergeProposal[]): ApplicationConciergeProposalGroup[] => rows.length
+    ? [{ category: 'proposed', proposals: [...rows] }]
+    : [],
 }));
 vi.mock('@/services/assistedApplicationAdminService', () => ({
   fetchApplicationConciergeAssistedOrders: mocks.orders, fetchAssistedApplicationAdminData: mocks.queue,
