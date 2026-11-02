@@ -148,7 +148,7 @@ function normalizedHaystack(text) {
 
 const EXCLUSIVE_ELIGIBILITY_RE = /\b(?:only|exclusively|solely|reserved\s+for|limited\s+to|solo|soltanto|unicamente|esclusivamente|riservat\w*|uniquement|exclusivement|seulement|reserve\w*|nur|ausschliesslich|ausschließlich|exklusiv\w*|vorbehalten\w*)\b/i;
 const ELIGIBILITY_SUBJECT_RE = /\b(?:candidate\w*|applicant\w*|student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|person\w*|people|individuals?|those|who|resident\w*|holder\w*|graduate\w*|citizen\w*|inwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|etudiant\w*|eleve\w*|stagiaire\w*|apprenti\w*|candidat\w*|resident\w*|titulaire\w*|diplom\w*|laureat\w*|personnes?|habitants?|citoyen\w*|bewerber\w*|kandidat\w*|schuler\w*|auszubildende\w*|einwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|resident\w*|inhabitant\w*|chi|coloro|persone|residenti|titolari|laureat\w*|wer)\b/i;
-const NEGATED_HARD_REQUIREMENT_RE = /\b(?:not\s+(?:be\s+)?(?:required|mandatory|essential|necessary|obligatory)|nicht\s+(?:erforderlich|notwendig|obligatorisch|zwingend)|pas\s+(?:obligatoire|necessaire)|non\s+(?:e\s+)?(?:richiest\w*|obbligator\w*|necessar\w*))\b/gi;
+const NEGATED_HARD_REQUIREMENT_RE = /\b(?:(?:do(?:es)?\s+not|do(?:es)?n't|did\s+not|didn't)\s+(?:require|need)|not\s+(?:be\s+)?(?:required|mandatory|essential|necessary|obligatory)|nicht\s+(?:erforderlich|notwendig|obligatorisch|zwingend)|pas\s+(?:obligatoire|necessaire)|non\s+(?:e\s+)?(?:richiest\w*|obbligator\w*|necessar\w*))\b/gi;
 const EXPLICIT_MANDATORY_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen)\b/i;
 const THRESHOLD_REQUIREMENT_RE = /\b(?:at\s+least|minimum|plus\s+(?:de|di)\s+\d+|piu\s+di\s+\d+|more\s+than\s+\d+|over\s+\d+|mehr\s+als\s+\d+|au\s+moins\s+\d+|almeno\s+\d+|mindestens)\b/i;
 const QUALIFICATION_CONTEXT_RE = /\b(?:experience|erfahrung|exp[ée]rience|esperienz\w*|year\w*|week\w*|jahre?\w*|ann[ée]e\w*|anni|language\w*|sprach\w*|lingu\w*|english|german|deutsch|french|fran[cç]ais|italian|italien\w*|degree|diplom\w*|diplome\w*|laurea|education|educazion\w*|bildung|school|scuola|schule|scolair\w*|student\w*|schuler\w*|eleve\w*|etudiant\w*|intern\w*|placement\w*|permit\w*|bewilligung\w*|arbeitsbewilligung\w*|arbeitserlaubnis\w*|visa|nationalit\w*|citizenship|passport|residen\w*|wohnort|domicil\w*|license|licence|fuehrerschein|fuhrerschein|fahrausweis|patente|competenc\w*|kompetenz\w*|skill\w*|connaissance\w*|kenntnis\w*|conoscenz\w*|office|crm|sap|certificat\w*|certification\w*|qualification\w*|qualifikation\w*|abilit\w*|aptitude\w*)\b/i;
@@ -158,6 +158,15 @@ const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|task
 const PREFERENCE_CUE_RE = /\b(?:advantage|preferred|desirable|useful|nice\s+to\s+have|optional|opzional\w*|facultatif\w*|facultativ\w*|nicht\s+obligatorisch|nicht\s+erforderlich|nicht\s+notwendig|not\s+mandatory|not\s+required|not\s+essential|not\s+necessary|not\s+obligatory|pas\s+obligatoire|pas\s+necessaire|non\s+(?:e\s+)?richiest\w*|non\s+(?:e\s+)?obbligator\w*|non\s+(?:e\s+)?necessar\w*|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|a\s+plus|an\s+optional\s+requirement|preferibil\w*|costituisce\s+un\s+plus)\b/i;
 const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
 const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainees?\b|interns?\b|apprentices?\b|studente\w*|alliev\w*|schueler\w*|schuler\w*|auszubildende\w*|eleve\w*|etudiant\w*|stagiaire\w*|apprenti(?:e|es|s)?\b)\b/i;
+const TRAINING_ROLE_CUE_RE = /\b(?:stagist\w*|stagiaire\w*|intern(?:ship|s)?|apprendist\w*|apprenti\w*|apprentice\w*|lehrstell\w*|lehrling\w*|ausbildung\w*)\b/i;
+const FORMAL_VOCATIONAL_CREDENTIAL_RE = /\b(?:maturita(?:\s+profession\w*)?|maturite\s+professionnelle|professional\s+(?:maturity|baccalaureate|diploma)|vocational\s+(?:maturity|baccalaureate|diploma)|berufsmatur\w*|diploma\s+(?:profession\w*|commercial\w*))\b/i;
+const NEGATED_DIRECT_REQUIREMENT_RE = /\b(?:(?:do(?:es)?|did)\s+not|do(?:es)?n't)\s+(?:require|need)\b/i;
+const VOCATIONAL_CREDENTIAL_NEGATION_TERM = String.raw`(?:(?:(?:formal|professional|vocational|profession\w*)\s+)?(?:maturit\w*(?:\s+profession\w*)?(?:\s+qualification)?|diplom\w*(?:\s+(?:profession\w*|commercial\w*))?(?:\s+qualification)?|degree\w*|qualification\w*|certificate\w*|berufsmatur\w*|berufsabschluss\w*|abschluss\w*|qualifica\w*|titol\w*|diplome\w*(?:\s+profession\w*)?|certificat\w*)|(?:professional|vocational|profession\w*)\s+(?:baccalaureate|maturity|degree|qualification|certificate))`;
+const VOCATIONAL_CREDENTIAL_NEGATION_STATUS = String.raw`(?:required|needed|mandatory|essential|necessary|obligatory|requirement\w*|richiest\w*|obbligator\w*|necessar\w*|requis\w*|obligatoir\w*|erforderlich|notwendig|noetig|notig)`;
+const NEGATED_VOCATIONAL_REQUIREMENT_SOURCE = String.raw`\b(?:(?:no|kein\w*|aucun\w*|nessun\w*)\s+(?:(?:a|an|the|un|una|de|di|ein\w*)\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+(?:(?:is|are|e|est|sont|n'est|ist)\s+(?:[a-z0-9-]+\s+){0,4})?${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|(?:require\w*|need\w*|has|have|richied\w*|necessit\w*|exig\w*|demand\w*|erforder\w*|benoetig\w*|benotig\w*|verlang\w*)\s+(?:no|kein\w*|aucun\w*|nessun\w*)\s+(?:(?:a|an|the|un|una|de|di|ein\w*)\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}(?:\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS})?|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+(?:(?:is|are|e|est|sont)\s+)?not\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|without\s+(?:(?:a|an|the)\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|nessun\w*\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|senza\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+non\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|non\s+(?:e\s+)?(?:richied\w*|necessit\w*)\s+(?:(?:un|una|di)\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|aucun\w*\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|sans\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|(?:ne\s+)?(?:requier\w*|exig\w*|demand\w*|necessit\w*)\s+pas\s+(?:de\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+pas\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|pas\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}\s+(?:de\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|pas\s+(?:de\s+)?${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|kein\w*\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS}|ohne\s+${VOCATIONAL_CREDENTIAL_NEGATION_TERM}|${VOCATIONAL_CREDENTIAL_NEGATION_TERM}\s+nicht\s+${VOCATIONAL_CREDENTIAL_NEGATION_STATUS})\b`;
+const NEGATED_VOCATIONAL_REQUIREMENT_RE = new RegExp(NEGATED_VOCATIONAL_REQUIREMENT_SOURCE, 'i');
+const NEGATED_VOCATIONAL_REQUIREMENT_GLOBAL_RE = new RegExp(NEGATED_VOCATIONAL_REQUIREMENT_SOURCE, 'gi');
+const ELIGIBILITY_METADATA_LABEL_RE = /^(?:title|company|location|category|sector|description|requirements|education|employmenttype|jobtype|contracttype|experience|experiencelevel|posting\.location)\s*:\s*/i;
 const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|presently|now|ongoing|attending|attend(?:s)?|studying|enrolling|attualmente|frequento|frequentando|sono\s+iscritt\w*|derzeit|aktuell|besuche|studiere|actuellement|je\s+suis\s+inscrit\w*|etudie|en\s+cours)\b/i;
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
 const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
@@ -173,14 +182,23 @@ function normalizeEligibilityEvidence(value) {
     .replace(/^(?:[-*•▪◦]|\d+[.)])\s+/, '').replace(/[.!?;:,]+$/, '').trim();
 }
 
+/** Field labels added for model context are not part of the cited source wording. */
+function normalizeEligibilityMetadataStatement(value) {
+  return normalizeEligibilityEvidence(value).replace(ELIGIBILITY_METADATA_LABEL_RE, '').trim();
+}
+
 function classifyHardEligibilityCues(statement) {
   const normalized = normalizeEligibilityEvidence(statement);
   if (APPLICATION_METHOD_ONLY_RE.test(normalized)) return { exclusive: false, mandatory: false, threshold: false };
-  const withoutNegatedHardCues = normalized.replace(NEGATED_HARD_REQUIREMENT_RE, ' ');
+  const withoutNegatedHardCues = normalized.replace(NEGATED_HARD_REQUIREMENT_RE, ' ')
+    .replace(NEGATED_VOCATIONAL_REQUIREMENT_GLOBAL_RE, ' ');
   return {
     exclusive: EXCLUSIVE_ELIGIBILITY_RE.test(normalized) && ELIGIBILITY_SUBJECT_RE.test(normalized),
     mandatory: EXPLICIT_MANDATORY_RE.test(withoutNegatedHardCues) && QUALIFICATION_CONTEXT_RE.test(normalized),
     threshold: THRESHOLD_REQUIREMENT_RE.test(normalized) && QUALIFICATION_CONTEXT_RE.test(normalized),
+    trainingQualification: TRAINING_ROLE_CUE_RE.test(normalized) && FORMAL_VOCATIONAL_CREDENTIAL_RE.test(normalized)
+      && !PREFERENCE_CUE_RE.test(normalized) && !NEGATED_DIRECT_REQUIREMENT_RE.test(normalized)
+      && !NEGATED_VOCATIONAL_REQUIREMENT_RE.test(normalized),
   };
 }
 
@@ -190,7 +208,7 @@ function splitHardAndSoftConjunction(statement) {
   const hardClause = statement.slice(0, conjunction.index).trim();
   const softClause = statement.slice(conjunction.index + conjunction[0].length).trim();
   const hardCues = classifyHardEligibilityCues(hardClause);
-  const hasHardClause = hardCues.exclusive || hardCues.mandatory || hardCues.threshold;
+  const hasHardClause = hardCues.exclusive || hardCues.mandatory || hardCues.threshold || hardCues.trainingQualification;
   if (!hasHardClause || !PREFERENCE_CUE_RE.test(softClause) || !QUALIFICATION_CONTEXT_RE.test(softClause)) return [statement];
   return [hardClause, softClause];
 }
@@ -204,13 +222,13 @@ function postingEligibilityStatements(postingText) {
   let block = '';
   const flush = () => {
     if (!block.trim()) return;
-    const clauses = block.split(/\s*;\s*|(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean)
+    const clauses = block.split(/\s*;\s*|(?<=[!?])\s+|(?<!\.)\.(?!\.)\s+/u).map(normalizeEligibilityEvidence).filter(Boolean)
       .flatMap(splitHardAndSoftConjunction);
     for (const statement of clauses) {
       if (APPLICATION_METHOD_ONLY_RE.test(statement)) continue;
       const hardCues = classifyHardEligibilityCues(statement);
       const preference = PREFERENCE_CUE_RE.test(statement);
-      const explicitHard = hardCues.exclusive || hardCues.mandatory;
+      const explicitHard = hardCues.exclusive || hardCues.mandatory || hardCues.trainingQualification;
       const thresholdHard = hardCues.threshold;
       if (preference) softClauses.push(statement);
       if (preference && explicitHard) ambiguous = true;
@@ -291,6 +309,8 @@ function postingEligibilityStatements(postingText) {
 /**
  * Explicitly restricted audiences and mandatory profile qualifications must
  * be represented by a source-verified decisive row before candidate matching.
+ * Training roles that name a formal vocational credential in their title or
+ * metadata are also hard eligibility evidence, even when the posting body omits it.
  * This catches omissions that per-quote verification cannot: a valid quote
  * for one requirement does not prove the extractor found every hard clause.
  * Ambiguous or unusually long clauses fail closed and are retried as unknown.
@@ -305,11 +325,14 @@ export function hasUncoveredHardEligibilityStatements(requirements, postingText)
   const quotes = rows
     .filter((item) => item?.basis === 'stated' && ['critical', 'high'].includes(item?.importance) && !item?.quoteUnverified)
     .map((item) => ({
-      quote: normalizeEligibilityEvidence(item?.quote),
-      sourceRequirement: normalizeEligibilityEvidence(item?.sourceRequirement),
+      quote: normalizeEligibilityMetadataStatement(item?.quote),
+      sourceRequirement: normalizeEligibilityMetadataStatement(item?.sourceRequirement),
     })).filter((item) => item.quote && item.sourceRequirement);
-  return statements.some((statement) => !quotes.some((item) =>
-    item.quote.includes(statement) && item.sourceRequirement === statement));
+  return statements.some((statement) => {
+    const normalizedStatement = normalizeEligibilityMetadataStatement(statement);
+    return !quotes.some((item) =>
+      item.quote.includes(normalizedStatement) && item.sourceRequirement === normalizedStatement);
+  });
 }
 
 /** Past employment or model-only profile fields cannot prove a current student placement. */
