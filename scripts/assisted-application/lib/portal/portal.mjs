@@ -1637,7 +1637,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   if (!items.length || !candidateLanguage) return items;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
-  if (typeof codex !== 'function') throw new PortalQuestionLocalizationError();
+  if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   const input = items.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
@@ -1660,7 +1660,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     });
   } catch (error) {
     log(`portal question localization skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    throw new PortalQuestionLocalizationError();
+    return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
   const localizedQuestions = items.map((item) => {
@@ -1718,13 +1718,6 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       localizationStatus: 'translated',
     };
   });
-  // Do not open a candidate-review request with employer-language copy when
-  // localization was partial, unreadable, or returned the original question.
-  // The runner treats this bounded provider failure as transient and retries;
-  // the native ATS text remains attached to the draft for diagnostics.
-  if (localizedQuestions.some((question) => question.localizationStatus === 'fallback')) {
-    throw new PortalQuestionLocalizationError();
-  }
   return localizedQuestions;
 }
 
@@ -1738,7 +1731,11 @@ export async function portalRequirementsForCandidate(requirements, localization 
   const questions = requirements?.questions || [];
   const documents = requirements?.documents || [];
   if (!questions.length && !documents.length) return requirements?.reduction?.kind === 'empty' ? portalQuestionReductionHandoff() : null;
-  return { questions: await localizePortalQuestions(questions, localization), documents };
+  const localized = await localizePortalQuestions(questions, localization);
+  if (localized.some((question) => question.localizationStatus === 'fallback')) {
+    throw new PortalQuestionLocalizationError();
+  }
+  return { questions: localized, documents };
 }
 
 /**
@@ -3819,15 +3816,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
       })));
-      const questions = await localizePortalQuestions(openQuestions, {
+      const request = await portalRequirementsForCandidate({ questions: openQuestions, documents: [] }, {
         candidateLocale: ctx.candidateLocale,
         applicationLocale: ctx.language,
         codex: ctx.codex,
         log: ctx.log,
       });
-      if (questions.length) {
+      if (request?.questions.length) {
         await ctx.accounts.mark(host, { status: 'unanswered' });
-        return noted({ questions });
+        return noted(request);
       }
     }
 
