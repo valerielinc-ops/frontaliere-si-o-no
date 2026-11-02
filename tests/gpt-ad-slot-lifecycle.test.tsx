@@ -86,12 +86,14 @@ describe('GPT manual reserve lifecycle', () => {
   });
   it('only collapses a terminal script error after the wrapper leaves the viewport', () => {
     const { box } = mount();
-    const script = document.createElement('script'); script.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'; document.head.append(script);
+    (window as any).__ftAdBlock = { blocked: true };
+    const script = document.querySelector<HTMLScriptElement>('script[src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"]')!;
     act(() => script.dispatchEvent(new Event('error')));
     expect(box.dataset.adState).toBe('unavailable');
     expect(box.style.display).not.toBe('none');
     leaveViewport();
     expect(box.style.display).toBe('none');
+    delete (window as any).__ftAdBlock;
   });
   it('keeps the above-fold reserve even for terminal offscreen no-fill', async () => {
     const { box, onEmptyChange } = mount(false); loadGpt(); await response(true); leaveViewport();

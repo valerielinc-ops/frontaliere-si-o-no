@@ -26,7 +26,7 @@ export function createStaticAdSlotEligibility() {
       }
       // Another loader may have completed this slot while it was parked.
       // Restore its class so later diagnostics and styles see the processed ad.
-      if (el.getAttribute('data-adsbygoogle-status') !== null) {
+      if ((el.getAttribute('data-adsbygoogle-status') !== null || el.hasAttribute('data-ft-ad-requested'))) {
         el.removeAttribute(pendingAttr);
         if (!el.classList.contains('adsbygoogle')) el.classList.add('adsbygoogle');
         if (activated.indexOf(el) === -1) activated.push(el);
@@ -43,7 +43,7 @@ export function createStaticAdSlotEligibility() {
     for (var i = 0; i < slots.length; i++) {
       var el = slots[i];
       if (!isTarget(el)) continue;
-      if (el.getAttribute('data-adsbygoogle-status') !== null) {
+      if ((el.getAttribute('data-adsbygoogle-status') !== null || el.hasAttribute('data-ft-ad-requested'))) {
         el.removeAttribute(pendingAttr);
         if (activated.indexOf(el) === -1) activated.push(el);
         continue;
@@ -68,7 +68,7 @@ export function createStaticAdSlotEligibility() {
     if (activated.indexOf(el) === -1) activated.push(el);
     el.removeAttribute(pendingAttr);
     if (!isAttached(el)) return false;
-    if (el.getAttribute('data-adsbygoogle-status') !== null) {
+    if ((el.getAttribute('data-adsbygoogle-status') !== null || el.hasAttribute('data-ft-ad-requested'))) {
       el.classList.add('adsbygoogle');
       return false;
     }
@@ -76,10 +76,19 @@ export function createStaticAdSlotEligibility() {
     return true;
   }
 
+  function defer(el: Element): void {
+    if (!isAttached(el) || el.hasAttribute('data-adsbygoogle-status') || el.hasAttribute('data-ft-ad-requested')) return;
+    const index = activated.indexOf(el);
+    if (index !== -1) activated.splice(index, 1);
+    if (!pending.includes(el)) pending.push(el);
+    el.setAttribute(pendingAttr, '');
+    el.classList.remove('adsbygoogle');
+  }
+
   function pendingCount(): number {
     prune();
     return pending.length;
   }
 
-  return { park: park, activate: activate, pendingCount: pendingCount };
+  return { park: park, activate: activate, defer: defer, pendingCount: pendingCount };
 }

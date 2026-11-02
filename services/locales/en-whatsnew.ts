@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v39912.title": "More reliable ads",
+ "whatsNew.v39912.ads.title": "Ad recovery and privacy preferences",
+ "whatsNew.v39912.ads.desc": "Ad placements adapt better to small screens. If blocking prevents loading, you can find instructions to allow this site and a link to our job-search service.",
  "whatsNew.v39911.title": "Confirm your country of residence",
  "whatsNew.v39911.applicationResidence.title": "Choose a country, then a town",
  "whatsNew.v39911.applicationResidence.desc": "In your profile, select a country before searching for or entering a town. Older locations stay unconfirmed until you choose a country, so job matching can use your residence without guessing it.",

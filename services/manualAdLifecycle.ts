@@ -5,7 +5,7 @@ export function observeManualAd(
   box: HTMLElement,
   timeoutMs: number,
   onState: (state: 'loading' | 'waiting_response' | 'filled' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
-  emitEvent: (event: 'ad_request' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
+  emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
 ) {
   const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const emit: typeof emitEvent = (event, data = {}) => emitEvent(event, { request_id: requestId, ...data });
@@ -30,6 +30,7 @@ export function observeManualAd(
   const metrics = () => ({
     reserved_height: Math.round(parseFloat(getComputedStyle(box).minHeight) || parseFloat(getComputedStyle(el).minHeight) || 0),
     slot_height: Math.round(box.getBoundingClientRect().height),
+    slot_width: Math.round(el.getBoundingClientRect().width),
     creative_height: Math.round(findCreative()?.getBoundingClientRect().height || 0),
   });
   const clearViewTimer = () => { clearTimeout(viewTimer); viewTimer = undefined; };
@@ -106,6 +107,7 @@ export function observeManualAd(
     failureReason = reason;
     clearTimeout(responseTimer);
     terminal = reason;
+    if (reason !== 'unfilled') emit('ad_unavailable', { reason, ...metrics() });
     onState(reason === 'unfilled' ? 'unfilled' : 'unavailable', reason);
     if (belowViewport()) { collapse(); return; }
     if (typeof IntersectionObserver !== 'undefined') {

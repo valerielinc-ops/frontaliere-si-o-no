@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v39912.title": "Annunci più affidabili",
+ "whatsNew.v39912.ads.title": "Recupero degli annunci e preferenze privacy",
+ "whatsNew.v39912.ads.desc": "Gli spazi pubblicitari si adattano meglio agli schermi piccoli. Se un blocco impedisce il caricamento, trovi istruzioni per autorizzare il sito e un collegamento al nostro servizio di ricerca lavoro.",
  "whatsNew.v39911.title": "Comune di residenza con Paese confermato",
  "whatsNew.v39911.applicationResidence.title": "Scegli prima il Paese, poi il comune",
  "whatsNew.v39911.applicationResidence.desc": "Nel profilo selezioni il Paese e poi cerchi o scrivi il comune. Le vecchie località restano non confermate finché non scegli il Paese: le offerte possono considerare la tua residenza senza doverla indovinare.",

@@ -90,12 +90,14 @@ describe('SPA lifecycle and layout owner', () => {
  });
  it('keeps visible script failure stable, collapses offscreen, retries on online and resets for a SPA route', async () => {
   const { Banner, rerender } = await mount();
+  (window as any).__ftAdBlock = { blocked: true };
   await act(async () => { adScript()!.dispatchEvent(new Event('error')); });
   const wrapper = document.querySelector<HTMLElement>('[data-ft-ad-state]')!;
   expect(wrapper.style.minHeight).toBe('336px');
   expect(wrapper.dataset.ftAdState).toBe('unavailable');
   await act(async () => { exit(); });
   expect(parseFloat(wrapper.style.minHeight)).toBe(0);
+  delete (window as any).__ftAdBlock;
   await act(async () => { window.dispatchEvent(new Event('online')); });
   position = 100;
   await act(async () => { adScript()!.dispatchEvent(new Event('load')); near(); });

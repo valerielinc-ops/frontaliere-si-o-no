@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v39912.title": "Zuverlässigere Anzeigen",
+ "whatsNew.v39912.ads.title": "Anzeigen wiederherstellen und Datenschutz verwalten",
+ "whatsNew.v39912.ads.desc": "Werbeflächen passen sich kleinen Bildschirmen besser an. Verhindert ein Blocker das Laden, erhalten Sie Hinweise zum Freigeben dieser Website und einen Link zu unserem Jobsuche-Service.",
  "whatsNew.v39911.title": "Bestätige dein Wohnsitzland",
  "whatsNew.v39911.applicationResidence.title": "Erst das Land, dann den Wohnort wählen",
  "whatsNew.v39911.applicationResidence.desc": "Wähle in deinem Profil zuerst das Land und suche oder schreibe danach deinen Wohnort. Ältere Ortsangaben bleiben unbestätigt, bis du ein Land auswählst. So kann der Stellenabgleich deinen Wohnort verwenden, ohne ihn zu erraten.",

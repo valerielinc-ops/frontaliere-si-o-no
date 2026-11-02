@@ -119,6 +119,7 @@ function installStaticAdSenseQueue(): void {
 }
 
 beforeEach(() => {
+  vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({ width: 390, height: 336, top: 0, bottom: 336, left: 0, right: 390, x: 0, y: 0, toJSON() {} });
   ioInstances = [];
   requestedStaticSlots = [];
   document.head.innerHTML = '';
