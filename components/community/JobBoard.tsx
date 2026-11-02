@@ -503,6 +503,7 @@ export interface JobListing {
  slugByLocale?: Partial<Record<Locale, string>>;
  company: string;
  companyKey?: string;
+ companyLogoKey?: string | null;
  title: string;
  titleByLocale?: Partial<Record<Locale, string>>;
  location: string;
@@ -907,10 +908,11 @@ function buildReferralUrl(job: JobListing): string {
  }
 }
 
-function companyLogoUrl(job: Pick<JobListing, 'company' | 'companyKey' | 'companyDomain' | 'url' | 'companyLogo'>): string | null {
+function companyLogoUrl(job: Pick<JobListing, 'company' | 'companyKey' | 'companyLogoKey' | 'companyDomain' | 'url' | 'companyLogo'>): string | null {
  const explicitLogo = resolveCompanyLogoUrl({
  company: job.company,
  companyKey: job.companyKey,
+ companyLogoKey: job.companyLogoKey,
  companyDomain: job.companyDomain,
  url: job.url,
  companyLogo: job.companyLogo,

@@ -18,6 +18,7 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 // plugins import it without the Vite path-alias resolver kicking in.
 import { normalizeJobCategory as normalizeJobCategoryCore } from './jobCategoryNormalization.mjs';
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
 import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
@@ -34,6 +35,7 @@ export { sameOrg } from '../scripts/lib/prospector/registrable.mjs';
 type JobLike = {
  company?: string;
  companyKey?: string | null;
+ companyLogoKey?: string | null;
  companyDomain?: string;
  url?: string;
  /** Publisher-provided logo URL (projected from the publish form, https-only). */
@@ -920,7 +922,7 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  // 0. A mirrored manifest entry is the stable runtime contract. This check
  // comes before publisher-provided URLs so a declared external logo can be
  // acquired once and then reused by every renderer, including email.
- const key = job.companyKey || '';
+ const key = companyLogoKeyForJob(job);
  const mirroredLogo = key ? COMPANY_LOGOS_MANIFEST[key] : null;
  if (mirroredLogo && String(mirroredLogo).startsWith('/images/')) return mirroredLogo;
 

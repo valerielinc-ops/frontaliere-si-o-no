@@ -91,6 +91,14 @@ describe('missing company-logo acquisition', () => {
     expect(domainCandidates('acme')).toEqual(['acme.ch', 'acme.com']);
   });
 
+  it('uses only an explicitly verified employer domain in audit mode', () => {
+    expect(domainCandidates('adecco-sa', {
+      verifiedDomains: new Set(['adecco.com']),
+      companyDomains: new Set(['unverified-name-derived.example']),
+      urlHosts: new Set(['jobs.example']),
+    }, { fromAudit: true })).toEqual(['adecco.com']);
+  });
+
   it('declares an official domain for every company in the current #6504 residual', () => {
     for (const [key, domains] of Object.entries(CURRENT_RESIDUAL_DOMAIN_OVERRIDES)) {
       expect(DOMAIN_OVERRIDES[key]).toEqual(domains);

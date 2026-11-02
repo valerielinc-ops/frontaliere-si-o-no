@@ -322,4 +322,27 @@ describe('company-logo-audit', () => {
       expect(workflow).not.toContain('|| true; git add data/company-logos');
     }
   });
+
+  it('groups a multi-employer source by the employer logo key, never by its shared crawler key', async () => {
+    const jobs = [
+      {
+        id: 'seco-a', company: 'Adecco SA', companyKey: 'seco-jobroom', companyLogoKey: 'adecco-sa',
+        url: 'https://www.job-room.ch/job-search/seco-a',
+      },
+      {
+        id: 'seco-b', company: 'Altra SA', companyKey: 'seco-jobroom', companyLogoKey: 'altra-sa',
+        url: 'https://www.job-room.ch/job-search/seco-b',
+      },
+    ];
+    const report = await auditCompanyLogos(jobs, {
+      resolveLogo: (job) => job.companyLogoKey === 'adecco-sa' ? '/images/brands/adecco.png' : null,
+      assetBaseUrl: 'https://cdn.test',
+      fetchImpl: async (url) => url === 'https://cdn.test/images/brands/adecco.png'
+        ? imageResponse()
+        : new Response('', { status: 404 }),
+    });
+
+    expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual(['altra-sa']);
+    expect(report.affectedCompanies.map((company) => company.companyKey)).not.toContain('seco-jobroom');
+  });
 });

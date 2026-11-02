@@ -320,6 +320,30 @@ describe('buildCityWeeklyStats', () => {
     expect(jobMatchesCity(j2, 'lugano')).toBe(true);
   });
 
+  it('keeps SECO employers separate when the crawler key is shared', () => {
+    const jobs = [
+      makeJob({ company: 'Adecco SA', companyKey: 'seco-jobroom', companyLogoKey: 'adecco-sa' }),
+      makeJob({ company: 'Medacta International SA', companyKey: 'seco-jobroom', companyLogoKey: 'medacta-international-sa' }),
+    ];
+
+    const stats = buildCityWeeklyStats({
+      city: 'lugano',
+      locale: 'it',
+      jobs,
+      previousSnapshot: null,
+      historicalSnapshots: [],
+    });
+
+    expect(stats.topCompanies.map((company) => company.employer)).toEqual([
+      'Adecco SA',
+      'Medacta International SA',
+    ]);
+    expect(stats.topCompanies.map((company) => company.companyLogoKey)).toEqual([
+      'adecco-sa',
+      'medacta-international-sa',
+    ]);
+  });
+
   it('computes positive delta when current snapshot has more employer hires', () => {
     const jobs: WeeklyCountableJob[] = [
       makeJob({ slug: 'a-1', company: 'Acme SA', companyKey: 'acme' }),

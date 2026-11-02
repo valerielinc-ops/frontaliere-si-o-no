@@ -131,6 +131,21 @@ describe('jobDataNormalization', () => {
     })).toBe('/images/brands/imerys.png');
   });
 
+  it('uses an employer-scoped logo key without consulting the shared SECO source key', () => {
+    const scoped = resolveCompanyLogoUrl({
+      company: 'Medacta International SA',
+      companyKey: 'seco-jobroom',
+      companyLogoKey: 'medacta-international',
+    });
+    const sharedOnly = resolveCompanyLogoUrl({
+      company: 'An Employer Not In The Logo Registry',
+      companyKey: 'seco-jobroom',
+    });
+
+    expect(scoped).toBe(CRAWLED_COMPANY_LOGOS['medacta-international']);
+    expect(sharedOnly).toBeNull();
+  });
+
   it('detects non-geographic multi-location strings', () => {
     expect(isMultiLocation('Schweiz und Ausland (abhängig von Funktion und Einsatzort)')).toBe(true);
     expect(isMultiLocation('Schweiz und Ausland')).toBe(true);

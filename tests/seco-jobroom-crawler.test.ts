@@ -73,6 +73,7 @@ describe('classifyAdvertisement — what may be published', () => {
     const { job } = classify(ad('a1')).candidate;
     expect(job).toMatchObject({
       companyKey: 'seco-jobroom',
+      companyLogoKey: 'acme-a1-ag',
       company: 'Acme a1 AG',
       employerDisclosed: true,
       url: 'https://www.job-room.ch/job-search/a1',
@@ -87,6 +88,27 @@ describe('classifyAdvertisement — what may be published', () => {
       sourceLang: 'de',
     });
     expect(isTrustedDomain(job.url)).toBe(true);
+  });
+
+  it('keeps the shared source key but records an employer-scoped logo key and verified domain', () => {
+    const { job } = classify(ad('logo1', {
+      jobContent: {
+        company: {
+          name: 'Adecco SA',
+          website: 'https://www.adecco.com/swiss-careers',
+          street: 'Via Roma',
+          houseNumber: '4',
+          postalCode: '6900',
+        },
+      },
+    })).candidate;
+
+    expect(job).toMatchObject({
+      company: 'Adecco SA',
+      companyKey: 'seco-jobroom',
+      companyLogoKey: 'adecco-sa',
+      companyDomain: 'adecco.com',
+    });
   });
 
   it('gives the JobPosting builder every field Non-Negotiable #3 requires', () => {

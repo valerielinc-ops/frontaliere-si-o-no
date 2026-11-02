@@ -178,7 +178,13 @@ export function domainCandidates(key, metadata = {}, options = {}) {
   const add = (value) => addUnique(candidates, seen, value);
 
   for (const domain of DOMAIN_OVERRIDES[companyKey] || []) add(domain);
-  if (fromAudit) return candidates;
+  if (fromAudit) {
+    // `verifiedDomains` comes from an explicit crawler/company declaration
+    // (`companyDomain`), unlike urlHosts which may only be an ATS or board.
+    // Audit mode may use the former, never infer a domain from the key.
+    for (const domain of metadata.verifiedDomains || []) add(domain);
+    return candidates;
+  }
 
   for (const domain of metadata.companyDomains || []) {
     if (!isAtsDomain(domain)) add(domain);

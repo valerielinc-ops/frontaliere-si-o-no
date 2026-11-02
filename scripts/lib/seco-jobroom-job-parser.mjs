@@ -50,7 +50,9 @@ import { assertExtractionComplete } from './extraction-completeness.mjs';
 import { identicalAdvertisementKey } from './identical-posting-dedupe.mjs';
 import { absoluteJobUrl } from './job-url-host.mjs';
 import { isKnownAggregatorDomain } from './known-aggregator-domains.mjs';
+import { companyLogoKeyFromEmployer } from './company-logo-key.mjs';
 import { normalizeCompanyName } from './prospector/coverage.mjs';
+import { registrableDomain } from './prospector/registrable.mjs';
 import { fetchSecoAdSnapshot } from './prospector/sources/seco-jobroom.mjs';
 import { buildCorpusIndex, comparableTitle, matchCorpus } from './seco-jobroom-corpus-index.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -165,6 +167,23 @@ function channelUrls(jobContent) {
     } catch { /* a malformed channel is no channel */ }
   }
   return urls;
+}
+
+/**
+ * The API's company.website is an employer-owned declaration. Keep only its
+ * registrable host, and never turn a board/SECO channel into an employer logo
+ * source. `companyLogoKey` remains useful when this field is absent.
+ */
+function verifiedEmployerDomain(jobContent) {
+  const raw = absoluteJobUrl(jobContent?.company?.website);
+  if (!raw || isKnownAggregatorDomain(raw)) return '';
+  try {
+    const parsed = new URL(raw);
+    if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return '';
+    return registrableDomain(parsed.hostname);
+  } catch {
+    return '';
+  }
 }
 
 /** The label a board trades under: `jobup.ch` -> `jobup`, `job-too.ch` -> `job too`. */
@@ -308,6 +327,8 @@ export function classifyAdvertisement(row, now) {
   const slug = `${slugify(`${title} ${employer.name} ${city}`, 80)}-${slugDisambiguator}`;
   const street = workplaceStreet(employer.address, postalCode);
   const validThroughField = validThrough ? { validThrough } : {};
+  const companyLogoKey = companyLogoKeyFromEmployer(employer.name);
+  const companyDomain = verifiedEmployerDomain(jobContent);
 
   return {
     candidate: {
@@ -320,6 +341,8 @@ export function classifyAdvertisement(row, now) {
         slugDisambiguator,
         company: employer.name,
         companyKey: SECO_JOBROOM_KEY,
+        ...(companyLogoKey ? { companyLogoKey } : {}),
+        ...(companyDomain ? { companyDomain } : {}),
         employerDisclosed: !employer.undisclosed,
         title,
         titleByLocale: { [language]: title },
