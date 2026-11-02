@@ -246,6 +246,7 @@ function companyLogoFromJob(job: any): string {
  const logo = resolveCompanyLogoUrlForRenderedOutput({
  company: String(job?.company || ''),
  companyKey: String(job?.companyKey || ''),
+ municipalityKey: String(job?.municipalityKey || ''),
  companyDomain: String(job?.companyDomain || ''),
  url: String(job?.url || ''),
  });

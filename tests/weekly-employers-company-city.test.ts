@@ -305,6 +305,46 @@ describe('buildCompanyCityStats — gate + aggregation', () => {
     expect(stats?.employer).toContain('EOC');
   });
 
+  it('forwards a uniform Comune municipality key and leaves mixed groups unknown', () => {
+    const scopedJobs = Array.from({ length: 3 }, (_, i) =>
+      makeJob({
+        slug: `comune-esempio-${i}`,
+        company: 'Comune di Esempio',
+        companyKey: 'comuni-ticino',
+        municipalityKey: 'comune-di-esempio',
+      }),
+    );
+    const scopedStats = buildCompanyCityStats({
+      city: 'lugano',
+      companySlug: 'comune-di-esempio',
+      employerKey: 'comuni-ticino',
+      locale: 'it',
+      jobs: scopedJobs,
+      previousSnapshot: null,
+    });
+    expect(scopedStats?.municipalityKey).toBe('comune-di-esempio');
+    expect(scopedStats?.activeJobs.every((job) => job.municipalityKey === 'comune-di-esempio')).toBe(true);
+
+    const mixedJobs = [
+      ...scopedJobs.slice(0, 2),
+      makeJob({
+        slug: 'comune-altro-0',
+        company: 'Comune di Altro',
+        companyKey: 'comuni-ticino',
+        municipalityKey: 'comune-di-altro',
+      }),
+    ];
+    const mixedStats = buildCompanyCityStats({
+      city: 'lugano',
+      companySlug: 'comuni-ticino',
+      employerKey: 'comuni-ticino',
+      locale: 'it',
+      jobs: mixedJobs,
+      previousSnapshot: null,
+    });
+    expect(mixedStats?.municipalityKey).toBeUndefined();
+  });
+
   it('computes positive delta against a previous snapshot', () => {
     const jobs = makeEocJobs(5, 'Lugano');
     const previous: JobsSnapshot = {
