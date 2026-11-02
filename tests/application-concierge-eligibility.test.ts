@@ -296,7 +296,7 @@ describe('qualification before proposal publication', () => {
     expect(hasUncoveredHardEligibilityStatements(empty, 'German C1 is required and a plus.')).toBe(true);
   });
 
-  it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {
+  it('allows the bounded Codex last-resort rung after all three provider attempts', async () => {
     const match = { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
     const f = fixture(match);
     vi.mocked(generateServerText).mockImplementation(async ({ systemPrompt }: any) => ({ status: 200, body: {
@@ -306,7 +306,7 @@ describe('qualification before proposal publication', () => {
     const check = await prepareConciergeEligibility({ ...input, profileRecord: {}, background: true });
     await check({ id: 'job', title: 'IT Lead', company: 'Example' });
     expect(generateServerText).toHaveBeenCalledTimes(3);
-    for (const [options] of vi.mocked(generateServerText).mock.calls) expect(options).toMatchObject({ maxProviderAttempts: 3, allowCodexFallback: false, maxTokens: 8192, background: true });
+    for (const [options] of vi.mocked(generateServerText).mock.calls) expect(options).toMatchObject({ maxProviderAttempts: 3, allowCodexFallback: true, maxTokens: 8192, background: true });
   });
 
   it('defers cancellation without publishing or caching a late posting read', async () => {

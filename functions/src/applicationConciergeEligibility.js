@@ -33,7 +33,9 @@ export function normalizeConciergeJobRecord(job = {}) {
 
 async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
   const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
-    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false, ...options });
+    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3,
+    // The final Codex rung is separately time-bounded and uses server-side Remote Config auth.
+    allowCodexFallback: true, ...options });
   options.signal?.throwIfAborted();
   if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
   const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
