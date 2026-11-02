@@ -304,6 +304,7 @@ describe('tryCodexFallback â€” errori del backend: un risultato, mai un throw nÃ
   it('usa il timeout esteso solo per i worker background e propaga il segnale del worker', async () => {
     rc = { CODEX_AUTH_JSON: codexLogin() };
     const worker = new AbortController();
+    const timeoutSpy = vi.spyOn(AbortSignal, 'timeout').mockImplementation(() => new AbortController().signal);
     fetchMock.mockImplementationOnce(async (_url: string, init: RequestInit) => {
       expect(init.signal).toBeInstanceOf(AbortSignal);
       expect(init.signal).not.toBe(worker.signal);
@@ -316,6 +317,7 @@ describe('tryCodexFallback â€” errori del backend: un risultato, mai un throw nÃ
 
     await expect(tryCodexFallback({ messages: [{ role: 'user', content: 'x' }], background: true, signal: worker.signal }))
       .resolves.toMatchObject({ ok: false, error: 'The operation was aborted' });
+    expect(timeoutSpy).toHaveBeenCalledWith(CODEX_BACKGROUND_FALLBACK_TIMEOUT_MS);
   });
 
   it('una cancellazione durante Codex restituisce generation_cancelled, non all_providers_failed', async () => {
