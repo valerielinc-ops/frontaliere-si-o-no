@@ -191,6 +191,18 @@ async function main() {
   }
   const publicationReport = { ...report, candidates: localizedCandidates };
   const publications = buildAutomaticSectorHubPublicationRegistry({ report: publicationReport, previous: previousPublications });
+  const previousPublicationBySlug = new Map((previousPublications?.hubs || []).map((hub) => [hub.slug, hub]));
+  const candidateBySlug = new Map(report.candidates.map((candidate) => [candidate.suggestedSlug, candidate]));
+  const reactivated = publications.hubs.flatMap((hub) => {
+    const previousHub = previousPublicationBySlug.get(hub.slug);
+    const candidate = candidateBySlug.get(hub.slug);
+    return previousHub?.status === 'retired' && !previousHub.retirementReason?.trim() && hub.status === 'active'
+      ? [`${hub.slug} (${candidate?.activeJobCount || 0} offers, ${candidate?.employerCount || 0} employers)`]
+      : [];
+  });
+  if (reactivated.length) {
+    console.log(`[sector-hub-discovery] automatically reactivated ${reactivated.length} retired hub(s): ${reactivated.join('; ')}.`);
+  }
   writeJsonAtomic(args.publicationsOutputFile, publications);
 
   const eligible = report.candidates.filter((candidate) => candidate.automaticPromotionEligible).length;

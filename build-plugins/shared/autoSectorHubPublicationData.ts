@@ -4,8 +4,14 @@ import type {
   SectorHubJobLike,
   SectorHubPublication,
   SectorHubPublicationRegistry,
+  SectorPublicationLocale,
 } from '../../data/sector-hub-publications';
-import { normalizeSectorHubLabel, sectorHubMatchesJob } from '../../data/sector-hub-publications';
+import {
+  isIndexableSectorHubPublication,
+  normalizeSectorHubLabel,
+  sectorHubMatchesJob,
+} from '../../data/sector-hub-publications';
+import { buildAutoSectorHubPath } from './autoSectorHubPaths';
 import {
   isListingInventoryJob,
   normalizeListingIdentity,
@@ -42,7 +48,10 @@ function isPublication(value: unknown): value is SectorHubPublication {
     && Array.isArray(hub.matchLabels)
     && hub.matchLabels.every((label) => typeof label === 'string')
     && typeof hub.firstPublishedAt === 'string'
-    && (hub.status === 'active' || hub.status === 'cooling-off' || hub.status === 'retired');
+    && (hub.status === 'active' || hub.status === 'cooling-off' || hub.status === 'retired')
+    && (hub.retirementReason === undefined
+      || (hub.status === 'retired' && typeof hub.retirementReason === 'string'
+        && Boolean(hub.retirementReason.trim())));
 }
 
 export function readSectorHubPublicationRegistry(rootDir: string): SectorHubPublicationRegistry {
@@ -80,6 +89,36 @@ function jobIdentity(job: AutoSectorJob, index: number): string {
 export interface AutoSectorHubInventory {
   registry: SectorHubPublicationRegistry;
   jobsBySlug: Map<string, AutoSectorJob[]>;
+}
+
+export interface AutoSectorHubIndexLink {
+  slug: string;
+  href: string;
+  label: string;
+}
+
+/** Shared eligibility for the generated sector directory and its build links. */
+export function listIndexableAutoSectorHubLinks(
+  inventory: AutoSectorHubInventory,
+  locale: SectorPublicationLocale,
+): AutoSectorHubIndexLink[] {
+  const links: AutoSectorHubIndexLink[] = [];
+  for (const publication of inventory.registry.hubs) {
+    const jobs = inventory.jobsBySlug.get(publication.slug) || [];
+    const label = publication.labelByLocale[locale]?.trim();
+    if (!label || !isIndexableSectorHubPublication(
+      publication,
+      jobs.length,
+      countAutoSectorHubEmployers(jobs),
+      locale,
+    )) continue;
+    links.push({
+      slug: publication.slug,
+      href: buildAutoSectorHubPath(locale, publication.slug, publication.routeKind),
+      label,
+    });
+  }
+  return links;
 }
 
 /** Read the exact active TI inventory that candidate discovery measures. */
