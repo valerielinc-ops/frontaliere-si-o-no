@@ -23,6 +23,7 @@ import {
   candidateForKey,
   reconcileCandidateDuplicates,
   requeueLegacyNoVacancyCandidates,
+  requeueRejectedPlatformCandidates,
   resolveCandidateKey,
   startLedgerPhase,
   finishLedgerPhase,
@@ -347,6 +348,51 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     });
     expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v2', null))
       .toMatchObject({ status: 'validated', reopenedSourceAdapterVersion: 'rh-expert-ch-dedicated-v2' });
+  });
+
+  it('reopens only exact platform no-vacancy rejections within the family budget', () => {
+    const applyKey = 'apply-one@example';
+    const tiKey = 'apply-ti@example';
+    const vendorKey = 'apply-vendor@example';
+    const store = storeWith({
+      [applyKey]: {
+        key: applyKey, status: 'rejected', platform: 'applytojob.com', reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+        rejectedAt: new Date(Date.now() - 2 * DAY_MS).toISOString(),
+      },
+      [tiKey]: {
+        key: tiKey, status: 'rejected', platform: 'altamiraweb.com', canton: 'TI', reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+        rejectedAt: new Date(Date.now() - DAY_MS).toISOString(),
+      },
+      [vendorKey]: {
+        key: vendorKey, status: 'rejected', platform: 'altamiraweb.com', reason: 'chiave crawler "jobportal" e\' un\'etichetta del vendor',
+        rejectedAt: new Date(Date.now() - 3 * DAY_MS).toISOString(),
+      },
+    }, {
+      [applyKey]: { rejectedAt: new Date(Date.now() - 2 * DAY_MS).toISOString() },
+      [tiKey]: { rejectedAt: new Date(Date.now() - DAY_MS).toISOString() },
+    });
+
+    const reopened = requeueRejectedPlatformCandidates(store, {
+      platforms: ['applytojob.com', 'altamiraweb.com'],
+      versions: new Map([
+        ['applytojob.com', 'applytojob-family-v1'],
+        ['altamiraweb.com', 'altamiraweb-family-v1'],
+      ]),
+      limit: 1,
+      ledgerFile: null,
+    });
+
+    expect(reopened).toHaveLength(1);
+    expect(reopened[0]).toMatchObject({ key: tiKey, status: 'traced', reopenedSourceAdapterVersion: 'altamiraweb-family-v1' });
+    expect(store.rejectedTombstones[tiKey]).toBeUndefined();
+    expect(store.candidates[applyKey].status).toBe('rejected');
+    expect(store.candidates[vendorKey].status).toBe('rejected');
+    expect(requeueRejectedPlatformCandidates(store, {
+      platforms: ['altamiraweb.com'],
+      versions: { 'altamiraweb.com': 'altamiraweb-family-v1' },
+      limit: 5,
+      ledgerFile: null,
+    })).toEqual([]);
   });
 
   it('persists legacy tombstones without carrying diagnostic payload', () => {

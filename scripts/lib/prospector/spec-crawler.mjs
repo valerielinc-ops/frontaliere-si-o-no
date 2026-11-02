@@ -48,6 +48,7 @@ import {
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
 import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import { platformListingExtractorFor } from './platform-extractors.mjs';
 import {
   rawDetailTitleEvidence,
   selectPublishableTitle,
@@ -700,13 +701,26 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
     };
   }
   const { vacancies } = extractVacancies(html, effectiveUrl, links);
-  const sourceCandidates = typeof runtime.listingExtractor === 'function'
-    ? runtime.listingExtractor(html, effectiveUrl)
+  const runtimeListingExtractor = typeof runtime.listingExtractor === 'function'
+    ? runtime.listingExtractor
     : null;
+  const familyListingExtractor = platformListingExtractorFor(spec?.platform);
+  const isConfiguredFamilyExtractor = runtimeListingExtractor
+    && runtimeListingExtractor === familyListingExtractor;
+  const familyExtractorActive = Boolean(familyListingExtractor
+    && (!runtimeListingExtractor || isConfiguredFamilyExtractor));
+  const sourceCandidates = runtimeListingExtractor
+    ? await runtimeListingExtractor(html, effectiveUrl)
+    : familyListingExtractor
+      ? await familyListingExtractor(html, effectiveUrl)
+      : null;
   // jsonld/microdata are stronger evidence than any link-shape guess, so
   // only override when the generic cascade fell back to (or below) its own
   // template heuristic and we hold a better one already vetted for this spec.
-  let candidates = Array.isArray(sourceCandidates) ? sourceCandidates : vacancies;
+  let candidates = Array.isArray(sourceCandidates)
+    && (!familyExtractorActive || sourceCandidates.length > 0)
+    ? sourceCandidates
+    : vacancies;
   if (!Array.isArray(sourceCandidates)
     && templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
     let host = '';

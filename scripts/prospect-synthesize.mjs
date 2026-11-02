@@ -17,6 +17,7 @@
  *   node scripts/prospect-synthesize.mjs --limit=25
  *   node scripts/prospect-synthesize.mjs --key=<candidate key>
  *   node scripts/prospect-synthesize.mjs --limit=10 --dry-run
+ *   node scripts/prospect-synthesize.mjs --limit=25 --reopen-limit=10
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -33,6 +34,7 @@ import {
   finishLedgerPhase,
   recordCandidateAttempt,
   requeueLegacyNoVacancyCandidates,
+  requeueRejectedPlatformCandidates,
   requeueMiskeyedCandidate,
 } from './lib/prospector/candidate-store.mjs';
 import {
@@ -45,22 +47,41 @@ import { PROSPECTOR_DIR, ROOT } from './lib/prospector/config.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 import { parseSynthesisLimit, prioritizeSynthesisCandidates } from './lib/prospector/synthesis-schedule.mjs';
+import { PLATFORM_FAMILY_ADAPTERS, PLATFORM_FAMILY_DOMAINS } from './lib/prospector/platform-extractors.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
 // e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
-assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit'] });
+assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit', 'reopen-limit'] });
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
 const limit = parseSynthesisLimit(arg('limit', 25));
 const onlyKey = arg('key', '');
 const dryRun = flag('dry-run');
+const reopenLimitArg = arg('reopen-limit', '');
+if (reopenLimitArg && !/^\d+$/.test(reopenLimitArg)) {
+  throw new Error(`--reopen-limit deve essere un intero non negativo: ${reopenLimitArg}`);
+}
+const familyReopenLimit = reopenLimitArg === ''
+  ? Math.min(10, limit)
+  : Math.min(limit, Number(reopenLimitArg));
 startLedgerPhase('synthesize', { dryRun });
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
 const synthesisLimit = limit;
+const familyVersions = new Map(Object.entries(PLATFORM_FAMILY_ADAPTERS)
+  .map(([platform, adapter]) => [platform, adapter.version]));
+const familyRecovery = onlyKey
+  ? []
+  : requeueRejectedPlatformCandidates(store, {
+    platforms: PLATFORM_FAMILY_DOMAINS,
+    versions: familyVersions,
+    limit: familyReopenLimit,
+    ledgerFile: dryRun ? null : undefined,
+  });
+const familyRecoveryKeys = new Set(familyRecovery.map((candidate) => candidate.key));
 
 // Ogni chiave crawler e' il nome di un file spec, e un parser in produzione
 // rilegge la SUA spec da quel file a ogni giro: chi la sovrascrive cambia il
@@ -127,6 +148,7 @@ const tracedQueue = onlyKey
   ? []
   : byStatus(store, 'traced').filter((candidate) => isSynthesisRetryDue(candidate)
     && !legacyRecoveryKeys.has(candidate.key)
+    && !familyRecoveryKeys.has(candidate.key)
     && !rekeyedKeys.has(candidate.key));
 const rekeyedQueue = rekeyed.map(({ candidate }) => store.candidates[candidate.key])
   .filter(Boolean);
@@ -134,6 +156,7 @@ const queue = onlyKey
   ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
   : [
     ...rekeyedQueue,
+    ...familyRecovery,
     ...legacyRecovery,
     ...prioritizeSynthesisCandidates(
       tracedQueue,
@@ -145,6 +168,10 @@ console.log('═══ Prospector · SYNTHESIZE ═══');
 if (rekeyed.length) {
   console.log(`chiavi crawler da etichetta del vendor: ${rekeyed.length} candidati tornano in sintesi`);
   for (const { candidate, from, to } of rekeyed) console.log(`  ↺ ${candidate.key}: ${from} → ${to}`);
+}
+if (familyRecovery.length) {
+  console.log(`riapertura estrattori famiglia: ${familyRecovery.length} candidati (budget ${familyReopenLimit})`);
+  for (const candidate of familyRecovery) console.log(`  ↻ ${candidate.key} [${candidate.platform}]`);
 }
 if (legacyRecovery.length) console.log(`recupero seed senza annunci: ${legacyRecovery.length} candidati legacy in coda`);
 console.log(`da sintetizzare: ${queue.length} candidati tracciati\n`);

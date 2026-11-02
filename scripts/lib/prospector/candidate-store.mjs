@@ -1316,6 +1316,79 @@ export function requeueLegacyNoVacancyCandidates(store, limit, ledgerFile) {
 }
 
 /**
+ * Requeue a bounded batch of exact no-vacancy rejections after a reviewed
+ * platform-family extractor changed. This is deliberately separate from the
+ * ordinary upsert path: a tombstone is removed only for the selected key,
+ * only once per extractor version, and only under the caller's explicit run
+ * budget.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {{ platforms?: Iterable<string>, versions?: Map<string, string>|Record<string, string>, limit?: number, ledgerFile?: string|null }} [options]
+ * @returns {Record<string, any>[]}
+ */
+export function requeueRejectedPlatformCandidates(store, options = {}) {
+  const max = Math.max(0, Math.floor(Number(options.limit) || 0));
+  if (!max) return [];
+  const platforms = new Set([...((options.platforms || []))]
+    .map((platform) => registrableDomain(String(platform || '').trim()))
+    .filter(Boolean));
+  const versionFor = (platform) => options.versions instanceof Map
+    ? String(options.versions.get(platform) || '').trim()
+    : String(options.versions?.[platform] || '').trim();
+  if (!platforms.size) return [];
+
+  const candidates = Object.values(store.candidates)
+    .filter((candidate) => candidate?.status === 'rejected'
+      && candidate.reason === 'sintesi fallita: nessun annuncio estratto dal seed'
+      && platforms.has(registrableDomain(String(candidate.platform || '').trim()))
+      && versionFor(registrableDomain(String(candidate.platform || '').trim()))
+      && candidate.reopenedSourceAdapterVersion
+        !== versionFor(registrableDomain(String(candidate.platform || '').trim())))
+    .sort((a, b) => {
+      const aTi = String(a.canton || '').toUpperCase() === 'TI' ? 1 : 0;
+      const bTi = String(b.canton || '').toUpperCase() === 'TI' ? 1 : 0;
+      return bTi - aTi
+        || String(a.rejectedAt || a.updatedAt || '').localeCompare(String(b.rejectedAt || b.updatedAt || ''))
+        || String(a.key || '').localeCompare(String(b.key || ''));
+    })
+    .slice(0, max);
+
+  const at = new Date().toISOString();
+  for (const candidate of candidates) {
+    const platform = registrableDomain(String(candidate.platform || '').trim());
+    const version = versionFor(platform);
+    const priorReason = candidate.reason;
+    candidate.status = 'traced';
+    candidate.reason = `estrattore famiglia ${version}: sintesi riaperta`;
+    candidate.reopenedSourceAdapterVersion = version;
+    candidate.synthesisRetryable = false;
+    candidate.synthesisRetryExhausted = false;
+    candidate.synthesisAttempts = 0;
+    candidate.synthesisLastAttemptAt = null;
+    candidate.synthesisRetryAt = null;
+    candidate.synthesisOutcome = 'platform_family_revalidation';
+    candidate.synthesisDiagnostics = null;
+    candidate.platformFamilyRecoveryQueuedAt = at;
+    candidate.reopenedAt = at;
+    candidate.updatedAt = at;
+    delete candidate.rejectedAt;
+    forgetRejected(store, candidate.key);
+    appendLedger({
+      eventType: 'candidate_reopened',
+      key: candidate.key,
+      from: 'rejected',
+      to: 'traced',
+      at,
+      reasonCode: 'platform_family_revalidation',
+      reason: priorReason,
+      platform,
+      sourceAdapterVersion: version,
+    }, options.ledgerFile);
+  }
+  return candidates;
+}
+
+/**
  * Insert or merge a candidate. Merging never downgrades a status and never
  * loses a source attribution — the same employer legitimately arrives from the
  * SECO feed, a map extract and a tenant sweep, and knowing it came from three

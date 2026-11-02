@@ -30,6 +30,10 @@ import { isConnectionLevelFetchResult } from '../transient-fetch.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
 import { BREFISPERSONAL_PAGINATION } from './brefispersonal-contract.mjs';
+import {
+  platformFamilyDetailTemplateFor,
+  platformListingExtractorFor,
+} from './platform-extractors.mjs';
 
 const MAX_SYNTHESIS_FETCHES = 5;
 const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
@@ -86,7 +90,7 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {string} companyName
  * @property {string} companyHost
  * @property {string} platform            registrable domain of the ATS, '' when self-hosted
- * @property {'jsonld'|'microdata'|'template'|'free-text'} mode
+ * @property {'jsonld'|'microdata'|'template'|'known-template'|'free-text'} mode
  * @property {string[]} seedUrls
  * @property {string[]} [transportFallbackSeedUrls] Listing seeds tried only after a primary seed fails without receiving an HTTP response
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
@@ -511,8 +515,22 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     reachablePages++;
     const links = extractLinks(res.body, res.url);
     const result = extractVacancies(res.body, res.url, links);
-    if (result.vacancies.length) {
-      extracted = { res, vacancies: result.vacancies, via: result.via };
+    let platformExtractor = null;
+    try {
+      platformExtractor = platformListingExtractorFor(
+        candidate.platform || registrableDomain(new URL(res.url).hostname),
+      );
+    } catch { /* the generic cascade still handles malformed page URLs */ }
+    const platformVacancies = platformExtractor
+      ? await platformExtractor(res.body, res.url)
+      : null;
+    const vacancies = platformVacancies?.length ? platformVacancies : result.vacancies;
+    if (vacancies.length) {
+      extracted = {
+        res,
+        vacancies,
+        via: platformVacancies?.length ? 'known-template' : result.via,
+      };
       break;
     }
     // The homepage detector is a hard precondition for the AI path. Keep the
@@ -649,18 +667,23 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     (vacancy) => !resolveDetailOrListingSwissGeography({}, vacancy).geography
       || !isSufficientVacancyDescription(vacancy.description),
   );
+  const familyDetailTemplate = via === 'known-template'
+    ? platformFamilyDetailTemplateFor(candidate.platform || hostDomain)
+    : null;
   /** @type {CrawlerSpec} */
   const spec = {
     companyKey,
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
     platform: candidate.platform || inferredPlatform,
-    mode: /** @type {'jsonld'|'microdata'|'template'|'free-text'} */ (via),
+    mode: /** @type {'jsonld'|'microdata'|'template'|'known-template'|'free-text'} */ (via),
     seedUrls: [res.url],
     detailTemplate: via === FREE_TEXT_MODE
       ? undefined
-      : commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
-    detailEnrichment: via === FREE_TEXT_MODE ? false : via === 'template' || listingNeedsDetail,
+      : familyDetailTemplate || commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
+    detailEnrichment: via === FREE_TEXT_MODE
+      ? false
+      : via === 'known-template' || via === 'template' || listingNeedsDetail,
     detailFetchWorkers: 4,
     pagination,
     sampleVacancyCount: vacancies.length,
@@ -768,7 +791,12 @@ export async function runSpec(spec, runtime = {}) {
         })
         : new Map();
       const links = extractLinks(res.body, res.url);
-      const { vacancies } = extractVacancies(res.body, res.url, links);
+      const { vacancies: genericVacancies } = extractVacancies(res.body, res.url, links);
+      const familyExtractor = platformListingExtractorFor(spec.platform);
+      const familyVacancies = familyExtractor
+        ? await familyExtractor(res.body, res.url)
+        : [];
+      const vacancies = familyVacancies.length ? familyVacancies : genericVacancies;
       for (const v of vacancies) {
         try { await urlPolicy(v.url); } catch {
           errors.push(`${v.url}: origine dettaglio non autorizzata`);
