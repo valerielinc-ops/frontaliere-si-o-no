@@ -4190,15 +4190,16 @@ export async function readPortalRequirements(ctx) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
       return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
     }
-    return {
-      ...requirements,
-      questions: await localizePortalQuestions(requirements.questions, {
-        candidateLocale: ctx.candidateLocale,
-        applicationLocale: ctx.language,
-        codex: ctx.codex,
-        log: ctx.log,
-      }),
-    };
+    const questions = await localizePortalQuestions(requirements.questions, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (questions.some((question) => question.localizationStatus === 'fallback')) {
+      throw new PortalQuestionLocalizationError();
+    }
+    return { ...requirements, questions };
   } catch (error) {
     (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
     return { questions: [], documents: [] };
@@ -4523,9 +4524,17 @@ export async function submitViaPortal(ctx) {
     const askCandidate = async (questions) => {
       const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
-      const request = await portalRequirementsForCandidate(requirements, {
-        candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
-      });
+      let request;
+      try {
+        request = await portalRequirementsForCandidate(requirements, {
+          candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
+        });
+      } catch (error) {
+        if (error?.code === 'portal_question_localization_unavailable') {
+          return await handoff('question_localization_unavailable');
+        }
+        throw error;
+      }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
       return {

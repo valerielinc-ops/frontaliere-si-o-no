@@ -480,6 +480,28 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
+it('does not expose fallback-language questions from a pre-read when localization is unavailable', async () => {
+  const url = 'https://jobs.lever.co/example/1/apply';
+  const snapshot = {
+    url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
+    fields: [{ id: 'motivation', kind: 'text', label: 'Warum interessiert dich diese Stelle?', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}) };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async ({ prompt }: any) => String(prompt).includes('You localize questions from an online job application')
+    ? { questions: [] }
+    : { actions: [], missingRequired: [{ fieldId: 'motivation', question: 'Warum interessiert dich diese Stelle?' }] });
+  const ctx = { channelType: 'lever', applyUrl: url, language: 'de', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
+
+  const result = await readPortalRequirements(ctx);
+  expect(result).toEqual({ questions: [], documents: [] });
+  expect(codex).toHaveBeenCalledTimes(2);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('detects the ATS question language even when the posting language matches the candidate locale', async () => {
   const question = 'Aus welcher Region stammt dein letzter Wohnort?';
   let prompt = '';

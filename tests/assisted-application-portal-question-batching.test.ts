@@ -999,6 +999,35 @@ describe('assisted portal question batching', () => {
     expect(result.event.type).not.toBe('submit_needs_candidate');
   });
 
+  it('hands off retryably when direct portal submission cannot localize the complete question batch', async () => {
+    const fixture = fakePage();
+    const { page, window } = fixture;
+    const context: any = {
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    };
+    page.context = () => context;
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+    const fieldId = window.document.getElementById('motivation')?.getAttribute('data-aa-id') || '';
+    const codex = async ({ prompt }: any) => {
+      if (String(prompt).includes('You localize questions from an online job application')) throw new Error('provider unavailable');
+      return { actions: [], missingRequired: [{
+        fieldId, question: 'Warum interessierst du dich für diese Stelle?', why: '', type: 'text', options: [],
+      }] };
+    };
+
+    const result = await submitViaPortal({
+      applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'de', candidateLocale: 'it',
+      candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+      files: {}, skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'question_localization_unavailable' });
+    expect(window.document.querySelector('#next')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
   it('does not send a partial batch when the required-field surface never settles', async () => {
     const fixture = fakePage({ conditional: false });
     const { page } = fixture;
