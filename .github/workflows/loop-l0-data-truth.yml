@@ -66,6 +66,8 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      # Intentional fail-closed verdict owner: L0 Data Truth: corpus manifest is not usable.
+      # Keep this family prefix aligned with VERDICT_STEPS in the central failure scanner.
       - name: Audit corpus manifest
         id: audit-manifest
         env:
