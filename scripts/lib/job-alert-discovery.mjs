@@ -1,15 +1,10 @@
-import { CANTON_CODES, getCantonLabel } from '../../services/cantonList.ts';
 import { normalizeLocToken, locTokenHit } from '../../services/locToken.mjs';
 import { getJobPopularityCount } from '../../services/newsletter-content-core.mjs';
 import { isOpenJobAlertJob } from './job-alert-newness.mjs';
 import { municipalityToCantons } from '../../services/provinceCantonAffinity.ts';
 import { buildAlertProfile } from '../../services/jobAlertMatching.mjs';
 import { classifyZeroMatchCause } from './job-alert-zero-match-diagnosis.mjs';
-
-const cantonAliases = new Map(CANTON_CODES.flatMap((code) => [
-  [normalizeLocToken(code), code.toLowerCase()],
-  ...['it', 'en', 'de', 'fr'].map((locale) => [normalizeLocToken(getCantonLabel(code, locale)), code.toLowerCase()]),
-]));
+import { normalizeSwissCantonCode } from './target-swiss-locations.mjs';
 
 /** Call on the complete active population, before cadence/partition filters. */
 export function findDiscoveryBlockedRecipients(alerts) {
@@ -43,7 +38,7 @@ export function discoveryGeography(subscriber, profile, sourceJobGeo = []) {
   const country = normalizeLocToken(sub.geo_country);
   if (cantons.size === 0 && locations.length === 0
     && ['ch', 'switzerland', 'svizzera', 'suisse', 'schweiz'].includes(country)) {
-    const canton = cantonAliases.get(normalizeLocToken(sub.geo_region));
+    const canton = normalizeSwissCantonCode(sub.geo_region).toLowerCase();
     if (canton) cantons.add(canton);
     if (sub.geo_city) locations.push(String(sub.geo_city));
   }
@@ -51,7 +46,7 @@ export function discoveryGeography(subscriber, profile, sourceJobGeo = []) {
     for (const canton of municipalityToCantons(sub.geo_city)) cantons.add(canton.toLowerCase());
   }
   for (const location of locations) {
-    const canton = cantonAliases.get(normalizeLocToken(location));
+    const canton = normalizeSwissCantonCode(location).toLowerCase();
     if (canton) cantons.add(canton);
   }
   return { locations, cantons };
