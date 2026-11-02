@@ -5,6 +5,7 @@ import {
   processLookupBatches,
   queryLindasWithRetry,
   registryNameKey,
+  collectUnmatchedCacheLookups,
   sameLocality,
 } from '../../scripts/refresh-jobposting-address-cache.mjs';
 
@@ -46,6 +47,8 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
     expect(registryNameKey('Müller & Söhne SA')).toBe('muller sohne');
     expect(registryNameKey('Suisse Banque SA')).toBe('suisse banque');
     expect(registryNameKey('AG Immobilien GmbH')).toBe('ag immobilien');
+    expect(['SA', 'AG', 'Sagl', 'GmbH'].map((form) => registryNameKey(`Müller ${form}`)))
+      .toEqual(['muller', 'muller', 'muller', 'muller']);
   });
 
   it('accepts only an exact normalized company and canton-scoped city match', () => {
@@ -86,6 +89,77 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
       zefixBinding(),
       zefixBinding({ street: 'Limmatquai 20', postalCode: '8001' }),
     ])).toMatchObject({ status: 'ambiguous', ambiguous: true, reason: 'multiple-addresses' });
+  });
+
+  it('resolves a curated employer alias only to its exact registered name and records provenance', async () => {
+    const request = {
+      key: 'coop city|basel|BS',
+      companyName: 'Coop City',
+      locality: 'Basel',
+      region: 'BS',
+    };
+    const result = await processLookupBatches([request], {
+      queryBatch: async () => [zefixBinding({ registeredName: 'Coop Genossenschaft', locality: 'Basel', region: 'BS' })],
+      batchDelayMs: 0,
+      checkedAt: () => '2026-01-01T00:00:00.000Z',
+    });
+
+    expect(result.entries[request.key]).toMatchObject({
+      status: 'matched',
+      companyName: 'Coop City',
+      registeredName: 'Coop Genossenschaft',
+      matchType: 'alias',
+      streetAddressSource: 'zefix-registry',
+      streetAddress: 'Bahnhofstrasse 10',
+    });
+    expect(result.summary.sameCityAddresses).toBe(1);
+  });
+
+  it('keeps an alias unresolved when it maps to multiple registered entities', () => {
+    const request = {
+      key: 'abb svizzera|baden|AG',
+      companyName: 'Coop City',
+      locality: 'Baden',
+      region: 'AG',
+    };
+    expect(matchAddress(request, [
+      zefixBinding({ company: 'https://register.ld.admin.ch/zefix/company/1', registeredName: 'Coop Genossenschaft', locality: 'Baden', region: 'AG' }),
+      zefixBinding({ company: 'https://register.ld.admin.ch/zefix/company/2', registeredName: 'Coop Genossenschaft', locality: 'Baden', region: 'AG' }),
+    ])).toMatchObject({ status: 'ambiguous', companyFound: true, ambiguous: true, reason: 'multiple-companies' });
+  });
+
+  it('does not replace a cached match with a later non-match and only retries non-matches in the selected cache slice', async () => {
+    const request = {
+      key: 'muller sohne sa|zurich|ZH',
+      companyName: 'Müller & Söhne SA',
+      locality: 'Zürich',
+      region: 'ZH',
+    };
+    const cachedMatch = {
+      status: 'matched',
+      source: 'zefix-lindas',
+      companyName: request.companyName,
+      streetAddress: 'Existing Street 1',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      streetAddressSource: 'zefix-registry',
+    };
+    const result = await processLookupBatches([request], {
+      entries: { [request.key]: cachedMatch },
+      queryBatch: async () => [],
+      batchDelayMs: 0,
+    });
+
+    expect(result.entries[request.key]).toEqual(cachedMatch);
+    expect(collectUnmatchedCacheLookups({
+      'a|town|ZH': { ...cachedMatch, status: 'matched' },
+      'b|town|ZH': { status: 'not-found', companyName: 'Company B', addressLocality: 'Town', addressRegion: 'ZH' },
+    }, 1, 1)).toEqual([{
+      key: 'b|town|ZH',
+      companyName: 'Company B',
+      locality: 'Town',
+      region: 'ZH',
+    }]);
   });
 
   it('normalizes accent and a verified canton suffix in localities, without parsing descriptive text', () => {
@@ -146,6 +220,7 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
       },
       saveBatch: async (entries) => { savedSnapshots.push({ ...entries }); },
       checkedAt: () => '2026-01-01T00:00:00.000Z',
+      batchDelayMs: 0,
     });
 
     expect(calls).toBe(2);
@@ -161,5 +236,20 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
       failedBatches: 1,
       failedCompanies: 1,
     });
+  });
+
+  it('waits between LINDAS locality batches', async () => {
+    const requests = Array.from({ length: 11 }, (_, index) => ({
+      key: `company ${index}|town ${index}|ZH`,
+      companyName: `Company ${index}`,
+      locality: `Town ${index}`,
+      region: 'ZH',
+    }));
+    const delays: number[] = [];
+    await processLookupBatches(requests, {
+      queryBatch: async () => [],
+      pauseBetweenBatches: async (ms) => { delays.push(ms); },
+    });
+    expect(delays).toEqual([1_000]);
   });
 });

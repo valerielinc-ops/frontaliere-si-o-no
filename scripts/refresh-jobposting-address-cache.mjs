@@ -28,10 +28,26 @@ const LOCATION_BATCH_SIZE = 10;
 const QUERY_TIMEOUT_MS = 60_000;
 const QUERY_MAX_ATTEMPTS = 4;
 const QUERY_RETRY_DELAYS_MS = [1_000, 2_000, 4_000];
+const BETWEEN_BATCH_DELAY_MS = 1_000;
 
 const LEGAL_FORM_SUFFIXES = new Set([
   'ag', 'sa', 'gmbh', 'sarl', 'sagl', 'ltd', 'limited', 'inc', 'incorporated',
   'corp', 'corporation', 'kg', 'snc', 'sas',
+]);
+
+// Explicit employer-label → registered-name mappings. Each target is still
+// constrained by canton, locality, any available job postcode and entity
+// uniqueness below. Broad brands with several Swiss legal employers (for
+// example Migros or Novartis) intentionally have no mapping.
+const COMPANY_REGISTERED_NAME_ALIASES = new Map([
+  ['coop city', ['coop genossenschaft']],
+  ['eth zurich', ['eidgenossische technische hochschule zurich']],
+  ['eta sa swatch group', ['eta sa manufacture horlogere suisse']],
+  ['kantonsspital baden ksb', ['kantonsspital baden ag']],
+  ['luzerner kantonsspital luks', ['luzerner kantonsspital ag']],
+  ['centre neuchatelois de psychiatrie cnp', ['centre neuchatelois de psychiatrie']],
+  ['hopital du jura h ju', ['hopital du jura']],
+  ['j safra sarasin', ['bank j safra sarasin ag']],
 ]);
 
 function readJson(filePath) {
@@ -52,6 +68,21 @@ function loadJobs() {
     jobs.push(...(Array.isArray(parsed) ? parsed : parsed.jobs || []));
   }
   return jobs;
+}
+
+function collectUnmatchedCacheLookups(entries, limit, offset = 0) {
+  return Object.entries(entries)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .slice(offset, offset + limit)
+    .filter(([, cached]) => cached?.status !== 'matched')
+    .map(([key, cached]) => ({
+      key,
+      companyName: String(cached?.companyName || key.split('|')[0] || '').trim(),
+      locality: String(cached?.addressLocality || '').trim(),
+      region: String(cached?.addressRegion || '').trim().toUpperCase(),
+    }))
+    .filter(({ companyName, locality, region }) => companyName.length >= 3 && locality && /^[A-Z]{2}$/.test(region))
+    .slice(0, limit);
 }
 
 function localityKey(value, region = '') {
@@ -114,6 +145,19 @@ function registryNameKey(value) {
   return tokens.join(' ');
 }
 
+function requestNameKeys(companyName) {
+  const exact = registryNameKey(companyName);
+  const aliasKey = normalizeCompanyAddressKeyPart(companyName);
+  const aliases = COMPANY_REGISTERED_NAME_ALIASES.get(aliasKey) || [];
+  const keys = new Map();
+  if (exact) keys.set(exact, 'exact');
+  for (const alias of aliases) {
+    const key = registryNameKey(alias);
+    if (key && !keys.has(key)) keys.set(key, 'alias');
+  }
+  return keys;
+}
+
 function sameLocality(left, right, region) {
   return localityKey(left, region) === requestLocalityKey(right, region);
 }
@@ -127,6 +171,7 @@ function collectLookups(jobs, entries, now, limit) {
     const key = jobpostingAddressCacheKey(companyName, locality, region);
     if (!key || companyName.length < 3) continue;
     const cached = entries[key];
+    if (cached?.status === 'matched') continue;
     if (cached?.checkedAt && now - Date.parse(cached.checkedAt) < JOBPOSTING_ADDRESS_CACHE_TTL_MS) continue;
 
     const resolved = resolveJobPostingStreetAddress(job, {
@@ -261,23 +306,28 @@ function indexAddressBindings(bindings) {
 }
 
 function matchAddress(request, bindings, jobPostalCodes = new Set()) {
-  const requestedName = registryNameKey(request.companyName);
-  if (!requestedName) return { status: 'not-found', companyFound: false, ambiguous: false };
-  const expectedKey = requestAddressMatchKey(requestedName, request.locality, request.region);
+  const requestedNames = requestNameKeys(request.companyName);
+  if (!requestedNames.size) return { status: 'not-found', companyFound: false, ambiguous: false };
+  const expectedKeys = new Set([...requestedNames.keys()].map((name) => (
+    requestAddressMatchKey(name, request.locality, request.region)
+  )));
   const candidates = Array.isArray(bindings)
     ? bindings.filter((binding) => (
-      registryNameKey(value(binding, 'registeredName')) === requestedName
+      requestedNames.has(registryNameKey(value(binding, 'registeredName')))
       && registryNameKey(value(binding, 'registeredName')) !== ''
       && sameLocality(value(binding, 'locality'), request.locality, request.region)
       && value(binding, 'region').toUpperCase() === request.region
     ))
-    : bindings.get(expectedKey) || [];
+    : [...expectedKeys].flatMap((key) => bindings.get(key) || []);
   const companies = new Map();
   for (const binding of candidates) {
     const companyUri = value(binding, 'company');
     if (!companyUri) continue;
-    const rows = companies.get(companyUri) || [];
-    rows.push(binding);
+    const rows = companies.get(companyUri) || { bindings: [], matchType: 'alias' };
+    rows.bindings.push(binding);
+    if (requestedNames.get(registryNameKey(value(binding, 'registeredName'))) === 'exact') {
+      rows.matchType = 'exact';
+    }
     companies.set(companyUri, rows);
   }
   if (companies.size === 0) return { status: 'not-found', companyFound: false, ambiguous: false };
@@ -287,7 +337,8 @@ function matchAddress(request, bindings, jobPostalCodes = new Set()) {
 
   const addresses = new Map();
   let postalCodeConflict = false;
-  for (const binding of companies.values().next().value) {
+  const matchedCompany = companies.values().next().value;
+  for (const binding of matchedCompany.bindings) {
     const streetAddress = value(binding, 'street');
     const postalCode = value(binding, 'postalCode');
     if (!isZefixSwissPostalCode(postalCode)) continue;
@@ -313,7 +364,11 @@ function matchAddress(request, bindings, jobPostalCodes = new Set()) {
     status: 'matched',
     companyFound: true,
     ambiguous: false,
-    address: [...addresses.values()][0],
+    address: {
+      ...[...addresses.values()][0],
+      registeredName: value(matchedCompany.bindings[0], 'registeredName'),
+      matchType: matchedCompany.matchType,
+    },
   };
 }
 
@@ -341,6 +396,7 @@ function cacheEntry(request, outcome, checkedAt) {
     source: 'zefix-lindas',
     companyName: request.companyName,
     ...(outcome.address || {}),
+    ...(outcome.status === 'matched' ? { streetAddressSource: 'zefix-registry' } : {}),
     addressLocality: request.locality,
     addressRegion: request.region,
     ...(outcome.reason ? { reason: outcome.reason } : {}),
@@ -355,6 +411,8 @@ async function processLookupBatches(requests, {
   queryBatch = (batch) => queryLindasWithRetry(batch),
   saveBatch = async () => {},
   checkedAt = () => new Date().toISOString(),
+  pauseBetweenBatches = delay,
+  batchDelayMs = BETWEEN_BATCH_DELAY_MS,
 } = {}) {
   const nextEntries = { ...entries };
   const summary = {
@@ -369,7 +427,8 @@ async function processLookupBatches(requests, {
     failedBatchDetails: [],
   };
 
-  for (const batch of buildLocationBatches(requests)) {
+  const batches = buildLocationBatches(requests);
+  for (const [batchIndex, batch] of batches.entries()) {
     let bindings;
     try {
       bindings = await queryBatch(batch);
@@ -381,12 +440,16 @@ async function processLookupBatches(requests, {
         regions: [...new Set(batch.map(({ region }) => region))],
         error: error?.message || String(error),
       });
+      if (batchIndex < batches.length - 1 && batchDelayMs > 0) await pauseBetweenBatches(batchDelayMs);
       continue;
     }
 
     const timestamp = checkedAt();
     const bindingsIndex = indexAddressBindings(bindings);
     for (const request of batch) {
+      // Once an address has been established from Zefix, a later sparse or
+      // conflicting response cannot reduce coverage or replace that value.
+      if (nextEntries[request.key]?.status === 'matched') continue;
       const outcome = matchAddress(request, bindingsIndex, postalCodes.get(request.key) || new Set());
       nextEntries[request.key] = cacheEntry(request, outcome, timestamp);
       if (outcome.companyFound) summary.companiesFound++;
@@ -396,6 +459,7 @@ async function processLookupBatches(requests, {
       if (outcome.status === 'address-unavailable') summary.addressUnavailable++;
     }
     await saveBatch(nextEntries);
+    if (batchIndex < batches.length - 1 && batchDelayMs > 0) await pauseBetweenBatches(batchDelayMs);
   }
 
   return { entries: nextEntries, summary };
@@ -406,18 +470,31 @@ function parseLimit(args) {
   return Math.max(1, Math.min(500, Number(limitArg?.slice('--limit='.length) || 100)));
 }
 
+function parseOffset(args) {
+  const offsetArg = args.find((arg) => arg.startsWith('--offset='));
+  const offset = Number(offsetArg?.slice('--offset='.length) || 0);
+  return Number.isFinite(offset) ? Math.max(0, Math.floor(offset)) : 0;
+}
+
 async function main({ args = process.argv.slice(2) } = {}) {
   const dryRun = args.includes('--dry-run');
+  const retryUnmatchedCache = args.includes('--retry-unmatched-cache');
   const limit = parseLimit(args);
-  const jobs = loadJobs();
+  const offset = parseOffset(args);
   const cacheEntries = readJobpostingAddressCache({ root: ROOT, filePath: CACHE_PATH });
-  const requests = collectLookups(jobs, cacheEntries, Date.now(), limit);
+  const now = Date.now();
+  const jobs = retryUnmatchedCache ? [] : loadJobs();
+  const requests = retryUnmatchedCache
+    ? collectUnmatchedCacheLookups(cacheEntries, limit, offset)
+    : collectLookups(jobs, cacheEntries, now, limit);
   if (dryRun) {
     console.log(JSON.stringify({
       jobs: jobs.length,
       uncachedLookups: requests.length,
       localityBatches: buildLocationBatches(requests).length,
       limit,
+      offset,
+      retryUnmatchedCache,
       cache: path.relative(ROOT, CACHE_PATH),
     }, null, 2));
     return;
@@ -439,7 +516,7 @@ async function main({ args = process.argv.slice(2) } = {}) {
   const lock = await withSingleFlightLockAsync(LINDAS_LOCK_PATH, async () => {
     const result = await processLookupBatches(requests, {
       entries: cacheEntries,
-      postalCodes: jobPostalCodeMap(jobs, requests),
+      postalCodes: retryUnmatchedCache ? new Map() : jobPostalCodeMap(jobs, requests),
       saveBatch: (entries) => writeJsonAtomic(CACHE_PATH, {
         version: 1,
         source: 'Zefix via LINDAS',
@@ -460,6 +537,7 @@ export {
   buildLocationBatches,
   buildQuery,
   collectLookups,
+  collectUnmatchedCacheLookups,
   jobPostalCodeMap,
   matchAddress,
   processLookupBatches,
