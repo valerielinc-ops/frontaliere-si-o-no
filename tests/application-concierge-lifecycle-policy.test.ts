@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
-import { CONCIERGE_DAY_MS as DAY, conciergeRefreshDue, conciergeRenewalOffer } from '../functions/src/applicationConciergeLifecyclePolicy.js';
+import { CONCIERGE_DAY_MS as DAY, CONCIERGE_FRESH_PENDING_INTERVAL_MS, CONCIERGE_RETRY_INTERVAL_MS, conciergeRefreshDue, conciergeRenewalOffer } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 
 const now = Date.now();
 function active(overrides = {}) {
@@ -43,6 +43,23 @@ describe('three-day proposal refresh', () => {
       matchingPendingCount: 263, matchingUnverifiedCount: 157,
       matchingLegacyRecoveryPendingCount: 5, matchingLegacyRecoveryRetryAt: now + 3 * 60 * 60 * 1000 });
     expect(conciergeRefreshDue(pending, now)).toBe(true);
+  });
+
+  it('refreshes fresh pending work every 15 minutes but keeps retry-only work hourly', () => {
+    const pending = active({ matchingStatus: 'complete', matchingCompletedAt: now - CONCIERGE_FRESH_PENDING_INTERVAL_MS + 1,
+      matchingPendingCount: 203, matchingUnverifiedCount: 172, matchingRetryAt: now + 12 * DAY,
+      matchingLegacyRecoveryPendingCount: 5, matchingLegacyRecoveryRetryAt: now + 3 * DAY });
+    expect(conciergeRefreshDue(pending, now)).toBe(false);
+    expect(conciergeRefreshDue(pending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS)).toBe(true);
+
+    const retryOnly = active({ matchingStatus: 'complete', matchingCompletedAt: now - CONCIERGE_RETRY_INTERVAL_MS + 1,
+      matchingPendingCount: 0, matchingUnverifiedCount: 172, matchingRetryAt: 0 });
+    expect(conciergeRefreshDue(retryOnly, now)).toBe(false);
+    expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
+
+    const failed = { ...pending, matchingStatus: 'failed', matchingCompletedAt: now - CONCIERGE_RETRY_INTERVAL_MS + 1 };
+    expect(conciergeRefreshDue(failed, now)).toBe(false);
+    expect(conciergeRefreshDue(failed, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
   });
 });
 

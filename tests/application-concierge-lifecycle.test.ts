@@ -82,10 +82,10 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(conciergeRefreshDue(service, now + 12 * 3600000)).toBe(true);
     expect(conciergeRefreshDue({ ...service, matchingPendingCount: 10 }, now)).toBe(true);
   });
-  it('continues an unfinished search hourly while respecting expiry and the assisted-application cap', () => {
+  it('continues an unfinished search every 15 minutes while respecting expiry and the assisted-application cap', () => {
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 60 * 60 * 1000, matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(true);
-    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 30 * 60 * 1000 }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 14 * 60 * 1000 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
   });
