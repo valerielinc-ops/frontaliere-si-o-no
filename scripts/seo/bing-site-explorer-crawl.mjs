@@ -18,6 +18,7 @@ import {
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
+import { EVENTS_UNRESOLVED_CANTON_SEGMENT } from '../lib/eventsSections.mjs';
 import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
@@ -82,10 +83,9 @@ const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
 const WEEKLY_EMPLOYERS_CITY_SET = new Set(WEEKLY_EMPLOYERS_CITIES);
 const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
-const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 const PAGINATION_NOINDEX_FROM_PAGE = 11;
 const PAGINATION_TARGET_PATH_RE = /^(?:\/[^/]+)+\/(?:page|pagina|seite)-(\d+)\/$/;
-const EVENT_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
+const DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 const EVENT_ROUTE_CONFIG = Object.freeze([
   { locale: 'it', prefix: [], root: 'eventi' },
   { locale: 'en', prefix: ['en'], root: 'events' },
@@ -101,10 +101,7 @@ const EVENT_CANTON_SLUGS_BY_LOCALE = (() => {
   }
   // These are the localized route segments for events whose canton is not
   // resolved. They are emitted by events-utils, not by the canton slug table.
-  slugs.it.add('altri-cantoni');
-  slugs.en.add('other-cantons');
-  slugs.de.add('weitere-kantone');
-  slugs.fr.add('autres-cantons');
+  for (const { locale } of EVENT_ROUTE_CONFIG) slugs[locale].add(EVENTS_UNRESOLVED_CANTON_SEGMENT[locale]);
   return slugs;
 })();
 
@@ -132,7 +129,7 @@ function parseEventDetailPath(value) {
     if (segments[offset] !== route.root) continue;
     const [canton, comune, slug] = segments.slice(offset + 1);
     if (!EVENT_CANTON_SLUGS_BY_LOCALE[route.locale].has(canton)) continue;
-    if (!EVENT_DETAIL_SLUG_RE.test(comune) || !EVENT_DETAIL_SLUG_RE.test(slug)) continue;
+    if (!DETAIL_SLUG_RE.test(comune) || !DETAIL_SLUG_RE.test(slug)) continue;
     return { ...source, locale: route.locale, canton, comune, slug };
   }
   return null;
@@ -374,7 +371,7 @@ export function isJobBoardDetailPath(value) {
   const section = getJobBoardSectionPrefix(source.pathname);
   if (!section) return false;
   const suffix = source.pathname.slice(section.length).split('/').filter(Boolean);
-  return suffix.length === 1 && JOB_BOARD_DETAIL_SLUG_RE.test(suffix[0]);
+  return suffix.length === 1 && DETAIL_SLUG_RE.test(suffix[0]);
 }
 
 /**
