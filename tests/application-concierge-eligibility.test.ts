@@ -67,13 +67,20 @@ describe('qualification before proposal publication', () => {
       'This internship has no professional diploma requirement.',
       'Nessun diploma professionale richiesto per questo stage.',
       'Questo stage non richiede un diploma professionale.',
+      'Nessun diploma professionale è richiesto per questo stage.',
       'Aucun diplôme professionnel requis pour ce stage.',
       'Ce stage ne nécessite pas de diplôme professionnel.',
+      'Aucun diplôme professionnel n’est requis pour ce stage.',
       'Berufsmaturität nicht erforderlich für dieses Praktikum.',
       'Das Praktikum erfordert keinen Berufsabschluss.',
+      'Keine Berufsmaturität ist für diese Ausbildung erforderlich.',
       'This internship: a professional maturity qualification is a plus.',
       'Stage Manager — a professional maturity qualification is a plus.',
     ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, text)).toBe(false);
+  });
+
+  it('keeps an uncovered vocational training title fail-closed despite the expanded negation patterns', () => {
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Stagiste/i ... maturità professionale (52 settimane)')).toBe(true);
   });
 
   it('matches an extracted hard requirement to its source when the source is labelled as job metadata', () => {
