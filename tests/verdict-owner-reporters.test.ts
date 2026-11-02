@@ -36,6 +36,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PLATES = '.github/workflows/refresh-plate-auctions.yml';
 const SEO = '.github/workflows/seo-health-loop.yml';
 const RUNTIME = '.github/workflows/runtime-reliability-watch.yml';
+const L0 = '.github/workflows/loop-l0-data-truth.yml';
 
 type Entry = { workflowName: string; verdict: string; producers: string[]; owner: string };
 type StepDoc = {
@@ -132,6 +133,12 @@ function simulate(steps: StepDoc[], scenario: Scenario) {
  * scenari fa fallire la suite.
  */
 const SCENARIOS: Record<string, { soloVerdict: Scenario; failures: Array<[string, Scenario]> }> = {
+  [L0]: {
+    soloVerdict: { fail: ['Audit corpus manifest'] },
+    failures: [
+      ['la registrazione dell’evidenza L0 fallisce', { fail: ['Record canonical L0 evidence'] }],
+    ],
+  },
   '.github/workflows/crawler-health-monitor.yml': {
     soloVerdict: { fail: ['Run health check'] },
     failures: [
@@ -180,7 +187,7 @@ const SCENARIOS: Record<string, { soloVerdict: Scenario; failures: Array<[string
 // Questo watchdog delega i guasti preliminari allo scanner centrale: aggiungere qui un
 // reporter `Workflow Failure:` duplicherà il thread proprio quando l'opener di dominio ha
 // già prodotto la diagnosi runtime.
-const CENTRAL_FAILURE_SCAN_ONLY = new Set([RUNTIME]);
+const CENTRAL_FAILURE_SCAN_ONLY = new Set([L0, RUNTIME]);
 
 describe('registro degli step-verdetto: ogni voce ha uno scenario e un id', () => {
   it('ogni voce del registro ha i suoi scenari in questa suite', () => {
@@ -228,6 +235,7 @@ describe('il reporter generico `Workflow Failure:` esclude il caso solo-verdetto
 describe('ogni voce del registro ha il reporter della issue proprietaria e il suo resolve', () => {
   /** Titolo della issue proprietaria esportato dagli script che la aprono e la risolvono. */
   const SCRIPT_OWNER_TITLES: Record<string, string> = {
+    'scripts/ci/loop-l0-data-truth.mjs': 'L0 Data Truth: corpus manifest is not usable',
     'scripts/seo/seo-health-loop.mjs': SEO_HEALTH_ISSUE_TITLE,
   };
   /** Gli script `node scripts/….mjs` eseguiti dai produttori del verdetto. */

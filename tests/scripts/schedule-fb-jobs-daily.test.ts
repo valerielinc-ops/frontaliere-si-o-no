@@ -8,6 +8,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { JOB_OG_IMAGE_VERSION } from '../../build-plugins/shared/jobOgImageVersion.mjs';
 
 // Pure-ESM script. The CLI block is gated on `import.meta.url ===
 // file://${process.argv[1]}`, so importing is side-effect-free.
@@ -96,6 +97,8 @@ const {
     now?: Date;
     repoRoot?: string;
     fetchImpl?: typeof fetch;
+    selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
+    releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
   }) => Promise<{
@@ -651,7 +654,7 @@ describe('run() — DRY_RUN mode', () => {
       // OG rescrape verify GET call (checks og_object.image resolved).
       if (u.includes('graph.facebook.com') && !init?.method) {
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og/jobs/x.webp' }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/operaio-mendrisio.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
           { status: 200 },
         );
       }
@@ -708,8 +711,12 @@ describe('run() — DRY_RUN mode', () => {
         return new Response(JSON.stringify({ scraped: true }), { status: 200 });
       }
       if (u.includes('graph.facebook.com') && !init?.method) {
+        const linkedUrl = new URL(u).searchParams.get('id');
+        const linkedSlug = linkedUrl
+          ? new URL(linkedUrl).pathname.split('/').filter(Boolean).at(-1)
+          : '';
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og.webp' }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/${linkedSlug}.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
           { status: 200 },
         );
       }
@@ -744,17 +751,68 @@ describe('run() — DRY_RUN mode', () => {
     ]);
     const fetchSpy = vi.fn<typeof fetch>();
     const warns: string[] = [];
+    const socialCopy = { copyAssignmentMode: 'firebase-balanced', copyAssignment: { assignmentKey: 'job-Y' } };
+    const release = vi.fn(async () => true);
     const result = await run({
       env: { FB_JOB_VOLUME: '24' }, // no creds
       now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
       repoRoot: tmp,
       fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
       log: () => {},
       warn: (...a) => warns.push(a.join(' ')),
     });
     expect(fetchSpy).not.toHaveBeenCalled();
     expect(result.ok).toBe(false);
     expect(warns.some((w) => w.toLowerCase().includes('missing'))).toBe(true);
+    expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
+  });
+
+  it('continues releasing all job reservations after one Firebase release fails', async () => {
+    const tmp = setupTmp([
+      {
+        id: 'job-Y',
+        title: 'Cuoco',
+        slugByLocale: { it: 'y' },
+        jobLocation: { address: { addressLocality: 'Lugano' } },
+        firstSeenAt: '2026-05-04T00:00:00Z',
+      },
+      {
+        id: 'job-Z',
+        title: 'Cameriere',
+        slugByLocale: { it: 'z' },
+        jobLocation: { address: { addressLocality: 'Locarno' } },
+        firstSeenAt: '2026-05-03T00:00:00Z',
+      },
+    ]);
+    const release = vi.fn(async (assignment: object) => {
+      const assignmentKey = (assignment as { assignmentKey: string }).assignmentKey;
+      if (assignmentKey === 'job-Y') throw new Error('temporary Firestore error');
+      return true;
+    });
+    const warns: string[] = [];
+    const result = await run({
+      env: { FB_JOB_VOLUME: '24' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      selectSocialCopyForPublishImpl: async (options: object) => {
+        const assignmentKey = (options as { assignmentKey: string }).assignmentKey;
+        return {
+          copyAssignmentMode: 'firebase-balanced',
+          copyAssignment: { assignmentKey },
+        };
+      },
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: (...args) => warns.push(args.join(' ')),
+    });
+
+    expect(result.ok).toBe(false);
+    expect(release).toHaveBeenCalledTimes(2);
+    expect(release.mock.calls.map(([assignment]) => (assignment as { assignmentKey: string }).assignmentKey))
+      .toEqual(['job-Y', 'job-Z']);
+    expect(warns.join('\n')).toContain('temporary Firestore error');
   });
 
   it('exits gracefully when no jobs are available', async () => {

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 /**
  * Canonical URL-key normalization for job identity — single source of truth.
  *
@@ -237,6 +239,68 @@ const GENERIC_LEAF_RE = /^(?:index|default)\.(?:html?|php|aspx?)$/i;
 // is the whole URL (the distinct filename), never the ancestor folder token.
 const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 
+// ASSOLO municipal notice links use a short content hash at the end of the
+// item slug and mark the detail view with `i=1`, for example
+// `concorso-generale-20252026-14e5fc00?i=1`. The generic numeric scan sees
+// the year range first (`20252026`) and the generic hex rule intentionally
+// ignores 8-character tokens, so sibling notices were assigned one merge key.
+// An all-numeric 8-character suffix is kept on the numeric path: it can be a
+// year rather than the short hash.
+// Keep this shape-gated: an arbitrary 8-character slug suffix is not a stable
+// job id for every vendor.
+const ASSOLO_ITEM_LEAF_RE = /-([0-9a-f]{8})$/i;
+const ASSOLO_ITEM_QUERY_RE = /[?&]i=1(?:&|$)/i;
+// ASSOLO publishes the item slug from the municipality's Swiss site, not from
+// a generic jobs portal. Derive the host allowlist from the same registry that
+// selects the ASSOLO crawlers so a random `.ch`/`.swiss` host cannot inherit
+// the hostless `hex:` key. Subdomains remain valid, matching the crawler's
+// trusted-domain policy (`www.<domain>` is the common canonical form).
+let assoloHostsCache;
+
+function loadAssoloHosts() {
+  if (assoloHostsCache) return assoloHostsCache;
+
+  // This helper is also imported by DOM-tested modules. In that graph Vite
+  // gives import.meta.url an http(s) URL, which is not a readable filesystem
+  // URL; defer the registry read until the server-side path actually needs it.
+  const registryUrl = new URL('../../data/ticino-comuni-registry.json', import.meta.url);
+  if (registryUrl.protocol !== 'file:') {
+    assoloHostsCache = new Set();
+    return assoloHostsCache;
+  }
+
+  try {
+    assoloHostsCache = new Set(
+      JSON.parse(readFileSync(registryUrl, 'utf8')).comuni
+        .filter((entry) => entry.status === 'covered'
+          && entry.cms === 'assolo'
+          && entry.listing?.type === 'assolo')
+        .flatMap((entry) => [entry.domain, ...(entry.extraHosts || [])])
+        .map((host) => String(host || '').trim().toLowerCase())
+        .filter(Boolean),
+    );
+  } catch (error) {
+    // Isolated script sandboxes may deliberately provide only the data files
+    // under test. Missing registry data must not make the URL-key module
+    // unusable for unrelated hosts; a malformed present registry still fails
+    // loudly so the production host policy cannot silently disappear.
+    if (error?.code !== 'ENOENT') throw error;
+    assoloHostsCache = new Set();
+  }
+  return assoloHostsCache;
+}
+
+function isAssoloHost(url) {
+  let hostname;
+  try {
+    hostname = new URL(url).hostname.toLowerCase();
+  } catch {
+    return false;
+  }
+  return [...loadAssoloHosts()].some((host) => hostname === host || hostname.endsWith(`.${host}`));
+}
+const ASSOLO_ITEM_PATH_RE = /^https?:\/\/[^/?#]+\/(?:[^/?#]+\/)*[^/?#]+-[0-9a-f]{8}$/i;
+
 // A per-job id carried in the QUERY string behind a generic/file leaf
 // (`…/index.html?id=NNN`, `…/apply.php?jobId=ABC123`). Anchored to a query-param
 // boundary (`[?&]`) so a SHARED ancestor param — `cid=`/`companyId=` (refline
@@ -339,6 +403,8 @@ export function lowerStripTrailingSlash(url) {
  *   X. rexx systems `-j<digits>.html` leaf (vendor-signature-gated, not
  *      host-gated — ~19+ tenants, no shared hostname) → stable detail id,
  *      ahead of a volatile `?sid=` session token later in the URL (#3699).
+ *   H. ASSOLO item links (`…-<8hex>?i=1`) → the short per-notice content hash,
+ *      ahead of a year/range token in the title slug.
  *   C. legacy leftmost whole-URL scan (unchanged) — id in query/fragment/ancestor.
  *
  * @param {string} url
@@ -400,6 +466,17 @@ export function mergeUrlKey(url) {
     const queryToken = queryJobToken(u);
     if (queryToken) return queryToken;
     return `url:${u}`;
+  }
+
+  // Rule H — ASSOLO municipal notice item hash. The 8-character suffix is
+  // shorter than HEX_TOKEN_RE's generic threshold, while the notice title can
+  // contain a long year/range such as `20252026`; prefer the vendor's
+  // per-item hash so sibling notices do not share one merge key.
+  const assoloItem = leaf.match(ASSOLO_ITEM_LEAF_RE);
+  const pathOnly = u.split(/[?#]/)[0];
+  if (isAssoloHost(u) && ASSOLO_ITEM_PATH_RE.test(pathOnly)
+      && assoloItem && /[a-f]/i.test(assoloItem[1]) && ASSOLO_ITEM_QUERY_RE.test(u)) {
+    return `hex:${assoloItem[1]}`;
   }
 
   // Rule B — the leaf segment carries its own stable token (leftmost-in-leaf,

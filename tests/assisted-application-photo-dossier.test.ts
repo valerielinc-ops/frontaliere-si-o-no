@@ -76,7 +76,14 @@ let store: ReturnType<typeof createMemoryFirestore>;
 let bucket: ReturnType<typeof fakeBucket>;
 const deps = () => ({ db: store.db, bucket, runEffect: vi.fn(async () => ({ ok: true })), getSecret: async () => SECRET, signUrl: async () => 'https://signed.example/x.pdf', nowMs: T0 });
 const token = () => mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0 });
-const post = (body: Record<string, any>, nowMs = T0) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body } }, { ...deps(), nowMs });
+const post = async (body: Record<string, any>, nowMs = T0) => {
+  const requestDeps = { ...deps(), nowMs };
+  const editSnapshot = body.action === 'edit' && !body.editSnapshot
+    ? (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, requestDeps)).body.editSnapshot
+    : body.editSnapshot;
+  return handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body,
+    ...(editSnapshot ? { editSnapshot } : {}) } }, requestDeps);
+};
 const get = () => handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
 const givePhoto = (photo: Buffer = PNG) => post({ action: 'photo_upload', contentBase64: photo.toString('base64') });
 const flowNow = () => store.read(`${BASE}/automation/flow`);
@@ -87,7 +94,7 @@ const sentCvHasPhoto = async () => pdfPaintsImage((await chooseCv({ draft: draft
 
 function seed(draftExtra: Record<string, any> = {}) {
   store = createMemoryFirestore({
-    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital', locale: 'de', applicantName: 'Maria Rossi', applicantPhone: '+41 79 123 45 67' },
+    [BASE]: { userId: 'candidate-photo-test', paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital', locale: 'de', applicantName: 'Maria Rossi', applicantPhone: '+41 79 123 45 67' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: {
       status: 'ready', round: 1, language: 'de', profile, job: { title: 'Pflegefachperson HF' },

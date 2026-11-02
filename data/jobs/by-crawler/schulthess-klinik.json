@@ -1,7 +1,7 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-11-02T09:45:06.295Z",
-  "runId": "41417840730",
+  "assembledAt": "2026-11-02T21:23:53.828Z",
+  "runId": "41525136431",
   "jobs": [
     {
       "id": "schulthess-klinik-64b48f2b6b3b",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:44:56.087Z",
+      "crawledAt": "2026-11-02T21:23:44.999Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,19 +54,19 @@
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2001",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
-        ],
-        "it": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
-        ]
-      },
       "previousSlugs": [
         "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
         "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+        ],
+        "de": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+        ]
+      },
       "firstSeenAt": "2026-09-11T13:33:15.603Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:44:56.087Z",
+      "validThrough": "2026-12-10T21:23:44.999Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/e7f5a02e-b37e-4d50-b8c3-ce008b0ebf47",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:44:56.082Z",
+      "crawledAt": "2026-11-02T21:23:44.995Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T09:44:56.082Z",
+      "validThrough": "2026-12-17T21:23:44.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +194,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/cb300619-f117-472e-8e8d-335c4f038eb6",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:44:56.078Z",
+      "crawledAt": "2026-11-02T21:23:44.992Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:44:56.078Z",
+      "validThrough": "2027-01-28T21:23:44.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -280,7 +280,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung/6b7dae22-2c37-4ac9-b66b-88a790a091c5",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:44:56.073Z",
+      "crawledAt": "2026-11-02T21:23:44.987Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:44:56.073Z",
+      "validThrough": "2027-01-25T21:23:44.987Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +365,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/oberarzt-oberaerztin-rheumatologie/80b383ed-c642-450a-8422-c8bf703f03ce",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:44:56.061Z",
+      "crawledAt": "2026-11-02T21:23:44.977Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -414,7 +414,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:44:56.061Z",
+      "validThrough": "2027-01-26T21:23:44.977Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,7 +449,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/cb21f8f4-78f5-4eb2-bd59-fb63262a7b67",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:44:56.012Z",
+      "crawledAt": "2026-11-02T21:23:44.973Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -498,8 +498,80 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:44:56.012Z",
+      "validThrough": "2027-01-27T21:23:44.973Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "schulthess-klinik-eeade1126952",
+      "slug": "radiologiefachperson-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "de": "radiologiefachperson-schulthess-klinik-zurich",
+        "it": "radiologiefachperson-schulthess-klinik-zurich",
+        "en": "radiologiefachperson-schulthess-klinik-zurich",
+        "fr": "radiologiefachperson-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Radiologiefachperson",
+      "titleByLocale": {
+        "de": "Radiologiefachperson",
+        "it": "Radiologiefachperson",
+        "en": "Radiologiefachperson",
+        "fr": "Radiologiefachperson"
+      },
+      "description": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "it": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "en": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/9711dbfb-2289-4dd0-ad94-0c1237851361",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T21:23:44.932Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2034",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-31T21:23:44.932Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-02T21:23:44.932Z"
     }
   ]
 }

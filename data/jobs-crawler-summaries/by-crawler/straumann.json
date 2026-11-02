@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-11-02T09:46:18.576Z",
+  "generatedAt": "2026-11-02T21:28:09.614Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 8327,
-  "avgDurationMs": 8327,
+  "durationMs": 7123,
+  "avgDurationMs": 7123,
   "durationHistory": [
-    8327
+    7123
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.straumann.com/global/en/job/22376/production-leader",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:46:02.234Z",
+      "crawledAt": "2026-11-02T21:27:49.569Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "2613",
       "streetAddress": "Villeret",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:46:02.234Z",
+      "validThrough": "2027-01-27T21:27:49.569Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://careers.straumann.com/global/en/job/22444/process-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:46:01.926Z",
+      "crawledAt": "2026-11-02T21:27:49.221Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "postalCode": "2613",
       "streetAddress": "Villeret",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:46:01.926Z",
+      "validThrough": "2027-01-26T21:27:49.221Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:46:01.229Z",
+      "crawledAt": "2026-11-02T21:27:48.937Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -150,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:46:01.229Z",
+      "validThrough": "2027-01-18T21:27:48.937Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:46:00.887Z",
+      "crawledAt": "2026-11-02T21:27:48.608Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -195,7 +195,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:46:00.887Z",
+      "validThrough": "2027-01-10T21:27:48.608Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:45:59.090Z",
+      "crawledAt": "2026-11-02T21:27:48.240Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -240,7 +240,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:45:59.090Z",
+      "validThrough": "2027-01-11T21:27:48.240Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -262,7 +262,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:45:58.410Z",
+      "crawledAt": "2026-11-02T21:27:47.450Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -285,7 +285,7 @@
       "postalCode": "2613",
       "streetAddress": "Villeret",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:45:58.410Z",
+      "validThrough": "2026-12-02T21:27:47.450Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -307,7 +307,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:45:58.065Z",
+      "crawledAt": "2026-11-02T21:27:47.012Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -330,7 +330,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:45:58.065Z",
+      "validThrough": "2027-01-07T21:27:47.012Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -352,7 +352,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:45:57.772Z",
+      "crawledAt": "2026-11-02T21:27:46.714Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -375,7 +375,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:45:57.772Z",
+      "validThrough": "2026-12-02T21:27:46.714Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -386,5 +386,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

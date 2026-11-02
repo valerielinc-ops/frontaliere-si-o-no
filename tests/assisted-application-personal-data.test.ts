@@ -109,11 +109,16 @@ const deps = (extra: Record<string, any> = {}) => ({ db: store.db, bucket, runEf
 const link = { secret: SECRET, orderId: ORDER, round: 1, nowMs: T0, kind: 'review' as const };
 const token = () => mintReviewToken(link);
 const post = async (body: Record<string, any>, extra: Record<string, any> = {}) => {
+  const requestDeps = deps(extra);
   const answerQuestionSnapshots = body.action === 'answers'
-    ? (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answerQuestionSnapshots || {}
+    ? (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, requestDeps)).body.answerQuestionSnapshots || {}
     : undefined;
+  const editSnapshot = body.action === 'edit' && !body.editSnapshot
+    ? (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, requestDeps)).body.editSnapshot
+    : body.editSnapshot;
   return handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body,
-    ...(answerQuestionSnapshots ? { answerQuestionSnapshots } : {}) } }, deps(extra));
+    ...(answerQuestionSnapshots ? { answerQuestionSnapshots } : {}),
+    ...(editSnapshot ? { editSnapshot } : {}) } }, requestDeps);
 };
 const draftNow = () => store.read(`${BASE}/ai_drafts/current`);
 const flowNow = () => store.read(`${BASE}/automation/flow`);

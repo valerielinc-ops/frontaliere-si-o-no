@@ -1,0 +1,24 @@
+{
+  "companyKey": "garage-montani-ch",
+  "companyName": "Garage Montani SA",
+  "companyHost": "garage-montani.ch",
+  "verifiedEmployerDomain": "garage-montani.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.garage-montani.ch/ueber-uns/stellenangebote/"
+  ],
+  "detailTemplate": "/ueber-uns/stellenangebote/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Automobil-Verkaufsberater:in – 100%",
+    "Automobildiagnostiker:in – 100%"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:17:56.255Z",
+  "candidateKey": "garage-montani@salgesch"
+}

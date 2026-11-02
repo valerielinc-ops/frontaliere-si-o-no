@@ -24,6 +24,12 @@ import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { createAdScriptLoader } from '@/services/adScriptLoader';
+import { emitAdDiagnostic } from '@/services/adDiagnostics';
+import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
+import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
+import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
+import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { observeManualAd } from '@/services/manualAdLifecycle';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/adsenseSlots';
 
@@ -49,7 +55,6 @@ const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
 /** A GPT slot size: a `[width, height]` pair or the responsive `'fluid'` token. */
 export type GptSize = [number, number] | 'fluid';
 
-let gptScriptRequested = false;
 let gptServicesEnabled = false;
 let slotSeq = 0;
 
@@ -67,36 +72,34 @@ const gtag = (): any => {
   return gt;
 };
 
+function canUseGpt(): boolean {
+  return isAdsConsentGranted() && !hasActiveReaderNoAdsEntitlement() &&
+    !isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, window, document, wasNewsletterAutologinAttempted());
+}
+
 /** Shared GPT access for out-of-page formats (for example rewarded ads). */
 export const getGptTag = gtag;
 
 function ensureGptScript(): void {
   // ── ADVERTISING CONSENT GATE (#5842) ────────────────────────────────
-  // Placed BEFORE the `gptScriptRequested` latch on purpose: that latch is
-  // sticky and module-scoped, so gating after it would mark the script as
-  // "requested" on a blocked call and permanently lock out a visitor who
-  // accepts later in the same page view. Fails closed — services/adsConsent.ts.
-  if (!isAdsConsentGranted()) return;
-  if (gptScriptRequested || typeof document === 'undefined') return;
-  gptScriptRequested = true;
+  // Check before reaching the document-wide loader, which also rechecks on
+  // every retry. An unanswered CMP must not consume an attempt or lock out a
+  // visitor who accepts later in the same page view.
+  if (!canUseGpt()) return;
+  if (typeof document === 'undefined') return;
   gtag();
-  if (document.querySelector(`script[src="${GPT_SCRIPT_SRC}"]`)) return;
-  const s = document.createElement('script');
-  s.src = GPT_SCRIPT_SRC;
-  s.async = true;
-  s.crossOrigin = 'anonymous';
-  s.addEventListener('error', () => { s.dataset.gptLoadFailed = 'true'; });
-  document.head.appendChild(s);
+  createAdScriptLoader('gpt', GPT_SCRIPT_SRC, canUseGpt, emitAdDiagnostic).load();
 }
 
 /** Initialise the GPT framework once (post-load idle, not on scroll): the GAM
  *  Offerwall evaluates at page entry, so GPT must be present then. The ad slots
  *  themselves stay lazy to protect CWV. */
 export function initGptFramework(): void {
-  if (typeof window === 'undefined' || !GPT_ENABLED || !IS_PROD || SKIP_FOR_BOT) return;
+  if (typeof window === 'undefined' || !GPT_ENABLED || !IS_PROD || SKIP_FOR_BOT || !canUseGpt()) return;
   ensureGptScript();
   const gt = gtag();
   gt.cmd.push(() => {
+    if (!canUseGpt()) return;
     try {
       if (gptServicesEnabled || gt.__frontaliereGptServicesEnabled) return;
       // Modern GPT config API (pubads().enableSingleRequest()/collapseEmptyDivs() are deprecated).
@@ -187,7 +190,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     // that terminal state to the parent so ad-only gutters do not remain as
     // empty 160/300px columns. A later consent decision re-enters this effect
     // and reports `false`, restoring the reserve before requesting GPT.
-    if (!active || !isAdsConsentGranted()) {
+    if (!active || !canUseGpt()) {
       if (collapseOnEmpty) {
         setCollapsed(true);
         onEmptyChangeRef.current?.(true);
@@ -206,7 +209,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
 
     const wrapper = wrapperRef.current;
     const adElement = document.getElementById(divId);
-    if (!wrapper || !adElement || typeof IntersectionObserver === 'undefined') return;
+    if (!wrapper || !adElement) return;
     let disposed = false;
     adElement.removeAttribute('data-ad-status');
     setCollapsed(false);
@@ -227,18 +230,29 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       if (event === 'ad_viewable' || (event === 'ad_collapsed' && !collapseOnEmpty)) return;
       trackAdEvent(event, { slot: adUnitPath, format: 'gpt', network: 'gpt', ...metrics });
     });
-    const onScriptError = (event: Event) => {
-      if (event.target instanceof HTMLScriptElement && event.target.src === GPT_SCRIPT_SRC) lifecycle.fail('gpt_script_error');
-    };
-    window.addEventListener('error', onScriptError, true);
+    const loader = createAdScriptLoader('gpt', GPT_SCRIPT_SRC, canUseGpt, emitAdDiagnostic);
+    const unsubscribeLoader = loader.subscribe((state) => { if (state === 'failed') lifecycle.fail('gpt_script_error'); });
     let defined = false;
+    let queued = false;
+    const measureSizes = () => {
+      const width = Math.floor(wrapper.getBoundingClientRect().width);
+      return { width, fitting: width > 0 ? sizes.filter((size) => size === 'fluid' || size[0] <= width) : [] };
+    };
     const defineAndDisplay = () => {
-      if (defined) return;
-      defined = true;
+      if (defined || queued || disposed || !canUseGpt()) return;
+      const { width, fitting } = measureSizes();
+      if (!fitting.length) {
+        wrapper.setAttribute('data-ft-ad-width-wait', 'pending');
+        lifecycle.defer();
+        emitAdDiagnostic('ad_slot_waiting_width', { slot: adUnitPath, width, render_path: 'gpt' });
+        return;
+      }
+      wrapper.removeAttribute('data-ft-ad-width-wait');
+      queued = true;
       // Start outside gt.cmd: a blocked/slow script may never drain its queue.
       // The shared deadline means waiting_response; it is not a no-fill.
       lifecycle.request();
-      if (document.querySelector<HTMLScriptElement>(`script[src="${GPT_SCRIPT_SRC}"]`)?.dataset.gptLoadFailed === 'true') {
+      if (loader.state() === 'failed') {
         lifecycle.fail('gpt_script_error');
       }
       // Queue the GPT framework (enableServices) BEFORE this slot's display().
@@ -253,10 +267,22 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       initGptFramework();
       const gt = gtag();
       gt.cmd.push(() => {
-        if (disposed) return;
+        queued = false;
+        if (defined || disposed || !canUseGpt()) return;
+        // The queue can wait for a network load while the device rotates or
+        // its rail changes width. Only this measurement may reach GPT/Prebid.
+        const { width, fitting } = measureSizes();
+        if (!fitting.length) {
+          wrapper.setAttribute('data-ft-ad-width-wait', 'pending');
+          lifecycle.defer();
+          emitAdDiagnostic('ad_slot_waiting_width', { slot: adUnitPath, width, render_path: 'gpt' });
+          return;
+        }
+        wrapper.removeAttribute('data-ft-ad-width-wait');
         try {
-          const slot = gt.defineSlot(adUnitPath, sizes, divId)?.addService(gt.pubads());
-          if (!slot) return;
+          defined = true;
+          const slot = gt.defineSlot(adUnitPath, fitting, divId)?.addService(gt.pubads());
+          if (!slot) { lifecycle.fail('gpt_define_failed'); emitAdDiagnostic('ad_slot_error', { slot: adUnitPath, reason: 'gpt_define_failed', render_path: 'gpt' }); return; }
           slotRef.current = slot;
           // Keep the listener after a no-fill: late creatives restore both
           // reserves. The shared controller waits until offscreen to collapse.
@@ -282,13 +308,14 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           // unconfigured and always resolves (fail-soft + hard timeout), so GPT
           // display is never blocked by the auction.
           if (!headerBiddingKilled && prebidActiveFor(adUnitPath)) {
-            void requestHeaderBids({ code: divId, adUnitPath, sizes }).finally(() => {
+            void requestHeaderBids({ code: divId, adUnitPath, sizes: fitting }).finally(() => {
               gt.cmd.push(() => {
-                if (disposed) return;
+                if (disposed || !canUseGpt()) return;
                 try {
                   gt.display(divId);
                 } catch {
-                  /* fail-soft */
+                  lifecycle.fail('gpt_display_failed');
+                  emitAdDiagnostic('ad_slot_error', { slot: adUnitPath, reason: 'gpt_display_failed', render_path: 'gpt' });
                 }
               });
             });
@@ -297,16 +324,23 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           }
           setRendered(true);
         } catch {
-          /* fail-soft: never let an ad break the page */
+          lifecycle.fail('gpt_display_failed');
+          emitAdDiagnostic('ad_slot_error', { slot: adUnitPath, reason: 'gpt_display_failed', render_path: 'gpt' });
         }
       });
     };
 
-    const io = new IntersectionObserver(
+    let nearViewport = typeof IntersectionObserver === 'undefined';
+    const retrySize = () => { if (nearViewport) defineAndDisplay(); };
+    const resize = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => requestAnimationFrame(retrySize)) : null;
+    resize?.observe(wrapper);
+    window.addEventListener('resize', retrySize);
+    const io = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            io.disconnect();
+            nearViewport = true;
+            io?.disconnect();
             defineAndDisplay();
             return;
           }
@@ -321,13 +355,16 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       // to the observer, which is why the GAM rails never had the viewability
       // problem the AdSense in-feed units had.
       { rootMargin: AD_SLOT_VIEWPORT_ROOT_MARGIN },
-    );
-    io.observe(wrapper);
+    ) : null;
+    io?.observe(wrapper);
+    if (!io) defineAndDisplay();
     return () => {
       disposed = true;
-      io.disconnect();
+      io?.disconnect();
+      resize?.disconnect();
+      window.removeEventListener('resize', retrySize);
       lifecycle.stop();
-      window.removeEventListener('error', onScriptError, true);
+      unsubscribeLoader();
       // Tear down the slot + its listener so SPA navigations don't accumulate
       // global pubads listeners (each would re-fire for every other slot).
       try {

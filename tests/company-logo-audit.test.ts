@@ -8,6 +8,7 @@ import {
   assessLogoQuality,
   auditCompanyLogos,
   classifyLogoReference,
+  companyKeyForJob,
   loadCanonicalJobs,
   readImageDimensions,
 } from '../scripts/lib/company-logo-audit.mjs';
@@ -134,6 +135,33 @@ describe('company-logo-audit', () => {
         status: 'broken',
         reason: 'http-404',
       }),
+    ]);
+  });
+
+  it('aggregates legacy Ticino Comune records by municipality employer, not by crawler family', async () => {
+    const jobs = [
+      {
+        company: 'Comune di Uno',
+        companyKey: 'comuni-ticino',
+        municipalityKey: 'comune-di-uno',
+        url: 'https://uno.example/1',
+      },
+      {
+        company: 'Comune di Due',
+        companyKey: 'comuni-ticino',
+        municipalityKey: 'comune-di-due',
+        url: 'https://due.example/1',
+      },
+    ];
+
+    expect(jobs.map(companyKeyForJob)).toEqual(['comune-di-uno', 'comune-di-due']);
+    const report = await auditCompanyLogos(jobs, {
+      resolveLogo: () => null,
+    });
+
+    expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual([
+      'comune-di-due',
+      'comune-di-uno',
     ]);
   });
 
@@ -321,5 +349,28 @@ describe('company-logo-audit', () => {
       expect(workflow).toMatch(/(?:npx tsx|\.\/node_modules\/\.bin\/tsx) scripts\//);
       expect(workflow).not.toContain('|| true; git add data/company-logos');
     }
+  });
+
+  it('groups a multi-employer source by the employer logo key, never by its shared crawler key', async () => {
+    const jobs = [
+      {
+        id: 'seco-a', company: 'Adecco SA', companyKey: 'seco-jobroom', companyLogoKey: 'adecco-sa',
+        url: 'https://www.job-room.ch/job-search/seco-a',
+      },
+      {
+        id: 'seco-b', company: 'Altra SA', companyKey: 'seco-jobroom', companyLogoKey: 'altra-sa',
+        url: 'https://www.job-room.ch/job-search/seco-b',
+      },
+    ];
+    const report = await auditCompanyLogos(jobs, {
+      resolveLogo: (job) => job.companyLogoKey === 'adecco-sa' ? '/images/brands/adecco.png' : null,
+      assetBaseUrl: 'https://cdn.test',
+      fetchImpl: async (url) => url === 'https://cdn.test/images/brands/adecco.png'
+        ? imageResponse()
+        : new Response('', { status: 404 }),
+    });
+
+    expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual(['altra-sa']);
+    expect(report.affectedCompanies.map((company) => company.companyKey)).not.toContain('seco-jobroom');
   });
 });

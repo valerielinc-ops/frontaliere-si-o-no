@@ -846,6 +846,8 @@ const enCore: Record<string, string> = {
   'jobBoard.concierge.childSubmitted': "Application submitted",
   'jobBoard.concierge.childProcessing': "Verification in progress",
   'jobBoard.concierge.childPreparing': "Preparing your application",
+  'jobBoard.concierge.childFailed': "Automation did not finish. We are checking whether the portal received the application.",
+  'jobBoard.concierge.childUnknown': "We do not have a confirmed outcome. The application is not marked as submitted without proof.",
   'jobBoard.concierge.answerChild': "Answer the questions",
   'jobBoard.concierge.reviewChild': "Review and confirm",
   'jobBoard.concierge.openChild': "Open application",
@@ -920,6 +922,9 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.noGuarantee': 'We do not guarantee suitable positions, applications sent, replies, interviews, or hires.',
  'jobBoard.concierge.eligibilityNeedsVerification': 'This proposal is waiting for its eligibility to be checked again. You can decline it while the check is in progress.',
  'jobBoard.concierge.proposalStatus.proposed': 'Needs decision',
+ 'jobBoard.concierge.proposalStatus.needs_information': 'Your response is needed',
+ 'jobBoard.concierge.proposalStatus.failed': 'Automation failed',
+ 'jobBoard.concierge.proposalStatus.unknown': 'Outcome unconfirmed',
  'jobBoard.concierge.proposalStatus.needs_verification': 'Eligibility check needed',
  'jobBoard.concierge.proposalStatus.submitted': "Submitted",
  'jobBoard.concierge.proposalStatus.needs_answers': "Information needed",
@@ -3056,6 +3061,10 @@ Rules:
 
  // Publisher portal — post a job ad
  'publisher.title': 'Post a job ad',
+ 'seo.directEmployer.title': 'Post a free job offer | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Small businesses and local shops can post a free Ticino job without an account: employer verification, human moderation and automatic expiry after 30 days.',
+ 'seo.permanentEmployer.title': 'Employers open to spontaneous applications | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Public list of employers who may consider spontaneous applications, signalled by candidates and checked by the team. These are not open jobs.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

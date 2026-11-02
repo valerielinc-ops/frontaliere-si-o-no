@@ -3,7 +3,7 @@
  *
  * Renders an <ins class="adsbygoogle"> element and pushes to the ad queue ONLY
  * after (a) the slot has come within 200px of the viewport, and (b) the
- * container has measurable width (> 0px).
+ * container satisfies the format width (In-article: at least 250px).
  *
  * (a) is the viewability contract: an impression served for a unit the visitor
  * never reaches is counted by Active View as non-viewable and drags the unit's
@@ -17,6 +17,10 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { ReactAdsense } from './ReactAdsense';
+import { createAdSlotRequests } from '@/services/adSlotRequest';
+import { createAdScriptLoader } from '@/services/adScriptLoader';
+import { emitAdDiagnostic } from '@/services/adDiagnostics';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
 import { classifyAdPageTemplate, documentHasJobPosting } from '@/services/adPageTemplate';
 import { observeManualAd } from '@/services/manualAdLifecycle';
@@ -80,7 +84,7 @@ const IS_PROD =
 const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
 
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'waiting_response' | 'unfilled' | 'unavailable' | 'filled' | 'collapsed';
-const initializedAdElements = new WeakSet<Element>();
+
 
 /**
  * Layout space reserved before the unit fills — the only CLS lever we have on
@@ -160,9 +164,12 @@ function AdSenseBannerInstance({
  minHeight,
  reserveSpace = false,
 }: AdSenseBannerProps) {
- const adRef = useRef<HTMLModElement>(null);
+ const adRef = useRef<HTMLModElement | null>(null);
+ const registerAd = useCallback((element: HTMLModElement) => { adRef.current = element; }, []);
+ const unsubscribeScript = useRef<(() => void) | null>(null);
  const wrapperRef = useRef<HTMLDivElement>(null);
  const pushed = useRef(false);
+ const armed = useRef(false);
  const resizeObserverRef = useRef<ResizeObserver | null>(null);
  const lifecycleRef = useRef<ReturnType<typeof observeManualAd> | null>(null);
  const pagePath = useRef(typeof window !== 'undefined' ? window.location.pathname : '/');
@@ -230,48 +237,19 @@ function AdSenseBannerInstance({
  // Fails closed: any read failure means "no decision".
  // Analytics / PostHog / Clarity are NOT gated here — owner decision in #5842.
  if (!isAdSenseAllowed()) return;
- const existing = document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
- if (existing) {
- // A queued array is not a loaded script. Only the library loaded marker
- // or our script load event proves readiness.
- if ((window.adsbygoogle as unknown as { loaded?: boolean })?.loaded === true) {
- existing.setAttribute('data-loaded', '1');
- setScriptReady(true);
- return;
- }
- if (existing.getAttribute('data-loaded') === '1') setScriptReady(true);
- else if (existing.getAttribute('data-failed') === '1') setScriptFailed(true);
- else {
- existing.addEventListener('load', () => {
- existing.setAttribute('data-loaded', '1');
- setScriptReady(true);
- }, { once: true });
- existing.addEventListener('error', () => {
- existing.setAttribute('data-failed', '1');
- setScriptFailed(true);
- }, { once: true });
- }
- return;
- }
- const script = document.createElement('script');
- script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${CLIENT_ID}`;
- script.async = true;
- script.crossOrigin = 'anonymous';
- // Force anchor/overlay ads to bottom only — prevents covering navbar on mobile
- script.setAttribute('data-overlays', 'bottom');
- // Reduce vignette/interstitial frequency — SPA triggers on every pushState
- script.setAttribute('data-ad-frequency-hint', '60s');
- script.addEventListener('load', () => {
- script.setAttribute('data-loaded', '1');
- setScriptReady(true);
- }, { once: true });
- script.addEventListener('error', () => {
- script.setAttribute('data-failed', '1');
- console.warn(`[AdSense] script load failed for slot=${adSlot}`);
- setScriptFailed(true);
- }, { once: true });
- document.head.appendChild(script);
- }, [adSlot]);
+ const loader = createAdScriptLoader('adsense', `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${CLIENT_ID}`,
+   () => isAdSenseAllowed() && !hasActiveReaderNoAdsEntitlement() &&
+     !isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, window, document, wasNewsletterAutologinAttempted()), emitAdDiagnostic);
+ if (!unsubscribeScript.current) unsubscribeScript.current = loader.subscribe((next) => {
+   if (next === 'loaded') {
+     if (!pushed.current) { lifecycleRef.current?.stop(); lifecycleRef.current = null; }
+     setScriptReady(true);
+     setScriptFailed(false);
+     setState((prev) => !pushed.current && (prev === 'unavailable' || prev === 'collapsed') ? (armed.current ? 'waiting_width' : 'idle') : prev);
+   } else if (next === 'failed') setScriptFailed(true);
+ });
+ loader.load();
+ }, []);
 
  // ── Arm this slot via IntersectionObserver ────────────────
  // The observer governs TWO things, and the distinction is the whole point:
@@ -314,6 +292,7 @@ function AdSenseBannerInstance({
  if (typeof IntersectionObserver === 'undefined') {
  // Older browsers — fall back to immediate load.
  loadAdSenseScript();
+ armed.current = true;
  setState('waiting_width');
  return;
  }
@@ -343,6 +322,7 @@ function AdSenseBannerInstance({
  removeInteractionListeners();
  io.disconnect();
  loadAdSenseScript();
+ armed.current = true;
  setState('waiting_width');
  return;
  }
@@ -415,69 +395,63 @@ function AdSenseBannerInstance({
 
  cleanupAsyncWatchers();
 
+ const requests = createAdSlotRequests();
+ let waitingReported = false;
  const tryPush = () => {
- const width = wrapper.getBoundingClientRect().width;
- if (width <= 0) return false;
-
- console.info(`[AdSense] width ready for slot=${adSlot} (${Math.round(width)}px), initializing`);
- setState('loading');
-
- const el = adRef.current;
- if (!el) { collapseWhenLayoutSafe('missing ins element'); return true; }
-
- const alreadyInitialized = initializedAdElements.has(el) || el.getAttribute('data-adsbygoogle-status') !== null;
- const lifecycle = ensureLifecycle();
- try {
- if (!alreadyInitialized) {
- (window.adsbygoogle = window.adsbygoogle || []).push({});
- initializedAdElements.add(el);
- }
- pushed.current = true;
- lifecycle?.request();
- } catch (err) {
- console.warn(`[AdSense] push() failed for slot=${adSlot}`, err);
- lifecycle?.fail('push_failed');
- }
-
- return true;
+   const el = adRef.current;
+   if (!el) return false;
+   const result = requests.request(el);
+   if (result.state === 'waiting_width') {
+     if (!waitingReported) {
+       waitingReported = true;
+       emitAdDiagnostic('ad_slot_waiting_width', { slot: adSlot, width: result.width, minimum_width: result.minimum, render_path: 'spa' });
+     }
+     return false;
+   }
+   wrapper.removeAttribute('data-ft-ad-width-wait');
+   const lifecycle = ensureLifecycle();
+   if (result.state === 'failed') {
+     emitAdDiagnostic('ad_slot_error', { slot: adSlot, reason: result.code || 'unknown', error_name: result.errorName || 'Error', width: result.width, minimum_width: result.minimum, render_path: 'spa' });
+     lifecycle?.fail('push_failed');
+   } else {
+     pushed.current = true;
+     lifecycle?.request();
+   }
+   return true;
  };
-
- // Try immediately
  if (tryPush()) return;
 
- // Otherwise observe for width changes
- console.info(`[AdSense] waiting for measurable width for slot=${adSlot}`);
- // push() mutates the DOM synchronously: inside a ResizeObserver delivery that
- // raises "ResizeObserver loop completed with undelivered notifications".
+ // A width deadline is diagnostic, not terminal. Keep observing so rotating
+ // the device, zooming out or a container resize can recover the same node.
  let pushFrame: number | undefined;
- const observer = new ResizeObserver((entries) => {
- if (pushFrame !== undefined || !entries.some((entry) => entry.contentRect.width > 0)) return;
- pushFrame = requestAnimationFrame(() => {
- pushFrame = undefined;
- if (!tryPush()) return;
- observer.disconnect();
- resizeObserverRef.current = null;
- });
- });
- observer.observe(wrapper);
- resizeObserverRef.current = observer;
-
- // Safety timeout — collapse if width never materializes
- const timeout = setTimeout(() => {
- observer.disconnect();
- if (pushFrame !== undefined) cancelAnimationFrame(pushFrame);
- pushFrame = undefined;
- if (!pushed.current) {
- collapseWhenLayoutSafe('width timeout');
- }
- }, 8000);
-
- return () => {
- cleanupAsyncWatchers();
- clearTimeout(timeout);
- if (pushFrame !== undefined) cancelAnimationFrame(pushFrame);
+ const schedulePush = () => {
+   if (pushFrame !== undefined) return;
+   pushFrame = requestAnimationFrame(() => {
+     pushFrame = undefined;
+     if (tryPush()) cleanupAsyncWatchers();
+   });
  };
- }, [state, scriptReady, adSlot, cleanupAsyncWatchers, collapseWhenLayoutSafe, ensureLifecycle, adsConsentTick]);
+ if (typeof ResizeObserver !== 'undefined') {
+   const observer = new ResizeObserver(schedulePush);
+   observer.observe(wrapper);
+   if (adRef.current) observer.observe(adRef.current);
+   resizeObserverRef.current = observer;
+ }
+ window.addEventListener('resize', schedulePush);
+ const timeout = setTimeout(() => {
+   if (!pushed.current) {
+     wrapper.setAttribute('data-ft-ad-width-wait', 'timed_out');
+     const size = adRef.current ? requests.geometry(adRef.current) : { width: 0, minimum: 0 };
+     emitAdDiagnostic('ad_slot_width_timeout', { slot: adSlot, width: size.width, minimum_width: size.minimum, render_path: 'spa' });
+   }
+ }, 8000);
+ return () => {
+   cleanupAsyncWatchers();
+   window.removeEventListener('resize', schedulePush);
+   clearTimeout(timeout);
+   if (pushFrame !== undefined) cancelAnimationFrame(pushFrame);
+ };
+ }, [state, scriptReady, adSlot, cleanupAsyncWatchers, ensureLifecycle, adsConsentTick]);
 
  useEffect(() => {
  if (readerNoAds) collapseWhenLayoutSafe('reader_entitlement');
@@ -488,25 +462,11 @@ function AdSenseBannerInstance({
  if (scriptFailed) collapseWhenLayoutSafe('script_failed');
  }, [scriptFailed, collapseWhenLayoutSafe]);
 
- useEffect(() => {
- if (!scriptFailed) return;
- const retry = () => {
- const script = document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
- script?.remove();
- lifecycleRef.current?.stop();
- lifecycleRef.current = null;
- pushed.current = false;
- setScriptReady(false);
- setScriptFailed(false);
- setState('idle');
- setAdsConsentTick((tick) => tick + 1);
- };
- window.addEventListener('online', retry);
- return () => window.removeEventListener('online', retry);
- }, [scriptFailed]);
 
  useEffect(() => () => {
  cleanupAsyncWatchers();
+ unsubscribeScript.current?.();
+ unsubscribeScript.current = null;
  lifecycleRef.current?.stop();
  lifecycleRef.current = null;
  }, [cleanupAsyncWatchers]);
@@ -554,6 +514,8 @@ function AdSenseBannerInstance({
  data-ad-variant={experimentVariant}
  style={{
  contain: 'content',
+ width: '100%',
+ minWidth: 0,
  ...(isCollapsed ? { margin: 0, padding: 0 } : {}),
  // Reserve space via minHeight — keep it even after ad loads to prevent CLS
  // when the actual ad is shorter than the placeholder (FRO-299)
@@ -593,16 +555,14 @@ function AdSenseBannerInstance({
  CLS is unaffected: the reservation lives on the wrapper's `minHeight`
  (resolved from the registry above), not on the `<ins>`. */}
  {(state !== 'idle' || scriptFailed || readerNoAds) && (
- <ins
- ref={adRef}
- className="adsbygoogle"
- style={{ display: 'block', textAlign: adLayout === 'in-article' ? 'center' as const : undefined }}
- data-ad-client={CLIENT_ID}
- data-ad-slot={adSlot}
- data-ad-format={adFormat}
- {...(fullWidthResponsive ? { 'data-full-width-responsive': 'true' } : {})}
- {...(adLayoutKey ? { 'data-ad-layout-key': adLayoutKey } : {})}
- {...(adLayout ? { 'data-ad-layout': adLayout } : {})}
+ <ReactAdsense
+ request={registerAd}
+ client={CLIENT_ID}
+ slot={adSlot}
+ format={adFormat}
+ responsive={fullWidthResponsive}
+ layoutKey={adLayoutKey}
+ layout={adLayout}
  />
  )}
  </div>

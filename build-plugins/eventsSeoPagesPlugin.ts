@@ -114,6 +114,7 @@ import { assignEventImageAsset } from '../packages/articles/engine/shared/eventI
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
 import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from './shared/eventDetailNoindexTargetMarker.mjs';
+import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from './shared/eventSlugMigrationMarker.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -5194,6 +5195,7 @@ export function renderEventSlugRedirectPage(
   // this bridge is the exception because its H1 is intentionally generic
   // while its SERP title must identify the historical source URL.
   return bridge
+    .replace('<head>', `<head>${EVENT_SLUG_MIGRATION_BRIDGE_MARKER}`)
     .replace('</head>', `${bridgeOpenGraph}
  </head>`)
     .replace(`<h1>${bridgeTitle}</h1>`, `<h1>${copy.title}</h1>`);

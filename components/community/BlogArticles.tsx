@@ -1306,6 +1306,17 @@ function BlogArticlesContent({
  } | null>(null);
  const registryAttemptComplete = registryAttemptState?.key === registryAttemptKey
   && registryAttemptState.status === 'complete';
+ // Only the detail URL that arrived with an owned static snapshot can use
+ // that snapshot as the initial overlay fast path. A later client navigation
+ // must resolve its own registry record even if it reuses this component.
+ const initialStaticArticleKeyRef = useRef(
+  deferUntilArticleReady && bodyRequestKey ? bodyRequestKey : null,
+ );
+ useEffect(() => {
+  if (!initialStaticArticleKeyRef.current && deferUntilArticleReady && bodyRequestKey) {
+   initialStaticArticleKeyRef.current = bodyRequestKey;
+  }
+ }, [bodyRequestKey, deferUntilArticleReady]);
  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
  const [articles, setArticles] = useState<Article[]>([]);
  const [cantonRuntimeIds, setCantonRuntimeIds] = useState<ReadonlySet<string>>(new Set());
@@ -1412,14 +1423,11 @@ function BlogArticlesContent({
   // whenever the recent window cannot cover the section total.
   ? fetchArticleOverlay(section, getLocale(), 0)
   : Promise.resolve([] as OverlayArticle[]);
- const articleDataPromise: Promise<{ data: Article[]; overlay: OverlayArticle[] }> = isCanton
-  ? cantonOverlayPromise.then((overlay) => ({
-   overlay,
-   data: overlay.map(articleFromOverlay),
-  }))
-  : (section === 'svizzera'
+ const articlesPromise: Promise<{ data: Article[]; overlay: OverlayArticle[] }> = isCanton
+  ? cantonOverlayPromise.then((overlay) => ({ data: overlay.map(articleFromOverlay), overlay }))
+  : section === 'svizzera'
    ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => ({ data: m.SWISS_ARTICLES, overlay: [] }))
-   : Promise.resolve({ data: ARTICLES, overlay: [] }));
+   : Promise.resolve(ARTICLES).then((data) => ({ data, overlay: [] }));
  const metadataPromise = isCanton
   ? Promise.all([loadBlogMeta(section), loadBlogMeta('frontaliere')])
   : loadBlogMeta(section);
@@ -1428,7 +1436,7 @@ function BlogArticlesContent({
  // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532
  // failure behavior) instead of blocking the whole blog render.
  isCanton ? Promise.resolve() : preloadBlogData().catch(() => {}),
- articleDataPromise,
+ articlesPromise,
  ]).then(async ([, , payload]) => {
  if (cancelled) return;
  const { data, overlay } = payload;
@@ -1439,9 +1447,8 @@ function BlogArticlesContent({
  // here the record is in hand and can be merged synchronously. Without it
  // `articleById.get(selectedArticle)` misses on the very first render and
  // the article view returns null: a blank page where the static article
- // used to be, which is exactly the failure this whole path exists to
- // avoid. The overlay fetch below still runs and is still authoritative
- // for the list; this only closes the gap before it lands.
+ // used to be. The mutable publisher index below is reserved for archive
+ // lists; the resolved record already supplies the selected detail page.
  const runtimeOverlay = runtimeArticleRecords(section);
  const seededArticles = isCanton
   ? mergeArticleRecords(
@@ -1478,6 +1485,22 @@ function BlogArticlesContent({
 
  setArticles(listArticles);
  setBlogReady(true);
+
+ // A valid first static detail snapshot already owns the page while React
+ // verifies its matching local record and body. Keep the overlay off that
+ // first paint, but look up details missing from the registry and every later
+ // client navigation; otherwise a newly published article can never recover
+ // from its own URL.
+ if (selectedArticle) {
+  const hasSelectedArticleRecord = seededArticles.some((article) => article.id === selectedArticle);
+  const isInitialStaticSnapshot = deferUntilArticleReady
+   && initialStaticArticleKeyRef.current === `${section}:${locale}:${selectedArticle}`
+   && registryRetry === 0;
+  if (hasSelectedArticleRecord && isInitialStaticSnapshot) {
+   setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+   return;
+  }
+ }
 
  // Articles published since this bundle was built (issue #4974 item 3).
  // The registry above is compiled in, so anything the articles repo has
@@ -1547,7 +1570,7 @@ function BlogArticlesContent({
   setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
  });
  return () => { cancelled = true; };
- }, [section, locale, registryRetry]);
+ }, [section, locale, registryRetry, selectedArticle]);
 
  // Lazy-load article BODY when a specific article is selected
  useEffect(() => {
@@ -1570,6 +1593,12 @@ function BlogArticlesContent({
  const bodySource = result?.status ?? 'legacy';
  if (bodySource === 'missing') {
   setBodyLoadIssueState({ key: requestBodyKey, issue: 'missing', handoff: true });
+  // The initial static owner may have let the registry lookup take its fast
+  // path. A missing body invalidates that snapshot for this article, so retry
+  // the index lookup before exposing the retry state.
+  if (initialStaticArticleKeyRef.current === requestBodyKey) {
+   setRegistryRetry((value) => value + 1);
+  }
   return;
  }
  // The body chunks are compiled in, so an article published after this
@@ -1597,6 +1626,9 @@ function BlogArticlesContent({
  if (bodySource === 'legacy'
   && needsArticleBodyRecovery(collectArticleBodySegments(selectedArticle, translate))) {
   setBodyLoadIssueState({ key: requestBodyKey, issue: 'missing', handoff: false });
+  if (initialStaticArticleKeyRef.current === requestBodyKey) {
+   setRegistryRetry((value) => value + 1);
+  }
   return;
  }
  if (!cancelled) setReadyBodyKey(requestBodyKey);
@@ -2419,6 +2451,7 @@ function BlogArticlesContent({
        setBodyLoadIssueState(null);
        setReadyBodyKey(null);
        setBodyRetry((value) => value + 1);
+       setRegistryRetry((value) => value + 1);
       }}
      >
       {copy.retry}
@@ -2572,7 +2605,7 @@ function BlogArticlesContent({
 
 
  return (
- <div className="max-w-3xl xlc:max-w-none mx-auto">
+ <div className="max-w-3xl xlc:max-w-none mx-auto" data-ft-article-reading="true">
  <Suspense fallback={null}>
  <PreferredSourcePopup key={article.id} articleId={article.id} />
  </Suspense>
@@ -2817,7 +2850,7 @@ function BlogArticlesContent({
  )}
 
  {/* Article body */}
- <div className="px-4 sm:px-6 py-6 space-y-5">
+ <div className="px-4 sm:px-6 py-6 space-y-5" data-ft-article-body="true">
  <Callout status="accent" variant="plain">
  <p className="text-lg text-subtle italic">
  {normalizeArticleExcerptPlain(t(`blog.article.${article.id}.excerpt`))}

@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import {
   dropArtificialyFabricatedText,
+  fetchArtificialyDetailHtml,
   filterArtificialyListingsWithIndexableSourceBody,
 } from '../scripts/update-artificialy-jobs.mjs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildArtificialyLocalizedContent,
   isArtificialyCloudflareBlockedPage,
@@ -149,6 +150,41 @@ describe('Artificialy career parser', () => {
     ])).toEqual([
       { title: 'Full source body', description: indexableBody },
     ]);
+  });
+});
+
+describe('Artificialy LinkedIn detail transport', () => {
+  it('uses the guest endpoint and rescues a CI rate limit through Jina', async () => {
+    const detailUrl = 'https://www.linkedin.com/jobs/view/4477679281/';
+    const guestUrl = 'https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4477679281';
+    const rateLimited = Object.assign(new Error('HTTP 429 from LinkedIn'), { status: 429 });
+    const fetchHtmlImpl = vi.fn().mockRejectedValue(rateLimited);
+    const jinaFetchImpl = vi.fn().mockResolvedValue('<html>source-backed detail</html>');
+
+    await expect(fetchArtificialyDetailHtml(detailUrl, {
+      timeoutMs: 5000,
+      fetchHtmlImpl,
+      jinaFetchImpl,
+    })).resolves.toBe('<html>source-backed detail</html>');
+
+    expect(fetchHtmlImpl).toHaveBeenCalledWith(guestUrl, expect.objectContaining({ timeoutMs: 5000 }));
+    expect(jinaFetchImpl).toHaveBeenCalledWith(guestUrl, { timeoutMs: 5000 });
+  });
+
+  it('extracts a guest endpoint from a slugged LinkedIn URL with a trailing slash', async () => {
+    const fetchHtmlImpl = vi.fn().mockResolvedValue('<html>detail</html>');
+    const jinaFetchImpl = vi.fn();
+
+    await fetchArtificialyDetailHtml(
+      'https://ch.linkedin.com/jobs/view/senior-cloud-engineer-at-artificialy-4469725377/',
+      { fetchHtmlImpl, jinaFetchImpl },
+    );
+
+    expect(fetchHtmlImpl).toHaveBeenCalledWith(
+      'https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4469725377',
+      expect.any(Object),
+    );
+    expect(jinaFetchImpl).not.toHaveBeenCalled();
   });
 });
 

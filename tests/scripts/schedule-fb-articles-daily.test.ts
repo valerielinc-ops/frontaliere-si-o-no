@@ -73,6 +73,8 @@ const {
     repoRoot?: string;
     fetchImpl?: typeof fetch;
     socialCopyPack?: any;
+    selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
+    releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
   }) => Promise<{ ok: boolean; posted: number; dryRun: boolean; payloads: Payload[] }>;
@@ -441,6 +443,8 @@ describe('run()', () => {
 
   it('skips the post when the landing page is not live yet (HEAD 4xx)', async () => {
     const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
+    const socialCopy = { copyAssignmentMode: 'firebase-balanced', copyAssignment: { assignmentKey: 'a1' } };
+    const release = vi.fn(async () => true);
     const fetchSpy = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
       if (init?.method === 'HEAD') return new Response(null, { status: 404 });
       return new Response(JSON.stringify({ id: 'pid_post_1' }), { status: 200 });
@@ -450,6 +454,8 @@ describe('run()', () => {
       now: NOW,
       repoRoot: tmp,
       fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
       log: () => {},
       warn: () => {},
     });
@@ -458,6 +464,7 @@ describe('run()', () => {
     // a 4xx landing short-circuits before any rescrape/feed POST.
     expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(loadPosted(tmp).posted).toHaveLength(0);
+    expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
   });
 
   it('does not re-post an article already in the ledger', async () => {
@@ -479,17 +486,56 @@ describe('run()', () => {
     const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
     const fetchSpy = vi.fn<typeof fetch>();
     const warns: string[] = [];
+    const socialCopy = { copyAssignmentMode: 'firebase-balanced', copyAssignment: { assignmentKey: 'a1' } };
+    const release = vi.fn(async () => true);
     const result = await run({
       env: { FB_ARTICLE_MAX_AGE_DAYS: '2' }, // no creds
       now: NOW,
       repoRoot: tmp,
       fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
       log: () => {},
       warn: (...a) => warns.push(a.join(' ')),
     });
     expect(fetchSpy).not.toHaveBeenCalled();
     expect(result.ok).toBe(false);
     expect(warns.some((w) => w.toLowerCase().includes('missing'))).toBe(true);
+    expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
+  });
+
+  it('continues releasing all article reservations after one Firebase release fails', async () => {
+    const tmp = setupRepo({ articles: [
+      { id: 'a1', date: '2026-06-12' },
+      { id: 'a2', date: '2026-06-12' },
+    ] });
+    const release = vi.fn(async (assignment: object) => {
+      const assignmentKey = (assignment as { assignmentKey: string }).assignmentKey;
+      if (assignmentKey === 'a1') throw new Error('temporary Firestore error');
+      return true;
+    });
+    const warns: string[] = [];
+    const result = await run({
+      env: { FB_ARTICLE_MAX_AGE_DAYS: '2' },
+      now: NOW,
+      repoRoot: tmp,
+      selectSocialCopyForPublishImpl: async (options: object) => {
+        const assignmentKey = (options as { assignmentKey: string }).assignmentKey;
+        return {
+          copyAssignmentMode: 'firebase-balanced',
+          copyAssignment: { assignmentKey },
+        };
+      },
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: (...args) => warns.push(args.join(' ')),
+    });
+
+    expect(result.ok).toBe(false);
+    expect(release).toHaveBeenCalledTimes(2);
+    expect(release.mock.calls.map(([assignment]) => (assignment as { assignmentKey: string }).assignmentKey))
+      .toEqual(['a1', 'a2']);
+    expect(warns.join('\n')).toContain('temporary Firestore error');
   });
 
   it('exits gracefully when no recent articles exist', async () => {

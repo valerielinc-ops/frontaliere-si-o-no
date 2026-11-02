@@ -60,18 +60,25 @@ export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
   return { kind, via: questions ? 'answers' : edit ? 'edit' : null };
 }
 
+export function hasUncoveredLanguageRequirements(requirements) {
+  const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
+  const languages = Array.isArray(requirements?.languageRequirements) ? requirements.languageRequirements : [];
+  return languages.some(language => {
+    const quote = text(language?.quote, 300).toLocaleLowerCase();
+    return !quote || !rows.some(row => row.basis === 'stated' && !row.quoteUnverified
+      && text(row.quote, 400).toLocaleLowerCase().includes(quote));
+  });
+}
+
 
 /** The proposal funnel uses the same decisive rows as review, and requires verified positive evidence. */
 export function conciergeProposalEligibility(requirements, match, { profile = null, answers = {} } = {}) {
   const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
-  if (!rows.length || !Array.isArray(match?.matches)) return { status: 'unverified', gaps: [] };
+  if (!rows.length) return { status: 'unverified', reason: 'requirements_missing', gaps: [] };
+  if (!Array.isArray(match?.matches)) return { status: 'unverified', reason: 'match_response_incomplete', gaps: [] };
   // The separate language list must not bypass the numbered, evidence-checked
   // requirements. An omitted clause is incomplete extraction, not a candidate gap.
-  if ((requirements?.languageRequirements || []).some(language => {
-    const quote = text(language?.quote, 300).toLocaleLowerCase();
-    return !quote || !rows.some(row => row.basis === 'stated' && !row.quoteUnverified
-      && text(row.quote, 400).toLocaleLowerCase().includes(quote));
-  })) return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
+  if (hasUncoveredLanguageRequirements(requirements)) return { status: 'unverified', reason: 'language_requirement_uncovered', gaps: [] };
   const found = new Map();
   for (const row of match.matches) {
     if (found.has(row.index)) return { status: 'unverified', gaps: [] };

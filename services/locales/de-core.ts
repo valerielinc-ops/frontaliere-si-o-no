@@ -849,6 +849,8 @@ const deCore: Record<string, string> = {
   'jobBoard.concierge.childSubmitted': "Bewerbung eingereicht",
   'jobBoard.concierge.childProcessing': "Prüfung läuft",
   'jobBoard.concierge.childPreparing': "Bewerbung wird vorbereitet",
+  'jobBoard.concierge.childFailed': "Die Automatisierung wurde nicht abgeschlossen. Wir prüfen, ob das Portal die Bewerbung erhalten hat.",
+  'jobBoard.concierge.childUnknown': "Das Ergebnis ist nicht bestätigt. Ohne Beleg wird die Bewerbung nicht als versendet angezeigt.",
   'jobBoard.concierge.answerChild': "Fragen beantworten",
   'jobBoard.concierge.reviewChild': "Prüfen und bestätigen",
   'jobBoard.concierge.openChild': "Bewerbung öffnen",
@@ -914,6 +916,9 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.noGuarantee': 'Wir garantieren keine passenden Stellen, gesendeten Bewerbungen, Antworten, Gespräche oder Einstellungen.',
  'jobBoard.concierge.eligibilityNeedsVerification': 'Die Eignung dieses Vorschlags wird erneut geprüft. Während der Prüfung kannst du ihn ablehnen.',
  'jobBoard.concierge.proposalStatus.proposed': 'Zu entscheiden',
+ 'jobBoard.concierge.proposalStatus.needs_information': 'Deine Antwort ist erforderlich',
+ 'jobBoard.concierge.proposalStatus.failed': 'Automatisierung fehlgeschlagen',
+ 'jobBoard.concierge.proposalStatus.unknown': 'Ergebnis unbestätigt',
  'jobBoard.concierge.proposalStatus.needs_verification': 'Erneute Prüfung erforderlich',
  'jobBoard.concierge.proposalStatus.submitted': "Versendet",
  'jobBoard.concierge.proposalStatus.needs_answers': "Angaben fehlen",
@@ -3059,6 +3064,10 @@ Regeln:
 
  // Publisher portal — Stelleninserat aufgeben
  'publisher.title': 'Stelleninserat aufgeben',
+ 'seo.directEmployer.title': 'Kostenloses Stellenangebot veröffentlichen | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Kleine Betriebe und lokale Geschäfte können ohne Konto kostenlos eine Tessiner Stelle veröffentlichen: Arbeitgeberbestätigung, menschliche Moderation und automatische Löschung nach 30 Tagen.',
+ 'seo.permanentEmployer.title': 'Arbeitgeber für Spontanbewerbungen | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Öffentliche Liste von Arbeitgebern, die Spontanbewerbungen prüfen können, von Bewerbenden gemeldet und vom Team geprüft. Dies sind keine offenen Stellen.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

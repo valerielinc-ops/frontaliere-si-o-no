@@ -1,7 +1,7 @@
 {
   "key": "klinik-schloss-mammern",
   "label": "Klinik Schloss Mammern",
-  "generatedAt": "2026-11-02T10:57:39.244Z",
+  "generatedAt": "2026-11-02T21:58:05.276Z",
   "total": 7,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 16357,
-  "avgDurationMs": 16357,
+  "durationMs": 17568,
+  "avgDurationMs": 17568,
   "durationHistory": [
-    16357
+    17568
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-koechin-koch-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:20.490Z",
+      "crawledAt": "2026-11-02T21:57:47.032Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -66,11 +66,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T10:57:20.490Z",
+      "validThrough": "2026-12-20T21:57:47.032Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -93,7 +94,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-fachfrau-fachmann-hotellerie-hauswirtschaft-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:19.141Z",
+      "crawledAt": "2026-11-02T21:57:45.730Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -122,11 +123,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T10:57:19.141Z",
+      "validThrough": "2027-01-03T21:57:45.730Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -148,7 +150,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-als-fachfrau-betreuung-fachrichtung-kinderbetreuung-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:17.777Z",
+      "crawledAt": "2026-11-02T21:57:44.390Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -177,11 +179,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T10:57:17.777Z",
+      "validThrough": "2026-12-08T21:57:44.390Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -204,7 +207,7 @@
       "url": "https://ksm-jobs.ch/job/lohnsachbearbeiter-100-befristet-fuer-6-9-monate-try-and-hire/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:16.384Z",
+      "crawledAt": "2026-11-02T21:57:43.052Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -233,11 +236,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:57:16.384Z",
+      "validThrough": "2026-12-02T21:57:43.052Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -260,7 +264,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:15.035Z",
+      "crawledAt": "2026-11-02T21:57:41.600Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -289,11 +293,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:57:15.035Z",
+      "validThrough": "2026-12-02T21:57:41.600Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -316,7 +321,7 @@
       "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:13.657Z",
+      "crawledAt": "2026-11-02T21:57:40.090Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -345,11 +350,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:57:13.657Z",
+      "validThrough": "2026-12-02T21:57:40.090Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -372,7 +378,7 @@
       "url": "https://ksm-jobs.ch/job/schnupperpraktikum/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:57:11.628Z",
+      "crawledAt": "2026-11-02T21:57:38.763Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -401,11 +407,12 @@
         "postalCode": "8265",
         "addressLocality": "Mammern",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z"
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T10:57:11.628Z",
+      "validThrough": "2026-12-19T21:57:38.763Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -416,5 +423,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

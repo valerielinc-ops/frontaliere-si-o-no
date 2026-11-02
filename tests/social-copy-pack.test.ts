@@ -1,9 +1,14 @@
-import { describe, expect, it } from 'vitest';
+import { createHash } from 'node:crypto';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   loadSocialCopyPack,
   normalizeSocialCopyPack,
+  releaseSocialCopyAssignment,
+  releaseUnpublishedSocialCopyAssignment,
+  releaseUnpublishedSocialCopyAssignmentBestEffort,
   selectSocialCopy,
+  selectSocialCopyForPublish,
   SOCIAL_COPY_INSTAGRAM_OBJECTIVES,
   socialCopyTemplateCount,
   socialCopyLedgerFields,
@@ -17,6 +22,7 @@ const CHANNEL_KINDS: Record<string, string[]> = {
   facebook: ['article', 'job', 'event', 'digest'],
   linkedin: ['article', 'job'],
   telegram: ['job', 'border'],
+  reddit: ['article', 'job'],
 };
 
 function channels() {
@@ -50,7 +56,42 @@ describe('social copy pack', () => {
     );
 
     expect(pack.packId).toMatch(/^[a-f0-9]{16}$/);
+    expect(pack.schemaVersion).toBe(2);
     expect(validatePersistedSocialCopyPack(pack, { now: '2026-10-20T00:00:00.000Z' })).toEqual(pack);
+  });
+
+  it('keeps a valid v1 pack active for existing channels while Reddit waits for a v2 pack', () => {
+    const legacyChannels = channels();
+    delete legacyChannels.reddit;
+    const generatedAt = '2026-10-01T00:00:00.000Z';
+    const packId = createHash('sha256')
+      .update('frontaliere-social-copy-v1\n' + JSON.stringify(legacyChannels))
+      .digest('hex')
+      .slice(0, 16);
+    const legacyPack = {
+      schemaVersion: 1,
+      promptVersion: 'frontaliere-social-copy-v1',
+      packId,
+      generatedAt,
+      validUntil: new Date(Date.parse(generatedAt) + 45 * 86400000).toISOString(),
+      channels: legacyChannels,
+    };
+
+    const validated = validatePersistedSocialCopyPack(legacyPack, { now: '2026-10-20T00:00:00.000Z' });
+
+    expect(selectSocialCopy({
+      pack: validated,
+      channel: 'instagram',
+      kind: 'article',
+      expectedObjective: 'save',
+      assignmentKey: 'legacy-content',
+    })).toMatchObject({ copyMode: 'codex', copyPromptVersion: 'frontaliere-social-copy-v1' });
+    expect(selectSocialCopy({
+      pack: validated,
+      channel: 'reddit',
+      kind: 'article',
+      assignmentKey: 'legacy-content',
+    })).toBeNull();
   });
 
   it('rejects unverified numeric claims, URLs, and missing variants', () => {
@@ -133,9 +174,15 @@ describe('social copy pack', () => {
   });
 
   it('rejects multi-action CTAs on non-Instagram channels too', () => {
-    const mixed = channels();
-    mixed.linkedin.article[0].cta = 'Leggi la guida e condividi il contenuto';
-    expect(() => normalizeSocialCopyPack({ channels: mixed })).toThrow(/exactly one explicit action/);
+    for (const cta of [
+      'Leggi la guida e condividi il contenuto',
+      'Condividi questo post e tagga un amico',
+      'Apri la guida e menziona chi ne ha bisogno',
+    ]) {
+      const mixed = channels();
+      mixed.linkedin.article[0].cta = cta;
+      expect(() => normalizeSocialCopyPack({ channels: mixed })).toThrow(/exactly one explicit action/);
+    }
   });
 
   it('assigns one stable template and records reportable copy fields', () => {
@@ -153,7 +200,7 @@ describe('social copy pack', () => {
     expect(selected).toMatchObject({
       copyMode: 'codex',
       copySlot: 'article',
-      copyPromptVersion: 'frontaliere-social-copy-v1',
+      copyPromptVersion: 'frontaliere-social-copy-v2',
       copyPackId: pack.packId,
       objective: 'save',
     });
@@ -169,6 +216,151 @@ describe('social copy pack', () => {
     expect(selectSocialCopy({ ...options, expectedObjective: 'share' })?.objective).toBe('share');
   });
 
+  it('uses Firebase-balanced assignment when Remote Config enables the experiment', async () => {
+    const pack = normalizeSocialCopyPack({ channels: channels() });
+    const assignBalancedImpl = async ({ templateIds }: { templateIds: string[] }) => ({
+      templateId: templateIds[1],
+      reused: false,
+    });
+    const selected = await selectSocialCopyForPublish({
+      pack,
+      channel: 'facebook',
+      kind: 'article',
+      assignmentKey: 'article:balanced',
+      experimentConfig: { schemaVersion: 1, experimentId: 'social-copy-balanced-v1', enabled: true },
+      assignBalancedImpl,
+    });
+
+    expect(selected).toMatchObject({
+      copyMode: 'codex',
+      copyAssignmentMode: 'firebase-balanced',
+      copyExperimentId: 'social-copy-balanced-v1',
+      copyAssignment: {
+        experimentId: 'social-copy-balanced-v1',
+        channel: 'facebook',
+        slot: 'article',
+        assignmentKey: 'article:balanced',
+      },
+      copyPromptVersion: 'frontaliere-social-copy-v2',
+    });
+    expect(socialCopyLedgerFields(selected)).toMatchObject({
+      copyAssignmentMode: 'firebase-balanced',
+      copyExperimentId: 'social-copy-balanced-v1',
+    });
+    const experimentHash = createHash('sha256').update('social-copy-balanced-v1').digest('hex').slice(0, 8);
+    expect(socialCopyTrackingContent('article', selected)).toContain('.' + selected?.id + '.b.' + experimentHash);
+    expect(socialCopyLedgerFields(selected)).not.toHaveProperty('copyAssignment');
+
+    let releasedAssignment: unknown;
+    await expect(releaseSocialCopyAssignment(selected, {
+      releaseBalancedImpl: async (assignment: unknown) => {
+        releasedAssignment = assignment;
+        return true;
+      },
+    })).resolves.toBe(true);
+    expect(releasedAssignment).toMatchObject({
+      experimentId: 'social-copy-balanced-v1',
+      channel: 'facebook',
+      slot: 'article',
+      assignmentKey: 'article:balanced',
+    });
+  });
+
+  it('keeps the stable variant and records degraded assignment when Firebase is unavailable', async () => {
+    const pack = normalizeSocialCopyPack({ channels: channels() });
+    const selected = await selectSocialCopyForPublish({
+      pack,
+      channel: 'telegram',
+      kind: 'job',
+      assignmentKey: 'job:firebase-unavailable',
+      experimentConfig: { schemaVersion: 1, experimentId: 'social-copy-balanced-v1', enabled: true },
+      assignBalancedImpl: async () => { throw new Error('permission denied'); },
+    });
+
+    expect(selected).toMatchObject({
+      copyMode: 'codex',
+      copyAssignmentMode: 'deterministic-fallback',
+      copyExperimentId: 'social-copy-balanced-v1',
+    });
+    expect(socialCopyLedgerFields(selected)).toMatchObject({
+      copyAssignmentMode: 'deterministic-fallback',
+      copyExperimentId: 'social-copy-balanced-v1',
+    });
+    const experimentHash = createHash('sha256').update('social-copy-balanced-v1').digest('hex').slice(0, 8);
+    expect(socialCopyTrackingContent('job', selected)).toContain('.' + selected?.id + '.f.' + experimentHash);
+  });
+
+  it('releases a balanced reservation only when the caller reports a certain pre-delivery skip', async () => {
+    const copy = {
+      copyAssignmentMode: 'firebase-balanced',
+      copyAssignment: {
+        experimentId: 'social-copy-balanced-v1',
+        packId: '0123456789abcdef',
+        channel: 'instagram',
+        slot: 'article',
+        objective: 'share',
+        assignmentKey: 'article:2026-10-01',
+      },
+    };
+    const releaseBalancedImpl = vi.fn(async () => true);
+
+    await expect(releaseUnpublishedSocialCopyAssignment(copy, {
+      releaseBalancedImpl,
+      reason: 'carousel assets did not render',
+    })).resolves.toBe(true);
+    expect(releaseBalancedImpl).toHaveBeenCalledWith(copy.copyAssignment);
+    await expect(releaseUnpublishedSocialCopyAssignment({ copyAssignmentMode: 'deterministic-fallback' }, {
+      releaseBalancedImpl,
+    })).resolves.toBe(false);
+  });
+
+  it('reports best-effort release failures without throwing past a batch publisher', async () => {
+    const copy = {
+      copyAssignmentMode: 'firebase-balanced',
+      copyAssignment: {
+        experimentId: 'social-copy-balanced-v1',
+        packId: '0123456789abcdef',
+        channel: 'facebook',
+        slot: 'event',
+        assignmentKey: 'event:1',
+      },
+    };
+    const failure = new Error('temporary Firestore error');
+    const onFailure = vi.fn();
+    const releaseBalancedImpl = vi.fn(async () => { throw failure; });
+
+    await expect(releaseUnpublishedSocialCopyAssignmentBestEffort(copy, {
+      releaseBalancedImpl,
+      onFailure,
+      reason: 'batch item was rejected',
+    })).resolves.toBe(false);
+    expect(releaseBalancedImpl).toHaveBeenCalledWith(copy.copyAssignment);
+    expect(onFailure).toHaveBeenCalledWith(failure);
+    await expect(releaseUnpublishedSocialCopyAssignmentBestEffort(
+      { copyAssignmentMode: 'deterministic-fallback' },
+    )).resolves.toBe(true);
+  });
+
+  it('does not write Firebase assignments while building a dry-run preview', async () => {
+    const pack = normalizeSocialCopyPack({ channels: channels() });
+    let assigned = false;
+    const selected = await selectSocialCopyForPublish({
+      pack,
+      channel: 'facebook',
+      kind: 'article',
+      assignmentKey: 'article:preview',
+      dryRun: true,
+      experimentConfig: { schemaVersion: 1, experimentId: 'social-copy-balanced-v1', enabled: true },
+      assignBalancedImpl: async () => {
+        assigned = true;
+        return { templateId: 'facebook-article-one' };
+      },
+    });
+
+    expect(assigned).toBe(false);
+    expect(selected?.copyAssignmentMode).toBe('deterministic');
+  });
+
   it('adds a compact variant id to UTM content while preserving legacy attribution', () => {
     const copy = {
       copyMode: 'codex',
@@ -176,7 +368,7 @@ describe('social copy pack', () => {
       copySlot: 'article',
       id: 'facebook-article-two',
     };
-    expect(socialCopyTrackingContent('article-a', copy)).toBe('article-a--cp0123456789abcdef-article.facebook-article-two');
+    expect(socialCopyTrackingContent('article-a', copy)).toBe('article-a--cp0123456789abcdef-article.facebook-article-two.d');
     expect(socialCopyTrackingContent('article-a', socialCopyLedgerFields(null))).toBe('article-a');
     expect(socialCopyTrackingContent('', copy)).toBe('');
     expect(socialCopyTrackingContent('article-a', { ...copy, copyPackId: 'bad' })).toBe('article-a');

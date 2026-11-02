@@ -20,6 +20,7 @@
  */
 import fs from 'node:fs';
 import { matchFirstQuotedLiteral } from './js-string-literal.mjs';
+import { TICINO_COMUNI_FAMILY_KEY } from './ticino-comune-employer-identity.mjs';
 
 /**
  * I prefissi si fermano PRIMA della virgoletta: il literal lo legge lo scanner
@@ -85,7 +86,7 @@ export function extractDeclaredIdentity(filePath) {
  */
 const NON_EMPLOYER_SLUGS = new Set([
   // Famiglia di crawler: il datore di ogni annuncio e' il singolo Comune.
-  'comuni-ticino',
+  TICINO_COMUNI_FAMILY_KEY,
   // A multi-employer feed: its slice names hundreds of companies, none of them
   // the crawler.
   'seco-jobroom',

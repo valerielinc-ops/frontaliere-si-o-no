@@ -10,13 +10,35 @@
     "jsonld"
   ],
   "seedMetaByUrl": {
-    "https://jobs.fust.ch/offene-stellen/lehrstelle-detailhandel-consumer-electronics-efz/39802c96-0250-4f8c-8ae4-220dfd2259b0": {
-      "location": "Suhr",
-      "canton": "AG",
-      "title": "Lehrstelle Detailhandel Consumer Electronics EFZ",
-      "sourceId": "10237486",
+    "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/1dffc971-791c-4d7f-8a98-3212ddf4945c": {
+      "location": "St. Margrethen",
+      "canton": "SG",
+      "title": "Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»",
+      "sourceId": "10247665",
       "company": "Fust",
       "contract": "A tempo determinato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/a8280c83-1f7c-4c4c-8333-890075871762": {
+      "location": "Oberbüren",
+      "canton": "SG",
+      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
+      "sourceId": "10247659",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrogrossgeraete/eb988db3-02d6-4ef7-a94f-555c7a333d12": {
+      "location": "Oberbüren",
+      "canton": "SG",
+      "title": "Werkstatt Techniker:in für Elektrogrossgeräte",
+      "sourceId": "10247653",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown"
@@ -758,28 +780,6 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrogrossgeraete/3b0804de-003e-44fa-8283-92126c23226f": {
-      "location": "Oberbüren",
-      "canton": "SG",
-      "title": "Werkstatt Techniker:in für Elektrogrossgeräte",
-      "sourceId": "10214858",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/c2cf94be-1343-44f9-8954-fb6157769c55": {
-      "location": "Oberbüren",
-      "canton": "SG",
-      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
-      "sourceId": "10214852",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-ersatzteilwesen/da34fbad-1c11-44da-a250-ed7e2d549c0f": {
       "location": "Oberbüren",
       "canton": "SG",
@@ -912,17 +912,6 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/dd78b216-7d42-44b0-b706-e7d97e9b73e2": {
-      "location": "St. Margrethen",
-      "canton": "SG",
-      "title": "Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»",
-      "sourceId": "10213946",
-      "company": "Fust",
-      "contract": "A tempo determinato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/f8abdbb5-bb43-495d-bb8a-c25f9fed5aad": {
       "location": "Oberbüren",
       "canton": "SG",
@@ -947,9 +936,11 @@
     }
   },
   "notes": "Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch expose JSON-LD JobPosting and source workplace metadata.",
-  "updatedAt": "2026-11-02T11:23:54.856Z",
+  "updatedAt": "2026-11-02T21:37:29.598Z",
   "seedDetailUrls": [
-    "https://jobs.fust.ch/offene-stellen/lehrstelle-detailhandel-consumer-electronics-efz/39802c96-0250-4f8c-8ae4-220dfd2259b0",
+    "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/1dffc971-791c-4d7f-8a98-3212ddf4945c",
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/a8280c83-1f7c-4c4c-8333-890075871762",
+    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrogrossgeraete/eb988db3-02d6-4ef7-a94f-555c7a333d12",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/9b170607-8546-4f88-a83a-97f8c5a62f85",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/da8070ea-9eaf-4691-b806-13df477bf874",
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/6e9bab01-71b7-4fa5-9317-f2c2f5478d32",
@@ -1017,8 +1008,6 @@
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/5ca4eb2e-e35b-423c-beef-300c6b0eca79",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/81609100-7555-4c70-873a-3ba95f4457f4",
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/c484b438-41f9-4102-a871-cd30d38ec8a1",
-    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrogrossgeraete/3b0804de-003e-44fa-8283-92126c23226f",
-    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/c2cf94be-1343-44f9-8954-fb6157769c55",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-ersatzteilwesen/da34fbad-1c11-44da-a250-ed7e2d549c0f",
     "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-settore-multimedia/9160be08-61b0-4001-ac94-442432d4d986",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/b9c1a6ce-9919-4a6a-ab41-b0ab02590df6",
@@ -1031,7 +1020,6 @@
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/2bb0f755-a953-4670-8127-946d2c11fd74",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/d7065bad-a274-4b3c-8699-a49af782fee9",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/591cb502-bac8-4332-874c-90b0eb22ddd6",
-    "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/dd78b216-7d42-44b0-b706-e7d97e9b73e2",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/f8abdbb5-bb43-495d-bb8a-c25f9fed5aad",
     "https://jobs.fust.ch/offene-stellen/logistiker-in-eba/63ff361b-f3bc-49aa-8492-e684739f9fa1"
   ]

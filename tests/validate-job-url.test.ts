@@ -1,5 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { validateJobUrl, validateJobUrls } from '../scripts/lib/validate-job-url.mjs';
+import {
+  toLinkedInGuestEndpoint,
+  validateJobUrl,
+  validateJobUrls,
+} from '../scripts/lib/validate-job-url.mjs';
 
 const ABB_EXPIRED_URL =
   'https://careers.abb/global/en/job/ABB1GLOBALJR00042364EXTERNALENGLOBAL/Logistics-Operator-IPU-B-S-f-m-d--80-100';
@@ -8,6 +12,15 @@ const ABB_LIVE_URL =
 
 afterEach(() => {
   vi.unstubAllGlobals();
+});
+
+describe('LinkedIn guest endpoint conversion', () => {
+  it('supports numeric and slugged job-view URLs with trailing slashes', () => {
+    expect(toLinkedInGuestEndpoint('https://www.linkedin.com/jobs/view/4477679281/'))
+      .toBe('https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4477679281');
+    expect(toLinkedInGuestEndpoint('https://ch.linkedin.com/jobs/view/senior-cloud-engineer-at-artificialy-4469725377/'))
+      .toBe('https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4469725377');
+  });
 });
 
 describe('validateJobUrl ABB closure banner', () => {

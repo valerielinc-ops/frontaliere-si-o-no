@@ -63,7 +63,8 @@ import {
 } from './lib/telegram-templates.mjs';
 import {
   loadSocialCopyPack,
-  selectSocialCopy,
+  releaseUnpublishedSocialCopyAssignment,
+  selectSocialCopyForPublish,
   socialCopyLedgerFields,
 } from './lib/social-copy-pack.mjs';
 
@@ -115,7 +116,7 @@ function itDateLabel(now) {
 }
 
 /** Build the message + (jobs mode) the ledger commit callback. */
-async function buildForMode(mode, { env, repoRoot, now, log, socialCopyPack = null }) {
+async function buildForMode(mode, { env, repoRoot, now, log, dryRun = false, socialCopyPack = null }) {
   if (mode === 'border') {
     // tsx-only path — dynamically imported so the jobs mode can stay on plain
     // `node` (this module transitively imports `.ts` files).
@@ -124,20 +125,30 @@ async function buildForMode(mode, { env, repoRoot, now, log, socialCopyPack = nu
     const todayIso = env.TODAY_ISO || now.toISOString().slice(0, 10);
     const ledgerPath = postedAnnouncementsPath(repoRoot);
     const ledger = loadLedger(ledgerPath);
-    const socialCopy = selectSocialCopy({
+    const copyAssignmentKey = telegramBorderCopyAssignmentKey(todayIso);
+    const socialCopy = await selectSocialCopyForPublish({
       pack: socialCopyPack,
       channel: 'telegram',
       kind: 'border',
-      assignmentKey: telegramBorderCopyAssignmentKey(todayIso),
+      assignmentKey: copyAssignmentKey,
+      dryRun,
     });
-    const { text, rankedCount, weekStart, weekEnd } = buildWeeklyBorderDigest({
-      historyDir,
-      todayIso,
-      socialCopy,
-    });
+    let digest;
+    try {
+      digest = buildWeeklyBorderDigest({ historyDir, todayIso, socialCopy });
+    } catch (err) {
+      await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+        reason: 'Telegram border digest failed before sending',
+      });
+      throw err;
+    }
+    const { text, rankedCount, weekStart, weekEnd } = digest;
     log('ℹ️', `border ranking: ${rankedCount} crossings ranked`);
     const id = 'border-ranking:' + weekStart;
     if (ledger.posted.some((entry) => entry?.id === id)) {
+      await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+        reason: 'Telegram border digest was already posted',
+      });
       log('ℹ️', 'border ranking already posted for ' + weekStart + ' — skipping');
       return { text: '', onSent: null };
     }
@@ -152,7 +163,13 @@ async function buildForMode(mode, { env, repoRoot, now, log, socialCopyPack = nu
       weekEnd,
       ...copyFields,
     }], POSTED_TRIM_LIMIT);
-    return { text, onSent };
+    return {
+      text,
+      onSent,
+      onNotSent: () => releaseUnpublishedSocialCopyAssignment(socialCopy, {
+        reason: 'Telegram border digest was not sent',
+      }),
+    };
   }
 
   if (mode === 'preferred-source') {
@@ -192,15 +209,29 @@ async function buildForMode(mode, { env, repoRoot, now, log, socialCopyPack = nu
   // Take a buffer (2×) so digest can drop any job without a resolvable URL and
   // still fill the shortlist.
   const candidates = selectUnpostedJobs(jobs, postedSet, limit * 2);
+  if (candidates.length === 0) {
+    log('ℹ️', 'no unposted Ticino jobs available');
+    return { text: '', onSent: null };
+  }
   const dateLabel = itDateLabel(now);
   const day = env.TODAY_ISO || now.toISOString().slice(0, 10);
-  const socialCopy = selectSocialCopy({
+  const socialCopy = await selectSocialCopyForPublish({
     pack: socialCopyPack,
     channel: 'telegram',
     kind: 'job',
     assignmentKey: 'jobs:' + day,
+    dryRun,
   });
-  const { text, jobIds } = buildDailyJobsDigest(candidates, { limit, dateLabel, socialCopy });
+  let digest;
+  try {
+    digest = buildDailyJobsDigest(candidates, { limit, dateLabel, socialCopy });
+  } catch (err) {
+    await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+      reason: 'Telegram jobs digest failed before sending',
+    });
+    throw err;
+  }
+  const { text, jobIds } = digest;
   const copyFields = socialCopyLedgerFields(socialCopy, {
     fallbackHook: 'Offerte di lavoro in Ticino',
     fallbackCta: 'Tutte le offerte in Ticino',
@@ -217,7 +248,13 @@ async function buildForMode(mode, { env, repoRoot, now, log, socialCopyPack = nu
         )
     : null;
 
-  return { text, onSent };
+  return {
+    text,
+    onSent,
+    onNotSent: () => releaseUnpublishedSocialCopyAssignment(socialCopy, {
+      reason: 'Telegram jobs digest was not sent',
+    }),
+  };
 }
 
 async function main() {
@@ -243,10 +280,11 @@ async function main() {
 
   log('📣', `Telegram broadcast — mode=${mode}, send=${!dryRun}`);
 
-  const { text, onSent } = await buildForMode(mode, { env, repoRoot, now, log, socialCopyPack });
+  const { text, onSent, onNotSent } = await buildForMode(mode, { env, repoRoot, now, log, dryRun, socialCopyPack });
 
   if (!text) {
     log('ℹ️', 'nothing to post this run — exiting');
+    await onNotSent?.();
     return;
   }
 
@@ -256,11 +294,13 @@ async function main() {
 
   if (dryRun) {
     log('🏃', 'preview only (dry-run) — not posting. Pass --send (or TELEGRAM_SEND=1) to post for real.');
+    await onNotSent?.();
     return;
   }
 
   if (!hasTelegramCredentials(env)) {
     log('⚠️', 'TELEGRAM_BOT_TOKEN / TELEGRAM_CHANNEL_ID not set — skipping send (channel not yet configured).');
+    await onNotSent?.();
     return;
   }
 
@@ -271,6 +311,9 @@ async function main() {
     if (onSent) onSent();
   } else {
     log('⚠️', `Telegram send failed: ${res.error}`);
+    if (!res.deliveryUncertain) {
+      await onNotSent?.();
+    }
   }
 }
 

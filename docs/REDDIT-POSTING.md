@@ -16,7 +16,7 @@ Si rapporta al workflow Facebook così: condivide lo stesso punto di ancoraggio 
 | File | Ruolo |
 |------|-------|
 | `scripts/lib/reddit-client.mjs` | Client OAuth2 di Reddit: grant via refresh-token (preferito) con fallback al password-grant per "script app"; token endpoint in Basic-auth; header `User-Agent` obbligatorio. |
-| `scripts/lib/reddit-templates.mjs` | Builder dei post in italiano (titolo + corpo markdown per le offerte, titolo + link per gli articoli). |
+| `scripts/lib/reddit-templates.mjs` | Builder dei post in italiano (offerte e articoli); quando il copy pack è valido applica hook/CTA, disclosure e link tracciato. |
 | `data/reddit-subreddits.json` | Configurazione dei subreddit: `displayName`, `topics`, `allowsAutomation`, `flairId`, `flairText`, `rulesUrl`, `minPostIntervalHours`, `notes`, più `routing` per `jobs`/`articles`. Solo `frontaliere` (community propria) ha `allowsAutomation: true` di default; `FrontaliereTicino` è un secondo canale proprio pronto da attivare. |
 | `scripts/post-to-reddit.mjs` | Pubblicazione di un singolo **articolo**. CLI: `node scripts/post-to-reddit.mjs <article-id> <article-url> <og-title> <og-description> [category] [--dry-run]`. Soft-fail (exit 0). |
 | `scripts/schedule-reddit-jobs-daily.mjs` | Pubblicazione giornaliera delle **offerte**. Env: `REDDIT_JOB_VOLUME` (default 2), `REDDIT_POST_DELAY_MS` (default 5000), `DRY_RUN`. Aggiorna `data/reddit-posted-jobs.json`. |
@@ -24,6 +24,7 @@ Si rapporta al workflow Facebook così: condivide lo stesso punto di ancoraggio 
 | `.github/workflows/reddit-jobs-daily-schedule.yml` | Cron giornaliero (`45 13 * * *`) + `workflow_dispatch` che lancia lo scheduler dei job. |
 | `.github/workflows/post-deploy-publish.yml` | Contiene lo step "Post to Reddit Communities" per gli articoli (dopo lo step LinkedIn). |
 | `data/reddit-posted-jobs.json` | Ledger dei job già pubblicati (dedup per id). |
+| `data/reddit-posted-articles.json` | Ricevute articolo per subreddit, con ID/URL del post e attribuzione del copy Codex; deduplica i rerun per coppia articolo/subreddit e il workflow post-deploy lo committa con resolver dei conflitti. |
 
 ## Setup OAuth Reddit (passi manuali)
 
@@ -58,6 +59,7 @@ Imposta questi parametri in Firebase Remote Config (i secret con prefisso `SERVE
 
 | Parametro RC | Env var | Tipo |
 |--------------|---------|------|
+| `REDDIT_DATA_API_APPROVED` | `REDDIT_DATA_API_APPROVED` | switch: `true` solo dopo approvazione esplicita scritta di Reddit |
 | `REDDIT_CLIENT_ID` | `REDDIT_CLIENT_ID` | client-visible |
 | `SERVER_REDDIT_CLIENT_SECRET` | `REDDIT_CLIENT_SECRET` | secret |
 | `REDDIT_USERNAME` | `REDDIT_USERNAME` | client-visible |
@@ -90,8 +92,8 @@ Il canale sicuro e controllato è un subreddit di nostra proprietà:
 
 ## Logging / tracking
 
-- **Ledger `data/reddit-posted-jobs.json`.** Tiene traccia dei job già pubblicati per dedup **per job id**: un'offerta viene pubblicata una sola volta. Ogni entry registra il subreddit di destinazione e il **reddit post id** restituito dall'API.
-- **Resolver dei conflitti.** `scripts/lib/resolve-reddit-posted-jobs-conflict.mjs` è un merge-driver che unisce le entry per id quando un altro commit aggiorna il ledger su `main` mentre il workflow è in corso (es. un workflow articoli concorrente). Senza di esso il push fallirebbe e il ledger andrebbe fuori sincrono rispetto a ciò che è stato realmente pubblicato. Il workflow lo invoca via `git-push-with-retry.sh --in-place-resolver-cmd`.
+- **Ledger dei job e degli articoli.** `data/reddit-posted-jobs.json` deduplica i job per id; `data/reddit-posted-articles.json` deduplica gli articoli per coppia id/subreddit. Entrambi conservano il **reddit post id** restituito dall'API e i dati di attribuzione del copy.
+- **Resolver dei conflitti.** `scripts/lib/resolve-reddit-posted-jobs-conflict.mjs` unisce le entry per coppia id/subreddit quando un altro commit aggiorna il ledger su `main` mentre il workflow è in corso. Senza di esso il push fallirebbe e il ledger andrebbe fuori sincrono rispetto a ciò che è stato realmente pubblicato. Il workflow lo invoca via `git-push-with-retry.sh --in-place-resolver-cmd`.
 
 ## Esecuzione
 
@@ -152,7 +154,7 @@ https://frontaliereticino.ch/blog/richiesta-permesso-g-step-by-step-2026
 - **Rischio anti-spam / ban.** Volume alto, mancato rispetto della regola 9:1 o posting in subreddit non consenzienti possono portare a shadowban o ban dell'account.
 - **Nessuno scheduling nativo.** A differenza di Facebook, Reddit pubblica subito: il throttling è solo client-side (volume basso + delay).
 - **Dipendenza dall'approvazione dei mod.** L'espansione oltre r/frontaliere richiede il permesso esplicito dei moderatori di ogni subreddit.
-- **Approvazione Data API (Responsible Builder Policy, dal 11-nov-2025): RICHIESTA NEGATA il 2026-08-24.** Reddit richiede l'approvazione preventiva di una *Data Access Request* prima di poter creare l'app API (anche script/personale). La richiesta è stata sottomessa e **rifiutata**: non è una coda in attesa, è una risposta arrivata. `REDDIT_CLIENT_ID` / `SERVER_REDDIT_CLIENT_SECRET` **non arriveranno mai per questa strada**, e ogni run di `reddit-jobs-daily-schedule.yml` è quindi un soft-skip garantito, non un tentativo con qualche probabilità di riuscita.
+- **Approvazione Data API: richiesta negata il 2026-08-24.** Le credenziali da sole non autorizzano l'accesso. `getAccessToken()` e `submitPost()` restano fail-closed finché `REDDIT_DATA_API_APPROVED=true` non viene impostato dopo una nuova approvazione esplicita e scritta di Reddit. Non impostare il marker sulla base della sola disponibilità di token o credenziali.
 
   Questa riga è la ragione per cui il verdetto del canale Reddit in `scripts/lib/social-readiness.mjs` è `path-refused` e non `awaiting-external-approval`: le due cose si gestiscono in modo opposto — su una si aspetta, sull'altra si cambia strada.
 

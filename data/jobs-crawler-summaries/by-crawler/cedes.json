@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-11-02T09:44:23.096Z",
+  "generatedAt": "2026-11-02T21:27:32.756Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5452,
-  "avgDurationMs": 5452,
+  "durationMs": 4601,
+  "avgDurationMs": 4601,
   "durationHistory": [
-    5452
+    4601
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:44:03.139Z",
+      "crawledAt": "2026-11-02T21:27:15.758Z",
       "firstSeenAt": "2026-10-27T21:19:40.726Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -54,11 +54,12 @@
         "postalCode": "7302",
         "addressLocality": "Landquart",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:02.284Z"
+        "checkedAt": "2026-10-31T20:48:02.284Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:44:03.139Z",
+      "validThrough": "2027-01-25T21:27:15.758Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -92,7 +93,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:44:02.795Z",
+      "crawledAt": "2026-11-02T21:27:15.471Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -106,11 +107,12 @@
         "postalCode": "7302",
         "addressLocality": "Landquart",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:02.284Z"
+        "checkedAt": "2026-10-31T20:48:02.284Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T09:44:02.795Z",
+      "validThrough": "2027-01-07T21:27:15.471Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -144,7 +146,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:44:02.488Z",
+      "crawledAt": "2026-11-02T21:27:15.142Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -158,11 +160,12 @@
         "postalCode": "7302",
         "addressLocality": "Landquart",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:02.284Z"
+        "checkedAt": "2026-10-31T20:48:02.284Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T09:44:02.488Z",
+      "validThrough": "2026-12-02T21:27:15.142Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -173,5 +176,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

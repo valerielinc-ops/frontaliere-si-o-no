@@ -1,7 +1,7 @@
 {
   "key": "buergenstock-hotels",
   "label": "Bürgenstock Hotels AG",
-  "generatedAt": "2026-11-02T11:12:04.888Z",
+  "generatedAt": "2026-11-02T21:54:53.881Z",
   "total": 43,
   "discovered": null,
   "parsed": 43,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 42,
-  "durationMs": 33700,
-  "avgDurationMs": 33700,
+  "durationMs": 34726,
+  "avgDurationMs": 34726,
   "durationHistory": [
-    33700
+    34726
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "buergenstock-hotels-3c7978d9e84d",
       "slug": "stewards-100-m-f-d-burgenstock-hotels-ag-obburgen",
@@ -29,13 +30,13 @@
       "companyKey": "buergenstock-hotels",
       "companyDomain": "buergenstock.ch",
       "title": "Stewardingmitarbeiter 100% (m/w/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1577/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:24.878Z",
+      "crawledAt": "2026-11-02T21:54:08.478Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -52,6 +53,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1577/Application/CheckLogin/1",
+      "firstSeenAt": "2026-09-24T00:11:47.644Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -63,23 +65,22 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T11:11:24.878Z",
+      "validThrough": "2026-12-23T21:54:08.478Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T00:11:47.644Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -95,7 +96,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1542/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:51.825Z",
+      "crawledAt": "2026-11-02T21:54:35.426Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -124,11 +125,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:51.825Z",
+      "validThrough": "2026-12-02T21:54:35.426Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -150,7 +152,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1544/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:50.823Z",
+      "crawledAt": "2026-11-02T21:54:34.417Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -179,11 +181,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:50.823Z",
+      "validThrough": "2026-12-02T21:54:34.417Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -205,7 +208,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:49.822Z",
+      "crawledAt": "2026-11-02T21:54:33.629Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -234,11 +237,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:49.822Z",
+      "validThrough": "2026-12-02T21:54:33.629Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -260,7 +264,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1471/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:48.822Z",
+      "crawledAt": "2026-11-02T21:54:32.638Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -289,11 +293,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:48.822Z",
+      "validThrough": "2026-12-02T21:54:32.638Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -316,7 +321,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1573/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:48.041Z",
+      "crawledAt": "2026-11-02T21:54:31.404Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -345,11 +350,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T11:11:48.041Z",
+      "validThrough": "2026-12-19T21:54:31.404Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -372,7 +378,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1575/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:46.821Z",
+      "crawledAt": "2026-11-02T21:54:30.434Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -401,11 +407,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T11:11:46.821Z",
+      "validThrough": "2026-12-19T21:54:30.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -428,7 +435,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1572/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:45.824Z",
+      "crawledAt": "2026-11-02T21:54:29.421Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -460,11 +467,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T11:11:45.824Z",
+      "validThrough": "2026-12-23T21:54:29.421Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -487,7 +495,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1576/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:44.826Z",
+      "crawledAt": "2026-11-02T21:54:28.419Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -516,11 +524,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T11:11:44.826Z",
+      "validThrough": "2026-12-23T21:54:28.419Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -542,7 +551,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1578/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:43.822Z",
+      "crawledAt": "2026-11-02T21:54:27.416Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -571,11 +580,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T11:11:43.822Z",
+      "validThrough": "2026-12-24T21:54:27.416Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -597,7 +607,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1550/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:43.102Z",
+      "crawledAt": "2026-11-02T21:54:26.421Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -626,11 +636,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:43.102Z",
+      "validThrough": "2026-12-02T21:54:26.421Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -652,7 +663,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1552/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:42.052Z",
+      "crawledAt": "2026-11-02T21:54:25.833Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -681,11 +692,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:42.052Z",
+      "validThrough": "2026-12-02T21:54:25.833Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -707,7 +719,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1553/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:41.034Z",
+      "crawledAt": "2026-11-02T21:54:25.374Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -736,11 +748,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:41.034Z",
+      "validThrough": "2026-12-02T21:54:25.374Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -762,7 +775,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1554/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:40.055Z",
+      "crawledAt": "2026-11-02T21:54:24.899Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -791,11 +804,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:40.055Z",
+      "validThrough": "2026-12-02T21:54:24.899Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -817,7 +831,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1555/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:39.052Z",
+      "crawledAt": "2026-11-02T21:54:24.432Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -846,11 +860,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:39.052Z",
+      "validThrough": "2026-12-02T21:54:24.432Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -872,7 +887,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1556/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:37.969Z",
+      "crawledAt": "2026-11-02T21:54:23.958Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -901,11 +916,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:37.969Z",
+      "validThrough": "2026-12-02T21:54:23.958Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -928,7 +944,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1557/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:37.345Z",
+      "crawledAt": "2026-11-02T21:54:23.481Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -957,11 +973,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:37.345Z",
+      "validThrough": "2026-12-02T21:54:23.481Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -983,7 +1000,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1559/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:36.715Z",
+      "crawledAt": "2026-11-02T21:54:23.024Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1012,11 +1029,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:36.715Z",
+      "validThrough": "2026-12-02T21:54:23.024Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1039,7 +1057,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1508/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:36.088Z",
+      "crawledAt": "2026-11-02T21:54:22.292Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1068,11 +1086,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T11:11:36.088Z",
+      "validThrough": "2027-01-03T21:54:22.292Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1095,7 +1114,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1579/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:35.562Z",
+      "crawledAt": "2026-11-02T21:54:21.626Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1124,11 +1143,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T11:11:35.562Z",
+      "validThrough": "2027-01-04T21:54:21.626Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1150,7 +1170,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1423/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:35.152Z",
+      "crawledAt": "2026-11-02T21:54:21.251Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1179,11 +1199,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T11:11:35.152Z",
+      "validThrough": "2027-01-10T21:54:21.251Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -1206,7 +1227,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1581/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:34.650Z",
+      "crawledAt": "2026-11-02T21:54:20.564Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1235,11 +1256,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T11:11:34.650Z",
+      "validThrough": "2027-01-13T21:54:20.564Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1262,7 +1284,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1586/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:34.252Z",
+      "crawledAt": "2026-11-02T21:54:19.893Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1291,11 +1313,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T11:11:34.252Z",
+      "validThrough": "2027-01-13T21:54:19.893Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1317,7 +1340,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1585/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:33.855Z",
+      "crawledAt": "2026-11-02T21:54:19.428Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1346,11 +1369,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T11:11:33.855Z",
+      "validThrough": "2027-01-13T21:54:19.428Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1372,7 +1396,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/615/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:33.445Z",
+      "crawledAt": "2026-11-02T21:54:18.737Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1401,11 +1425,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:33.445Z",
+      "validThrough": "2026-12-02T21:54:18.737Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1427,7 +1452,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1588/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:33.043Z",
+      "crawledAt": "2026-11-02T21:54:18.037Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1456,11 +1481,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:33.043Z",
+      "validThrough": "2026-12-02T21:54:18.037Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1482,7 +1508,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1591/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:32.644Z",
+      "crawledAt": "2026-11-02T21:54:17.307Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1511,11 +1537,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:32.644Z",
+      "validThrough": "2026-12-02T21:54:17.307Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1537,7 +1564,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1583/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:32.256Z",
+      "crawledAt": "2026-11-02T21:54:16.615Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1566,11 +1593,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-19T11:11:32.256Z",
+      "validThrough": "2027-01-19T21:54:16.615Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1592,7 +1620,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1580/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:31.737Z",
+      "crawledAt": "2026-11-02T21:54:15.896Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1621,11 +1649,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:31.737Z",
+      "validThrough": "2026-12-02T21:54:15.896Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1648,7 +1677,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1574/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:31.214Z",
+      "crawledAt": "2026-11-02T21:54:15.231Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1677,11 +1706,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T11:11:31.214Z",
+      "validThrough": "2026-12-19T21:54:15.231Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1703,7 +1733,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:11:30.812Z",
+      "crawledAt": "2026-11-02T21:54:14.560Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1732,11 +1762,12 @@
         "postalCode": "6363",
         "addressLocality": "Obbürgen",
         "addressRegion": "NW",
-        "checkedAt": "2026-10-31T20:48:01.786Z"
+        "checkedAt": "2026-10-31T20:48:01.786Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bürgenstock 17",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T11:11:30.812Z",
+      "validThrough": "2026-12-02T21:54:14.560Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1747,5 +1778,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

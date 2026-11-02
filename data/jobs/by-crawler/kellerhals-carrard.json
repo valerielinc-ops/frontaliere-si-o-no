@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-11-02T11:27:12.764Z",
-  "runId": "41420122803",
+  "assembledAt": "2026-11-02T21:57:31.821Z",
+  "runId": "41527780478",
   "jobs": [
     {
       "id": "kellerhals-carrard-888f2661dce3",
@@ -34,7 +34,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2868809",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:27:04.187Z",
+      "crawledAt": "2026-11-02T21:57:17.294Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T11:27:04.187Z",
+      "validThrough": "2027-01-28T21:57:17.294Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2867737",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:27:03.935Z",
+      "crawledAt": "2026-11-02T21:57:16.986Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T11:27:03.935Z",
+      "validThrough": "2027-01-27T21:57:16.986Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -198,7 +198,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2807915",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:27:03.596Z",
+      "crawledAt": "2026-11-02T21:57:16.682Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T11:27:03.596Z",
+      "validThrough": "2026-12-21T21:57:16.682Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -282,7 +282,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2791565",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:27:03.353Z",
+      "crawledAt": "2026-11-02T21:57:16.397Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T11:27:03.353Z",
+      "validThrough": "2026-12-28T21:57:16.397Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +360,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:27:03.066Z",
+      "crawledAt": "2026-11-02T21:57:15.689Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -395,85 +395,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:27:03.066Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "kellerhals-carrard-59cb2c47bf96",
-      "slug": "programma-di-tirocinio-estivo-stage-brevi-kellerhals-carrard-zurich",
-      "slugByLocale": {
-        "it": "programma-di-tirocinio-estivo-stage-brevi-kellerhals-carrard-zurich",
-        "en": "summer-trainee-program-short-internships-kellerhals-carrard-zurich",
-        "de": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich",
-        "fr": "programme-de-stagiaires-d-ete-stages-de-courte-duree-kellerhals-carrard-zurich"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Summer Trainee Programm / Kurzpraktika",
-      "titleByLocale": {
-        "it": "Programma di tirocinio estivo / stage brevi",
-        "en": "Summer Trainee Program / Short Internships",
-        "de": "Summer Trainee Programm / Kurzpraktika",
-        "fr": "Programme de stagiaires d'été / Stages de courte durée"
-      },
-      "description": "## \n• Ihre Hauptaufgaben\n\nWollen Sie Einblick in die Arbeitswelt einer Wirtschaftskanzlei gewinnen und praktische Erfahrungen sammeln?\n\nAm Standort Zürich bieten wir Studierenden der Rechtswissenschaft an einer Schweizer Universität mit abgeschlossenem Bachelor-Studium die Gelegenheit, praktische Erfahrungen in unserer Kanzlei zu sammeln.\n\n## Was Sie mitbringen\n\nAls Summer Trainee unterstützen Sie unsere Partnerinnen und Partner und deren Teams während 5 Wochen. Sie beteiligen sich an der Bearbeitung aktueller Mandate und werden im Team an geeigneten Lösungsansätzen feilen. Ausserdem nehmen Sie an Workshops, Vorträgen und speziell auf Sie zugeschnittenen Veranstaltungen teil. Unsere Anwältinnen und Anwälte beantworten Ihnen alle Fragen, die Sie schon immer interessiert haben, so dass Sie eine genaue Vorstellung davon erhalten, wie es in einer Wirtschaftskanzlei zu und her geht.\n\n## Was wir Ihnen bieten\n\nFreie Plätze ab Sommer 2027 . Bewerbungen werden zwischen Anfang August 2026 und Ende Oktober 2026 entgegengenommen. Die Auswahl erfolgt grundsätzlich im November 2026.\n\nWenn Sie an einem Praktikum bei uns interessiert sind, freuen wir uns über Ihre Bewerbung.\n\n## Über uns\n\nWir sind eine führende, schweizweit präsente Anwaltskanzlei mit Standorten in Basel, Bern, Genf, Lausanne/Sion, Lugano und Zürich sowie international in Shanghai und Tokyo. Wir beraten anspruchsvolle nationale und internationale Kundinnen und Kunden – Unternehmen, Organisationen und Privatpersonen – äusserst kompetent in sämtlichen Rechtsfragen.",
-      "descriptionByLocale": {
-        "it": "##\n• I loro compiti principali\n\nVuoi ottenere informazioni sul mondo del lavoro di uno studio legale commerciale e acquisire esperienza pratica?\n\nPresso la sede di Zurigo, offriamo agli studenti di diritto presso un'università svizzera con un diploma di laurea completato l'opportunità di acquisire esperienza pratica nel nostro studio legale.\n\n## Cosa porti\n\nCome apprendista estivo supporti i nostri partner e i loro team per 5 settimane. Partecipano al trattamento dei mandati attuali e lavoreranno su soluzioni adeguate nel team. Parteciperete anche a workshop, conferenze e eventi appositamente personalizzati. I nostri avvocati risponderanno a tutte le domande che ti hanno sempre interessato, in modo da poter ottenere un'idea accurata di come le imprese di diritto commerciale stanno facendo.\n\n## Cosa ti offriamo\n\nLuoghi liberi dall'estate 2027 . Le domande saranno ricevute tra l'inizio di agosto 2026 e la fine di ottobre 2026. La selezione si svolgerà generalmente nel novembre 2026.\n\nSe siete interessati a uno stage con noi, non vediamo l'ora della vostra applicazione.\n\n## Informazioni su di noi\n\nSiamo uno studio legale svizzero leader con uffici a Basilea, Berna, Ginevra, Losanna/Sion, Lugano e Zurigo, nonché a livello internazionale a Shanghai e Tokyo. Noi consigliamo clienti nazionali e internazionali – aziende, organizzazioni e privati – in modo altamente competente in tutte le questioni legali.",
-        "en": "##\n• Their main tasks\n\nDo you want to gain insight into the working world of a commercial law firm and gain practical experience?\n\nAt the Zurich location, we offer students of law at a Swiss university with a completed bachelor’s degree the opportunity to gain practical experience in our law firm.\n\n## What you bring\n\nAs a summer trainee you support our partners and their teams for 5 weeks. They participate in the processing of current mandates and will work on suitable solutions in the team. You will also participate in workshops, lectures and specially tailored events. Our lawyers will answer all questions that have always interested you, so that you can get an accurate idea of how business law firms are doing.\n\n## What we offer you\n\nFree places from summer 2027 . Applications will be received between the beginning of August 2026 and the end of October 2026. The selection will generally take place in November 2026.\n\nIf you are interested in an internship with us, we look forward to your application.\n\n## About us\n\nWe are a leading Swiss law firm with offices in Basel, Bern, Geneva, Lausanne/Sion, Lugano and Zurich as well as internationally in Shanghai and Tokyo. We advise discerning national and international customers – companies, organisations and private individuals – in a highly competent manner in all legal matters.",
-        "de": "## \n• Ihre Hauptaufgaben\n\nWollen Sie Einblick in die Arbeitswelt einer Wirtschaftskanzlei gewinnen und praktische Erfahrungen sammeln?\n\nAm Standort Zürich bieten wir Studierenden der Rechtswissenschaft an einer Schweizer Universität mit abgeschlossenem Bachelor-Studium die Gelegenheit, praktische Erfahrungen in unserer Kanzlei zu sammeln.\n\n## Was Sie mitbringen\n\nAls Summer Trainee unterstützen Sie unsere Partnerinnen und Partner und deren Teams während 5 Wochen. Sie beteiligen sich an der Bearbeitung aktueller Mandate und werden im Team an geeigneten Lösungsansätzen feilen. Ausserdem nehmen Sie an Workshops, Vorträgen und speziell auf Sie zugeschnittenen Veranstaltungen teil. Unsere Anwältinnen und Anwälte beantworten Ihnen alle Fragen, die Sie schon immer interessiert haben, so dass Sie eine genaue Vorstellung davon erhalten, wie es in einer Wirtschaftskanzlei zu und her geht.\n\n## Was wir Ihnen bieten\n\nFreie Plätze ab Sommer 2027 . Bewerbungen werden zwischen Anfang August 2026 und Ende Oktober 2026 entgegengenommen. Die Auswahl erfolgt grundsätzlich im November 2026.\n\nWenn Sie an einem Praktikum bei uns interessiert sind, freuen wir uns über Ihre Bewerbung.\n\n## Über uns\n\nWir sind eine führende, schweizweit präsente Anwaltskanzlei mit Standorten in Basel, Bern, Genf, Lausanne/Sion, Lugano und Zürich sowie international in Shanghai und Tokyo. Wir beraten anspruchsvolle nationale und internationale Kundinnen und Kunden – Unternehmen, Organisationen und Privatpersonen – äusserst kompetent in sämtlichen Rechtsfragen.",
-        "fr": "##\n• Leurs principales tâches\n\nVoulez-vous acquérir un aperçu du monde du travail d'un cabinet d'avocats commerciaux et acquérir une expérience pratique?\n\nSur le site de Zurich, nous offrons aux étudiants en droit d'une université suisse avec un baccalauréat complet de la possibilité d'acquérir une expérience pratique dans notre cabinet d'avocats.\n\n## Ce que vous apportez\n\nEn tant que stagiaire d'été, vous aidez nos partenaires et leurs équipes pendant 5 semaines. Ils participent au traitement des mandats actuels et travailleront à des solutions appropriées au sein de l'équipe. Vous participerez également à des ateliers, des conférences et des événements spécialement adaptés. Nos avocats répondront à toutes les questions qui vous ont toujours intéressé, afin que vous puissiez avoir une idée précise de la façon dont les cabinets d'avocats d'affaires font.\n\n## Ce que nous vous offrons\n\nPlaces gratuites à partir de l'été 2027 . Les demandes seront reçues entre le début d'août 2026 et la fin d'octobre 2026. La sélection aura généralement lieu en novembre 2026.\n\nSi vous êtes intéressé par un stage chez nous, nous attendons avec impatience votre candidature.\n\n## Sur nous\n\nNous sommes un cabinet d'avocats suisse de premier plan avec des bureaux à Bâle, Berne, Genève, Lausanne/Sion, Lugano et Zurich ainsi qu'à Shanghai et Tokyo. Nous conseillons des clients nationaux et internationaux exigeants – entreprises, organisations et particuliers – d'une manière hautement compétente en matière juridique."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:27:02.755Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-25",
-      "postedDate": "2026-03-25",
-      "postingDateSource": "reported",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.186Z",
-      "salaryMin": 68000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:27:02.755Z",
+      "validThrough": "2026-12-02T21:57:15.689Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -507,7 +429,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2437629",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:27:01.877Z",
+      "crawledAt": "2026-11-02T21:57:15.289Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -568,7 +490,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T11:27:01.877Z",
+      "validThrough": "2026-12-06T21:57:15.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -602,7 +524,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:27:01.083Z",
+      "crawledAt": "2026-11-02T21:57:15.003Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -645,7 +567,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:27:01.083Z",
+      "validThrough": "2026-12-02T21:57:15.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -679,7 +601,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:27:00.811Z",
+      "crawledAt": "2026-11-02T21:57:14.745Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -722,7 +644,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:27:00.811Z",
+      "validThrough": "2026-12-02T21:57:14.745Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -756,7 +678,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:27:00.522Z",
+      "crawledAt": "2026-11-02T21:57:14.017Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -800,7 +722,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:27:00.522Z",
+      "validThrough": "2026-12-02T21:57:14.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -834,7 +756,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:26:59.682Z",
+      "crawledAt": "2026-11-02T21:57:13.703Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -877,7 +799,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:26:59.682Z",
+      "validThrough": "2026-12-02T21:57:13.703Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -911,7 +833,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:26:58.929Z",
+      "crawledAt": "2026-11-02T21:57:12.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -955,7 +877,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:26:58.929Z",
+      "validThrough": "2026-12-02T21:57:12.665Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -989,7 +911,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:26:58.625Z",
+      "crawledAt": "2026-11-02T21:57:11.876Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1043,7 +965,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:26:58.625Z",
+      "validThrough": "2026-12-02T21:57:11.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1077,7 +999,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:26:57.731Z",
+      "crawledAt": "2026-11-02T21:57:10.999Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1120,7 +1042,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:26:57.731Z",
+      "validThrough": "2026-12-02T21:57:10.999Z",
       "validThroughSource": "last-observed-window"
     }
   ]

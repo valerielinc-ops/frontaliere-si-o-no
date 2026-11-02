@@ -40,7 +40,7 @@ const A = "['’]"; // apostrophe, ASCII or typographic
 // (`‘Chef d’équipe’`). An internal mark needs a letter or digit on at least
 // one side (`‘rock ’n’ roll’`); the closing quote stays unambiguous because
 // the surrounding pattern requires « to/into/from …» right after it. Double and angle quotes close on their own mark.
-const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'(?:[^'\n]|(?<=[\p{L}\p{N}])'|'(?=[\p{L}\p{N}])){1,160}'|‘(?:[^’\n]|(?<=[\p{L}\p{N}])’|’(?=[\p{L}\p{N}])){1,160}’)`;
+const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'(?:[^'\n]|[\p{L}\p{N}]'|'(?=[\p{L}\p{N}])){1,160}'|‘(?:[^’\n]|[\p{L}\p{N}]’|’(?=[\p{L}\p{N}])){1,160}’)`;
 
 // What a clarification request is ABOUT: the input the model was handed (the
 // title, the text, the message, the translation, the job data…), after at most

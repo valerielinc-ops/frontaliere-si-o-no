@@ -34,7 +34,7 @@ import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT, GRAPH_API } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -211,7 +211,7 @@ export function buildWeekendDigestCaption(events, todayIso, canton = 'TI', socia
  * Returns `[]` when there is nothing left to post (no weekend events at all,
  * or every canton with weekend events already posted this weekend).
  */
-export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = MAX_VOLUME, { socialCopyFor = null } = {}) {
+export async function selectWeekendDigests(events, todayIso, postedSet, maxCantons = MAX_VOLUME, { socialCopyFor = null } = {}) {
   const { start } = weekendWindow(todayIso);
   const weekend = weekendEvents(events, todayIso);
   if (weekend.length === 0) return [];
@@ -245,10 +245,10 @@ export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = M
     })
     .slice(0, Math.max(0, maxCantons | 0));
 
-  return cantons.map((canton) => {
+  return Promise.all(cantons.map(async (canton) => {
     const cantonEvents = byCanton.get(canton);
     const id = canton === 'TI' ? `weekend-digest-${start}` : `weekend-digest-${canton}-${start}`;
-    const socialCopy = typeof socialCopyFor === 'function' ? socialCopyFor({ id, canton, events: cantonEvents }) : null;
+    const socialCopy = typeof socialCopyFor === 'function' ? await socialCopyFor({ id, canton, events: cantonEvents }) : null;
     return {
       id,
       url: buildWeekendDigestUrl(canton),
@@ -261,7 +261,7 @@ export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = M
       // already covered (keeps the "no flooding" guarantee across the weekend).
       coveredIds: cantonEvents.map((e) => e?.id).filter(Boolean),
     };
-  });
+  }));
 }
 
 /**
@@ -272,6 +272,8 @@ export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = M
  * @param {(...a: unknown[]) => void} [opts.log]
  * @param {(...a: unknown[]) => void} [opts.warn]
  * @param {string} [opts.todayIso]
+ * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
+ * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -282,6 +284,21 @@ export async function run(opts = {}) {
   const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
     onWarning: (message) => warn('⚠️', message),
   });
+  const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
+  const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
+  const copyReservations = new Map();
+  const releaseReservation = async (id, reason) => {
+    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
+      releaseBalancedImpl: releaseSocialCopy,
+      reason,
+      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
+    });
+    if (released) copyReservations.delete(id);
+    return released;
+  };
+  const releaseAllReservations = async (reason) => {
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
+  };
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const volume = Math.min(MAX_VOLUME, Math.max(1, Number(env.FB_EVENT_VOLUME) || DEFAULT_VOLUME));
@@ -333,13 +350,18 @@ export async function run(opts = {}) {
   if (isDigestDay) {
     const weekend = weekendEvents(dataset.events, todayIso);
     if (weekend.length > 0) {
-      digestsThisRun = selectWeekendDigests(dataset.events, todayIso, postedSet, volume, {
-        socialCopyFor: ({ id }) => selectSocialCopy({
-          pack: socialCopyPack,
-          channel: 'facebook',
-          kind: 'digest',
-          assignmentKey: id,
-        }),
+      digestsThisRun = await selectWeekendDigests(dataset.events, todayIso, postedSet, volume, {
+        socialCopyFor: async ({ id }) => {
+          const socialCopy = await selectSocialCopy({
+            pack: socialCopyPack,
+            channel: 'facebook',
+            kind: 'digest',
+            assignmentKey: id,
+            dryRun,
+          });
+          copyReservations.set(id, socialCopy);
+          return socialCopy;
+        },
       });
       if (digestsThisRun.length === 0) {
         log('ℹ️', `weekend digest(s) already posted for weekend-${weekendStart} — staying silent`);
@@ -355,13 +377,15 @@ export async function run(opts = {}) {
     payloads = digestsThisRun;
   } else {
     const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
-    payloads = candidates.map((event) => {
-      const socialCopy = selectSocialCopy({
+    payloads = await Promise.all(candidates.map(async (event) => {
+      const socialCopy = await selectSocialCopy({
         pack: socialCopyPack,
         channel: 'facebook',
         kind: 'event',
         assignmentKey: event.id,
+        dryRun,
       });
+      copyReservations.set(event.id, socialCopy);
       return {
         id: event.id,
         url: buildEventUrl(event),
@@ -370,10 +394,11 @@ export async function run(opts = {}) {
         comune: event.comune || null,
         copyFields: socialCopyLedgerFields(socialCopy),
       };
-    });
+    }));
   }
   if (payloads.length === 0) {
     log('ℹ️', 'nothing to post, exiting');
+    await releaseAllReservations('Facebook events produced no publishable payloads');
     return { ok: true, posted: 0, dryRun, payloads: [] };
   }
   const placed = payloads.filter((p) => p.placeId).length;
@@ -387,10 +412,12 @@ export async function run(opts = {}) {
 
   if (!pageId || !token) {
     warn('⚠️', 'FB_PAGE_ID or FB_PAGE_ACCESS_TOKEN missing — skipping');
+    await releaseAllReservations('Facebook credentials missing');
     return { ok: false, posted: 0, dryRun, payloads };
   }
   if (typeof fetchImpl !== 'function') {
     warn('⚠️', 'no fetch impl available — skipping');
+    await releaseAllReservations('Facebook fetch implementation missing');
     return { ok: false, posted: 0, dryRun, payloads };
   }
 
@@ -402,15 +429,20 @@ export async function run(opts = {}) {
     payloads.map((p) => isLandingPageLive(p.url, { fetchImpl })),
   );
   const liveSet = new Set();
+  const notLiveIds = [];
   payloads.forEach((p, i) => {
     const outcome = preflight[i];
     const live = outcome.status === 'fulfilled' ? outcome.value : false;
     if (live) {
       liveSet.add(p);
     } else {
+      notLiveIds.push(p.id);
       warn('🚧', `landing page not live yet for "${p.comune || (p.canton ? `weekend digest (${p.canton})` : 'weekend digest')}" (${p.url}) — skipping post ${p.id}`);
     }
   });
+  for (const id of notLiveIds) {
+    await releaseReservation(id, 'Facebook event landing-page preflight failed');
+  }
   payloads = payloads.filter((p) => liveSet.has(p));
   if (payloads.length === 0) {
     log('ℹ️', 'all landing pages failed the pre-flight check, nothing to post');
@@ -431,7 +463,13 @@ export async function run(opts = {}) {
       FACEBOOK_CAMPAIGN_EVENT,
       socialCopyTrackingContent(p.id, p.copyFields),
     );
-    await rescrapeOgAndVerify(fetchImpl, link, token, warn);
+    try {
+      await rescrapeOgAndVerify(fetchImpl, link, token, warn);
+    } catch (err) {
+      await releaseReservation(p.id, 'Facebook event OG preflight failed before delivery');
+      warn('⚠️', `OG preflight failed for ${p.id}: ${err.message}`);
+      continue;
+    }
 
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const body = () => {
@@ -442,11 +480,13 @@ export async function run(opts = {}) {
 
     let data = null;
     let res = null;
+    let deliveryUncertain = false;
     for (let attempt = 1; attempt <= 2; attempt += 1) {
       try {
         res = await fetchImpl(apiUrl, { method: 'POST', body: body() });
         data = await res.json();
       } catch (err) {
+        deliveryUncertain = true;
         warn('⚠️', `POST failed for ${p.id} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
@@ -460,6 +500,7 @@ export async function run(opts = {}) {
     }
 
     if (res?.ok && data?.id) {
+      copyReservations.delete(p.id);
       posted += 1;
       const now = new Date().toISOString();
       const entries = [{ id: p.id, url: p.url, postId: data.id, postedAt: now, ...p.copyFields }];
@@ -472,6 +513,9 @@ export async function run(opts = {}) {
       log('✅', `posted ${p.id} → ${data.id}${p.coveredIds?.length ? ` (covers ${p.coveredIds.length} events)` : ''}`);
     } else {
       warn('⚠️', `FB API error for ${p.id}: ${JSON.stringify(data).slice(0, 200)}`);
+      if (!deliveryUncertain && res && !res.ok) {
+        await releaseReservation(p.id, 'Facebook explicitly rejected the event post');
+      }
     }
   }
 

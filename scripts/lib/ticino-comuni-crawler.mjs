@@ -33,6 +33,10 @@ import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import {
+  isTicinoComuneJob,
+  TICINO_COMUNI_FAMILY_KEY,
+} from './ticino-comune-employer-identity.mjs';
+import {
   classifyNoticeTitle,
   dropAttachmentsOfPublishedNotices,
   extractDeadline,
@@ -64,7 +68,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const REGISTRY_PATH = path.join(ROOT, 'data', 'ticino-comuni-registry.json');
 const REFUSED_STATUS = new Set([401, 403, 406, 429, 451]);
 
-export const TICINO_COMUNI_KEY = 'comuni-ticino';
+export const TICINO_COMUNI_KEY = TICINO_COMUNI_FAMILY_KEY;
 export const TICINO_COMUNI_COMPANY_NAME = 'Comuni ticinesi';
 /** Host diversi in parallelo: la pausa per host resta quella del client. */
 export const COMUNI_CONCURRENCY = 8;
@@ -211,9 +215,12 @@ function buildComuneJob(entry, { notice, title, text, deadline, publishedIso, no
     slug,
     slugByLocale: { [sourceLang]: slug },
     company: entry.company,
-    companyKey: TICINO_COMUNI_KEY,
+    // The crawler remains one `comuni-ticino` family, but logo and employer
+    // identity must be scoped to the registry entry that issued the notice.
+    companyKey: entry.key,
     municipalityKey: entry.key,
     companyDomain: entry.domain,
+    companyDomainSource: 'ticino-comuni-registry',
     title,
     titleByLocale: { [sourceLang]: title },
     description,
@@ -240,6 +247,7 @@ function buildComuneJob(entry, { notice, title, text, deadline, publishedIso, no
     pdfUrl: notice.url,
     applyUrl: notice.url,
     source: `${entry.company} Dedicated Parser (albo + PDF)`,
+    sourceCrawler: TICINO_COMUNI_KEY,
     sourceLang,
     crawledAt: new Date(now).toISOString(),
   };
@@ -440,12 +448,13 @@ export async function fetchAllTicinoComuniJobs({
 
 export function runTicinoComuniCrawler() {
   const comuni = coveredTicinoComuni();
+  const municipalityKeys = new Set(comuni.map((entry) => entry.key));
   return runStandardCrawlerPipeline({
     companyKey: TICINO_COMUNI_KEY,
     companyLabel: TICINO_COMUNI_COMPANY_NAME,
     root: ROOT,
     fetchJobs: ({ existingJobs }) => fetchAllTicinoComuniJobs({ existingJobs, comuni }),
-    isCompanyJob: (job) => job?.companyKey === TICINO_COMUNI_KEY,
+    isCompanyJob: (job) => isTicinoComuneJob(job, municipalityKeys),
     isTrustedDomain: (url) => comuni.some((entry) => isTrustedComuneUrl(entry, url)),
     defaultSourceLang: 'it',
     prepareExistingJobs: (jobs) => dropExpiredStoredJobs(jobs),

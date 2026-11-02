@@ -558,3 +558,20 @@ describe('ads-consent gate — storage contract', () => {
     expect(ADSENSE_LOADER_CONTENT).not.toContain('clarity');
   });
 });
+
+
+describe('verified CMP decision with unavailable persistence', () => {
+  it('keeps a real TCF choice in memory when storage writes fail', async () => {
+    const { getAdsConsent } = await import('@/services/adsConsent');
+    vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => { throw new Error('QuotaExceededError'); });
+    (window as any).__tcfapi = (_command: string, _version: number, callback: (data: unknown, ok: boolean) => void) => {
+      callback({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: true } } }, true);
+    };
+    runBridge();
+    const queue = (window as any).googlefc.callbackQueue;
+    queue.find((entry: any) => typeof entry.CONSENT_DATA_READY === 'function').CONSENT_DATA_READY();
+    expect(getAdsConsent()).toBe('granted');
+    runStaticLoader();
+    expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
+  });
+});

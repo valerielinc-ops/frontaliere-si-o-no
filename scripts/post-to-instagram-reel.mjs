@@ -46,7 +46,7 @@ import {
   resolveSocialRobotMode,
   socialPublishRoute,
 } from './lib/social-publish-queue.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -145,14 +145,17 @@ async function queueReel({ kind, day, dryRun, robotMode }) {
 
   const creative = chooseInstagramReelCreative({ kind, day });
   const item = buildItem(kind, pick, jobIndex);
-  const socialCopy = selectSocialCopy({
+  const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
     kind,
     format: 'reel',
     expectedObjective: creative.objective,
     assignmentKey: kind + ':' + day,
+    dryRun,
   });
+  let reservedCopy = socialCopy;
+  try {
   const content = buildInstagramReelContent({ kind, dayLabel: formatDayIt(day), item, creative, socialCopy });
   console.log(`\n─── Instagram Reel (${kind}, ${creative.id}) ───`);
   console.log(content.caption);
@@ -221,22 +224,28 @@ async function queueReel({ kind, day, dryRun, robotMode }) {
     label: 'Instagram Reel',
     publish: async () => ({ ok: false, reason: 'Instagram Reel API path is intentionally disabled for this browser experiment' }),
     recordPublished: () => {},
-    enqueue: () => enqueuePost(
-      QUEUE_PATH,
-      buildQueueEntry({
-        channel: 'instagram',
-        kind: 'reel',
-        day,
-        caption: content.caption,
-        imageUrls: coverUrls,
-        video,
-        ledgerEntries,
-      }),
-    ),
+    enqueue: () => {
+      enqueuePost(
+        QUEUE_PATH,
+        buildQueueEntry({
+          channel: 'instagram',
+          kind: 'reel',
+          day,
+          caption: content.caption,
+          imageUrls: coverUrls,
+          video,
+          ledgerEntries,
+        }),
+      );
+      reservedCopy = null;
+    },
     dequeue: () => {},
   });
   console.log(`🗂️  Instagram Reel queued: reel-${day} (${creative.id})`);
   return 'queued';
+  } finally {
+    await releaseUnpublishedSocialCopyAssignment(reservedCopy, { reason: 'Instagram Reel skipped before delivery' });
+  }
 }
 
 async function main() {

@@ -864,9 +864,10 @@ export function withMemberLogExcerpt(run, logFileExpression = `\${${MEMBER_LOG_F
     .split(ISSUE_CREATOR_INVOCATION)
     .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}" --require-persisted`);
 }
-// Fires the per-crawler failure reporter. Any non-zero commit exit still
-// reports EXCEPT the five systemic classes, which are not per-crawler signals.
-const PER_CRAWLER_REPORT_CONDITION = 'if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0'
+// Fires the per-crawler failure reporter. Any non-zero housekeeping or commit
+// exit still reports EXCEPT the five systemic classes, which are not
+// per-crawler signals.
+const PER_CRAWLER_REPORT_CONDITION = 'if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0'
   + ` && git_commit_exit != 42 && git_commit_exit != ${GROUP_SHARED_PRECONDITION_EXIT}`
   + ` && git_commit_exit != ${GLOBAL_LEASE_BUSY_EXIT} && git_commit_exit != ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`
   + ` && git_commit_exit != ${RUNNER_SHUTDOWN_EXIT}) )); then`;
@@ -1008,18 +1009,20 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   work.push('crawler_exit=$?');
   work.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
   work.push('git_commit_exit=0');
+  work.push('housekeeping_exit=0');
   work.push('');
 
   for (const step of crawler.postSteps) {
     if (step.if === 'failure()') continue;
     const isCommitStep = /git-commit-data\.sh/.test(step.run || '');
     if (!compact) work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
-    work.push('if [ "$crawler_exit" -eq 0 ]; then');
+    work.push('if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then');
     if (isCommitStep) {
       work.push(indentBlock(`CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2));
       work.push(indentBlock('git_commit_exit=$?', 2));
     } else {
-      work.push(indentBlock(`(${step.run.trimEnd()}) || true`, 2));
+      work.push(indentBlock(`(${step.run.trimEnd()})`, 2));
+      work.push(indentBlock('housekeeping_exit=$?', 2));
     }
     work.push('fi');
     work.push('');
@@ -1038,7 +1041,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   work.push(`  echo "::error::${crawler.slug}: nested timeout reached the target deadline (exit ${TARGET_TIMEOUT_EXIT}); preserving timeout classification"`);
   work.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
   work.push('fi');
-  work.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
+  work.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || [ "$housekeeping_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
   work.push('  exit 1');
   work.push('fi');
   work.push('exit 0');
@@ -1076,7 +1079,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
       '"## Crawler fallito',
       '"## Crawler fallito${crawler_failure_timeout_detail}',
     );
-    if (!compact) outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    // Keep this phase boundary visible in compact artifacts too: the corpus
+    // contract checks that failure reporting remains outside the target wall
+    // timeout, even when comments are otherwise stripped to fit the budget.
+    outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
     outer.push("crawler_failure_timeout_detail=''");
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
@@ -1169,8 +1175,11 @@ export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
   // fails, the commit step below is skipped entirely (matching original
   // per-crawler behavior), so there is no commit failure to report in that
   // case — only the crawl failure. This variable is only ever overwritten
-  // with a real exit code when the commit step actually executes.
+  // with a real exit code when the commit step actually executes. A separate
+  // housekeeping status prevents a failed cleanup from reaching the commit
+  // step with a green crawl status.
   lines.push('git_commit_exit=0');
+  lines.push('housekeeping_exit=0');
   lines.push('report_exit=0');
   lines.push('');
 
@@ -1248,10 +1257,13 @@ export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
     // halts all subsequent steps except those gated with `if: failure()` /
     // `if: always()`. So in the original architecture, Housekeeping and
     // Commit-and-push do NOT run if the crawler script itself fails (only
-    // "Report failure", which has `if: failure()`, still runs). We must
-    // reproduce that here: both steps are gated on `crawler_exit -eq 0`.
+    // "Report failure", which has `if: failure()`, still runs). A cleanup
+    // failure must stop the commit too: otherwise the crawler can publish a
+    // slice whose 60-day retirement pass never completed. We keep the shell
+    // alive long enough to run the failure reporter, but carry both statuses
+    // explicitly.
     if (!compact) lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim, only if crawler succeeded) ----`);
-    lines.push('if [ "$crawler_exit" -eq 0 ]; then');
+    lines.push('if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then');
 
     if (isCommitStep) {
       // HAZARD FIX 2: serialize the local git index mutation across
@@ -1272,9 +1284,10 @@ export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
       );
       lines.push(indentBlock('git_commit_exit=$?', 2));
     } else {
-      // Housekeeping already has continue-on-error semantics in the
-      // original workflow (never fails the job) — preserve with `|| true`.
-      lines.push(indentBlock(`(${step.run.trimEnd()}) || true`, 2));
+      // Do not swallow housekeeping failures: a stale slice must never be
+      // committed after the retirement pass failed or was interrupted.
+      lines.push(indentBlock(`(${step.run.trimEnd()})`, 2));
+      lines.push(indentBlock('housekeeping_exit=$?', 2));
     }
     lines.push('fi');
     lines.push('');
@@ -1286,15 +1299,15 @@ export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
   // gate turns the whole group red only after all members have reported.
   // This non-zero exit is also what a future consumer of this script's own
   // exit status observes if EITHER
-  // the crawl OR the commit/push failed.
+  // the crawl, housekeeping, OR commit/push failed.
   // Contention loss (42) with a successful crawl does NOT fail the step: the
   // job conclusion is what close-recovered-failure-issues.mjs keys recovery
   // on, and one race loser turning the whole 26-crawler group red both
   // blocked the sweep from draining every sibling's recovered issue and made
-  // real failures indistinguishable from herd noise. Real crawl/commit
+  // real failures indistinguishable from herd noise. Real crawl/housekeeping/commit
   // failures (any other non-zero) still fail the step as before.
   lines.push(`(( git_commit_exit == ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} )) && exit ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`);
-  lines.push(`if (( (crawler_exit != 0 && crawler_exit != ${RUNNER_SHUTDOWN_EXIT}) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != ${GLOBAL_LEASE_BUSY_EXIT} && git_commit_exit != ${RUNNER_SHUTDOWN_EXIT}) )) || (( report_exit != 0 )); then`);
+  lines.push(`if (( (crawler_exit != 0 && crawler_exit != ${RUNNER_SHUTDOWN_EXIT}) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != ${GLOBAL_LEASE_BUSY_EXIT} && git_commit_exit != ${RUNNER_SHUTDOWN_EXIT}) )) || (( report_exit != 0 )); then`);
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');

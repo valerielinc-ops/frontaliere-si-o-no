@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-11-02T10:21:27.967Z",
-  "runId": "41417705353",
+  "assembledAt": "2026-11-02T21:26:55.878Z",
+  "runId": "41524973101",
   "jobs": [
     {
       "id": "hermes-da512457b984",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T10:21:21.700Z",
+      "crawledAt": "2026-11-02T21:26:51.378Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T10:21:21.700Z",
+      "validThrough": "2027-01-18T21:26:51.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24472",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T10:21:21.068Z",
+      "crawledAt": "2026-11-02T21:26:50.773Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T10:21:21.068Z",
+      "validThrough": "2027-01-26T21:26:50.773Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -73,6 +73,7 @@ export const DOMAIN_OVERRIDES = {
   'integra-biosciences': ['integra-biosciences.com'],
   benu: ['benu.ch'],
   'pantr-ch': ['pantr.ch'],
+  'rh-expert-ch': ['rh-expert.ch'],
   kone: ['kone.com'],
   fisba: ['fisba.com'],
   'schweizerhof-flims': ['schweizerhof-flims.ch'],
@@ -106,7 +107,9 @@ export const DOMAIN_OVERRIDES = {
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
   my: ['teojakob.ch'],
+  okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
 };
@@ -162,10 +165,12 @@ function stripSuffixes(slug) {
 }
 
 /**
- * Audit mode is deliberately override-only: the audit input never authorizes
- * a domain derived from a company key, a job URL, or crawler metadata. The
- * legacy mode remains available for manual recovery and keeps its historical
- * guessed candidates; the weekly workflow must invoke `--from-audit`.
+ * Audit mode is deliberately source-backed: the audit input never authorizes
+ * a domain derived from a company key, a job URL, or generic crawler metadata.
+ * It accepts only explicit overrides, domains marked by the Ticino Comune
+ * source contract, or verified employer websites from SECO records. The legacy mode remains
+ * available for manual recovery and keeps its historical guessed candidates;
+ * the weekly workflow must invoke `--from-audit`.
  */
 export function domainCandidates(key, metadata = {}, options = {}) {
   const fromAudit = options === true || options?.fromAudit === true;
@@ -175,7 +180,15 @@ export function domainCandidates(key, metadata = {}, options = {}) {
   const add = (value) => addUnique(candidates, seen, value);
 
   for (const domain of DOMAIN_OVERRIDES[companyKey] || []) add(domain);
-  if (fromAudit) return candidates;
+  for (const domain of metadata.sourceBackedCompanyDomains || []) {
+    if (!isAtsDomain(domain)) add(domain);
+  }
+  for (const domain of metadata.verifiedEmployerDomains || []) {
+    if (!isAtsDomain(domain)) add(domain);
+  }
+  if (fromAudit) {
+    return candidates;
+  }
 
   for (const domain of metadata.companyDomains || []) {
     if (!isAtsDomain(domain)) add(domain);
@@ -217,6 +230,7 @@ const ACQUISITION_REASON_LABELS = {
 export function selectAuditCandidates(entries = []) {
   return entries.filter((entry) => (
     (entry?.status === 'missing'
+      || entry?.status === 'partial'
       || entry?.status === 'external'
       || Number(entry?.externalJobCount || 0) > 0
       || entry?.status === 'low-quality'

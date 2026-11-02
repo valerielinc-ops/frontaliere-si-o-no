@@ -1079,7 +1079,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-3f08bf78f6b4",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1809,7 +1808,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-21T21:25:05.017Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent / Assistentin Schulungen & Events (w/m/d)",
@@ -5650,7 +5650,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-14T21:16:16.407Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-16T21:16:16.407Z"
+      "firstSeenAt": "2026-10-16T21:16:16.407Z",
+      "needsRetranslation": true
     },
     {
       "title": "Pharmacien / Pharmacienne (f/h/d)",
@@ -23497,7 +23498,7 @@
       },
       "titleByLocale": {
         "it": "Event & Business Support Comunicazione aziendale (m/f/d)",
-        "en": "Event & Business Support Corporate Communication (m/f/d)",
+        "en": "Event & Business Support Corporate Communications (m/f/d)",
         "de": "Event & Business Support Corporate Communication (w/m/d)",
         "fr": "Soutien aux événements et aux entreprises Communication d'entreprise (h/f/d)"
       },
@@ -23534,8 +23535,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-25T09:21:51.188Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "title": "Pharmacien adjoint / Pharmacienne adjointe (f/h/d)",
@@ -23614,7 +23614,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-14T21:16:16.407Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Pharmacien adjoint / Pharmacienne adjointe (f/h/d)",

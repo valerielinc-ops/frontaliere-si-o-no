@@ -455,14 +455,15 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     fs.rmSync(binDir, { recursive: true, force: true });
   });
 
-  function crawlerFixture(overrides: Partial<{ runCommand: string; commitCommand: string }> = {}) {
+  function crawlerFixture(overrides: Partial<{ runCommand: string; housekeepingCommand: string; commitCommand: string }> = {}) {
     const runCommand = overrides.runCommand ?? 'true'; // crawl succeeds by default
+    const housekeepingCommand = overrides.housekeepingCommand ?? 'true'; // housekeeping succeeds by default
     const commitCommand = overrides.commitCommand ?? 'true'; // commit succeeds by default
     return {
       slug: 'test-crawler',
       runStep: { env: {}, run: runCommand },
       postSteps: [
-        { name: 'Housekeeping', env: {}, run: 'true' },
+        { name: 'Housekeeping', env: {}, run: housekeepingCommand },
         {
           name: 'Commit and push',
           id: 'changes',
@@ -500,10 +501,10 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
   // step, and returns the CONTAINING DIRECTORY (the fixture's `run:` string
   // is `bash <dir>/git-commit-data.sh`, mirroring the real
   // `bash scripts/lib/git-commit-data.sh` shape).
-  function writeFixtureCommitScript(exitCode: number): string {
+  function writeFixtureCommitScript(exitCode: number, beforeExit = ''): string {
     const dir = fs.mkdtempSync(path.join(tmpDir, 'lib-'));
     const scriptPath = path.join(dir, 'git-commit-data.sh');
-    fs.writeFileSync(scriptPath, `#!/usr/bin/env bash\nexit ${exitCode}\n`, { mode: 0o755 });
+    fs.writeFileSync(scriptPath, `#!/usr/bin/env bash\n${beforeExit}exit ${exitCode}\n`, { mode: 0o755 });
     return dir;
   }
 
@@ -545,6 +546,35 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
 
     expect(exitCode, 'background step must exit non-zero when commit/push fails').not.toBe(0);
     expect(stdout, 'failure-report step must fire when commit/push fails').toContain('REPORTED_FAILURE');
+  });
+
+  it('housekeeping fails -> commit is skipped and the failure-report step fires', () => {
+    const commitDir = writeFixtureCommitScript(0, 'echo COMMIT_RAN\n');
+    const crawler = withInspectableFailureReporter(crawlerFixture({
+      housekeepingCommand: 'false',
+      commitCommand: commitDir,
+    }));
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode, 'a failed retirement pass must fail the background step').not.toBe(0);
+    expect(stdout, 'housekeeping failure must be reported').toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout, 'a failed retirement pass must not publish the slice').not.toContain('COMMIT_RAN');
+  });
+
+  it('timed housekeeping fails -> commit is skipped and the failure-report step fires', () => {
+    const commitDir = writeFixtureCommitScript(0, 'echo COMMIT_RAN\n');
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({
+        housekeepingCommand: 'false',
+        commitCommand: commitDir,
+      })),
+      targetTimeoutMinutes: 30,
+    };
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode, 'a failed retirement pass must fail the timed background step').not.toBe(0);
+    expect(stdout, 'timed housekeeping failure must be reported').toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout, 'a timed housekeeping failure must not publish the slice').not.toContain('COMMIT_RAN');
   });
 
   // ── OSSERVATORE del cluster `Crawler Failure: Run *` ──────────────────────

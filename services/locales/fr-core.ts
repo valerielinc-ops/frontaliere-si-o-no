@@ -849,6 +849,8 @@ const frCore: Record<string, string> = {
   'jobBoard.concierge.childSubmitted': "Candidature envoyée",
   'jobBoard.concierge.childProcessing': "Vérification en cours",
   'jobBoard.concierge.childPreparing': "Candidature en préparation",
+  'jobBoard.concierge.childFailed': "L’automatisation n’a pas abouti. Nous vérifions si le portail a reçu la candidature.",
+  'jobBoard.concierge.childUnknown': "Le résultat n’est pas confirmé. Sans preuve, la candidature n’est pas indiquée comme envoyée.",
   'jobBoard.concierge.answerChild': "Répondre aux questions",
   'jobBoard.concierge.reviewChild': "Vérifier et confirmer",
   'jobBoard.concierge.openChild': "Ouvrir la candidature",
@@ -923,6 +925,9 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.noGuarantee': 'Nous ne garantissons ni des postes adaptés, ni des candidatures envoyées, réponses, entretiens ou embauches.',
  'jobBoard.concierge.eligibilityNeedsVerification': 'Les critères de cette proposition sont en cours de vérification. Vous pouvez la refuser pendant cette vérification.',
  'jobBoard.concierge.proposalStatus.proposed': 'À décider',
+ 'jobBoard.concierge.proposalStatus.needs_information': 'Votre réponse est nécessaire',
+ 'jobBoard.concierge.proposalStatus.failed': 'Automatisation échouée',
+ 'jobBoard.concierge.proposalStatus.unknown': 'Résultat non confirmé',
  'jobBoard.concierge.proposalStatus.needs_verification': 'Nouvelle vérification requise',
  'jobBoard.concierge.proposalStatus.submitted': "Envoyée",
  'jobBoard.concierge.proposalStatus.needs_answers': "Informations manquantes",
@@ -3034,6 +3039,10 @@ Règles :
 
  // Publisher portal — publier une offre d'emploi
  'publisher.title': 'Publier une offre d\'emploi',
+ 'seo.directEmployer.title': 'Publier gratuitement une offre | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Les petites entreprises et commerces locaux peuvent publier gratuitement une offre au Tessin sans compte : vérification de l’employeur, modération humaine et expiration automatique après 30 jours.',
+ 'seo.permanentEmployer.title': 'Employeurs ouverts aux candidatures spontanées | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Liste publique d’employeurs susceptibles d’étudier des candidatures spontanées, signalés par des candidats et vérifiés par l’équipe. Ce ne sont pas des postes ouverts.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

@@ -10,6 +10,7 @@ import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { readBoundedResponseBytes } from './bounded-response-body.mjs';
+import { companyLogoKeyForJob } from './company-logo-key.mjs';
 import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './google-favicon.mjs';
 
 export const DEFAULT_ASSET_BASE_URL = 'https://cdn.frontaliereticino.ch';
@@ -33,8 +34,7 @@ export function slugify(value = '') {
 }
 
 export function companyKeyForJob(job) {
-  return String(job?.companyKey || '').trim()
-    || slugify(job?.company || job?.employer || '');
+  return companyLogoKeyForJob(job) || slugify(job?.company || job?.employer || '');
 }
 
 export function extractJobs(value, sourcePath = '') {

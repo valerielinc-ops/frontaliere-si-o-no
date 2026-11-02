@@ -1,7 +1,7 @@
 {
   "crawlerKey": "atec-personal",
-  "assembledAt": "2026-11-02T11:32:20.254Z",
-  "runId": "41418547914",
+  "assembledAt": "2026-11-02T21:31:48.213Z",
+  "runId": "41525962497",
   "jobs": [
     {
       "id": "atec-personal-d669949cd6dc",
@@ -34,7 +34,7 @@
       "url": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
       "source": "ATEC Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:32:14.635Z",
+      "crawledAt": "2026-11-02T21:31:42.378Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -86,10 +86,11 @@
         "postalCode": "3186",
         "addressLocality": "Düdingen",
         "addressRegion": "FR",
-        "checkedAt": "2026-10-31T20:47:53.605Z"
+        "checkedAt": "2026-10-31T20:47:53.605Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T11:32:14.635Z",
+      "validThrough": "2026-12-20T21:31:42.378Z",
       "validThroughSource": "last-observed-window"
     }
   ]

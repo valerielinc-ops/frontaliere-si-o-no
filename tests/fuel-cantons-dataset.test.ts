@@ -458,9 +458,17 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     </sheetData></worksheet>`;
     const ch = await fetchSwissNationalFuelPrices({
       retries: 1,
+      now: new Date('2026-10-01T00:00:00.000Z'),
       fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(bfsSheet)), true)) as any,
     });
     expect(ch).toMatchObject({ status: 'ok', observedMonth: '2026-09', data: { sp95: { price: 2.02 }, diesel: { price: 2.27 } } });
+
+    const monthBoundary = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-11-02T16:42:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(bfsSheet)), true)) as any,
+    });
+    expect(monthBoundary).toMatchObject({ status: 'ok', observedMonth: '2026-09' });
 
     const stale = await fetchSwissNationalFuelPrices({
       retries: 1,

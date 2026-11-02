@@ -9,6 +9,7 @@ describe('expired slice overflow', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toContain('augmentExpiredSliceIndex(');
     expect(source).toContain('expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug)');
+    expect(source).toContain('expiredSliceOverflow.keys()');
     const recency = source.slice(source.indexOf('const _expiredSlugRecency ='), source.indexOf('expiredSlugs.sort('));
     expect(recency).toContain('expiredSliceOverflow?.recency(s)');
     expect(recency).not.toContain('expiredSliceOverflow.get(');
@@ -47,6 +48,15 @@ describe('expired slice overflow', () => {
       expect(index.get('missing')).toBeUndefined();
       expect(index.recency('late-en')).toBe(17);
     } finally { index.close(); }
+  });
+  it('enumerates spilled aliases without reading their records', () => {
+    const index = new ExpiredSliceOverflow();
+    const read = vi.spyOn(fs, 'readSync');
+    try {
+      index.add(['late-only'], { title: 'Spilled' }, 0);
+      expect([...index.keys()]).toEqual(['late-only']);
+      expect(read).not.toHaveBeenCalled();
+    } finally { read.mockRestore(); index.close(); }
   });
 
   it('sorts using metadata without any record IO', () => {

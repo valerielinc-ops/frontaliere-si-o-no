@@ -393,6 +393,13 @@ push_section_shard() {
             if ! shard_delta_add_file "$stage" "$delta_snapshot" "$delta_sidecar"; then delta_apply_ok=0; fi
           fi
           if [ "$delta_apply_ok" = 1 ]; then
+            if ! shard_assert_source_paths_indexed \
+                "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard"; then
+              delta_apply_ok=0
+              delta_fallback_reason="${SHARD_DELTA_REASON:-delta source path integrity check failed}"
+            fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
             n="$(shard_delta_count_files "$stage" "$sub")"
             if [ ! -s "$stage_src/dist/$sub/index.html" ]; then
               delta_apply_ok=0
@@ -620,6 +627,10 @@ push_section_shard() {
       git config user.email "valerielinc@gmail.com"
       git config user.name "Valerie Linc"
       git add -A
+      if ! shard_assert_source_paths_indexed \
+          "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard"; then
+        exit 1
+      fi
       shard_phase git-add
       _skip_content_push=0
       if [ "$incremental" = 1 ]; then

@@ -36,6 +36,30 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.99.14',
+    date: '2026-11-02',
+    titleKey: 'whatsNew.v39914.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v39914.discovery.title', descKey: 'whatsNew.v39914.discovery.desc', href: '/cerca-lavoro-svizzera/' },
+    ],
+  },
+  {
+    version: '3.99.13',
+    date: '2026-11-02',
+    titleKey: 'whatsNew.v39913.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v39913.ads.title', descKey: 'whatsNew.v39913.ads.desc', href: '/automatizza-ricerca-lavoro-svizzera/' },
+    ],
+  },
+  {
+    version: '3.99.12',
+    date: '2026-11-02',
+    titleKey: 'whatsNew.v39912.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v39912.directEmployers.title', descKey: 'whatsNew.v39912.directEmployers.desc', link: { tab: 'direct-employers' } },
+    ],
+  },
+  {
     version: '3.99.11',
     date: '2026-11-01',
     titleKey: 'whatsNew.v39911.title',

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pbl",
-  "assembledAt": "2026-11-02T10:06:29.286Z",
-  "runId": "41418964228",
+  "assembledAt": "2026-11-02T21:25:03.021Z",
+  "runId": "41526464624",
   "jobs": [
     {
       "id": "pbl-0c17a2d9643a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/unterassistentin-unterassistent-m-w-d/27ca469b-2aca-4731-98fd-5b47df11e60b",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:21.552Z",
+      "crawledAt": "2026-11-02T21:24:28.964Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -99,11 +99,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:21.552Z",
+      "validThrough": "2026-12-02T21:24:28.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -138,7 +139,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzarzt-assistenzaerztin-m-w-d/65d72647-324e-4236-9258-2277b1acd865",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:21.116Z",
+      "crawledAt": "2026-11-02T21:24:28.545Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -190,11 +191,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:21.116Z",
+      "validThrough": "2026-12-02T21:24:28.545Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -228,7 +230,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzarzt-assistenzaerztin-m-w-d-ep-stationaer/e8fcb650-7ace-4c1e-8a40-bbcfee50f2ef",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:20.683Z",
+      "crawledAt": "2026-11-02T21:24:28.154Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -311,11 +313,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:20.683Z",
+      "validThrough": "2026-12-02T21:24:28.154Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -350,7 +353,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d-kinder-und-jugendpsychiatrie/1c222887-fdf7-4471-91ca-5649004fad2d",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:20.253Z",
+      "crawledAt": "2026-11-02T21:24:27.723Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -433,11 +436,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:20.253Z",
+      "validThrough": "2026-12-02T21:24:27.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -471,7 +475,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d/d8f2ca09-7fb8-495e-affa-29a9de5e857c",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:19.818Z",
+      "crawledAt": "2026-11-02T21:24:27.312Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -548,11 +552,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:19.818Z",
+      "validThrough": "2026-12-02T21:24:27.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -586,7 +591,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d/85883177-8419-41e0-aa95-5143d050d3e2",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:19.262Z",
+      "crawledAt": "2026-11-02T21:24:26.817Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -659,11 +664,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:19.262Z",
+      "validThrough": "2026-12-02T21:24:26.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -697,7 +703,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzarzt-assistenzaerztin-m-w-d-ep-ambulant/7b7ed523-c00a-42e3-8bac-55c1c05eda55",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:18.806Z",
+      "crawledAt": "2026-11-02T21:24:26.379Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -780,11 +786,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:18.806Z",
+      "validThrough": "2026-12-02T21:24:26.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -819,7 +826,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-fh-hf-m-w-d/b99bd01f-2338-4d98-9a38-44b0c4256fae",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:18.359Z",
+      "crawledAt": "2026-11-02T21:24:25.974Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -883,11 +890,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:18.359Z",
+      "validThrough": "2026-12-02T21:24:25.974Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -922,7 +930,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-nachtdienst-m-w-d-80/80c07f87-4e58-4f7c-af0b-a3481fb4308f",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:17.908Z",
+      "crawledAt": "2026-11-02T21:24:25.573Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -981,11 +989,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:17.908Z",
+      "validThrough": "2026-12-02T21:24:25.573Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1019,7 +1028,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-m-w-d/42b7dd42-0639-453d-bd9b-899489b0ab67",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:17.347Z",
+      "crawledAt": "2026-11-02T21:24:25.056Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1132,11 +1141,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:17.347Z",
+      "validThrough": "2026-12-02T21:24:25.056Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1144,9 +1154,9 @@
       "slug": "assistente-psicologo-assistente-psicologo-m-f-d-90-stazionario-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "it": "assistente-psicologo-assistente-psicologo-m-f-d-90-stazionario-psychiatrie-baselland-liestal",
-        "en": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
+        "en": "assistant-psychologist-m-w-d-90-stationary-psychiatrie-baselland-liestal",
         "de": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-pbl-liestal",
-        "fr": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal"
+        "fr": "psychologue-adjoint-m-w-d-90-stationnaire-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -1170,7 +1180,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-m-w-d-stationaer/1c2e0fd8-d85b-4ab5-90b6-cea7b2eeaf34",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:16.877Z",
+      "crawledAt": "2026-11-02T21:24:24.653Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1193,9 +1203,7 @@
         "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-pbl-liestal",
         "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal",
         "assistant-psychologist-assistant-psychologist-m-f-d-90-stationary-psychiatrie-baselland-liestal",
-        "psychologue-adjoint-psychologue-adjoint-m-f-d-90-stationnaire-psychiatrie-baselland-liestal",
-        "assistant-psychologist-m-w-d-90-stationary-psychiatrie-baselland-liestal",
-        "psychologue-adjoint-m-w-d-90-stationnaire-psychiatrie-baselland-liestal"
+        "psychologue-adjoint-psychologue-adjoint-m-f-d-90-stationnaire-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1204,14 +1212,14 @@
         ],
         "en": [
           "assistant-psychologist-assistant-psychologist-m-f-d-90-stationary-psychiatrie-baselland-liestal",
-          "assistant-psychologist-m-w-d-90-stationary-psychiatrie-baselland-liestal"
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal"
         ],
         "de": [
           "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal"
         ],
         "fr": [
           "psychologue-adjoint-psychologue-adjoint-m-f-d-90-stationnaire-psychiatrie-baselland-liestal",
-          "psychologue-adjoint-m-w-d-90-stationnaire-psychiatrie-baselland-liestal"
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-stationar-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-06-11T13:13:05.386Z",
@@ -1236,11 +1244,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:16.877Z",
+      "validThrough": "2026-12-02T21:24:24.653Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1248,9 +1257,9 @@
       "slug": "assistente-psicologo-assistente-psicologo-m-f-d-90-semistazionario-ambulatorio-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "it": "assistente-psicologo-assistente-psicologo-m-f-d-90-semistazionario-ambulatorio-psychiatrie-baselland-liestal",
-        "en": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal",
+        "en": "assistant-psychologist-m-w-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
         "de": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-pbl-liestal",
-        "fr": "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal"
+        "fr": "psychologue-adjoint-m-w-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -1274,7 +1283,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-m-w-d-teilstationaer-ambulant/8cf12c23-92ba-4ebb-976f-de4ff923749f",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:16.431Z",
+      "crawledAt": "2026-11-02T21:24:24.235Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1298,9 +1307,7 @@
         "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal",
         "assistente-psicologo-lun-f-d-90-semi-ricovero-ambulatoriale-psychiatrie-baselland-liestal",
         "assistant-psychologist-assistant-psychologist-m-f-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
-        "psychologue-adjoint-psychologue-adjoint-m-f-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal",
-        "assistant-psychologist-m-w-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
-        "psychologue-adjoint-m-w-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
+        "psychologue-adjoint-psychologue-adjoint-m-f-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1310,14 +1317,14 @@
         ],
         "en": [
           "assistant-psychologist-assistant-psychologist-m-f-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal",
-          "assistant-psychologist-m-w-d-90-semi-stationary-ambulatory-psychiatrie-baselland-liestal"
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal"
         ],
         "de": [
           "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal"
         ],
         "fr": [
           "psychologue-adjoint-psychologue-adjoint-m-f-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal",
-          "psychologue-adjoint-m-w-d-90-semi-stationnaire-ambulatoire-psychiatrie-baselland-liestal"
+          "assistenzpsychologin-assistenzpsychologe-m-w-d-90-teilstationar-ambulant-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-06-11T13:13:04.249Z",
@@ -1342,11 +1349,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:16.431Z",
+      "validThrough": "2026-12-02T21:24:24.235Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1381,7 +1389,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d/db5022db-73ba-4ef5-b0b0-e9ae72ab710e",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:15.970Z",
+      "crawledAt": "2026-11-02T21:24:23.829Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1454,11 +1462,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:15.970Z",
+      "validThrough": "2026-12-02T21:24:23.829Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1493,7 +1502,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d-erwachsenenpsychiatrie-ambulant/f7ccc782-f10e-451b-ab3f-8da3e9af0eaa",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:15.412Z",
+      "crawledAt": "2026-11-02T21:24:23.305Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1555,11 +1564,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:15.412Z",
+      "validThrough": "2026-12-02T21:24:23.305Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1594,7 +1604,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d/7e2a5900-e4d3-46ec-9127-58e1b199b90c",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:14.851Z",
+      "crawledAt": "2026-11-02T21:24:22.805Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1653,11 +1663,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:14.851Z",
+      "validThrough": "2026-12-02T21:24:22.805Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1692,7 +1703,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/psychologin-psychologe-m-w-d-schwerpunkt-sucht-und-abhaengigkeitserkrankungen/8188ef64-72a5-4f68-9caf-a8c79ec53397",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:14.261Z",
+      "crawledAt": "2026-11-02T21:24:22.304Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1751,11 +1762,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:14.261Z",
+      "validThrough": "2026-12-02T21:24:22.304Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1789,7 +1801,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikum-kunst-und-ausdruckstherapie-m-w-d/d8e87047-5f17-45b5-a62b-631b45344058",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:13.682Z",
+      "crawledAt": "2026-11-02T21:24:21.803Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1847,11 +1859,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:13.682Z",
+      "validThrough": "2026-12-02T21:24:21.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1885,7 +1898,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/koechin-koch-efz-in-ausbildung-2027-m-w-d/eea7d932-8960-4f21-9a0e-9363e09048df",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:13.098Z",
+      "crawledAt": "2026-11-02T21:24:21.292Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1934,11 +1947,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:13.098Z",
+      "validThrough": "2026-12-02T21:24:21.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1972,7 +1986,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/leitende-psychologin-leitender-psychologe-m-w-d/c486f642-9268-450c-8474-084316913c1d",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:12.663Z",
+      "crawledAt": "2026-11-02T21:24:20.886Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2027,11 +2041,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:12.663Z",
+      "validThrough": "2026-12-02T21:24:20.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2066,7 +2081,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-den-pflegepool-m-w-d/7059afed-a29b-4d3e-b11b-c39ba2f78de6",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:12.069Z",
+      "crawledAt": "2026-11-02T21:24:20.372Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2115,11 +2130,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:12.069Z",
+      "validThrough": "2026-12-02T21:24:20.372Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2154,7 +2170,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-betreuung-efz-in-ausbildung-2027-m-w-d/bbe76eee-1157-4e91-9653-42bf321c7c78",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:11.513Z",
+      "crawledAt": "2026-11-02T21:24:19.878Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2224,11 +2240,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:11.513Z",
+      "validThrough": "2026-12-02T21:24:19.878Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2263,7 +2280,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d/97428fe8-1cd6-4718-acb8-b8409583a980",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:11.098Z",
+      "crawledAt": "2026-11-02T21:24:19.486Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2312,11 +2329,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:11.098Z",
+      "validThrough": "2026-12-02T21:24:19.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2351,7 +2369,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d/59eeb81c-e415-4dc0-8e08-1119054c4931",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:10.686Z",
+      "crawledAt": "2026-11-02T21:24:19.102Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2400,11 +2418,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:10.686Z",
+      "validThrough": "2026-12-02T21:24:19.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2439,7 +2458,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d/022f0b21-d21b-4c52-aed8-c0487d909666",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:10.278Z",
+      "crawledAt": "2026-11-02T21:24:18.710Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2488,11 +2507,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:10.278Z",
+      "validThrough": "2026-12-02T21:24:18.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2527,7 +2547,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/gaertnerin-gaertner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d/2d5552f8-a85e-47e5-828b-1fb0ed6767f0",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:09.830Z",
+      "crawledAt": "2026-11-02T21:24:18.307Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2582,11 +2602,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:09.830Z",
+      "validThrough": "2026-12-02T21:24:18.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2621,7 +2642,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d/1d707ce1-18c9-4882-807e-180463e4a9c1",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:09.395Z",
+      "crawledAt": "2026-11-02T21:24:17.904Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2676,11 +2697,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:09.395Z",
+      "validThrough": "2026-12-02T21:24:17.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2715,7 +2737,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-m-w-d/5ea24a05-7e92-406f-87f4-dc43f44eb9b1",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:08.927Z",
+      "crawledAt": "2026-11-02T21:24:17.458Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2774,11 +2796,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:08.927Z",
+      "validThrough": "2026-12-02T21:24:17.458Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2813,7 +2836,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d/3ca66d1d-5493-4d40-a35a-5be325a906f7",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:08.469Z",
+      "crawledAt": "2026-11-02T21:24:17.033Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2869,11 +2892,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:08.469Z",
+      "validThrough": "2026-12-02T21:24:17.033Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2908,7 +2932,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-gesundheit-m-w-d/7d5fd07a-aefa-4daf-9e93-75802d253a3a",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:08.041Z",
+      "crawledAt": "2026-11-02T21:24:16.618Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2957,107 +2981,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:08.041Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "pbl-e9ca91a3b69e",
-      "slug": "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal",
-      "slugByLocale": {
-        "it": "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal",
-        "en": "landscaper-landscaper-m-f-d-100-psychiatrie-baselland-liestal",
-        "de": "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
-        "fr": "paysagiste-paysagiste-h-f-d-100-psychiatrie-baselland-liestal"
-      },
-      "company": "Psychiatrie Baselland",
-      "companyKey": "pbl",
-      "companyDomain": "pbl.ch",
-      "title": "Landschaftsgärtnerin / Landschaftsgärtner (m/w/d) 100 %",
-      "titleByLocale": {
-        "it": "paesaggista / paesaggista (m/f/d) 100%",
-        "en": "Landscaper / Landscaper (m/f/d) 100%",
-        "de": "Landschaftsgärtnerin / Landschaftsgärtner (m/w/d) 100 %",
-        "fr": "Paysagiste / Paysagiste (h/f/d) 100%"
-      },
-      "description": "## Gemeinsam.\nFür das, was\nwirklich zählt\nBetrieb I Gärtnerei Grüens Härz\n\n## Ihre Aufgaben\n• Gartenumänderungen, Gartenunterhalt\n• Unterstützung Pflege Parkanlage\n• Rapportwesen\n• Zusammenarbeit mit beeinträchtigten Mitarbeitenden\n• Winterdienst\n• Sonntagsdienst Gärtnerei im Turnus\n\n## Ihr Profil\n• Fähigkeitsausweis Landschaftsgärtner/Landschaftsgärtnerin EFZ, mit mehrjähriger Erfahrung wünschenswert\n• Fahrausweis Kategorie B mit Erlaubnis zum Führen von Anhängern\n• Ausbildung Baumaschinenführer und Hubarbeitsbühnen von Vorteil\n• Versierte Berufserfahrung im Bereich Umänderungen (Gartenunterhalt)\n• Selbstständigkeit und Pflichtbewusstsein sowie Kundenorientierung\n\n## Stellenantritt\nDie Stelle ist nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
-      "descriptionByLocale": {
-        "it": "giardiniere di paesaggio / giardiniere di paesaggio (m/f/d) 100% holding I Gärtnerei Grüens Härz\n\nI loro compiti\n• Modifiche del giardino, manutenzione del giardino\n• Parco di assistenza\n• Relazione\n• Cooperazione con i lavoratori disabili\n• Servizio invernale\n• Servizio domenica giardino su base regolare\n\nIl tuo profilo\n• Certificato di competenza per giardiniere EFZ, con diversi anni di esperienza desiderabile\n• Biglietto categoria B con permesso di guidare rimorchi\n• Formazione di operatori di macchine edili e piattaforme di lavoro di sollevamento\n• Esperienza nel cambiamento (manutenzione giardino)\n• Autooccupazione e senso del dovere, nonché l'orientamento del cliente\n\nApertura del lavoro: il lavoro deve essere riempito di accordo.",
-        "en": "Landscape gardener / Landscape gardener (m/f/d) 100% holding I Gärtnerei Grüens Härz\n\nTheir tasks\n• Garden modifications, garden maintenance\n• Supporting care park\n• Reporting\n• Cooperation with disabled employees\n• Winter service\n• Sunday service gardening on a regular basis\n\nYour profile\n• Certificate of competence for landscape gardener EFZ, with several years of experience desirable\n• Category B ticket with permission to drive trailers\n• Training of construction machine operators and lifting work platforms\n• Experience in change (garden maintenance)\n• Self-employment and sense of duty as well as customer orientation\n\nJob opening: The job is to be filled by agreement.",
-        "de": "## Gemeinsam.\nFür das, was\nwirklich zählt\nBetrieb I Gärtnerei Grüens Härz\n\n## Ihre Aufgaben\n• Gartenumänderungen, Gartenunterhalt\n• Unterstützung Pflege Parkanlage\n• Rapportwesen\n• Zusammenarbeit mit beeinträchtigten Mitarbeitenden\n• Winterdienst\n• Sonntagsdienst Gärtnerei im Turnus\n\n## Ihr Profil\n• Fähigkeitsausweis Landschaftsgärtner/Landschaftsgärtnerin EFZ, mit mehrjähriger Erfahrung wünschenswert\n• Fahrausweis Kategorie B mit Erlaubnis zum Führen von Anhängern\n• Ausbildung Baumaschinenführer und Hubarbeitsbühnen von Vorteil\n• Versierte Berufserfahrung im Bereich Umänderungen (Gartenunterhalt)\n• Selbstständigkeit und Pflichtbewusstsein sowie Kundenorientierung\n\n## Stellenantritt\nDie Stelle ist nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
-        "fr": "Paysagiste / Paysagiste (h/f/d) 100% détenteur I Gärtnerei Grüens Härz\n\nLeurs tâches\n• Modification du jardin, entretien du jardin\n• Soutenir le parc de soins\n• Rapports\n• Coopération avec les salariés handicapés\n• Service d ' hiver\n• Jardinage à service du dimanche sur une base régulière\n\nVotre profil\n• Certificat de compétence pour jardinier paysagiste EFZ, avec plusieurs années d'expérience souhaitable\n• Billet de catégorie B avec autorisation de conduire des remorques\n• Formation des opérateurs de machines de construction et des plates-formes de levage\n• Expérience du changement (entretien du jardin)\n• Le travail indépendant et le sens du devoir ainsi que l'orientation des clients\n\nOuverture d'un emploi: Le poste doit être rempli d'un commun accord."
-      },
-      "needsRetranslation": true,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://jobs.pbl.ch/offene-stellen/landschaftsgaertnerin-landschaftsgaertner-m-w-d/909ae7f6-b6d5-47ee-baaf-24e3771d4838",
-      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:07.587Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-01",
-      "postedDate": "2026-09-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.pbl.ch/apply/ats/909ae7f6-b6d5-47ee-baaf-24e3771d4838",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
-        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
-          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
-        ],
-        "en": [
-          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
-        ],
-        "fr": [
-          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T14:18:55.052Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Psychiatrie Baselland",
-        "streetAddress": "Bienentalstrasse 7",
-        "postalCode": "4410",
-        "addressLocality": "Liestal",
-        "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
-      },
-      "streetAddress": "Bienentalstrasse 7",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:06:07.587Z",
+      "validThrough": "2026-12-02T21:24:16.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3091,7 +3020,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/stationsassistentin-stationsassistent-m-w-d-donnerstag-und-freitag/c849a638-8016-4601-9ada-7c11be6507bd",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:07.167Z",
+      "crawledAt": "2026-11-02T21:24:16.204Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3149,11 +3078,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T10:06:07.167Z",
+      "validThrough": "2026-12-06T21:24:16.204Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3187,7 +3117,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/oberarzt-oberaerztin-m-w-d/441e67bd-62b4-499f-afd2-71e0b77b99a5",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:06.634Z",
+      "crawledAt": "2026-11-02T21:24:15.645Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3236,11 +3166,202 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-08T10:06:06.634Z",
+      "validThrough": "2026-12-08T21:24:15.645Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "pbl-954f399a3a9a",
+      "slug": "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal",
+      "slugByLocale": {
+        "it": "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal",
+        "en": "intern-m-f-d-80-in-the-residential-windspiel-psychiatrie-baselland-liestal",
+        "de": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
+        "fr": "stage-h-f-d-80-dans-le-windspiel-residentiel-psychiatrie-baselland-liestal"
+      },
+      "company": "Psychiatrie Baselland",
+      "companyKey": "pbl",
+      "companyDomain": "pbl.ch",
+      "title": "Praktikant/Praktikantin (m/w/d) 80 % im Wohnheim Windspiel",
+      "titleByLocale": {
+        "it": "Intern (m/f/d) 80% nel residenziale Windspiel",
+        "en": "Intern (m/f/d) 80% in the residential Windspiel",
+        "de": "Praktikant/Praktikantin (m/w/d) 80 % im Wohnheim Windspiel",
+        "fr": "Stage (h/f/d) 80% dans le Windspiel résidentiel"
+      },
+      "description": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie erledigen abwechslungsreiche Tätigkeiten im Umgang mit sehr spannenden Menschen\n• Sie bringen sich ein und gestalten den Tag kreativ mit\n• Sie arbeiten täglich mit unseren Nutzerinnen und Nutzern und lernen ihre Bedürfnisse und Ressourcen zu verstehen\n• Sie erhalten täglich neue Einblicke in die sozialpädagogische Arbeitswelt\n\n## Ihr Profil\n• Sie sind volljährig\n• Sie sind neugierig und haben Freude an der Begleitung von unterschiedlich beeinträchtigten Menschen\n• Sie haben Lust, für 6 bis 12 Monate in die Welt des Wohnheims Windspiel einzutauchen und sich persönlich und fachlich weiterzuentwickeln\n• Dieses Praktikum eignet sich als Vorpraktikum vor Aufnahme einer Ausbildung zur Fachperson Betreuung (FaBe), als Praktikum zur Erlangung des FMS-Abschlusses sowie als Vorpraktikum zur Aufnahme an einer höheren Fachschule (HF) oder Fachhochschule (FH) oder als Praktikum während eines sozialpädagogischen Studiums\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
+      "descriptionByLocale": {
+        "it": "Intern/Internship (m/f/d) 80% nella sala residenziale Windspiel inclusionoplus, sala residenziale Windspiel Liestal\n\nI loro compiti\n• Essi fanno varie attività nel trattare persone molto eccitanti\n• Essi contribuiscono e creano la giornata creativamente\n• Lavorano quotidianamente con i nostri utenti e imparano a capire le loro esigenze e risorse\n• Ogni giorno si ottiene nuove conoscenze nel mondo del lavoro socio-educativo\n\nIl tuo profilo\n• Sono di età legale\n• Siete curiosi e divertitevi accompagnando persone diversamente compromesse\n• Hai il desiderio di immergerti nel mondo del dormitorio Windspiel per 6-12 mesi e svilupparti personalmente e professionalmente\n• Questo tirocinio è adatto come tirocinio preliminare prima di iniziare un apprendistato come specialista (FaBe), come stage per ottenere il grado FMS e uno stage preliminare per l'ammissione a una scuola tecnica superiore (HF) o università di scienze applicate (FH) o come stage durante un programma di studio socio-pedagogico.\n\nApertura del lavoro: Il lavoro deve essere riempito il 1o febbraio 2027.",
+        "en": "Intern/Internship (m/f/d) 80% in the residential hall Windspiel inclusioplus, residential hall Windspiel Liestal\n\nTheir tasks\n• They do varied activities in dealing with very exciting people\n• They contribute and create the day creatively\n• They work with our users on a daily basis and learn to understand their needs and resources\n• Every day you get new insights into the socio-educational working world\n\nYour profile\n• They are of legal age\n• You are curious and enjoy accompanying differently impaired people\n• You have the desire to immerse yourself in the world of the dormitory Windspiel for 6 to 12 months and develop personally and professionally\n• This internship is suitable as a preliminary internship before starting an apprenticeship as a specialist (FaBe), as an internship for obtaining the FMS degree as well as as a preliminary internship for admission to a higher technical school (HF) or university of applied sciences (FH) or as an internship during a socio-pedagogical study programme.\n\nJob opening: The job is to be filled on 1 February 2027.",
+        "de": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie erledigen abwechslungsreiche Tätigkeiten im Umgang mit sehr spannenden Menschen\n• Sie bringen sich ein und gestalten den Tag kreativ mit\n• Sie arbeiten täglich mit unseren Nutzerinnen und Nutzern und lernen ihre Bedürfnisse und Ressourcen zu verstehen\n• Sie erhalten täglich neue Einblicke in die sozialpädagogische Arbeitswelt\n\n## Ihr Profil\n• Sie sind volljährig\n• Sie sind neugierig und haben Freude an der Begleitung von unterschiedlich beeinträchtigten Menschen\n• Sie haben Lust, für 6 bis 12 Monate in die Welt des Wohnheims Windspiel einzutauchen und sich persönlich und fachlich weiterzuentwickeln\n• Dieses Praktikum eignet sich als Vorpraktikum vor Aufnahme einer Ausbildung zur Fachperson Betreuung (FaBe), als Praktikum zur Erlangung des FMS-Abschlusses sowie als Vorpraktikum zur Aufnahme an einer höheren Fachschule (HF) oder Fachhochschule (FH) oder als Praktikum während eines sozialpädagogischen Studiums\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
+        "fr": "Stage / Internat (h/f/d) 80% dans le hall résidentiel Windspiel inclusioplus, hall résidentiel Windspiel Liestal\n\nLeurs tâches\n• Ils font des activités variées en traitant avec des gens très excitants\n• Ils contribuent et créent la journée de manière créative\n• Ils travaillent quotidiennement avec nos utilisateurs et apprennent à comprendre leurs besoins et leurs ressources.\n• Chaque jour, vous obtenez de nouvelles informations sur le monde socio-éducatif du travail\n\nVotre profil\n• Ils ont l'âge légal\n• Vous êtes curieux et vous aimez accompagner des personnes ayant des déficiences différentes\n• Vous avez le désir de vous immerger dans le monde du dortoir Windspiel pendant 6 à 12 mois et se développer personnellement et professionnellement\n• Ce stage est adapté en tant que stage préliminaire avant de commencer un apprentissage en tant que spécialiste (FaBe), en tant que stage pour obtenir le diplôme FMS ainsi qu'un stage préliminaire pour l'admission dans une école technique supérieure (HF) ou une université de sciences appliquées (FH) ou en tant que stage dans le cadre d'un programme d'études sociopédagogiques.\n\nOuverture d'un emploi: Le poste doit être comblé le 1er février 2027."
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://jobs.pbl.ch/offene-stellen/praktikant-praktikantin-m-w-d-im-wohnheim-windspiel/c54b7893-8df6-4ea6-aead-8b641e9731c9",
+      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T21:24:15.248Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.pbl.ch/apply/ats/c54b7893-8df6-4ea6-aead-8b641e9731c9",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        ],
+        "en": [
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        ],
+        "fr": [
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:00:10.317Z",
+      "salaryMin": 63200,
+      "salaryMax": 88400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63200,
+          "maxValue": 88400,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Psychiatrie Baselland",
+        "streetAddress": "Bienentalstrasse 7",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Bienentalstrasse 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-13T21:24:15.248Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "pbl-eb92425069cb",
+      "slug": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
+      "slugByLocale": {
+        "it": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
+        "en": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
+        "de": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
+        "fr": "chef-d-equipe-chef-d-equipe-residence-windspiel-50-80-h-f-d-psychiatrie-baselland-liestal"
+      },
+      "company": "Psychiatrie Baselland",
+      "companyKey": "pbl",
+      "companyDomain": "pbl.ch",
+      "title": "Teamleiterin/Teamleiter Wohnheim Windspiel 50-80 % (m/w/d)",
+      "titleByLocale": {
+        "it": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d)",
+        "en": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d)",
+        "de": "Teamleiterin/Teamleiter Wohnheim Windspiel 50-80 % (m/w/d)",
+        "fr": "Chef d'équipe/chef d'équipe Résidence Windspiel 50-80 % (h/f/d)"
+      },
+      "description": "inclusioplus, Wohnheim Windspiel Liestal\nWir haben uns neu aufgestellt und unser Führungsteam erweitert. Zur Vervollständigung unseres engagierten Teams suchen wir eine weitere Führungspersönlichkeit, die gemeinsam mit uns die Weiterentwicklung unseres Unternehmens vorantreibt und neue Perspektiven einbringt.\n\n## Ihre Aufgaben\n• Fachliche und personelle Führung eines Teams von 8–10 Mitarbeitenden\n• Planung, Organisation und Weiterentwicklung einer Wohngruppe\n• Unterstützung von fünf Nutzerinnen und Nutzern nach dem Prinzip des guten Lebens und Förderung von Partizipation\n• Mitarbeit im Leitungsteam Wohnheim Windspiel und aktive Mitgestaltung der Weiterentwicklung\n\n## Ihr Profil\n• Abgeschlossenes Studium der Sozial- oder Heilpädagogik (B.A. / Diplom)\n• Ausgeprägte kommunikative und organisatorische Kompetenzen\n• Erfahrung in der Arbeit mit erwachsenen Menschen mit kognitiver oder mehrfacher Beeinträchtigung\n• Teamfähigkeit, ressourcenorientierte Arbeitsweise und Resilienz\n• Führungserfahrung sowie ein abgeschlossener Teamleiterkurs oder die Bereitschaft, sich entsprechend weiterzubilden\n• Bereitschaft zur Arbeit in Tagdiensten sowie ein flexibler Arbeitsanteil\n\n## Stellenantritt\nDie Stelle ist per 1. November 2026 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
+      "descriptionByLocale": {
+        "it": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d) inclusioplus, Residence Windspiel Liestal Ci siamo riposizionati e abbiamo ampliato il nostro team di gestione. Per completare il nostro team dedicato, stiamo cercando un altro leader che lavorerà con noi per guidare l'ulteriore sviluppo della nostra azienda e portare nuove prospettive.\n\nI loro compiti\n• Gestione professionale e personale di un team di 8-10 dipendenti\n• Pianificazione, organizzazione e sviluppo di un gruppo residenziale\n• Sostegno di cinque utenti secondo il principio di buona vita e promozione della partecipazione\n• Collaborazione nel team di gestione casa residenziale Windspiel e partecipazione attiva all'ulteriore sviluppo\n\nIl tuo profilo\n• Studio completo dell'educazione sociale o curativa (B.A. / diploma)\n• Forte comunicazione e capacità organizzative\n• Esperienza di lavoro con gli adulti con disturbi cognitivi o multipli\n• Lavoro di squadra, metodi di lavoro orientati alle risorse e resilienza\n• Esperienza di leadership così come un corso di team leader completato o la volontà di formare di conseguenza\n• La disponibilità a lavorare nei servizi diurni e una parte flessibile del lavoro\n\nApertura del lavoro: Il lavoro deve essere compilato il 1o novembre 2026 o d'accordo.",
+        "en": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d) inclusioplus, Residence Windspiel Liestal We have repositioned ourselves and expanded our management team. To complete our dedicated team, we are looking for another leader who will work with us to drive the further development of our company and bring new perspectives.\n\nTheir tasks\n• Professional and personnel management of a team of 8-10 employees\n• Planning, organisation and further development of a residential group\n• Support of five users according to the principle of good living and promotion of participation\n• Collaboration in the management team residential home Windspiel and active participation in the further development\n\nYour profile\n• Completed study of social or curative education (B.A. / diploma)\n• Strong communication and organisational skills\n• Experience working with adults with cognitive or multiple impairments\n• Teamwork, resource-oriented working methods and resilience\n• Leadership experience as well as a completed team leader course or the willingness to train accordingly\n• Readiness to work in daytime services and a flexible share of work\n\nJob opening: The job is to be filled on 1 November 2026 or by agreement.",
+        "de": "inclusioplus, Wohnheim Windspiel Liestal\nWir haben uns neu aufgestellt und unser Führungsteam erweitert. Zur Vervollständigung unseres engagierten Teams suchen wir eine weitere Führungspersönlichkeit, die gemeinsam mit uns die Weiterentwicklung unseres Unternehmens vorantreibt und neue Perspektiven einbringt.\n\n## Ihre Aufgaben\n• Fachliche und personelle Führung eines Teams von 8–10 Mitarbeitenden\n• Planung, Organisation und Weiterentwicklung einer Wohngruppe\n• Unterstützung von fünf Nutzerinnen und Nutzern nach dem Prinzip des guten Lebens und Förderung von Partizipation\n• Mitarbeit im Leitungsteam Wohnheim Windspiel und aktive Mitgestaltung der Weiterentwicklung\n\n## Ihr Profil\n• Abgeschlossenes Studium der Sozial- oder Heilpädagogik (B.A. / Diplom)\n• Ausgeprägte kommunikative und organisatorische Kompetenzen\n• Erfahrung in der Arbeit mit erwachsenen Menschen mit kognitiver oder mehrfacher Beeinträchtigung\n• Teamfähigkeit, ressourcenorientierte Arbeitsweise und Resilienz\n• Führungserfahrung sowie ein abgeschlossener Teamleiterkurs oder die Bereitschaft, sich entsprechend weiterzubilden\n• Bereitschaft zur Arbeit in Tagdiensten sowie ein flexibler Arbeitsanteil\n\n## Stellenantritt\nDie Stelle ist per 1. November 2026 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
+        "fr": "Chef d'équipe/chef d'équipe Résidence Windspiel 50-80 % (h/f/d) inclusioplus, Résidence Windspiel Liestal Nous nous sommes repositionnés et avons élargi notre équipe de gestion. Pour compléter notre équipe dédiée, nous recherchons un autre leader qui travaillera avec nous pour stimuler le développement de notre entreprise et apporter de nouvelles perspectives.\n\nLeurs tâches\n• Gestion professionnelle et du personnel d'une équipe de 8 à 10 employés\n• Planification, organisation et développement d'un groupe résidentiel\n• Soutien de cinq utilisateurs selon le principe de bonne vie et promotion de la participation\n• Collaboration dans l'équipe de gestion maison résidentielle Windspiel et participation active à la poursuite du développement\n\nVotre profil\n• Etude complète de l'enseignement social ou curatif (B.A. / diplôme)\n• Fortes compétences en communication et en organisation\n• Expérience de travail avec des adultes ayant des déficiences cognitives ou multiples\n• Travail d'équipe, méthodes de travail axées sur les ressources et résilience\n• Expérience en leadership ainsi qu'un cours de chef d'équipe terminé ou la volonté de s'entraîner en conséquence\n• Préparation au travail dans les services de jour et une part flexible du travail\n\nOuverture de l'emploi: L'emploi doit être rempli le 1er novembre 2026 ou par accord."
+      },
+      "needsRetranslation": false,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://jobs.pbl.ch/offene-stellen/teamleiterin-teamleiter-wohnheim-windspiel-m-w-d/272b36dd-4302-4b4a-9c08-69ee15388ece",
+      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T21:24:14.680Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.pbl.ch/apply/ats/272b36dd-4302-4b4a-9c08-69ee15388ece",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:00:10.721Z",
+      "salaryMin": 70400,
+      "salaryMax": 98400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70400,
+          "maxValue": 98400,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Psychiatrie Baselland",
+        "streetAddress": "Bienentalstrasse 7",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Bienentalstrasse 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-13T21:24:14.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3262,19 +3383,20 @@
         "de": "Sozialpädagogin/Sozialpädagoge HF/FH (m/w/d) 50-80 %",
         "fr": "Pédagogue sociale/Pédagogue sociale HF/FH (h/f/d) 50-80 %"
       },
-      "description": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• In dieser verantwortungsvollen Position tragen Sie massgeblich zur ganzheitlichen und agogischen Begleitung erwachsener Menschen mit vielfältigen Beeinträchtigungen und herausforderndem Verhalten bei\n• Sie sind aktiv an der Konzeption und Weiterentwicklung innovativer Ansätze beteiligt, insbesondere an Schnittstellen zwischen Psychiatrie und Behindertenhilfe, um nachhaltige Teilhabemöglichkeiten zu schaffen\n• Durch eigenverantwortliche Fallführung treffen Sie fundierte fachliche Entscheidungen und dokumentieren die Leitthemen der Nutzer*innen entsprechend sorgfältig\n• Sie koordinieren den Gruppenalltag mit, arbeiten interdisziplinär und fördern eine wertschätzende, inkludierende Atmosphäre\n• Sie bieten unseren Nutzer*innen gezielt Hilfestellungen entsprechend ihrer individuellen Fähigkeiten und Bedarfe\n\n## Ihr Profil\n• Abgeschlossenes Studium in Sozialer Arbeit FH, Sozialpädagogik HF oder eine gleichwertige Qualifikation\n• Fundierte Fachkenntnisse in der Arbeit mit Menschen mit herausforderndem Verhalten\n• Sie lassen sich auf neue Situationen ein und verlieren auch in schwierigen Momenten nicht die Übersicht\n• Interesse an der Entwicklung und Umsetzung innovativer Konzepte sowie an der Mitgestaltung von Projekten im Bereich der Behindertenhilfe\n• Ausgeprägte Ressourcenorientierung, Resilienz, Teamfähigkeit und eine selbstständige, lösungsorientierte Arbeitsweise\n\n## Stellenantritt\nDie Stelle ist per 1. November oder nach Vereinbarung zu besetzten.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
+      "description": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• In dieser verantwortungsvollen Position tragen Sie massgeblich zur ganzheitlichen und agogischen Begleitung erwachsener Menschen mit vielfältigen Beeinträchtigungen und herausforderndem Verhalten bei\n• Sie sind aktiv an der Konzeption und Weiterentwicklung innovativer Ansätze beteiligt, insbesondere an Schnittstellen zwischen Psychiatrie und Behindertenhilfe, um nachhaltige Teilhabemöglichkeiten zu schaffen\n• Durch eigenverantwortliche Fallführung treffen Sie fundierte fachliche Entscheidungen und dokumentieren die Leitthemen der Nutzer*innen entsprechend sorgfältig\n• Sie koordinieren den Gruppenalltag mit, arbeiten interdisziplinär und fördern eine wertschätzende, inkludierende Atmosphäre\n• Sie bieten unseren Nutzer*innen gezielt Hilfestellungen entsprechend ihrer individuellen Fähigkeiten und Bedarfe\n\n## Ihr Profil\n• Abgeschlossenes Studium in Sozialer Arbeit FH, Sozialpädagogik HF oder eine gleichwertige Qualifikation\n• Fundierte Fachkenntnisse in der Arbeit mit Menschen mit herausforderndem Verhalten\n• Sie lassen sich auf neue Situationen ein und verlieren auch in schwierigen Momenten nicht die Übersicht\n• Interesse an der Entwicklung und Umsetzung innovativer Konzepte sowie an der Mitgestaltung von Projekten im Bereich der Behindertenhilfe\n• Ausgeprägte Ressourcenorientierung, Resilienz, Teamfähigkeit und eine selbstständige, lösungsorientierte Arbeitsweise\n\n## Stellenantritt\nDie Stelle ist per 1. November 2026 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
       "descriptionByLocale": {
         "it": "Pedagoga sociale / Pedagoga sociale HF/FH (m/f/d) 50-80 % inclusioplus, dormitorio Windspiel Liestal\n\nI loro compiti\n• In questa posizione responsabile, contribuisci in modo significativo al supporto olistico e agogico degli adulti con molteplici disagi e comportamenti impegnativi.\n• Sono attivamente coinvolti nella progettazione e nello sviluppo di approcci innovativi, in particolare nelle interfacce tra psichiatria e disabilità per creare opportunità di partecipazione sostenibili.\n• Meet by self-responsible case management Essi prendono decisioni professionali ben fondate e documentano i temi guida degli utenti di conseguenza attentamente\n• Coordinano la vita quotidiana del gruppo, lavorano interdisciplinare e promuovono un'atmosfera apprezzativa e inclusiva.\n• Essi offrono ai nostri utenti assistenza mirata in base alle loro competenze e esigenze individuali\n\nIl tuo profilo\n• Studi completi in Social Work FH, Social Education HF o una qualifica equivalente\n• Competenze approfondite nel lavorare con le persone con un comportamento stimolante\n• Si impegnano in nuove situazioni e non perdono traccia anche in momenti difficili\n• Interessi nello sviluppo e nell'attuazione di concetti innovativi e nella co-creazione di progetti nel settore dell'assistenza alla disabilità\n• Forte orientamento delle risorse, resilienza, lavoro di squadra e un metodo di lavoro indipendente e orientato alla soluzione\n\nApertura del lavoro: il lavoro deve essere compilato entro il 1 novembre o per accordo.",
         "en": "Social Pedagogue/Social Pedagogue HF/FH (m/f/d) 50-80 % inclusioplus, dormitory Windspiel Liestal\n\nTheir tasks\n• In this responsible position, you contribute significantly to the holistic and agogic support of adults with multiple impairments and challenging behavior.\n• They are actively involved in the design and development of innovative approaches, in particular at the interfaces between psychiatry and disability care to create sustainable participation opportunities.\n• Meet by self-responsible case management They make well-founded professional decisions and document the guiding themes of the users accordingly carefully\n• They coordinate everyday group life, work interdisciplinary and promote an appreciative, inclusive atmosphere.\n• They offer our users targeted assistance according to their individual skills and needs\n\nYour profile\n• Completed studies in Social Work FH, Social Education HF or an equivalent qualification\n• In-depth expertise in working with people with challenging behavior\n• They engage in new situations and do not lose track even in difficult moments\n• Interest in the development and implementation of innovative concepts and in the co-creation of projects in the field of disability assistance\n• Strong resource orientation, resilience, teamwork and an independent, solution-oriented working method\n\nJob opening: The job is to be filled by 1 November or by agreement.",
-        "de": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• In dieser verantwortungsvollen Position tragen Sie massgeblich zur ganzheitlichen und agogischen Begleitung erwachsener Menschen mit vielfältigen Beeinträchtigungen und herausforderndem Verhalten bei\n• Sie sind aktiv an der Konzeption und Weiterentwicklung innovativer Ansätze beteiligt, insbesondere an Schnittstellen zwischen Psychiatrie und Behindertenhilfe, um nachhaltige Teilhabemöglichkeiten zu schaffen\n• Durch eigenverantwortliche Fallführung treffen Sie fundierte fachliche Entscheidungen und dokumentieren die Leitthemen der Nutzer*innen entsprechend sorgfältig\n• Sie koordinieren den Gruppenalltag mit, arbeiten interdisziplinär und fördern eine wertschätzende, inkludierende Atmosphäre\n• Sie bieten unseren Nutzer*innen gezielt Hilfestellungen entsprechend ihrer individuellen Fähigkeiten und Bedarfe\n\n## Ihr Profil\n• Abgeschlossenes Studium in Sozialer Arbeit FH, Sozialpädagogik HF oder eine gleichwertige Qualifikation\n• Fundierte Fachkenntnisse in der Arbeit mit Menschen mit herausforderndem Verhalten\n• Sie lassen sich auf neue Situationen ein und verlieren auch in schwierigen Momenten nicht die Übersicht\n• Interesse an der Entwicklung und Umsetzung innovativer Konzepte sowie an der Mitgestaltung von Projekten im Bereich der Behindertenhilfe\n• Ausgeprägte Ressourcenorientierung, Resilienz, Teamfähigkeit und eine selbstständige, lösungsorientierte Arbeitsweise\n\n## Stellenantritt\nDie Stelle ist per 1. November oder nach Vereinbarung zu besetzten.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
+        "de": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• In dieser verantwortungsvollen Position tragen Sie massgeblich zur ganzheitlichen und agogischen Begleitung erwachsener Menschen mit vielfältigen Beeinträchtigungen und herausforderndem Verhalten bei\n• Sie sind aktiv an der Konzeption und Weiterentwicklung innovativer Ansätze beteiligt, insbesondere an Schnittstellen zwischen Psychiatrie und Behindertenhilfe, um nachhaltige Teilhabemöglichkeiten zu schaffen\n• Durch eigenverantwortliche Fallführung treffen Sie fundierte fachliche Entscheidungen und dokumentieren die Leitthemen der Nutzer*innen entsprechend sorgfältig\n• Sie koordinieren den Gruppenalltag mit, arbeiten interdisziplinär und fördern eine wertschätzende, inkludierende Atmosphäre\n• Sie bieten unseren Nutzer*innen gezielt Hilfestellungen entsprechend ihrer individuellen Fähigkeiten und Bedarfe\n\n## Ihr Profil\n• Abgeschlossenes Studium in Sozialer Arbeit FH, Sozialpädagogik HF oder eine gleichwertige Qualifikation\n• Fundierte Fachkenntnisse in der Arbeit mit Menschen mit herausforderndem Verhalten\n• Sie lassen sich auf neue Situationen ein und verlieren auch in schwierigen Momenten nicht die Übersicht\n• Interesse an der Entwicklung und Umsetzung innovativer Konzepte sowie an der Mitgestaltung von Projekten im Bereich der Behindertenhilfe\n• Ausgeprägte Ressourcenorientierung, Resilienz, Teamfähigkeit und eine selbstständige, lösungsorientierte Arbeitsweise\n\n## Stellenantritt\nDie Stelle ist per 1. November 2026 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
         "fr": "Pédagogue sociale/Pédagogue sociale HF/FH (h/f/d) 50-80 % inclusioplus, dortoir Windspiel Liestal\n\nLeurs tâches\n• Dans cette position responsable, vous contribuez de façon significative au soutien holistique et agogique des adultes ayant des déficiences multiples et un comportement difficile.\n• Ils participent activement à la conception et à l'élaboration d'approches novatrices, en particulier aux interfaces entre la psychiatrie et les soins aux personnes handicapées pour créer des possibilités de participation durables.\n• Rencontrer par une gestion de cas autoresponsable Ils prennent des décisions professionnelles fondées et documentent soigneusement les thèmes directeurs des utilisateurs\n• Ils coordonnent la vie quotidienne de groupe, travaillent interdisciplinaires et favorisent une atmosphère appréciée et inclusive.\n• Ils offrent à nos utilisateurs une assistance ciblée en fonction de leurs compétences et besoins individuels\n\nVotre profil\n• Études complétées en travail social FH, éducation sociale HF ou une qualification équivalente\n• Expertise approfondie dans le travail avec des personnes avec un comportement difficile\n• Ils s'engagent dans de nouvelles situations et ne perdent pas de vue même dans des moments difficiles\n• Intérêt pour l'élaboration et la mise en œuvre de concepts innovants et pour la co-création de projets dans le domaine de l'aide aux personnes handicapées\n• Une forte orientation vers les ressources, la résilience, le travail d'équipe et une méthode de travail indépendante axée sur la solution\n\nOuverture d'un emploi: Le poste doit être rempli avant le 1er novembre ou par accord."
       },
+      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.pbl.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-hf-fh-m-w-d/5a1abd77-d981-4f18-a1ee-3f1c8920a116",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:06.197Z",
+      "crawledAt": "2026-11-02T21:24:14.275Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3331,199 +3453,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T10:06:06.197Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "pbl-954f399a3a9a",
-      "slug": "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal",
-      "slugByLocale": {
-        "it": "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal",
-        "en": "intern-m-f-d-80-in-the-residential-windspiel-psychiatrie-baselland-liestal",
-        "de": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
-        "fr": "stage-h-f-d-80-dans-le-windspiel-residentiel-psychiatrie-baselland-liestal"
-      },
-      "company": "Psychiatrie Baselland",
-      "companyKey": "pbl",
-      "companyDomain": "pbl.ch",
-      "title": "Praktikant/Praktikantin (m/w/d) 80 % im Wohnheim Windspiel",
-      "titleByLocale": {
-        "it": "Intern (m/f/d) 80% nel residenziale Windspiel",
-        "en": "Intern (m/f/d) 80% in the residential Windspiel",
-        "de": "Praktikant/Praktikantin (m/w/d) 80 % im Wohnheim Windspiel",
-        "fr": "Stage (h/f/d) 80% dans le Windspiel résidentiel"
-      },
-      "description": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie erledigen abwechslungsreiche Tätigkeiten im Umgang mit sehr spannenden Menschen\n• Sie bringen sich ein und gestalten den Tag kreativ mit\n• Sie arbeiten täglich mit unseren Nutzerinnen und Nutzern und lernen ihre Bedürfnisse und Ressourcen zu verstehen\n• Sie erhalten täglich neue Einblicke in die sozialpädagogische Arbeitswelt\n\n## Ihr Profil\n• Sie sind volljährig\n• Sie sind neugierig und haben Freude an der Begleitung von unterschiedlich beeinträchtigten Menschen\n• Sie haben Lust, für 6 bis 12 Monate in die Welt des Wohnheims Windspiel einzutauchen und sich persönlich und fachlich weiterzuentwickeln\n• Dieses Praktikum eignet sich als Vorpraktikum vor Aufnahme einer Ausbildung zur Fachperson Betreuung (FaBe), als Praktikum zur Erlangung des FMS-Abschlusses sowie als Vorpraktikum zur Aufnahme an einer höheren Fachschule (HF) oder Fachhochschule (FH) oder als Praktikum während eines sozialpädagogischen Studiums\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
-      "descriptionByLocale": {
-        "it": "Intern/Internship (m/f/d) 80% nella sala residenziale Windspiel inclusionoplus, sala residenziale Windspiel Liestal\n\nI loro compiti\n• Essi fanno varie attività nel trattare persone molto eccitanti\n• Essi contribuiscono e creano la giornata creativamente\n• Lavorano quotidianamente con i nostri utenti e imparano a capire le loro esigenze e risorse\n• Ogni giorno si ottiene nuove conoscenze nel mondo del lavoro socio-educativo\n\nIl tuo profilo\n• Sono di età legale\n• Siete curiosi e divertitevi accompagnando persone diversamente compromesse\n• Hai il desiderio di immergerti nel mondo del dormitorio Windspiel per 6-12 mesi e svilupparti personalmente e professionalmente\n• Questo tirocinio è adatto come tirocinio preliminare prima di iniziare un apprendistato come specialista (FaBe), come stage per ottenere il grado FMS e uno stage preliminare per l'ammissione a una scuola tecnica superiore (HF) o università di scienze applicate (FH) o come stage durante un programma di studio socio-pedagogico.\n\nApertura del lavoro: Il lavoro deve essere riempito il 1o febbraio 2027.",
-        "en": "Intern/Internship (m/f/d) 80% in the residential hall Windspiel inclusioplus, residential hall Windspiel Liestal\n\nTheir tasks\n• They do varied activities in dealing with very exciting people\n• They contribute and create the day creatively\n• They work with our users on a daily basis and learn to understand their needs and resources\n• Every day you get new insights into the socio-educational working world\n\nYour profile\n• They are of legal age\n• You are curious and enjoy accompanying differently impaired people\n• You have the desire to immerse yourself in the world of the dormitory Windspiel for 6 to 12 months and develop personally and professionally\n• This internship is suitable as a preliminary internship before starting an apprenticeship as a specialist (FaBe), as an internship for obtaining the FMS degree as well as as a preliminary internship for admission to a higher technical school (HF) or university of applied sciences (FH) or as an internship during a socio-pedagogical study programme.\n\nJob opening: The job is to be filled on 1 February 2027.",
-        "de": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie erledigen abwechslungsreiche Tätigkeiten im Umgang mit sehr spannenden Menschen\n• Sie bringen sich ein und gestalten den Tag kreativ mit\n• Sie arbeiten täglich mit unseren Nutzerinnen und Nutzern und lernen ihre Bedürfnisse und Ressourcen zu verstehen\n• Sie erhalten täglich neue Einblicke in die sozialpädagogische Arbeitswelt\n\n## Ihr Profil\n• Sie sind volljährig\n• Sie sind neugierig und haben Freude an der Begleitung von unterschiedlich beeinträchtigten Menschen\n• Sie haben Lust, für 6 bis 12 Monate in die Welt des Wohnheims Windspiel einzutauchen und sich persönlich und fachlich weiterzuentwickeln\n• Dieses Praktikum eignet sich als Vorpraktikum vor Aufnahme einer Ausbildung zur Fachperson Betreuung (FaBe), als Praktikum zur Erlangung des FMS-Abschlusses sowie als Vorpraktikum zur Aufnahme an einer höheren Fachschule (HF) oder Fachhochschule (FH) oder als Praktikum während eines sozialpädagogischen Studiums\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
-        "fr": "Stage / Internat (h/f/d) 80% dans le hall résidentiel Windspiel inclusioplus, hall résidentiel Windspiel Liestal\n\nLeurs tâches\n• Ils font des activités variées en traitant avec des gens très excitants\n• Ils contribuent et créent la journée de manière créative\n• Ils travaillent quotidiennement avec nos utilisateurs et apprennent à comprendre leurs besoins et leurs ressources.\n• Chaque jour, vous obtenez de nouvelles informations sur le monde socio-éducatif du travail\n\nVotre profil\n• Ils ont l'âge légal\n• Vous êtes curieux et vous aimez accompagner des personnes ayant des déficiences différentes\n• Vous avez le désir de vous immerger dans le monde du dortoir Windspiel pendant 6 à 12 mois et se développer personnellement et professionnellement\n• Ce stage est adapté en tant que stage préliminaire avant de commencer un apprentissage en tant que spécialiste (FaBe), en tant que stage pour obtenir le diplôme FMS ainsi qu'un stage préliminaire pour l'admission dans une école technique supérieure (HF) ou une université de sciences appliquées (FH) ou en tant que stage dans le cadre d'un programme d'études sociopédagogiques.\n\nOuverture d'un emploi: Le poste doit être comblé le 1er février 2027."
-      },
-      "needsRetranslation": true,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://jobs.pbl.ch/offene-stellen/praktikant-praktikantin-m-w-d-im-wohnheim-windspiel/c54b7893-8df6-4ea6-aead-8b641e9731c9",
-      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:05.776Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-14",
-      "postedDate": "2026-09-14",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.pbl.ch/apply/ats/c54b7893-8df6-4ea6-aead-8b641e9731c9",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
-        ],
-        "en": [
-          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
-        ],
-        "fr": [
-          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:00:10.317Z",
-      "salaryMin": 63200,
-      "salaryMax": 88400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63200,
-          "maxValue": 88400,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Psychiatrie Baselland",
-        "streetAddress": "Bienentalstrasse 7",
-        "postalCode": "4410",
-        "addressLocality": "Liestal",
-        "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
-      },
-      "streetAddress": "Bienentalstrasse 7",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T10:06:05.776Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "pbl-eb92425069cb",
-      "slug": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
-      "slugByLocale": {
-        "it": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
-        "en": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
-        "de": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
-        "fr": "chef-d-equipe-chef-d-equipe-residence-windspiel-50-80-h-f-d-psychiatrie-baselland-liestal"
-      },
-      "company": "Psychiatrie Baselland",
-      "companyKey": "pbl",
-      "companyDomain": "pbl.ch",
-      "title": "Teamleiterin/Teamleiter Wohnheim Windspiel 50-80 % (m/w/d)",
-      "titleByLocale": {
-        "it": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d)",
-        "en": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d)",
-        "de": "Teamleiterin/Teamleiter Wohnheim Windspiel 50-80 % (m/w/d)",
-        "fr": "Chef d'équipe/chef d'équipe Résidence Windspiel 50-80 % (h/f/d)"
-      },
-      "description": "inclusioplus, Wohnheim Windspiel Liestal\nWir haben uns neu aufgestellt und unser Führungsteam erweitert. Zur Vervollständigung unseres engagierten Teams suchen wir eine weitere Führungspersönlichkeit, die gemeinsam mit uns die Weiterentwicklung unseres Unternehmens vorantreibt und neue Perspektiven einbringt.\n\n## Ihre Aufgaben\n• Fachliche und personelle Führung eines Teams von 8–10 Mitarbeitenden\n• Planung, Organisation und Weiterentwicklung einer Wohngruppe\n• Unterstützung von fünf Nutzerinnen und Nutzern nach dem Prinzip des guten Lebens und Förderung von Partizipation\n• Mitarbeit im Leitungsteam Wohnheim Windspiel und aktive Mitgestaltung der Weiterentwicklung\n\n## Ihr Profil\n• Abgeschlossenes Studium der Sozial- oder Heilpädagogik (B.A. / Diplom)\n• Ausgeprägte kommunikative und organisatorische Kompetenzen\n• Erfahrung in der Arbeit mit erwachsenen Menschen mit kognitiver oder mehrfacher Beeinträchtigung\n• Teamfähigkeit, ressourcenorientierte Arbeitsweise und Resilienz\n• Führungserfahrung sowie ein abgeschlossener Teamleiterkurs oder die Bereitschaft, sich entsprechend weiterzubilden\n• Bereitschaft zur Arbeit in Tagdiensten sowie ein flexibler Arbeitsanteil\n\n## Stellenantritt\nDie Stelle ist per 1. November 2026 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
-      "descriptionByLocale": {
-        "it": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d) inclusioplus, Residence Windspiel Liestal Ci siamo riposizionati e abbiamo ampliato il nostro team di gestione. Per completare il nostro team dedicato, stiamo cercando un altro leader che lavorerà con noi per guidare l'ulteriore sviluppo della nostra azienda e portare nuove prospettive.\n\nI loro compiti\n• Gestione professionale e personale di un team di 8-10 dipendenti\n• Pianificazione, organizzazione e sviluppo di un gruppo residenziale\n• Sostegno di cinque utenti secondo il principio di buona vita e promozione della partecipazione\n• Collaborazione nel team di gestione casa residenziale Windspiel e partecipazione attiva all'ulteriore sviluppo\n\nIl tuo profilo\n• Studio completo dell'educazione sociale o curativa (B.A. / diploma)\n• Forte comunicazione e capacità organizzative\n• Esperienza di lavoro con gli adulti con disturbi cognitivi o multipli\n• Lavoro di squadra, metodi di lavoro orientati alle risorse e resilienza\n• Esperienza di leadership così come un corso di team leader completato o la volontà di formare di conseguenza\n• La disponibilità a lavorare nei servizi diurni e una parte flessibile del lavoro\n\nApertura del lavoro: Il lavoro deve essere compilato il 1o novembre 2026 o d'accordo.",
-        "en": "Team Leader/Team Leader Residence Windspiel 50-80 % (m/f/d) inclusioplus, Residence Windspiel Liestal We have repositioned ourselves and expanded our management team. To complete our dedicated team, we are looking for another leader who will work with us to drive the further development of our company and bring new perspectives.\n\nTheir tasks\n• Professional and personnel management of a team of 8-10 employees\n• Planning, organisation and further development of a residential group\n• Support of five users according to the principle of good living and promotion of participation\n• Collaboration in the management team residential home Windspiel and active participation in the further development\n\nYour profile\n• Completed study of social or curative education (B.A. / diploma)\n• Strong communication and organisational skills\n• Experience working with adults with cognitive or multiple impairments\n• Teamwork, resource-oriented working methods and resilience\n• Leadership experience as well as a completed team leader course or the willingness to train accordingly\n• Readiness to work in daytime services and a flexible share of work\n\nJob opening: The job is to be filled on 1 November 2026 or by agreement.",
-        "de": "inclusioplus, Wohnheim Windspiel Liestal\nWir haben uns neu aufgestellt und unser Führungsteam erweitert. Zur Vervollständigung unseres engagierten Teams suchen wir eine weitere Führungspersönlichkeit, die gemeinsam mit uns die Weiterentwicklung unseres Unternehmens vorantreibt und neue Perspektiven einbringt.\n\n## Ihre Aufgaben\n• Fachliche und personelle Führung eines Teams von 8–10 Mitarbeitenden\n• Planung, Organisation und Weiterentwicklung einer Wohngruppe\n• Unterstützung von fünf Nutzerinnen und Nutzern nach dem Prinzip des guten Lebens und Förderung von Partizipation\n• Mitarbeit im Leitungsteam Wohnheim Windspiel und aktive Mitgestaltung der Weiterentwicklung\n\n## Ihr Profil\n• Abgeschlossenes Studium der Sozial- oder Heilpädagogik (B.A. / Diplom)\n• Ausgeprägte kommunikative und organisatorische Kompetenzen\n• Erfahrung in der Arbeit mit erwachsenen Menschen mit kognitiver oder mehrfacher Beeinträchtigung\n• Teamfähigkeit, ressourcenorientierte Arbeitsweise und Resilienz\n• Führungserfahrung sowie ein abgeschlossener Teamleiterkurs oder die Bereitschaft, sich entsprechend weiterzubilden\n• Bereitschaft zur Arbeit in Tagdiensten sowie ein flexibler Arbeitsanteil\n\n## Stellenantritt\nDie Stelle ist per 1. November 2026 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
-        "fr": "Chef d'équipe/chef d'équipe Résidence Windspiel 50-80 % (h/f/d) inclusioplus, Résidence Windspiel Liestal Nous nous sommes repositionnés et avons élargi notre équipe de gestion. Pour compléter notre équipe dédiée, nous recherchons un autre leader qui travaillera avec nous pour stimuler le développement de notre entreprise et apporter de nouvelles perspectives.\n\nLeurs tâches\n• Gestion professionnelle et du personnel d'une équipe de 8 à 10 employés\n• Planification, organisation et développement d'un groupe résidentiel\n• Soutien de cinq utilisateurs selon le principe de bonne vie et promotion de la participation\n• Collaboration dans l'équipe de gestion maison résidentielle Windspiel et participation active à la poursuite du développement\n\nVotre profil\n• Etude complète de l'enseignement social ou curatif (B.A. / diplôme)\n• Fortes compétences en communication et en organisation\n• Expérience de travail avec des adultes ayant des déficiences cognitives ou multiples\n• Travail d'équipe, méthodes de travail axées sur les ressources et résilience\n• Expérience en leadership ainsi qu'un cours de chef d'équipe terminé ou la volonté de s'entraîner en conséquence\n• Préparation au travail dans les services de jour et une part flexible du travail\n\nOuverture de l'emploi: L'emploi doit être rempli le 1er novembre 2026 ou par accord."
-      },
-      "needsRetranslation": false,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://jobs.pbl.ch/offene-stellen/teamleiterin-teamleiter-wohnheim-windspiel-m-w-d/272b36dd-4302-4b4a-9c08-69ee15388ece",
-      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:05.369Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-14",
-      "postedDate": "2026-09-14",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.pbl.ch/apply/ats/272b36dd-4302-4b4a-9c08-69ee15388ece",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
-        ],
-        "en": [
-          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
-        ],
-        "fr": [
-          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:00:10.721Z",
-      "salaryMin": 70400,
-      "salaryMax": 98400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70400,
-          "maxValue": 98400,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Psychiatrie Baselland",
-        "streetAddress": "Bienentalstrasse 7",
-        "postalCode": "4410",
-        "addressLocality": "Liestal",
-        "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
-      },
-      "streetAddress": "Bienentalstrasse 7",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T10:06:05.369Z",
+      "validThrough": "2026-12-13T21:24:14.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3558,7 +3493,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikantin-praktikant-administration-kinder-und-jugendpsychiatrie-m-w-d/15e4b8eb-911e-4ea3-a12a-9c358399fa48",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:04.932Z",
+      "crawledAt": "2026-11-02T21:24:13.889Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3616,11 +3551,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T10:06:04.932Z",
+      "validThrough": "2026-12-20T21:24:13.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3655,7 +3591,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/arzt-aerztin-im-nachtdienst-80-m-w-d/b7fbc5d0-1bc4-4696-8e96-26c6a1c390ad",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:04.427Z",
+      "crawledAt": "2026-11-02T21:24:13.472Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3710,11 +3646,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T10:06:04.427Z",
+      "validThrough": "2026-12-22T21:24:13.472Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3749,7 +3686,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-fachmann-betreuung-w-m-d/231e42d7-5649-4856-9771-5ab0b4be030c",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:03.988Z",
+      "crawledAt": "2026-11-02T21:24:13.066Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3804,11 +3741,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T10:06:03.988Z",
+      "validThrough": "2026-12-23T21:24:13.066Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3843,7 +3781,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/praktikantin-praktikant-kunsttherapie-m-w-d/eac45772-65e7-4778-a386-5dcb16ea46d7",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:03.552Z",
+      "crawledAt": "2026-11-02T21:24:12.673Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3902,11 +3840,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T10:06:03.552Z",
+      "validThrough": "2026-12-27T21:24:12.673Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3941,7 +3880,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/stationsleiterin-pflege-stationsleiter-pflege-m-w-d/fce6d20c-a58a-450b-8b9d-5aa9ae4ec321",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:03.095Z",
+      "crawledAt": "2026-11-02T21:24:12.269Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4003,11 +3942,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T10:06:03.095Z",
+      "validThrough": "2026-12-27T21:24:12.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4042,7 +3982,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-fh-hf-kinder-und-jugendpsychiatrie-m-w-d/f850f319-3399-4651-b7e8-ef1b6085f3e4",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:02.519Z",
+      "crawledAt": "2026-11-02T21:24:11.746Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4091,11 +4031,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T10:06:02.519Z",
+      "validThrough": "2026-12-27T21:24:11.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4130,7 +4071,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/fachfrau-gesundheit-fachmann-gesundheit-m-w-d-stationaer/3d9b53fe-9449-4571-80e7-cae0615fc8b5",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:01.961Z",
+      "crawledAt": "2026-11-02T21:24:11.248Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4185,11 +4126,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T10:06:01.961Z",
+      "validThrough": "2026-12-27T21:24:11.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4224,7 +4166,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-m-w-d/7438feb8-a41c-4466-be73-ef2ff33bbafd",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:01.526Z",
+      "crawledAt": "2026-11-02T21:24:10.842Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4279,11 +4221,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T10:06:01.526Z",
+      "validThrough": "2027-01-03T21:24:10.842Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4318,7 +4261,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/junior-support-engineer-m-w-d/44406f3d-5f5b-4ce4-8c48-142bc08b4eca",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:01.039Z",
+      "crawledAt": "2026-11-02T21:24:10.419Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4370,11 +4313,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-10T10:06:01.039Z",
+      "validThrough": "2027-01-10T21:24:10.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4409,7 +4353,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/leiterin-leiter-ambulatorium-laufen-m-w-d/b3b8c6a7-374e-48fa-8697-f003da188835",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:06:00.459Z",
+      "crawledAt": "2026-11-02T21:24:09.895Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4466,11 +4410,12 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T10:06:00.459Z",
+      "validThrough": "2027-01-12T21:24:09.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4504,7 +4449,7 @@
       "url": "https://jobs.pbl.ch/offene-stellen/kliniksekretaerin-kliniksekretaer-m-w-d/1b8af0fb-db35-44e8-8d76-3b901793a561",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:59.810Z",
+      "crawledAt": "2026-11-02T21:24:09.326Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4561,20 +4506,21 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
-        "checkedAt": "2026-10-31T20:50:33.393Z"
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T10:05:59.810Z",
+      "validThrough": "2027-01-27T21:24:09.326Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pbl-9a22bd683d16",
       "slug": "operatore-trice-socioassistenziale-afc-o-infermiere-a-diplomato-a-per-il-turno-di-notte-60-80-m-f-d-psychiatrie",
       "slugByLocale": {
-        "de": "fachperson-betreuung-efz-oder-dipl-pflegefachperson-fur-nachtwache-60-80-m-w-d-pbl-liestal",
         "it": "operatore-trice-socioassistenziale-afc-o-infermiere-a-diplomato-a-per-il-turno-di-notte-60-80-m-f-d-psychiatrie",
         "en": "specialist-support-efz-or-dipl-nurse-for-night-watch-60-80-m-f-d-psychiatrie-baselland-liestal",
+        "de": "fachperson-betreuung-efz-oder-dipl-pflegefachperson-fur-nachtwache-60-80-m-w-d-pbl-liestal",
         "fr": "soutien-specialise-efz-ou-dipl-infirmiere-pour-veille-de-nuit-60-80-h-f-d-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
@@ -4582,25 +4528,25 @@
       "companyDomain": "pbl.ch",
       "title": "Fachperson Betreuung EFZ oder Dipl. Pflegefachperson für Nachtwache 60-80 % (m/w/d)",
       "titleByLocale": {
-        "de": "Fachperson Betreuung EFZ oder Dipl. Pflegefachperson für Nachtwache 60-80 % (m/w/d)",
         "it": "Operatore/trice socioassistenziale AFC o infermiere/a diplomato/a per il turno di notte 60-80 % (m/f/d)",
         "en": "Specialist support EFZ or Dipl. Nurse for Night Watch 60-80% (m/f/d)",
+        "de": "Fachperson Betreuung EFZ oder Dipl. Pflegefachperson für Nachtwache 60-80 % (m/w/d)",
         "fr": "Soutien spécialisé EFZ ou Dipl. Infirmière pour veille de nuit 60-80% (h/f/d)"
       },
       "description": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie gewährleisten die agogisch orientierte Begleitung und Pflege von erwachsenen Menschen mit geistiger Behinderung und herausforderndem Verhalten in der Nacht\n• Sie gewährleisten die medikamentöse Versorgung und die Sicherheit in der Nacht\n• Sie führen die Bewohnerdokumentation\n• Sie arbeiten in der Nacht von 22.00 – 07.00 Uhr\n\n## Ihr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachmann/Fachfrau Betreuung, Dipl. Behindertenbetreuer*in, Heilerziehungspfleger*in oder Pflegefachperson.\n• Sie verfügen über langjährige Erfahrung in der Arbeit mit erwachsenen Menschen mit geistiger Behinderung.\n• Sie besitzen eine gute Entscheidungskompetenz und können eigenverantwortlich handeln.\n• Sie lassen sich auf neue Situationen ein und behalten auch in schwierigen Momenten die Übersicht.\n\n## Stellenantritt\nDie Stelle ist ab dem 1. Dezember 2026 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
       "descriptionByLocale": {
-        "de": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie gewährleisten die agogisch orientierte Begleitung und Pflege von erwachsenen Menschen mit geistiger Behinderung und herausforderndem Verhalten in der Nacht\n• Sie gewährleisten die medikamentöse Versorgung und die Sicherheit in der Nacht\n• Sie führen die Bewohnerdokumentation\n• Sie arbeiten in der Nacht von 22.00 – 07.00 Uhr\n\n## Ihr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachmann/Fachfrau Betreuung, Dipl. Behindertenbetreuer*in, Heilerziehungspfleger*in oder Pflegefachperson.\n• Sie verfügen über langjährige Erfahrung in der Arbeit mit erwachsenen Menschen mit geistiger Behinderung.\n• Sie besitzen eine gute Entscheidungskompetenz und können eigenverantwortlich handeln.\n• Sie lassen sich auf neue Situationen ein und behalten auch in schwierigen Momenten die Übersicht.\n\n## Stellenantritt\nDie Stelle ist ab dem 1. Dezember 2026 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
         "it": "inclusioplus, sala di residenza Windspiel Liestal\n\n## I loro compiti\n• Garantiscono l'accompagnamento agogicamente orientato e la cura di adulti con disabilità intellettuali e comportamenti impegnativi di notte.\n• Assicurano assistenza medica e sicurezza di notte\n• Tieni la documentazione residente\n• Lavori di notte dalle 22.00 alle 07.00\n\n## Il tuo profilo\n• Hai completato la formazione come specialista / supervisore professionale, Dipl. caregiver disabili, infermiere di assistenza sanitaria o infermiere.\n• Hanno molti anni di esperienza lavorando con gli adulti con disabilità intellettuali.\n• Hanno una buona autorità decisionale e possono agire indipendentemente.\n• Si impegnano in nuove situazioni e tengono una panoramica anche in momenti difficili.\n\n## Apertura del lavoro\nIl posto deve essere compilato dal 1° dicembre 2026.\nI nostri vantaggi\n\n## Informazioni su di noi\ninclusionoplus offre diverse possibilità di lavoro assistito, varie forme di vita assistita e una significativa pianificazione diurna per le persone con disabilità. Ci concentriamo su ogni persona con le loro esigenze individuali, competenze e risorse.\ninclusioplus è per gli adulti con disabilità mentali, cognitive e multiple. In particolare, le persone con un alto bisogno di sostegno sono accettate e accompagnate nella zona giorno.\n\n## La nostra offerta\nVi offriamo un lavoro indipendente, interessante e versatile in un'azienda vivace e in un ambiente umano. Lavori in un team motivato che ti supporta con le preoccupazioni per il tuo lavoro. La nostra reciproca interazione è caratterizzata da apprezzamento. Sosteniamo i nostri dipendenti e consentiamo loro di sviluppare il loro potenziale nel modo migliore possibile.\nIl vostro luogo di lavoro: Rheinstrasse 43b, 4410 Liestal\n\n## Non perdere nuovi lavori\nCon il JobAbo ottieni nuove posizioni via e-mail direttamente nella tua casella di posta.\nPanoramica delle offerte",
         "en": "inclusioplus, residence hall Windspiel Liestal\n\n## Their tasks\n• They ensure the agogically oriented accompaniment and care of adults with intellectual disabilities and challenging behavior at night.\n• They ensure medical care and safety at night\n• You keep the resident documentation\n• You work at night from 22.00 – 07.00\n\n## Your profile\n• You have completed training as a specialist / professional supervisor, Dipl. disabled caregiver, health care nurse or nurse.\n• They have many years of experience working with adults with intellectual disabilities.\n• They have good decision-making authority and can act independently.\n• They engage in new situations and keep an overview even in difficult moments.\n\n## Job opening\nThe post shall be filled from 1 December 2026.\nOur Benefits\n\n## About us\ninclusioplus offers various possibilities for assisted work, various forms of assisted living as well as meaningful daytime planning for people with disabilities. We focus on each individual person with their individual needs, skills and resources.\ninclusioplus is for adults with mental, cognitive and multiple disabilities. In particular, people with a high need for support are accepted and accompanied in the living area.\n\n## Our offer\nWe offer you an independent, interesting and versatile work in a lively company and human-friendly environment. You work in a motivated team that supports you with concerns about your work. Our mutual interaction is characterised by appreciation. We support our employees and enable them to develop their potential in the best possible way.\nYour place of work: Rheinstrasse 43b, 4410 Liestal\n\n## Do not miss new jobs\nWith the JobAbo you get new positions by e-mail directly into your mailbox.\nOverview of vacancies",
+        "de": "inclusioplus, Wohnheim Windspiel Liestal\n\n## Ihre Aufgaben\n• Sie gewährleisten die agogisch orientierte Begleitung und Pflege von erwachsenen Menschen mit geistiger Behinderung und herausforderndem Verhalten in der Nacht\n• Sie gewährleisten die medikamentöse Versorgung und die Sicherheit in der Nacht\n• Sie führen die Bewohnerdokumentation\n• Sie arbeiten in der Nacht von 22.00 – 07.00 Uhr\n\n## Ihr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachmann/Fachfrau Betreuung, Dipl. Behindertenbetreuer*in, Heilerziehungspfleger*in oder Pflegefachperson.\n• Sie verfügen über langjährige Erfahrung in der Arbeit mit erwachsenen Menschen mit geistiger Behinderung.\n• Sie besitzen eine gute Entscheidungskompetenz und können eigenverantwortlich handeln.\n• Sie lassen sich auf neue Situationen ein und behalten auch in schwierigen Momenten die Übersicht.\n\n## Stellenantritt\nDie Stelle ist ab dem 1. Dezember 2026 zu besetzen.\nUnsere Benefits\n\n## Über uns\ninclusioplus bietet diverse Möglichkeiten begleiteter Arbeit, verschiedene betreute Wohnformen sowie sinnvolle Tagesgestaltung für Menschen mit Beeinträchtigungen. Wir stellen jeden einzelnen Menschen mit seinen individuellen Bedürfnissen, Fähigkeiten und Ressourcen in den Mittelpunkt.\ninclusioplus ist für erwachsene Menschen mit psychischer, kognitiver und mehrfacher Behinderung da. Insbesondere werden im Wohnbereich Personen mit einem hohen Bedarf an Unterstützung angenommen und begleitet.\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nIhr Arbeitsort: Rheinstrasse 43b, 4410 Liestal\n\n## Keine neuen Stellen verpassen\nMit dem JobAbo bekommen Sie neue Stellen per E-Mail direkt in ihren Postfach.\nÜbersicht offene Stellen",
         "fr": "inclusioplus, hall de résidence Windspiel Liestal\n\n## Leurs tâches\n• Ils assurent l'accompagnement et le soin agonisants des adultes ayant des déficiences intellectuelles et un comportement difficile la nuit.\n• Ils assurent les soins médicaux et la sécurité la nuit\n• Vous conservez les documents du résident\n• Vous travaillez la nuit de 22.00 à 07.00\n\n## Votre profil\n• Vous avez suivi une formation en tant que spécialiste/superviseur professionnel, dispensateur de soins handicapés, infirmier ou infirmier.\n• Ils ont de nombreuses années d'expérience à travailler avec des adultes ayant une déficience intellectuelle.\n• Ils ont un bon pouvoir de décision et peuvent agir de manière indépendante.\n• Ils s'engagent dans de nouvelles situations et gardent un aperçu même dans des moments difficiles.\n\n## Ouverture d'un emploi\nLe poste est pourvu à partir du 1er décembre 2026.\nNos avantages\n\n## Sur nous\ninclusioplus offre diverses possibilités de travail assisté, diverses formes de vie assistée ainsi qu'une planification de jour valable pour les personnes handicapées. Nous nous concentrons sur chaque personne avec ses besoins, ses compétences et ses ressources.\ninclusioplus est destiné aux adultes atteints d'un handicap mental, cognitif et multiple. En particulier, les personnes qui ont un grand besoin de soutien sont acceptées et accompagnées dans la zone de vie.\n\n## Notre offre\nNous vous offrons un travail indépendant, intéressant et polyvalent dans une entreprise animée et un environnement convivial. Vous travaillez dans une équipe motivée qui vous soutient avec des préoccupations concernant votre travail. Notre interaction mutuelle se caractérise par une appréciation. Nous soutenons nos employés et leur permettons de développer leur potentiel de la meilleure façon possible.\nVotre lieu de travail: Rheinstrasse 43b, 4410 Liestal\n\n## Ne manquez pas de nouveaux jobs\nAvec le JobAbo vous obtenez de nouvelles positions par e-mail directement dans votre boîte aux lettres.\nAperçu des postes vacants"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.pbl.ch/offene-stellen/fachperson-betreuung-efz-oder-dipl-pflegefachperson-fuer-nachtwache-m-w-d/0132cf37-fe8b-4d8c-abc0-17797a7c3fc4",
       "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:59.208Z",
+      "crawledAt": "2026-11-02T21:24:08.784Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4618,9 +4564,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.pbl.ch/apply/ats/0132cf37-fe8b-4d8c-abc0-17797a7c3fc4",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-betreuung-efz-oder-dipl-pflegefachperson-fur-nachtwache-60-80-m-w-d-pbl-liestal",
+        "fachperson-betreuung-cfc-o-dipl-pflegefachperson-per-nachtwache-60-80-m-w-d-psychiatrie-baselland-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-efz-oder-dipl-pflegefachperson-fur-nachtwache-60-80-m-w-d-pbl-liestal",
@@ -4633,10 +4581,7 @@
           "fachperson-betreuung-efz-oder-dipl-pflegefachperson-fur-nachtwache-60-80-m-w-d-pbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "fachperson-betreuung-efz-oder-dipl-pflegefachperson-fur-nachtwache-60-80-m-w-d-pbl-liestal",
-        "fachperson-betreuung-cfc-o-dipl-pflegefachperson-per-nachtwache-60-80-m-w-d-psychiatrie-baselland-liestal"
-      ],
+      "firstSeenAt": "2026-11-02T10:05:59.208Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
@@ -4658,13 +4603,294 @@
         "postalCode": "4410",
         "addressLocality": "Liestal",
         "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Bienentalstrasse 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-31T21:24:08.784Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "pbl-5505e4510623",
+      "slug": "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-psychiatrie-baselland-liestal",
+      "slugByLocale": {
+        "de": "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-pbl-liestal",
+        "it": "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-psychiatrie-baselland-liestal",
+        "en": "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-psychiatrie-baselland-liestal",
+        "fr": "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-psychiatrie-baselland-liestal"
+      },
+      "company": "Psychiatrie Baselland",
+      "companyKey": "pbl",
+      "companyDomain": "pbl.ch",
+      "title": "Servicemitarbeiter / Servicemitarbeiterin (m/w/d) 60 %",
+      "titleByLocale": {
+        "de": "Servicemitarbeiter / Servicemitarbeiterin (m/w/d) 60 %",
+        "it": "Servicemitarbeiter / Servicemitarbeiterin (m/w/d) 60 %",
+        "en": "Servicemitarbeiter / Servicemitarbeiterin (m/w/d) 60 %",
+        "fr": "Servicemitarbeiter / Servicemitarbeiterin (m/w/d) 60 %"
+      },
+      "description": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\nHotellerie/Cafeteria\n\n## Ihre Aufgaben\n• Ansprechperson für die Wünsche der Gäste in den Cafeterien (Freeflow)\n• Präsentation von Waren im Verkaufsbereich und Kiosk\n• Anrichten von Mittagsmenus für die Gäste\n• Bedienen des Kassensystems\n• Lagerbewirtschaftung gemäss internen Richtlinien\n• Tägliche Reinigungsarbeiten\n• Einhalten der geltenden Hygienerichtlinien, Prozesse, Arbeitssicherheits- und Qualitätsstandards\n• Wochenenddienste\n• Einsätze bei Bankett und Caterings und Service Privatklinik\n\n## Ihr Profil\n• Aus- und/oder Weiterbildung in der Gastronomie/Hotellerie EFZ\n• Exzellente Dienstleistungsbereitschaft und ausgeglichene, sozialkompetente Persönlichkeit mit der Fähigkeit sich abzugrenzen\n• Freude und Geduld im Umgang mit psychisch belasteten Menschen\n• Hohes Qualitätsbewusstsein\n• Strukturierte und speditive Arbeitsweise\n• Sehr gute Deutschkenntnisse, jede weitere Sprache ist von Vorteil\n• Gepflegtes Erscheinungsbild und sehr gute Umgangsformen\n• Flexibilität, Belastbarkeit, Selbstständigkeit, Eigeninitiative und Zuverlässigkeit sind Voraussetzung\n• ICT-Kenntnisse im Anwenderbereich (Office, Kasse)\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+      "descriptionByLocale": {
+        "de": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\nHotellerie/Cafeteria\n\n## Ihre Aufgaben\n• Ansprechperson für die Wünsche der Gäste in den Cafeterien (Freeflow)\n• Präsentation von Waren im Verkaufsbereich und Kiosk\n• Anrichten von Mittagsmenus für die Gäste\n• Bedienen des Kassensystems\n• Lagerbewirtschaftung gemäss internen Richtlinien\n• Tägliche Reinigungsarbeiten\n• Einhalten der geltenden Hygienerichtlinien, Prozesse, Arbeitssicherheits- und Qualitätsstandards\n• Wochenenddienste\n• Einsätze bei Bankett und Caterings und Service Privatklinik\n\n## Ihr Profil\n• Aus- und/oder Weiterbildung in der Gastronomie/Hotellerie EFZ\n• Exzellente Dienstleistungsbereitschaft und ausgeglichene, sozialkompetente Persönlichkeit mit der Fähigkeit sich abzugrenzen\n• Freude und Geduld im Umgang mit psychisch belasteten Menschen\n• Hohes Qualitätsbewusstsein\n• Strukturierte und speditive Arbeitsweise\n• Sehr gute Deutschkenntnisse, jede weitere Sprache ist von Vorteil\n• Gepflegtes Erscheinungsbild und sehr gute Umgangsformen\n• Flexibilität, Belastbarkeit, Selbstständigkeit, Eigeninitiative und Zuverlässigkeit sind Voraussetzung\n• ICT-Kenntnisse im Anwenderbereich (Office, Kasse)\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "it": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\nHotellerie/Cafeteria\n\n## Ihre Aufgaben\n• Ansprechperson für die Wünsche der Gäste in den Cafeterien (Freeflow)\n• Präsentation von Waren im Verkaufsbereich und Kiosk\n• Anrichten von Mittagsmenus für die Gäste\n• Bedienen des Kassensystems\n• Lagerbewirtschaftung gemäss internen Richtlinien\n• Tägliche Reinigungsarbeiten\n• Einhalten der geltenden Hygienerichtlinien, Prozesse, Arbeitssicherheits- und Qualitätsstandards\n• Wochenenddienste\n• Einsätze bei Bankett und Caterings und Service Privatklinik\n\n## Ihr Profil\n• Aus- und/oder Weiterbildung in der Gastronomie/Hotellerie EFZ\n• Exzellente Dienstleistungsbereitschaft und ausgeglichene, sozialkompetente Persönlichkeit mit der Fähigkeit sich abzugrenzen\n• Freude und Geduld im Umgang mit psychisch belasteten Menschen\n• Hohes Qualitätsbewusstsein\n• Strukturierte und speditive Arbeitsweise\n• Sehr gute Deutschkenntnisse, jede weitere Sprache ist von Vorteil\n• Gepflegtes Erscheinungsbild und sehr gute Umgangsformen\n• Flexibilität, Belastbarkeit, Selbstständigkeit, Eigeninitiative und Zuverlässigkeit sind Voraussetzung\n• ICT-Kenntnisse im Anwenderbereich (Office, Kasse)\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "en": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\nHotellerie/Cafeteria\n\n## Ihre Aufgaben\n• Ansprechperson für die Wünsche der Gäste in den Cafeterien (Freeflow)\n• Präsentation von Waren im Verkaufsbereich und Kiosk\n• Anrichten von Mittagsmenus für die Gäste\n• Bedienen des Kassensystems\n• Lagerbewirtschaftung gemäss internen Richtlinien\n• Tägliche Reinigungsarbeiten\n• Einhalten der geltenden Hygienerichtlinien, Prozesse, Arbeitssicherheits- und Qualitätsstandards\n• Wochenenddienste\n• Einsätze bei Bankett und Caterings und Service Privatklinik\n\n## Ihr Profil\n• Aus- und/oder Weiterbildung in der Gastronomie/Hotellerie EFZ\n• Exzellente Dienstleistungsbereitschaft und ausgeglichene, sozialkompetente Persönlichkeit mit der Fähigkeit sich abzugrenzen\n• Freude und Geduld im Umgang mit psychisch belasteten Menschen\n• Hohes Qualitätsbewusstsein\n• Strukturierte und speditive Arbeitsweise\n• Sehr gute Deutschkenntnisse, jede weitere Sprache ist von Vorteil\n• Gepflegtes Erscheinungsbild und sehr gute Umgangsformen\n• Flexibilität, Belastbarkeit, Selbstständigkeit, Eigeninitiative und Zuverlässigkeit sind Voraussetzung\n• ICT-Kenntnisse im Anwenderbereich (Office, Kasse)\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "fr": "## Gemeinsam.\nFür das, was\nwirklich zählt\nPsychiatrie Baselland\nHotellerie/Cafeteria\n\n## Ihre Aufgaben\n• Ansprechperson für die Wünsche der Gäste in den Cafeterien (Freeflow)\n• Präsentation von Waren im Verkaufsbereich und Kiosk\n• Anrichten von Mittagsmenus für die Gäste\n• Bedienen des Kassensystems\n• Lagerbewirtschaftung gemäss internen Richtlinien\n• Tägliche Reinigungsarbeiten\n• Einhalten der geltenden Hygienerichtlinien, Prozesse, Arbeitssicherheits- und Qualitätsstandards\n• Wochenenddienste\n• Einsätze bei Bankett und Caterings und Service Privatklinik\n\n## Ihr Profil\n• Aus- und/oder Weiterbildung in der Gastronomie/Hotellerie EFZ\n• Exzellente Dienstleistungsbereitschaft und ausgeglichene, sozialkompetente Persönlichkeit mit der Fähigkeit sich abzugrenzen\n• Freude und Geduld im Umgang mit psychisch belasteten Menschen\n• Hohes Qualitätsbewusstsein\n• Strukturierte und speditive Arbeitsweise\n• Sehr gute Deutschkenntnisse, jede weitere Sprache ist von Vorteil\n• Gepflegtes Erscheinungsbild und sehr gute Umgangsformen\n• Flexibilität, Belastbarkeit, Selbstständigkeit, Eigeninitiative und Zuverlässigkeit sind Voraussetzung\n• ICT-Kenntnisse im Anwenderbereich (Office, Kasse)\n\n## Stellenantritt\nDie Stelle ist per 1. Februar 2027 oder nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal"
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://jobs.pbl.ch/offene-stellen/servicemitarbeiter-servicemitarbeiterin-m-w-d/8ecbdb0f-c08a-4152-aa44-5ed107cacb6d",
+      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T21:24:08.401Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.pbl.ch/apply/ats/8ecbdb0f-c08a-4152-aa44-5ed107cacb6d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-pbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "servicemitarbeiter-servicemitarbeiterin-m-w-d-60-pbl-liestal"
+      ],
+      "salaryMin": 52800,
+      "salaryMax": 73800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 52800,
+          "maxValue": 73800,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Psychiatrie Baselland",
+        "streetAddress": "Bienentalstrasse 7",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Bienentalstrasse 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-31T21:24:08.401Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-02T21:24:08.401Z"
+    },
+    {
+      "id": "pbl-773b8d8481aa",
+      "slug": "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal-a7e791a9fe",
+      "slugByLocale": {
+        "de": "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
+        "it": "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal-a7e791a9fe",
+        "en": "landscaper-landscaper-m-f-d-100-psychiatrie-baselland-liestal",
+        "fr": "paysagiste-paysagiste-h-f-d-100-psychiatrie-baselland-liestal"
+      },
+      "company": "Psychiatrie Baselland",
+      "companyKey": "pbl",
+      "companyDomain": "pbl.ch",
+      "title": "Landschaftsgärtnerin / Landschaftsgärtner (m/w/d) 100 %",
+      "titleByLocale": {
+        "it": "paesaggista / paesaggista (m/f/d) 100%",
+        "en": "Landscaper / Landscaper (m/f/d) 100%",
+        "de": "Landschaftsgärtnerin / Landschaftsgärtner (m/w/d) 100 %",
+        "fr": "Paysagiste / Paysagiste (h/f/d) 100%"
+      },
+      "description": "## Gemeinsam.\nFür das, was\nwirklich zählt\nBetrieb I Gärtnerei Grüens Härz\n\n## Ihre Aufgaben\n• Gartenumänderungen, Gartenunterhalt\n• Unterstützung Pflege Parkanlage\n• Rapportwesen\n• Zusammenarbeit mit beeinträchtigten Mitarbeitenden\n• Winterdienst\n• Sonntagsdienst Gärtnerei im Turnus\n\n## Ihr Profil\n• Fähigkeitsausweis Landschaftsgärtner/Landschaftsgärtnerin EFZ, mit mehrjähriger Erfahrung wünschenswert\n• Fahrausweis Kategorie B mit Erlaubnis zum Führen von Anhängern\n• Ausbildung Baumaschinenführer und Hubarbeitsbühnen von Vorteil\n• Versierte Berufserfahrung im Bereich Umänderungen (Gartenunterhalt)\n• Selbstständigkeit und Pflichtbewusstsein sowie Kundenorientierung\n\n## Stellenantritt\nDie Stelle ist nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+      "descriptionByLocale": {
+        "it": "giardiniere di paesaggio / giardiniere di paesaggio (m/f/d) 100% holding I Gärtnerei Grüens Härz\n\nI loro compiti\n• Modifiche del giardino, manutenzione del giardino\n• Parco di assistenza\n• Relazione\n• Cooperazione con i lavoratori disabili\n• Servizio invernale\n• Servizio domenica giardino su base regolare\n\nIl tuo profilo\n• Certificato di competenza per giardiniere EFZ, con diversi anni di esperienza desiderabile\n• Biglietto categoria B con permesso di guidare rimorchi\n• Formazione di operatori di macchine edili e piattaforme di lavoro di sollevamento\n• Esperienza nel cambiamento (manutenzione giardino)\n• Autooccupazione e senso del dovere, nonché l'orientamento del cliente\n\nApertura del lavoro: il lavoro deve essere riempito di accordo.",
+        "en": "Landscape gardener / Landscape gardener (m/f/d) 100% holding I Gärtnerei Grüens Härz\n\nTheir tasks\n• Garden modifications, garden maintenance\n• Supporting care park\n• Reporting\n• Cooperation with disabled employees\n• Winter service\n• Sunday service gardening on a regular basis\n\nYour profile\n• Certificate of competence for landscape gardener EFZ, with several years of experience desirable\n• Category B ticket with permission to drive trailers\n• Training of construction machine operators and lifting work platforms\n• Experience in change (garden maintenance)\n• Self-employment and sense of duty as well as customer orientation\n\nJob opening: The job is to be filled by agreement.",
+        "de": "## Gemeinsam.\nFür das, was\nwirklich zählt\nBetrieb I Gärtnerei Grüens Härz\n\n## Ihre Aufgaben\n• Gartenumänderungen, Gartenunterhalt\n• Unterstützung Pflege Parkanlage\n• Rapportwesen\n• Zusammenarbeit mit beeinträchtigten Mitarbeitenden\n• Winterdienst\n• Sonntagsdienst Gärtnerei im Turnus\n\n## Ihr Profil\n• Fähigkeitsausweis Landschaftsgärtner/Landschaftsgärtnerin EFZ, mit mehrjähriger Erfahrung wünschenswert\n• Fahrausweis Kategorie B mit Erlaubnis zum Führen von Anhängern\n• Ausbildung Baumaschinenführer und Hubarbeitsbühnen von Vorteil\n• Versierte Berufserfahrung im Bereich Umänderungen (Gartenunterhalt)\n• Selbstständigkeit und Pflichtbewusstsein sowie Kundenorientierung\n\n## Stellenantritt\nDie Stelle ist nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "fr": "Paysagiste / Paysagiste (h/f/d) 100% détenteur I Gärtnerei Grüens Härz\n\nLeurs tâches\n• Modification du jardin, entretien du jardin\n• Soutenir le parc de soins\n• Rapports\n• Coopération avec les salariés handicapés\n• Service d ' hiver\n• Jardinage à service du dimanche sur une base régulière\n\nVotre profil\n• Certificat de compétence pour jardinier paysagiste EFZ, avec plusieurs années d'expérience souhaitable\n• Billet de catégorie B avec autorisation de conduire des remorques\n• Formation des opérateurs de machines de construction et des plates-formes de levage\n• Expérience du changement (entretien du jardin)\n• Le travail indépendant et le sens du devoir ainsi que l'orientation des clients\n\nOuverture d'un emploi: Le poste doit être rempli d'un commun accord."
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://jobs.pbl.ch/offene-stellen/landschaftsgaertnerin-landschaftsgaertner-m-w-d/899676fd-9e6a-4c0f-bf31-d69afae4d578",
+      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T21:24:07.899Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.pbl.ch/apply/ats/899676fd-9e6a-4c0f-bf31-d69afae4d578",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
+          "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
+        "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal"
+      ],
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Psychiatrie Baselland",
+        "streetAddress": "Bienentalstrasse 7",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:50:33.393Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Bienentalstrasse 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-31T21:24:07.899Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-01T14:18:55.052Z"
+    },
+    {
+      "id": "pbl-e9ca91a3b69e",
+      "slug": "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal-de205b3f28",
+      "slugByLocale": {
+        "it": "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal-de205b3f28",
+        "en": "landscaper-landscaper-m-f-d-100-psychiatrie-baselland-liestal",
+        "de": "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
+        "fr": "paysagiste-paysagiste-h-f-d-100-psychiatrie-baselland-liestal"
+      },
+      "company": "Psychiatrie Baselland",
+      "companyKey": "pbl",
+      "companyDomain": "pbl.ch",
+      "title": "Landschaftsgärtnerin / Landschaftsgärtner (m/w/d) 100 %",
+      "titleByLocale": {
+        "it": "paesaggista / paesaggista (m/f/d) 100%",
+        "en": "Landscaper / Landscaper (m/f/d) 100%",
+        "de": "Landschaftsgärtnerin / Landschaftsgärtner (m/w/d) 100 %",
+        "fr": "Paysagiste / Paysagiste (h/f/d) 100%"
+      },
+      "description": "## Gemeinsam.\nFür das, was\nwirklich zählt\nBetrieb I Gärtnerei Grüens Härz\n\n## Ihre Aufgaben\n• Gartenumänderungen, Gartenunterhalt\n• Unterstützung Pflege Parkanlage\n• Rapportwesen\n• Zusammenarbeit mit beeinträchtigten Mitarbeitenden\n• Winterdienst\n• Sonntagsdienst Gärtnerei im Turnus\n\n## Ihr Profil\n• Fähigkeitsausweis Landschaftsgärtner/Landschaftsgärtnerin EFZ, mit mehrjähriger Erfahrung wünschenswert\n• Fahrausweis Kategorie B mit Erlaubnis zum Führen von Anhängern\n• Ausbildung Baumaschinenführer und Hubarbeitsbühnen von Vorteil\n• Versierte Berufserfahrung im Bereich Umänderungen (Gartenunterhalt)\n• Selbstständigkeit und Pflichtbewusstsein sowie Kundenorientierung\n\n## Stellenantritt\nDie Stelle ist nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+      "descriptionByLocale": {
+        "it": "giardiniere di paesaggio / giardiniere di paesaggio (m/f/d) 100% holding I Gärtnerei Grüens Härz\n\nI loro compiti\n• Modifiche del giardino, manutenzione del giardino\n• Parco di assistenza\n• Relazione\n• Cooperazione con i lavoratori disabili\n• Servizio invernale\n• Servizio domenica giardino su base regolare\n\nIl tuo profilo\n• Certificato di competenza per giardiniere EFZ, con diversi anni di esperienza desiderabile\n• Biglietto categoria B con permesso di guidare rimorchi\n• Formazione di operatori di macchine edili e piattaforme di lavoro di sollevamento\n• Esperienza nel cambiamento (manutenzione giardino)\n• Autooccupazione e senso del dovere, nonché l'orientamento del cliente\n\nApertura del lavoro: il lavoro deve essere riempito di accordo.",
+        "en": "Landscape gardener / Landscape gardener (m/f/d) 100% holding I Gärtnerei Grüens Härz\n\nTheir tasks\n• Garden modifications, garden maintenance\n• Supporting care park\n• Reporting\n• Cooperation with disabled employees\n• Winter service\n• Sunday service gardening on a regular basis\n\nYour profile\n• Certificate of competence for landscape gardener EFZ, with several years of experience desirable\n• Category B ticket with permission to drive trailers\n• Training of construction machine operators and lifting work platforms\n• Experience in change (garden maintenance)\n• Self-employment and sense of duty as well as customer orientation\n\nJob opening: The job is to be filled by agreement.",
+        "de": "## Gemeinsam.\nFür das, was\nwirklich zählt\nBetrieb I Gärtnerei Grüens Härz\n\n## Ihre Aufgaben\n• Gartenumänderungen, Gartenunterhalt\n• Unterstützung Pflege Parkanlage\n• Rapportwesen\n• Zusammenarbeit mit beeinträchtigten Mitarbeitenden\n• Winterdienst\n• Sonntagsdienst Gärtnerei im Turnus\n\n## Ihr Profil\n• Fähigkeitsausweis Landschaftsgärtner/Landschaftsgärtnerin EFZ, mit mehrjähriger Erfahrung wünschenswert\n• Fahrausweis Kategorie B mit Erlaubnis zum Führen von Anhängern\n• Ausbildung Baumaschinenführer und Hubarbeitsbühnen von Vorteil\n• Versierte Berufserfahrung im Bereich Umänderungen (Gartenunterhalt)\n• Selbstständigkeit und Pflichtbewusstsein sowie Kundenorientierung\n\n## Stellenantritt\nDie Stelle ist nach Vereinbarung zu besetzen.\nUnsere Benefits\n\n## Über uns\nDie Psychiatrie Baselland (PBL) zählt zu den führenden psychiatrischen Institutionen in der Nordwestschweiz. Sie bietet umfassende ambulante, tagesklinische, aufsuchende (Home Treatment) und stationäre Therapien für Erwachsene sowie Kinder und Jugendliche. Psychisch und mehrfach beeinträchtigte Menschen unterstützt sie in den Bereichen Wohnen, Arbeit und Tagesgestaltung (www.inclusioplus.ch). Zudem hält sie eine Beteiligung an der WorkMed AG, dem Zentrum Arbeit und psychische Gesundheit. Die PBL beschäftigt an mehreren Standorten im Kanton Basel-Landschaft rund 1'300 Mitarbeitende und behandelt, betreut und berät pro Jahr über 15'000 Patientinnen und Patienten (www.pbl.ch).\n\n## Unser Angebot\nWir bieten Ihnen eine selbständige, interessante und vielseitige Arbeit in einem lebhaften Betrieb und menschenfreundlichen Umfeld. Sie arbeiten in einem motivierten Team, das Sie bei Anliegen rund um Ihre Tätigkeit unterstützt. Unser gegenseitiger Umgang ist durch Wertschätzung geprägt. Unsere Mitarbeitenden fördern wir und ermöglichen ihnen, ihr Potenzial bestmöglich zu entfalten.\nmehr\nIhr Arbeitsort\n\n## Psychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal\nPsychiatrie Baselland, Bienentalstrasse 7, Postfach 599, 4410 Liestal",
+        "fr": "Paysagiste / Paysagiste (h/f/d) 100% détenteur I Gärtnerei Grüens Härz\n\nLeurs tâches\n• Modification du jardin, entretien du jardin\n• Soutenir le parc de soins\n• Rapports\n• Coopération avec les salariés handicapés\n• Service d ' hiver\n• Jardinage à service du dimanche sur une base régulière\n\nVotre profil\n• Certificat de compétence pour jardinier paysagiste EFZ, avec plusieurs années d'expérience souhaitable\n• Billet de catégorie B avec autorisation de conduire des remorques\n• Formation des opérateurs de machines de construction et des plates-formes de levage\n• Expérience du changement (entretien du jardin)\n• Le travail indépendant et le sens du devoir ainsi que l'orientation des clients\n\nOuverture d'un emploi: Le poste doit être rempli d'un commun accord."
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://jobs.pbl.ch/offene-stellen/landschaftsgaertnerin-landschaftsgaertner-m-w-d/909ae7f6-b6d5-47ee-baaf-24e3771d4838",
+      "source": "Psychiatrie Baselland Dedicated Parser (SSR + career detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T10:06:07.587Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.pbl.ch/apply/ats/909ae7f6-b6d5-47ee-baaf-24e3771d4838",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
+        "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal",
+        "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-pbl-liestal",
+          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal",
+          "paesaggista-paesaggista-m-f-d-100-psychiatrie-baselland-liestal"
+        ],
+        "en": [
+          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
+        ],
+        "fr": [
+          "landschaftsgartnerin-landschaftsgartner-m-w-d-100-psychiatrie-baselland-liestal"
+        ]
+      },
+      "firstSeenAt": "2026-09-01T14:18:55.052Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Psychiatrie Baselland",
+        "streetAddress": "Bienentalstrasse 7",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
         "checkedAt": "2026-10-31T20:50:33.393Z"
       },
       "streetAddress": "Bienentalstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T10:05:59.208Z",
+      "validThrough": "2026-12-02T10:06:07.587Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:05:59.208Z"
+      "crawlerMissStreak": 1
     }
   ]
 }

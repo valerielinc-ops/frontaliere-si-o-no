@@ -30,7 +30,7 @@ import {
 } from './lib/linkedin-links.mjs';
 import { buildArticleContent } from './lib/linkedin-member-copy.mjs';
 import { buildLinkedInCompanyCommentary } from './lib/linkedin-company-copy.mjs';
-import { loadSocialCopyPack, selectSocialCopy, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const CATEGORY_HASHTAGS = {
   fiscale:  '#frontalieri #ticino #tasse #fisco #svizzera #italia',
@@ -115,12 +115,16 @@ async function main() {
   const socialCopyPack = loadSocialCopyPack({
     onWarning: (message) => console.warn('⚠️', message),
   });
-  const socialCopy = selectSocialCopy({
+  const socialCopy = await selectSocialCopyForPublish({
     pack: socialCopyPack,
     channel: 'linkedin',
     kind: 'article',
     assignmentKey: 'company:' + articleId,
+    dryRun,
   });
+  let reservedCopy = socialCopy;
+  let deliveryAttempted = false;
+  try {
   // Build the commentary
   const emoji = CATEGORY_EMOJI[category] || '📰';
   const hashtags = CATEGORY_HASHTAGS[category] || DEFAULT_HASHTAGS;
@@ -155,16 +159,15 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 Dry run — not posting to LinkedIn');
-    process.exit(0);
+    return;
   }
 
   const accessToken = await getAccessToken();
   if (!accessToken) {
     console.log('⚠️  Could not obtain LinkedIn access token — skipping');
-    process.exit(0);
+    return;
   }
 
-  try {
     const payload = {
       author: `urn:li:organization:${LINKEDIN_ORGANIZATION_ID}`,
       commentary,
@@ -185,6 +188,7 @@ async function main() {
       isReshareDisabledByAuthor: false,
     };
 
+    deliveryAttempted = true;
     const response = await fetch('https://api.linkedin.com/rest/posts', {
       method: 'POST',
       headers: {
@@ -197,6 +201,7 @@ async function main() {
     });
 
     if (response.status === 201) {
+      reservedCopy = null;
       const postId = response.headers.get('x-restli-id') || 'unknown';
       console.log(`✅ Posted to LinkedIn! Post URN: ${postId}`);
     } else {
@@ -208,9 +213,21 @@ async function main() {
       if (response.status === 403) {
         console.error('💡 Missing scopes. Token needs w_organization_social scope (Community Management API).');
       }
+      const rejectedCopy = reservedCopy;
+      reservedCopy = null;
+      await releaseUnpublishedSocialCopyAssignment(rejectedCopy, {
+        reason: 'LinkedIn explicitly rejected the Company Page post',
+      });
     }
   } catch (error) {
+    // A network failure after POST begins has an unknown result; retain its
+    // stable arm until the post ledger can be reconciled.
+    if (deliveryAttempted) reservedCopy = null;
     console.error(`⚠️  Failed to post to LinkedIn: ${error.message}`);
+  } finally {
+    await releaseUnpublishedSocialCopyAssignment(reservedCopy, {
+      reason: 'LinkedIn Company Page post skipped before delivery',
+    });
   }
 
   process.exit(0);

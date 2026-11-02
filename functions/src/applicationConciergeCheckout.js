@@ -9,6 +9,7 @@
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
+import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
 import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
 import {
@@ -209,6 +210,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     const source = original.data();
     if (!original.exists || source.userId !== userId) return { status: 404, body: { ok: false, error: 'application_concierge_service_not_found' } };
     if (source.renewedByServiceId) return { status: 200, body: { ok: true, url: appendServiceId(successUrl, source.renewedByServiceId), serviceId: source.renewedByServiceId, paymentComplete: true } };
+    if (!await isApplicationConciergeRenewalEnabledFor(userId)) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } };
     renewalOffer = conciergeRenewalOffer(source);
     if (!renewalOffer) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } };
     // A legacy paid owner may still be anonymous; ownership was checked above.
@@ -274,6 +276,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         status: 200,
         body: { ok: true, url: appendServiceId(successUrl, resumeServiceId), serviceId: resumeServiceId },
       };
+    }
+    if (resumeService.renewalOfServiceId && !await isApplicationConciergeRenewalEnabledFor(userId)) {
+      return { status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } };
     }
     if (!isRecoverableCheckout(resumeService)) {
       return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };

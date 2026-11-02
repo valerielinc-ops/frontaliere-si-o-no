@@ -38,6 +38,76 @@ function intersect(index: number, ratio: number) {
   const record = observers[index];
   record.callback([{ target: record.target, isIntersecting: ratio > 0, intersectionRatio: ratio } as IntersectionObserverEntry], {} as IntersectionObserver);
 }
+describe('limited webview lifecycle', () => {
+  it('keeps polling through a temporary detach/reinsert before the owner stops', async () => {
+    vi.stubGlobal('MutationObserver', undefined);
+    const { box, el, lifecycle, states } = setup(); lifecycle.request();
+    box.remove(); vi.advanceTimersByTime(1100);
+    document.body.append(box); await status(el, 'filled');
+    vi.advanceTimersByTime(1100);
+    expect(states).toHaveBeenCalledWith('filled');
+  });
+  it('updates a static owner synchronously on foreground without waiting for a clamped poll', async () => {
+    vi.stubGlobal('MutationObserver', undefined);
+    const visibility = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden');
+    cleanups.push(() => visibility.mockRestore());
+    const { el, lifecycle, states } = setup(); lifecycle.request();
+    await status(el, 'filled'); expect(states).not.toHaveBeenCalledWith('filled');
+    visibility.mockReturnValue('visible'); document.dispatchEvent(new Event('visibilitychange'));
+    expect(states).toHaveBeenCalledWith('filled');
+  });
+  it('observes late fill without MutationObserver and releases its polling on stop', async () => {
+    vi.stubGlobal('MutationObserver', undefined);
+    const { el, lifecycle, states } = setup(); lifecycle.request();
+    await status(el, 'filled'); vi.advanceTimersByTime(1100);
+    expect(states).toHaveBeenCalledWith('filled');
+    lifecycle.stop(); const calls = states.mock.calls.length;
+    el.setAttribute('data-ad-status', 'unfilled'); vi.advanceTimersByTime(5000);
+    expect(states).toHaveBeenCalledTimes(calls);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+  it('stops fallback polling when its slot is removed', () => {
+    vi.stubGlobal('MutationObserver', undefined);
+    const { el, lifecycle, states } = setup(); lifecycle.request();
+    el.parentElement!.remove(); vi.advanceTimersByTime(1100);
+    lifecycle.stop();
+    expect(states).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+});
+describe('real request evidence', () => {
+  it('clears an aborted queued request and can start again after width becomes valid', async () => {
+    const { box, el, lifecycle, states } = setup(); lifecycle.request();
+    lifecycle.defer();
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+    expect(states).toHaveBeenLastCalledWith('waiting_width');
+    vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS + 1);
+    expect(states).not.toHaveBeenCalledWith('waiting_response');
+    lifecycle.request(); expect(box.getAttribute('data-ft-ad-request-pending')).toBe('1');
+    await status(el, 'filled'); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+  });
+  it('starts only on request and keeps a slow response pending until failure or stop', () => {
+    const { box, lifecycle } = setup();
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+    lifecycle.request(); expect(box.getAttribute('data-ft-ad-request-pending')).toBe('1');
+    vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS + 1);
+    expect(box.getAttribute('data-ft-ad-request-pending')).toBe('1');
+    lifecycle.fail('script_failed'); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+    lifecycle.stop(); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+  });
+  it('releases only its own pending request when controllers share a box', async () => {
+    const first = setup();
+    const secondEl = document.createElement('ins'); secondEl.getBoundingClientRect = first.el.getBoundingClientRect;
+    first.box.append(secondEl);
+    const second = observeManualAd(secondEl, first.box, AD_FILL_TIMEOUT_MS, vi.fn(), vi.fn()); cleanups.push(second.stop);
+    first.lifecycle.request(); second.request();
+    expect(first.box.getAttribute('data-ft-ad-request-pending')).toBe('2');
+    first.lifecycle.stop(); expect(first.box.getAttribute('data-ft-ad-request-pending')).toBe('1');
+    await status(secondEl, 'filled');
+    expect(first.box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+    second.stop(); expect(first.box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+  });
+});
 describe('ResizeObserver delivery safety', () => {
   function resizeStub() {
     const log: string[] = [];

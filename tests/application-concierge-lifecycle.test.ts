@@ -12,7 +12,12 @@ import {
 } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
+const renewalRollout = vi.hoisted(() => ({ isEnabledFor: vi.fn(async () => true) }));
+
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: 'test-only-secret' })), getRemoteConfigValue: vi.fn(async () => '') }));
+vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({
+  isApplicationConciergeRenewalEnabledFor: renewalRollout.isEnabledFor,
+}));
 vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicationConciergeMatching: vi.fn() }));
 vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
@@ -72,7 +77,10 @@ const match = vi.fn(async ({ serviceId }: any) => {
 });
 const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, enrichJobCards: passThroughJobCards, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, ...options });
 const refresh = (options: any) => runConciergeProposalRefresh({ db, nowMs: now, match, send, enrichJobCards: passThroughJobCards, ...options });
-beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; trackingTargets.length = 0; vi.clearAllMocks(); });
+beforeEach(() => {
+  records = new Map(); queue = Promise.resolve(); deliveries.length = 0; trackingTargets.length = 0;
+  vi.clearAllMocks(); renewalRollout.isEnabledFor.mockResolvedValue(true);
+});
 
 describe('concierge refresh and notification lifecycle', () => {
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
@@ -82,19 +90,20 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(conciergeRefreshDue(service, now + 12 * 3600000)).toBe(true);
     expect(conciergeRefreshDue({ ...service, matchingPendingCount: 10 }, now)).toBe(true);
   });
-  it('continues an unfinished search hourly while respecting expiry and the assisted-application cap', () => {
+  it('continues an unfinished search every 15 minutes while respecting expiry and the assisted-application cap', () => {
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 60 * 60 * 1000, matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(true);
-    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 30 * 60 * 1000 }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 14 * 60 * 1000 }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 30 * 60 * 1000 }, now)).toBe(true);
     expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
   });
   it('polls more often than the hourly gate so a near-boundary tick cannot miss a refresh phase', () => {
-    const completion = now - (56 * 60 * 1000 + 56 * 1000);
+    const completion = now - 14 * 60 * 1000;
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: completion,
       matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(false);
-    expect(conciergeRefreshDue(service, completion + 60 * 60 * 1000)).toBe(true);
+    expect(conciergeRefreshDue(service, completion + 30 * 60 * 1000)).toBe(true);
     const source = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
     const start = source.indexOf('export const sweepApplicationConciergeLifecycle = onSchedule(');
     expect(source.slice(start, start + 600)).toContain("schedule: 'every 15 minutes'");
@@ -281,6 +290,22 @@ describe('concierge refresh and notification lifecycle', () => {
       matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
     });
   });
+  it('counts ordinary failed matcher runs against the same bounded recovery budget', async () => {
+    const requestId = 'ordinary-failed-match-retry';
+    const store = withdrawalRefreshFixture({ matchingStatus: 'failed', matchingCompletedAt: WITHDRAWAL_NOW - 60 * 60 * 1000,
+      matchingError: 'job_search_failed', proposalRefreshRequestId: requestId });
+    const failedMatch = vi.fn(async () => { throw new Error('simulated matcher failure'); });
+
+    await expect(runConciergeProposalRefresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID, requestId,
+      nowMs: WITHDRAWAL_NOW, match: failedMatch, send })).rejects.toThrow('simulated matcher failure');
+
+    const updated = store.read(WITHDRAWAL_SERVICE_PATH);
+    expect(updated).toMatchObject({ matchingStatus: 'failed', matchingError: 'job_search_failed',
+      matchingStaleRecoveryAttempt: 1, proposalRefreshLastError: 'matching_failed' });
+    expect(updated.matchingStaleRecoveryRetryAt).toBeInstanceOf(Date);
+    expect(conciergeRefreshDue(updated, WITHDRAWAL_NOW)).toBe(false);
+    expect(conciergeRefreshDue(updated, updated.matchingStaleRecoveryRetryAt.getTime())).toBe(true);
+  });
   it('notifies a retracted proposal that becomes available again, once per actual reactivation', async () => {
     records.set('application_concierge_services/service', active());
     await sweep();
@@ -333,6 +358,13 @@ describe('concierge refresh and notification lifecycle', () => {
     await ref('application_concierge_services/service').set({ renewedByServiceId: null });
     await sweep({ nowMs: now + 2 * DAY });
     expect(deliveries).toHaveLength(1);
+  });
+  it('does not send a renewal reminder outside the Remote Config rollout', async () => {
+    records.set('application_concierge_services/service', active({ expiresAt: now - DAY }));
+    renewalRollout.isEnabledFor.mockResolvedValue(false);
+    await sweep();
+    expect(renewalRollout.isEnabledFor).toHaveBeenCalledWith('candidate');
+    expect(deliveries).toEqual([]);
   });
   it('delivers exactly the three daily reminder stages and none at the 72-hour deadline', async () => {
     records.set('application_concierge_services/service', active({ expiresAt: now }));

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-11-02T09:29:13.762Z",
-  "runId": "41418119973",
+  "assembledAt": "2026-11-02T21:24:43.571Z",
+  "runId": "41525468615",
   "jobs": [
     {
       "id": "moncucco-854bd9676f35",
@@ -49,7 +49,7 @@
       "applyUrl": "https://www.moncucco.ch/medici_pronto_soccorso_interessati_completare_formazione_medicina_demergenza_urgenza_intraospedaliera.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T09:29:05.749Z",
+      "crawledAt": "2026-11-02T21:24:38.904Z",
       "firstSeenAt": "2026-10-19T21:14:20.071Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -73,11 +73,12 @@
         "postalCode": "6900",
         "addressLocality": "Lugano",
         "addressRegion": "TI",
-        "checkedAt": "2026-10-31T20:50:27.882Z"
+        "checkedAt": "2026-10-31T20:50:27.882Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Via Soldino 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:29:05.749Z",
+      "validThrough": "2027-01-17T21:24:38.904Z",
       "validThroughSource": "last-observed-window"
     }
   ]

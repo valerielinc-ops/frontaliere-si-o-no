@@ -12,13 +12,18 @@ import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes, has
 import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SCHEMA, REQUIREMENTS_SYSTEM_PROMPT,
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
-import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
+import { conciergeProposalEligibility, hasUncoveredLanguageRequirements } from './assistedApplicationFitNotice.js';
 import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v4-${SOURCE_CITATIONS_VERSION}`;
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v6-${SOURCE_CITATIONS_VERSION}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
+const ELIGIBILITY_METADATA_FIELDS = ['title', 'company', 'location', 'category', 'sector', 'description', 'requirements', 'education',
+  'employmentType', 'jobType', 'contractType', 'experience', 'experienceLevel'];
+const MAX_ELIGIBILITY_METADATA_VALUE_CHARS = 4_000;
+const MAX_ELIGIBILITY_METADATA_CHARS = 16_000;
+const MAX_ELIGIBILITY_METADATA_ENTRIES = 64;
 
 export function normalizeConciergeJobRecord(job = {}) {
   return {
@@ -29,6 +34,49 @@ export function normalizeConciergeJobRecord(job = {}) {
     company: job.company || job.companyName || '',
     location: job.location || '',
   };
+}
+
+function eligibilityMetadata(job, postingLocation = '') {
+  const values = [];
+  let totalChars = 0;
+  let inspectedValues = 0;
+  let truncated = false;
+  const append = (field, value) => {
+    if (typeof value !== 'string') return true;
+    if (value.length > MAX_ELIGIBILITY_METADATA_VALUE_CHARS) {
+      truncated = true;
+      return false;
+    }
+    if (!value.trim()) return true;
+    const normalized = value.replace(/\s+/g, ' ').trim();
+    if (!normalized) return true;
+    const entry = { field, value: normalized };
+    const entryChars = `${field}: ${normalized}`.length + 2;
+    if (totalChars + entryChars > MAX_ELIGIBILITY_METADATA_CHARS) {
+      truncated = true;
+      return false;
+    }
+    values.push(entry);
+    totalChars += entryChars;
+    return true;
+  };
+
+  for (const field of ELIGIBILITY_METADATA_FIELDS) {
+    const raw = job[field];
+    for (const value of Array.isArray(raw) ? raw : [raw]) {
+      if (inspectedValues >= MAX_ELIGIBILITY_METADATA_ENTRIES) return { values, truncated: true };
+      inspectedValues += 1;
+      if (!append(field, value)) return { values, truncated };
+    }
+  }
+  append('posting.location', postingLocation);
+  return { values, truncated };
+}
+
+/** Keep quote verification on original source values; labels are prompt context, not source evidence. */
+function eligibilityEvidenceText(metadata, postingText, { includeLabels = false } = {}) {
+  const metadataValues = metadata.values.map(({ field, value }) => includeLabels ? `${field}: ${value}` : value);
+  return [...metadataValues, String(postingText || '')].filter(Boolean).join('\n\n');
 }
 
 async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
@@ -43,7 +91,9 @@ async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
     throw error;
   }
   const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
-  const result = JSON.parse(text);
+  let result;
+  try { result = JSON.parse(text); }
+  catch { throw new Error('eligibility_invalid_json'); }
   if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
   return result;
 }
@@ -72,19 +122,28 @@ function profileForEligibility(profile = {}) {
   };
 }
 
-async function evaluateConciergePosting({ job, profile, answers = {}, locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting }) {
+async function evaluateConciergePosting({ job, profile, answers = {}, locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting, metadata = null }) {
   job = normalizeConciergeJobRecord(job);
   const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
-  if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
-  const postingHash = sourceHash(posting.text);
-  const raw = await generate(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({ jobTitle: job.title, companyName: job.company,
-    location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
-  if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) {
-    return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
+  if (typeof posting?.text !== 'string' || !posting.text) {
+    return { status: 'unverified', reason: !posting || posting.source === 'none' ? 'posting_unavailable' : 'posting_incomplete' };
   }
-  const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
-  if (hasUncoveredHardEligibilityStatements(requirements, posting.text)) {
-    return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
+  if (posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
+  metadata = metadata || eligibilityMetadata(job, posting.location);
+  if (metadata.truncated) return { status: 'unverified', reason: 'eligibility_metadata_incomplete', gaps: [] };
+  const postingHash = sourceHash(posting.text);
+  const eligibilityEvidence = eligibilityEvidenceText(metadata, posting.text);
+  const eligibilityPromptText = eligibilityEvidenceText(metadata, posting.text, { includeLabels: true });
+  const raw = await generate(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({ jobTitle: job.title, companyName: job.company,
+    location: posting.location || job.location, postingText: eligibilityPromptText }), REQUIREMENTS_SCHEMA);
+  if (!Array.isArray(raw.requirements)) return { status: 'unverified', reason: 'requirements_response_invalid', gaps: [] };
+  if (raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_over_limit', gaps: [] };
+  if (!raw.requirements.length) return { status: 'unverified', reason: 'requirements_missing', gaps: [] };
+  const requirements = verifyQuotes(sanitizeRequirements(raw), eligibilityEvidence);
+  if (!requirements.requirements.length) return { status: 'unverified', reason: 'requirements_missing', gaps: [] };
+  if (hasUncoveredLanguageRequirements(requirements)) return { status: 'unverified', reason: 'language_requirement_uncovered', gaps: [] };
+  if (hasUncoveredHardEligibilityStatements(requirements, eligibilityEvidence)) {
+    return { status: 'unverified', reason: 'hard_requirement_uncovered', gaps: [] };
   }
   const normalizedProfile = profileForEligibility(profile);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
@@ -93,7 +152,7 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
-  if (hasUnverifiedCurrentStudentEligibility(posting.text, normalizedProfile, sourceText)) {
+  if (hasUnverifiedCurrentStudentEligibility(eligibilityEvidence, normalizedProfile, sourceText)) {
     return { status: 'unverified', reason: 'current_education_unverified', gaps: [], postingHash, requirements, match, posting };
   }
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
@@ -135,29 +194,98 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   const answers = {};
   const answerHash = eligibilityHash(JSON.stringify(answers));
   let analyses = 0;
-  return async (job) => {
+  const postingPrefetches = new Map();
+  const postingReadKey = job => `${job.id}\0${job.url}`;
+  const postingReadOptions = { maxPostingChars: 30_000, ...(signal ? { signal } : {}) };
+  const readPostingResult = job => {
+    let reading;
+    try { reading = read({ jobId: job.id, jobUrl: job.url }, postingReadOptions); }
+    catch (error) { return Promise.resolve({ error }); }
+    return Promise.resolve(reading).then(posting => ({ posting }), error => ({ error }));
+  };
+  const readPostingForFingerprint = job => {
+    const key = postingReadKey(job);
+    if (!postingPrefetches.has(key)) postingPrefetches.set(key, readPostingResult(job));
+    return postingPrefetches.get(key);
+  };
+  const readPostingForCheck = async job => {
+    const key = postingReadKey(job);
+    const prefetched = postingPrefetches.get(key);
+    if (prefetched) {
+      postingPrefetches.delete(key);
+      return prefetched;
+    }
+    return readPostingResult(job);
+  };
+  const normalizePosting = posting => !posting || typeof posting.text !== 'string'
+    ? { ...posting, text: '', source: posting?.source || 'none' }
+    : posting;
+  const fingerprintForPosting = (job, posting) => {
+    const metadata = eligibilityMetadata(job, posting.location);
+    const postingHash = sourceHash(posting.text);
+    const eligibilityMetadataHash = eligibilityHash(JSON.stringify({
+      values: metadata.values,
+      truncated: metadata.truncated,
+      posting: {
+        source: typeof posting.source === 'string' ? posting.source : '',
+        textLength: posting.text.length,
+        textTruncated: posting.textTruncated === true,
+      },
+    }));
+    const fingerprint = eligibilityHash([cvHash, answerHash, postingHash,
+      eligibilityMetadataHash, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
+    const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
+    return { fingerprint, cacheId, metadata, postingHash };
+  };
+  const fingerprintForJob = async job => {
+    job = normalizeConciergeJobRecord(job);
+    if (signal?.aborted) return null;
+    const loaded = await readPostingForFingerprint(job);
+    if (signal?.aborted) return null;
+    const posting = loaded.error ? { text: '', location: '' } : normalizePosting(loaded.posting);
+    return fingerprintForPosting(job, posting).fingerprint;
+  };
+  const check = async (job) => {
     job = normalizeConciergeJobRecord(job);
     const normalizedProfile = profileForEligibility(profile);
     if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
-    const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
-    if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
-    const postingHash = sourceHash(posting.text);
-    const postingMetadata = [job.title, job.company, posting.location || job.location].map(value => String(value || '').trim().replace(/\s+/g, ' '));
-    const fingerprint = eligibilityHash([cvHash, answerHash, postingHash, ...postingMetadata, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
-    const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
+    const loaded = await readPostingForCheck(job);
+    if (loaded.error) {
+      signal?.throwIfAborted();
+      const { fingerprint, cacheId } = fingerprintForPosting(job, { text: '', location: '' });
+      return { status: 'unverified', reason: 'posting_unavailable', fingerprint,
+        cacheId };
+    }
+    signal?.throwIfAborted();
+    const posting = normalizePosting(loaded.posting);
+    const { fingerprint, cacheId, metadata, postingHash } = fingerprintForPosting(job, posting);
+    if (!posting.text) return { status: 'unverified', reason: posting.source === 'none' ? 'posting_unavailable' : 'posting_incomplete', fingerprint, cacheId };
+    if (posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete', fingerprint, cacheId };
+    if (metadata.truncated) return { status: 'unverified', reason: 'eligibility_metadata_incomplete', fingerprint, cacheId };
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
     if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
-    if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
+    if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred', fingerprint, cacheId };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
-      readPosting: async () => posting });
+    let analysis;
+    try {
+      analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
+        readPosting: async () => posting, metadata });
+    } catch (error) {
+      if (error && typeof error === 'object') {
+        error.eligibilityFingerprint = fingerprint;
+        error.eligibilityCacheId = cacheId;
+      }
+      throw error;
+    }
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
     if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
       version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
     return { ...result, fingerprint, cacheId };
   };
+  check.fingerprintFor = fingerprintForJob;
+  return check;
 }
 
 /**

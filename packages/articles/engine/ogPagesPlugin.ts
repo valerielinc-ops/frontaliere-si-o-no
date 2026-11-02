@@ -238,6 +238,12 @@ function articleRootShell(hasSpaBundle: boolean): string {
  */
 const ARTICLE_FOOTER_ROOT = '<div id="footer-root"></div>';
 
+// In-article ads need 250px before the deferred entry CSS or React arrives.
+// A 275px viewport with a classic 17px scrollbar leaves 258px: 4px gutters
+// preserve 250px. The article-specific selector also wins over the later
+// generic main.seo-static-content padding, so CSS arrival cannot narrow it.
+const ARTICLE_NARROW_AD_LAYOUT_STYLE = '<style data-ft-article-ad-layout>@media(max-width:359px){main.seo-static-content:has(>article.ft-blog-article){padding-inline:4px}}</style>';
+
 /**
  * Hero-image size of LAST RESORT — used only when the resolved hero file
  * cannot be opened or its header cannot be parsed.
@@ -1521,8 +1527,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(localizedBody);
- const articleWithheldFromIndex = articleBodyHasPromptPlaceholder
-  || articleIndexExclusions.has(articleIndexExclusionKey(SECTION.name, en.articleId));
+ const articleWithheldFromIndex = SECTION.kind !== 'canton' && (
+  articleBodyHasPromptPlaceholder
+  || articleIndexExclusions.has(articleIndexExclusionKey(SECTION.name, en.articleId))
+ );
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
  const na = parseInt(a.replace('body', ''), 10);
  const nb = parseInt(b.replace('body', ''), 10);
@@ -2056,6 +2064,7 @@ ${href}
 <html lang="${locale}">
  <head>
 ${headTags}
+ ${ARTICLE_NARROW_AD_LAYOUT_STYLE}
  ${articleAtfDiagMarker}
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${blogPreloads}
  <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${inlineScriptJson(localizedTitle)}</script>
@@ -2090,6 +2099,7 @@ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blo
 <html lang="${locale}">
  <head>
 ${headTags}
+ ${ARTICLE_NARROW_AD_LAYOUT_STYLE}
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}

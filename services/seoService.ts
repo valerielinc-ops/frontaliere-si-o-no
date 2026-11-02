@@ -54,6 +54,7 @@ import {
  applyHreflangEntries,
  resolveRobotsDirective,
 } from './seo/staticHeadAuthority';
+import { DIRECT_EMPLOYER_CHANNEL_FLAG, isDirectEmployerSeoPath } from './directEmployerFeature';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -92,6 +93,16 @@ type PharmacyRuntimeSeoModule = typeof import('./pharmacies/runtimeSeo');
 
 let pharmacyRuntimeSeoPromise: Promise<PharmacyRuntimeSeoModule> | null = null;
 let seoUpdateEpoch = 0;
+
+async function isDirectEmployerRuntimeEnabled(): Promise<boolean> {
+ try {
+  const { fetchAndActivate, getConfigValue } = await import('./firebase');
+  await fetchAndActivate();
+  return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
+ } catch {
+  return false;
+ }
+}
 
 /**
  * Keep the pharmacy resolver and its snapshot dependencies out of the
@@ -246,6 +257,8 @@ function companyLogoFromJob(job: any): string {
  const logo = resolveCompanyLogoUrlForRenderedOutput({
  company: String(job?.company || ''),
  companyKey: String(job?.companyKey || ''),
+ municipalityKey: String(job?.municipalityKey || ''),
+ companyLogoKey: String(job?.companyLogoKey || ''),
  companyDomain: String(job?.companyDomain || ''),
  url: String(job?.url || ''),
  });
@@ -1243,6 +1256,8 @@ const SEO_SECTION_TITLE_KEY_MAP: Record<string, string> = {
  jobboard: 'jobBoard.seoTitle',
  dashboard: 'profile.title',
  'for-employers': 'publisherLanding.metaTitle',
+ 'direct-employers': 'seo.directEmployer.title',
+ 'permanent-employers': 'seo.permanentEmployer.title',
  gamification: 'gamification.title',
  privacy: 'consent.privacyLink',
  petition: 'petition.hero.title',
@@ -1330,6 +1345,8 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
  forum: 'seo.forum.description',
  dashboard: 'seo.dashboard.description',
  'for-employers': 'publisherLanding.metaDescription',
+ 'direct-employers': 'seo.directEmployer.description',
+ 'permanent-employers': 'seo.permanentEmployer.description',
  gamification: 'seo.gamification.description',
  privacy: 'seo.privacy.description',
  petition: 'seo.petition.description',
@@ -1876,6 +1893,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  const canonicalLocalePath = isApplicationConciergeEntry
  ? getApplicationConciergePath(locale)
  : withTrailingSlashPath(localePath);
+ const directEmployerRouteDisabled = isDirectEmployerSeoPath(canonicalLocalePath)
+  && !(await isDirectEmployerRuntimeEnabled());
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
@@ -2087,7 +2106,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  }
  })();
  const articleBodyUnavailable = isBlogArticle && articleBodyLoadFailed;
- const spaRobotsDirective = isApplicationConciergeService
+ const spaRobotsDirective = directEmployerRouteDisabled
+ ? 'noindex, follow'
+ : isApplicationConciergeService
  ? 'noindex, nofollow'
  : hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'

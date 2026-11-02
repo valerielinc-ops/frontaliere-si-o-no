@@ -32,6 +32,7 @@ export type AdEvent =
   | 'ad_measurable'
   | 'ad_filled'
   | 'ad_unfilled'
+  | 'ad_unavailable'
   | 'ad_collapsed'
   | 'ad_bot_skip'
   | 'ad_viewable'
@@ -68,6 +69,7 @@ export interface AdEventProps {
   reserved_height?: number;
   creative_height?: number;
   slot_height?: number;
+  slot_width?: number;
   measurement?: string;
   slot: string;
   format: string;
@@ -108,6 +110,7 @@ export function trackAdEvent(event: AdEvent, props: AdEventProps): void {
       ...(props.render_path ? { render_path: props.render_path } : {}),
       ...(props.reserved_height !== undefined ? { reserved_height: props.reserved_height } : {}),
       ...(props.slot_height !== undefined ? { slot_height: props.slot_height } : {}),
+      ...(props.slot_width !== undefined ? { slot_width: props.slot_width } : {}),
       ...(props.creative_height !== undefined ? { creative_height: props.creative_height } : {}),
       ...(props.measurement ? { measurement: props.measurement } : {}),
       ad_format: props.format,

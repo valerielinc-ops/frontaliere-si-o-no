@@ -885,6 +885,8 @@ const translations: Record<string, string> = {
   'jobBoard.concierge.childSubmitted': "Candidatura inviata",
   'jobBoard.concierge.childProcessing': "Verifica in corso",
   'jobBoard.concierge.childPreparing': "Candidatura in preparazione",
+  'jobBoard.concierge.childFailed': "L’automazione non è riuscita. Stiamo verificando se il portale ha ricevuto la candidatura.",
+  'jobBoard.concierge.childUnknown': "Non abbiamo una conferma dell’esito; la candidatura non viene indicata come inviata senza una prova.",
   'jobBoard.concierge.answerChild': "Rispondi alle domande",
   'jobBoard.concierge.reviewChild': "Controlla e conferma",
   'jobBoard.concierge.openChild': "Apri candidatura",
@@ -959,6 +961,9 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.noGuarantee': 'Non garantiamo posizioni adatte, candidature inviate, risposte, colloqui o assunzioni.',
  'jobBoard.concierge.eligibilityNeedsVerification': 'La proposta è in attesa di una nuova verifica dei requisiti. Puoi rifiutarla mentre la verifica è in corso.',
  'jobBoard.concierge.proposalStatus.proposed': 'Da decidere',
+ 'jobBoard.concierge.proposalStatus.needs_information': 'Serve una tua risposta',
+ 'jobBoard.concierge.proposalStatus.failed': 'Automazione non riuscita',
+ 'jobBoard.concierge.proposalStatus.unknown': 'Esito da confermare',
  'jobBoard.concierge.proposalStatus.needs_verification': 'Da verificare di nuovo',
  'jobBoard.concierge.proposalStatus.submitted': "Inviata",
  'jobBoard.concierge.proposalStatus.needs_answers': "Mancano informazioni",
@@ -3145,6 +3150,10 @@ Regole:
 
  // Publisher portal — pubblica un annuncio di lavoro
  'publisher.title': 'Pubblica un\'offerta di lavoro',
+ 'seo.directEmployer.title': 'Pubblica gratis un’offerta di lavoro | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino senza account: verifica del datore, moderazione umana e scadenza automatica dopo 30 giorni.',
+ 'seo.permanentEmployer.title': 'Aziende aperte a candidature spontanee | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Elenco pubblico di aziende che possono valutare candidature spontanee, segnalate dai candidati e verificate dal team. Non sono posti di lavoro aperti.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

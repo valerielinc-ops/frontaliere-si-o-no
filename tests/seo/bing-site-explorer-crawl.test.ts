@@ -10,8 +10,10 @@ import {
   collectSitemapInventory,
   crawlPartition,
   extractInternalLinks,
+  isDeclaredEventMigrationBridge,
   folderFor,
   isDeclaredEventDetailTarget,
+  isDeclaredPaginationTarget,
   isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
   isEventDetailPath,
@@ -41,7 +43,10 @@ import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/s
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
+import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 
@@ -457,6 +462,67 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(driftCodes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
   });
 
+  it('recognizes only marked deep pagination targets and keeps nearby pages actionable', () => {
+    const url = `${BASE}/cerca-lavoro-ticino/ricerca/page-11/`;
+    const marked = `${PAGINATION_NOINDEX_TARGET_MARKER}<title>Ricerca</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina profonda di ricerca nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+
+    expect(isDeclaredPaginationTarget({ url, html: marked })).toBe(true);
+    expect(isDeclaredPaginationTarget({ url: `${BASE}/cerca-lavoro-ticino/ricerca/page-10/`, html: marked })).toBe(false);
+    expect(isDeclaredPaginationTarget({ url, html: marked.replace(PAGINATION_NOINDEX_TARGET_MARKER, '') })).toBe(false);
+    expect(isDeclaredPaginationTarget({ url: `${BASE}/cerca-lavoro-ticino/ricerca/page-11/details/`, html: marked })).toBe(false);
+
+    const declared = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: marked });
+    const declaredCodes = declared.findings.map((item) => item.code);
+    expect(declaredCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(declaredCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
+    const nofollow = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replace('noindex,follow', 'noindex,nofollow'),
+    });
+    expect(nofollow.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(nofollow.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const drift = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replace(`href="${url}"`, `href="${BASE}/articoli-frontaliere/other/"`),
+    });
+    expect(drift.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+    const unmarked = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replace(PAGINATION_NOINDEX_TARGET_MARKER, ''),
+    });
+    expect(unmarked.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(unmarked.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const pageInsideIndexableWindow = `${BASE}/cerca-lavoro-ticino/ricerca/page-10/`;
+    const pageInsideIndexableWindowCodes = classifyDocument({
+      url: pageInsideIndexableWindow,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: marked.replaceAll(url, pageInsideIndexableWindow),
+    }).findings.map((item) => item.code);
+    expect(pageInsideIndexableWindowCodes).toContain(BING_FRONTIER_NOINDEX);
+    expect(pageInsideIndexableWindowCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const redirectCodes = classifyDocument({
+      url,
+      status: 301,
+      finalUrl: `${BASE}/cerca-lavoro-ticino/ricerca/`,
+      scope: 'discovered-frontier',
+      html: marked,
+    }).findings.map((item) => item.code);
+    expect(redirectCodes).toContain(BING_FRONTIER_REDIRECT);
+    expect(redirectCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+  });
+
   it('keeps an undeclared job-detail noindex target actionable', () => {
     const url = `${BASE}/en/find-jobs-geneva/job-slug/`;
     const result = classifyDocument({
@@ -533,6 +599,140 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
     expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
     expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+  });
+
+  it('recognizes only exact declared related-search mirrors in the frontier', () => {
+    const mirrorHtml = (
+      canonical: string,
+      marker = RELATED_SEARCH_MIRROR_MARKER,
+      robots = 'index,follow',
+    ) => `${marker}<title>Mirror</title><meta name="robots" content="${robots}"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il mirror related-search nel controllo SEO completo e mantenere il contratto di crawling.">`;
+    const validCases = [
+      {
+        url: `${BASE}/cerca-lavoro-ticino/ricerca-lugano/`,
+        canonical: `${BASE}/cerca-lavoro-svizzera/ricerca-lugano/`,
+        robots: 'noindex,follow',
+      },
+      {
+        url: `${BASE}/en/find-jobs-geneva/search-geneva/`,
+        canonical: `${BASE}/en/find-jobs-switzerland/search-geneva/`,
+      },
+      {
+        url: `${BASE}/de/jobs-in-zurich/suche-zurich/`,
+        canonical: `${BASE}/de/jobs-in-schweiz/suche-zurich/`,
+      },
+      {
+        url: `${BASE}/fr/trouver-emploi-geneva/recherche-geneva/`,
+        canonical: `${BASE}/fr/trouver-emploi-suisse/recherche-geneva/`,
+      },
+    ];
+
+    for (const { url, canonical, robots } of validCases) {
+      const frontier = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: mirrorHtml(canonical, RELATED_SEARCH_MIRROR_MARKER, robots) });
+      const frontierCodes = frontier.findings.map((finding) => finding.code);
+      expect(frontierCodes).toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+      expect(frontierCodes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+      if (robots === 'noindex,follow') {
+        expect(frontierCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+        expect(frontierCodes).not.toContain(BING_FRONTIER_NOINDEX);
+      } else {
+        expect(frontierCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+        expect(frontierCodes).not.toContain(BING_FRONTIER_NOINDEX);
+      }
+
+      const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: mirrorHtml(canonical, RELATED_SEARCH_MIRROR_MARKER, robots) });
+      const sitemapCodes = sitemap.findings.map((finding) => finding.code);
+      expect(sitemapCodes).toContain('canonical-drift');
+      if (robots === 'noindex,follow') expect(sitemapCodes).toContain('noindex-in-sitemap');
+    }
+
+    const invalidCases = [
+      {
+        // The old generic marker cannot authorize a mirror by itself.
+        url: `${BASE}/cerca-lavoro-ticino/ricerca-lugano/`,
+        canonical: `${BASE}/cerca-lavoro-svizzera/ricerca-lugano/`,
+        html: mirrorHtml(`${BASE}/cerca-lavoro-svizzera/ricerca-lugano/`, REDIRECT_STUB_MARKER, 'noindex,follow'),
+      },
+      {
+        // A dedicated marker must not waive a cross-canton destination.
+        url: `${BASE}/cerca-lavoro-ticino/ricerca-lugano/`,
+        canonical: `${BASE}/cerca-lavoro-zurigo/ricerca-lugano/`,
+        html: mirrorHtml(`${BASE}/cerca-lavoro-zurigo/ricerca-lugano/`, RELATED_SEARCH_MIRROR_MARKER, 'noindex,follow'),
+      },
+      {
+        // The aggregate target must preserve the exact search slug.
+        url: `${BASE}/cerca-lavoro-ticino/ricerca-lugano/`,
+        canonical: `${BASE}/cerca-lavoro-svizzera/ricerca-mendrisio/`,
+        html: mirrorHtml(`${BASE}/cerca-lavoro-svizzera/ricerca-mendrisio/`, RELATED_SEARCH_MIRROR_MARKER, 'noindex,follow'),
+      },
+    ];
+
+    for (const item of invalidCases) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: item.html,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    }
+  });
+
+  it('recognizes only marked event migration bridges with a current event-detail target', () => {
+    const source = `${BASE}/eventi/ticino/lugano/vecchio-evento-2026-09-26/`;
+    const canonical = `${BASE}/eventi/ticino/lugano/evento-2026-09-27/`;
+    const description = 'Una descrizione sufficientemente lunga per rappresentare il bridge di migrazione evento nel controllo SEO completo del sito e mantenere il contratto di crawling.';
+    const bridgeHtml = (target: string, marker = EVENT_SLUG_MIGRATION_BRIDGE_MARKER, robots = 'index,follow') => `${marker}<title>Event migration bridge</title><meta name="robots" content="${robots}"><link rel="canonical" href="${target}"><meta name="description" content="${description}">`;
+
+    const frontier = classifyDocument({
+      url: source,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: bridgeHtml(canonical),
+    });
+    const frontierCodes = frontier.findings.map((item) => item.code);
+    expect(isDeclaredEventMigrationBridge({ url: source, canonical, html: bridgeHtml(canonical) })).toBe(true);
+    expect(frontierCodes).toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    expect(frontierCodes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+    const sitemap = classifyDocument({ url: source, status: 200, scope: 'sitemap', html: bridgeHtml(canonical) });
+    expect(sitemap.findings.map((item) => item.code)).toContain('canonical-drift');
+
+    const undeclared = classifyDocument({
+      url: source,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: bridgeHtml(canonical, REDIRECT_STUB_MARKER),
+    });
+    expect(undeclared.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+    const invalidTargets = [
+      `${BASE}/eventi/ticino/lugano/`,
+      `${BASE}/en/events/ticino/lugano/event-2026-09-27/`,
+    ];
+    for (const target of invalidTargets) {
+      const result = classifyDocument({
+        url: source,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: bridgeHtml(target),
+      });
+      const codes = result.findings.map((item) => item.code);
+      expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    }
+
+    const noindex = classifyDocument({
+      url: source,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: bridgeHtml(canonical, EVENT_SLUG_MIGRATION_BRIDGE_MARKER, 'noindex,follow'),
+    });
+    expect(noindex.findings.map((item) => item.code)).toContain(BING_FRONTIER_NOINDEX);
+    expect(noindex.findings.map((item) => item.code)).toContain(BING_FRONTIER_CANONICAL_DRIFT);
   });
 
   it('keeps expected canonical consolidations out of the actionable issue body', () => {

@@ -1,7 +1,7 @@
 {
   "key": "endeso",
   "label": "endeso GmbH",
-  "generatedAt": "2026-11-02T10:43:00.147Z",
+  "generatedAt": "2026-11-02T21:57:34.863Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 16936,
-  "avgDurationMs": 16936,
+  "durationMs": 18125,
+  "avgDurationMs": 18125,
   "durationHistory": [
-    16936
+    18125
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://endeso.ch/jobs/job-28017-haushaltshilfe-raumpflege-teilzeit-region-zuerich-stadt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.565Z",
+      "crawledAt": "2026-11-02T21:57:09.706Z",
       "addressLocality": "Zürich Stadt",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-23T09:46:03.738Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T10:42:35.565Z",
+      "validThrough": "2027-01-20T21:57:09.706Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://endeso.ch/jobs/job-28018-webentwickler-in-backend-php/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.563Z",
+      "crawledAt": "2026-11-02T21:57:09.704Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-23T09:46:03.738Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T10:42:35.563Z",
+      "validThrough": "2027-01-20T21:57:09.704Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://endeso.ch/jobs/job-28019-personalberater-in-hr-funktionen/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.561Z",
+      "crawledAt": "2026-11-02T21:57:09.703Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -157,10 +157,11 @@
         "postalCode": "8500",
         "addressLocality": "Frauenfeld",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:48:51.295Z"
+        "checkedAt": "2026-10-31T20:48:51.295Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-20T10:42:35.561Z",
+      "validThrough": "2027-01-20T21:57:09.703Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -182,7 +183,7 @@
       "url": "https://endeso.ch/jobs/job-28020-regionalbetreiber-luzern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.560Z",
+      "crawledAt": "2026-11-02T21:57:09.702Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -205,7 +206,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-23T09:46:03.737Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T10:42:35.560Z",
+      "validThrough": "2027-01-20T21:57:09.702Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -227,7 +228,7 @@
       "url": "https://endeso.ch/jobs/job-28021-regionalbetreiber-zug/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.559Z",
+      "crawledAt": "2026-11-02T21:57:09.701Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -250,7 +251,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-08T21:30:36.198Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T10:42:35.559Z",
+      "validThrough": "2026-12-10T21:57:09.701Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -272,7 +273,7 @@
       "url": "https://endeso.ch/jobs/job-28022-regionalbetreiber-bern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.558Z",
+      "crawledAt": "2026-11-02T21:57:09.700Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -295,7 +296,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.195Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T10:42:35.558Z",
+      "validThrough": "2026-12-10T21:57:09.700Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -317,7 +318,7 @@
       "url": "https://endeso.ch/jobs/job-28023-regionale-repraesentantin-swissbutler/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.547Z",
+      "crawledAt": "2026-11-02T21:57:09.693Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -340,7 +341,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.190Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T10:42:35.547Z",
+      "validThrough": "2026-12-10T21:57:09.693Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -362,7 +363,7 @@
       "url": "https://endeso.ch/jobs/job-28024-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.545Z",
+      "crawledAt": "2026-11-02T21:57:09.692Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -385,7 +386,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.189Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T10:42:35.545Z",
+      "validThrough": "2026-12-10T21:57:09.692Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -407,7 +408,7 @@
       "url": "https://endeso.ch/jobs/job-28025-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.541Z",
+      "crawledAt": "2026-11-02T21:57:09.690Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -430,7 +431,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-19T23:00:29.183Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T10:42:35.541Z",
+      "validThrough": "2026-12-10T21:57:09.690Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -452,7 +453,7 @@
       "url": "https://endeso.ch/jobs/job-28026-projektleiter-in-elektroinstallation/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:42:35.539Z",
+      "crawledAt": "2026-11-02T21:57:09.688Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -482,10 +483,11 @@
         "postalCode": "8500",
         "addressLocality": "Frauenfeld",
         "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:48:51.295Z"
+        "checkedAt": "2026-10-31T20:48:51.295Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T10:42:35.539Z",
+      "validThrough": "2026-12-10T21:57:09.688Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -496,5 +498,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

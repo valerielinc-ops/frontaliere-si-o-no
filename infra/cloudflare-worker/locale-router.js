@@ -3058,6 +3058,8 @@ async function readStaleCopy(url, reason) {
 const NOT_FOUND_COPY = {
   it: {
     lang: 'it', title: 'Pagina non trovata', jobTitle: 'Offerta non trovata',
+    socialJobTitle: 'Offerte di lavoro aggiornate',
+    socialJobDescription: 'Questo annuncio non è più disponibile. Consulta le offerte aggiornate e candidati su frontaliereticino.ch.',
     lede: 'La pagina che stai cercando non esiste o è stata spostata.',
     jobLede: "Questo annuncio non esiste o non è più disponibile. Le offerte attive sono negli elenchi qui sotto.",
     section: 'Offerte di lavoro di questa sezione', board: 'Tutte le offerte di lavoro in Svizzera',
@@ -3066,6 +3068,8 @@ const NOT_FOUND_COPY = {
   },
   en: {
     lang: 'en', title: 'Page not found', jobTitle: 'Job not found',
+    socialJobTitle: 'Current job openings',
+    socialJobDescription: 'This listing is no longer available. Browse current jobs and apply at frontaliereticino.ch.',
     lede: 'The page you are looking for does not exist or has been moved.',
     jobLede: 'This job posting does not exist or is no longer available. Current openings are in the lists below.',
     section: 'Jobs in this section', board: 'All jobs in Switzerland',
@@ -3074,6 +3078,8 @@ const NOT_FOUND_COPY = {
   },
   de: {
     lang: 'de', title: 'Seite nicht gefunden', jobTitle: 'Stelle nicht gefunden',
+    socialJobTitle: 'Aktuelle Stellenangebote',
+    socialJobDescription: 'Diese Stelle ist nicht mehr verfügbar. Entdecken Sie aktuelle Jobs und bewerben Sie sich auf frontaliereticino.ch.',
     lede: 'Die gesuchte Seite existiert nicht oder wurde verschoben.',
     jobLede: 'Diese Stellenanzeige existiert nicht oder ist nicht mehr verfügbar. Aktuelle Stellen finden Sie in den Listen unten.',
     section: 'Stellen in diesem Bereich', board: 'Alle Stellen in der Schweiz',
@@ -3082,6 +3088,8 @@ const NOT_FOUND_COPY = {
   },
   fr: {
     lang: 'fr', title: 'Page introuvable', jobTitle: 'Offre introuvable',
+    socialJobTitle: 'Offres d’emploi actuelles',
+    socialJobDescription: 'Cette offre n’est plus disponible. Consultez les postes à jour et postulez sur frontaliereticino.ch.',
     lede: "La page que vous cherchez n'existe pas ou a été déplacée.",
     jobLede: "Cette offre d'emploi n'existe pas ou n'est plus disponible. Les offres actuelles se trouvent dans les listes ci-dessous.",
     section: 'Offres de cette section', board: 'Toutes les offres en Suisse',
@@ -3089,6 +3097,8 @@ const NOT_FOUND_COPY = {
     links: { home: '/fr/', calculator: '/fr/calculer-salaire/', sitemap: '/fr/plan-du-site/' },
   },
 };
+
+const JOB_NOT_FOUND_SOCIAL_IMAGE = 'https://frontaliereticino.ch/og-image.png';
 
 function escapeHtmlText(value) {
   return String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
@@ -3123,10 +3133,27 @@ export function renderNotFoundPage(pathname, locale, sectionRoute = null) {
     .map(([href, label]) => `<li><a href="${escapeHtmlText(href)}">${escapeHtmlText(label)}</a></li>`)
     .join('');
   const title = isJob ? copy.jobTitle : copy.title;
+  const socialTitle = isJob ? `${copy.socialJobTitle} | Frontaliere Ticino` : null;
+  const socialMetadata = isJob
+    ? '<meta property="og:type" content="website">'
+      + '<meta property="og:site_name" content="Frontaliere Ticino">'
+      + `<meta property="og:title" content="${escapeHtmlText(socialTitle)}">`
+      + `<meta property="og:description" content="${escapeHtmlText(copy.socialJobDescription)}">`
+      + `<meta property="og:image" content="${JOB_NOT_FOUND_SOCIAL_IMAGE}">`
+      + '<meta property="og:image:type" content="image/png">'
+      + '<meta property="og:image:width" content="1200">'
+      + '<meta property="og:image:height" content="630">'
+      + `<meta property="og:image:alt" content="${escapeHtmlText(socialTitle)}">`
+      + '<meta name="twitter:card" content="summary_large_image">'
+      + `<meta name="twitter:title" content="${escapeHtmlText(socialTitle)}">`
+      + `<meta name="twitter:description" content="${escapeHtmlText(copy.socialJobDescription)}">`
+      + `<meta name="twitter:image" content="${JOB_NOT_FOUND_SOCIAL_IMAGE}">`
+    : '';
   return '<!DOCTYPE html>'
     + `<html lang="${copy.lang}"><head><meta charset="utf-8">`
     + '<meta name="viewport" content="width=device-width, initial-scale=1">'
     + `<title>${escapeHtmlText(title)} — Frontaliere Ticino</title>`
+    + socialMetadata
     + '<meta name="robots" content="noindex">'
     + '<link rel="icon" type="image/svg+xml" href="/favicon.svg">'
     + (isJob ? '' : NOT_FOUND_SPA_FALLBACK_SCRIPT)

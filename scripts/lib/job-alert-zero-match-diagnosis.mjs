@@ -31,6 +31,7 @@ export function classifyZeroMatchCause(profile, { eligibleCandidateCount } = {})
   if (hasKeywords) return ZERO_MATCH_CAUSES.KEYWORD_NARROW;
   if (hasGeo) return ZERO_MATCH_CAUSES.GEO_NARROW;
   const hasSoftProfile = (p.softTokens?.size ?? 0) > 0
+    || (p.softSearchQueries?.length ?? 0) > 0
     || Boolean(p.company)
     || (p.locations?.length ?? 0) > 0
     || (p.sectors?.length ?? 0) > 0
@@ -54,6 +55,7 @@ export function createZeroMatchSummaryAccumulator() {
     evaluatedAlertCount: 0,
     noEligibleCandidateCount: 0,
     emptyProfileCount: 0,
+    discoveryCount: 0,
     zeroMatchCount: 0,
     zeroMatchByCause: {},
   };
@@ -66,6 +68,10 @@ export function addZeroMatchPlanToSummary(summary, plan) {
     return summary;
   }
   if ((plan?.rankedCount ?? 0) > 0) {
+    if (plan?.discoveryMode === true) {
+      summary.discoveryCount += 1;
+      return summary;
+    }
     summary.evaluatedAlertCount += 1;
     return summary;
   }

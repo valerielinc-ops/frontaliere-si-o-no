@@ -153,6 +153,7 @@ import { classifyCanonicalMismatch } from '../scripts/lib/canonicalExemptions.mj
 import { readAttr, scanMarkupStartTagGroups, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
 import { MID_PLUGINS_FAST } from '../scripts/lib/mid-plugins-flag.mjs';
 import { readHeadOrAll } from '../scripts/lib/readHead.mjs';
+import { RELATED_SEARCH_MIRROR_MARKER } from './shared/relatedSearchMirrorMarker.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   normalizeRelatedSearchClusterPath,
@@ -6429,7 +6430,10 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           ? replaceRobotsMeta(__clThinned, 'noindex,follow')
           : __clThinned;
         const __clMirrorHtml = __clMirrorPaths.size > 0
-          ? stripHreflangForClusterMirror(__clHtml)
+          ? stripHreflangForClusterMirror(__clHtml).replace(
+              '</head>',
+              ` ${RELATED_SEARCH_MIRROR_MARKER}\n </head>`,
+            )
           : __clHtml;
         profileRecord('cluster-thin', __tClThin);
         const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;

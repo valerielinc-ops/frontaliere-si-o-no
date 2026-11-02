@@ -1,7 +1,7 @@
 {
   "key": "rehaklinik-seewis",
   "label": "Kurhaus",
-  "generatedAt": "2026-11-02T11:28:30.012Z",
+  "generatedAt": "2026-11-02T21:44:16.344Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8341,
-  "avgDurationMs": 8341,
+  "durationMs": 7701,
+  "avgDurationMs": 7701,
   "durationHistory": [
-    8341
+    7701
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2087506-oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:28:13.615Z",
+      "crawledAt": "2026-11-02T21:44:03.998Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:28:13.615Z",
+      "validThrough": "2026-12-02T21:44:03.998Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:28:13.614Z",
+      "crawledAt": "2026-11-02T21:44:03.997Z",
       "addressLocality": "Dussnang",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:28:13.614Z",
+      "validThrough": "2026-12-02T21:44:03.997Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:28:13.611Z",
+      "crawledAt": "2026-11-02T21:44:03.995Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T11:28:13.611Z",
+      "validThrough": "2026-12-28T21:44:03.995Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -161,5 +161,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

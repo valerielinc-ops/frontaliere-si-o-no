@@ -9,6 +9,7 @@ import { listStaticScriptFiles } from '../build-plugins/staticScriptsPlugin';
 import { main as ensureMain } from '../scripts/ci/ensure-cdn-shell-assets.mjs';
 import {
   SHELL_ASSET_CACHE_CONTROL,
+  shellAssetCacheControl,
   SHELL_ASSET_CDN_ORIGIN,
   SHELL_ASSET_PAGE_ORIGIN,
   SHELL_ASSET_PURGE_BATCH,
@@ -914,5 +915,13 @@ describe('fast emitters run the ensure step before they publish', () => {
     for (const name of ['CF_API_TOKEN', 'R2_ACCESS_KEY_ID']) {
       expect(read('scripts/load-rc-env.mjs')).toMatch(new RegExp(String.raw`^\s*${name}:\s*\[`, 'm'));
     }
+  });
+});
+
+describe('content-addressed shell cache headers', () => {
+  it.each(['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support'])('caches immutable %s bytes for a year', (name) => {
+    expect(shellAssetCacheControl(`assets/${name}-012345abcdef.js`)).toBe('public,max-age=31536000,immutable');
+    expect(shellAssetCacheControl(`assets/${name}.js`)).toBe(SHELL_ASSET_CACHE_CONTROL);
+    expect(shellAssetCacheControl(`assets/${name}-not-a-digest.js`)).toBe(SHELL_ASSET_CACHE_CONTROL);
   });
 });

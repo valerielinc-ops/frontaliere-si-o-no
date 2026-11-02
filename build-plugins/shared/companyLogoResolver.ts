@@ -30,6 +30,8 @@ export const LOGO_IMG_ONERROR =
 export interface LogoLookupShape {
   company?: string;
   companyKey?: string;
+  municipalityKey?: string;
+  companyLogoKey?: string | null;
   companyDomain?: string;
   url?: string;
   logo?: string | null;

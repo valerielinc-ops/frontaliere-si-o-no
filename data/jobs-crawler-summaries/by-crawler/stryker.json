@@ -1,7 +1,7 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-11-02T11:11:11.251Z",
+  "generatedAt": "2026-11-02T21:55:04.740Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 9208,
-  "avgDurationMs": 9208,
+  "durationMs": 9691,
+  "avgDurationMs": 9691,
   "durationHistory": [
-    9208
+    9691
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "stryker-5913cc327dbe",
-      "slug": "lernende-r-mediamatiker-in-m-w-d-stryker-ch",
+      "slug": "apprendista-mediamatico-a-m-f-d-stryker-selzach",
       "company": "Stryker",
       "companyKey": "stryker",
       "companyDomain": "stryker.com",
       "title": "Lernende*r Mediamatiker*in (m/w/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Selzach",
       "canton": "SO",
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lernende-r-Mediamatiker-in--m-w-d-_R569043",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:50.125Z",
+      "crawledAt": "2026-11-02T21:54:43.431Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -52,25 +53,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lernende-r-Mediamatiker-in--m-w-d-_R569043",
       "jobReqId": "R569043",
+      "firstSeenAt": "2026-11-02T11:10:50.125Z",
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T11:10:50.125Z",
+      "validThrough": "2027-01-31T21:54:43.431Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:10:50.125Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +86,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:54.937Z",
+      "crawledAt": "2026-11-02T21:54:48.168Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T11:10:54.937Z",
+      "validThrough": "2026-12-02T21:54:48.168Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:10:54.252Z",
+      "crawledAt": "2026-11-02T21:54:47.536Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T11:10:54.252Z",
+      "validThrough": "2026-12-14T21:54:47.536Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -179,7 +179,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:53.616Z",
+      "crawledAt": "2026-11-02T21:54:46.869Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T11:10:53.616Z",
+      "validThrough": "2027-01-05T21:54:46.869Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -226,7 +226,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:52.988Z",
+      "crawledAt": "2026-11-02T21:54:46.247Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T11:10:52.988Z",
+      "validThrough": "2026-12-28T21:54:46.247Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -272,7 +272,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:10:52.331Z",
+      "crawledAt": "2026-11-02T21:54:45.587Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T11:10:52.331Z",
+      "validThrough": "2027-01-21T21:54:45.587Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -318,7 +318,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Project-Associate--m-f-d--as-part-of-our-Regulatory-Affairs-team_R576188",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:10:51.694Z",
+      "crawledAt": "2026-11-02T21:54:44.936Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T11:10:51.694Z",
+      "validThrough": "2027-01-25T21:54:44.936Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -365,7 +365,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Ausbildung-Produktionsmechaniker--m-w-d----Selzach--CH-_R569007",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:10:50.799Z",
+      "crawledAt": "2026-11-02T21:54:44.071Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T11:10:50.799Z",
+      "validThrough": "2027-01-25T21:54:44.071Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -400,5 +400,5 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

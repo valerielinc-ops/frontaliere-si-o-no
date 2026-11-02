@@ -1,7 +1,7 @@
 {
   "key": "mueller-steinmaur",
   "label": "mueller-steinmaur",
-  "generatedAt": "2026-11-02T09:22:41.105Z",
+  "generatedAt": "2026-11-02T21:31:16.221Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3873,
-  "avgDurationMs": 3873,
+  "unchangedCount": 0,
+  "durationMs": 9000,
+  "avgDurationMs": 9000,
   "durationHistory": [
-    3873
+    9000
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "mueller-steinmaur-510b014742eb",
       "slug": "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich",
@@ -37,7 +35,7 @@
       "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "source": "mueller-steinmaur Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:22:28.449Z",
+      "crawledAt": "2026-11-02T21:31:00.271Z",
       "addressLocality": "Steinmaur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,7 +58,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:22:28.449Z",
+      "validThrough": "2026-12-02T21:31:00.271Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -71,5 +69,7 @@
       }
     }
   ],
-  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
 }

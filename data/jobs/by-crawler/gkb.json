@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-11-02T10:24:37.468Z",
-  "runId": "41417705353",
+  "assembledAt": "2026-11-02T21:29:05.355Z",
+  "runId": "41524973101",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:31.401Z",
+      "crawledAt": "2026-11-02T21:28:58.240Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -92,11 +92,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:31.401Z",
+      "validThrough": "2026-12-02T21:28:58.240Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:30.575Z",
+      "crawledAt": "2026-11-02T21:28:57.321Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -190,11 +191,12 @@
         "postalCode": "7500",
         "addressLocality": "St. Moritz",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:51.295Z"
+        "checkedAt": "2026-10-31T20:48:51.295Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Via Maistra 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:30.575Z",
+      "validThrough": "2026-12-02T21:28:57.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -228,7 +230,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:29.749Z",
+      "crawledAt": "2026-11-02T21:28:56.408Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -291,11 +293,12 @@
         "postalCode": "7050",
         "addressLocality": "Arosa",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Poststrasse 133",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:29.749Z",
+      "validThrough": "2026-12-02T21:28:56.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -329,7 +332,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:28.920Z",
+      "crawledAt": "2026-11-02T21:28:55.440Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -392,11 +395,12 @@
         "postalCode": "7550",
         "addressLocality": "Scuol",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Stradun 327",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:28.920Z",
+      "validThrough": "2026-12-02T21:28:55.440Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -430,7 +434,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:28.082Z",
+      "crawledAt": "2026-11-02T21:28:54.514Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -491,11 +495,12 @@
         "postalCode": "7050",
         "addressLocality": "Arosa",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Poststrasse 133",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:28.082Z",
+      "validThrough": "2026-12-02T21:28:54.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -529,7 +534,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:27.270Z",
+      "crawledAt": "2026-11-02T21:28:53.714Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -594,11 +599,12 @@
         "postalCode": "7550",
         "addressLocality": "Scuol",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Stradun 327",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:27.270Z",
+      "validThrough": "2026-12-02T21:28:53.714Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -632,7 +638,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:26.438Z",
+      "crawledAt": "2026-11-02T21:28:52.917Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -693,11 +699,12 @@
         "postalCode": "7500",
         "addressLocality": "St. Moritz",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:51.295Z"
+        "checkedAt": "2026-10-31T20:48:51.295Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Via Maistra 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:26.438Z",
+      "validThrough": "2026-12-02T21:28:52.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -731,7 +738,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:25.449Z",
+      "crawledAt": "2026-11-02T21:28:52.141Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -798,11 +805,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:25.449Z",
+      "validThrough": "2026-12-02T21:28:52.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -836,7 +844,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:24.468Z",
+      "crawledAt": "2026-11-02T21:28:51.362Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -896,11 +904,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:24.468Z",
+      "validThrough": "2026-12-02T21:28:51.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -934,7 +943,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:23.625Z",
+      "crawledAt": "2026-11-02T21:28:50.436Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -998,11 +1007,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:23.625Z",
+      "validThrough": "2026-12-02T21:28:50.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1036,7 +1046,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:22.784Z",
+      "crawledAt": "2026-11-02T21:28:49.495Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1104,11 +1114,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:22.784Z",
+      "validThrough": "2026-12-02T21:28:49.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1116,7 +1127,7 @@
       "slug": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "it": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "en": "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
+        "en": "intern-asb-banking-roveredo-from-august-2027-graubundner-kantonalbank-thusis",
         "de": "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "fr": "stagist-asb-banking-roveredo-a-partir-d-aout-2027-graubundner-kantonalbank-thusis"
       },
@@ -1142,7 +1153,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:21.955Z",
+      "crawledAt": "2026-11-02T21:28:48.693Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1164,7 +1175,7 @@
         "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis",
         "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "intern-asb-banking-roveredo-from-august-2027-graubundner-kantonalbank-thusis"
+        "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1172,7 +1183,7 @@
         ],
         "en": [
           "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-          "intern-asb-banking-roveredo-from-august-2027-graubundner-kantonalbank-thusis"
+          "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
         ],
         "de": [
           "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis"
@@ -1201,11 +1212,12 @@
         "postalCode": "7430",
         "addressLocality": "Thusis",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Neudorfstrasse 96",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T10:24:21.955Z",
+      "validThrough": "2026-12-02T21:28:48.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1239,7 +1251,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:21.113Z",
+      "crawledAt": "2026-11-02T21:28:47.899Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -1297,11 +1309,12 @@
         "postalCode": "7050",
         "addressLocality": "Arosa",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:49:00.410Z"
+        "checkedAt": "2026-10-31T20:49:00.410Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Poststrasse 133",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T10:24:21.113Z",
+      "validThrough": "2026-12-14T21:28:47.899Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1335,7 +1348,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:20.280Z",
+      "crawledAt": "2026-11-02T21:28:47.128Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1391,11 +1404,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T10:24:20.280Z",
+      "validThrough": "2026-12-15T21:28:47.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1429,7 +1443,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1980/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:19.290Z",
+      "crawledAt": "2026-11-02T21:28:46.357Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1482,11 +1496,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T10:24:19.290Z",
+      "validThrough": "2026-12-29T21:28:46.357Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1520,7 +1535,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1984/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:18.312Z",
+      "crawledAt": "2026-11-02T21:28:45.433Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1581,11 +1596,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-05T10:24:18.312Z",
+      "validThrough": "2027-01-05T21:28:45.433Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1619,7 +1635,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1985/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:17.462Z",
+      "crawledAt": "2026-11-02T21:28:44.513Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1681,11 +1697,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-06T10:24:17.462Z",
+      "validThrough": "2027-01-06T21:28:44.513Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1719,7 +1736,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1987/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:16.612Z",
+      "crawledAt": "2026-11-02T21:28:43.728Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1780,11 +1797,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T10:24:16.612Z",
+      "validThrough": "2027-01-17T21:28:43.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1818,7 +1836,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1988/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:15.797Z",
+      "crawledAt": "2026-11-02T21:28:42.931Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1874,11 +1892,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T10:24:15.797Z",
+      "validThrough": "2027-01-18T21:28:42.931Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1912,7 +1931,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1989/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:14.958Z",
+      "crawledAt": "2026-11-02T21:28:42.157Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1968,11 +1987,12 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T10:24:14.958Z",
+      "validThrough": "2027-01-18T21:28:42.157Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2006,7 +2026,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1990/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:14.123Z",
+      "crawledAt": "2026-11-02T21:28:41.362Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2068,7 +2088,7 @@
       "addressRegion": "GR",
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T10:24:14.123Z",
+      "validThrough": "2027-01-20T21:28:41.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2102,7 +2122,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1995/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:13.287Z",
+      "crawledAt": "2026-11-02T21:28:40.556Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2154,20 +2174,21 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T10:24:13.287Z",
+      "validThrough": "2027-01-27T21:28:40.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "gkb-86a9b10c0c4b",
       "slug": "specialista-del-credito-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "de": "kreditspezialist-in-80-100-gkb-ch",
         "it": "specialista-del-credito-80-100-graubundner-kantonalbank-chur",
         "en": "credit-specialist-80-100-graubundner-kantonalbank-chur",
+        "de": "kreditspezialist-in-80-100-gkb-ch",
         "fr": "specialiste-en-credit-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
@@ -2175,16 +2196,16 @@
       "companyDomain": "gkb.ch",
       "title": "Kreditspezialist:in (80-100%)",
       "titleByLocale": {
-        "de": "Kreditspezialist:in (80-100%)",
         "it": "Specialista del credito (80-100%)",
         "en": "Credit Specialist (80-100%)",
+        "de": "Kreditspezialist:in (80-100%)",
         "fr": "Spécialiste en crédit (80-100%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Wir setzen auf Qualität und Kundenorientierung. Bereit und motiviert eine neue Challenge im Bereich Finanzierungen zu starten und Verantwortung zu übernehmen? Dann bist du bei uns genau richtig. | ab sofort oder nach Vereinbarung |\n• Verwaltung und Abwicklung von Hypothekar- und Kreditkonten\n• Zahlungsabwicklung bei Finanzierungen\n• Fachstelle für Kreditablösungen und Pfandfreigaben\n• Lombardkreditkontrolle und Überzugsmanagement\n• Mitarbeit bei Prozessoptimierungen und Projekten im Bereich Finanzierungen |\n• Bankfachlichen oder kaufmännischen Hintergrund mit entsprechender Weiterbildung\n• IT-Affinität und Begeisterung für analytische und digitale Themen\n• Initiatives und ambitioniertes Engagement sowie eine hohe Kundenorientierung\n• Selbständige, engagierte und eigenverantwortliche Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Wir setzen auf Qualität und Kundenorientierung. Bereit und motiviert eine neue Challenge im Bereich Finanzierungen zu starten und Verantwortung zu übernehmen? Dann bist du bei uns genau richtig. | ab sofort oder nach Vereinbarung |\n• Verwaltung und Abwicklung von Hypothekar- und Kreditkonten\n• Zahlungsabwicklung bei Finanzierungen\n• Fachstelle für Kreditablösungen und Pfandfreigaben\n• Lombardkreditkontrolle und Überzugsmanagement\n• Mitarbeit bei Prozessoptimierungen und Projekten im Bereich Finanzierungen |\n• Bankfachlichen oder kaufmännischen Hintergrund mit entsprechender Weiterbildung\n• IT-Affinität und Begeisterung für analytische und digitale Themen\n• Initiatives und ambitioniertes Engagement sowie eine hohe Kundenorientierung\n• Selbständige, engagierte und eigenverantwortliche Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | online da: 02.11.2026 | \"Qualsiasi sia il tuo futuro\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Ci concentriamo sulla qualità e l'orientamento del cliente. Pronti e motivati ad avviare una nuova sfida nel settore del finanziamento e della responsabilità? Allora hai ragione con noi. | da ora in poi o per accordo |\n• Gestione e insediamento di conti ipotecari e crediti\n• Trattamento dei pagamenti per il finanziamento\n• Ufficio specializzato per il rimborso del credito e il rilascio delle passività\n• Controllo del credito lombardo e gestione del sovraccarico\n• Cooperazione nell'ottimizzazione dei processi e progetti nel settore del finanziamento |\n• Sfondo bancario o commerciale con formazione adeguata\n• affinità e entusiasmo IT per argomenti analitici e digitali\n• Iniziative e impegno ambizioso nonché un alto livello di orientamento del cliente\n• Lavoro autonomo, impegnato e responsabile | Sei pronto per il tuo migliore futuro? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei candidarmi",
         "en": "Graubündner Kantonalbank | online since: 02.11.2026 | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. We focus on quality and customer orientation. Ready and motivated to start a new challenge in the area of financing and take responsibility? Then you are exactly right with us. | from now on or by agreement |\n• Management and settlement of mortgage and credit accounts\n• Payment processing for financing\n• Specialist office for credit redemption and release of liabilities\n• Lombard credit control and overdraft management\n• Cooperation in process optimization and projects in the area of financing |\n• Banking or commercial background with appropriate training\n• IT affinity and enthusiasm for analytical and digital topics\n• Initiatives and ambitious commitment as well as a high level of customer orientation\n• Self-employed, committed and responsible work | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
+        "de": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Wir setzen auf Qualität und Kundenorientierung. Bereit und motiviert eine neue Challenge im Bereich Finanzierungen zu starten und Verantwortung zu übernehmen? Dann bist du bei uns genau richtig. | ab sofort oder nach Vereinbarung |\n• Verwaltung und Abwicklung von Hypothekar- und Kreditkonten\n• Zahlungsabwicklung bei Finanzierungen\n• Fachstelle für Kreditablösungen und Pfandfreigaben\n• Lombardkreditkontrolle und Überzugsmanagement\n• Mitarbeit bei Prozessoptimierungen und Projekten im Bereich Finanzierungen |\n• Bankfachlichen oder kaufmännischen Hintergrund mit entsprechender Weiterbildung\n• IT-Affinität und Begeisterung für analytische und digitale Themen\n• Initiatives und ambitioniertes Engagement sowie eine hohe Kundenorientierung\n• Selbständige, engagierte und eigenverantwortliche Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank en ligne depuis: 02.11.2026. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Nous nous concentrons sur la qualité et l'orientation client. Prêt et motivé à lancer un nouveau défi dans le domaine du financement et de la responsabilité? Alors vous avez raison avec nous. Désormais ou par accord\n• Gestion et règlement des comptes hypothécaires et de crédit\n• Traitement des paiements pour le financement\n• Bureau spécialisé pour le remboursement du crédit et la libération du passif\n• Contrôle du crédit lombard et gestion du découvert\n• Coopération en matière d'optimisation des processus et projets dans le domaine du financement\n• Expérience bancaire ou commerciale avec une formation appropriée\n• affinité informatique et enthousiasme pour les sujets analytiques et numériques\n• Initiatives et engagement ambitieux ainsi qu'un niveau élevé d'orientation des clients\n• Travail indépendant, travail engagé et responsable. Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous, que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
       },
       "location": "Chur",
@@ -2192,7 +2213,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1994/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:12.466Z",
+      "crawledAt": "2026-11-02T21:28:39.777Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2209,13 +2230,14 @@
       "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1994/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "kreditspezialist-in-80-100-gkb-ch",
+        "kreditspezialist-in-80-100-graubundner-kantonalbank-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kreditspezialist-in-80-100-gkb-ch",
@@ -2228,10 +2250,7 @@
           "kreditspezialist-in-80-100-graubundner-kantonalbank-chur"
         ]
       },
-      "previousSlugs": [
-        "kreditspezialist-in-80-100-gkb-ch",
-        "kreditspezialist-in-80-100-graubundner-kantonalbank-chur"
-      ],
+      "firstSeenAt": "2026-11-02T10:24:12.466Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -2254,21 +2273,21 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T10:24:12.466Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:24:12.466Z"
+      "validThrough": "2027-01-31T21:28:39.777Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gkb-2119b564f062",
       "slug": "specialista-junior-del-credito-60-80-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "de": "junior-kreditspezialist-in-60-80-gkb-ch",
         "it": "specialista-junior-del-credito-60-80-graubundner-kantonalbank-chur",
         "en": "junior-credit-specialist-60-80-graubundner-kantonalbank-chur",
+        "de": "junior-kreditspezialist-in-60-80-gkb-ch",
         "fr": "specialiste-junior-en-credit-60-80-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
@@ -2276,16 +2295,16 @@
       "companyDomain": "gkb.ch",
       "title": "Junior Kreditspezialist:in (60-80%)",
       "titleByLocale": {
-        "de": "Junior Kreditspezialist:in (60-80%)",
         "it": "Specialista junior del credito (60-80%)",
         "en": "Junior Credit Specialist (60-80%)",
+        "de": "Junior Kreditspezialist:in (60-80%)",
         "fr": "Spécialiste junior en crédit (60-80%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Wir setzen auf Qualität und Kundenorientierung. Bereit und motiviert eine neue Challenge im Bereich Finanzierungen zu starten und Verantwortung zu übernehmen? Dann bist du bei uns genau richtig. | ab sofort oder nach Vereinbarung |\n• Verwaltung und Abwicklung von Hypothekar- und Kreditkonten\n• Zahlungsabwicklung bei Finanzierungen\n• Fachstelle für Kreditablösungen und Pfandfreigaben\n• Lombardkreditkontrolle und Überzugsmanagement\n• Mitgestaltung Prozessoptimierungen im eigenen Arbeitsbereich |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum von Vorteil)\n• Erste Berufserfahrungen im Banking oder im kaufmännischen Bereich\n• Allenfalls startest du dein Bachelorstudium in Betriebsökonomie oder einem verwandten Studiengang\n• Initiatives und ambitioniertes Engagement sowie eine hohe Kundenorientierung\n• Strukturierte und organisierte Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Wir setzen auf Qualität und Kundenorientierung. Bereit und motiviert eine neue Challenge im Bereich Finanzierungen zu starten und Verantwortung zu übernehmen? Dann bist du bei uns genau richtig. | ab sofort oder nach Vereinbarung |\n• Verwaltung und Abwicklung von Hypothekar- und Kreditkonten\n• Zahlungsabwicklung bei Finanzierungen\n• Fachstelle für Kreditablösungen und Pfandfreigaben\n• Lombardkreditkontrolle und Überzugsmanagement\n• Mitgestaltung Prozessoptimierungen im eigenen Arbeitsbereich |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum von Vorteil)\n• Erste Berufserfahrungen im Banking oder im kaufmännischen Bereich\n• Allenfalls startest du dein Bachelorstudium in Betriebsökonomie oder einem verwandten Studiengang\n• Initiatives und ambitioniertes Engagement sowie eine hohe Kundenorientierung\n• Strukturierte und organisierte Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | online da: 02.11.2026 | \"Qualsiasi sia il tuo futuro\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Ci concentriamo sulla qualità e l'orientamento del cliente. Pronti e motivati ad avviare una nuova sfida nel settore del finanziamento e della responsabilità? Allora hai ragione con noi. | da ora in poi o per accordo |\n• Gestione e insediamento di conti ipotecari e crediti\n• Trattamento dei pagamenti per il finanziamento\n• Ufficio specializzato per il rimborso del credito e il rilascio delle passività\n• Controllo del credito lombardo e gestione del sovraccarico\n• Co-creazione di ottimizzazione dei processi nella propria area di lavoro |\n• Formazione commerciale di base (banca o stage benefico)\n• Prima esperienza professionale nel settore bancario o commerciale\n• Al massimo, si inizia la laurea in amministrazione aziendale o un corso di laurea correlato\n• Iniziative e impegno ambizioso nonché un alto livello di orientamento del cliente\n• Sei pronto per il tuo futuro migliore? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei candidarmi",
         "en": "Graubündner Kantonalbank | online since: 02.11.2026 | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. We focus on quality and customer orientation. Ready and motivated to start a new challenge in the area of financing and take responsibility? Then you are exactly right with us. | from now on or by agreement |\n• Management and settlement of mortgage and credit accounts\n• Payment processing for financing\n• Specialist office for credit redemption and release of liabilities\n• Lombard credit control and overdraft management\n• Co-creation of process optimization in your own work area |\n• Basic commercial training (banking or internship beneficial)\n• First professional experience in banking or in the commercial sector\n• At most, you start your bachelor's degree in business administration or a related degree program\n• Initiatives and ambitious commitment as well as a high level of customer orientation\n• Structured and organized way of working | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
+        "de": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Wir setzen auf Qualität und Kundenorientierung. Bereit und motiviert eine neue Challenge im Bereich Finanzierungen zu starten und Verantwortung zu übernehmen? Dann bist du bei uns genau richtig. | ab sofort oder nach Vereinbarung |\n• Verwaltung und Abwicklung von Hypothekar- und Kreditkonten\n• Zahlungsabwicklung bei Finanzierungen\n• Fachstelle für Kreditablösungen und Pfandfreigaben\n• Lombardkreditkontrolle und Überzugsmanagement\n• Mitgestaltung Prozessoptimierungen im eigenen Arbeitsbereich |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum von Vorteil)\n• Erste Berufserfahrungen im Banking oder im kaufmännischen Bereich\n• Allenfalls startest du dein Bachelorstudium in Betriebsökonomie oder einem verwandten Studiengang\n• Initiatives und ambitioniertes Engagement sowie eine hohe Kundenorientierung\n• Strukturierte und organisierte Arbeitsweise | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank en ligne depuis: 02.11.2026. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Nous nous concentrons sur la qualité et l'orientation client. Prêt et motivé à lancer un nouveau défi dans le domaine du financement et de la responsabilité? Alors vous avez raison avec nous. Désormais ou par accord\n• Gestion et règlement des comptes hypothécaires et de crédit\n• Traitement des paiements pour le financement\n• Bureau spécialisé pour le remboursement du crédit et la libération du passif\n• Contrôle du crédit lombard et gestion du découvert\n• Co-création de l'optimisation des processus dans votre propre domaine de travail\n• Formation commerciale de base (banque ou stage bénéfique)\n• Première expérience professionnelle dans le secteur bancaire ou commercial\n• Tout au plus, vous commencez votre baccalauréat en administration des affaires ou un programme de diplôme connexe\n• Initiatives et engagement ambitieux ainsi qu'un niveau élevé d'orientation des clients\n• Mode de travail structuré et organisé.. Êtes-vous prêt pour votre meilleur avenir ? Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous, que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
       },
       "location": "Chur",
@@ -2293,7 +2312,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1992/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:24:11.621Z",
+      "crawledAt": "2026-11-02T21:28:38.853Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2310,14 +2329,15 @@
       "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1992/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Finanzierungen / FLFZ",
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "junior-kreditspezialist-in-60-80-gkb-ch",
+        "junior-kreditspezialist-in-60-80-graubundner-kantonalbank-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-kreditspezialist-in-60-80-gkb-ch",
@@ -2330,10 +2350,7 @@
           "junior-kreditspezialist-in-60-80-graubundner-kantonalbank-chur"
         ]
       },
-      "previousSlugs": [
-        "junior-kreditspezialist-in-60-80-gkb-ch",
-        "junior-kreditspezialist-in-60-80-graubundner-kantonalbank-chur"
-      ],
+      "firstSeenAt": "2026-11-02T10:24:11.621Z",
       "salaryMin": 55200,
       "salaryMax": 96800,
       "salarySource": "estimated",
@@ -2356,13 +2373,99 @@
         "postalCode": "7000",
         "addressLocality": "Chur",
         "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:49.272Z"
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Grabenstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T10:24:11.621Z",
+      "validThrough": "2027-01-31T21:28:38.853Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gkb-144022c36a59",
+      "slug": "head-fund-selection-80-100-gkb-ch",
+      "slugByLocale": {
+        "de": "head-fund-selection-80-100-gkb-ch",
+        "it": "head-fund-selection-80-100-gkb-ch",
+        "en": "head-fund-selection-80-100-gkb-ch",
+        "fr": "head-fund-selection-80-100-gkb-ch"
+      },
+      "company": "Graubündner Kantonalbank",
+      "companyKey": "gkb",
+      "companyDomain": "gkb.ch",
+      "title": "Head Fund Selection (80-100%)",
+      "titleByLocale": {
+        "de": "Head Fund Selection (80-100%)",
+        "it": "Head Fund Selection (80-100%)",
+        "en": "Head Fund Selection (80-100%)",
+        "fr": "Head Fund Selection (80-100%)"
+      },
+      "description": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du begeisterst dich für Finanzmärkte, verbindest analytische Stärke mit einem hohen Qualitätsanspruch und willst etwas bewegen? Als Head Fund Selection im CIO Office des GKB Investment Centers gestaltest du die Fondsselektion aktiv mit und leistest mit deinen Entscheidungen einen wichtigen Beitrag zum Anlageerfolg unserer Kundinnen und Kunden. | ab sofort oder nach Vereinbarung |\n• Leitung des Experten-Teams Fondsselektion sowie Verantwortung für die Auswahl, laufende Überwachung und Beurteilung von Drittfonds. Dazu gehören auch Private-Markets-Lösungen, insbesondere Evergreen-Strukturen, für unsere Anlagelösungen\n• Verantwortung und kontinuierliche Weiterentwicklung des GKB-Fondsselektionsprozesses und du kombinierst dabei quantitative Analysen mit qualitativen Beurteilungen\n• Treffen fundierter Fondsselektionsentscheide und damit wesentlicher Beitrag zur Anlageperformance unserer Kundinnen und Kunden\n• Aktives Einbringen deiner Expertise in den GKB-Anlageprozess, Identifikation von Investmentopportunitäten sowie Erarbeitung von Publikationen |\n• Hochschulabschluss in Finance, Wirtschaftswissenschaften oder einer vergleichbaren Fachrichtung; fachspezifische Weiterbildung (z. B. CFA, CIIA oder CAIA) von Vorteil\n• Fundierte Erfahrung in der Analyse, Due Diligence und Selektion von Drittfonds, ausgeprägtes Verständnis verschiedener Anlageklassen und Investmentstrategien sowie ein etabliertes Netzwerk in der Fondsbranche\n• Erfahrung mit Private-Markets-Anlagen, insbesondere Evergreen-Fondsstrukturen, erwünscht\n• Hohe analytische Kompetenz und Interesse an quantitativen Methoden, Daten und modernen Analysetools\n• Leidenschaft für Finanzmärkte, ausgeprägtes Qualitätsbewusstsein und hohe Eigeninitiative\n• Kommunikative, überzeugende und teamorientierte Persönlichkeit mit Gestaltungswillen und Freude an der fachlichen Führung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+      "descriptionByLocale": {
+        "de": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du begeisterst dich für Finanzmärkte, verbindest analytische Stärke mit einem hohen Qualitätsanspruch und willst etwas bewegen? Als Head Fund Selection im CIO Office des GKB Investment Centers gestaltest du die Fondsselektion aktiv mit und leistest mit deinen Entscheidungen einen wichtigen Beitrag zum Anlageerfolg unserer Kundinnen und Kunden. | ab sofort oder nach Vereinbarung |\n• Leitung des Experten-Teams Fondsselektion sowie Verantwortung für die Auswahl, laufende Überwachung und Beurteilung von Drittfonds. Dazu gehören auch Private-Markets-Lösungen, insbesondere Evergreen-Strukturen, für unsere Anlagelösungen\n• Verantwortung und kontinuierliche Weiterentwicklung des GKB-Fondsselektionsprozesses und du kombinierst dabei quantitative Analysen mit qualitativen Beurteilungen\n• Treffen fundierter Fondsselektionsentscheide und damit wesentlicher Beitrag zur Anlageperformance unserer Kundinnen und Kunden\n• Aktives Einbringen deiner Expertise in den GKB-Anlageprozess, Identifikation von Investmentopportunitäten sowie Erarbeitung von Publikationen |\n• Hochschulabschluss in Finance, Wirtschaftswissenschaften oder einer vergleichbaren Fachrichtung; fachspezifische Weiterbildung (z. B. CFA, CIIA oder CAIA) von Vorteil\n• Fundierte Erfahrung in der Analyse, Due Diligence und Selektion von Drittfonds, ausgeprägtes Verständnis verschiedener Anlageklassen und Investmentstrategien sowie ein etabliertes Netzwerk in der Fondsbranche\n• Erfahrung mit Private-Markets-Anlagen, insbesondere Evergreen-Fondsstrukturen, erwünscht\n• Hohe analytische Kompetenz und Interesse an quantitativen Methoden, Daten und modernen Analysetools\n• Leidenschaft für Finanzmärkte, ausgeprägtes Qualitätsbewusstsein und hohe Eigeninitiative\n• Kommunikative, überzeugende und teamorientierte Persönlichkeit mit Gestaltungswillen und Freude an der fachlichen Führung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "it": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du begeisterst dich für Finanzmärkte, verbindest analytische Stärke mit einem hohen Qualitätsanspruch und willst etwas bewegen? Als Head Fund Selection im CIO Office des GKB Investment Centers gestaltest du die Fondsselektion aktiv mit und leistest mit deinen Entscheidungen einen wichtigen Beitrag zum Anlageerfolg unserer Kundinnen und Kunden. | ab sofort oder nach Vereinbarung |\n• Leitung des Experten-Teams Fondsselektion sowie Verantwortung für die Auswahl, laufende Überwachung und Beurteilung von Drittfonds. Dazu gehören auch Private-Markets-Lösungen, insbesondere Evergreen-Strukturen, für unsere Anlagelösungen\n• Verantwortung und kontinuierliche Weiterentwicklung des GKB-Fondsselektionsprozesses und du kombinierst dabei quantitative Analysen mit qualitativen Beurteilungen\n• Treffen fundierter Fondsselektionsentscheide und damit wesentlicher Beitrag zur Anlageperformance unserer Kundinnen und Kunden\n• Aktives Einbringen deiner Expertise in den GKB-Anlageprozess, Identifikation von Investmentopportunitäten sowie Erarbeitung von Publikationen |\n• Hochschulabschluss in Finance, Wirtschaftswissenschaften oder einer vergleichbaren Fachrichtung; fachspezifische Weiterbildung (z. B. CFA, CIIA oder CAIA) von Vorteil\n• Fundierte Erfahrung in der Analyse, Due Diligence und Selektion von Drittfonds, ausgeprägtes Verständnis verschiedener Anlageklassen und Investmentstrategien sowie ein etabliertes Netzwerk in der Fondsbranche\n• Erfahrung mit Private-Markets-Anlagen, insbesondere Evergreen-Fondsstrukturen, erwünscht\n• Hohe analytische Kompetenz und Interesse an quantitativen Methoden, Daten und modernen Analysetools\n• Leidenschaft für Finanzmärkte, ausgeprägtes Qualitätsbewusstsein und hohe Eigeninitiative\n• Kommunikative, überzeugende und teamorientierte Persönlichkeit mit Gestaltungswillen und Freude an der fachlichen Führung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "en": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du begeisterst dich für Finanzmärkte, verbindest analytische Stärke mit einem hohen Qualitätsanspruch und willst etwas bewegen? Als Head Fund Selection im CIO Office des GKB Investment Centers gestaltest du die Fondsselektion aktiv mit und leistest mit deinen Entscheidungen einen wichtigen Beitrag zum Anlageerfolg unserer Kundinnen und Kunden. | ab sofort oder nach Vereinbarung |\n• Leitung des Experten-Teams Fondsselektion sowie Verantwortung für die Auswahl, laufende Überwachung und Beurteilung von Drittfonds. Dazu gehören auch Private-Markets-Lösungen, insbesondere Evergreen-Strukturen, für unsere Anlagelösungen\n• Verantwortung und kontinuierliche Weiterentwicklung des GKB-Fondsselektionsprozesses und du kombinierst dabei quantitative Analysen mit qualitativen Beurteilungen\n• Treffen fundierter Fondsselektionsentscheide und damit wesentlicher Beitrag zur Anlageperformance unserer Kundinnen und Kunden\n• Aktives Einbringen deiner Expertise in den GKB-Anlageprozess, Identifikation von Investmentopportunitäten sowie Erarbeitung von Publikationen |\n• Hochschulabschluss in Finance, Wirtschaftswissenschaften oder einer vergleichbaren Fachrichtung; fachspezifische Weiterbildung (z. B. CFA, CIIA oder CAIA) von Vorteil\n• Fundierte Erfahrung in der Analyse, Due Diligence und Selektion von Drittfonds, ausgeprägtes Verständnis verschiedener Anlageklassen und Investmentstrategien sowie ein etabliertes Netzwerk in der Fondsbranche\n• Erfahrung mit Private-Markets-Anlagen, insbesondere Evergreen-Fondsstrukturen, erwünscht\n• Hohe analytische Kompetenz und Interesse an quantitativen Methoden, Daten und modernen Analysetools\n• Leidenschaft für Finanzmärkte, ausgeprägtes Qualitätsbewusstsein und hohe Eigeninitiative\n• Kommunikative, überzeugende und teamorientierte Persönlichkeit mit Gestaltungswillen und Freude an der fachlichen Führung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "fr": "Graubündner Kantonalbank | online seit: 02.11.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du begeisterst dich für Finanzmärkte, verbindest analytische Stärke mit einem hohen Qualitätsanspruch und willst etwas bewegen? Als Head Fund Selection im CIO Office des GKB Investment Centers gestaltest du die Fondsselektion aktiv mit und leistest mit deinen Entscheidungen einen wichtigen Beitrag zum Anlageerfolg unserer Kundinnen und Kunden. | ab sofort oder nach Vereinbarung |\n• Leitung des Experten-Teams Fondsselektion sowie Verantwortung für die Auswahl, laufende Überwachung und Beurteilung von Drittfonds. Dazu gehören auch Private-Markets-Lösungen, insbesondere Evergreen-Strukturen, für unsere Anlagelösungen\n• Verantwortung und kontinuierliche Weiterentwicklung des GKB-Fondsselektionsprozesses und du kombinierst dabei quantitative Analysen mit qualitativen Beurteilungen\n• Treffen fundierter Fondsselektionsentscheide und damit wesentlicher Beitrag zur Anlageperformance unserer Kundinnen und Kunden\n• Aktives Einbringen deiner Expertise in den GKB-Anlageprozess, Identifikation von Investmentopportunitäten sowie Erarbeitung von Publikationen |\n• Hochschulabschluss in Finance, Wirtschaftswissenschaften oder einer vergleichbaren Fachrichtung; fachspezifische Weiterbildung (z. B. CFA, CIIA oder CAIA) von Vorteil\n• Fundierte Erfahrung in der Analyse, Due Diligence und Selektion von Drittfonds, ausgeprägtes Verständnis verschiedener Anlageklassen und Investmentstrategien sowie ein etabliertes Netzwerk in der Fondsbranche\n• Erfahrung mit Private-Markets-Anlagen, insbesondere Evergreen-Fondsstrukturen, erwünscht\n• Hohe analytische Kompetenz und Interesse an quantitativen Methoden, Daten und modernen Analysetools\n• Leidenschaft für Finanzmärkte, ausgeprägtes Qualitätsbewusstsein und hohe Eigeninitiative\n• Kommunikative, überzeugende und teamorientierte Persönlichkeit mit Gestaltungswillen und Freude an der fachlichen Führung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1996/Description/1",
+      "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T21:28:37.922Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza / Banca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1996/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "needsRetranslation": true,
+      "salaryMin": 165000,
+      "salaryMax": 290000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 165000,
+          "maxValue": 290000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-31T21:28:37.922Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T10:24:11.621Z"
+      "firstSeenAt": "2026-11-02T21:28:37.922Z"
     }
   ]
 }

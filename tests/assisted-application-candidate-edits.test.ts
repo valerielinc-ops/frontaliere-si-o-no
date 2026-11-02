@@ -343,6 +343,18 @@ describe('the candidate’s Swiss status and personal data', () => {
     expect(fieldView(permit, { draft: draft(), locale: 'de' }).options).toEqual(permitOptions('de'));
   });
 
+  it('localizes a confirmed permit only in the candidate review view, preserving the runner value', () => {
+    const current = draft({ questions: [{ id: 'work_permit', question: 'Welche Bewilligung haben Sie?', type: 'choice', options: ['G'], required: true }] });
+    const flow = { formOverrides: { workPermit: 'G' } };
+    const field = formAnswersWithEdits({ order, draft: current, flow }).find((item) => item.key === 'workPermit')!;
+
+    expect(field.value).toBe('G');
+    expect(fieldView(field, { draft: current, flow, locale: 'de' }).value).toBe(permitOptions('de')[4]);
+    expect(planCandidateEdits({ fields: { workPermit: permitOptions('de')[4] } }, {
+      order, draft: current, flow, locale: 'de',
+    })).toMatchObject({ errors: {}, changed: [] });
+  });
+
   it('checks a birth date and a permit status, never a value the candidate kept as it was', () => {
     const edits = (fields: Record<string, string>, flow: any = {}) => planCandidateEdits({ fields }, { order, draft: draft(), flow, locale: 'it', nowMs: T0 });
     for (const value of ['31.02.1998', '05.10.2026', '12-03-98']) {

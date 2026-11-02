@@ -41,7 +41,7 @@ export function normalizeLocToken(value) {
 // JobAlertForm, and the common Ticino/Tessin canton labels and code.
 const LOCATION_TOKEN_ALIAS_GROUPS = Object.freeze([
   Object.freeze(['coira', 'chur', 'coire', 'cuira']),
-  Object.freeze(['ticino', 'tessin', 'ti']),
+  Object.freeze(['ticino', 'tessin', 'ti', 'canton ticino', 'cantone ticino', 'canton tessin', 'kanton tessin']),
 ]);
 const LOCATION_TOKEN_ALIASES = new Map(
   LOCATION_TOKEN_ALIAS_GROUPS.flatMap((group) => group.map((name) => [name, group])),
@@ -67,6 +67,17 @@ export function locationTokenVariants(value) {
   if (!normalized) return [];
   const aliases = LOCATION_TOKEN_ALIASES.get(normalized);
   if (aliases) return aliases;
+
+  // A city followed by its canton is still a city constraint. Only the
+  // known Ticino choices qualify; returning the canton here would widen a
+  // Lugano alert to the whole canton. Unknown/conflicting labels stay whole.
+  for (const cantonAlias of LOCATION_TOKEN_ALIAS_GROUPS[1]) {
+    const suffix = ` ${cantonAlias}`;
+    if (!normalized.endsWith(suffix)) continue;
+    const city = normalized.slice(0, -suffix.length);
+    if (COMPOSABLE_CITY_TOKENS.has(city)
+      && !LOCATION_TOKEN_ALIAS_GROUPS[0].includes(city)) return [city];
+  }
 
   const parts = normalized.split(' ');
   if (parts.length > 1 && parts.every((part) => COMPOSABLE_CITY_TOKENS.has(part))) {

@@ -1785,12 +1785,13 @@ main.seo-static-content:has([data-bw-crossing]) > article > .google-auto-placed:
 /* Health-premium and fuel daily pages use the same static article shell and
    can receive the same Auto Ad insertion between breadcrumb and header. The
    run on 2026-10-31 measured stable CLS ~0.40 on both families even after the
-   manual drive-by reserve was raised from 1534px to 1790px. Keep the measured
-   250px gap transfer route-scoped to those pages; this leaves Auto Ads active
-   while preventing the late sibling insertion from moving the header. */
+   manual drive-by reserve was raised from 1534px to 1790px. Match the desktop
+   `.google-auto-placed` cap (400px) in the route-scoped gap transfer; this
+   leaves Auto Ads active while preventing the late sibling insertion from
+   moving the header. */
 @media (min-width: 1280px) {
   main.seo-static-content:has(> article[data-ft-driveby-top-ad]) {
-    --driveby-top-ad-reserve: 250px;
+    --driveby-top-ad-reserve: 400px;
   }
   main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > nav.s-bcr {
     margin-block-end: var(--driveby-top-ad-reserve);
@@ -2261,6 +2262,8 @@ input[type=number] { -moz-appearance: textfield; }
   .rounded-3xl, .rounded-2xl, .rounded-xl { border-radius: 8px !important; }
   /* Ensure result cards don't split across pages */
   [class*="result"], [class*="comparison"] { break-inside: avoid; page-break-inside: avoid; }
+  .direct-employer-qr-page { border: none !important; box-shadow: none !important; padding: 0 !important; break-inside: avoid; page-break-inside: avoid; }
+  .direct-employer-qr-code { width: 6in !important; max-width: 100% !important; margin: 0 auto !important; }
 }
 
 @keyframes seo-fade-in {
@@ -3297,4 +3300,15 @@ main.seo-static-content .fuel-map-ssr-description {
 @media (prefers-reduced-motion: reduce) {
   .pharmacy-list-item,
   .pharmacy-province-link { transition: none; transform: none; }
+}
+
+/* Keep narrow article screens wide enough for a 250px In-article unit.
+   Important declarations in Tailwind's utilities layer outrank unlayered
+   important rules. Stay in that layer so the id can override !w-[95%].
+   3px gutters leave 253px at a 275px viewport with an 8px scrollbar. */
+@layer utilities {
+  @media (max-width: 359px) {
+    #main-content:has([data-ft-article-reading]) { width: 100% !important; padding-inline: 3px; }
+    [data-ft-article-reading] [data-ft-article-body] { padding-inline: 3px; }
+  }
 }

@@ -27,6 +27,7 @@ export type EmployerMetricTone =
 export interface EmployerCardEmployer {
   name: string;
   companyKey?: string;
+  companyLogoKey?: string | null;
   companyDomain?: string;
   url?: string;
   logo?: string | null;
@@ -73,6 +74,7 @@ function renderLogoSlot(e: EmployerCardEmployer, sizeClass: string): string {
   const logoSrc = resolveJobLogoSrc({
     company: e.name,
     companyKey: e.companyKey,
+    companyLogoKey: e.companyLogoKey,
     companyDomain: e.companyDomain,
     url: e.url,
     logo: e.logo,

@@ -1,0 +1,24 @@
+{
+  "companyKey": "neuwerth-ch",
+  "companyName": "Neuwerth Logistics SA",
+  "companyHost": "neuwerth.ch",
+  "verifiedEmployerDomain": "neuwerth.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.neuwerth.ch/fr/blog/emploi/monteur-et-coordinateur-technique-etageres-rayonnages-a-palettes"
+  ],
+  "detailTemplate": "/fr/blog/emploi/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "0 commentaires",
+    "Previous article"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T17:17:05.579Z",
+  "candidateKey": "neuwerth-logistics@ardon"
+}

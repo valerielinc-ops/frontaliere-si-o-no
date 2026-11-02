@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
-import { CONCIERGE_DAY_MS as DAY, conciergeRefreshDue, conciergeRenewalOffer } from '../functions/src/applicationConciergeLifecyclePolicy.js';
+import { CONCIERGE_DAY_MS as DAY, CONCIERGE_FRESH_PENDING_INTERVAL_MS, CONCIERGE_RETRY_INTERVAL_MS,
+  CONCIERGE_STALE_RECOVERY_BACKOFF_MS, CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS, conciergeMatchingRecoveryContext,
+  conciergeRefreshDue, conciergeRenewalOffer, conciergeStaleRecoveryExhausted } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 
 const now = Date.now();
 function active(overrides = {}) {
@@ -43,6 +45,50 @@ describe('three-day proposal refresh', () => {
       matchingPendingCount: 263, matchingUnverifiedCount: 157,
       matchingLegacyRecoveryPendingCount: 5, matchingLegacyRecoveryRetryAt: now + 3 * 60 * 60 * 1000 });
     expect(conciergeRefreshDue(pending, now)).toBe(true);
+  });
+
+  it('refreshes fresh pending work at the exact 15-minute boundary but keeps retry-only work hourly', () => {
+    const pending = active({ matchingStatus: 'complete', matchingCompletedAt: now,
+      matchingPendingCount: 203, matchingUnverifiedCount: 172, matchingRetryAt: now + 12 * DAY,
+      matchingLegacyRecoveryPendingCount: 5, matchingLegacyRecoveryRetryAt: now + 3 * DAY });
+    expect(conciergeRefreshDue(pending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS - 1)).toBe(false);
+    expect(conciergeRefreshDue(pending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS)).toBe(true);
+
+    const retryOnly = active({ matchingStatus: 'complete', matchingCompletedAt: now,
+      matchingPendingCount: 0, matchingUnverifiedCount: 172, matchingRetryAt: 0 });
+    expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
+    expect(conciergeRefreshDue(retryOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
+
+    const failedPending = { ...pending, matchingStatus: 'failed' };
+    expect(conciergeRefreshDue(failedPending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS - 1)).toBe(false);
+    expect(conciergeRefreshDue(failedPending, now + CONCIERGE_FRESH_PENDING_INTERVAL_MS)).toBe(true);
+
+    const failedRetryOnly = { ...failedPending, matchingPendingCount: 0 };
+    expect(conciergeRefreshDue(failedRetryOnly, now + CONCIERGE_RETRY_INTERVAL_MS - 1)).toBe(false);
+    expect(conciergeRefreshDue(failedRetryOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(true);
+  });
+
+  it('leaves unchanged exhausted eligibility unknown and returns to the normal three-day discovery cadence', () => {
+    const exhaustedOnly = active({ matchingStatus: 'complete', matchingCompletedAt: now,
+      matchingPendingCount: 0, matchingUnverifiedCount: 20, matchingRetryCount: 0,
+      matchingRetryExhaustedCount: 20, matchingRetryAt: null, expiresAt: now + 4 * DAY });
+    expect(conciergeRefreshDue(exhaustedOnly, now + CONCIERGE_RETRY_INTERVAL_MS)).toBe(false);
+    expect(conciergeRefreshDue(exhaustedOnly, now + 3 * DAY - 1)).toBe(false);
+    expect(conciergeRefreshDue(exhaustedOnly, now + 3 * DAY)).toBe(true);
+  });
+
+  it('backs off and stops automatic retries after repeated whole-matcher failures', () => {
+    const failed = active({ matchingStatus: 'failed', matchingCompletedAt: now, matchingError: 'job_search_failed' });
+    const context = conciergeMatchingRecoveryContext(failed);
+    const retry = { ...failed, matchingStaleRecoveryContext: context, matchingStaleRecoveryAttempt: 1,
+      matchingStaleRecoveryRetryAt: now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS[0] };
+    expect(conciergeRefreshDue(retry, now)).toBe(false);
+    expect(conciergeRefreshDue(retry, now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS[0])).toBe(true);
+
+    const exhausted = { ...retry, matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
+      matchingStaleRecoveryRetryAt: now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS.at(-1) };
+    expect(conciergeRefreshDue(exhausted, now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS.at(-1))).toBe(false);
+    expect(conciergeStaleRecoveryExhausted(exhausted, now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS.at(-1))).toBe(true);
   });
 });
 

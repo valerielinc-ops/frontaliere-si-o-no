@@ -89,6 +89,8 @@ const {
     fetchImpl?: typeof fetch;
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
+    selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
+    releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
   }) => Promise<{
     ok: boolean;
     posted: number;
@@ -195,6 +197,7 @@ function makeFetchMock() {
 }
 
 const CREDS = {
+  REDDIT_DATA_API_APPROVED: 'true',
   REDDIT_CLIENT_ID: 'cid',
   REDDIT_CLIENT_SECRET: 'csecret',
   REDDIT_USERNAME: 'bot',
@@ -307,6 +310,108 @@ describe('run() — DRY_RUN', () => {
 // ── run() — real (mocked network) ─────────────────────────
 
 describe('run() — real posting', () => {
+  it('does not request a token or select copy when credentials lack explicit Reddit approval', async () => {
+    const tmp = setupTmp({ jobs: [makeJob('A', 1)] });
+    const selectSocialCopy = vi.fn(async () => ({ copyAssignmentMode: 'firebase-balanced' }));
+    const fetchSpy = vi.fn<typeof fetch>();
+    const result = await run({
+      env: { ...CREDS, REDDIT_DATA_API_APPROVED: undefined, REDDIT_JOB_VOLUME: '1', REDDIT_POST_DELAY_MS: '0' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: selectSocialCopy,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result).toMatchObject({ ok: false, posted: 0, payloads: [] });
+    expect(selectSocialCopy).not.toHaveBeenCalled();
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('does not allocate a Firebase copy arm when Reddit has no live token', async () => {
+    const tmp = setupTmp({ jobs: [makeJob('A', 1)] });
+    const selectSocialCopy = vi.fn(async () => ({ copyAssignmentMode: 'firebase-balanced' }));
+    const fetchSpy = vi.fn<typeof fetch>();
+    const result = await run({
+      env: { REDDIT_JOB_VOLUME: '1', REDDIT_POST_DELAY_MS: '0' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: selectSocialCopy,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result).toMatchObject({ ok: false, posted: 0, payloads: [] });
+    expect(selectSocialCopy).not.toHaveBeenCalled();
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('releases a balanced assignment when the live submission fails', async () => {
+    const tmp = setupTmp({ jobs: [makeJob('A', 1)] });
+    const socialCopy = {
+      copyMode: 'codex',
+      id: 'reddit-job-one',
+      hook: 'Un’opportunità per chi cerca un nuovo lavoro',
+      cta: 'Apri l’offerta per saperne di più',
+      copyAssignmentMode: 'firebase-balanced',
+    };
+    const release = vi.fn(async () => true);
+    const fetchSpy = vi.fn(async (url: string | URL | Request) => {
+      const value = String(url);
+      if (value.includes('access_token')) {
+        return new Response(JSON.stringify({ access_token: 'tok', expires_in: 3600 }), { status: 200 });
+      }
+      return new Response(JSON.stringify({ json: { errors: ['SUBREDDIT_NOTALLOWED'], data: {} } }), { status: 200 });
+    });
+    const result = await run({
+      env: { ...CREDS, REDDIT_JOB_VOLUME: '1', REDDIT_POST_DELAY_MS: '0' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result).toMatchObject({ ok: false, posted: 0 });
+    expect(release).toHaveBeenCalledWith(socialCopy);
+  });
+
+  it('retains a balanced assignment when submission delivery is uncertain', async () => {
+    const tmp = setupTmp({ jobs: [makeJob('A', 1)] });
+    const socialCopy = {
+      copyMode: 'codex',
+      id: 'reddit-job-one',
+      hook: 'Un’opportunità per chi cerca un nuovo lavoro',
+      cta: 'Apri l’offerta per saperne di più',
+      copyAssignmentMode: 'firebase-balanced',
+      copyAssignment: { assignmentKey: 'A' },
+    };
+    const release = vi.fn(async () => true);
+    const fetchSpy = vi.fn(async (url: string | URL | Request) => {
+      if (String(url).includes('access_token')) {
+        return new Response(JSON.stringify({ access_token: 'tok', expires_in: 3600 }), { status: 200 });
+      }
+      throw new Error('connection closed after request dispatch');
+    });
+    const result = await run({
+      env: { ...CREDS, REDDIT_JOB_VOLUME: '1', REDDIT_POST_DELAY_MS: '0' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result).toMatchObject({ ok: false, posted: 0 });
+    expect(release).not.toHaveBeenCalled();
+  });
+
   it('aborts before posting and preserves a corrupt ledger', async () => {
     const tmp = setupTmp({ jobs: [makeJob('A', 1)] });
     const ledgerPath = join(tmp, 'data', 'reddit-posted-jobs.json');

@@ -18,6 +18,7 @@ import {
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
+import { EVENTS_UNRESOLVED_CANTON_SEGMENT } from '../lib/eventsSections.mjs';
 import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
@@ -27,8 +28,11 @@ import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobB
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
+import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
 import {
@@ -80,15 +84,28 @@ const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
 const WEEKLY_EMPLOYERS_CITY_SET = new Set(WEEKLY_EMPLOYERS_CITIES);
 const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
-const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
-const EVENT_ROUTE_SEGMENT_RE = /^[a-z0-9][a-z0-9-]*$/;
-const EVENT_INDEX_PATH_SEGMENTS = [
-  ['eventi'],
-  ['en', 'events'],
-  ['de', 'veranstaltungen'],
-  ['fr', 'evenements'],
-];
+const PAGINATION_NOINDEX_FROM_PAGE = 11;
+const PAGINATION_TARGET_PATH_RE = /^(?:\/[^/]+)+\/(?:page|pagina|seite)-(\d+)\/$/;
+const DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 const EVENT_ARCHIVE_ROUTE_SEGMENTS = new Set(['archivio', 'archive', 'archiv', 'archives']);
+const EVENT_ROUTE_CONFIG = Object.freeze([
+  { locale: 'it', prefix: [], root: 'eventi' },
+  { locale: 'en', prefix: ['en'], root: 'events' },
+  { locale: 'de', prefix: ['de'], root: 'veranstaltungen' },
+  { locale: 'fr', prefix: ['fr'], root: 'evenements' },
+]);
+const EVENT_CANTON_SLUGS_BY_LOCALE = (() => {
+  const slugs = Object.fromEntries(EVENT_ROUTE_CONFIG.map(({ locale }) => [locale, new Set()]));
+  for (const record of Object.values(loadCantonUrlSlugs().cantons || {})) {
+    for (const { locale } of EVENT_ROUTE_CONFIG) {
+      if (typeof record?.[locale] === 'string' && record[locale]) slugs[locale].add(record[locale]);
+    }
+  }
+  // These are the localized route segments for events whose canton is not
+  // resolved. They are emitted by events-utils, not by the canton slug table.
+  for (const { locale } of EVENT_ROUTE_CONFIG) slugs[locale].add(EVENTS_UNRESOLVED_CANTON_SEGMENT[locale]);
+  return slugs;
+})();
 
 function pathnameAndOrigin(value) {
   try {
@@ -105,8 +122,26 @@ function pathnameAndOrigin(value) {
 
 function eventIndexPathSegments(pathname) {
   const segments = String(pathname || '').split('/').filter(Boolean);
-  return EVENT_INDEX_PATH_SEGMENTS.find((prefix) =>
-    prefix.every((segment, index) => segments[index] === segment)) || null;
+  return EVENT_ROUTE_CONFIG.find(({ prefix, root }) =>
+    prefix.every((segment, index) => segments[index] === segment)
+      && segments[prefix.length] === root) || null;
+}
+
+function parseEventDetailPath(value) {
+  const source = pathnameAndOrigin(value);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return null;
+  const segments = source.pathname.split('/').filter(Boolean);
+  for (const route of EVENT_ROUTE_CONFIG) {
+    const offset = route.prefix.length;
+    if (segments.length !== offset + 4) continue;
+    if (route.prefix.some((segment, index) => segments[index] !== segment)) continue;
+    if (segments[offset] !== route.root) continue;
+    const [canton, comune, slug] = segments.slice(offset + 1);
+    if (!EVENT_CANTON_SLUGS_BY_LOCALE[route.locale].has(canton)) continue;
+    if (!DETAIL_SLUG_RE.test(comune) || !DETAIL_SLUG_RE.test(slug)) continue;
+    return { ...source, locale: route.locale, canton, comune, slug };
+  }
+  return null;
 }
 
 function localeForJobBoardSection(section) {
@@ -124,6 +159,28 @@ function searchPrefixForJobBoardSection(section) {
   if (locale === 'fr') return 'recherche-';
   if (locale === 'it') return 'ricerca-';
   return null;
+}
+
+const RELATED_SEARCH_AGGREGATE_SECTION_BY_LOCALE = Object.freeze({
+  it: '/cerca-lavoro-svizzera/',
+  en: '/en/find-jobs-switzerland/',
+  de: '/de/jobs-in-schweiz/',
+  fr: '/fr/trouver-emploi-suisse/',
+});
+
+function relatedSearchPathInfo(value) {
+  const parsed = pathnameAndOrigin(value);
+  if (!parsed) return null;
+
+  const section = getJobBoardSectionPrefix(parsed.pathname);
+  if (!section) return null;
+  const locale = localeForJobBoardSection(section);
+  const searchPrefix = searchPrefixForJobBoardSection(section);
+  const suffix = parsed.pathname.slice(section.length).replace(/\/+$/, '');
+  if (!locale || !searchPrefix || suffix.length <= searchPrefix.length || suffix.includes('/') || !suffix.startsWith(searchPrefix)) {
+    return null;
+  }
+  return { ...parsed, section, locale, suffix };
 }
 
 const EDITORIAL_BRIDGE_SLUGS_BY_SECTION = (() => {
@@ -225,7 +282,7 @@ function isDeclaredEditorialBridge({ url, canonical, html }) {
  */
 function isDeclaredSearchBridge({ url, canonical, html }) {
   if (!String(html || '').includes(REDIRECT_STUB_MARKER)) return false;
-  const source = pathnameAndOrigin(url);
+  const source = relatedSearchPathInfo(url);
   const target = pathnameAndOrigin(canonical);
   if (!source || !target || source.origin !== target.origin) return false;
 
@@ -234,16 +291,29 @@ function isDeclaredSearchBridge({ url, canonical, html }) {
   if (!sourceSection || !targetSection) return false;
   if (targetSection !== sourceSection) return false;
 
-  const sourceLocale = localeForJobBoardSection(sourceSection);
+  const sourceLocale = source.locale;
   if (!sourceLocale || sourceLocale !== localeForJobBoardSection(targetSection)) return false;
   if (target.pathname !== targetSection) return false;
+  return true;
+}
 
-  const searchPrefix = searchPrefixForJobBoardSection(sourceSection);
-  const suffix = source.pathname.slice(sourceSection.length).replace(/\/+$/, '');
-  return Boolean(searchPrefix)
-    && suffix.length > searchPrefix.length
-    && suffix.startsWith(searchPrefix)
-    && !suffix.includes('/');
+/**
+ * Recognise only the legacy per-canton related-search mirrors emitted by
+ * relatedSearchClustersPlugin. The dedicated declaration is necessary but not
+ * sufficient: the source must be a one-segment localized search path and its
+ * canonical must be the same search slug under that locale's Switzerland
+ * aggregate section. A generic bridge marker, a different slug, or a
+ * cross-canton target therefore remains actionable.
+ */
+function isDeclaredRelatedSearchMirror({ url, canonical, html }) {
+  if (!String(html || '').includes(RELATED_SEARCH_MIRROR_MARKER)) return false;
+  const source = relatedSearchPathInfo(url);
+  const target = relatedSearchPathInfo(canonical);
+  if (!source || !target || source.origin !== target.origin || source.locale !== target.locale) return false;
+
+  const aggregateSection = RELATED_SEARCH_AGGREGATE_SECTION_BY_LOCALE[source.locale];
+  if (!aggregateSection || source.section === aggregateSection || target.section !== aggregateSection) return false;
+  return target.suffix === source.suffix;
 }
 
 /**
@@ -310,7 +380,7 @@ export function isJobBoardDetailPath(value) {
   const section = getJobBoardSectionPrefix(source.pathname);
   if (!section) return false;
   const suffix = source.pathname.slice(section.length).split('/').filter(Boolean);
-  return suffix.length === 1 && JOB_BOARD_DETAIL_SLUG_RE.test(suffix[0]);
+  return suffix.length === 1 && DETAIL_SLUG_RE.test(suffix[0]);
 }
 
 /**
@@ -319,16 +389,8 @@ export function isJobBoardDetailPath(value) {
  * pages, and municipal archive routes deliberately remain outside this shape.
  */
 export function isEventDetailPath(value) {
-  const source = pathnameAndOrigin(value);
-  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
-  const segments = source.pathname.split('/').filter(Boolean);
-  const indexPath = eventIndexPathSegments(source.pathname);
-  if (!indexPath) return false;
-
-  const detailSegments = segments.slice(indexPath.length);
-  return detailSegments.length === 3
-    && detailSegments.every((segment) => EVENT_ROUTE_SEGMENT_RE.test(segment))
-    && !EVENT_ARCHIVE_ROUTE_SEGMENTS.has(detailSegments[2]);
+  const parsed = parseEventDetailPath(value);
+  return Boolean(parsed && !EVENT_ARCHIVE_ROUTE_SEGMENTS.has(parsed.slug));
 }
 
 /**
@@ -351,6 +413,23 @@ export function isDeclaredEventDetailTarget({ url, html }) {
 export function isDeclaredJobBoardTarget({ url, html }) {
   return String(html || '').includes(JOB_BOARD_NOINDEX_TARGET_MARKER)
     && isJobBoardDetailPath(url);
+}
+
+/**
+ * Recognise the explicit noindex contract emitted for deep pagination pages.
+ * The producer marker is deliberately not enough: a valid site route must end
+ * in one of the emitted pagination segments and its page must be at or beyond
+ * the shared noindex floor. A nearby route or a page still inside the indexable
+ * window therefore remains an actionable frontier finding.
+ */
+export function isDeclaredPaginationTarget({ url, html }) {
+  if (!String(html || '').includes(PAGINATION_NOINDEX_TARGET_MARKER)) return false;
+  const source = pathnameAndOrigin(url);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+  const match = source.pathname.match(PAGINATION_TARGET_PATH_RE);
+  if (!match) return false;
+  const page = Number(match[1]);
+  return Number.isSafeInteger(page) && page >= PAGINATION_NOINDEX_FROM_PAGE;
 }
 
 // Pharmacy directory and duty roots in every locale (services/pharmacies).
@@ -377,6 +456,21 @@ export function isDeclaredEventArchiveTarget({ url, html }) {
   const source = pathnameAndOrigin(url);
   return String(html || '').includes(EVENT_ARCHIVE_NOINDEX_TARGET_MARKER)
     && Boolean(source && source.origin === new URL(DEFAULT_BASE_URL).origin && eventIndexPathSegments(source.pathname));
+}
+
+/**
+ * Recognise only event-slug migration bridges emitted by
+ * eventsSeoPagesPlugin. The dedicated marker proves the emitter contract;
+ * both URLs must still be same-locale, same-origin event-detail paths and the
+ * canonical must point to a different current route. Generic redirect stubs,
+ * hubs, archives, cross-locale targets, and arbitrary canonical drift remain
+ * actionable.
+ */
+export function isDeclaredEventMigrationBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(EVENT_SLUG_MIGRATION_BRIDGE_MARKER)) return false;
+  const source = parseEventDetailPath(url);
+  const target = parseEventDetailPath(canonical);
+  return Boolean(source && target && source.locale === target.locale && source.pathname !== target.pathname);
 }
 
 export function scopeForManifest(manifest) {
@@ -960,6 +1054,11 @@ export function classifyDocument({
     && isDeclaredSearchBridge({ url: finalUrl || url, canonical, html })
     ? 'search-bridge'
     : null;
+  const relatedSearchMirrorExemption = isFrontier
+    && canonicalMismatch
+    && isDeclaredRelatedSearchMirror({ url: finalUrl || url, canonical, html })
+    ? 'related-search-mirror'
+    : null;
   const companyCantonBridgeExemption = isFrontier
     && noindex
     && followableNoindex
@@ -969,23 +1068,28 @@ export function classifyDocument({
   const declaredNoindexTarget = isFrontier
     && noindex
     && followableNoindex
-    && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
-    ? 'job-board-target'
+    && isDeclaredPaginationTarget({ url: finalUrl || url, html })
+    ? 'pagination-target'
     : isFrontier
       && noindex
       && followableNoindex
-      && isDeclaredPharmacyTarget({ url: finalUrl || url, html })
-      ? 'pharmacy-target'
+      && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
+      ? 'job-board-target'
       : isFrontier
         && noindex
         && followableNoindex
-        && isDeclaredEventArchiveTarget({ url: finalUrl || url, html })
-        ? 'event-archive-target'
+        && isDeclaredPharmacyTarget({ url: finalUrl || url, html })
+        ? 'pharmacy-target'
         : isFrontier
           && noindex
           && followableNoindex
-          && isDeclaredEventDetailTarget({ url: finalUrl || url, html })
-          ? 'event-detail-target'
+          && isDeclaredEventArchiveTarget({ url: finalUrl || url, html })
+          ? 'event-archive-target'
+          : isFrontier
+            && noindex
+            && followableNoindex
+            && isDeclaredEventDetailTarget({ url: finalUrl || url, html })
+            ? 'event-detail-target'
         : null;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex
@@ -1000,21 +1104,29 @@ export function classifyDocument({
     && isDeclaredEditorialBridge({ url: finalUrl || url, canonical, html })
     ? 'editorial-bridge'
     : null;
+  const eventMigrationBridgeExemption = isFrontier
+    && !noindex
+    && canonicalMismatch
+    && isDeclaredEventMigrationBridge({ url: finalUrl || url, canonical, html })
+    ? 'event-migration-bridge'
+    : null;
   const canonicalExemption = exemption
     || searchBridgeExemption
+    || relatedSearchMirrorExemption
     || companyCantonBridgeExemption
     || weeklyEmployersArchiveExemption
-    || editorialBridgeExemption;
+    || editorialBridgeExemption
+    || eventMigrationBridgeExemption;
   if (noindex) {
     const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredNoindexTarget);
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
       ? declaredNoindexTarget && !canonicalExemption
-        ? declaredNoindexTarget === 'pharmacy-target'
-          || declaredNoindexTarget === 'event-archive-target'
-          || declaredNoindexTarget === 'event-detail-target'
-          ? `Pagina nella frontiera interna dichiarata noindex dal suo plugin (${declaredNoindexTarget}): noindex/follow (${canonical || 'canonical assente'}).`
-          : `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
+        ? declaredNoindexTarget === 'pagination-target'
+          ? `Pagina nella frontiera interna dichiarata paginazione profonda: noindex/follow (${canonical || 'canonical assente'}).`
+          : declaredNoindexTarget === 'job-board-target'
+            ? `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
+            : `Pagina nella frontiera interna dichiarata noindex dal suo plugin (${declaredNoindexTarget}): noindex/follow (${canonical || 'canonical assente'}).`
         : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
       : isFrontier
         ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'

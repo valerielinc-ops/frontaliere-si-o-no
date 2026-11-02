@@ -100,11 +100,11 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     );
   });
 
-  it('includes preconnect + dns-prefetch for pagead2', () => {
+  it('warms the Google connection once without a redundant DNS-only hint', () => {
     expect(ADSENSE_SNIPPET).toMatch(
       /<link\s+rel=["']preconnect["']\s+href=["']https:\/\/pagead2\.googlesyndication\.com["']\s+crossorigin/,
     );
-    expect(ADSENSE_SNIPPET).toMatch(
+    expect(ADSENSE_SNIPPET).not.toMatch(
       /<link\s+rel=["']dns-prefetch["']\s+href=["']https:\/\/pagead2\.googlesyndication\.com["']/,
     );
   });
@@ -114,7 +114,7 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     // script fires its onload event, not before it exists. Assertions moved to
     // ADSENSE_LOADER_CONTENT (the actual JS body) after the external-script
     // refactor.
-    expect(ADSENSE_LOADER_CONTENT).toContain('s.onload');
+    expect(ADSENSE_LOADER_CONTENT).toContain('createAdScriptLoader');
     expect(ADSENSE_LOADER_CONTENT).toContain('adsbygoogle');
   });
 
@@ -127,9 +127,8 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     // <script> element first; without this DOM check the static loader would then
     // create a second one (its closure `loaded` flag is still false). The guard
     // mirrors the existing check in AdSenseBanner.tsx:loadAdSenseScript().
-    expect(ADSENSE_LOADER_CONTENT).toContain(
-      'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]',
-    );
+    expect(ADSENSE_LOADER_CONTENT).toContain('Array.from(document.scripts)');
+    expect(ADSENSE_LOADER_CONTENT).toContain('src.split');
   });
 
   it('gates the loader on the reader no-ads entitlement flag BEFORE any load path (#3655)', () => {

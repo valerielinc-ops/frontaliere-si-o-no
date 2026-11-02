@@ -130,6 +130,12 @@ const PublisherPublishPage = lazyRetry(() => import('@/components/pages/Publishe
 const PublisherDashboardPage = lazyRetry(() => import('@/components/pages/PublisherDashboardPage'));
 const JournalistDashboardPage = lazyRetry(() => import('@/components/pages/JournalistDashboardPage'));
 const ForEmployersPage = lazyRetry(() => import('@/components/pages/ForEmployersPage'));
+const DirectEmployerPublishPage = lazyRetry(() => import('@/components/pages/DirectEmployerPages').then(m => ({ default: m.DirectEmployerPublishPage })));
+const PermanentEmployersPage = lazyRetry(() => import('@/components/pages/DirectEmployerPages').then(m => ({ default: m.PermanentEmployersPage })));
+const DirectEmployerQrPage = lazyRetry(() => import('@/components/pages/DirectEmployerPages').then(m => ({ default: m.DirectEmployerQrPage })));
+const DirectEmployerVerificationPage = lazyRetry(() => import('@/components/pages/DirectEmployerPages').then(m => ({ default: m.DirectEmployerVerificationPage })));
+const DirectEmployerApplyPage = lazyRetry(() => import('@/components/pages/DirectEmployerPages').then(m => ({ default: m.DirectEmployerApplyPage })));
+const DirectEmployerRenewalPage = lazyRetry(() => import('@/components/pages/DirectEmployerPages').then(m => ({ default: m.DirectEmployerRenewalPage })));
 const EmployerInsightsPage = lazyRetry(() => import('@/components/pages/EmployerInsightsPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
@@ -3362,6 +3368,18 @@ const App: React.FC = () => {
  <div className="max-w-7xl mx-auto">
  <ForEmployersPage />
  </div>
+ ) : activeTab === 'direct-employers' ? (
+ <DirectEmployerPublishPage />
+ ) : activeTab === 'permanent-employers' ? (
+ <PermanentEmployersPage />
+ ) : activeTab === 'employer-qr' ? (
+ <DirectEmployerQrPage />
+ ) : activeTab === 'direct-employer-verify' ? (
+ <DirectEmployerVerificationPage />
+ ) : activeTab === 'direct-employer-apply' ? (
+ <DirectEmployerApplyPage />
+ ) : activeTab === 'direct-employer-renew' ? (
+ <DirectEmployerRenewalPage />
  ) : activeTab === 'employer-insights' ? (
  <EmployerInsightsPage />
  ) : activeTab === 'partners' ? (

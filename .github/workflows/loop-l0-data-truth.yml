@@ -66,7 +66,10 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      # Intentional fail-closed verdict owner: L0 Data Truth: corpus manifest is not usable.
+      # Keep this family prefix aligned with VERDICT_STEPS in the central failure scanner.
       - name: Audit corpus manifest
+        id: audit-manifest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
@@ -81,6 +84,60 @@ jobs:
             args+=(--dry-run)
           fi
           node scripts/ci/loop-l0-data-truth.mjs "${args[@]}" | tee "$REPORT_DIR/stdout.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Decide whether stale-manifest recovery is needed
+        if: always()
+        id: stale-recovery
+        env:
+          AUDIT_OUTCOME: ${{ steps.audit-manifest.outcome }}
+          RECOVERY_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l0
+        run: |
+          set -euo pipefail
+          quality=''
+          result="$REPORT_DIR/l0-result.json"
+          if [ -s "$result" ]; then
+            quality="$(jq -r '.quality // empty' "$result" 2>/dev/null || true)"
+          fi
+          needed=false
+          if [ "$AUDIT_OUTCOME" = 'failure' ] && [ "$quality" = 'stale' ] && [ "$RECOVERY_ENABLED" = 'true' ]; then
+            needed=true
+          fi
+          echo "needed=$needed" >> "$GITHUB_OUTPUT"
+          echo "quality=$quality" >> "$GITHUB_OUTPUT"
+      - name: Prepare Firebase credentials for stale-manifest recovery
+        if: always() && steps.stale-recovery.outputs.needed == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load publisher recovery credentials'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Load publisher recovery credentials from Remote Config
+        if: always() && steps.stale-recovery.outputs.needed == 'true'
+        run: node scripts/load-rc-env.mjs
+      - name: Request bounded publisher recovery for stale manifest
+        if: always() && steps.stale-recovery.outputs.needed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ARTICLE_PUBLISHER_REPLAY_ISSUE_KIND: l0
+          ARTICLE_PUBLISHER_REPLAY_TRIGGER: the stale L0 manifest verdict
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l0
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo '::error::GITHUB_PAT_NANAKO missing from Remote Config — cannot request publish-api recovery'
+            exit 1
+          fi
+          reason="$(jq -r '.reason // "stale corpus manifest"' "$REPORT_DIR/l0-result.json")"
+          GATE_REASON="$reason" PUBLISHER_GH_TOKEN="$GITHUB_PAT_NANAKO" \
+            node scripts/ci/request-article-publisher-replay.mjs
       - name: Record canonical L0 evidence
         if: always()
         env:
