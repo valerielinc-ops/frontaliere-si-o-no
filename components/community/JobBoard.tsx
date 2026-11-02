@@ -20,7 +20,7 @@ import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMet
 import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
 import { waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
-import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
+import React, { startTransition, useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSyncExternalStore } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
