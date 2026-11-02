@@ -36,11 +36,11 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
-    version: '3.99.13',
+    version: '3.99.14',
     date: '2026-11-02',
-    titleKey: 'whatsNew.v39913.title',
+    titleKey: 'whatsNew.v39914.title',
     items: [
-      { type: 'improvement', titleKey: 'whatsNew.v39913.discovery.title', descKey: 'whatsNew.v39913.discovery.desc', href: '/cerca-lavoro-svizzera/' },
+      { type: 'improvement', titleKey: 'whatsNew.v39914.discovery.title', descKey: 'whatsNew.v39914.discovery.desc', href: '/cerca-lavoro-svizzera/' },
     ],
   },
   {

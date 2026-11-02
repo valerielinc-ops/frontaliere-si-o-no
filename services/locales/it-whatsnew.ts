@@ -6,9 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
- "whatsNew.v39913.title": "Una prima selezione per iniziare",
- "whatsNew.v39913.discovery.title": "Le offerte più consultate, poi i tuoi interessi",
- "whatsNew.v39913.discovery.desc": "Se non hai ancora impostato una ricerca, la prima email parte dalle offerte più consultate e dagli indizi geografici disponibili. Clic e ricerche aiutano a rendere i suggerimenti successivi più pertinenti.",
+ "whatsNew.v39914.title": "Una prima selezione per iniziare",
+ "whatsNew.v39914.discovery.title": "Le offerte più consultate, poi i tuoi interessi",
+ "whatsNew.v39914.discovery.desc": "Se non hai ancora impostato una ricerca, la prima email parte dalle offerte più consultate e dagli indizi geografici disponibili. Clic e ricerche aiutano a rendere i suggerimenti successivi più pertinenti.",
  "whatsNew.v39912.title": "Un canale diretto per le piccole aziende",
  "whatsNew.v39912.directEmployers.title": "Pubblica un’offerta senza account",
  "whatsNew.v39912.directEmployers.desc": "La salumeria, il negozio o il laboratorio possono inviare gratis un’offerta in pochi passaggi. Verifichiamo il contatto e moderiamo ogni annuncio prima di mostrarlo.",
