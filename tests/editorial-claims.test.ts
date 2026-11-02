@@ -115,7 +115,7 @@ describe('stringhe di prompt', () => {
   });
 
   it('toglie le etichette del prompt tradotte', () => {
-    expect(repairEditorialClaims("Fine.\n\nTITRE DE L'ARTICLE : Un titre\n\n## Suite", { locale: 'fr' }).value).toBe('Fine.\n\n## Suite');
+    expect(repairEditorialClaims("Fine.\n\nTITRE DE L'ARTICLE : Un titre\n\n## Suite", { locale: 'fr', title: 'Un titre' }).value).toBe('Fine.\n\n## Suite');
     expect(repairEditorialClaims('Il TITOLO non cambia: resta.', { locale: 'it' }).changes).toEqual([]);
   });
 });

@@ -414,8 +414,8 @@ const PROMPT_TITLE_LEADING_HWS = new RegExp(String.raw`^${PROMPT_TITLE_HWS}+`, '
 const PROMPT_TITLE_TRAILING_HWS = new RegExp(String.raw`${PROMPT_TITLE_HWS}+$`, 'u');
 
 /**
- * Toglie l'etichetta del prompt. Se apre una riga propria, anche il titolo sulla
- * stessa riga e' eco del prompt; altrove il testo successivo resta se ignoto.
+ * Toglie l'etichetta del prompt e il titolo che segue solo quando e' noto;
+ * il testo successivo ignoto resta integro.
  */
 export function stripPromptTitleLabels(text, { title = '' } = {}) {
   let removed = 0;
