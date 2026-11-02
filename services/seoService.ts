@@ -258,6 +258,7 @@ function companyLogoFromJob(job: any): string {
  company: String(job?.company || ''),
  companyKey: String(job?.companyKey || ''),
  municipalityKey: String(job?.municipalityKey || ''),
+ companyLogoKey: String(job?.companyLogoKey || ''),
  companyDomain: String(job?.companyDomain || ''),
  url: String(job?.url || ''),
  });

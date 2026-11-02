@@ -71,7 +71,7 @@ const DETAIL_FIELDS = new Set([
  'workModel', 'remote',
  'applicationDeadline',
  // Publisher-ad fields (logo, markdown description, in-house apply wiring).
- 'companyLogo', 'descriptionMd', 'tier', 'applyMode', 'publisherUid', 'publisherJobId',
+ 'companyLogo', 'companyLogoKey', 'descriptionMd', 'tier', 'applyMode', 'publisherUid', 'publisherJobId',
 ]);
 
 

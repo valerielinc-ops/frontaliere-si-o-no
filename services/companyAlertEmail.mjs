@@ -339,6 +339,7 @@ function jobCardHtml(job, hubUrl, wrapJobUrl, { locale, s, now, companyName, com
   // companyKey so a Board/Migros hub still gets the CDN brand mark.
   const logoSrc = resolveLogoUrl({
     companyKey: job.companyKey || companySlug || '',
+    companyLogoKey: job.companyLogoKey || '',
     company,
   });
   const logoStyle = 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';

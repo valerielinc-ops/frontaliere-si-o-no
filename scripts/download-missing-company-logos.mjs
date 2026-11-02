@@ -29,13 +29,11 @@ import {
   fetchVerifiedLogo,
   MAX_LOGO_BODY_BYTES,
 } from './lib/company-logo-audit.mjs';
-import {
-  hasSourceBackedTicinoComuneDomain,
-  scopedEmployerKey,
-} from './lib/ticino-comune-employer-identity.mjs';
+import { hasSourceBackedTicinoComuneDomain } from './lib/ticino-comune-employer-identity.mjs';
 import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { directLogoSources, loadLogoRegistry } from './lib/company-logo-registry.mjs';
+import { companyLogoKeyForJob } from './lib/company-logo-key.mjs';
 import {
   domainCandidates,
   isAtsDomain,
@@ -82,7 +80,7 @@ async function readJson(file, fallback = null) {
 }
 
 function jobKey(job) {
-  return scopedEmployerKey(job) || slugify(job?.company || job?.employer || '');
+  return companyLogoKeyForJob(job) || slugify(job?.company || job?.employer || '');
 }
 
 export function metadataFromJobs(jobs) {
@@ -94,6 +92,7 @@ export function metadataFromJobs(jobs) {
       names: new Set(),
       companyDomains: new Set(),
       sourceBackedCompanyDomains: new Set(),
+      verifiedEmployerDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
       declaredLogoUrls: new Set(),
@@ -104,6 +103,16 @@ export function metadataFromJobs(jobs) {
     if (companyDomain) current.companyDomains.add(companyDomain);
     if (companyDomain && hasSourceBackedTicinoComuneDomain(job)) {
       current.sourceBackedCompanyDomains.add(companyDomain);
+    }
+    const logoKey = companyLogoKeyForJob(job);
+    if (
+      companyDomain
+      && String(job.companyKey || '').trim() === 'seco-jobroom'
+      && logoKey
+      && logoKey !== 'seco-jobroom'
+      && String(job.companyDomainSource || '').trim() === 'seco-jobroom-api-company-website'
+    ) {
+      current.verifiedEmployerDomains.add(companyDomain);
     }
     for (const declaredLogo of [
       job.companyLogo,
@@ -169,6 +178,7 @@ async function loadAuditTargets(reportPath, jobsPath) {
       names: new Set(),
       companyDomains: new Set(),
       sourceBackedCompanyDomains: new Set(),
+      verifiedEmployerDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
       declaredLogoUrls: new Set(),
@@ -219,6 +229,7 @@ async function loadLegacyTargets() {
       names: new Set(),
       companyDomains: new Set(),
       sourceBackedCompanyDomains: new Set(),
+      verifiedEmployerDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
     };

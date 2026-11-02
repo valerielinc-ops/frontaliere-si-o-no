@@ -62,6 +62,12 @@
         ],
         "createdAt": "2026-11-02T15:24:22.593Z",
         "reason": "Agent: the existing 14px SSG exploration links are compact navigation labels, not body text; this task changes only their social metadata wrapper"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "roboto",
+        "createdAt": "2026-11-02T18:10:29.272Z",
+        "reason": "Agent: job-og-images embeds the Roboto TTF pair from public/fonts and intentionally renders generated social cards in Roboto."
       }
     ]
   },
