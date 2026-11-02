@@ -42,6 +42,7 @@ import {
   ITALY_BORDER_PROVINCES,
   ITALY_PHARMACY_DATASET_PAGE,
   TICINO_PHARMACY_DIRECTORY_URL,
+  TICINO_PHARMACY_DIRECTORY_MIRROR_URL,
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_URLS,
   buildItalianBorderRecords,
@@ -360,20 +361,29 @@ export async function fetchTicinoPdfDocument(fetchSource = fetchBuffer, fetchDir
   }
 
   let directoryHtml;
-  try {
-    directoryHtml = await fetchDirectory(TICINO_PHARMACY_DIRECTORY_URL, { accept: 'text/html' });
-  } catch (error) {
-    lastError = error;
-    const canPreserveAfterFailure = isRetryBudgetExhausted(error) || isConnectionLevelFetchError(error);
-    failures.push({
-      sourceUrl: TICINO_PHARMACY_DIRECTORY_URL,
-      error,
-      canTryAnotherOfficialSource: canPreserveAfterFailure,
-    });
-    if (!canPreserveAfterFailure) throw error;
-    throw aggregateTicinoSourceFailure(failures);
+  let directoryUrl;
+  const directoryCandidates = [TICINO_PHARMACY_DIRECTORY_URL, TICINO_PHARMACY_DIRECTORY_MIRROR_URL];
+  for (const [index, candidateUrl] of directoryCandidates.entries()) {
+    try {
+      directoryHtml = await fetchDirectory(candidateUrl, { accept: 'text/html' });
+      directoryUrl = candidateUrl;
+      break;
+    } catch (error) {
+      lastError = error;
+      const canTryAnotherOfficialSource = isRetryBudgetExhausted(error) || isConnectionLevelFetchError(error);
+      failures.push({
+        sourceUrl: candidateUrl,
+        error,
+        canTryAnotherOfficialSource,
+      });
+      if (!canTryAnotherOfficialSource) throw error;
+      if (index < directoryCandidates.length - 1) {
+        console.warn(`[import-pharmacies-border] ${candidateUrl} failed; trying the official Ticino directory mirror`);
+      }
+    }
   }
-  const discoveredUrl = discoverTicinoPharmacyPdfUrls(directoryHtml, TICINO_PHARMACY_DIRECTORY_URL).at(-1);
+  if (!directoryHtml || !directoryUrl) throw aggregateTicinoSourceFailure(failures, lastError);
+  const discoveredUrl = discoverTicinoPharmacyPdfUrls(directoryHtml, directoryUrl).at(-1);
   const discoveredCandidates = [discoveredUrl, mirrorTicinoPharmacyPdfUrl(discoveredUrl)]
     .filter((url, index, candidates) => url && candidates.indexOf(url) === index);
   for (const sourceUrl of discoveredCandidates) {

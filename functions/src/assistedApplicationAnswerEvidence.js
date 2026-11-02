@@ -10,9 +10,10 @@ import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants
 import { hasPortalQuestionEvidence, portalQuestionText } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 import { defaultStartDate, minDateFor } from './lib/assistedApplicationQuestionConstraints.js';
-import { answerConfirmationHash, answerConfirmationId, answerCvFingerprint, answerOriginMetadata } from './assistedApplicationAnswerConfirmation.js';
+import { answerConfirmationHash, answerConfirmationId, answerCvFingerprint, answerOriginMetadata, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
 
-export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v3';
+export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v4';
+const LEGACY_ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v3';
 export const ANSWER_QUESTION_SNAPSHOT_VERSION = 'candidate-question-snapshot-v3';
 const object = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -23,6 +24,23 @@ const hasAnswer = value => typeof value === 'boolean' || typeof value === 'numbe
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
   ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => [key, canonical(item)])) : value;
 const serialized = value => JSON.stringify(canonical(value));
+const normalizeCommunicationLocale = normalizeAnswerCommunicationLocale;
+
+/**
+ * The order's locale is the authoritative communication-language snapshot.
+ * Older concierge orders may lack it, so consult their service only when the
+ * order has no locale and the service still belongs to the same user.
+ */
+export async function resolveAnswerCommunicationLocale({ db, order, getDocument = ref => ref.get() } = {}) {
+  if (order?.locale != null) return normalizeCommunicationLocale(order.locale);
+  const serviceId = String(order?.parentServiceId || '').trim();
+  const userId = String(order?.userId || '').trim();
+  if (!db || !serviceId || !userId) return null;
+  const serviceSnapshot = await getDocument(db.collection('application_concierge_services').doc(serviceId));
+  const service = serviceSnapshot?.data?.() || {};
+  return service.userId === userId ? normalizeCommunicationLocale(service.locale) : null;
+}
+
 const same = (a, b) => serialized(a) === serialized(b);
 const QUESTION_SNAPSHOT_FIELDS = ['id', 'question', 'why', 'applicationQuestion', 'context', 'section', 'type', 'options',
   'required', 'validation', 'minDate', 'suggested', 'source', 'autocomplete', 'addressContext'];
@@ -144,7 +162,10 @@ function sameAnswerForOrigin(left, right, question, sourceQuestion) {
 }
 
 /** Candidate-visible confirmation contracts bind self-declarations to the candidate, posting, round and question. */
-export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, flow = {}, questions = [], draft = {}, sourceKind = 'direct_user', nowMs = Date.now() } = {}) {
+export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, flow = {}, questions = [], draft = {}, sourceKind = 'direct_user', nowMs = Date.now(),
+  communicationLocale } = {}) {
+  const confirmationLocale = normalizeCommunicationLocale(communicationLocale)
+    || normalizeCommunicationLocale(order.locale) || 'it';
   const counts = new Map();
   for (const question of Array.isArray(questions) ? questions : []) {
     const id = String(question?.id || '').trim();
@@ -159,7 +180,8 @@ export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, fl
     const origin = source.originSource
       ? { originSource: source.originSource, originCvFingerprint: source.originCvFingerprint }
       : answerOriginMetadata({ question, flow, answer: flowOrigin.value ?? object(flow.answers)[id] });
-    const confirmationHash = answerConfirmationHash({ userId, orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...origin });
+    const confirmationHash = answerConfirmationHash({ userId, orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...origin,
+      communicationLocale: confirmationLocale });
     return confirmationHash ? [[id, confirmationHash]] : [];
   }));
 }
@@ -363,19 +385,20 @@ function retained(order, nowMs) {
   // anchor exists, the normal cutoff still applies.
   return talentPoolConsentActive(order) || due == null || nowMs < due;
 }
-function provenance({ actor, sourceKind, originSource, originCvFingerprint, order, orderId, round, nowMs, cvFingerprint }) {
+function provenance({ actor, sourceKind, originSource, originCvFingerprint, order, orderId, round, nowMs, cvFingerprint, communicationLocale }) {
   return { actor, sourceKind, originSource, ...(originCvFingerprint ? { originCvFingerprint } : {}),
-    userId: order.userId, orderId, round, confirmedAt: nowMs, retentionAt: retentionPurgeDueAt(order),
+    userId: order.userId, orderId, round, confirmedAt: nowMs, communicationLocale, retentionAt: retentionPurgeDueAt(order),
     jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || ''), ...(cvFingerprint ? { cvFingerprint } : {}) };
 }
 
 /** One transaction applies the same accepted keys to raw values and their evidence/clear clocks. */
-export function planCandidateAnswerEvidence({ questions = [], changed = {}, confirmedQuestionSnapshots = {}, previous = {}, latestWriteAt = 0, orderId, order = {}, flow = {}, draft = {}, actor, nowMs }) {
+export function planCandidateAnswerEvidence({ questions = [], changed = {}, confirmedQuestionSnapshots = {}, previous = {}, latestWriteAt = 0, orderId, order = {}, flow = {}, draft = {}, actor, nowMs, communicationLocale }) {
   const records = { ...object(previous) };
   const accepted = new Set();
+  const locale = normalizeCommunicationLocale(communicationLocale);
   const round = Number(flow.round || 1);
   const attested = ['candidate', 'owner'].includes(actor) && order.userId && orderId && Number.isInteger(round) && round > 0
-    && Number(draft.round) === round && Number.isFinite(nowMs) && nowMs > 0 && retained(order, nowMs);
+    && Number(draft.round) === round && Number.isFinite(nowMs) && nowMs > 0 && retained(order, nowMs) && locale;
   if (!attested) return { records, accepted };
   const groups = new Map();
   for (const question of Array.isArray(questions) ? questions : []) {
@@ -399,9 +422,10 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, conf
     const compatibilityHashes = group.map(question => answerQuestionCompatibilityHash({ orderId, question, draft, nowMs }));
     const confirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({
       userId: order.userId, orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...origin,
+      communicationLocale: locale,
     }));
     if (old?.provenance?.confirmedAt === nowMs && (same(old.answer, answer) || old.cleared && !hasAnswer(answer))) continue;
-    const source = provenance({ actor, sourceKind, ...origin, order, orderId, round, nowMs, cvFingerprint });
+    const source = provenance({ actor, sourceKind, ...origin, order, orderId, round, nowMs, cvFingerprint, communicationLocale: locale });
     const question = descriptor(raw); const policy = question && semantics(question, answer, nowMs);
     const snapshotMismatch = snapshotHashes.some((hash, index) => !hash || hash !== snapshotHashes[0]
       || !confirmationHashes[index] || confirmedQuestionSnapshots[group[index]?.id] !== confirmationHashes[index] || !compatibilityHashes[index]
@@ -415,16 +439,16 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, conf
     if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || evidenceScope === 'job' && !order.jobUrl
       || sourceKind !== 'direct_user' && !cvFingerprint) {
       // Keep only the ordering clock after a clear; never retain the removed Q/A.
-      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
+      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, communicationLocale: locale, cleared: true, provenance: source };
       continue;
     }
     const confirmationHash = confirmationHashes[0];
     const confirmationId = answerConfirmationId({ confirmationHash, answer, actor, confirmedAt: nowMs });
     if (!confirmationId) {
-      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
+      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, communicationLocale: locale, cleared: true, provenance: source };
       continue;
     }
-    const record = { version: ANSWER_EVIDENCE_VERSION, key, question, answer, ...policy, scope: evidenceScope, sourceKind,
+    const record = { version: ANSWER_EVIDENCE_VERSION, key, communicationLocale: locale, question, answer, ...policy, scope: evidenceScope, sourceKind,
       originSource: source.originSource, ...(source.originCvFingerprint ? { originCvFingerprint: source.originCvFingerprint } : {}),
       questionSnapshotHash: snapshotHashes[0], questionCompatibilityHash: compatibilityHashes[0],
       confirmationHash, confirmationId, ...(cvFingerprint ? { cvFingerprint } : {}), provenance: source };
@@ -435,7 +459,12 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, conf
 export const rememberCandidateAnswerEvidence = input => planCandidateAnswerEvidence(input).records;
 
 function validRecord(key, record, userId, legacy, nowMs) {
-  if (!userId || !record || !/^answer-[a-f0-9]{24}$/.test(record.id || '') || record.version !== ANSWER_EVIDENCE_VERSION || record.key !== key
+  const currentVersion = record?.version === ANSWER_EVIDENCE_VERSION;
+  const legacyVersion = record?.version === LEGACY_ANSWER_EVIDENCE_VERSION;
+  if (!userId || !record || !/^answer-[a-f0-9]{24}$/.test(record.id || '') || (!currentVersion && !legacyVersion) || record.key !== key
+    || currentVersion && (!normalizeCommunicationLocale(record.communicationLocale)
+      || record.provenance?.communicationLocale !== record.communicationLocale)
+    || legacyVersion && (record.communicationLocale != null || record.provenance?.communicationLocale != null)
     || !/^[a-f0-9]{64}$/.test(record.questionSnapshotHash || '') || !/^[a-f0-9]{64}$/.test(record.questionCompatibilityHash || '')
     || !/^[a-f0-9]{64}$/.test(record.confirmationHash || '') || !/^[a-f0-9]{64}$/.test(record.confirmationId || '')
     || !['direct_user', 'owner_attested'].includes(record.sourceKind)
@@ -475,8 +504,12 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   const sources = new Map();
   await Promise.all([...new Set(candidates.map(record => record.provenance.orderId))].map(async orderId => {
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-    const [order, flow, draft] = await Promise.all([getDocument(ref), getDocument(ref.collection('automation').doc('flow')), getDocument(ref.collection('ai_drafts').doc('current'))]);
-    sources.set(orderId, { order: order.data(), flow: flow.data(), draft: draft.data() });
+    const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([getDocument(ref), getDocument(ref.collection('automation').doc('flow')), getDocument(ref.collection('ai_drafts').doc('current'))]);
+    const sourceOrder = orderSnapshot.data();
+    const hasOrderLocaleSnapshot = sourceOrder?.locale != null;
+    const orderLocaleSnapshot = hasOrderLocaleSnapshot ? normalizeCommunicationLocale(sourceOrder.locale) : null;
+    sources.set(orderId, { order: sourceOrder, flow: flowSnapshot.data(), draft: draftSnapshot.data(),
+      hasOrderLocaleSnapshot, orderLocaleSnapshot });
   }));
   const verified = candidates.filter(record => {
     const key = record.key;
@@ -488,7 +521,11 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
     const localConfirmationHash = answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source?.order || {},
       flow: source?.flow || {}, draft: source?.draft || {}, questionSnapshotHash: record.questionCompatibilityHash,
       sourceKind: localSource.kind, originSource: localSource.originSource, originCvFingerprint: localSource.originCvFingerprint });
-    return source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
+    const localeMatchesRecord = record.version === LEGACY_ANSWER_EVIDENCE_VERSION
+      ? source?.hasOrderLocaleSnapshot && Boolean(source.orderLocaleSnapshot)
+      : record.communicationLocale === record.provenance.communicationLocale
+        && (!source?.hasOrderLocaleSnapshot || source.orderLocaleSnapshot === record.communicationLocale);
+    return localeMatchesRecord && source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
       && Number(source.flow?.round) === record.provenance.round && Number(source.draft?.round) === record.provenance.round
       && current && same(descriptor(current), record.question) && same(source.flow?.answers?.[record.question.id], record.answer)
       && source.flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
@@ -499,36 +536,50 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
       && answerQuestionSnapshotHash({ orderId: record.provenance.orderId, question: current, draft: source.draft, nowMs }) === record.questionSnapshotHash
       && answerQuestionCompatibilityHash({ orderId: record.provenance.orderId, question: current, draft: source.draft, nowMs }) === record.questionCompatibilityHash
       && activeCvMatches
-      && answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
-        questionSnapshotHash: record.questionCompatibilityHash, sourceKind: record.sourceKind, originSource: record.originSource,
-        originCvFingerprint: record.originCvFingerprint }) === record.confirmationHash
+      && (record.version === LEGACY_ANSWER_EVIDENCE_VERSION
+        ? answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
+          questionSnapshotHash: record.questionCompatibilityHash, sourceKind: record.sourceKind, originSource: record.originSource,
+          originCvFingerprint: record.originCvFingerprint }) === record.confirmationHash
+        : answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
+          questionSnapshotHash: record.questionCompatibilityHash, sourceKind: record.sourceKind, originSource: record.originSource,
+          originCvFingerprint: record.originCvFingerprint, communicationLocale: record.communicationLocale }) === record.confirmationHash)
       && (record.scope === 'candidate' || samePosting(record.provenance, { jobId: source.order.jobId, jobUrl: source.order.jobUrl }));
   });
-  return (job, { purpose = 'eligibility' } = {}) => {
+  return (job, { purpose = 'eligibility', communicationLocale = job?.communicationLocale } = {}) => {
+    const targetLocale = normalizeCommunicationLocale(communicationLocale);
     const evidence = verified.filter(record => retained(sources.get(record.provenance.orderId)?.order, nowMs + Math.max(0, Date.now() - startedAt))
+      && targetLocale && (record.version === LEGACY_ANSWER_EVIDENCE_VERSION
+        ? sources.get(record.provenance.orderId)?.orderLocaleSnapshot === targetLocale
+        : record.communicationLocale === targetLocale)
       && (record.scope === 'candidate' || samePosting(record.provenance, job)) && (purpose === 'form' || record.category !== 'form_preference'))
+      .map(record => record.version === LEGACY_ANSWER_EVIDENCE_VERSION
+        ? { ...record, communicationLocale: sources.get(record.provenance.orderId).orderLocaleSnapshot,
+          provenance: { ...record.provenance, communicationLocale: sources.get(record.provenance.orderId).orderLocaleSnapshot } }
+        : record)
       .sort((a, b) => a.key.localeCompare(b.key));
     return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence,
-      fingerprint: createHash('sha256').update(serialized({ version: ANSWER_EVIDENCE_VERSION, evidenceIds: evidence.map(record => record.id) })).digest('hex') };
+      fingerprint: createHash('sha256').update(serialized({ version: ANSWER_EVIDENCE_VERSION,
+        evidence: evidence.map(record => ({ id: record.id, communicationLocale: record.communicationLocale })) })).digest('hex') };
   };
 }
 
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
 export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs = Date.now(), profileRecord, getDocument = ref => ref.get() }) {
   const orderRetained = retained(order, nowMs);
+  const communicationLocale = orderRetained ? await resolveAnswerCommunicationLocale({ db, order, getDocument }) : null;
   const profile = !orderRetained ? {} : profileRecord === undefined
     ? order.userId ? (await getDocument(db.collection('user_cv_profiles').doc(order.userId))).data() || {} : {}
     : profileRecord || {};
   const contextFor = orderRetained ? await loadCandidateAnswerEvidence({ db, profileRecord: profile, userId: order.userId, nowMs, getDocument,
     questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) }) : null;
-  const context = contextFor ? contextFor(order, { purpose: 'form' }) : { answers: {}, answerEvidence: [] };
+  const context = contextFor ? contextFor(order, { purpose: 'form', communicationLocale }) : { answers: {}, answerEvidence: [] };
   const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs })
     : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {},
       questionAnswerConfirmationHashes: {}, questionAnswerSources: {} };
   // Both projections are restricted to the confirmed writer contract. An
   // unmarked legacy flow can still be inspected for recovery, but must not
   // become fill-kit input or candidate evidence.
-  return { retained: orderRetained, flow: { ...flow, answers: orderContext.answers,
+  return { retained: orderRetained, communicationLocale, flow: { ...flow, answers: orderContext.answers,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,

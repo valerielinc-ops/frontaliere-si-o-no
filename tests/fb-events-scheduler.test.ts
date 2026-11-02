@@ -3,7 +3,7 @@
  * caption/URL building, unposted selection, and a dry-run of `run()` that must
  * never POST. Mirrors the contract of the jobs/articles FB schedulers.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { mkdtempSync, mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -134,16 +134,50 @@ describe('run() dry-run', () => {
 
   it('skips posting when credentials are missing (non-dry)', async () => {
     const root = fixtureRepo();
+    const socialCopy = { copyAssignmentMode: 'firebase-balanced', copyAssignment: { assignmentKey: EVENT.id } };
+    const release = vi.fn(async () => true);
     const res = await run({
       env: { FB_EVENT_VOLUME: '2' },
       repoRoot: root,
       todayIso: '2099-01-01',
       fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) }),
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
       log: () => {},
       warn: () => {},
     });
     expect(res.ok).toBe(false);
     expect(res.posted).toBe(0);
+    expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
+  });
+
+  it('continues releasing the batch when one Firebase reservation release fails', async () => {
+    const root = fixtureRepo();
+    const release = vi.fn(async (assignment: { assignmentKey: string }) => {
+      if (assignment.assignmentKey === EVENT.id) throw new Error('temporary Firestore error');
+      return true;
+    });
+    const warnings: string[] = [];
+    const res = await run({
+      env: { FB_EVENT_VOLUME: '2' },
+      repoRoot: root,
+      todayIso: '2099-01-01',
+      selectSocialCopyForPublishImpl: async ({ assignmentKey }: { assignmentKey: string }) => ({
+        copyAssignmentMode: 'firebase-balanced',
+        copyAssignment: { assignmentKey },
+      }),
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: (...args: unknown[]) => warnings.push(args.join(' ')),
+    });
+
+    expect(res.ok).toBe(false);
+    expect(release).toHaveBeenCalledTimes(2);
+    expect(release.mock.calls.map(([assignment]) => assignment.assignmentKey)).toEqual([
+      EVENT.id,
+      'tio-agenda:2',
+    ]);
+    expect(warnings.join('\n')).toContain('temporary Firestore error');
   });
 });
 
@@ -186,8 +220,8 @@ describe('selectWeekendDigests', () => {
     { id: 'w', title: 'Festa', comune: 'Lugano', startDate: '2027-01-02' },
     { id: 'far', title: 'Altro', comune: 'Lugano', startDate: '2027-02-10' },
   ];
-  it('routes canton-less events to the canton-neutral bucket, not Ticino (#3739)', () => {
-    const [p] = selectWeekendDigests(events, '2027-01-01', new Set());
+  it('routes canton-less events to the canton-neutral bucket, not Ticino (#3739)', async () => {
+    const [p] = await selectWeekendDigests(events, '2027-01-01', new Set());
     expect(p).toBeTruthy();
     expect(p?.id).toBe(`weekend-digest-${UNRESOLVED_CANTON_KEY}-2027-01-02`);
     expect(p?.url).toBe(buildWeekendDigestUrl(UNRESOLVED_CANTON_KEY));
@@ -195,22 +229,22 @@ describe('selectWeekendDigests', () => {
     expect(p?.placeId).toBeNull(); // multi-comune roundup → no geo-anchor
     expect(p?.canton).toBe(UNRESOLVED_CANTON_KEY);
   });
-  it('returns [] when this weekend was already posted', () => {
+  it('returns [] when this weekend was already posted', async () => {
     expect(
-      selectWeekendDigests(events, '2027-01-01', new Set([`weekend-digest-${UNRESOLVED_CANTON_KEY}-2027-01-02`])),
+      await selectWeekendDigests(events, '2027-01-01', new Set([`weekend-digest-${UNRESOLVED_CANTON_KEY}-2027-01-02`])),
     ).toEqual([]);
   });
-  it('returns [] when no events fall in the weekend window', () => {
-    expect(selectWeekendDigests([events[1]], '2027-01-01', new Set())).toEqual([]);
+  it('returns [] when no events fall in the weekend window', async () => {
+    expect(await selectWeekendDigests([events[1]], '2027-01-01', new Set())).toEqual([]);
   });
-  it('groups multiple cantons into separate payloads, Ticino first, capped by maxCantons', () => {
+  it('groups multiple cantons into separate payloads, Ticino first, capped by maxCantons', async () => {
     const multi = [
       { id: 'ti1', comune: 'Lugano', startDate: '2027-01-02', canton: 'TI' },
       { id: 'zh1', comune: 'Zurigo', startDate: '2027-01-02', canton: 'ZH' },
       { id: 'zh2', comune: 'Winterthur', startDate: '2027-01-02', canton: 'ZH' },
       { id: 'be1', comune: 'Berna', startDate: '2027-01-02', canton: 'BE' },
     ];
-    const out = selectWeekendDigests(multi, '2027-01-01', new Set(), 2);
+    const out = await selectWeekendDigests(multi, '2027-01-01', new Set(), 2);
     expect(out).toHaveLength(2);
     expect(out[0].canton).toBe('TI');
     expect(out[0].id).toBe('weekend-digest-2027-01-02');
@@ -220,12 +254,12 @@ describe('selectWeekendDigests', () => {
     expect(out[1].url).toContain('/eventi/zurigo/questo-weekend/');
     expect(out[1].coveredIds).toEqual(['zh1', 'zh2']);
   });
-  it('skips cantons already ledgered for this weekend while keeping others', () => {
+  it('skips cantons already ledgered for this weekend while keeping others', async () => {
     const multi = [
       { id: 'ti1', comune: 'Lugano', startDate: '2027-01-02', canton: 'TI' },
       { id: 'zh1', comune: 'Zurigo', startDate: '2027-01-02', canton: 'ZH' },
     ];
-    const out = selectWeekendDigests(multi, '2027-01-01', new Set(['weekend-digest-2027-01-02']));
+    const out = await selectWeekendDigests(multi, '2027-01-01', new Set(['weekend-digest-2027-01-02']));
     expect(out).toHaveLength(1);
     expect(out[0].canton).toBe('ZH');
   });
@@ -233,12 +267,12 @@ describe('selectWeekendDigests', () => {
   // ONE URL/landing page (eventsBasePathForCanton collapses both onto
   // /eventi/basilea/). Grouping the digest by the raw ISO code would post
   // two separate roundups to that same page in the same run.
-  it('merges half-canton pairs (BL+BS) into a single roundup, not two duplicate posts', () => {
+  it('merges half-canton pairs (BL+BS) into a single roundup, not two duplicate posts', async () => {
     const halfCanton = [
       { id: 'bl1', comune: 'Liestal', startDate: '2027-01-02', canton: 'BL' },
       { id: 'bs1', comune: 'Basilea', startDate: '2027-01-02', canton: 'BS' },
     ];
-    const out = selectWeekendDigests(halfCanton, '2027-01-01', new Set());
+    const out = await selectWeekendDigests(halfCanton, '2027-01-01', new Set());
     expect(out).toHaveLength(1);
     expect(out[0].canton).toBe('BASILEA');
     expect(out[0].id).toBe('weekend-digest-BASILEA-2027-01-02');

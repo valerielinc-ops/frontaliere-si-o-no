@@ -32,6 +32,100 @@ function fixture(match: any) {
 }
 
 describe('qualification before proposal publication', () => {
+  it('fails closed when a training title names a formal vocational qualification omitted by the extractor', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    expect(CONCIERGE_ELIGIBILITY_VERSION).toMatch(/requirements-v5-/);
+    expect(await check({ id: 'stage-title', title: 'Stagiste/i ... maturità professionale (52 settimane)', employmentType: 'internship' }))
+      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(f.generate.mock.calls[1][1]).toContain('Stagiste/i ... maturità professionale (52 settimane)');
+    expect(f.generate).toHaveBeenCalledTimes(2);
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+
+  it('does not treat a formal qualification in an ordinary non-training title as a hard eligibility requirement', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    const result = await check({ id: 'ordinary-title', title: 'IT Support Specialist – maturità professionale (52 settimane)' });
+
+    expect(result.reason).not.toBe('requirements_incomplete');
+    expect(f.generate).toHaveBeenCalledTimes(3);
+  });
+
+  it('does not treat negated, optional, or unrelated stage-manager qualification mentions as hard requirements', () => {
+    for (const text of [
+      'This internship does not require a professional maturity qualification.',
+      'A professional maturity qualification is not required for this internship.',
+      'No professional maturity qualification is required for this internship.',
+      'No professional diploma required for this internship.',
+      'A professional diploma is not needed for this internship.',
+      'Internship without a professional diploma.',
+      'This internship requires no professional diploma.',
+      'This internship needs no professional diploma.',
+      'This internship has no professional diploma requirement.',
+      'Nessun diploma professionale richiesto per questo stage.',
+      'Questo stage non richiede un diploma professionale.',
+      'Nessun diploma professionale è richiesto per questo stage.',
+      'Aucun diplôme professionnel requis pour ce stage.',
+      'Ce stage ne nécessite pas de diplôme professionnel.',
+      'Aucun diplôme professionnel n’est requis pour ce stage.',
+      'Stagiaire — pas de maturite professionnelle requise.',
+      'Berufsmaturität nicht erforderlich für dieses Praktikum.',
+      'Das Praktikum erfordert keinen Berufsabschluss.',
+      'Keine Berufsmaturität ist für diese Ausbildung erforderlich.',
+      'This internship: a professional maturity qualification is a plus.',
+      'Stage Manager — a professional maturity qualification is a plus.',
+    ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, text)).toBe(false);
+  });
+
+  it('keeps an uncovered vocational training title fail-closed despite the expanded negation patterns', () => {
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Stagiste/i ... maturità professionale (52 settimane)')).toBe(true);
+  });
+
+  it('matches an extracted hard requirement to its source when the source is labelled as job metadata', () => {
+    const title = 'Stagiste/i ... maturità professionale (52 settimane)';
+    const requirement = { requirement: 'Maturità professionale', sourceRequirement: title, quote: title,
+      basis: 'stated', importance: 'critical' };
+
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [requirement] }, `title: ${title}`)).toBe(false);
+  });
+
+  it('bounds aggregate metadata and fails closed when the relevant context cannot be fully analyzed', async () => {
+    const f = fixture({ matches: [], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    expect(await check({ id: 'large-metadata', title: 'IT Manager', description: ['a'.repeat(3_500), 'b'.repeat(3_500),
+      'c'.repeat(3_500), 'd'.repeat(3_500), 'e'.repeat(3_500)] }))
+      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(f.generate).toHaveBeenCalledTimes(1);
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+
+  it('binds company, job location, and posting location independently into eligibility cache and evidence', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    f.readPosting.mockResolvedValue({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(20)}`,
+      textTruncated: false, source: 'job_detail', location: 'Locarno' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const baseJob = { id: 'shared-metadata-cache', title: 'IT Support Specialist', company: 'Alpha AG', location: 'Bellinzona' };
+    const first = await check(baseJob);
+    const firstRequirementsPrompt = f.generate.mock.calls.find(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)?.[1];
+    const companyChanged = await check({ ...baseJob, company: 'Beta SA' });
+    const jobLocationChanged = await check({ ...baseJob, company: 'Beta SA', location: 'Lugano' });
+    f.readPosting.mockResolvedValue({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(20)}`,
+      textTruncated: false, source: 'job_detail', location: 'Mendrisio' });
+    const postingLocationChanged = await check({ ...baseJob, company: 'Beta SA', location: 'Lugano' });
+
+    expect(firstRequirementsPrompt).toContain('company: Alpha AG');
+    expect(firstRequirementsPrompt).toContain('location: Bellinzona');
+    expect(firstRequirementsPrompt).toContain('posting.location: Locarno');
+    expect(companyChanged.fingerprint).not.toBe(first.fingerprint);
+    expect(jobLocationChanged.fingerprint).not.toBe(companyChanged.fingerprint);
+    expect(postingLocationChanged.fingerprint).not.toBe(jobLocationChanged.fingerprint);
+    expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(4);
+  });
+
   it('checks the CV storage size before downloading it into the matching worker', async () => {
     const f = fixture({ matches: [], verdict: 'weak', questions: [] });
     const download = vi.fn(async () => [f.bytes]);

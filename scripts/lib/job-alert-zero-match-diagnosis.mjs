@@ -31,6 +31,7 @@ export function classifyZeroMatchCause(profile, { eligibleCandidateCount } = {})
   if (hasKeywords) return ZERO_MATCH_CAUSES.KEYWORD_NARROW;
   if (hasGeo) return ZERO_MATCH_CAUSES.GEO_NARROW;
   const hasSoftProfile = (p.softTokens?.size ?? 0) > 0
+    || (p.softSearchQueries?.length ?? 0) > 0
     || Boolean(p.company)
     || (p.locations?.length ?? 0) > 0
     || (p.sectors?.length ?? 0) > 0

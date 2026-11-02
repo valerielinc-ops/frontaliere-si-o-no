@@ -59,11 +59,14 @@ export function escapeHtml(s) {
 
 /**
  * Post a message to a Telegram chat/channel via the Bot API. Never throws —
- * catches and returns `{ ok:false, error }`. Truncates over-long text to the
- * API's hard limit so a big digest can't be rejected outright.
+ * catches and returns `{ ok:false, error, deliveryUncertain }`. Explicit Bot
+ * API rejections are known not to have delivered; transport or malformed
+ * responses keep delivery uncertain so callers do not release reservations.
+ * Truncates over-long text to the API's hard limit so a big digest can't be
+ * rejected outright.
  *
  * @param {{ token: string, chatId: string|number, text: string, parseMode?: string, disablePreview?: boolean, fetchImpl?: typeof fetch }} [opts]
- * @returns {Promise<{ok:boolean, messageId:number|null, error:string|null}>}
+ * @returns {Promise<{ok:boolean, messageId:number|null, error:string|null, deliveryUncertain:boolean}>}
  */
 export async function sendMessage({
   token,
@@ -73,7 +76,7 @@ export async function sendMessage({
   disablePreview = true,
   fetchImpl = globalThis.fetch,
 } = {}) {
-  const fail = (error) => ({ ok: false, messageId: null, error });
+  const fail = (error, deliveryUncertain = false) => ({ ok: false, messageId: null, error, deliveryUncertain });
 
   if (typeof fetchImpl !== 'function') return fail('no fetch impl available');
   if (!token) return fail('missing bot token');
@@ -96,12 +99,13 @@ export async function sendMessage({
     });
     const data = await res.json().catch(() => null);
     if (data?.ok && data.result) {
-      return { ok: true, messageId: data.result.message_id ?? null, error: null };
+      return { ok: true, messageId: data.result.message_id ?? null, error: null, deliveryUncertain: false };
     }
     const desc = data?.description || `HTTP ${res?.status ?? '?'}`;
-    return fail(`telegram error: ${desc}`);
+    const explicitlyRejected = data?.ok === false;
+    return fail(`telegram error: ${desc}`, !explicitlyRejected);
   } catch (err) {
-    return fail(err?.message || String(err));
+    return fail(err?.message || String(err), true);
   }
 }
 

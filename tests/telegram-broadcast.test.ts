@@ -77,7 +77,7 @@ describe('sendMessage', () => {
     }) as unknown as typeof fetch;
 
     const res = await sendMessage({ token: 'TKN', chatId: '@c', text: 'ciao', fetchImpl });
-    expect(res).toEqual({ ok: true, messageId: 42, error: null });
+    expect(res).toEqual({ ok: true, messageId: 42, error: null, deliveryUncertain: false });
     expect(captured!.url).toBe('https://api.telegram.org/botTKN/sendMessage');
     expect(captured!.body.chat_id).toBe('@c');
     expect(captured!.body.parse_mode).toBe('HTML');
@@ -92,6 +92,7 @@ describe('sendMessage', () => {
     const res = await sendMessage({ token: 'T', chatId: '@c', text: 'x', fetchImpl });
     expect(res.ok).toBe(false);
     expect(res.error).toContain('chat not found');
+    expect(res.deliveryUncertain).toBe(false);
   });
 
   it('never throws on a network error', async () => {
@@ -101,6 +102,18 @@ describe('sendMessage', () => {
     const res = await sendMessage({ token: 'T', chatId: '@c', text: 'x', fetchImpl });
     expect(res.ok).toBe(false);
     expect(res.error).toContain('boom');
+    expect(res.deliveryUncertain).toBe(true);
+  });
+
+  it('keeps delivery uncertain when the response is not a Telegram API rejection envelope', async () => {
+    const fetchImpl = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ unexpected: true }),
+    })) as unknown as typeof fetch;
+    const res = await sendMessage({ token: 'T', chatId: '@c', text: 'x', fetchImpl });
+    expect(res.ok).toBe(false);
+    expect(res.deliveryUncertain).toBe(true);
   });
 
   it('fails soft when credentials are missing', async () => {

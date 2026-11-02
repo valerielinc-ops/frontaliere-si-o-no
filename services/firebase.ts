@@ -14,6 +14,7 @@ import type { FirebasePerformance, PerformanceTrace } from "firebase/performance
 import type { AppCheck } from "firebase/app-check";
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { reportCaughtError } from './errorReporter';
+import { DIRECT_EMPLOYER_CHANNEL_FLAG } from './directEmployerFeature';
 import { isIndexedDbError } from './benignErrorPatterns';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
 import { setFirebaseApiKey } from './firebaseAuthPersistence';
@@ -36,6 +37,10 @@ const firebaseConfig = {
 // Global non-secret defaults used when Remote Config is unavailable.
 // Secrets intentionally default to empty strings.
 const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
+ // Direct employer submissions remain fail-closed until the owner activates
+ // the allowlisted Remote Config parameter. The page explicitly calls
+ // fetchAndActivate() before rendering any submission controls.
+ [DIRECT_EMPLOYER_CHANNEL_FLAG]: 'false',
  // Experiment controls. These are public, non-secret values delivered by the
  // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
  // assisted-application split when no global arm is forced.
@@ -832,6 +837,18 @@ export async function refreshRemoteConfig(): Promise<boolean> {
  reportCaughtError(error, 'firebase.refreshRemoteConfig');
  return false;
  }
+}
+
+/**
+ * Explicit public-config fetch/activation for feature surfaces.
+ *
+ * This is intentionally the browser-safe equivalent of Firebase Remote
+ * Config's SDK `fetchAndActivate`: the full template must never enter a
+ * visitor's IndexedDB because it contains server credentials. The allowlisted
+ * `getPublicConfig` response is fetched and replaces the active public map.
+ */
+export async function fetchAndActivate(): Promise<boolean> {
+ return refreshRemoteConfig();
 }
 /**
  * Verifica se App Check è attivo e funzionante

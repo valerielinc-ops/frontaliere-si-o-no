@@ -60,6 +60,8 @@ describe('percorsi gestiti dai cron', () => {
     expect(isCronManagedPath('data/jobs/by-crawler/coop.json')).toBe(true);
     expect(isCronManagedPath('data/jobs/expired/by-crawler/coop.json')).toBe(true);
     expect(isCronManagedPath('data/prospector/crawlers/accor.json')).toBe(true);
+    expect(isCronManagedPath('data/reddit-posted-jobs.json')).toBe(true);
+    expect(isCronManagedPath('data/reddit-posted-articles.json')).toBe(true);
   });
 
   it('non rivendica codice o test', () => {

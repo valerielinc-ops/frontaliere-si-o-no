@@ -9,6 +9,7 @@ import {
 import { detectMissingSecondaryProvenance } from '../scripts/check-pharmacy-data-health.mjs';
 import {
   TICINO_PHARMACY_DIRECTORY_URL,
+  TICINO_PHARMACY_DIRECTORY_MIRROR_URL,
   TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL,
   TICINO_PHARMACY_PDF_CURRENT_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
@@ -149,13 +150,14 @@ describe('Ticino pharmacy PDF source fallback', () => {
 
     expect(failure).toMatchObject({ retryBudgetExhausted: true });
     expect(failure.message).toContain('All official Ticino pharmacy sources failed');
-    expect(failure.sourceFailures).toHaveLength(5);
+    expect(failure.sourceFailures).toHaveLength(6);
     expect(failure.sourceFailures?.map(({ sourceUrl, canTryAnotherSource }) => ({ sourceUrl, canTryAnotherSource }))).toEqual([
       { sourceUrl: TICINO_PHARMACY_PDF_URL, canTryAnotherSource: true },
       { sourceUrl: TICINO_PHARMACY_PDF_MIRROR_URL, canTryAnotherSource: true },
       { sourceUrl: TICINO_PHARMACY_PDF_CURRENT_URL, canTryAnotherSource: true },
       { sourceUrl: TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL, canTryAnotherSource: true },
       { sourceUrl: TICINO_PHARMACY_DIRECTORY_URL, canTryAnotherSource: true },
+      { sourceUrl: TICINO_PHARMACY_DIRECTORY_MIRROR_URL, canTryAnotherSource: true },
     ]);
   });
 
@@ -230,6 +232,35 @@ describe('Ticino pharmacy PDF source fallback', () => {
       discoveredUrl,
     ]);
     expect(fetchDirectory).toHaveBeenCalledWith(TICINO_PHARMACY_DIRECTORY_URL, { accept: 'text/html' });
+  });
+
+  it('uses the official directory mirror when the primary landing page times out', async () => {
+    const discoveredUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261102.pdf';
+    const calls: string[] = [];
+    const exhausted = () => Object.assign(new Error('source timeout'), { retryBudgetExhausted: true });
+    const fetchSource = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === discoveredUrl) return Buffer.from('%PDF');
+      throw exhausted();
+    });
+    const fetchDirectory = vi.fn(async (url: string) => {
+      if (url === TICINO_PHARMACY_DIRECTORY_URL) throw exhausted();
+      return `<a href="${discoveredUrl}">Farmacie</a>`;
+    });
+
+    await expect(fetchTicinoPdfDocument(fetchSource, fetchDirectory)).resolves.toEqual({
+      buffer: Buffer.from('%PDF'),
+      sourceUrl: discoveredUrl,
+    });
+    expect(calls).toEqual([
+      TICINO_PHARMACY_PDF_URL,
+      TICINO_PHARMACY_PDF_MIRROR_URL,
+      TICINO_PHARMACY_PDF_CURRENT_URL,
+      TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL,
+      discoveredUrl,
+    ]);
+    expect(fetchDirectory).toHaveBeenNthCalledWith(1, TICINO_PHARMACY_DIRECTORY_URL, { accept: 'text/html' });
+    expect(fetchDirectory).toHaveBeenNthCalledWith(2, TICINO_PHARMACY_DIRECTORY_MIRROR_URL, { accept: 'text/html' });
   });
 
   it('falls back after both legacy URLs return 404 and chooses the newest dated PDF', async () => {

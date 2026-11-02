@@ -2,7 +2,6 @@ import './index.css';
 import './services/consentDecisionMark';
 import { startScrollRegionObserver } from './services/scrollRegions';
 import {
- shouldWaitForJobBoardLcp,
  shouldWaitForStaticArticleLcp,
  waitForInitialPaintOpportunity,
 } from './services/initialPaintBootstrap';
@@ -29,22 +28,21 @@ const HOME_CRITICAL_PATHS = new Set([
 
 const isHomeCriticalPath = (pathname: string): boolean => HOME_CRITICAL_PATHS.has(pathname);
 
+/**
+ * The fixed loading shell is a skeleton overlay, not the page content that
+ * should gate the SPA runtime. Counting its FCP makes the home page wait for
+ * a paint that is immediately covered by the app's real LCP candidate.
+ */
 const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
- '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
+ 'main.seo-static-content, main.cluster-seo-prose',
 );
 
 const JOB_BOARD_STATIC_CONTENT_SELECTOR =
  'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
-const JOB_BOARD_CONSENT_LCP_SELECTOR =
- 'div.fc-dialog-content > div.fc-dialog-scrollable-content > div.fc-footer > p';
 const STATIC_ARTICLE_LCP_SELECTOR = 'main.seo-static-content article.ft-blog-article';
 
 const hasJobBoardPreRenderedPaintContent = (): boolean =>
  !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
-const hasVisibleJobBoardConsentLcpCandidate = (): boolean => {
- const candidate = document.querySelector<HTMLElement>(JOB_BOARD_CONSENT_LCP_SELECTOR);
- return !!candidate && candidate.getClientRects().length > 0;
-};
 const hasStaticArticlePaintContent = (): boolean =>
  !!document.querySelector(STATIC_ARTICLE_LCP_SELECTOR);
 
@@ -133,29 +131,6 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
- const shouldWaitForJobBoardStaticLcp =
-   hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth);
- if (shouldWaitForJobBoardStaticLcp) {
-   const jobBoardLcpSelector = hasVisibleJobBoardConsentLcpCandidate()
-     ? JOB_BOARD_CONSENT_LCP_SELECTOR
-     : JOB_BOARD_STATIC_CONTENT_SELECTOR;
-   // The job-board static main is the intended first LCP candidate on
-   // sub-desktop viewports. Root hubs are emitted inside #root, while sector
-   // hubs remain outside it; both need to settle before the large React runtime
-   // can compete with the static page. Otherwise slow mobile runs record the
-   // post-takeover JobBoard render or a late static-layout shift. On desktop,
-   // keep the existing FCP handoff: waiting for static LCP leaves more time for
-   // ad/third-party layout writes inside the fallback before React replaces it,
-   // which regressed field CLS on this route (#15770). The bounded fallback
-   // remains in place when LCP cannot be observed. PSI's current
-   // /cerca-lavoro-ticino/ trace names the visible Funding Choices paragraph
-   // as LCP; when that exact measured node exists, wait for it so React's
-   // shared runtime cannot delay its paint.
-   await waitForInitialPaintOpportunity({
-     waitForLargestContentfulPaint: true,
-     largestContentfulPaintSelector: jobBoardLcpSelector,
-   });
- }
  const shouldWaitForArticleStaticLcp =
    hasStaticArticlePaintContent() && shouldWaitForStaticArticleLcp(window.innerWidth);
  if (shouldWaitForArticleStaticLcp) {

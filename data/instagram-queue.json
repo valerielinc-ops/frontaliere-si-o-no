@@ -1,4 +1,109 @@
 {
   "schemaVersion": 1,
-  "pending": []
+  "pending": [
+    {
+      "id": "border-2026-10-26",
+      "channel": "instagram",
+      "kind": "border",
+      "day": "2026-10-26",
+      "caption": "Quale passaggio del confine vuoi chiarire?\n\n1. Biegno Indemini — 0 min\n2. Camedo (Re-Centovalli) — 0 min\n3. Campione d'Italia Bissone — 0 min\n4. Chiasso Centro — 0 min\n5. Clivio Ligornetto — 0 min\n\nQuale passaggio vuoi chiarire? Scrivilo nei commenti.\n\n🔎 Per dettagli e fonti: link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-5.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-6.jpg"
+      ],
+      "ledgerEntries": [
+        {
+          "id": "2026-10-26",
+          "kind": "border",
+          "url": "/traffico-dogane/biegno-indemini/oggi/",
+          "day": "2026-10-26",
+          "creativeId": "question",
+          "creativeBaseId": "question",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Domanda alla community",
+          "creativeObjective": "conversation",
+          "primaryMetric": "comments",
+          "engagementMechanic": "keyword-comment",
+          "hookType": "open-question",
+          "attentionMechanic": "community-question",
+          "engagementLoop": "comment-to-content",
+          "followUpFormat": "comment-reply",
+          "backgroundExperimentId": "instagram-carousel-background-v1",
+          "backgroundVariant": "mint-ink",
+          "backgroundLabel": "Menta e inchiostro",
+          "safeAreaVersion": "safe-area-v2",
+          "copyMode": "codex",
+          "copySlot": "border",
+          "copyPromptVersion": "frontaliere-social-copy-v1",
+          "copyPackId": "9147b54fb0eb5b76",
+          "copyTemplateId": "border-conversation-step",
+          "copyAssignmentMode": "firebase-balanced",
+          "copyExperimentId": "social-copy-balanced-v1",
+          "copyObjective": "conversation",
+          "copyHook": "Quale passaggio del confine vuoi chiarire?",
+          "copyCta": "Quale passaggio vuoi chiarire? Scrivilo nei commenti."
+        }
+      ],
+      "createdAt": "2026-11-02T16:59:56.019Z",
+      "expiresAt": "2026-11-09T16:59:56.019Z"
+    },
+    {
+      "id": "reel-2026-11-01",
+      "channel": "instagram",
+      "kind": "reel",
+      "day": "2026-11-01",
+      "caption": "Quale passaggio del video vuoi esplorare?\n\n📌 Operatore CNC in Ticino: stipendio, requisiti e permesso G — 7 visualizzazioni ieri.\n\nQuale passaggio vuoi esplorare? Scrivilo nei commenti.\n👉 Per dettagli e fonti: link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/reel-article-2026-11-01-reel-question-0.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/instagram/reel-article-2026-11-01-reel-question.mp4",
+        "bytes": 247751,
+        "sha256": "ab22a741f7034d777295d54835b813d553fb394fe9e58d7d93eaaf0a90567ff1",
+        "durationMs": 11500,
+        "width": 1080,
+        "height": 1920
+      },
+      "ledgerEntries": [
+        {
+          "id": "article:operatore-cnc-frontaliero-ticino-stipendio-requisiti",
+          "kind": "reel",
+          "sourceKind": "article",
+          "sourceId": "operatore-cnc-frontaliero-ticino-stipendio-requisiti",
+          "url": "https://frontaliereticino.ch/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_reel_experiment&utm_content=reel-question-operatore-cnc-frontaliero-ticino-stipendio-requisiti--cp9147b54fb0eb5b76-reel.reel-conversation-explore.b.4070b964",
+          "day": "2026-11-01",
+          "views": 7,
+          "creativeId": "reel-question",
+          "creativeBaseId": "reel",
+          "creativeVariant": "reel-question",
+          "creativeLabel": "Domanda immediata",
+          "creativeObjective": "conversation",
+          "primaryMetric": "comments",
+          "engagementMechanic": "keyword-comment",
+          "hookType": "question",
+          "attentionMechanic": "specific-keyword",
+          "engagementLoop": "keyword-comment-reply",
+          "followUpFormat": "comment-reply-reel",
+          "creativeFormat": "reel",
+          "copyMode": "codex",
+          "copySlot": "reel",
+          "copyPromptVersion": "frontaliere-social-copy-v1",
+          "copyPackId": "9147b54fb0eb5b76",
+          "copyTemplateId": "reel-conversation-explore",
+          "copyAssignmentMode": "firebase-balanced",
+          "copyExperimentId": "social-copy-balanced-v1",
+          "copyObjective": "conversation",
+          "copyHook": "Quale passaggio del video vuoi esplorare?",
+          "copyCta": "Quale passaggio vuoi esplorare? Scrivilo nei commenti."
+        }
+      ],
+      "createdAt": "2026-11-02T17:23:12.023Z",
+      "expiresAt": "2026-11-04T17:23:12.023Z"
+    }
+  ]
 }

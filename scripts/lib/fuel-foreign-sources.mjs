@@ -74,6 +74,21 @@ function redactKey(message, key) {
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function monthPeriodEndMs(observation) {
+  const match = String(observation?.period || '').match(/^(\d{4})-(\d{2})$/);
+  if (match) {
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    if (month >= 1 && month <= 12) {
+      // The parser represents a monthly observation with the first day of its
+      // period. Age the completed period from its end, otherwise a valid LIK
+      // release can look up to 30 days older than it is.
+      return Date.UTC(year, month, 0, 23, 59, 59, 999);
+    }
+  }
+  return Date.parse(observation?.observedAt || '');
+}
+
 export async function fetchFrenchStations({ fetchImpl, retries } = {}) {
   const departments = [...new Set(Object.values(FR_DEPARTMENTS_BY_CANTON).flat())];
   try {
@@ -96,10 +111,10 @@ export async function fetchSwissNationalFuelPrices({ fetchImpl, retries, now = n
       return { status: 'failed', reason: 'BFS LIK workbook is missing SP95 or diesel', data: {} };
     }
     const observedMonths = Object.entries(prices)
-      .map(([fuel, observation]) => ({ fuel, observedAt: observation.observedAt }))
-      .sort((a, b) => a.observedAt.localeCompare(b.observedAt));
-    const staleFuel = observedMonths.find(({ observedAt }) => {
-      const observedMs = Date.parse(observedAt || '');
+      .map(([fuel, observation]) => ({ fuel, observation }))
+      .sort((a, b) => a.observation.observedAt.localeCompare(b.observation.observedAt));
+    const staleFuel = observedMonths.find(({ observation }) => {
+      const observedMs = monthPeriodEndMs(observation);
       return !Number.isFinite(observedMs)
         || now.getTime() - observedMs > MAX_NATIONAL_PRICE_AGE_DAYS * 86_400_000
         || observedMs > now.getTime() + 3_600_000;
@@ -113,7 +128,7 @@ export async function fetchSwissNationalFuelPrices({ fetchImpl, retries, now = n
     }
     return {
       status: 'ok',
-      observedMonth: observedMonths[observedMonths.length - 1]?.observedAt?.slice(0, 7) || null,
+      observedMonth: observedMonths[observedMonths.length - 1]?.observation?.observedAt?.slice(0, 7) || null,
       data: prices,
     };
   } catch (err) {

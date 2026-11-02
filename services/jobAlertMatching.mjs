@@ -38,6 +38,7 @@ import { extractKeywords } from './newsletter-content.mjs';
 import { normalizeJobCategory } from './jobCategoryNormalization.mjs';
 import { buildStemmedHaystack, normalizeSearchText, stemSearchToken } from './textUtils.ts';
 import { cantonSearchTokens } from './cantonList.ts';
+import { STOPWORDS } from '../scripts/lib/query-tokenizer.mjs';
 import {
   expandKeywordsWithSynonymPhrases,
   professionSynonymText,
@@ -73,6 +74,13 @@ const SWISS_CANTONS = new Set([
   'zh', 'be', 'lu', 'ur', 'sz', 'ow', 'nw', 'gl', 'zg', 'fr', 'so', 'bs', 'bl',
   'sh', 'ar', 'ai', 'sg', 'gr', 'ag', 'tg', 'ti', 'vd', 'vs', 'ne', 'ge', 'ju',
 ]);
+
+const SOFT_SEARCH_STOP_WORDS = new Set([...STOPWORDS].map(normalizeSearchText));
+
+function hasSearchIntent(query) {
+  return normalizeSearchText(query).split(' ')
+    .some((token) => token.length >= 2 && !SOFT_SEARCH_STOP_WORDS.has(token));
+}
 
 /**
  * One-tap board/category alerts predate a structured category field and store
@@ -305,6 +313,7 @@ export function freshnessBoost(job, nowMs) {
  * @typedef {object} AlertProfile
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
  * @property {string[]} hardSearchQueries Untouched backfill searches, matched as board search tokens.
+ * @property {string[]} softSearchQueries Existing profile/browsing searches, used only as fallback intent.
  * @property {Set<string>} hardCategoryKeys  Board taxonomy labels persisted as
  *                                           keywords, matched against structured
  *                                           job category/sector fields.
@@ -313,6 +322,7 @@ export function freshnessBoost(job, nowMs) {
  *                                             structured job category/sector fields.
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
  * @property {string}    company       Normalized company affinity token ('' when none).
+ * @property {string[]}  companyKeys   Exact display identities, including declared aliases and legal forms.
  * @property {string[]}  locations     Lowercased location signals (soft — ranking only).
  * @property {string[]}  alertLocations Lowercased locations the user explicitly set ON THE ALERT.
  *                                       HARD filter when non-empty: a job outside these (and the
@@ -600,9 +610,14 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   // Browsing-derived intent (searches + viewed-job categories) from the
   // personalization subdoc.
   for (const t of ex.behaviorTokens || []) addTokens(t);
+  const softSearchQueries = uniq([sub.job_search_query, ...(ex.behaviorTokens || [])]
+    .filter((query) => typeof query === 'string' && query.trim())
+    .map((query) => query.trim()))
+    .filter(hasSearchIntent);
 
   // 3. Company affinity — same employer the user already engaged with.
   const company = normalizeCompanyToken(sub.job_company);
+  const companyKeys = companyDisplayIdentityKeys(sub.job_company).map(canonicalCompanyToken).filter(Boolean);
 
   // 4. Location signals.
   //    `alertLocations` = the locations the user explicitly picked ON THE ALERT
@@ -699,7 +714,7 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
 
   return {
     hardKeywords, hardCategoryKeys, hardTaxonomyValues, hardSearchQueries: hardCriteria.searchQueries,
-    softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
+    softTokens, softSearchQueries, company, companyKeys, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
     applicationIntentJobKeys: activeApplicationIntentJobKeys(ex.applicationIntent, ex.now),
   };
@@ -783,7 +798,7 @@ export function jobMatchFeatures(job, locale) {
     jobTokens: extractKeywords(
       `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
     ),
-    jobCompany: normalizeCompanyToken(job.companyKey || job.company),
+    jobCompany: normalizeCompanyToken(job.company),
     jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
     jobCanton: String(job.canton || '').toLowerCase(),
     jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
@@ -1116,21 +1131,27 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     contractTypes,
   } = profile;
   const hardList = [...hardKeywords];
-  const searchTests = (profile.hardSearchQueries || []).map((query) => {
+  const compileQueryTest = (query) => {
     if (featureCache) return featureCache.searchTest(locale, query);
     const compiled = compileSearchQuery(query);
     return (job, cached, features) => matchesSearchQuery(compiled, job, features, locale);
-  });
+  };
+  const searchTests = (profile.hardSearchQueries || []).map(compileQueryTest);
+  const softSearchTests = hardList.length === 0
+    ? (profile.softSearchQueries || []).map(compileQueryTest)
+    : [];
+  const companyKeys = profile.companyKeys || [profile.company].filter(Boolean);
   const keywordTests = featureCache ? hardList.map((kw) => featureCache.keywordTest(locale, kw)) : null;
   const alertLocationNeedles = paddedLocNeedles(profile.alertLocations);
   const locationNeedles = paddedLocNeedles(profile.locations);
   const needsLocation = alertLocationNeedles.length > 0 || locationNeedles.length > 0;
   const hasGeoScope = profile.alertLocations.length > 0 || cantons.length > 0;
-  const hasIntentProfile = softTokens.size > 0 || Boolean(profile.company);
+  const hasLegacyIntentProfile = softTokens.size > 0 || Boolean(profile.company);
   // A profile without a single signal scores every job 0 (nothing can add to
   // the score, and the no-keyword/no-intent policy then drops score 0): answer
   // that without touching the job — 588 of 5.157 alerts in run 36097910375.
-  const neverMatches = hardList.length === 0 && !hasGeoScope && !hasIntentProfile
+  const neverMatches = hardList.length === 0 && !hasGeoScope && !hasLegacyIntentProfile
+    && softSearchTests.length === 0
     && locationNeedles.length === 0 && sectors.length === 0 && contractTypes.length === 0;
 
   return (job) => {
@@ -1140,7 +1161,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     const {
       titleText, fullText, jobTokens, jobCategoryKeys: jobCategories,
       jobTaxonomyValues: jobTaxonomy = new Set(),
-      jobCompany, jobLoc, jobCanton, jobSector, jobContract,
+      jobLoc, jobCanton, jobSector, jobContract,
     } = features;
     let locHaystack = '';
     if (needsLocation) {
@@ -1203,7 +1224,12 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     }
 
     // Company affinity (strong signal — same employer).
-    const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
+    // A crawler key may cover unrelated employers. Match display identities,
+    // including their declared aliases/legal forms, exactly as company pins do.
+    const jobCompanyKeys = profile.company
+      ? (featureCache ? featureCache.pinnedKeys(job) : pinnedCompanyIdentityKeys(job))
+      : [];
+    const companyMatch = Boolean(profile.company && companyKeys.some((key) => jobCompanyKeys.includes(key)));
     if (companyMatch) score += 4;
 
     // Soft keyword overlap (tokenized, proportional, capped).
@@ -1227,14 +1253,16 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
 
     // 2. Filtering policy when there are NO explicit keywords.
     if (hardList.length === 0) {
-      if (hasIntentProfile) {
-        // One-tap / onboarding subscriber: require at least ONE targeted signal,
-        // otherwise we'd surface every recent job (the legacy noise this fixes).
-        if (softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch) return 0;
-      } else if (score === 0) {
-        // Pure location/sector alert with no intent profile (legacy behavior):
-        // location / sector / contract sufficient; nothing matched → exclude.
-        return 0;
+      // Preserve the pre-existing policy, including geo/contract-only matches.
+      // A newly readable short search is a fallback, never a new hard filter.
+      const needsFallback = hasLegacyIntentProfile
+        ? softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch
+        : score === 0;
+      if (needsFallback) {
+        // A searched employer/locality need not occur in the role's title.
+        // Every query token must match, and the hard scope above still holds.
+        if (!softSearchTests.some((test) => test(job, cached, features))) return 0;
+        score += 2;
       }
     }
 

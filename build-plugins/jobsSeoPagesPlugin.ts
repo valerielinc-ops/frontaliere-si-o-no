@@ -1524,6 +1524,24 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * collapse AI/AR/BL/BS onto APPENZELLO/BASILEA via {@link resolveCantonGroup}.
   */
  type CantonLocale = 'it' | 'en' | 'de' | 'fr';
+ const UNVERIFIED_JOB_SOCIAL_PREVIEW: Record<CantonLocale, { title: string; description: string }> = {
+  it: {
+   title: 'Offerte di lavoro aggiornate in Ticino | Frontaliere Ticino',
+   description: 'L’annuncio originale non è verificabile. Consulta le offerte di lavoro attualmente disponibili su Frontaliere Ticino.',
+  },
+  en: {
+   title: 'Current jobs in Ticino | Frontaliere Ticino',
+   description: 'The original listing could not be verified. Browse the current job openings on Frontaliere Ticino.',
+  },
+  de: {
+   title: 'Aktuelle Stellen im Tessin | Frontaliere Ticino',
+   description: 'Das ursprüngliche Inserat konnte nicht bestätigt werden. Entdecken Sie die aktuell verfügbaren Stellen bei Frontaliere Ticino.',
+  },
+  fr: {
+   title: 'Offres d’emploi actuelles au Tessin | Frontaliere Ticino',
+   description: 'L’annonce originale n’a pas pu être vérifiée. Consultez les offres actuellement disponibles sur Frontaliere Ticino.',
+  },
+ };
  type CantonSlugRecord = Record<CantonLocale, string> & { dePrefix?: string };
  type CantonSlugFile = {
    cantons: Record<string, CantonSlugRecord>;
@@ -13873,7 +13891,7 @@ ${staticAnalyticsHtml}
  // window.__STATIC_BODY_HTML__ exactly as before. Saves ~3-5 KB × 98k pages ≈ ~400 MB dist.
  const buildSoftLandingHtml = (locale: keyof typeof localeOg, pageTitle: string, pageDesc: string, robotsTag: string,
  selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
- staticBody: string, adSnippet: string): string => {
+ staticBody: string, adSnippet: string, socialPreview?: { title: string; description: string }): string => {
  // Sub-phase profiler: ph:ejp:shell measured at 48.7s (45% of expired-
  // soft-landing) in run 26469566046. Break it down so the next round
  // can target either the template assembly (likely cheap) or minifyHtml
@@ -13883,6 +13901,8 @@ ${staticAnalyticsHtml}
  const shell = localeShells[locale];
  const metaDescription = clampMetaDescription(pageDesc, undefined, locale)
   || clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale);
+ const socialTitleHtml = socialPreview ? esc(socialPreview.title) : pageTitle;
+ const socialDescription = socialPreview?.description || metaDescription;
  // The expired article is a static-first body. Keep its canonical pathname in
  // the marker so App.tsx can remove it synchronously if the user soft-navigates
  // to another route before a full document load.
@@ -13914,14 +13934,14 @@ ${staticAnalyticsHtml}
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${pageTitle}">
- <meta property="og:description" content="${esc(metaDescription)}">
+ <meta property="og:title" content="${socialTitleHtml}">
+ <meta property="og:description" content="${esc(socialDescription)}">
  <meta property="og:url" content="${selfUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
- <meta property="og:image:alt" content="${pageTitle}">
- ${buildTwitterCardMetaTags({ title: decodeHtmlText(pageTitle), description: metaDescription, locale })}
+ <meta property="og:image:alt" content="${socialTitleHtml}">
+ ${buildTwitterCardMetaTags({ title: socialPreview?.title || decodeHtmlText(pageTitle), description: socialDescription, locale })}
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">
@@ -14840,10 +14860,11 @@ ${staticAnalyticsHtml}
  // bot-gated, so it coexists with the SPA banner and never inflates AD_REQUESTS.
  // Gated to has-traffic so the ~250 B snippet only lands on pages with users.
  const __slAdSnippet = __slKeepProse ? ADSENSE_SNIPPET : '';
+ const __slSocialPreview = hasRealTitle ? undefined : UNVERIFIED_JOB_SOCIAL_PREVIEW[locale];
  const __slFullHtml = buildSoftLandingHtml(
  locale, pageTitle, pageDesc, expiredRobotsTag,
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
- staticBody, __slAdSnippet
+ staticBody, __slAdSnippet, __slSocialPreview
  );
  recordPhase('ejp:shell', __tEjpShell);
 
@@ -16165,6 +16186,7 @@ ${staticAnalyticsHtml}
    measureLength: (s) => esc(s).length,
   });
   const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
+  const unverifiedSocialPreview = recordedIdentity ? undefined : UNVERIFIED_JOB_SOCIAL_PREVIEW[locale];
   const description = stripLeadingSectionLabel(String(archive?.description || ''));
   const descriptionHtml = description.trim() || archive?.requirements?.length ? renderJobDescriptionContent(description, locale, archive?.requirements || []) : '';
   const detailItems = [
@@ -16229,6 +16251,7 @@ ${staticAnalyticsHtml}
    expiredPayload,
    staticBody,
    '',
+   unverifiedSocialPreview,
   );
  };
  for (const [slug, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {

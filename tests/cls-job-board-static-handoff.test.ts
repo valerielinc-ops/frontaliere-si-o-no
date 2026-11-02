@@ -25,9 +25,8 @@ import {
   INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_PAINT_FRAME_TIMEOUT_MS,
-  JOB_BOARD_LCP_WAIT_MAX_WIDTH,
   LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS,
-  shouldWaitForJobBoardLcp,
+  shouldWaitForStaticArticleLcp,
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
@@ -83,26 +82,23 @@ const STATIC_OVERLAY_HUB_BODY = `
   <div id="footer-root"></div>`;
 
 describe('initial SPA bootstrap — mobile first paint', () => {
-  it('waits for prerendered content to paint before importing the React runtime', async () => {
+  it('waits for static SEO content to paint before importing the React runtime', async () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
     const paintBootstrap = readFileSync(resolve(ROOT, 'services/initialPaintBootstrap.ts'), 'utf-8');
     const paintGate = entry.indexOf('await waitForInitialPaintOpportunity({');
     expect(paintGate).toBeGreaterThanOrEqual(0);
     expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
-    expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).toContain('main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).not.toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
     expect(entry).toContain('main.seo-static-content.job-board-static-hub');
     expect(entry).toContain('main.seo-static-content.job-board-static-content');
     expect(entry).toContain('main.seo-static-content[data-sector-hub]');
-    expect(entry).toContain("const JOB_BOARD_CONSENT_LCP_SELECTOR =");
-    expect(entry).toContain('hasVisibleJobBoardConsentLcpCandidate()');
-    expect(entry).toContain('? JOB_BOARD_CONSENT_LCP_SELECTOR');
-    expect(entry).toContain(': JOB_BOARD_STATIC_CONTENT_SELECTOR');
-    expect(entry).toContain('waitForLargestContentfulPaint: true');
-    expect(entry).toContain('largestContentfulPaintSelector: jobBoardLcpSelector');
-    expect(entry).toContain('shouldWaitForJobBoardLcp(window.innerWidth)');
-    expect(entry.indexOf('waitForLargestContentfulPaint: true')).toBeGreaterThan(paintGate);
-    expect(entry.indexOf('largestContentfulPaintSelector: jobBoardLcpSelector')).toBeGreaterThan(paintGate);
-    expect(entry.indexOf('largestContentfulPaintSelector: jobBoardLcpSelector')).toBeLessThan(entry.indexOf("import('react')"));
+    expect(entry).not.toContain('JOB_BOARD_CONSENT_LCP_SELECTOR');
+    expect(entry).not.toContain('shouldWaitForJobBoardLcp');
+    const articleLcpGate = entry.indexOf('if (shouldWaitForArticleStaticLcp)');
+    expect(articleLcpGate).toBeGreaterThan(paintGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: STATIC_ARTICLE_LCP_SELECTOR')).toBeGreaterThan(articleLcpGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: STATIC_ARTICLE_LCP_SELECTOR')).toBeLessThan(entry.indexOf("import('react')"));
     expect(paintBootstrap).toContain('largest-contentful-paint');
     expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
@@ -158,15 +154,14 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(timerCallback).toBeTypeOf('function');
   });
 
-  it('keeps the static-LCP wait for sub-desktop handoffs only', () => {
-    expect(JOB_BOARD_LCP_WAIT_MAX_WIDTH).toBe(1024);
-    expect(shouldWaitForJobBoardLcp(375)).toBe(true);
-    expect(shouldWaitForJobBoardLcp(1023)).toBe(true);
-    expect(shouldWaitForJobBoardLcp(1024)).toBe(false);
-    expect(shouldWaitForJobBoardLcp(1440)).toBe(false);
+  it('keeps the static article LCP wait for sub-desktop viewports only', () => {
+    expect(shouldWaitForStaticArticleLcp(375)).toBe(true);
+    expect(shouldWaitForStaticArticleLcp(1023)).toBe(true);
+    expect(shouldWaitForStaticArticleLcp(1024)).toBe(false);
+    expect(shouldWaitForStaticArticleLcp(1440)).toBe(false);
   });
 
-  it('waits for the static job-board LCP and ignores a later CMP candidate', async () => {
+  it('waits for its selected static LCP candidate and ignores an unrelated CMP candidate', async () => {
     let reportLcp: ((element: Element | null) => void) | undefined;
     let quietTimerCallback: (() => void) | undefined;
     let deadlineTimerCallback: (() => void) | undefined;
@@ -189,7 +184,7 @@ describe('initial SPA bootstrap — mobile first paint', () => {
       clearTimer: () => {},
     };
     document.body.innerHTML = `
-      <main class="seo-static-content s-Ziv1Xn" data-sector-hub="infermieri"><p id="static-candidate">Offerte</p></main>
+      <main class="seo-static-content"><article class="ft-blog-article"><p id="static-candidate">Articolo statico</p></article></main>
       <main class="seo-static-content job-board-static-content"><p id="generic-candidate">Svizzera</p></main>
       <div class="fc-footer"><p id="cmp-candidate">Consent</p></div>`;
     const staticCandidate = document.getElementById('static-candidate')!;
@@ -198,8 +193,7 @@ describe('initial SPA bootstrap — mobile first paint', () => {
 
     const ready = waitForInitialPaintOpportunity({
       waitForLargestContentfulPaint: true,
-      largestContentfulPaintSelector:
-        'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]',
+      largestContentfulPaintSelector: 'main.seo-static-content article.ft-blog-article',
     }, env);
     expect(deadlineTimerCallback).toBeTypeOf('function');
     reportLcp?.(cmpCandidate);

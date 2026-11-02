@@ -19,12 +19,16 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
         || !['article', 'job', 'border', 'reel'].includes(treatment.kind)
         || !['share', 'save', 'conversation'].includes(treatment.objective)
       ) continue;
-      const key = [treatment.kind, treatment.objective, copy.copyPackId, copy.copyTemplateId].join('|');
+      const assignmentMode = copy.copyAssignmentMode || 'unknown';
+      const experimentId = copy.copyExperimentId || 'unknown';
+      const key = [treatment.kind, treatment.objective, copy.copyPackId, copy.copyTemplateId, assignmentMode, experimentId].join('|');
       const group = groups.get(key) || {
         kind: treatment.kind,
         objective: treatment.objective,
         packId: copy.copyPackId,
         templateId: copy.copyTemplateId,
+        assignmentMode,
+        experimentId,
         observations: 0,
         audience: 0,
         primaryTotal: 0,
@@ -41,7 +45,9 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
   const variants = [...groups.values()]
     .sort((a, b) => a.kind.localeCompare(b.kind)
       || a.objective.localeCompare(b.objective)
-      || String(a.templateId).localeCompare(String(b.templateId)))
+      || String(a.templateId).localeCompare(String(b.templateId))
+      || a.assignmentMode.localeCompare(b.assignmentMode)
+      || a.experimentId.localeCompare(b.experimentId))
     .map((group) => {
       const enoughData = group.observations >= minimumObservations && group.audience > 0;
       return {
@@ -49,6 +55,8 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
         objective: group.objective,
         packId: group.packId,
         templateId: group.templateId,
+        assignmentMode: group.assignmentMode,
+        experimentId: group.experimentId,
         observations: group.observations,
         eligibleForDescription: enoughData,
         primaryRate: enoughData ? group.primaryTotal / group.audience : null,

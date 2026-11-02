@@ -23,6 +23,7 @@ import {
 } from './social-post-utils.mjs';
 import { REDDIT_TITLE_MAX } from './reddit-client.mjs';
 import { redditUrl, REDDIT_CAMPAIGN_JOB } from './reddit-links.mjs';
+import { socialCopyTrackingContent } from './social-copy-pack.mjs';
 
 // ── Number / salary formatting (consistent with schedule-fb-jobs-daily) ──
 
@@ -52,6 +53,15 @@ function clampTitle(s) {
   const t = (s || '').trim();
   if (t.length <= REDDIT_TITLE_MAX) return t;
   return truncateBody(t, REDDIT_TITLE_MAX);
+}
+
+function generatedCopyText(value, maxLength = 150) {
+  return stripHtml(String(value || ''))
+    .replace(/[\r\n\u0000-\u001f]/g, ' ')
+    .replace(/[\[\]()*_~`>#!\\]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
 }
 
 // ── Job builders ─────────────────────────────────────────────
@@ -86,9 +96,12 @@ export function buildJobTitle(job) {
  * @param {object} job
  * @returns {string}
  */
-export function buildJobBody(job) {
+export function buildJobBody(job, { socialCopy } = {}) {
   const rawBody = job?.descriptionByLocale?.it || job?.description || '';
   const excerpt = truncateBody(stripLeadingSectionLabel(stripHtml(rawBody)), 300);
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const hook = generatedCopyText(generatedCopy?.hook);
+  const cta = generatedCopyText(generatedCopy?.cta);
 
   // Meta bullet line — only present chunks.
   const city = (job?.jobLocation?.address?.addressLocality || job?.location || '').trim();
@@ -104,12 +117,17 @@ export function buildJobBody(job) {
   // kind=self — only what's embedded in the markdown body is clickable), so
   // an untagged link here means the click is invisible in GA4 just like the
   // Telegram/FB/LinkedIn links fixed in #6342/#6387.
-  const url = redditUrl(buildJobUrl(job), REDDIT_CAMPAIGN_JOB, job?.id);
+  const url = redditUrl(
+    buildJobUrl(job),
+    REDDIT_CAMPAIGN_JOB,
+    socialCopyTrackingContent(job?.id, generatedCopy),
+  );
 
   const parts = [];
+  if (hook) parts.push(hook);
   if (excerpt) parts.push(excerpt);
   if (metaChunks.length) parts.push(`- ${metaChunks.join(' · ')}`);
-  if (url) parts.push(`**[Vedi l'offerta e candidati →](${url})**`);
+  if (url) parts.push(`**[${cta || "Vedi l'offerta e candidati"} →](${url})**`);
   parts.push('---');
   parts.push('_Annuncio pubblicato automaticamente da Frontaliere Ticino._');
 
@@ -123,11 +141,11 @@ export function buildJobBody(job) {
  * @param {object} job
  * @returns {{title:string, kind:'self', text:string, topic:'jobs'}}
  */
-export function buildJobPost(job) {
+export function buildJobPost(job, { socialCopy } = {}) {
   return {
     title: buildJobTitle(job),
     kind: 'self',
-    text: buildJobBody(job),
+    text: buildJobBody(job, { socialCopy }),
     topic: 'jobs',
   };
 }
@@ -157,7 +175,26 @@ export function buildArticleTitle(ogTitle) {
  * @param {string} [opts.category]
  * @returns {{title:string, kind:'link', url:string, topic:'articles'}}
  */
-export function buildArticlePost({ id, url, ogTitle, ogDescription, category } = {}) {
+export function buildArticlePost({ id, url, ogTitle, ogDescription, category, socialCopy, destinationUrl } = {}) {
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const hook = generatedCopyText(generatedCopy?.hook);
+  const cta = generatedCopyText(generatedCopy?.cta);
+  if (generatedCopy && hook && cta) {
+    const description = truncateBody(stripHtml(String(ogDescription || '')), 500);
+    const text = [
+      hook,
+      description,
+      `**[${cta} →](${destinationUrl || url})**`,
+      '_Articolo pubblicato da Frontaliere Ticino._',
+    ].filter(Boolean).join('\n\n');
+    return {
+      title: buildArticleTitle(ogTitle),
+      kind: 'self',
+      text,
+      url: destinationUrl || url,
+      topic: 'articles',
+    };
+  }
   return {
     title: buildArticleTitle(ogTitle),
     kind: 'link',

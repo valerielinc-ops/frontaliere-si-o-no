@@ -15,6 +15,8 @@
  * by a transient API hiccup.
  */
 
+import { isRedditDataApiApproved } from './social-readiness.mjs';
+
 // Reddit hard limit on submission `title` length.
 export const REDDIT_TITLE_MAX = 300;
 
@@ -43,6 +45,11 @@ export function userAgent(env = process.env) {
  * @returns {Promise<string|null>}
  */
 export async function getAccessToken(env = process.env, fetchImpl = globalThis.fetch) {
+  if (!isRedditDataApiApproved(env)) {
+    console.warn('⚠️  Reddit Data API access is disabled until explicit approval is recorded as REDDIT_DATA_API_APPROVED=true');
+    return null;
+  }
+
   const clientId = env.REDDIT_CLIENT_ID;
   const clientSecret = env.REDDIT_CLIENT_SECRET;
   const refreshToken = env.REDDIT_REFRESH_TOKEN;
@@ -129,9 +136,10 @@ export async function getAccessToken(env = process.env, fetchImpl = globalThis.f
  * @param {boolean} [opts.sendReplies]
  * @param {typeof fetch} [opts.fetchImpl]
  * @param {string} [opts.ua]
- * @returns {Promise<{ok:boolean, id:string|null, name:string|null, url:string|null, error:string|null}>}
+ * @returns {Promise<{ok:boolean, id:string|null, name:string|null, url:string|null, error:string|null, deliveryUncertain?:boolean}>}
  */
 export async function submitPost({
+  env = process.env,
   token,
   subreddit,
   kind = 'self',
@@ -144,9 +152,17 @@ export async function submitPost({
   fetchImpl = globalThis.fetch,
   ua,
 } = {}) {
-  const fail = (error) => ({ ok: false, id: null, name: null, url: null, error });
+  const fail = (error, deliveryUncertain = false) => ({
+    ok: false,
+    id: null,
+    name: null,
+    url: null,
+    error,
+    ...(deliveryUncertain ? { deliveryUncertain: true } : {}),
+  });
 
   if (typeof fetchImpl !== 'function') return fail('no fetch impl available');
+  if (!isRedditDataApiApproved(env)) return fail('Reddit Data API access is not explicitly approved');
   if (!token) return fail('missing access token');
   if (!subreddit) return fail('missing subreddit');
   if (!title) return fail('missing title');
@@ -199,6 +215,6 @@ export async function submitPost({
       error: null,
     };
   } catch (err) {
-    return fail(err.message);
+    return fail(err.message, true);
   }
 }

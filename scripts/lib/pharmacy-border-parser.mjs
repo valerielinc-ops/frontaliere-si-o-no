@@ -38,6 +38,7 @@ export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DS
 export const TICINO_PHARMACY_PDF_CURRENT_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
+export const TICINO_PHARMACY_DIRECTORY_MIRROR_URL = 'https://m4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
@@ -528,12 +529,35 @@ function isOsmFieldSource(source) {
   return source?.sourceType === OSM_SOURCE_TYPE && /odbl/i.test(String(source.license || ''));
 }
 
+function osmElementKeyFromSource(source) {
+  const sourceUrl = text(source?.url);
+  if (!sourceUrl) return undefined;
+  try {
+    const url = new URL(sourceUrl);
+    if (
+      url.protocol !== 'https:'
+      || url.hostname !== 'www.openstreetmap.org'
+      || url.port
+      || url.username
+      || url.password
+      || url.search
+      || url.hash
+    ) return undefined;
+    const parts = url.pathname.split('/').filter(Boolean);
+    if (parts.length !== 2 || !['node', 'way', 'relation'].includes(parts[0]) || !/^\d+$/.test(parts[1])) return undefined;
+    return `${parts[0]}/${parts[1]}`;
+  } catch {
+    return undefined;
+  }
+}
+
 /**
- * An empty optional response is not evidence that previously verified OSM
- * facts disappeared. Keep those facts, with their original field-level
- * provenance, until a later non-empty response can confirm or replace them.
+ * An optional response that does not yield a match for this record is not
+ * evidence that its previously verified OSM facts disappeared. Keep those
+ * facts, with their original field-level provenance, until a later response
+ * can confirm or replace them.
  */
-function preservePreviousOsmEnrichment(record, previous) {
+function preservePreviousOsmEnrichment(record, previous, usedOsmElementKeys = new Set()) {
   if (!previous || typeof previous !== 'object') return record;
   for (const field of OSM_ENRICHED_FIELDS) {
     const source = previous.fieldSources?.[field];
@@ -554,6 +578,8 @@ function preservePreviousOsmEnrichment(record, previous) {
 
     record.fieldSources ||= {};
     record.fieldSources[field] = { ...source };
+    const sourceElementKey = osmElementKeyFromSource(source);
+    if (sourceElementKey) usedOsmElementKeys.add(sourceElementKey);
   }
   return record;
 }
@@ -685,7 +711,6 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
 
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
-  const preserveOsmEnrichment = !Array.isArray(osmElements) || osmElements.length === 0;
   const records = [];
   for (const candidate of candidates) {
     const { raw, province, name, city, ministryId, baseSlug, previousRecord } = candidate;
@@ -732,7 +757,7 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
       ...(urlAliases.length ? { urlAliases } : {}),
     };
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
-    if (preserveOsmEnrichment) preservePreviousOsmEnrichment(record, previousRecord);
+    preservePreviousOsmEnrichment(record, previousRecord, usedOsmElementKeys);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }
@@ -784,7 +809,6 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
   const usedIds = new Set();
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
-  const preserveOsmEnrichment = !Array.isArray(osmElements) || osmElements.length === 0;
   const records = [];
   for (const row of pdfRows || []) {
     const previousRecord = matchPreviousTicino(row, previous);
@@ -833,7 +857,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       record.fieldSources = { address: { url: addressOverride.url, sourceType: 'official', checkedAt: fetchedAt } };
     }
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
-    if (preserveOsmEnrichment) preservePreviousOsmEnrichment(record, previousRecord);
+    preservePreviousOsmEnrichment(record, previousRecord, usedOsmElementKeys);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }

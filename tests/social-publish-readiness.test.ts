@@ -114,9 +114,23 @@ describe('Reddit — the refusal that is not a wait', () => {
     expect(v.reason).toMatch(/Devvit/);
   });
 
-  it('reopens the classic path if the two values ever do appear', () => {
+  it('does not treat credentials alone as approval to use the Data API', () => {
     const v = classifyReddit({ env: { REDDIT_CLIENT_ID: 'id', REDDIT_CLIENT_SECRET: 'sec' } });
+    expect(v.state).toBe(PATH_REFUSED);
+    expect(v.reason).toMatch(/REDDIT_DATA_API_APPROVED=true/);
+  });
+
+  it('reopens the classic path only with explicit approval and credentials', () => {
+    const v = classifyReddit({ env: {
+      REDDIT_DATA_API_APPROVED: 'true',
+      REDDIT_CLIENT_ID: 'id',
+      REDDIT_CLIENT_SECRET: 'sec',
+    } });
     expect(v.state).toBe(READY);
+  });
+
+  it('reports missing credentials if approval is recorded but credentials are absent', () => {
+    expect(classifyReddit({ env: { REDDIT_DATA_API_APPROVED: 'true' } }).state).toBe(CREDENTIAL_MISSING);
   });
 
   it('treats whitespace-only credentials as absent', () => {

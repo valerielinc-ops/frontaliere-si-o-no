@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109737",
+      "sourceKey": "TG",
+      "sourceRecordId": "109737",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "2065",
+      "normalizedPlate": "TG2065",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-10-28T05:47:05.200Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109737",
+      "sourceFetchedAt": "2026-10-28T05:47:05.200Z",
+      "lastVerifiedAt": "2026-10-28T05:47:05.200Z",
+      "firstSeenAt": "2026-10-21T11:49:02.461Z",
+      "lastSeenAt": "2026-10-28T05:47:05.200Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "943bc22aaa41"
+    }
+  ]
+}

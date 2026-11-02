@@ -25,7 +25,7 @@ const routerDataAvailable = [
 const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const EXPECTED_LIVE_SLUGS = [
   '', 'crawler', 'automazioni', 'configurazione-crawler', 'aziende', 'candidature', 'servizio-candidature',
-  'redazione', 'giornalisti', 'newsletter', 'salute',
+  'offerte-dirette', 'redazione', 'giornalisti', 'newsletter', 'salute',
   'flag', 'registro',
 ] as const;
 const BASE_ADMIN_CLOUD_FUNCTIONS = [
@@ -169,7 +169,7 @@ describe('admin fase 1 section boundaries', () => {
 
   it('loads each live section as an independent lazy module', () => {
     const source = readFileSync(resolve(ADMIN_ROOT, 'AdminApp.tsx'), 'utf8');
-    for (const name of ['Oggi', 'Crawler', 'Automazioni', 'ConfigurazioneCrawler', 'Aziende', 'Candidature', 'Redazione', 'Giornalisti', 'Newsletter', 'Salute', 'Flag', 'Registro']) {
+    for (const name of ['Oggi', 'Crawler', 'Automazioni', 'ConfigurazioneCrawler', 'Aziende', 'Candidature', 'Redazione', 'Giornalisti', 'Newsletter', 'Salute', 'Flag', 'Registro', 'OfferteDirette']) {
       expect(source).toContain(`const ${name}Section = lazy(() => import('./sections/${name}Section'))`);
     }
   });
