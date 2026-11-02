@@ -2776,6 +2776,50 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // the slug), so we ALSO suppress at render: while this is true a search/company
  // view shows the loading skeleton instead of the provisional count + cards.
  const [fullLoadPending, setFullLoadPending] = useState(true);
+ const [jobBoardInteractionObserved, setJobBoardInteractionObserved] = useState(false);
+ const jobBoardInteractionSeenRef = useRef(false);
+ const catalogInteractionWaitersRef = useRef(new Set<() => void>());
+ const noteJobBoardInteraction = useCallback(() => {
+  if (jobBoardInteractionSeenRef.current) return;
+  jobBoardInteractionSeenRef.current = true;
+  setJobBoardInteractionObserved(true);
+  for (const resume of [...catalogInteractionWaitersRef.current]) resume();
+ }, []);
+ useEffect(() => {
+  const interactionSurface = '#main-content, main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
+  const interactionControl = 'input, select, textarea, nav button, [role="group"] button, [data-job-board-filter-control]';
+  const onIntent = (event: Event): void => {
+   if (!event.isTrusted) return;
+   const target = event.target;
+   const activeElement = document.activeElement;
+   const targetElement = target instanceof Element ? target : null;
+   const activeBoardControl = activeElement instanceof Element
+    && activeElement.closest(interactionSurface)
+    && activeElement.closest(interactionControl);
+   if (event.type === 'scroll') {
+    const pageScroll = (target === document || target === document.documentElement)
+     && document.querySelector(interactionSurface);
+    if (targetElement?.closest(interactionSurface) || pageScroll) noteJobBoardInteraction();
+    return;
+   }
+   if (event.type === 'wheel' || event.type === 'touchmove') {
+    if (targetElement?.closest(interactionSurface)) noteJobBoardInteraction();
+    return;
+   }
+   if (targetElement?.closest(interactionSurface)
+    && targetElement.closest(interactionControl)) {
+    noteJobBoardInteraction();
+    return;
+   }
+   if (event.type === 'keydown' && activeBoardControl) noteJobBoardInteraction();
+  };
+  if (navigator.userActivation?.hasBeenActive) noteJobBoardInteraction();
+  const eventTypes = ['pointerdown', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'] as const;
+  for (const type of eventTypes) document.addEventListener(type, onIntent, { capture: true, passive: true });
+  return () => {
+   for (const type of eventTypes) document.removeEventListener(type, onIntent, { capture: true });
+  };
+ }, [noteJobBoardInteraction]);
  // Flips true only once the terminal cross-locale (Tier 4) fallback has fully
  // settled — i.e. AFTER its fetch + the (heavy, ~2s) parse/dedup of the en/de/fr
  // indexes AND `setCrossLocaleJobs`. Set in the same batch as the results, so
@@ -3020,11 +3064,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // behind it. Output unchanged, only the scheduling.
  const deferredPopularity = useDeferredValue(popularity);
 
- // Popularity only changes the below-fold recommendation order. Fetch it when
- // that section approaches the viewport, after LCP and at idle, so the ~600 KB
- // map is not part of the initial listing request burst.
+ // Popularity only changes the below-fold recommendation order. Require a
+ // real interaction with the board as well as proximity to that section, so
+ // the ~600 KB map is not fetched for a reader who only needs the first page.
  useEffect(() => {
- if (!enablePersonalization) return;
+ if (!enablePersonalization || !jobBoardInteractionObserved) return;
  let cancelled = false;
  let observer: IntersectionObserver | null = null;
  let idleHandle: number | null = null;
@@ -3069,7 +3113,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (idleHandle !== null) w.cancelIdleCallback?.(idleHandle);
   if (fallbackTimer !== null) clearTimeout(fallbackTimer);
  };
- }, [enablePersonalization]);
+ }, [enablePersonalization, jobBoardInteractionObserved]);
 
  // Keep one previous-visit boundary stable across board remounts in this tab.
  // The snapshot expires 30 minutes after the last board mount. The existing
@@ -3603,33 +3647,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  */
  useEffect(() => {
  let cancelled = false;
- let cancelCatalogIdleWait: (() => void) | null = null;
+ let cancelCatalogInteractionWait: (() => void) | null = null;
  // Fresh load for this locale/canton → the authoritative index is pending again.
  setFullLoadPending(true);
 
- const waitForCatalogIdle = (): Promise<void> => new Promise((resolve) => {
+ const waitForCatalogInteraction = (): Promise<void> => new Promise((resolve) => {
+  if (jobBoardInteractionSeenRef.current) {
+   resolve();
+   return;
+  }
   let settled = false;
-  let idleHandle: number | null = null;
-  let timeoutHandle: ReturnType<typeof setTimeout> | null = null;
-  const idleWindow = window as unknown as {
-   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-   cancelIdleCallback?: (handle: number) => void;
-  };
   const finish = (): void => {
    if (settled) return;
    settled = true;
-   if (idleHandle !== null) idleWindow.cancelIdleCallback?.(idleHandle);
-   if (timeoutHandle !== null) clearTimeout(timeoutHandle);
-   if (cancelCatalogIdleWait === finish) cancelCatalogIdleWait = null;
+   catalogInteractionWaitersRef.current.delete(finish);
+   if (cancelCatalogInteractionWait === finish) cancelCatalogInteractionWait = null;
    resolve();
   };
-  cancelCatalogIdleWait = finish;
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleHandle = idleWindow.requestIdleCallback(finish, { timeout: 2500 });
-   if (!settled) timeoutHandle = setTimeout(finish, 3000);
-  } else {
-   timeoutHandle = setTimeout(finish, 250);
-  }
+  cancelCatalogInteractionWait = finish;
+  catalogInteractionWaitersRef.current.add(finish);
  });
 
  /**
@@ -3724,9 +3760,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  // First-page fast paint (#2580): on listing routes (no build-time seed),
  // fetch the tiny first-page slim asset first and paint page-1 cards before
- // the full index lands. After that first list reaches LCP and the browser is
- // idle, the authoritative shard supplies the complete filter/pagination
- // corpus. A miss (asset 404 / parse) leaves `jobsLoading` true and takes the
+ // the full index lands. The authoritative shard waits for a board
+ // interaction before supplying the complete
+ // filter/pagination corpus. A miss (asset 404 / parse) leaves `jobsLoading` true and takes the
  // existing full-index path immediately. Skipped for canton-scoped pages other than TI because the
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
  // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
@@ -3748,8 +3784,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firstPage = await loadFirstPageSlim();
  if (firstPage && !cancelled) {
  await finalize(scopeJobsToCanton(firstPage, targetCanton));
- await waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true });
- if (!cancelled) await waitForCatalogIdle();
+ if (!cancelled) await waitForCatalogInteraction();
  }
  }
  if (cancelled) return;
@@ -3828,7 +3863,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  void run();
  return () => {
  cancelled = true;
-  cancelCatalogIdleWait?.();
+  cancelCatalogInteractionWait?.();
  };
  }, [locale, initialFilterCanton]);
 
@@ -5912,8 +5947,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
+ // A filter already active while the catalog waits (URL, restored state) is
+ // expressed intent: release the catalog, or the guard below would hold the
+ // results on the skeleton until an interaction that may never come.
+ const filterAwaitsCatalog = fullLoadPending && (activeFilterCount > 0 || salaryRangeFilter.min !== null);
+ useEffect(() => {
+  if (filterAwaitsCatalog) noteJobBoardInteraction();
+ }, [filterAwaitsCatalog, noteJobBoardInteraction]);
  const resultsResolving = (
-  (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
+  (jobsLoading
+   || resultDerivationPending
+   || fallbackResultsResolving
+   || filterAwaitsCatalog)
+   && !clusterSeedApplies
  ) || returnVisitResultsPending;
  const initialContentReadyRef = useRef(false);
  useLayoutEffect(() => {
@@ -11920,6 +11966,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }`}
  aria-expanded={filtersExpanded}
  aria-label={t('jobBoard.filter.toggle') || 'Toggle filters'}
+ data-job-board-filter-control
  >
  <SlidersHorizontal className="w-4 h-4" />
  {t('jobBoard.filter.filters') || 'Filtri'}
@@ -11941,6 +11988,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }`}
  aria-label={t('jobBoard.filter.newOnly')}
  aria-pressed={showNewOnly}
+ data-job-board-filter-control
  >
  <Sparkles className="w-3.5 h-3.5" />
  {t('jobBoard.filter.newOnly')}
@@ -11969,6 +12017,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }`}
  aria-label={t('jobBoard.filter.saved')}
  aria-pressed={showSavedOnly}
+ data-job-board-filter-control
  >
  <Bookmark className={`w-3.5 h-3.5 ${savedJobs.length > 0 && !showSavedOnly ? 'fill-current text-accent' : ''}`} />
  {t('jobBoard.filter.saved')}
@@ -11988,6 +12037,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={resetAllFilters}
  className="ml-auto inline-flex items-center gap-1 px-3 py-2 min-h-[44px] text-xs font-semibold text-danger hover:text-danger hover:bg-danger-subtle rounded-lg transition-colors"
  aria-label={t('jobBoard.filter.resetAll') || 'Reset all filters'}
+ data-job-board-filter-control
  >
  <X className="w-3.5 h-3.5" />
  {t('jobBoard.filter.resetAll') || 'Reset'}

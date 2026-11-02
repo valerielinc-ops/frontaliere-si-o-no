@@ -56,7 +56,6 @@ import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 const JOB_BOARD_COMPANY_PREFIX_RE = /^(azienda|company|unternehmen|entreprise)-[a-z0-9-]+$/;
-const ARTICLE_TAKEOVER_IDLE_TIMEOUT_MS = 2500;
 
 function jobBoardCompanySlugFromPath(pathname: string): string | null {
  const slug = pathname.split('/').filter(Boolean).pop() || '';
@@ -427,20 +426,14 @@ export function useNavigationState(): NavigationState {
  if (!initialFrontaliereStaticArticle) resolvePendingArticle(r, initialRoute.locale);
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
- // Keep the complete static article as the owner through first paint. Start
- // SPA resolution only after load reaches an idle slice, or after a deliberate
- // interaction / related-article intent. The static snapshot remains visible
- // until BlogArticles reports that the matching article is fully renderable.
+ // Keep the complete static article as the owner until the reader asks for an
+ // interactive feature or approaches the related-article links. The snapshot
+ // already supplies the full article and remains visible until BlogArticles
+ // reports that its matching interactive view is fully renderable.
  useEffect(() => {
  if (!initialFrontaliereStaticArticle || typeof document === 'undefined') return;
- const idleWindow = window as Window & {
-  requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-  cancelIdleCallback?: (handle: number) => void;
- };
  let started = false;
  let disposed = false;
- let idleHandle: number | null = null;
- let idleTimerHandle: number | null = null;
  let observer: IntersectionObserver | null = null;
  const frames = new Set<number>();
  const timers = new Set<number>();
@@ -448,20 +441,11 @@ export function useNavigationState(): NavigationState {
   'main.seo-static-content article.ft-blog-article [data-article-related]',
  );
 
- const cancelIdleStart = () => {
-  if (idleHandle !== null) idleWindow.cancelIdleCallback?.(idleHandle);
-  idleHandle = null;
-  if (idleTimerHandle !== null) {
-   window.clearTimeout(idleTimerHandle);
-  }
-  idleTimerHandle = null;
- };
  const cancelScheduledWork = () => {
   frames.forEach((handle) => window.cancelAnimationFrame(handle));
   frames.clear();
   timers.forEach((handle) => window.clearTimeout(handle));
   timers.clear();
-  cancelIdleStart();
  };
  const afterNextPaint = (callback: () => void) => {
   if (disposed || started || initialArticleTakeoverCancelledRef.current) return;
@@ -503,7 +487,6 @@ export function useNavigationState(): NavigationState {
   }
  };
  const removeTriggers = () => {
-  window.removeEventListener('load', onLoad);
   window.removeEventListener('pointerdown', onInteraction);
   window.removeEventListener('keydown', onInteraction);
   document.removeEventListener('pointerover', onRelatedIntent, true);
@@ -536,30 +519,14 @@ export function useNavigationState(): NavigationState {
    setStaticOverlay(false);
   }
  };
- const scheduleIdleTakeover = () => afterNextPaint(() => {
-  if (disposed || started) return;
-  if (initialArticleTakeoverCancelledRef.current) return;
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleHandle = idleWindow.requestIdleCallback(startTakeover, { timeout: ARTICLE_TAKEOVER_IDLE_TIMEOUT_MS });
-  } else {
-   idleTimerHandle = window.setTimeout(startTakeover, 0);
-  }
- });
- const requestTakeoverAfterPaint = () => {
-  cancelIdleStart();
-  afterNextPaint(startTakeover);
- };
+ const requestTakeoverAfterPaint = () => afterNextPaint(startTakeover);
  const onRelatedIntent = (event: Event) => {
   const target = event.target;
   if (target instanceof Element && target.closest('[data-article-related]')) requestTakeoverAfterPaint();
  };
  const onInteraction = () => requestTakeoverAfterPaint();
- const onLoad = () => scheduleIdleTakeover();
-
  window.addEventListener('pointerdown', onInteraction, { once: true, passive: true });
  window.addEventListener('keydown', onInteraction, { once: true, passive: true });
- if (document.readyState === 'complete') scheduleIdleTakeover();
- else window.addEventListener('load', onLoad, { once: true });
  if (related && typeof IntersectionObserver !== 'undefined') {
   observer = new IntersectionObserver((entries) => {
    if (!entries.some((entry) => entry.isIntersecting)) return;
