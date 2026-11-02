@@ -636,6 +636,7 @@ describe('mapDetailPageToLocaleData', () => {
   it('uses a source category for a named title performer without treating the event title as a performer', () => {
     const named = mapDetailPageToLocaleData(
       buildDetailHtml({
+        categoryValue: 'Altri musica',
         jsonLd: JSON.stringify({
           '@type': 'Event',
           name: 'Hugo Lioret',

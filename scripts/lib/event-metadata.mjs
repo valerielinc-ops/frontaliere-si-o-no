@@ -437,6 +437,8 @@ const PERFORMER_NAME = String.raw`${PERFORMER_NAME_TOKEN}(?:\s+${PERFORMER_NAME_
 const PERFORMER_PERSON_NAME = String.raw`${PERFORMER_NAME_TOKEN}(?:\s+${PERFORMER_NAME_TOKEN}){1,3}`;
 const PERFORMER_GROUP_NAME_RE = /\b(?:string\s+quartet|trio|quartet|quartett|quartetto|ensemble|orchestra|orchester|band|duo)\s*$/iu;
 const PERFORMANCE_CATEGORY_RE = /\b(?:music(?:al)?|musik|musique|musica|pop|jazz|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|concert|konzert|cabaret|kabarett)\b/iu;
+const SOLO_PERFORMER_CATEGORY_RE = /\b(?:altri\s+musica(?:le)?|altre?\s+musiche?|other\s+music|autres?\s+musiques?|(?:andere|sonstige)\s+musik)\b/iu;
+const PERFORMER_TITLE_RESERVED_PHRASE_RE = /\bopen\s+air\b/iu;
 const PERFORMER_TITLE_RESERVED_WORD_RE = /^(?:music(?:al)?|musik|musique|musica|concert|konzert|concerto|festival|fest|gala|show|event|evento|veranstaltung|abend|evening|soiree|soirée|serata|party|opera|oper|operette|cabaret|kabarett|jazz|pop|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|dance|tanz|ballet|ballett|theater|theatre|fair|fiera|foire|messe|exhibition|ausstellung|exposition|conference|konferenz|summit|award(?:s)?|prize|preis)$/iu;
 
 function isCapitalizedPerformerName(value) {
@@ -452,6 +454,7 @@ function isSpecificPerformerTitle(value) {
   const name = sourceEntityName(value);
   return Boolean(name)
     && isCapitalizedPerformerName(name)
+    && !PERFORMER_TITLE_RESERVED_PHRASE_RE.test(name)
     && !name.split(/\s+/u).some((token) => PERFORMER_TITLE_RESERVED_WORD_RE.test(token));
 }
 
@@ -553,10 +556,11 @@ export function extractEventPeopleFromTitle(value, options = {}) {
   if (!text) return {};
   const explicitName = firstCaptured(text, TITLE_PERFORMER_PATTERNS);
   if (explicitName) return { performer: performerValue(splitPerformerNames(explicitName)) };
-  if (!PERFORMANCE_CATEGORY_RE.test(sourceText(options.category))) return {};
+  const category = sourceText(options.category);
+  if (!PERFORMANCE_CATEGORY_RE.test(category)) return {};
 
   const groupMatch = new RegExp(String.raw`^\s*(${PERFORMER_NAME}(?:\s+${PERFORMER_NAME_TOKEN}){0,1}\s+(?:[Ss]tring\s+[Qq]uartet|[Tt]rio|[Qq]uartet|[Qq]uartett|[Qq]uartetto|[Ee]nsemble|[Oo]rchestra|[Oo]rchester|[Bb]and|[Dd]uo))\s*$`, 'u').exec(text);
-  if (groupMatch && isCapitalizedPerformerName(groupMatch[1])) return { performer: performerValue([groupMatch[1]], true) };
+  if (groupMatch && isSpecificPerformerTitle(groupMatch[1])) return { performer: performerValue([groupMatch[1]], true) };
 
   const nameBeforeShow = new RegExp(String.raw`^\s*(${PERFORMER_PERSON_NAME})\s+[«“„"'][^.!?«„"']+[»”„"']\s*$`, 'u').exec(text)?.[1];
   if (nameBeforeShow && isSpecificPerformerTitle(nameBeforeShow)) return { performer: performerValue([nameBeforeShow]) };
@@ -571,7 +575,11 @@ export function extractEventPeopleFromTitle(value, options = {}) {
   }
 
   const personName = new RegExp(String.raw`^\s*(${PERFORMER_PERSON_NAME})\s*$`, 'u').exec(text)?.[1];
-  return personName && isSpecificPerformerTitle(personName) ? { performer: performerValue([personName]) } : {};
+  // Standalone names need a source category that identifies a music act;
+  // broad labels like "Music" also classify events titled "Open Air".
+  return personName && SOLO_PERFORMER_CATEGORY_RE.test(category) && isSpecificPerformerTitle(personName)
+    ? { performer: performerValue([personName]) }
+    : {};
 }
 
 function htmlAttribute(tag, name) {

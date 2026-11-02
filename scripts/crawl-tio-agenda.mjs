@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFileSync, realpathSync } from 'node:fs';
+import { isDeepStrictEqual } from 'node:util';
 /**
  * Crawler — Tio.ch Agenda (events for the whole canton of Ticino).
  *
@@ -133,12 +134,41 @@ export function parseTioEventIds(args) {
 
 export function selectTioEventsByIds(events, ids) {
   const byId = new Map(events.map((event) => [event.id, event]));
+  const requestedIds = new Set(ids.map((id) => eventStableId(SOURCE.key, id)));
   const selected = ids.map((id) => byId.get(eventStableId(SOURCE.key, id)));
   const missing = ids.filter((_, index) => !selected[index]);
   if (missing.length) {
     throw new Error(`[tio-agenda] event ID(s) not found in the existing source slice: ${missing.join(', ')}`);
   }
-  return selected;
+  // Keep the canonical source-slice order so equivalent --ids inputs do not
+  // create ordering-only diffs.
+  return events.filter((event) => requestedIds.has(event.id));
+}
+
+export function mergeTioEventsById(existingEvents, refreshedEvents) {
+  const refreshedById = new Map(refreshedEvents.map((event) => [event.id, event]));
+  const seen = new Set();
+  const changedEvents = [];
+  const events = existingEvents.map((previous) => {
+    const refreshed = refreshedById.get(previous.id);
+    if (!refreshed) return previous;
+    seen.add(previous.id);
+
+    const previousData = sanitizeEventForPublication(previous);
+    const refreshedData = sanitizeEventForPublication(refreshed);
+    delete previousData.crawledAt;
+    delete refreshedData.crawledAt;
+    if (isDeepStrictEqual(previousData, refreshedData)) {
+      return { ...refreshed, crawledAt: previous.crawledAt };
+    }
+    changedEvents.push(refreshed);
+    return refreshed;
+  });
+  const missing = refreshedEvents.filter((event) => !seen.has(event.id)).map((event) => event.id);
+  if (missing.length) {
+    throw new Error(`[tio-agenda] refreshed event(s) missing from the existing source slice: ${missing.join(', ')}`);
+  }
+  return { events, changedEvents };
 }
 
 function loadExistingTioEvents() {
@@ -544,8 +574,10 @@ async function main() {
   let pagesFail = 0;
 
   let events;
+  let existingTioEvents;
   if (requestedIds.length) {
-    events = selectTioEventsByIds(loadExistingTioEvents(), requestedIds)
+    existingTioEvents = loadExistingTioEvents();
+    events = selectTioEventsByIds(existingTioEvents, requestedIds)
       .map((event) => ({ ...event, crawledAt }));
     console.log(`[tio-agenda] targeted refresh of ${events.length} existing event(s)`);
   } else {
@@ -643,11 +675,28 @@ async function main() {
     return;
   }
 
-  // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
-  // invocation never pollutes the tracked cache files with speculative data.
-  saveGeocodeCache(geocodeCache);
-  stripDescriptionTranslationCache(translationCache);
-  saveEventTitleTranslationCache(translationCache);
+  let eventsToWrite = translatedEvents;
+  if (requestedIds.length) {
+    const update = mergeTioEventsById(existingTioEvents, translatedEvents);
+    if (!update.changedEvents.length) {
+      console.log('[tio-agenda] targeted refresh unchanged; source slice and shared caches left untouched');
+      return;
+    }
+    eventsToWrite = update.changedEvents;
+  }
+
+  // Targeted historical refreshes update only the event slice. Their shared
+  // geo/translation caches stay untouched so the cache-publisher step remains
+  // a no-op for this operation.
+  if (requestedIds.length) {
+    console.log('[tio-agenda] targeted refresh leaves shared geo/translation caches untouched');
+  } else {
+    // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
+    // invocation never pollutes the tracked cache files with speculative data.
+    saveGeocodeCache(geocodeCache);
+    stripDescriptionTranslationCache(translationCache);
+    saveEventTitleTranslationCache(translationCache);
+  }
 
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
   const total = mergeEventsIntoSlice({
@@ -655,13 +704,13 @@ async function main() {
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
-    freshEvents: translatedEvents,
+    freshEvents: eventsToWrite,
     goneIds: [],
     crawledAt,
     detailFailureIds,
     detailAttemptCount,
   });
-  console.log(`[tio-agenda] merged ${translatedEvents.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[tio-agenda] merged ${eventsToWrite.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so
