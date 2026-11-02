@@ -99,6 +99,15 @@ describe('singleton script recovery', () => {
     w.document.scripts[0].dispatchEvent(new w.Event('load'));
     expect(loader.state()).toBe('loaded');
   });
+  it('recovers a removed bootstrap without resetting the attempt budget', () => {
+    const loader = local(createAdScriptLoader)('adsense', src, () => true, emit);
+    loader.load(); w.document.head.innerHTML = ''; loader.load();
+    expect(loader.attempts()).toBe(2); expect(w.document.scripts).toHaveLength(1);
+    w.document.head.innerHTML = ''; loader.load();
+    w.document.head.innerHTML = ''; loader.load();
+    expect(loader.attempts()).toBe(3); expect(w.document.scripts).toHaveLength(0);
+    expect(loader.state()).toBe('failed');
+  });
   it('bounds retries including repeated online events', () => {
     const loader = local(createAdScriptLoader)('adsense', src, () => true, emit);
     loader.load(); w.document.scripts[0].dispatchEvent(new w.Event('error')); vi.advanceTimersByTime(2000);

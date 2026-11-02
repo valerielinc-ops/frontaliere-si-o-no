@@ -51,9 +51,16 @@ export function createAdScriptLoader(
   };
   function load() {
     if (disposed || !canLoad()) return;
+    // A document/shell reset can remove our tag before it finishes. Reuse the
+    // same attempt budget, but do not keep a detached node as a permanent latch.
+    if (script?.src && !script.isConnected && !ready()) {
+      clearTimeout(timer); clearTimeout(retryTimer); script = null;
+      publish('idle', 'script_removed');
+    }
     if (state === 'loaded' || state === 'loading' || state === 'waiting_response') return;
     if (attempts > 0 && blocked()) { publish('failed', 'block_signal'); return; }
-    if (attempts >= 3 || navigator.onLine === false) return;
+    if (attempts >= 3) { publish('failed', 'attempt_budget'); return; }
+    if (navigator.onLine === false) return;
     clearTimeout(retryTimer);
     if (ready()) { publish('loaded'); return; }
     let existing = Array.from(document.scripts).find((el) => el.src.split('?')[0] === src.split('?')[0]);
