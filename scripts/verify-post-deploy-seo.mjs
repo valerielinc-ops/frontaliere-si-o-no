@@ -94,6 +94,12 @@ function normalizedPublicUrl(value) {
 export function isLikelyJobDetailUrl(pageUrl, sitemapSignals = null) {
   const normalized = normalizedPublicUrl(pageUrl);
   if (!normalized) return false;
+  // The shared route contract is a hard negative for known landing pages.
+  // A sitemap signal can confirm an eligible detail route, but it must never
+  // promote an editorial/search landing merely because a later producer pass
+  // added a truthful <lastmod> to the landing's sitemap entry.
+  const routeDetailSignal = isJobDetailPath(normalized, SITE_URL);
+  if (!routeDetailSignal) return false;
   if (sitemapSignals instanceof Map && sitemapSignals.has(normalized)) {
     return sitemapSignals.get(normalized) === true;
   }
@@ -101,13 +107,14 @@ export function isLikelyJobDetailUrl(pageUrl, sitemapSignals = null) {
   // Keep the conservative fallback aligned with the closed-loop sampler.
   // Editorial/sector hubs use the same two-segment shape as job details, but
   // they intentionally carry CollectionPage/ItemList rather than JobPosting.
-  return isJobDetailPath(normalized, SITE_URL);
+  return routeDetailSignal;
 }
 
 function hasAuthoritativeSitemapDetailSignal(pageUrl, sitemapSignals) {
   const normalized = normalizedPublicUrl(pageUrl);
   return Boolean(
     normalized
+      && isJobDetailPath(normalized, SITE_URL)
       && sitemapSignals instanceof Map
       && sitemapSignals.get(normalized) === true,
   );
