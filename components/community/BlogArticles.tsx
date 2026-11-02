@@ -1306,6 +1306,17 @@ function BlogArticlesContent({
  } | null>(null);
  const registryAttemptComplete = registryAttemptState?.key === registryAttemptKey
   && registryAttemptState.status === 'complete';
+ // Only the detail URL that arrived with an owned static snapshot can use
+ // that snapshot as the initial overlay fast path. A later client navigation
+ // must resolve its own registry record even if it reuses this component.
+ const initialStaticArticleKeyRef = useRef(
+  deferUntilArticleReady && bodyRequestKey ? bodyRequestKey : null,
+ );
+ useEffect(() => {
+  if (!initialStaticArticleKeyRef.current && deferUntilArticleReady && bodyRequestKey) {
+   initialStaticArticleKeyRef.current = bodyRequestKey;
+  }
+ }, [bodyRequestKey, deferUntilArticleReady]);
  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
  const [articles, setArticles] = useState<Article[]>([]);
  const [cantonRuntimeIds, setCantonRuntimeIds] = useState<ReadonlySet<string>>(new Set());
@@ -1412,14 +1423,11 @@ function BlogArticlesContent({
   // whenever the recent window cannot cover the section total.
   ? fetchArticleOverlay(section, getLocale(), 0)
   : Promise.resolve([] as OverlayArticle[]);
- const articleDataPromise: Promise<{ data: Article[]; overlay: OverlayArticle[] }> = isCanton
-  ? cantonOverlayPromise.then((overlay) => ({
-   overlay,
-   data: overlay.map(articleFromOverlay),
-  }))
-  : (section === 'svizzera'
+ const articlesPromise: Promise<{ data: Article[]; overlay: OverlayArticle[] }> = isCanton
+  ? cantonOverlayPromise.then((overlay) => ({ data: overlay.map(articleFromOverlay), overlay }))
+  : section === 'svizzera'
    ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => ({ data: m.SWISS_ARTICLES, overlay: [] }))
-   : Promise.resolve({ data: ARTICLES, overlay: [] }));
+   : Promise.resolve(ARTICLES).then((data) => ({ data, overlay: [] }));
  const metadataPromise = isCanton
   ? Promise.all([loadBlogMeta(section), loadBlogMeta('frontaliere')])
   : loadBlogMeta(section);
@@ -1428,7 +1436,7 @@ function BlogArticlesContent({
  // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532
  // failure behavior) instead of blocking the whole blog render.
  isCanton ? Promise.resolve() : preloadBlogData().catch(() => {}),
- articleDataPromise,
+ articlesPromise,
  ]).then(async ([, , payload]) => {
  if (cancelled) return;
  const { data, overlay } = payload;
@@ -1478,14 +1486,20 @@ function BlogArticlesContent({
  setArticles(listArticles);
  setBlogReady(true);
 
- // A detail page renders its complete body from the local registry or the
- // exact runtime article record that resolved its URL. The mutable publisher
- // index only changes archive and card lists, so keep those requests off the
- // detail route. When the reader opens the archive, this effect runs again
- // and performs the same freshness-checked overlay merge there.
+ // A valid first static detail snapshot already owns the page while React
+ // verifies its matching local record and body. Keep the overlay off that
+ // first paint, but look up details missing from the registry and every later
+ // client navigation; otherwise a newly published article can never recover
+ // from its own URL.
  if (selectedArticle) {
-  setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
-  return;
+  const hasSelectedArticleRecord = seededArticles.some((article) => article.id === selectedArticle);
+  const isInitialStaticSnapshot = deferUntilArticleReady
+   && initialStaticArticleKeyRef.current === `${section}:${locale}:${selectedArticle}`
+   && registryRetry === 0;
+  if (hasSelectedArticleRecord && isInitialStaticSnapshot) {
+   setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+   return;
+  }
  }
 
  // Articles published since this bundle was built (issue #4974 item 3).
@@ -1579,6 +1593,12 @@ function BlogArticlesContent({
  const bodySource = result?.status ?? 'legacy';
  if (bodySource === 'missing') {
   setBodyLoadIssueState({ key: requestBodyKey, issue: 'missing', handoff: true });
+  // The initial static owner may have let the registry lookup take its fast
+  // path. A missing body invalidates that snapshot for this article, so retry
+  // the index lookup before exposing the retry state.
+  if (initialStaticArticleKeyRef.current === requestBodyKey) {
+   setRegistryRetry((value) => value + 1);
+  }
   return;
  }
  // The body chunks are compiled in, so an article published after this
@@ -1606,6 +1626,9 @@ function BlogArticlesContent({
  if (bodySource === 'legacy'
   && needsArticleBodyRecovery(collectArticleBodySegments(selectedArticle, translate))) {
   setBodyLoadIssueState({ key: requestBodyKey, issue: 'missing', handoff: false });
+  if (initialStaticArticleKeyRef.current === requestBodyKey) {
+   setRegistryRetry((value) => value + 1);
+  }
   return;
  }
  if (!cancelled) setReadyBodyKey(requestBodyKey);
@@ -2428,6 +2451,7 @@ function BlogArticlesContent({
        setBodyLoadIssueState(null);
        setReadyBodyKey(null);
        setBodyRetry((value) => value + 1);
+       setRegistryRetry((value) => value + 1);
       }}
      >
       {copy.retry}
