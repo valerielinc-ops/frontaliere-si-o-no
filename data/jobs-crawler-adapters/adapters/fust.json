@@ -10,6 +10,17 @@
     "jsonld"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/lehrstelle-detailhandel-consumer-electronics-efz/39802c96-0250-4f8c-8ae4-220dfd2259b0": {
+      "location": "Suhr",
+      "canton": "AG",
+      "title": "Lehrstelle Detailhandel Consumer Electronics EFZ",
+      "sourceId": "10237486",
+      "company": "Fust",
+      "contract": "A tempo determinato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/9b170607-8546-4f88-a83a-97f8c5a62f85": {
       "location": "Winterthur",
       "canton": "ZH",
@@ -736,17 +747,6 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/7fa783c3-02b0-4e26-8372-88e695c1c1da": {
-      "location": "Suhr",
-      "canton": "AG",
-      "title": "Verkaufsberater:in für Elektrohaushalt & Multimedia",
-      "sourceId": "10216336",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/c484b438-41f9-4102-a871-cd30d38ec8a1": {
       "location": "Rapperswil-Jona",
       "canton": "SG",
@@ -947,8 +947,9 @@
     }
   },
   "notes": "Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch expose JSON-LD JobPosting and source workplace metadata.",
-  "updatedAt": "2026-11-01T22:10:38.368Z",
+  "updatedAt": "2026-11-02T11:23:54.856Z",
   "seedDetailUrls": [
+    "https://jobs.fust.ch/offene-stellen/lehrstelle-detailhandel-consumer-electronics-efz/39802c96-0250-4f8c-8ae4-220dfd2259b0",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/9b170607-8546-4f88-a83a-97f8c5a62f85",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/da8070ea-9eaf-4691-b806-13df477bf874",
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/6e9bab01-71b7-4fa5-9317-f2c2f5478d32",
@@ -1015,7 +1016,6 @@
     "https://jobs.fust.ch/posti-vacanti/falegname-montatore-di-cucine-bagni/e2ca8101-cc8b-4acc-bfc8-5049e75eb56b",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/5ca4eb2e-e35b-423c-beef-300c6b0eca79",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/81609100-7555-4c70-873a-3ba95f4457f4",
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/7fa783c3-02b0-4e26-8372-88e695c1c1da",
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/c484b438-41f9-4102-a871-cd30d38ec8a1",
     "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrogrossgeraete/3b0804de-003e-44fa-8283-92126c23226f",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/c2cf94be-1343-44f9-8954-fb6157769c55",
