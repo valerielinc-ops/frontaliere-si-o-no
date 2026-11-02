@@ -401,8 +401,8 @@ const PROMPT_TITLE_LABEL = /(?<![\p{L}\p{N}])(?:TITOLO\s+(?:DELL['’]?ARTICOLO|
 const PROMPT_TITLE_LINE = /^[ \t]*#{0,6}[ \t]*(?:\*\*)?(?:titolo\s+(?:dell['’]?articolo|articolo)|article\s+title|title\s+of\s+the\s+article|title\s+article|titel\s+des\s+artikels|artikel-?titel|titre\s+(?:de\s+l['’]artic\S*|article))(?:\*\*)?[ \t]*(?::[ \t]*)?$\n?/gimu;
 
 /**
- * Toglie l'etichetta del prompt e il titolo solo quando e' noto. Senza il titolo
- * non elimina il testo successivo: potrebbe essere prosa editoriale valida.
+ * Toglie l'etichetta del prompt. Se apre una riga propria, anche il titolo sulla
+ * stessa riga e' eco del prompt; altrove il testo successivo resta se ignoto.
  */
 export function stripPromptTitleLabels(text, { title = '' } = {}) {
   let removed = 0;
@@ -422,7 +422,7 @@ export function stripPromptTitleLabels(text, { title = '' } = {}) {
     const standaloneLabel = /^[ \t]*(?:#{0,6}[ \t]*(?:\*\*)?)?$/.test(linePrefix);
     let cut = afterLabel;
     if (title && rest.startsWith(title)) cut = afterLabel + title.length;
-    else if (standaloneLabel && !rest.trim()) cut = lineEnd;
+    else if (standaloneLabel) cut = lineEnd;
     const before = value.slice(0, start).replace(/[ \t]+$/, '');
     const after = value.slice(cut);
     if (cut === lineEnd) {
@@ -608,10 +608,10 @@ function isHealthTaxClaim(sentence, locale) {
   if (HEALTH_TAX_EXEMPT[locale].test(sentence)) return false;
   if (SWISS_FRANC_AMOUNT.test(sentence) || YEARLY_EURO[locale].test(sentence)) return true;
   if (hasMonthlyAmountOutOfRange(sentence, locale)) return true;
-  return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some(([, value]) => {
-    const percent = Number(value.replace(',', '.'));
-    return percent < 3 || percent > 6;
-  });
+  // La regola verificata e' il range esplicito 3%-6%, non un qualsiasi importo
+  // compreso fra gli estremi (per esempio una singola aliquota del 5%).
+  return [...sentence.matchAll(PERCENT_OF_PAY[locale])]
+    .some(([, value]) => !['3', '6'].includes(value.replace(',', '.')));
 }
 
 /** Un importo o una base non verificabile si toglie: non c'e' un valore da mettere. */
