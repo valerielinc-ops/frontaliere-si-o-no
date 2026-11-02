@@ -72,7 +72,9 @@ describe('portal candidate question contract', () => {
   });
 
   it('does not ask the candidate for a proven optional field wrongly called missing by the planner', () => {
-    expect(portalRequirementsFromMissingRequired([{ ...field, required: false }], [planned])).toEqual({ questions: [], documents: [] });
+    expect(portalRequirementsFromMissingRequired([{ ...field, required: false }], [planned])).toEqual({
+      questions: [], documents: [], reduction: { kind: 'empty' },
+    });
   });
 
   it('retains a live rejected field without a mandatory marker', () => {
