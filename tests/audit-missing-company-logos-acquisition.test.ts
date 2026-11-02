@@ -12,6 +12,7 @@ import {
 import {
   downloadForKey,
   extractOfficialLogoImages,
+  metadataFromJobs,
   shouldAcquireTarget,
 } from '../scripts/download-missing-company-logos.mjs';
 
@@ -103,18 +104,28 @@ describe('missing company-logo acquisition', () => {
     expect(domainCandidates('comune-di-esempio', {
       sourceBackedCompanyDomains: new Set(['jobs.ch']),
     }, { fromAudit: true })).toEqual([]);
+    const builtMetadata = metadataFromJobs([{
+      company: 'Comune di Esempio',
+      companyKey: 'comuni-ticino',
+      municipalityKey: 'comune-di-esempio',
+      companyDomain: 'comune.example',
+      source: 'Comune di Esempio Dedicated Parser (albo + PDF)',
+    }]).get('comune-di-esempio');
+    expect(builtMetadata).toBeDefined();
+    expect([...builtMetadata!.sourceBackedCompanyDomains]).toEqual(['comune.example']);
 
     const originalFetch = globalThis.fetch;
     globalThis.fetch = async (url) => {
-      if (url === 'https://comune.example/') {
-        return new Response('<link rel="icon" href="https://comune.example/logo.png">', {
+      const requestUrl = String(url);
+      if (requestUrl === 'https://comune.example/') {
+        return new Response('<link rel="apple-touch-icon" href="https://comune.example/logo.png">', {
           headers: { 'content-type': 'text/html' },
         });
       }
-      if (url === 'https://comune.example/logo.png') {
+      if (requestUrl === 'https://comune.example/logo.png') {
         return new Response(pngBytes(), { headers: { 'content-type': 'image/png' } });
       }
-      throw new Error(`unexpected network probe: ${url}`);
+      throw new Error(`unexpected network probe: ${requestUrl}`);
     };
     try {
       const result = await downloadForKey('comune-di-esempio', metadata, { fromAudit: true });

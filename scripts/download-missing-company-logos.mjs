@@ -85,7 +85,7 @@ function jobKey(job) {
   return scopedEmployerKey(job) || slugify(job?.company || job?.employer || '');
 }
 
-function metadataFromJobs(jobs) {
+export function metadataFromJobs(jobs) {
   const metadata = new Map();
   for (const job of jobs) {
     const key = jobKey(job);
