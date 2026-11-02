@@ -22,7 +22,7 @@ import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES, stableSlugHash, isSelfCanonicalPreviousSlug } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
-import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
+import { buildUniqueSuffixOwnerMap, resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { decontaminateEntries, decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -125,18 +125,7 @@ function buildSliceOwnershipIndex(sliceEntries) {
   const ownersByEntry = new Map();
   for (const entry of entries) {
     const owners = new Map(globallyUnique);
-    const sameSliceOwners = new Map();
-    const sameSliceAmbiguous = new Set();
-    for (const job of sliceEntryJobs(entry)) {
-      const hash = stableSlugHash(job);
-      if (!hash || sameSliceAmbiguous.has(hash)) continue;
-      if (sameSliceOwners.has(hash)) {
-        sameSliceOwners.delete(hash);
-        sameSliceAmbiguous.add(hash);
-        continue;
-      }
-      sameSliceOwners.set(hash, job);
-    }
+    const sameSliceOwners = buildUniqueSuffixOwnerMap(sliceEntryJobs(entry));
     for (const [hash, job] of sameSliceOwners) owners.set(hash, job);
     ownersByEntry.set(entry, owners);
   }
