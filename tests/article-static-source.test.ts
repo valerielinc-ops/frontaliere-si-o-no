@@ -1,3 +1,4 @@
+import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -279,3 +280,21 @@ describe('static article TypeScript source reader', () => {
     expect([...metadata.excerpts]).toEqual([['alpha', 'A short summary.']]);
   });
 });
+
+
+it('retains decoded article fields within a bounded heap', () => {
+  const moduleUrl = new URL('../packages/articles/engine/shared/staticSourceAst.mjs', import.meta.url).href;
+  const script = `
+    import assert from 'node:assert/strict';
+    const { decodeStaticString } = await import(${JSON.stringify(moduleUrl)});
+    const raw = 'a'.repeat(1024 * 1024);
+    const values = [];
+    for (let i = 0; i < 8; i++) values.push(decodeStaticString(raw + i, "'"));
+    for (let i = 0; i < 8; i++) assert.equal(values[i], raw + i);
+  `;
+  const result = spawnSync(process.execPath, [
+    '--max-old-space-size=128', '--input-type=module', '-e', script,
+  ], { encoding: 'utf8', timeout: 15_000 });
+  expect(result.error).toBeUndefined();
+  expect(result.status, result.stderr).toBe(0);
+}, 20_000);

@@ -376,7 +376,25 @@ for (const spec of specs) {
       observedDetailsByUrl = adapterRows.observedDetailsByUrl;
       titleEvidenceByUrl = adapterRows.titleEvidenceByUrl;
     } else {
-      const observed = await observeSpecInProduction(spec, productionRuntimeOptionsFor(spec) || {});
+      const observed = await observeSpecInProduction(spec, {
+        ...(productionRuntimeOptionsFor(spec) || {}),
+        // Existing specs predate the explicit field. The candidate store is
+        // the verified TRACE identity for this run; synthesis persists the
+        // same value for new specs. The runtime still rejects shared ATS
+        // domains and agency candidates before fetching an official site.
+        employerSiteLocationFallback: spec.mode !== 'free-text',
+        ...(candidate?.domain || spec.verifiedEmployerDomain
+          ? { verifiedEmployerDomain: candidate?.domain || spec.verifiedEmployerDomain }
+          : {}),
+        employerAgencyContext: {
+          name: candidate?.name || spec.companyName,
+          companyName: spec.companyName,
+          secoEmployerName: candidate?.secoEmployerName,
+          agency: candidate?.agency,
+          isAgency: candidate?.isAgency,
+          staffingAgency: candidate?.staffingAgency,
+        },
+      });
       vacancies = observed.vacancies;
       runtimeObservation = observed.observation;
       observedDetailsByUrl = observed.detailPagesByUrl;

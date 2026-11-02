@@ -7,7 +7,8 @@ export type AssistedApplicationCandidateStatus =
   | 'needs_candidate'
   | 'under_review'
   | 'submitted'
-  | 'refunded';
+  | 'refunded'
+  | 'withdrawn';
 
 export interface CandidateAssistedApplication {
   orderId: string;
@@ -36,6 +37,7 @@ const CANDIDATE_STATUSES = new Set<AssistedApplicationCandidateStatus>([
   'under_review',
   'submitted',
   'refunded',
+  'withdrawn',
 ]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {

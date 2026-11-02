@@ -24,6 +24,10 @@ import {
   getCantonPostalFallback,
   getDefaultCantonLocationFallback,
 } from '../canton-postal-fallback.mjs';
+import { scanMarkupStartTags, scanStartTags, readAttr } from '../html-attr.mjs';
+import { decodeEntities } from './entities.mjs';
+import { normalizeHost, registrableDomain } from './registrable.mjs';
+import { NON_PLATFORM_HOSTS } from './config.mjs';
 
 export const JOB_LOCATION_CLASS_TOKENS = new Set([
   'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
@@ -37,6 +41,10 @@ export const JOB_LOCATION_CLASS_TOKENS = new Set([
 // is only authoritative when the caller has already established that wrapper;
 // a standalone value span is common in search cards and page chrome.
 export const JOB_LOCATION_VALUE_CLASS_TOKENS = new Set(['jobgeolocation']);
+
+const OFFICIAL_LOCATION_LINK_RX = /(?:impressum|imprint|contact|kontakt|contatti?|contactez|adresse|address|indirizzo|chi[\s_-]*siamo|about[\s_-]*(?:us|company)?)/iu;
+const OFFICIAL_LOCATION_SECTION_RX = /(?:impressum|imprint|contact|kontakt|contatti?|contactez|adresse|address|indirizzo|chi[\s_-]*siamo|about[\s_-]*(?:us|company)?)/iu;
+const AGENCY_EMPLOYER_RX = /(?:\bpersonal(?:beratung|vermittlung|dienstleistungen|leasing|agentur)?\b|placement(?:\s+de\s+personnel)?|staffing(?:\s+agency)?|(?:employment|recruitment|work|personnel|job|talent)\s+agency|agency\s+(?:for\s+)?(?:employment|recruitment|staffing|work|personnel|jobs?)|agenzia\s+(?:per\s+il\s+lavoro|di\s+collocamento|interinale)|agence\s+(?:de\s+placement|de\s+recrutement|d['’]?emploi)|\b(?:adecco|manpower|randstad|kelly\s+services|pemsa|coopers|anker\s+swiss|flexsis|interiman|sintex|axxon(?:\s+services)?|trenkwalder)\b|\binterim\b)/iu;
 
 /**
  * Structured location evidence selected by the shared resolver. Known address
@@ -607,11 +615,20 @@ export function locationEvidenceCandidates(record = {}) {
  * @returns {{
  *   geography: { location: string, canton: string, addressCountry?: string } | null,
  *   explicitlyForeign: boolean,
+ *   hasDeclaredLocation: boolean,
  *   candidate: LocationEvidenceCandidate,
  * }}
  */
 export function evaluateSourceBackedSwissGeography(candidates = []) {
   let explicitlyForeign = false;
+  const hasDeclaredLocation = (Array.isArray(candidates) ? candidates : []).some((candidate) => (
+    String(candidate?.location || '').trim()
+      || String(candidate?.addressLocality || '').trim()
+      || String(candidate?.addressRegion || '').trim()
+      || String(candidate?.postalCode || '').trim()
+      || String(candidate?.streetAddress || '').trim()
+      || String(candidate?.addressCountry || candidate?.country || '').trim()
+  ));
   for (const candidate of candidates) {
     const location = String(candidate?.location || '').trim();
     const country = String(candidate?.addressCountry || candidate?.country || '').trim();
@@ -641,14 +658,14 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
       continue;
     }
     const geography = resolveSourceBackedSwissGeography(candidate, country);
-    if (geography) return { geography, explicitlyForeign, candidate };
+    if (geography) return { geography, explicitlyForeign, hasDeclaredLocation, candidate };
   }
-  return { geography: null, explicitlyForeign, candidate: EMPTY_LOCATION_EVIDENCE };
+  return { geography: null, explicitlyForeign, hasDeclaredLocation, candidate: EMPTY_LOCATION_EVIDENCE };
 }
 
-/** @returns {{ geography: null, explicitlyForeign: false, candidate: LocationEvidenceCandidate }} */
+/** @returns {{ geography: null, explicitlyForeign: false, hasDeclaredLocation: false, candidate: LocationEvidenceCandidate }} */
 function noGeography() {
-  return { geography: null, explicitlyForeign: false, candidate: EMPTY_LOCATION_EVIDENCE };
+  return { geography: null, explicitlyForeign: false, hasDeclaredLocation: false, candidate: EMPTY_LOCATION_EVIDENCE };
 }
 
 // `1201 Genève`, `CH-8003 Zürich`: the same pair `renderedPostalAddressCandidates()`
@@ -795,13 +812,14 @@ export function variablePostalGeography(candidates = [], boilerplate = null) {
 /**
  * @param {any} [detail]
  * @param {any} [listing]
- * @param {{ postalTextCandidates?: LocationEvidenceCandidate[], boilerplatePostalLocations?: string[]|null }} [pageContext]
+ * @param {{ postalTextCandidates?: LocationEvidenceCandidate[], boilerplatePostalLocations?: string[]|null, officialEmployerSiteLocation?: { geography?: any|null, candidate?: any|null, evidence?: any|null } }} [pageContext]
  *   free-text evidence for THIS page plus the employer's boilerplate, both
  *   produced by the caller that saw the other pages. Absent (the default), the
  *   free-text tier stays off and behaviour is exactly what it was.
  * @returns {{
  *   geography: { location: string, canton: string, addressCountry?: string } | null,
  *   explicitlyForeign: boolean,
+ *   hasDeclaredLocation: boolean,
  *   candidate: LocationEvidenceCandidate,
  * }}
  */
@@ -812,7 +830,7 @@ export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}, 
   // rejected signal cannot be silently overwritten by a generic listing
   // fallback re-deriving a different geography.
   if (detail?.authoritativeLocationConflict || detail?.locationGateRejected) {
-    return { geography: null, explicitlyForeign: true, candidate: EMPTY_LOCATION_EVIDENCE };
+    return { geography: null, explicitlyForeign: true, hasDeclaredLocation: true, candidate: EMPTY_LOCATION_EVIDENCE };
   }
   const detailDecision = evaluateSourceBackedSwissGeography(locationEvidenceCandidates(detail));
   if (detailDecision.geography || detailDecision.explicitlyForeign) return detailDecision;
@@ -825,7 +843,27 @@ export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}, 
     pageContext?.postalTextCandidates || [],
     pageContext?.boilerplatePostalLocations ?? null,
   );
-  return textDecision.geography ? textDecision : listingDecision;
+  if (textDecision.geography || textDecision.explicitlyForeign) return textDecision;
+  // The employer's official address is a last-resort proof only. Any
+  // location declared by the vacancy, even one the Swiss resolver cannot map,
+  // blocks this tier: an offer-specific workplace outranks the employer's
+  // single-site address and an unknown must remain unknown.
+  const offerDeclared = detailDecision.hasDeclaredLocation
+    || listingDecision.hasDeclaredLocation
+    || textDecision.hasDeclaredLocation;
+  const official = pageContext?.officialEmployerSiteLocation;
+  if (!offerDeclared && official?.geography && official?.candidate) {
+    return {
+      geography: official.geography,
+      explicitlyForeign: false,
+      hasDeclaredLocation: false,
+      candidate: official.candidate,
+    };
+  }
+  return {
+    ...listingDecision,
+    hasDeclaredLocation: offerDeclared,
+  };
 }
 
 function structuredText(value) {
@@ -885,4 +923,377 @@ export function schemaJobLocationCandidates(jobLocation) {
     }
   }
   return candidates;
+}
+
+function plainOfficialPageText(html = '') {
+  return decodeEntities(String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<br\s*\/?\s*>/gi, '\n')
+    .replace(/<[^>]+>/g, ' '))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Return the inner HTML of one element without letting a nested element with
+ * the same tag terminate the block early. This is intentionally local to the
+ * official-site proof: the block is only used to read address-shaped text in
+ * an already selected footer/contact/impressum container.
+ *
+ * @param {string} html
+ * @param {{ name: string, end: number }} opening
+ * @param {number} [cap]
+ * @returns {string}
+ */
+function balancedOfficialElement(html, opening, cap = 30000) {
+  const rest = String(html || '').slice(opening.end, opening.end + cap);
+  const tagRx = new RegExp(`<(/?)${opening.name}\\b[^>]*>`, 'gi');
+  let depth = 1;
+  let match;
+  while ((match = tagRx.exec(rest))) {
+    if (match[1]) depth -= 1;
+    else depth += 1;
+    if (depth === 0) return rest.slice(0, match.index);
+  }
+  return rest;
+}
+
+function officialPageKind(pageUrl = '', hint = '') {
+  const hinted = String(hint || '').trim().toLowerCase();
+  if (hinted) return hinted;
+  let pathname = '';
+  try { pathname = new URL(pageUrl).pathname; } catch { /* keep empty */ }
+  if (/impressum|imprint/i.test(pathname)) return 'impressum';
+  if (/contact|kontakt|contatt|contactez|adresse|address|indirizzo/i.test(pathname)) return 'contact';
+  return 'homepage';
+}
+
+function officialStructuralBlocks(html = '', pageUrl = '', pageKind = '') {
+  const kind = officialPageKind(pageUrl, pageKind);
+  const blocks = [];
+  const seen = new Set();
+  for (const opening of scanMarkupStartTags(html)) {
+    const attributes = [
+      readAttr(opening.raw, ['class', 'id', 'aria-label', 'data-testid']),
+    ].join(' ');
+    const structural = opening.name === 'footer' || opening.name === 'address'
+      || OFFICIAL_LOCATION_SECTION_RX.test(attributes)
+      || (kind !== 'homepage' && ['main', 'article', 'body'].includes(opening.name));
+    if (!structural) continue;
+    const block = balancedOfficialElement(html, opening);
+    const key = `${opening.index}:${opening.name}:${block.length}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const labelled = OFFICIAL_LOCATION_SECTION_RX.test(attributes);
+    blocks.push({
+      html: block,
+      kind: labelled
+        ? (/(?:impressum|imprint)/iu.test(attributes) ? 'impressum' : 'contact')
+        : opening.name === 'footer' ? 'footer' : opening.name === 'address' ? 'address' : kind,
+    });
+  }
+  return blocks;
+}
+
+function jsonLdNodes(value, out = []) {
+  if (Array.isArray(value)) {
+    for (const item of value) jsonLdNodes(item, out);
+    return out;
+  }
+  if (!value || typeof value !== 'object') return out;
+  out.push(value);
+  for (const nested of Object.values(value)) {
+    if (nested && typeof nested === 'object') jsonLdNodes(nested, out);
+  }
+  return out;
+}
+
+function jsonLdOrganizationCandidates(html = '', pageUrl = '') {
+  const out = [];
+  for (const opening of scanStartTags(html, 'script')) {
+    const type = String(readAttr(opening.raw, 'type') || '').trim().toLowerCase();
+    if (type !== 'application/ld+json') continue;
+    const close = /<\/script\s*>/gi;
+    close.lastIndex = opening.end;
+    const closing = close.exec(html);
+    if (!closing) continue;
+    let parsed;
+    try {
+      parsed = JSON.parse(decodeEntities(html.slice(opening.end, closing.index).trim()));
+    } catch {
+      continue;
+    }
+    for (const node of jsonLdNodes(parsed)) {
+      const types = (Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']])
+        .map((item) => structuredText(item).split('/').at(-1)?.toLowerCase() || '')
+        .filter(Boolean);
+      const localBusiness = types.some((item) => item === 'localbusiness' || item.endsWith('localbusiness'));
+      const organization = types.some((item) => item === 'organization' || item.endsWith('organization'));
+      if (!localBusiness && !organization) continue;
+      const addresses = Array.isArray(node.address) ? node.address : [node.address];
+      for (const address of addresses) {
+        if (typeof address === 'string') {
+          for (const candidate of freeTextPostalCandidates(address)) {
+            out.push({
+              ...candidate,
+              sourceUrl: pageUrl,
+              sourceKind: localBusiness ? 'jsonld_local_business' : 'jsonld_organization',
+            });
+          }
+          continue;
+        }
+        if (!address || typeof address !== 'object') continue;
+        const addressLocality = structuredText(address.addressLocality);
+        const addressCountry = structuredText(address.addressCountry);
+        const addressRegion = schemaAddressRegion(address.addressRegion, addressCountry);
+        const location = [addressLocality, addressRegion].filter(Boolean).join(', ');
+        if (!location && !addressCountry && !address.postalCode) continue;
+        out.push({
+          location,
+          addressLocality,
+          addressRegion,
+          addressCountry,
+          postalCode: structuredText(address.postalCode),
+          streetAddress: structuredText(address.streetAddress),
+          sourceUrl: pageUrl,
+          sourceKind: localBusiness ? 'jsonld_local_business' : 'jsonld_organization',
+        });
+      }
+    }
+  }
+  return out;
+}
+
+function officialTextCandidates(html, pageUrl, pageKind) {
+  const out = [];
+  for (const block of officialStructuralBlocks(html, pageUrl, pageKind)) {
+    for (const candidate of freeTextPostalCandidates(plainOfficialPageText(block.html))) {
+      out.push({ ...candidate, sourceUrl: pageUrl, sourceKind: block.kind });
+    }
+  }
+  return out;
+}
+
+function officialEvidenceCandidate(candidate) {
+  const geography = resolveSourceBackedSwissGeography(candidate);
+  if (!geography) return null;
+  const fields = sourceBackedSwissGeographyFields(candidate, geography);
+  return {
+    ...fields,
+    sourceUrl: String(candidate.sourceUrl || '').trim(),
+    sourceKind: String(candidate.sourceKind || 'official_site').trim(),
+  };
+}
+
+function normaliseOfficialIdentity(value = '') {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function officialLocationsCompatible(left, right) {
+  for (const field of ['canton', 'postalCode', 'addressLocality', 'streetAddress']) {
+    const a = normaliseOfficialIdentity(left?.[field]);
+    const b = normaliseOfficialIdentity(right?.[field]);
+    if (a && b && a !== b) return false;
+  }
+  return true;
+}
+
+function officialCandidateQuality(candidate) {
+  const fields = ['canton', 'postalCode', 'addressLocality', 'streetAddress', 'addressCountry']
+    .filter((field) => String(candidate?.[field] || '').trim()).length;
+  const structured = String(candidate?.sourceKind || '').startsWith('jsonld_') ? 1 : 0;
+  return [fields, structured];
+}
+
+function preferOfficialCandidate(left, right) {
+  const [leftFields, leftStructured] = officialCandidateQuality(left);
+  const [rightFields, rightStructured] = officialCandidateQuality(right);
+  return rightFields > leftFields || (rightFields === leftFields && rightStructured > leftStructured)
+    ? right
+    : left;
+}
+
+function normaliseVerifiedEmployerDomain(value = '') {
+  const raw = String(value || '').trim();
+  if (!raw || /\s/.test(raw)) return '';
+  try {
+    const url = new URL(raw.includes('://') ? raw : `https://${raw}`);
+    const host = normalizeHost(url.hostname);
+    const domain = registrableDomain(host);
+    return domain && !NON_PLATFORM_HOSTS.has(domain) ? domain : '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Agencies advertise client workplaces; their own impressum address is not a
+ * vacancy location. Keep the exclusion structural and conservative so a page
+ * cannot opt itself back in by merely printing a Swiss address.
+ *
+ * @param {Record<string, any>} context
+ * @returns {boolean}
+ */
+export function isAgencyEmployer(context = {}) {
+  if (context.agency === true || context.isAgency === true || context.staffingAgency === true) return true;
+  const haystack = [context.name, context.companyName, context.secoEmployerName, context.domain, context.companyKey]
+    .filter(Boolean).join(' ');
+  return AGENCY_EMPLOYER_RX.test(haystack);
+}
+
+/**
+ * Extract only the official-site links that can lead to a contact/impressum
+ * page. The caller still validates the URL with the public fetch policy before
+ * making a request.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {string} verifiedEmployerDomain
+ * @returns {Array<{ url: string, kind: string }>}
+ */
+export function officialEmployerLocationLinks(html = '', pageUrl = '', verifiedEmployerDomain = '') {
+  const domain = normaliseVerifiedEmployerDomain(verifiedEmployerDomain);
+  if (!domain) return [];
+  const out = [];
+  const seen = new Set();
+  for (const opening of scanMarkupStartTags(html, 'a')) {
+    const rawHref = decodeEntities(readAttr(opening.raw, 'href')).trim();
+    if (!rawHref || rawHref.startsWith('#') || /^(?:mailto|tel|javascript):/iu.test(rawHref)) continue;
+    let url;
+    try {
+      url = new URL(rawHref, pageUrl);
+      if (!['http:', 'https:'].includes(url.protocol)) continue;
+      if (registrableDomain(normalizeHost(url.hostname)) !== domain) continue;
+      url.hash = '';
+    } catch {
+      continue;
+    }
+    const anchorText = plainOfficialPageText(balancedOfficialElement(html, opening, 5000));
+    const signal = `${url.pathname} ${url.search} ${anchorText}`;
+    if (!OFFICIAL_LOCATION_LINK_RX.test(signal)) continue;
+    const normalised = url.toString();
+    if (seen.has(normalised)) continue;
+    seen.add(normalised);
+    out.push({ url: normalised, kind: officialPageKind(normalised, /impressum|imprint/iu.test(signal) ? 'impressum' : 'contact') });
+  }
+  return out;
+}
+
+/**
+ * Parse the allowed official-site address surfaces from already fetched pages.
+ * A result is usable only when all observed address evidence collapses to one
+ * physical site; a missing or multi-site proof stays unknown.
+ *
+ * @param {Array<{ html: string, url: string, kind?: string }>} pages
+ * @param {{ verifiedEmployerDomain?: string, platform?: string, name?: string, companyName?: string, secoEmployerName?: string, companyKey?: string, agency?: boolean, isAgency?: boolean, staffingAgency?: boolean }} [context]
+ * @returns {{ geography: any|null, candidate: any|null, evidence: any|null, observedLocations: any[], reasonCode: string|null }}
+ */
+export function resolveOfficialEmployerSiteLocation(pages = [], context = {}) {
+  const domain = normaliseVerifiedEmployerDomain(context.verifiedEmployerDomain);
+  if (!domain) return { geography: null, candidate: null, evidence: null, observedLocations: [], reasonCode: 'verified_employer_domain_missing' };
+  if (context.platform && registrableDomain(normalizeHost(context.platform)) === domain) {
+    return { geography: null, candidate: null, evidence: null, observedLocations: [], reasonCode: 'verified_domain_is_shared_platform' };
+  }
+  if (isAgencyEmployer({ ...context, domain })) {
+    return { geography: null, candidate: null, evidence: null, observedLocations: [], reasonCode: 'agency_employer' };
+  }
+
+  const parsed = [];
+  for (const page of Array.isArray(pages) ? pages : []) {
+    if (!page || typeof page.html !== 'string' || !page.html) continue;
+    let pageDomain = '';
+    try { pageDomain = registrableDomain(normalizeHost(new URL(page.url).hostname)); } catch { /* skip malformed page */ }
+    if (pageDomain !== domain) continue;
+    const candidates = [
+      ...jsonLdOrganizationCandidates(page.html, page.url),
+      ...officialTextCandidates(page.html, page.url, page.kind),
+    ];
+    for (const candidate of candidates) {
+      const evidence = officialEvidenceCandidate(candidate);
+      if (evidence) parsed.push(evidence);
+    }
+  }
+
+  const groups = [];
+  for (const candidate of parsed) {
+    const group = groups.find((entry) => officialLocationsCompatible(entry, candidate));
+    if (!group) groups.push(candidate);
+    else groups[groups.indexOf(group)] = preferOfficialCandidate(group, candidate);
+  }
+  const observedLocations = groups.map((candidate) => ({
+    location: candidate.location,
+    canton: candidate.canton,
+    addressLocality: candidate.addressLocality || '',
+    postalCode: candidate.postalCode || '',
+    streetAddress: candidate.streetAddress || '',
+  }));
+  if (groups.length === 0) {
+    return { geography: null, candidate: null, evidence: null, observedLocations, reasonCode: 'official_address_missing' };
+  }
+  if (groups.length !== 1) {
+    return { geography: null, candidate: null, evidence: null, observedLocations, reasonCode: 'multiple_official_sedes' };
+  }
+  const [selected] = groups;
+  const evidence = {
+    source: 'employer_site',
+    url: selected.sourceUrl,
+    type: selected.sourceKind,
+    domain,
+  };
+  const candidate = {
+    ...selected,
+    locationSource: 'employer_site',
+    locationEvidenceUrl: selected.sourceUrl,
+    locationEvidenceType: selected.sourceKind,
+    locationEvidence: evidence,
+  };
+  return {
+    geography: selected,
+    candidate,
+    evidence,
+    observedLocations,
+    reasonCode: null,
+  };
+}
+
+/**
+ * Reconcile the row-level geography drops recorded by validation. This is a
+ * report only: it never turns an unknown row into a publishable row.
+ *
+ * @param {Array<Record<string, any>>|{ records?: Array<Record<string, any>> }} input
+ * @returns {{ candidateCount: number, listingRows: number, publishableRows: number, sourceBackedGeographyMissingRows: number, allRowsFiltered: number, records: any[] }}
+ */
+export function sourceBackedCrawlerBlockReport(input = []) {
+  const records = Array.isArray(input) ? input : Array.isArray(input?.records) ? input.records : [];
+  const perRecord = records.map((record) => {
+    const history = Array.isArray(record?.validationHistory) ? record.validationHistory : [];
+    const observation = record?.runtimeObservation
+      || record?.observation
+      || history.at(-1)?.runtimeObservation
+      || {};
+    const listingRows = Number.isFinite(Number(observation.listingCount)) ? Number(observation.listingCount) : 0;
+    const publishableRows = Number.isFinite(Number(observation.publishableCount)) ? Number(observation.publishableCount) : 0;
+    const geographyMissing = Number(observation.dropCounts?.source_backed_geography_missing) || 0;
+    return {
+      key: record?.companyKey || record?.crawlerKey || record?.key || record?.companyName || record?.name || '',
+      listingRows,
+      publishableRows,
+      sourceBackedGeographyMissing: geographyMissing,
+      allRowsFiltered: listingRows > 0 && publishableRows === 0,
+    };
+  });
+  return {
+    candidateCount: perRecord.length,
+    listingRows: perRecord.reduce((sum, record) => sum + record.listingRows, 0),
+    publishableRows: perRecord.reduce((sum, record) => sum + record.publishableRows, 0),
+    sourceBackedGeographyMissingRows: perRecord.reduce((sum, record) => sum + record.sourceBackedGeographyMissing, 0),
+    allRowsFiltered: perRecord.filter((record) => record.allRowsFiltered).length,
+    records: perRecord,
+  };
 }

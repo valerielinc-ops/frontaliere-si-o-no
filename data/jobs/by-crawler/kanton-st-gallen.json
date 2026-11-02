@@ -8,7 +8,7 @@
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -58,7 +58,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+        "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+          "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
@@ -773,10 +773,10 @@
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
-        "en": "forester-m-w-d-kanton-st-gallen-oberuzwil",
+        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -826,23 +826,21 @@
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
         "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
-        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "forester-m-w-d-kanton-st-gallen-oberuzwil",
+        "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
           "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil"
+          "forester-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+          "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:09:13.851Z",
@@ -6167,9 +6165,9 @@
       "slug": "mechaniker-in-m-w-d-kanton-st-gallen-thal",
       "slugByLocale": {
         "de": "mechaniker-m-w-d-kanton-st-gallen-ch",
-        "it": "mechaniker-in-m-w-d-kanton-st-gallen-thal",
-        "en": "mechaniker-in-m-w-d-kanton-st-gallen-thal",
-        "fr": "mechaniker-in-m-w-d-kanton-st-gallen-thal"
+        "it": "meccanica-m-f-d-kanton-st-gallen-thal",
+        "en": "mechanics-m-f-d-kanton-st-gallen-thal",
+        "fr": "mecanique-h-f-d-kanton-st-gallen-thal"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6177,16 +6175,16 @@
       "title": "Mechaniker/in (m/w/d)",
       "titleByLocale": {
         "de": "Mechaniker/in (m/w/d)",
-        "it": "Mechaniker/in (m/w/d)",
-        "en": "Mechaniker/in (m/w/d)",
-        "fr": "Mechaniker/in (m/w/d)"
+        "it": "Meccanico/a (m/f/d)",
+        "en": "Mechanic (m/f/d)",
+        "fr": "Mécanicien/ne (h/f/d)"
       },
       "description": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit (Winterdienst, Tunnelreinigung etc.)\n• Pikettdienst im Strassenunterhalt und Winterdienst\n• Signalisation Arbeiten auf der Autobahn\n• Reinigungs- und Unterhaltsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in\n• LKW-Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger Umgang mit Maschinen und Geräten\n• Hohe Leistungsbereitschaft, Belastbarkeit und Flexibilität\n• Teamfähig\n• Gute PC-Kenntnisse\n\nWas wir bieten:\n\n• Interessante, abwechslungsreiche und anspruchsvolle Aufgaben in einem motivierten Team\n• Arbeiten mit einem modernen Fuhrpark\n• Attraktive Anstellungsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
       "descriptionByLocale": {
         "de": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit (Winterdienst, Tunnelreinigung etc.)\n• Pikettdienst im Strassenunterhalt und Winterdienst\n• Signalisation Arbeiten auf der Autobahn\n• Reinigungs- und Unterhaltsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in\n• LKW-Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger Umgang mit Maschinen und Geräten\n• Hohe Leistungsbereitschaft, Belastbarkeit und Flexibilität\n• Teamfähig\n• Gute PC-Kenntnisse\n\nWas wir bieten:\n\n• Interessante, abwechslungsreiche und anspruchsvolle Aufgaben in einem motivierten Team\n• Arbeiten mit einem modernen Fuhrpark\n• Attraktive Anstellungsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
-        "it": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit (Winterdienst, Tunnelreinigung etc.)\n• Pikettdienst im Strassenunterhalt und Winterdienst\n• Signalisation Arbeiten auf der Autobahn\n• Reinigungs- und Unterhaltsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in\n• LKW-Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger Umgang mit Maschinen und Geräten\n• Hohe Leistungsbereitschaft, Belastbarkeit und Flexibilität\n• Teamfähig\n• Gute PC-Kenntnisse\n\nWas wir bieten:\n\n• Interessante, abwechslungsreiche und anspruchsvolle Aufgaben in einem motivierten Team\n• Arbeiten mit einem modernen Fuhrpark\n• Attraktive Anstellungsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
-        "en": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit (Winterdienst, Tunnelreinigung etc.)\n• Pikettdienst im Strassenunterhalt und Winterdienst\n• Signalisation Arbeiten auf der Autobahn\n• Reinigungs- und Unterhaltsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in\n• LKW-Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger Umgang mit Maschinen und Geräten\n• Hohe Leistungsbereitschaft, Belastbarkeit und Flexibilität\n• Teamfähig\n• Gute PC-Kenntnisse\n\nWas wir bieten:\n\n• Interessante, abwechslungsreiche und anspruchsvolle Aufgaben in einem motivierten Team\n• Arbeiten mit einem modernen Fuhrpark\n• Attraktive Anstellungsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
-        "fr": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit (Winterdienst, Tunnelreinigung etc.)\n• Pikettdienst im Strassenunterhalt und Winterdienst\n• Signalisation Arbeiten auf der Autobahn\n• Reinigungs- und Unterhaltsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in\n• LKW-Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger Umgang mit Maschinen und Geräten\n• Hohe Leistungsbereitschaft, Belastbarkeit und Flexibilität\n• Teamfähig\n• Gute PC-Kenntnisse\n\nWas wir bieten:\n\n• Interessante, abwechslungsreiche und anspruchsvolle Aufgaben in einem motivierten Team\n• Arbeiten mit einem modernen Fuhrpark\n• Attraktive Anstellungsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33"
+        "it": "La Divisione Nazionale Strade VI dell'Ufficio di Ingegneria Civile del Cantone di San Gallo apporta un significativo contributo alla sicurezza delle strade nazionali nei cantoni di Glarus, Thurgau e St.Gallen.\n\nCosa aspettarsi:\n\n• Manutenzione di veicoli e attrezzature e impianti tecnici\n• Servizio di ripartizione del veicolo anche al di fuori delle normali ore di lavoro (servizio invernale, pulizia tunnel, ecc.)\n• Manutenzione stradale e servizio invernale\n• Lavori di segnalazione sull'autostrada\n• Lavori di pulizia e manutenzione delle aree verdi del laboratorio\n• Acquisti e gestione di materiali e pezzi di ricambio\n\nCosa lo distingue:\n\n• Apprendistato completo come meccanico di macchine per camion o agricole\n• HGV patente di guida della categoria C/CE o disponibilità ad acquistarla\n• Gestione attenta di macchinari e attrezzature\n• Elevate prestazioni, resistenza e flessibilità\n• Lavoro di squadra\n• Buona conoscenza del PC\n\nCosa offriamo:\n\n• Attività interessanti, varie e impegnative in un team motivato\n• Lavorare con una flotta moderna\n• Condizioni di lavoro interessanti\n• Allenamento attento\n• Diverse opportunità di formazione e sviluppo\n\nContatti: Andreas Koller, Responsabile Workshop, Tel. 058 229 85 33",
+        "en": "The National Roads Division VI of the Civil Engineering Office of the Canton of St.Gallen makes a significant contribution to the safety of the national roads in the cantons of Glarus, Thurgau and St.Gallen.\n\nWhat to expect:\n\n• Maintenance of vehicles and equipment and technical installations\n• Vehicle breakdown service also outside normal working hours (winter service, tunnel cleaning, etc.)\n• Road maintenance and winter service\n• Signaling work on the highway\n• Cleaning and maintenance work and maintenance of the green areas on the workshop\n• Procurement and management of material and spare parts\n\nWhat sets it apart:\n\n• Completed apprenticeship as a truck or agricultural machinery mechanic\n• HGV driving licence of category C/CE or willingness to purchase it\n• Careful handling of machinery and equipment\n• High performance, resilience and flexibility\n• Teamwork\n• Good PC knowledge\n\nWhat we offer:\n\n• Interesting, varied and demanding tasks in a motivated team\n• Working with a modern fleet\n• Attractive employment conditions\n• Careful training\n• Diverse training and development opportunities\n\nContact: Andreas Koller, Head of Workshop, Tel. 058 229 85 33",
+        "fr": "La Division des routes nationales VI de l'Office du génie civil du canton de Saint-Gall contribue de manière significative à la sécurité des routes nationales dans les cantons de Glarus, Thurgau et Saint-Gall.\n\nÀ quoi s'attendre :\n\n• Entretien des véhicules, du matériel et des installations techniques\n• Service de dépannage des véhicules également en dehors des heures normales de travail (service hivernal, nettoyage des tunnels, etc.)\n• Entretien des routes et service hivernal\n• Travaux de signalisation sur l'autoroute\n• Travaux de nettoyage et d'entretien et entretien des espaces verts de l'atelier\n• Achat et gestion de matériel et de pièces de rechange\n\nCe qui le distingue:\n\n• Apprentissage terminé comme mécanicien de camion ou de machines agricoles\n• Permis de conduire HGV de catégorie C/CE ou volonté de l'acheter\n• Manipulation soigneuse des machines et du matériel\n• Haute performance, résilience et flexibilité\n• Travail d'équipe\n• Bonne connaissance du PC\n\nCe que nous offrons:\n\n• Des tâches intéressantes, variées et exigeantes dans une équipe motivée\n• Travailler avec une flotte moderne\n• Conditions d'emploi attrayantes\n• Formation attentive\n• Différentes possibilités de formation et de perfectionnement\n\nContact: Andreas Koller, Chef de l'atelier, Tél. 058 229 85 33"
       },
       "needsRetranslation": true,
       "location": "Thal",
@@ -6219,24 +6217,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-m-w-d-kanton-st-gallen-ch",
-          "meccanica-m-f-d-kanton-st-gallen-thal"
+          "mechaniker-in-m-w-d-kanton-st-gallen-ch"
         ],
         "de": [
           "mechaniker-in-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "mechanics-m-f-d-kanton-st-gallen-thal"
-        ],
-        "fr": [
-          "mecanique-h-f-d-kanton-st-gallen-thal"
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-m-w-d-kanton-st-gallen-ch",
-        "meccanica-m-f-d-kanton-st-gallen-thal",
-        "mechanics-m-f-d-kanton-st-gallen-thal",
-        "mecanique-h-f-d-kanton-st-gallen-thal"
+        "mechaniker-in-m-w-d-kanton-st-gallen-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

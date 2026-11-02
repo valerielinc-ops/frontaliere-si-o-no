@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain .mjs module, no type declarations.
-import { assertNoEditorialClaims, findEditorialClaims, repairEditorialClaims, splitClaimSegments } from '../packages/articles/engine/shared/editorialClaims.mjs';
+import {
+  assertNoEditorialClaims,
+  findEditorialClaims,
+  repairEditorialClaims,
+  repairHealthTaxSentence,
+  splitClaimSegments,
+} from '../packages/articles/engine/shared/editorialClaims.mjs';
 
 const classes = (text: string, locale: string) =>
   findEditorialClaims(text, { locale }).map((claim: { class: string }) => claim.class);
@@ -152,10 +158,16 @@ describe('tassa salute', () => {
   it.each([
     ['it', 'La tassa sulla salute è stata fissata a 200 CHF all\'anno.'],
     ['it', 'La tassa sulla salute prevede un contributo del 7,5% del reddito lordo.'],
+    ['it', 'La tassa sulla salute prevede un contributo del 6,1% del reddito netto.'],
+    ['it', 'La tassa sulla salute prevede un contributo del 2,9% del reddito netto.'],
     ['it', 'La tassa sulla salute è stata introdotta con la Legge di Bilancio 2019.'],
+    ['it', 'La tassa sulla salute è pari al 100% del salario netto.'],
     ['en', 'The health tax amounts to 1,000 euros a year.'],
+    ['en', 'The health tax is 100% of net salary.'],
     ['de', 'Die Gesundheitssteuer beträgt 5 % des Bruttolohns.'],
+    ['de', 'Die Gesundheitssteuer beträgt 100 % des Nettolohns.'],
     ['fr', 'La taxe santé est de 500 francs par mois.'],
+    ['fr', 'La taxe santé est de 100 % du salaire net.'],
   ])('%s: %s', (locale, sentence) => {
     expect(classes(sentence, locale)).toContain('tassa-salute');
     expect(repairEditorialClaims(sentence, { locale }).value).toBe('');
@@ -169,6 +181,20 @@ describe('tassa salute', () => {
       'La LAMal non è una tassa sulla salute: la franchigia va da CHF 300 a CHF 2.500.',
     ]) {
       expect(classes(sentence, 'it')).toEqual([]);
+    }
+  });
+
+  it('accetta aliquote intermedie dal 3% al 6% solo sul salario netto', () => {
+    const italian = 'La tassa sanitaria è del 5,5% del salario netto.';
+    expect(repairHealthTaxSentence(italian, 'it')).toBeNull();
+
+    for (const [locale, sentence] of [
+      ['it', italian],
+      ['en', 'The health contribution is 5.5% of net salary.'],
+      ['de', 'Die Gesundheitsabgabe beträgt 5,5 % des Nettolohns.'],
+      ['fr', 'La contribution santé est de 5,5 % du salaire net.'],
+    ]) {
+      expect(classes(sentence, locale)).toEqual([]);
     }
   });
 });
