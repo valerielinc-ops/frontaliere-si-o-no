@@ -187,11 +187,17 @@ export function installAdRecovery(
     }
     cmp.load();
     cmp.subscribe(schedule);
-    const observer = new MutationObserver((records) => {
-      if (records.every((record) => (record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo'))) return;
-      schedule();
-    });
-    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state'] });
+    if (typeof MutationObserver === 'function') {
+      const observer = new MutationObserver((records) => {
+        if (records.every((record) => (record.target as Element).closest?.('.ft-recovery-dialog,.ft-recovery-promo'))) return;
+        schedule();
+      });
+      observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state'] });
+    } else {
+      // Older/limited webviews still remove the fallback after a late fill.
+      // Like the observer, this single heartbeat belongs to the document.
+      window.setInterval(schedule, 1000);
+    }
     for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
     document.addEventListener('visibilitychange', schedule);
     window.addEventListener('online', schedule);

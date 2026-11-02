@@ -63,12 +63,12 @@ describe('static AdSense layout recovery', () => {
     expect(html).toContain('data-ad-layout="in-article"');
   });
 
-  it('collapses a static slot only after no-fill or the shared fill budget', () => {
+  it('wires the static lifecycle to the shared request and script schedulers', () => {
     expect(ADSENSE_LOADER_CONTENT).toContain('data-ft-static-ad-collapsed');
     expect(ADSENSE_LOADER_CONTENT).toContain('observeManualAd');
     expect(ADSENSE_LOADER_CONTENT).toContain(String(AD_FILL_TIMEOUT_MS));
-    expect(ADSENSE_LOADER_CONTENT).toContain('watch.request()');
-    expect(ADSENSE_LOADER_CONTENT).toContain("existing.addEventListener('load',armSlots");
+    expect(ADSENSE_LOADER_CONTENT).toContain('createStaticAdDelivery');
+    expect(ADSENSE_LOADER_CONTENT).toContain('scriptLoader.subscribe');
   });
 
   it('arms static collapse before consent and no-ads gates can return', () => {

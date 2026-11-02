@@ -6,6 +6,7 @@ import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibili
 import { createStaticAdDelivery } from '../services/staticAdDelivery';
 import { probeIabAdBlock } from '../services/iabAdBlockProbe';
 import { installAdRecovery } from '../services/adRecovery';
+import { FC_ENSURE_JS } from '../build-plugins/constants';
 
 let dom: JSDOM;
 let w: any;
@@ -123,6 +124,28 @@ describe('singleton script recovery', () => {
     w.document.scripts[0].dispatchEvent(new w.Event('error')); allowed = false;
     vi.advanceTimersByTime(10000); expect(loader.attempts()).toBe(1);
   });
+  it('reuses Funding Choices when the HTML bootstrap completed before recovery attached', () => {
+    w.eval(`${FC_ENSURE_JS};ensureFc();`);
+    const script = w.document.querySelector('script[data-fc-loader]');
+    script.dispatchEvent(new w.Event('load'));
+    const loader = local(createAdScriptLoader)('cmp', script.src, () => true, emit);
+    loader.load();
+    expect(loader.state()).toBe('loaded');
+    expect(w.document.querySelectorAll('script[data-fc-loader]')).toHaveLength(1);
+  });
+  it('counts an earlier Funding Choices error and keeps the legacy/recovery race singleton', () => {
+    w.eval(`${FC_ENSURE_JS};ensureFc();`);
+    const first = w.document.querySelector('script[data-fc-loader]');
+    first.dispatchEvent(new w.Event('error'));
+    const loader = local(createAdScriptLoader)('cmp', first.src, () => true, emit);
+    loader.load();
+    const next = w.document.querySelector('script[data-fc-loader]');
+    expect(next).not.toBe(first); expect(loader.attempts()).toBe(2);
+    w.eval(`${FC_ENSURE_JS};ensureFc();`);
+    next.dispatchEvent(new w.Event('load'));
+    expect(loader.state()).toBe('loaded');
+    expect(w.document.querySelectorAll('script[data-fc-loader]')).toHaveLength(1);
+  });
   it('does not repeatedly probe a confirmed blocker, while preserving the first Auto Ads attempt', () => {
     w.__ftAdBlock = { blocked: true };
     const loader = local(createAdScriptLoader)('adsense', src, () => true, emit);
@@ -176,6 +199,16 @@ describe('IAB detection and independent recovery surface', () => {
     recovery('blocked'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(30000);
     expect(w.document.querySelector('dialog')).toBeNull();
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+  });
+  it('degrades without dialog or MutationObserver and still removes fallback on late fill', async () => {
+    w.MutationObserver = undefined; w.HTMLDialogElement = undefined;
+    recovery(); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog')).toBeNull();
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+    slot(300).setAttribute('data-ad-status', 'filled');
+    await vi.advanceTimersByTimeAsync(1200);
     expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
   });
   it('does not cover an existing Google consent message', async () => {

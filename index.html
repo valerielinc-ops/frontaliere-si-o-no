@@ -123,7 +123,6 @@
          every crawled page when the script was eagerly included in <head>. -->
     <meta name="google-adsense-account" content="ca-pub-8628054934855353">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
     <!-- Google Publisher Tag (GPT) host — serves the desktop article side-rail
          half-page ad units (components/shared/GptAdSlot.tsx loads gpt.js +
          pubads_impl.js from here). Preconnect warms the TLS/DNS so the lazy,
@@ -658,8 +657,8 @@
             // tests/index-html-fc-loader.test.ts.
             s.src = 'https://fundingchoicesmessages.google.com/i/pub-8628054934855353?ers=1';
             s.setAttribute('data-fc-loader','1');
-            s.addEventListener('load',function(){s.setAttribute('data-loaded','1');},{once:true});
-            s.addEventListener('error',function(){s.setAttribute('data-failed','1');},{once:true});
+            s.onload=function(){s.dataset.loaded='1';};
+            s.onerror=function(){s.dataset.failed='1';};
             document.head.appendChild(s);
           }
           // 2. Signal googlefcPresent iframe so FC knows the loader ran.
