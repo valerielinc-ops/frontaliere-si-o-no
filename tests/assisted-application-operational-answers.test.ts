@@ -95,6 +95,41 @@ describe('scope, languages and actual field options', () => {
   ])('uses the language of %s', (label, value) => expect(operationalDefaultAnswer({ label })?.value).toBe(value));
 
   it.each([
+    ['it', 'Grado di occupazione'], ['de', 'Beschäftigungsgrad'], ['de', 'Pensum'], ['fr', "Taux d’activité"], ['en', 'Workload'],
+  ])('defaults a neutral workload label to 100%% in %s', (_locale, label) => {
+    const question = { label, type: 'choice', options: ['80%', '100%'], required: true };
+    expect(operationalQuestionTopic(question)).toBe('preferred_workload');
+    expect(operationalDefaultAnswer(question)).toMatchObject({ value: '100%', topic: 'preferred_workload' });
+  });
+
+  it('rejects a neutral workload label when another prompt representation or option adds a hard constraint', () => {
+    for (const question of [
+      { label: 'Pensum', applicationQuestion: 'Required workload', options: ['80%', '100%'] },
+      { label: 'Grado di occupazione', context: 'night shifts', options: ['80%', '100%'] },
+      { label: 'Taux d’activité', options: ['100% on shifts', '80%'] },
+    ]) {
+      expect(operationalQuestionTopic(question)).toBeNull();
+      expect(operationalDefaultAnswer(question)).toBeNull();
+    }
+  });
+
+  it.each([
+    'Grado di occupazione attuale', 'Current workload', 'Aktueller Beschäftigungsgrad', 'Taux d’activité actuel',
+    'Grado di occupazione richiesto', 'Required workload', 'Erforderlicher Beschäftigungsgrad', 'Taux d’activité requis',
+    'Employer requires a 100% workload', 'Il datore richiede un grado di occupazione del 100%',
+    'Der Arbeitgeber verlangt ein Pensum von 100%', 'Le poste exige un taux d’activité de 100%',
+    'Workload max 80%', 'Workload up to 80%', 'Grado di occupazione max 80%', 'Grado di occupazione fino a 80%',
+    'Pensum max. 80%', 'Pensum bis zu 80%', 'Taux d’activité max 80%', 'Taux d’activité jusqu’à 80%',
+    'Grado di occupazione in ore', 'Workload in hours', 'Beschäftigungsgrad in Stunden', 'Taux d’activité en heures',
+    'Grado di occupazione su turni', 'Workload in shifts', 'Pensum im Schichtdienst', 'Taux d’activité en horaires postés',
+    'Workload must be at least 80%', 'At least 80% workload', 'Grado di occupazione almeno 80%',
+    'Pensum muss mindestens 80%', 'Taux d’activité d’au moins 80%',
+  ])('does not default workload with a hard constraint: %s', label => {
+    expect(operationalQuestionTopic({ label })).toBeNull();
+    expect(operationalDefaultAnswer({ label })).toBeNull();
+  });
+
+  it.each([
     'Can you start within 1 month?', 'Can you confirm a notice period of 1 month?',
     'Earliest start date', 'Notice period maximum 1 month', 'Do you have WhatsApp?',
     'Your WhatsApp number', 'Accetti marketing tramite WhatsApp?', 'WhatsApp privacy conditions',

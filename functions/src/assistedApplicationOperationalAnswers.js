@@ -119,7 +119,12 @@ export function operationalQuestionTopic(question) {
   if (privacyReviewAck) return 'privacy_review_ack';
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;
-  if (isPreferredWorkloadQuestion(label)) return 'preferred_workload';
+  const workloadPrompt = [
+    question?.question, question?.label, question?.applicationQuestion, question?.context,
+    ...(Array.isArray(question?.labels) ? question.labels : []),
+    ...optionsOf(question).flatMap(option => [option.label, option.value]),
+  ].filter(value => typeof value === 'string' && value.trim()).join(' ');
+  if (isPreferredWorkloadQuestion(workloadPrompt)) return 'preferred_workload';
   if (NOTICE.test(text) && !CONSTRAINED_NOTICE.test(text) && !['yes_no', 'checkbox'].includes(question?.type || question?.kind)) return 'notice_period';
   if (/\bwhatsapp\b/.test(text) && CONTACT.test(text) && !CONTACT_FACT.test(text)) {
     // Adjacent form labels are not candidate facts. A promotional/privacy
