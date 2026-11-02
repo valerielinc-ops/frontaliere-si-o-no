@@ -36,6 +36,34 @@ describe('independent qualification retry queue', () => {
     expect(result.work.some((row: any) => row.url === 'job-70')).toBe(true);
   });
 
+  it('persists only bounded provider cause/status diagnostics for an unavailable analysis', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_diagnostics');
+    const url = 'https://jobs.example.test/diagnostic-role';
+    await recordEligibilityRetry({
+      db: store.db,
+      serviceRef,
+      url,
+      context: 'diagnostic-context',
+      nowMs: now,
+      result: {
+        status: 'unverified',
+        providerFailures: [
+          { provider: 'gemini', cause: 'rate_limited', status: 429 },
+          { provider: 'nvidia-gpt-oss-20b', cause: 'timeout', status: null, detail: 'prompt must never persist' },
+          { provider: 'ignored', cause: 'invented', status: 200 },
+        ],
+      },
+    });
+
+    const retry = (await eligibilityRetryRef(serviceRef, url).get()).data();
+    expect(retry.providerFailures).toEqual([
+      { provider: 'gemini', cause: 'rate_limited', status: 429 },
+      { provider: 'nvidia-gpt-oss-20b', cause: 'timeout', status: null },
+    ]);
+    expect(JSON.stringify(retry)).not.toContain('prompt must never persist');
+  });
+
   it('prioritizes the bounded legacy recovery batch and keeps backoff rows out of fresh work', () => {
     const candidates = Array.from({ length: 100 }, (_, index) => ({ url: `job-${index}` }));
     const result = conciergeMatchingWork(candidates, new Set(), '', new Set(), ['job-80', 'job-81'], new Set(['job-80', 'job-81', 'job-82']));

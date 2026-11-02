@@ -37,7 +37,11 @@ async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
     // The final Codex rung is separately time-bounded and uses server-side Remote Config auth.
     allowCodexFallback: true, ...options });
   options.signal?.throwIfAborted();
-  if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
+  if (!response.body?.ok) {
+    const error = new Error('eligibility_provider_unavailable');
+    if (Array.isArray(response.body?.providerFailures)) error.providerFailures = response.body.providerFailures;
+    throw error;
+  }
   const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
   const result = JSON.parse(text);
   if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
