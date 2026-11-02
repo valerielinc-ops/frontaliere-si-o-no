@@ -1,7 +1,7 @@
 {
   "crawlerKey": "molecular-partners",
-  "assembledAt": "2026-11-02T09:40:39.783Z",
-  "runId": "41418256228",
+  "assembledAt": "2026-11-02T21:30:55.923Z",
+  "runId": "41525635541",
   "jobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
@@ -34,7 +34,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:40:33.332Z",
+      "crawledAt": "2026-11-02T21:30:50.272Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,11 +84,12 @@
         "postalCode": "8952",
         "addressLocality": "Schlieren",
         "addressRegion": "ZH",
-        "checkedAt": "2026-10-31T20:50:21.315Z"
+        "checkedAt": "2026-10-31T20:50:21.315Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Wagistrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T09:40:33.332Z",
+      "validThrough": "2026-12-02T21:30:50.272Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +123,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:40:32.761Z",
+      "crawledAt": "2026-11-02T21:30:49.713Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -172,11 +173,12 @@
         "postalCode": "8952",
         "addressLocality": "Schlieren",
         "addressRegion": "ZH",
-        "checkedAt": "2026-10-31T20:50:21.315Z"
+        "checkedAt": "2026-10-31T20:50:21.315Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddress": "Wagistrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:40:32.761Z",
+      "validThrough": "2026-12-22T21:30:49.713Z",
       "validThroughSource": "last-observed-window"
     }
   ]
