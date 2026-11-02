@@ -85,7 +85,7 @@ describe('buildTicinoCompleteRecords', () => {
     expect(preserved).not.toHaveProperty('urlAliases');
   });
 
-  it('retains previous OSM-derived optional fields when the enrichment response is empty', () => {
+  it('retains previous OSM-derived optional fields when the response is empty or unmatched', () => {
     const previousSource = {
       url: 'https://www.openstreetmap.org/node/3279865558',
       sourceType: 'directory',
@@ -160,5 +160,59 @@ describe('buildTicinoCompleteRecords', () => {
 
     expect(italy).toMatchObject({ latitude: 45.8, longitude: 9.1, fieldSources: { coordinates: previousSource } });
     expect(italy.dataAvailability).toMatchObject({ coordinates: 'verified' });
+
+    const unrelatedOsmElement = {
+      type: 'node',
+      id: 999,
+      lat: 46.7,
+      lon: 8.9,
+      tags: { amenity: 'pharmacy', name: 'Unrelated pharmacy', 'addr:postcode': '9999', 'addr:city': 'Other' },
+    };
+    const [partialTicino] = buildTicinoCompleteRecords([
+      { name: 'Boscolo', address: 'Piazza Motta', postalCode: '6780', city: 'Airolo' },
+    ], {
+      previous: [previousTicino],
+      fetchedAt: '2026-11-02T12:36:56.280Z',
+      osmElements: [unrelatedOsmElement],
+    });
+    expect(partialTicino).toMatchObject({
+      latitude: 46.5284456,
+      longitude: 8.6108544,
+      openingHours: previousTicino.openingHours,
+      fieldSources: { coordinates: previousSource, openingHours: previousSource },
+    });
+
+    const [partialItaly] = buildItalianBorderRecords([{
+      cod_farmacia: '42',
+      descrizione_farmacia: 'Farmacia Nuova',
+      indirizzo: 'Via Roma 1',
+      cap: '22012',
+      comune: 'Cernobbio',
+      sigla_provincia: 'CO',
+      regione: 'Lombardia',
+      latitudine: '',
+      longitudine: '',
+      data_inizio_validita: '01/01/2020',
+      data_fine_validita: '-',
+    }], {
+      fetchedAt: '2026-11-02T12:36:56.280Z',
+      asOf: '2026-11-02',
+      osmElements: [unrelatedOsmElement],
+      previous: [{
+        id: 'it-msal-42',
+        ministryId: '42',
+        name: 'Farmacia Vecchia',
+        slug: 'farmacia-vecchia-como-42',
+        address: 'Via Roma 1',
+        postalCode: '22100',
+        city: 'Como',
+        country: 'IT',
+        province: 'CO',
+        latitude: 45.8,
+        longitude: 9.1,
+        fieldSources: { coordinates: previousSource },
+      }],
+    });
+    expect(partialItaly).toMatchObject({ latitude: 45.8, longitude: 9.1, fieldSources: { coordinates: previousSource } });
   });
 });

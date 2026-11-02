@@ -529,9 +529,10 @@ function isOsmFieldSource(source) {
 }
 
 /**
- * An empty optional response is not evidence that previously verified OSM
- * facts disappeared. Keep those facts, with their original field-level
- * provenance, until a later non-empty response can confirm or replace them.
+ * An optional response that does not yield a match for this record is not
+ * evidence that its previously verified OSM facts disappeared. Keep those
+ * facts, with their original field-level provenance, until a later response
+ * can confirm or replace them.
  */
 function preservePreviousOsmEnrichment(record, previous) {
   if (!previous || typeof previous !== 'object') return record;
@@ -685,7 +686,6 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
 
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
-  const preserveOsmEnrichment = !Array.isArray(osmElements) || osmElements.length === 0;
   const records = [];
   for (const candidate of candidates) {
     const { raw, province, name, city, ministryId, baseSlug, previousRecord } = candidate;
@@ -732,7 +732,7 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
       ...(urlAliases.length ? { urlAliases } : {}),
     };
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
-    if (preserveOsmEnrichment) preservePreviousOsmEnrichment(record, previousRecord);
+    preservePreviousOsmEnrichment(record, previousRecord);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }
@@ -784,7 +784,6 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
   const usedIds = new Set();
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
-  const preserveOsmEnrichment = !Array.isArray(osmElements) || osmElements.length === 0;
   const records = [];
   for (const row of pdfRows || []) {
     const previousRecord = matchPreviousTicino(row, previous);
@@ -833,7 +832,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       record.fieldSources = { address: { url: addressOverride.url, sourceType: 'official', checkedAt: fetchedAt } };
     }
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
-    if (preserveOsmEnrichment) preservePreviousOsmEnrichment(record, previousRecord);
+    preservePreviousOsmEnrichment(record, previousRecord);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }
