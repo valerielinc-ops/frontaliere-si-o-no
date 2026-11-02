@@ -750,7 +750,7 @@
         "it": "assistente-infermieristico-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "nursing-assistant-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "fr": "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "fr": "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -797,7 +797,7 @@
       "previousSlugs": [
         "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
         "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -805,7 +805,7 @@
         ],
         "fr": [
           "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-          "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+          "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:06.749Z",
@@ -1662,8 +1662,8 @@
       "slugByLocale": {
         "de": "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch",
         "it": "flying-bildungsverantwortliche-per-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-bachtel-ag-wetzikon-zh",
-        "en": "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch",
-        "fr": "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
+        "en": "flying-education-responsible-for-the-training-network-in-zurioberland-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "flying-education-responsable-du-reseau-d-entrainement-de-zurioberland-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1713,6 +1713,12 @@
       "previousSlugsByLocale": {
         "it": [
           "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
+        ],
+        "en": [
+          "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
+        ],
+        "fr": [
+          "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
         ]
       },
       "previousSlugs": [
@@ -1737,12 +1743,12 @@
     },
     {
       "id": "spitex-ch-452527dcc148",
-      "slug": "collaboratore-trice-in-hauswirtschaft-40-50-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+      "slug": "collaboratore-trice-per-l-economia-domestica-40-50-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "it": "collaboratore-trice-in-hauswirtschaft-40-50-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "en": "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "fr": "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+        "it": "collaboratore-trice-per-l-economia-domestica-40-50-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "en": "employees-in-housekeeping-40-50-for-the-wetzikon-base-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "employes-en-menage-40-50-pour-la-base-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1791,11 +1797,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
+          "collaboratore-trice-in-hauswirtschaft-40-50-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+        "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
+        "collaboratore-trice-in-hauswirtschaft-40-50-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       ],
       "salaryMin": 36500,
       "salaryMax": 45800,

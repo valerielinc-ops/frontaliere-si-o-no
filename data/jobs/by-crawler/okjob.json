@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-437df90c69b7",
-      "slug": "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
+      "slug": "m-f-ponteggio-assemblatore-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
       "slugByLocale": {
         "fr": "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
-        "it": "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
-        "en": "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
-        "de": "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c"
+        "it": "m-f-ponteggio-assemblatore-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
+        "en": "m-f-scaffold-assembler-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c",
+        "de": "m-w-gerustmontage-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c"
       },
       "slugDisambiguator": "437df90c",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T22:11:28.215Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T22:11:28.215Z"
+      "firstSeenAt": "2026-11-01T22:11:28.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c"
+        ],
+        "en": [
+          "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c"
+        ],
+        "de": [
+          "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-en-echafaudages-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-437df90c"
+      ]
     },
     {
       "id": "okjob-1393ed912bfa",
-      "slug": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+      "slug": "elettricista-commerciale-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
       "slugByLocale": {
         "de": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
-        "it": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
-        "en": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
-        "fr": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        "it": "elettricista-commerciale-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "en": "business-electrician-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "fr": "electricien-d-affaires-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
       },
       "slugDisambiguator": "1393ed91",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,7 +159,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T22:11:28.183Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T09:47:50.955Z"
+      "firstSeenAt": "2026-10-31T09:47:50.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        ],
+        "en": [
+          "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        ],
+        "fr": [
+          "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
+      ]
     }
   ]
 }

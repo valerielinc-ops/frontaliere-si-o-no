@@ -13303,12 +13303,12 @@
     },
     {
       "id": "kanton-zuerich-84800d514b8a",
-      "slug": "werkstudent-in-kanton-zuerich-zurich",
+      "slug": "studente-lavoratore-trice-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "werkstudent-in-kanton-zuerich-zurich",
-        "it": "werkstudent-in-kanton-zuerich-zurich",
-        "en": "werkstudent-in-kanton-zuerich-zurich",
-        "fr": "werkstudent-in-kanton-zuerich-zurich"
+        "it": "studente-lavoratore-trice-kantonale-verwaltung-zurich-zurich",
+        "en": "working-student-kantonale-verwaltung-zurich-zurich",
+        "fr": "etudiant-e-salarie-e-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13375,7 +13375,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T22:20:16.721Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T22:20:16.721Z"
+      "firstSeenAt": "2026-11-01T22:20:16.721Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "werkstudent-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "werkstudent-in-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-in-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-11643f4e5966",

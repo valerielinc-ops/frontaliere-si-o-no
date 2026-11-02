@@ -2568,12 +2568,12 @@
     },
     {
       "id": "swica-a9cb7b1b4501",
-      "slug": "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
+      "slug": "compensazione-e-benefici-degli-specialisti-senior-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
-        "it": "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
-        "en": "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
-        "fr": "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+        "it": "compensazione-e-benefici-degli-specialisti-senior-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "senior-specialist-compensation-benefits-all-swica-gesundheitsorganisation-winterthur",
+        "fr": "remuneration-et-avantages-sociaux-des-specialistes-principaux-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2634,7 +2634,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-30T22:26:27.329Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+        ],
+        "en": [
+          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+        ],
+        "fr": [
+          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+      ]
     }
   ]
 }
