@@ -28,6 +28,17 @@ export const SECTION_LEGACY_TI_PATH: Record<CantonLocale, string> = Object.fromE
   Object.entries(SECTION_LEGACY_TI_ROOT).map(([loc, root]) => [loc, `${root}/`]),
 ) as Record<CantonLocale, string>;
 
+/**
+ * Static legacy aliases owned by the TI job-board section. Keep these beside
+ * the canonical path table so the build plugin and the generated Edge table
+ * cannot drift when the section slug changes.
+ */
+export const LEGACY_TI_STATIC_REDIRECTS: Record<string, string> = {
+  [`${SECTION_LEGACY_TI_PATH.it}ricerca-ambiente-bern/`]: SECTION_LEGACY_TI_PATH.it,
+  [`${SECTION_LEGACY_TI_PATH.it}ricerca-ambiente-luzern/`]: SECTION_LEGACY_TI_PATH.it,
+  [`${SECTION_LEGACY_TI_PATH.it}apprendistato-come-impiegata-o-di-commercio-afc-banca-la-posta-svizzera-lugano/`]: `${SECTION_LEGACY_TI_PATH.it}apprendistato-come-impiegata-o-di-commercio-afc-banca-post/`,
+};
+
 // The resolver logic itself lives in the runtime-agnostic single source of
 // truth `cantonResolvers.mjs`, so the raw-`node` migration script
 // `scripts/migrate-all-known-job-slugs-canton-aware.mjs` shares the EXACT same

@@ -20,12 +20,12 @@
 //
 // WHAT IS IN IT. Exactly the entries whose (from → to) is known before the build
 // runs, with the plugin's own precedence:
-//   1. the hand-authored literal in legacyRedirectsPlugin.ts (read with the
-//      same scanner every other consumer of that literal uses), on top of
-//      LEGACY_LUGANO_COMPETITION_REDIRECTS, which the literal spreads first;
-//   2. BORDER_WAIT_LEGACY_REDIRECTS, added only where the literal is silent;
-//   3. data/article-redirects.json, added only where the literal is silent.
-//   4. enumerated salary-stats bridge families, only when no legacy entry wins.
+//   1. LEGACY_LUGANO_COMPETITION_REDIRECTS and the shared static TI aliases;
+//   2. the remaining hand-authored literal in legacyRedirectsPlugin.ts (read
+//      with the same scanner every other consumer of that literal uses);
+//   3. BORDER_WAIT_LEGACY_REDIRECTS, added only where the literal is silent;
+//   4. data/article-redirects.json, added only where the literal is silent.
+//   5. enumerated salary-stats bridge families, only when no legacy entry wins.
 // NOT in it: the cathedral job map (derived from data/jobs.json at build time)
 // and the Search Console compat pages (derived from the compat store): neither
 // is static, and both stay noindex,follow bridges.
@@ -40,7 +40,7 @@ import { readHardcodedRedirects, loadArticleRedirects } from './articleRedirects
 import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './legacyLuganoCompetitionRedirects';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './borderWaitLegacyRedirects';
 import { listAllBrandAliases } from './brandCanonicalMap';
-import { COMPANY_ROUTE_PREFIX, SECTION_LEGACY_TI } from './cantonSection';
+import { COMPANY_ROUTE_PREFIX, LEGACY_TI_STATIC_REDIRECTS, SECTION_LEGACY_TI } from './cantonSection';
 import { listAllProfessionCantonPaths } from '../professionCantonData';
 import { PROFESSION_IDS, PROFESSION_LOCALES, buildProfessionLandingPath } from '../professionLandingsData';
 import { listAllSalaryProfessionCantonPaths } from '../salaryProfessionCantonData';
@@ -67,6 +67,7 @@ export function buildEdgeLegacyStubRedirects(rootDir: string): Record<string, st
     out.set(f, t);
   };
   for (const [from, to] of Object.entries(LEGACY_LUGANO_COMPETITION_REDIRECTS)) put(from, to, true);
+  for (const [from, to] of Object.entries(LEGACY_TI_STATIC_REDIRECTS)) put(from, to, true);
   for (const [from, to] of Object.entries(readHardcodedRedirects(rootDir) as Record<string, string>)) put(from, to, true);
   for (const [from, to] of BORDER_WAIT_LEGACY_REDIRECTS) put(from, to, false);
   for (const [from, to] of Object.entries(loadArticleRedirects(rootDir, { warn: () => {} }) as Record<string, string>)) {
