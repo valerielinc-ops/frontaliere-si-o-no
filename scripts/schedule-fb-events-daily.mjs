@@ -34,6 +34,7 @@ import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT, GRAPH_API } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -98,7 +99,7 @@ export function buildEventUrl(event) {
  *
  *   {hashtags}
  */
-export function buildEventCaption(event) {
+export function buildEventCaption(event, { socialCopy } = {}) {
   const emoji = CATEGORY_EMOJI[event?.category] || '📅';
   const title = String(event?.title || '').trim();
   const cantonName = cantonDisplayName(event?.canton) || 'Ticino';
@@ -118,8 +119,19 @@ export function buildEventCaption(event) {
   tags.push(`#${cantonTag}`, '#frontalieri');
   const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 5).join(' ');
 
-  const cta = event?.comune ? `👉 Scopri gli eventi a ${comune}:` : `👉 Scopri gli eventi in ${cantonName}:`;
-  const parts = [`${emoji} ${truncateBody(title, 150)}`, metaChunks.join('  '), '', cta, '', hashtags];
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const cta = generatedCopy
+    ? '👉 ' + generatedCopy.cta
+    : event?.comune ? '👉 Scopri gli eventi a ' + comune + ':' : '👉 Scopri gli eventi in ' + cantonName + ':';
+  const parts = [
+    ...(generatedCopy ? [generatedCopy.hook, ''] : []),
+    emoji + ' ' + truncateBody(title, 150),
+    metaChunks.join('  '),
+    '',
+    cta,
+    '',
+    hashtags,
+  ];
   let out = parts.join('\n').trim();
   if (out.length > FB_MESSAGE_HARD_LIMIT) out = out.slice(0, FB_MESSAGE_HARD_LIMIT);
   return out;
@@ -152,7 +164,7 @@ export const WEEKEND_DIGEST_URL = buildWeekendDigestUrl('TI');
  * link card from the POST's `link` field). Lists how many events and a few
  * comuni/highlights. `canton` defaults to 'TI' (legacy MVP scope).
  */
-export function buildWeekendDigestCaption(events, todayIso, canton = 'TI') {
+export function buildWeekendDigestCaption(events, todayIso, canton = 'TI', socialCopy = null) {
   const list = Array.isArray(events) ? events : [];
   const comuni = [...new Set(list.map((e) => e?.comune).filter(Boolean))];
   const n = list.length;
@@ -174,9 +186,10 @@ export function buildWeekendDigestCaption(events, todayIso, canton = 'TI') {
   }
   const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 6).join(' ');
 
-  const parts = [headline, '', count];
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const parts = generatedCopy ? [generatedCopy.hook, '', headline, '', count] : [headline, '', count];
   if (highlights.length) parts.push('', ...highlights);
-  parts.push('', '👉 Programma completo, comune per comune:', '', hashtags);
+  parts.push('', '👉 ' + (generatedCopy?.cta || 'Programma completo, comune per comune:'), '', hashtags);
   let out = parts.join('\n').trim();
   if (out.length > FB_MESSAGE_HARD_LIMIT) out = out.slice(0, FB_MESSAGE_HARD_LIMIT);
   return out;
@@ -198,7 +211,7 @@ export function buildWeekendDigestCaption(events, todayIso, canton = 'TI') {
  * Returns `[]` when there is nothing left to post (no weekend events at all,
  * or every canton with weekend events already posted this weekend).
  */
-export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = MAX_VOLUME) {
+export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = MAX_VOLUME, { socialCopyFor = null } = {}) {
   const { start } = weekendWindow(todayIso);
   const weekend = weekendEvents(events, todayIso);
   if (weekend.length === 0) return [];
@@ -235,10 +248,12 @@ export function selectWeekendDigests(events, todayIso, postedSet, maxCantons = M
   return cantons.map((canton) => {
     const cantonEvents = byCanton.get(canton);
     const id = canton === 'TI' ? `weekend-digest-${start}` : `weekend-digest-${canton}-${start}`;
+    const socialCopy = typeof socialCopyFor === 'function' ? socialCopyFor({ id, canton, events: cantonEvents }) : null;
     return {
       id,
       url: buildWeekendDigestUrl(canton),
-      message: buildWeekendDigestCaption(cantonEvents, todayIso, canton),
+      message: buildWeekendDigestCaption(cantonEvents, todayIso, canton, socialCopy),
+      copyFields: socialCopyLedgerFields(socialCopy),
       placeId: null,
       canton,
       // Mark the events the roundup covers so they are ledgered too — the Sat/Sun
@@ -264,6 +279,9 @@ export async function run(opts = {}) {
   const repoRoot = opts.repoRoot || REPO_ROOT;
   const log = opts.log || console.log;
   const warn = opts.warn || console.warn;
+  const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
+    onWarning: (message) => warn('⚠️', message),
+  });
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const volume = Math.min(MAX_VOLUME, Math.max(1, Number(env.FB_EVENT_VOLUME) || DEFAULT_VOLUME));
@@ -315,7 +333,14 @@ export async function run(opts = {}) {
   if (isDigestDay) {
     const weekend = weekendEvents(dataset.events, todayIso);
     if (weekend.length > 0) {
-      digestsThisRun = selectWeekendDigests(dataset.events, todayIso, postedSet, volume);
+      digestsThisRun = selectWeekendDigests(dataset.events, todayIso, postedSet, volume, {
+        socialCopyFor: ({ id }) => selectSocialCopy({
+          pack: socialCopyPack,
+          channel: 'facebook',
+          kind: 'digest',
+          assignmentKey: id,
+        }),
+      });
       if (digestsThisRun.length === 0) {
         log('ℹ️', `weekend digest(s) already posted for weekend-${weekendStart} — staying silent`);
         return { ok: true, posted: 0, dryRun, payloads: [] };
@@ -330,13 +355,22 @@ export async function run(opts = {}) {
     payloads = digestsThisRun;
   } else {
     const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
-    payloads = candidates.map((event) => ({
-      id: event.id,
-      url: buildEventUrl(event),
-      message: buildEventCaption(event),
-      placeId: lookupPlaceId(event.comune, placeIds),
-      comune: event.comune || null,
-    }));
+    payloads = candidates.map((event) => {
+      const socialCopy = selectSocialCopy({
+        pack: socialCopyPack,
+        channel: 'facebook',
+        kind: 'event',
+        assignmentKey: event.id,
+      });
+      return {
+        id: event.id,
+        url: buildEventUrl(event),
+        message: buildEventCaption(event, { socialCopy }),
+        placeId: lookupPlaceId(event.comune, placeIds),
+        comune: event.comune || null,
+        copyFields: socialCopyLedgerFields(socialCopy),
+      };
+    });
   }
   if (payloads.length === 0) {
     log('ℹ️', 'nothing to post, exiting');
@@ -392,7 +426,11 @@ export async function run(opts = {}) {
     // with the jobs scheduler so the retry/backoff logic isn't duplicated.
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
-    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_EVENT, p.id);
+    const link = facebookUrl(
+      p.url,
+      FACEBOOK_CAMPAIGN_EVENT,
+      socialCopyTrackingContent(p.id, p.copyFields),
+    );
     await rescrapeOgAndVerify(fetchImpl, link, token, warn);
 
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
@@ -424,7 +462,7 @@ export async function run(opts = {}) {
     if (res?.ok && data?.id) {
       posted += 1;
       const now = new Date().toISOString();
-      const entries = [{ id: p.id, url: p.url, postId: data.id, postedAt: now }];
+      const entries = [{ id: p.id, url: p.url, postId: data.id, postedAt: now, ...p.copyFields }];
       // A weekend roundup also ledgers the events it covers, so the Sat/Sun
       // per-event poster won't re-post them individually.
       for (const coveredId of p.coveredIds || []) {

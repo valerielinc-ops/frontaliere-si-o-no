@@ -194,8 +194,8 @@ sessione grafica aperta sul Mac: il browser non è headless.
 - dopo un clic senza conferma: piattaforma ferma finché un umano non risolve;
 - nel launch agent (`--jitter`) una sola prova a secco per post in coda, non
   una per finestra; a mano `--dry-run` la ripete sempre;
-- il Reel non ha un cron autonomo: è uno slot dispatch-only scelto dal
-  proprietario e sottoposto allo stesso tetto di 2 post Instagram al giorno;
+- i Reel hanno slot schedulati il lunedì e il venerdì; seguono lo stesso tetto
+  di 2 post Instagram al giorno;
 - una conferma inviata che dopo 2 ore non è ancora nel ledger viene rinviata
   alla finestra successiva (fino a 7 giorni dal clic).
 

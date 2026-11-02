@@ -71,6 +71,7 @@ import {
 import {
   chooseInstagramCreative,
   buildInstagramCaption,
+  instagramSocialVisualCopy,
   instagramCreativeContent,
   instagramCreativeLedgerFields,
 } from './lib/instagram-creative.mjs';
@@ -97,12 +98,16 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const LEDGER_PATH = path.join(ROOT, 'data', 'instagram-posted.json');
 const QUEUE_PATH = queuePathFor(ROOT, 'instagram');
 const POSTED_TRIM_LIMIT = 1000;
+const SOCIAL_COPY_PACK = loadSocialCopyPack({
+  onWarning: (message) => console.warn(`⚠️  ${message}`),
+});
 
 /** Same rationale as post-to-linkedin-member.mjs: forever-dedup would slowly
  *  starve the picker as a legitimately-recurring winner gets excluded for good. */
@@ -233,7 +238,15 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative });
+  const socialCopy = selectSocialCopy({
+    pack: SOCIAL_COPY_PACK,
+    channel: 'instagram',
+    kind,
+    expectedObjective: creative.objective,
+    assignmentKey: kind + ':' + day,
+  });
+  const visualCopy = instagramSocialVisualCopy(creative, socialCopy);
+  const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative, socialCopy });
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
   console.log(caption);
@@ -248,10 +261,10 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
 
   const slides = await renderCarouselSlides({
     kicker: creative.cover.kicker,
-    title: creative.cover.title,
+    title: visualCopy?.coverTitle || creative.cover.title,
     subtitle: dayLabel,
     items: slideItems,
-    closing: creative.closing,
+    closing: visualCopy?.closing || creative.closing,
     backgroundVariant: background.id,
   });
   if (!slides) {
@@ -267,11 +280,15 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   const ledgerEntries = picks.map((p) => ({
     id: p.slug,
     kind,
-    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, instagramCreativeContent(creative, p.slug, background.id)),
+    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, socialCopyTrackingContent(
+      instagramCreativeContent(creative, p.slug, background.id),
+      socialCopy,
+    )),
     day,
     views: p.views,
     ...instagramCreativeLedgerFields(creative),
     ...instagramCarouselBackgroundLedgerFields(background),
+    ...socialCopyLedgerFields(socialCopy, { fallbackHook: creative.lead, fallbackCta: creative.cta }),
   }));
   await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
 }
@@ -317,11 +334,20 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     creativeId: creative.id,
     objective: creative.objective,
   });
+  const socialCopy = selectSocialCopy({
+    pack: SOCIAL_COPY_PACK,
+    channel: 'instagram',
+    kind: 'border',
+    expectedObjective: creative.objective,
+    assignmentKey: 'border:' + weekStart,
+  });
+  const visualCopy = instagramSocialVisualCopy(creative, socialCopy);
   const caption = buildInstagramCaption({
     kind: 'border',
     dayLabel,
     picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
     creative,
+    socialCopy,
   });
 
   console.log(`\n─── border carousel (${fastest.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
@@ -337,10 +363,10 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
 
   const slides = await renderCarouselSlides({
     kicker: creative.cover.kicker,
-    title: creative.cover.title,
+    title: visualCopy?.coverTitle || creative.cover.title,
     subtitle: dayLabel,
     items: slideItems,
-    closing: creative.closing,
+    closing: visualCopy?.closing || creative.closing,
     backgroundVariant: background.id,
   });
   if (!slides) {
@@ -360,11 +386,15 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
       url: instagramUrl(
         buildOggiPath('it', fastest[0].slug),
         INSTAGRAM_CAMPAIGN_BORDER,
-        instagramCreativeContent(creative, weekStart, background.id),
+        socialCopyTrackingContent(
+          instagramCreativeContent(creative, weekStart, background.id),
+          socialCopy,
+        ),
       ),
       day: weekStart,
       ...instagramCreativeLedgerFields(creative),
       ...instagramCarouselBackgroundLedgerFields(background),
+      ...socialCopyLedgerFields(socialCopy, { fallbackHook: creative.lead, fallbackCta: creative.cta }),
     },
   ];
   await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });

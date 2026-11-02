@@ -384,12 +384,13 @@ export function buildCarouselCaption({ kind, dayLabel, picks }) {
  *
  * @param {{ kind: 'job'|'article'|'border', dayLabel: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}> }} params
  */
-export function buildCarouselSlideCopy({ kind, dayLabel, items }) {
+export function buildCarouselSlideCopy({ kind, dayLabel, items, socialCopy }) {
   const isJob = kind === 'job';
   const isBorder = kind === 'border';
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
   return {
-    kicker: isBorder ? 'CLASSIFICA DOGANE' : isJob ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
-    title: isBorder ? 'Le dogane più veloci' : isJob ? 'I lavori più cliccati' : 'Gli articoli più letti',
+    kicker: generatedCopy ? 'IN PRIMO PIANO' : isBorder ? 'CLASSIFICA DOGANE' : isJob ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
+    title: generatedCopy?.hook || (isBorder ? 'Le dogane più veloci' : isJob ? 'I lavori più cliccati' : 'Gli articoli più letti'),
     subtitle: dayLabel,
     items,
   };
@@ -435,16 +436,19 @@ function tiktokSummary(kind, dayLabel) {
  *
  * @param {{ kind: 'job'|'article'|'border', dayLabel: string, picks: Array<{title:string, statValue: string|number}>, hashtags?: string[] }} params
  */
-export function buildTikTokCaption({ kind, dayLabel, picks, hashtags }) {
+export function buildTikTokCaption({ kind, dayLabel, picks, hashtags, socialCopy }) {
   const lead = tiktokLead(kind);
   const summary = tiktokSummary(kind, dayLabel);
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
   const itemLines = (picks || []).map((p, i) => `${i + 1}. ${String(p.title || '').replace(/\s+/g, ' ').trim()} — ${p.statValue}`);
   const footer = [
-    '👉 Link in bio: frontaliereticino.ch',
+    generatedCopy
+      ? generatedCopy.cta + (/link in bio/i.test(generatedCopy.cta) ? '' : ' · Link in bio: frontaliereticino.ch')
+      : '👉 Link in bio: frontaliereticino.ch',
     '',
     tiktokHashtags(kind, hashtags).join(' '),
   ].join('\n');
-  const prefix = `${lead}\n\n${summary}\n\n`;
+  const prefix = `${generatedCopy?.hook || lead}\n\n${summary}\n\n`;
   const available = TIKTOK_CAPTION_MAX_CHARS - prefix.length - footer.length - 1;
   let items = itemLines.join('\n');
   if (items.length > available) {
@@ -620,16 +624,18 @@ export function buildArticleUrl(section, slugIt) {
  *
  * @param {{ ogTitle: string, ogDescription?: string, category?: string }} article
  */
-export function buildArticleCaption({ ogTitle, ogDescription, category }) {
+export function buildArticleCaption({ ogTitle, ogDescription, category, socialCopy }) {
   const emoji = ARTICLE_CATEGORY_EMOJI[category] || '📰';
   const hashtags = ARTICLE_CATEGORY_HASHTAGS[category] || DEFAULT_ARTICLE_HASHTAGS;
   const description = ogDescription || '';
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
   return [
+    ...(generatedCopy ? [generatedCopy.hook, ''] : []),
     `${emoji} ${ogTitle}`,
     '',
     description,
     '',
-    `👉 Leggi l'articolo completo:`,
+      `👉 ${generatedCopy?.cta || "Leggi l'articolo completo:"}`,
     '',
     hashtags,
   ].join('\n').trim();

@@ -150,6 +150,13 @@ describe('Instagram Insights creative scorecard', () => {
         attentionMechanic: 'single-source-number',
         engagementLoop: 'share-with-utility',
         followUpFormat: 'story-poll',
+        copyMode: 'codex',
+        copyPromptVersion: 'frontaliere-social-copy-v1',
+        copyPackId: 'pack-1',
+        copyTemplateId: 'ig-article-uno',
+        copyObjective: 'share',
+        copyHook: 'Un dettaglio utile per chi lavora oltre confine',
+        copyCta: 'Approfondisci dal link in bio',
       }] },
     });
 
@@ -160,6 +167,11 @@ describe('Instagram Insights creative scorecard', () => {
       engagementMechanic: 'direct-share',
       hookType: 'data-proof',
       engagementLoop: 'share-with-utility',
+      copyMode: 'codex',
+      copyPackId: 'pack-1',
+      copyTemplateId: 'ig-article-uno',
+      copyObjective: 'share',
+      copyHook: 'Un dettaglio utile per chi lavora oltre confine',
     });
 
     const report = aggregateCreativePerformance(result.rows, { minimumObservations: 1 });
@@ -168,7 +180,68 @@ describe('Instagram Insights creative scorecard', () => {
       creativeVariant: 'baseline',
       engagementMechanic: 'direct-share',
       followUpFormat: 'story-poll',
+      copyVariants: [{
+        copyMode: 'codex',
+        copyPackId: 'pack-1',
+        copyTemplateId: 'ig-article-uno',
+        copyObjective: 'share',
+        observations: 1,
+      }],
     });
+  });
+
+  it('reports copy outcomes descriptively without lowering treatment eligibility', () => {
+    const report = buildCreativeReport([
+      {
+        id: 'ig-copy-a',
+        creativeId: 'proof',
+        kind: 'article',
+        reach: 100,
+        shares: 10,
+        copyMode: 'codex',
+        copyPackId: 'pack-1',
+        copyTemplateId: 'ig-article-uno',
+      },
+      {
+        id: 'ig-copy-b',
+        creativeId: 'proof',
+        kind: 'article',
+        reach: 100,
+        shares: 5,
+        copyMode: 'codex',
+        copyPackId: 'pack-1',
+        copyTemplateId: 'ig-article-due',
+      },
+    ]);
+
+    expect(report.treatments[0]).toMatchObject({
+      observations: 2,
+      eligible: false,
+      status: 'needs-1-more',
+      copyVariants: expect.arrayContaining([
+        expect.objectContaining({ copyTemplateId: 'ig-article-uno', observations: 1, primaryRate: 0.1 }),
+        expect.objectContaining({ copyTemplateId: 'ig-article-due', observations: 1, primaryRate: 0.05 }),
+      ]),
+    });
+  });
+
+  it('rejects a Codex copy objective that conflicts with the creative objective', () => {
+    const report = buildCreativeReport([
+      {
+        id: 'ig-copy-conflict',
+        creativeId: 'proof',
+        kind: 'article',
+        reach: 100,
+        shares: 10,
+        copyMode: 'codex',
+        copyObjective: 'save',
+      },
+    ]);
+
+    expect(report.acceptedRows).toBe(0);
+    expect(report.rejectedRows).toEqual([
+      expect.objectContaining({ reason: 'copy objective conflicts with creative objective' }),
+    ]);
   });
 
   it('rejects incomplete rows instead of turning missing reach into a zero-rate winner', () => {

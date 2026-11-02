@@ -124,15 +124,36 @@ export function groupPostedLedger(ledger) {
       attentionMechanic: firstText(entry.attentionMechanic, entry.attention_mechanic),
       engagementLoop: firstText(entry.engagementLoop, entry.engagement_loop),
       followUpFormat: firstText(entry.followUpFormat, entry.follow_up_format),
+      copyMode: firstText(entry.copyMode, entry.copy_mode),
+      copyPromptVersion: firstText(entry.copyPromptVersion, entry.copy_prompt_version),
+      copyPackId: firstText(entry.copyPackId, entry.copy_pack_id),
+      copyTemplateId: firstText(entry.copyTemplateId, entry.copy_template_id),
+      copyObjective: firstText(entry.copyObjective, entry.copy_objective),
+      copyHook: firstText(entry.copyHook, entry.copy_hook),
+      copyCta: firstText(entry.copyCta, entry.copy_cta),
       publishedAtMs: entryTs,
       entries: 0,
       conflictingCreativeId: false,
       conflictingBackgroundVariant: false,
+      conflictingCopyMetadata: false,
     };
     if (group.creativeId !== creativeId) group.conflictingCreativeId = true;
     const backgroundVariant = firstText(entry.backgroundVariant, entry.background_variant);
     if (group.backgroundVariant && backgroundVariant && group.backgroundVariant !== backgroundVariant) {
       group.conflictingBackgroundVariant = true;
+    }
+    const copyMetadata = {
+      copyMode: firstText(entry.copyMode, entry.copy_mode),
+      copyPromptVersion: firstText(entry.copyPromptVersion, entry.copy_prompt_version),
+      copyPackId: firstText(entry.copyPackId, entry.copy_pack_id),
+      copyTemplateId: firstText(entry.copyTemplateId, entry.copy_template_id),
+      copyObjective: firstText(entry.copyObjective, entry.copy_objective),
+      copyHook: firstText(entry.copyHook, entry.copy_hook),
+      copyCta: firstText(entry.copyCta, entry.copy_cta),
+    };
+    for (const [field, value] of Object.entries(copyMetadata)) {
+      if (group[field] && value && group[field] !== value) group.conflictingCopyMetadata = true;
+      group[field] ||= value;
     }
     group.mediaId ||= mediaId;
     group.queueId ||= queueId;
@@ -184,7 +205,7 @@ export function selectSnapshotCandidates(
   const skipped = [];
   for (const group of groupPostedLedger(ledger)) {
     const key = snapshotIdentity(group, targetHours);
-    if (group.conflictingCreativeId || group.conflictingBackgroundVariant) {
+    if (group.conflictingCreativeId || group.conflictingBackgroundVariant || group.conflictingCopyMetadata) {
       skipped.push({ reason: 'conflicting-creative-metadata' });
     } else if (!group.publishedAtMs) {
       skipped.push({ reason: 'published-at-missing' });
@@ -376,6 +397,13 @@ export async function collectSnapshots({
         attentionMechanic: group.attentionMechanic || undefined,
         engagementLoop: group.engagementLoop || undefined,
         followUpFormat: group.followUpFormat || undefined,
+        copyMode: group.copyMode || undefined,
+        copyPromptVersion: group.copyPromptVersion || undefined,
+        copyPackId: group.copyPackId || undefined,
+        copyTemplateId: group.copyTemplateId || undefined,
+        copyObjective: group.copyObjective || undefined,
+        copyHook: group.copyHook || undefined,
+        copyCta: group.copyCta || undefined,
         mediaType: text(mediaItem.media_type),
         permalink: text(mediaItem.permalink),
         windowHours: targetWindow,

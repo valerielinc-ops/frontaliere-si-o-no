@@ -36,6 +36,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 import {
   stripHtml,
@@ -197,7 +198,7 @@ export function pickNextSlots(volume, occupied, now) {
  *
  *   #tag1 #tag2 ...
  */
-export function buildJobCaption(job) {
+export function buildJobCaption(job, { socialCopy } = {}) {
   // Prefer the Italian-translated title (the audience reads Italian, the
   // landing page's og:title is also IT). Fall back to the raw `job.title`
   // for jobs that haven't been translated yet.
@@ -228,9 +229,11 @@ export function buildJobCaption(job) {
   // Hashtags
   const hashtags = buildJobHashtags(job);
 
-  const parts = [headerTitle];
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const parts = generatedCopy ? [generatedCopy.hook, '', headerTitle] : [headerTitle];
   if (headerMeta) parts.push(headerMeta);
   if (body) parts.push('', body);
+  if (generatedCopy) parts.push('', '👉 ' + generatedCopy.cta);
   if (hashtags) parts.push('', hashtags);
 
   let out = parts.join('\n');
@@ -542,6 +545,9 @@ export async function run(opts = {}) {
   const repoRoot = opts.repoRoot || defaultRepoRoot();
   const log = opts.log || console.log;
   const warn = opts.warn || console.warn;
+  const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
+    onWarning: (message) => warn('⚠️', message),
+  });
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const volumeRaw = Number(env.FB_JOB_VOLUME || 144);
@@ -594,7 +600,13 @@ export async function run(opts = {}) {
       log('⚠️', `skipping job ${job.id} — no slug`);
       continue;
     }
-    const message = buildJobCaption(job);
+    const socialCopy = selectSocialCopy({
+      pack: socialCopyPack,
+      channel: 'facebook',
+      kind: 'job',
+      assignmentKey: job.id,
+    });
+    const message = buildJobCaption(job, { socialCopy });
     const placeId = lookupPlaceId(job.location, placeIds);
     if (placeId) {
       placedCount += 1;
@@ -606,6 +618,7 @@ export async function run(opts = {}) {
       url,
       message,
       placeId,
+      copyFields: socialCopyLedgerFields(socialCopy),
       scheduled_publish_time: slots[i],
     });
   }
@@ -655,7 +668,11 @@ export async function run(opts = {}) {
   const scheduleOne = async (p) => {
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
-    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_JOB, p.jobId);
+    const link = facebookUrl(
+      p.url,
+      FACEBOOK_CAMPAIGN_JOB,
+      socialCopyTrackingContent(p.jobId, p.copyFields),
+    );
     await rescrapeOgAndVerify(fetchImpl, link, token, warn);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
@@ -699,6 +716,7 @@ export async function run(opts = {}) {
         ts: new Date().toISOString(),
         fbPostId: data.id,
         scheduledFor: new Date(p.scheduled_publish_time * 1000).toISOString(),
+        ...p.copyFields,
       }]);
       log('✅', `${p.jobId} → ${data.id} @ ${new Date(p.scheduled_publish_time * 1000).toISOString()}`);
       return true;

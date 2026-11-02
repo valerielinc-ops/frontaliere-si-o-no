@@ -118,7 +118,7 @@ jobs:
         run: node scripts/post-to-telegram.mjs preferred-source
 
       - name: Open PR with posted ledgers
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'preferred-source') && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'border' || env.MODE == 'preferred-source') && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
@@ -140,8 +140,8 @@ jobs:
             --path data/telegram-posted-jobs.json \
             --path data/telegram-posted-announcements.json \
             --branch chore/telegram-channel-ledgers \
-            --commit-message "chore(telegram): track posted jobs/announcements" \
-            --title "chore(telegram): track posted jobs and announcements" \
+            --commit-message "chore(telegram): track posted broadcasts" \
+            --title "chore(telegram): track posted broadcasts" \
             --body-file "$body"
 
       - name: Report failure to GitHub Issues

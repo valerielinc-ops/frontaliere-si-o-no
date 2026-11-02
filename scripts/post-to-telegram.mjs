@@ -61,6 +61,11 @@ import {
   DEFAULT_JOBS_LIMIT,
   PREFERRED_SOURCE_ANNOUNCEMENT_ID,
 } from './lib/telegram-templates.mjs';
+import {
+  loadSocialCopyPack,
+  selectSocialCopy,
+  socialCopyLedgerFields,
+} from './lib/social-copy-pack.mjs';
 
 // Ledger trim cap (mirrors the Reddit poster).
 const POSTED_TRIM_LIMIT = 1000;
@@ -110,16 +115,44 @@ function itDateLabel(now) {
 }
 
 /** Build the message + (jobs mode) the ledger commit callback. */
-async function buildForMode(mode, { env, repoRoot, now, log }) {
+async function buildForMode(mode, { env, repoRoot, now, log, socialCopyPack = null }) {
   if (mode === 'border') {
     // tsx-only path — dynamically imported so the jobs mode can stay on plain
     // `node` (this module transitively imports `.ts` files).
-    const { buildWeeklyBorderDigest } = await import('./lib/telegram-border-digest.mjs');
+    const { buildWeeklyBorderDigest, telegramBorderCopyAssignmentKey } = await import('./lib/telegram-border-digest.mjs');
     const historyDir = resolve(repoRoot, 'data', 'border-wait-history');
     const todayIso = env.TODAY_ISO || now.toISOString().slice(0, 10);
-    const { text, rankedCount } = buildWeeklyBorderDigest({ historyDir, todayIso });
+    const ledgerPath = postedAnnouncementsPath(repoRoot);
+    const ledger = loadLedger(ledgerPath);
+    const socialCopy = selectSocialCopy({
+      pack: socialCopyPack,
+      channel: 'telegram',
+      kind: 'border',
+      assignmentKey: telegramBorderCopyAssignmentKey(todayIso),
+    });
+    const { text, rankedCount, weekStart, weekEnd } = buildWeeklyBorderDigest({
+      historyDir,
+      todayIso,
+      socialCopy,
+    });
     log('ℹ️', `border ranking: ${rankedCount} crossings ranked`);
-    return { text, onSent: null };
+    const id = 'border-ranking:' + weekStart;
+    if (ledger.posted.some((entry) => entry?.id === id)) {
+      log('ℹ️', 'border ranking already posted for ' + weekStart + ' — skipping');
+      return { text: '', onSent: null };
+    }
+    const copyFields = socialCopyLedgerFields(socialCopy, {
+      fallbackHook: 'Classifica delle dogane del Ticino',
+      fallbackCta: 'Classifica completa e trend settimanale',
+    });
+    const onSent = () => appendLedger(ledgerPath, [{
+      id,
+      ts: new Date().toISOString(),
+      weekStart,
+      weekEnd,
+      ...copyFields,
+    }], POSTED_TRIM_LIMIT);
+    return { text, onSent };
   }
 
   if (mode === 'preferred-source') {
@@ -160,7 +193,18 @@ async function buildForMode(mode, { env, repoRoot, now, log }) {
   // still fill the shortlist.
   const candidates = selectUnpostedJobs(jobs, postedSet, limit * 2);
   const dateLabel = itDateLabel(now);
-  const { text, jobIds } = buildDailyJobsDigest(candidates, { limit, dateLabel });
+  const day = env.TODAY_ISO || now.toISOString().slice(0, 10);
+  const socialCopy = selectSocialCopy({
+    pack: socialCopyPack,
+    channel: 'telegram',
+    kind: 'job',
+    assignmentKey: 'jobs:' + day,
+  });
+  const { text, jobIds } = buildDailyJobsDigest(candidates, { limit, dateLabel, socialCopy });
+  const copyFields = socialCopyLedgerFields(socialCopy, {
+    fallbackHook: 'Offerte di lavoro in Ticino',
+    fallbackCta: 'Tutte le offerte in Ticino',
+  });
 
   // On a successful real send, record the posted job ids so tomorrow's digest
   // doesn't repeat them.
@@ -168,7 +212,7 @@ async function buildForMode(mode, { env, repoRoot, now, log }) {
     ? () =>
         appendLedger(
           ledgerPath,
-          jobIds.map((id) => ({ id, ts: new Date().toISOString() })),
+          jobIds.map((id) => ({ id, ts: new Date().toISOString(), ...copyFields })),
           POSTED_TRIM_LIMIT,
         )
     : null;
@@ -193,10 +237,13 @@ async function main() {
   const log = (icon, msg) => console.log(`${icon} ${msg}`);
   const repoRoot = defaultRepoRoot();
   const now = new Date();
+  const socialCopyPack = loadSocialCopyPack({
+    onWarning: (warning) => log('⚠️', warning),
+  });
 
   log('📣', `Telegram broadcast — mode=${mode}, send=${!dryRun}`);
 
-  const { text, onSent } = await buildForMode(mode, { env, repoRoot, now, log });
+  const { text, onSent } = await buildForMode(mode, { env, repoRoot, now, log, socialCopyPack });
 
   if (!text) {
     log('ℹ️', 'nothing to post this run — exiting');

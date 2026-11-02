@@ -77,6 +77,33 @@ describe('Instagram Reel creative experiment', () => {
     });
   });
 
+  it('keeps Codex caption and Reel-card copy aligned with the measured objective', () => {
+    const creative = chooseInstagramReelCreative({ kind: 'article', day: '2026-10-10' });
+    const cta = creative.objective === 'share'
+      ? 'Condividi questo spunto con chi ti è vicino'
+      : creative.objective === 'save'
+      ? 'Salva questo spunto per quando ti servirà'
+      : 'Racconta nei commenti quale tema ti interessa';
+    const content = buildInstagramReelContent({
+      kind: 'article',
+      dayLabel: '10 ottobre 2026',
+      item: ITEM,
+      creative,
+      socialCopy: {
+        copyMode: 'codex',
+        objective: creative.objective,
+        hook: 'Un chiarimento utile per chi lavora oltre confine',
+        cta,
+      },
+    });
+    expect(content.caption.split('\n')[0]).toBe('Un chiarimento utile per chi lavora oltre confine');
+    expect(content.caption).toContain(cta);
+    expect(content.caption).toContain('link in bio');
+    expect(content.slides[0].title).toBe('Un chiarimento utile per chi lavora oltre confine');
+    expect(content.slides[2].cta).toBe(cta);
+    expect(content.slides[2].body).toBe('');
+  });
+
   it('uses a low-friction keyword prompt for the comment treatment', () => {
     const article = chooseInstagramReelCreative({ kind: 'article', day: '2026-10-08' });
     const job = chooseInstagramReelCreative({ kind: 'job', day: '2026-10-07' });

@@ -12,7 +12,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 import { pickTopNUnposted } from '../scripts/lib/daily-top-content.mjs';
-import { formatDayIt, buildCarouselCaption, buildTikTokCaption, TIKTOK_CAPTION_MAX_CHARS } from '../scripts/lib/social-post-utils.mjs';
+import { formatDayIt, buildCarouselCaption, buildCarouselSlideCopy, buildTikTokCaption, TIKTOK_CAPTION_MAX_CHARS } from '../scripts/lib/social-post-utils.mjs';
 import { buildQueueEntry, isAllowedImageUrl, isAllowedVideoUrl } from '../scripts/lib/social-publish-queue.mjs';
 import {
   BRAND_VIDEO_BACKGROUND,
@@ -152,6 +152,43 @@ describe('buildTikTokCaption', () => {
     expect(caption.match(/#dogane/g)).toHaveLength(1);
     expect(caption.match(/#ticino/g)).toHaveLength(1);
     expect(caption).toContain('#confine');
+  });
+
+  it('uses Codex video copy while retaining the platform link destination', () => {
+    const caption = buildTikTokCaption({
+      kind: 'article',
+      dayLabel: '23/08/2026',
+      picks,
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'Un chiarimento utile per chi lavora oltre confine',
+        cta: 'Condividi questo spunto con chi ti è vicino',
+      },
+    });
+    expect(caption.split('\n')[0]).toBe('Un chiarimento utile per chi lavora oltre confine');
+    expect(caption).toContain('Condividi questo spunto con chi ti è vicino');
+    expect(caption).toContain('Link in bio: frontaliereticino.ch');
+    expect(caption).toContain('frontaliereticino.ch');
+    expect(caption).not.toMatch(/https?:\/\//);
+  });
+
+  it('uses the same Codex hook on the TikTok carousel cover and caption', () => {
+    const socialCopy = {
+      copyMode: 'codex',
+      hook: 'Una selezione utile per chi cerca una nuova opportunità',
+      cta: 'Apri il link in bio per leggere i dettagli',
+    };
+    const cover = buildCarouselSlideCopy({
+      kind: 'job',
+      dayLabel: '02/11/2026',
+      items: [],
+      socialCopy,
+    });
+
+    expect(cover.kicker).toBe('IN PRIMO PIANO');
+    expect(cover.title).toBe(socialCopy.hook);
+    expect(buildTikTokCaption({ kind: 'job', dayLabel: '02/11/2026', picks: [], socialCopy }).split('\n')[0])
+      .toBe(cover.title);
   });
 });
 

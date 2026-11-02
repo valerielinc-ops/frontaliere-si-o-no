@@ -7,6 +7,7 @@ import {
   INSTAGRAM_MAX_CAPTION_LENGTH,
   buildInstagramCaption,
   chooseInstagramCreative,
+  instagramSocialVisualCopy,
   enrichInstagramCreativeLedgerEntry,
   instagramCreativeContent,
   instagramCreativeLedgerFields,
@@ -169,6 +170,45 @@ describe('Instagram creative system', () => {
     expect(creative.objective).toBe('conversation');
     expect(caption).toContain('commenti');
     expect(caption).toContain(creative.question);
+  });
+
+  it('uses the validated Codex hook and CTA without adding a second action', () => {
+    const creative = chooseInstagramCreative({ kind: 'article', day: '2026-10-09' });
+    const caption = buildInstagramCaption({
+      kind: 'article',
+      dayLabel: '09/10/2026',
+      picks: PICKS,
+      creative,
+      socialCopy: {
+        copyMode: 'codex',
+        objective: 'share',
+        hook: 'Un chiarimento utile per chi lavora oltre confine',
+        cta: 'Condividi questo spunto con chi ti è vicino',
+      },
+    });
+    expect(caption.split('\n')[0]).toBe('Un chiarimento utile per chi lavora oltre confine');
+    expect(caption).toContain('Condividi questo spunto con chi ti è vicino');
+    expect(caption).toContain('Per dettagli e fonti: link in bio.');
+    expect(caption).not.toMatch(/https?:\/\//);
+  });
+
+  it('uses the same generated objective CTA on the carousel closing card', () => {
+    const creative = chooseInstagramCreative({ kind: 'article', day: '2026-10-09' });
+    const socialCopy = {
+      copyMode: 'codex',
+      objective: creative.objective,
+      hook: 'Una domanda utile per chi vive tra Italia e Svizzera',
+      cta: creative.objective === 'save'
+        ? 'Salva questo spunto per il prossimo viaggio'
+        : creative.objective === 'conversation'
+        ? 'Racconta nei commenti quale tema ti interessa'
+        : 'Condividi questo spunto con chi ti è vicino',
+    };
+    const visual = instagramSocialVisualCopy(creative, socialCopy);
+
+    expect(visual?.coverTitle).toBe(socialCopy.hook);
+    expect(visual?.closing.cta).toBe(socialCopy.cta);
+    expect(instagramSocialVisualCopy(creative, { ...socialCopy, objective: 'save' })).toBeNull();
   });
 
   it('keeps extreme five-pick captions within Instagram’s limit', () => {

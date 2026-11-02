@@ -46,12 +46,16 @@ import {
   resolveSocialRobotMode,
   socialPublishRoute,
 } from './lib/social-publish-queue.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const LEDGER_PATH = path.join(ROOT, 'data', 'instagram-posted.json');
 const QUEUE_PATH = queuePathFor(ROOT, 'instagram');
 const DEDUP_WINDOW_DAYS = 30;
+const SOCIAL_COPY_PACK = loadSocialCopyPack({
+  onWarning: (message) => console.warn(`⚠️  ${message}`),
+});
 
 function parseArgs(argv) {
   const args = { dryRun: false, kind: 'article', day: previousReportDay() };
@@ -141,7 +145,15 @@ async function queueReel({ kind, day, dryRun, robotMode }) {
 
   const creative = chooseInstagramReelCreative({ kind, day });
   const item = buildItem(kind, pick, jobIndex);
-  const content = buildInstagramReelContent({ kind, dayLabel: formatDayIt(day), item, creative });
+  const socialCopy = selectSocialCopy({
+    pack: SOCIAL_COPY_PACK,
+    channel: 'instagram',
+    kind,
+    format: 'reel',
+    expectedObjective: creative.objective,
+    assignmentKey: kind + ':' + day,
+  });
+  const content = buildInstagramReelContent({ kind, dayLabel: formatDayIt(day), item, creative, socialCopy });
   console.log(`\n─── Instagram Reel (${kind}, ${creative.id}) ───`);
   console.log(content.caption);
   console.log('───');
@@ -185,10 +197,15 @@ async function queueReel({ kind, day, dryRun, robotMode }) {
     kind: 'reel',
     sourceKind: kind,
     sourceId,
-    url: instagramUrl(sourceUrlFor(pick), INSTAGRAM_CAMPAIGN_REEL, `${creative.id}-${pick.slug}`),
+    url: instagramUrl(
+      sourceUrlFor(pick),
+      INSTAGRAM_CAMPAIGN_REEL,
+      socialCopyTrackingContent(`${creative.id}-${pick.slug}`, socialCopy),
+    ),
     day,
     views: pick.views,
     ...instagramReelLedgerFields(creative),
+    ...socialCopyLedgerFields(socialCopy, { fallbackHook: creative.lead, fallbackCta: creative.cta }),
   }];
   const video = {
     url: videoUrl,

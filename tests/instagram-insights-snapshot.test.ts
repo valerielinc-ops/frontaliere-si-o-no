@@ -31,6 +31,13 @@ function ledgerEntry(overrides: Record<string, unknown> = {}) {
     attentionMechanic: 'local-relevance',
     engagementLoop: 'share-to-local-group',
     followUpFormat: 'story-poll',
+    copyMode: 'codex',
+    copyPromptVersion: 'frontaliere-social-copy-v1',
+    copyPackId: 'pack-1',
+    copyTemplateId: 'ig-article-uno',
+    copyObjective: 'share',
+    copyHook: 'Un dettaglio utile per chi lavora oltre confine',
+    copyCta: 'Approfondisci dal link in bio',
     ...overrides,
   };
 }
@@ -84,6 +91,21 @@ describe('Instagram Insights snapshot collector', () => {
         posted: [
           ledgerEntry({ backgroundVariant: 'navy-gradient' }),
           ledgerEntry({ id: 'item-2', backgroundVariant: 'paper-amber' }),
+        ],
+      },
+      null,
+      { asOf: AS_OF, windowHours: 72 },
+    );
+    expect(selected.candidates).toHaveLength(0);
+    expect(selected.skipped).toContainEqual({ reason: 'conflicting-creative-metadata' });
+  });
+
+  it('does not pool carousel cards with conflicting copy attribution', () => {
+    const selected = selectSnapshotCandidates(
+      {
+        posted: [
+          ledgerEntry(),
+          ledgerEntry({ id: 'item-2', copyTemplateId: 'ig-article-due' }),
         ],
       },
       null,
@@ -184,6 +206,13 @@ describe('Instagram Insights snapshot collector', () => {
       attentionMechanic: 'local-relevance',
       engagementLoop: 'share-to-local-group',
       followUpFormat: 'story-poll',
+      copyMode: 'codex',
+      copyPromptVersion: 'frontaliere-social-copy-v1',
+      copyPackId: 'pack-1',
+      copyTemplateId: 'ig-article-uno',
+      copyObjective: 'share',
+      copyHook: 'Un dettaglio utile per chi lavora oltre confine',
+      copyCta: 'Approfondisci dal link in bio',
       reach: 100,
       shares: 12,
       saves: 8,

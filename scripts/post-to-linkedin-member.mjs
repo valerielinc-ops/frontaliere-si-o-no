@@ -74,12 +74,16 @@ import {
   resolveOrganizationUrn,
 } from './lib/linkedin-member-copy.mjs';
 import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const LEDGER_PATH = path.join(ROOT, 'data', 'linkedin-member-posted.json');
 const POSTED_TRIM_LIMIT = 1000;
+const SOCIAL_COPY_PACK = loadSocialCopyPack({
+  onWarning: (message) => console.warn(`⚠️  ${message}`),
+});
 
 /**
  * Only the last 30 days block a repost. Deduping against the ledger FOREVER
@@ -270,7 +274,6 @@ async function main() {
     if (skipped) console.log(`↪️  ${slot.kind}: skipped ${skipped} already-posted candidate(s)`);
 
     const canonical = `${SITE_URL}${pick.path}/`;
-    const url = linkedinUrl(canonical, slot.campaign, pick.slug);
     // For a job the dataset is a better title source than GA4's pageTitle: it
     // carries the employer, which the page title often drops.
     const job = slot.kind === 'job' ? jobIndex.get(pick.slug) : null;
@@ -291,6 +294,17 @@ async function main() {
     const excerpt =
       slot.kind === 'job' ? resolveJobDescription(job) : pageMeta.ogDescription;
 
+    const socialCopy = selectSocialCopy({
+      pack: SOCIAL_COPY_PACK,
+      channel: 'linkedin',
+      kind: slot.kind,
+      assignmentKey: pick.slug,
+    });
+    const url = linkedinUrl(
+      canonical,
+      slot.campaign,
+      socialCopyTrackingContent(pick.slug, socialCopy),
+    );
     const commentary = buildMemberCommentary({
       kind: slot.kind,
       title: job ? jobTitle || title : title,
@@ -301,6 +315,7 @@ async function main() {
       organizationUrn: resolveOrganizationUrn(job),
       location,
       canton: job?.canton || '',
+      socialCopy,
     });
 
     let thumbnail = null;
@@ -345,6 +360,7 @@ async function main() {
             views: pick.views,
             ts: new Date().toISOString(),
             linkedinPostId: res.postId,
+            ...socialCopyLedgerFields(socialCopy),
           },
         ],
         POSTED_TRIM_LIMIT,

@@ -83,6 +83,20 @@ describe('answer video plan', () => {
     expect(cards.length).toBe(5);
   });
 
+  it('puts the Codex CTA on both the final card and caption', () => {
+    const faq = { question: 'Come viene tassato un frontaliere?', answer: ANSWER };
+    const socialCopy = {
+      copyMode: 'codex',
+      hook: 'Un chiarimento utile per chi lavora oltre confine',
+      cta: 'Salva questa risposta per quando ti servirà',
+    };
+    const generatedCards = buildAnswerCards(faq, socialCopy);
+
+    expect(generatedCards[0].text).toBe(faq.question);
+    expect(generatedCards.at(-1)).toEqual({ kicker: 'IL PROSSIMO PASSO', text: socialCopy.cta });
+    expect(buildAnswerCaption(faq, socialCopy)).toContain(socialCopy.cta);
+  });
+
   it('speaks the on-screen words, without the Swiss thousands apostrophe', () => {
     const script = buildAnswerVoiceScript(cards);
     expect(script).toContain('€7500');
@@ -117,6 +131,23 @@ describe('buildAnswerCaption', () => {
     expect(caption).toContain('voce sintetica');
     expect(caption).not.toContain('visualizzazioni');
     expect(caption.match(/#\w+/g)).toHaveLength(4);
+  });
+
+  it('uses Codex hook and one CTA without replacing the question or disclosure', () => {
+    const caption = buildAnswerCaption(
+      { question: 'Quanto resta da 5000 franchi?', answer: ANSWER },
+      {
+        copyMode: 'codex',
+        hook: 'Un chiarimento utile sul lavoro oltre confine',
+        cta: 'Approfondisci dal link in bio',
+      },
+    );
+    expect(caption.split('\n')[0]).toBe('Quanto resta da 5000 franchi?');
+    expect(caption).toContain('Un chiarimento utile sul lavoro oltre confine');
+    expect(caption).toContain('Approfondisci dal link in bio');
+    expect(caption).not.toContain('Ti è capitato?');
+    expect(caption).toContain('voce sintetica');
+    expect(caption).toContain('frontaliereticino.ch');
   });
 });
 
