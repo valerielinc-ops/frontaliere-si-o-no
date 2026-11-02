@@ -1,6 +1,6 @@
 /** Only technical pre-send stops may resume after the portal engine changes. */
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
-import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, isUnknownAnswer } from './assistedApplicationCandidateEdits.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
 import { operationalQuestionTopic, operationalAnswerReadyForDiscovery, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
@@ -78,6 +78,8 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
     || flow.dispatch?.mode !== 'submit' || Number(flow.dispatch.round) !== Number(flow.round)
     || !(Number(draft.completedAt) > 0) || !(Number(flow.dispatch.requestedAt) >= Number(draft.completedAt))
     || questions.some(question => question?.source !== 'portal')) return false;
+  if (questions.some(question => isUnknownAnswer(flow.answers?.[question.id])
+    || isUnknownAnswer(flow.questionAnswers?.[candidateQuestionAnswerKey(question)]))) return false;
   const { answers } = candidateWithEdits({ order, draft, flow });
   const projected = withOperationalQuestionAnswers(questions, answers).answers;
   return questions.every(question => operationalQuestionTopic(question)
