@@ -15,6 +15,12 @@ senza contenuto nell'iframe non dimostra l'assenza di annunci.
   `!important` senza layer non supera la classe Tailwind `!w-[95%]`.
   La fixture con il CSS compilato, a 275 px e scrollbar di 8 px, misura 253 px
   per lo slot e nessun overflow orizzontale (prima della correzione: circa 236 px).
+- L'HTML statico degli articoli include nel head la propria regola sotto 360 px:
+  margini di 4 px sul main che contiene `article.ft-blog-article`. Non attende
+  React né il CSS differito, e prevale sui margini generici caricati dopo.
+  A 275 px la fixture senza script misura 252 px con il solo CSS critico e
+  scrollbar classica di 15 px, poi 259 px con il CSS completo; a 390 px conserva
+  i margini ordinari di 16 px. La regola è condivisa dai locali e dalle sezioni.
 - Un singleton per libreria condivide caricamento e tentativi fra HTML statico
   e React: un tentativo iniziale e due retry, dopo 2 e 6 secondi, solo su errore
   effettivo. Dopo 12 secondi senza risposta lo stato è `waiting_response`:
