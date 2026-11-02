@@ -4,6 +4,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import { PHARMACY_GOOGLE_PLACES_MONTHLY_LIMIT } from '../lib/google-places-budget.mjs';
 
 // This validator is a crawler-contract source input; changes trigger reattestation.
 export const MAX_FUTURE_SKEW_MS = 5 * 60 * 1000;
@@ -50,7 +51,7 @@ const HEALTH_TIMESTAMP_FIELDS = [
   '_lastObservedGeneratedAt',
   '_missingAt',
 ];
-const MAX_GOOGLE_PLACES_REQUESTS = 10_000;
+const MAX_GOOGLE_PLACES_REQUESTS = PHARMACY_GOOGLE_PLACES_MONTHLY_LIMIT;
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
