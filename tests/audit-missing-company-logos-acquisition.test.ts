@@ -50,6 +50,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
   my: ['teojakob.ch'],
+  okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
