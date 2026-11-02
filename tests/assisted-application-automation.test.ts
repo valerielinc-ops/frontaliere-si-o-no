@@ -438,6 +438,15 @@ describe('applying events', () => {
     expect(bounded.questionDetails.length).toBeLessThan(details.length);
     expect(bytes).toBeLessThanOrEqual(MAX_RUNNER_EVENT_BYTES);
     expect(bounded.questions).toHaveLength(MAX_RUNNER_EVENT_QUESTION_DETAILS);
+
+    const overLimitArrays = boundRunnerEvent({
+      ...event,
+      questions: Array.from({ length: MAX_RUNNER_EVENT_QUESTION_DETAILS + 5 }, (_, index) => ({ id: `q${index}` })),
+      documents: Array.from({ length: MAX_RUNNER_EVENT_QUESTION_DETAILS + 5 }, (_, index) => ({ id: `d${index}` })),
+      questionDetails: details,
+    });
+    expect(overLimitArrays.questions).toHaveLength(MAX_RUNNER_EVENT_QUESTION_DETAILS);
+    expect(overLimitArrays.documents).toHaveLength(MAX_RUNNER_EVENT_QUESTION_DETAILS);
   });
 
   it('preserves semantic identity when the ATS prompt exceeds the event descriptor limit', () => {

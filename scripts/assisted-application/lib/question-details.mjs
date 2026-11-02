@@ -16,7 +16,7 @@ export const MAX_RUNNER_EVENT_QUESTION_DETAILS = ASSISTED_APPLICATION_RUNNER_EVE
  * translations and bounded payloads preserve the answer ledger's identity.
  */
 export function questionDetailsForEvent(rawQuestions, getPortalQuestionKey = () => '') {
-  return (Array.isArray(rawQuestions) ? rawQuestions.slice(0, MAX_RUNNER_EVENT_QUESTION_DETAILS) : []).map((question) => {
+  return (Array.isArray(rawQuestions) ? rawQuestions : []).map((question) => {
     if (!question || typeof question !== 'object') return null;
     const id = typeof question.id === 'string' || typeof question.id === 'number' ? String(question.id).trim() : '';
     const label = String(question.question || '').trim();
@@ -59,16 +59,19 @@ export function questionDetailsForEvent(rawQuestions, getPortalQuestionKey = () 
       });
     }
     return result;
-  }).filter(Boolean);
+  }).filter(Boolean).slice(0, MAX_RUNNER_EVENT_QUESTION_DETAILS);
 }
 
 /** Bound the serialized Firestore envelope, not just each question field. */
 export function boundRunnerEvent(event, maxBytes = MAX_RUNNER_EVENT_BYTES) {
   const payload = event && typeof event === 'object' ? event : {};
   const encodedBytes = value => Buffer.byteLength(JSON.stringify(value), 'utf8');
-  const boundedPayload = Array.isArray(payload.questionDetails)
-    ? { ...payload, questionDetails: payload.questionDetails.slice(0, MAX_RUNNER_EVENT_QUESTION_DETAILS) }
-    : payload;
+  const boundedPayload = {
+    ...payload,
+    ...(Array.isArray(payload.questions) ? { questions: payload.questions.slice(0, MAX_RUNNER_EVENT_QUESTION_DETAILS) } : {}),
+    ...(Array.isArray(payload.questionDetails) ? { questionDetails: payload.questionDetails.slice(0, MAX_RUNNER_EVENT_QUESTION_DETAILS) } : {}),
+    ...(Array.isArray(payload.documents) ? { documents: payload.documents.slice(0, MAX_RUNNER_EVENT_QUESTION_DETAILS) } : {}),
+  };
   if (encodedBytes(boundedPayload) <= maxBytes) return boundedPayload;
   if (!Array.isArray(boundedPayload.questionDetails) || boundedPayload.questionDetails.length === 0) {
     throw new RangeError('runner_event_payload_too_large');
