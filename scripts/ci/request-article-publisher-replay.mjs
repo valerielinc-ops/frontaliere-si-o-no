@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Request one bounded rebuild of the corpus publisher after the sync issue has
- * reached its own consecutive-failure threshold.
+ * Request one bounded rebuild of the corpus publisher after an automated
+ * freshness or sync gate has identified an unusable published surface.
  *
  * The consumer must never work around articles-sync-pin.mjs: a smaller or
  * unproven corpus remains a skip. The recovery action is deliberately outside
@@ -51,7 +51,7 @@ function parseJson(raw, label) {
   }
 }
 
-/** Select exactly one open issue for the stable sync title. */
+/** Select exactly one open issue for a stable recovery title. */
 export function findSyncIssue(issues, title = ARTICLE_SYNC_ISSUE_TITLE) {
   if (!Array.isArray(issues)) return null;
   const matches = issues.filter((issue) => issue?.title === title);
@@ -124,8 +124,9 @@ export function replayComment({
 
 /**
  * Perform the recovery with injectable GitHub transport for deterministic tests.
- * The caller should run this only on automatic, non-preview syncs; the open
- * issue is the evidence that the three-failure gate has already fired.
+ * The caller should run this only on automatic, non-preview recovery paths;
+ * the open issue is the durable evidence that the corresponding health gate
+ * has already fired.
  */
 export function requestPublisherReplay({
   env = process.env,
