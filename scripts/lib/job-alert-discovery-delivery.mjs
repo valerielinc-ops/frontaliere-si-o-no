@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { isJobAlertExcluded } from '../../services/emailSuppression.mjs';
+import { isAccountDeletedTombstone } from '../../functions/src/authAccountCleanup.js';
 
 export const DISCOVERY_MAX_ATTEMPTS = 3;
 export const DISCOVERY_RETRY_MS = 24 * 60 * 60 * 1000;
@@ -20,7 +21,7 @@ export async function claimDiscoveryDelivery(db, email, now = Date.now()) {
   return db.runTransaction(async (tx) => {
     const ownerSnap = await tx.get(owner);
     const snap = await tx.get(ref); const previous = snap.data()?.discovery;
-    if (!ownerSnap.exists || ownerSnap.data()?.account_deleted_at
+    if (!ownerSnap.exists || isAccountDeletedTombstone(ownerSnap.data())
       || isJobAlertExcluded(ownerSnap.data()?.status)
       || !discoveryCanAttempt({ discovery_email: previous }, now)) return null;
     const claim = {

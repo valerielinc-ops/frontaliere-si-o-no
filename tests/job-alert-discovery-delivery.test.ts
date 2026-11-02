@@ -18,7 +18,7 @@ function database(initial: Record<string, unknown> = {}, ownerData: Record<strin
 const email = 'reader@example.test';
 
 describe('durable discovery delivery claim', () => {
-  it.each([{ account_deleted_at: 'deleted' }, { status: 'inactive' }, { status: 'bounced' }])(
+  it.each([{ account_deleted_at: 'deleted' }, { status: 'account_deleted' }, { status: 'inactive' }, { status: 'bounced' }])(
     'does not claim a channel closed after planning: %j', async (ownerData) => {
       expect(await claimDiscoveryDelivery(database({}, ownerData).db, email)).toBeNull();
     },

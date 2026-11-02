@@ -75,6 +75,7 @@ import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { isAccountDeletedTombstone } from '../functions/src/authAccountCleanup.js';
 import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import {
@@ -3000,7 +3001,7 @@ async function main() {
         const owner = db.collection('job_alert_subscribers').doc(email);
         await db.runTransaction(async (tx) => {
           const current = await tx.get(owner);
-          if (!current.exists || current.data()?.account_deleted_at || isJobAlertExcluded(current.data()?.status)) return;
+          if (!current.exists || isAccountDeletedTombstone(current.data()) || isJobAlertExcluded(current.data()?.status)) return;
           tx.set(owner.collection('delivery_state').doc('first_discovery'),
             { ipGeo: geo }, { mergeFields: ['ipGeo'] });
         });
