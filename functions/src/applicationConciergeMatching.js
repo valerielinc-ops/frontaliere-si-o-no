@@ -816,6 +816,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       matchingPendingCount: Math.max(0, frontier.length - (frontier.findIndex(entry => entry.url === scannedCursor) + 1)),
       matchingUnverifiedCount: retrySummary.count,
       matchingRetryAt: retrySummary.retryAt,
+      matchingRetryStatusCounts: retrySummary.statusCounts,
+      matchingRetryReasonCounts: retrySummary.reasonCounts,
       matchingLegacyRecoveryCursor: legacyRecovery.nextCursor,
       matchingLegacyRecoveryContext: scanContext,
       matchingLegacyRecoveryPendingCount: legacyRecoverySummary.count,

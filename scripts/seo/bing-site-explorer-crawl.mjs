@@ -26,6 +26,7 @@ import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
@@ -80,6 +81,8 @@ const WEEKLY_EMPLOYERS_CITY_SET = new Set(WEEKLY_EMPLOYERS_CITIES);
 const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
 const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
+const PAGINATION_NOINDEX_FROM_PAGE = 11;
+const PAGINATION_TARGET_PATH_RE = /^(?:\/[^/]+)+\/(?:page|pagina|seite)-(\d+)\/$/;
 
 function pathnameAndOrigin(value) {
   try {
@@ -307,6 +310,23 @@ export function isJobBoardDetailPath(value) {
 export function isDeclaredJobBoardTarget({ url, html }) {
   return String(html || '').includes(JOB_BOARD_NOINDEX_TARGET_MARKER)
     && isJobBoardDetailPath(url);
+}
+
+/**
+ * Recognise the explicit noindex contract emitted for deep pagination pages.
+ * The producer marker is deliberately not enough: a valid site route must end
+ * in one of the emitted pagination segments and its page must be at or beyond
+ * the shared noindex floor. A nearby route or a page still inside the indexable
+ * window therefore remains an actionable frontier finding.
+ */
+export function isDeclaredPaginationTarget({ url, html }) {
+  if (!String(html || '').includes(PAGINATION_NOINDEX_TARGET_MARKER)) return false;
+  const source = pathnameAndOrigin(url);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+  const match = source.pathname.match(PAGINATION_TARGET_PATH_RE);
+  if (!match) return false;
+  const page = Number(match[1]);
+  return Number.isSafeInteger(page) && page >= PAGINATION_NOINDEX_FROM_PAGE;
 }
 
 // Pharmacy directory and duty roots in every locale (services/pharmacies).
@@ -926,18 +946,23 @@ export function classifyDocument({
   const declaredNoindexTarget = isFrontier
     && noindex
     && followableNoindex
-    && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
-    ? 'job-board-target'
+    && isDeclaredPaginationTarget({ url: finalUrl || url, html })
+    ? 'pagination-target'
     : isFrontier
       && noindex
       && followableNoindex
-      && isDeclaredPharmacyTarget({ url: finalUrl || url, html })
-      ? 'pharmacy-target'
+      && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
+      ? 'job-board-target'
       : isFrontier
         && noindex
         && followableNoindex
-        && isDeclaredEventArchiveTarget({ url: finalUrl || url, html })
-        ? 'event-archive-target'
+        && isDeclaredPharmacyTarget({ url: finalUrl || url, html })
+        ? 'pharmacy-target'
+        : isFrontier
+          && noindex
+          && followableNoindex
+          && isDeclaredEventArchiveTarget({ url: finalUrl || url, html })
+          ? 'event-archive-target'
         : null;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex
@@ -962,7 +987,9 @@ export function classifyDocument({
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
       ? declaredNoindexTarget && !canonicalExemption
-        ? declaredNoindexTarget === 'pharmacy-target' || declaredNoindexTarget === 'event-archive-target'
+        ? declaredNoindexTarget === 'pagination-target'
+          ? `Pagina nella frontiera interna dichiarata paginazione profonda: noindex/follow (${canonical || 'canonical assente'}).`
+          : declaredNoindexTarget === 'pharmacy-target' || declaredNoindexTarget === 'event-archive-target'
           ? `Pagina nella frontiera interna dichiarata noindex dal suo plugin (${declaredNoindexTarget}): noindex/follow (${canonical || 'canonical assente'}).`
           : `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
         : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
