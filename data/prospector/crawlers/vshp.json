@@ -1,0 +1,20 @@
+{
+  "companyKey": "vshp",
+  "companyName": "vshp",
+  "companyHost": "jobs.uzh.ch",
+  "platform": "uzh.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.uzh.ch/offene-stellen/humanpraeparator-in/617522c5-dc3d-4af1-aa9b-d2012b1b486b"
+  ],
+  "detailTemplate": "/offene-stellen/humanpraeparator-in/617522c5-dc3d-4af1-aa9b-d2012b1b486b",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Humanpräparator*in"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T13:29:04.483Z",
+  "candidateKey": "vshp.ch"
+}

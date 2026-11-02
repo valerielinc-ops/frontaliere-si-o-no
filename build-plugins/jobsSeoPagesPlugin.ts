@@ -85,6 +85,7 @@ import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
 import {
  buildActiveJobPageInput,
  buildActiveJobPageReuseInput,
@@ -4605,12 +4606,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:title" content="${esc(ogTitle)}">
  <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
- <meta property="og:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
- <meta property="og:image:width" content="1200">
- <meta property="og:image:height" content="630">
+ <meta property="og:image" content="${versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it) ?? `${BASE_URL}/og-image.png`}">
+ <meta property="og:image:width" content="${perLocaleSlug.it ? '1080' : '1200'}">
+ <meta property="og:image:height" content="${perLocaleSlug.it ? '1350' : '630'}">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <meta property="og:image:alt" content="${esc(ogTitle)}">
- ${buildTwitterCardMetaTags({ title: ogTitle, description, locale, image: perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png` })}
+ ${buildTwitterCardMetaTags({ title: ogTitle, description, locale, image: versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it) ?? `${BASE_URL}/og-image.png` })}
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
  <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
