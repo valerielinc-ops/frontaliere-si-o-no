@@ -170,6 +170,10 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     background,
     signal,
   }) : { ok: false, notConfigured: true };
+  // A worker deadline can expire while Codex is reading its SSE stream. Do not
+  // turn that cancellation into a generic provider failure (or accept a late
+  // result); callers must observe the shared cancellation contract.
+  if (signal?.aborted) return cancelled();
   if (codexResult.ok) {
     console.log('[geminiGenerate] served by fallback codex');
     return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };

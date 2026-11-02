@@ -318,6 +318,19 @@ describe('tryCodexFallback — errori del backend: un risultato, mai un throw n�
       .resolves.toMatchObject({ ok: false, error: 'The operation was aborted' });
   });
 
+  it('una cancellazione durante Codex restituisce generation_cancelled, non all_providers_failed', async () => {
+    rc = { CODEX_AUTH_JSON: codexLogin() };
+    const worker = new AbortController();
+    fetchMock.mockImplementationOnce(async (_url: string, _init: RequestInit) => {
+      worker.abort(new Error('matching deadline'));
+      throw new DOMException('The operation was aborted', 'AbortError');
+    });
+    const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
+
+    await expect(generateServerText({ userPrompt: 'qualification', background: true, signal: worker.signal }))
+      .resolves.toEqual({ status: 503, body: { ok: false, error: 'generation_cancelled' } });
+  });
+
   it('un timeout a metà stream (stesso AbortSignal) diventa un risultato', async () => {
     rc = { CODEX_AUTH_JSON: codexLogin() };
     const encoder = new TextEncoder();
