@@ -7,6 +7,13 @@ const serialized = value => JSON.stringify(canonical(value));
 const hash = value => createHash('sha256').update(serialized(value)).digest('hex');
 
 export const ANSWER_CONFIRMATION_VERSION = 'candidate-answer-confirmation-v2';
+const ANSWER_COMMUNICATION_LOCALES = new Set(['it', 'en', 'de', 'fr']);
+
+export function normalizeAnswerCommunicationLocale(value) {
+  if (typeof value !== 'string') return null;
+  const locale = value.trim().toLowerCase();
+  return ANSWER_COMMUNICATION_LOCALES.has(locale) ? locale : null;
+}
 
 // Migration switch for callers that still receive an answer without the
 // opaque question contract returned by the review endpoint. Remote Config is
@@ -80,7 +87,7 @@ function sameAnswer(left, right) {
 
 /** Opaque contract returned with a visible question and echoed when its answer is confirmed. */
 export function answerConfirmationHash({ userId, orderId, order = {}, flow = {}, draft = {}, questionSnapshotHash,
-  sourceKind = 'direct_user', originSource = 'unknown', originCvFingerprint = null } = {}) {
+  sourceKind = 'direct_user', originSource = 'unknown', originCvFingerprint = null, communicationLocale } = {}) {
   const candidateId = String(userId || order.userId || '').trim();
   const sourceOrderId = String(orderId || '').trim();
   const round = Number(flow.round || 1);
@@ -91,6 +98,7 @@ export function answerConfirmationHash({ userId, orderId, order = {}, flow = {},
   const cvIdentity = cvDependent ? answerCvIdentity(order) : null;
   const cvFingerprint = cvDependent ? answerCvFingerprint({ order, draft }) : null;
   const normalizedOrigin = ANSWER_ORIGINS.has(originSource) ? originSource : 'unknown';
+  const normalizedCommunicationLocale = normalizeAnswerCommunicationLocale(communicationLocale);
   const originalCvFingerprint = normalizedOrigin === 'cv_inferred'
     && /^[a-f0-9]{64}$/.test(originCvFingerprint || '') ? originCvFingerprint : null;
   if (!candidateId || !sourceOrderId || (!jobId && !jobUrl) || !/^[a-f0-9]{64}$/.test(questionSnapshotHash || '')
@@ -98,7 +106,8 @@ export function answerConfirmationHash({ userId, orderId, order = {}, flow = {},
     || cvDependent && (!cvIdentity || !cvFingerprint)) return null;
   return hash({ version: ANSWER_CONFIRMATION_VERSION, candidateId, orderId: sourceOrderId,
     jobId, jobUrl, round, sourceKind, originSource: normalizedOrigin, originCvFingerprint: originalCvFingerprint,
-    ...(cvDependent ? { cvIdentity, draftCvKey: String(draft.cvKey || ''), cvFingerprint } : {}), questionSnapshotHash });
+    ...(cvDependent ? { cvIdentity, draftCvKey: String(draft.cvKey || ''), cvFingerprint } : {}), questionSnapshotHash,
+    ...(normalizedCommunicationLocale ? { communicationLocale: normalizedCommunicationLocale } : {}) });
 }
 
 export function answerConfirmationId({ confirmationHash, answer, actor, confirmedAt } = {}) {

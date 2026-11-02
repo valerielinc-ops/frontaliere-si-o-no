@@ -39,6 +39,7 @@ import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, per
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
+const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const QUESTION_OPTION_DESCRIPTOR_LIMIT = 40;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
 const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
@@ -48,6 +49,14 @@ const HARD_WORKLOAD_CONSTRAINT = /\b(?:if|when|provided|falls|wenn|sofern|se|si|
 function normalizeQuestionValue(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[’‘`]/g, "'").replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function candidateLocaleOf(value, order) {
+  for (const candidate of [value, order?.locale]) {
+    const locale = typeof candidate === 'string' ? candidate.trim().toLowerCase() : '';
+    if (CANDIDATE_LOCALES.has(locale)) return locale;
+  }
+  return 'it';
 }
 
 // ATS tenants often add a generic fieldset label when a question is observed
@@ -509,7 +518,7 @@ function splitLanguages(text) {
  * are written from those, and neither says whom the candidate married.
  * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object & {permitStatus:string}, answers:object, overrides:object, personal:{salutation:string, civilStatus:string}}}
  */
-export function candidateWithEdits({ order, draft, flow }) {
+export function candidateWithEdits({ order, draft, flow, locale: requestedLocale }) {
   const overrides = storedOverrides(flow?.formOverrides);
   const base = candidateIdentity(order, draft?.profile);
   const names = splitName(base.name);
@@ -555,7 +564,7 @@ export function candidateWithEdits({ order, draft, flow }) {
   const availability = clean(answers.availability, 200);
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
-  const locale = order?.locale || 'it';
+  const locale = candidateLocaleOf(requestedLocale, order);
   const salutation = salutationNow({ answers, overrides, cvGender: cv.gender || salutationGenderFromName(identity.firstName, locale), locale });
   answers.salutation = salutation;
   if (!salutation) delete answers.salutation;
@@ -590,16 +599,17 @@ export function factSourcesNow({ order, draft, flow }, sources = draft?.factSour
 }
 
 /** The form fields with the candidate's changes (review page, handoff kit, owner queue). */
-export function formAnswersWithEdits({ order, draft, flow }) {
+export function formAnswersWithEdits({ order, draft, flow, locale: requestedLocale }) {
   if (!draft) return [];
-  const { identity, profile, answers, personal } = candidateWithEdits({ order, draft, flow });
+  const locale = candidateLocaleOf(requestedLocale, order);
+  const { identity, profile, answers, personal } = candidateWithEdits({ order, draft, flow, locale });
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   return buildFormAnswers({
     identity,
     profile,
     documents: { motivationShort: motivation.motivationShort, whyCompany: motivation.whyCompany },
     answers,
-    locale: order?.locale || 'it',
+    locale,
     personal,
   });
 }
@@ -687,7 +697,7 @@ export function planCandidateEdits(raw, { order, draft, flow, locale = 'it', now
   const written = [];
   const input = raw && typeof raw === 'object' ? raw : {};
 
-  const shown = new Map(formAnswersWithEdits({ order, draft, flow }).map((field) => [field.key, field.value]));
+  const shown = new Map(formAnswersWithEdits({ order, draft, flow, locale }).map((field) => [field.key, field.value]));
   const roundTexts = {};
   for (const [key, value] of Object.entries(input.fields && typeof input.fields === 'object' ? input.fields : {})) {
     if (!shown.has(key) || typeof value !== 'string') continue;

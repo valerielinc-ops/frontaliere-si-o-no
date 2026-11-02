@@ -10,12 +10,11 @@ import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants
 import { hasPortalQuestionEvidence, portalQuestionText } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 import { defaultStartDate, minDateFor } from './lib/assistedApplicationQuestionConstraints.js';
-import { answerConfirmationHash, answerConfirmationId, answerCvFingerprint, answerOriginMetadata } from './assistedApplicationAnswerConfirmation.js';
+import { answerConfirmationHash, answerConfirmationId, answerCvFingerprint, answerOriginMetadata, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
 
 export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v4';
 const LEGACY_ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v3';
 export const ANSWER_QUESTION_SNAPSHOT_VERSION = 'candidate-question-snapshot-v3';
-const COMMUNICATION_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const object = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const UNKNOWN_ANSWER = /^(?:unknown|not known|not sure|i do not know|i don t know|i dont know|dont know|no idea|non lo so|non so|non conosco|keine angabe|weiss nicht|ich weiss es nicht|nicht bekannt|je ne sais pas|je ne sais plus|inconnu|inconnue|non renseigne|non renseignee)$/;
@@ -25,11 +24,7 @@ const hasAnswer = value => typeof value === 'boolean' || typeof value === 'numbe
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
   ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => [key, canonical(item)])) : value;
 const serialized = value => JSON.stringify(canonical(value));
-const normalizeCommunicationLocale = value => {
-  if (typeof value !== 'string') return null;
-  const locale = value.trim().toLowerCase();
-  return COMMUNICATION_LOCALES.has(locale) ? locale : null;
-};
+const normalizeCommunicationLocale = normalizeAnswerCommunicationLocale;
 
 /**
  * The order's locale is the authoritative communication-language snapshot.
@@ -46,12 +41,6 @@ export async function resolveAnswerCommunicationLocale({ db, order, getDocument 
   return service.userId === userId ? normalizeCommunicationLocale(service.locale) : null;
 }
 
-function localeBoundConfirmationHash(baseConfirmationHash, communicationLocale) {
-  const locale = normalizeCommunicationLocale(communicationLocale);
-  if (!/^[a-f0-9]{64}$/.test(baseConfirmationHash || '') || !locale) return null;
-  return createHash('sha256').update(serialized({ version: ANSWER_EVIDENCE_VERSION,
-    baseConfirmationHash, communicationLocale: locale })).digest('hex');
-}
 const same = (a, b) => serialized(a) === serialized(b);
 const QUESTION_SNAPSHOT_FIELDS = ['id', 'question', 'why', 'applicationQuestion', 'context', 'section', 'type', 'options',
   'required', 'validation', 'minDate', 'suggested', 'source', 'autocomplete', 'addressContext'];
@@ -173,7 +162,10 @@ function sameAnswerForOrigin(left, right, question, sourceQuestion) {
 }
 
 /** Candidate-visible confirmation contracts bind self-declarations to the candidate, posting, round and question. */
-export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, flow = {}, questions = [], draft = {}, sourceKind = 'direct_user', nowMs = Date.now() } = {}) {
+export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, flow = {}, questions = [], draft = {}, sourceKind = 'direct_user', nowMs = Date.now(),
+  communicationLocale } = {}) {
+  const confirmationLocale = normalizeCommunicationLocale(communicationLocale)
+    || normalizeCommunicationLocale(order.locale) || 'it';
   const counts = new Map();
   for (const question of Array.isArray(questions) ? questions : []) {
     const id = String(question?.id || '').trim();
@@ -188,7 +180,8 @@ export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, fl
     const origin = source.originSource
       ? { originSource: source.originSource, originCvFingerprint: source.originCvFingerprint }
       : answerOriginMetadata({ question, flow, answer: flowOrigin.value ?? object(flow.answers)[id] });
-    const confirmationHash = answerConfirmationHash({ userId, orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...origin });
+    const confirmationHash = answerConfirmationHash({ userId, orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...origin,
+      communicationLocale: confirmationLocale });
     return confirmationHash ? [[id, confirmationHash]] : [];
   }));
 }
@@ -427,16 +420,15 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, conf
       : answerOriginMetadata({ question: raw, flow, answer });
     const cvFingerprint = sourceKind === 'direct_user' ? null : answerCvFingerprint({ order, draft });
     const compatibilityHashes = group.map(question => answerQuestionCompatibilityHash({ orderId, question, draft, nowMs }));
-    const baseConfirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({
+    const confirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({
       userId: order.userId, orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...origin,
+      communicationLocale: locale,
     }));
-    const confirmationHashes = baseConfirmationHashes.map(hash => localeBoundConfirmationHash(hash, locale));
     if (old?.provenance?.confirmedAt === nowMs && (same(old.answer, answer) || old.cleared && !hasAnswer(answer))) continue;
     const source = provenance({ actor, sourceKind, ...origin, order, orderId, round, nowMs, cvFingerprint, communicationLocale: locale });
     const question = descriptor(raw); const policy = question && semantics(question, answer, nowMs);
     const snapshotMismatch = snapshotHashes.some((hash, index) => !hash || hash !== snapshotHashes[0]
-      || !baseConfirmationHashes[index] || confirmedQuestionSnapshots[group[index]?.id] !== baseConfirmationHashes[index]
-      || !confirmationHashes[index] || !compatibilityHashes[index]
+      || !confirmationHashes[index] || confirmedQuestionSnapshots[group[index]?.id] !== confirmationHashes[index] || !compatibilityHashes[index]
       || compatibilityHashes[index] !== compatibilityHashes[0]);
     const conflict = old?.provenance?.confirmedAt === nowMs
       || group.some(q => !same(changed[q.id], answer) || !same(descriptor(q), question))
@@ -546,11 +538,11 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
       && activeCvMatches
       && (record.version === LEGACY_ANSWER_EVIDENCE_VERSION
         ? answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
-        questionSnapshotHash: record.questionCompatibilityHash, sourceKind: record.sourceKind, originSource: record.originSource,
-        originCvFingerprint: record.originCvFingerprint }) === record.confirmationHash
-        : localeBoundConfirmationHash(answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
           questionSnapshotHash: record.questionCompatibilityHash, sourceKind: record.sourceKind, originSource: record.originSource,
-          originCvFingerprint: record.originCvFingerprint }), record.communicationLocale) === record.confirmationHash)
+          originCvFingerprint: record.originCvFingerprint }) === record.confirmationHash
+        : answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
+          questionSnapshotHash: record.questionCompatibilityHash, sourceKind: record.sourceKind, originSource: record.originSource,
+          originCvFingerprint: record.originCvFingerprint, communicationLocale: record.communicationLocale }) === record.confirmationHash)
       && (record.scope === 'candidate' || samePosting(record.provenance, { jobId: source.order.jobId, jobUrl: source.order.jobUrl }));
   });
   return (job, { purpose = 'eligibility', communicationLocale = job?.communicationLocale } = {}) => {
@@ -587,7 +579,7 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   // Both projections are restricted to the confirmed writer contract. An
   // unmarked legacy flow can still be inspected for recovery, but must not
   // become fill-kit input or candidate evidence.
-  return { retained: orderRetained, flow: { ...flow, answers: orderContext.answers,
+  return { retained: orderRetained, communicationLocale, flow: { ...flow, answers: orderContext.answers,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,

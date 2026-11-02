@@ -11,7 +11,7 @@
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
-import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
+import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -55,7 +55,7 @@ async function candidateAnswerLedgerPatch({ db, getDocument, profileSnapshot, cu
   if (!profileSnapshot?.exists || !userId || currentOrder?.userId !== userId
     || !retentionWriteAllowed(currentOrder, Date.now())) return null;
   const communicationLocale = await resolveAnswerCommunicationLocale({ db, order: currentOrder, getDocument });
-  if (!communicationLocale) return null;
+  if (!communicationLocale || communicationLocale !== ledger.communicationLocale) return null;
 
   const profile = profileSnapshot.data() || {};
   const update = planCandidateAnswerEvidence({
@@ -127,6 +127,10 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   const answerIds = Array.isArray(guard.answerIds) ? guard.answerIds : [];
   const guardOrigins = guard.answerOrigins && typeof guard.answerOrigins === 'object' && !Array.isArray(guard.answerOrigins)
     ? guard.answerOrigins : {};
+  const resolvedLocale = await resolveAnswerCommunicationLocale({ db, order, getDocument: ref => transaction.get(ref) });
+  const communicationLocale = resolvedLocale || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
+  const guardedLocale = normalizeAnswerCommunicationLocale(guard.communicationLocale);
+  if (guardedLocale && communicationLocale !== guardedLocale) return false;
   let currentFlow;
   if (guard.actor === 'candidate') {
     const runner = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
@@ -153,7 +157,7 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   const questions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, currentFlow.questionAnswers, draft)
     .filter(question => answerIds.includes(question?.id));
   const current = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: currentFlow, questions, draft,
-    sourceKind: guard.actor === 'candidate' ? 'direct_user' : 'owner_attested', nowMs: guard.nowMs });
+    sourceKind: guard.actor === 'candidate' ? 'direct_user' : 'owner_attested', communicationLocale, nowMs: guard.nowMs });
   return answerIds.every(id => current[id] && guard.snapshots?.[id] === current[id]);
 }
 
@@ -222,7 +226,10 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots = {}, answerSnapshotQuestions = null,
-  answerSuggestionDismissals = null, confirmedAnswerOrigins = {}, nowMs, answerActor = null, requireAnswerContracts = false }) {
+  answerSuggestionDismissals = null, confirmedAnswerOrigins = {}, nowMs, answerActor = null, communicationLocale: requestedCommunicationLocale = null, requireAnswerContracts = false }) {
+  const communicationLocale = normalizeAnswerCommunicationLocale(requestedCommunicationLocale)
+    || normalizeAnswerCommunicationLocale(order?.locale)
+    || await resolveAnswerCommunicationLocale({ db, order }) || 'it';
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
   const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
   const localQuestionDescriptors = Array.isArray(answerSnapshotQuestions) ? answerSnapshotQuestions
@@ -230,7 +237,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const currentQuestionSnapshots = answerQuestionSnapshotsFor({ orderId, questions: localQuestionDescriptors, draft, nowMs });
   const answerSourceKind = answerActor === 'candidate' ? 'direct_user' : answerActor === 'owner' ? 'owner_attested' : 'unknown';
   const currentConfirmationSnapshots = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow,
-    questions: localQuestionDescriptors, draft, sourceKind: answerSourceKind, nowMs });
+    questions: localQuestionDescriptors, draft, sourceKind: answerSourceKind, communicationLocale, nowMs });
   if (Object.keys(answers || {}).some(id => !currentConfirmationSnapshots[id] || answerQuestionSnapshots[id] !== currentConfirmationSnapshots[id])) {
     throw new CvCommitError(requireAnswerContracts ? 'answer_contract_required' : 'changed_meanwhile', 409,
       requireAnswerContracts ? answerContractRequiredDetails : null);
@@ -267,13 +274,13 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     orderQuestionAnswersEvidenceVersion };
   const ledgerFlow = { ...answerProvenanceFlow, questionAnswerSources: questionAnswerSnapshots.sources };
   const ledgerConfirmationSnapshots = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order,
-    flow: ledgerFlow, questions: localQuestionDescriptors, draft, sourceKind: answerSourceKind, nowMs });
+    flow: ledgerFlow, questions: localQuestionDescriptors, draft, sourceKind: answerSourceKind, communicationLocale, nowMs });
   const answerUserId = String(order?.userId || '').trim();
   const candidateAnswerLedger = answerUserId && Object.keys(questionAnswers).length
     && Number(draft?.round) === Number(flow.round || 1)
       ? { userId: answerUserId, orderId, questions: localQuestionDescriptors, changed: answers,
       confirmedQuestionSnapshots: ledgerConfirmationSnapshots, questionAnswers,
-      flow: ledgerFlow, draft: draft || {},
+      flow: ledgerFlow, draft: draft || {}, communicationLocale,
       actor: answerActor, nowMs }
     : null;
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
@@ -294,7 +301,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         || !await answerSnapshotGuardMatches({ db, transaction, orderId, order: currentOrder.data() || {}, flow: currentFlow.data() || {}, draft: currentDraft.data() || {},
           profileRecord: profileSnapshot?.data() || {},
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
-            answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs } })) return false;
+            answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs, communicationLocale } })) return false;
       await writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
       transaction.set(flowRef, {
         answers,
@@ -324,7 +331,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}) },
     replaceAnswerMaps: true,
     answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
-      answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs },
+      answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs, communicationLocale },
     candidateAnswerLedger,
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });

@@ -23,7 +23,7 @@ const { candidateAnswersForQuestions, candidateQuestionAnswerKey, ORDER_QUESTION
 type CvOrderFixture = Record<string, unknown> & { cvStorageKey?: string; cvUploadedAt?: number; userId?: string };
 type CvDraftFixture = Record<string, unknown> & { cvKey?: string };
 type ConfirmationSnapshotInput = { orderId: string; order: CvOrderFixture; flow: Record<string, unknown>;
-  questions: Array<Record<string, unknown>>; draft: CvDraftFixture; nowMs: number };
+  questions: Array<Record<string, unknown>>; draft: CvDraftFixture; nowMs: number; communicationLocale?: string };
 const orderWithCv = (orderId: string, order: CvOrderFixture) => ({
   ...order,
   locale: Object.hasOwn(order, 'locale') ? order.locale : 'it',
@@ -31,8 +31,8 @@ const orderWithCv = (orderId: string, order: CvOrderFixture) => ({
   cvUploadedAt: order.cvUploadedAt || Date.now(),
 });
 const draftWithCv = (order: CvOrderFixture, draft: CvDraftFixture) => ({ ...draft, cvKey: order.cvStorageKey });
-const confirmationSnapshots = ({ orderId, order, flow, questions, draft, nowMs }: ConfirmationSnapshotInput) => answerConfirmationSnapshotsFor({
-  userId: order.userId, orderId, order, flow, questions, draft, nowMs,
+const confirmationSnapshots = ({ orderId, order, flow, questions, draft, nowMs, communicationLocale }: ConfirmationSnapshotInput) => answerConfirmationSnapshotsFor({
+  userId: order.userId, orderId, order, flow, questions, draft, communicationLocale, nowMs,
 });
 
 function bufferedDb(store, { failPath = '' } = {}) {
@@ -147,16 +147,46 @@ describe('typed facts use the complete producer and automation path', () => {
       [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } } });
 
     await saveAnswersWithCv({ db: store.db, bucket: null, orderId, order, flow, draft, answers,
-      answerQuestionSnapshots: confirmationSnapshots({ orderId, order, flow, questions, draft, nowMs: now }), answerActor: 'candidate', nowMs: now });
+      answerQuestionSnapshots: confirmationSnapshots({ orderId, order, flow, questions, draft, nowMs: now, communicationLocale: 'de' }), answerActor: 'candidate', nowMs: now });
 
     const key = candidateQuestionAnswerKey(questions[0]);
     const evidence = store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswerEvidence[key];
     expect(evidence).toMatchObject({ communicationLocale: 'de', provenance: { communicationLocale: 'de' } });
     const loaded = await loadRunnerAnswerContext({ db: store.db, orderId, order, flow: store.read(`${path}/automation/flow`), draft, nowMs: now });
+    expect(loaded.communicationLocale).toBe('de');
     expect(loaded.answerEvidence).toMatchObject([{ answer: '3 months', communicationLocale: 'de' }]);
     store.docs.set('application_concierge_services/parent-service', { userId, locale: 'it' });
     const changedLocale = await loadRunnerAnswerContext({ db: store.db, orderId, order, flow: store.read(`${path}/automation/flow`), draft, nowMs: now });
     expect(changedLocale.answerEvidence).toEqual([]);
+  });
+
+  it('rejects a save when the locale source becomes unresolvable during the answer transaction', async () => {
+    const now = Date.now(), orderId = 'locale_race_order', userId = 'synthetic', path = `assisted_applications/${orderId}`;
+    const order = orderWithCv(orderId, { userId, parentServiceId: 'parent-service', locale: undefined,
+      paymentStatus: 'paid', jobId: 'source', jobUrl: 'https://example.test/jobs/source/' });
+    const questions = [{ id: 'notice_period', question: 'What is your notice period?', type: 'text' }];
+    const answers = { notice_period: '3 months' };
+    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} };
+    const draft = draftWithCv(order, { round: 1, questions });
+    const store = createMemoryFirestore({ [path]: order, [`${path}/automation/flow`]: flow,
+      [`${path}/ai_drafts/current`]: draft, 'application_concierge_services/parent-service': { userId, locale: 'de' },
+      [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } } });
+    const suppliedSnapshots = confirmationSnapshots({ orderId, order, flow, questions, draft, nowMs: now, communicationLocale: 'de' });
+    const db = {
+      collection: store.db.collection,
+      async runTransaction(callback) {
+        // Simulate the service ownership being revoked after the candidate saw
+        // the German snapshot but before its atomic answer save reads the locale.
+        store.docs.set('application_concierge_services/parent-service', { userId: 'different-owner', locale: 'de' });
+        return store.db.runTransaction(callback);
+      },
+    };
+
+    await expect(saveAnswersWithCv({ db, bucket: null, orderId, order, flow, draft, answers,
+      answerQuestionSnapshots: suppliedSnapshots, answerActor: 'candidate', communicationLocale: 'de', nowMs: now }))
+      .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(store.read(`${path}/automation/flow`).answers).toEqual({});
+    expect(store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswerEvidence).toBeUndefined();
   });
 
   it('promotes a legacy answer flow to v3 when a new answer is confirmed', async () => {

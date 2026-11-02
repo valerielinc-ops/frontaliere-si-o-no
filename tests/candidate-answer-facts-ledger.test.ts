@@ -75,12 +75,14 @@ describe('typed facts use the attested answer source contract', () => {
     expect((await f.load())({ ...target, communicationLocale: 'es' }).answerEvidence).toEqual([]);
     expect((await f.load())({ id: target.id, url: target.url }).answerEvidence).toEqual([]);
 
+    const germanConfirmation = answerConfirmationSnapshotsFor({ userId: order.userId, orderId: 'source', order, flow: f.flow,
+      questions: [cases[1].question], draft: f.draft, sourceKind: 'direct_user', communicationLocale: 'de', nowMs: now });
+    expect(germanConfirmation.experience).not.toBe(f.flow.questionAnswerConfirmationHashes[f.key]);
     const germanEvidence = rememberCandidateAnswerEvidence({ questions: [cases[1].question], changed: { experience: cases[1].answer },
-      confirmedQuestionSnapshots: answerConfirmationSnapshotsFor({ userId: order.userId, orderId: 'source', order, flow: f.flow,
-        questions: [cases[1].question], draft: f.draft, sourceKind: 'direct_user', nowMs: now }),
+      confirmedQuestionSnapshots: germanConfirmation,
       orderId: 'source', order, flow: f.flow, draft: f.draft, actor: 'candidate', nowMs: now, communicationLocale: 'de' });
     expect(germanEvidence[f.key].confirmationHash).not.toBe(f.evidence[f.key].confirmationHash);
-    expect(answerEvidenceFingerprint([germanEvidence[f.key])).not.toBe(answerEvidenceFingerprint([f.evidence[f.key]]));
+    expect(answerEvidenceFingerprint([germanEvidence[f.key]])).not.toBe(answerEvidenceFingerprint([f.evidence[f.key]]));
   });
   it('resolves an older order locale only through a supported service owned by that candidate', async () => {
     const store = createMemoryFirestore({ 'application_concierge_services/owned': { userId: 'synthetic', locale: 'fr' },

@@ -43,8 +43,8 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
-import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
-import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
+import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
+import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
@@ -297,14 +297,17 @@ export function sendReviewResponse(res, { status, body, file, noStore }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, answerEvidence = [], nowMs = Date.now() }) {
+export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, answerEvidence = [],
+  communicationLocale = order?.locale || 'it', nowMs = Date.now() }) {
+  const locale = normalizeAnswerCommunicationLocale(communicationLocale)
+    || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
   const candidateFlow = { ...flow, answers: { ...(flow?.answers || {}), ...orderContext.answers },
     questionAnswers: { ...(flow?.questionAnswers || {}), ...orderContext.orderAnswers } };
-  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
-  const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
+  const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale }).answers;
   const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
   const answerOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence, flow: candidateFlow });
   const confirmationFlow = { ...candidateFlow, answerOrigins };
@@ -326,9 +329,8 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const documents = documentsView(draft, flow);
   const openDocuments = openRequiredDocuments(draft, flow?.documents || {});
   const channel = draft?.channel || {};
-  const locale = order?.locale || 'it';
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
-  const formAnswers = formAnswersWithEdits({ order, draft, flow });
+  const formAnswers = formAnswersWithEdits({ order, draft, flow, locale });
   const stale = round !== current;
   const ready = Boolean(draft && draft.status === 'ready' && Number(draft.round) === current);
   return {
@@ -343,7 +345,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     // reached them cost them nothing (assistedApplicationFlow.js roundsShown).
     roundsLeft: Math.max(0, MAX_REVIEW_ROUNDS - roundsShown(flow).length),
     deadlineAt: state === 'candidate_review' ? flow?.deadlineAt || null : null,
-    locale: order?.locale || 'it',
+    locale,
     job: {
       title: draft?.job?.title || order?.jobTitle || '',
       company: order?.companyName || '',
@@ -370,7 +372,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     dismissedAnswerSuggestionIds,
     answerQuestionSnapshots: answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: confirmationFlow,
-      questions: visibleQuestions, draft, nowMs }),
+      questions: visibleQuestions, draft, communicationLocale: locale, nowMs }),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
@@ -476,8 +478,9 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', s
  * own words become a fact source, and the texts are judged with the status
  * the candidate has now.
  */
-async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs }) {
-  const locale = order?.locale || 'it';
+async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs, communicationLocale }) {
+  const locale = normalizeAnswerCommunicationLocale(communicationLocale)
+    || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
   const plan = planCandidateEdits(body, { order, draft, flow, locale, nowMs });
   if (Object.keys(plan.errors).length) throw new ReviewError('invalid_edits', 400, { fields: plan.errors });
   if (!plan.changed.length) return [];
@@ -787,7 +790,9 @@ export async function handleAssistedApplicationReview(req, deps) {
         loadEmployerResponseTimeline(orderRef, order),
       ]);
       return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission,
-        answerEvidence: runnerContext.answerEvidence, nowMs }),
+        answerEvidence: runnerContext.answerEvidence,
+        communicationLocale: normalizeAnswerCommunicationLocale(runnerContext.communicationLocale)
+          || normalizeAnswerCommunicationLocale(order?.locale) || 'it', nowMs }),
         employerResponse: employerResponseView(employerResponse),
         employerResponseTimeline: employerResponseTimelineView(employerResponseTimeline),
       } };
@@ -834,7 +839,9 @@ export async function handleAssistedApplicationReview(req, deps) {
       if (flow.state !== 'candidate_review' || !draft || draft.status !== 'ready' || Number(draft.round) !== round) {
         throw new ReviewError('not_allowed', 409);
       }
-      const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, body, nowMs });
+      const communicationLocale = await resolveAnswerCommunicationLocale({ db: deps.db, order })
+        || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
+      const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, body, nowMs, communicationLocale });
       return { status: 200, body: { ok: true, state: flow.state, changed } };
     }
     if (action === 'cv_lines') {
@@ -862,6 +869,8 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (action === 'answers') {
       const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
       const runnerContext = await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs });
+      const communicationLocale = normalizeAnswerCommunicationLocale(runnerContext.communicationLocale)
+        || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
       const displayLegacyAnswers = runnerContext.retained
         && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
       const questionAnswers = runnerContext.retained
@@ -871,9 +880,9 @@ export async function handleAssistedApplicationReview(req, deps) {
         ? { ...(displayLegacyAnswers ? flow?.answers || {} : {}), ...(runnerContext.flow.answers || {}), ...orderContext.answers }
         : { ...(runnerContext.flow.answers || {}), ...orderContext.answers };
       const reviewFlow = { ...runnerContext.flow, answers: storedAnswers, questionAnswers };
-      const candidate = candidateWithEdits({ order, draft, flow: reviewFlow });
+      const candidate = candidateWithEdits({ order, draft, flow: reviewFlow, locale: communicationLocale });
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', storedAnswers, questionAnswers);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, communicationLocale, storedAnswers, questionAnswers);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       const currentRound = Number(runnerContext.flow?.round || flow?.round) || 1;
       const previousDismissals = runnerContext.flow?.answerSuggestionDismissals || flow?.answerSuggestionDismissals;
@@ -896,7 +905,7 @@ export async function handleAssistedApplicationReview(req, deps) {
         answerEvidence: runnerContext.answerEvidence, flow: reviewFlow });
       const confirmationFlow = { ...reviewFlow, answerOrigins: displayedOrigins };
       const currentSnapshots = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: confirmationFlow,
-        questions: visibleQuestions, draft, nowMs });
+        questions: visibleQuestions, draft, communicationLocale, nowMs });
       const suppliedSnapshots = body.answerQuestionSnapshots && typeof body.answerQuestionSnapshots === 'object' && !Array.isArray(body.answerQuestionSnapshots)
         ? body.answerQuestionSnapshots : {};
       if (Object.keys(answers).some(id => !currentSnapshots[id] || suppliedSnapshots[id] !== currentSnapshots[id])) {
@@ -912,7 +921,7 @@ export async function handleAssistedApplicationReview(req, deps) {
         const check = await deps.checkAnswers({
           questions: (draft?.questions || []).filter((question) => Object.hasOwn(answers, question.id)),
           answers,
-          locale: order?.locale || 'it',
+          locale: communicationLocale,
           job: { title: draft?.job?.title || order?.jobTitle || '', company: order?.companyName || '' },
           todayIso: zurichToday(nowMs),
         });
@@ -923,7 +932,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       const confirmedOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence: runnerContext.answerEvidence, flow: reviewFlow });
       await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow: confirmationFlow, draft, answers,
         answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
-        answerSuggestionDismissals, nowMs, answerActor: 'candidate', requireAnswerContracts: deps.requireAnswerContracts === true });
+        answerSuggestionDismissals, nowMs, answerActor: 'candidate', communicationLocale, requireAnswerContracts: deps.requireAnswerContracts === true });
     }
     const event = {
       approve: { type: 'candidate_approve' },

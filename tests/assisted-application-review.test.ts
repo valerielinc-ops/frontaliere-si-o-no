@@ -113,6 +113,30 @@ describe('candidate review API', () => {
     }]);
   });
 
+  it('shows and confirms answers in the owned concierge service locale for legacy orders', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    const legacyOrder = store.read(BASE);
+    await orderRef.set({ ...legacyOrder, locale: null, parentServiceId: 'legacy-service' });
+    await store.db.collection('application_concierge_services').doc('legacy-service').set({
+      userId: legacyOrder.userId, locale: 'de',
+    });
+    const question = { id: 'origin_region', question: 'Welche Region ist dein Herkunftskanton?', type: 'text', required: true };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ formOverrides: { workPermit: 'G' } }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] }, questions: [question],
+    }));
+
+    const shown = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(shown.status).toBe(200);
+    expect(shown.body.locale).toBe('de');
+    expect(shown.body.answerQuestionSnapshots).toHaveProperty('origin_region');
+    expect(shown.body.formAnswers.find((field: any) => field.key === 'workPermit')?.value).toBe(permitOptions('de')[4]);
+
+    const saved = await postAnswers({ origin_region: 'Ticino' }, {}, shown.body.answerQuestionSnapshots);
+    expect(saved).toMatchObject({ status: 200, body: { ok: true } });
+    expect(store.read(`${BASE}/automation/flow`).answers).toMatchObject({ origin_region: 'Ticino' });
+  });
+
   it('keeps the native ATS question visible as source evidence when candidate copy is translated', async () => {
     const applicationQuestion = 'Welche Region ist dein Herkunftskanton?';
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
