@@ -13,6 +13,7 @@ const now = Date.now();
 const target = { id: 'target', url: 'https://example.test/jobs/target/', communicationLocale: 'it' };
 const order = { userId: 'synthetic', jobId: 'source', jobUrl: 'https://example.test/jobs/source/',
   locale: 'it', cvStorageKey: 'assisted-application-uploads/source/cv.pdf', cvUploadedAt: now };
+const sourceJobView = (sourceOrder: Record<string, any>) => ({ ...sourceOrder, communicationLocale: sourceOrder.locale });
 const birth = `${new Date(now).getUTCFullYear() - 30}-02-20`;
 const cases = [
   { question: { id: 'dob', question: 'What is your date of birth?', type: 'date' }, answer: birth, category: 'personal', unit: 'calendar_date', fact: { type: 'birth_date', subject: 'candidate' } },
@@ -173,7 +174,7 @@ describe('typed facts use the attested answer source contract', () => {
     const f = fixture({ ...cases[3], answer: permitOptions('en')[4] });
     const context = await f.load();
     expect(context(target).answerEvidence).toEqual([]);
-    expect(context(order).answerEvidence[0]).toMatchObject({ scope: 'job', fact: { status: 'permit_g', relation: 'reported_possession_not_work_right' } });
+    expect(context(sourceJobView(order)).answerEvidence[0]).toMatchObject({ scope: 'job', fact: { status: 'permit_g', relation: 'reported_possession_not_work_right' } });
   });
   it.each(['B (will be sponsored by employer)', 'B (only if the employer sponsors me)', 'C (role-specific condition)'])('does not promote a conditional permit answer to a portable fact: %s', answer => {
     const f = fixture({ ...cases[3], answer, question: { ...cases[3].question, options: [answer] } });
@@ -223,12 +224,12 @@ describe('typed facts use the attested answer source contract', () => {
   });
   it('keeps an owner-attested local answer and candidate fact dependent on the current CV', async () => {
     const f = fixture(cases[1], 'owner');
-    expect((await f.load())(f.order).answerEvidence).toHaveLength(1);
+    expect((await f.load())(sourceJobView(f.order)).answerEvidence).toHaveLength(1);
     const nextKey = 'assisted-application-uploads/source/replacement.pdf';
     f.store.docs.set('assisted_applications/source', { ...f.order, cvStorageKey: nextKey, cvUploadedAt: now + 1 });
     f.store.docs.set('assisted_applications/source/ai_drafts/current', { ...f.draft, cvKey: nextKey });
     const context = await f.load();
-    expect(context(f.order).answerEvidence).toEqual([]);
+    expect(context(sourceJobView(f.order)).answerEvidence).toEqual([]);
     expect(orderQuestionAnswerContext({ orderId: 'source', order: { ...f.order, cvStorageKey: nextKey, cvUploadedAt: now + 1 },
       flow: f.flow, draft: { ...f.draft, cvKey: nextKey }, nowMs: now }).answers).toEqual({});
   });
@@ -243,7 +244,7 @@ describe('typed facts use the attested answer source contract', () => {
     const question = { id: 'consulting', question: 'Have you got experience in consulting?', type: 'yes_no' };
     const f = fixture({ question, answer: 'Yes' });
     expect((await f.load())(target).answerEvidence).toEqual([]);
-    expect((await f.load())(f.order).answerEvidence[0]).toMatchObject({ scope: 'job', sourceKind: 'direct_user' });
+    expect((await f.load())(sourceJobView(f.order)).answerEvidence[0]).toMatchObject({ scope: 'job', sourceKind: 'direct_user' });
   });
   it.each([
     { id: 'notice_period', question: 'What is your notice period?', type: 'text', answer: '3 months' },
@@ -311,7 +312,7 @@ describe('typed facts use the attested answer source contract', () => {
   it('blocks a pending final click when the source question changes after claim', async () => {
     const f = fixture(cases[1]);
     const targetOrder = { userId: order.userId, jobId: 'target', jobUrl: target.url,
-      cvStorageKey: 'assisted-application-uploads/target/cv.pdf', cvUploadedAt: now };
+      locale: 'it', cvStorageKey: 'assisted-application-uploads/target/cv.pdf', cvUploadedAt: now };
     const targetFlow = { state: 'submitting', round: 1, answers: {} };
     const targetDraft = { round: 1, cvKey: targetOrder.cvStorageKey,
       questions: [{ ...cases[1].question, id: 'target_experience' }] };

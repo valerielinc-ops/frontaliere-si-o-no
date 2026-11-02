@@ -94,7 +94,7 @@ const sentCvHasPhoto = async () => pdfPaintsImage((await chooseCv({ draft: draft
 
 function seed(draftExtra: Record<string, any> = {}) {
   store = createMemoryFirestore({
-    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital', locale: 'de', applicantName: 'Maria Rossi', applicantPhone: '+41 79 123 45 67' },
+    [BASE]: { userId: 'candidate-photo-test', paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital', locale: 'de', applicantName: 'Maria Rossi', applicantPhone: '+41 79 123 45 67' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: {
       status: 'ready', round: 1, language: 'de', profile, job: { title: 'Pflegefachperson HF' },

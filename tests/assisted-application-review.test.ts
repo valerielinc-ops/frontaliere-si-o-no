@@ -213,7 +213,7 @@ describe('candidate review API', () => {
 
   it('shows a reusable answer only while its attested source remains retained', async () => {
     const userId = 'candidate-synthetic';
-    const sourceOrder = { userId, jobId: 'source', jobUrl: 'https://example.test/jobs/source/',
+    const sourceOrder = { userId, jobId: 'source', jobUrl: 'https://example.test/jobs/source/', locale: 'it',
       cvStorageKey: 'assisted-application-uploads/source/review-cv.pdf', cvUploadedAt: T0 };
     const sourceFlow = { state: 'candidate_review', round: 1, answers: {}, questionAnswers: {} };
     const sourceDraft = { round: 1, cvKey: sourceOrder.cvStorageKey,
@@ -699,6 +699,8 @@ describe('candidate review API', () => {
     const serviceRef = store.db.collection('application_concierge_services').doc('legacy-service');
     await orderRef.set({ ...store.read(BASE), locale: null, parentServiceId: 'legacy-service' });
     await serviceRef.set({ userId: 'candidate-review-test', locale: 'de' });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow')
+      .set({ formOverrides: { workPermit: 'G' } }, { merge: true });
     const shown = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     expect(shown.body.locale).toBe('de');
     expect(shown.body.editSnapshot).toMatch(/^[a-f0-9]{64}$/);
