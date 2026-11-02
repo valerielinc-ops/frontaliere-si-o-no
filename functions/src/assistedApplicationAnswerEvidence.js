@@ -391,7 +391,7 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, conf
     const raw = group[0]; const answer = changed[raw.id];
     const snapshotHashes = group.map(question => answerQuestionSnapshotHash({ orderId, question, draft, nowMs }));
     const sourceKind = actor === 'candidate' ? 'direct_user' : 'owner_attested';
-    const persistedSource = object(flow.questionAnswerSources)[key];
+    const persistedSource = object(flow.questionAnswerSources)[key] || {};
     const origin = persistedSource.originSource
       ? { originSource: persistedSource.originSource, originCvFingerprint: persistedSource.originCvFingerprint }
       : answerOriginMetadata({ question: raw, flow, answer });
