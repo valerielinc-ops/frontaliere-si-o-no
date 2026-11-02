@@ -165,6 +165,7 @@ describe('Kudelski NAGRA crawler parser', () => {
       // check-crawler-health counts an empty streak and flags it broken.
       expect(jobs).toHaveLength(0);
       expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(2);
+      expect((jobs as unknown as { fetchOutcome?: string }).fetchOutcome).toBe('filtered_empty');
     });
 
     it('does not count listings dropped by the non-geographic title gate', async () => {
@@ -183,6 +184,19 @@ describe('Kudelski NAGRA crawler parser', () => {
 
       expect(jobs).toHaveLength(0);
       expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(0);
+      expect((jobs as unknown as { fetchOutcome?: string | null }).fetchOutcome).toBeNull();
+    });
+
+    it('does not prove filtered-empty when a candidate location is unknown', async () => {
+      greenhouseBoard([
+        { id: 1, title: 'Embedded Software Engineer', location: { name: 'Unresolved location' }, content: 'Firmware work.' },
+      ]);
+
+      const jobs = await fetchAllKudelskiNagraJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect((jobs as unknown as { discoveredCount?: number }).discoveredCount).toBe(1);
+      expect((jobs as unknown as { fetchOutcome?: string | null }).fetchOutcome).toBeNull();
     });
 
     it('keeps the count non-enumerable so it never leaks into the slice', async () => {
