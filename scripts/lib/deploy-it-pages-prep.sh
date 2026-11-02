@@ -293,30 +293,50 @@ _publish_cdn_r2() {
   }
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
-    local sync_status=0
+    local attempts=2 attempt=1 sync_status=0 attempt_log=""
+    # `copy` is additive and checksum-diffed, so repeating a prefix resumes
+    # objects left behind by a timed-out attempt without deleting live keys.
+    # Keep each attempt's upload log separately and append it to the aggregate:
+    # the asset purge must see keys uploaded before a timeout as well as keys
+    # moved by the successful retry.
     if [ -n "${5:-}" ]; then
-      # Capture WHICH objects actually moved so the caller can purge exactly
-      # those at the edge (see the assets/ call below). --log-file swallows
-      # rclone's stderr, so the log is echoed back to the deploy output after
-      # the run — a sync error must stay visible in the job log.
-      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
-        -v --use-json-log --log-file="$5"; then
-        ok=0
-        sync_status=1
-      fi
-      # `if`, not `[ -s … ] && cat`: an EMPTY log (nothing changed — the common
-      # case) is normal and must not alter the sync result returned below.
-      if [ -s "$5" ]; then cat "$5"; fi
-    else
-      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
-        ok=0
-        sync_status=1
-      fi
+      rm -f "$5"
     fi
-    if [ "$sync_status" != 0 ]; then
-      echo "::warning::[r2] sync of $3/ failed or exceeded its ${1}s limit"
-    fi
-    return "$sync_status"
+    while [ "$attempt" -le "$attempts" ]; do
+      sync_status=0
+      if [ -n "${5:-}" ]; then
+        attempt_log="$5.attempt-$attempt"
+        rm -f "$attempt_log"
+        if _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
+          -v --use-json-log --log-file="$attempt_log"; then
+          sync_status=0
+        else
+          sync_status=$?
+        fi
+        # An EMPTY log (nothing changed — the common case) is normal and must
+        # not alter the sync result returned below.
+        if [ -s "$attempt_log" ]; then
+          cat "$attempt_log" >> "$5"
+          cat "$attempt_log"
+        fi
+        rm -f "$attempt_log"
+      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
+        sync_status=0
+      else
+        sync_status=$?
+      fi
+
+      [ "$sync_status" -eq 0 ] && return 0
+      if [ "$attempt" -lt "$attempts" ]; then
+        echo "::warning::[r2] sync of $3/ attempt $attempt/$attempts failed or exceeded its ${1}s limit (exit $sync_status) — retrying additive copy after 5s"
+        sleep 5
+      else
+        ok=0
+        echo "::warning::[r2] sync of $3/ failed or exceeded its ${1}s limit after $attempt attempts (last exit $sync_status)"
+      fi
+      attempt=$((attempt + 1))
+    done
+    return 1
   }
   _r2_with_image_namespace_leases() { # <namespace-list> <command> <argv...> — run the image batch under all present namespace leases
     local _image_lease_namespaces="$1"
