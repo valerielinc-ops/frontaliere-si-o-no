@@ -243,7 +243,9 @@ describe('every newsletter_subscribers sender routes through the one predicate',
       .filter((e) => e.isFile() && /\.mjs$/.test(e.name))
       .map((e) => `scripts/${e.name}`)
       .filter((rel) => {
-        const src = stripComments(read(rel));
+        const source = read(rel);
+        if (!source.includes('newsletter_subscribers') || !source.includes('sendEmail')) return false;
+        const src = stripComments(source);
         return /collection\(\s*['"]newsletter_subscribers['"]\s*\)\s*\.get\(\)/.test(src)
           && /sendEmailCascade|sendEmail\s*\(/.test(src);
       });
@@ -264,7 +266,10 @@ describe('every newsletter_subscribers sender routes through the one predicate',
       readdirSync(path.join(ROOT, dir), { withFileTypes: true })
         .filter((e) => e.isFile() && /\.(mjs|js|ts)$/.test(e.name))
         .map((e) => `${dir}/${e.name}`)
-        .filter((rel) => /function hasSubscriptionBasis/.test(stripComments(read(rel)))),
+        .filter((rel) => {
+          const source = read(rel);
+          return source.includes('hasSubscriptionBasis') && /function hasSubscriptionBasis/.test(stripComments(source));
+        }),
     );
     expect(definers).toEqual(['functions/src/lib/subscriberConsent.js']);
   });

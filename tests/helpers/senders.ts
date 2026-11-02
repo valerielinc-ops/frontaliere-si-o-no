@@ -56,5 +56,8 @@ export function discoverSenders(): string[] {
   return readdirSync(path.join(ROOT, 'scripts'), { withFileTypes: true })
     .filter((e) => e.isFile() && e.name.endsWith('.mjs'))
     .map((e) => `scripts/${e.name}`)
-    .filter((rel) => /sendEmailCascade/.test(stripComments(read(rel))));
+    .filter((rel) => {
+      const source = read(rel);
+      return source.includes('sendEmailCascade') && /sendEmailCascade/.test(stripComments(source));
+    });
 }
