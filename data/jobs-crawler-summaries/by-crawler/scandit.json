@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-11-01T21:39:00.751Z",
+  "generatedAt": "2026-11-02T11:00:04.978Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3528,
-  "avgDurationMs": 3528,
+  "unchangedCount": 1,
+  "durationMs": 4558,
+  "avgDurationMs": 4558,
   "durationHistory": [
-    3528
+    4558
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "scandit-c390254cf662",
       "slug": "designer-senior-ux-scandit-ag-zurich",
@@ -37,7 +35,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8333916",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T21:38:43.102Z",
+      "crawledAt": "2026-11-02T10:59:46.292Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +59,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:43.102Z",
+      "validThrough": "2027-01-28T10:59:46.292Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -70,7 +68,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "scandit-08ee2b53999e",
       "slug": "ingegnere-senior-di-machine-learning-biometria-e-riconoscimento-facciale-scandit-ag-zurich",
@@ -83,7 +84,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552679",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T21:38:42.798Z",
+      "crawledAt": "2026-11-02T10:59:45.986Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,7 +107,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T21:38:42.798Z",
+      "validThrough": "2026-12-02T10:59:45.986Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -117,5 +118,5 @@
       }
     }
   ],
-  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
+  "codeCommit": "b9fedcb2d7c12b4f2c2136225a5fb02b0c8bbf9f"
 }
