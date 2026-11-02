@@ -8,6 +8,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { JOB_OG_IMAGE_VERSION } from '../../build-plugins/shared/jobOgImageVersion.mjs';
 
 // Pure-ESM script. The CLI block is gated on `import.meta.url ===
 // file://${process.argv[1]}`, so importing is side-effect-free.
@@ -651,7 +652,7 @@ describe('run() — DRY_RUN mode', () => {
       // OG rescrape verify GET call (checks og_object.image resolved).
       if (u.includes('graph.facebook.com') && !init?.method) {
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og/jobs/operaio-mendrisio.webp?v=v5-2026-11-02-portrait-q72' }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/operaio-mendrisio.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
           { status: 200 },
         );
       }
@@ -713,7 +714,7 @@ describe('run() — DRY_RUN mode', () => {
           ? new URL(linkedUrl).pathname.split('/').filter(Boolean).at(-1)
           : '';
         return new Response(
-          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/${linkedSlug}.webp?v=v5-2026-11-02-portrait-q72` }] } }),
+          JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/${linkedSlug}.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
           { status: 200 },
         );
       }
