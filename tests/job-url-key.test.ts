@@ -339,8 +339,8 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
   });
 
   it('ASSOLO: uses the short item hash instead of a year-range token', () => {
-    const kitchen = 'https://www.biasca.ch/Concorso-generale-2025-2026-14e5fc00?i=1';
-    const cleaning = 'https://www.biasca.ch/Concorso-generale-2025-2026-bd7dd800?i=1';
+    const kitchen = 'https://www.biasca.ch/Concorso-generale-20252026-14e5fc00?i=1';
+    const cleaning = 'https://www.biasca.ch/Concorso-generale-20252026-bd7dd800?i=1';
 
     expect(mergeUrlKey(kitchen)).toBe('hex:14e5fc00');
     expect(mergeUrlKey(cleaning)).toBe('hex:bd7dd800');
@@ -349,7 +349,7 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
   });
 
   it('ASSOLO short hashes stay shape-gated', () => {
-    const url = 'https://example.com/jobs/2025-2026-14e5fc00';
+    const url = 'https://example.com/jobs/20252026-14e5fc00';
     expect(mergeUrlKey(url)).toBe('num:20252026');
   });
 
