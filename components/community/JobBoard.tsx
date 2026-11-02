@@ -18,8 +18,9 @@ import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 
 import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
 import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
+import { waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
-import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
+import React, { startTransition, useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSyncExternalStore } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
@@ -799,6 +800,8 @@ interface JobBoardFilterParams {
 }
 
 interface JobBoardProps {
+ /** Called after useful listing content commits over an external static snapshot. */
+ onInitialContentReady?: () => void;
  onPostJob?: () => void;
  initialJobSlug?: string;
  /** Query changes must also invalidate the memoized job-detail view. */
@@ -2553,6 +2556,7 @@ function buildAssistedApplicationJobContext(
 }
 
 const JobBoard: React.FC<JobBoardProps> = ({
+ onInitialContentReady,
  onPostJob,
  initialJobSlug,
  locationSearch,
@@ -3008,6 +3012,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // The recommendation slot shows already loaded jobs until popularity arrives,
  // preserving its geometry even when this optional request fails.
  const [popularity, setPopularity] = useState<Record<string, number>>(EMPTY_JOB_POPULARITY);
+ const trendingSectionRef = useRef<HTMLDivElement | null>(null);
  // Deferred for the same reason as the three values above (#4302): it is an
  // enhancement-only input that lands via a post-mount effect, and its arrival
  // re-runs getTrendingByLocation over the whole loaded list. Deferring lets
@@ -3015,13 +3020,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // behind it. Output unchanged, only the scheduling.
  const deferredPopularity = useDeferredValue(popularity);
 
- // Fetch it at idle, and only when personalization is on — it feeds nothing
- // else. Deferring past the authoritative job index keeps it from competing
- // with the listing paint. Mirrors the requestIdleCallback+timeout fallback
- // used by the seeded-detail index load below.
+ // Popularity only changes the below-fold recommendation order. Fetch it when
+ // that section approaches the viewport, after LCP and at idle, so the ~600 KB
+ // map is not part of the initial listing request burst.
  useEffect(() => {
  if (!enablePersonalization) return;
  let cancelled = false;
+ let observer: IntersectionObserver | null = null;
+ let idleHandle: number | null = null;
+ let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
  const start = (): void => {
  loadJobPopularity()
  .then((data) => {
@@ -3035,11 +3042,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
  cancelIdleCallback?: (handle: number) => void;
  };
- let firstFrame = 0;
- let secondFrame = 0;
- let idleHandle: number | null = null;
- let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
- const scheduleAtIdle = (): void => {
+ const scheduleAtIdle = async (): Promise<void> => {
+  await waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true });
   if (cancelled) return;
   if (typeof w.requestIdleCallback === 'function') {
    idleHandle = w.requestIdleCallback(start, { timeout: 8000 });
@@ -3047,16 +3051,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
    fallbackTimer = setTimeout(start, 2000);
   }
  };
- // Do not let this enhancement compete with JobBoard's first committed and
- // painted frame, even when React flushes a mount effect before the browser's
- // first paint opportunity on a busy mobile main thread.
- firstFrame = window.requestAnimationFrame(() => {
-  secondFrame = window.requestAnimationFrame(scheduleAtIdle);
- });
+ const target = trendingSectionRef.current;
+ if (target && typeof IntersectionObserver !== 'undefined') {
+  observer = new IntersectionObserver((entries) => {
+   if (!entries.some((entry) => entry.isIntersecting)) return;
+   observer?.disconnect();
+   observer = null;
+   void scheduleAtIdle();
+  }, { rootMargin: '400px 0px' });
+  observer.observe(target);
+ } else {
+  void scheduleAtIdle();
+ }
  return () => {
   cancelled = true;
-  if (firstFrame) window.cancelAnimationFrame(firstFrame);
-  if (secondFrame) window.cancelAnimationFrame(secondFrame);
+  observer?.disconnect();
   if (idleHandle !== null) w.cancelIdleCallback?.(idleHandle);
   if (fallbackTimer !== null) clearTimeout(fallbackTimer);
  };
@@ -3594,8 +3603,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
  */
  useEffect(() => {
  let cancelled = false;
+ let cancelCatalogIdleWait: (() => void) | null = null;
  // Fresh load for this locale/canton → the authoritative index is pending again.
  setFullLoadPending(true);
+
+ const waitForCatalogIdle = (): Promise<void> => new Promise((resolve) => {
+  let settled = false;
+  let idleHandle: number | null = null;
+  let timeoutHandle: ReturnType<typeof setTimeout> | null = null;
+  const idleWindow = window as unknown as {
+   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+   cancelIdleCallback?: (handle: number) => void;
+  };
+  const finish = (): void => {
+   if (settled) return;
+   settled = true;
+   if (idleHandle !== null) idleWindow.cancelIdleCallback?.(idleHandle);
+   if (timeoutHandle !== null) clearTimeout(timeoutHandle);
+   if (cancelCatalogIdleWait === finish) cancelCatalogIdleWait = null;
+   resolve();
+  };
+  cancelCatalogIdleWait = finish;
+  if (typeof idleWindow.requestIdleCallback === 'function') {
+   idleHandle = idleWindow.requestIdleCallback(finish, { timeout: 2500 });
+   if (!settled) timeoutHandle = setTimeout(finish, 3000);
+  } else {
+   timeoutHandle = setTimeout(finish, 250);
+  }
+ });
 
  /**
  * First-page slim asset (#2580): the first ~50 records of the slim index,
@@ -3689,11 +3724,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  // First-page fast paint (#2580): on listing routes (no build-time seed),
  // fetch the tiny first-page slim asset first and paint page-1 cards before
- // the full index lands. The full load below still runs and replaces `jobs`
- // with the complete (canton-scoped) set + the unscoped cross-canton pool, so
- // pagination/filtering/cross-canton search are unaffected. Best-effort: any
- // miss (asset 404 / parse) leaves `jobsLoading` true and the full path takes
- // over normally. Skipped for canton-scoped pages other than TI because the
+ // the full index lands. After that first list reaches LCP and the browser is
+ // idle, the authoritative shard supplies the complete filter/pagination
+ // corpus. A miss (asset 404 / parse) leaves `jobsLoading` true and takes the
+ // existing full-index path immediately. Skipped for canton-scoped pages other than TI because the
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
  // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
  //
@@ -3714,8 +3748,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firstPage = await loadFirstPageSlim();
  if (firstPage && !cancelled) {
  await finalize(scopeJobsToCanton(firstPage, targetCanton));
+ await waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true });
+ if (!cancelled) await waitForCatalogIdle();
  }
  }
+ if (cancelled) return;
 
  try {
  // The aggregate sentinel resolves to the complete locale index in the
@@ -3791,6 +3828,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  void run();
  return () => {
  cancelled = true;
+  cancelCatalogIdleWait?.();
  };
  }, [locale, initialFilterCanton]);
 
@@ -5877,6 +5915,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const resultsResolving = (
   (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
  ) || returnVisitResultsPending;
+ const initialContentReadyRef = useRef(false);
+ useLayoutEffect(() => {
+  if (initialContentReadyRef.current || jobsLoading || jobs.length === 0 || resultsResolving) return;
+  initialContentReadyRef.current = true;
+  onInitialContentReady?.();
+ }, [jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
  // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
@@ -12126,6 +12170,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* A neutral, useful recommendation slot exists before Remote Config resolves.
      The flag only opts into popularity ranking; false keeps ordinary job cards. */}
+ <div ref={trendingSectionRef}>
  <TrendingSection
  trendingJobs={recommendationJobs.map((j) => ({
  ...j,
@@ -12142,6 +12187,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (job) openDetail(job);
  }}
  />
+ </div>
 
  {/* ── Personalization notices (no empty wrapper when the flag resolves) ── */}
  {enablePersonalization && ((!newJobsDismissed && returnVisitNewJobsCount > 0) || showSinceLastVisitOnly || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
