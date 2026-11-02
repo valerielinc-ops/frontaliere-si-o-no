@@ -46,6 +46,8 @@ import {
   GLOBAL_TESTS_REQUIRED_SPARSE_PATHS,
   missingGlobalTestsSparsePaths,
   missingTypecheckSparsePaths,
+  SOCIAL_COPY_REQUIRED_SPARSE_PATHS,
+  sparseIncludesPath,
   TYPECHECK_REQUIRED_SPARSE_PATHS,
 } from '../scripts/ci/apply-checkout-profiles.mjs';
 
@@ -357,6 +359,20 @@ describe('profili di sparse-checkout', () => {
     const wf = analyzeAll().find((w) => w.file === 'articles-performance-snapshot.yml');
     const job = wf?.jobs.find((j) => j.jobId === 'snapshot');
     expect(job?.needs).toContain('packages/articles/content/');
+  }, TIMEOUT);
+
+  it('il job Codex social include i riferimenti editoriali letti dal prompt', () => {
+    const file = path.join(WF_DIR, 'social-copy-pack.yml');
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    const { text } = computeProfiledText(file, pkg.scripts);
+    const workflow = YAML.parse(text, { logLevel: 'silent' });
+    const checkout = workflow.jobs.generate.steps.find((step: any) => step.uses === 'actions/checkout@v7');
+    const sparse = checkout?.with?.['sparse-checkout'];
+
+    expect(sparse).toBeDefined();
+    for (const requiredPath of SOCIAL_COPY_REQUIRED_SPARSE_PATHS) {
+      expect(sparseIncludesPath(sparse, requiredPath.slice(1)), requiredPath).toBe(true);
+    }
   }, TIMEOUT);
 
   it('nessun workflow e in ritardo su cio che l analizzatore calcolerebbe oggi (issue #6249)', () => {
