@@ -1,7 +1,7 @@
 {
   "crawlerKey": "igs-bern",
-  "assembledAt": "2026-11-02T09:29:26.409Z",
-  "runId": "41418684285",
+  "assembledAt": "2026-11-02T21:55:06.522Z",
+  "runId": "41526136568",
   "jobs": [
     {
       "id": "igs-bern-f5747d81c7ce",
@@ -34,7 +34,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:29:20.764Z",
+      "crawledAt": "2026-11-02T21:54:59.827Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       "addressRegion": "BE",
       "streetAddress": "Moosseedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:29:20.764Z",
+      "validThrough": "2026-12-02T21:54:59.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T09:29:20.222Z",
+      "crawledAt": "2026-11-02T21:54:59.271Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -178,7 +178,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:29:20.222Z",
+      "validThrough": "2027-01-18T21:54:59.271Z",
       "validThroughSource": "last-observed-window"
     }
   ]
