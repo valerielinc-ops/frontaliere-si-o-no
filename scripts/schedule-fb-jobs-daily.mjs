@@ -695,6 +695,8 @@ export async function run(opts = {}) {
   const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
 
+  // Each payload is a separate promise in Promise.all below. Returning false
+  // here skips only this payload; later payloads and batches still run.
   const scheduleOne = async (p) => {
     // See the articles scheduler: tag before the rescrape, keep `p.url` bare
     // because it is the ledger's dedup key.
