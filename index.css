@@ -1785,12 +1785,13 @@ main.seo-static-content:has([data-bw-crossing]) > article > .google-auto-placed:
 /* Health-premium and fuel daily pages use the same static article shell and
    can receive the same Auto Ad insertion between breadcrumb and header. The
    run on 2026-10-31 measured stable CLS ~0.40 on both families even after the
-   manual drive-by reserve was raised from 1534px to 1790px. Keep the measured
-   250px gap transfer route-scoped to those pages; this leaves Auto Ads active
-   while preventing the late sibling insertion from moving the header. */
+   manual drive-by reserve was raised from 1534px to 1790px. Match the desktop
+   `.google-auto-placed` cap (400px) in the route-scoped gap transfer; this
+   leaves Auto Ads active while preventing the late sibling insertion from
+   moving the header. */
 @media (min-width: 1280px) {
   main.seo-static-content:has(> article[data-ft-driveby-top-ad]) {
-    --driveby-top-ad-reserve: 250px;
+    --driveby-top-ad-reserve: 400px;
   }
   main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > nav.s-bcr {
     margin-block-end: var(--driveby-top-ad-reserve);
