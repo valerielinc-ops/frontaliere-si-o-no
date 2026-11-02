@@ -10,7 +10,7 @@
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
-import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots } from './assistedApplicationAnswerEvidence.js';
+import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -49,11 +49,13 @@ function retentionWriteAllowed(order, nowMs) {
   return talentPoolConsentActive(order) || purgeDueAt == null || nowMs < purgeDueAt;
 }
 
-function candidateAnswerLedgerPatch({ profileSnapshot, currentOrder, ledger }) {
+async function candidateAnswerLedgerPatch({ db, getDocument, profileSnapshot, currentOrder, ledger }) {
   const userId = String(ledger?.userId || '').trim();
   // A missing profile may represent account deletion; preserve the order-local answer without recreating it.
   if (!profileSnapshot?.exists || !userId || currentOrder?.userId !== userId
     || !retentionWriteAllowed(currentOrder, Date.now())) return null;
+  const communicationLocale = await resolveAnswerCommunicationLocale({ db, order: currentOrder, getDocument });
+  if (!communicationLocale) return null;
 
   const profile = profileSnapshot.data() || {};
   const update = planCandidateAnswerEvidence({
@@ -68,6 +70,7 @@ function candidateAnswerLedgerPatch({ profileSnapshot, currentOrder, ledger }) {
     draft: ledger.draft,
     actor: ledger.actor,
     nowMs: ledger.nowMs,
+    communicationLocale,
   });
   if (!update.accepted.size) return null;
 
@@ -89,9 +92,9 @@ function candidateAnswerLedgerPatch({ profileSnapshot, currentOrder, ledger }) {
   };
 }
 
-function writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, currentOrder, ledger) {
+async function writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, currentOrder, ledger) {
   if (!profileRef || !ledger) return;
-  const patch = candidateAnswerLedgerPatch({ profileSnapshot, currentOrder, ledger });
+  const patch = await candidateAnswerLedgerPatch({ db, getDocument: ref => transaction.get(ref), profileSnapshot, currentOrder, ledger });
   if (patch) transaction.set(profileRef, patch, {
     mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'],
   });
@@ -176,7 +179,7 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
       && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
       && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
     if (!unchanged) return false;
-    writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, orderSnapshot.data(), candidateAnswerLedger);
+    await writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, orderSnapshot.data(), candidateAnswerLedger);
     if (flowPatch && replaceAnswerMaps) {
       const { answers, ...answerMaps } = flowPatch;
       if (answers !== undefined) transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
@@ -292,7 +295,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
           profileRecord: profileSnapshot?.data() || {},
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
             answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs } })) return false;
-      writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
+      await writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
       transaction.set(flowRef, {
         answers,
         ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}),

@@ -117,6 +117,7 @@ export function answerEvidenceFingerprint(records = []) {
     sourceKind: record?.sourceKind || null,
     originSource: record?.originSource || null,
     originCvFingerprint: record?.originCvFingerprint || null,
+    communicationLocale: record?.communicationLocale || null,
     cvFingerprint: record?.cvFingerprint || null,
     questionSnapshotHash: record?.questionSnapshotHash || null,
     orderId: record?.provenance?.orderId || null,
