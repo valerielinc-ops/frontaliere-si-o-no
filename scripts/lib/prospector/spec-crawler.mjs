@@ -897,9 +897,9 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
     : familyListingExtractor
       ? await familyListingExtractor(html, effectiveUrl)
       : null;
-  // jsonld/microdata are stronger evidence than any link-shape guess, so
-  // only override when the generic cascade fell back to (or below) its own
-  // template heuristic and we hold a better one already vetted for this spec.
+  // JSON-LD/microdata remain authoritative for identities and source-backed
+  // fields. If they cover only part of a page whose detail template is known,
+  // the vetted template links supplement the missing identities below.
   let candidates = Array.isArray(sourceCandidates)
     && (!familyExtractorActive || sourceCandidates.length > 0)
     ? sourceCandidates
