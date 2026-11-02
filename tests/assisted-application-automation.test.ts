@@ -400,6 +400,23 @@ describe('applying events', () => {
     expect(candidateQuestionAnswerKey(second)).toBe(candidateQuestionAnswerKey(sourceQuestion));
   });
 
+  it('keeps a fingerprint when truncation ends with whitespace', () => {
+    const applicationQuestion = `${'N'.repeat(239)} tail text`;
+    const sourceQuestion = {
+      id: 'bounded_whitespace', source: 'portal', question: 'Prompto tradotto', applicationQuestion,
+      type: 'text', required: true,
+    };
+    const first = questionDetailsForEvent([sourceQuestion], portalQuestionKey)[0];
+    const second = questionDetailsForEvent([first], portalQuestionKey)[0];
+
+    expect(applicationQuestion.length).toBeGreaterThan(240);
+    expect(first.applicationQuestion).toHaveLength(240);
+    expect(first.applicationQuestion.endsWith(' ')).toBe(true);
+    expect(first.questionIdentityFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(second.questionIdentityFingerprint).toBe(first.questionIdentityFingerprint);
+    expect(candidateQuestionAnswerKey(second)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+  });
+
   it('fingerprints the full option list before truncation even when the first 40 contain a duplicate', () => {
     const applicationOptions = Array.from({ length: 39 }, (_, index) => `Native option ${index}`);
     applicationOptions.push(applicationOptions[0], 'Unique option beyond descriptor limit');
