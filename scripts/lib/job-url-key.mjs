@@ -242,6 +242,8 @@ const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 // `concorso-generale-20252026-14e5fc00?i=1`. The generic numeric scan sees
 // the year range first (`20252026`) and the generic hex rule intentionally
 // ignores 8-character tokens, so sibling notices were assigned one merge key.
+// An all-numeric 8-character suffix is kept on the numeric path: it can be a
+// year rather than the short hash.
 // Keep this shape-gated: an arbitrary 8-character slug suffix is not a stable
 // job id for every vendor.
 const ASSOLO_ITEM_LEAF_RE = /-([0-9a-f]{8})$/i;
@@ -419,7 +421,9 @@ export function mergeUrlKey(url) {
   // contain a long year/range such as `20252026`; prefer the vendor's
   // per-item hash so sibling notices do not share one merge key.
   const assoloItem = leaf.match(ASSOLO_ITEM_LEAF_RE);
-  if (assoloItem && ASSOLO_ITEM_QUERY_RE.test(u)) return `hex:${assoloItem[1]}`;
+  if (assoloItem && /[a-f]/i.test(assoloItem[1]) && ASSOLO_ITEM_QUERY_RE.test(u)) {
+    return `hex:${assoloItem[1]}`;
+  }
 
   // Rule B — the leaf segment carries its own stable token (leftmost-in-leaf,
   // consistent with the legacy class priority). Distinguishes siblings sharing

@@ -353,6 +353,11 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
     expect(mergeUrlKey(url)).toBe('num:20252026');
   });
 
+  it('ASSOLO all-numeric suffixes stay on the numeric path', () => {
+    const url = 'https://www.biasca.ch/Concorso-generale-20252026?i=1';
+    expect(mergeUrlKey(url)).toBe('num:20252026');
+  });
+
   it('grace/hotelcareer: keys on the trailing leaf jobId, not the companyId', () => {
     const a = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-outlet-manager-3957038';
     const b = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-waiter-3639754';
