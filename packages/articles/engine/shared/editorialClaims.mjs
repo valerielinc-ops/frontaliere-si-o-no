@@ -550,10 +550,10 @@ export function repairGPermitSentence(sentence, locale) {
 }
 
 /**
- * Tassa sulla salute. L. 213/2023 art. 1 c. 237-239: quota dal 3% al 6% del
- * salario netto, da 30 a 200 euro per mese lavorato, definita ogni anno dalla
- * Regione. Nessun atto regionale verificato ne fissa l'importo: una cifra diversa
- * non si sostituisce, si toglie. I sondaggi sulla tassa («l'87,8% la ritiene
+ * Tassa sulla salute. L. 213/2023 art. 1 c. 237-239: quota progressiva dal 3% al
+ * 6% del salario netto, da 30 a 200 euro per mese lavorato. Sono plausibili le
+ * aliquote intermedie in questo intervallo sul netto; la base lorda e le aliquote
+ * fuori intervallo sono errate. I sondaggi sulla tassa («l'87,8% la ritiene
  * penalizzante») e i ristorni sospesi non sono importi della tassa.
  */
 const HEALTH_TAX = {
@@ -601,6 +601,12 @@ const PERCENT_OF_PAY = {
   de: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|Prozent)\s+(?:des|vom|auf\s+das)\s+(?:Brutto|Netto|Lohn\w*|Einkommen\w*|Gehalt\w*)/gi,
   fr: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|pour\s+cent)\s+(?:du|sur\s+le)\s+(?:salaire|revenu|brut|net)/gi,
 };
+const GROSS_PAY_BASE = {
+  it: /\b(?:lord[oaie])\b/i,
+  en: /\bgross\b/i,
+  de: /\bbrutto/i,
+  fr: /\bbrut/i,
+};
 
 function isHealthTaxClaim(sentence, locale) {
   if (!HEALTH_TAX[locale].test(sentence) || /\?\s*$/.test(sentence)) return false;
@@ -608,10 +614,11 @@ function isHealthTaxClaim(sentence, locale) {
   if (HEALTH_TAX_EXEMPT[locale].test(sentence)) return false;
   if (SWISS_FRANC_AMOUNT.test(sentence) || YEARLY_EURO[locale].test(sentence)) return true;
   if (hasMonthlyAmountOutOfRange(sentence, locale)) return true;
-  // La regola verificata e' il range esplicito 3%-6%, non un qualsiasi importo
-  // compreso fra gli estremi (per esempio una singola aliquota del 5%).
-  return [...sentence.matchAll(PERCENT_OF_PAY[locale])]
-    .some(([, value]) => !['3', '6'].includes(value.replace(',', '.')));
+  return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some((match) => {
+    const rate = Number(match[1].replace(',', '.'));
+    const claimContext = sentence.slice(match.index, match.index + match[0].length + 24);
+    return !Number.isFinite(rate) || rate < 3 || rate > 6 || GROSS_PAY_BASE[locale].test(claimContext);
+  });
 }
 
 /** Un importo o una base non verificabile si toglie: non c'e' un valore da mettere. */
