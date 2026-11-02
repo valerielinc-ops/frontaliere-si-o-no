@@ -248,6 +248,7 @@ export function buildUniqueSuffixOwnerMap(jobs) {
   const owners = new Map();
   const ambiguous = new Set();
   for (const job of Array.isArray(jobs) ? jobs : []) {
+    if (!job || typeof job !== 'object') continue;
     const hash = stableSlugHash(job);
     if (!hash || ambiguous.has(hash)) continue;
     if (owners.has(hash)) {
