@@ -160,7 +160,7 @@ function publishedSectionKey(section) {
   return section === 'svizzera' ? 'swiss' : 'blog';
 }
 
-async function fetchPublishedSectionIds(section) {
+async function fetchPublishedSection(section) {
   if (!publishedSlugsPromiseBySection.has(section)) {
     const promise = (async () => {
       const response = await fetch(PUBLISHED_SLUGS_URL, {
@@ -175,7 +175,19 @@ async function fetchPublishedSectionIds(section) {
       }
       const ids = new Set(Object.keys(records).filter(Boolean));
       if (ids.size === 0) throw new Error(`slugs.json ${publishedSectionKey(section)} registry is empty`);
-      return ids;
+      const italianSlugs = new Set();
+      let completeItalianSlugs = true;
+      for (const row of Object.values(records)) {
+        const italianSlug = row
+          && typeof row === 'object'
+          && !Array.isArray(row)
+          && typeof row.it === 'string'
+          ? row.it.trim()
+          : '';
+        if (!italianSlug) completeItalianSlugs = false;
+        else italianSlugs.add(italianSlug);
+      }
+      return { ids, italianSlugs, completeItalianSlugs };
     })();
     publishedSlugsPromiseBySection.set(section, promise);
   }
@@ -747,15 +759,16 @@ export async function checkCorpusFreshness(
   }
   const behind = published - itemCount;
 
-  let publishedIds;
+  let publishedSurface;
   try {
-    publishedIds = await fetchPublishedSectionIds(section);
+    publishedSurface = await fetchPublishedSection(section);
   } catch (err) {
     return {
       ok: false,
       note: `${section}: published registry unreadable (${err.message}) — refusing publication without an identity proof`,
     };
   }
+  const publishedIds = publishedSurface.ids;
   const missingIds = missingPublishedIds(localRegistry, publishedIds);
   const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
   const driftIds = [...new Set([...missingIds, ...unpublishedIds])];
@@ -800,6 +813,7 @@ export async function checkCorpusFreshness(
   let liveHub;
   let handoff = drift;
   let recoveredLiveHandoff = false;
+  let retiredLiveOnlySlugs = [];
 
   // A corpus publisher can place a new article and its hub card on the
   // serving shard before its API registry (`slugs.json`) is visible. In this
@@ -886,22 +900,32 @@ export async function checkCorpusFreshness(
     const provenSet = new Set(provenLiveOnlySlugs);
     const unprovenLiveOnlySlugs = missingLiveSlugs.filter((slug) => !provenSet.has(slug));
     if (unprovenLiveOnlySlugs.length > 0) {
+      // Replace a stale HTML card only when both independent publication
+      // surfaces exclude it. Incomplete registry data or a mixed proof stays
+      // fail-closed so a real live-only handoff cannot be discarded.
+      const canRetireStaleCards = provenLiveOnlySlugs.length === 0
+        && publishedSurface.completeItalianSlugs
+        && unprovenLiveOnlySlugs.every((slug) => !publishedSurface.italianSlugs.has(slug));
+      if (!canRetireStaleCards) {
+        return {
+          ok: false,
+          note:
+            `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
+            `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); runtime overlay did not prove ` +
+            `${unprovenLiveOnlySlugs.slice(0, 5).join(', ')}, refusing to move the client behind the hub`,
+        };
+      }
+      retiredLiveOnlySlugs = unprovenLiveOnlySlugs;
+    } else {
       return {
         ok: false,
+        deferred: true,
         note:
-          `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
-          `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); runtime overlay did not prove ` +
-          `${unprovenLiveOnlySlugs.slice(0, 5).join(', ')}, refusing to move the client behind the hub`,
+          `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from the pinned corpus snapshot ` +
+          `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); the runtime overlay proves ` +
+          `${provenLiveOnlySlugs.join(', ')} as a live publication handoff — deferring hub and client publication until corpus main converges`,
       };
     }
-    return {
-      ok: false,
-      deferred: true,
-      note:
-        `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from the pinned corpus snapshot ` +
-        `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); the runtime overlay proves ` +
-        `${provenLiveOnlySlugs.join(', ')} as a live publication handoff — deferring hub and client publication until corpus main converges`,
-    };
   }
 
   return {
@@ -911,7 +935,10 @@ export async function checkCorpusFreshness(
       `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}); ` +
       (recoveredLiveHandoff
         ? `${handoff.note}; live hub and corpus-main identities converge`
-        : 'registry and live hub identities converge'),
+        : 'registry and live hub identities converge')
+      + (retiredLiveOnlySlugs.length > 0
+        ? `; replacing stale live-only card(s) excluded from the complete published registry and runtime overlay: ${retiredLiveOnlySlugs.join(', ')}`
+        : ''),
   };
 }
 
