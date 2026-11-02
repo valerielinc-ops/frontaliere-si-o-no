@@ -49,8 +49,11 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   'fondation-domus': ['fondation-domus.ch'],
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
+  'rh-expert-ch': ['rh-expert.ch'],
   my: ['teojakob.ch'],
+  okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
 };

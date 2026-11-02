@@ -512,6 +512,52 @@ function applyOsmEnrichment(pharmacy, candidates, checkedAt, usedElementKeys = n
   return pharmacy;
 }
 
+const OSM_ENRICHED_FIELDS = Object.freeze(['coordinates', 'phone', 'website', 'openingHours', 'services']);
+
+function hasPublishedValue(record, field) {
+  if (field === 'coordinates') {
+    return Number.isFinite(record?.latitude) && Number.isFinite(record?.longitude);
+  }
+  if (field === 'openingHours' || field === 'services') {
+    return Array.isArray(record?.[field]) && record[field].length > 0;
+  }
+  return typeof record?.[field] === 'string' && record[field].trim().length > 0;
+}
+
+function isOsmFieldSource(source) {
+  return source?.sourceType === OSM_SOURCE_TYPE && /odbl/i.test(String(source.license || ''));
+}
+
+/**
+ * An empty optional response is not evidence that previously verified OSM
+ * facts disappeared. Keep those facts, with their original field-level
+ * provenance, until a later non-empty response can confirm or replace them.
+ */
+function preservePreviousOsmEnrichment(record, previous) {
+  if (!previous || typeof previous !== 'object') return record;
+  for (const field of OSM_ENRICHED_FIELDS) {
+    const source = previous.fieldSources?.[field];
+    if (!isOsmFieldSource(source) || hasPublishedValue(record, field)) continue;
+
+    if (field === 'coordinates') {
+      if (!Number.isFinite(previous.latitude) || !Number.isFinite(previous.longitude)) continue;
+      record.latitude = previous.latitude;
+      record.longitude = previous.longitude;
+    } else if (field === 'openingHours' || field === 'services') {
+      if (!Array.isArray(previous[field]) || previous[field].length === 0) continue;
+      record[field] = previous[field].map((value) => (typeof value === 'object' && value !== null ? { ...value } : value));
+    } else {
+      if (typeof previous[field] !== 'string' || previous[field].trim().length === 0) continue;
+      record[field] = field === 'website' ? safeExternalUrl(previous[field]) : previous[field];
+      if (!record[field]) continue;
+    }
+
+    record.fieldSources ||= {};
+    record.fieldSources[field] = { ...source };
+  }
+  return record;
+}
+
 function availability(pharmacy, officialFieldsNotPublished = false) {
   const sourceStatus = (field, value) => value ? 'verified' : (officialFieldsNotPublished ? 'not_published' : 'not_checked');
   return {
@@ -639,6 +685,7 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
 
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
+  const preserveOsmEnrichment = !Array.isArray(osmElements) || osmElements.length === 0;
   const records = [];
   for (const candidate of candidates) {
     const { raw, province, name, city, ministryId, baseSlug, previousRecord } = candidate;
@@ -685,6 +732,7 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
       ...(urlAliases.length ? { urlAliases } : {}),
     };
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
+    if (preserveOsmEnrichment) preservePreviousOsmEnrichment(record, previousRecord);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }
@@ -736,6 +784,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
   const usedIds = new Set();
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
+  const preserveOsmEnrichment = !Array.isArray(osmElements) || osmElements.length === 0;
   const records = [];
   for (const row of pdfRows || []) {
     const previousRecord = matchPreviousTicino(row, previous);
@@ -784,6 +833,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       record.fieldSources = { address: { url: addressOverride.url, sourceType: 'official', checkedAt: fetchedAt } };
     }
     applyOsmEnrichment(record, osmElements, fetchedAt, usedOsmElementKeys);
+    if (preserveOsmEnrichment) preservePreviousOsmEnrichment(record, previousRecord);
     record.dataAvailability = availability(record, true);
     records.push(record);
   }

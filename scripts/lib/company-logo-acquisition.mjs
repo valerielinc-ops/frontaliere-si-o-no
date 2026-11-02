@@ -73,6 +73,7 @@ export const DOMAIN_OVERRIDES = {
   'integra-biosciences': ['integra-biosciences.com'],
   benu: ['benu.ch'],
   'pantr-ch': ['pantr.ch'],
+  'rh-expert-ch': ['rh-expert.ch'],
   kone: ['kone.com'],
   fisba: ['fisba.com'],
   'schweizerhof-flims': ['schweizerhof-flims.ch'],
@@ -106,7 +107,9 @@ export const DOMAIN_OVERRIDES = {
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
   my: ['teojakob.ch'],
+  okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
 };

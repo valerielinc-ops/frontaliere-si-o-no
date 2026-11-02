@@ -30,6 +30,7 @@ describe('candidate assisted-application status', () => {
     expect(candidateStatusForAssistedApplication({ submissionStatus: 'awaiting_upload', cvStorageKey: null })).toBe('awaiting_materials');
     expect(candidateStatusForAssistedApplication({ submissionStatus: 'awaiting_upload', cvStorageKey: 'private/cv' })).toBe('in_progress');
     expect(candidateStatusForAssistedApplication({ submissionStatus: 'refunded' })).toBe('refunded');
+    expect(candidateStatusForAssistedApplication({ submissionStatus: 'withdrawn', automationState: 'withdrawn' })).toBe('withdrawn');
   });
 
   it('lists only the authenticated owner’s paid orders and returns a PII-safe projection', async () => {
@@ -95,6 +96,23 @@ describe('candidate assisted-application status', () => {
     expect(JSON.stringify(response.body)).not.toContain('cvStorageKey');
     expect(JSON.stringify(response.body)).not.toContain('customerEmail');
     expect(JSON.stringify(response.body)).not.toContain('hidden');
+  });
+
+  it('keeps a withdrawn order and its neighboring order readable through the native API contract', async () => {
+    const docs = ['withdrawn', 'in_progress'].map((submissionStatus, index) => makeDoc(`order-${index}`, {
+      userId: 'owner', paymentStatus: 'paid', submissionStatus, jobTitle: `Role ${index}`, companyName: 'Example',
+    }));
+    const response = await handleListMyAssistedApplications({ method: 'GET' }, {
+      verify: async () => ({ uid: 'owner' }),
+      getDb: () => ({ collection: () => ({ where: () => ({ get: async () => ({ docs }) }) }) }) as never,
+    });
+    expect(response.status).toBe(200);
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(response.body), { status: response.status })));
+    const applications = await fetchMyAssistedApplications({ getIdToken: async () => 'token' });
+    expect(applications).toEqual(expect.arrayContaining([
+      expect.objectContaining({ orderId: 'order-0', status: 'withdrawn', requiresCvUpload: false }),
+      expect.objectContaining({ orderId: 'order-1', status: 'in_progress' }),
+    ]));
   });
 
   it('requires a verified account and rejects non-GET requests', async () => {

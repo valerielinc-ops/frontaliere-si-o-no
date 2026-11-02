@@ -1,0 +1,24 @@
+{
+  "companyKey": "fernuni-ch",
+  "companyName": "fernuni",
+  "companyHost": "unidistance.ch",
+  "platform": "unidistance.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://unidistance.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/detail/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "UniDistance Suisse Emploi Alumni-Projektleitung und -Koordination (80 %) Arbeitsort: Brig | Arbeitsbeginn: ab sofort oder nach Vereinbarung",
+    "Économie Emploi Postdoc in Experimental and Behavioral Economics (80–100 %) Place of work: Brig | Start date: Immediately or upon agreement",
+    "Économie Emploi Doctoral Student in Business & Economics (80–100 %) Place of work: Brig | Start date: Immediately or upon agreement",
+    "Psychologie Emploi Wissenschaftliche Mitarbeiter:in (20-70 %) Arbeitsort: Brig (teilweise Homeoffice möglich) | Arbeitsbeginn: ab sofort oder nach Vereinbarung",
+    "Recherche Emploi Research Software Engineer in Educational Technologies (100 %) Place of work: Brig, partial remote working possible (within Switzerland) | Star"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T13:28:48.913Z",
+  "candidateKey": "fernuni.ch"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "hmsag-ch",
+  "companyName": "hmsag",
+  "companyHost": "helsana.ch",
+  "platform": "helsana.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.helsana.ch/fr/groupe-helsana/jobs/offres-demploi.html"
+  ],
+  "detailTemplate": "/fr/groupe-helsana/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "aline.moutinho@helsana.ch",
+    "058 340 20 05"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T13:28:57.368Z",
+  "candidateKey": "hmsag.ch"
+}

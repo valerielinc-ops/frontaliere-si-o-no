@@ -1267,10 +1267,11 @@ export function resolveOfficialEmployerSiteLocation(pages = [], context = {}) {
  * report only: it never turns an unknown row into a publishable row.
  *
  * @param {Array<Record<string, any>>|{ records?: Array<Record<string, any>> }} input
- * @returns {{ candidateCount: number, listingRows: number, publishableRows: number, sourceBackedGeographyMissingRows: number, allRowsFiltered: number, records: any[] }}
+ * @returns {{ candidateCount: number, listingRows: number, publishableRows: number, sourceBackedGeographyMissingRows: number, geographyDropReasons: Record<string, number>, allRowsFiltered: number, records: any[] }}
  */
 export function sourceBackedCrawlerBlockReport(input = []) {
   const records = Array.isArray(input) ? input : Array.isArray(input?.records) ? input.records : [];
+  const geographyDropReasons = {};
   const perRecord = records.map((record) => {
     const history = Array.isArray(record?.validationHistory) ? record.validationHistory : [];
     const observation = record?.runtimeObservation
@@ -1280,6 +1281,13 @@ export function sourceBackedCrawlerBlockReport(input = []) {
     const listingRows = Number.isFinite(Number(observation.listingCount)) ? Number(observation.listingCount) : 0;
     const publishableRows = Number.isFinite(Number(observation.publishableCount)) ? Number(observation.publishableCount) : 0;
     const geographyMissing = Number(observation.dropCounts?.source_backed_geography_missing) || 0;
+    const recordGeographyDropReasons = observation.geographyDropReasons || {};
+    for (const [reason, count] of Object.entries(recordGeographyDropReasons)) {
+      const numericCount = Number(count);
+      if (Number.isFinite(numericCount) && numericCount > 0) {
+        geographyDropReasons[reason] = (geographyDropReasons[reason] || 0) + numericCount;
+      }
+    }
     return {
       key: record?.companyKey || record?.crawlerKey || record?.key || record?.companyName || record?.name || '',
       listingRows,
@@ -1293,6 +1301,7 @@ export function sourceBackedCrawlerBlockReport(input = []) {
     listingRows: perRecord.reduce((sum, record) => sum + record.listingRows, 0),
     publishableRows: perRecord.reduce((sum, record) => sum + record.publishableRows, 0),
     sourceBackedGeographyMissingRows: perRecord.reduce((sum, record) => sum + record.sourceBackedGeographyMissing, 0),
+    geographyDropReasons,
     allRowsFiltered: perRecord.filter((record) => record.allRowsFiltered).length,
     records: perRecord,
   };

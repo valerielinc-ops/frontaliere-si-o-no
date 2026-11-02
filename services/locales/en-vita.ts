@@ -336,6 +336,7 @@ const enVita: Record<string, string> = {
  'profile.paidApplications.status.needsCandidate': 'Action needed from you',
  'profile.paidApplications.status.underReview': 'Under review',
  'profile.paidApplications.status.submitted': 'Sent to the employer',
+ 'profile.paidApplications.status.withdrawn': "Withdrawn",
  'profile.paidApplications.status.refunded': 'Refunded',
  'profile.paidApplications.help.awaitingMaterials': 'Upload your CV to get the application started.',
  'profile.paidApplications.help.needsCandidate': 'We emailed you a link with the next step to complete.',

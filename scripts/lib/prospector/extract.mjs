@@ -1258,8 +1258,14 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // carries the vacancy title. Prefer the page-scoped structured record and
   // use the rendered heading only when no structured title is available.
   const title = structured.title || renderedTitle || '';
+  const renderedJobLocationFields = renderedJobLocationValues(html, title);
+  // A legacy singular CSS selector may see only the first item of a
+  // multi-site workplace block. Let the source-scoped extractor below keep
+  // all values and refuse the singular fallback when it found more than one.
   const renderedLocation = unresolvedStructuredIdentity ? '' : textOf(
-    /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
+    renderedJobLocationFields.length > 1
+      ? ''
+      : /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
   );
   const locationCandidates = [];
   const locationCandidateKeys = new Set();
@@ -1304,7 +1310,6 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   if (!locationCandidates.length && !unresolvedStructuredIdentity) {
     for (const candidate of renderedPostalAddressCandidates(html, title)) locationCandidates.push(candidate);
   }
-  const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});
   const company = structuredRecords.find((record) => record.company)?.company || '';
   const structuredLocationClasses = structuredRecords.map((record) => {
     const decisions = locationEvidenceCandidates(record)
@@ -1321,8 +1326,28 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   const authoritativeLocationConflict = structuredRecords.length > 1
     && structuredLocationClasses.some((entry) => entry.swiss)
     && structuredLocationClasses.some((entry) => entry.foreign);
-  const location = primaryLocation.location || structured.location || renderedLocation;
-  const renderedJobLocationFields = renderedJobLocationValues(html, title);
+  // A few pages expose the vacancy workplace in a dedicated, source-scoped
+  // element without JSON-LD/microdata (for example a <dl class="job-location">).
+  // `renderedJobLocationValues()` already excludes generic page chrome and
+  // preserves multiple values. Use exactly one resolver-approved value as a
+  // fallback when structured evidence is absent or unresolved; never pick one
+  // item from an ambiguous multi-site field and never override explicit foreign
+  // evidence.
+  const hasExplicitForeignLocation = locationCandidates.some((candidate) => (
+    evaluateSourceBackedSwissGeography([candidate]).explicitlyForeign
+  ));
+  const hasResolvedLocation = locationCandidates.some((candidate) => (
+    Boolean(evaluateSourceBackedSwissGeography([candidate]).geography)
+  ));
+  if (!hasExplicitForeignLocation && !hasResolvedLocation && renderedJobLocationFields.length === 1) {
+    const renderedCandidate = { location: renderedJobLocationFields[0] };
+    if (evaluateSourceBackedSwissGeography([renderedCandidate]).geography) {
+      locationCandidates.push(renderedCandidate);
+    }
+  }
+  const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});
+  const location = primaryLocation.location || structured.location || renderedLocation
+    || locationCandidates[0]?.location || '';
   /** @type {BodyRange[]} */
   const bodyRanges = [];
   /** @type {Array<{start: number, end: number}>} */
