@@ -91,11 +91,11 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
   });
   it('polls more often than the hourly gate so a near-boundary tick cannot miss a refresh phase', () => {
-    const completion = now - (56 * 60 * 1000 + 56 * 1000);
+    const completion = now - 14 * 60 * 1000;
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: completion,
       matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(false);
-    expect(conciergeRefreshDue(service, completion + 60 * 60 * 1000)).toBe(true);
+    expect(conciergeRefreshDue(service, completion + 30 * 60 * 1000)).toBe(true);
     const source = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
     const start = source.indexOf('export const sweepApplicationConciergeLifecycle = onSchedule(');
     expect(source.slice(start, start + 600)).toContain("schedule: 'every 15 minutes'");
