@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { claimDiscoveryDelivery, finalizeDiscoveryDelivery, discoveryCanAttempt, confirmedDiscoveryOutcome, partitionDiscoveryOutcomes, DISCOVERY_RETRY_MS } from '../scripts/lib/job-alert-discovery-delivery.mjs';
 
-function database(initial: Record<string, unknown> = {}) {
+function database(initial: Record<string, unknown> = {}, ownerData: Record<string, unknown> = {}) {
   let value = structuredClone(initial); let serial = Promise.resolve();
   const ref = {};
   const owner = { collection: () => ({ doc: () => ref }) };
   const db = {
     collection: () => ({ doc: () => owner }),
     runTransaction: (work: (tx: unknown) => Promise<unknown>) => {
-      const run = serial.then(() => work({ get: async (target: unknown) => ({ exists: target === owner || Object.keys(value).length > 0, data: () => target === owner ? {} : structuredClone(value) }),
+      const run = serial.then(() => work({ get: async (target: unknown) => ({ exists: target === owner || Object.keys(value).length > 0, data: () => target === owner ? ownerData : structuredClone(value) }),
         set: (_ref: unknown, patch: Record<string, unknown>) => { value = { ...value, ...patch }; } }));
       serial = run.then(() => undefined, () => undefined); return run;
     },
@@ -18,6 +18,12 @@ function database(initial: Record<string, unknown> = {}) {
 const email = 'reader@example.test';
 
 describe('durable discovery delivery claim', () => {
+  it.each([{ account_deleted_at: 'deleted' }, { status: 'inactive' }, { status: 'bounced' }])(
+    'does not claim a channel closed after planning: %j', async (ownerData) => {
+      expect(await claimDiscoveryDelivery(database({}, ownerData).db, email)).toBeNull();
+    },
+  );
+
   it('allows only one of two concurrent claims, across different alerts/runs', async () => {
     const store = database();
     const claims = await Promise.all([claimDiscoveryDelivery(store.db, email), claimDiscoveryDelivery(store.db, email)]);

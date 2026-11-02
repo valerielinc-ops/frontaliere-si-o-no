@@ -2997,8 +2997,13 @@ async function main() {
     if (geo.country) discoveryGeographies.set(email, geo);
     if (!DRY_RUN && !ALLOWED_EMAILS) {
       try {
-        await db.collection('job_alert_subscribers').doc(email).collection('delivery_state').doc('first_discovery')
-          .set({ ipGeo: geo }, { mergeFields: ['ipGeo'] });
+        const owner = db.collection('job_alert_subscribers').doc(email);
+        await db.runTransaction(async (tx) => {
+          const current = await tx.get(owner);
+          if (!current.exists || current.data()?.account_deleted_at || isJobAlertExcluded(current.data()?.status)) return;
+          tx.set(owner.collection('delivery_state').doc('first_discovery'),
+            { ipGeo: geo }, { mergeFields: ['ipGeo'] });
+        });
       } catch { /* Approximate geography is optional; popularity still works. */ }
     }
   });
