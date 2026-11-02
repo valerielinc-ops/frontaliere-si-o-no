@@ -1,4 +1,53 @@
 {
   "schemaVersion": 1,
-  "pending": []
+  "pending": [
+    {
+      "id": "border-2026-10-26",
+      "channel": "tiktok",
+      "kind": "border",
+      "day": "2026-10-26",
+      "caption": "Il passaggio da rivedere quando serve chiarezza\n\nLa classifica delle dogane più veloci del Ticino nella settimana 2026-10-26 – 2026-11-01.\n\n1. Biegno Indemini — 0 min\n2. Camedo (Re-Centovalli) — 0 min\n3. Campione d'Italia Bissone — 0 min\n4. Chiasso Centro — 0 min\n5. Clivio Ligornetto — 0 min\n\nApprofondisci il tema dal link in bio.\n\n#frontalieri #ticino #dogane #confine #svizzera #traffico",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26-5.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-26.mp4",
+        "bytes": 515528,
+        "sha256": "e7bea59953b55d5804e92193f8646268bbd9178aa3deef529b95ed18e7dbcc17",
+        "durationMs": 22267,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "motion-graphic-v1"
+      },
+      "ledgerEntries": [
+        {
+          "id": "2026-10-26",
+          "kind": "border",
+          "url": "/traffico-dogane/biegno-indemini/oggi/",
+          "day": "2026-10-26",
+          "copyMode": "codex",
+          "copySlot": "video",
+          "copyPromptVersion": "frontaliere-social-copy-v1",
+          "copyPackId": "9147b54fb0eb5b76",
+          "copyTemplateId": "video-clarity-point",
+          "copyAssignmentMode": "firebase-balanced",
+          "copyExperimentId": "social-copy-balanced-v1",
+          "copyHook": "Il passaggio da rivedere quando serve chiarezza",
+          "copyCta": "Approfondisci il tema dal link in bio.",
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
+        }
+      ],
+      "createdAt": "2026-11-02T17:03:35.629Z",
+      "expiresAt": "2026-11-09T17:03:35.629Z"
+    }
+  ]
 }
