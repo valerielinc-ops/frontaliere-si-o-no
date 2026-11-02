@@ -51,6 +51,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   'hugo-boss': ['hugoboss.com'],
   'rh-expert-ch': ['rh-expert.ch'],
   my: ['teojakob.ch'],
+  okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
