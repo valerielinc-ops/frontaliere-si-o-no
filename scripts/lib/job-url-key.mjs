@@ -239,7 +239,7 @@ const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 
 // ASSOLO municipal notice links use a short content hash at the end of the
 // item slug and mark the detail view with `i=1`, for example
-// `concorso-generale-2025-2026-14e5fc00?i=1`. The generic numeric scan sees
+// `concorso-generale-20252026-14e5fc00?i=1`. The generic numeric scan sees
 // the year range first (`20252026`) and the generic hex rule intentionally
 // ignores 8-character tokens, so sibling notices were assigned one merge key.
 // Keep this shape-gated: an arbitrary 8-character slug suffix is not a stable
@@ -416,7 +416,7 @@ export function mergeUrlKey(url) {
 
   // Rule H — ASSOLO municipal notice item hash. The 8-character suffix is
   // shorter than HEX_TOKEN_RE's generic threshold, while the notice title can
-  // contain a long year/range such as `2025-2026`; prefer the vendor's
+  // contain a long year/range such as `20252026`; prefer the vendor's
   // per-item hash so sibling notices do not share one merge key.
   const assoloItem = leaf.match(ASSOLO_ITEM_LEAF_RE);
   if (assoloItem && ASSOLO_ITEM_QUERY_RE.test(u)) return `hex:${assoloItem[1]}`;
