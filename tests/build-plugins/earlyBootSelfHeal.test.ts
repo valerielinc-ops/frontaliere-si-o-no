@@ -39,6 +39,27 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     });
   });
 
+  it('stores the diagnostics of a failed resource', () => {
+    const link = document.createElement('link');
+    link.rel = 'modulepreload';
+    link.href = 'https://securepubads.g.doubleclick.net/pagead/x.js';
+    document.head.appendChild(link);
+    link.dispatchEvent(new Event('error'));
+    link.remove();
+
+    const [stored] = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
+    expect(stored).toMatchObject({ rel: 'modulepreload', vis: document.visibilityState, online: navigator.onLine });
+    expect(sessionStorage.getItem('_adBlockSeen')).toBe('1');
+  });
+
+  it('stores the diagnostics of a failed dynamic import', async () => {
+    const reason = new Error('Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/a.js');
+    window.dispatchEvent(Object.assign(new Event('unhandledrejection'), { reason }));
+
+    const [stored] = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
+    expect(stored).toMatchObject({ type: 'dynamic_import', vis: document.visibilityState, online: navigator.onLine });
+  });
+
   it('is valid, self-contained JS and is included in EARLY_BOOT_CONTENT', () => {
     expect(() => new Function(SELF_HEAL_SCRIPT_CONTENT)).not.toThrow();
     expect(EARLY_BOOT_CONTENT.endsWith(SELF_HEAL_SCRIPT_CONTENT)).toBe(true);
