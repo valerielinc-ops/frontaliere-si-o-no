@@ -48,6 +48,7 @@ export interface JobCardJob {
   titleByLocale?: Partial<Record<JobCardLocale, string>>;
   company?: string;
   companyKey?: string;
+  municipalityKey?: string;
   location?: string;
   addressLocality?: string;
   canton?: string;
