@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v39913.title": "More reliable ads",
+ "whatsNew.v39913.ads.title": "Ad recovery and privacy preferences",
+ "whatsNew.v39913.ads.desc": "Ad placements adapt better to small screens. If blocking prevents loading, you can find instructions to allow this site and a link to our job-search service.",
  "whatsNew.v39912.title": "A direct channel for small employers",
  "whatsNew.v39912.directEmployers.title": "Post a job without an account",
  "whatsNew.v39912.directEmployers.desc": "A local shop, butcher or workshop can send a free offer in a few steps. We verify the contact and moderate every listing before showing it.",

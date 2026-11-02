@@ -552,7 +552,7 @@ _publish_cdn_r2() {
     mkdir -p "$_bootstrap_asset_stage"
     mv "$stage/assets/index-entry.js" "$_bootstrap_asset_stage/index-entry.js"
   fi
-  # The three loaders named `<name>-<content-hash>.js` (build-plugins/constants.ts)
+  # The loaders named `<name>-<content-hash>.js` (build-plugins/constants.ts)
   # never change bytes under their URL, unlike the stable alias next to them. They
   # are the same class as a release, so they get the same immutable header; the
   # zone rule cdn-assets-revalidate excludes these prefixes (infra/cloudflare/rules.md)
@@ -565,7 +565,7 @@ _publish_cdn_r2() {
   mkdir -p "$_hashed_assets_stage"
   if [ -d "$stage/assets" ]; then
     find "$stage/assets" -maxdepth 1 -type f \
-      \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' \) \
+      \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' -o -name 'site-support-*.js' \) \
       -exec mv {} "$_hashed_assets_stage/" \;
   fi
   _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"

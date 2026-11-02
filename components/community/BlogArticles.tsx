@@ -2605,7 +2605,7 @@ function BlogArticlesContent({
 
 
  return (
- <div className="max-w-3xl xlc:max-w-none mx-auto">
+ <div className="max-w-3xl xlc:max-w-none mx-auto" data-ft-article-reading="true">
  <Suspense fallback={null}>
  <PreferredSourcePopup key={article.id} articleId={article.id} />
  </Suspense>
@@ -2850,7 +2850,7 @@ function BlogArticlesContent({
  )}
 
  {/* Article body */}
- <div className="px-4 sm:px-6 py-6 space-y-5">
+ <div className="px-4 sm:px-6 py-6 space-y-5" data-ft-article-body="true">
  <Callout status="accent" variant="plain">
  <p className="text-lg text-subtle italic">
  {normalizeArticleExcerptPlain(t(`blog.article.${article.id}.excerpt`))}

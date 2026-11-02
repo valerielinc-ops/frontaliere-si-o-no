@@ -251,6 +251,14 @@ vi.mock('react-leaflet', () => ({
 // These run around EVERY test in EVERY file in the worker.
 
 beforeEach(() => {
+  if (HAS_DOM) {
+    const runtime = window as Window & { __ftAdLoaders?: Record<string, { dispose?: () => void }>; __ftAdRequests?: unknown; __ftAdsConsentDecision?: unknown };
+    for (const loader of Object.values(runtime.__ftAdLoaders || {})) loader.dispose?.();
+    delete runtime.__ftAdLoaders;
+    delete runtime.__ftAdRequests;
+    delete runtime.__ftAdsConsentDecision;
+  }
+
   if (!HAS_DOM) return;
   // Reset URL to root so router/navigation tests don't bleed URL state into each other.
   // If window.location was replaced by Object.defineProperty (as in router.test.ts),

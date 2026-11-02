@@ -11,6 +11,8 @@ import {
 
 export const CONCIERGE_DAY_MS = 24 * 60 * 60 * 1000;
 export const CONCIERGE_REFRESH_INTERVAL_MS = 3 * CONCIERGE_DAY_MS;
+export const CONCIERGE_FRESH_PENDING_INTERVAL_MS = 15 * 60 * 1000;
+export const CONCIERGE_RETRY_INTERVAL_MS = 60 * 60 * 1000;
 export const CONCIERGE_RENEWAL_DISCOUNT_MS = 3 * CONCIERGE_DAY_MS;
 export const CONCIERGE_RENEWAL_PRICE_EUR_CENTS = 2999;
 export const CONCIERGE_MATCHING_STALE_AFTER_MS = 10 * 60 * 1000;
@@ -68,8 +70,9 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
   if (service.matchingStatus === 'complete' && service.matchingVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION) return true;
   const lastRefresh = timestampMillis(service.matchingCompletedAt)
     || timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt);
-  if (Number(service.matchingLegacyRecoveryPendingCount) > 0) {
-    const fallbackAt = lastRefresh + (service.matchingStatus === 'failed' ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS);
+  const freshPending = Number(service.matchingPendingCount) > 0;
+  if (Number(service.matchingLegacyRecoveryPendingCount) > 0 && !freshPending) {
+    const fallbackAt = lastRefresh + (service.matchingStatus === 'failed' ? CONCIERGE_RETRY_INTERVAL_MS : CONCIERGE_REFRESH_INTERVAL_MS);
     const retryAt = timestampMillis(service.matchingLegacyRecoveryRetryAt) || fallbackAt;
     // A legacy-row backoff controls that recovery queue only. Do not let it
     // suppress the hourly scan of unvisited jobs or independent eligibility retries.
@@ -79,7 +82,11 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
     const retryAt = timestampMillis(service.matchingRetryAt);
     if (retryAt) return nowMs >= Math.min(lastRefresh + CONCIERGE_REFRESH_INTERVAL_MS, retryAt);
   }
-  const interval = service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0 || Number(service.matchingPendingCount) > 0 ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS;
+  const interval = freshPending
+    ? CONCIERGE_FRESH_PENDING_INTERVAL_MS
+    : service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0
+      ? CONCIERGE_RETRY_INTERVAL_MS
+      : CONCIERGE_REFRESH_INTERVAL_MS;
   return lastRefresh > 0 && nowMs >= lastRefresh + interval;
 }
 

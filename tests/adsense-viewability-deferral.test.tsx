@@ -119,6 +119,7 @@ function installStaticAdSenseQueue(): void {
 }
 
 beforeEach(() => {
+  vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({ width: 390, height: 336, top: 0, bottom: 336, left: 0, right: 390, x: 0, y: 0, toJSON() {} });
   ioInstances = [];
   requestedStaticSlots = [];
   document.head.innerHTML = '';
@@ -303,11 +304,9 @@ describe('static shell loader — browsers without IntersectionObserver', () => 
 });
 
 describe('static shell loader — source contract', () => {
-  it('does not push inside the script onload handler', () => {
-    // Behavioural tests above cover the outcome; this pins the specific line
-    // that regressed, so a refactor reintroducing "push once per <ins> on load"
-    // fails here with an unambiguous message rather than through a count.
-    expect(ADSENSE_LOADER_CONTENT).toContain("s.onload=function(){s.setAttribute('data-loaded','1');armSlots();}");
+  it('does not contain the old eager DOM-order push loop', () => {
+    // The runtime cases above assert zero requests on script load; this also
+    // rejects the old selector which swept every unprocessed node eagerly.
     expect(ADSENSE_LOADER_CONTENT).not.toContain(
       "querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])')",
     );
@@ -348,8 +347,10 @@ describe('SPA <AdSenseBanner> — per-slot request deferral', () => {
     await renderBanner();
     const io = bannerIo();
     await act(async () => { intersect(io, io.targets); });
-    const ins = document.querySelector('ins.adsbygoogle');
+    const ins = document.querySelector('ins[data-ad-slot]');
     expect(ins).not.toBeNull();
+    expect(ins!.classList.contains('ft-ad-pending')).toBe(true);
+    expect(ins!.classList.contains('adsbygoogle')).toBe(false);
     expect(ins!.getAttribute('data-ad-slot')).toBe(AD_SLOTS.JOBLIST_INFEED_MOBILE.slot);
   });
 
@@ -461,7 +462,7 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
 
     // …and, with the observer intact, the slot does arm when it is reached.
     await act(async () => { intersect(io, io.targets); });
-    expect(document.querySelector('ins.adsbygoogle')).not.toBeNull();
+    expect(document.querySelector('ins[data-ad-slot]')).not.toBeNull();
   });
 });
 
