@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Request one bounded rebuild of the corpus publisher after the sync issue has
- * reached its own consecutive-failure threshold.
+ * Request one bounded rebuild of the corpus publisher after an automated
+ * freshness or sync gate has identified an unusable published surface.
  *
  * The consumer must never work around articles-sync-pin.mjs: a smaller or
  * unproven corpus remains a skip. The recovery action is deliberately outside
@@ -18,6 +18,8 @@ import { parse as parseYaml } from 'yaml';
 
 export const ARTICLE_SYNC_ISSUE_TITLE =
   'Article sync skipped: corpus mirror behind the published API';
+export const ARTICLE_L0_ISSUE_TITLE =
+  'L0 Data Truth: corpus manifest is not usable';
 export const PUBLISHER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 export const PUBLISHER_WORKFLOW = 'publish-api.yml';
 export const PUBLISHER_REF = 'main';
@@ -49,7 +51,7 @@ function parseJson(raw, label) {
   }
 }
 
-/** Select exactly one open issue for the stable sync title. */
+/** Select exactly one open issue for a stable recovery title. */
 export function findSyncIssue(issues, title = ARTICLE_SYNC_ISSUE_TITLE) {
   if (!Array.isArray(issues)) return null;
   const matches = issues.filter((issue) => issue?.title === title);
@@ -97,14 +99,23 @@ export function hasWorkflowDispatch(workflowYaml) {
   );
 }
 
-export function replayComment({ runUrl, reason, requestedAt = new Date().toISOString() } = {}) {
+export function replayComment({
+  runUrl,
+  reason,
+  trigger = 'the article sync skip threshold',
+  requestedAt = new Date().toISOString(),
+} = {}) {
   const compactReason = String(reason ?? 'persistent article sync skip')
     .replace(/\s+/gu, ' ')
     .trim()
     .slice(0, 600);
+  const compactTrigger = String(trigger)
+    .replace(/\s+/gu, ' ')
+    .trim()
+    .slice(0, 160) || 'a bounded data-surface recovery trigger';
   return [
     REPLAY_MARKER,
-    `Requested a bounded \`publish-api.yml\` rebuild on \`${PUBLISHER_REPOSITORY}@${PUBLISHER_REF}\` after the sync skip threshold (${requestedAt}).`,
+    `Requested a bounded \`publish-api.yml\` rebuild on \`${PUBLISHER_REPOSITORY}@${PUBLISHER_REF}\` after ${compactTrigger} (${requestedAt}).`,
     runUrl ? `Sync run: ${runUrl}` : '',
     compactReason ? `Reason: ${compactReason}` : '',
     'The consumer remains fail-closed; the next publisher dispatch or scheduled sync must still pass the normal commit and artifact checks.',
@@ -113,13 +124,15 @@ export function replayComment({ runUrl, reason, requestedAt = new Date().toISOSt
 
 /**
  * Perform the recovery with injectable GitHub transport for deterministic tests.
- * The caller should run this only on automatic, non-preview syncs; the open
- * issue is the evidence that the three-failure gate has already fired.
+ * The caller should run this only on automatic, non-preview recovery paths;
+ * the open issue is the durable evidence that the corresponding health gate
+ * has already fired.
  */
 export function requestPublisherReplay({
   env = process.env,
   now = Date.now(),
   runGh = gh,
+  issueTitle,
 } = {}) {
   const currentRepository = String(env.GITHUB_REPOSITORY ?? '').trim();
   if (!REPOSITORY_RE.test(currentRepository)) {
@@ -128,13 +141,24 @@ export function requestPublisherReplay({
   const currentToken = env.GH_TOKEN || env.GITHUB_TOKEN;
   const publisherToken = env.PUBLISHER_GH_TOKEN;
   if (!publisherToken) throw new Error('PUBLISHER_GH_TOKEN is empty');
+  const recoveryIssueTitle = String(
+    issueTitle
+      ?? env.ARTICLE_PUBLISHER_REPLAY_ISSUE_TITLE
+      ?? (env.ARTICLE_PUBLISHER_REPLAY_ISSUE_KIND === 'l0' ? ARTICLE_L0_ISSUE_TITLE : ARTICLE_SYNC_ISSUE_TITLE),
+  ).trim();
+  if (!recoveryIssueTitle) throw new Error('recovery issue title is empty');
+  const searchTitle = recoveryIssueTitle.replaceAll('"', '\\"');
+  const recoveryTrigger = env.ARTICLE_PUBLISHER_REPLAY_TRIGGER
+    || (env.ARTICLE_PUBLISHER_REPLAY_ISSUE_KIND === 'l0'
+      ? 'the stale L0 manifest verdict'
+      : 'the article sync skip threshold');
 
   const listArgs = [
     'issue', 'list', '--repo', currentRepository, '--state', 'open', '--limit', '100',
-    '--search', `"${ARTICLE_SYNC_ISSUE_TITLE}" in:title`, '--json', 'number,title',
+    '--search', `"${searchTitle}" in:title`, '--json', 'number,title',
   ];
   let issues = parseJson(runGh(listArgs, { token: currentToken }), 'open issue listing');
-  let issue = findSyncIssue(issues);
+  let issue = findSyncIssue(issues, recoveryIssueTitle);
   // The search index can lag immediately after github-issue-creator.mjs opens
   // the issue. A plain listing is the fail-closed fallback: no exact issue, no
   // upstream side effect.
@@ -143,10 +167,10 @@ export function requestPublisherReplay({
       'issue', 'list', '--repo', currentRepository, '--state', 'open', '--limit', '100',
       '--json', 'number,title',
     ], { token: currentToken }), 'open issue fallback listing');
-    issue = findSyncIssue(issues);
+    issue = findSyncIssue(issues, recoveryIssueTitle);
   }
   if (!issue || !Number.isInteger(Number(issue.number)) || Number(issue.number) < 1) {
-    console.log('[article-publisher-replay] no unique open sync issue; no replay requested');
+    console.log('[article-publisher-replay] no unique open recovery issue; no replay requested');
     return { requested: false, reason: 'no-unique-open-issue' };
   }
 
@@ -175,6 +199,7 @@ export function requestPublisherReplay({
   const body = replayComment({
     runUrl: env.RUN_URL,
     reason: env.GATE_REASON,
+    trigger: recoveryTrigger,
     requestedAt: new Date(now).toISOString(),
   });
   runGh([
