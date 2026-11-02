@@ -119,8 +119,8 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-function fetchText(url, timeoutMs = TIMEOUT_MS, fetchImpl = fetchHtml) {
-  return fetchImpl(url, {
+function artificialyFetchOptions(timeoutMs) {
+  return {
     timeoutMs,
     headers: {
       Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -130,7 +130,15 @@ function fetchText(url, timeoutMs = TIMEOUT_MS, fetchImpl = fetchHtml) {
       'Sec-Fetch-Mode': 'navigate',
       'Sec-Fetch-Site': 'none',
     },
-  });
+  };
+}
+
+async function fetchText(url, timeoutMs = TIMEOUT_MS) {
+  return fetchHtml(url, artificialyFetchOptions(timeoutMs));
+}
+
+function fetchTextWithImpl(url, timeoutMs = TIMEOUT_MS, fetchImpl = fetchHtml) {
+  return fetchImpl(url, artificialyFetchOptions(timeoutMs));
 }
 
 /**
@@ -154,7 +162,7 @@ export async function fetchArtificialyDetailHtml(
   const guestUrl = toLinkedInGuestEndpoint(rawUrl);
   const targetUrl = guestUrl || rawUrl;
   try {
-    return await fetchText(targetUrl, timeoutMs, fetchHtmlImpl);
+    return await fetchTextWithImpl(targetUrl, timeoutMs, fetchHtmlImpl);
   } catch (error) {
     // A 429 is a response from LinkedIn, not proof that the source is empty.
     // The shared fetchHtml helper deliberately does not proxy rate limits for
