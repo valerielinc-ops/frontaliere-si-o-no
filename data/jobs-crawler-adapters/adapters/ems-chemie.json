@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/099860ff-ffe5-497b-93ce-d0de22baf4df",
     "https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/40e48d41-3148-4bfb-935a-ebbe2c7431ca",
     "https://jobs.ems-group.com/offene-stellen/leiter-physiklabor-m-w-d/987d9234-247f-4803-9c5b-3eb86751074e",
     "https://jobs.ems-group.com/offene-stellen/leiter-technischer-einkauf-m-w-d/c72a8cae-9748-45b9-aff8-90537347b11a",
@@ -18,10 +19,13 @@
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/3a80fbd8-c730-4cab-afa4-20a6b7e0b452",
     "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/7c9b5090-0431-480d-9dea-7f64b0eef5da",
     "https://jobs.ems-group.com/offene-stellen/laborleiter-qualitaetskontrolle-fasern-und-garn-m-w-d/715262d7-5394-4117-a941-89708ad7b2f2",
-    "https://jobs.ems-group.com/offene-stellen/personalbereichsleiter-m-w-d/3cf666af-46c2-4538-93c0-9c33b1a917d4",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/60e99750-e792-4349-9ce5-baf098cbcddc"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/099860ff-ffe5-497b-93ce-d0de22baf4df": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/40e48d41-3148-4bfb-935a-ebbe2c7431ca": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -62,15 +66,11 @@
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     },
-    "https://jobs.ems-group.com/offene-stellen/personalbereichsleiter-m-w-d/3cf666af-46c2-4538-93c0-9c33b1a917d4": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
-    },
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/60e99750-e792-4349-9ce5-baf098cbcddc": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     }
   },
   "notes": "Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.",
-  "updatedAt": "2026-11-01T21:22:24.661Z"
+  "updatedAt": "2026-11-02T11:29:36.318Z"
 }
