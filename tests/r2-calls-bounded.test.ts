@@ -323,7 +323,22 @@ case "\${args[0]}" in
           sleep 30
         fi ;;
     esac
-    case "$dst" in */assets) [ -n "$logf" ] && printf '%s\\n' "\${STUB_ASSETS_LOG:-}" > "$logf" ;; esac
+    case "$dst" in */assets)
+      if [ -n "$logf" ]; then
+        if [ ! -e "$STUB_DIR/assets-log-first" ]; then
+          printf '%s\\n' "\${STUB_ASSETS_LOG_FIRST:-\${STUB_ASSETS_LOG:-}}" > "$logf"
+          : > "$STUB_DIR/assets-log-first"
+        else
+          printf '%s\\n' "\${STUB_ASSETS_LOG:-}" > "$logf"
+        fi
+      fi ;;
+    esac
+    case "$dst" in */"\${STUB_FAIL_ONCE_PREFIX:-__none__}")
+      if [ ! -e "$STUB_DIR/fail-once" ]; then
+        : > "$STUB_DIR/fail-once"
+        exit "\${STUB_FAIL_ONCE_STATUS:-124}"
+      fi ;;
+    esac
     case "$dst" in */"\${STUB_FAIL_PREFIX:-none}") exit 1 ;; esac
     exit 0 ;;
 esac
@@ -1042,7 +1057,29 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.stdout).toMatch(/ledger: 1 key\(s\) uploaded by this run/);
     expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
     expect(completionMarkerPuts(r.calls)).toEqual([]);
+    expect(r.calls.filter((c) => /^rclone copy \S+ :s3:bkt\/data(?:\s|$)/.test(c))).toHaveLength(2);
     expect(r.calls.some((c) => /rclone \S+\/stage\/cdn-build-id\.txt :s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(false);
+  });
+
+  it('retries a timed-out prefix once and preserves changed keys from both asset attempts', () => {
+    const copiedB = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'b.js' });
+    const r = runPublish('prefix-retry', {
+      STUB_LEDGER: 'absent',
+      STUB_ASSETS_LOG_FIRST: COPIED_A,
+      STUB_ASSETS_LOG: copiedB,
+      STUB_FAIL_ONCE_PREFIX: 'assets',
+      CF_API_TOKEN: 'test-token',
+      STUB_PURGE_STATUS: '0',
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/sync of assets\/ attempt 1\/2 failed or exceeded its 420s limit .*retrying additive copy/);
+    expect(r.stdout).toMatch(/ledger: 2 key\(s\) uploaded by this run/);
+    expect(r.stdout).toMatch(/✅ synced CDN payload to R2/);
+    const assetCopies = r.calls.filter((c) => /^rclone copy \S+ :s3:bkt\/assets(?:\s|$)/.test(c));
+    expect(assetCopies).toHaveLength(2);
+    const completePut = r.calls.findIndex((c) => /:s3:bkt\/cdn-publish-complete-id\.txt/.test(c));
+    expect(completePut).toBeGreaterThan(r.calls.indexOf(assetCopies[1]));
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
   });
 
   it('a failed complete marker PUT: the payload is purged but the generation stays unacknowledged', () => {

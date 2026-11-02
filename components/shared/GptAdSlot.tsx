@@ -242,9 +242,12 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       if (defined || queued || disposed || !canUseGpt()) return;
       const { width, fitting } = measureSizes();
       if (!fitting.length) {
+        wrapper.setAttribute('data-ft-ad-width-wait', 'pending');
+        lifecycle.defer();
         emitAdDiagnostic('ad_slot_waiting_width', { slot: adUnitPath, width, render_path: 'gpt' });
         return;
       }
+      wrapper.removeAttribute('data-ft-ad-width-wait');
       queued = true;
       // Start outside gt.cmd: a blocked/slow script may never drain its queue.
       // The shared deadline means waiting_response; it is not a no-fill.
@@ -270,9 +273,12 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         // its rail changes width. Only this measurement may reach GPT/Prebid.
         const { width, fitting } = measureSizes();
         if (!fitting.length) {
+          wrapper.setAttribute('data-ft-ad-width-wait', 'pending');
+          lifecycle.defer();
           emitAdDiagnostic('ad_slot_waiting_width', { slot: adUnitPath, width, render_path: 'gpt' });
           return;
         }
+        wrapper.removeAttribute('data-ft-ad-width-wait');
         try {
           defined = true;
           const slot = gt.defineSlot(adUnitPath, fitting, divId)?.addService(gt.pubads());

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-11-02T10:05:40.218Z",
-  "runId": "41418964228",
+  "assembledAt": "2026-11-02T21:22:47.833Z",
+  "runId": "41526464624",
   "jobs": [
     {
       "id": "abraxas-a11a2b656e85",
@@ -34,7 +34,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:33.270Z",
+      "crawledAt": "2026-11-02T21:22:41.973Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T10:05:33.270Z",
+      "validThrough": "2026-12-30T21:22:41.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-abacus-80-100-5978",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:32.707Z",
+      "crawledAt": "2026-11-02T21:22:41.521Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T10:05:32.707Z",
+      "validThrough": "2027-01-18T21:22:41.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-80-100-1304",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:32.231Z",
+      "crawledAt": "2026-11-02T21:22:41.073Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -251,16 +251,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T10:05:32.231Z",
+      "validThrough": "2027-01-27T21:22:41.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "abraxas-5b57a6c2711e",
       "slug": "architetto-a-di-soluzioni-software-80-100-con-specializzazione-nel-pre-sales-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
         "it": "architetto-a-di-soluzioni-software-80-100-con-specializzazione-nel-pre-sales-abraxas-informatik-ag-st-gallen",
         "en": "software-solution-architect-80-100-with-a-focus-on-pre-sales-abraxas-informatik-ag-st-gallen",
+        "de": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
         "fr": "architecte-de-solutions-logicielles-a-80-100-avec-un-accent-sur-la-prevente-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -285,7 +285,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-2846",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:31.756Z",
+      "crawledAt": "2026-11-02T21:22:40.624Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -309,14 +309,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-08-27T01:00:11.845Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -331,9 +332,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:05:31.756Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-27T01:00:11.845Z"
+      "validThrough": "2026-12-02T21:22:40.624Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "abraxas-78fb05e0645d",
@@ -366,7 +366,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-agentic-harness-80-100-4087",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:31.270Z",
+      "crawledAt": "2026-11-02T21:22:40.173Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -417,7 +417,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T10:05:31.270Z",
+      "validThrough": "2027-01-26T21:22:40.173Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -451,7 +451,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-8623",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:30.791Z",
+      "crawledAt": "2026-11-02T21:22:39.724Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -504,16 +504,16 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T10:05:30.791Z",
+      "validThrough": "2026-12-02T21:22:39.724Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "abraxas-46bf6b8cf7b3",
       "slug": "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
         "it": "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
         "en": "tax-software-architect-80-100-abraxas-informatik-ag-st-gallen",
+        "de": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
         "fr": "architecte-logiciel-dans-le-domaine-fiscal-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -538,7 +538,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-1783",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:30.315Z",
+      "crawledAt": "2026-11-02T21:22:39.275Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -562,14 +562,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-08-25T20:16:00.058Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -584,9 +585,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:05:30.315Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-25T20:16:00.058Z"
+      "validThrough": "2026-12-02T21:22:39.275Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "abraxas-a43ffbc16e67",
@@ -619,7 +619,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-3002",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:29.840Z",
+      "crawledAt": "2026-11-02T21:22:38.824Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -670,16 +670,16 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T10:05:29.840Z",
+      "validThrough": "2027-01-25T21:22:38.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "abraxas-4ad5049cf65f",
       "slug": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
         "it": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
         "en": "senior-project-management-in-the-field-of-tax-solutions-80-100-abraxas-informatik-ag-st-gallen",
+        "de": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
         "fr": "haute-gestion-de-projet-dans-le-domaine-des-solutions-fiscales-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -704,7 +704,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-4694",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:29.358Z",
+      "crawledAt": "2026-11-02T21:22:38.369Z",
+      "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -728,14 +729,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-09-02T13:54:34.142Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -750,9 +752,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:05:29.358Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-02T13:54:34.142Z"
+      "validThrough": "2026-12-02T21:22:38.369Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "abraxas-8140fb6ccc8a",
@@ -785,7 +786,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/praktikum-im-bereich-ki-zur-erstellung-von-ki-lerninhalten-50-60-12-monate-befristet-1591",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:28.881Z",
+      "crawledAt": "2026-11-02T21:22:37.918Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -839,7 +840,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T10:05:28.881Z",
+      "validThrough": "2027-01-26T21:22:37.918Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -873,7 +874,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:28.399Z",
+      "crawledAt": "2026-11-02T21:22:37.469Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -926,7 +927,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T10:05:28.399Z",
+      "validThrough": "2026-12-10T21:22:37.469Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -960,7 +961,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-1870",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:27.923Z",
+      "crawledAt": "2026-11-02T21:22:37.020Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1014,7 +1015,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:05:27.923Z",
+      "validThrough": "2026-12-02T21:22:37.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1048,7 +1049,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-5197",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:27.447Z",
+      "crawledAt": "2026-11-02T21:22:36.570Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1095,7 +1096,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T10:05:27.447Z",
+      "validThrough": "2027-01-12T21:22:36.570Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1129,7 +1130,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-4522",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:26.971Z",
+      "crawledAt": "2026-11-02T21:22:36.113Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1177,7 +1178,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T10:05:26.971Z",
+      "validThrough": "2026-12-02T21:22:36.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1211,7 +1212,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-gemeinden-80-100-7612",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:26.492Z",
+      "crawledAt": "2026-11-02T21:22:35.663Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1268,7 +1269,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T10:05:26.492Z",
+      "validThrough": "2026-12-23T21:22:35.663Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1302,7 +1303,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/hr-fachspezialistin-60-80-6-monate-befristet-ab-januar-2027-8918",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:26.018Z",
+      "crawledAt": "2026-11-02T21:22:35.216Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1356,7 +1357,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T10:05:26.018Z",
+      "validThrough": "2027-01-13T21:22:35.216Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1390,7 +1391,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/fullstack-software-engineer-web-80-100-1223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:25.545Z",
+      "crawledAt": "2026-11-02T21:22:34.760Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1440,7 +1441,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T10:05:25.545Z",
+      "validThrough": "2027-01-26T21:22:34.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1474,7 +1475,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-8810",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:25.069Z",
+      "crawledAt": "2026-11-02T21:22:34.300Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1525,7 +1526,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T10:05:25.069Z",
+      "validThrough": "2027-01-26T21:22:34.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1559,7 +1560,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-managerin-gemeinden-80-100-1543",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:24.596Z",
+      "crawledAt": "2026-11-02T21:22:33.851Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1609,7 +1610,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T10:05:24.596Z",
+      "validThrough": "2027-01-26T21:22:33.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1643,7 +1644,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-abareport-80-100-6167",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:05:23.981Z",
+      "crawledAt": "2026-11-02T21:22:33.283Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1693,7 +1694,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T10:05:23.981Z",
+      "validThrough": "2026-12-02T21:22:33.283Z",
       "validThroughSource": "last-observed-window"
     }
   ]

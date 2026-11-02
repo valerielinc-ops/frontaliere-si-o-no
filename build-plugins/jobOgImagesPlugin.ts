@@ -29,6 +29,7 @@ import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
 import { JOB_OG_IMAGE_VERSION, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
 
 const OUT_SUBDIR = 'og/jobs';
@@ -119,9 +120,10 @@ function readJobsJson(rootDir: string): JobMinimal[] {
 }
 
 const JOB_PHOTO_KEYS = ['healthcare', 'hospitality', 'trades', 'office'] as const;
-type JobPhotoKey = (typeof JOB_PHOTO_KEYS)[number];
+type JobFallbackPhotoKey = (typeof JOB_PHOTO_KEYS)[number];
+type JobPhotoKey = string;
 
-const JOB_PHOTO_KEYWORDS: Record<JobPhotoKey, string[]> = {
+const JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
   healthcare: [
     'health', 'sanit', 'inferm', 'medic', 'farmac', 'pharma', 'biotech',
     'osped', 'clinica', 'assistenz', 'cura', 'pflege', 'soins', 'sante',
@@ -149,7 +151,7 @@ const JOB_PHOTO_KEYWORDS: Record<JobPhotoKey, string[]> = {
   ],
 };
 
-function classifyJobPhoto(job: JobMinimal): JobPhotoKey {
+function classifyJobPhoto(job: JobMinimal): JobFallbackPhotoKey {
   const searchText = [job.category, job.sector, job.titleByLocale?.it, job.title]
     .filter(Boolean)
     .join(' ')
@@ -163,16 +165,27 @@ function classifyJobPhoto(job: JobMinimal): JobPhotoKey {
   })) ?? 'office';
 }
 
-function readJobPhotoDataUrls(rootDir: string): Record<JobPhotoKey, string> | null {
+interface JobPhotoSources {
+  fallbackDataUrls: Record<JobFallbackPhotoKey, string>;
+  specificPhotoPaths: Record<string, string>;
+}
+
+function readJobPhotoSources(rootDir: string): JobPhotoSources | null {
   const photoDir = path.join(rootDir, 'build-plugins/assets/facebook-jobs');
-  const photos = {} as Record<JobPhotoKey, string>;
+  const fallbackDataUrls = {} as Record<JobFallbackPhotoKey, string>;
+  const specificPhotoPaths: Record<string, string> = {};
   try {
     for (const key of JOB_PHOTO_KEYS) {
       const file = path.join(photoDir, `${key}.jpg`);
       if (!existsSync(file)) return null;
-      photos[key] = `data:image/jpeg;base64,${readFileSync(file).toString('base64')}`;
+      fallbackDataUrls[key] = `data:image/jpeg;base64,${readFileSync(file).toString('base64')}`;
     }
-    return photos;
+    for (const [key, fileName] of Object.entries(JOB_OG_PHOTO_FILES)) {
+      const file = path.join(photoDir, fileName);
+      if (!existsSync(file)) return null;
+      specificPhotoPaths[key] = file;
+    }
+    return { fallbackDataUrls, specificPhotoPaths };
   } catch {
     return null;
   }
@@ -563,8 +576,8 @@ export default function jobOgImagesPlugin(): Plugin {
         return;
       }
 
-      const photoDataUrls = readJobPhotoDataUrls(rootDir);
-      if (!photoDataUrls) {
+      const photoSources = readJobPhotoSources(rootDir);
+      if (!photoSources) {
         // eslint-disable-next-line no-console
         console.warn('[job-og-images] generated workplace photos are missing — skipping OG images.');
         return;
@@ -597,7 +610,7 @@ export default function jobOgImagesPlugin(): Plugin {
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        const photoKey = classifyJobPhoto(job);
+        const photoKey = getJobOgPhotoKey(slug) ?? classifyJobPhoto(job);
         // See the doc-comment above the deleted cacheKeyForJob for why
         // we cache by slug + photo key + version (not job.id + visualHash).
         const cachePath = path.join(
@@ -651,7 +664,7 @@ export default function jobOgImagesPlugin(): Plugin {
             renderQueue.length,
             Number(process.env.OG_WORKER_COUNT) || cpus().length || 2,
             // Cap at 4 — each worker keeps the static fonts and four compact
-            // JPEG photo data URLs in memory while it renders the queue.
+            // fallback JPEG data URLs in memory; offer-specific photos load lazily.
             4,
           ),
         );
@@ -708,7 +721,8 @@ export default function jobOgImagesPlugin(): Plugin {
                 fontRegular: fontPair.regular,
                 fontBold: fontPair.bold,
                 brandBgFrom: BRAND_BG_FROM,
-                photoDataUrls,
+                photoDataUrls: photoSources.fallbackDataUrls,
+                photoFilePaths: photoSources.specificPhotoPaths,
                 width: OG_WIDTH,
                 height: OG_HEIGHT,
               },

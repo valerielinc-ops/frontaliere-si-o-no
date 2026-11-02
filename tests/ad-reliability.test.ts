@@ -231,10 +231,21 @@ describe('IAB detection and independent recovery surface', () => {
   function recovery(result = 'blocked', state = 'failed') {
     return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example' });
   }
+  it('does not hide a real script failure behind an unarmed GPT loading placeholder', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    const placeholder = w.document.createElement('div'); placeholder.setAttribute('data-ad-state', 'loading');
+    placeholder.appendChild(w.document.createElement('div')); w.document.body.appendChild(placeholder);
+    const script = w.document.createElement('script'); script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    script.dataset.failed = '1'; script.dataset.ftScriptState = 'failed'; w.document.head.append(script);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog')?.textContent).toContain('Gli annunci non si caricano');
+  });
   it.each(['data-ft-static-ad-state', 'data-ft-ad-state', 'data-ad-state'])('does not cover a pending slot (%s) because an earlier slot had no fill', async (attribute) => {
     w.localStorage.setItem('frontaliere_ads_consent', 'granted');
     slot(300).setAttribute('data-ad-status', 'unfilled');
     const pending = slot(300); pending.setAttribute(attribute, 'loading');
+    if (attribute === 'data-ad-state') pending.setAttribute('data-ft-ad-request-pending', '1');
     recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
@@ -242,6 +253,36 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(250);
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
     pending.setAttribute(attribute, 'unfilled');
+    pending.removeAttribute('data-ft-ad-request-pending');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+  });
+  it('waits for an actual GPT request and notices when that request ends', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    const box = w.document.createElement('div'); box.setAttribute('data-ad-state', 'loading');
+    box.setAttribute('data-ft-ad-request-pending', '1'); w.document.body.append(box);
+    const script = w.document.createElement('script'); script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    script.dataset.failed = '1'; script.dataset.ftScriptState = 'failed'; w.document.head.append(script);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    box.removeAttribute('data-ft-ad-request-pending');
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('dialog')?.textContent).toContain('Gli annunci non si caricano');
+  });
+  it.each(['self', 'descendant'])('recognizes legacy GPT query evidence on %s without treating every loading placeholder as pending', async (position) => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const box = w.document.createElement(position === 'self' ? 'ins' : 'div'); box.setAttribute('data-ad-state', 'loading');
+    const target = position === 'self' ? box : w.document.createElement('div');
+    target.setAttribute('data-google-query-id', 'test-query');
+    if (target !== box) box.append(target);
+    w.document.body.append(box);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+    expect(emit.mock.calls.some(([event, props]) => event === 'ad_reliability_state' && props.reason === 'response_pending')).toBe(true);
+    target.removeAttribute('data-google-query-id');
     await vi.advanceTimersByTimeAsync(250);
     expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
   });

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-11-02T10:22:47.529Z",
-  "runId": "41417705353",
+  "assembledAt": "2026-11-02T21:28:54.673Z",
+  "runId": "41524973101",
   "jobs": [
     {
       "id": "ameos-ch-65c6d66d688e",
@@ -35,7 +35,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14192-assistenz-sachbearbeitung-in-der-administration-100%25-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:42.138Z",
+      "crawledAt": "2026-11-02T21:28:49.925Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T10:22:42.138Z",
+      "validThrough": "2027-01-11T21:28:49.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:41.185Z",
+      "crawledAt": "2026-11-02T21:28:48.966Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T10:22:41.185Z",
+      "validThrough": "2026-12-02T21:28:48.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -196,7 +196,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:40.149Z",
+      "crawledAt": "2026-11-02T21:28:48.013Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -264,7 +264,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-a10bb1fa",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-a832db86",
           "dipl-senior-consultant-m-w-d-ameos-schweiz-einsiedeln",
           "dipl-consultant-principal-m-m-j-ameos-schweiz-einsiedeln",
@@ -283,7 +282,8 @@
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-7caf2b7b",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-8aee7c7f",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-778ef1df",
-          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-5a16a46c"
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-5a16a46c",
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-a10bb1fa"
         ],
         "fr": [
           "mitarbeiter-m-w-d-case-management-ameos-schweiz-einsiedeln"
@@ -305,7 +305,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T10:22:40.149Z",
+      "validThrough": "2026-12-06T21:28:48.013Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -340,7 +340,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13714-dipl-radiologiefachperson-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:39.187Z",
+      "crawledAt": "2026-11-02T21:28:47.030Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T10:22:39.187Z",
+      "validThrough": "2027-01-05T21:28:47.030Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -418,7 +418,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14119-dipl-pflegefachperson-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:38.215Z",
+      "crawledAt": "2026-11-02T21:28:45.351Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -467,7 +467,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T10:22:38.215Z",
+      "validThrough": "2027-01-10T21:28:45.351Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -501,7 +501,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14240-dipl-rettungssanit%C3%A4ter-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:37.255Z",
+      "crawledAt": "2026-11-02T21:28:44.286Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -550,7 +550,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T10:22:37.255Z",
+      "validThrough": "2027-01-12T21:28:44.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -585,7 +585,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14237-fachperson-gesundheit-interdisziplin%C3%A4re-privatstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:36.234Z",
+      "crawledAt": "2026-11-02T21:28:43.285Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -634,7 +634,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T10:22:36.234Z",
+      "validThrough": "2027-01-12T21:28:43.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -669,7 +669,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14871-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:35.261Z",
+      "crawledAt": "2026-11-02T21:28:42.158Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -718,7 +718,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T10:22:35.261Z",
+      "validThrough": "2027-01-20T21:28:42.158Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -753,7 +753,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14868-sachbearbeiter-finanzbuchhaltung-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:34.269Z",
+      "crawledAt": "2026-11-02T21:28:41.223Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -802,7 +802,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T10:22:34.269Z",
+      "validThrough": "2027-01-21T21:28:41.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -837,7 +837,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14934-mitarbeiter-integrales-kapazit%C3%A4tsmanagement-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:33.214Z",
+      "crawledAt": "2026-11-02T21:28:40.225Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -886,7 +886,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T10:22:33.214Z",
+      "validThrough": "2027-01-24T21:28:40.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -921,7 +921,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:32.190Z",
+      "crawledAt": "2026-11-02T21:28:39.248Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -966,7 +966,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T10:22:32.190Z",
+      "validThrough": "2026-12-02T21:28:39.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1000,7 +1000,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:31.206Z",
+      "crawledAt": "2026-11-02T21:28:38.286Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1043,7 +1043,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T10:22:31.206Z",
+      "validThrough": "2026-12-22T21:28:38.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1078,7 +1078,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13730-controller-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:30.226Z",
+      "crawledAt": "2026-11-02T21:28:37.312Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1128,7 +1128,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T10:22:30.226Z",
+      "validThrough": "2027-01-06T21:28:37.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1162,7 +1162,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13903-dipl-pflegefachperson-hf-nachtdienst-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:29.206Z",
+      "crawledAt": "2026-11-02T21:28:36.331Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1211,7 +1211,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T10:22:29.206Z",
+      "validThrough": "2027-01-10T21:28:36.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1246,7 +1246,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14390-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:28.151Z",
+      "crawledAt": "2026-11-02T21:28:35.307Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1289,7 +1289,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T10:22:28.151Z",
+      "validThrough": "2027-01-10T21:28:35.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1324,7 +1324,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14339-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:27.163Z",
+      "crawledAt": "2026-11-02T21:28:34.342Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1367,7 +1367,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T10:22:27.163Z",
+      "validThrough": "2027-01-10T21:28:34.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1402,7 +1402,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/7902-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:26.183Z",
+      "crawledAt": "2026-11-02T21:28:33.381Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1447,7 +1447,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T10:22:26.183Z",
+      "validThrough": "2026-12-02T21:28:33.381Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1482,7 +1482,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T10:22:25.159Z",
+      "crawledAt": "2026-11-02T21:28:32.418Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1525,7 +1525,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T10:22:25.159Z",
+      "validThrough": "2026-12-23T21:28:32.418Z",
       "validThroughSource": "last-observed-window"
     }
   ]

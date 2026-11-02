@@ -43,7 +43,7 @@
           "build-plugins/jobOgImagesPlugin.ts"
         ],
         "createdAt": "2026-11-02T15:22:38.348Z",
-        "reason": "Agent: per-job OG cards are rasterized with Satori, which requires the committed static TTF font files; the product fonts are committed as WOFF2 and the Roboto choice predates this card-label edit"
+        "reason": "Agent: existing Satori OG renderer needs bundled static Roboto TTF; this build-time image typography is separate from the site's Space Grotesk and Inter interface typography."
       },
       {
         "rule": "design-system-color",

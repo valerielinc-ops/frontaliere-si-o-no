@@ -10,6 +10,11 @@ senza contenuto nell'iframe non dimostra l'assenza di annunci.
   sia nel contenuto del contenitore. Restano esclusi dalla coda implicita Google
   finché non hanno spazio e non si avvicinano al viewport. Un ridimensionamento
   può recuperarli senza una seconda richiesta sullo stesso nodo.
+- Sotto 360 px, il contenitore dell'articolo usa tutta la larghezza e margini
+  interni di 3 px. La regola resta nel layer `utilities`: una dichiarazione
+  `!important` senza layer non supera la classe Tailwind `!w-[95%]`.
+  La fixture con il CSS compilato, a 275 px e scrollbar di 8 px, misura 253 px
+  per lo slot e nessun overflow orizzontale (prima della correzione: circa 236 px).
 - Un singleton per libreria condivide caricamento e tentativi fra HTML statico
   e React: un tentativo iniziale e due retry, dopo 2 e 6 secondi, solo su errore
   effettivo. Dopo 12 secondi senza risposta lo stato è `waiting_response`:
@@ -58,6 +63,15 @@ con peer incompatibili. Il progetto IAB ha un contratto semplice e verificabile;
 anzianità e stelle dei detector non dimostrano compatibilità con ogni blocker.
 
 ## Telemetria
+
+Il segnale DOM `data-ft-ad-request-pending` rappresenta richieste effettivamente
+avviate dal lifecycle, non lo stato grafico iniziale di un placeholder GPT.
+Ogni controller rilascia il proprio segnale su fill, no-fill, errore, stop o
+rinvio per larghezza insufficiente. Più controller sullo stesso contenitore
+mantengono evidenze indipendenti; una risposta lenta rimane pending. Le shell
+precedenti sono riconosciute anche tramite gli stati manuali e il query ID GPT
+sullo stesso elemento in caricamento oppure su un discendente,
+senza assumere che ogni `data-ad-state="loading"` sia una richiesta già partita.
 
 Gli eventi GA4 `ad_script_state`, `ad_slot_waiting_width`, `ad_slot_error`,
 `ad_slot_width_timeout`, `ad_cmp_state`, `ad_cmp_recovery`, `ad_block_probe` e
