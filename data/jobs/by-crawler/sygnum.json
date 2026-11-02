@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-11-02T11:21:09.934Z",
-  "runId": "41419538942",
+  "assembledAt": "2026-11-02T21:47:37.340Z",
+  "runId": "41527127007",
   "jobs": [
     {
       "id": "sygnum-8bd22c417d4f",
@@ -34,7 +34,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:20:58.993Z",
+      "crawledAt": "2026-11-02T21:47:24.618Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -78,7 +78,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T11:20:58.993Z",
+      "validThrough": "2026-12-30T21:47:24.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:20:56.876Z",
+      "crawledAt": "2026-11-02T21:47:22.386Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -156,7 +156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T11:20:56.876Z",
+      "validThrough": "2026-12-02T21:47:22.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T11:20:56.201Z",
+      "crawledAt": "2026-11-02T21:47:21.629Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -226,7 +226,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T11:20:56.201Z",
+      "validThrough": "2026-12-02T21:47:21.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -312,7 +312,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-04T22:12:56.160Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sygnum-db5c9c42cb32",
@@ -408,7 +408,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-03T22:12:55.464Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
