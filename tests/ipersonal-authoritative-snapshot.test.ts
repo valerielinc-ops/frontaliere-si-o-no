@@ -150,6 +150,27 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
     expect(() => assertCompleteIpersonalSnapshot(partial)).toThrow(/parsed 14\/15/);
   });
 
+  it('accepts a current paragraph-only source body only above the canonical word floor', () => {
+    const paragraph = [
+      'Einsatzort: Winden und Umgebung.',
+      'Hier findest du offene Stellen und Jobs in der Intensivpflege NDS Winden, sodass du die passende Position wählen kannst und dich weiterentwickelst.',
+      'Du kannst offene Stellen ansehen, damit du einen Überblick bekommst, und gleichzeitig kannst du dich direkt auf freie Jobs bewerben.',
+      'Unser Temporärbüro Pflege Winden begleitet dich persönlich und unterstützt dich beim gesamten Bewerbungsprozess.',
+    ].join(' ');
+    const job = makeJob('ipersonal', 99, true);
+    job.description = paragraph;
+    job.descriptionByLocale = { de: paragraph };
+    const snapshot = markDiscovered([job], 1);
+
+    expect(assertCompleteIpersonalSnapshot(snapshot)).toBe(true);
+
+    const thin = makeJob('ipersonal', 100, true);
+    thin.description = 'Einsatzort: Winden und Umgebung. Eine kurze Stelle disponibile.';
+    thin.descriptionByLocale = { de: thin.description };
+    expect(() => assertCompleteIpersonalSnapshot(markDiscovered([thin], 1)))
+      .toThrow(/rich source-backed description/);
+  });
+
   it('fails closed when resolved and parsed observers do not cover one atomic attempt set', () => {
     const partialObserver = markDiscovered(
       Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),

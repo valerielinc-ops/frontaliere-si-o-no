@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { planGooglePlacesReservation } from '../scripts/ci/reserve-pharmacy-google-budget.mjs';
 import { enrichPharmacyRecords } from '../scripts/lib/pharmacy-enrichment.mjs';
 
-const checkedAt = '2026-10-07T12:00:00.000Z';
+const checkedAt = new Date(Date.now() - 60_000).toISOString();
+const currentMonth = checkedAt.slice(0, 7);
+const previousMonth = new Date(Date.parse(checkedAt) - 31 * 86_400_000).toISOString().slice(0, 7);
 const pharmacyIds = Array.from({ length: 11 }, (_, index) => `it-msal-${3907 + index}`);
 const config = {
   providers: {
@@ -10,7 +12,7 @@ const config = {
       enabled: true,
       pharmacyIds,
       maxAgeDays: 30,
-      monthlyRequestLimit: 10_000,
+      monthlyRequestLimit: 100,
     },
   },
 };
@@ -20,7 +22,7 @@ describe('serialized Google Places budget reservation', () => {
   it('allows one branch to reserve the remaining quota and blocks a second branch from the same base', async () => {
     const baseSnapshot = {
       records: {},
-      providerUsage: { month: '2026-10', googlePlaces: { requests: 9_990 } },
+      providerUsage: { month: currentMonth, googlePlaces: { requests: 90 } },
     };
     const first = planGooglePlacesReservation({
       catalogues,
@@ -33,7 +35,7 @@ describe('serialized Google Places budget reservation', () => {
       allowGoogle: true,
       reason: 'reserved',
       requestCount: 10,
-      reservedRequests: 10_000,
+      reservedRequests: 100,
     });
     expect(first.pharmacyIds).toHaveLength(10);
 
@@ -58,13 +60,13 @@ describe('serialized Google Places budget reservation', () => {
       },
     );
     expect(requestCount).toBe(10);
-    expect(enrichment.providerUsage.googlePlaces.requests).toBe(10_000);
+    expect(enrichment.providerUsage.googlePlaces.requests).toBe(100);
 
     const second = planGooglePlacesReservation({
       catalogues,
       config,
       snapshot: baseSnapshot,
-      reservation: { month: '2026-10', googlePlaces: { requests: 10_000 } },
+      reservation: { month: currentMonth, googlePlaces: { requests: 100 } },
       checkedAt,
     });
 
@@ -72,7 +74,7 @@ describe('serialized Google Places budget reservation', () => {
       allowGoogle: false,
       reason: 'pending_reservation',
       requestCount: 0,
-      reservedRequests: 10_000,
+      reservedRequests: 100,
     });
   });
 
@@ -82,9 +84,9 @@ describe('serialized Google Places budget reservation', () => {
       config,
       snapshot: {
         records: {},
-        providerUsage: { month: '2026-09', googlePlaces: { requests: 10_000 } },
+        providerUsage: { month: previousMonth, googlePlaces: { requests: 100 } },
       },
-      reservation: { month: '2026-09', googlePlaces: { requests: 10_000 } },
+      reservation: { month: previousMonth, googlePlaces: { requests: 100 } },
       checkedAt,
     });
     expect(nextMonth).toMatchObject({ allowGoogle: true, reservedRequests: 11 });
@@ -94,9 +96,9 @@ describe('serialized Google Places budget reservation', () => {
       config,
       snapshot: {
         records: {},
-        providerUsage: { month: '2026-10', googlePlaces: { requests: 10_000 } },
+        providerUsage: { month: currentMonth, googlePlaces: { requests: 100 } },
       },
-      reservation: { month: '2026-10', googlePlaces: { requests: 10_000 } },
+      reservation: { month: currentMonth, googlePlaces: { requests: 100 } },
       checkedAt,
     });
     expect(exhausted).toMatchObject({ allowGoogle: false, reason: 'budget_exhausted' });
@@ -108,7 +110,7 @@ describe('serialized Google Places budget reservation', () => {
       config,
       snapshot: {
         records: {},
-        providerUsage: { month: '2026-10', googlePlaces: { requests: 10_001 } },
+        providerUsage: { month: currentMonth, googlePlaces: { requests: 101 } },
       },
       checkedAt,
     })).toThrow('current providerUsage Google Places requests are invalid');
@@ -117,7 +119,7 @@ describe('serialized Google Places budget reservation', () => {
       catalogues,
       config,
       snapshot: { records: {} },
-      reservation: { month: '2026-10', googlePlaces: { requests: 10_001 } },
+      reservation: { month: currentMonth, googlePlaces: { requests: 101 } },
       checkedAt,
     })).toThrow('reservation Google Places requests are invalid');
   });

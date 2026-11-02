@@ -58,6 +58,13 @@ export function portalNeedsPlanner(draft) {
   return WAVE1_CHANNELS.has(channel.type) && Boolean(channel.applyUrl || draft?.job?.applyUrl);
 }
 
+export function navigationHandoffFor(error, { clicked = false, succeeded = false } = {}) {
+  if (!clicked && !succeeded && navigationInfrastructureFailure(error)) {
+    return { type: 'submit_handoff', reason: 'navigation_unavailable' };
+  }
+  return null;
+}
+
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {} } = {}) {
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
@@ -588,7 +595,8 @@ export async function submitApplication(ctx) {
       }
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
       if (error instanceof Error && error.message === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
-      if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
+      const navigationHandoff = navigationHandoffFor(error, { clicked, succeeded });
+      if (navigationHandoff) return navigationHandoff;
       throw error;
     } finally {
       if (dir) await rm(dir, { recursive: true, force: true });

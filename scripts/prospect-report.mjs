@@ -18,7 +18,13 @@ import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { CANTONS, VALIDATION_PATH } from './lib/prospector/config.mjs';
 import { loadChannelHealth, loadCursor } from './lib/prospector/sources/commoncrawl-careers.mjs';
 import { isTransportLogistics } from './lib/prospector/sector-signal.mjs';
-import { loadDiscoveryHealth, DISCOVERY_SOURCE_NAMES, DISCOVERY_SOURCE_OUTCOMES } from './lib/prospector/source-health.mjs';
+import {
+  loadDiscoveryHealth,
+  DISCOVERY_SOURCE_NAMES,
+  DISCOVERY_SOURCE_OUTCOMES,
+  DOMAIN_RESOLVER_NAMES,
+  DOMAIN_RESOLVER_OUTCOMES,
+} from './lib/prospector/source-health.mjs';
 import {
   appendCoverageHistory,
   measureCoverageExclusivity,
@@ -256,29 +262,63 @@ try { discoveryHealth = loadDiscoveryHealth(); } catch (error) {
 }
 if (discoveryHealth.length) {
   const recent = discoveryHealth.slice(-14);
+  const discoveryRuns = recent.filter((run) => run?.phase !== 'trace');
+  const latestRun = discoveryHealth.filter((run) => run?.phase !== 'trace').at(-1);
   out.push(h('Salute delle fonti di discovery'));
-  out.push(tableHead('sorgente', `ultimi ${recent.length} run · complete / partial / unavailable / malformed`));
+  out.push(tableHead('sorgente', `ultimi ${discoveryRuns.length} run · complete / partial / unavailable / malformed`));
   for (const source of DISCOVERY_SOURCE_NAMES) {
     const totals = Object.fromEntries(DISCOVERY_SOURCE_OUTCOMES.map((outcome) => [outcome, 0]));
     let attempts = 0;
-    for (const run of recent) {
+    for (const run of discoveryRuns) {
       const summary = run?.sources?.[source];
       attempts += Number(summary?.attempts) || 0;
       for (const outcome of DISCOVERY_SOURCE_OUTCOMES) {
         totals[outcome] += Number(summary?.outcomes?.[outcome]) || 0;
       }
     }
-    const last = discoveryHealth.at(-1)?.sources?.[source];
+    const last = latestRun?.sources?.[source];
     const distribution = DISCOVERY_SOURCE_OUTCOMES.map((outcome) => totals[outcome]).join(' / ');
     const latest = last?.attempts
       ? `ultimo ${last.aggregateOutcome || last.lastOutcome || 'unknown'} (${last.attempts} tentativi, ${last.recordsSeen ?? last.items ?? 0} record, ${last.newCandidatesFiled ?? 'n/d'} nuovi candidati)`
       : 'nessun tentativo nell’ultimo run';
-    const recordsSeen = recent.reduce((sum, run) => sum + (Number(run?.sources?.[source]?.recordsSeen ?? run?.sources?.[source]?.items) || 0), 0);
-    const filed = recent.reduce((sum, run) => sum + (Number(run?.sources?.[source]?.newCandidatesFiled) || 0), 0);
+    const recordsSeen = discoveryRuns.reduce((sum, run) => sum + (Number(run?.sources?.[source]?.recordsSeen ?? run?.sources?.[source]?.items) || 0), 0);
+    const filed = discoveryRuns.reduce((sum, run) => sum + (Number(run?.sources?.[source]?.newCandidatesFiled) || 0), 0);
     out.push(row(source, `${attempts} tentativi · ${distribution} · ${recordsSeen} record visti / ${filed} nuovi candidati · ${latest}`));
   }
-  const latestRun = discoveryHealth.at(-1);
   out.push(row('ultimo run iniziato', `${latestRun?.startedAt || 'unknown'}${latestRun?.runId ? ` · run ${latestRun.runId}` : ''}`));
+
+  const resolverRuns = recent.filter((run) => DOMAIN_RESOLVER_NAMES.some(
+    (resolver) => Number(run?.resolvers?.[resolver]?.attempts) > 0,
+  ));
+  if (resolverRuns.length) {
+    out.push(h('Salute risolutori dominio'));
+    out.push(tableHead('risolutore', `ultimi ${resolverRuns.length} run · richieste / luoghi / siti / verificati / scartati`));
+    for (const resolver of DOMAIN_RESOLVER_NAMES) {
+      const totals = Object.fromEntries(DOMAIN_RESOLVER_OUTCOMES.map((outcome) => [outcome, 0]));
+      let attempts = 0;
+      let requests = 0;
+      let places = 0;
+      let websites = 0;
+      let verified = 0;
+      let rejected = 0;
+      for (const run of resolverRuns) {
+        const summary = run?.resolvers?.[resolver];
+        attempts += Number(summary?.attempts) || 0;
+        requests += Number(summary?.requests) || 0;
+        places += Number(summary?.places) || 0;
+        websites += Number(summary?.websites) || 0;
+        verified += Number(summary?.verified) || 0;
+        rejected += Number(summary?.rejected) || 0;
+        for (const outcome of DOMAIN_RESOLVER_OUTCOMES) totals[outcome] += Number(summary?.outcomes?.[outcome]) || 0;
+      }
+      const last = resolverRuns.at(-1)?.resolvers?.[resolver];
+      const outcomeText = DOMAIN_RESOLVER_OUTCOMES
+        .filter((outcome) => totals[outcome])
+        .map((outcome) => `${outcome}:${totals[outcome]}`)
+        .join(', ') || 'nessun esito';
+      out.push(row(resolver, `${attempts} candidati · ${requests} richieste / ${places} luoghi / ${websites} siti / ${verified} verificati / ${rejected} scartati · ${outcomeText}${last?.lastOutcome ? ` · ultimo ${last.lastOutcome}` : ''}`));
+    }
+  }
 }
 
 console.log(out.join('\n'));

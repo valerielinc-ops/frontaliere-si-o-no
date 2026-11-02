@@ -113,6 +113,18 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # The same loader also exports GOOGLE_MAPS_API_KEY when the owner has
+      # provisioned it in Remote Config. TRACE treats a missing key as a
+      # normal source-unavailable result and continues with SECO email hints,
+      # DNS guesses, Zefix and Common Crawl; no workflow secret is added here.
+      - name: Check optional Google Places resolver
+        run: |
+          if [ -n "${GOOGLE_MAPS_API_KEY:-}" ]; then
+            echo 'Google Places domain resolver: key loaded; monthly allocation 800 requests'
+          else
+            echo 'Google Places domain resolver: key unavailable; free resolver channels remain enabled'
+          fi
+
       # Fail before the multi-hour discovery/trace stages when Remote Config
       # has supplied a token that can read the repository but is not actually
       # one of the bypass actors for main's required-check ruleset. Without

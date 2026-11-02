@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
 import { intFromEnv } from '../int-from-env.mjs';
+import { PROSPECTOR_GOOGLE_PLACES_MONTHLY_LIMIT } from '../google-places-budget.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -38,6 +39,8 @@ export const LEDGER_PATH = path.join(PROSPECTOR_DIR, 'ledger.jsonl');
 export const VALIDATION_PATH = path.join(PROSPECTOR_DIR, 'validation.json');
 export const WEB_CHANNEL_HEALTH_PATH = path.join(PROSPECTOR_DIR, 'web-channel-health.json');
 export const SOURCE_HEALTH_PATH = path.join(PROSPECTOR_DIR, 'discovery-health.json');
+export const GOOGLE_PLACES_USAGE_PATH = path.join(PROSPECTOR_DIR, 'google-places-usage.json');
+export const PROSPECTOR_GOOGLE_PLACES_LIMIT = PROSPECTOR_GOOGLE_PLACES_MONTHLY_LIMIT;
 export const SECO_PAGE_CURSORS_PATH = path.join(PROSPECTOR_DIR, 'seco-page-cursors.json');
 export const ZEFIX_CURSORS_PATH = path.join(PROSPECTOR_DIR, 'zefix-cursors.json');
 

@@ -324,6 +324,30 @@ describe('pharmacy enrichment', () => {
     ]);
   });
 
+  it('stops the Google lane on 429 without retrying the reserved request', async () => {
+    const secondPharmacy = { ...pharmacy, id: 'it-msal-3908', name: 'Farmacia seconda' };
+    let requestCount = 0;
+    const result = await enrichPharmacyRecords([pharmacy, secondPharmacy], localConfig({
+      providers: {
+        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id, secondPharmacy.id] },
+        facebook: { enabled: false, pharmacyIds: [] },
+      },
+    }), {
+      checkedAt,
+      googleApiKey: 'owner-kept-key',
+      fetchJson: async () => {
+        requestCount += 1;
+        throw Object.assign(new Error('HTTP 429 quota'), { status: 429 });
+      },
+    });
+
+    expect(requestCount).toBe(1);
+    expect(result.providerUsage.googlePlaces.requests).toBe(1);
+    expect(result.warnings).toEqual([
+      'googlePlaces: disabled for this run after HTTP 429; rate limit/quota response is not retried',
+    ]);
+  });
+
   it('rejects a same-street Google candidate without name and civic-number anchors', async () => {
     const wrongNumber = pharmacy.address.replace(/\b\d+[a-z]?\b/i, '99');
     const result = await enrichPharmacyRecords([pharmacy], localConfig({
@@ -384,19 +408,19 @@ describe('pharmacy enrichment', () => {
     let requestCount = 0;
     const config = localConfig({
       providers: {
-        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id], monthlyRequestLimit: 10_001 },
+        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id], monthlyRequestLimit: 101 },
         facebook: { enabled: false, pharmacyIds: [] },
       },
     });
 
     expect(validatePharmacyEnrichmentConfig(config)).toContain(
-      'googlePlaces: monthlyRequestLimit cannot exceed 10000',
+      'googlePlaces: monthlyRequestLimit cannot exceed 100',
     );
 
     const result = await enrichPharmacyRecords([pharmacy], config, {
       previous: {
         records: {},
-        providerUsage: { month: '2026-10', googlePlaces: { requests: 10_001 } },
+        providerUsage: { month: '2026-10', googlePlaces: { requests: 101 } },
       },
       checkedAt,
       googleApiKey: 'test-google-key',
@@ -407,8 +431,8 @@ describe('pharmacy enrichment', () => {
     });
 
     expect(requestCount).toBe(0);
-    expect(result.providerUsage).toEqual({ month: '2026-10', googlePlaces: { requests: 10_000 } });
-    expect(result.warnings).toEqual([expect.stringContaining('monthly request limit reached (10000)')]);
+    expect(result.providerUsage).toEqual({ month: '2026-10', googlePlaces: { requests: 100 } });
+    expect(result.warnings).toEqual([expect.stringContaining('monthly request limit reached (100)')]);
   });
 
   it('uses Facebook only with an authorised page and publishes reusable facts, not reviews', async () => {

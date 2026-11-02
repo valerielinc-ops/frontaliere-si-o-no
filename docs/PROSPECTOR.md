@@ -70,6 +70,40 @@ resta 3, un token sotto i cinque caratteri deve stare da solo (`zio` è dentro
 località. I "dominio non risolto" precedenti tornano in coda una volta sola, 150
 per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
 
+Quando i canali gratuiti non hanno una prova sufficiente, TRACE può usare Google
+Places API New Text Search come **indizio**, mai come identità persistente. Chiede
+solo `places.id,places.displayName,places.websiteUri`, con query `nome città`,
+`regionCode: CH` e `pageSize: 1`; visita poi il `websiteUri` (anche il suo path)
+con `politeFetch` e conserva il dominio solo dopo `verifyOwnership` a soglia 3.
+`websiteUri`, `displayName` e il resto della risposta restano transitori: lo
+stato committato contiene il contatore, il solo `googlePlaceId` stabile e il
+dominio indipendentemente verificato. I domini di agenzie/governo e quelli già
+condivisi da più datori vengono scartati.
+
+Le Maps Platform Terms/Service Specific Terms e le Places policies vietano di
+prefetchare, cacheare o conservare il contenuto Places oltre le eccezioni
+previste; l'eccezione esplicita è il place ID. Per questo `websiteUri` è usato
+solo per arrivare al sito e il dominio viene conservato soltanto come evidenza
+di prima parte dopo `verifyOwnership`, senza salvare la risposta Google. Se una
+revisione legale qualificasse anche quel dominio verificato come contenuto
+Google non conservabile, la feature va bloccata e il dominio non va scritto.
+
+Il campo `websiteUri` porta la richiesta allo SKU Text Search Enterprise, la cui
+soglia gratuita mensile è 1.000; il campo-mask delle farmacie è Text Search Pro,
+con soglia gratuita 5.000. Il proprietario assegna 800 richieste/mese al
+prospector e 100 alle farmacie: insieme restano a 900, sotto il limite Enterprise
+più restrittivo. Il contatore del prospector vive in
+`data/prospector/google-places-usage.json` e viene riservato/scritto prima della
+chiamata; 401/403/429, errori di rete e parse error consumano comunque lo slot.
+Al tetto o senza chiave, TRACE prosegue senza errore con email SECO, generatore
+DNS e le sorgenti Zefix/Common Crawl. Il report aggrega richieste, luoghi, siti,
+verifiche e scarti in `discovery-health.json`.
+
+Riferimenti ufficiali: [prezzi Google Maps Platform](https://developers.google.com/maps/billing-and-pricing/pricing),
+[Text Search fields e SKU](https://developers.google.com/maps/documentation/places/web-service/text-search),
+[Places policies](https://developers.google.com/maps/documentation/places/web-service/policies) e
+[Maps Service Specific Terms](https://cloud.google.com/maps-platform/terms/maps-service-terms).
+
 ## I sei stadi
 
 | stadio | script | cosa fa |

@@ -420,6 +420,16 @@ describe('priorità della coda TRACE', () => {
     ], 1, now).map((candidate) => candidate.key)).toEqual(['fresh-seco']);
   });
 
+  it('prioritizes Ticino, then other frontier cantons, among name-only candidates', () => {
+    const now = Date.now();
+    const ranked = prioritizeTraceCandidates([
+      { key: 'interior', canton: 'ZH', firstSeenAt: new Date(now - 3 * 86_400_000).toISOString() },
+      { key: 'frontier', canton: 'GE', firstSeenAt: new Date(now - 2 * 86_400_000).toISOString() },
+      { key: 'ticino', canton: 'TI', firstSeenAt: new Date(now - 86_400_000).toISOString() },
+    ], 3, now);
+    expect(ranked.map((candidate) => candidate.key)).toEqual(['ticino', 'frontier', 'interior']);
+  });
+
   it('allocates a 5/3/2/1 batch across direct careers, domains, recent SECO and fallback leads', () => {
     const now = Date.now();
     const direct = Array.from({ length: 7 }, (_, i) => ({
