@@ -72,3 +72,13 @@ describe('legacy canton labels retain geographic scope', () => {
     expect(locTokenHit('Lugano TI', location)).toBe(false);
   });
 });
+
+
+describe('city labels compose every declared Ticino canton alias', () => {
+  it.each(['Canton Ticino', 'Cantone Ticino', 'Canton Tessin', 'Kanton Tessin'])('preserves the city with the prefixed suffix %s', (canton) => {
+    expect(locTokenHit('Lugano TI', `Lugano, ${canton}`)).toBe(true);
+    expect(locTokenHit('Bellinzona TI', `Lugano, ${canton}`)).toBe(false);
+    expect(locTokenHit('Lugano TI', `Chur, ${canton}`)).toBe(false);
+    expect(locTokenHit('Lugano TI', `Unknown, ${canton}`)).toBe(false);
+  });
+});
