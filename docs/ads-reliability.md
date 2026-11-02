@@ -69,7 +69,8 @@ avviate dal lifecycle, non lo stato grafico iniziale di un placeholder GPT.
 Ogni controller rilascia il proprio segnale su fill, no-fill, errore, stop o
 rinvio per larghezza insufficiente. Più controller sullo stesso contenitore
 mantengono evidenze indipendenti; una risposta lenta rimane pending. Le shell
-precedenti sono riconosciute anche tramite gli stati manuali e il query ID GPT,
+precedenti sono riconosciute anche tramite gli stati manuali e il query ID GPT
+sullo stesso elemento in caricamento oppure su un discendente,
 senza assumere che ogni `data-ad-state="loading"` sia una richiesta già partita.
 
 Gli eventi GA4 `ad_script_state`, `ad_slot_waiting_width`, `ad_slot_error`,

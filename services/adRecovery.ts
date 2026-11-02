@@ -71,7 +71,7 @@ export function installAdRecovery(
     : !hasDecision() ? 'consent_pending'
     : document.querySelector('script[data-ft-script-state="retry_wait"][src*="adsbygoogle.js"],script[data-ft-script-state="loading"][src*="adsbygoogle.js"],script[data-ft-script-state="retry_wait"][src*="gpt.js"],script[data-ft-script-state="loading"][src*="gpt.js"]') ? 'response_pending'
     : document.querySelector('script[data-ft-script-state="waiting_response"][src*="adsbygoogle.js"],script[data-ft-script-state="waiting_response"][src*="gpt.js"]') ? 'script_timeout'
-    : document.querySelector('[data-ft-ad-request-pending],[data-ft-static-ad-state="loading"],[data-ft-static-ad-state="waiting_response"],[data-ft-ad-state="loading"],[data-ft-ad-state="waiting_response"],[data-ad-state="waiting_response"],[data-ad-state="loading"] [data-google-query-id]') ? 'response_pending'
+    : document.querySelector('[data-ft-ad-request-pending],[data-ft-static-ad-state="loading"],[data-ft-static-ad-state="waiting_response"],[data-ft-ad-state="loading"],[data-ft-ad-state="waiting_response"],[data-ad-state="waiting_response"],[data-ad-state="loading"][data-google-query-id],[data-ad-state="loading"] [data-google-query-id]') ? 'response_pending'
     : document.querySelector('script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],script[data-failed="1"]:not([data-ft-script-state="retry_wait"]):not([data-ft-script-state="loaded"])[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]') ? 'script_failed'
     : document.querySelector('ins[data-ad-status="unfilled"]') ? 'no_fill'
     : document.querySelector('[data-ft-ad-width-wait]') ? 'invalid_width'

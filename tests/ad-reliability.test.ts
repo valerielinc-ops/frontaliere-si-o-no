@@ -270,14 +270,18 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(250);
     expect(w.document.querySelector('dialog')?.textContent).toContain('Gli annunci non si caricano');
   });
-  it('recognizes legacy GPT query evidence without treating every loading placeholder as pending', async () => {
+  it.each(['self', 'descendant'])('recognizes legacy GPT query evidence on %s without treating every loading placeholder as pending', async (position) => {
     w.localStorage.setItem('frontaliere_ads_consent', 'granted');
     slot(300).setAttribute('data-ad-status', 'unfilled');
-    const box = w.document.createElement('div'); box.setAttribute('data-ad-state', 'loading');
-    const target = w.document.createElement('div'); target.setAttribute('data-google-query-id', 'test-query'); box.append(target); w.document.body.append(box);
+    const box = w.document.createElement(position === 'self' ? 'ins' : 'div'); box.setAttribute('data-ad-state', 'loading');
+    const target = position === 'self' ? box : w.document.createElement('div');
+    target.setAttribute('data-google-query-id', 'test-query');
+    if (target !== box) box.append(target);
+    w.document.body.append(box);
     recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
     expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+    expect(emit.mock.calls.some(([event, props]) => event === 'ad_reliability_state' && props.reason === 'response_pending')).toBe(true);
     target.removeAttribute('data-google-query-id');
     await vi.advanceTimersByTimeAsync(250);
     expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
