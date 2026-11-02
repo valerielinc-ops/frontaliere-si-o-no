@@ -46,6 +46,7 @@ import { htmlToText } from '../functions/src/lib/mimeMessage.js';
 import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import {
   buildAlertProfile,
+  mergeAlertSubscriberSignals,
   createAlertScorer,
   createJobFeatureCache,
   partitionByGeoPreference,
@@ -2105,6 +2106,7 @@ function planAlertMatch(alert, {
   locationIndex,
   cityToCanton,
   subscriberProfiles,
+  jobAlertProfiles = new Map(),
   applicationIntentAccountProfiles = new Map(),
   recentJobs,
   now,
@@ -2143,7 +2145,10 @@ function planAlertMatch(alert, {
   };
   const profile = buildAlertProfile(
     alert,
-    subscriberProfiles.get(alert.email.toLowerCase()) || null,
+    mergeAlertSubscriberSignals(
+      subscriberProfiles.get(alert.email.toLowerCase()) || null,
+      jobAlertProfiles.get(alert.email.toLowerCase()) || null,
+    ),
     extras,
   );
   // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
@@ -3050,6 +3055,7 @@ async function main() {
         locationIndex,
         cityToCanton,
         subscriberProfiles,
+        jobAlertProfiles,
         applicationIntentAccountProfiles,
         // `planAlertMatch` keeps its historical property name for the test
         // oracle, but the value is now the recipient-aware candidate pool.
