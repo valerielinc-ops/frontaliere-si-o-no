@@ -2,6 +2,14 @@ name: Refresh Keyword Pages Config
 on:
   schedule:
     - cron: '30 3 * * 1'  # Every Monday at 03:30 UTC
+  # The ranking writer can take longer than the nominal 30-minute gap, and a
+  # scheduled checkout can race its commit even when both jobs are healthy.
+  # Re-run from the completed writer so a promotable profession is consumed
+  # from the commit that produced it, not from the previous week's snapshot.
+  workflow_run:
+    workflows: ['Profession Keyword Opportunities']
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       dry_run:
@@ -13,8 +21,21 @@ permissions:
   contents: write
   issues: write
 
+concurrency:
+  # GitHub retains only one pending run per concurrency group. Keep a manual
+  # preview out of the writer lane so it cannot replace a successful
+  # workflow_run waiting behind an active writer.
+  group: >-
+    ${{ (inputs.dry_run == true || inputs.dry_run == 'true')
+        && 'refresh-keyword-config-preview'
+        || 'refresh-keyword-config-write' }}
+  cancel-in-progress: false
+
 jobs:
   refresh:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
