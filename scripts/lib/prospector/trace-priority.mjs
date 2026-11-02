@@ -64,9 +64,6 @@ function compareTraceEvidence(a, b, now) {
   const recentDemand = Number(hasRecentSecoDemand(b, now)) - Number(hasRecentSecoDemand(a, now));
   if (recentDemand) return recentDemand;
 
-  const borderDemand = cantonPriority(b) - cantonPriority(a);
-  if (borderDemand) return borderDemand;
-
   if (hasRecentSecoDemand(a, now) && hasRecentSecoDemand(b, now)) {
     const fresh = String(b.sourceSeenAt.seco).localeCompare(String(a.sourceSeenAt.seco));
     if (fresh) return fresh;
