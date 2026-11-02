@@ -7,6 +7,7 @@ import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { reset } from '../build-plugins/sharedWriteRegistry';
 import { replaceEmittedEventArchivePaths } from '../build-plugins/shared/eventArchiveCompat';
 import { _resetForTests as resetTrafficEvidence } from '../build-plugins/shared/trafficEvidenceFilter';
+import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
 
 const fixtures = vi.hoisted(() => ({ events: [] as Array<Record<string, unknown>> }));
 
@@ -93,6 +94,7 @@ describe('historical event content floor', () => {
     });
     expect(direct.wordCount).toBe(49);
     expect(direct.html).toMatch(/noindex,follow/);
+    expect(direct.html).toContain(EVENT_DETAIL_NOINDEX_TARGET_MARKER);
 
     const root = temporary();
     fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
@@ -104,6 +106,7 @@ describe('historical event content floor', () => {
     const detail = findEventDetail(path.join(root, 'dist'));
     const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi-storici.xml'), 'utf8');
     expect(detail.html).toMatch(/noindex,follow/);
+    expect(detail.html).toContain(EVENT_DETAIL_NOINDEX_TARGET_MARKER);
     expect(sitemap).not.toContain(`<loc>https://frontaliereticino.ch${detail.urlPath}</loc>`);
   });
 });
