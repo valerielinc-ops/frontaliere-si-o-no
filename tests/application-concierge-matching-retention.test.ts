@@ -162,6 +162,10 @@ describe('application concierge proposal retention', () => {
     expect(fingerprintFor).toHaveBeenCalledTimes(2);
     expect(eligibility).toHaveBeenCalledTimes(1);
     expect((await retryRef.get()).exists).toBe(false);
+    expect(store.read(SERVICE_PATH)).toMatchObject({
+      matchingEligibilityRecoveryCount: 1,
+      matchingEligibilityLastRecoveryStatus: 'compatible',
+    });
     expect(store.list(`${SERVICE_PATH}/proposals/`)).toHaveLength(1);
   });
 

@@ -69,7 +69,8 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
   await db.runTransaction(async transaction => {
     const previousSnapshot = await transaction.get(ref);
     const previous = previousSnapshot.data();
-    const sameContext = previous?.context === context && previous?.jobContext === jobContext;
+    const sameJobContext = previous?.jobContext === jobContext;
+    const sameContext = previous?.context === context && sameJobContext;
     const providerFailures = safeProviderFailures(result?.providerFailures);
     const retainedProviderFailures = providerFailures.length
       ? providerFailures
@@ -78,7 +79,7 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
 
     if (TERMINAL_STATUSES.has(status)) {
       if (!previous) return;
-      const firstAttemptAt = sameContext ? Number(previous.firstAttemptAt) || 0 : 0;
+      const firstAttemptAt = sameJobContext ? Number(previous.firstAttemptAt) || 0 : 0;
       if (firstAttemptAt > 0) {
         const recoveryDurationMs = Math.max(0, lastAttemptAt - firstAttemptAt);
         const serviceSnapshot = await transaction.get(serviceRef);
