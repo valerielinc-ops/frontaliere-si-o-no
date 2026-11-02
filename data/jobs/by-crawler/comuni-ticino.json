@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comuni-ticino",
-  "assembledAt": "2026-11-02T11:18:28.528Z",
-  "runId": "41420562332",
+  "assembledAt": "2026-11-02T22:03:25.854Z",
+  "runId": "41528259322",
   "jobs": [
     {
       "id": "comune-di-monteceneri-cf7d4d00b4",
@@ -13,9 +13,10 @@
         "fr": "stagiaire-52-semaines-branche-de-l-administration-publique-comune-di-monteceneri-monteceneri"
       },
       "company": "Comune di Monteceneri",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-monteceneri",
       "municipalityKey": "comune-di-monteceneri",
       "companyDomain": "monteceneri.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Stagista 52 settimane (Ramo amministrazione pubblica)",
       "titleByLocale": {
         "it": "Stagista 52 settimane (Ramo amministrazione pubblica)",
@@ -54,8 +55,9 @@
       "pdfUrl": "https://www.monteceneri.ch/s/Bando-di-concorso-stagisti-52-settimane-2027-2028-ssb9.pdf",
       "applyUrl": "https://www.monteceneri.ch/s/Bando-di-concorso-stagisti-52-settimane-2027-2028-ssb9.pdf",
       "source": "Comune di Monteceneri Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -83,9 +85,10 @@
         "fr": "stagiaire-52-semaines-parcours-mp1-3-1-comune-di-morbio-inferiore-morbio-inferiore"
       },
       "company": "Comune di Morbio Inferiore",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-morbio-inferiore",
       "municipalityKey": "comune-di-morbio-inferiore",
       "companyDomain": "morbioinf.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Stagista 52 settimane - Percorso MP1 3+1",
       "titleByLocale": {
         "it": "Stagista 52 settimane - Percorso MP1 3+1",
@@ -124,8 +127,9 @@
       "pdfUrl": "https://morbioinf.ch/Assunzione-stagista-52-settimane-Percorso-MP1-31-3d1ba600?i=1",
       "applyUrl": "https://morbioinf.ch/Assunzione-stagista-52-settimane-Percorso-MP1-31-3d1ba600?i=1",
       "source": "Comune di Morbio Inferiore Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -153,9 +157,10 @@
         "fr": "employe-amministrativo-per-servizi-amministrazione-comunale-comune-di-losone-losone"
       },
       "company": "Comune di Losone",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-losone",
       "municipalityKey": "comune-di-losone",
       "companyDomain": "losone.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Impiegato amministrativo per servizi amministrazione comunale",
       "titleByLocale": {
         "it": "Impiegato amministrativo per servizi amministrazione comunale",
@@ -194,8 +199,9 @@
       "pdfUrl": "https://www.losone.ch/Concorso-impiegato-amministrativo-per-servizi-amministrazione-comunale-bando-14e5fc00?i=1",
       "applyUrl": "https://www.losone.ch/Concorso-impiegato-amministrativo-per-servizi-amministrazione-comunale-bando-14e5fc00?i=1",
       "source": "Comune di Losone Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -223,9 +229,10 @@
         "fr": "architetto-o-ingenieur-per-l-ufficio-technicien-comunale-settore-edilizia-privata-comune-di-minusio-minusio"
       },
       "company": "Comune di Minusio",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-minusio",
       "municipalityKey": "comune-di-minusio",
       "companyDomain": "minusio.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Architetto o ingegnere per l'Ufficio tecnico comunale (settore edilizia privata)",
       "titleByLocale": {
         "it": "Architetto o ingegnere per l'Ufficio tecnico comunale (settore edilizia privata)",
@@ -264,8 +271,9 @@
       "pdfUrl": "https://www.minusio.ch/Concorso-assunzione-Direttrice-Direttore-dell-Istituto-scolastico-comunale-44a00600?i=1",
       "applyUrl": "https://www.minusio.ch/Concorso-assunzione-Direttrice-Direttore-dell-Istituto-scolastico-comunale-44a00600?i=1",
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -288,14 +296,15 @@
       "slug": "ausiliari-e-di-cucina-supplenti-presso-l-istituto-scolastico-comunale-biasca",
       "slugByLocale": {
         "it": "ausiliari-e-di-cucina-supplenti-presso-l-istituto-scolastico-comunale-biasca",
-        "en": "substitute-kitchen-assistants-at-the-municipal-school-comune-di-biasca-biasca",
-        "de": "stellvertretende-kuchenhilfen-beim-stadtischen-schulinstitut-comune-di-biasca-biasca",
-        "fr": "auxiliaires-de-cuisine-remplacant-e-s-aupres-de-l-institut-scolaire-communal-comune-di-biasca-biasca"
+        "en": "ausiliari-e-di-cucina-supplenti-presso-l-istituto-scolastico-comunale-biasca",
+        "de": "ausiliari-e-di-cucina-supplenti-presso-l-istituto-scolastico-comunale-biasca",
+        "fr": "ausiliari-e-di-cucina-supplenti-presso-l-istituto-scolastico-comunale-biasca"
       },
       "company": "Comune di Biasca",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-biasca",
       "municipalityKey": "comune-di-biasca",
       "companyDomain": "biasca.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Ausiliari/e di cucina supplenti presso l'Istituto scolastico comunale",
       "titleByLocale": {
         "it": "Ausiliari/e di cucina supplenti presso l'Istituto scolastico comunale",
@@ -335,8 +344,9 @@
       "pdfUrl": "https://www.biasca.ch/Avviso-di-pubblicazione-concorso-generale-20252026-per-l-assunzione-di-ausiliarie-di-cucina-supplenti-presso-l-Istituto-scolastico-comunale-6748c800?i=1",
       "applyUrl": "https://www.biasca.ch/Avviso-di-pubblicazione-concorso-generale-20252026-per-l-assunzione-di-ausiliarie-di-cucina-supplenti-presso-l-Istituto-scolastico-comunale-6748c800?i=1",
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -351,23 +361,40 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T11:11:05.451Z",
+      "validThrough": "2027-01-13T21:56:11.530Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T22:00:21.787Z"
+      "firstSeenAt": "2026-10-31T22:00:21.787Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "substitute-kitchen-assistants-at-the-municipal-school-comune-di-biasca-biasca"
+        ],
+        "de": [
+          "stellvertretende-kuchenhilfen-beim-stadtischen-schulinstitut-comune-di-biasca-biasca"
+        ],
+        "fr": [
+          "auxiliaires-de-cuisine-remplacant-e-s-aupres-de-l-institut-scolaire-communal-comune-di-biasca-biasca"
+        ]
+      },
+      "previousSlugs": [
+        "substitute-kitchen-assistants-at-the-municipal-school-comune-di-biasca-biasca",
+        "stellvertretende-kuchenhilfen-beim-stadtischen-schulinstitut-comune-di-biasca-biasca",
+        "auxiliaires-de-cuisine-remplacant-e-s-aupres-de-l-institut-scolaire-communal-comune-di-biasca-biasca"
+      ]
     },
     {
       "id": "comune-di-biasca-96e3633ce9",
       "slug": "ausiliari-e-di-pulizia-supplenti-presso-l-istituto-scolastico-comunale-biasca",
       "slugByLocale": {
         "it": "ausiliari-e-di-pulizia-supplenti-presso-l-istituto-scolastico-comunale-biasca",
-        "en": "substitute-cleaning-assistants-at-the-municipal-school-comune-di-biasca-biasca",
-        "de": "stellvertretende-reinigungskrafte-beim-stadtischen-schulinstitut-comune-di-biasca-biasca",
-        "fr": "auxiliaires-de-nettoyage-remplacant-e-s-aupres-de-l-institut-scolaire-communal-comune-di-biasca-biasca"
+        "en": "ausiliari-e-di-pulizia-supplenti-presso-l-istituto-scolastico-comunale-biasca",
+        "de": "ausiliari-e-di-pulizia-supplenti-presso-l-istituto-scolastico-comunale-biasca",
+        "fr": "ausiliari-e-di-pulizia-supplenti-presso-l-istituto-scolastico-comunale-biasca"
       },
       "company": "Comune di Biasca",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-biasca",
       "municipalityKey": "comune-di-biasca",
       "companyDomain": "biasca.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Ausiliari/e di pulizia supplenti presso l'Istituto scolastico comunale",
       "titleByLocale": {
         "it": "Ausiliari/e di pulizia supplenti presso l'Istituto scolastico comunale",
@@ -407,8 +434,9 @@
       "pdfUrl": "https://www.biasca.ch/Avviso-di-pubblicazione-concorso-generale-20252026-per-l-assunzione-di-ausiliarie-di-pulizia-supplenti-presso-l-Istituto-scolastico-comunale-b7a2ff00?i=1",
       "applyUrl": "https://www.biasca.ch/Avviso-di-pubblicazione-concorso-generale-20252026-per-l-assunzione-di-ausiliarie-di-pulizia-supplenti-presso-l-Istituto-scolastico-comunale-b7a2ff00?i=1",
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -423,9 +451,25 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T11:11:05.451Z",
+      "validThrough": "2027-01-13T21:56:11.530Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T22:00:21.787Z"
+      "firstSeenAt": "2026-10-31T22:00:21.787Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "substitute-cleaning-assistants-at-the-municipal-school-comune-di-biasca-biasca"
+        ],
+        "de": [
+          "stellvertretende-reinigungskrafte-beim-stadtischen-schulinstitut-comune-di-biasca-biasca"
+        ],
+        "fr": [
+          "auxiliaires-de-nettoyage-remplacant-e-s-aupres-de-l-institut-scolaire-communal-comune-di-biasca-biasca"
+        ]
+      },
+      "previousSlugs": [
+        "substitute-cleaning-assistants-at-the-municipal-school-comune-di-biasca-biasca",
+        "stellvertretende-reinigungskrafte-beim-stadtischen-schulinstitut-comune-di-biasca-biasca",
+        "auxiliaires-de-nettoyage-remplacant-e-s-aupres-de-l-institut-scolaire-communal-comune-di-biasca-biasca"
+      ]
     },
     {
       "id": "comune-di-terre-di-pedemonte-804ca4cc6a",
@@ -437,9 +481,10 @@
         "fr": "fonctionnaire-administratif-ve-comptable-a-temps-plein-comune-di-terre-di-pedemonte-terre-di-pedemonte"
       },
       "company": "Comune di Terre di Pedemonte",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-terre-di-pedemonte",
       "municipalityKey": "comune-di-terre-di-pedemonte",
       "companyDomain": "pedemonte.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Funzionario/a amministrativo - contabile a tempo pieno",
       "titleByLocale": {
         "it": "Funzionario/a amministrativo - contabile a tempo pieno",
@@ -478,8 +523,9 @@
       "pdfUrl": "https://www.pedemonte.ch/Concorso-per-la-nomina-di-una-funzionarioa-amministrativo-contabile-a-tempo-pieno-1e41bd00?i=1",
       "applyUrl": "https://www.pedemonte.ch/Concorso-per-la-nomina-di-una-funzionarioa-amministrativo-contabile-a-tempo-pieno-1e41bd00?i=1",
       "source": "Comune di Terre di Pedemonte Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -507,9 +553,10 @@
         "fr": "collaboratore-trice-technicien-comunale-comune-di-serravalle-malvaglia"
       },
       "company": "Comune di Serravalle",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-serravalle",
       "municipalityKey": "comune-di-serravalle",
       "companyDomain": "serravalle.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Collaboratore/trice tecnico comunale",
       "titleByLocale": {
         "it": "Collaboratore/trice tecnico comunale",
@@ -548,8 +595,9 @@
       "pdfUrl": "https://www.serravalle.ch/Concorso-per-l-assunzione-di-una-collaboratoretrice-tecnico-comunale-54290800?i=1",
       "applyUrl": "https://www.serravalle.ch/Concorso-per-l-assunzione-di-una-collaboratoretrice-tecnico-comunale-54290800?i=1",
       "source": "Comune di Serravalle Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -577,9 +625,10 @@
         "fr": "ouvrier-communal-comune-di-terre-di-pedemonte-terre-di-pedemonte"
       },
       "company": "Comune di Terre di Pedemonte",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-terre-di-pedemonte",
       "municipalityKey": "comune-di-terre-di-pedemonte",
       "companyDomain": "pedemonte.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Operaio comunale",
       "titleByLocale": {
         "it": "Operaio comunale",
@@ -618,8 +667,9 @@
       "pdfUrl": "https://www.pedemonte.ch/Concorso-operaio-comunale-bd7dd800?i=1",
       "applyUrl": "https://www.pedemonte.ch/Concorso-operaio-comunale-bd7dd800?i=1",
       "source": "Comune di Terre di Pedemonte Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -647,9 +697,10 @@
         "fr": "personnel-pour-la-casa-anziani-girasole-comune-di-massagno-massagno"
       },
       "company": "Comune di Massagno",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-massagno",
       "municipalityKey": "comune-di-massagno",
       "companyDomain": "massagno.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Personale per la Casa anziani Girasole",
       "titleByLocale": {
         "it": "Personale per la Casa anziani Girasole",
@@ -688,8 +739,9 @@
       "pdfUrl": "https://www.massagno.ch/Avviso-di-concorso-generale-per-l-assunzione-di-personale-per-la-Casa-anziani-Girasole-8ca46200?i=1",
       "applyUrl": "https://www.massagno.ch/Avviso-di-concorso-generale-per-l-assunzione-di-personale-per-la-Casa-anziani-Girasole-8ca46200?i=1",
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -717,9 +769,10 @@
         "fr": "concours-permanent-des-instituts-sociaux-2026-comune-di-chiasso-chiasso"
       },
       "company": "Comune di Chiasso",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-chiasso",
       "municipalityKey": "comune-di-chiasso",
       "companyDomain": "chiasso.ch",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Concorso permanente Istituti sociali 2026",
       "titleByLocale": {
         "it": "Concorso permanente Istituti sociali 2026",
@@ -758,8 +811,9 @@
       "pdfUrl": "https://cdn.cityos.chiasso.city/d67d427d1bc9b51ab2ca0e/e1b1d71c7686/1768299891217bc7f2e12dace526f060533fbafd021ea.pdf",
       "applyUrl": "https://cdn.cityos.chiasso.city/d67d427d1bc9b51ab2ca0e/e1b1d71c7686/1768299891217bc7f2e12dace526f060533fbafd021ea.pdf",
       "source": "Comune di Chiasso Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -787,9 +841,10 @@
         "fr": "stagiaire-en-vue-de-l-obtention-de-la-maturite-professionnelle-commerciale-52-semaines-comune-di-collina-d-oro-collina-d"
       },
       "company": "Comune di Collina d'Oro",
-      "companyKey": "comuni-ticino",
+      "companyKey": "comune-di-collina-d-oro",
       "municipalityKey": "comune-di-collina-d-oro",
       "companyDomain": "collinadoro.swiss",
+      "companyDomainSource": "ticino-comuni-registry",
       "title": "Stagista per il conseguimento della maturità professionale commerciale (52 settimane)",
       "titleByLocale": {
         "it": "Stagista per il conseguimento della maturità professionale commerciale (52 settimane)",
@@ -828,8 +883,9 @@
       "pdfUrl": "https://www.collinadoro.swiss/Concorso-stagista-per-il-conseguimento-della-maturit-professionale-commerciale-52-settimane-14431900?i=1",
       "applyUrl": "https://www.collinadoro.swiss/Concorso-stagista-per-il-conseguimento-della-maturit-professionale-commerciale-52-settimane-14431900?i=1",
       "source": "Comune di Collina d'Oro Dedicated Parser (albo + PDF)",
+      "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:11:05.451Z",
+      "crawledAt": "2026-11-02T21:56:11.530Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
