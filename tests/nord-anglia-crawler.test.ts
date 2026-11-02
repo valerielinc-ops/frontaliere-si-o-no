@@ -430,9 +430,11 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     expect(step.env.JOBS_SLICE_FILE).toBe('data/jobs/by-crawler/nord-anglia.json');
     expect(step.run).toContain('node scripts/update-nord-anglia-jobs.mjs');
     expect(step.run).toMatch(/crawler_exit=\$\?/);
-    expect(step.run).toMatch(/if \[ "\$crawler_exit" -eq 0 \]; then\s+\(node scripts\/cleanup-jobs\.mjs\)/);
     expect(step.run).toMatch(
-      /if \[ "\$crawler_exit" -eq 0 \]; then\s+CRAWLER_GROUP_DEFER_COMMIT=1\s+flock .*git-commit-data\.sh/,
+      /if \[ "\$crawler_exit" -eq 0 \] && \[ "\$housekeeping_exit" -eq 0 \]; then\s+\(node scripts\/cleanup-jobs\.mjs\)/,
+    );
+    expect(step.run).toMatch(
+      /if \[ "\$crawler_exit" -eq 0 \] && \[ "\$housekeeping_exit" -eq 0 \]; then\s+CRAWLER_GROUP_DEFER_COMMIT=1\s+flock .*git-commit-data\.sh/,
     );
     expect(result).toMatchObject({ if: 'always()' });
     expect(result.run).toContain('status_file=');
