@@ -25,6 +25,10 @@ export const ARTICLE_INDEX_EXCLUSIONS_FILES = Object.freeze([
   'content/article-index-exclusions.json',
 ]);
 
+// Canton pages are an always-indexable contract surface. A ledger entry for a
+// canton is invalid rather than a silently ignored noindex request.
+export const ARTICLE_INDEX_EXCLUSION_SECTIONS = Object.freeze(['frontaliere', 'svizzera']);
+
 export const articleIndexExclusionKey = (section, articleId) => `${section}|${articleId}`;
 
 /**
@@ -41,9 +45,26 @@ export function parseArticleIndexExclusions(raw) {
     if (typeof row?.section !== 'string' || !row.section || typeof row?.id !== 'string' || !row.id) {
       throw new Error(`article-index-exclusions: riga senza section/id: ${JSON.stringify(row)}`);
     }
+    if (!ARTICLE_INDEX_EXCLUSION_SECTIONS.includes(row.section)) {
+      throw new Error(`article-index-exclusions: sezione non supportata: ${row.section}`);
+    }
     keys.add(articleIndexExclusionKey(row.section, row.id));
   }
   return keys;
+}
+
+/**
+ * Fail closed when a ledger row no longer identifies a published registry
+ * entry. Filtering unknown rows would make a typo look like a successful
+ * withdrawal while leaving the article indexed everywhere.
+ */
+export function assertArticleIndexExclusionsKnown(exclusions, knownKeys) {
+  const known = knownKeys instanceof Set ? knownKeys : new Set(knownKeys);
+  const unknown = [...exclusions].filter((key) => !known.has(key));
+  if (unknown.length > 0) {
+    throw new Error(`article-index-exclusions: identita' non presenti nei registri: ${unknown.join(', ')}`);
+  }
+  return exclusions;
 }
 
 /**

@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain .mjs module, no type declarations.
-import { assertNoEditorialClaims, findEditorialClaims, repairEditorialClaims, splitClaimSegments } from '../packages/articles/engine/shared/editorialClaims.mjs';
+import {
+  assertNoEditorialClaims,
+  findEditorialClaims,
+  repairEditorialClaims,
+  splitClaimSegments,
+  stripPromptTitleLabels,
+} from '../packages/articles/engine/shared/editorialClaims.mjs';
 
 const classes = (text: string, locale: string) =>
   findEditorialClaims(text, { locale }).map((claim: { class: string }) => claim.class);
@@ -108,8 +114,18 @@ describe('stringhe di prompt', () => {
   });
 
   it('toglie le etichette del prompt tradotte', () => {
-    expect(repairEditorialClaims("Fine.\n\nTITRE DE L'ARTICLE : Un titre\n\n## Suite", { locale: 'fr' }).value).toBe('Fine.\n\n## Suite');
+    expect(repairEditorialClaims("Fine.\n\nTITRE DE L'ARTICLE : Un titre\n\n## Suite", { locale: 'fr', title: 'Un titre' }).value).toBe('Fine.\n\n## Suite');
     expect(repairEditorialClaims('Il TITOLO non cambia: resta.', { locale: 'it' }).changes).toEqual([]);
+  });
+
+  it('rimuove un titolo noto senza lasciare un\'intestazione vuota', () => {
+    const text = "Prima.\n\n## TITRE DE L'ARTICLE : Un titre\n\nDopo.";
+    expect(stripPromptTitleLabels(text, { title: 'Un titre' }).value).toBe('Prima.\n\nDopo.');
+  });
+
+  it('rimuove l\'etichetta inline ma conserva la prosa senza un titolo noto', () => {
+    const text = 'La fonte precisa TITOLO ARTICOLO: i documenti restano necessari dopo la domanda.';
+    expect(stripPromptTitleLabels(text).value).toBe('La fonte precisa i documenti restano necessari dopo la domanda.');
   });
 });
 
@@ -170,6 +186,13 @@ describe('tassa salute', () => {
     ]) {
       expect(classes(sentence, 'it')).toEqual([]);
     }
+  });
+
+  it('accetta anche percentuali fra 3% e 6%, incluse le frazioni', () => {
+    for (const rate of ['3,5', '4', '5', '5,9']) {
+      expect(classes(`La tassa sulla salute può essere del ${rate}% del salario netto.`, 'it')).toEqual([]);
+    }
+    expect(classes('La tassa sulla salute può essere del 2,9% del salario netto.', 'it')).toContain('tassa-salute');
   });
 });
 

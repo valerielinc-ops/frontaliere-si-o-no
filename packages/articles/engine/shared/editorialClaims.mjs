@@ -396,14 +396,13 @@ function hasPromptEcho(sentence, locale) {
 }
 
 /** Etichette del prompt tradotte: «TITOLO ARTICOLO:» arriva in quattro lingue. */
-const PROMPT_TITLE_LABEL = /(?<![\p{L}\p{N}])(?:TITOLO\s+(?:DELL['’]?ARTICOLO|ARTICOLO)|TITRE(?:\s+(?:DE\s+L['’]ARTICLE|ARTICLE))?|TITEL(?:\s+(?:DES\s+ARTIKELS|ARTIKEL))?|ARTIKEL-?TITEL|ARTICLE\s+TITLE|TITLE\s+ARTICLE|TITLE\s+OF\s+THE\s+ARTICLE)\s*:\s*/u;
-const LABEL_LINE_MAX = 180;
+const PROMPT_TITLE_LABEL = /(?<![\p{L}\p{N}])(?:TITOLO\s+(?:DELL['’]?ARTICOLO|ARTICOLO)|TITRE(?:\s+(?:DE\s+L['’]ARTICLE|ARTICLE))?|TITEL(?:\s+(?:DES\s+ARTIKELS|ARTIKEL))?|ARTIKEL-?TITEL|ARTICLE\s+TITLE|TITLE\s+ARTICLE|TITLE\s+OF\s+THE\s+ARTICLE)[ \t]*:[ \t]*/iu;
 /** Stessa etichetta come riga intera, anche in minuscolo o come intestazione. */
-const PROMPT_TITLE_LINE = /^[ \t]*#{0,6}[ \t]*(?:\*\*)?(?:titolo\s+(?:dell['’]?articolo|articolo)|article\s+title|title\s+of\s+the\s+article|title\s+article|titel\s+des\s+artikels|artikel-?titel|titre\s+(?:de\s+l['’]artic\S*|article))(?:\*\*)?[ \t]*(?::[^\n]{0,200})?$\n?/gimu;
+const PROMPT_TITLE_LINE = /^[ \t]*#{0,6}[ \t]*(?:\*\*)?(?:titolo\s+(?:dell['’]?articolo|articolo)|article\s+title|title\s+of\s+the\s+article|title\s+article|titel\s+des\s+artikels|artikel-?titel|titre\s+(?:de\s+l['’]artic\S*|article))(?:\*\*)?[ \t]*(?::[ \t]*)?$\n?/gimu;
 
 /**
- * Toglie la riga con l'etichetta del prompt. Se dopo l'etichetta c'e' testo vero
- * sulla stessa riga si toglie solo il titolo noto, altrimenti la sola etichetta.
+ * Toglie l'etichetta del prompt e il titolo solo quando e' noto. Senza il titolo
+ * non elimina il testo successivo: potrebbe essere prosa editoriale valida.
  */
 export function stripPromptTitleLabels(text, { title = '' } = {}) {
   let removed = 0;
@@ -418,12 +417,20 @@ export function stripPromptTitleLabels(text, { title = '' } = {}) {
     const newline = value.indexOf('\n', afterLabel);
     const lineEnd = newline === -1 ? value.length : newline;
     const rest = value.slice(afterLabel, lineEnd);
+    const lineStart = value.lastIndexOf('\n', start - 1) + 1;
+    const linePrefix = value.slice(lineStart, start);
+    const standaloneLabel = /^[ \t]*(?:#{0,6}[ \t]*(?:\*\*)?)?$/.test(linePrefix);
     let cut = afterLabel;
-    if (rest.length <= LABEL_LINE_MAX) cut = lineEnd;
-    else if (title && rest.startsWith(title)) cut = afterLabel + title.length;
+    if (title && rest.startsWith(title)) cut = afterLabel + title.length;
+    else if (standaloneLabel && !rest.trim()) cut = lineEnd;
     const before = value.slice(0, start).replace(/[ \t]+$/, '');
     const after = value.slice(cut);
-    value = cut === lineEnd ? `${before.replace(/\n+$/, '')}${after}` : `${before}${before ? ' ' : ''}${after.replace(/^\s+/, '')}`;
+    if (cut === lineEnd) {
+      const previous = standaloneLabel ? value.slice(0, lineStart) : before;
+      value = `${previous.replace(/\n+$/, '')}${after}`;
+    } else {
+      value = `${before}${before ? ' ' : ''}${after.replace(/^\s+/, '')}`;
+    }
     removed += 1;
   }
   return { value, removed };
@@ -600,7 +607,10 @@ function isHealthTaxClaim(sentence, locale) {
   if (HEALTH_TAX_EXEMPT[locale].test(sentence)) return false;
   if (SWISS_FRANC_AMOUNT.test(sentence) || YEARLY_EURO[locale].test(sentence)) return true;
   if (hasMonthlyAmountOutOfRange(sentence, locale)) return true;
-  return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some(([, value]) => !['3', '6'].includes(value.replace(',', '.')));
+  return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some(([, value]) => {
+    const percent = Number(value.replace(',', '.'));
+    return percent < 3 || percent > 6;
+  });
 }
 
 /** Un importo o una base non verificabile si toglie: non c'e' un valore da mettere. */

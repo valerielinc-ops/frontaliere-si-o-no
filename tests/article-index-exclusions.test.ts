@@ -3,7 +3,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  ARTICLE_INDEX_EXCLUSION_SECTIONS,
   ARTICLE_INDEX_EXCLUSIONS_FILES,
+  assertArticleIndexExclusionsKnown,
   articleIndexExclusionKey,
   loadArticleIndexExclusions,
   parseArticleIndexExclusions,
@@ -29,6 +31,19 @@ describe('article index exclusions ledger', () => {
     }));
     expect(keys.has(articleIndexExclusionKey('frontaliere', 'como-napoli-pareggio-2026'))).toBe(true);
     expect(keys.has(articleIndexExclusionKey('svizzera', 'como-napoli-pareggio-2026'))).toBe(false);
+  });
+
+  it('accepts only indexable editorial sections', () => {
+    expect(ARTICLE_INDEX_EXCLUSION_SECTIONS).toEqual(['frontaliere', 'svizzera']);
+    expect(() => parseArticleIndexExclusions(JSON.stringify({
+      excluded: [{ section: 'canton', id: 'ti' }],
+    }))).toThrow(/sezione non supportata/);
+  });
+
+  it('fails closed when an exclusion no longer points to a published article', () => {
+    const exclusions = new Set(['frontaliere|known-article']);
+    expect(assertArticleIndexExclusionsKnown(exclusions, ['frontaliere|known-article'])).toBe(exclusions);
+    expect(() => assertArticleIndexExclusionsKnown(exclusions, new Set())).toThrow(/non presenti nei registri/);
   });
 
   it('treats a missing file as an empty set: a checkout may not have received it yet', () => {
