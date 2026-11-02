@@ -42,10 +42,20 @@ import {
 import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
 import { registrableDomain } from './lib/prospector/registrable.mjs';
 import { mapPool } from './lib/prospector/polite-fetch.mjs';
-import { CONCURRENCY } from './lib/prospector/config.mjs';
+import {
+  CONCURRENCY,
+  GOOGLE_PLACES_USAGE_PATH,
+  PROSPECTOR_GOOGLE_PLACES_LIMIT,
+} from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 import { parseTraceLimit, prioritizeTraceCandidates } from './lib/prospector/trace-priority.mjs';
 import { attributableTraceHosts, traceCandidate } from './lib/prospector/trace-candidate.mjs';
+import { createPersistentGooglePlacesBudget } from './lib/google-places-budget.mjs';
+import {
+  appendDiscoveryHealth,
+  recordDomainResolverOutcome,
+  startDiscoveryHealthRun,
+} from './lib/prospector/source-health.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -62,6 +72,21 @@ startLedgerPhase('trace', { dryRun });
 
 const store = loadCandidates();
 const registry = loadRegistry();
+const knownDomainOwners = new Map();
+for (const candidate of Object.values(store.candidates)) {
+  const domain = candidate?.domain ? registrableDomain(candidate.domain) : null;
+  if (!domain || !candidate?.name) continue;
+  const owners = knownDomainOwners.get(domain) || new Set();
+  owners.add(candidate.name);
+  knownDomainOwners.set(domain, owners);
+}
+const googlePlacesBudget = createPersistentGooglePlacesBudget({
+  file: GOOGLE_PLACES_USAGE_PATH,
+  checkedAt: new Date().toISOString(),
+  monthlyLimit: PROSPECTOR_GOOGLE_PLACES_LIMIT,
+  enabled: Boolean(process.env.GOOGLE_MAPS_API_KEY) && !dryRun,
+});
+const resolverHealth = startDiscoveryHealthRun({ phase: 'trace' });
 
 const rechecked = onlyKey || onlySource || dryRun ? [] : reviveStaleNoCareersCandidates(store);
 const retriedDomains = onlyKey || onlySource || dryRun ? [] : reviveUnresolvedDomainCandidates(store);
@@ -83,7 +108,13 @@ if (rechecked.length) console.log(`ricontrollo periodico: ${rechecked.length} si
 if (retriedDomains.length) console.log(`nuovo generatore di domini: ${retriedDomains.length} candidati rimessi in coda`);
 console.log(`in coda: ${queue.length} candidati (di ${byStatus(store, 'new').length} nuovi)\n`);
 
-const results = await mapPool(queue, CONCURRENCY, (c) => traceCandidate(c));
+const results = await mapPool(queue, CONCURRENCY, (c) => traceCandidate(c, {
+  googlePlaces: {
+    apiKey: process.env.GOOGLE_MAPS_API_KEY,
+    budget: googlePlacesBudget,
+  },
+  knownDomainOwners,
+}));
 
 let traced = 0;
 let dead = 0;
@@ -94,6 +125,9 @@ const promoted = [];
 for (const r of results) {
   if (!r) continue;
   const { c } = r;
+  if (r.resolution?.googlePlaces) {
+    recordDomainResolverOutcome(resolverHealth, 'google_places', r.resolution.googlePlaces);
+  }
   if (r.resolution?.triedHints?.length) {
     store.candidates[c.key].emailDomainHintsTried = [
       ...new Set([...(c.emailDomainHintsTried || []), ...r.resolution.triedHints]),
@@ -133,6 +167,7 @@ for (const r of results) {
   const best = attributableHosts.slice().sort((a, b) => b.score - a.score)[0];
   setStatus(store, c.key, 'traced', {
     domain: r.domain,
+    ...(r.resolution?.placeId ? { googlePlaceId: r.resolution.placeId } : {}),
     domainEvidence: r.resolution?.evidence,
     careersUrl: best?.url || r.trail.careersUrls[0],
     careersUrls: r.trail.careersUrls,
@@ -153,13 +188,19 @@ for (const r of results) {
 }
 
 console.log(`\ntracciati: ${traced}   rimandati: ${deferred}   esauriti: ${dead}   sightings piattaforma: ${platformHits}`);
+console.log(`Google Places: ${googlePlacesBudget.requests}/${googlePlacesBudget.monthlyLimit} richieste riservate${googlePlacesBudget.reason() ? ` · ${googlePlacesBudget.reason()}` : ''}`);
 if (promoted.length) console.log(`PIATTAFORME PROMOSSE a confirmed: ${[...new Set(promoted)].join(', ')}`);
 const conf = Object.values(registry.platforms).filter((p) => p.status !== 'candidate' && p.status !== 'rejected');
 console.log(`registro: ${Object.keys(registry.platforms).length} piattaforme, ${conf.length} azionabili`);
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 
 if (dryRun) console.log('\n--dry-run: niente scritto.');
-else { saveCandidates(store); saveRegistry(registry); console.log('\nstato salvato.'); }
+else {
+  appendDiscoveryHealth(resolverHealth);
+  saveCandidates(store);
+  saveRegistry(registry);
+  console.log('\nstato salvato.');
+}
 finishLedgerPhase(dryRun ? 'dry_run' : 'complete', {
   inputCount: queue.length,
   successCount: traced,

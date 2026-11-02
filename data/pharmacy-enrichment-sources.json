@@ -48,7 +48,7 @@
       "enabled": true,
       "pharmacyIds": ["it-msal-3907"],
       "maxAgeDays": 30,
-      "monthlyRequestLimit": 10000
+      "monthlyRequestLimit": 100
     },
     "facebook": {
       "enabled": false,

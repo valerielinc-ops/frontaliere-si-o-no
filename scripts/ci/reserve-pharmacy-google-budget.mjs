@@ -1,8 +1,13 @@
 import fs, { realpathSync } from 'node:fs';
 import process from 'node:process';
 import { pathToFileURL } from 'node:url';
+import {
+  PHARMACY_GOOGLE_PLACES_MONTHLY_LIMIT,
+  googlePlacesMonthKey,
+  validGooglePlacesMonth,
+} from '../lib/google-places-budget.mjs';
 
-export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = 10_000;
+export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = PHARMACY_GOOGLE_PLACES_MONTHLY_LIMIT;
 
 function readJson(file, label) {
   let value;
@@ -18,13 +23,11 @@ function readJson(file, label) {
 }
 
 function monthKey(value) {
-  const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) throw new Error(`Invalid checkedAt: ${value}`);
-  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
+  return googlePlacesMonthKey(value);
 }
 
 function validMonth(value) {
-  return /^\d{4}-(?:0[1-9]|1[0-2])$/u.test(String(value || ''));
+  return validGooglePlacesMonth(value);
 }
 
 function providerLimit(provider) {

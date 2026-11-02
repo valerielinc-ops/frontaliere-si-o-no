@@ -4,6 +4,7 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   appendDiscoveryHealth,
+  recordDomainResolverOutcome,
   loadDiscoveryHealth,
   recordDiscoverySourceOutcome,
   startDiscoveryHealthRun,
@@ -25,6 +26,9 @@ describe('Prospector discovery source health', () => {
     recordDiscoverySourceOutcome(run, 'seco', { outcome: 'partial', recordsSeen: 4, newCandidatesFiled: 1, errorCode: 'http_503' });
     recordDiscoverySourceOutcome(run, 'osm', { outcome: 'unavailable', errorCode: 'network_error' });
     recordDiscoverySourceOutcome(run, 'web', { outcome: 'malformed', errorCode: 'malformed_json' });
+    recordDomainResolverOutcome(run, 'google_places', {
+      outcome: 'resolved', requests: 2, places: 2, websites: 1, verified: 1, rejected: 1,
+    });
     appendDiscoveryHealth(run, file);
 
     expect(loadDiscoveryHealth(file)[0]).toMatchObject({
@@ -33,6 +37,9 @@ describe('Prospector discovery source health', () => {
         seco: { attempts: 2, items: 16, recordsSeen: 16, newCandidatesFiled: 4, aggregateOutcome: 'partial', outcomes: { complete: 1, partial: 1 }, failureCodes: { http_503: 1 } },
         osm: { attempts: 1, outcomes: { unavailable: 1 }, failureCodes: { network_error: 1 } },
         web: { attempts: 1, outcomes: { malformed: 1 }, failureCodes: { malformed_json: 1 } },
+      },
+      resolvers: {
+        google_places: { attempts: 1, requests: 2, places: 2, websites: 1, verified: 1, rejected: 1, outcomes: { resolved: 1 } },
       },
     });
   });

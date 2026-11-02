@@ -89,6 +89,16 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
   });
+  it('polls more often than the hourly gate so a near-boundary tick cannot miss a refresh phase', () => {
+    const completion = now - (56 * 60 * 1000 + 56 * 1000);
+    const service = active({ matchingStatus: 'complete', matchingCompletedAt: completion,
+      matchingPendingCount: 20, matchingUnverifiedCount: 0 });
+    expect(conciergeRefreshDue(service, now)).toBe(false);
+    expect(conciergeRefreshDue(service, completion + 60 * 60 * 1000)).toBe(true);
+    const source = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
+    const start = source.indexOf('export const sweepApplicationConciergeLifecycle = onSchedule(');
+    expect(source.slice(start, start + 600)).toContain("schedule: 'every 15 minutes'");
+  });
   it('recovers stale matcher runs with input-scoped, bounded backoff', () => {
     const stale = active({ matchingStatus: 'running', matchingStartedAt: now - CONCIERGE_MATCHING_STALE_AFTER_MS - 1 });
     const context = conciergeMatchingRecoveryContext(stale);

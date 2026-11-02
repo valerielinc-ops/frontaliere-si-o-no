@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { localizePortalQuestions, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -408,6 +408,13 @@ it('does not create a candidate request when the real reduction contains no ques
   const codex = vi.fn();
   expect(await portalRequirementsForCandidate(requirements, { candidateLocale: 'it', applicationLocale: 'en', codex })).toBeNull();
   expect(codex).not.toHaveBeenCalled();
+});
+
+it('hands off when a non-core required portal request is reduced to zero', async () => {
+  const requirements = portalRequirementsFromMissingRequired([{ id: 'optional', kind: 'text', label: 'Optional field', required: false }], [{ fieldId: 'optional', question: 'Optional field' }]);
+  expect(requirements).toMatchObject({ questions: [], documents: [], reduction: { kind: 'empty' } });
+  expect(portalQuestionReductionHandoff(requirements)).toEqual({ handoff: 'portal_question_reduction' });
+  await expect(portalRequirementsForCandidate(requirements)).resolves.toEqual({ handoff: 'portal_question_reduction' });
 });
 
 it.each([false, true])('preserves a real document request and hard question without manufacturing answers: %s', async withQuestion => {

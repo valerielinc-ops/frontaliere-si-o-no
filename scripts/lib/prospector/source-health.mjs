@@ -10,6 +10,20 @@ export const DISCOVERY_SOURCE_OUTCOMES = Object.freeze([
 ]);
 
 export const DISCOVERY_SOURCE_NAMES = Object.freeze(['seco', 'osm', 'web', 'zefix']);
+export const DOMAIN_RESOLVER_NAMES = Object.freeze(['google_places']);
+export const DOMAIN_RESOLVER_OUTCOMES = Object.freeze([
+  'resolved',
+  'no_place',
+  'no_website',
+  'display_name_mismatch',
+  'unverified',
+  'site_unavailable',
+  'budget_exhausted',
+  'api_key_missing',
+  'api_stopped',
+  'unavailable',
+  'not_attempted',
+]);
 
 const HISTORY_LIMIT = 60;
 
@@ -26,15 +40,31 @@ function emptySourceSummary() {
   };
 }
 
+function emptyResolverSummary() {
+  return {
+    attempts: 0,
+    requests: 0,
+    places: 0,
+    websites: 0,
+    verified: 0,
+    rejected: 0,
+    outcomes: Object.fromEntries(DOMAIN_RESOLVER_OUTCOMES.map((outcome) => [outcome, 0])),
+    failureCodes: {},
+    lastOutcome: null,
+  };
+}
+
 /** @param {{ runId?: string|null, at?: Date|string|number }} [options] */
 export function startDiscoveryHealthRun(options = {}) {
   const at = options.at instanceof Date ? options.at : new Date(options.at ?? Date.now());
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     runId: options.runId ?? process.env.GITHUB_RUN_ID ?? null,
+    phase: options.phase ?? 'discovery',
     startedAt: at.toISOString(),
     finishedAt: null,
     sources: Object.fromEntries(DISCOVERY_SOURCE_NAMES.map((source) => [source, emptySourceSummary()])),
+    resolvers: Object.fromEntries(DOMAIN_RESOLVER_NAMES.map((resolver) => [resolver, emptyResolverSummary()])),
   };
 }
 
@@ -62,6 +92,34 @@ export function recordDiscoverySourceOutcome(run, source, result = {}) {
   summary.aggregateOutcome = aggregateOutcome(summary.outcomes, summary.attempts);
   if (outcome !== 'complete') {
     const rawCode = String(result.errorCode || 'unclassified');
+    const code = /^[a-z0-9_.-]{1,60}$/i.test(rawCode) ? rawCode : 'unclassified';
+    summary.failureCodes[code] = (summary.failureCodes[code] || 0) + 1;
+  }
+  return outcome;
+}
+
+/**
+ * Record resolver counters without retaining a Google response, URL, or
+ * display name. The report can therefore show source health while the state
+ * contract remains limited to independently verified employer domains.
+ *
+ * @param {ReturnType<typeof startDiscoveryHealthRun>} run
+ * @param {'google_places'} resolver
+ * @param {{ outcome?: string, requests?: number, places?: number, websites?: number, verified?: number, rejected?: number, failureCode?: string|null }} result
+ */
+export function recordDomainResolverOutcome(run, resolver, result = {}) {
+  if (!DOMAIN_RESOLVER_NAMES.includes(resolver)) throw new Error(`Unknown Prospector domain resolver: ${resolver}`);
+  const outcome = DOMAIN_RESOLVER_OUTCOMES.includes(result.outcome) ? result.outcome : 'unavailable';
+  const summary = run.resolvers[resolver] ||= emptyResolverSummary();
+  summary.attempts++;
+  for (const field of ['requests', 'places', 'websites', 'verified', 'rejected']) {
+    const value = Number(result[field]);
+    if (Number.isFinite(value)) summary[field] += Math.max(0, Math.floor(value));
+  }
+  summary.outcomes[outcome]++;
+  summary.lastOutcome = outcome;
+  if (result.failureCode) {
+    const rawCode = String(result.failureCode);
     const code = /^[a-z0-9_.-]{1,60}$/i.test(rawCode) ? rawCode : 'unclassified';
     summary.failureCodes[code] = (summary.failureCodes[code] || 0) + 1;
   }
