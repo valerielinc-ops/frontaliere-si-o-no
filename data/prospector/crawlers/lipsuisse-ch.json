@@ -1,0 +1,23 @@
+{
+  "companyKey": "lipsuisse-ch",
+  "companyName": "LIP SUISSE",
+  "companyHost": "lipsuisse.ch",
+  "verifiedEmployerDomain": "lipsuisse.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.lipsuisse.ch/offres-emploi/carreleur-2/"
+  ],
+  "detailTemplate": "/offres-emploi/carreleur-2/",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Carreleur"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T17:17:43.578Z",
+  "candidateKey": "lip@crans-montana"
+}

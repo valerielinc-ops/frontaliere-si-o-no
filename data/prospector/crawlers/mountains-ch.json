@@ -1,0 +1,25 @@
+{
+  "companyKey": "mountains-ch",
+  "companyName": "Engadin St. Moritz Mountains AG",
+  "companyHost": "mountains.ch",
+  "verifiedEmployerDomain": "mountains.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.mountains.ch/de/offene-stellen"
+  ],
+  "detailTemplate": "/de/offene-stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Mehr Infos",
+    "Mehr Infos",
+    "Mehr Infos"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:09:05.482Z",
+  "candidateKey": "engadin-st-moritz-mountains@st-moritz"
+}

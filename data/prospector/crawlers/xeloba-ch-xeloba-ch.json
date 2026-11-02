@@ -1,0 +1,27 @@
+{
+  "companyKey": "xeloba-ch-xeloba-ch",
+  "companyName": "Xeloba GmbH",
+  "companyHost": "xeloba.ch",
+  "verifiedEmployerDomain": "xeloba.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.xeloba.ch/kandidaten/jobs/"
+  ],
+  "detailTemplate": "/kandidaten/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "CHEF/​FE DE CABINET DES ZENTRALPRÄSIDENTEN Koordinationsfunktion mit hoher Relevanz 27. Okt 2026 Details ansehen →",
+    "Leiter/​in Finanzen & Controlling Mitglied der Geschäftsleitung 27. Okt 2026 Details ansehen →",
+    "Verkaufsberater/​in Region Zürich-Unterland /​ Zug /​ Schwyz Unternehmer/in im Unternehmen 16. Okt 2026 Details ansehen →",
+    "Leiter/​in Finanzen & Services Mitglied der Geschäftsleitung & Stellvertretung der Geschäftsführerin 8. Okt 2026 Details ansehen →",
+    "Architekten- und Objektberater/​in Region Bern Qualität auf den Boden gebracht! 5. Okt 2026 Details ansehen →"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:10:15.248Z",
+  "candidateKey": "xeloba@chur"
+}

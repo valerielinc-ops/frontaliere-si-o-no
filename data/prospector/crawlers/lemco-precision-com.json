@@ -1,0 +1,25 @@
+{
+  "companyKey": "lemco-precision-com",
+  "companyName": "Lemco Précision SA",
+  "companyHost": "lemco-precision.com",
+  "verifiedEmployerDomain": "lemco-precision.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.lemco-precision.com/career/job-openings/"
+  ],
+  "detailTemplate": "/career/job-openings/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "View description Collaborateur/trice au service des offres(Description in French)",
+    "View description Décolleteur à Cames (h/f) (Description in French)",
+    "View description Décolleteur CNC (h/f) (Description in French)"
+  ],
+  "canton": "VS",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:15:10.450Z",
+  "candidateKey": "lemco-precision@vionnaz"
+}

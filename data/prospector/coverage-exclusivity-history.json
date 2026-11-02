@@ -8795,7 +8795,7 @@
       "schemaVersion": 2,
       "metric": "official-seco-offer-exclusivity-vs-known-aggregator-slices",
       "status": "ok",
-      "generatedAt": "2026-11-02T11:56:23.926Z",
+      "generatedAt": "2026-11-02T17:42:27.151Z",
       "source": {
         "officialSlice": "data/jobs/by-crawler/seco-jobroom.json",
         "officialAssembledAt": "2026-11-02T11:13:31.663Z",
@@ -14221,5 +14221,5 @@
     }
   },
   "latestRunId": "2026-11-02T11:13:31.663Z|41420562332|2397|74|0|ef36010dc71df10726984718",
-  "updatedAt": "2026-11-02T11:56:23.926Z"
+  "updatedAt": "2026-11-02T17:42:27.151Z"
 }

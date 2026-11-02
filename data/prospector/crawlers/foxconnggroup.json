@@ -1,0 +1,25 @@
+{
+  "companyKey": "foxconnggroup",
+  "companyName": "Foxconn Industrial Internet",
+  "companyHost": "foxconnggroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://foxconnggroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 102,
+  "sampleTitles": [
+    "Accounts Payable",
+    "Accounts Payable & PR Support Specialist",
+    "AUTOMATION ENGINEER",
+    "Automation Technician",
+    "Business Program Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:52.907Z",
+  "candidateKey": "foxconnggroup@applytojob.com"
+}

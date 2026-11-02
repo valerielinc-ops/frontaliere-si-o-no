@@ -2,6 +2,7 @@
   "companyKey": "ospena-ch",
   "companyName": "Ospena Group AG",
   "companyHost": "jobs.migros.ch",
+  "verifiedEmployerDomain": "ospena.ch",
   "platform": "migros.ch",
   "mode": "template",
   "seedUrls": [
@@ -9,17 +10,17 @@
   ],
   "detailTemplate": "/de/unsere-unternehmen/job/*/*/*",
   "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 5,
+  "sampleVacancyCount": 4,
   "sampleTitles": [
-    "Pizzeria Ristorante Molino, Ospena Group AG Chef de Partie (w/​m/​d) 100%, unbefristet, Kilchberg ‧ 100% 8802 Kilchberg Festanstellung (unbefristet)",
     "Pizzeria Ristorante Molino, Ospena Group AG Sous-Chef (m/​w/​d) 100%, Molino Winterthur ‧ 100% 8400 Winterthur Festanstellung (unbefristet)",
-    "Pizzeria Ristorante Molino, Ospena Group AG Chef de Service 100% Molino Baden ‧ 100% 5400 Baden Festanstellung (unbefristet)",
     "Pizzeria Ristorante Molino, Ospena Group AG Sous-Chef (m/​w/​d) 100% unbefristet, Molino Thurm, Bern ‧ 100% 3011 Bern Festanstellung (unbefristet)",
-    "Genossenschaft Migros Ostschweiz Mitarbeiter*​in Verkauf/​Magazin ‧ 80 – 100% 8370 Sirnach Festanstellung (unbefristet)"
+    "Genossenschaft Migros Ostschweiz Fachverkäufer*​in Fleisch/​Fisch ‧ 50 – 60% 8405 Winterthur Festanstellung (unbefristet)",
+    "Genossenschaft Migros Basel Mitarbeiter*​in Gastro/​Barista Take Away Migros Bahnhof SBB Basel ‧ 50 – 60% 4051 Basel Festanstellung (unbefristet)"
   ],
-  "canton": "GE",
+  "canton": "VS",
   "sourceLang": "de",
-  "learnedAt": "2026-10-25T10:56:06.112Z",
-  "candidateKey": "ospena@geneve"
+  "learnedAt": "2026-11-02T17:14:48.701Z",
+  "candidateKey": "ospena@crans-montana"
 }
