@@ -13620,7 +13620,8 @@
         "verkauferin-verkaufer-volg-kandersteg"
       ],
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
