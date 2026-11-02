@@ -2879,6 +2879,7 @@ jobs:
             if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ apleona-schweiz-ag: target timed out after 60 minutes" >> "$GITHUB_STEP_SUMMARY"; fi
           fi
 
+          # ---- apleona-schweiz-ag: Report failure to GitHub Issue (outside timeout, only on target failure) ----
           crawler_failure_timeout_detail='\'''\''
           if [ "$target_exit" -eq 124 ]; then
             crawler_failure_timeout_detail='\''

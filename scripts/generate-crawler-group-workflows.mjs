@@ -1079,7 +1079,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
       '"## Crawler fallito',
       '"## Crawler fallito${crawler_failure_timeout_detail}',
     );
-    if (!compact) outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    // Keep this phase boundary visible in compact artifacts too: the corpus
+    // contract checks that failure reporting remains outside the target wall
+    // timeout, even when comments are otherwise stripped to fit the budget.
+    outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
     outer.push("crawler_failure_timeout_detail=''");
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);

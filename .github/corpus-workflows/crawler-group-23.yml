@@ -3150,6 +3150,7 @@ jobs:
             if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ fachkraft: target timed out after 150 minutes" >> "$GITHUB_STEP_SUMMARY"; fi
           fi
 
+          # ---- fachkraft: Report failure to GitHub Issue (outside timeout, only on target failure) ----
           crawler_failure_timeout_detail='\'''\''
           if [ "$target_exit" -eq 124 ]; then
             crawler_failure_timeout_detail='\''
