@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-02T01:20:51.257Z",
+  "generatedAt": "2026-11-02T02:22:41.236Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -152228,6 +152228,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T07:26:40.641Z"
     },
+    "myswitzerland:d719db68c224430788c7ec63edd6a15e::2f08cf1c61061b7c449b31c94763f2464b5e1dce61a9ddafbbf2afd21b7002b1": {
+      "id": "myswitzerland:d719db68c224430788c7ec63edd6a15e",
+      "sourceDescriptionHash": "2f08cf1c61061b7c449b31c94763f2464b5e1dce61a9ddafbbf2afd21b7002b1",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alte Scheune; comune: Unterbäch; cantone: VS; categoria: Event; data: 2026-12-28; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alte Scheune; comune: Unterbäch; cantone: VS; categoria: Event; data: 2026-12-28; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Alte Scheune; municipality: Unterbäch; canton: VS; category: Event; date: 2026-12-28; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Alte Scheune; gemeinde: Unterbäch; kanton: VS; kategorie: Event; datum: 2026-12-28; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Alte Scheune; commune: Unterbäch; canton: VS; catégorie: Event; date: 2026-12-28; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-02T02:15:52.697Z"
+    },
     "myswitzerland:d71bacf27ccd454dab90b887216587bd::01ab4e36cef2dd637f42070f72b05841b94067a7bf36bef28d3a586906a77a97": {
       "id": "myswitzerland:d71bacf27ccd454dab90b887216587bd",
       "sourceDescriptionHash": "01ab4e36cef2dd637f42070f72b05841b94067a7bf36bef28d3a586906a77a97",
@@ -184922,15 +184936,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:20:22.494Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:d719db68c224430788c7ec63edd6a15e::2f08cf1c61061b7c449b31c94763f2464b5e1dce61a9ddafbbf2afd21b7002b1": {
-      "id": "myswitzerland:d719db68c224430788c7ec63edd6a15e",
-      "sourceDescriptionHash": "2f08cf1c61061b7c449b31c94763f2464b5e1dce61a9ddafbbf2afd21b7002b1",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T04:31:46.090Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
