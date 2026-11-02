@@ -280,11 +280,11 @@ export function canonicalizeGenderTrigraph(text = '') {
   // Matches any permutation of {m,w,f,h,l,p} with optional {d,x,g} suffix.
   const TRIGRAPH_RE = /[([]\s*([mwfhlp])\s*\/\s*([mwfhlp])(?:\s*\/\s*([dxg]))?\s*[)\]]/gi;
   // Bare trigraph/bigraph without brackets (standalone, bounded by non-letter).
-  const BARE_RE = /(?<=^|[\s\-–—|,./])([mwfhlp])\s*\/\s*([mwfhlp])(?:\s*\/\s*([dxg]))?(?=$|[\s\-–—|,./])/gi;
+  const BARE_RE = /(^|[\s\-–—|,./])([mwfhlp])\s*\/\s*([mwfhlp])(?:\s*\/\s*([dxg]))?(?=$|[\s\-–—|,./])/gi;
   // Canonicalize both forms to "(m/w/d)" (bracketed) or "m/w/d" (bare).
   return s
     .replace(TRIGRAPH_RE, '(m/w/d)')
-    .replace(BARE_RE, 'm/w/d');
+    .replace(BARE_RE, '$1m/w/d');
 }
 
 /**
@@ -2360,10 +2360,14 @@ export function cleanDescriptionDCC(desc) {
 export function extractRequirementsFromText(description) {
   const text = normalize(description);
   if (!text) return [];
-  const lines = text
-    .split(/[\n\r•·]+|(?<=[.!?;:])\s+/)
-    .map((x) => normalize(String(x || '').replace(/^[)\]}\-–—:.,\s]+/, '')))
-    .filter(Boolean);
+  const lineParts = text.split(/[\n\r•·]+|([.!?;:])\s+/);
+  const lines = [];
+  for (let index = 0; index < lineParts.length; index += 2) {
+    const line = normalize(
+      `${lineParts[index] ?? ''}${lineParts[index + 1] ?? ''}`.replace(/^[)\]}\-–—:.,\s]+/, ''),
+    );
+    if (line) lines.push(line);
+  }
   const out = [];
   for (const line of lines) {
     if (line.length < 14 || line.length > 120) continue;
@@ -7069,7 +7073,7 @@ function hasWholeWordMarker(lower, cacheKey, markers) {
     const alternation = markers
       .map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'))
       .join('|');
-    re = new RegExp(`(?<![\\p{L}\\p{N}])(?:${alternation})(?![\\p{L}\\p{N}])`, 'iu');
+    re = new RegExp(`(?:^|[^\\p{L}\\p{N}])(?:${alternation})(?![\\p{L}\\p{N}])`, 'iu');
     wholeWordMarkerReCache.set(cacheKey, re);
   }
   return re.test(lower);

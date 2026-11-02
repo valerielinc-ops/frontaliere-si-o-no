@@ -41,7 +41,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { cleanPreviousSlugsPerLocale, pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy } from './lib/dedicated-crawler-common.mjs';
-import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
+import { buildUniqueSuffixOwnerMap, resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { withGuardOff } from './lib/slug-preservation-guard.mjs';
 
@@ -259,19 +259,7 @@ export function decontaminateEntries(entries, {
   for (const entry of validEntries) {
     if (!sourceSet.has(entry)) continue;
     const owners = new Map(globallyUnique);
-    const sameSliceOwners = new Map();
-    const sameSliceAmbiguous = new Set();
-    for (const job of entry.slice.jobs) {
-      if (!job || typeof job !== 'object') continue;
-      const hash = stableSlugHash(job);
-      if (!hash || sameSliceAmbiguous.has(hash)) continue;
-      if (sameSliceOwners.has(hash)) {
-        sameSliceOwners.delete(hash);
-        sameSliceAmbiguous.add(hash);
-        continue;
-      }
-      sameSliceOwners.set(hash, job);
-    }
+    const sameSliceOwners = buildUniqueSuffixOwnerMap(entry.slice.jobs);
     // A same-slice owner is stronger than a unique global fallback, but only
     // when that hash occurs once in the slice. The old first-owner fallback
     // made a same-hash pair depend on array order and could redirect a route

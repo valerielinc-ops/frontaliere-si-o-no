@@ -236,6 +236,31 @@ export function buildUniqueSuffixOwnerFiles(slices) {
   return new Map([...owners].filter(([, files]) => files.length === 1).map(([hash, files]) => [hash, files[0]]));
 }
 
+/**
+ * Build hash → job only when exactly one record in the selected slice owns
+ * that hash. A duplicate is deliberately removed instead of letting array
+ * order choose a claimant during recovery.
+ *
+ * @param {Array<object>} jobs
+ * @returns {Map<string, object>}
+ */
+export function buildUniqueSuffixOwnerMap(jobs) {
+  const owners = new Map();
+  const ambiguous = new Set();
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    if (!job || typeof job !== 'object') continue;
+    const hash = stableSlugHash(job);
+    if (!hash || ambiguous.has(hash)) continue;
+    if (owners.has(hash)) {
+      owners.delete(hash);
+      ambiguous.add(hash);
+      continue;
+    }
+    owners.set(hash, job);
+  }
+  return owners;
+}
+
 /** Return a confirmed foreign owner file, or null when the tail is absent/ambiguous/local. */
 export function resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles) {
   const match = HASH_TAIL_RE.exec(String(slug || ''));
@@ -501,11 +526,7 @@ async function main() {
     // recovered slug carrying a MISMATCHED tail can be redirected to its real
     // owner (or skipped) instead of misattributed to whatever job the loss
     // event's stale historical id happens to resolve to today.
-    const bySuffixHash = new Map();
-    for (const j of slice.jobs) {
-      const h = stableSlugHash(j);
-      if (h && !bySuffixHash.has(h)) bySuffixHash.set(h, j);
-    }
+    const bySuffixHash = buildUniqueSuffixOwnerMap(slice.jobs);
 
     const changedJobIds = new Set();
     for (const { jobId, slugs } of entries) {

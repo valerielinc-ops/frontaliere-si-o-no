@@ -48,7 +48,8 @@ const ROWS = [
   { op: OP.MINUS, key: 'deadLinks', label: 'link pagina non più vivi', reason: 'annunci ritirati o non ancora pubblicati' },
   { op: OP.MINUS, key: 'quotaDeferred', label: 'rinviati per quota giornaliera', reason: 'limite dei provider raggiunto: restano per domani', hideWhenZero: true },
   { op: OP.EQUALS, key: 'planned', label: 'Email pianificate' },
-  { op: OP.MINUS, key: 'failed', label: 'fallite (respinte dal provider)', reason: 'in coda per il retry' },
+  { op: OP.MINUS, key: 'failed', label: 'non inviate o esito non confermato', reason: 'discovery: retry dei rifiuti certi; nessun reinvio con esito incerto' },
+  { op: OP.INFO, key: 'discoveryUnknown', label: 'discovery con esito non confermato', reason: 'claim conservato; nessun reinvio automatico', hideWhenZero: true },
   { op: OP.EQUALS, key: 'sent', label: 'EMAIL INVIATE (accettate dal provider)' },
   { op: OP.INFO, key: 'ambiguous', label: 'di cui ambigue (accettate, esito non confermato)' },
   { op: OP.PLUS, key: 'retrySent', label: 'retry di invii dei giorni precedenti' },
@@ -72,7 +73,7 @@ const COUNT_KEYS = [
   'archive', 'paused', 'companyImmediate', 'allowlist', 'base', 'suppressionDeferred',
   'suppressed', 'backfill', 'cooldown', 'decayed', 'notDue', 'eligible', 'noCandidate',
   'emptyProfile', 'zeroMatch', 'alreadySent', 'deadLinks', 'quotaDeferred', 'planned',
-  'failed', 'sent', 'ambiguous', 'retrySent', 'uniqueRecipients',
+  'failed', 'sent', 'ambiguous', 'discoveryUnknown', 'retrySent', 'uniqueRecipients',
 ];
 
 // dryRun: nulla viene inviato, quindi `planned` sono le email che sarebbero partite

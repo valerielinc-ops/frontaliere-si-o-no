@@ -572,7 +572,10 @@ describe('the verdicts hold', () => {
       readdirSync(path.join(ROOT, dir), { withFileTypes: true })
         .filter((e) => e.isFile() && /\.(mjs|js|ts)$/.test(e.name))
         .map((e) => `${dir}/${e.name}`)
-        .filter((rel) => /function isNewsletterOptOutBinding/.test(stripComments(read(rel)))),
+        .filter((rel) => {
+          const source = read(rel);
+          return source.includes('isNewsletterOptOutBinding') && /function isNewsletterOptOutBinding/.test(stripComments(source));
+        }),
     );
     // The mirror is deliberate — the Cloud Functions bundle cannot import
     // outside `functions/` — and its parity is asserted by

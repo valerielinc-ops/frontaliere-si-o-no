@@ -302,6 +302,11 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db, { newsletterS
     eraseJobEmailAffinityProfile(db, email, { secret: newsletterSecret }),
   ]);
 
+  // Finish the channel tombstone before erasing server-only discovery state:
+  // an in-flight sender must observe the closed account before caching again.
+  await db.collection('job_alert_subscribers').doc(email)
+    .collection('delivery_state').doc('first_discovery').delete();
+
   return {
     tombstonedNewsletter: true,
     tombstonedJobAlert: true,

@@ -47,7 +47,7 @@
         "it": "apprendistato-commercio-al-dettaglio-consumer-electronics-cfc-fust-suhr",
         "en": "lehrstelle-retail-consumer-electronics-efz-fust-suhr",
         "de": "lehrstelle-detailhandel-consumer-electronics-efz-fust-suhr",
-        "fr": "lehrstelle-commerce-de-detail-consumer-electronics-efz-fust-suhr"
+        "fr": "place-d-apprentissage-en-commerce-de-detail-consumer-electronics-cfc-fust-suhr"
       },
       "requirementsByLocale": {},
       "addressLocality": "Suhr",
@@ -72,7 +72,15 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "lehrstelle-commerce-de-detail-consumer-electronics-efz-fust-suhr"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-commerce-de-detail-consumer-electronics-efz-fust-suhr"
+      ]
     },
     {
       "id": "company-cl1jh0",

@@ -590,12 +590,12 @@
     },
     {
       "id": "stryker-5913cc327dbe",
-      "slug": "lernende-r-mediamatiker-in-m-w-d-stryker-ch",
+      "slug": "apprendista-mediamatico-a-m-f-d-stryker-selzach",
       "slugByLocale": {
         "de": "lernende-r-mediamatiker-in-m-w-d-stryker-ch",
-        "it": "lernende-r-mediamatiker-in-m-w-d-stryker-ch",
-        "en": "lernende-r-mediamatiker-in-m-w-d-stryker-ch",
-        "fr": "lernende-r-mediamatiker-in-m-w-d-stryker-ch"
+        "it": "apprendista-mediamatico-a-m-f-d-stryker-selzach",
+        "en": "apprentice-media-technologist-m-f-d-stryker-selzach",
+        "fr": "apprenti-e-mediamaticien-ne-h-f-d-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -658,7 +658,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T11:10:50.125Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:10:50.125Z"
+      "firstSeenAt": "2026-11-02T11:10:50.125Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-mediamatiker-in-m-w-d-stryker-ch"
+        ],
+        "en": [
+          "lernende-r-mediamatiker-in-m-w-d-stryker-ch"
+        ],
+        "fr": [
+          "lernende-r-mediamatiker-in-m-w-d-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-mediamatiker-in-m-w-d-stryker-ch"
+      ]
     }
   ]
 }

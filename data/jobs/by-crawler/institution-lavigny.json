@@ -513,12 +513,12 @@
     },
     {
       "id": "institution-lavigny-f3f369704fd1",
-      "slug": "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution",
+      "slug": "fisioterapista-fisioterapista-contratto-in-tempo-tra-il-20-e-il-50-institution-de-lavigny-lausanne",
       "slugByLocale": {
         "fr": "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution",
-        "it": "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution",
-        "en": "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution",
-        "de": "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution"
+        "it": "fisioterapista-fisioterapista-contratto-in-tempo-tra-il-20-e-il-50-institution-de-lavigny-lausanne",
+        "en": "physiotherapist-physiotherapist-contract-on-time-between-20-and-50-institution-de-lavigny-lausanne",
+        "de": "physiotherapeut-physiotherapeut-vertrag-punktlich-zwischen-20-und-50-institution-de-lavigny-lausanne"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -581,7 +581,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T11:10:59.190Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:10:59.190Z"
+      "firstSeenAt": "2026-11-02T11:10:59.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution"
+        ],
+        "en": [
+          "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution"
+        ],
+        "de": [
+          "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-aide-physiotherapeute-contrat-a-l-heure-entre-20-et-50-institution"
+      ]
     },
     {
       "id": "institution-lavigny-dcb16046ef5a",

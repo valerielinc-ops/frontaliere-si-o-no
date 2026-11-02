@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v39914.title": "Eine erste Auswahl zum Einstieg",
+ "whatsNew.v39914.discovery.title": "Beliebte Stellen, dann Ihre Interessen",
+ "whatsNew.v39914.discovery.desc": "Ohne gespeicherte Suche beginnt die erste E-Mail mit den meistgesehenen Stellen und verfügbaren geografischen Hinweisen. Klicks und Suchanfragen helfen, spätere Vorschläge passender zu machen.",
  "whatsNew.v39913.title": "Zuverlässigere Anzeigen",
  "whatsNew.v39913.ads.title": "Anzeigen wiederherstellen und Datenschutz verwalten",
  "whatsNew.v39913.ads.desc": "Werbeflächen passen sich kleinen Bildschirmen besser an. Verhindert ein Blocker das Laden, erhalten Sie Hinweise zum Freigeben dieser Website und einen Link zu unserem Jobsuche-Service.",

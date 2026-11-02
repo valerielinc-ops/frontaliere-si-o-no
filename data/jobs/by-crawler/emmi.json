@@ -294,7 +294,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -355,7 +355,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -363,7 +363,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7960,12 +7960,12 @@
     },
     {
       "id": "emmi-82125c3df62c",
-      "slug": "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch",
+      "slug": "addetto-a-operativo-a-alla-logistica-e-alla-preparazione-degli-ordini-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch",
-        "it": "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch",
-        "en": "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch",
-        "fr": "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
+        "it": "addetto-a-operativo-a-alla-logistica-e-alla-preparazione-degli-ordini-emmi-emmen-luzern",
+        "en": "logistics-operations-employee-order-picking-emmi-emmen-luzern",
+        "fr": "collaborateur-trice-d-exploitation-logistique-preparation-de-commandes-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8038,7 +8038,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T11:30:51.666Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:30:51.666Z"
+      "firstSeenAt": "2026-11-02T11:30:51.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-in-logistik-kommissionierung-emmi-ch"
+      ]
     }
   ]
 }

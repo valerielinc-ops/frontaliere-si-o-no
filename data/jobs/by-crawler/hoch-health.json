@@ -633,7 +633,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -682,7 +682,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -690,7 +690,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -15844,7 +15844,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -15896,7 +15896,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15904,7 +15904,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -18093,12 +18093,12 @@
     },
     {
       "id": "hoch-health-c7a6f75d32f9",
-      "slug": "disponent-in-50-hoch-health-ostschweiz-grabs",
+      "slug": "addetto-a-alla-pianificazione-50-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "disponent-in-50-hoch-health-grabs",
-        "it": "disponent-in-50-hoch-health-ostschweiz-grabs",
-        "en": "disponent-in-50-hoch-health-grabs",
-        "fr": "disponent-in-50-hoch-health-grabs"
+        "it": "addetto-a-alla-pianificazione-50-hoch-health-ostschweiz-grabs",
+        "en": "dispatcher-50-hoch-health-ostschweiz-grabs",
+        "fr": "dispatcheur-euse-50-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18145,11 +18145,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "disponent-in-50-hoch-health-grabs",
+          "disponent-in-50-hoch-health-ostschweiz-grabs"
+        ],
+        "en": [
+          "disponent-in-50-hoch-health-grabs"
+        ],
+        "fr": [
           "disponent-in-50-hoch-health-grabs"
         ]
       },
       "previousSlugs": [
-        "disponent-in-50-hoch-health-grabs"
+        "disponent-in-50-hoch-health-grabs",
+        "disponent-in-50-hoch-health-ostschweiz-grabs"
       ],
       "salaryMin": 40800,
       "salaryMax": 57000,
@@ -18172,12 +18180,12 @@
     },
     {
       "id": "hoch-health-379d0a60e9fe",
-      "slug": "collaboratore-trice-lebensmitteleinkauf-60-80-hoch-health-ostschweiz-st-gallen",
+      "slug": "addetto-a-agli-acquisti-alimentari-60-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen",
-        "it": "collaboratore-trice-lebensmitteleinkauf-60-80-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen",
-        "fr": "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen"
+        "it": "addetto-a-agli-acquisti-alimentari-60-80-hoch-health-ostschweiz-st-gallen",
+        "en": "food-purchasing-staff-member-60-80-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-rice-aux-achats-alimentaires-60-80-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18224,11 +18232,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen",
+          "collaboratore-trice-lebensmitteleinkauf-60-80-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen"
+        ],
+        "fr": [
           "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen"
+        "mitarbeiter-in-lebensmitteleinkauf-60-80-hoch-health-st-gallen",
+        "collaboratore-trice-lebensmitteleinkauf-60-80-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,

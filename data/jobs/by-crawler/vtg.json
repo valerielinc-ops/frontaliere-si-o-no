@@ -6844,7 +6844,7 @@
         "it": "controllore-radar-monitoraggio-delle-tracce-swiss-armed-forces-vtg-dubendorf",
         "en": "radar-controller-in-track-monitor-swiss-armed-forces-vtg-dubendorf-xuhsx1",
         "de": "radar-controller-in-track-monitor-swiss-armed-forces-vtg-dubendorf-xuhsx1",
-        "fr": "radar-controller-in-track-monitor-swiss-armed-forces-vtg-dubendorf-xuhsx1"
+        "fr": "controleur-radar-suivi-des-trajectoires-swiss-armed-forces-vtg-dubendorf"
       },
       "sourceLang": "de",
       "postalCode": "8600",
@@ -6854,6 +6854,9 @@
       "previousSlugsByLocale": {
         "it": [
           "radar-controller-in-track-monitor-swiss-armed-forces-vtg-dubendorf",
+          "radar-controller-in-track-monitor-swiss-armed-forces-vtg-dubendorf-xuhsx1"
+        ],
+        "fr": [
           "radar-controller-in-track-monitor-swiss-armed-forces-vtg-dubendorf-xuhsx1"
         ]
       },
@@ -10764,7 +10767,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "responsabile-del-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -10773,8 +10776,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -10785,8 +10787,7 @@
       },
       "previousSlugs": [
         "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
