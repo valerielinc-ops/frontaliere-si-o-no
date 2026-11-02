@@ -112,7 +112,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   // Standalone pages
   const standalones: AppRoute['activeTab'][] = [
     'feedback', 'forum', 'contact', 'partners', 'consulting',
-    'job-board', 'profile', 'morning', 'gamification', 'for-employers',
+    'job-board', 'profile', 'morning', 'gamification', 'for-employers', 'direct-employers', 'permanent-employers',
     'privacy', 'terms', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
     'dialetto',
     'email-confirmed',
@@ -524,6 +524,15 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'for-employers-en',
       'for-employers-de',
       'for-employers-fr',
+      // Locale-specific direct-employer pages are emitted from their explicit
+      // canonical metadata blocks; the SPA resolves all locales through the
+      // locale-agnostic route keys above.
+      'direct-employers-en',
+      'direct-employers-de',
+      'direct-employers-fr',
+      'permanent-employers-en',
+      'permanent-employers-de',
+      'permanent-employers-fr',
       // The 2026/27 school-calendar page has one Italian SPA route plus
       // locale-specific metadata entries consumed by staticPagesPlugin for
       // the generated EN/DE/FR shells. These keys are intentionally absent

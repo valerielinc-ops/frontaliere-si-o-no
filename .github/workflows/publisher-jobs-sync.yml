@@ -1,10 +1,9 @@
-name: Publisher Jobs Sync (paid ads → slice → deploy)
+name: Employer Jobs Sync (publisher + direct employers → slice → deploy)
 
-# Projects paid publisher_jobs (Firestore) into the by-crawler slice
-# data/jobs/by-crawler/publisher-submitted.json, commits it to main (test-gated),
-# and triggers a deploy so the static SEO page is emitted — the "disponibile tra
-# 1–2 ore" path. The Stripe webhook is what flips a job to status:'paid'; this
-# workflow only publishes what is already paid.
+# Projects moderated employer submissions into by-crawler slices, commits them
+# to main (test-gated), and triggers a deploy so the static SEO page is emitted.
+# Direct-employer rows are always sourced from status:'approved' and the
+# fail-closed Remote Config flag; neither path bypasses moderation.
 
 on:
   schedule:
@@ -18,8 +17,8 @@ on:
         default: true
         type: boolean
 concurrency:
-  # Serialize: never two concurrent commits of the same slice to main.
-  group: publisher-jobs-sync
+  # Serialize: never two concurrent commits of the same slices to main.
+  group: employer-jobs-sync
   cancel-in-progress: false
 
 permissions:
@@ -80,6 +79,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-publisher-jobs.mjs --stats
 
+      - name: Build direct-employers slice from approved submissions
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/build-direct-employer-jobs.mjs
+
       # Data-refresh-to-main gate (AGENTS: a bot commit to main must validate the
       # invariant it touches BEFORE committing). The slice must assemble cleanly
       # into the full dataset; a corrupt record fails here → no poisoned commit.
@@ -110,13 +113,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f data/jobs/by-crawler/publisher-submitted.json
+          git add -f data/jobs/by-crawler/publisher-submitted.json data/jobs/by-crawler/direct-employers.json
           if git diff --cached --quiet; then
-            echo "No publisher-jobs changes detected."
+            echo "No employer-jobs changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "push_exhausted=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "🧑‍💼 Publisher jobs sync — paid ads → slice"
+            git commit -m "🧑‍💼 Employer jobs sync — moderated listings → slices"
             # --soft-fail-exhausted (issue #6259, recurring): this workflow runs
             # every 30min and build-publisher-jobs.mjs always re-derives the FULL
             # slice from a fresh Firestore query (status in ['paid','published'])
@@ -146,6 +149,7 @@ jobs:
             # content; any paid-ad change that lands after this snapshot is
             # picked up by the next scheduled run 30min later either way.
             cp data/jobs/by-crawler/publisher-submitted.json /tmp/publisher-submitted-cache.json
+            cp data/jobs/by-crawler/direct-employers.json /tmp/direct-employers-cache.json
             set +e
             if [ -z "${GITHUB_PAT:-}" ]; then
               echo "::error::GITHUB_PAT missing from Remote Config — cannot bypass the main CI ruleset for this scheduled writer"
@@ -153,7 +157,7 @@ jobs:
             fi
             git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
             PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted \
-              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && git add -f data/jobs/by-crawler/publisher-submitted.json' 2>&1)
+              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && cp /tmp/direct-employers-cache.json data/jobs/by-crawler/direct-employers.json && git add -f data/jobs/by-crawler/publisher-submitted.json data/jobs/by-crawler/direct-employers.json' 2>&1)
             rc=$?
             set -e
             echo "$PUSH_LOG"
