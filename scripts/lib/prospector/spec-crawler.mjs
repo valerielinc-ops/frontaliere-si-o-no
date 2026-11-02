@@ -727,6 +727,38 @@ function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) 
 }
 
 /**
+ * Supplement a partial structured listing with links that match the already
+ * learned detail template. A listing page can retain all vacancy cards while
+ * publishing only one JobPosting node; treating that one node as the whole
+ * population silently contracts the crawler slice.
+ *
+ * Structured rows keep precedence so their source-backed fields are not
+ * replaced by anchor text. Template matches only add identities absent from
+ * the structured result; the caller still applies the template guard before
+ * returning the final candidates.
+ *
+ * @param {any[]} structuredCandidates
+ * @param {any[]} templateCandidates
+ * @returns {any[]}
+ */
+function supplementKnownTemplateCandidates(structuredCandidates, templateCandidates) {
+  const knownIdentities = new Set(
+    structuredCandidates
+      .map((candidate) => listingIdentityUrl(candidate?.url || candidate?.sourceUrl || ''))
+      .filter(Boolean),
+  );
+  return [
+    ...structuredCandidates,
+    ...templateCandidates.filter((candidate) => {
+      const identity = listingIdentityUrl(candidate?.url || candidate?.sourceUrl || '');
+      if (!identity || knownIdentities.has(identity)) return false;
+      knownIdentities.add(identity);
+      return true;
+    }),
+  ];
+}
+
+/**
  * Compare two listing URLs after resolving them against the same source page.
  *
  * @param {string} left
@@ -872,14 +904,20 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
     && (!familyExtractorActive || sourceCandidates.length > 0)
     ? sourceCandidates
     : vacancies;
-  if (!Array.isArray(sourceCandidates)
-    && templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
+  if (!Array.isArray(sourceCandidates) && templateRx) {
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
     const direct = host
       ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins)
       : [];
-    if (direct.length) candidates = direct;
+    if (direct.length) {
+      const hasStructuredCandidates = vacancies.some((vacancy) => (
+        vacancy?.via === 'jsonld' || vacancy?.via === 'microdata'
+      ));
+      candidates = hasStructuredCandidates
+        ? supplementKnownTemplateCandidates(vacancies, direct)
+        : direct;
+    }
   }
   // A candidate outside the learned detail template is never published (the
   // row builder drops it), so it must not count as a listing either. The
