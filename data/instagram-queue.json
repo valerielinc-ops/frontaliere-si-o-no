@@ -1,4 +1,56 @@
 {
   "schemaVersion": 1,
-  "pending": []
+  "pending": [
+    {
+      "id": "border-2026-10-26",
+      "channel": "instagram",
+      "kind": "border",
+      "day": "2026-10-26",
+      "caption": "Quale passaggio del confine vuoi chiarire?\n\n1. Biegno Indemini — 0 min\n2. Camedo (Re-Centovalli) — 0 min\n3. Campione d'Italia Bissone — 0 min\n4. Chiasso Centro — 0 min\n5. Clivio Ligornetto — 0 min\n\nQuale passaggio vuoi chiarire? Scrivilo nei commenti.\n\n🔎 Per dettagli e fonti: link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-5.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-10-26-6.jpg"
+      ],
+      "ledgerEntries": [
+        {
+          "id": "2026-10-26",
+          "kind": "border",
+          "url": "/traffico-dogane/biegno-indemini/oggi/",
+          "day": "2026-10-26",
+          "creativeId": "question",
+          "creativeBaseId": "question",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Domanda alla community",
+          "creativeObjective": "conversation",
+          "primaryMetric": "comments",
+          "engagementMechanic": "keyword-comment",
+          "hookType": "open-question",
+          "attentionMechanic": "community-question",
+          "engagementLoop": "comment-to-content",
+          "followUpFormat": "comment-reply",
+          "backgroundExperimentId": "instagram-carousel-background-v1",
+          "backgroundVariant": "mint-ink",
+          "backgroundLabel": "Menta e inchiostro",
+          "safeAreaVersion": "safe-area-v2",
+          "copyMode": "codex",
+          "copySlot": "border",
+          "copyPromptVersion": "frontaliere-social-copy-v1",
+          "copyPackId": "9147b54fb0eb5b76",
+          "copyTemplateId": "border-conversation-step",
+          "copyAssignmentMode": "firebase-balanced",
+          "copyExperimentId": "social-copy-balanced-v1",
+          "copyObjective": "conversation",
+          "copyHook": "Quale passaggio del confine vuoi chiarire?",
+          "copyCta": "Quale passaggio vuoi chiarire? Scrivilo nei commenti."
+        }
+      ],
+      "createdAt": "2026-11-02T16:59:56.019Z",
+      "expiresAt": "2026-11-09T16:59:56.019Z"
+    }
+  ]
 }
