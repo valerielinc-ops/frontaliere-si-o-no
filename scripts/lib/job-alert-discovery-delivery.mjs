@@ -25,7 +25,7 @@ export async function claimDiscoveryDelivery(db, email, now = Date.now()) {
       deliveryId: createHash('sha256').update(`job-alert-discovery-v1\0${key}`).digest('hex'),
       attemptId: randomUUID(), attempts: (previous?.attempts || 0) + 1, claimedAt: now,
     };
-    tx.set(ref, { discovery: claim }, { merge: true });
+    tx.set(ref, { discovery: claim }, { mergeFields: ['discovery'] });
     return claim;
   });
 }
@@ -64,6 +64,6 @@ export async function finalizeDiscoveryDelivery(db, email, claim, outcome, faile
       resolvedAt: now,
       ...(accepted ? { provider: outcome.provider, messageId: outcome.messageId } : {}),
       ...(!accepted && !unknown ? { retryAt: now + DISCOVERY_RETRY_MS } : {}),
-    } }, { merge: true });
+    } }, { mergeFields: ['discovery'] });
   });
 }

@@ -2998,7 +2998,7 @@ async function main() {
     if (!DRY_RUN && !ALLOWED_EMAILS) {
       try {
         await db.collection('job_alert_subscribers').doc(email).collection('delivery_state').doc('first_discovery')
-          .set({ ipGeo: geo }, { merge: true });
+          .set({ ipGeo: geo }, { mergeFields: ['ipGeo'] });
       } catch { /* Approximate geography is optional; popularity still works. */ }
     }
   });
