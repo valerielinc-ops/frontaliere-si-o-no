@@ -2929,7 +2929,10 @@ export const sweepApplicationConciergeEligibility = onSchedule(
 );
 
 export const processApplicationConciergeCv = onDocumentWritten(
-  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 540, document: 'application_concierge_services/{serviceId}' },
+  // Full-posting qualification parses the candidate PDF; isolate the memory-heavy
+  // parser from concurrent service events instead of letting the default
+  // second-generation concurrency exhaust the 512MiB container.
+  { region: 'europe-west6', memory: '1GiB', concurrency: 1, timeoutSeconds: 540, document: 'application_concierge_services/{serviceId}' },
   async (event) => {
     const after = event.data?.after;
     if (!after?.exists) return;
