@@ -264,6 +264,7 @@ export interface JobsSnapshot {
     slug: string;
     employer: string;
     employerKey?: string;
+    companyLogoKey?: string;
     city: string;
     role?: string;
     postingDateSource?: string;
@@ -334,8 +335,12 @@ export function jobMatchesCity(
   return candidates.some((c) => c.includes(needle));
 }
 
-function normEmployerKey(company: string, companyKey?: string): string {
-  const raw = (companyKey || company || '').trim().toLowerCase();
+function normEmployerKey(company: string, companyKey?: string, companyLogoKey?: string | null): string {
+  // SECO/job-room uses one crawler key for many employers. Use the same
+  // employer-scoped identity as logo lookup so one employer cannot absorb
+  // another employer's jobs (and then inherit its logo) in weekly hubs.
+  const scopedKey = companyLogoKeyForJob({ company, companyKey, companyLogoKey });
+  const raw = (scopedKey || company || '').trim().toLowerCase();
   return raw
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -436,7 +441,7 @@ export function partitionWeeklyEmployerJobs(
     if (jobIsActive(job, 'it')) {
       const company = String(job.company || '').trim();
       if (company) {
-        const key = normEmployerKey(company, job.companyKey);
+        const key = normEmployerKey(company, job.companyKey, job.companyLogoKey);
         if (key) {
           for (const city of WEEKLY_EMPLOYERS_COMPANY_CITY_LIST) {
             if (!jobMatchesCity(job, city)) continue;
@@ -653,7 +658,7 @@ export function buildCantonJobsIndex(
     bucket.jobs.push(job);
     const company = String(job.company || '').trim();
     if (!company) continue;
-    const key = normEmployerKey(company, job.companyKey);
+    const key = normEmployerKey(company, job.companyKey, job.companyLogoKey);
     if (!key) continue;
     const list = bucket.byEmployer.get(key);
     if (list) list.push(job);
@@ -737,7 +742,7 @@ export function buildCityWeeklyStats(opts: {
   for (const j of cityJobs) {
     const company = String(j.company || '').trim();
     if (!company) continue;
-    const key = normEmployerKey(company, j.companyKey);
+    const key = normEmployerKey(company, j.companyKey, j.companyLogoKey);
     const rec = activeCounts.get(key);
     if (rec) {
       rec.active++;
@@ -765,7 +770,7 @@ export function buildCityWeeklyStats(opts: {
           continue;
         }
       }
-      const key = normEmployerKey(row.employer || '', row.employerKey);
+      const key = normEmployerKey(row.employer || '', row.employerKey, row.companyLogoKey);
       prevCounts.set(key, (prevCounts.get(key) || 0) + 1);
     }
   }
@@ -775,13 +780,13 @@ export function buildCityWeeklyStats(opts: {
   const historicallyKnown = new Set<string>();
   for (const snap of historicalSnapshots) {
     for (const row of snap.jobs || []) {
-      const key = normEmployerKey(row.employer || '', row.employerKey);
+      const key = normEmployerKey(row.employer || '', row.employerKey, row.companyLogoKey);
       if (key) historicallyKnown.add(key);
     }
   }
   if (previousSnapshot?.jobs) {
     for (const row of previousSnapshot.jobs) {
-      const key = normEmployerKey(row.employer || '', row.employerKey);
+      const key = normEmployerKey(row.employer || '', row.employerKey, row.companyLogoKey);
       if (key) historicallyKnown.add(key);
     }
   }
@@ -1058,7 +1063,7 @@ export function buildCompanyCityStats(opts: {
         if (!jobMatchesCity(j, city)) return false;
         const company = String(j.company || '').trim();
         if (!company) return false;
-        const jobKey = normEmployerKey(company, j.companyKey);
+        const jobKey = normEmployerKey(company, j.companyKey, j.companyLogoKey);
         return jobKey === employerKey;
       });
 
@@ -1136,7 +1141,7 @@ export function buildCompanyCityStats(opts: {
   if (previousSnapshot?.jobs) {
     for (const row of previousSnapshot.jobs) {
       if (!row.employer) continue;
-      const rowKey = normEmployerKey(row.employer, row.employerKey);
+      const rowKey = normEmployerKey(row.employer, row.employerKey, row.companyLogoKey);
       if (rowKey !== employerKey) continue;
       if (
         !String(row.city || '')
@@ -1238,7 +1243,7 @@ export function enumerateCompanyCityPairs(
         if (!jobMatchesCity(j, city)) continue;
         const company = String(j.company || '').trim();
         if (!company) continue;
-        const key = normEmployerKey(company, j.companyKey);
+        const key = normEmployerKey(company, j.companyKey, j.companyLogoKey);
         if (!key) continue;
         const rec = counts.get(key);
         if (rec) rec.active++;
@@ -1310,7 +1315,7 @@ export function findOrphanedCompanyCityPairs(
         skippedEmptyEmployer++;
         continue;
       }
-      const employerKey = normEmployerKey(employer, job.employerKey);
+      const employerKey = normEmployerKey(employer, job.employerKey, job.companyLogoKey);
       if (!employerKey) continue;
       const cityLower = String(job.city || '').toLowerCase();
       if (!cityLower) continue;
@@ -4231,7 +4236,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   const totalCompanies = new Set(
     opts.jobs
       .filter((j) => jobIsActive(j, 'it'))
-      .map((j) => normEmployerKey(String(j.company || ''), j.companyKey))
+      .map((j) => normEmployerKey(String(j.company || ''), j.companyKey, j.companyLogoKey))
       .filter((k) => k.length > 0),
   ).size;
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
@@ -4351,6 +4356,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         title: row.role || 'Posizione',
         company: row.employer,
         companyKey: row.employerKey,
+        companyLogoKey: row.companyLogoKey,
         location: row.city,
         addressLocality: row.city,
         postingDateSource: row.postingDateSource,
