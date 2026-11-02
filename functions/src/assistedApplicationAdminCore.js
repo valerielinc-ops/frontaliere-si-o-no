@@ -17,6 +17,7 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { answerContractRequired } from './assistedApplicationAnswerConfirmation.js';
 import {
   refundSumUpTransaction,
   retrieveSumUpCheckout,
@@ -76,11 +77,12 @@ const EVENT_FOR_STATUS = Object.freeze({
 const REFUND_RESERVATION_TTL_MS = 15 * 60 * 1000;
 
 class AssistedApplicationAdminError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.name = 'AssistedApplicationAdminError';
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -371,7 +373,7 @@ async function handleCandidateView(db, raw) {
 
 function transitionErrorResponse(error) {
   if (error instanceof AssistedApplicationAdminError) {
-    return { status: error.status, body: { ok: false, error: error.code } };
+    return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
   }
   throw error;
 }
@@ -914,6 +916,7 @@ async function handleMutate(db, req, adminEmail) {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
         bucket: getStorage().bucket(STORAGE_BUCKET),
+        requireAnswerContracts: action === 'automationSetAnswers' ? await answerContractRequired(getRemoteConfigValue) : false,
         // Read only by automationRevealAccount (portal accounts on the alias).
         runKey: () => getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
         // Read only by automationFillKit: the documents the fill extension attaches.
@@ -922,7 +925,7 @@ async function handleMutate(db, req, adminEmail) {
       });
       return { status: 200, body };
     } catch (error) {
-      if (error instanceof AutomationAdminError) throw new AssistedApplicationAdminError(error.code, error.status);
+      if (error instanceof AutomationAdminError) throw new AssistedApplicationAdminError(error.code, error.status, error.details);
       throw error;
     }
   }

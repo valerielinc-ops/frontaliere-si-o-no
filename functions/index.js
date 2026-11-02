@@ -16,6 +16,7 @@ import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEma
 import { sendNewsletterWelcomeEmail } from './src/newsletterWelcomeEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
 import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './src/remoteConfigSecrets.js';
+import { answerContractRequired } from './src/assistedApplicationAnswerConfirmation.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
@@ -3093,6 +3094,7 @@ export const assistedApplicationReview = onRequest(
         runEffect: (context) => runAutomationEffect(context),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
         checkAnswers: (input) => checkAssistedApplicationAnswers(input),
+        requireAnswerContracts: req.method === 'POST' ? await answerContractRequired(getRemoteConfigValue) : false,
         // A follow-up the candidate sends right away (af1 link).
         sendCascade: async (emails, options) => {
           await bridgeEmailCascadeCredentialsToEnv();

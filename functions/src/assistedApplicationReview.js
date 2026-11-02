@@ -44,6 +44,7 @@ import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, pl
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
@@ -899,7 +900,9 @@ export async function handleAssistedApplicationReview(req, deps) {
       const suppliedSnapshots = body.answerQuestionSnapshots && typeof body.answerQuestionSnapshots === 'object' && !Array.isArray(body.answerQuestionSnapshots)
         ? body.answerQuestionSnapshots : {};
       if (Object.keys(answers).some(id => !currentSnapshots[id] || suppliedSnapshots[id] !== currentSnapshots[id])) {
-        throw new ReviewError('changed_meanwhile', 409);
+        const strict = deps.requireAnswerContracts === true;
+        throw new ReviewError(strict ? 'answer_contract_required' : 'changed_meanwhile', 409,
+          strict ? answerContractRequiredDetails : null);
       }
       // The questions are dynamic (one set per posting), so the fixed rules
       // above cannot catch placeholders or answers of the wrong kind. The
@@ -920,7 +923,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       const confirmedOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence: runnerContext.answerEvidence, flow: reviewFlow });
       await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow: confirmationFlow, draft, answers,
         answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
-        answerSuggestionDismissals, nowMs, answerActor: 'candidate' });
+        answerSuggestionDismissals, nowMs, answerActor: 'candidate', requireAnswerContracts: deps.requireAnswerContracts === true });
     }
     const event = {
       approve: { type: 'candidate_approve' },
@@ -937,7 +940,7 @@ export async function handleAssistedApplicationReview(req, deps) {
   } catch (error) {
     if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
-    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
+    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;
   }
 }
