@@ -17,6 +17,7 @@ import {
 const NOW = Date.parse('2026-10-06T22:00:00.000Z');
 const ISSUE = { number: 5618, title: ARTICLE_SYNC_ISSUE_TITLE };
 const WORKFLOW = new URL('../../.github/workflows/sync-articles-sitemaps.yml', import.meta.url);
+const L0_WORKFLOW = new URL('../../.github/workflows/loop-l0-data-truth.yml', import.meta.url);
 
 describe('article publisher replay guard', () => {
   it('selects only the exact open sync issue', () => {
@@ -189,7 +190,7 @@ describe('article publisher replay guard', () => {
   });
 
   it('wires stale L0 recovery after the audit while preserving the audit verdict', () => {
-    const raw = readFileSync(WORKFLOW, 'utf8');
+    const raw = readFileSync(L0_WORKFLOW, 'utf8');
     const document = parseYaml(raw) as {
       jobs: { audit: { steps: Array<{ name?: string; id?: string; if?: string; run?: string }> } };
     };
@@ -203,6 +204,6 @@ describe('article publisher replay guard', () => {
     expect(recovery?.if).toContain("steps.stale-recovery.outputs.needed == 'true'");
     expect(recovery?.run).toContain('request-article-publisher-replay.mjs');
     expect(recovery?.run).toContain('GITHUB_PAT_NANAKO');
-    expect(recovery?.run).toContain('ARTICLE_PUBLISHER_REPLAY_ISSUE_KIND: l0');
+    expect(raw).toContain('ARTICLE_PUBLISHER_REPLAY_ISSUE_KIND: l0');
   });
 });
