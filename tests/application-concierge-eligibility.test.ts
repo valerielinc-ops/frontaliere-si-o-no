@@ -54,6 +54,49 @@ describe('qualification before proposal publication', () => {
     expect(f.generate).toHaveBeenCalledTimes(3);
   });
 
+  it('does not treat negated, optional, or unrelated stage-manager qualification mentions as hard requirements', () => {
+    for (const text of [
+      'This internship does not require a professional maturity qualification.',
+      'A professional maturity qualification is not required for this internship.',
+      'This internship: a professional maturity qualification is a plus.',
+      'Stage Manager — a professional maturity qualification is a plus.',
+    ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, text)).toBe(false);
+  });
+
+  it('bounds aggregate metadata and fails closed when the relevant context cannot be fully analyzed', async () => {
+    const f = fixture({ matches: [], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    expect(await check({ id: 'large-metadata', title: 'IT Manager', description: ['a'.repeat(3_500), 'b'.repeat(3_500),
+      'c'.repeat(3_500), 'd'.repeat(3_500), 'e'.repeat(3_500)] }))
+      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(f.generate).toHaveBeenCalledTimes(1);
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+
+  it('binds company, job location, and posting location independently into eligibility cache and evidence', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    f.readPosting.mockResolvedValue({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(20)}`,
+      textTruncated: false, source: 'job_detail', location: 'Locarno' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const baseJob = { id: 'shared-metadata-cache', title: 'IT Support Specialist', company: 'Alpha AG', location: 'Bellinzona' };
+    const first = await check(baseJob);
+    const firstRequirementsPrompt = f.generate.mock.calls.find(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)?.[1];
+    const companyChanged = await check({ ...baseJob, company: 'Beta SA' });
+    const jobLocationChanged = await check({ ...baseJob, company: 'Beta SA', location: 'Lugano' });
+    f.readPosting.mockResolvedValue({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(20)}`,
+      textTruncated: false, source: 'job_detail', location: 'Mendrisio' });
+    const postingLocationChanged = await check({ ...baseJob, company: 'Beta SA', location: 'Lugano' });
+
+    expect(firstRequirementsPrompt).toContain('company: Alpha AG');
+    expect(firstRequirementsPrompt).toContain('location: Bellinzona');
+    expect(firstRequirementsPrompt).toContain('posting.location: Locarno');
+    expect(companyChanged.fingerprint).not.toBe(first.fingerprint);
+    expect(jobLocationChanged.fingerprint).not.toBe(companyChanged.fingerprint);
+    expect(postingLocationChanged.fingerprint).not.toBe(jobLocationChanged.fingerprint);
+    expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(4);
+  });
+
   it('checks the CV storage size before downloading it into the matching worker', async () => {
     const f = fixture({ matches: [], verdict: 'weak', questions: [] });
     const download = vi.fn(async () => [f.bytes]);
