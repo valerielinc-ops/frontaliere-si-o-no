@@ -26,7 +26,7 @@ const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DEL
 const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
-const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
+const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { getAccountFailure, serializeAccountFailure, submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
 const { handleAuth, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
@@ -95,7 +95,7 @@ describe('starting the flow', () => {
     const key = candidateQuestionAnswerKey(question);
     const order = paidOrder({ userId, jobUrl: 'https://jobs.example.test/roles/permit', cvUploadedAt: T0 });
     const flow = { state: 'submitted', round: 1, answers: {}, questionAnswers: { legacy_unverified: 'Yes' } };
-    const draft = { round: 1, questions: [question] };
+    const draft = { round: 1, cvKey: order.cvStorageKey, questions: [question] };
     store = createMemoryFirestore({
       [ORDER_PATH]: order,
       [`${ORDER_PATH}/automation/flow`]: flow,
@@ -111,7 +111,7 @@ describe('starting the flow', () => {
       flow,
       draft,
       answers: { work_permit: 'Permit G' },
-      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: ORDER, questions: [question], draft, nowMs: T0 }),
+      answerQuestionSnapshots: answerConfirmationSnapshotsFor({ userId, orderId: ORDER, order, flow, questions: [question], draft, nowMs: T0 }),
       answerActor: 'candidate',
       nowMs: T0,
     });
@@ -568,7 +568,7 @@ describe('sweep', () => {
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'auto_approved_12h' });
   });
 
-  it('holds required candidate answers before starting the automatic submission clock', async () => {
+  it('does not clear a candidate hold from unverified legacy answers', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     const draft = { ...readyDraft(), questions: [
       { id: 'work_permit', required: true, question: 'Permesso svizzero?', options: ['C', 'B', 'L', 'G', 'none'] },
@@ -590,8 +590,28 @@ describe('sweep', () => {
       answers: { work_permit: 'C', relocation_to_ticino: 'yes' },
     });
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 1000 });
-    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', heldBy: [] });
-    expect(store.read(`${ORDER_PATH}/automation/flow`)?.deadlineAt).toBe(T0 + 1000 + CANDIDATE_REVIEW_MS);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review',
+      heldBy: ['question:work_permit', 'question:relocation_to_ticino'], deadlineAt: null });
+    expect(effects).toEqual([]);
+  });
+
+  it('clears the candidate hold only after the direct answer proof is committed', async () => {
+    const userId = 'candidate-direct-answer';
+    const order = paidOrder({ userId, jobId: 'job', jobUrl: 'https://jobs.example.test/roles/job/', cvUploadedAt: T0 });
+    const question = { id: 'relocation_to_ticino', required: true, question: 'Trasferimento in Ticino?', options: ['yes', 'no'], type: 'choice' };
+    const draft = { ...readyDraft(), cvKey: order.cvStorageKey, questions: [question] };
+    const flow = { state: 'candidate_review', round: 1, heldBy: ['question:relocation_to_ticino'], answers: {} };
+    store = createMemoryFirestore({ [ORDER_PATH]: order, [`${ORDER_PATH}/automation/flow`]: flow,
+      [`${ORDER_PATH}/ai_drafts/current`]: draft, [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: {}, applicationQuestionAnswerEvidence: {} } });
+    const snapshots = answerConfirmationSnapshotsFor({ userId, orderId: ORDER, order, flow, questions: [question], draft, nowMs: T0 });
+
+    await saveAnswersWithCv({ db: store.db, bucket: null, orderId: ORDER, order, flow, draft,
+      answers: { relocation_to_ticino: 'yes' }, answerQuestionSnapshots: snapshots, answerSnapshotQuestions: [question],
+      answerActor: 'candidate', nowMs: T0 });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 1 });
+
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', heldBy: [],
+      deadlineAt: T0 + 1 + CANDIDATE_REVIEW_MS });
   });
 
   it('re-dispatches a silent run once, then hands the order to Valerie', async () => {

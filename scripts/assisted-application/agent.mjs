@@ -33,6 +33,7 @@ import { submissionGuard } from '../../functions/src/assistedApplicationSubmissi
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
+import { createAnswerSourceGuard } from '../../functions/src/assistedApplicationAnswerSourceGuard.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
@@ -213,9 +214,10 @@ async function main() {
   // Cross-posting answers are re-read from their attested sources for this
   // execution only. Never persist them into the target order's flow, where
   // they could outlive the source's consent or retention window.
-  const { flow: executionFlow } = await loadRunnerAnswerContext({
+  let answerContext = await loadRunnerAnswerContext({
     db, orderId, order, flow, draft: previousDraft, nowMs: Date.now(),
   });
+  let executionFlow = answerContext.flow;
   maskValues([Object.values(executionFlow.answers || {}), Object.values(executionFlow.questionAnswers || {})]);
 
   const runKey = runKeyFrom();
@@ -282,13 +284,20 @@ async function main() {
   if (!dryRun && submitDraft !== previousDraft) {
     await orderRef.collection('ai_drafts').doc('current').set({ questions: normalizedQuestions }, { merge: true });
   }
+  if (submitDraft !== previousDraft) {
+    answerContext = await loadRunnerAnswerContext({ db, orderId, order, flow, draft: submitDraft, nowMs: Date.now() });
+    executionFlow = answerContext.flow;
+    maskValues([Object.values(executionFlow.answers || {}), Object.values(executionFlow.questionAnswers || {})]);
+  }
+  const answerSourceGuard = dryRun ? null : createAnswerSourceGuard({ orderId, order, flow, draft: submitDraft,
+    answerEvidence: answerContext.answerEvidence, nowMs: Date.now() });
   try {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
       order, orderId, flow: executionFlow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
-      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
+      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { answerSourceGuard }),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
       // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
       accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),

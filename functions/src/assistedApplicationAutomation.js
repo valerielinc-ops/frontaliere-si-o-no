@@ -96,10 +96,9 @@ async function candidateQuestionAnswerContext({ db, transaction, orderId, order,
   });
   return { answers: context.flow.answers, questionAnswers: context.flow.questionAnswers,
     orderAnswers: context.orderAnswers, orderAnswerSnapshots: context.orderAnswerSnapshots,
-    orderAnswerSnapshotIds: context.orderAnswerSnapshotIds, orderAnswerCompatibility: context.orderAnswerCompatibility };
+    orderAnswerSnapshotIds: context.orderAnswerSnapshotIds, orderAnswerCompatibility: context.orderAnswerCompatibility,
+    orderAnswerConfirmationHashes: context.orderAnswerConfirmationHashes, orderAnswerSources: context.orderAnswerSources };
 }
-
-const plainObject = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 
 /** Fails closed: any error reading Remote Config means "off". */
 async function readAutomationFlag(read) {
@@ -290,15 +289,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const candidateAnswerContext = await candidateQuestionAnswerContext({
       db, transaction, orderId, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
     });
-    // Only source-verified candidate facts can travel between postings.
-    // Answers written on this order win and are rebuilt from its current draft;
-    // legacy flow/global maps are never treated as provenance. A candidate's
-    // explicit answer event may still re-evaluate answers already saved on the
-    // same order, so a pre-marker flow does not strand its own review hold.
-    const candidateAnswerEvent = actor === 'candidate' && event?.type === 'candidate_answers';
-    const legacyLocalAnswers = candidateAnswerEvent && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
-      ? plainObject(flow.answers) : {};
-    const transitionAnswers = { ...legacyLocalAnswers, ...candidateAnswerContext.answers };
+    // Only source-verified candidate facts can travel between postings or
+    // clear an application hold. The review handler commits direct answers and
+    // their proof before dispatching this event; every unmarked legacy value
+    // stays unknown, including when a document upload re-evaluates the flow.
+    const transitionAnswers = { ...candidateAnswerContext.answers };
     const flowForTransition = {
       ...flow,
       answers: transitionAnswers,
@@ -306,6 +301,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
       questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
       questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
+      questionAnswerConfirmationHashes: candidateAnswerContext.orderAnswerConfirmationHashes,
+      questionAnswerSources: candidateAnswerContext.orderAnswerSources,
     };
     // A runner event from a superseded round is stale: never let it move the
     // current round (e.g. a slow draft of round 1 finishing after a rejection).
@@ -355,7 +352,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const persistedFlow = { ...nextFlow, answers: transitionAnswers,
       questionAnswers: candidateAnswerContext.orderAnswers, questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
       questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
-      questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility };
+      questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
+      questionAnswerConfirmationHashes: candidateAnswerContext.orderAnswerConfirmationHashes,
+      questionAnswerSources: candidateAnswerContext.orderAnswerSources };
     const accountFailure = getAccountFailure(event);
     claim('applied');
     transaction.set(flowRef, persistedFlow);
@@ -461,7 +460,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
     if (!automationEligibility(order, orderId).eligible) return;
-    const orderContext = orderQuestionAnswerContext({ orderId, flow: existing || {}, draft, nowMs });
+    const orderContext = orderQuestionAnswerContext({ orderId, order, flow: existing || {}, draft, nowMs });
     const flow = {
       state: 'drafting',
       round: 1,
@@ -483,6 +482,8 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       questionAnswerSnapshots: orderContext.questionAnswerSnapshots,
       questionAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds,
       questionAnswerCompatibility: orderContext.questionAnswerCompatibility,
+      questionAnswerConfirmationHashes: orderContext.questionAnswerConfirmationHashes,
+      questionAnswerSources: orderContext.questionAnswerSources,
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
       dispatch: { mode: 'draft', round: 1, requestedAt: nowMs, attempts: 1, reason },
       startedAt: nowMs,

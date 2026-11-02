@@ -43,7 +43,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
-import { answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
@@ -296,15 +296,17 @@ export function sendReviewResponse(res, { status, body, file, noStore }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
+export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, answerEvidence = [], nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
-  const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+  const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
   const candidateFlow = { ...flow, answers: { ...(flow?.answers || {}), ...orderContext.answers },
     questionAnswers: { ...(flow?.questionAnswers || {}), ...orderContext.orderAnswers } };
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
+  const answerOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence, flow: candidateFlow });
+  const confirmationFlow = { ...candidateFlow, answerOrigins };
   const questions = visibleQuestions.map((question) => {
     const view = questionView(question, nowMs, draft?.factSources?.text || '');
     if (question.id !== 'work_permit') return view;
@@ -366,7 +368,8 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     dismissedAnswerSuggestionIds,
-    answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs }),
+    answerQuestionSnapshots: answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: confirmationFlow,
+      questions: visibleQuestions, draft, nowMs }),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
@@ -782,7 +785,8 @@ export async function handleAssistedApplicationReview(req, deps) {
         loadEmployerResponse(orderRef, order),
         loadEmployerResponseTimeline(orderRef, order),
       ]);
-      return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+      return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission,
+        answerEvidence: runnerContext.answerEvidence, nowMs }),
         employerResponse: employerResponseView(employerResponse),
         employerResponseTimeline: employerResponseTimelineView(employerResponseTimeline),
       } };
@@ -855,7 +859,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
-      const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+      const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
       const runnerContext = await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs });
       const displayLegacyAnswers = runnerContext.retained
         && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
@@ -887,7 +891,11 @@ export async function handleAssistedApplicationReview(req, deps) {
         round: currentRound,
         ids: [...dismissedAnswerSuggestionIds].slice(0, 80),
       };
-      const currentSnapshots = answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs });
+      const displayedOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers: candidate.answers,
+        answerEvidence: runnerContext.answerEvidence, flow: reviewFlow });
+      const confirmationFlow = { ...reviewFlow, answerOrigins: displayedOrigins };
+      const currentSnapshots = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: confirmationFlow,
+        questions: visibleQuestions, draft, nowMs });
       const suppliedSnapshots = body.answerQuestionSnapshots && typeof body.answerQuestionSnapshots === 'object' && !Array.isArray(body.answerQuestionSnapshots)
         ? body.answerQuestionSnapshots : {};
       if (Object.keys(answers).some(id => !currentSnapshots[id] || suppliedSnapshots[id] !== currentSnapshots[id])) {
@@ -909,8 +917,9 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
-      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers,
-        answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions,
+      const confirmedOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence: runnerContext.answerEvidence, flow: reviewFlow });
+      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow: confirmationFlow, draft, answers,
+        answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
         answerSuggestionDismissals, nowMs, answerActor: 'candidate' });
     }
     const event = {

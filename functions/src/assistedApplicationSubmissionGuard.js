@@ -18,6 +18,7 @@
  */
 
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { answerSourceGuardMatches } from './assistedApplicationAnswerSourceGuard.js';
 
 export const SUBMISSION_DOC_ID = 'submission';
 
@@ -73,14 +74,26 @@ export function submissionLeftAt(record) {
   return Number(record?.clickedAt || record?.startedAt) || 0;
 }
 
-export function submissionGuard(db, orderId, round) {
+export function submissionGuard(db, orderId, round, { answerSourceGuard = null } = {}) {
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
+  const draftRef = orderRef.collection('ai_drafts').doc('current');
   const key = `r${Number(round) || 1}`;
   return {
     async read() {
       return (await ref.get()).data()?.[key] || null;
+    },
+    async validateAnswerSources(nowMs = Date.now()) {
+      let matches = false;
+      await db.runTransaction(async transaction => {
+        const [orderDoc, flowDoc, draftDoc] = await Promise.all([
+          transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+        ]);
+        matches = await answerSourceGuardMatches({ db, transaction, guard: answerSourceGuard, orderId,
+          order: orderDoc.data() || {}, flow: flowDoc.data() || {}, draft: draftDoc.data() || {}, nowMs });
+      });
+      return matches;
     },
     /**
      * @param {{resumable?: boolean}} [options] a portal submission: a run that
@@ -90,11 +103,12 @@ export function submissionGuard(db, orderId, round) {
     async claim(channel, nowMs = Date.now(), { resumable = false } = {}) {
       let outcome = null;
       await db.runTransaction(async (transaction) => {
-        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
-          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
+        const [submissionDoc, orderDoc, flowDoc, draftDoc] = await Promise.all([
+          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
         ]);
         const submission = submissionDoc.data();
-        if (submission?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
+        const order = orderDoc.data() || {}; const flow = flowDoc.data() || {}; const draft = draftDoc.data() || {};
+        if (submission?.withdrawnAt || order.withdrawnAt || flow.state === 'withdrawn') {
           outcome = { status: 'withdrawn' };
           return;
         }
@@ -113,7 +127,6 @@ export function submissionGuard(db, orderId, round) {
           && Number(current.clickedAt) > 0
           && !Object.prototype.hasOwnProperty.call(current, 'confirmedNotSent');
         if (legacyReleasedPortal) {
-          transaction.set(ref, { [key]: { confirmedNotSent: true } }, { merge: true });
           current = { ...current, confirmedNotSent: true };
         }
         // Keep click evidence, but allow a retry only when release() also
@@ -126,6 +139,10 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
+        if (!await answerSourceGuardMatches({ db, transaction, guard: answerSourceGuard, orderId, order, flow, draft, nowMs })) {
+          outcome = { status: 'answer_source_changed' };
+          return;
+        }
         transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null, confirmedNotSent: false } }, { merge: true });
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
@@ -134,11 +151,15 @@ export function submissionGuard(db, orderId, round) {
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
     async markClicked(nowMs = Date.now()) {
       await db.runTransaction(async transaction => {
-        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
-          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
+        const [submissionDoc, orderDoc, flowDoc, draftDoc] = await Promise.all([
+          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
         ]);
-        if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
+        const order = orderDoc.data() || {}; const flow = flowDoc.data() || {}; const draft = draftDoc.data() || {};
+        if (submissionDoc.data()?.withdrawnAt || order.withdrawnAt || flow.state === 'withdrawn') {
           throw new Error('application_withdrawn');
+        }
+        if (!await answerSourceGuardMatches({ db, transaction, guard: answerSourceGuard, orderId, order, flow, draft, nowMs })) {
+          throw new Error('answer_source_changed');
         }
         transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
       });

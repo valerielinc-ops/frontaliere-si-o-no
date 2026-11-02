@@ -376,6 +376,7 @@ export async function submitApplication(ctx) {
     if (guard) {
       const claim = await guard.claim('email', nowMs);
       if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
+      if (claim.status === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
       if (claim.status === 'already_sent') {
         // Sent by an earlier run of this round: its follow-ups and its record come from the guard.
         const record = claim.record || {};
@@ -389,6 +390,11 @@ export async function submitApplication(ctx) {
     if (!(await keepAttempt(sentRecord))) {
       if (guard) await guard.release('sent_attempt_not_stored', nowMs);
       return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
+    }
+    if (guard && !(await guard.validateAnswerSources(nowMs))) {
+      await guard.release('answer_source_changed', nowMs);
+      await keepAttempt(null);
+      return { type: 'submit_failed', error: 'answer_source_changed' };
     }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
@@ -453,6 +459,7 @@ export async function submitApplication(ctx) {
     if (guard) {
       const claim = await guard.claim('portal', nowMs);
       if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
+      if (claim.status === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }
@@ -580,6 +587,7 @@ export async function submitApplication(ctx) {
         if (attemptKept) await keepAttempt(null);
       }
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
+      if (error instanceof Error && error.message === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
       if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
       throw error;
     } finally {
