@@ -32,7 +32,7 @@ export function candidateEditContract({ orderId, order, flow, draft, communicati
   };
   const { answers } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale })
-    .map(field => fieldView(field, { draft, locale }))
+    .map(field => fieldView(field, { draft, flow: candidateFlow, locale }))
     .sort((left, right) => left.key.localeCompare(right.key));
   const applicationEmail = draft?.channel?.type === 'email' && draft?.applicationEmail
     ? {

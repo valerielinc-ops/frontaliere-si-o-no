@@ -368,7 +368,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     coverLetter: draft ? { subject: draft.coverLetter?.subject || '', text: draft.coverLetter?.text || '' } : null,
     coverLetterUrl: coverLetterUrl || null,
     applicationEmail,
-    formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
+    formAnswers: formAnswers.map((field) => fieldView(field, { draft, flow, locale })),
     editSnapshot,
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
