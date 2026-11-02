@@ -215,6 +215,7 @@ export interface WeeklyCountableJob {
   titleByLocale?: Partial<Record<WeeklyEmployersLocale, string>>;
   company?: string;
   companyKey?: string;
+  municipalityKey?: string;
   location?: string;
   addressLocality?: string;
   postingDateSource?: string;
@@ -337,6 +338,13 @@ function normEmployerKey(company: string, companyKey?: string): string {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function uniformMunicipalityKey(jobs: readonly WeeklyCountableJob[]): string | undefined {
+  const keys = jobs.map((job) => String(job.municipalityKey || '').trim());
+  if (keys.length === 0 || keys.some((key) => !key)) return undefined;
+  const [first] = keys;
+  return keys.every((key) => key === first) ? first : undefined;
 }
 
 /**
@@ -881,6 +889,7 @@ export interface CompanyCityActiveJob {
    * `COMPANY_HQ_ADDRESSES` fallback when the job lacks valid HQ data.
    */
   companySlug?: string;
+  municipalityKey?: string;
 }
 
 export interface CompanyCityStats {
@@ -888,6 +897,7 @@ export interface CompanyCityStats {
   companySlug: string;
   employer: string;
   employerKey?: string;
+  municipalityKey?: string;
   activeJobs: CompanyCityActiveJob[];
   activeJobsCount: number;
   /** Delta vs previous snapshot (current - previous) for this (company, city). */
@@ -1047,6 +1057,7 @@ export function buildCompanyCityStats(opts: {
 
   // Canonical employer display name — take first job's company string.
   const employer = String(matching[0].company || '').trim();
+  const municipalityKey = uniformMunicipalityKey(matching);
 
   // Verified publication dates sort first; unknown and unmarked records remain
   // available after them without borrowing observation clocks.
@@ -1093,6 +1104,7 @@ export function buildCompanyCityStats(opts: {
       salaryMin,
       salaryMax,
       salaryCurrency,
+      municipalityKey: String(j.municipalityKey || '').trim() || undefined,
       streetAddress:
         typeof j.streetAddress === 'string' && j.streetAddress.trim().length > 0
           ? j.streetAddress.trim()
@@ -1157,6 +1169,7 @@ export function buildCompanyCityStats(opts: {
     companySlug,
     employer,
     employerKey,
+    municipalityKey,
     activeJobs,
     activeJobsCount: matching.length,
     delta,
@@ -3573,6 +3586,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     resolveCompanyLogoUrl({
       company: employer,
       companyKey: stats.employerKey,
+      municipalityKey: stats.municipalityKey,
       companyDomain: stats.companyDomain,
     }),
   );
@@ -3612,6 +3626,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
               title: job.title || `${OPEN_POSITION_LABEL[locale]} ${idx + 1}`,
               company: employer,
               companyKey: stats.employerKey,
+              municipalityKey: job.municipalityKey,
               location: job.addressLocality || cityDisplay,
               addressLocality: job.addressLocality || cityDisplay,
               canton: job.addressRegion,
