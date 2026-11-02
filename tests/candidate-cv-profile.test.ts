@@ -17,9 +17,18 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   let autoId = 0;
   let transactionQueue = Promise.resolve();
   const normalize = (path: string) => path.replace(/^\/+|\/+$/g, '');
-  const write = (path: string, data: Record<string, unknown>, merge = false) => {
+  type SetOptions = { merge?: boolean; mergeFields?: string[] };
+  const write = (path: string, data: Record<string, unknown>, options?: SetOptions) => {
     const key = normalize(path);
-    documents.set(key, merge ? { ...(documents.get(key) || {}), ...data } : { ...data });
+    if (Array.isArray(options?.mergeFields)) {
+      const next = { ...(documents.get(key) || {}) };
+      for (const field of options.mergeFields) {
+        if (Object.prototype.hasOwnProperty.call(data, field)) next[field] = data[field];
+      }
+      documents.set(key, next);
+      return;
+    }
+    documents.set(key, options?.merge === true ? { ...(documents.get(key) || {}), ...data } : { ...data });
   };
   const ref = (path: string): any => {
     const key = normalize(path);
@@ -34,8 +43,8 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
       data() {
         return documents.get(key);
       },
-      set(data: Record<string, unknown>, options?: { merge?: boolean }) {
-        write(key, data, options?.merge === true);
+      set(data: Record<string, unknown>, options?: SetOptions) {
+        write(key, data, options);
       },
       collection(name: string) {
         return collection(`${key}/${name}`);
@@ -76,7 +85,7 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
       batch() {
         const operations: Array<() => void> = [];
         return {
-          set(target: any, data: Record<string, unknown>, options?: { merge?: boolean }) {
+          set(target: any, data: Record<string, unknown>, options?: SetOptions) {
             operations.push(() => target.set(data, options));
           },
           async commit() {
@@ -91,7 +100,7 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
         const transaction = {
           get: (target: any) => target.get(),
           delete: (target: any) => operations.push(() => target.delete()),
-          set(target: any, data: Record<string, unknown>, options?: { merge?: boolean }) {
+          set(target: any, data: Record<string, unknown>, options?: SetOptions) {
             operations.push(() => target.set(data, options));
           },
         };

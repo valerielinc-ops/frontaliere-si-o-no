@@ -931,7 +931,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const scannedIndex = frontier.findIndex(entry => entry.url === scannedCursor);
     const afterCursor = scannedIndex >= 0 ? frontier.slice(scannedIndex + 1) : frontier;
     const pendingCount = afterCursor.filter(entry => !allRetryUrls.has(entry.url)).length;
-    await serviceRef.set({
+    const completionUpdate = {
       matchingStatus: 'complete',
       matchingPendingCount: pendingCount,
       matchingPendingReasonCounts: pendingCount ? { bounded_scan_frontier: pendingCount } : {},
@@ -956,7 +956,10 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       matchingCompletedAt: FieldValue.serverTimestamp(),
       matchingError: null,
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    };
+    // Replace aggregate maps as whole fields so causes/statuses that disappeared
+    // from the retry queue do not survive a recursive merge as stale counts.
+    await serviceRef.set(completionUpdate, { mergeFields: Object.keys(completionUpdate) });
     const telemetry = {
       scanned: checks.size,
       pending: { count: pendingCount, reasons: pendingCount ? { bounded_scan_frontier: pendingCount } : {} },
