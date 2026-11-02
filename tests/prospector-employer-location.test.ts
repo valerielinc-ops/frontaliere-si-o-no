@@ -261,6 +261,7 @@ describe('prospector official employer location proof', () => {
           listingCount: 3,
           publishableCount: 1,
           dropCounts: { source_backed_geography_missing: 1 },
+          geographyDropReasons: { multiple_official_sedes: 1 },
         },
       },
     ]);
@@ -270,6 +271,7 @@ describe('prospector official employer location proof', () => {
       listingRows: 5,
       publishableRows: 1,
       sourceBackedGeographyMissingRows: 3,
+      geographyDropReasons: { multiple_official_sedes: 1 },
       allRowsFiltered: 1,
       records: [
         expect.objectContaining({ key: 'blocked', allRowsFiltered: true }),
