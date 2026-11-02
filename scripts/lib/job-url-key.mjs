@@ -237,6 +237,16 @@ const GENERIC_LEAF_RE = /^(?:index|default)\.(?:html?|php|aspx?)$/i;
 // is the whole URL (the distinct filename), never the ancestor folder token.
 const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 
+// ASSOLO municipal notice links use a short content hash at the end of the
+// item slug and mark the detail view with `i=1`, for example
+// `concorso-generale-2025-2026-14e5fc00?i=1`. The generic numeric scan sees
+// the year range first (`20252026`) and the generic hex rule intentionally
+// ignores 8-character tokens, so sibling notices were assigned one merge key.
+// Keep this shape-gated: an arbitrary 8-character slug suffix is not a stable
+// job id for every vendor.
+const ASSOLO_ITEM_LEAF_RE = /-([0-9a-f]{8})$/i;
+const ASSOLO_ITEM_QUERY_RE = /[?&]i=1(?:&|$)/i;
+
 // A per-job id carried in the QUERY string behind a generic/file leaf
 // (`…/index.html?id=NNN`, `…/apply.php?jobId=ABC123`). Anchored to a query-param
 // boundary (`[?&]`) so a SHARED ancestor param — `cid=`/`companyId=` (refline
@@ -339,6 +349,8 @@ export function lowerStripTrailingSlash(url) {
  *   X. rexx systems `-j<digits>.html` leaf (vendor-signature-gated, not
  *      host-gated — ~19+ tenants, no shared hostname) → stable detail id,
  *      ahead of a volatile `?sid=` session token later in the URL (#3699).
+ *   H. ASSOLO item links (`…-<8hex>?i=1`) → the short per-notice content hash,
+ *      ahead of a year/range token in the title slug.
  *   C. legacy leftmost whole-URL scan (unchanged) — id in query/fragment/ancestor.
  *
  * @param {string} url
@@ -401,6 +413,13 @@ export function mergeUrlKey(url) {
     if (queryToken) return queryToken;
     return `url:${u}`;
   }
+
+  // Rule H — ASSOLO municipal notice item hash. The 8-character suffix is
+  // shorter than HEX_TOKEN_RE's generic threshold, while the notice title can
+  // contain a long year/range such as `2025-2026`; prefer the vendor's
+  // per-item hash so sibling notices do not share one merge key.
+  const assoloItem = leaf.match(ASSOLO_ITEM_LEAF_RE);
+  if (assoloItem && ASSOLO_ITEM_QUERY_RE.test(u)) return `hex:${assoloItem[1]}`;
 
   // Rule B — the leaf segment carries its own stable token (leftmost-in-leaf,
   // consistent with the legacy class priority). Distinguishes siblings sharing

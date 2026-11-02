@@ -338,6 +338,21 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
     expect(mergeUrlKey(a)).not.toBe(mergeUrlKey(b));
   });
 
+  it('ASSOLO: uses the short item hash instead of a year-range token', () => {
+    const kitchen = 'https://www.biasca.ch/Concorso-generale-2025-2026-14e5fc00?i=1';
+    const cleaning = 'https://www.biasca.ch/Concorso-generale-2025-2026-bd7dd800?i=1';
+
+    expect(mergeUrlKey(kitchen)).toBe('hex:14e5fc00');
+    expect(mergeUrlKey(cleaning)).toBe('hex:bd7dd800');
+    expect(mergeUrlKey(kitchen)).not.toBe(mergeUrlKey(cleaning));
+    expect(mergeUrlKey(kitchen)).not.toBe('num:20252026');
+  });
+
+  it('ASSOLO short hashes stay shape-gated', () => {
+    const url = 'https://example.com/jobs/2025-2026-14e5fc00';
+    expect(mergeUrlKey(url)).toBe('num:20252026');
+  });
+
   it('grace/hotelcareer: keys on the trailing leaf jobId, not the companyId', () => {
     const a = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-outlet-manager-3957038';
     const b = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-waiter-3639754';
