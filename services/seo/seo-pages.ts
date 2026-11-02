@@ -38,6 +38,96 @@ const HOWTO_CALCULATOR = {
  };
 
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
+ 'direct-employers': {
+  title: 'Pubblica gratis un’offerta di lavoro | Frontaliere Ticino',
+  description: 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino senza account: verifica del datore, moderazione umana e scadenza automatica dopo 30 giorni.',
+  keywords: 'pubblicare offerta lavoro ticino gratis, offerta lavoro negozio ticino, datore lavoro ticino, candidatura frontaliere',
+  ogTitle: 'Pubblica gratis un’offerta di lavoro',
+  ogDescription: 'Un modulo semplice per i piccoli datori che non sono online. Verifica, moderazione e rinnovo senza account.',
+  canonicalPath: '/pubblica-offerta-gratuita/',
+  structuredData: {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Pubblica gratis un’offerta di lavoro",
+   "url": `${BASE_URL}/pubblica-offerta-gratuita/`,
+   "description": "Modulo per piccoli datori di lavoro che vogliono inviare un’offerta gratuita alla moderazione di Frontaliere Ticino.",
+   "inLanguage": "it",
+   "isPartOf": { "@id": `${BASE_URL}/#website` },
+   "publisher": { "@id": `${BASE_URL}/#organization` }
+  }
+ },
+ 'permanent-employers': {
+  title: 'Aziende aperte a candidature spontanee | Frontaliere Ticino',
+  description: 'Elenco pubblico di aziende che possono valutare candidature spontanee, segnalate dai candidati e verificate dal team. Non sono posti di lavoro aperti.',
+  keywords: 'aziende candidature spontanee ticino, candidatura spontanea frontalieri, aziende svizzera italiana',
+  ogTitle: 'Aziende aperte a candidature spontanee',
+  ogDescription: 'Datori segnalati dai candidati e verificati dal team. Questa pagina non annuncia posti aperti.',
+  canonicalPath: '/aziende-candidature-spontanee/',
+  structuredData: {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Aziende aperte a candidature spontanee",
+   "url": `${BASE_URL}/aziende-candidature-spontanee/`,
+   "description": "Elenco di aziende che possono valutare candidature spontanee. Non è un elenco di posti aperti.",
+   "inLanguage": "it",
+   "isPartOf": { "@id": `${BASE_URL}/#website` },
+   "publisher": { "@id": `${BASE_URL}/#organization` }
+  }
+ },
+ 'direct-employers-en': {
+  title: 'Post a free job offer | Frontaliere Ticino',
+  description: 'Small businesses and shops can post a free Ticino job offer without an account: employer verification, human moderation and automatic expiry after 30 days.',
+  keywords: 'post free job Ticino, small employer Ticino, job offer without account, cross-border worker jobs',
+  ogTitle: 'Post a free job offer',
+  ogDescription: 'A simple form for small employers who are not online. Verification, moderation and renewal without an account.',
+  canonicalPath: '/en/post-free-job/',
+  structuredData: { "@context": "https://schema.org", "@type": "WebPage", "name": "Post a free job offer", "url": `${BASE_URL}/en/post-free-job/`, "description": "Form for small employers who want to submit a free job offer for moderation.", "inLanguage": "en", "isPartOf": { "@id": `${BASE_URL}/#website` }, "publisher": { "@id": `${BASE_URL}/#organization` } }
+ },
+ 'direct-employers-de': {
+  title: 'Kostenloses Stellenangebot veröffentlichen | Frontaliere Ticino',
+  description: 'Kleine Unternehmen und Geschäfte können ohne Konto kostenlos eine Stelle im Tessin veröffentlichen: Arbeitgeberprüfung, menschliche Moderation und automatische Ablaufzeit nach 30 Tagen.',
+  keywords: 'kostenlose Stelle Tessin veröffentlichen, kleine Arbeitgeber Tessin, Stelle ohne Konto, Jobs Grenzgänger',
+  ogTitle: 'Kostenloses Stellenangebot veröffentlichen',
+  ogDescription: 'Ein einfaches Formular für kleine Arbeitgeber ohne Online-Portal. Prüfung, Moderation und Verlängerung ohne Konto.',
+  canonicalPath: '/de/kostenlose-stelle-veroeffentlichen/',
+  structuredData: { "@context": "https://schema.org", "@type": "WebPage", "name": "Kostenloses Stellenangebot veröffentlichen", "url": `${BASE_URL}/de/kostenlose-stelle-veroeffentlichen/`, "description": "Formular für kleine Arbeitgeber, die ein kostenloses Stellenangebot zur Moderation senden möchten.", "inLanguage": "de", "isPartOf": { "@id": `${BASE_URL}/#website` }, "publisher": { "@id": `${BASE_URL}/#organization` } }
+ },
+ 'direct-employers-fr': {
+  title: 'Publier gratuitement une offre d’emploi | Frontaliere Ticino',
+  description: 'Les petites entreprises et commerces peuvent publier gratuitement une offre au Tessin sans compte : vérification de l’employeur, modération humaine et expiration automatique après 30 jours.',
+  keywords: 'publier offre emploi gratuite Tessin, petit employeur Tessin, offre sans compte, emploi frontalier',
+  ogTitle: 'Publier gratuitement une offre d’emploi',
+  ogDescription: 'Un formulaire simple pour les petits employeurs sans portail en ligne. Vérification, modération et renouvellement sans compte.',
+  canonicalPath: '/fr/publier-offre-gratuite/',
+  structuredData: { "@context": "https://schema.org", "@type": "WebPage", "name": "Publier gratuitement une offre d’emploi", "url": `${BASE_URL}/fr/publier-offre-gratuite/`, "description": "Formulaire pour les petits employeurs qui souhaitent envoyer une offre gratuite à modérer.", "inLanguage": "fr", "isPartOf": { "@id": `${BASE_URL}/#website` }, "publisher": { "@id": `${BASE_URL}/#organization` } }
+ },
+ 'permanent-employers-en': {
+  title: 'Employers open to spontaneous applications | Frontaliere Ticino',
+  description: 'A public list of employers who may consider spontaneous applications, signalled by candidates and checked by the team. These are not open job positions.',
+  keywords: 'Ticino employers spontaneous applications, cross-border job applications, Swiss employers',
+  ogTitle: 'Employers open to spontaneous applications',
+  ogDescription: 'Employers signalled by candidates and checked by the team. This page does not advertise open positions.',
+  canonicalPath: '/en/employers-open-applications/',
+  structuredData: { "@context": "https://schema.org", "@type": "WebPage", "name": "Employers open to spontaneous applications", "url": `${BASE_URL}/en/employers-open-applications/`, "description": "A list of employers who may consider spontaneous applications. It is not a list of open positions.", "inLanguage": "en", "isPartOf": { "@id": `${BASE_URL}/#website` }, "publisher": { "@id": `${BASE_URL}/#organization` } }
+ },
+ 'permanent-employers-de': {
+  title: 'Unternehmen für Spontanbewerbungen | Frontaliere Ticino',
+  description: 'Eine öffentliche Liste von Unternehmen, die Spontanbewerbungen prüfen können, von Kandidaten gemeldet und vom Team geprüft. Es handelt sich nicht um offene Stellen.',
+  keywords: 'Unternehmen Tessin Spontanbewerbung, Grenzgänger Bewerbung, Schweizer Arbeitgeber',
+  ogTitle: 'Unternehmen für Spontanbewerbungen',
+  ogDescription: 'Von Kandidaten gemeldete und vom Team geprüfte Arbeitgeber. Diese Seite enthält keine offenen Stellen.',
+  canonicalPath: '/de/unternehmen-spontanbewerbung/',
+  structuredData: { "@context": "https://schema.org", "@type": "WebPage", "name": "Unternehmen für Spontanbewerbungen", "url": `${BASE_URL}/de/unternehmen-spontanbewerbung/`, "description": "Liste von Unternehmen, die Spontanbewerbungen prüfen können. Keine Liste offener Stellen.", "inLanguage": "de", "isPartOf": { "@id": `${BASE_URL}/#website` }, "publisher": { "@id": `${BASE_URL}/#organization` } }
+ },
+ 'permanent-employers-fr': {
+  title: 'Entreprises ouvertes aux candidatures spontanées | Frontaliere Ticino',
+  description: 'Une liste publique d’entreprises qui peuvent examiner des candidatures spontanées, signalées par des candidats et vérifiées par l’équipe. Ce ne sont pas des postes ouverts.',
+  keywords: 'entreprises Tessin candidatures spontanées, candidature frontalier, employeurs suisses',
+  ogTitle: 'Entreprises ouvertes aux candidatures spontanées',
+  ogDescription: 'Des employeurs signalés par les candidats et vérifiés par l’équipe. Cette page n’annonce pas de postes ouverts.',
+  canonicalPath: '/fr/entreprises-candidatures-spontanees/',
+  structuredData: { "@context": "https://schema.org", "@type": "WebPage", "name": "Entreprises ouvertes aux candidatures spontanées", "url": `${BASE_URL}/fr/entreprises-candidatures-spontanees/`, "description": "Liste d’entreprises qui peuvent examiner des candidatures spontanées. Ce n’est pas une liste de postes ouverts.", "inLanguage": "fr", "isPartOf": { "@id": `${BASE_URL}/#website` }, "publisher": { "@id": `${BASE_URL}/#organization` } }
+ },
  calculator: {
     title: 'Frontalieri Svizzera 2026: calcolo netto',
  description: 'Frontalieri in Svizzera 2026: calcola il netto, confronta permessi G/B, guida fiscale Nuovo Accordo, LAMal, dogana. Simulatore ufficiale per nuovi e vecchi frontalieri.',

@@ -20,6 +20,8 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { ADMIN_SECTION_SLUGS } from '../components/admin/adminSections';
 import { buildAdminWorkflowSchedulePayload } from './adminWorkflowSchedules';
+import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
+import { isDirectEmployerBuildEnabled } from '../services/directEmployerFeature';
 
 /** Admin-only files to copy from data/ → dist/data/ (relative to project root). */
 const ADMIN_DATA_FILES = [
@@ -54,6 +56,8 @@ const RUNTIME_DATA_FILES = [
 ];
 
 const JOB_POPULARITY_PATH = 'data/job-popularity.json';
+const PROSPECTOR_CANDIDATES_PATH = 'data/prospector/candidates.json';
+export const PERMANENT_EMPLOYER_FEED_PATH = '/data/permanent-employers.json';
 /** A single view says nothing about demand; the strip only compares the top of the list. */
 export const JOB_POPULARITY_MIN_VIEWS = 2;
 
@@ -68,6 +72,20 @@ export function trimJobPopularity(source: string): string {
     ([, views]) => typeof views !== 'number' || views >= JOB_POPULARITY_MIN_VIEWS,
   );
   return JSON.stringify(Object.fromEntries(trimmed));
+}
+
+/** Emit a public-safe projection of prospector permanent-application signals. */
+export function buildPermanentEmployerFeed(root: string, enabled = isDirectEmployerBuildEnabled(process.env)): string {
+ if (!enabled) return JSON.stringify({ version: 1, generatedAt: null, employers: [] });
+ const sourcePath = path.resolve(root, PROSPECTOR_CANDIDATES_PATH);
+ if (!fs.existsSync(sourcePath)) return JSON.stringify({ version: 1, generatedAt: null, employers: [] });
+ try {
+  const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8')) as unknown;
+  return JSON.stringify(projectPermanentEmployerFeed(source));
+ } catch (error) {
+  console.warn(` ⚠️ Permanent-employer feed skipped: ${error instanceof Error ? error.message : String(error)}`);
+  return JSON.stringify({ version: 1, generatedAt: null, employers: [] });
+ }
 }
 
 /** Every file this plugin copies, in one list shared with the dev middleware. */
@@ -147,6 +165,11 @@ export function adminDataPlugin(root: string): Plugin {
  fs.writeFileSync(schedulesDest, JSON.stringify(buildAdminWorkflowSchedulePayload(root), null, 2), 'utf-8');
  console.log(` 🗓️ Admin schedules: emitted ${schedulesDest}`);
 
+ const permanentEmployerFeedDest = path.resolve(distDir, PERMANENT_EMPLOYER_FEED_PATH.slice(1));
+ fs.mkdirSync(path.dirname(permanentEmployerFeedDest), { recursive: true });
+ fs.writeFileSync(permanentEmployerFeedDest, buildPermanentEmployerFeed(root), 'utf-8');
+ console.log(` 🧭 Permanent employers: emitted ${permanentEmployerFeedDest}`);
+
  // Generate static HTML shells for every live admin section so GitHub Pages
  // serves direct deep links without the 404→redirect dance that causes stale
  // browsers to request old chunks.
@@ -175,6 +198,11 @@ export function adminDataDevPlugin(root: string): Plugin {
   configureServer(server) {
    server.middlewares.use((req, res, next) => {
     const pathname = (req.url || '').split('?')[0];
+    if (pathname === PERMANENT_EMPLOYER_FEED_PATH) {
+     res.setHeader('Content-Type', 'application/json');
+     res.end(buildPermanentEmployerFeed(root));
+     return;
+    }
     if (pathname === ADMIN_WORKFLOW_SCHEDULES_PATH) {
      res.setHeader('Content-Type', 'application/json');
      res.end(JSON.stringify(buildAdminWorkflowSchedulePayload(root), null, 2));

@@ -58,6 +58,10 @@ export const SITE_ONLY_RC_KEYS = new Set([
 // nothing worse than a silently `undefined` env var (see #5737).
 export const RC_TO_ENV = {
   // Client-visible keys
+  // Non-secret feature flag consumed by the static deploy: absent/false keeps
+  // direct-employer SEO fail-closed; the owner can enable the next build by
+  // setting the same Firebase Remote Config parameter to "true".
+  DIRECT_EMPLOYER_CHANNEL_ENABLED: ['DIRECT_EMPLOYER_CHANNEL_ENABLED'],
   GEMINI_API_KEY:                 ['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'],
   BING_API_KEY:                   ['BING_API_KEY'],
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],

@@ -208,6 +208,7 @@ import {
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
 import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
+import { filterDirectEmployerSitemapXml, isDirectEmployerBuildEnabled, isDirectEmployerSeoPath } from '../services/directEmployerFeature';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import {
   glossaryTermSlugFromItalianPath,
@@ -2007,6 +2008,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
 
  const distDir = np.resolve(rootDir, 'dist');
+ const directEmployerSeoBuildEnabled = isDirectEmployerBuildEnabled(process.env);
 
  const articleRouteMaps = {
    redirects: loadArticleRouteRedirects(
@@ -5826,7 +5828,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const articleNoindexTargetMarker = articleBodyHasPromptPlaceholder
  ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}`
  : '';
- const articleRobots = NOINDEX_CANONICAL_PATHS.has(canonicalPath)
+ const articleRobots = isDirectEmployerSeoPath(canonicalPath) && !directEmployerSeoBuildEnabled
+ ? 'noindex,follow'
+ : NOINDEX_CANONICAL_PATHS.has(canonicalPath)
  ? 'noindex, nofollow'
  : articleBodyHasPromptPlaceholder
  ? 'noindex,follow'
@@ -6784,7 +6788,7 @@ ${hrefTags}
    const target = np.join(distDir, file);
    if (!fs.existsSync(target)) continue;
    const original = fs.readFileSync(target, 'utf-8');
-   const normalized = normalizeSeededSitemap(original);
+   const normalized = filterDirectEmployerSitemapXml(normalizeSeededSitemap(original), directEmployerSeoBuildEnabled);
    if (normalized === original) continue;
    synchronizedSitemaps++;
    fs.writeFileSync(target, normalized, 'utf-8');
@@ -6811,7 +6815,7 @@ ${hrefTags}
   */
  try {
    const seededSources = seededSitemapFiles.flatMap((f) =>
-     parseAnnotatedSitemapUrls(normalizeSeededSitemap(readSeededSitemap(f))),
+     parseAnnotatedSitemapUrls(filterDirectEmployerSitemapXml(normalizeSeededSitemap(readSeededSitemap(f)), directEmployerSeoBuildEnabled)),
    );
    const { entries, skipped: variantSkips } = collectLocaleVariantEntries(
      seededSources,

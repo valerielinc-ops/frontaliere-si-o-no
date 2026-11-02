@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v39912.title": "Ein direkter Kanal für kleine Arbeitgeber",
+ "whatsNew.v39912.directEmployers.title": "Stelle ohne Konto veröffentlichen",
+ "whatsNew.v39912.directEmployers.desc": "Ein lokaler Laden, eine Metzgerei oder Werkstatt kann in wenigen Schritten kostenlos ein Angebot senden. Wir prüfen den Kontakt und moderieren jede Anzeige vor der Veröffentlichung.",
  "whatsNew.v39911.title": "Bestätige dein Wohnsitzland",
  "whatsNew.v39911.applicationResidence.title": "Erst das Land, dann den Wohnort wählen",
  "whatsNew.v39911.applicationResidence.desc": "Wähle in deinem Profil zuerst das Land und suche oder schreibe danach deinen Wohnort. Ältere Ortsangaben bleiben unbestätigt, bis du ein Land auswählst. So kann der Stellenabgleich deinen Wohnort verwenden, ohne ihn zu erraten.",

@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v39912.title": "A direct channel for small employers",
+ "whatsNew.v39912.directEmployers.title": "Post a job without an account",
+ "whatsNew.v39912.directEmployers.desc": "A local shop, butcher or workshop can send a free offer in a few steps. We verify the contact and moderate every listing before showing it.",
  "whatsNew.v39911.title": "Confirm your country of residence",
  "whatsNew.v39911.applicationResidence.title": "Choose a country, then a town",
  "whatsNew.v39911.applicationResidence.desc": "In your profile, select a country before searching for or entering a town. Older locations stay unconfirmed until you choose a country, so job matching can use your residence without guessing it.",

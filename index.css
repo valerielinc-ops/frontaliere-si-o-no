@@ -2262,6 +2262,8 @@ input[type=number] { -moz-appearance: textfield; }
   .rounded-3xl, .rounded-2xl, .rounded-xl { border-radius: 8px !important; }
   /* Ensure result cards don't split across pages */
   [class*="result"], [class*="comparison"] { break-inside: avoid; page-break-inside: avoid; }
+  .direct-employer-qr-page { border: none !important; box-shadow: none !important; padding: 0 !important; break-inside: avoid; page-break-inside: avoid; }
+  .direct-employer-qr-code { width: 6in !important; max-width: 100% !important; margin: 0 auto !important; }
 }
 
 @keyframes seo-fade-in {

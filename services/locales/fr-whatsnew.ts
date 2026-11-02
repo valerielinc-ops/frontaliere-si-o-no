@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+ "whatsNew.v39912.title": "Un canal direct pour les petits employeurs",
+ "whatsNew.v39912.directEmployers.title": "Publier une offre sans compte",
+ "whatsNew.v39912.directEmployers.desc": "Un commerce, une charcuterie ou un atelier local peut envoyer gratuitement une offre en quelques étapes. Nous vérifions le contact et modérons chaque annonce avant sa publication.",
  "whatsNew.v39911.title": "Confirmez votre pays de résidence",
  "whatsNew.v39911.applicationResidence.title": "Choisissez d’abord le pays, puis la commune",
  "whatsNew.v39911.applicationResidence.desc": "Dans votre profil, sélectionnez un pays avant de rechercher ou de saisir une commune. Les anciennes localités restent non confirmées jusqu’à votre choix : les offres peuvent tenir compte de votre résidence sans la deviner.",
