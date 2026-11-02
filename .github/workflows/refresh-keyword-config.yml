@@ -22,7 +22,13 @@ permissions:
   issues: write
 
 concurrency:
-  group: refresh-keyword-config
+  # GitHub retains only one pending run per concurrency group. Keep a manual
+  # preview out of the writer lane so it cannot replace a successful
+  # workflow_run waiting behind an active writer.
+  group: >-
+    ${{ (inputs.dry_run == true || inputs.dry_run == 'true')
+        && 'refresh-keyword-config-preview'
+        || 'refresh-keyword-config-write' }}
   cancel-in-progress: false
 
 jobs:

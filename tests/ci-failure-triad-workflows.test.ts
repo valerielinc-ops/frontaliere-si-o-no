@@ -67,10 +67,13 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
       types: ['completed'],
       branches: ['main'],
     });
-    expect(configWorkflow.concurrency).toEqual({
-      group: 'refresh-keyword-config',
-      'cancel-in-progress': false,
-    });
+    const concurrencyGroup = String(configWorkflow.concurrency.group);
+    expect(concurrencyGroup).toContain('inputs.dry_run == true');
+    expect(concurrencyGroup).toContain("inputs.dry_run == 'true'");
+    expect(concurrencyGroup).toContain("'refresh-keyword-config-preview'");
+    expect(concurrencyGroup).toContain("'refresh-keyword-config-write'");
+    expect(concurrencyGroup).not.toBe('refresh-keyword-config');
+    expect(configWorkflow.concurrency['cancel-in-progress']).toBe(false);
     expect(configWorkflow.jobs.refresh.if).toContain("github.event_name != 'workflow_run'");
     expect(configWorkflow.jobs.refresh.if).toContain("github.event.workflow_run.conclusion == 'success'");
   });
