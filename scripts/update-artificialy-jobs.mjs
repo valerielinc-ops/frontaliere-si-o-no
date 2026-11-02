@@ -119,6 +119,10 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+async function fetchText(url, timeoutMs = TIMEOUT_MS) {
+  return fetchArtificialyHtml(fetchHtml, url, timeoutMs);
+}
+
 function fetchArtificialyHtml(fetchImpl, url, timeoutMs) {
   return fetchImpl(url, {
     timeoutMs,
@@ -131,10 +135,6 @@ function fetchArtificialyHtml(fetchImpl, url, timeoutMs) {
       'Sec-Fetch-Site': 'none',
     },
   });
-}
-
-async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  return fetchArtificialyHtml(fetchHtml, url, timeoutMs);
 }
 
 function fetchTextWithImpl(url, timeoutMs = TIMEOUT_MS, fetchImpl = fetchHtml) {
