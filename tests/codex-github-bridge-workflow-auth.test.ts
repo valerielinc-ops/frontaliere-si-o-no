@@ -52,7 +52,7 @@ describe('Codex GitHub bridge workflow auth', () => {
     const generate = workflow.jobs?.generate;
     const codex = generate?.steps?.find((step) => step.name === 'Generate social copy with Codex');
 
-    expect(generate?.permissions?.contents).toBe('read');
+    expect(generate?.permissions).toEqual({ contents: 'read' });
     expect(codex?.with?.codex_github_token).toBe('${{ secrets.GITHUB_TOKEN }}');
   });
 });
