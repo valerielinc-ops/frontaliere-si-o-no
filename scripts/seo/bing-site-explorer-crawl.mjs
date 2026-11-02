@@ -19,7 +19,6 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
 import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
-import { EVENTS_INDEX_PATH } from '../lib/events-utils.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
@@ -83,8 +82,12 @@ const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
 const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 const EVENT_ROUTE_SEGMENT_RE = /^[a-z0-9][a-z0-9-]*$/;
-const EVENT_INDEX_PATH_SEGMENTS = Object.values(EVENTS_INDEX_PATH)
-  .map((value) => value.split('/').filter(Boolean));
+const EVENT_INDEX_PATH_SEGMENTS = [
+  ['eventi'],
+  ['en', 'events'],
+  ['de', 'veranstaltungen'],
+  ['fr', 'evenements'],
+];
 const EVENT_ARCHIVE_ROUTE_SEGMENTS = new Set(['archivio', 'archive', 'archiv', 'archives']);
 
 function pathnameAndOrigin(value) {
@@ -98,6 +101,12 @@ function pathnameAndOrigin(value) {
   } catch {
     return null;
   }
+}
+
+function eventIndexPathSegments(pathname) {
+  const segments = String(pathname || '').split('/').filter(Boolean);
+  return EVENT_INDEX_PATH_SEGMENTS.find((prefix) =>
+    prefix.every((segment, index) => segments[index] === segment)) || null;
 }
 
 function localeForJobBoardSection(section) {
@@ -313,8 +322,7 @@ export function isEventDetailPath(value) {
   const source = pathnameAndOrigin(value);
   if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
   const segments = source.pathname.split('/').filter(Boolean);
-  const indexPath = EVENT_INDEX_PATH_SEGMENTS.find((prefix) =>
-    prefix.every((segment, index) => segments[index] === segment));
+  const indexPath = eventIndexPathSegments(source.pathname);
   if (!indexPath) return false;
 
   const detailSegments = segments.slice(indexPath.length);
@@ -366,10 +374,9 @@ export function isDeclaredPharmacyTarget({ url, html }) {
  * AND an events route are both required.
  */
 export function isDeclaredEventArchiveTarget({ url, html }) {
-  let pathname = '';
-  try { pathname = new URL(url, 'https://frontaliereticino.ch').pathname; } catch { return false; }
+  const source = pathnameAndOrigin(url);
   return String(html || '').includes(EVENT_ARCHIVE_NOINDEX_TARGET_MARKER)
-    && /^\/(?:(?:en|de|fr)\/)?(?:eventi|events|veranstaltungen|evenements)\//.test(pathname);
+    && Boolean(source && source.origin === new URL(DEFAULT_BASE_URL).origin && eventIndexPathSegments(source.pathname));
 }
 
 export function scopeForManifest(manifest) {
