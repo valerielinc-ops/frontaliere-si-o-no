@@ -28,7 +28,7 @@ const { candidateQuestionAnswerKey } = await import('../functions/src/assistedAp
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
-const { questionDetailsForEvent } = await import('../scripts/assisted-application/lib/question-details.mjs');
+const { boundRunnerEvent, MAX_RUNNER_EVENT_BYTES, MAX_RUNNER_EVENT_QUESTION_DETAILS, questionDetailsForEvent } = await import('../scripts/assisted-application/lib/question-details.mjs');
 const { getAccountFailure, serializeAccountFailure, submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
 const { handleAuth, portalQuestionKey, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
 
@@ -265,6 +265,31 @@ describe('applying events', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
   });
 
+  it('uses the persisted full draft contract when the event byte budget omits a question descriptor', async () => {
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    await flowRef.set({
+      state: 'submitting', round: 1, heldBy: [],
+      dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      questions: [{ id: 'regenerated_question', question: 'Disponibilità', semanticKey: 'availability', type: 'text' }],
+      portalAnswers: { answers: [{ question: 'Disponibilità', semanticKey: 'availability', answer: 'Sì' }] },
+    });
+    const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
+    const ref = await events.add({
+      type: 'submit_needs_candidate', round: 1,
+      questions: [{ id: 'regenerated_question' }], documents: [],
+    });
+    const data = store.read(ref.path);
+
+    expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({
+      ok: true,
+      flow: { state: 'submitting', dispatch: { mode: 'submit', attempts: 2, reason: 'existing_candidate_answers' } },
+    });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+  });
+
   it('recognizes ATS answer memory for a translated question when the runner reports the source label', async () => {
     const userId = 'candidate-translated-question';
     const nativeQuestion = {
@@ -356,6 +381,63 @@ describe('applying events', () => {
     expect(descriptor.applicationOptionsFingerprint).toMatch(/^v1_[a-z0-9]+$/);
     expect(candidateQuestionAnswerKey(translatedQuestion)).toBe(candidateQuestionAnswerKey(sourceQuestion));
     expect(candidateQuestionAnswerKey(descriptor)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+  });
+
+  it('preserves long-prompt and option fingerprints when a bounded descriptor is serialized twice', () => {
+    const applicationQuestion = `Native prompt ${'specific details '.repeat(20)}`;
+    const applicationOptions = Array.from({ length: 41 }, (_, index) => `Native option ${index}`);
+    const sourceQuestion = {
+      id: 'bounded_twice', source: 'portal', question: 'Prompto tradotto', applicationQuestion,
+      type: 'choice', required: true, options: applicationOptions.map((_, index) => `Opzione ${index}`), applicationOptions,
+    };
+    const first = questionDetailsForEvent([sourceQuestion], portalQuestionKey)[0];
+    const second = questionDetailsForEvent([first], portalQuestionKey)[0];
+
+    expect(first.questionIdentityFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(first.applicationOptionsFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(second.questionIdentityFingerprint).toBe(first.questionIdentityFingerprint);
+    expect(second.applicationOptionsFingerprint).toBe(first.applicationOptionsFingerprint);
+    expect(candidateQuestionAnswerKey(second)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+  });
+
+  it('fingerprints the full option list before truncation even when the first 40 contain a duplicate', () => {
+    const applicationOptions = Array.from({ length: 39 }, (_, index) => `Native option ${index}`);
+    applicationOptions.push(applicationOptions[0], 'Unique option beyond descriptor limit');
+    const sourceQuestion = {
+      id: 'duplicate_before_tail', source: 'portal', question: 'Choose a region', applicationQuestion: 'Choose a region',
+      type: 'choice', required: true, options: applicationOptions, applicationOptions,
+    };
+    const descriptor = questionDetailsForEvent([sourceQuestion], portalQuestionKey)[0];
+
+    expect(applicationOptions).toHaveLength(41);
+    expect(new Set(applicationOptions).size).toBe(40);
+    expect(descriptor.applicationOptions).toHaveLength(40);
+    expect(descriptor.applicationOptionsFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(candidateQuestionAnswerKey(descriptor)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+  });
+
+  it('keeps a maximum runner event under its aggregate byte budget with 40-entry option arrays', () => {
+    const maxText = '😀'.repeat(120);
+    const maxOption = index => `${'😀'.repeat(79)}${String(index).padStart(2, '0')}`;
+    const optionList = Array.from({ length: 40 }, (_, index) => maxOption(index));
+    const questions = Array.from({ length: MAX_RUNNER_EVENT_QUESTION_DETAILS }, (_, index) => ({
+      id: `question_${String(index).padStart(2, '0')}`,
+      source: 'portal', question: maxText, applicationQuestion: maxText,
+      context: maxText, section: maxText, autocomplete: '😀'.repeat(50), type: 'choice',
+      options: optionList, applicationOptions: optionList,
+    }));
+    const event = {
+      type: 'submit_needs_candidate', round: 1, mode: 'submit', createdAt: T0, runId: 'probe',
+      questions: questions.map(({ id }) => ({ id })), documents: [],
+    };
+    const details = questionDetailsForEvent(questions, () => '😀'.repeat(500));
+    const bounded = boundRunnerEvent({ ...event, questionDetails: details });
+    const bytes = Buffer.byteLength(JSON.stringify(bounded), 'utf8');
+
+    expect(details).toHaveLength(MAX_RUNNER_EVENT_QUESTION_DETAILS);
+    expect(bounded.questionDetails.length).toBeLessThan(details.length);
+    expect(bytes).toBeLessThanOrEqual(MAX_RUNNER_EVENT_BYTES);
+    expect(bounded.questions).toHaveLength(MAX_RUNNER_EVENT_QUESTION_DETAILS);
   });
 
   it('preserves semantic identity when the ATS prompt exceeds the event descriptor limit', () => {

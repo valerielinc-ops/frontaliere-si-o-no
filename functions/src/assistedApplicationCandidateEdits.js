@@ -93,19 +93,27 @@ function sortedOptionValues(question) {
 }
 
 function optionsIdentity(question) {
+  const optionDescriptors = Array.isArray(question?.options) ? question.options : [];
   const suppliedFingerprint = String(question?.applicationOptionsFingerprint || '').trim();
-  if (/^v1_[a-z0-9]{1,10}$/.test(suppliedFingerprint)) return suppliedFingerprint;
   const values = sortedOptionValues(question);
+  // A full source list decides from its raw descriptor count, before unique
+  // values are collapsed. Otherwise a duplicated early option plus a unique
+  // 41st option would serialize to 40 rows with no stable identity.
+  if (optionDescriptors.length > QUESTION_OPTION_DESCRIPTOR_LIMIT) return `v1_${questionHash(values.join('|'))}`;
+  // A 40-row descriptor with a fingerprint is the bounded wire form of a
+  // longer list. Preserve its identity across a second serialization pass.
+  if (optionDescriptors.length === QUESTION_OPTION_DESCRIPTOR_LIMIT && /^v1_[a-z0-9]{1,10}$/.test(suppliedFingerprint)) return suppliedFingerprint;
   return values.length > QUESTION_OPTION_DESCRIPTOR_LIMIT
     ? `v1_${questionHash(values.join('|'))}`
     : values.join('|');
 }
 
 function questionTextIdentity(question, text) {
-  const suppliedFingerprint = String(question?.questionIdentityFingerprint || '').trim();
-  if (/^v1_[a-z0-9]{1,10}$/.test(suppliedFingerprint)) return suppliedFingerprint;
   const normalized = normalizeQuestionValue(text);
-  return String(text || '').length > 240 ? `v1_${questionHash(normalized)}` : normalized;
+  if (String(text || '').length > 240) return `v1_${questionHash(normalized)}`;
+  const suppliedFingerprint = String(question?.questionIdentityFingerprint || '').trim();
+  if (String(text || '').length === 240 && /^v1_[a-z0-9]{1,10}$/.test(suppliedFingerprint)) return suppliedFingerprint;
+  return normalized;
 }
 
 /** Use the native portal prompt for identity while retaining candidate copy for display and answer validation. */
@@ -125,8 +133,11 @@ function questionForAnswerIdentity(question) {
 /** Compact identity for native option lists omitted from bounded runner events. */
 export function candidateQuestionOptionsFingerprint(question) {
   const identityQuestion = questionForAnswerIdentity(question);
+  const descriptors = Array.isArray(identityQuestion?.options) ? identityQuestion.options : [];
+  const supplied = String(question?.applicationOptionsFingerprint || '').trim();
   const values = sortedOptionValues(identityQuestion);
-  return values.length > QUESTION_OPTION_DESCRIPTOR_LIMIT
+  if (descriptors.length === QUESTION_OPTION_DESCRIPTOR_LIMIT && /^v1_[a-z0-9]{1,10}$/.test(supplied)) return supplied;
+  return descriptors.length > QUESTION_OPTION_DESCRIPTOR_LIMIT
     ? `v1_${questionHash(values.join('|'))}`
     : '';
 }
@@ -135,7 +146,9 @@ export function candidateQuestionOptionsFingerprint(question) {
 export function candidateQuestionTextFingerprint(question) {
   const identityQuestion = questionForAnswerIdentity(question);
   const text = String(identityQuestion?.question || '').trim();
-  return text.length > 240 ? `v1_${questionHash(normalizeQuestionValue(text))}` : '';
+  if (text.length > 240) return `v1_${questionHash(normalizeQuestionValue(text))}`;
+  const supplied = String(question?.questionIdentityFingerprint || '').trim();
+  return text.length === 240 && /^v1_[a-z0-9]{1,10}$/.test(supplied) ? supplied : '';
 }
 
 function hasQuestionAnswer(value) {
@@ -194,8 +207,9 @@ export function candidateQuestionAnswerKey(question) {
   const identityQuestion = questionForAnswerIdentity(question);
   const text = String(identityQuestion?.question ?? '').trim();
   if (!text) return '';
+  const suppliedTextFingerprint = String(identityQuestion?.questionIdentityFingerprint || '').trim();
   const hasBoundedTextIdentity = text.length > 240
-    || /^v1_[a-z0-9]{1,10}$/.test(String(identityQuestion?.questionIdentityFingerprint || '').trim());
+    || (text.length === 240 && /^v1_[a-z0-9]{1,10}$/.test(suppliedTextFingerprint));
   const fact = hasBoundedTextIdentity ? null : candidateQuestionFact(identityQuestion);
   if (fact) return `fact_${questionHash(candidateFactIdentity(fact))}`;
   const context = questionContextKey(identityQuestion?.context);

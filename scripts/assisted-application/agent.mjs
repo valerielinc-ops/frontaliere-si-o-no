@@ -35,7 +35,7 @@ import { automationEligibility } from '../../functions/src/assistedApplicationAu
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
 import { createAnswerSourceGuard } from '../../functions/src/assistedApplicationAnswerSourceGuard.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
-import { questionDetailsForEvent } from './lib/question-details.mjs';
+import { boundRunnerEvent, questionDetailsForEvent } from './lib/question-details.mjs';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -188,7 +188,7 @@ async function main() {
   const report = async (event) => {
     // A dry run writes no event: whatever it finds (a closed ad, a question
     // for the candidate) must not move the flow, and the watchdog never sees it.
-    if (!dryRun) await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
+    if (!dryRun) await events.add(boundRunnerEvent({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null }));
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
 
