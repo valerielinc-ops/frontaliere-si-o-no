@@ -11,8 +11,10 @@ import {
   crawlPartition,
   extractInternalLinks,
   folderFor,
+  isDeclaredEventDetailTarget,
   isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
+  isEventDetailPath,
   isJobBoardDetailPath,
   normalizeUrl,
   parseSitemapDocument,
@@ -37,6 +39,8 @@ import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
+import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
@@ -414,6 +418,43 @@ describe('Bing-compatible full-tree crawler', () => {
       url: `${BASE}/en/find-jobs-geneva/lugano/`,
       html: `${PHARMACY_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`,
     })).toBe(false);
+  });
+
+  it('recognizes only marked event-detail noindex targets on strict event routes', () => {
+    const detailUrl = `${BASE}/en/events/ticino/lugano/event-slug-2026-10-01/`;
+    const markerHtml = `${EVENT_DETAIL_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`;
+
+    expect(isEventDetailPath(detailUrl)).toBe(true);
+    expect(isDeclaredEventDetailTarget({ url: detailUrl, html: markerHtml })).toBe(true);
+    expect(isDeclaredEventDetailTarget({
+      url: detailUrl,
+      html: `${EVENT_ARCHIVE_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`,
+    })).toBe(false);
+    expect(isEventDetailPath(`${BASE}/en/events/ticino/lugano/archive/`)).toBe(false);
+    expect(isEventDetailPath(`${BASE}/en/events/ticino/lugano/event-slug/extra/`)).toBe(false);
+  });
+
+  it('keeps an undeclared event-detail noindex actionable and preserves canonical drift', () => {
+    const url = `${BASE}/en/events/ticino/lugano/event-slug-2026-10-01/`;
+    const undeclared = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Event</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`,
+    });
+    const undeclaredCodes = undeclared.findings.map((item) => item.code);
+    expect(undeclaredCodes).toContain(BING_FRONTIER_NOINDEX);
+    expect(undeclaredCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+
+    const drift = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `${EVENT_DETAIL_NOINDEX_TARGET_MARKER}<title>Event</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${BASE}/eventi/ticino/altro/">`,
+    });
+    const driftCodes = drift.findings.map((item) => item.code);
+    expect(driftCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(driftCodes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
   });
 
   it('keeps an undeclared job-detail noindex target actionable', () => {
