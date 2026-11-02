@@ -234,9 +234,6 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       ? [[id, currentQuestionSnapshots[id]]] : []));
   const evidenceQuestionSnapshots = currentConfirmationSnapshots;
   const sourceQuestionSnapshotGuard = evidenceQuestionSnapshots;
-  const allAnswersConfirmed = Object.keys(answers || {}).length > 0
-    && Object.keys(answers || {}).every(id => Boolean(confirmedQuestionSnapshots[id]));
-  const trustedOrderAnswers = ['candidate', 'owner'].includes(answerActor) && allAnswersConfirmed;
   const previousOrderAnswers = orderContext.orderAnswers;
   const orderAnswerValues = { ...orderContext.answers, ...answers };
   const questionAnswers = rememberCandidateQuestionAnswers({
@@ -252,7 +249,11 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     previousQuestionIds: orderContext.questionAnswerSnapshotIds, previousCompatibility: orderContext.questionAnswerCompatibility,
     previousConfirmations: orderContext.questionAnswerConfirmationHashes, previousSources: orderContext.questionAnswerSources,
     confirmed: confirmedQuestionSnapshots, sourceKind: answerSourceKind, nowMs });
-  const orderQuestionAnswersEvidenceVersion = trustedOrderAnswers ? ORDER_QUESTION_ANSWER_EVIDENCE_VERSION : null;
+  // A legacy/v2 flow becomes trusted only after this write produced at least one
+  // new, confirmation-guarded snapshot. Existing legacy maps remain ignored.
+  const orderQuestionAnswersEvidenceVersion = ['candidate', 'owner'].includes(answerActor)
+    && Object.keys(questionAnswerSnapshots.snapshots).length > 0
+      ? ORDER_QUESTION_ANSWER_EVIDENCE_VERSION : null;
   const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
     questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
     questionAnswerConfirmationHashes: questionAnswerSnapshots.confirmations,

@@ -18,7 +18,7 @@ const { startAutomation, applyAutomationEvent } = await import('../functions/src
 const { answerOriginsForQuestions, loadCandidateAnswerEvidence, loadRunnerAnswerContext } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { answerCvFingerprint } = await import('../functions/src/assistedApplicationAnswerConfirmation.js');
-const { candidateAnswersForQuestions, candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
+const { candidateAnswersForQuestions, candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 
 type CvOrderFixture = Record<string, unknown> & { cvStorageKey?: string; cvUploadedAt?: number; userId?: string };
 type CvDraftFixture = Record<string, unknown> & { cvKey?: string };
@@ -130,6 +130,26 @@ describe('typed facts use the complete producer and automation path', () => {
     expect(result.flow.state).toBe('owner_takeover');
     expect(runEffect.mock.calls.some(([input]) => input.effect.kind === 'candidate_action_needed')).toBe(false);
     expect(store.read(`${path}/automation/flow`).questionAnswers).toEqual({});
+  });
+
+  it('promotes a legacy answer flow to v3 when a new answer is confirmed', async () => {
+    const now = Date.now(), orderId = 'legacy_flow_upgrade', path = `assisted_applications/${orderId}`;
+    const order = orderWithCv(orderId, { userId: 'synthetic', paymentStatus: 'paid', jobId: 'legacy-job', jobUrl: 'https://example.test/jobs/legacy/' });
+    const question = { id: 'availability', question: 'When can you start?', type: 'date' };
+    const flow = { round: 1, state: 'candidate_review', answers: { old_id: 'legacy value' }, questionAnswers: { old_key: 'legacy value' },
+      orderQuestionAnswersEvidenceVersion: 'order-confirmed-question-answers-v2' };
+    const draft = draftWithCv(order, { round: 1, questions: [question] });
+    const store = createMemoryFirestore({ [path]: order, [`${path}/automation/flow`]: flow, [`${path}/ai_drafts/current`]: draft,
+      [`user_cv_profiles/${order.userId}`]: { status: 'ready', profile: { languages: [] } } });
+    const answer = '2026-12-01';
+    await saveAnswersWithCv({ db: store.db, bucket: null, orderId, order, flow, draft, answers: { [question.id]: answer },
+      answerQuestionSnapshots: confirmationSnapshots({ orderId, order, flow, questions: [question], draft, nowMs: now }),
+      answerActor: 'candidate', nowMs: now });
+
+    const savedFlow = store.read(`${path}/automation/flow`);
+    expect(savedFlow.orderQuestionAnswersEvidenceVersion).toBe(ORDER_QUESTION_ANSWER_EVIDENCE_VERSION);
+    const context = await loadRunnerAnswerContext({ db: store.db, orderId, order, flow: savedFlow, draft, nowMs: now });
+    expect(context.flow.answers[question.id]).toBe(answer);
   });
 
   it('preserves a server-attested answer origin only when the candidate confirms the exact value', async () => {
