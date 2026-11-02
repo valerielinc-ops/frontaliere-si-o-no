@@ -34,7 +34,7 @@ import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT, GRAPH_API } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignment, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -288,14 +288,16 @@ export async function run(opts = {}) {
   const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
   const copyReservations = new Map();
   const releaseReservation = async (id, reason) => {
-    await releaseUnpublishedSocialCopyAssignment(copyReservations.get(id), {
+    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
       releaseBalancedImpl: releaseSocialCopy,
       reason,
+      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
     });
-    copyReservations.delete(id);
+    if (released) copyReservations.delete(id);
+    return released;
   };
   const releaseAllReservations = async (reason) => {
-    for (const id of copyReservations.keys()) await releaseReservation(id, reason);
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
   };
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';

@@ -38,6 +38,7 @@ import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSecti
 import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
 import { BORDER_WAIT_ROUTES, buildOggiPath, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from '@/build-plugins/shared/borderWaitLegacyRedirects';
+import { parseRetiredLocaleGroups } from '@/scripts/lib/retired-locale-groups.mjs';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -112,7 +113,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   // Standalone pages
   const standalones: AppRoute['activeTab'][] = [
     'feedback', 'forum', 'contact', 'partners', 'consulting',
-    'job-board', 'profile', 'morning', 'gamification', 'for-employers',
+    'job-board', 'profile', 'morning', 'gamification', 'for-employers', 'direct-employers', 'permanent-employers',
     'privacy', 'terms', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
     'dialetto',
     'email-confirmed',
@@ -274,6 +275,20 @@ function isShadowedArticleRoute(route: AppRoute): boolean {
   if (swissArticle && SHADOWED_SWISS_ARTICLE_IDS.has(swissArticle)) return true;
   const blogArticle = (route as { blogArticle?: string }).blogArticle;
   return !!blogArticle && SHADOWED_BLOG_ARTICLE_IDS.has(blogArticle);
+}
+const retiredLocaleGroups = parseRetiredLocaleGroups(
+  readProjectFile('data/retired-article-locale-groups.json'),
+);
+const RETIRED_ARTICLE_SITEMAP_PATHS = new Set([
+  ...[...retiredLocaleGroups.groups.values()].flat(),
+  ...retiredLocaleGroups.individualPaths,
+]);
+/** Retired article groups are intentionally absent from all sitemap coverage checks. */
+function isRetiredArticleRoute(route: AppRoute): boolean {
+  const candidate = route as AppRoute & { blogArticle?: string; swissArticle?: string };
+  if (!candidate.blogArticle && !candidate.swissArticle) return false;
+  return (['it', 'en', 'de', 'fr'] as const)
+    .some((locale) => RETIRED_ARTICLE_SITEMAP_PATHS.has(buildPath(route, locale)));
 }
 const indexNowContent = readProjectFile('scripts/submit-indexnow.js');
 // The IndexNow key/host/POST moved into a shared module (#4837) so the
@@ -524,6 +539,15 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'for-employers-en',
       'for-employers-de',
       'for-employers-fr',
+      // Locale-specific direct-employer pages are emitted from their explicit
+      // canonical metadata blocks; the SPA resolves all locales through the
+      // locale-agnostic route keys above.
+      'direct-employers-en',
+      'direct-employers-de',
+      'direct-employers-fr',
+      'permanent-employers-en',
+      'permanent-employers-de',
+      'permanent-employers-fr',
       // The 2026/27 school-calendar page has one Italian SPA route plus
       // locale-specific metadata entries consumed by staticPagesPlugin for
       // the generated EN/DE/FR shells. These keys are intentionally absent
@@ -555,6 +579,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
     if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
@@ -641,6 +666,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
     if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
@@ -698,6 +724,7 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
     for (const locale of locales) {
       const bridgeTarget = getBorderWaitBridgeTarget(route, locale);
       if (isGeneratedBorderWaitRoute(route)) {

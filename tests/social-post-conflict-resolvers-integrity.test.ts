@@ -42,6 +42,28 @@ exit 1
   return bin;
 }
 
+function ledgerGitBin(dir: string) {
+  const bin = path.join(dir, 'bin');
+  fs.mkdirSync(bin);
+  const git = path.join(bin, 'git');
+  fs.writeFileSync(git, `#!/bin/sh
+if [ "$1" = "diff" ]; then
+  printf '%s\n' 'data/reddit-posted-articles.json'
+  exit 0
+fi
+if [ "$1" = "show" ]; then
+  case "$2" in
+    :2:*) printf '%s' "$UPSTREAM_LEDGER"; exit 0 ;;
+    :3:*) printf '%s' "$LOCAL_LEDGER"; exit 0 ;;
+  esac
+fi
+if [ "$1" = "add" ]; then exit 0; fi
+exit 1
+`);
+  fs.chmodSync(git, 0o755);
+  return bin;
+}
+
 afterEach(() => {
   while (dirs.length) fs.rmSync(dirs.pop()!, { recursive: true, force: true });
 });
@@ -68,5 +90,42 @@ describe('social posted-ledger conflict resolvers', () => {
     expect(result.status).not.toBe(0);
     expect(result.stderr).toContain('version is not a valid ledger');
     expect(fs.readFileSync(path.join(dir, target), 'utf8')).toBe(conflictText);
+  });
+
+  it('keeps Reddit article receipts for different subreddits and overlays the same destination', () => {
+    const dir = tempDir();
+    const target = 'data/reddit-posted-articles.json';
+    fs.mkdirSync(path.dirname(path.join(dir, target)), { recursive: true });
+    const fakeBin = ledgerGitBin(dir);
+    const upstream = {
+      schemaVersion: 1,
+      posted: [{ id: 'article-1', subreddit: 'frontaliere', redditPostId: 't3_old' }],
+    };
+    const local = {
+      schemaVersion: 1,
+      posted: [
+        { id: 'article-1', subreddit: 'frontaliere', redditPostId: 't3_fresh' },
+        { id: 'article-1', subreddit: 'FrontaliereTicino', redditPostId: 't3_other' },
+      ],
+    };
+
+    const result = spawnSync(process.execPath, [path.join(root, 'scripts/lib/resolve-reddit-posted-jobs-conflict.mjs')], {
+      cwd: dir,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${fakeBin}${path.delimiter}${process.env.PATH || ''}`,
+        REDDIT_POSTED_LEDGER_PATH: target,
+        UPSTREAM_LEDGER: JSON.stringify(upstream),
+        LOCAL_LEDGER: JSON.stringify(local),
+      },
+    });
+
+    expect(result.status).toBe(0);
+    const merged = JSON.parse(fs.readFileSync(path.join(dir, target), 'utf8'));
+    expect(merged.posted).toEqual([
+      local.posted[0],
+      local.posted[1],
+    ]);
   });
 });

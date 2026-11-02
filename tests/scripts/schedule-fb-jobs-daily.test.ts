@@ -769,6 +769,52 @@ describe('run() — DRY_RUN mode', () => {
     expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
   });
 
+  it('continues releasing all job reservations after one Firebase release fails', async () => {
+    const tmp = setupTmp([
+      {
+        id: 'job-Y',
+        title: 'Cuoco',
+        slugByLocale: { it: 'y' },
+        jobLocation: { address: { addressLocality: 'Lugano' } },
+        firstSeenAt: '2026-05-04T00:00:00Z',
+      },
+      {
+        id: 'job-Z',
+        title: 'Cameriere',
+        slugByLocale: { it: 'z' },
+        jobLocation: { address: { addressLocality: 'Locarno' } },
+        firstSeenAt: '2026-05-03T00:00:00Z',
+      },
+    ]);
+    const release = vi.fn(async (assignment: object) => {
+      const assignmentKey = (assignment as { assignmentKey: string }).assignmentKey;
+      if (assignmentKey === 'job-Y') throw new Error('temporary Firestore error');
+      return true;
+    });
+    const warns: string[] = [];
+    const result = await run({
+      env: { FB_JOB_VOLUME: '24' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      selectSocialCopyForPublishImpl: async (options: object) => {
+        const assignmentKey = (options as { assignmentKey: string }).assignmentKey;
+        return {
+          copyAssignmentMode: 'firebase-balanced',
+          copyAssignment: { assignmentKey },
+        };
+      },
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: (...args) => warns.push(args.join(' ')),
+    });
+
+    expect(result.ok).toBe(false);
+    expect(release).toHaveBeenCalledTimes(2);
+    expect(release.mock.calls.map(([assignment]) => (assignment as { assignmentKey: string }).assignmentKey))
+      .toEqual(['job-Y', 'job-Z']);
+    expect(warns.join('\n')).toContain('temporary Firestore error');
+  });
+
   it('exits gracefully when no jobs are available', async () => {
     const tmp = setupTmp([]);
     const fetchSpy = vi.fn<typeof fetch>();

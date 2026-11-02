@@ -59,6 +59,12 @@ export const ADMIN_SECTIONS: readonly AdminSection[] = [
     description: 'Utenti, pagamenti e proposte del servizio di 30 giorni.',
   },
   {
+    slug: 'offerte-dirette',
+    label: 'Offerte dirette',
+    group: 'aziende',
+    description: 'Modera le offerte dei piccoli datori e le segnalazioni di candidature spontanee.',
+  },
+  {
     slug: 'redazione',
     label: 'Redazione',
     group: 'redazione',

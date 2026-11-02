@@ -50,6 +50,12 @@ export interface SlugTable {
  publisherDashboard: string;
  journalistDashboard: string;
  forEmployers: string;
+ directEmployers: string;
+ permanentEmployers: string;
+ employerQr: string;
+ directEmployerVerify: string;
+ directEmployerApply: string;
+ directEmployerRenew: string;
  partners: string;
  consulting: string;
  pressKit: string;
@@ -196,6 +202,12 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  publisherDashboard: 'i-miei-annunci',
  journalistDashboard: 'redazione',
  forEmployers: 'per-le-aziende',
+ directEmployers: 'pubblica-offerta-gratuita',
+ permanentEmployers: 'aziende-candidature-spontanee',
+ employerQr: 'qr-vetrina-offerta',
+ directEmployerVerify: 'verifica-offerta',
+ directEmployerApply: 'candidati-offerta',
+ directEmployerRenew: 'rinnova-offerta',
  partners: 'servizi-partner',
  consulting: 'consulenza',
  pressKit: 'stampa',
@@ -305,6 +317,12 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  publisherDashboard: 'my-listings',
  journalistDashboard: 'newsroom',
  forEmployers: 'for-employers',
+ directEmployers: 'post-free-job',
+ permanentEmployers: 'employers-open-applications',
+ employerQr: 'job-posting-qr',
+ directEmployerVerify: 'verify-job-offer',
+ directEmployerApply: 'apply-to-job',
+ directEmployerRenew: 'renew-job',
  partners: 'partner-services',
  consulting: 'consulting',
  pressKit: 'press-kit',
@@ -414,6 +432,12 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  publisherDashboard: 'meine-anzeigen',
  journalistDashboard: 'redaktion',
  forEmployers: 'fuer-unternehmen',
+ directEmployers: 'kostenlose-stelle-veroeffentlichen',
+ permanentEmployers: 'unternehmen-spontanbewerbung',
+ employerQr: 'stellen-qr',
+ directEmployerVerify: 'stellenangebot-bestaetigen',
+ directEmployerApply: 'auf-stelle-bewerben',
+ directEmployerRenew: 'stellenangebot-verlaengern',
  partners: 'partner-dienste',
  consulting: 'beratung',
  pressKit: 'pressekit',
@@ -523,6 +547,12 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  publisherDashboard: 'mes-annonces',
  journalistDashboard: 'redaction',
  forEmployers: 'pour-les-entreprises',
+ directEmployers: 'publier-offre-gratuite',
+ permanentEmployers: 'entreprises-candidatures-spontanees',
+ employerQr: 'qr-offre-emploi',
+ directEmployerVerify: 'verifier-offre-emploi',
+ directEmployerApply: 'candidater-offre',
+ directEmployerRenew: 'renouveler-offre',
  partners: 'services-partenaires',
  consulting: 'consultation',
  pressKit: 'kit-presse',

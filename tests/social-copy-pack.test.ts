@@ -6,6 +6,7 @@ import {
   normalizeSocialCopyPack,
   releaseSocialCopyAssignment,
   releaseUnpublishedSocialCopyAssignment,
+  releaseUnpublishedSocialCopyAssignmentBestEffort,
   selectSocialCopy,
   selectSocialCopyForPublish,
   SOCIAL_COPY_INSTAGRAM_OBJECTIVES,
@@ -311,6 +312,33 @@ describe('social copy pack', () => {
     await expect(releaseUnpublishedSocialCopyAssignment({ copyAssignmentMode: 'deterministic-fallback' }, {
       releaseBalancedImpl,
     })).resolves.toBe(false);
+  });
+
+  it('reports best-effort release failures without throwing past a batch publisher', async () => {
+    const copy = {
+      copyAssignmentMode: 'firebase-balanced',
+      copyAssignment: {
+        experimentId: 'social-copy-balanced-v1',
+        packId: '0123456789abcdef',
+        channel: 'facebook',
+        slot: 'event',
+        assignmentKey: 'event:1',
+      },
+    };
+    const failure = new Error('temporary Firestore error');
+    const onFailure = vi.fn();
+    const releaseBalancedImpl = vi.fn(async () => { throw failure; });
+
+    await expect(releaseUnpublishedSocialCopyAssignmentBestEffort(copy, {
+      releaseBalancedImpl,
+      onFailure,
+      reason: 'batch item was rejected',
+    })).resolves.toBe(false);
+    expect(releaseBalancedImpl).toHaveBeenCalledWith(copy.copyAssignment);
+    expect(onFailure).toHaveBeenCalledWith(failure);
+    await expect(releaseUnpublishedSocialCopyAssignmentBestEffort(
+      { copyAssignmentMode: 'deterministic-fallback' },
+    )).resolves.toBe(true);
   });
 
   it('does not write Firebase assignments while building a dry-run preview', async () => {

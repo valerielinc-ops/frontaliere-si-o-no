@@ -3056,6 +3056,10 @@ Rules:
 
  // Publisher portal — post a job ad
  'publisher.title': 'Post a job ad',
+ 'seo.directEmployer.title': 'Post a free job offer | Frontaliere Ticino',
+ 'seo.directEmployer.description': 'Small businesses and local shops can post a free Ticino job without an account: employer verification, human moderation and automatic expiry after 30 days.',
+ 'seo.permanentEmployer.title': 'Employers open to spontaneous applications | Frontaliere Ticino',
+ 'seo.permanentEmployer.description': 'Public list of employers who may consider spontaneous applications, signalled by candidates and checked by the team. These are not open jobs.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

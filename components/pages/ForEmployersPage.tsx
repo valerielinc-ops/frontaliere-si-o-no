@@ -107,6 +107,7 @@ const ForEmployersPage: React.FC = () => {
   const { t, locale } = useTranslation();
 
   const publishPath = buildPath({ activeTab: 'publish' }, locale);
+  const directEmployerPath = buildPath({ activeTab: 'direct-employers' }, locale);
   const contactPath = buildPath({ activeTab: 'contact' }, locale);
 
   useEffect(() => {
@@ -174,6 +175,24 @@ const ForEmployersPage: React.FC = () => {
           <Check className="w-3.5 h-3.5 text-success" aria-hidden="true" />
           {t('publisherLanding.hero.trust')}
         </p>
+        <aside className="max-w-2xl mx-auto mt-8 rounded-2xl border border-accent-border bg-accent-subtle p-5 text-left sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-base font-semibold font-display text-strong">
+                {t('directEmployer.title')}
+              </h2>
+              <p className="mt-1 text-sm text-subtle">{t('directEmployer.intro')}</p>
+            </div>
+            <a
+              href={directEmployerPath}
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-accent px-4 py-2.5 text-sm font-semibold text-link no-underline transition-colors hover:bg-surface"
+              onClick={() => Analytics.trackUIInteraction('publisher', 'cta', 'direct_employer', 'click')}
+            >
+              {t('directEmployer.submit')}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+        </aside>
       </section>
 
       {/* ── Audience / trust stats ────────────────────────────── */}
