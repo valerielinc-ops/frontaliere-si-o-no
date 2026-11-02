@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 // @vitest-environment-options { "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/" }
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   GPT_BOOTSTRAP_TAG,
   GPT_LOADER_CONTENT,
@@ -36,6 +36,7 @@ describe('job-board GPT bootstrap', () => {
 
   afterEach(() => {
     localStorage.clear();
+    vi.useRealTimers();
   });
 
   it('recognises every localized job-board section, including deep pages', () => {
@@ -72,7 +73,8 @@ describe('job-board GPT bootstrap', () => {
     expect(GPT_BOOTSTRAP_TAG).toBe('<script defer src="/assets/gpt-loader.js"></script>');
     expect(GPT_LOADER_CONTENT).toContain('enableServices');
     expect(GPT_LOADER_CONTENT).toContain('collapseDiv');
-    expect(GPT_LOADER_CONTENT).not.toContain('adsbygoogle');
+    new Function(GPT_LOADER_CONTENT)();
+    expect(document.querySelector('script[src*="adsbygoogle.js"]')).toBeNull();
     expect(GPT_LOADER_CONTENT).not.toContain('<ins');
   });
 
@@ -105,5 +107,47 @@ describe('job-board GPT bootstrap', () => {
     expect(typeof win.googlefc?.controlledMessagingFunction).toBe('function');
     expect(document.querySelector(GPT_SELECTOR)).not.toBeNull();
     delete win.googlefc;
+  });
+
+  it('recovers a real GPT load error with the document-wide bounded loader', () => {
+    vi.useFakeTimers();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    new Function(GPT_LOADER_CONTENT)();
+    const first = document.querySelector(GPT_SELECTOR)!;
+    first.dispatchEvent(new Event('error'));
+    vi.advanceTimersByTime(2000);
+    expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
+    expect(document.querySelector(GPT_SELECTOR)).not.toBe(first);
+    document.querySelector(GPT_SELECTOR)!.dispatchEvent(new Event('load'));
+    window.dispatchEvent(new Event('online'));
+    expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
+  });
+  it('can initialize after consent is revoked before load and then granted again', () => {
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    new Function(GPT_LOADER_CONTENT)();
+    const tag = (window as any).googletag;
+    tag.setConfig = vi.fn(); tag.enableServices = vi.fn();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'denied');
+    tag.cmd.shift()();
+    expect(tag.enableServices).not.toHaveBeenCalled();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    window.dispatchEvent(new CustomEvent(ADS_CONSENT_CHANGE_EVENT));
+    tag.cmd.shift()();
+    expect(tag.enableServices).toHaveBeenCalledOnce();
+    expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
+  });
+  it('rechecks document privacy before retrying the static GPT bootstrap', () => {
+    vi.useFakeTimers();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    new Function(GPT_LOADER_CONTENT)();
+    const initial = document.querySelector(GPT_SELECTOR)!;
+    window.history.replaceState(null, '', '/cerca-lavoro-ticino/?ac=synthetic-code');
+    initial.dispatchEvent(new Event('error'));
+    vi.advanceTimersByTime(10000);
+    expect(document.querySelectorAll(GPT_SELECTOR)).toHaveLength(1);
+    expect(document.querySelector(GPT_SELECTOR)).toBe(initial);
+    window.history.replaceState(null, '', '/cerca-lavoro-ticino/');
+    window.dispatchEvent(new CustomEvent(ADS_CONSENT_CHANGE_EVENT));
+    expect(document.querySelector(GPT_SELECTOR)).not.toBe(initial);
   });
 });

@@ -289,7 +289,8 @@
       },
       "previousSlugs": [
         "sales-agent-schaffhausen-herblingermarkt-60-100-sunrise-schaffhausen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sales Agent Spreitenbach 60-80%",
@@ -926,7 +927,8 @@
       "crawledAt": "2026-11-02T09:42:15.263Z",
       "streetAddress": "Schaffhausen Fronwegplatz",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Audio Technician Studio & MCR MySports 40%",

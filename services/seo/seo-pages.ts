@@ -4584,17 +4584,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  consulting: {
  title: 'Consulenza Fiscale Frontalieri | Tasse CH-IT 2026',
  description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale accordo fiscale Italia-Svizzera del 2020.',
- keywords: 'consulenza fiscale frontalieri, consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, esperto frontaliero, consulenza fiscale frontalieri svizzera',
+ keywords: 'consulenza fiscale frontalieri, consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, consulenza fiscale frontalieri svizzera',
  ogTitle: 'Consulenza Fiscale per Frontalieri Svizzera',
- ogDescription: '🎯 Consulenza fiscale per frontalieri Svizzera-Italia: ottimizzazione tasse, dichiarazione redditi e pianificazione. Prenota gratis.',
+ ogDescription: '🎯 Consulenza fiscale per frontalieri Svizzera-Italia: temi su tasse, dichiarazione dei redditi e pianificazione. Prenota una sessione informativa.',
  canonicalPath: '/consulenza/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "Service",
  "name": "Consulenza Fiscale Frontalieri",
  "url": `${BASE_URL}/consulenza/`,
- "description": "Servizio di consulenza fiscale specializzata per lavoratori frontalieri Svizzera-Italia",
- "provider": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "description": "Servizio informativo e sessioni di confronto su temi fiscali per lavoratori frontalieri Svizzera-Italia",
  "serviceType": "Consulenza Fiscale"
  }
  },

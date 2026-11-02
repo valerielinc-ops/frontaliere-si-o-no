@@ -1,0 +1,24 @@
+{
+  "companyKey": "volenergy-com",
+  "companyName": "volenergy AG",
+  "companyHost": "volenergy.com",
+  "verifiedEmployerDomain": "volenergy.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.volenergy.com/fr/carriere/postes-a-pourvoir"
+  ],
+  "detailTemplate": "/fr/carriere/postes-a-pourvoir/postes-vacants/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Technicien(ne) de service - Valais 100% (h/f/d)",
+    "Strassentransportfachmann/frau Kat. C/E (m/w/d) - Worb BE"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T17:16:13.569Z",
+  "candidateKey": "volenergy@martigny"
+}

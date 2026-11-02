@@ -1,0 +1,24 @@
+{
+  "companyKey": "sgb-ch",
+  "companyName": "Schweiz. Gewerkschaftsbund (SGB)",
+  "companyHost": "uss.ch",
+  "verifiedEmployerDomain": "sgb.ch",
+  "platform": "uss.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.uss.ch/luss/jobs"
+  ],
+  "detailTemplate": "/fileadmin/redaktion/docs/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Télécharger en format PDF",
+    "Télécharger en format PDF"
+  ],
+  "canton": "BE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-02T17:18:49.899Z",
+  "candidateKey": "gewerkschaftsbund-sgb@bern"
+}

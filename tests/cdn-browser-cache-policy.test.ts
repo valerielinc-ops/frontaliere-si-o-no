@@ -22,7 +22,7 @@ describe('cdn-assets-revalidate leaves immutable URLs alone', () => {
   });
 
   it('keeps every stable alias under the rule: a hashed prefix ends in a dash', () => {
-    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag']) {
+    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support']) {
       expect(prefixes).toContain(`'/assets/${name}-'`);
       expect(prefixes).not.toContain(`'/assets/${name}'`);
     }
@@ -48,7 +48,7 @@ describe('content-addressed loaders on R2', () => {
   it('publishes them immutable and restores them to the stage for the purge ledger', () => {
     expect(PREP).toContain(`_r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable"`);
     expect(PREP).toContain(`mv "$_hashed_assets_stage"/* "$stage/assets/"`);
-    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag']) {
+    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support']) {
       expect(PREP).toContain(`-name '${name}-*.js'`);
     }
   });

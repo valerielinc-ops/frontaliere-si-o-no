@@ -124,15 +124,27 @@ describe('standard template: no unnamed exit', () => {
     expect(pipelineStart).toBeGreaterThan(-1);
   });
 
-  it('allows a bare `return;` only right after a named connection-level soft exit', () => {
+  it('allows only named transport exits or a parser-proven filtered-empty success', () => {
     // The transport bail-outs inside the fetch `catch` predate the single exit
-    // and already name their cause. Any OTHER bare return is an unnamed exit.
+    // and already name their cause. A filtered-empty run is the one successful
+    // early completion: it must be guarded by a positive discovery count and
+    // write a non-abort receipt. Any other bare return is unnamed.
     const bareReturns = pipeline.split(/^\s*return;\s*$/m).slice(0, -1);
     expect(bareReturns.length).toBeGreaterThan(0);
     for (const before of bareReturns) {
       const block = before.slice(before.lastIndexOf('if ('));
-      expect(block, `unnamed early exit:\n${block}`).toMatch(/counts\.abortKind\s*=\s*'connection-level-fetch'/);
+      const namedConnectionExit = /counts\.abortKind\s*=\s*'connection-level-fetch'/.test(block);
+      const filteredEmptySuccess = block.startsWith('if (filteredEmptySnapshot) {')
+        && block.includes("lastFetchOutcome: 'filtered_empty'")
+        && block.includes('earlyExit: false')
+        && block.includes('exitCode: 0');
+      expect(
+        namedConnectionExit || filteredEmptySuccess,
+        `unnamed early exit:\n${block}`,
+      ).toBe(true);
     }
+    expect(pipeline.match(/const filteredEmptySnapshot =([\s\S]*?);/)?.[1])
+      .toMatch(/counts\.discovered\s*>\s*0/);
   });
 
   it('names every finishWithoutPublish exit with a known abort kind', () => {

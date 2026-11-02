@@ -5563,10 +5563,10 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath === '/consulenza' || canonicalPath === '/consulenza/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Consulenza fiscale per frontalieri Svizzera-Italia</h2>`,
- `Il servizio di consulenza fiscale è rivolto ai lavoratori frontalieri che necessitano di assistenza personalizzata su tassazione, previdenza e ottimizzazione fiscale nel contesto transfrontaliero Svizzera-Italia. I consulenti sono specializzati nelle normative di entrambi i paesi e aggiornati sul Nuovo Accordo Fiscale 2026.`,
+ `Il servizio di consulenza fiscale è rivolto ai lavoratori frontalieri che desiderano discutere tassazione, previdenza e aspetti fiscali nel contesto transfrontaliero Svizzera-Italia. Le sessioni hanno carattere informativo e seguono i temi elencati di seguito.`,
  `<h2 class="s-o3IET6">Aree di consulenza disponibili</h2>`,
  `Le aree principali includono: dichiarazione dei redditi italiana per redditi svizzeri, scelta del regime fiscale (vecchi vs nuovi frontalieri), calcolo e applicazione della franchigia di €10.000, ottimizzazione dei crediti d'imposta per imposte pagate all'estero (Art. 165 TUIR), pianificazione previdenziale AVS/LPP/terzo pilastro 3a, e scelta tra LAMal e SSN.`,
- `Ogni consulenza parte dall'analisi della situazione individuale — stato civile, distanza dal confine, anzianità lavorativa in Svizzera, reddito lordo — per identificare la strategia fiscale più vantaggiosa. I professionisti utilizzano gli stessi parametri dei simulatori del sito, verificati sulle tabelle ufficiali dell'Amministrazione federale delle contribuzioni e dell'Agenzia delle Entrate.`,
+ `Ogni consulenza parte dall'analisi della situazione individuale — stato civile, distanza dal confine, anzianità lavorativa in Svizzera, reddito lordo — per organizzare il confronto sul caso. I simulatori del sito usano gli stessi parametri e le tabelle ufficiali dell'Amministrazione federale delle contribuzioni e dell'Agenzia delle Entrate; i risultati restano indicativi.`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="${estvHomeUrl}" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it/portale/" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
  } else if (canonicalPath === '/about' || canonicalPath === '/about/') {

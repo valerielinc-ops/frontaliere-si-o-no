@@ -1,0 +1,23 @@
+{
+  "companyKey": "chrampfcheibe-ch",
+  "companyName": "Chrampfcheibe Dommen Nadig AG",
+  "companyHost": "join.com",
+  "verifiedEmployerDomain": "chrampfcheibe.ch",
+  "platform": "join.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://join.com/companies/dagpersonal/14229174-personalvermittler-m-w-d?utm_medium=social_sharing&utm_source=copy_link"
+  ],
+  "detailTemplate": "/companies/dagpersonal/14229174-personalvermittler-m-w-d",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Personalvermittler (m/w/d)"
+  ],
+  "canton": "ZG",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:18:51.155Z",
+  "candidateKey": "chrampfcheibe-dommen-nadig@luzern"
+}

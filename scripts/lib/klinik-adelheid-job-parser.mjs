@@ -4,7 +4,7 @@ import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Adelheid (ZG) job parser — bespoke CMS (MODX-based, no public ATS).
  *
- * Public career site: https://www.klinik-adelheid.ch/jobs-und-karriere/offene-stellen/
+ * Public career site: https://www.klinik-adelheid.ch/jobs-und-karriere/
  *   → individual jobs at /job/{slug}/
  *
  * The listing page renders a `<table class="table-link">` with two columns:
@@ -48,7 +48,10 @@ export function stripKlinikAdelheidFabricatedDescription(text = '') {
 }
 export const KLINIK_ADELHEID_COMPANY_DOMAIN = 'klinik-adelheid.ch';
 
-const PUBLIC_CAREER_URL = 'https://www.klinik-adelheid.ch/jobs-und-karriere/offene-stellen/';
+// The former `/jobs-und-karriere/offene-stellen/` URL now redirects to a page
+// without the server-rendered listing table. The parent career page still
+// publishes the authoritative table and the same `/job/{slug}/` detail links.
+const PUBLIC_CAREER_URL = 'https://www.klinik-adelheid.ch/jobs-und-karriere/';
 const SITE_BASE = 'https://www.klinik-adelheid.ch';
 
 export function isKlinikAdelheidJob(job) {

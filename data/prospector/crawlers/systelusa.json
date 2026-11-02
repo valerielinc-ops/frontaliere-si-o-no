@@ -1,0 +1,25 @@
+{
+  "companyKey": "systelusa",
+  "companyName": "Systel Inc",
+  "companyHost": "systelusa.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://systelusa.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "CFD Analyst / Designer (5+ years)",
+    "CFD Designer / Analyst",
+    "Business Solutions Engineer",
+    "Business Solutions Lead",
+    "Cable Supervisor"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-02T17:04:54.253Z",
+  "candidateKey": "systelusa@applytojob.com"
+}

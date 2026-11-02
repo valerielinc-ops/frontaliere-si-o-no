@@ -158,7 +158,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T10:05:13.067Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 1
     },
     {
       "id": "komax-925f9fb150d6",
@@ -564,10 +565,9 @@
           "vendite-svizzera-ingegnere-tecnico-commerciale-m-f-d-komax-dierikon"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3097,
-      "retranslationAttempts": 16,
+      "retranslationAttempts": 17,
       "firstSeenAt": "2026-09-24T00:10:25.502Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -585,7 +585,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:41:17.704Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "komax-401b132730ac",

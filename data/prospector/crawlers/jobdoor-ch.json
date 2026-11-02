@@ -1,0 +1,23 @@
+{
+  "companyKey": "jobdoor-ch",
+  "companyName": "Jobdoor AG",
+  "companyHost": "jobdoor.ch",
+  "verifiedEmployerDomain": "jobdoor.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobdoor.ch/job/fage-efz-100/"
+  ],
+  "detailTemplate": "/job/fage-efz-100/",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "FaGe EFZ 100%"
+  ],
+  "canton": "NW",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-02T17:20:26.817Z",
+  "candidateKey": "jobdoor@baar"
+}

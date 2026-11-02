@@ -164,7 +164,12 @@ async function runPipeline(fetchJobs: () => Promise<unknown>, extra: Record<stri
     fs.rmSync(root, { recursive: true, force: true });
   }
   const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1)!;
-  return counts as { abortKind: string | null; lastFetchOutcome: string | null; parsed: number | null };
+  return counts as {
+    abortKind: string | null;
+    discovered: number | null;
+    lastFetchOutcome: string | null;
+    parsed: number | null;
+  };
 }
 
 /** The slice was neither rewritten, nor retired, nor published. */
@@ -208,6 +213,36 @@ describe('parser-stamped zero: honoured by default, without runner wiring', () =
     const counts = await runPipeline(async () => []);
     expect(counts.abortKind).toBe('no-jobs-parsed');
     expectSliceUntouched();
+  });
+
+  it('records an explicit filtered-empty observation without an abort receipt', async () => {
+    const filteredEmpty = Object.defineProperties([], {
+      discoveredCount: { value: 2, enumerable: false },
+      fetchOutcome: { value: 'filtered_empty', enumerable: false },
+    });
+    const counts = await runPipeline(async () => filteredEmpty);
+
+    expect(counts).toMatchObject({
+      abortKind: null,
+      discovered: 2,
+      lastFetchOutcome: 'filtered_empty',
+      parsed: 0,
+    });
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({
+        key: COMPANY_KEY,
+        total: 0,
+        discovered: 2,
+        parsed: 0,
+        lastFetchOutcome: 'filtered_empty',
+        written: 0,
+        authoritativeEmptySnapshot: false,
+        earlyExit: false,
+        exitCode: 0,
+      }),
+    );
   });
 
   it.each([
