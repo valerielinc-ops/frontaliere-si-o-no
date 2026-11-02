@@ -181,6 +181,18 @@ let refused = 0;
 let vacancies = 0;
 let retried = 0;
 
+function permanentApplicationPatch(synthesis, only = false) {
+  const applications = Array.isArray(synthesis?.permanentApplications)
+    ? synthesis.permanentApplications.slice(0, 12)
+    : [];
+  if (!applications.length) return {};
+  return {
+    permanentApplications: applications,
+    permanentApplicationOnly: only,
+    permanentApplicationsObservedAt: new Date().toISOString(),
+  };
+}
+
 for (const c of queue) {
   // Un datore rotto non deve affondare lo stadio. Il loop visita migliaia di
   // siti di sconosciuti e uno malformato ci sara' sempre: in produzione e'
@@ -231,6 +243,7 @@ for (const c of queue) {
         synthesisOutcome: synth.reasonCode || 'retryable_failure',
         synthesisDiagnostics: synth.diagnostics || null,
         synthesisCommoncrawlCollection: c.commoncrawlCollection || null,
+        ...permanentApplicationPatch(synth, synth.reasonCode === 'permanent_application_only'),
       });
       recordCandidateAttempt(c.key, {
         outcome: 'retryable_failure', reasonCode: synth.reasonCode || 'retryable_failure', reason,
@@ -242,6 +255,7 @@ for (const c of queue) {
         synthesisRetryable: false,
         synthesisRetryAt: null,
         synthesisCommoncrawlCollection: c.commoncrawlCollection || null,
+        ...permanentApplicationPatch(synth, synth.reasonCode === 'permanent_application_only'),
         ...(retry || {}),
       });
       recordCandidateAttempt(c.key, {
@@ -275,6 +289,8 @@ for (const c of queue) {
     synthesisAttempts: 0,
     synthesisLastAttemptAt: null,
     synthesisRetryAt: null,
+    permanentApplicationOnly: false,
+    ...permanentApplicationPatch(synth, false),
   });
   recordCandidateAttempt(c.key, { outcome: 'succeeded', reasonCode: 'verified_vacancies', reason: `${found.length} vacancies` }, dryRun ? null : undefined);
   console.log(`  ✓ ${String(spec.companyName).slice(0, 34).padEnd(36)} ${spec.mode.padEnd(10)} ${String(found.length).padStart(3)} annunci  ${spec.companyHost}`);

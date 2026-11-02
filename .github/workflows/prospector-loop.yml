@@ -201,7 +201,11 @@ jobs:
         run: node scripts/prospect-validate.mjs --limit=60 --sample=3
 
       - name: Summary
-        run: node scripts/prospect-report.mjs --markdown >> "$GITHUB_STEP_SUMMARY"
+        # The report also emits the versioned SECO exclusivity metric; tee keeps
+        # the same content visible in the log and in the Actions summary.
+        run: |
+          set -o pipefail
+          node scripts/prospect-report.mjs --markdown | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit the queue and the report
         # A full loop takes ~30 minutes, which is long enough for another push

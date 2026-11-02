@@ -1,0 +1,3548 @@
+{
+  "schemaVersion": 1,
+  "metric": "official-seco-offer-exclusivity-vs-known-aggregator-slices",
+  "metricVersion": 1,
+  "runs": [
+    {
+      "schemaVersion": 1,
+      "metric": "official-seco-offer-exclusivity-vs-known-aggregator-slices",
+      "status": "ok",
+      "generatedAt": "2026-11-02T10:10:13.661Z",
+      "source": {
+        "officialSlice": "data/jobs/by-crawler/seco-jobroom.json",
+        "officialAssembledAt": "2026-11-01T21:45:33.027Z",
+        "officialRunId": "41351947084",
+        "aggregatorSlices": [],
+        "observedAggregatorDomains": [],
+        "snapshotKey": "2026-11-01T21:45:33.027Z|41351947084|2432|0|0|2432"
+      },
+      "population": {
+        "officialOffers": 2432,
+        "officialEmployers": 764,
+        "aggregatorOffers": 0,
+        "aggregatorSlices": 0,
+        "aggregatorMatchedOffers": 0,
+        "exclusiveOffers": 2432,
+        "exclusivityRate": 1
+      },
+      "classification": {
+        "registryAvailable": true,
+        "registryCurated": true,
+        "registryFetchedAt": "2026-04-23T17:33:02.383Z",
+        "registryEntryCount": 8,
+        "referenceEstimate": {
+          "source": "owner-provided brief",
+          "estimatedAgencyShare": 0.31,
+          "referenceSnapshot": {
+            "officialOffers": 2432,
+            "adeccoOffers": 522
+          },
+          "interpretation": "benchmark dichiarato dal proprietario; non è l'output del classificatore curato e non viene usato per assegnare agency/direct"
+        },
+        "agency": {
+          "officialOffers": 541,
+          "offerShare": 0.222451,
+          "aggregatorMatchedOffers": 0,
+          "exclusiveOffers": 541,
+          "exclusivityRate": 1,
+          "employers": 7
+        },
+        "direct": {
+          "officialOffers": 1891,
+          "offerShare": 0.777549,
+          "aggregatorMatchedOffers": 0,
+          "exclusiveOffers": 1891,
+          "exclusivityRate": 1,
+          "employers": 757
+        },
+        "unknown": {
+          "officialOffers": 0,
+          "offerShare": 0,
+          "aggregatorMatchedOffers": 0,
+          "exclusiveOffers": 0,
+          "exclusivityRate": null,
+          "employers": 0
+        }
+      },
+      "byCantonAndSize": {
+        "AG": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "AI": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "AR": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "BE": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "BL": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "BS": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "FR": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "GE": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "GL": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "GR": {
+          "micro": {
+            "officialOffers": 326,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 326,
+            "exclusivityRate": 1,
+            "employers": 218,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 3,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 3,
+                "exclusivityRate": 1,
+                "employers": 2
+              },
+              "direct": {
+                "officialOffers": 323,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 323,
+                "exclusivityRate": 1,
+                "employers": 216
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 155,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 155,
+            "exclusivityRate": 1,
+            "employers": 28,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 7,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 7,
+                "exclusivityRate": 1,
+                "employers": 2
+              },
+              "direct": {
+                "officialOffers": 148,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 148,
+                "exclusivityRate": 1,
+                "employers": 26
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 122,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 122,
+            "exclusivityRate": 1,
+            "employers": 6,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 122,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 122,
+                "exclusivityRate": 1,
+                "employers": 6
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 132,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 132,
+            "exclusivityRate": 1,
+            "employers": 1,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 132,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 132,
+                "exclusivityRate": 1,
+                "employers": 1
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "JU": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "LU": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "NE": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "NW": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "OW": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "SG": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "SH": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "SO": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "SZ": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "TG": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "TI": {
+          "micro": {
+            "officialOffers": 239,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 239,
+            "exclusivityRate": 1,
+            "employers": 189,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 1,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 1,
+                "exclusivityRate": 1,
+                "employers": 1
+              },
+              "direct": {
+                "officialOffers": 238,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 238,
+                "exclusivityRate": 1,
+                "employers": 188
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 135,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 135,
+            "exclusivityRate": 1,
+            "employers": 22,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 3,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 3,
+                "exclusivityRate": 1,
+                "employers": 1
+              },
+              "direct": {
+                "officialOffers": 132,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 132,
+                "exclusivityRate": 1,
+                "employers": 21
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 25,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 25,
+            "exclusivityRate": 1,
+            "employers": 4,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 25,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 25,
+                "exclusivityRate": 1,
+                "employers": 4
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 81,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 81,
+            "exclusivityRate": 1,
+            "employers": 1,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 81,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 81,
+                "exclusivityRate": 1,
+                "employers": 1
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "UR": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "VD": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "VS": {
+          "micro": {
+            "officialOffers": 442,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 442,
+            "exclusivityRate": 1,
+            "employers": 295,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 1,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 1,
+                "exclusivityRate": 1,
+                "employers": 1
+              },
+              "direct": {
+                "officialOffers": 441,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 441,
+                "exclusivityRate": 1,
+                "employers": 294
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 288,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 288,
+            "exclusivityRate": 1,
+            "employers": 46,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 4,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 4,
+                "exclusivityRate": 1,
+                "employers": 2
+              },
+              "direct": {
+                "officialOffers": 284,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 284,
+                "exclusivityRate": 1,
+                "employers": 44
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 178,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 178,
+            "exclusivityRate": 1,
+            "employers": 6,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 178,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 178,
+                "exclusivityRate": 1,
+                "employers": 6
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 309,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 309,
+            "exclusivityRate": 1,
+            "employers": 1,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 309,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 309,
+                "exclusivityRate": 1,
+                "employers": 1
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "ZG": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "ZH": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        },
+        "UNKNOWN": {
+          "micro": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "small": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "medium": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          },
+          "large": {
+            "officialOffers": 0,
+            "aggregatorMatchedOffers": 0,
+            "exclusiveOffers": 0,
+            "exclusivityRate": null,
+            "employers": 0,
+            "byEmployerType": {
+              "agency": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "direct": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              },
+              "unknown": {
+                "officialOffers": 0,
+                "aggregatorMatchedOffers": 0,
+                "exclusiveOffers": 0,
+                "exclusivityRate": null,
+                "employers": 0
+              }
+            }
+          }
+        }
+      },
+      "method": {
+        "officialSource": {
+          "crawlerKey": "seco-jobroom",
+          "slice": "data/jobs/by-crawler/seco-jobroom.json",
+          "liveDefinition": "record presente nella snapshot corrente e non marcato expired, inactive, archived, closed, filled o removed"
+        },
+        "aggregatorSource": {
+          "inclusion": "ogni record live delle altre slice by-crawler con almeno un url/applyUrl/sourceUrl/sourcePageUrl/originalUrl su un dominio noto",
+          "domains": [
+            "arbeit.swiss",
+            "eures.europa.eu",
+            "glassdoor.ch",
+            "glassdoor.com",
+            "hoteljob-schweiz.de",
+            "ictjobs.ch",
+            "indeed.ch",
+            "indeed.com",
+            "job-room.ch",
+            "job-too.ch",
+            "jobagent.ch",
+            "jobeo.ch",
+            "jobs.ch",
+            "jobscout24.ch",
+            "jobsuchmaschine.ch",
+            "jobup.ch",
+            "jobwinner.ch",
+            "karriere.at",
+            "monster.ch",
+            "ostjob.ch",
+            "stepstone.ch",
+            "stepstone.de",
+            "talent.com",
+            "topjobs.ch",
+            "valjob.digital"
+          ],
+          "registry": "scripts/lib/known-aggregator-domains.mjs:isKnownAggregatorDomain"
+        },
+        "comparison": {
+          "deduplication": "id/jobId, altrimenti URL normalizzato (hash e tracking rimossi), altrimenti datore+titolo+cantone+località",
+          "employer": "normalizzazione Unicode, rimozione forme legali, overlap token >= 0.75",
+          "canton": "se entrambe le offerte hanno il cantone, deve coincidere; cantone mancante non forza il rifiuto",
+          "title": "token overlap >= 0.80 dopo rimozione di stopword, percentuali e token numerici",
+          "exclusiveOffer": "offerta SECO live senza almeno una corrispondenza nella popolazione aggregatori"
+        },
+        "employerSizeProxy": {
+          "definition": "fascia di volume del datore, non numero di dipendenti: conteggio globale delle offerte SECO live per nome normalizzato",
+          "bands": [
+            {
+              "key": "micro",
+              "min": 1,
+              "max": 4,
+              "label": "1–4 offerte SECO vive"
+            },
+            {
+              "key": "small",
+              "min": 5,
+              "max": 19,
+              "label": "5–19 offerte SECO vive"
+            },
+            {
+              "key": "medium",
+              "min": 20,
+              "max": 99,
+              "label": "20–99 offerte SECO vive"
+            },
+            {
+              "key": "large",
+              "min": 100,
+              "max": null,
+              "label": "100+ offerte SECO vive"
+            }
+          ]
+        },
+        "staffingClassification": {
+          "classifierVersion": 1,
+          "registry": "data/seco-staffing-registry.json",
+          "agency": "nome SECO che matcha un alias di registry.agencies",
+          "direct": "residuo non matchato nella registry curata; non equivale a verifica completa del registro SECO",
+          "unknown": "nome mancante o registry non disponibile/malformata",
+          "referenceEstimate": {
+            "source": "owner-provided brief",
+            "estimatedAgencyShare": 0.31,
+            "referenceSnapshot": {
+              "officialOffers": 2432,
+              "adeccoOffers": 522
+            },
+            "interpretation": "benchmark dichiarato dal proprietario; non è l'output del classificatore curato e non viene usato per assegnare agency/direct"
+          }
+        }
+      },
+      "runId": "2026-11-01T21:45:33.027Z|41351947084|2432|0|0|2432"
+    }
+  ],
+  "method": {
+    "officialSource": {
+      "crawlerKey": "seco-jobroom",
+      "slice": "data/jobs/by-crawler/seco-jobroom.json",
+      "liveDefinition": "record presente nella snapshot corrente e non marcato expired, inactive, archived, closed, filled o removed"
+    },
+    "aggregatorSource": {
+      "inclusion": "ogni record live delle altre slice by-crawler con almeno un url/applyUrl/sourceUrl/sourcePageUrl/originalUrl su un dominio noto",
+      "domains": [
+        "arbeit.swiss",
+        "eures.europa.eu",
+        "glassdoor.ch",
+        "glassdoor.com",
+        "hoteljob-schweiz.de",
+        "ictjobs.ch",
+        "indeed.ch",
+        "indeed.com",
+        "job-room.ch",
+        "job-too.ch",
+        "jobagent.ch",
+        "jobeo.ch",
+        "jobs.ch",
+        "jobscout24.ch",
+        "jobsuchmaschine.ch",
+        "jobup.ch",
+        "jobwinner.ch",
+        "karriere.at",
+        "monster.ch",
+        "ostjob.ch",
+        "stepstone.ch",
+        "stepstone.de",
+        "talent.com",
+        "topjobs.ch",
+        "valjob.digital"
+      ],
+      "registry": "scripts/lib/known-aggregator-domains.mjs:isKnownAggregatorDomain"
+    },
+    "comparison": {
+      "deduplication": "id/jobId, altrimenti URL normalizzato (hash e tracking rimossi), altrimenti datore+titolo+cantone+località",
+      "employer": "normalizzazione Unicode, rimozione forme legali, overlap token >= 0.75",
+      "canton": "se entrambe le offerte hanno il cantone, deve coincidere; cantone mancante non forza il rifiuto",
+      "title": "token overlap >= 0.80 dopo rimozione di stopword, percentuali e token numerici",
+      "exclusiveOffer": "offerta SECO live senza almeno una corrispondenza nella popolazione aggregatori"
+    },
+    "employerSizeProxy": {
+      "definition": "fascia di volume del datore, non numero di dipendenti: conteggio globale delle offerte SECO live per nome normalizzato",
+      "bands": [
+        {
+          "key": "micro",
+          "min": 1,
+          "max": 4,
+          "label": "1–4 offerte SECO vive"
+        },
+        {
+          "key": "small",
+          "min": 5,
+          "max": 19,
+          "label": "5–19 offerte SECO vive"
+        },
+        {
+          "key": "medium",
+          "min": 20,
+          "max": 99,
+          "label": "20–99 offerte SECO vive"
+        },
+        {
+          "key": "large",
+          "min": 100,
+          "max": null,
+          "label": "100+ offerte SECO vive"
+        }
+      ]
+    },
+    "staffingClassification": {
+      "classifierVersion": 1,
+      "registry": "data/seco-staffing-registry.json",
+      "agency": "nome SECO che matcha un alias di registry.agencies",
+      "direct": "residuo non matchato nella registry curata; non equivale a verifica completa del registro SECO",
+      "unknown": "nome mancante o registry non disponibile/malformata",
+      "referenceEstimate": {
+        "source": "owner-provided brief",
+        "estimatedAgencyShare": 0.31,
+        "referenceSnapshot": {
+          "officialOffers": 2432,
+          "adeccoOffers": 522
+        },
+        "interpretation": "benchmark dichiarato dal proprietario; non è l'output del classificatore curato e non viene usato per assegnare agency/direct"
+      }
+    }
+  },
+  "latestRunId": "2026-11-01T21:45:33.027Z|41351947084|2432|0|0|2432",
+  "updatedAt": "2026-11-02T10:10:13.661Z"
+}
