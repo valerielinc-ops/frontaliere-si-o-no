@@ -4,7 +4,10 @@ import {
   fetchAllKlinikArlesheimJobs,
   parseDualooPortal,
 } from '../scripts/lib/klinik-arlesheim-job-parser.mjs';
-import { fetchAllKlinikAdelheidJobs } from '../scripts/lib/klinik-adelheid-job-parser.mjs';
+import {
+  fetchAllKlinikAdelheidJobs,
+  PUBLIC_CAREER_URL as KLINIK_ADELHEID_PUBLIC_CAREER_URL,
+} from '../scripts/lib/klinik-adelheid-job-parser.mjs';
 import { fetchAllKlinikBarmelweidJobs } from '../scripts/lib/klinik-barmelweid-job-parser.mjs';
 import { fetchAllKlinikGutJobs } from '../scripts/lib/klinik-gut-job-parser.mjs';
 const body = 'Wir pflegen und begleiten unsere Patienten mit einem professionellen interdisziplinären Team. '.repeat(20);
@@ -15,7 +18,7 @@ const dualoo = (portal: string, city: string) => `<a class="row jobElement" data
 const profiles = [
   ['aadorf', fetchAllKlinikAadorfJobs, 'https://jobs.dualoo.com/portal/3ibnwlo9?lang=DE', dualoo('3ibnwlo9', 'Aadorf'), `<div class="advertisementDescriptionText"><p>${body}</p></div>`],
   ['arlesheim', fetchAllKlinikArlesheimJobs, 'https://jobs.dualoo.com/portal/s60emmh3?lang=DE', dualoo('s60emmh3', 'Arlesheim'), `<div class="advertisementDescriptionText"><p>${body}</p></div>`],
-  ['adelheid', fetchAllKlinikAdelheidJobs, 'https://www.klinik-adelheid.ch/jobs-und-karriere/offene-stellen/', '<tr><td><a href="/job/pflege/">Pflegefachperson</a></td><td><a href="/job/pflege/">Pflege</a></td></tr>', `<p>Wir suchen nach Vereinbarung</p><p>${body}</p><h2>Online-Bewerbung</h2>`],
+  ['adelheid', fetchAllKlinikAdelheidJobs, KLINIK_ADELHEID_PUBLIC_CAREER_URL, '<tr><td><a href="/job/pflege/">Pflegefachperson</a></td><td><a href="/job/pflege/">Pflege</a></td></tr>', `<p>Wir suchen nach Vereinbarung</p><p>${body}</p><h2>Online-Bewerbung</h2>`],
   ['barmelweid', fetchAllKlinikBarmelweidJobs, 'https://jobs.barmelweid.ch/offene-stellen', `<div class="hf-portrait" onclick="javascript:location.href='/pflege'"><h3>Pflegefachperson</h3><p>${body}</p><p>100%, 01.09.2026</p></div></div></div>`, `<div class="jobheader"><h1>Pflegefachperson</h1></div><div class="jobinfo"><p>${body}</p></div>`],
 ] as const;
 const cases: ReadonlyArray<readonly [string, unknown, string]> = [
