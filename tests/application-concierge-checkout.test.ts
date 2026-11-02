@@ -69,6 +69,8 @@ const mocks = vi.hoisted(() => {
   };
 });
 
+const renewalRollout = vi.hoisted(() => ({ isEnabledFor: vi.fn(async () => true) }));
+
 vi.mock('firebase-admin/firestore', () => ({
   FieldValue: {
     serverTimestamp: () => '__server_timestamp__',
@@ -90,6 +92,10 @@ vi.mock('../functions/src/stripePublisherCore.js', () => ({
   db: mocks.db,
   getStripe: mocks.getStripe,
   verifyCaller: mocks.verifyCaller,
+}));
+
+vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({
+  isApplicationConciergeRenewalEnabledFor: renewalRollout.isEnabledFor,
 }));
 
 vi.mock('../functions/src/assistedApplicationSumupWebhook.js', () => ({
@@ -125,6 +131,7 @@ function request(overrides: Record<string, unknown> = {}) {
 
 beforeEach(() => {
   mocks.reset();
+  renewalRollout.isEnabledFor.mockResolvedValue(true);
   mocks.verifyCaller.mockResolvedValue({ uid: 'candidate-42', email: 'candidate@example.test', email_verified: true });
   mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('stripe');
   mocks.stripeCheckoutSessionsCreate.mockResolvedValue({
@@ -563,6 +570,14 @@ describe('explicit paid concierge renewal', () => {
     });
     return request({ body: { ...request().body, renewalOfServiceId: 'original-service', acceptRenewalTerms: true, expectedAmountTotal: 2999 } });
   }
+  it('rejects a renewal outside the Remote Config rollout before opening a payment session', async () => {
+    const req = source();
+    renewalRollout.isEnabledFor.mockResolvedValue(false);
+    const result = await handleCreateApplicationConciergeCheckout(req);
+    expect(result).toEqual({ status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } });
+    expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+    expect(mocks.createSumUpApplicationConciergeCheckout).not.toHaveBeenCalled();
+  });
   it('charges the server discount and stores explicit consent independently from the old purchase', async () => {
     const result = await handleCreateApplicationConciergeCheckout(source());
     expect(result.status).toBe(200);

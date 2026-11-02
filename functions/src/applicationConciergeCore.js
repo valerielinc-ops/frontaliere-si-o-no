@@ -20,6 +20,7 @@ import { CONCIERGE_ELIGIBILITY_VERSION, prepareConciergeEligibility } from './ap
 import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
+import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
 import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
@@ -171,7 +172,7 @@ function proposalRankingValue(doc, field) {
   return Number.isFinite(value) ? value : 0;
 }
 
-export function serializeApplicationConciergeService(doc, proposalDocs = [], { admin = false } = {}) {
+export function serializeApplicationConciergeService(doc, proposalDocs = [], { admin = false, renewalEnabled = false } = {}) {
   const data = doc.data ? doc.data() || {} : doc || {};
   const serviceId = doc.id || data.serviceId;
   const expired = serviceIsExpired(data);
@@ -190,7 +191,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     paymentProvider: boundedString(data.paymentProvider, 40),
     renewal: data.renewal === true,
     amountTotal: [2999, 3999].includes(data.nextAmountTotal) ? data.nextAmountTotal : [2999, 3999].includes(data.expectedAmountTotal) ? data.expectedAmountTotal : 3999,
-    renewalOffer: conciergeRenewalOffer(data),
+    renewalOffer: admin || renewalEnabled ? conciergeRenewalOffer(data) : null,
     maxPositions: Number(data.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS,
     acceptedPositionsCount: acceptedPositionsCount(data),
     remainingPositions: Math.max(0, (Number(data.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(data)),
@@ -225,6 +226,13 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
       paidReceiptEmails: conciergePaidEmailViews(data),
     } : {}),
   };
+}
+
+async function serializeCandidateApplicationConciergeService(doc, proposalDocs = []) {
+  const data = doc.data ? doc.data() || {} : doc || {};
+  const renewalEnabled = Boolean(conciergeRenewalOffer(data))
+    && await isApplicationConciergeRenewalEnabledFor(data.userId);
+  return serializeApplicationConciergeService(doc, proposalDocs, { renewalEnabled });
 }
 
 async function loadService(db, serviceId) {
@@ -360,7 +368,7 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
     updatedAt: FieldValue.serverTimestamp(),
   }, { merge: true });
   const fresh = await loadService(db, serviceId);
-  return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals);
+  return serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals);
 }
 
 async function recordCandidateConsent(db, serviceId, uid, body) {
@@ -384,7 +392,7 @@ async function recordCandidateConsent(db, serviceId, uid, body) {
     updatedAt: FieldValue.serverTimestamp(),
   }, { merge: true });
   const fresh = await loadService(db, serviceId);
-  return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals);
+  return serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals);
 }
 
 function proposalJobData(data) {
@@ -514,7 +522,7 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
 
   const fresh = await loadService(db, serviceId);
   return {
-    service: serializeApplicationConciergeService(fresh.snapshot, fresh.proposals),
+    service: await serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals),
     childApplicationId,
   };
 }
@@ -537,7 +545,7 @@ async function declineProposal(db, serviceId, proposalId, uid) {
     transaction.set(proposalRef, { status: 'declined', declinedAt: Timestamp.now(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   });
   const fresh = await loadService(db, serviceId);
-  return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals);
+  return serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals);
 }
 
 async function handleCandidateGet(db, req, uid) {
@@ -551,14 +559,14 @@ async function handleCandidateGet(db, req, uid) {
       .map(async (doc) => {
         const fresh = await loadService(db, doc.id);
         assertCandidateOwns(fresh.snapshot.data() || {}, uid);
-        return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals);
+        return serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals);
       }));
     services.sort((left, right) => String(right.createdAt || '').localeCompare(String(left.createdAt || '')));
     return { status: 200, body: { ok: true, services } };
   }
   const fresh = await loadService(db, serviceId);
   assertCandidateOwns(fresh.snapshot.data() || {}, uid);
-  return { status: 200, body: { ok: true, service: serializeApplicationConciergeService(fresh.snapshot, fresh.proposals) } };
+  return { status: 200, body: { ok: true, service: await serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals) } };
 }
 
 async function openChildReview(db, serviceId, proposalId, uid) {

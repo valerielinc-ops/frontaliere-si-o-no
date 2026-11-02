@@ -123,6 +123,8 @@ const mocks = vi.hoisted(() => {
   };
 });
 
+const renewalRollout = vi.hoisted(() => ({ isEnabledFor: vi.fn(async () => false) }));
+
 vi.mock('firebase-admin/auth', () => ({ getAuth: () => ({ createCustomToken: mocks.createCustomToken, getUser: mocks.getUser }) }));
 
 vi.mock('firebase-admin/firestore', () => ({
@@ -153,6 +155,10 @@ vi.mock('../functions/src/stripePublisherCore.js', () => ({
 
 vi.mock('../functions/src/assistedApplicationCheckout.js', () => ({
   ASSISTED_APPLICATION_CONSENT_VERSION: 'assisted-application-v1',
+}));
+
+vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({
+  isApplicationConciergeRenewalEnabledFor: renewalRollout.isEnabledFor,
 }));
 
 
@@ -204,6 +210,7 @@ function seedService() {
 
 beforeEach(() => {
   mocks.reset();
+  renewalRollout.isEnabledFor.mockResolvedValue(false);
   seedService();
 });
 
@@ -256,6 +263,24 @@ describe('verified concierge recipient cannot impersonate registered owner', () 
 });
 
 describe('application concierge candidate API', () => {
+  it('does not read the renewal rollout for a service without an available offer', async () => {
+    await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(renewalRollout.isEnabledFor).not.toHaveBeenCalled();
+  });
+
+  it('shows renewal offers only to candidates in the configured rollout', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.serviceStatus = 'expired';
+    service.expiresAt = new Date(Date.now() - 1);
+    renewalRollout.isEnabledFor.mockResolvedValue(true);
+    const enabled = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(enabled.body.service.renewalOffer).toMatchObject({ amountTotal: 2999 });
+
+    renewalRollout.isEnabledFor.mockResolvedValue(false);
+    const disabled = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(disabled.body.service.renewalOffer).toBeNull();
+  });
+
   it('exposes incomplete verification separately from an empty matching result', async () => {
     const key = 'application_concierge_services/service-1';
     mocks.documents.set(key, { ...mocks.documents.get(key), matchingStatus: 'complete', matchingJobCount: 0,
