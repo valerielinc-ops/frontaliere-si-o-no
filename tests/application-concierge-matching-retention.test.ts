@@ -1,5 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { createHash } from 'node:crypto';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { eligibilityRetryRef } from '../functions/src/applicationConciergeEligibilityRetry.js';
 
 vi.mock('firebase-admin/firestore', () => ({
   FieldValue: {
@@ -22,7 +25,7 @@ vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   prepareConciergeEligibility: vi.fn(),
 }));
 
-const { approvedRolePreference, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
+const { approvedRolePreference, eligibilityRetryContext, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
 
 const SERVICE_ID = 'service-1';
 const SERVICE_PATH = `application_concierge_services/${SERVICE_ID}`;
@@ -111,6 +114,55 @@ describe('application concierge proposal retention', () => {
     expect(result).toMatchObject({ status: 'complete', proposals: 0 });
     expect(eligibility).toHaveBeenCalledTimes(1);
     expect(store.list(`${SERVICE_PATH}/proposals/`)).toEqual([]);
+  });
+
+  it('reopens exhausted eligibility only when the primary posting fingerprint changes', async () => {
+    const store = matchingFixture();
+    store.docs.delete(PROPOSAL_PATH);
+    stubJobIndex([matchingJob]);
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const scanContext = createHash('sha256').update(JSON.stringify([
+      APPLICATION_CONCIERGE_MATCHING_VERSION, CV_KEY, profile,
+    ])).digest('hex');
+    const jobContext = eligibilityRetryContext(scanContext, { ...matchingJob, location: '' });
+    const originalFingerprint = 'a'.repeat(64);
+    const verifiedFingerprint = 'b'.repeat(64);
+    const serviceRef = store.db.collection('application_concierge_services').doc(SERVICE_ID);
+    const retryRef = eligibilityRetryRef(serviceRef, JOB_URL);
+    await retryRef.set({
+      jobUrl: JOB_URL,
+      context: eligibilityRetryContext(scanContext, { ...matchingJob, location: '' }, originalFingerprint),
+      jobContext,
+      fingerprint: originalFingerprint,
+      attempts: 5,
+      deferrals: 0,
+      retryAt: 0,
+      retryState: 'exhausted',
+      lastStatus: 'unverified',
+      lastReason: 'posting_unavailable',
+      firstAttemptAt: Date.now() - 5 * 86400000,
+      lastAttemptAt: Date.now(),
+    });
+
+    let currentFingerprint = originalFingerprint;
+    const fingerprintFor = vi.fn(async () => currentFingerprint);
+    const eligibility = Object.assign(vi.fn(async () => ({ status: 'compatible', fingerprint: verifiedFingerprint })),
+      { fingerprintFor });
+
+    const unchanged = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+    expect(fingerprintFor).toHaveBeenCalledTimes(1);
+    expect(eligibility).not.toHaveBeenCalled();
+    expect(unchanged).toMatchObject({ status: 'complete', proposals: 0 });
+    expect((await retryRef.get()).data()).toMatchObject({ retryState: 'exhausted', lastReason: 'posting_unavailable' });
+
+    currentFingerprint = verifiedFingerprint;
+    const recovered = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(recovered).toMatchObject({ status: 'complete', proposals: 1 });
+    expect(fingerprintFor).toHaveBeenCalledTimes(2);
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect((await retryRef.get()).exists).toBe(false);
+    expect(store.list(`${SERVICE_PATH}/proposals/`)).toHaveLength(1);
   });
 
   it('reactivates an ambiguous legacy retraction only after current listing and eligibility checks pass', async () => {

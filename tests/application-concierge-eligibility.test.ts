@@ -583,14 +583,18 @@ describe('qualification before proposal publication', () => {
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     const job = { id: 'recovering-source', title: 'IT Manager', company: 'Example' };
 
+    const unavailableFingerprint = await check.fingerprintFor(job);
     const unavailable = await check(job);
-    expect(unavailable).toMatchObject({ status: 'unverified', reason: 'posting_unavailable', cacheId: expect.any(String), fingerprint: expect.any(String) });
+    expect(unavailable).toMatchObject({ status: 'unverified', reason: 'posting_unavailable', cacheId: expect.any(String),
+      fingerprint: unavailableFingerprint });
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(0);
 
     f.readPosting.mockResolvedValue({ text: `English B2 required. ${'IT infrastructure duties. '.repeat(12)}`,
       textTruncated: false, source: 'job_detail' });
+    const recoveredFingerprint = await check.fingerprintFor(job);
+    expect(recoveredFingerprint).not.toBe(unavailable.fingerprint);
     const recovered = await check(job);
-    expect(recovered.fingerprint).not.toBe(unavailable.fingerprint);
+    expect(recovered.fingerprint).toBe(recoveredFingerprint);
     expect(recovered.status).toBe('compatible');
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(1);
   });

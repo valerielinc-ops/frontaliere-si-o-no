@@ -356,7 +356,7 @@ function stableJobIdentity(job, url) {
   return String(value || url || `${job?.company || ''}|${job?.title || ''}|${job?.location || ''}`).trim();
 }
 
-export function eligibilityRetryContext(scanContext, job) {
+export function eligibilityRetryContext(scanContext, job, postingFingerprint = '') {
   const sourceInputs = [
     job?.id, job?.jobId, job?.slug, job?.canonicalUrl, job?.url, job?.applyUrl,
     job?.title, job?.company, job?.companyKey, job?.location, job?.category, job?.sector,
@@ -374,7 +374,10 @@ export function eligibilityRetryContext(scanContext, job) {
     sourceFingerprintHash.update(boundedValue).update('\0');
   }
   const sourceFingerprint = sourceFingerprintHash.digest('hex');
-  return createHash('sha256').update(`${scanContext}|${sourceFingerprint}`).digest('hex');
+  const postingSourceFingerprint = /^[a-f0-9]{64}$/i.test(String(postingFingerprint || ''))
+    ? String(postingFingerprint).toLowerCase()
+    : '';
+  return createHash('sha256').update(`${scanContext}|${sourceFingerprint}|${postingSourceFingerprint}`).digest('hex');
 }
 
 /**
@@ -563,7 +566,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
     const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile])).digest('hex');
-    const retryContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(scanContext, job)]));
+    const retryJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(scanContext, job)]));
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const recoveryRows = existing.map(doc => ({ id: doc.id, ref: doc.ref || doc, data: doc.data() || {} }));
     const retractionOwners = new Map();
@@ -622,16 +625,46 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const nowForRetries = Date.now();
     const retryCandidates = [...retryRowsByUrl.entries()].filter(([url, row]) => {
       const value = row.data() || {};
-      const changedInputs = value.context !== retryContexts.get(url);
+      const changedInputs = value.jobContext !== retryJobContexts.get(url);
       return changedInputs || (value.retryState !== 'exhausted' && Number(value.retryAt) <= nowForRetries);
     }).sort(([leftUrl, left], [rightUrl, right]) => {
-      const leftChanged = left.data()?.context !== retryContexts.get(leftUrl);
-      const rightChanged = right.data()?.context !== retryContexts.get(rightUrl);
+      const leftChanged = left.data()?.jobContext !== retryJobContexts.get(leftUrl);
+      const rightChanged = right.data()?.jobContext !== retryJobContexts.get(rightUrl);
       return Number(rightChanged) - Number(leftChanged)
         || (Number(left.data()?.retryAt) || 0) - (Number(right.data()?.retryAt) || 0)
         || leftUrl.localeCompare(rightUrl);
     });
-    const retryUrls = new Set(retryCandidates.slice(0, MAX_ELIGIBILITY_RETRIES_PER_RUN).map(([url]) => url));
+    const selectedRetryCandidates = retryCandidates.slice(0, MAX_ELIGIBILITY_RETRIES_PER_RUN);
+    const retrySourceFingerprints = new Map();
+    const sourceProbeSlots = MAX_ELIGIBILITY_RETRIES_PER_RUN - selectedRetryCandidates.length;
+    if (sourceProbeSlots > 0 && typeof evaluate.fingerprintFor === 'function') {
+      const selectedUrls = new Set(selectedRetryCandidates.map(([url]) => url));
+      const exhaustedToProbe = [...retryRowsByUrl.entries()]
+        .filter(([url, row]) => !selectedUrls.has(url)
+          && row.data()?.retryState === 'exhausted'
+          && row.data()?.jobContext === retryJobContexts.get(url))
+        .sort(([leftUrl, left], [rightUrl, right]) => {
+          const leftData = left.data() || {};
+          const rightData = right.data() || {};
+          const leftAt = Number(leftData.lastAttemptAt) || Number(leftData.firstAttemptAt) || Number(leftData.retryExhaustedAt) || 0;
+          const rightAt = Number(rightData.lastAttemptAt) || Number(rightData.firstAttemptAt) || Number(rightData.retryExhaustedAt) || 0;
+          return leftAt - rightAt || leftUrl.localeCompare(rightUrl);
+        });
+      for (const [url, row] of exhaustedToProbe.slice(0, sourceProbeSlots)) {
+        if (eligibilitySignal.aborted || Date.now() - runStartedAt > 280_000) break;
+        const entry = rankedWork.find(candidate => candidate.url === url);
+        if (!entry) continue;
+        let fingerprint;
+        try { fingerprint = await evaluate.fingerprintFor(entry.job); }
+        catch { fingerprint = null; }
+        if (typeof fingerprint !== 'string' || !/^[a-f0-9]{64}$/i.test(fingerprint)) continue;
+        const context = eligibilityRetryContext(scanContext, entry.job, fingerprint);
+        const changed = row.data()?.context !== context;
+        retrySourceFingerprints.set(url, { fingerprint: fingerprint.toLowerCase(), context, changed });
+        if (changed) selectedRetryCandidates.push([url, row]);
+      }
+    }
+    const retryUrls = new Set(selectedRetryCandidates.map(([url]) => url));
     const { work, frontier, cursorUrls } = conciergeMatchingWork(rankedWork, proposedUrls,
       service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls,
       recoveryUrls, allLegacyRecoveryUrls, allRetryUrls);
@@ -642,14 +675,16 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const batch = work.slice(offset, offset + 4);
       await Promise.all(batch.map(async ({ job, url }) => {
         const retry = (await eligibilityRetryRef(serviceRef, url).get()).data();
-        const retryContext = retryContexts.get(url) || scanContext;
-        const sameRetryContext = retry?.context === retryContext;
+        const retryJobContext = retryJobContexts.get(url) || scanContext;
+        const sourceFingerprint = retrySourceFingerprints.get(url);
+        const sameJobContext = retry?.jobContext === retryJobContext;
+        const retryInputsChanged = !sameJobContext || sourceFingerprint?.changed === true;
         let result;
         let shouldRecordRetry = true;
-        if (sameRetryContext && retry?.retryState === 'exhausted') {
+        if (!retryInputsChanged && retry?.retryState === 'exhausted') {
           result = { status: 'unverified', reason: retry.lastReason || 'unknown', fingerprint: retry.fingerprint || null };
           shouldRecordRetry = false;
-        } else if (sameRetryContext && Number(retry?.retryAt) > Date.now()) {
+        } else if (!retryInputsChanged && Number(retry?.retryAt) > Date.now()) {
           result = { status: 'unverified', reason: 'retry_backoff' };
           shouldRecordRetry = false;
         }
@@ -659,6 +694,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             result = {
               status: 'unverified',
               reason: eligibilitySignal.aborted ? 'analysis_deferred' : safeEligibilityFailureReason(error),
+              ...(typeof error?.eligibilityFingerprint === 'string' ? { fingerprint: error.eligibilityFingerprint } : {}),
+              ...(typeof error?.eligibilityCacheId === 'string' ? { cacheId: error.eligibilityCacheId } : {}),
               ...(Array.isArray(error?.providerFailures) ? { providerFailures: error.providerFailures } : {}),
             };
           }
@@ -668,9 +705,18 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           cursorUrls.delete(url);
         }
         if (result?.status === 'incompatible' && !decisiveIncompatibility(result)) {
-          result = { status: 'unverified', reason: 'incompatibility_not_proven' };
+          result = { ...result, status: 'unverified', reason: 'incompatibility_not_proven' };
         }
-        if (shouldRecordRetry) await recordEligibilityRetry({ db, serviceRef, url, result, context: retryContext, nowMs: Date.now() });
+        if (shouldRecordRetry) {
+          const retainedFingerprint = result?.fingerprint || sourceFingerprint?.fingerprint
+            || (result?.reason === 'analysis_deferred' ? retry?.fingerprint : null);
+          const retryContext = eligibilityRetryContext(scanContext, job, retainedFingerprint);
+          const retryResult = retainedFingerprint && !result?.fingerprint
+            ? { ...result, fingerprint: retainedFingerprint }
+            : result;
+          await recordEligibilityRetry({ db, serviceRef, url, result: retryResult, context: retryContext,
+            jobContext: retryJobContext, nowMs: Date.now() });
+        }
         if (result?.reason === 'analysis_deferred') allRetryUrls.add(url);
         checks.set(url, result);
       }));

@@ -194,28 +194,71 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   const answers = {};
   const answerHash = eligibilityHash(JSON.stringify(answers));
   let analyses = 0;
-  return async (job) => {
-    job = normalizeConciergeJobRecord(job);
-    const normalizedProfile = profileForEligibility(profile);
-    if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
-    let posting;
-    try {
-      posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
-    } catch (error) {
-      signal?.throwIfAborted();
-      const metadata = eligibilityMetadata(job);
-      const fingerprint = eligibilityHash([cvHash, answerHash, sourceHash(''), eligibilityHash(JSON.stringify(metadata.values)),
-        PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
-      return { status: 'unverified', reason: 'posting_unavailable', fingerprint,
-        cacheId: `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}` };
+  const postingPrefetches = new Map();
+  const postingReadKey = job => `${job.id}\0${job.url}`;
+  const postingReadOptions = { maxPostingChars: 30_000, ...(signal ? { signal } : {}) };
+  const readPostingResult = job => {
+    let reading;
+    try { reading = read({ jobId: job.id, jobUrl: job.url }, postingReadOptions); }
+    catch (error) { return Promise.resolve({ error }); }
+    return Promise.resolve(reading).then(posting => ({ posting }), error => ({ error }));
+  };
+  const readPostingForFingerprint = job => {
+    const key = postingReadKey(job);
+    if (!postingPrefetches.has(key)) postingPrefetches.set(key, readPostingResult(job));
+    return postingPrefetches.get(key);
+  };
+  const readPostingForCheck = async job => {
+    const key = postingReadKey(job);
+    const prefetched = postingPrefetches.get(key);
+    if (prefetched) {
+      postingPrefetches.delete(key);
+      return prefetched;
     }
-    if (!posting || typeof posting.text !== 'string') posting = { text: '', source: posting?.source || 'none' };
-    const postingHash = sourceHash(posting.text);
+    return readPostingResult(job);
+  };
+  const normalizePosting = posting => !posting || typeof posting.text !== 'string'
+    ? { ...posting, text: '', source: posting?.source || 'none' }
+    : posting;
+  const fingerprintForPosting = (job, posting) => {
     const metadata = eligibilityMetadata(job, posting.location);
-    const eligibilityMetadataHash = eligibilityHash(JSON.stringify(metadata.values));
+    const postingHash = sourceHash(posting.text);
+    const eligibilityMetadataHash = eligibilityHash(JSON.stringify({
+      values: metadata.values,
+      truncated: metadata.truncated,
+      posting: {
+        source: typeof posting.source === 'string' ? posting.source : '',
+        textLength: posting.text.length,
+        textTruncated: posting.textTruncated === true,
+      },
+    }));
     const fingerprint = eligibilityHash([cvHash, answerHash, postingHash,
       eligibilityMetadataHash, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
+    return { fingerprint, cacheId, metadata, postingHash };
+  };
+  const fingerprintForJob = async job => {
+    job = normalizeConciergeJobRecord(job);
+    if (signal?.aborted) return null;
+    const loaded = await readPostingForFingerprint(job);
+    if (signal?.aborted) return null;
+    const posting = loaded.error ? { text: '', location: '' } : normalizePosting(loaded.posting);
+    return fingerprintForPosting(job, posting).fingerprint;
+  };
+  const check = async (job) => {
+    job = normalizeConciergeJobRecord(job);
+    const normalizedProfile = profileForEligibility(profile);
+    if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
+    const loaded = await readPostingForCheck(job);
+    if (loaded.error) {
+      signal?.throwIfAborted();
+      const { fingerprint, cacheId } = fingerprintForPosting(job, { text: '', location: '' });
+      return { status: 'unverified', reason: 'posting_unavailable', fingerprint,
+        cacheId };
+    }
+    signal?.throwIfAborted();
+    const posting = normalizePosting(loaded.posting);
+    const { fingerprint, cacheId, metadata, postingHash } = fingerprintForPosting(job, posting);
     if (!posting.text) return { status: 'unverified', reason: posting.source === 'none' ? 'posting_unavailable' : 'posting_incomplete', fingerprint, cacheId };
     if (posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete', fingerprint, cacheId };
     if (metadata.truncated) return { status: 'unverified', reason: 'eligibility_metadata_incomplete', fingerprint, cacheId };
@@ -224,14 +267,25 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred', fingerprint, cacheId };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
-      readPosting: async () => posting, metadata });
+    let analysis;
+    try {
+      analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
+        readPosting: async () => posting, metadata });
+    } catch (error) {
+      if (error && typeof error === 'object') {
+        error.eligibilityFingerprint = fingerprint;
+        error.eligibilityCacheId = cacheId;
+      }
+      throw error;
+    }
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
     if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
       version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
     return { ...result, fingerprint, cacheId };
   };
+  check.fingerprintFor = fingerprintForJob;
+  return check;
 }
 
 /**

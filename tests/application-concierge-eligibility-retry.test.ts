@@ -269,5 +269,7 @@ describe('independent qualification retry queue', () => {
     expect(eligibilityRetryContext('changed-candidate-profile-context', job)).not.toBe(original);
     expect(eligibilityRetryContext('candidate-profile-context', { ...job, description: 'Role description B' })).not.toBe(original);
     expect(eligibilityRetryContext('candidate-profile-context', { ...job, dateModified: '2026-11-02' })).not.toBe(original);
+    expect(eligibilityRetryContext('candidate-profile-context', job, 'a'.repeat(64)))
+      .not.toBe(eligibilityRetryContext('candidate-profile-context', job, 'b'.repeat(64)));
   });
 });

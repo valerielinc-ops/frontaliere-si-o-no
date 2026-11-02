@@ -60,7 +60,7 @@ export async function dueEligibilityRetries(serviceRef, nowMs) {
   return result.docs;
 }
 
-export async function recordEligibilityRetry({ db, serviceRef, url, result, context, nowMs }) {
+export async function recordEligibilityRetry({ db, serviceRef, url, result, context, jobContext = context, nowMs }) {
   const ref = eligibilityRetryRef(serviceRef, url);
   const status = allowlisted(result?.status, RETRY_STATUSES);
   const reason = allowlisted(result?.reason, RETRY_REASONS);
@@ -69,11 +69,12 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
   await db.runTransaction(async transaction => {
     const previousSnapshot = await transaction.get(ref);
     const previous = previousSnapshot.data();
-    const sameContext = previous?.context === context;
+    const sameContext = previous?.context === context && previous?.jobContext === jobContext;
     const providerFailures = safeProviderFailures(result?.providerFailures);
     const retainedProviderFailures = providerFailures.length
       ? providerFailures
       : sameContext ? safeProviderFailures(previous?.providerFailures) : [];
+    const retainedFingerprint = fingerprint || (sameContext ? safeFingerprint(previous?.fingerprint) : null);
 
     if (TERMINAL_STATUSES.has(status)) {
       if (!previous) return;
@@ -113,6 +114,7 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
       transaction.set(ref, {
         jobUrl: previous?.jobUrl || url,
         context,
+        jobContext,
         attempts,
         deferrals,
         retryAt: exhausted ? 0 : lastAttemptAt + deferredDelay,
@@ -123,7 +125,7 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
         lastDeferredAt: lastAttemptAt,
         firstAttemptAt,
         retryExhaustedAt: exhausted ? lastAttemptAt : null,
-        ...(fingerprint ? { fingerprint } : {}),
+        ...(retainedFingerprint ? { fingerprint: retainedFingerprint } : {}),
         ...(retainedProviderFailures.length ? { providerFailures: retainedProviderFailures } : {}),
       });
       return;
@@ -137,6 +139,7 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
     transaction.set(ref, {
       jobUrl: url,
       context,
+      jobContext,
       attempts,
       deferrals: 0,
       retryAt: exhausted ? 0 : lastAttemptAt + DELAYS[Math.min(attempts - 1, DELAYS.length - 1)],
@@ -147,7 +150,7 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
       lastAttemptAt,
       lastDeferredAt: null,
       retryExhaustedAt: exhausted ? lastAttemptAt : null,
-      ...(fingerprint ? { fingerprint } : {}),
+      ...(retainedFingerprint ? { fingerprint: retainedFingerprint } : {}),
       ...(retainedProviderFailures.length ? { providerFailures: retainedProviderFailures } : {}),
     });
   });
