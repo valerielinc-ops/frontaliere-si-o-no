@@ -436,8 +436,8 @@ const PERFORMER_NAME_TOKEN = String.raw`\p{Lu}[\p{L}\p{M}'’\-]*`;
 const PERFORMER_NAME = String.raw`${PERFORMER_NAME_TOKEN}(?:\s+${PERFORMER_NAME_TOKEN}){0,2}`;
 const PERFORMER_PERSON_NAME = String.raw`${PERFORMER_NAME_TOKEN}(?:\s+${PERFORMER_NAME_TOKEN}){1,3}`;
 const PERFORMER_GROUP_NAME_RE = /\b(?:string\s+quartet|trio|quartet|quartett|quartetto|ensemble|orchestra|orchester|band|duo)\s*$/iu;
-const PERFORMANCE_CATEGORY_RE = /\b(?:music(?:al)?|musik|musique|musica|pop|jazz|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|concert|konzert|cabaret|kabarett)\b/iu;
-const SOLO_PERFORMER_CATEGORY_RE = /\b(?:altri\s+musica(?:le)?|altre?\s+musiche?|other\s+music|autres?\s+musiques?|(?:andere|sonstige)\s+musik)\b/iu;
+const PERFORMANCE_CATEGORY_RE = /\b(?:music[\s-]?event|music(?:al)?|musik|musique|musica|pop|jazz|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|concert|konzert|cabaret|kabarett)\b/iu;
+const SOLO_PERFORMER_CATEGORY_RE = /\b(?:music[\s-]?event|altri\s+musica(?:le)?|altre?\s+musiche?|other\s+music|autres?\s+musiques?|(?:andere|sonstige)\s+musik)\b/iu;
 const PERFORMER_TITLE_RESERVED_PHRASE_RE = /\bopen\s+air\b/iu;
 const PERFORMER_TITLE_RESERVED_WORD_RE = /^(?:music(?:al)?|musik|musique|musica|concert|konzert|concerto|festival|fest|gala|show|event|evento|veranstaltung|abend|evening|soiree|soirée|serata|party|opera|oper|operette|cabaret|kabarett|jazz|pop|rock|rap|hip[\s-]?hop|cantautor[ei]|singer[\s-]?songwriter|liedermacher|chanson|dance|tanz|ballet|ballett|theater|theatre|fair|fiera|foire|messe|exhibition|ausstellung|exposition|conference|konferenz|summit|award(?:s)?|prize|preis)$/iu;
 

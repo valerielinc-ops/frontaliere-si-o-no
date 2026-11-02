@@ -1265,7 +1265,11 @@ describe('source optional metadata fallbacks', () => {
     });
     expect(extractEventPeopleFromTitle('Open Air', { category: 'Music' })).toEqual({});
     expect(extractEventPeopleFromTitle('Open Air – Summer Sounds', { category: 'Music' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Open Air', { category: 'MusicEvent' })).toEqual({});
     expect(extractEventPeopleFromTitle('Hugo Lioret', { category: 'Music' })).toEqual({});
+    expect(extractEventPeopleFromTitle('Hugo Lioret', { category: 'MusicEvent' })).toEqual({
+      performer: { name: 'Hugo Lioret' },
+    });
     expect(extractEventPeopleFromTitle('Steiner & Madlaina', { category: 'Pop generalmente' })).toEqual({
       performer: [{ name: 'Steiner' }, { name: 'Madlaina' }],
     });

@@ -703,7 +703,8 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   );
   const indexedTitlePeople = LOCALES
     .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title, {
-      category: perLocaleHits[locale]?.category || humanizeCategory(detailLd?.['@type']),
+      category: perLocaleHits[locale]?.category
+        || (detailLd?.['@type'] === 'MusicEvent' ? 'MusicEvent' : humanizeCategory(detailLd?.['@type'])),
     }).performer)
     .find(Boolean);
   const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
