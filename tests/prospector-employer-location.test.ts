@@ -55,6 +55,17 @@ describe('prospector official employer location proof', () => {
     });
   });
 
+  it('requires an explicit JSON-LD script type for official organization evidence', () => {
+    const untypedOrganization = `<script>${ORGANIZATION_JSON_LD}</script>`;
+    expect(resolveOfficialEmployerSiteLocation([
+      { html: untypedOrganization, url: 'https://example.ch/', kind: 'homepage' },
+    ], { verifiedEmployerDomain: 'example.ch', companyName: 'Example AG' })).toMatchObject({
+      geography: null,
+      candidate: null,
+      reasonCode: 'official_address_missing',
+    });
+  });
+
   it('refuses multiple official sites, ATS-owned domains, and agencies', () => {
     const lugano = OFFICIAL_IMPRESSUM.replaceAll('Bellinzona', 'Lugano').replaceAll('6500', '6900');
     expect(resolveOfficialEmployerSiteLocation([

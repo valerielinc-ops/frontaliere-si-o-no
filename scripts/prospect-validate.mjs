@@ -382,7 +382,7 @@ for (const spec of specs) {
         // the verified TRACE identity for this run; synthesis persists the
         // same value for new specs. The runtime still rejects shared ATS
         // domains and agency candidates before fetching an official site.
-        employerSiteLocationFallback: true,
+        employerSiteLocationFallback: spec.mode !== 'free-text',
         ...(candidate?.domain || spec.verifiedEmployerDomain
           ? { verifiedEmployerDomain: candidate?.domain || spec.verifiedEmployerDomain }
           : {}),

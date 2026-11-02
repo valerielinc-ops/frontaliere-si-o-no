@@ -1012,8 +1012,8 @@ function jsonLdNodes(value, out = []) {
 function jsonLdOrganizationCandidates(html = '', pageUrl = '') {
   const out = [];
   for (const opening of scanStartTags(html, 'script')) {
-    const type = readAttr(opening.raw, 'type').toLowerCase();
-    if (type && type !== 'application/ld+json') continue;
+    const type = String(readAttr(opening.raw, 'type') || '').trim().toLowerCase();
+    if (type !== 'application/ld+json') continue;
     const close = /<\/script\s*>/gi;
     close.lastIndex = opening.end;
     const closing = close.exec(html);
