@@ -234,6 +234,12 @@ describe('hub freshness regression from the stale site copy', () => {
           ].join(''),
         };
       }
+      if (url.includes('/data/blog-index-svizzera-it.json') && !url.includes('-full')) {
+        return {
+          ok: true,
+          json: async () => ({ articles: [{ id: 'live-only', title: 'Articolo live-only' }] }),
+        };
+      }
       throw new Error(`unexpected fetch: ${url}`);
     });
     vi.stubGlobal('fetch', fetchMock);
@@ -248,8 +254,9 @@ describe('hub freshness regression from the stale site copy', () => {
     expect(verdict.deferred).toBe(true);
     expect(verdict.note).toContain('live-only');
     expect(verdict.note).toContain('pinned corpus snapshot');
+    expect(verdict.note).toContain('runtime overlay proves live-only');
     expect(verdict.note).toContain('deferring hub and client publication');
-    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock).toHaveBeenCalledTimes(5);
   });
 
   it('catches the client up when corpus main is ahead but the live hub already serves the new card', async () => {
