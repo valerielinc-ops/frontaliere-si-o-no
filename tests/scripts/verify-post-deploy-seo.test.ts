@@ -5,6 +5,7 @@ import {
   extractRichResultsIssues,
   isLikelyJobDetailUrl,
   inspectLiveJobPostingHtml,
+  parseLiveJobSitemapSignals,
 } from '../../scripts/verify-post-deploy-seo.mjs';
 
 const completeJobPosting = {
@@ -119,6 +120,53 @@ describe('post-deploy SEO verification', () => {
       issue: null,
       skipped: true,
     });
+  });
+
+  it('requires both the detail priority and listing lastmod in the jobs sitemap', () => {
+    const officialGazetteUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/foglio-ufficiale-offerte-di-lavoro-ticino/';
+    const driverSearchUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-autista-ticino/';
+    const detailUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/driver-acme/';
+    const signals = parseLiveJobSitemapSignals(`
+      <urlset>
+        <url>
+          <loc>${officialGazetteUrl}</loc>
+          <lastmod>2026-11-02</lastmod>
+          <priority>0.85</priority>
+        </url>
+        <url>
+          <loc>${driverSearchUrl}</loc>
+          <lastmod>2026-11-02</lastmod>
+          <priority>0.5</priority>
+        </url>
+        <url>
+          <loc>${detailUrl}</loc>
+          <lastmod>2026-11-02</lastmod>
+          <priority>0.6</priority>
+        </url>
+        <url>
+          <loc>https://frontaliereticino.ch/cerca-lavoro-ticino/categoria-sanita/</loc>
+          <priority>0.6</priority>
+        </url>
+      </urlset>
+    `);
+
+    expect(signals.get(officialGazetteUrl)).toBe(false);
+    expect(signals.get(driverSearchUrl)).toBe(false);
+    expect(signals.get(detailUrl)).toBe(true);
+    expect(signals.get('https://frontaliereticino.ch/cerca-lavoro-ticino/categoria-sanita/')).toBe(false);
+
+    for (const pageUrl of [officialGazetteUrl, driverSearchUrl]) {
+      expect(isLikelyJobDetailUrl(pageUrl, signals)).toBe(false);
+      expect(classifyLiveJobCandidate(pageUrl, {
+        isJobPage: false,
+        isListingPage: true,
+        errors: [],
+      }, signals)).toMatchObject({
+        shouldInspect: false,
+        issue: null,
+        skipped: true,
+      });
+    }
   });
 
   it('does not use the conservative detail fallback for a semantic listing page', () => {
