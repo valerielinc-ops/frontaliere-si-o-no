@@ -31,7 +31,7 @@
  *   - Related-links block (shared helper, includes fuel-daily + weekly-
  *     employers backlinks bidirectionally)
  *   - FAQ (3-5 Q&A with JSON-LD FAQPage)
- *   - JSON-LD: WebPage + Place (geo) + FAQPage + ImageObject when webcam present
+ *   - JSON-LD: WebPage + Place (geo) + FAQPage + ImageObject for direct webcam feeds
  *
  * Env gate: `SKIP_BORDER_WAIT=1` to skip the plugin entirely (fast local builds).
  */
@@ -1241,7 +1241,7 @@ const LOCALE_OG: Record<BorderWaitLocale, string> = {
 // Observer — the page exists specifically to show the webcam, so it's
 // already in the viewport.
 
-const WEBCAM_REFRESH_JS = `<script>(function(){var imgs=document.querySelectorAll('[data-webcam-refresh]');imgs.forEach(function(img){var base=img.getAttribute('data-webcam-base-url');var interval=parseInt(img.getAttribute('data-webcam-refresh'),10);if(!base||!interval||interval<10000)return;setInterval(function(){img.src=base+(base.indexOf('?')>-1?'&':'?')+'v='+Date.now();},interval);});})();</script>`;
+const WEBCAM_REFRESH_JS = `<script>(function(){var imgs=document.querySelectorAll('[data-webcam-refresh]');imgs.forEach(function(img){var base=img.getAttribute('data-webcam-base-url');var interval=parseInt(img.getAttribute('data-webcam-refresh'),10);if(!base||!interval||interval<10000)return;if(!img.getAttribute('src'))img.src=base;setInterval(function(){img.src=base+(base.indexOf('?')>-1?'&':'?')+'v='+Date.now();},interval);});})();</script>`;
 
 /**
  * Renders an extended commuter-context prose section that fattens the
@@ -1722,13 +1722,14 @@ export function renderWebcamSection(
   const figures = webcams
     .map((w, i) => {
       const embeddable = w.embedAllowed !== false;
+      const deferred = embeddable && w.deferLoad === true;
       const refreshMs = w.refreshIntervalMs ?? 60000;
       const licenseHtml = w.licenseNote
         ? `<div class="s-DEr6hT">${esc(w.licenseNote)}</div>`
         : '';
       const mediaHtml = embeddable
         ? `<img
-      src="${esc(w.imageUrl)}"
+      ${deferred ? '' : `src="${esc(w.imageUrl)}"`}
       alt="${esc(w.label)}"
       width="640"
       height="360"
@@ -1740,7 +1741,7 @@ export function renderWebcamSection(
       data-webcam-base-url="${esc(w.imageUrl)}"
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
-    >`
+    >${deferred ? `<noscript><a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></noscript>` : ''}`
         : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
       return `${i === 1 && embeddable && webcams[0].embedAllowed !== false ? `${renderWebcamInlineAd(copy)}\n` : ''}<figure class="s-WFzTLc">
     ${mediaHtml}
@@ -2133,6 +2134,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
   const embeddableWebcams = webcams.filter((webcam) => webcam.embedAllowed !== false);
+  const structuredWebcams = embeddableWebcams.filter((webcam) => webcam.deferLoad !== true);
   const webcamHtml = renderWebcamSection(crossingDisplay, webcams, copy);
 
   // Current-status card
@@ -2435,19 +2437,22 @@ function renderLeafPage(inp: LeafInputs): string {
   // BroadcastEvent (isLiveBroadcast: true) is inappropriate. Emit a single
   // ImageObject with the required fields, including the GSC-required
   // license-quartet (acquireLicensePage / copyrightNotice / license / creator),
-  // sourced from the webcam provider when available.
-  const imageLd = embeddableWebcams.length > 0
+  // sourced from the webcam provider when available. Deferred frames are
+  // intentionally omitted: their direct URL is kept in a runtime data
+  // attribute for browsers, but must not become a crawler-facing ImageObject
+  // URL that reproduces the provider's egress 403.
+  const imageLd = structuredWebcams.length > 0
     ? inlineScriptJson(imageObjectLdDocument({
-        contentUrl: embeddableWebcams[0].imageUrl,
+        contentUrl: structuredWebcams[0].imageUrl,
         caption: `${copy.webcamLabel} — ${crossingDisplay}`,
-        creditText: embeddableWebcams[0].sourceName,
-        license: embeddableWebcams[0].license,
-        acquireLicensePage: embeddableWebcams[0].license,
-        creator: embeddableWebcams[0].sourceName
-          ? { '@type': 'Organization', name: embeddableWebcams[0].sourceName }
+        creditText: structuredWebcams[0].sourceName,
+        license: structuredWebcams[0].license,
+        acquireLicensePage: structuredWebcams[0].license,
+        creator: structuredWebcams[0].sourceName
+          ? { '@type': 'Organization', name: structuredWebcams[0].sourceName }
           : undefined,
-        copyrightNotice: embeddableWebcams[0].sourceName
-          ? `© ${embeddableWebcams[0].sourceName}`
+        copyrightNotice: structuredWebcams[0].sourceName
+          ? `© ${structuredWebcams[0].sourceName}`
           : undefined,
         inLanguage: locale,
       }))

@@ -214,6 +214,17 @@ describe('collectWebcamUrls', () => {
     expect(map.get('https://example.test/live.jpg')?.crossings).toEqual(['Embedded source']);
   });
 
+  it('does not probe frames deferred for crawler-blocked egress', () => {
+    const map = collectWebcamUrls([
+      {
+        name: 'Deferred source',
+        webcams: [{ imageUrl: 'https://example.test/crawler-blocked.gif', label: 'Deferred', deferLoad: true }],
+      },
+    ]);
+
+    expect(map.size).toBe(0);
+  });
+
   it('keeps Biegno-Indemini as an official external webcam link after its frame endpoint died', () => {
     const crossing = borderCrossings.find((candidate) => candidate.name === 'Biegno-Indemini');
     const webcam = crossing?.webcams?.[0];

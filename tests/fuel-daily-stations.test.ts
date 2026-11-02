@@ -705,7 +705,8 @@ describe('Swiss station diesel coverage', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const html = pages[buildFuelStationPath(locale, 'diesel', 'chiasso', buildStationSlug(stations[0]))];
       expect(html).toContain('noindex,follow');
-      expect(html).toContain('http-equiv="refresh"');
+      expect(html).not.toContain('http-equiv="refresh"');
+      expect(html).toContain('/statistiche/prezzi-benzina-confine/');
       expect(html).not.toContain('1,780');
       expect(html).not.toContain('GasStation');
     }

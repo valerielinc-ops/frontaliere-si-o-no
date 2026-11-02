@@ -167,6 +167,14 @@ describe('webcam rendering — refresh script injection', () => {
     expect(html).toContain('setInterval');
   });
 
+  it('crawler-blocked Ticino frames keep a deferred browser source and a no-JS fallback link', () => {
+    const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
+    expect(html).not.toMatch(/\bsrc=["']?https:\/\/www4\.ti\.ch\/fileadmin\/DT\/temi\/webcams\/wct_immagini\/03\.3S\.gif/);
+    expect(html).toMatch(/data-webcam-base-url=["']?https:\/\/www4\.ti\.ch\/fileadmin\/DT\/temi\/webcams\/wct_immagini\/03\.3S\.gif/);
+    expect(html).toMatch(/<noscript><a href=["']?https:\/\/www\.ti\.ch\/webcam/);
+    expect(html).toContain('if(!img.getAttribute(\'src\'))img.src=base');
+  });
+
   it('pages WITHOUT webcams do NOT include the refresh <script>', () => {
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];
     expect(html).not.toContain('data-webcam-refresh');
