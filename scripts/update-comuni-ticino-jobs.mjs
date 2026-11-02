@@ -6,9 +6,9 @@
  * in data/ticino-comuni-registry.json.
  */
 import { runTicinoComuniCrawler } from './lib/ticino-comuni-crawler.mjs';
+import { TICINO_COMUNI_FAMILY_KEY } from './lib/ticino-comune-employer-identity.mjs';
 
-const TICINO_COMUNI_KEY = 'comuni-ticino';
 const COMPANY_NAME = 'Comuni ticinesi';
 
-console.log(`🏛️ ${COMPANY_NAME} (${TICINO_COMUNI_KEY})`);
+console.log(`🏛️ ${COMPANY_NAME} (${TICINO_COMUNI_FAMILY_KEY})`);
 runTicinoComuniCrawler();
