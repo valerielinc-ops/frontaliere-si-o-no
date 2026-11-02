@@ -1,7 +1,7 @@
 {
   "crawlerKey": "etavis",
-  "assembledAt": "2026-11-02T11:01:57.692Z",
-  "runId": "41419682480",
+  "assembledAt": "2026-11-02T21:56:38.300Z",
+  "runId": "41527286605",
   "jobs": [
     {
       "id": "etavis-c0e11f173c1f",
@@ -34,7 +34,7 @@
       "url": "https://etavis.softgarden.io/job/67216705/Elektroinstallateur-w-m-d-mit-Erfahrung-im-Bereich-Photovoltaik-80%E2%80%93100-?jobDbPVId=286654337&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:49.125Z",
+      "crawledAt": "2026-11-02T21:56:27.126Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -80,7 +80,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T11:01:49.125Z",
+      "validThrough": "2027-01-02T21:56:27.126Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -114,7 +114,7 @@
       "url": "https://etavis.softgarden.io/job/65753281/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=286654357&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:48.813Z",
+      "crawledAt": "2026-11-02T21:56:26.806Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -158,7 +158,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T11:01:48.813Z",
+      "validThrough": "2027-01-02T21:56:26.806Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://etavis.softgarden.io/job/64622908/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287255737&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:48.497Z",
+      "crawledAt": "2026-11-02T21:56:26.492Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -280,7 +280,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:48.497Z",
+      "validThrough": "2026-12-08T21:56:26.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://etavis.softgarden.io/job/64588908/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=287255802&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:47.527Z",
+      "crawledAt": "2026-11-02T21:56:25.599Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -366,10 +366,11 @@
         "postalCode": "3661",
         "addressLocality": "Uetendorf",
         "addressRegion": "BE",
-        "checkedAt": "2026-10-31T20:48:52.642Z"
+        "checkedAt": "2026-10-31T20:48:52.642Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:47.527Z",
+      "validThrough": "2026-12-08T21:56:25.599Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +404,7 @@
       "url": "https://etavis.softgarden.io/job/52143564/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=287255807&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:47.212Z",
+      "crawledAt": "2026-11-02T21:56:25.291Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -454,10 +455,11 @@
         "postalCode": "3661",
         "addressLocality": "Uetendorf",
         "addressRegion": "BE",
-        "checkedAt": "2026-10-31T20:48:52.642Z"
+        "checkedAt": "2026-10-31T20:48:52.642Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T11:01:47.212Z",
+      "validThrough": "2026-12-08T21:56:25.291Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -491,7 +493,7 @@
       "url": "https://etavis.softgarden.io/job/52142914/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287255812&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:46.905Z",
+      "crawledAt": "2026-11-02T21:56:24.979Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -571,10 +573,11 @@
         "postalCode": "3661",
         "addressLocality": "Uetendorf",
         "addressRegion": "BE",
-        "checkedAt": "2026-10-31T20:48:52.642Z"
+        "checkedAt": "2026-10-31T20:48:52.642Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T11:01:46.905Z",
+      "validThrough": "2026-12-08T21:56:24.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -608,7 +611,7 @@
       "url": "https://etavis.softgarden.io/job/64588878/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=287255832&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:46.591Z",
+      "crawledAt": "2026-11-02T21:56:24.664Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -660,10 +663,11 @@
         "postalCode": "3661",
         "addressLocality": "Uetendorf",
         "addressRegion": "BE",
-        "checkedAt": "2026-10-31T20:48:52.642Z"
+        "checkedAt": "2026-10-31T20:48:52.642Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:46.591Z",
+      "validThrough": "2026-12-08T21:56:24.664Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -697,7 +701,7 @@
       "url": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2026?jobDbPVId=287255837&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:46.271Z",
+      "crawledAt": "2026-11-02T21:56:24.354Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -742,7 +746,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:46.271Z",
+      "validThrough": "2026-12-08T21:56:24.354Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -776,7 +780,7 @@
       "url": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2026?jobDbPVId=287255842&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:45.960Z",
+      "crawledAt": "2026-11-02T21:56:24.040Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -821,7 +825,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:45.960Z",
+      "validThrough": "2026-12-08T21:56:24.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -855,7 +859,7 @@
       "url": "https://etavis.softgarden.io/job/58904663/Service-Techniker-w-m-d-80%E2%80%93100-am-Standort-Liestal?jobDbPVId=287255852&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:45.645Z",
+      "crawledAt": "2026-11-02T21:56:23.720Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -899,7 +903,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:45.645Z",
+      "validThrough": "2026-12-08T21:56:23.720Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -933,7 +937,7 @@
       "url": "https://etavis.softgarden.io/job/64623718/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=287255902&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:45.224Z",
+      "crawledAt": "2026-11-02T21:56:23.408Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -978,7 +982,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:45.224Z",
+      "validThrough": "2026-12-08T21:56:23.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1012,7 +1016,7 @@
       "url": "https://etavis.softgarden.io/job/64623753/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=287255917&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:44.908Z",
+      "crawledAt": "2026-11-02T21:56:23.099Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -1059,7 +1063,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T11:01:44.908Z",
+      "validThrough": "2026-12-08T21:56:23.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1093,7 +1097,7 @@
       "url": "https://etavis.softgarden.io/job/65160773/Projektleiter-Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287360077&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:44.596Z",
+      "crawledAt": "2026-11-02T21:56:22.790Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Im Hölderli 26",
@@ -1174,7 +1178,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T11:01:44.596Z",
+      "validThrough": "2026-12-09T21:56:22.790Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1208,7 +1212,7 @@
       "url": "https://etavis.softgarden.io/job/64633753/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=287360102&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:44.276Z",
+      "crawledAt": "2026-11-02T21:56:22.479Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -1269,7 +1273,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T11:01:44.276Z",
+      "validThrough": "2026-12-09T21:56:22.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1303,7 +1307,7 @@
       "url": "https://etavis.softgarden.io/job/68046702/Capo-progetto-infrastruttura-f-m-d-80-100-?jobDbPVId=287486482&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:01:43.960Z",
+      "crawledAt": "2026-11-02T21:56:22.168Z",
       "addressLocality": "Lugano",
       "postalCode": "6900",
       "streetAddress": "Via Giovanni Maraini 19",
@@ -1339,7 +1343,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T11:01:43.960Z",
+      "validThrough": "2027-01-10T21:56:22.168Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1373,7 +1377,7 @@
       "url": "https://etavis.softgarden.io/job/64672289/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287684201&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:43.639Z",
+      "crawledAt": "2026-11-02T21:56:21.853Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -1419,7 +1423,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:43.639Z",
+      "validThrough": "2026-12-12T21:56:21.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1453,7 +1457,7 @@
       "url": "https://etavis.softgarden.io/job/51182698/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287684216&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:43.324Z",
+      "crawledAt": "2026-11-02T21:56:21.540Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1498,7 +1502,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:43.324Z",
+      "validThrough": "2026-12-12T21:56:21.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1532,7 +1536,7 @@
       "url": "https://etavis.softgarden.io/job/51571593/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287684221&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:42.796Z",
+      "crawledAt": "2026-11-02T21:56:21.225Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1577,7 +1581,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:42.796Z",
+      "validThrough": "2026-12-12T21:56:21.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1611,7 +1615,7 @@
       "url": "https://etavis.softgarden.io/job/51193313/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287684226&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:42.479Z",
+      "crawledAt": "2026-11-02T21:56:20.911Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1656,7 +1660,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:42.479Z",
+      "validThrough": "2026-12-12T21:56:20.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1690,7 +1694,7 @@
       "url": "https://etavis.softgarden.io/job/51183473/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287684236&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:42.108Z",
+      "crawledAt": "2026-11-02T21:56:20.601Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1735,7 +1739,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:42.108Z",
+      "validThrough": "2026-12-12T21:56:20.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1769,7 +1773,7 @@
       "url": "https://etavis.softgarden.io/job/51190623/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287684241&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:41.656Z",
+      "crawledAt": "2026-11-02T21:56:20.292Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1814,7 +1818,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:41.656Z",
+      "validThrough": "2026-12-12T21:56:20.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1848,7 +1852,7 @@
       "url": "https://etavis.softgarden.io/job/51190918/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287684246&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:41.318Z",
+      "crawledAt": "2026-11-02T21:56:19.979Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1893,7 +1897,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:41.318Z",
+      "validThrough": "2026-12-12T21:56:19.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1927,7 +1931,7 @@
       "url": "https://etavis.softgarden.io/job/51191343/Lernende-Automatiker-EFZ-w-m-d-?jobDbPVId=287684251&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:41.002Z",
+      "crawledAt": "2026-11-02T21:56:19.667Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1972,7 +1976,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:41.002Z",
+      "validThrough": "2026-12-12T21:56:19.667Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2006,7 +2010,7 @@
       "url": "https://etavis.softgarden.io/job/51190973/Lernende-Automatikmonteure-EFZ-w-m-d-?jobDbPVId=287684266&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:40.640Z",
+      "crawledAt": "2026-11-02T21:56:19.356Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -2051,7 +2055,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T11:01:40.640Z",
+      "validThrough": "2026-12-12T21:56:19.356Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2085,7 +2089,7 @@
       "url": "https://etavis.softgarden.io/job/64698524/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287934936&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:40.330Z",
+      "crawledAt": "2026-11-02T21:56:19.036Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2172,7 +2176,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:40.330Z",
+      "validThrough": "2026-12-14T21:56:19.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2206,7 +2210,7 @@
       "url": "https://etavis.softgarden.io/job/64698834/Teamleiter-Gruppenleiter-w-m-d-80%E2%80%93100-?jobDbPVId=287934941&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:40.017Z",
+      "crawledAt": "2026-11-02T21:56:18.723Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2250,7 +2254,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:40.017Z",
+      "validThrough": "2026-12-14T21:56:18.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2284,7 +2288,7 @@
       "url": "https://etavis.softgarden.io/job/64692079/Projektleiter-Elektroinstallation-w-m-d-80-100-?jobDbPVId=287934966&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:39.700Z",
+      "crawledAt": "2026-11-02T21:56:18.407Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2330,7 +2334,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:39.700Z",
+      "validThrough": "2026-12-14T21:56:18.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2364,7 +2368,7 @@
       "url": "https://etavis.softgarden.io/job/64677789/Servicemonteur-Elektroinstallateur-EFZ-w-m-d-80%E2%80%93100-?jobDbPVId=287934976&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:39.218Z",
+      "crawledAt": "2026-11-02T21:56:18.088Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "streetAddress": "Winterthurerstrasse 35",
@@ -2442,7 +2446,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:39.218Z",
+      "validThrough": "2026-12-14T21:56:18.088Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2476,7 +2480,7 @@
       "url": "https://etavis.softgarden.io/job/64691379/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=287934991&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:38.894Z",
+      "crawledAt": "2026-11-02T21:56:17.769Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2563,7 +2567,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:38.894Z",
+      "validThrough": "2026-12-14T21:56:17.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2597,7 +2601,7 @@
       "url": "https://etavis.softgarden.io/job/64690859/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287935011&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:38.581Z",
+      "crawledAt": "2026-11-02T21:56:17.453Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2669,7 +2673,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:38.581Z",
+      "validThrough": "2026-12-14T21:56:17.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2703,7 +2707,7 @@
       "url": "https://etavis.softgarden.io/job/64691444/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=287935026&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:38.188Z",
+      "crawledAt": "2026-11-02T21:56:17.130Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -2779,7 +2783,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:38.188Z",
+      "validThrough": "2026-12-14T21:56:17.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2813,7 +2817,7 @@
       "url": "https://etavis.softgarden.io/job/64690814/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287935051&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:37.873Z",
+      "crawledAt": "2026-11-02T21:56:16.820Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -2873,7 +2877,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:37.873Z",
+      "validThrough": "2026-12-14T21:56:16.820Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2907,7 +2911,7 @@
       "url": "https://etavis.softgarden.io/job/64692879/Servicemonteur-w-m-d-80-100-?jobDbPVId=287935066&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:37.554Z",
+      "crawledAt": "2026-11-02T21:56:16.508Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -2951,7 +2955,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:37.554Z",
+      "validThrough": "2026-12-14T21:56:16.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2985,7 +2989,7 @@
       "url": "https://etavis.softgarden.io/job/64690639/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287935086&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:37.238Z",
+      "crawledAt": "2026-11-02T21:56:16.196Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3053,7 +3057,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:37.238Z",
+      "validThrough": "2026-12-14T21:56:16.196Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3087,7 +3091,7 @@
       "url": "https://etavis.softgarden.io/job/65309486/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287935106&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:36.724Z",
+      "crawledAt": "2026-11-02T21:56:15.879Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -3133,7 +3137,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:36.724Z",
+      "validThrough": "2026-12-14T21:56:15.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3167,7 +3171,7 @@
       "url": "https://etavis.softgarden.io/job/59896845/Kalkulator-Schaltanlagenbau-w-m-d-80-100-?jobDbPVId=287935126&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:36.412Z",
+      "crawledAt": "2026-11-02T21:56:15.566Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -3211,7 +3215,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:36.412Z",
+      "validThrough": "2026-12-14T21:56:15.566Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3245,7 +3249,7 @@
       "url": "https://etavis.softgarden.io/job/51183648/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287999501&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:36.101Z",
+      "crawledAt": "2026-11-02T21:56:15.251Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -3290,7 +3294,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T11:01:36.101Z",
+      "validThrough": "2026-12-16T21:56:15.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3324,7 +3328,7 @@
       "url": "https://etavis.softgarden.io/job/51186998/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287999506&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:35.558Z",
+      "crawledAt": "2026-11-02T21:56:14.941Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3369,7 +3373,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T11:01:35.558Z",
+      "validThrough": "2026-12-16T21:56:14.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3403,7 +3407,7 @@
       "url": "https://etavis.softgarden.io/job/51183483/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287999516&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:35.248Z",
+      "crawledAt": "2026-11-02T21:56:14.623Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -3448,7 +3452,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T11:01:35.248Z",
+      "validThrough": "2026-12-16T21:56:14.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3482,7 +3486,7 @@
       "url": "https://etavis.softgarden.io/job/51187003/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287999521&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:34.931Z",
+      "crawledAt": "2026-11-02T21:56:14.312Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3527,7 +3531,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T11:01:34.931Z",
+      "validThrough": "2026-12-16T21:56:14.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3561,7 +3565,7 @@
       "url": "https://etavis.softgarden.io/job/51184078/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287999526&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:34.247Z",
+      "crawledAt": "2026-11-02T21:56:13.946Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3606,91 +3610,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T11:01:34.247Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "etavis-c3f845d398f0",
-      "slug": "operatore-telefonico-ricevitore-25-1-giorno-settimana-m-f-d-etavis-kriegel-schaffner-ag-basel",
-      "slugByLocale": {
-        "it": "operatore-telefonico-ricevitore-25-1-giorno-settimana-m-f-d-etavis-kriegel-schaffner-ag-basel",
-        "en": "telephone-operator-receiver-25-1day-week-m-f-d-etavis-kriegel-schaffner-ag-basel",
-        "de": "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel",
-        "fr": "operateur-recepteur-telephonique-25-1jour-semaine-h-f-d-etavis-kriegel-schaffner-ag-basel"
-      },
-      "company": "ETAVIS Kriegel+Schaffner AG",
-      "companyKey": "etavis",
-      "companyDomain": "etavis.ch",
-      "title": "Telefonistin/Empfangsmitarbeiterin 25% (1Tag/Woche) (m/w/d)",
-      "titleByLocale": {
-        "it": "Operatore telefonico/ricevitore 25% (1 giorno/settimana) (m/f/d)",
-        "en": "Telephone operator/receiver 25% (1day/week) (m/f/d)",
-        "de": "Telefonistin/Empfangsmitarbeiterin 25% (1Tag/Woche) (m/w/d)",
-        "fr": "Opérateur/récepteur téléphonique 25% (1jour/semaine) (h/f/d)"
-      },
-      "description": "Du hast Freude am Kontakt mit Menschen und möchtest unser Unternehmen nach aussen gegenüber Kunden, Lieferanten und Mitarbeitenden repräsentieren? Dann könnte das genau die richtige Stelle für dich sein. Der Eintritt ist per sofort oder nach Vereinbarung möglich. Das bewirkst du\n• Repräsentation des Unternehmens nach aussen gegenüber Kunden, Lieferanten und Partner\n• Repräsentation nach innen gegenüber Mitarbeitenden\n• Empfang und Betreuung von Gästen\n• Organisation und Verwaltung von Sitzungszimmern\n• Unterstützung bei administrativen Tätigkeiten\n• Zusammenarbeit mit drei Teamkolleginnen zur Aufgabenteilung\n• Arbeitszeit: ein Arbeitstag pro Woche sowie Ferienablösungen (25% Pensum) Das erleichtert dir den Einstieg\n• Freude am Kontakt mit Menschen\n• Gute Organisationsfähigkeit und Prioritätensetzung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Idealerweise Kenntnisse in Französisch und Englisch\n• Teamfähigkeit\n• Sicherer Umgang mit MS Office-Anwendungen Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir beteiligen dich an unserem Erfolg - mit Mitarbeiteraktien und Boni.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive. Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'700 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!",
-      "descriptionByLocale": {
-        "it": "Ti piace il contatto con le persone e vuoi rappresentare la nostra azienda esternamente a clienti, fornitori e dipendenti? Allora questo potrebbe essere il posto giusto per te. L'ingresso è possibile immediatamente o con accordo. E' quello che fai.\n• Rappresentanza dell'azienda esterna verso clienti, fornitori e partner\n• Rappresentanza dei dipendenti\n• Reception e cura degli ospiti\n• Organizzazione e gestione delle sale riunioni\n• Sostegno alle attività amministrative\n• Lavorare con tre compagni di squadra sulla divisione dei compiti\n• Orario di lavoro: un giorno lavorativo a settimana e vacanze (25% carico di lavoro) Questo renderà più facile per voi per iniziare.\n• Gioia di contatto con le persone\n• Buona capacità organizzativa e priorità\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Idealmente, conoscenza del francese e dell'inglese\n• Lavoro di squadra\n• Gestione sicura delle applicazioni MS Office Questo è ciò che vi aspetta\n• Sei importante per noi - ti offriamo un ambiente aperto, apprezzativo e familiare.\n• Vi condividiamo nel nostro successo - con quote e bonus dei dipendenti.\n• Abbiamo successo - con noi avete una prospettiva a lungo termine e sicura. Applicare con noi, siamo in uno spirito di ottimismo e alla ricerca di te! Questo lavoro non e' giusto per te? Ulteriori offerte di lavoro attuali e interessanti a ETAVIS possono essere trovati qui . ETAVIS è il partner ideale per soluzioni innovative di ingegneria elettrica, comunicazione e automazione in Svizzera e Liechtenstein. Offriamo soluzioni personalizzate e di alta qualità per i clienti aziendali di tutte le industrie e dimensioni, nonché servizi personalizzati per i clienti privati. Nell'ambito del Gruppo VINCI, beneficiamo di una forza innovativa globale e siamo allo stesso tempo ancorati a livello locale con i nostri circa 60 uffici. Come la più grande piccola azienda, tick più umano e famiglia – qui tutti conta: individui. Con oltre 2.700 dipendenti e diverse centinaia di studenti, lavoriamo ogni giorno per un mondo più sostenibile e più connesso. Entra a far parte del team ETAVIS e fai grandi cose – nella massima lega di ingegneria elettrica!",
-        "en": "You enjoy contact with people and want to represent our company externally to customers, suppliers and employees? Then this could be the right place for you. Entry is possible immediately or by agreement. That's what you do.\n• Representation of the company externally towards customers, suppliers and partners\n• Representation within employees\n• Reception and care of guests\n• Organisation and management of meeting rooms\n• Support for administrative activities\n• Working with three teammates on the division of tasks\n• Working hours: one working day per week as well as holidays (25% workload) This will make it easier for you to get started.\n• Joy of contact with people\n• Good organisational capacity and prioritisation\n• Very good knowledge of German in word and writing\n• Ideally, knowledge of French and English\n• Teamwork\n• Secure handling of MS Office applications This is what awaits you\n• You are important to us - we offer you an open, appreciative and family environment.\n• We share you in our success - with employee shares and bonuses.\n• We are successful - with us you have a long-term and secure perspective. Apply with us, we are in a spirit of optimism and looking for you! Is this job not right for you? Further current and exciting job offers at ETAVIS can be found here . ETAVIS is the ideal partner for innovative electrical engineering, communication and automation solutions in Switzerland and Liechtenstein. We offer customized, high-quality solutions for business customers of all industries and sizes as well as individually tailored services for private customers. As part of the VINCI Group, we benefit from global innovative strength and are at the same time anchored locally with our approximately 60 offices. As the largest small company, we tick more human and family – here everyone counts: individuals. With more than 2,700 employees and several hundred learners, we work every day for a more sustainable, better connected world. Become part of the ETAVIS team and do big things – in the top league of electrical engineering!",
-        "de": "Du hast Freude am Kontakt mit Menschen und möchtest unser Unternehmen nach aussen gegenüber Kunden, Lieferanten und Mitarbeitenden repräsentieren? Dann könnte das genau die richtige Stelle für dich sein. Der Eintritt ist per sofort oder nach Vereinbarung möglich. Das bewirkst du\n• Repräsentation des Unternehmens nach aussen gegenüber Kunden, Lieferanten und Partner\n• Repräsentation nach innen gegenüber Mitarbeitenden\n• Empfang und Betreuung von Gästen\n• Organisation und Verwaltung von Sitzungszimmern\n• Unterstützung bei administrativen Tätigkeiten\n• Zusammenarbeit mit drei Teamkolleginnen zur Aufgabenteilung\n• Arbeitszeit: ein Arbeitstag pro Woche sowie Ferienablösungen (25% Pensum) Das erleichtert dir den Einstieg\n• Freude am Kontakt mit Menschen\n• Gute Organisationsfähigkeit und Prioritätensetzung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Idealerweise Kenntnisse in Französisch und Englisch\n• Teamfähigkeit\n• Sicherer Umgang mit MS Office-Anwendungen Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir beteiligen dich an unserem Erfolg - mit Mitarbeiteraktien und Boni.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive. Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'700 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!",
-        "fr": "Vous aimez le contact avec les gens et voulez représenter notre entreprise à l'extérieur aux clients, fournisseurs et employés? Alors c'est peut-être le bon endroit pour toi. L'entrée est possible immédiatement ou par accord. C'est ce que tu fais.\n• Représentation externe de l'entreprise auprès des clients, fournisseurs et partenaires\n• Représentation au sein des salariés\n• Réception et prise en charge des clients\n• Organisation et gestion des salles de réunion\n• Appui aux activités administratives\n• Travailler avec trois coéquipiers sur la division des tâches\n• Heures de travail: un jour ouvrable par semaine ainsi que jours fériés (25 %) Cela vous facilitera le démarrage.\n• Joy du contact avec les gens\n• Bonne capacité organisationnelle et hiérarchisation\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Idéalement, la connaissance du français et de l'anglais\n• Travail d'équipe\n• Traitement sécurisé des applications MS Office C'est ce qui vous attend.\n• Vous êtes important pour nous - nous vous offrons un environnement ouvert, reconnaissant et familial.\n• Nous vous partageons dans notre succès - avec les parts des employés et les bonus.\n• Nous réussissons - avec nous vous avez une perspective à long terme et sécurisée. Postulez avec nous, nous sommes dans un esprit d'optimisme et de recherche de vous! Ce travail ne vous convient pas ? D'autres offres d'emploi actuelles et passionnantes chez ETAVIS peuvent être trouvées ici . ETAVIS est le partenaire idéal pour des solutions innovantes d'ingénierie électrique, de communication et d'automatisation en Suisse et au Liechtenstein. Nous offrons des solutions personnalisées et de haute qualité pour les clients d'affaires de toutes les industries et tailles ainsi que des services personnalisés pour les clients privés. Dans le cadre du groupe VINCI, nous bénéficions d'une force d'innovation mondiale et sommes en même temps ancrés localement avec nos quelque 60 bureaux. Comme la plus grande petite entreprise, nous cochez plus d'humains et de familles – ici tout le monde compte: les individus. Avec plus de 2 700 employés et plusieurs centaines d'apprenants, nous travaillons chaque jour pour un monde plus durable et mieux connecté. Devenez membre de l'équipe ETAVIS et faites de grandes choses – dans la meilleure ligue du génie électrique!"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://etavis.softgarden.io/job/68192371/Telefonistin-Empfangsmitarbeiterin-25-1Tag-Woche-m-w-d-?jobDbPVId=288179941&l=de",
-      "source": "ETAVIS Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:33.928Z",
-      "addressLocality": "Basel",
-      "postalCode": "4001",
-      "streetAddress": "Wien-Strasse 2",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19T16:20:01.040+02:00",
-      "postedDate": "2026-10-19T16:20:01.040+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://etavis.softgarden.io/job/68192371/Telefonistin-Empfangsmitarbeiterin-25-1Tag-Woche-m-w-d-?jobDbPVId=288179941&l=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Administration und Sekretariat",
-      "previousSlugs": [
-        "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
-        ],
-        "en": [
-          "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
-        ],
-        "fr": [
-          "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T21:38:21.346Z",
-      "salaryMin": 15500,
-      "salaryMax": 23500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 15500,
-          "maxValue": 23500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T11:01:33.928Z",
+      "validThrough": "2026-12-16T21:56:13.946Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3724,7 +3644,7 @@
       "url": "https://etavis.softgarden.io/job/68275271/Sachbearbeiter-Kreditoren-w-m-d-100-?jobDbPVId=288440231&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:33.572Z",
+      "crawledAt": "2026-11-02T21:56:13.629Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 106",
@@ -3774,7 +3694,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T11:01:33.572Z",
+      "validThrough": "2027-01-20T21:56:13.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3808,7 +3728,7 @@
       "url": "https://etavis.softgarden.io/job/56797623/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=288489686&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:33.244Z",
+      "crawledAt": "2026-11-02T21:56:13.265Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -3852,7 +3772,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T11:01:33.244Z",
+      "validThrough": "2026-12-20T21:56:13.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3886,7 +3806,7 @@
       "url": "https://etavis.softgarden.io/job/56797408/Elektroinstallateur-Industrie-Umgebung-Biel-sowie-Solothurn-w-m-d-80-100-?jobDbPVId=288489706&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:32.932Z",
+      "crawledAt": "2026-11-02T21:56:12.953Z",
       "addressLocality": "Biel",
       "postalCode": "2501",
       "streetAddress": "-",
@@ -3970,7 +3890,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T11:01:32.932Z",
+      "validThrough": "2026-12-20T21:56:12.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4004,7 +3924,7 @@
       "url": "https://etavis.softgarden.io/job/40351407/Elektroplaner-w-m-d-80%E2%80%93100-?jobDbPVId=288489721&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:32.617Z",
+      "crawledAt": "2026-11-02T21:56:12.637Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -4048,7 +3968,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T11:01:32.617Z",
+      "validThrough": "2026-12-20T21:56:12.637Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4082,7 +4002,7 @@
       "url": "https://etavis.softgarden.io/job/31805316/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=288489736&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:32.301Z",
+      "crawledAt": "2026-11-02T21:56:12.322Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -4128,7 +4048,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T11:01:32.301Z",
+      "validThrough": "2026-12-20T21:56:12.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4162,7 +4082,7 @@
       "url": "https://etavis.softgarden.io/job/66883765/Planificateur-%C3%A9lectricien?jobDbPVId=288489771&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:01:31.807Z",
+      "crawledAt": "2026-11-02T21:56:11.985Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue du Caudray 6",
@@ -4206,7 +4126,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T11:01:31.807Z",
+      "validThrough": "2026-12-20T21:56:11.985Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4240,7 +4160,7 @@
       "url": "https://etavis.softgarden.io/job/62056279/ICT-Systemtechniker-IPTV-Multimedia-HF-Netzwerk-w-m-d-80-100-?jobDbPVId=288489791&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:31.488Z",
+      "crawledAt": "2026-11-02T21:56:11.669Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "-",
@@ -4284,7 +4204,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T11:01:31.488Z",
+      "validThrough": "2026-12-20T21:56:11.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4318,7 +4238,7 @@
       "url": "https://etavis.softgarden.io/job/56776563/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=288489811&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:31.169Z",
+      "crawledAt": "2026-11-02T21:56:11.351Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -4398,7 +4318,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T11:01:31.169Z",
+      "validThrough": "2026-12-20T21:56:11.351Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4432,7 +4352,7 @@
       "url": "https://etavis.softgarden.io/job/67598172/Elektroinstallateur-EFZ-Infrastruktur-Projekte-w-m-d-80-100-?jobDbPVId=288622093&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:30.856Z",
+      "crawledAt": "2026-11-02T21:56:11.035Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Schaffhauserstrasse 611",
@@ -4478,7 +4398,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T11:01:30.856Z",
+      "validThrough": "2026-12-22T21:56:11.035Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4512,7 +4432,7 @@
       "url": "https://etavis.softgarden.io/job/65550956/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=288799008&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:30.542Z",
+      "crawledAt": "2026-11-02T21:56:10.720Z",
       "addressLocality": "Frick",
       "postalCode": "5070",
       "streetAddress": "Bahnhofplatz 1",
@@ -4577,7 +4497,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T11:01:30.542Z",
+      "validThrough": "2026-12-25T21:56:10.720Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4611,7 +4531,7 @@
       "url": "https://etavis.softgarden.io/job/64736116/Montatrice-tore-di-servizio-f-m-d-80-100-?jobDbPVId=289115778&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T11:01:30.226Z",
+      "crawledAt": "2026-11-02T21:56:10.403Z",
       "addressLocality": "Bellinzona",
       "postalCode": "6500",
       "streetAddress": "Viale Portone 12",
@@ -4647,7 +4567,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T11:01:30.226Z",
+      "validThrough": "2026-12-14T21:56:10.403Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4681,7 +4601,7 @@
       "url": "https://etavis.softgarden.io/job/63115909/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289176972&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:29.902Z",
+      "crawledAt": "2026-11-02T21:56:10.073Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -4726,7 +4646,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:29.902Z",
+      "validThrough": "2026-12-27T21:56:10.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4760,7 +4680,7 @@
       "url": "https://etavis.softgarden.io/job/63115649/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289176992&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:29.480Z",
+      "crawledAt": "2026-11-02T21:56:09.760Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -4805,7 +4725,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:29.480Z",
+      "validThrough": "2026-12-27T21:56:09.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4839,7 +4759,7 @@
       "url": "https://etavis.softgarden.io/job/63115729/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289176997&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:29.163Z",
+      "crawledAt": "2026-11-02T21:56:09.451Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -4884,7 +4804,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:29.163Z",
+      "validThrough": "2026-12-27T21:56:09.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4918,7 +4838,7 @@
       "url": "https://etavis.softgarden.io/job/63115294/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289177017&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:28.848Z",
+      "crawledAt": "2026-11-02T21:56:09.140Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -4963,7 +4883,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:28.848Z",
+      "validThrough": "2026-12-27T21:56:09.140Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4997,7 +4917,7 @@
       "url": "https://etavis.softgarden.io/job/63648764/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=289177032&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:28.530Z",
+      "crawledAt": "2026-11-02T21:56:08.823Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -5041,7 +4961,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:28.530Z",
+      "validThrough": "2026-12-27T21:56:08.823Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5075,7 +4995,7 @@
       "url": "https://etavis.softgarden.io/job/62954924/Projektleiter-in-Elektroplanung-w-m-d-80%E2%80%93100-?jobDbPVId=289177057&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:28.218Z",
+      "crawledAt": "2026-11-02T21:56:08.512Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5121,7 +5041,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:28.218Z",
+      "validThrough": "2026-12-27T21:56:08.512Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5155,7 +5075,7 @@
       "url": "https://etavis.softgarden.io/job/56292322/Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=289177067&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:27.902Z",
+      "crawledAt": "2026-11-02T21:56:08.200Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5238,7 +5158,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T11:01:27.902Z",
+      "validThrough": "2026-12-27T21:56:08.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5272,7 +5192,7 @@
       "url": "https://etavis.softgarden.io/job/64303288/Chef-de-projet?jobDbPVId=289177072&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T11:01:27.584Z",
+      "crawledAt": "2026-11-02T21:56:07.882Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "streetAddress": "Karrweg 4",
@@ -5363,10 +5283,11 @@
         "postalCode": "1700",
         "addressLocality": "Fribourg",
         "addressRegion": "FR",
-        "checkedAt": "2026-10-31T20:48:40.863Z"
+        "checkedAt": "2026-10-31T20:48:40.863Z",
+        "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T11:01:27.584Z",
+      "validThrough": "2026-12-27T21:56:07.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5400,7 +5321,7 @@
       "url": "https://etavis.softgarden.io/job/68441817/Strategischer-Eink%C3%A4ufer-Elektro-w-m-d-80%E2%80%93100-?jobDbPVId=289203917&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:27.118Z",
+      "crawledAt": "2026-11-02T21:56:07.565Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 106",
@@ -5450,7 +5371,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T11:01:27.118Z",
+      "validThrough": "2027-01-27T21:56:07.565Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5484,7 +5405,7 @@
       "url": "https://etavis.softgarden.io/job/68446067/Projektleiter-Elektroplanung-w-m-d-80-100-?jobDbPVId=289218127&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:26.797Z",
+      "crawledAt": "2026-11-02T21:56:07.239Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Harzbüchelstrasse 30A",
@@ -5536,7 +5457,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T11:01:26.797Z",
+      "validThrough": "2027-01-28T21:56:07.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5570,7 +5491,7 @@
       "url": "https://etavis.softgarden.io/job/64851897/KNX-Systemintegrator-w-m-d-80%E2%80%93100-?jobDbPVId=289294562&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:26.481Z",
+      "crawledAt": "2026-11-02T21:56:06.918Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -5657,7 +5578,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T11:01:26.481Z",
+      "validThrough": "2026-12-29T21:56:06.918Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5691,7 +5612,7 @@
       "url": "https://etavis.softgarden.io/job/66391848/Projektleiter-Telematik-ICT-w-m-d-80-100-?jobDbPVId=289294577&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:26.140Z",
+      "crawledAt": "2026-11-02T21:56:06.585Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -5770,7 +5691,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T11:01:26.140Z",
+      "validThrough": "2026-12-29T21:56:06.585Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5804,7 +5725,7 @@
       "url": "https://etavis.softgarden.io/job/64998038/Elektroinstallateur-Service-und-Kleininstallationen-w-m-d-80%E2%80%93100-?jobDbPVId=289392732&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:25.618Z",
+      "crawledAt": "2026-11-02T21:56:06.035Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -5887,7 +5808,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T11:01:25.618Z",
+      "validThrough": "2026-12-30T21:56:06.035Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5921,7 +5842,7 @@
       "url": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=289392747&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T11:01:25.293Z",
+      "crawledAt": "2026-11-02T21:56:05.710Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -5967,8 +5888,93 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T11:01:25.293Z",
+      "validThrough": "2026-12-30T21:56:05.710Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "etavis-c3f845d398f0",
+      "slug": "operatore-telefonico-ricevitore-25-1-giorno-settimana-m-f-d-etavis-kriegel-schaffner-ag-basel",
+      "slugByLocale": {
+        "it": "operatore-telefonico-ricevitore-25-1-giorno-settimana-m-f-d-etavis-kriegel-schaffner-ag-basel",
+        "en": "telephone-operator-receiver-25-1day-week-m-f-d-etavis-kriegel-schaffner-ag-basel",
+        "de": "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel",
+        "fr": "operateur-recepteur-telephonique-25-1jour-semaine-h-f-d-etavis-kriegel-schaffner-ag-basel"
+      },
+      "company": "ETAVIS Kriegel+Schaffner AG",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Telefonistin/Empfangsmitarbeiterin 25% (1Tag/Woche) (m/w/d)",
+      "titleByLocale": {
+        "it": "Operatore telefonico/ricevitore 25% (1 giorno/settimana) (m/f/d)",
+        "en": "Telephone operator/receiver 25% (1day/week) (m/f/d)",
+        "de": "Telefonistin/Empfangsmitarbeiterin 25% (1Tag/Woche) (m/w/d)",
+        "fr": "Opérateur/récepteur téléphonique 25% (1jour/semaine) (h/f/d)"
+      },
+      "description": "Du hast Freude am Kontakt mit Menschen und möchtest unser Unternehmen nach aussen gegenüber Kunden, Lieferanten und Mitarbeitenden repräsentieren? Dann könnte das genau die richtige Stelle für dich sein. Der Eintritt ist per sofort oder nach Vereinbarung möglich. Das bewirkst du\n• Repräsentation des Unternehmens nach aussen gegenüber Kunden, Lieferanten und Partner\n• Repräsentation nach innen gegenüber Mitarbeitenden\n• Empfang und Betreuung von Gästen\n• Organisation und Verwaltung von Sitzungszimmern\n• Unterstützung bei administrativen Tätigkeiten\n• Zusammenarbeit mit drei Teamkolleginnen zur Aufgabenteilung\n• Arbeitszeit: ein Arbeitstag pro Woche sowie Ferienablösungen (25% Pensum) Das erleichtert dir den Einstieg\n• Freude am Kontakt mit Menschen\n• Gute Organisationsfähigkeit und Prioritätensetzung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Idealerweise Kenntnisse in Französisch und Englisch\n• Teamfähigkeit\n• Sicherer Umgang mit MS Office-Anwendungen Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir beteiligen dich an unserem Erfolg - mit Mitarbeiteraktien und Boni.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive. Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'700 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!",
+      "descriptionByLocale": {
+        "it": "Ti piace il contatto con le persone e vuoi rappresentare la nostra azienda esternamente a clienti, fornitori e dipendenti? Allora questo potrebbe essere il posto giusto per te. L'ingresso è possibile immediatamente o con accordo. E' quello che fai.\n• Rappresentanza dell'azienda esterna verso clienti, fornitori e partner\n• Rappresentanza dei dipendenti\n• Reception e cura degli ospiti\n• Organizzazione e gestione delle sale riunioni\n• Sostegno alle attività amministrative\n• Lavorare con tre compagni di squadra sulla divisione dei compiti\n• Orario di lavoro: un giorno lavorativo a settimana e vacanze (25% carico di lavoro) Questo renderà più facile per voi per iniziare.\n• Gioia di contatto con le persone\n• Buona capacità organizzativa e priorità\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Idealmente, conoscenza del francese e dell'inglese\n• Lavoro di squadra\n• Gestione sicura delle applicazioni MS Office Questo è ciò che vi aspetta\n• Sei importante per noi - ti offriamo un ambiente aperto, apprezzativo e familiare.\n• Vi condividiamo nel nostro successo - con quote e bonus dei dipendenti.\n• Abbiamo successo - con noi avete una prospettiva a lungo termine e sicura. Applicare con noi, siamo in uno spirito di ottimismo e alla ricerca di te! Questo lavoro non e' giusto per te? Ulteriori offerte di lavoro attuali e interessanti a ETAVIS possono essere trovati qui . ETAVIS è il partner ideale per soluzioni innovative di ingegneria elettrica, comunicazione e automazione in Svizzera e Liechtenstein. Offriamo soluzioni personalizzate e di alta qualità per i clienti aziendali di tutte le industrie e dimensioni, nonché servizi personalizzati per i clienti privati. Nell'ambito del Gruppo VINCI, beneficiamo di una forza innovativa globale e siamo allo stesso tempo ancorati a livello locale con i nostri circa 60 uffici. Come la più grande piccola azienda, tick più umano e famiglia – qui tutti conta: individui. Con oltre 2.700 dipendenti e diverse centinaia di studenti, lavoriamo ogni giorno per un mondo più sostenibile e più connesso. Entra a far parte del team ETAVIS e fai grandi cose – nella massima lega di ingegneria elettrica!",
+        "en": "You enjoy contact with people and want to represent our company externally to customers, suppliers and employees? Then this could be the right place for you. Entry is possible immediately or by agreement. That's what you do.\n• Representation of the company externally towards customers, suppliers and partners\n• Representation within employees\n• Reception and care of guests\n• Organisation and management of meeting rooms\n• Support for administrative activities\n• Working with three teammates on the division of tasks\n• Working hours: one working day per week as well as holidays (25% workload) This will make it easier for you to get started.\n• Joy of contact with people\n• Good organisational capacity and prioritisation\n• Very good knowledge of German in word and writing\n• Ideally, knowledge of French and English\n• Teamwork\n• Secure handling of MS Office applications This is what awaits you\n• You are important to us - we offer you an open, appreciative and family environment.\n• We share you in our success - with employee shares and bonuses.\n• We are successful - with us you have a long-term and secure perspective. Apply with us, we are in a spirit of optimism and looking for you! Is this job not right for you? Further current and exciting job offers at ETAVIS can be found here . ETAVIS is the ideal partner for innovative electrical engineering, communication and automation solutions in Switzerland and Liechtenstein. We offer customized, high-quality solutions for business customers of all industries and sizes as well as individually tailored services for private customers. As part of the VINCI Group, we benefit from global innovative strength and are at the same time anchored locally with our approximately 60 offices. As the largest small company, we tick more human and family – here everyone counts: individuals. With more than 2,700 employees and several hundred learners, we work every day for a more sustainable, better connected world. Become part of the ETAVIS team and do big things – in the top league of electrical engineering!",
+        "de": "Du hast Freude am Kontakt mit Menschen und möchtest unser Unternehmen nach aussen gegenüber Kunden, Lieferanten und Mitarbeitenden repräsentieren? Dann könnte das genau die richtige Stelle für dich sein. Der Eintritt ist per sofort oder nach Vereinbarung möglich. Das bewirkst du\n• Repräsentation des Unternehmens nach aussen gegenüber Kunden, Lieferanten und Partner\n• Repräsentation nach innen gegenüber Mitarbeitenden\n• Empfang und Betreuung von Gästen\n• Organisation und Verwaltung von Sitzungszimmern\n• Unterstützung bei administrativen Tätigkeiten\n• Zusammenarbeit mit drei Teamkolleginnen zur Aufgabenteilung\n• Arbeitszeit: ein Arbeitstag pro Woche sowie Ferienablösungen (25% Pensum) Das erleichtert dir den Einstieg\n• Freude am Kontakt mit Menschen\n• Gute Organisationsfähigkeit und Prioritätensetzung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Idealerweise Kenntnisse in Französisch und Englisch\n• Teamfähigkeit\n• Sicherer Umgang mit MS Office-Anwendungen Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir beteiligen dich an unserem Erfolg - mit Mitarbeiteraktien und Boni.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive. Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'700 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!",
+        "fr": "Vous aimez le contact avec les gens et voulez représenter notre entreprise à l'extérieur aux clients, fournisseurs et employés? Alors c'est peut-être le bon endroit pour toi. L'entrée est possible immédiatement ou par accord. C'est ce que tu fais.\n• Représentation externe de l'entreprise auprès des clients, fournisseurs et partenaires\n• Représentation au sein des salariés\n• Réception et prise en charge des clients\n• Organisation et gestion des salles de réunion\n• Appui aux activités administratives\n• Travailler avec trois coéquipiers sur la division des tâches\n• Heures de travail: un jour ouvrable par semaine ainsi que jours fériés (25 %) Cela vous facilitera le démarrage.\n• Joy du contact avec les gens\n• Bonne capacité organisationnelle et hiérarchisation\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Idéalement, la connaissance du français et de l'anglais\n• Travail d'équipe\n• Traitement sécurisé des applications MS Office C'est ce qui vous attend.\n• Vous êtes important pour nous - nous vous offrons un environnement ouvert, reconnaissant et familial.\n• Nous vous partageons dans notre succès - avec les parts des employés et les bonus.\n• Nous réussissons - avec nous vous avez une perspective à long terme et sécurisée. Postulez avec nous, nous sommes dans un esprit d'optimisme et de recherche de vous! Ce travail ne vous convient pas ? D'autres offres d'emploi actuelles et passionnantes chez ETAVIS peuvent être trouvées ici . ETAVIS est le partenaire idéal pour des solutions innovantes d'ingénierie électrique, de communication et d'automatisation en Suisse et au Liechtenstein. Nous offrons des solutions personnalisées et de haute qualité pour les clients d'affaires de toutes les industries et tailles ainsi que des services personnalisés pour les clients privés. Dans le cadre du groupe VINCI, nous bénéficions d'une force d'innovation mondiale et sommes en même temps ancrés localement avec nos quelque 60 bureaux. Comme la plus grande petite entreprise, nous cochez plus d'humains et de familles – ici tout le monde compte: les individus. Avec plus de 2 700 employés et plusieurs centaines d'apprenants, nous travaillons chaque jour pour un monde plus durable et mieux connecté. Devenez membre de l'équipe ETAVIS et faites de grandes choses – dans la meilleure ligue du génie électrique!"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://etavis.softgarden.io/job/68192371/Telefonistin-Empfangsmitarbeiterin-25-1Tag-Woche-m-w-d-?jobDbPVId=288179941&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-02T11:01:33.928Z",
+      "addressLocality": "Basel",
+      "postalCode": "4001",
+      "streetAddress": "Wien-Strasse 2",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19T16:20:01.040+02:00",
+      "postedDate": "2026-10-19T16:20:01.040+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://etavis.softgarden.io/job/68192371/Telefonistin-Empfangsmitarbeiterin-25-1Tag-Woche-m-w-d-?jobDbPVId=288179941&l=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Administration und Sekretariat",
+      "previousSlugs": [
+        "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
+        ],
+        "en": [
+          "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
+        ],
+        "fr": [
+          "telefonistin-empfangsmitarbeiterin-25-1tag-woche-m-w-d-etavis-basel"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T21:38:21.346Z",
+      "salaryMin": 15500,
+      "salaryMax": 23500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 15500,
+          "maxValue": 23500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T11:01:33.928Z",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
