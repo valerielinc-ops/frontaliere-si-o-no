@@ -137,11 +137,14 @@ function splitLongSentence(sentence) {
 }
 
 /** Question card, then one card per spoken line, then the save prompt. */
-export function buildAnswerCards({ question, answer }) {
+export function buildAnswerCards({ question, answer }, socialCopy) {
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
   return [
     { kicker: 'FRONTALIERI · LA RISPOSTA', text: question },
     ...splitSentences(answer).flatMap(splitLongSentence).map((text) => ({ kicker: 'IN BREVE', text })),
-    { kicker: 'SALVA QUESTO VIDEO', text: 'Il tuo caso può cambiare: verifica i dettagli su frontaliereticino.ch' },
+    generatedCopy
+      ? { kicker: 'IL PROSSIMO PASSO', text: generatedCopy.cta }
+      : { kicker: 'SALVA QUESTO VIDEO', text: 'Il tuo caso può cambiare: verifica i dettagli su frontaliereticino.ch' },
   ];
 }
 
@@ -163,13 +166,15 @@ export function planAnswerTimeline(cards, totalSeconds) {
 }
 
 /** The question stays the first line: it is what search and Google read first. */
-export function buildAnswerCaption({ question, answer }) {
+export function buildAnswerCaption({ question, answer }, socialCopy) {
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
   return [
     question,
+    ...(generatedCopy ? [generatedCopy.hook] : []),
     '',
     answer,
     '',
-    'Ti è capitato? Scrivilo nei commenti e salva il video per quando ti servirà.',
+    generatedCopy?.cta || 'Ti è capitato? Scrivilo nei commenti e salva il video per quando ti servirà.',
     '',
     'Informazione generale, voce sintetica. Approfondimento completo: link in bio, frontaliereticino.ch',
     '',

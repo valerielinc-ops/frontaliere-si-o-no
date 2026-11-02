@@ -62,6 +62,20 @@ describe('buildEventCaption', () => {
     expect(c).toContain('#eventiticino');
     expect(c).not.toMatch(/#Ticino\b/);
   });
+
+  it('uses Codex hook and CTA while keeping the event facts', () => {
+    const c = buildEventCaption(EVENT, {
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'Un appuntamento da segnare per chi vive in Ticino',
+        cta: 'Scopri i dettagli completi',
+      },
+    });
+    expect(c.startsWith('Un appuntamento da segnare per chi vive in Ticino\n\n')).toBe(true);
+    expect(c).toContain('Concerto sinfonico al LAC');
+    expect(c).toContain('📍 Lugano');
+    expect(c).toContain('👉 Scopri i dettagli completi');
+  });
 });
 
 describe('selectUnpostedEvents', () => {
@@ -151,6 +165,16 @@ describe('buildWeekendDigestCaption', () => {
     expect(caption).toContain('#eventiticino');
     expect(caption).toContain('#weekend');
     expect(caption).not.toContain('http'); // FB renders the card from the link field, not the message
+  });
+  it('adds the generated CTA without changing the event count or highlights', () => {
+    const c = buildWeekendDigestCaption(events, '2027-01-01', 'TI', {
+      copyMode: 'codex',
+      hook: 'Gli eventi del weekend in un solo riepilogo',
+      cta: 'Apri il programma completo',
+    });
+    expect(c).toContain('Gli eventi del weekend in un solo riepilogo');
+    expect(c).toContain('3 eventi');
+    expect(c).toContain('Apri il programma completo');
   });
   it('singularises a one-event weekend', () => {
     expect(buildWeekendDigestCaption([events[0]], '2027-01-01')).toContain('1 evento ');

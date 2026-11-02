@@ -29,6 +29,8 @@ import {
   LINKEDIN_REST_VERSION,
 } from './lib/linkedin-links.mjs';
 import { buildArticleContent } from './lib/linkedin-member-copy.mjs';
+import { buildLinkedInCompanyCommentary } from './lib/linkedin-company-copy.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const CATEGORY_HASHTAGS = {
   fiscale:  '#frontalieri #ticino #tasse #fisco #svizzera #italia',
@@ -110,6 +112,15 @@ async function main() {
     process.exit(0);
   }
 
+  const socialCopyPack = loadSocialCopyPack({
+    onWarning: (message) => console.warn('⚠️', message),
+  });
+  const socialCopy = selectSocialCopy({
+    pack: socialCopyPack,
+    channel: 'linkedin',
+    kind: 'article',
+    assignmentKey: 'company:' + articleId,
+  });
   // Build the commentary
   const emoji = CATEGORY_EMOJI[category] || '📰';
   const hashtags = CATEGORY_HASHTAGS[category] || DEFAULT_HASHTAGS;
@@ -121,21 +132,24 @@ async function main() {
   // defect: it posted a bare `articleUrl`. Same shared UTM identity as the
   // member poster, so LinkedIn stays ONE source row in GA4 and the two surfaces
   // are told apart by utm_campaign.
-  const taggedUrl = linkedinUrl(articleUrl, LINKEDIN_COMPANY_CAMPAIGN_ARTICLE, articleId);
+  const taggedUrl = linkedinUrl(
+    articleUrl,
+    LINKEDIN_COMPANY_CAMPAIGN_ARTICLE,
+    socialCopyTrackingContent(articleId, socialCopy),
+  );
 
-  const commentary = [
-    `${emoji} ${ogTitle}`,
-    '',
+  const commentary = buildLinkedInCompanyCommentary({
+    emoji,
+    title: ogTitle,
     description,
-    '',
-    `👉 Leggi l'articolo completo: ${taggedUrl}`,
-    '',
+    socialCopy,
+    url: taggedUrl,
     hashtags,
-  ].join('\n').trim();
+  });
 
   console.log('─── LinkedIn Post ───');
   console.log(`Article: ${articleId}`);
-  console.log(`URL:     ${articleUrl}`);
+  console.log(`URL:     ${taggedUrl}`);
   console.log(`Message:\n${commentary}`);
   console.log('─────────────────────');
 

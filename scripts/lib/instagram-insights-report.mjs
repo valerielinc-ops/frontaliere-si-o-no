@@ -240,6 +240,13 @@ function buildLedgerLookup(ledger) {
       attentionMechanic: firstString(entry.attentionMechanic, entry.attention_mechanic),
       engagementLoop: firstString(entry.engagementLoop, entry.engagement_loop),
       followUpFormat: firstString(entry.followUpFormat, entry.follow_up_format),
+      copyMode: firstString(entry.copyMode, entry.copy_mode),
+      copyPromptVersion: firstString(entry.copyPromptVersion, entry.copy_prompt_version),
+      copyPackId: firstString(entry.copyPackId, entry.copy_pack_id),
+      copyTemplateId: firstString(entry.copyTemplateId, entry.copy_template_id),
+      copyObjective: firstString(entry.copyObjective, entry.copy_objective),
+      copyHook: firstString(entry.copyHook, entry.copy_hook),
+      copyCta: firstString(entry.copyCta, entry.copy_cta),
     };
     for (const key of ['instagramMediaId', 'mediaId', 'media_id', 'queueId', 'queue_id']) {
       const value = firstString(entry[key]);
@@ -385,6 +392,17 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       raw.creative?.followUpFormat,
       ledgerMetadata?.followUpFormat,
     );
+    const copyMode = firstString(raw.copyMode, raw.copy_mode, ledgerMetadata?.copyMode);
+    const copyPromptVersion = firstString(raw.copyPromptVersion, raw.copy_prompt_version, ledgerMetadata?.copyPromptVersion);
+    const copyPackId = firstString(raw.copyPackId, raw.copy_pack_id, ledgerMetadata?.copyPackId);
+    const copyTemplateId = firstString(raw.copyTemplateId, raw.copy_template_id, ledgerMetadata?.copyTemplateId);
+    const copyObjective = firstString(raw.copyObjective, raw.copy_objective, ledgerMetadata?.copyObjective);
+    const copyHook = firstString(raw.copyHook, raw.copy_hook, ledgerMetadata?.copyHook);
+    const copyCta = firstString(raw.copyCta, raw.copy_cta, ledgerMetadata?.copyCta);
+    if (copyMode === 'codex' && copyObjective && copyObjective !== objective) {
+      reject(rejected, index, 'copy objective conflicts with creative objective');
+      return;
+    }
 
     const explicitReach = readMetric(raw, 'reach', { required: true });
     const views = readMetric(raw, 'views', { required: true });
@@ -432,6 +450,13 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       attentionMechanic,
       engagementLoop,
       followUpFormat,
+      copyMode,
+      copyPromptVersion,
+      copyPackId,
+      copyTemplateId,
+      copyObjective,
+      copyHook,
+      copyCta,
       windowHours: targetWindowHours,
       reach,
       reachSource: firstString(
@@ -495,6 +520,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       windowHours: row.windowHours,
       observations: 0,
       kinds: new Set(),
+      copyVariants: new Map(),
       reachSource: null,
       views: 0,
       reach: 0,
@@ -517,6 +543,32 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     group.attentionMechanic ||= row.attentionMechanic || null;
     group.engagementLoop ||= row.engagementLoop || null;
     group.followUpFormat ||= row.followUpFormat || null;
+    if (row.copyMode || row.copyTemplateId) {
+      const copyKey = [
+        row.copyMode || 'unknown',
+        row.copyPackId || 'unknown',
+        row.copyTemplateId || 'unknown',
+        row.copyObjective || 'unknown',
+      ].join('|');
+      const copyGroup = group.copyVariants.get(copyKey) || {
+        copyMode: row.copyMode || null,
+        copyPromptVersion: row.copyPromptVersion || null,
+        copyPackId: row.copyPackId || null,
+        copyTemplateId: row.copyTemplateId || null,
+        copyObjective: row.copyObjective || null,
+        copyHook: row.copyHook || null,
+        copyCta: row.copyCta || null,
+        observations: 0,
+        reach: 0,
+        primaryTotal: 0,
+        interactions: 0,
+      };
+      copyGroup.observations += 1;
+      copyGroup.reach += Number(row.reach) || 0;
+      copyGroup.primaryTotal += Number(row[row.primaryMetric]) || 0;
+      copyGroup.interactions += (Number(row.shares) || 0) + (Number(row.saves) || 0) + (Number(row.comments) || 0);
+      group.copyVariants.set(copyKey, copyGroup);
+    }
     group.reachSource ||= row.reachSource || null;
     if (row.reachSource && group.reachSource !== row.reachSource) group.reachSource = 'mixed';
     for (const metric of ['views', 'reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
@@ -545,6 +597,11 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       attentionMechanic: group.attentionMechanic,
       engagementLoop: group.engagementLoop,
       followUpFormat: group.followUpFormat,
+      copyVariants: Array.from(group.copyVariants.values()).map((copyVariant) => ({
+        ...copyVariant,
+        primaryRate: rate(copyVariant.primaryTotal, copyVariant.reach),
+        interactionRate: rate(copyVariant.interactions, copyVariant.reach),
+      })),
       kind: group.kind,
       windowHours: group.windowHours,
       observations: group.observations,
@@ -642,6 +699,7 @@ export function formatCreativeReport(report) {
     '📊 Instagram creative scorecard',
     `   Rows accepted: ${report.acceptedRows} · rejected: ${report.rejectedRows.length}`,
     `   Minimum observations per treatment: ${report.minimumObservations}`,
+    '   Copy splits are descriptive; they do not affect eligibility or choose winners.',
     '',
   ];
   if (report.treatments.length === 0) {
@@ -652,9 +710,14 @@ export function formatCreativeReport(report) {
       const mechanic = treatment.engagementMechanic ? ` · CTA ${treatment.engagementMechanic}` : '';
       const hook = treatment.hookType ? ` · hook ${treatment.hookType}` : '';
       const loop = treatment.engagementLoop ? ` · loop ${treatment.engagementLoop}` : '';
+      const copy = treatment.copyVariants?.length
+        ? ' · copy ' + treatment.copyVariants
+          .map((variant) => `${variant.copyTemplateId || 'unknown'} ${variant.observations} obs (${percentage(variant.primaryRate)})`)
+          .join(', ')
+        : '';
       lines.push(
         `   ${treatment.creativeId.padEnd(18)} ${treatment.kind.padEnd(8)} ${treatment.windowHours}h · ${treatment.observations} obs · `
-        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${background}${mechanic}${hook}${loop}`,
+        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${background}${mechanic}${hook}${loop}${copy}`,
       );
     }
   }

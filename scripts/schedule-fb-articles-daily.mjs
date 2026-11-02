@@ -56,6 +56,7 @@ import {
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
@@ -278,6 +279,9 @@ export async function run(opts = {}) {
   const repoRoot = opts.repoRoot || defaultRepoRoot();
   const log = opts.log || console.log;
   const warn = opts.warn || console.warn;
+  const socialCopyPack = opts.socialCopyPack || loadSocialCopyPack({
+    onWarning: (message) => warn('⚠️', message),
+  });
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const limit = Number(env.FB_ARTICLE_VOLUME || DEFAULT_VOLUME);
@@ -305,12 +309,21 @@ export async function run(opts = {}) {
   log('ℹ️', `selected ${candidates.length} article(s) to post`);
 
   // 3. Build payloads
-  const payloads = candidates.map((a) => ({
-    articleId: a.id,
-    section: a.section,
-    url: a.url,
-    message: buildArticleCaption(a),
-  }));
+  const payloads = candidates.map((a) => {
+    const socialCopy = selectSocialCopy({
+      pack: socialCopyPack,
+      channel: 'facebook',
+      kind: 'article',
+      assignmentKey: a.id,
+    });
+    return {
+      articleId: a.id,
+      section: a.section,
+      url: a.url,
+      message: buildArticleCaption({ ...a, socialCopy }),
+      copyFields: socialCopyLedgerFields(socialCopy),
+    };
+  });
 
   // 4. Dry-run vs real POST
   if (dryRun) {
@@ -360,7 +373,11 @@ export async function run(opts = {}) {
     // Tag before the rescrape: FB caches OG metadata per exact URL string, so
     // warming the bare URL leaves the one actually posted uncached. `p.url`
     // stays untagged — it is the ledger's dedup key.
-    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_ARTICLE, p.articleId);
+    const link = facebookUrl(
+      p.url,
+      FACEBOOK_CAMPAIGN_ARTICLE,
+      socialCopyTrackingContent(p.articleId, p.copyFields),
+    );
     await rescrapeOg(link);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => new URLSearchParams({
@@ -399,6 +416,7 @@ export async function run(opts = {}) {
         url: p.url,
         ts: new Date().toISOString(),
         fbPostId: data.id,
+        ...p.copyFields,
       }]);
       log('✅', `${p.articleId} → ${data.id}`);
     } else {

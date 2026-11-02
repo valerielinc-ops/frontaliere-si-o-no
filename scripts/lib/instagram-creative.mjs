@@ -455,23 +455,27 @@ export function chooseInstagramCreative({ kind, day, objective, env = process.en
  * Build the Instagram-specific caption. Unlike the legacy channel-agnostic
  * helper, this caption has one job: make the intended interaction explicit.
  */
-export function buildInstagramCaption({ kind, dayLabel, picks, creative } = {}) {
+export function buildInstagramCaption({ kind, dayLabel, picks, creative, socialCopy } = {}) {
   const safeKind = VALID_KINDS.has(kind) ? kind : 'article';
   const selected = creative && VALID_KINDS.has(creative.kind)
     ? creative
     : definitionFor(safeKind, 'proof');
   const safePicks = Array.isArray(picks) ? picks.slice(0, 5) : [];
   const lines = safePicks.map((pick, index) => `${index + 1}. ${captionText(pick?.title || 'Voce', 140)} — ${captionText(pick?.statValue || 'dati disponibili', 80)}`);
-  const questionLine = selected.question ? `🗣️ ${selected.question}` : '';
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const questionLine = !generatedCopy && selected.question ? `🗣️ ${selected.question}` : '';
+  const destinationLine = generatedCopy && !/link in bio/i.test(generatedCopy.cta)
+    ? '🔎 Per dettagli e fonti: link in bio.'
+    : generatedCopy ? '' : `👉 Approfondisci dal link in bio (${captionText(dayLabel || 'aggiornamento del giorno', 80)}).`;
 
   const caption = [
-    selected.lead,
+    generatedCopy?.hook || selected.lead,
     '',
     ...lines,
     '',
-    selected.cta,
+    generatedCopy?.cta || selected.cta,
     questionLine,
-    `👉 Approfondisci dal link in bio (${captionText(dayLabel || 'aggiornamento del giorno', 80)}).`,
+    destinationLine,
     '',
     '#frontalieri #ticino #svizzera #italia #lavoro',
   ].filter((line, index, list) => line !== '' || list[index - 1] !== '').join('\n');
@@ -482,6 +486,33 @@ export function buildInstagramCaption({ kind, dayLabel, picks, creative } = {}) 
   return caption.length <= INSTAGRAM_MAX_CAPTION_LENGTH
     ? caption
     : `${caption.slice(0, INSTAGRAM_MAX_CAPTION_LENGTH - 1).trimEnd()}…`;
+}
+
+/** Keep the generated Instagram cover/closing card aligned with its caption. */
+export function instagramSocialVisualCopy(creative, socialCopy) {
+  if (
+    socialCopy?.copyMode !== 'codex'
+    || !creative?.cover
+    || !creative?.closing
+    || socialCopy.objective !== creative.objective
+  ) return null;
+
+  const closingTitle = {
+    share: 'Un passaparola utile',
+    save: 'Tieni questa selezione a portata di mano',
+    conversation: 'La prossima idea parte da te',
+  }[creative.objective];
+  if (!closingTitle) return null;
+
+  return {
+    coverTitle: socialCopy.hook,
+    closing: {
+      kicker: 'IL PROSSIMO PASSO',
+      title: closingTitle,
+      body: '',
+      cta: socialCopy.cta,
+    },
+  };
 }
 
 /** Stable UTM content value that identifies treatment, visual arm and item. */

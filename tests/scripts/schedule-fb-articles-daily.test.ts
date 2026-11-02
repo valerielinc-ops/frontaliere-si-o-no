@@ -72,6 +72,7 @@ const {
     now?: Date;
     repoRoot?: string;
     fetchImpl?: typeof fetch;
+    socialCopyPack?: any;
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
   }) => Promise<{ ok: boolean; posted: number; dryRun: boolean; payloads: Payload[] }>;
@@ -287,6 +288,22 @@ describe('buildArticleCaption', () => {
     expect(c).toContain('📰 X');
     expect(c).toContain('#frontalieri #ticino #lavoro #svizzera #italia');
   });
+
+  it('adds Codex hook and CTA while retaining the article destination label', () => {
+    const c = buildArticleCaption({
+      ogTitle: 'Mio Titolo',
+      ogDescription: 'Mia descrizione.',
+      category: 'fiscale',
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'Un chiarimento utile per chi lavora oltre confine',
+        cta: 'Leggi i dettagli completi',
+      },
+    });
+    expect(c.startsWith('Un chiarimento utile per chi lavora oltre confine\n\n')).toBe(true);
+    expect(c).toContain('👉 Leggi i dettagli completi');
+    expect(c).toContain('Mia descrizione.');
+  });
 });
 
 // ── loadPosted / appendPosted ─────────────────────────────
@@ -382,6 +399,44 @@ describe('run()', () => {
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('a1');
     expect(ledger.posted[0].fbPostId).toBe('pid_post_1');
+  });
+
+  it('carries the selected Codex copy variant into the Facebook link attribution', async () => {
+    const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
+    let postedLink = '';
+    const fetchSpy = vi.fn(async (url: string | URL | Request, init?: RequestInit) => {
+      const u = String(url);
+      if (init?.method === 'HEAD') return new Response(null, { status: 200 });
+      if (u.includes('scrape=true')) return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      if (init?.body instanceof URLSearchParams) postedLink = init.body.get('link') || '';
+      return new Response(JSON.stringify({ id: 'pid_post_1' }), { status: 200 });
+    });
+    const socialCopyPack = {
+      promptVersion: 'frontaliere-social-copy-v1',
+      packId: '0123456789abcdef',
+      channels: {
+        facebook: {
+          article: [
+            { id: 'facebook-article-one', hook: 'Una novità sul lavoro', cta: 'Leggi l’approfondimento' },
+            { id: 'facebook-article-two', hook: 'Un tema da conoscere', cta: 'Scopri i dettagli' },
+            { id: 'facebook-article-three', hook: 'Uno spunto per oggi', cta: 'Apri la guida' },
+          ],
+        },
+      },
+    };
+    const result = await run({
+      env: { FB_ARTICLE_MAX_AGE_DAYS: '2', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: NOW,
+      repoRoot: tmp,
+      socialCopyPack,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      log: () => {},
+      warn: () => {},
+    });
+    expect(result.posted).toBe(1);
+    expect(new URL(postedLink).searchParams.get('utm_content')).toMatch(
+      /^a1--cp0123456789abcdef-article\.facebook-article-/,
+    );
   });
 
   it('skips the post when the landing page is not live yet (HEAD 4xx)', async () => {

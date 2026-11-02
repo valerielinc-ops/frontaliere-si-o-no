@@ -80,7 +80,7 @@ const {
     postedSet: Set<string>,
     limit: number,
   ) => JobLike[];
-  buildJobCaption: (job: JobLike) => string;
+  buildJobCaption: (job: JobLike, options?: { socialCopy?: { copyMode?: string; hook?: string; cta?: string } }) => string;
   buildJobHashtags: (job: JobLike) => string;
   buildJobUrl: (job: JobLike) => string | null;
   loadPosted: (repoRoot: string) => PostedLedger;
@@ -255,6 +255,20 @@ describe('buildJobCaption', () => {
     expect(c).toContain('CHF');
     expect(c).toContain("90'000");
     expect(c).toContain('📋 Tempo pieno');
+  });
+
+  it('adds Codex hook and CTA without replacing verified job facts', () => {
+    const c = buildJobCaption(fullJob, {
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'Un’opportunità da approfondire per chi lavora oltre confine',
+        cta: 'Consulta i dettagli completi',
+      },
+    });
+    expect(c.startsWith('Un’opportunità da approfondire per chi lavora oltre confine\n\n')).toBe(true);
+    expect(c).toContain('Sviluppatore Senior Java');
+    expect(c).toContain("CHF 90'000");
+    expect(c).toContain('👉 Consulta i dettagli completi');
   });
 
   it('total length ≤ 5000 (FB hard limit)', () => {

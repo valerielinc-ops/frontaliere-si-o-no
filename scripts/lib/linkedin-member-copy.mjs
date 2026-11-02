@@ -298,13 +298,30 @@ export function buildMemberCommentary(opts = {}) {
     company,
   });
 
-  const ctx = { title, excerpt, location, url, company, companyMention };
+  const generatedCopy = opts.socialCopy?.copyMode === 'codex' ? opts.socialCopy : null;
+  const ctx = { title, excerpt, location, url, company, companyMention, includeFallbackCta: !generatedCopy };
   const body =
     kind === 'job'
       ? JOB_TEMPLATES[editorialIndex(day, JOB_ANGLES)](ctx)
       : ARTICLE_TEMPLATES[editorialIndex(day, ARTICLE_ANGLES)](ctx);
 
-  return withHashtags(body, hashtags);
+  if (!generatedCopy) return withHashtags(body, hashtags);
+  const blocks = body.split(/\n\n/);
+  if (blocks.length > 0) {
+    if (kind === 'article') {
+      // The first article block is a deterministic editorial hook; replace it
+      // instead of stacking a second hook at the top of the post.
+      blocks[0] = generatedCopy.hook;
+    } else {
+      // Job openers carry employer/title facts, so keep them and place the
+      // generated hook after that factual lead.
+      blocks.splice(1, 0, generatedCopy.hook);
+    }
+  }
+  const lastBlock = blocks.at(-1) || '';
+  const linkedUrl = url && lastBlock.includes(url) ? url : '';
+  blocks[blocks.length - 1] = linkedUrl ? generatedCopy.cta + '\n' + linkedUrl : generatedCopy.cta;
+  return withHashtags(blocks.join('\n\n'), hashtags);
 }
 
 /**
@@ -403,42 +420,48 @@ const ARTICLE_TEMPLATES = [
 ];
 
 const JOB_TEMPLATES = [
-  ({ title, excerpt, location, url, companyMention }) =>
+  ({ title, excerpt, location, url, companyMention, includeFallbackCta }) =>
     joinBlocks([
       companyMention
         ? `${companyMention} assume: ${title}`
         : `Nuova offerta: ${title}`,
       location ? `📍 ${location}` : '',
       excerpt,
-      'Offerta pensata anche per i frontalieri che cercano lavoro in Svizzera. Candidati dalla scheda: requisiti, sede, contratto.',
+      'Offerta pensata anche per i frontalieri che cercano lavoro in Svizzera.',
+      includeFallbackCta ? 'Candidati dalla scheda: requisiti, sede, contratto.' : '',
       `👉 ${url}`,
     ]),
-  ({ title, excerpt, location, url, companyMention }) =>
+  ({ title, excerpt, location, url, companyMention, includeFallbackCta }) =>
     joinBlocks([
       location
         ? `${location}: c'è una posizione aperta per chi fa il frontaliere.`
         : "C'è una posizione aperta per chi fa il frontaliere.",
       companyMention ? `${title} presso ${companyMention}` : title,
       excerpt,
-      `Lavoro in Svizzera${location ? `, in ${location}` : ''}. Guarda l'annuncio completo e candidati.`,
+      `Lavoro in Svizzera${location ? `, in ${location}` : ''}.`,
+      includeFallbackCta ? "Guarda l'annuncio completo e candidati." : '',
       `👉 ${url}`,
     ]),
-  ({ title, excerpt, location, url, companyMention }) =>
+  ({ title, excerpt, location, url, companyMention, includeFallbackCta }) =>
     joinBlocks([
-      `Cerchi lavoro in Svizzera come ${title}?`,
+      includeFallbackCta
+        ? `Cerchi lavoro in Svizzera come ${title}?`
+        : location ? `Offerta per ${title} in ${location}.` : `Annuncio per ${title}.`,
       [companyMention, location].filter(Boolean).join(' · '),
       excerpt,
-      'Annuncio per frontalieri e chi valuta il passo. Dettagli e candidatura nella scheda.',
+      'Annuncio per frontalieri e chi valuta il passo. La scheda riporta dettagli e modalità di candidatura.',
       `👉 ${url}`,
     ]),
-  ({ title, excerpt, location, url, companyMention }) =>
+  ({ title, excerpt, location, url, companyMention, includeFallbackCta }) =>
     joinBlocks([
       'Nuova offerta di lavoro in Svizzera.',
       title,
       companyMention ? `Azienda: ${companyMention}` : '',
       location ? `Sede: ${location}` : '',
       excerpt,
-      "Se sei un frontaliere, apri la scheda: è il testo dell'annuncio, non un riassunto.",
+      includeFallbackCta
+        ? "Se sei un frontaliere, apri la scheda: è il testo dell'annuncio, non un riassunto."
+        : "La scheda contiene il testo completo dell'annuncio, senza riassunti.",
       `👉 ${url}`,
     ]),
   ({ title, excerpt, location, url, companyMention }) =>
@@ -461,14 +484,18 @@ const JOB_TEMPLATES = [
       'Requisiti e come candidarsi sono nella scheda.',
       `👉 ${url}`,
     ]),
-  ({ title, excerpt, location, url, companyMention }) =>
+  ({ title, excerpt, location, url, companyMention, includeFallbackCta }) =>
     joinBlocks([
-      location
-        ? `Qualcuno nella tua rete sta cercando questo ruolo in ${location}?`
-        : 'Qualcuno nella tua rete sta cercando questo ruolo in Svizzera?',
+      includeFallbackCta
+        ? location
+          ? `Qualcuno nella tua rete sta cercando questo ruolo in ${location}?`
+          : 'Qualcuno nella tua rete sta cercando questo ruolo in Svizzera?'
+        : location
+          ? `Posizione aperta per frontalieri in ${location}.`
+          : 'Posizione aperta per frontalieri.',
       companyMention ? `${title} da ${companyMention}` : title,
       excerpt,
-      'Condividi con chi fa il frontaliere o valuta il lavoro in Svizzera.',
+      includeFallbackCta ? 'Condividi con chi fa il frontaliere o valuta il lavoro in Svizzera.' : '',
       `👉 Annuncio: ${url}`,
     ]),
 ];

@@ -6,7 +6,7 @@ on:
     # orchestrator-→translate pipeline that primes today's job set:
     #   - orchestrate-crawlers (08:00 UTC, ~103 min) ends ~09:43 UTC
     #   - translate-pending  (12:00 UTC, up to ~56 min) ends ~12:56 UTC
-    # 13:30 leaves a ~30 min cushion. The 144 scheduled FB posts start at
+    # 13:30 leaves a ~30 min cushion. The 24 scheduled FB posts start at
     # the next :05 mark (≥ +10 min FB minimum) and fan out over the next
     # 24 h on minute slots :05/:15/:25/:35/:45/:55.
     - cron: '30 13 * * *'

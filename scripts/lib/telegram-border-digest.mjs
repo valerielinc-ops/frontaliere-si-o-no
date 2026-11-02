@@ -23,6 +23,7 @@ import { fmtMinutes } from '../../services/borderWaitFormat.ts';
 import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
 import { escapeHtml } from './telegram-client.mjs';
 import { telegramUrl, TELEGRAM_CAMPAIGN_BORDER } from './telegram-links.mjs';
+import { socialCopyTrackingContent } from './social-copy-pack.mjs';
 import {
   computeRanking,
   computeWeekWindow,
@@ -34,6 +35,10 @@ import { RANKING_ARTICLE_SLUGS } from './border-wait-ranking-content.mjs';
 // How many crossings to show in each of the fast/slow shortlists.
 export const TELEGRAM_BORDER_TOP = 5;
 
+export function telegramBorderCopyAssignmentKey(todayIso, days = DEFAULT_WINDOW_DAYS) {
+  return 'border:' + computeWeekWindow(todayIso, days).weekStart;
+}
+
 /** "13–19 luglio 2026" (same month collapses to one month name). */
 function humanRangeIt(weekStart, weekEnd) {
   const [ys, mos, ds] = weekStart.split('-').map(Number);
@@ -43,10 +48,14 @@ function humanRangeIt(weekStart, weekEnd) {
   return `${ds} ${MONTHS_IT[mos - 1]} ${ys} – ${de} ${MONTHS_IT[moe - 1]} ${ye}`;
 }
 
-function crossingLine(entry, index) {
+function crossingLine(entry, index, socialCopy) {
   const name = escapeHtml(BORDER_CROSSING_DISPLAY[entry.slug] || entry.slug);
   const href = escapeHtml(
-    telegramUrl(`${SITE_URL}${buildOggiPath('it', entry.slug)}`, TELEGRAM_CAMPAIGN_BORDER, entry.slug),
+    telegramUrl(
+      `${SITE_URL}${buildOggiPath('it', entry.slug)}`,
+      TELEGRAM_CAMPAIGN_BORDER,
+      socialCopyTrackingContent(entry.slug, socialCopy),
+    ),
   );
   return `${index + 1}. <a href="${href}">${name}</a> — ${escapeHtml(fmtMinutes(entry.avgMinutes))}`;
 }
@@ -60,7 +69,7 @@ function crossingLine(entry, index) {
  * @param {{ historyDir: string, todayIso?: string, days?: number }} opts
  * @returns {{ text: string, rankedCount: number, weekStart: string, weekEnd: string }}
  */
-export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS } = {}) {
+export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS, socialCopy } = {}) {
   const iso = todayIso || new Date().toISOString().slice(0, 10);
   const ranking = computeRanking(historyDir, iso, { days });
   // "Classifica dogane Ticino" broadcast is Ticino-branded — the display-name
@@ -80,27 +89,33 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
   const fastest = known.slice(0, TELEGRAM_BORDER_TOP);
   const slowest = known.slice(-TELEGRAM_BORDER_TOP).reverse();
   const funFacts = computeFunFacts(known);
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
 
   const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
   const articleUrl = rawArticleUrl
-    ? telegramUrl(rawArticleUrl, TELEGRAM_CAMPAIGN_BORDER, 'ranking_article')
+    ? telegramUrl(
+        rawArticleUrl,
+        TELEGRAM_CAMPAIGN_BORDER,
+        socialCopyTrackingContent('ranking_article', generatedCopy),
+      )
     : rawArticleUrl;
   const hubUrl = telegramUrl(
     `${SITE_URL}${buildRootHubPath('it')}`,
     TELEGRAM_CAMPAIGN_BORDER,
-    'live_hub',
+    socialCopyTrackingContent('live_hub', generatedCopy),
   );
 
   const parts = [
     `🚧 <b>Classifica dogane Ticino</b> — settimana del ${escapeHtml(humanRangeIt(weekStart, weekEnd))}`,
     '',
+    ...(generatedCopy ? [escapeHtml(generatedCopy.hook), ''] : []),
     'Tempo medio di attesa (avvicinamento + coda al varco) sugli ultimi 7 giorni.',
     '',
     '🟢 <b>Le più veloci</b>',
-    ...fastest.map((e, i) => crossingLine(e, i)),
+    ...fastest.map((e, i) => crossingLine(e, i, generatedCopy)),
     '',
     '🔴 <b>Le più lente</b>',
-    ...slowest.map((e, i) => crossingLine(e, i)),
+    ...slowest.map((e, i) => crossingLine(e, i, generatedCopy)),
   ];
 
   if (funFacts) {
@@ -116,7 +131,7 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
 
   parts.push(
     '',
-    articleUrl ? `👉 <a href="${escapeHtml(articleUrl)}">Classifica completa e trend settimanale</a>` : '',
+    articleUrl ? `👉 <a href="${escapeHtml(articleUrl)}">${escapeHtml(generatedCopy?.cta || 'Classifica completa e trend settimanale')}</a>` : '',
     `🚦 <a href="${escapeHtml(hubUrl)}">Traffico live alle dogane</a>`,
   );
 

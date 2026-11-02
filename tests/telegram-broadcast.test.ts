@@ -33,7 +33,7 @@ import {
   buildPreferredSourceAnnouncement,
   PREFERRED_SOURCE_ANNOUNCEMENT_ID,
 } from '../scripts/lib/telegram-templates.mjs';
-import { buildWeeklyBorderDigest } from '../scripts/lib/telegram-border-digest.mjs';
+import { buildWeeklyBorderDigest, telegramBorderCopyAssignmentKey } from '../scripts/lib/telegram-border-digest.mjs';
 import { formatJobSalaryLabel, formatSwissThousands, withUtm } from '../scripts/lib/social-post-utils.mjs';
 import {
   telegramUrl,
@@ -223,6 +223,19 @@ describe('buildDailyJobsDigest', () => {
     expect(text).toContain('utm_content=hub');
   });
 
+  it('uses generated hook and CTA while preserving the canonical destination', () => {
+    const { text } = buildDailyJobsDigest([JOB_A], {
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'Un dettaglio utile & concreto',
+        cta: 'Apri tutte le offerte',
+      },
+    });
+    expect(text).toContain('Un dettaglio utile &amp; concreto');
+    expect(text).toContain('>Apri tutte le offerte</a>');
+    expect(text).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/?utm_source=telegram');
+  });
+
   it('drops jobs with no resolvable URL and caps at the limit', () => {
     const { count, jobIds } = buildDailyJobsDigest([JOB_A, JOB_NO_SLUG], { limit: 5 });
     expect(count).toBe(1); // JOB_NO_SLUG dropped
@@ -327,6 +340,22 @@ describe('no broadcast link ships untagged', () => {
       expect(href).toContain('utm_campaign=jobs_digest');
     }
   });
+
+  it('attributes Codex copy variants on the linked jobs and digest CTA', () => {
+    const { text } = buildDailyJobsDigest([JOB_A], {
+      dateLabel: '19 luglio 2026',
+      socialCopy: {
+        copyMode: 'codex',
+        copyPackId: '0123456789abcdef',
+        copySlot: 'job',
+        id: 'telegram-job-one',
+        hook: 'Uno spunto sul lavoro in Ticino',
+        cta: 'Scopri tutte le offerte',
+      },
+    });
+    expect(text).toContain('utm_content=sviluppatore-frontend-lugano--cp0123456789abcdef-job.telegram-job-one');
+    expect(text).toContain('utm_content=hub--cp0123456789abcdef-job.telegram-job-one');
+  });
 });
 
 // ── telegram-border-digest (weekly ranking) ──────────────────
@@ -342,6 +371,12 @@ function writeDay(dir: string, date: string, perCrossing: Record<string, Array<R
 }
 
 describe('buildWeeklyBorderDigest', () => {
+  it('keeps the same Codex copy across retries within the weekly window', () => {
+    expect(telegramBorderCopyAssignmentKey('2026-07-10')).toBe('border:2026-07-03');
+    expect(telegramBorderCopyAssignmentKey('2026-07-10'))
+      .toBe(telegramBorderCopyAssignmentKey('2026-07-10'));
+  });
+
   it('ranks fastest→slowest with canonical per-crossing links', () => {
     const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
     // 7-day window ending the day before 2026-07-10 → 07-03 … 07-09.
@@ -369,6 +404,18 @@ describe('buildWeeklyBorderDigest', () => {
     // CTA links to the canonical hub + ranking article (trailing slash)
     expect(text).toContain('https://frontaliereticino.ch/traffico-dogane/');
     expect(text).toContain('https://frontaliereticino.ch/articoli-frontaliere/classifica-dogane-ticino/');
+
+    const generated = buildWeeklyBorderDigest({
+      historyDir: dir,
+      todayIso: '2026-07-10',
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'La situazione aggiornata & spiegata',
+        cta: 'Leggi la classifica completa',
+      },
+    });
+    expect(generated.text).toContain('La situazione aggiornata &amp; spiegata');
+    expect(generated.text).toContain('>Leggi la classifica completa</a>');
   });
 
   it('skips (empty text) when fewer than two crossings can be ranked', () => {

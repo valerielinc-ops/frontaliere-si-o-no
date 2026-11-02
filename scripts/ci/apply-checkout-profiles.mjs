@@ -35,6 +35,16 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/packages/articles/content/blogImageCdnMirror.ts',
 ];
 
+// The Codex copy-pack job reads these editorial references from its prompt.
+// They are not statically imported by the Node scripts, so bucket analysis
+// would otherwise prune the whole `docs/` tree and leave the agent without
+// its declared source material.
+export const SOCIAL_COPY_REQUIRED_SPARSE_PATHS = Object.freeze([
+  '/docs/instagram-creative-study.md',
+  '/docs/social-ai-automation.md',
+  '/docs/third-party/instagram-agent-skill/UPSTREAM.md',
+]);
+
 /**
  * Input letti dal build globale mentre gira nel job `vitest`.
  *
@@ -315,7 +325,10 @@ export function computeProfiledText(workflowPath, npmScripts) {
     const runsTypecheck = [...(job.entries ?? []), ...(job.closure ?? [])].includes('scripts/ci/check-typecheck-baseline.mjs');
     const include = job.jobId === 'vitest' && job.exclude.length
       ? [...new Set([...TYPECHECK_REQUIRED_SPARSE_PATHS, ...GLOBAL_TESTS_REQUIRED_SPARSE_PATHS])]
-      : runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS : [];
+      : runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS
+        : path.basename(workflowPath) === 'social-copy-pack.yml' && job.jobId === 'generate' && job.exclude.length
+          ? SOCIAL_COPY_REQUIRED_SPARSE_PATHS
+          : [];
     const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude, include) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }

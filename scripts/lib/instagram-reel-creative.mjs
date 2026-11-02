@@ -138,20 +138,28 @@ function shortStat(item) {
  * Return the three vertical cards and the caption for one ranked item.
  * The renderer only consumes plain text, which keeps this contract testable.
  */
-export function buildInstagramReelContent({ kind, dayLabel, item, creative } = {}) {
+export function buildInstagramReelContent({ kind, dayLabel, item, creative, socialCopy } = {}) {
   const selected = creative && creative.hook && creative.kind
     ? creative
     : chooseInstagramReelCreative({ kind, day: dayLabel });
   const title = safeText(item?.title, 'Un aggiornamento per frontalieri');
   const stat = shortStat(item);
-  const actionEmoji = selected.primaryMetric === 'comments' ? '💬' : selected.primaryMetric === 'saves' ? '💾' : '📤';
+  const generatedCopy = socialCopy?.copyMode === 'codex' && socialCopy.objective === selected.objective
+    ? socialCopy
+    : null;
+  const actionEmoji = generatedCopy ? '' : selected.primaryMetric === 'comments' ? '💬' : selected.primaryMetric === 'saves' ? '💾' : '📤';
+  const closingTitle = {
+    conversation: 'La prossima idea parte da te',
+    save: 'Tieni questo aggiornamento a portata di mano',
+    share: 'Un passaparola utile',
+  }[selected.objective];
   const caption = [
-    selected.lead,
+    generatedCopy?.hook || selected.lead,
     '',
     `📌 ${title} — ${stat}.`,
     '',
-    `${actionEmoji} ${selected.cta}`,
-    '👉 Approfondisci dal link in bio.',
+    `${actionEmoji} ${generatedCopy?.cta || selected.cta}`.trim(),
+    generatedCopy && /link in bio/i.test(generatedCopy.cta) ? '' : '👉 Per dettagli e fonti: link in bio.',
     '',
     '#frontalieri #ticino #svizzera #italia #lavoro',
   ].join('\n');
@@ -162,7 +170,7 @@ export function buildInstagramReelContent({ kind, dayLabel, item, creative } = {
       {
         type: 'hook',
         kicker: selected.hook.kicker,
-        title: selected.hook.title,
+        title: generatedCopy?.hook || selected.hook.title,
         body: selected.lead,
       },
       {
@@ -174,13 +182,13 @@ export function buildInstagramReelContent({ kind, dayLabel, item, creative } = {
       {
         type: 'cta',
         kicker: 'TOCCA A TE',
-        title: selected.cta,
-        body: 'Una risposta breve ci aiuta a scegliere il prossimo contenuto.',
-        cta: selected.primaryMetric === 'comments'
+        title: generatedCopy ? closingTitle : selected.cta,
+        body: generatedCopy ? '' : 'Una risposta breve ci aiuta a scegliere il prossimo contenuto.',
+        cta: generatedCopy?.cta || (selected.primaryMetric === 'comments'
           ? 'Rispondi nei commenti'
           : selected.primaryMetric === 'saves'
           ? 'Salva il Reel'
-          : 'Condividi il Reel',
+          : 'Condividi il Reel'),
       },
     ],
   };

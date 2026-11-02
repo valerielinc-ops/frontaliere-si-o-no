@@ -24,6 +24,7 @@ import {
   TELEGRAM_CAMPAIGN_JOBS,
   TELEGRAM_CAMPAIGN_PREFERRED_SOURCE,
 } from './telegram-links.mjs';
+import { socialCopyTrackingContent } from './social-copy-pack.mjs';
 
 // Deep link al pannello "Fonti preferite" di Google, dominio canonico senza
 // `www` in `q` (AGENTS.md -> Architecture). Gemello di PREFERRED_SOURCE_URL in
@@ -40,12 +41,16 @@ export const DEFAULT_JOBS_LIMIT = 5;
 export const JOB_BOARD_HUB_URL = `${SITE_URL}/cerca-lavoro-ticino/`;
 
 /** One numbered job entry: linked title + a meta line (city · salary · type). */
-function jobEntry(job, index) {
+function jobEntry(job, index, socialCopy) {
   // UTM-tagged so the click is attributable in GA4. `buildJobUrl` still decides
   // whether the job is linkable at all — tagging never invents a URL.
   const canonical = buildJobUrl(job);
   const url = canonical
-    ? telegramUrl(canonical, TELEGRAM_CAMPAIGN_JOBS, job?.slug || job?.id || '')
+    ? telegramUrl(
+        canonical,
+        TELEGRAM_CAMPAIGN_JOBS,
+        socialCopyTrackingContent(job?.slug || job?.id || '', socialCopy),
+      )
     : canonical;
   const title = escapeHtml((job?.titleByLocale?.it || job?.title || 'Offerta di lavoro').trim());
   const linkedTitle = url ? `<a href="${escapeHtml(url)}">${title}</a>` : title;
@@ -78,7 +83,7 @@ function jobEntry(job, index) {
  * @param {{ limit?: number, dateLabel?: string }} [opts]
  * @returns {{ text: string, jobIds: string[], count: number }}
  */
-export function buildDailyJobsDigest(jobs, { limit = DEFAULT_JOBS_LIMIT, dateLabel } = {}) {
+export function buildDailyJobsDigest(jobs, { limit = DEFAULT_JOBS_LIMIT, dateLabel, socialCopy } = {}) {
   const cap = Number.isFinite(limit) && limit > 0 ? Math.floor(limit) : DEFAULT_JOBS_LIMIT;
   const usable = (Array.isArray(jobs) ? jobs : [])
     .filter((job) => job && job.id && buildJobUrl(job))
@@ -89,11 +94,23 @@ export function buildDailyJobsDigest(jobs, { limit = DEFAULT_JOBS_LIMIT, dateLab
   }
 
   const header = `💼 <b>Offerte di lavoro in Ticino${dateLabel ? ` — ${escapeHtml(dateLabel)}` : ''}</b>`;
-  const entries = usable.map((job, i) => jobEntry(job, i));
-  const ctaUrl = telegramUrl(JOB_BOARD_HUB_URL, TELEGRAM_CAMPAIGN_JOBS, 'hub');
-  const cta = `👉 <a href="${escapeHtml(ctaUrl)}">Tutte le offerte in Ticino</a>`;
+  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const entries = usable.map((job, i) => jobEntry(job, i, generatedCopy));
+  const ctaUrl = telegramUrl(
+    JOB_BOARD_HUB_URL,
+    TELEGRAM_CAMPAIGN_JOBS,
+    socialCopyTrackingContent('hub', generatedCopy),
+  );
+  const ctaLabel = generatedCopy ? escapeHtml(generatedCopy.cta) : 'Tutte le offerte in Ticino';
+  const cta = `👉 <a href="${escapeHtml(ctaUrl)}">${ctaLabel}</a>`;
 
-  const text = [header, '', entries.join('\n\n'), '', cta].join('\n');
+  const text = [
+    header,
+    ...(generatedCopy ? [escapeHtml(generatedCopy.hook), ''] : ['']),
+    entries.join('\n\n'),
+    '',
+    cta,
+  ].join('\n');
   return { text, jobIds: usable.map((j) => j.id), count: usable.length };
 }
 

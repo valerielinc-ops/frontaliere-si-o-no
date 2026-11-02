@@ -139,12 +139,16 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { TIKTOK_API, publishCarousel } from './lib/tiktok-publish.mjs';
+import { loadSocialCopyPack, selectSocialCopy, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const LEDGER_PATH = path.join(ROOT, 'data', 'tiktok-posted.json');
 const QUEUE_PATH = queuePathFor(ROOT, 'tiktok');
 const POSTED_TRIM_LIMIT = 1000;
+const SOCIAL_COPY_PACK = loadSocialCopyPack({
+  onWarning: (message) => console.warn(`⚠️  ${message}`),
+});
 
 const DEDUP_WINDOW_DAYS = 30;
 const CAROUSEL_SIZE = 5;
@@ -268,7 +272,7 @@ function prepareTikTokVideo(slides, keyPrefix, queueId) {
  * Any failure returns null, and the post keeps the slide format: the queue
  * entry always records the creative that was really rendered.
  */
-async function prepareTikTokAnswer(candidates, queueId) {
+async function prepareTikTokAnswer(candidates, queueId, socialCopy) {
   if (!isTikTokAnswerFormatAssigned({ queueId })) return null;
   try {
     for (const pick of candidates) {
@@ -278,7 +282,7 @@ async function prepareTikTokAnswer(candidates, queueId) {
       if (!response.ok) continue;
       const faq = selectAnswerFaq(parseArticleFaq(await response.json()));
       if (!faq) continue;
-      const cards = buildAnswerCards(faq);
+      const cards = buildAnswerCards(faq, socialCopy);
       const { wav, seconds } = await synthesizeAnswerVoice(buildAnswerVoiceScript(cards));
       const images = await renderAnswerCards(cards, { footer: 'frontaliereticino.ch' });
       if (!images) return null;
@@ -289,7 +293,7 @@ async function prepareTikTokAnswer(candidates, queueId) {
       console.log(`🎬 TikTok video: ${tiktokVideoCreativeLabel(creativeVariant)} (${creativeVariant}) — ${faq.question}`);
       return {
         pick,
-        caption: buildAnswerCaption(faq),
+        caption: buildAnswerCaption(faq, socialCopy),
         video: {
           url,
           bytes: rendered.bytes,
@@ -365,7 +369,18 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
   const dayLabel = formatDayIt(day);
-  const caption = buildTikTokCaption({ kind, dayLabel, picks: captionPicks });
+  const socialCopyFormat = socialPublishRoute({
+    mode: robotMode,
+    apiReady: Boolean(accessToken),
+  }).enqueue ? 'video' : kind;
+  const socialCopy = selectSocialCopy({
+    pack: SOCIAL_COPY_PACK,
+    channel: 'tiktok',
+    kind,
+    format: socialCopyFormat,
+    assignmentKey: kind + '-' + day,
+  });
+  let caption = buildTikTokCaption({ kind, dayLabel, picks: captionPicks, socialCopy });
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
   console.log(caption);
@@ -378,21 +393,17 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     return;
   }
 
-  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems }));
+  let slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems, socialCopy }));
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
-    return;
-  }
-  const urls = uploadCarouselSlides(slides, { channel: 'tiktok', keyPrefix: `${kind}-${day}` });
-  if (urls.some((u) => !u)) {
-    console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
   const queueId = `${kind}-${day}`;
   // The whole ranking, not the five slides: the best question may rank sixth.
   const answer = route.enqueue && kind === 'article'
-    ? await prepareTikTokAnswer(pickTopNUnposted(candidates, recent, ANSWER_CANDIDATE_POOL).picks, queueId)
+    ? await prepareTikTokAnswer(pickTopNUnposted(candidates, recent, ANSWER_CANDIDATE_POOL).picks, queueId, socialCopy)
     : null;
+  let appliedSocialCopy = socialCopy;
   const video = answer?.video ?? (route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null);
   if (route.enqueue && !video) {
     if (!route.api) {
@@ -400,14 +411,38 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
       return;
     }
     console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
+    appliedSocialCopy = selectSocialCopy({
+      pack: SOCIAL_COPY_PACK,
+      channel: 'tiktok',
+      kind,
+      assignmentKey: kind + '-' + day,
+    });
+    caption = buildTikTokCaption({ kind, dayLabel, picks: captionPicks, socialCopy: appliedSocialCopy });
+  }
+  if (JSON.stringify(appliedSocialCopy) !== JSON.stringify(socialCopy)) {
+    slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems, socialCopy: appliedSocialCopy }));
+    if (!slides) {
+      console.log('⚠️  fallback carousel fonts unavailable (public/fonts) — skipping (soft)');
+      return;
+    }
+  }
+  const urls = uploadCarouselSlides(slides, { channel: 'tiktok', keyPrefix: `${kind}-${day}` });
+  if (urls.some((u) => !u)) {
+    console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
+    return;
   }
 
   const ledgerEntries = (answer ? [answer.pick] : picks).map((p) => ({
     id: p.slug,
     kind,
-    url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, tiktokContentId(p.slug, video?.creativeVariant)),
+    url: tiktokUrl(
+      `${SITE_URL}${p.path}/`,
+      campaign,
+      socialCopyTrackingContent(tiktokContentId(p.slug, video?.creativeVariant), appliedSocialCopy),
+    ),
     day,
     views: p.views,
+    ...socialCopyLedgerFields(appliedSocialCopy),
   }));
   await deliver({
     route: video ? route : { ...route, enqueue: false },
@@ -455,10 +490,22 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     statValue: fmtMinutes(r.avgMinutes),
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
-  const caption = buildTikTokCaption({
+  const socialCopyFormat = socialPublishRoute({
+    mode: robotMode,
+    apiReady: Boolean(accessToken),
+  }).enqueue ? 'video' : 'border';
+  const socialCopy = selectSocialCopy({
+    pack: SOCIAL_COPY_PACK,
+    channel: 'tiktok',
+    kind: 'border',
+    format: socialCopyFormat,
+    assignmentKey: 'border-' + weekStart,
+  });
+  let caption = buildTikTokCaption({
     kind: 'border',
     dayLabel,
     picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+    socialCopy,
   });
 
   console.log(`\n─── border carousel (${fastest.length} slides) ───`);
@@ -472,17 +519,13 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     return;
   }
 
-  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems }));
+  let slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems, socialCopy }));
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
   }
-  const urls = uploadCarouselSlides(slides, { channel: 'tiktok', keyPrefix: `border-${weekStart}` });
-  if (urls.some((u) => !u)) {
-    console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
-    return;
-  }
   const queueId = `border-${weekStart}`;
+  let appliedSocialCopy = socialCopy;
   const video = route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null;
   if (route.enqueue && !video) {
     if (!route.api) {
@@ -490,14 +533,43 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
       return;
     }
     console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
+    appliedSocialCopy = selectSocialCopy({
+      pack: SOCIAL_COPY_PACK,
+      channel: 'tiktok',
+      kind: 'border',
+      assignmentKey: 'border-' + weekStart,
+    });
+    caption = buildTikTokCaption({
+      kind: 'border',
+      dayLabel,
+      picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+      socialCopy: appliedSocialCopy,
+    });
+  }
+  if (JSON.stringify(appliedSocialCopy) !== JSON.stringify(socialCopy)) {
+    slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems, socialCopy: appliedSocialCopy }));
+    if (!slides) {
+      console.log('⚠️  fallback carousel fonts unavailable (public/fonts) — skipping (soft)');
+      return;
+    }
+  }
+  const urls = uploadCarouselSlides(slides, { channel: 'tiktok', keyPrefix: `border-${weekStart}` });
+  if (urls.some((u) => !u)) {
+    console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
+    return;
   }
 
   const ledgerEntries = [
     {
       id: weekStart,
       kind: 'border',
-      url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, tiktokContentId(weekStart, video?.creativeVariant)),
+      url: tiktokUrl(
+        buildOggiPath('it', fastest[0].slug),
+        TIKTOK_CAMPAIGN_BORDER,
+        socialCopyTrackingContent(tiktokContentId(weekStart, video?.creativeVariant), appliedSocialCopy),
+      ),
       day: weekStart,
+      ...socialCopyLedgerFields(appliedSocialCopy),
     },
   ];
   await deliver({

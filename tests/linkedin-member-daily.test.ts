@@ -388,6 +388,11 @@ describe('UTM identity — a posted link must never be invisible', () => {
     );
     expect(src).toContain('linkedinUrl(');
     expect(src).toContain('LINKEDIN_COMPANY_CAMPAIGN_ARTICLE');
+    expect(src).toContain('loadSocialCopyPack(');
+    expect(src).toContain("channel: 'linkedin'");
+    expect(src).toContain("assignmentKey: 'company:' + articleId");
+    expect(src).toContain('socialCopyTrackingContent(articleId, socialCopy)');
+    expect(src).toContain('buildLinkedInCompanyCommentary');
     // The bare URL must not survive in either the caption or the article card.
     expect(src).not.toContain('source: articleUrl');
     expect(src).not.toContain('completo: ${articleUrl}');
@@ -548,6 +553,74 @@ describe('member commentary — daily rotation, no views, search keywords', () =
     });
     expect(text.length).toBeGreaterThan(80);
     expect(text).toContain('Magazziniere');
+  });
+
+  it('adds Codex hook and CTA with real paragraph breaks and the canonical URL', () => {
+    const copy = {
+      copyMode: 'codex',
+      hook: 'Un chiarimento utile per chi lavora oltre confine',
+      cta: 'Leggi l’approfondimento completo',
+    };
+    const text = commentaryOf(ARTICLE_FIXTURE, ARTICLE_FIXTURE.dayA, { socialCopy: copy });
+    const deterministicLead = commentaryOf(ARTICLE_FIXTURE, ARTICLE_FIXTURE.dayA).split('\n\n')[0];
+    expect(text.startsWith(copy.hook + '\n\n')).toBe(true);
+    expect(text).not.toContain(deterministicLead);
+    expect(text).toContain(ARTICLE_FIXTURE.title);
+    expect(text).toContain(copy.cta + '\n' + ARTICLE_FIXTURE.url);
+    expect(text).not.toContain('\\n');
+  });
+
+  it('keeps the factual job lead before the generated hook', () => {
+    const copy = {
+      copyMode: 'codex',
+      hook: 'Un’occasione da valutare per il prossimo passo professionale',
+      cta: 'Candidati dalla scheda',
+    };
+    const startDay = Date.parse(JOB_FIXTURE.dayA + 'T00:00:00.000Z');
+    const allTemplateDays = Array.from({ length: 7 }, (_, index) =>
+      new Date(startDay + index * 86400000).toISOString().slice(0, 10),
+    );
+
+    for (const day of allTemplateDays) {
+      const text = commentaryOf(JOB_FIXTURE, day, { socialCopy: copy });
+      const blocks = text.split('\n\n');
+      expect(blocks[1]).toBe(copy.hook);
+      expect(text).toContain(JOB_FIXTURE.title);
+      expect(text).toContain(copy.cta + '\n' + JOB_FIXTURE.url);
+      expect(text.match(/\b(?:candidati|guarda|apri|invia|condividi|leggi)\b/giu) || []).toHaveLength(1);
+      expect(text).not.toMatch(/Guarda l'annuncio completo e candidati|apri la scheda|Condividi con chi fa il frontaliere/i);
+    }
+  });
+
+  it('preserves the deterministic job CTA in fallback and omits unverified location from generated copy', () => {
+    const copy = {
+      copyMode: 'codex',
+      hook: 'Un’occasione da valutare con calma',
+      cta: 'Apri la scheda',
+    };
+    const startDay = Date.parse(JOB_FIXTURE.dayA + 'T00:00:00.000Z');
+    const allTemplateDays = Array.from({ length: 7 }, (_, index) =>
+      new Date(startDay + index * 86400000).toISOString().slice(0, 10),
+    );
+    const locationTemplateDay = allTemplateDays.find((day) =>
+      commentaryOf(JOB_FIXTURE, day).includes('Cerchi lavoro in Svizzera come'),
+    );
+    const linkCtaTemplateDay = allTemplateDays.find((day) =>
+      commentaryOf(JOB_FIXTURE, day).includes('apri la scheda: è il testo'),
+    );
+
+    expect(locationTemplateDay).toBeDefined();
+    expect(linkCtaTemplateDay).toBeDefined();
+    const fallback = commentaryOf(JOB_FIXTURE, linkCtaTemplateDay!);
+    expect(fallback).toContain('apri la scheda: è il testo');
+
+    const generatedWithoutLocation = commentaryOf(
+      { ...JOB_FIXTURE, location: '' },
+      locationTemplateDay!,
+      { socialCopy: copy },
+    );
+    expect(generatedWithoutLocation).toContain(`Annuncio per ${JOB_FIXTURE.title}.`);
+    expect(generatedWithoutLocation).not.toContain('Canton Ticino');
   });
 });
 

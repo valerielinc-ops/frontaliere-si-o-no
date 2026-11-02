@@ -1,0 +1,206 @@
+name: Social Copy Pack (Codex)
+
+on:
+  schedule:
+    - cron: '40 4 1 * *' # monthly pack, before the first daily broadcasts
+  workflow_dispatch:
+    inputs:
+      promote:
+        description: 'Promote a valid generated pack on main'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: social-copy-pack
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+            /docs/instagram-creative-study.md
+            /docs/social-ai-automation.md
+            /docs/third-party/instagram-agent-skill/UPSTREAM.md
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies for the read-only GA4 report
+        run: npm ci
+
+      - name: Build sanitized GA4 social-copy attribution brief
+        id: attribution
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/social-copy-ga4-brief.json"
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            node scripts/social-copy/ga4-performance-brief.mjs > "$output"
+          else
+            printf '%s' '{"schemaVersion":1,"source":"ga4-social-copy-attribution","available":false,"reason":"credentials-unavailable","minimumSessions":10,"acceptedRows":0,"variants":[],"interpretation":"Descriptive only; sessions are not impressions and do not establish causality or a winning template."}' > "$output"
+          fi
+          printf 'brief=%s\n' "$(cat "$output")" >> "$GITHUB_OUTPUT"
+
+      - name: Build minimized Instagram performance brief
+        id: performance
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f data/instagram-insights.json ] && [ -f data/instagram-posted.json ]; then
+            brief="$(node scripts/social-copy/performance-brief.mjs \
+              --input=data/instagram-insights.json \
+              --ledger=data/instagram-posted.json)"
+          else
+            brief='{"schemaVersion":1,"source":"instagram-insights","windowHours":72,"minimumObservations":3,"acceptedRows":0,"variants":[],"interpretation":"Descriptive only; no winner, eligibility, or publishing decision is inferred."}'
+          fi
+          printf 'brief=%s\n' "$brief" >> "$GITHUB_OUTPUT"
+
+      - name: Generate social copy with Codex
+        id: codex
+        uses: ./.github/actions/claude-codex-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          exec_timeout_minutes: '15'
+          response_artifact: social-copy-response.json
+          prompt: |
+            Read scripts/social-copy/CODEX-PROMPT.md and follow it exactly.
+            Recent Instagram 72-hour copy-performance brief, sanitized and descriptive only:
+            ${{ steps.performance.outputs.brief }}
+            Recent GA4 30-day social-link attribution brief, sanitized and descriptive only.
+            Use only groups marked eligibleForDescription. Session counts are not impressions.
+            siteEngagedSessionRate describes website sessions after a click, not social-post
+            engagement or reach. Neither brief establishes causality or a winning template:
+            ${{ steps.attribution.outputs.brief }}
+            Return a complete JSON pack by writing only
+            /tmp/social-copy-response.json. Use the existing Frontaliere
+            Ticino editorial and platform guidance in this checkout.
+
+      - name: Upload generated response
+        if: steps.codex.outputs.primary_success == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: social-copy-response
+          path: ${{ runner.temp }}/social-copy-response.json
+          if-no-files-found: error
+          retention-days: 2
+
+  promote:
+    needs: generate
+    if: >-
+      needs.generate.result == 'success' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' || inputs.promote == true)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Download generated response
+        uses: actions/download-artifact@v8
+        with:
+          name: social-copy-response
+          path: ${{ runner.temp }}
+
+      - name: Validate and promote
+        run: >-
+          node scripts/social-copy/pack.mjs promote
+          --input="$RUNNER_TEMP/social-copy-response.json"
+          --output=data/social-copy-packs/current.json
+
+      - name: Mint App token for protected data PR
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Open PR with current social copy pack
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
+        run: |
+          set -euo pipefail
+          test "$APP_TOKEN_DATA_REFRESH" = true
+          body="$RUNNER_TEMP/social-copy-pack-pr-body.md"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          {
+            printf 'Auto-generated by [workflow run %s](%s).\n\n' \
+              "$GITHUB_RUN_ID" "$run_url"
+            cat <<'EOF'
+          ## Implementato
+          - Aggiornato il pacchetto di copy social Codex, validato per tutti i canali attivi e promosso tramite PR per il required check.
+
+          ## Non implementato (ancora)
+          Nessuno
+          EOF
+          } > "$body"
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/social-copy-packs/current.json \
+            --branch chore/social-copy-pack \
+            --commit-message "chore(social): refresh Codex copy pack" \
+            --title "chore(social): refresh Codex copy pack" \
+            --body-file "$body"
