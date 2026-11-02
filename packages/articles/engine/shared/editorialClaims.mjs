@@ -672,10 +672,18 @@ function removeClaimSegment(segments, index, { structural = false } = {}) {
 
   // In ordinary prose keep one of the original boundaries. Clearing both
   // separators is what turns two valid neighbours into Prima.Dopo.
-  if (!structural && before && after) {
-    if (beforeSeparator) segments[index + 1] = '';
-    else if (afterSeparator) segments[index - 1] = '';
-    else segments[index + 1] = ' ';
+  if (!structural) {
+    if (before && after) {
+      if (beforeSeparator) segments[index + 1] = '';
+      else if (afterSeparator) segments[index - 1] = '';
+      else segments[index + 1] = ' ';
+    } else if (!before && after) {
+      segments[index + 1] = '';
+    } else if (before && !after) {
+      segments[index - 1] = /^\s+$/u.test(beforeSeparator)
+        ? ''
+        : beforeSeparator.replace(/\s+$/u, '');
+    }
     return;
   }
 
