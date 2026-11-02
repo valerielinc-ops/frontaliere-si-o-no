@@ -73,16 +73,22 @@ function loadJobs() {
 function collectUnmatchedCacheLookups(entries, limit, offset = 0) {
   return Object.entries(entries)
     .sort(([left], [right]) => left.localeCompare(right))
-    .slice(offset, offset + limit)
     .filter(([, cached]) => cached?.status !== 'matched')
     .map(([key, cached]) => ({
       key,
       companyName: String(cached?.companyName || key.split('|')[0] || '').trim(),
       locality: String(cached?.addressLocality || '').trim(),
       region: String(cached?.addressRegion || '').trim().toUpperCase(),
+      jobPostalCode: String(cached?.jobPostalCode || '').trim(),
+      requirePostalCodeForMatch: true,
     }))
     .filter(({ companyName, locality, region }) => companyName.length >= 3 && locality && /^[A-Z]{2}$/.test(region))
-    .slice(0, limit);
+    .slice(offset, offset + limit);
+}
+
+function cacheEntryIsExpired(cached, now) {
+  const checkedAt = Date.parse(String(cached?.checkedAt || ''));
+  return !Number.isFinite(checkedAt) || now - checkedAt >= JOBPOSTING_ADDRESS_CACHE_TTL_MS;
 }
 
 function localityKey(value, region = '') {
@@ -171,8 +177,7 @@ function collectLookups(jobs, entries, now, limit) {
     const key = jobpostingAddressCacheKey(companyName, locality, region);
     if (!key || companyName.length < 3) continue;
     const cached = entries[key];
-    if (cached?.status === 'matched') continue;
-    if (cached?.checkedAt && now - Date.parse(cached.checkedAt) < JOBPOSTING_ADDRESS_CACHE_TTL_MS) continue;
+    if (cached?.checkedAt && !cacheEntryIsExpired(cached, now)) continue;
 
     const resolved = resolveJobPostingStreetAddress(job, {
       addressLocality: locality,
@@ -180,7 +185,15 @@ function collectLookups(jobs, entries, now, limit) {
       postalCode: job?.postalCode,
     });
     if (resolved.streetAddressSource !== 'to-enrich') continue;
-    if (!byKey.has(key)) byKey.set(key, { key, companyName, locality, region });
+    if (!byKey.has(key)) {
+      byKey.set(key, {
+        key,
+        companyName,
+        locality,
+        region,
+        jobPostalCode: String(job?.postalCode || cached?.jobPostalCode || '').trim(),
+      });
+    }
   }
   return [...byKey.values()].slice(0, limit);
 }
@@ -390,13 +403,25 @@ function jobPostalCodeMap(jobs, requests) {
   return result;
 }
 
-function cacheEntry(request, outcome, checkedAt) {
+function cacheJobPostalCodeMap(requests) {
+  const result = new Map();
+  for (const request of requests) {
+    const postalCode = String(request.jobPostalCode || '').trim();
+    if (/^\d{4,5}$/.test(postalCode)) result.set(request.key, new Set([postalCode]));
+  }
+  return result;
+}
+
+function cacheEntry(request, outcome, checkedAt, jobPostalCode = '') {
   return {
     status: outcome.status,
     source: 'zefix-lindas',
     companyName: request.companyName,
     ...(outcome.address || {}),
     ...(outcome.status === 'matched' ? { streetAddressSource: 'zefix-registry' } : {}),
+    ...(/^\d{4,5}$/.test(String(jobPostalCode ?? '').trim())
+      ? { jobPostalCode: String(jobPostalCode).trim() }
+      : {}),
     addressLocality: request.locality,
     addressRegion: request.region,
     ...(outcome.reason ? { reason: outcome.reason } : {}),
@@ -408,6 +433,7 @@ function cacheEntry(request, outcome, checkedAt) {
 async function processLookupBatches(requests, {
   entries = {},
   postalCodes = new Map(),
+  now = Date.now(),
   queryBatch = (batch) => queryLindasWithRetry(batch),
   saveBatch = async () => {},
   checkedAt = () => new Date().toISOString(),
@@ -415,8 +441,12 @@ async function processLookupBatches(requests, {
   batchDelayMs = BETWEEN_BATCH_DELAY_MS,
 } = {}) {
   const nextEntries = { ...entries };
+  const eligibleRequests = requests.filter((request) => {
+    const cached = nextEntries[request.key];
+    return cached?.status !== 'matched' || cacheEntryIsExpired(cached, now);
+  });
   const summary = {
-    searchedCompanies: requests.length,
+    searchedCompanies: eligibleRequests.length,
     companiesFound: 0,
     sameCityAddresses: 0,
     notFound: 0,
@@ -427,7 +457,7 @@ async function processLookupBatches(requests, {
     failedBatchDetails: [],
   };
 
-  const batches = buildLocationBatches(requests);
+  const batches = buildLocationBatches(eligibleRequests);
   for (const [batchIndex, batch] of batches.entries()) {
     let bindings;
     try {
@@ -447,11 +477,21 @@ async function processLookupBatches(requests, {
     const timestamp = checkedAt();
     const bindingsIndex = indexAddressBindings(bindings);
     for (const request of batch) {
-      // Once an address has been established from Zefix, a later sparse or
-      // conflicting response cannot reduce coverage or replace that value.
-      if (nextEntries[request.key]?.status === 'matched') continue;
-      const outcome = matchAddress(request, bindingsIndex, postalCodes.get(request.key) || new Set());
-      nextEntries[request.key] = cacheEntry(request, outcome, timestamp);
+      const previous = nextEntries[request.key];
+      const requestPostalCodes = postalCodes.get(request.key) || new Set();
+      const outcome = matchAddress(request, bindingsIndex, requestPostalCodes);
+      const canVerifyRequiredPostalCode = !request.requirePostalCodeForMatch
+        || requestPostalCodes.size > 0;
+      const jobPostalCode = requestPostalCodes.size === 1
+        ? [...requestPostalCodes][0]
+        : requestPostalCodes.size === 0 ? request.jobPostalCode : '';
+      // A stale match remains usable until a complete, verified replacement
+      // exists. A cache-only retry without the original job postcode cannot
+      // establish that the registry address belongs to the posting.
+      if (outcome.status === 'matched' && !canVerifyRequiredPostalCode) continue;
+      if (previous?.status !== 'matched' || outcome.status === 'matched') {
+        nextEntries[request.key] = cacheEntry(request, outcome, timestamp, jobPostalCode);
+      }
       if (outcome.companyFound) summary.companiesFound++;
       if (outcome.status === 'matched') summary.sameCityAddresses++;
       if (!outcome.companyFound) summary.notFound++;
@@ -516,7 +556,7 @@ async function main({ args = process.argv.slice(2) } = {}) {
   const lock = await withSingleFlightLockAsync(LINDAS_LOCK_PATH, async () => {
     const result = await processLookupBatches(requests, {
       entries: cacheEntries,
-      postalCodes: retryUnmatchedCache ? new Map() : jobPostalCodeMap(jobs, requests),
+      postalCodes: retryUnmatchedCache ? cacheJobPostalCodeMap(requests) : jobPostalCodeMap(jobs, requests),
       saveBatch: (entries) => writeJsonAtomic(CACHE_PATH, {
         version: 1,
         source: 'Zefix via LINDAS',
@@ -536,6 +576,7 @@ async function main({ args = process.argv.slice(2) } = {}) {
 export {
   buildLocationBatches,
   buildQuery,
+  cacheJobPostalCodeMap,
   collectLookups,
   collectUnmatchedCacheLookups,
   jobPostalCodeMap,
