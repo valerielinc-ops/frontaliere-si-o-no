@@ -30,6 +30,25 @@ export interface ApplicationConciergeProposal {
   source?: string | null;
 }
 
+export type ApplicationConciergeProposalCategory =
+  | 'proposed'
+  | 'needs_information'
+  | 'accepted'
+  | 'queued'
+  | 'submitted'
+  | 'failed'
+  | 'reviewing'
+  | 'unknown'
+  | 'declined'
+  | 'retracted'
+  | 'expired'
+  | 'withdrawn';
+
+export interface ApplicationConciergeProposalGroup {
+  category: ApplicationConciergeProposalCategory;
+  proposals: ApplicationConciergeProposal[];
+}
+
 export interface ApplicationConciergeService {
   serviceId: string;
   paymentStatus: string;
@@ -93,7 +112,9 @@ export interface ApplicationConciergePaidReceiptEmail {
 export function getCandidateVisibleApplicationConciergeProposals(
   proposals: readonly ApplicationConciergeProposal[],
 ): ApplicationConciergeProposal[] {
-  return proposals.filter((proposal) => proposal.status !== 'retracted');
+  // Retractions are part of the candidate's application history. Keep them
+  // visible and give them their own category instead of silently removing them.
+  return [...proposals];
 }
 
 /** The decision to accept a proposal is separate from the progress of its application. */
@@ -106,14 +127,83 @@ export function conciergeProposalDisplayStatus(proposal: ApplicationConciergePro
   }
   if (proposal.withdrawnAt || (proposal.status === 'accepted' && state === 'withdrawn')) return 'withdrawn';
   if (proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification') return 'needs_verification';
-  if (proposal.status !== 'accepted') return proposal.status;
-  if (state === 'needs_candidate_action' || state === 'candidate_handoff') return 'needs_answers';
+  if (proposal.status !== 'accepted') {
+    switch (proposal.status) {
+      case 'proposed': return 'proposed';
+      case 'declined': return 'declined';
+      case 'expired': return 'expired';
+      case 'retracted': return 'retracted';
+      default: return 'unknown';
+    }
+  }
   if (state === 'candidate_review') return 'needs_review';
+  if (state === 'needs_candidate_action' || state === 'candidate_handoff'
+    || proposal.childCandidateStatus === 'needs_candidate' || proposal.childCandidateStatus === 'awaiting_materials') return 'needs_answers';
   if (state === 'submitting') return proposal.childSendState === 'sending' ? 'sending' : 'queued';
   if (proposal.childRetryScheduled) return 'retry_scheduled';
-  if (state === 'owner_takeover' || state === 'owner_review' || state === 'failed') return 'technical_review';
+  if (state === 'failed' || proposal.childSubmissionStatus === 'failed' || proposal.childCandidateStatus === 'failed') return 'failed';
+  if (state === 'owner_takeover' || state === 'owner_review' || proposal.childCandidateStatus === 'under_review') return 'technical_review';
   if (state === 'drafting' || state === 'regenerating') return 'preparing';
-  return 'accepted';
+  if (!state) return proposal.childApplicationId ? 'unknown' : 'accepted';
+  if (state === 'accepted') return 'accepted';
+  return 'unknown';
+}
+
+const PROPOSAL_CATEGORY_ORDER: readonly ApplicationConciergeProposalCategory[] = [
+  'proposed',
+  'needs_information',
+  'accepted',
+  'queued',
+  'submitted',
+  'failed',
+  'reviewing',
+  'unknown',
+  'declined',
+  'retracted',
+  'expired',
+  'withdrawn',
+];
+
+export function conciergeProposalDisplayCategory(proposal: ApplicationConciergeProposal): ApplicationConciergeProposalCategory {
+  const status = conciergeProposalDisplayStatus(proposal);
+  if (status.startsWith('employer_')) return 'submitted';
+  switch (status) {
+    case 'needs_information':
+    case 'needs_answers':
+    case 'needs_review': return 'needs_information';
+    case 'queued':
+    case 'sending':
+    case 'retry_scheduled': return 'queued';
+    case 'preparing':
+    case 'accepted': return 'accepted';
+    case 'technical_review': return 'reviewing';
+    case 'needs_verification':
+    case 'proposed': return 'proposed';
+    case 'declined': return 'declined';
+    case 'retracted': return 'retracted';
+    case 'expired': return 'expired';
+    case 'withdrawn': return 'withdrawn';
+    case 'submitted': return 'submitted';
+    case 'failed': return 'failed';
+    case 'unknown': return 'unknown';
+    default: return 'unknown';
+  }
+}
+
+export function groupApplicationConciergeProposals(
+  proposals: readonly ApplicationConciergeProposal[],
+): ApplicationConciergeProposalGroup[] {
+  const grouped = new Map<ApplicationConciergeProposalCategory, ApplicationConciergeProposal[]>();
+  for (const proposal of proposals) {
+    const category = conciergeProposalDisplayCategory(proposal);
+    const group = grouped.get(category) || [];
+    group.push(proposal);
+    grouped.set(category, group);
+  }
+  return PROPOSAL_CATEGORY_ORDER.flatMap((category) => {
+    const items = grouped.get(category);
+    return items?.length ? [{ category, proposals: items }] : [];
+  });
 }
 
 function errorCode(value: unknown): string {

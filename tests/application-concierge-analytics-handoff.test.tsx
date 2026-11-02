@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import type { ApplicationConciergeProposal, ApplicationConciergeProposalGroup } from '@/services/applicationConciergeService';
 
 vi.unmock('@/services/analytics');
 vi.unmock('@/services/analyticsProxy');
@@ -21,6 +22,9 @@ vi.mock('@/services/applicationConciergeService', () => ({
   openApplicationConciergeChildReview: vi.fn(), acceptApplicationConciergeProposal: vi.fn(),
   declineApplicationConciergeProposal: vi.fn(), recordApplicationConciergeConsent: vi.fn(),
   saveApplicationConciergeProfile: vi.fn(), getCandidateVisibleApplicationConciergeProposals: (rows: unknown) => rows,
+  groupApplicationConciergeProposals: (rows: readonly ApplicationConciergeProposal[]): ApplicationConciergeProposalGroup[] => rows.length
+    ? [{ category: 'proposed', proposals: [...rows] }]
+    : [],
 }));
 vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: () => <div role="dialog" aria-label="SumUp" /> }));
 
