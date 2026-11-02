@@ -105,6 +105,7 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/config.mjs',
   'scripts/lib/known-aggregator-domains.mjs',
   'scripts/lib/int-from-env.mjs',
+  'scripts/lib/google-places-budget.mjs',
   'scripts/lib/canton-postal-fallback.mjs',
   'scripts/lib/swiss-locality-directory.mjs',
   'scripts/lib/target-swiss-locations.mjs',
