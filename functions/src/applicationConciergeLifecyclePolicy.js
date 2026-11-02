@@ -71,7 +71,9 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
   if (Number(service.matchingLegacyRecoveryPendingCount) > 0) {
     const fallbackAt = lastRefresh + (service.matchingStatus === 'failed' ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS);
     const retryAt = timestampMillis(service.matchingLegacyRecoveryRetryAt) || fallbackAt;
-    return nowMs >= Math.min(retryAt, fallbackAt);
+    // A legacy-row backoff controls that recovery queue only. Do not let it
+    // suppress the hourly scan of unvisited jobs or independent eligibility retries.
+    if (nowMs >= Math.min(retryAt, fallbackAt)) return true;
   }
   if (Number(service.matchingUnverifiedCount) > 0 && Number(service.matchingPendingCount || 0) === 0 && service.matchingStatus !== 'failed') {
     const retryAt = timestampMillis(service.matchingRetryAt);

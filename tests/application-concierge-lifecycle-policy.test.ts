@@ -37,6 +37,13 @@ describe('three-day proposal refresh', () => {
     expect(conciergeRefreshDue({ ...pending, acceptedPositionsCount: 10 }, now + DAY)).toBe(false);
     expect(conciergeRefreshDue({ ...pending, matchingStatus: 'failed', matchingLegacyRecoveryRetryAt: now + 3 * DAY }, now + 60 * 60 * 1000)).toBe(true);
   });
+
+  it('continues the general scan while legacy recovery remains in backoff', () => {
+    const pending = active({ matchingStatus: 'complete', matchingCompletedAt: now - 2 * 60 * 60 * 1000,
+      matchingPendingCount: 263, matchingUnverifiedCount: 157,
+      matchingLegacyRecoveryPendingCount: 5, matchingLegacyRecoveryRetryAt: now + 3 * 60 * 60 * 1000 });
+    expect(conciergeRefreshDue(pending, now)).toBe(true);
+  });
 });
 
 it('recovers a stale matching run only after the bounded lease', () => {
