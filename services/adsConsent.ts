@@ -65,6 +65,8 @@ const CHANGE_EVENT = ADS_CONSENT_CHANGE_EVENT;
  */
 export function getAdsConsent(): AdsConsentValue | null {
   if (typeof window === 'undefined') return null;
+  const memory = (window as Window & { __ftAdsConsentDecision?: AdsConsentValue }).__ftAdsConsentDecision;
+  if (memory === ADS_CONSENT_GRANTED || memory === ADS_CONSENT_DENIED) return memory;
   try {
     const raw = window.localStorage.getItem(ADS_CONSENT_STORAGE_KEY);
     if (raw === ADS_CONSENT_GRANTED) return ADS_CONSENT_GRANTED;
@@ -107,6 +109,7 @@ export function needsAdsConsentDecision(): boolean {
 /** Persist a decision and notify listeners in this tab. */
 export function setAdsConsent(value: AdsConsentValue): void {
   if (typeof window === 'undefined') return;
+  (window as Window & { __ftAdsConsentDecision?: AdsConsentValue }).__ftAdsConsentDecision = value;
   try {
     window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, value);
   } catch {
@@ -141,24 +144,23 @@ export function denyAdsConsent(): void {
  * click before Funding Choices loads must not open the message twice. When
  * Funding Choices never loads (ad blocker) the queued call stays inert.
  */
-let revocationQueued = false;
 
 export function reopenAdsConsentMessage(): void {
   if (typeof window === 'undefined') return;
   try {
     const w = window as unknown as {
-      googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void };
+      googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void; __ftRevocationQueued?: boolean };
     };
     const gfc = (w.googlefc = w.googlefc ?? {});
     if (typeof gfc.showRevocationMessage === 'function') {
       gfc.showRevocationMessage();
       return;
     }
-    if (revocationQueued) return;
-    revocationQueued = true;
+    if (gfc.__ftRevocationQueued) return;
+    gfc.__ftRevocationQueued = true;
     (gfc.callbackQueue = gfc.callbackQueue ?? []).push({
       CONSENT_DATA_READY: () => {
-        revocationQueued = false;
+        gfc.__ftRevocationQueued = false;
         try {
           w.googlefc?.showRevocationMessage?.();
         } catch {
@@ -191,9 +193,18 @@ export function isAdsConsentMessageOnScreen(doc: Document = document): boolean {
  */
 export function onAdsConsentChange(listener: (value: AdsConsentValue | null) => void): () => void {
   if (typeof window === 'undefined') return () => {};
-  const onLocal = () => listener(getAdsConsent());
+  const onLocal = (event: Event) => {
+    const value = (event as CustomEvent).detail;
+    const memory = window as Window & { __ftAdsConsentDecision?: AdsConsentValue };
+    if (value === ADS_CONSENT_GRANTED || value === ADS_CONSENT_DENIED) memory.__ftAdsConsentDecision = value;
+    else delete memory.__ftAdsConsentDecision;
+    listener(getAdsConsent());
+  };
   const onStorage = (e: StorageEvent) => {
-    if (e.key === null || e.key === ADS_CONSENT_STORAGE_KEY) listener(getAdsConsent());
+    if (e.key === null || e.key === ADS_CONSENT_STORAGE_KEY) {
+      delete (window as Window & { __ftAdsConsentDecision?: AdsConsentValue }).__ftAdsConsentDecision;
+      listener(getAdsConsent());
+    }
   };
   window.addEventListener(CHANGE_EVENT, onLocal as EventListener);
   window.addEventListener('storage', onStorage);

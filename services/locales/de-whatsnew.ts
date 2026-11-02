@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v39913.title": "Zuverlässigere Anzeigen",
+ "whatsNew.v39913.ads.title": "Anzeigen wiederherstellen und Datenschutz verwalten",
+ "whatsNew.v39913.ads.desc": "Werbeflächen passen sich kleinen Bildschirmen besser an. Verhindert ein Blocker das Laden, erhalten Sie Hinweise zum Freigeben dieser Website und einen Link zu unserem Jobsuche-Service.",
  "whatsNew.v39912.title": "Ein direkter Kanal für kleine Arbeitgeber",
  "whatsNew.v39912.directEmployers.title": "Stelle ohne Konto veröffentlichen",
  "whatsNew.v39912.directEmployers.desc": "Ein lokaler Laden, eine Metzgerei oder Werkstatt kann in wenigen Schritten kostenlos ein Angebot senden. Wir prüfen den Kontakt und moderieren jede Anzeige vor der Veröffentlichung.",
