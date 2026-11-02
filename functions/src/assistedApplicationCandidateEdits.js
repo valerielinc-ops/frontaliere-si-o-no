@@ -43,6 +43,7 @@ const QUESTION_OPTION_DESCRIPTOR_LIMIT = 40;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
 const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
 const LANGUAGE_ORAL_RE = /\b(?:oral|spoken|muendlich|mündlich|parlato|parlata|parle|parlé)\b/i;
+const HARD_WORKLOAD_CONSTRAINT = /\b(?:if|when|provided|falls|wenn|sofern|se|si|qualora|presso|pour|chez|hours?|stunden?|heures?|ore|days?|giorni|tage|jours|weekends?|overtime|shifts?|schicht\w*|horaire\w*|night|turni|notturn|fine settimana|attuale|attualmente|current|currently|aktuell\w*|derzeit|actuel\w*|(?:un)?availab\w*|requir\w*|obbligat\w*|richiest\w*|richied\w*|requisit\w*|erforder\w*|verlang\w*|pflicht\w*|obligatoire|requis\w*|exig\w*|necessit\w*|min(?:imum)?|max(?:imum)?|minimo|massimo|almeno|mindestens|maximal|au moins|au plus|must(?: be)?|at least|at most|less than|more than|no less than|not less than|no more than|up to|down to|fino a(?:l{1,2}[aeio]?)?|bis zu|jusqu a|muss(?:en)?|wenigstens|mehr als|weniger als|deve|devono|non meno di|non piu di|al massimo|doit|doivent|moins de|plus de)\b/;
 
 function normalizeQuestionValue(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
@@ -184,10 +185,9 @@ function answerFitsQuestion(value, question) {
 /** A percentage preference is portable; employer requirements and shift availability are not. */
 export function isPreferredWorkloadQuestion(value) {
   const text = normalizeQuestionValue(value);
-  if (!text || /\b(?:if|when|provided|falls|wenn|sofern|se|si|qualora|presso|pour|chez|hours?|stunden?|heures?|ore|days?|giorni|tage|jours|weekends?|overtime|shifts?|night|turni|notturn|fine settimana|attuale|current|currently|required|minimum|maximum|mindestens|maximal)\b/.test(text)) return false;
+  if (!text || HARD_WORKLOAD_CONSTRAINT.test(text)) return false;
   const workload = /\b(?:workload|pensum|beschaftigungsgrad|grado di occupazione|percentuale di lavoro|percentuale lavorativa|disponibilita lavorativa|taux d activite|taux d occupation)\b/.test(text);
-  const preference = /\b(?:desired|preferred|prefer|desiderat[oa]|desideri|preferisci|gewunscht(?:e[rmns]?)?|bevorzugt(?:e[rmns]?)?|wunschen|mochten|souhait(?:e[es]?|ez|eriez)|desiree?|preferee?)\b/.test(text);
-  return workload && preference;
+  return workload;
 }
 
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
