@@ -21,17 +21,13 @@ export function companyLogoKeyFromEmployer(employer = '') {
 
 export function companyLogoKeyForJob(job = {}) {
   const companyKey = String(job?.companyKey || '').trim();
-  const rawMunicipalityKey = String(job?.municipalityKey || '').trim();
   const normalizedCompanyKey = companyKey.toLowerCase();
-  const municipalityKey = ticinoComuneEmployerKey(rawMunicipalityKey);
+  const isComuneIdentity = normalizedCompanyKey === TICINO_COMUNI_FAMILY_KEY
+    || Boolean(ticinoComuneEmployerKey(normalizedCompanyKey));
 
-  // Ticino municipality rows use the family key for storage, so their valid
-  // municipality identity must win. An invalid or mismatched municipality
-  // key must not fall back to the family key.
-  if (
-    normalizedCompanyKey === TICINO_COMUNI_FAMILY_KEY
-    || (municipalityKey && normalizedCompanyKey === municipalityKey)
-  ) {
+  // Use municipality scoping only for the family or a canonical Comune key.
+  // A stray municipalityKey on another source must not suppress its identity.
+  if (isComuneIdentity) {
     return scopedEmployerKey(job);
   }
 
