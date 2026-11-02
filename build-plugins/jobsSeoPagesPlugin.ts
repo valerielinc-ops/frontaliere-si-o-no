@@ -394,7 +394,10 @@ type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
 const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
 
-/** Snapshot native ownership for tracking rows eligible for compat overwrite. */
+/** Snapshot native ownership for a bounded set of tracking rows.
+ * The caller may pass the active or historical slug candidates relevant to
+ * the current emit phase; omitting it is reserved for small standalone tests.
+ */
 export function buildNativeJobPrefixIndex(
  tracking: JobRouteTracking,
  localePrefix: Record<JobSeoLocale, string>,
@@ -12842,18 +12845,29 @@ ${staticAnalyticsHtml}
  }
  // Snapshot native non-Ticino registry paths before the compatibility merge
  // below is allowed to overwrite a locale entry with its legacy-TI alias.
- // `currentSlugs` is the merge's overwrite guard; historical tracking rows
- // cannot be changed there and do not need a native-path snapshot.
+ // `currentSlugs` covers the active route identifiers, while `job.slug` is
+ // also needed for active records whose master identifier differs from the
+ // localized IT slug. In that case the compat path is keyed by the localized
+ // route slug but the pre-merge registry row is still keyed by `job.slug`.
+ // Keep this bounded to active rows; the historical candidates are added
+ // after expiredJobsData is loaded below, without materialising the full
+ // 897k-row registry in the prefix index.
+ const nativeRouteSnapshotSlugs = new Set(currentSlugs);
+ for (const job of validJobs) {
+  if (job.slug) nativeRouteSnapshotSlugs.add(job.slug);
+ }
  const nativeJobPrefixByLocaleAndSlug = buildNativeJobPrefixIndex(
   tracking,
   localePrefix,
   sectionByLocale,
-  currentSlugs,
+  nativeRouteSnapshotSlugs,
  );
  logJobsSeoMem('after-native-route-index', {
   currentSlugs: currentSlugs.size,
+  nativeRouteSnapshotSlugs: nativeRouteSnapshotSlugs.size,
   nativeJobPrefixEntries: nativeJobPrefixByLocaleAndSlug.size,
  });
+ nativeRouteSnapshotSlugs.clear();
  // Remove search combo slugs from tracking — these are handled by the search
  // combo section, not the job crawler pipeline. They were incorrectly imported
  // from orphan-indexed-job-slugs.json in previous builds.
@@ -13292,6 +13306,33 @@ ${staticAnalyticsHtml}
  if (sliceAugmented > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} in-memory per-crawler aliases and ${expiredSliceOverflow.size} disk-backed aliases for complete requested archive coverage`);
  }
+ }
+
+ // The compatibility merge deliberately leaves a historical job's native
+ // canton path authoritative, but its route slug can still be encountered in
+ // a legacy-TI alias during the expired/cross-locale passes below. Add only
+ // the bounded set of expired variants (including slice-only aliases) to the
+ // native ownership index so the locale-router Worker can recover those
+ // aliases without retaining a prefix entry for every historical row in the
+ // registry.
+ const expiredNativeRouteSlugs = new Set(expiredBySlug.keys());
+ if (expiredNativeRouteSlugs.size > 0) {
+  const expiredNativeIndex = buildNativeJobPrefixIndex(
+   tracking,
+   localePrefix,
+   sectionByLocale,
+   expiredNativeRouteSlugs,
+  );
+  for (const [key, prefix] of expiredNativeIndex) {
+   // Active ownership was captured before the compat merge and wins when a
+   // route slug is shared by an active posting and an archived record.
+   if (!nativeJobPrefixByLocaleAndSlug.has(key)) nativeJobPrefixByLocaleAndSlug.set(key, prefix);
+  }
+  logJobsSeoMem('after-expired-native-route-index', {
+   expiredNativeRouteSlugs: expiredNativeRouteSlugs.size,
+   nativeJobPrefixEntries: nativeJobPrefixByLocaleAndSlug.size,
+  });
+  expiredNativeRouteSlugs.clear();
  }
 
  // FRO-343: Load swiss-postal-codes for postalCode enrichment of soft-landing pages

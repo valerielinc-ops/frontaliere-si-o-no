@@ -153,6 +153,55 @@ describe('native job route ownership with interned prefixes', () => {
     )).toBe(false);
   });
 
+  it('keeps active master identifiers and expired locale variants in the bounded snapshot', () => {
+    // Active jobs whose master slug differs from the localized route used to
+    // be omitted when the snapshot was filtered only by currentSlugs. The
+    // compat merge then added the localized route as a legacy-TI key and the
+    // self-healing pass could emit a canonical-less page at that alias.
+    const activeTracking: Tracking = {
+      'active-master-slug': {
+        en: '/en/find-jobs-vaud/localized-active-slug',
+      },
+    };
+    const activeCandidates = new Set(['localized-active-slug', 'active-master-slug']);
+    const activeIndex = buildNativeJobPrefixIndex(activeTracking, prefixes, sections, activeCandidates);
+    activeTracking['localized-active-slug'] = {
+      en: '/en/find-jobs-ticino/localized-active-slug',
+    };
+    expect(nativeJobPathRecoveredByWorker(
+      'en',
+      'localized-active-slug',
+      '/en/find-jobs-ticino/localized-active-slug',
+      activeTracking,
+      activeIndex,
+    )).toBe(true);
+
+    // Expired records use locale-specific variants too. They are merged into
+    // a second bounded index after the compat pass, while the native row stays
+    // authoritative and must still suppress a TI copy.
+    const expiredTracking: Tracking = {
+      'expired-master-slug': {
+        de: '/de/jobs-in-der-waadt/expired-locale-slug',
+      },
+    };
+    const expiredIndex = buildNativeJobPrefixIndex(
+      expiredTracking,
+      prefixes,
+      sections,
+      new Set(['expired-master-slug', 'expired-locale-slug']),
+    );
+    expiredTracking['expired-locale-slug'] = {
+      de: '/de/jobs-im-tessin/expired-locale-slug',
+    };
+    expect(nativeJobPathRecoveredByWorker(
+      'de',
+      'expired-locale-slug',
+      '/de/jobs-im-tessin/expired-locale-slug',
+      expiredTracking,
+      expiredIndex,
+    )).toBe(true);
+  });
+
   it('keeps foreign ownership, expired/self-healing decisions and reciprocal canonical paths after compat merge', () => {
     const slugs = { it: 'ingegnere', en: 'engineer', de: 'ingenieur', fr: 'ingénieur' };
     const canonical = Object.fromEntries(JOB_SEO_LOCALES.map(locale => [
