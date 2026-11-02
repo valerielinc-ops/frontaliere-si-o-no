@@ -25,7 +25,7 @@ beforeEach(() => {
  window.adsbygoogle = [];
  vi.stubGlobal('requestIdleCallback', (cb: () => void) => { cb(); return 1; });
  vi.stubGlobal('cancelIdleCallback', () => {});
- vi.stubGlobal('ResizeObserver', class { observe() {} disconnect() {} });
+ vi.stubGlobal('ResizeObserver', class { observe() {} unobserve() {} disconnect() {} });
  vi.stubGlobal('IntersectionObserver', class {
   record: typeof observers[number];
   constructor(cb: IntersectionObserverCallback, options?: IntersectionObserverInit) { this.record = { cb, options, targets: [], disconnected: false }; observers.push(this.record); }
@@ -149,11 +149,12 @@ describe('static serialized lifecycle', () => {
   new Function(ADSENSE_LOADER_CONTENT)(); adScript()!.dispatchEvent(new Event('load')); near();
   expect(track).toHaveBeenCalledWith('event', 'ad_request', expect.objectContaining({ placement: 'jobdetail_top_banner', render_path: 'static' }));
  });
- it('never includes anchor, vignette or automatic in-page slots in manual requests', () => {
+ it('never includes anchor, vignette or automatic in-page slots in manual requests', async () => {
   document.body.innerHTML = '<ins id="manual" class="adsbygoogle" data-ad-slot="1"></ins><ins class="adsbygoogle" data-ad-slot="2" data-anchor-status="displayed"></ins><ins class="adsbygoogle" data-ad-slot="3" data-vignette-loaded="true"></ins><div class="google-auto-placed"><ins class="adsbygoogle" data-ad-slot="4"></ins></div>';
   new Function(ADSENSE_LOADER_CONTENT)(); adScript()!.dispatchEvent(new Event('load')); near();
   expect(window.adsbygoogle).toHaveLength(1);
-  adScript()!.dispatchEvent(new Event('error')); exit();
+  await act(async () => { document.querySelector('#manual')!.setAttribute('data-ad-status', 'unfilled'); });
+  exit();
   expect(document.querySelectorAll('[data-ft-static-ad-collapsed]')).toHaveLength(1);
   expect(document.querySelector('#manual')).toHaveAttribute('data-ft-static-ad-collapsed');
  });

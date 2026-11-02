@@ -5,6 +5,8 @@ import {
 } from '../services/adsConsent';
 import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
+import { serializeStaticFunction } from './shared/serializeStaticFunction';
+import { URL as NodeURL } from 'node:url';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
 export const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
@@ -75,25 +77,23 @@ export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
   var CONSENT_EVENT=${consentEvent};
   var CONSENT_KEY=${consentKey};
   var CONSENT_GRANTED=${consentGranted};
-  var requested=false;
+  var queued=false;
+  var createLoader=${serializeStaticFunction(new NodeURL('../services/adScriptLoader.ts', import.meta.url), 'createAdScriptLoader')};
+  var emit=${serializeStaticFunction(new NodeURL('../services/adDiagnostics.ts', import.meta.url), 'emitAdDiagnostic')};
   function hasConsent(){
-    try{return window.localStorage.getItem(CONSENT_KEY)===CONSENT_GRANTED;}catch(e){return false;}
+    try{return (window.__ftAdsConsentDecision||window.localStorage.getItem(CONSENT_KEY))===CONSENT_GRANTED;}catch(e){return false;}
   }
+  var loader=createLoader('gpt',SCRIPT_SRC,hasConsent,emit);
   function ensure(){
-    if(requested||!hasConsent()||typeof document==='undefined')return;
-    requested=true;
+    if(!hasConsent()||typeof document==='undefined')return;
     var tag=window.googletag=window.googletag||{};
     tag.cmd=tag.cmd||[];
     if(typeof tag.cmd.push!=='function')tag.cmd=[];
-    if(!document.querySelector('script[src="'+SCRIPT_SRC+'"]')){
-      var script=document.createElement('script');
-      script.src=SCRIPT_SRC;
-      script.async=true;
-      script.crossOrigin='anonymous';
-      document.head.appendChild(script);
-    }
+    loader.load();
+    if(queued)return;
+    queued=true;
     tag.cmd.push(function(){
-      if(tag.__frontaliereGptServicesEnabled)return;
+      if(!hasConsent()||tag.__frontaliereGptServicesEnabled)return;
       try{
         tag.setConfig({singleRequest:true,collapseDiv:'BEFORE_FETCH'});
         tag.enableServices();

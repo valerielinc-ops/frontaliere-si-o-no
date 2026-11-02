@@ -30,6 +30,8 @@ export function createStaticAdDelivery(
     el.removeAttribute('data-ft-ad-width-wait');
     io?.unobserve(el); resize?.unobserve(el);
     near.delete(el);
+    slots = slots.filter((slot) => slot !== el);
+    if (slots.length === 0) { io?.disconnect(); resize?.disconnect(); }
     if (result.state === 'failed') {
       emit('ad_slot_error', { slot: el.getAttribute('data-ad-slot') || '', reason: result.code || 'unknown', error_name: result.errorName || 'Error', width: result.width, minimum_width: result.minimum, render_path: 'static' });
       watch(el)?.fail('push_failed');
