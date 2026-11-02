@@ -86,6 +86,7 @@ describe('concierge refresh and notification lifecycle', () => {
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 60 * 60 * 1000, matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(true);
     expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 14 * 60 * 1000 }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 30 * 60 * 1000 }, now)).toBe(true);
     expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
   });
