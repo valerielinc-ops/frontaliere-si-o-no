@@ -19,7 +19,7 @@ import {
   createTsvAccumulator,
   parseDelimitedLine,
 } from "./lib/astra-vehicle-stats-parser.mjs";
-import { fetchWithRetry } from "./lib/astra-vehicle-stats-fetch.mjs";
+import { httpFetchWithRetry } from "./lib/transient-fetch.mjs";
 
 const FIRESTORE_COLLECTION = "config";
 const FIRESTORE_DOC = "astra_vehicle_stats";
@@ -74,18 +74,15 @@ function sameMetadata(left, right) {
 }
 
 async function fetchMetadata(url) {
-  const response = await fetchWithRetry(
+  const response = await httpFetchWithRetry(
     url,
-    () => ({
+    {
       method: "HEAD",
       headers: REQUEST_HEADERS,
-      signal: AbortSignal.timeout(90_000),
-    }),
+    },
     {
-      onRetry: ({ attempt, attempts, delayMs, reason }) =>
-        logInfo(
-          `ASTRA HEAD ${url}: ${reason}; nuovo tentativo ${attempt + 1}/${attempts} tra ${delayMs} ms.`,
-        ),
+      timeout: 90_000,
+      label: `ASTRA HEAD ${url}`,
     },
   );
   if (!response.ok) throw new Error(`ASTRA HEAD ${response.status} for ${url}`);
@@ -107,19 +104,14 @@ function assertContentLength(bytesRead, metadata, url) {
 }
 
 async function fetchTsvAggregate(url, metadata, dataset) {
-  const response = await fetchWithRetry(
+  const response = await httpFetchWithRetry(
     url,
-    () => ({
-      headers: REQUEST_HEADERS,
-      signal: AbortSignal.timeout(
-        dataset === "best" ? BEST_FETCH_TIMEOUT_MS : FETCH_TIMEOUT_MS,
-      ),
-    }),
     {
-      onRetry: ({ attempt, attempts, delayMs, reason }) =>
-        logInfo(
-          `ASTRA GET ${url}: ${reason}; nuovo tentativo ${attempt + 1}/${attempts} tra ${delayMs} ms.`,
-        ),
+      headers: REQUEST_HEADERS,
+    },
+    {
+      timeout: dataset === "best" ? BEST_FETCH_TIMEOUT_MS : FETCH_TIMEOUT_MS,
+      label: `ASTRA GET ${url}`,
     },
   );
   if (!response.ok) throw new Error(`ASTRA GET ${response.status} for ${url}`);
@@ -164,17 +156,14 @@ async function fetchTsvAggregate(url, metadata, dataset) {
 }
 
 async function fetchWeeklyAggregate(url, metadata) {
-  const response = await fetchWithRetry(
+  const response = await httpFetchWithRetry(
     url,
-    () => ({
-      headers: REQUEST_HEADERS,
-      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    }),
     {
-      onRetry: ({ attempt, attempts, delayMs, reason }) =>
-        logInfo(
-          `ASTRA GET ${url}: ${reason}; nuovo tentativo ${attempt + 1}/${attempts} tra ${delayMs} ms.`,
-        ),
+      headers: REQUEST_HEADERS,
+    },
+    {
+      timeout: FETCH_TIMEOUT_MS,
+      label: `ASTRA GET ${url}`,
     },
   );
   if (!response.ok) throw new Error(`ASTRA GET ${response.status} for ${url}`);
