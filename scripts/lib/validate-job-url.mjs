@@ -121,11 +121,11 @@ const GENERIC_LANDING_PATTERNS = [
  */
 function extractLinkedInJobId(url) {
   if (!url) return null;
-  const m1 = url.match(/-(\d+)(?:\?|$)/);
+  const m1 = url.match(/-(\d+)(?:[/?#]|$)/);
   if (m1) return m1[1];
   const m2 = url.match(/[?&]currentJobId=(\d+)/);
   if (m2) return m2[1];
-  const m3 = url.match(/\/jobs\/view\/(\d+)/);
+  const m3 = url.match(/\/jobs\/view\/(?:[^/?#]+-)?(\d+)(?:[/?#]|$)/);
   if (m3) return m3[1];
   return null;
 }
@@ -133,7 +133,7 @@ function extractLinkedInJobId(url) {
 /**
  * Convert LinkedIn URL to guest API endpoint (avoids auth wall).
  */
-function toLinkedInGuestEndpoint(url) {
+export function toLinkedInGuestEndpoint(url) {
   const jobId = extractLinkedInJobId(url);
   if (!jobId) return null;
   return `https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/${jobId}`;

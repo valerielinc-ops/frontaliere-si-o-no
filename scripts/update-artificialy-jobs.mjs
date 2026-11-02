@@ -53,6 +53,8 @@ import {
   isArtificialyLinkedInJobUrl,
 } from './lib/artificialy-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
+import { toLinkedInGuestEndpoint } from './lib/validate-job-url.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -117,8 +119,8 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  return fetchHtml(url, {
+function fetchText(url, timeoutMs = TIMEOUT_MS, fetchImpl = fetchHtml) {
+  return fetchImpl(url, {
     timeoutMs,
     headers: {
       Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -129,6 +131,40 @@ async function fetchText(url, timeoutMs = TIMEOUT_MS) {
       'Sec-Fetch-Site': 'none',
     },
   });
+}
+
+/**
+ * LinkedIn's public job-view page is rate-limited in CI even while the
+ * employer's career page remains reachable. Use the public guest endpoint for
+ * the detail request, then give a 429 one clean-IP rescue through Jina before
+ * the crawler's fail-closed empty-slice path preserves the previous jobs.
+ *
+ * @param {string} rawUrl
+ * @param {{timeoutMs?: number, fetchHtmlImpl?: Function, jinaFetchImpl?: Function}} [options]
+ * @returns {Promise<string>}
+ */
+export async function fetchArtificialyDetailHtml(
+  rawUrl,
+  {
+    timeoutMs = TIMEOUT_MS,
+    fetchHtmlImpl = fetchHtml,
+    jinaFetchImpl = fetchHtmlViaJinaWithRetry,
+  } = {},
+) {
+  const guestUrl = toLinkedInGuestEndpoint(rawUrl);
+  const targetUrl = guestUrl || rawUrl;
+  try {
+    return await fetchText(targetUrl, timeoutMs, fetchHtmlImpl);
+  } catch (error) {
+    // A 429 is a response from LinkedIn, not proof that the source is empty.
+    // The shared fetchHtml helper deliberately does not proxy rate limits for
+    // every crawler; this detail-only fallback uses the clean-IP route where it
+    // is known to be the failing boundary.
+    if (!guestUrl || error?.status !== 429) throw error;
+    const rescuedHtml = await jinaFetchImpl(guestUrl, { timeoutMs });
+    if (rescuedHtml != null) return rescuedHtml;
+    throw error;
+  }
 }
 
 function sleep(ms) {
@@ -172,7 +208,7 @@ async function enrichArtificialyListings(listings) {
 
     stats.attempted += 1;
     try {
-      const detailHtml = await fetchText(listing.applyUrl);
+      const detailHtml = await fetchArtificialyDetailHtml(listing.applyUrl);
       const detail = parseArtificialyLinkedInJobPage(detailHtml);
       if (detail.description) {
         enriched.push({ ...listing, description: detail.description });
