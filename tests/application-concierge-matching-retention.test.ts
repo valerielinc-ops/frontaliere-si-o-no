@@ -116,6 +116,25 @@ describe('application concierge proposal retention', () => {
     expect(store.list(`${SERVICE_PATH}/proposals/`)).toEqual([]);
   });
 
+  it('replaces stale aggregate reason and status maps when the retry queue changes', async () => {
+    const store = matchingFixture();
+    store.docs.set(SERVICE_PATH, {
+      ...store.read(SERVICE_PATH)!,
+      matchingPendingReasonCounts: { stale_frontier: 3 },
+      matchingRetryReasonCounts: { posting_unavailable: 4, obsolete_reason: 1 },
+      matchingRetryStatusCounts: { unverified: 4, unknown: 1 },
+    });
+    stubJobIndex([]);
+
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility: vi.fn() });
+    const service = store.read(SERVICE_PATH)!;
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 0 });
+    expect(service.matchingPendingReasonCounts).toEqual({});
+    expect(service.matchingRetryReasonCounts).toEqual({});
+    expect(service.matchingRetryStatusCounts).toEqual({});
+  });
+
   it('reopens exhausted eligibility only when the primary posting fingerprint changes', async () => {
     const store = matchingFixture();
     store.docs.delete(PROPOSAL_PATH);
