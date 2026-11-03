@@ -4,11 +4,11 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { act, cleanup, renderHook } from '@testing-library/react';
 
-import { SEO_TRACKING_PUSH_EVENT } from '@/hooks/useSeoPageTracking';
+import { SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT } from '@/hooks/useSeoPageTracking';
 import { useMetaPixelPageView } from '@/hooks/useMetaPixelPageView';
 import { setAdsConsent } from '@/services/adsConsent';
 
-const TARGET_PATH = '/automatizza-ricerca-lavoro-svizzera/';
+const LANDING_PATH = '/automatizza-ricerca-lavoro-svizzera/';
 const META_PIXEL_SRC = 'https://connect.facebook.net/en_US/fbevents.js';
 const META_PIXEL_ID = '1090503593451766';
 
@@ -47,7 +47,6 @@ afterEach(() => {
 
 describe('useMetaPixelPageView', () => {
   it('waits for advertising consent before loading Meta Pixel and sending PageView', () => {
-    window.history.replaceState({}, '', TARGET_PATH);
     renderHook(() => useMetaPixelPageView());
 
     expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).toBeNull();
@@ -63,35 +62,51 @@ describe('useMetaPixelPageView', () => {
     expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
   });
 
-  it('loads only on the requested route and detects SPA navigation into it', () => {
+  it('tracks the initial page and every SPA page once across the site', () => {
     act(() => setAdsConsent('granted'));
     renderHook(() => useMetaPixelPageView());
-    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).toBeNull();
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
 
     act(() => {
-      window.history.pushState({}, '', TARGET_PATH);
+      window.history.pushState({}, '', LANDING_PATH);
       window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
     });
-
-    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).not.toBeNull();
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(2);
 
     act(() => {
       window.history.pushState({}, '', '/privacy/');
       window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
-      window.history.pushState({}, '', '/en/automate-job-search-switzerland/');
-      window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
     });
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(3);
 
-    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
+    act(() => {
+      window.history.replaceState({}, '', '/en/automate-job-search-switzerland/');
+      window.dispatchEvent(new Event(SEO_TRACKING_REPLACE_EVENT));
+    });
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(4);
+
+    act(() => {
+      window.history.replaceState({}, '', '/de/arbeitssuche-schweiz-automatisieren/');
+      window.dispatchEvent(new Event('popstate'));
+    });
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(5);
+
+    act(() => window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT)));
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(5);
   });
 
   it('revokes Pixel consent and waits for a new grant before tracking again', () => {
-    window.history.replaceState({}, '', TARGET_PATH);
     act(() => setAdsConsent('granted'));
     renderHook(() => useMetaPixelPageView());
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
 
     act(() => setAdsConsent('denied'));
     expect(pixelQueue()).toContainEqual(['consent', 'revoke']);
+
+    act(() => {
+      window.history.pushState({}, '', '/privacy/');
+      window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
+    });
 
     act(() => setAdsConsent('granted'));
     expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(2);

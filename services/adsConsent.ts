@@ -3,7 +3,7 @@
  *
  * Scope, decided by the owner in #5842 and deliberately narrow:
  *   - IN  scope: Auto Ads / AdSense (`adsbygoogle.js`), GPT (`gpt.js`), and
- *     Meta Pixel on `/automatizza-ricerca-lavoro-svizzera/`.
+ *     Meta Pixel across the canonical site after explicit consent.
  *   - OUT of scope: GA4, PostHog, Clarity. Those stay covered by the honest
  *     disclosure shipped in #5832 and are NOT gated here. Do not widen this
  *     module to analytics without a new owner decision.

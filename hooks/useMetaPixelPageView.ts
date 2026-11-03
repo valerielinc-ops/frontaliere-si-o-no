@@ -9,7 +9,6 @@ import {
 import { SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT } from './useSeoPageTracking';
 
 const META_PIXEL_ID = '1090503593451766';
-const META_PIXEL_PATH = '/automatizza-ricerca-lavoro-svizzera';
 const ROUTE_EVENTS = ['popstate', SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT] as const;
 
 type MetaPixelFunction = ((...args: string[]) => void) & {
@@ -26,9 +25,8 @@ type MetaPixelWindow = Window & {
   __ftMetaPixelInitialized?: boolean;
 };
 
-function isMetaPixelPage(): boolean {
-  return window.location.hostname === 'frontaliereticino.ch'
-    && window.location.pathname.replace(/\/+$/, '') === META_PIXEL_PATH;
+function isMetaPixelSite(): boolean {
+  return window.location.hostname === 'frontaliereticino.ch';
 }
 
 function initializeAndTrackPageView(): void {
@@ -36,6 +34,8 @@ function initializeAndTrackPageView(): void {
   let fbq = pixelWindow.fbq;
 
   if (!fbq) {
+    // A static noscript beacon cannot read adsConsent and would bypass the
+    // site's fail-closed advertising-consent gate.
     const stub = ((...args: string[]) => {
       if (stub.callMethod) stub.callMethod.apply(stub, args);
       else stub.queue.push(args);
@@ -72,39 +72,31 @@ function revokeMetaPixelConsent(): void {
   }
 }
 
-/** Load Meta Pixel only for the Italian application-concierge landing page and
- * only after the site's explicit advertising-consent decision is granted. */
+/** Load Meta Pixel across the canonical site after explicit advertising
+ * consent, then send one PageView for each page reached through SPA routing. */
 export function useMetaPixelPageView(): void {
-  const visit = useRef({ onTargetPage: false, pageViewSent: false });
+  const lastTrackedPath = useRef<string | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
 
     const syncRoute = (): void => {
-      const onTargetPage = isMetaPixelPage();
-      if (!onTargetPage) {
-        visit.current.onTargetPage = false;
-        visit.current.pageViewSent = false;
-        return;
-      }
+      if (!isMetaPixelSite() || !isAdsConsentGranted()) return;
 
-      if (!visit.current.onTargetPage) {
-        visit.current.onTargetPage = true;
-        visit.current.pageViewSent = false;
-      }
-      if (!visit.current.pageViewSent && isAdsConsentGranted()) {
-        try {
-          initializeAndTrackPageView();
-          visit.current.pageViewSent = true;
-        } catch {
-          // Pixel failures must not affect page rendering or navigation.
-        }
+      const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+      if (lastTrackedPath.current === currentPath) return;
+
+      try {
+        initializeAndTrackPageView();
+        lastTrackedPath.current = currentPath;
+      } catch {
+        // Pixel failures must not affect page rendering or navigation.
       }
     };
 
     const onConsentChange = (decision: AdsConsentValue | null): void => {
       if (decision !== ADS_CONSENT_GRANTED) {
-        visit.current.pageViewSent = false;
+        lastTrackedPath.current = null;
         try {
           revokeMetaPixelConsent();
         } catch {
