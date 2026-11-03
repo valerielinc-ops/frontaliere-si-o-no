@@ -78,6 +78,10 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
     return started > 0 && nowMs - started >= CONCIERGE_MATCHING_STALE_AFTER_MS
       && staleRecoveryDue(service, nowMs);
   }
+  // Feedback, accepted positions and candidate facts are already marked by
+  // their writers. The document trigger records this marker and the 15-minute
+  // lifecycle sweep coalesces the resulting full scan with any nearby event.
+  if (timestampMillis(service.matchingEventRefreshRequestedAt) > 0) return true;
   // Failed and crashed matcher runs share one bounded recovery budget.
   if (service.matchingStatus === 'failed' && staleRecoveryState(service).attempts > 0
     && !staleRecoveryDue(service, nowMs)) return false;

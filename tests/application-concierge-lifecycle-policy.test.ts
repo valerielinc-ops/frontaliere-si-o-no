@@ -34,6 +34,13 @@ describe('three-day proposal refresh', () => {
     expect(conciergeRefreshDue({ ...legacy, matchingStatus: 'running', matchingStartedAt: now - 60_000 }, now)).toBe(false);
   });
 
+  it('treats a queued event refresh as due even before the normal interval', () => {
+    const queued = active({ matchingStatus: 'complete', matchingCompletedAt: now,
+      matchingEventRefreshRequestedAt: now });
+    expect(conciergeRefreshDue(queued, now)).toBe(true);
+    expect(conciergeRefreshDue({ ...queued, matchingStatus: 'failed', matchingStaleRecoveryRetryAt: now + DAY }, now)).toBe(true);
+  });
+
   it('runs at the interval only for eligible services', () => {
     expect(conciergeRefreshDue(active(), now)).toBe(true);
     for (const patch of [{ acceptedPositionsCount: 10 }, { expiresAt: now }, { paymentStatus: 'refunded' },

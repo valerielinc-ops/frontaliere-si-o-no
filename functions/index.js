@@ -115,7 +115,7 @@ import {
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
 import { cleanupConciergeMaterialCopies } from './src/applicationConciergeMaterialCopy.js';
-import { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
+import { isFreshConciergeProposalRefreshRequest, queueConciergeMatchingRefresh, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
@@ -3063,6 +3063,10 @@ export const processApplicationConciergeCv = onDocumentWritten(
           console.log('[processApplicationConciergeCv]', event.params.serviceId, profile.status);
           return;
         }
+      }
+      if (!cvChanged) {
+        await queueConciergeMatchingRefresh({ db, serviceId: event.params.serviceId });
+        return;
       }
       const matching = await runConciergeMatchingWithLease({ db, serviceId: event.params.serviceId, deadlineMs: matchingDeadlineMs });
       console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);

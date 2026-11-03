@@ -38,6 +38,22 @@ export function isFreshConciergeProposalRefreshRequest(before, after) {
   );
 }
 
+/** Defer event-driven full scans to the bounded lifecycle sweep. */
+export async function queueConciergeMatchingRefresh({ db, serviceId, nowMs = Date.now() }) {
+  const ref = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
+  return db.runTransaction(async tx => {
+    const snapshot = await tx.get(ref);
+    const service = snapshot.data();
+    if (!snapshot.exists || !serviceIsActive(service, nowMs) || !service?.cvStorageKey
+      || timestampMillis(service.consentedAt) <= 0 || !underCap(service)) return false;
+    tx.set(ref, {
+      matchingEventRefreshRequestedAt: new Date(nowMs),
+      updatedAt: new Date(nowMs),
+    }, { merge: true });
+    return true;
+  });
+}
+
 async function claimRefresh(db, ref, nowMs) {
   const requestId = randomUUID();
   return db.runTransaction(async tx => {
@@ -63,6 +79,7 @@ async function claimRefresh(db, ref, nowMs) {
       proposalRefreshRequestId: requestId, proposalRefreshRequestedBy: 'lifecycle',
       matchingVersionRefreshVersion: FieldValue.delete(),
       matchingVersionRefreshObservedAt: FieldValue.delete(),
+      matchingEventRefreshRequestedAt: FieldValue.delete(),
       proposalRefreshRerunAfterWorker: FieldValue.delete(),
       proposalRefreshRerunAfterWorkerContext: FieldValue.delete(),
       proposalRefreshRerunRequestedAt: FieldValue.delete() }, { merge: true });
