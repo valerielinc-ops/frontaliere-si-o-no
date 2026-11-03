@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-03T14:13:36.338Z",
+  "updatedAt": "2026-11-03T14:14:17.465Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -425696,12 +425696,12 @@
     },
     "engadin-st-moritz-mountains@st-moritz": {
       "key": "engadin-st-moritz-mountains@st-moritz",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:07:32.170Z",
-      "updatedAt": "2026-11-03T13:44:51.750Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "Engadin St. Moritz Mountains AG",
       "city": "St. Moritz",
       "zip": "7500",
@@ -425977,7 +425977,9 @@
           "logoSourceUrl": "https://www.mountains.ch/favicon.ico?favicon.3fpu2ql9ns1a0.ico",
           "employerSiteName": "mountains.ch"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "engadin.ch": {
       "key": "engadin.ch",
@@ -432944,12 +432946,12 @@
     },
     "eqe@olten": {
       "key": "eqe@olten",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.957Z",
-      "updatedAt": "2026-11-03T13:45:52.221Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "eqe AG",
       "city": "Olten",
       "zip": "4600",
@@ -433380,7 +433382,9 @@
           "logoSourceUrl": "https://eqe.ch/_resources/themes/base/images/eqe-logo.svg?m=1636382184",
           "employerSiteName": "eqe"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "eqipe.ch": {
       "key": "eqipe.ch",
@@ -697730,13 +697734,13 @@
     },
     "internezzo@rotkreuz": {
       "key": "internezzo@rotkreuz",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco",
         "osm"
       ],
       "firstSeenAt": "2026-08-30T09:26:02.760Z",
-      "updatedAt": "2026-11-03T13:47:40.251Z",
+      "updatedAt": "2026-11-03T14:14:17.391Z",
       "name": "Internezzo AG",
       "city": "Rotkreuz",
       "zip": "6343",
@@ -697994,7 +697998,9 @@
       ],
       "osmTags": {
         "office": "company"
-      }
+      },
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "internursing@paradiso": {
       "key": "internursing@paradiso",
@@ -698887,12 +698893,12 @@
     },
     "invias@maienfeld": {
       "key": "invias@maienfeld",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:07:32.170Z",
-      "updatedAt": "2026-11-03T13:44:36.981Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "Invias AG",
       "city": "Maienfeld",
       "zip": "7304",
@@ -699162,7 +699168,9 @@
           "logoSourceUrl": "https://invias.swiss/wp-content/themes/invias/library/images/favicons/apple-touch-icon.png",
           "employerSiteName": "invias"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "invicto-advisory.ch": {
       "key": "invicto-advisory.ch",
@@ -714687,12 +714695,12 @@
     },
     "jobdoor@baar": {
       "key": "jobdoor@baar",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:31:22.989Z",
-      "updatedAt": "2026-11-03T13:47:34.372Z",
+      "updatedAt": "2026-11-03T14:14:17.391Z",
       "name": "Jobdoor AG",
       "city": "Baar",
       "zip": "6340",
@@ -714928,7 +714936,9 @@
           "logoSourceUrl": "https://jobdoor.ch/wp-content/uploads/2022/04/jobdoor-fav-icon-150x150.png",
           "employerSiteName": "jobdoor"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "jobgate@aarau": {
       "key": "jobgate@aarau",
@@ -817466,12 +817476,12 @@
     },
     "lemco-precision@vionnaz": {
       "key": "lemco-precision@vionnaz",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-05T07:54:30.884Z",
-      "updatedAt": "2026-11-03T13:46:08.854Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "Lemco Précision SA",
       "city": "Vionnaz",
       "zip": "1895",
@@ -817745,7 +817755,9 @@
           "logoSourceUrl": "https://www.lemco-precision.com/typo3conf/ext/lemco_precision/Resources/Public/Icons/favicon.96x96.png",
           "employerSiteName": "Lemco Précision SA: LEMCO"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "lemidi.ch": {
       "key": "lemidi.ch",
@@ -839866,12 +839878,12 @@
     },
     "lip@crans-montana": {
       "key": "lip@crans-montana",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-17T08:02:03.267Z",
-      "updatedAt": "2026-11-03T13:46:14.907Z",
+      "updatedAt": "2026-11-03T14:14:17.391Z",
       "name": "LIP SUISSE",
       "city": "Crans-Montana",
       "zip": "3963",
@@ -840104,7 +840116,9 @@
           "logoSourceUrl": "https://www.lipsuisse.ch/wp-content/uploads/Favicon.svg",
           "employerSiteName": "LIP Suisse"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "lip@geneve": {
       "key": "lip@geneve",
@@ -1252442,12 +1252456,12 @@
     },
     "skan@allschwil": {
       "key": "skan@allschwil",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:06:01.343Z",
-      "updatedAt": "2026-11-03T13:46:49.749Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "SKAN AG",
       "city": "Allschwil",
       "zip": "4123",
@@ -1252942,7 +1252956,9 @@
       "sourceSeenAt": {
         "seco": "2026-10-25T08:34:36.380Z"
       },
-      "secoEmployerName": "SKAN AG"
+      "secoEmployerName": "SKAN AG",
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "skan@stein-ag": {
       "key": "skan@stein-ag",
@@ -1761625,12 +1761641,12 @@
     },
     "zindel@maienfeld": {
       "key": "zindel@maienfeld",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-24T08:17:50.048Z",
-      "updatedAt": "2026-11-03T13:45:30.364Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "Zindel + Co. AG",
       "secoEmployerName": "Zindel + Co. AG",
       "city": "Maienfeld",
@@ -1761905,7 +1761921,9 @@
           "logoSourceUrl": "https://www.zindel-united.swiss/apple-touch-icon.png",
           "employerSiteName": "Zindel United"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "dekra-arbeit@chur": {
       "key": "dekra-arbeit@chur",
@@ -1795279,12 +1795297,12 @@
     },
     "az-systems@landquart": {
       "key": "az-systems@landquart",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-28T09:51:59.078Z",
-      "updatedAt": "2026-11-03T13:45:41.974Z",
+      "updatedAt": "2026-11-03T14:14:17.390Z",
       "name": "AZ systems AG",
       "secoEmployerName": "AZ systems AG",
       "city": "Landquart",
@@ -1795544,7 +1795562,9 @@
           "logoSourceUrl": "https://www.az-systems.ch/fileadmin/hlks/global/Favicon/AZAG/AZ-apple-touch-icon-114x114.png",
           "employerSiteName": "AZ systems AG"
         }
-      ]
+      ],
+      "promotionPr": "16793",
+      "promotionBranch": "prospector/promote-2026-11-03"
     },
     "norkom-formation@montfavergier": {
       "key": "norkom-formation@montfavergier",
