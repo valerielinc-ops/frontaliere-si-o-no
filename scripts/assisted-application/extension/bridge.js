@@ -34,8 +34,36 @@
   };
   window.addEventListener('message', onMessage);
 
-  chrome.runtime.onMessage.addListener((message) => {
+  chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     if (message?.type !== 'fill-status') return;
-    window.postMessage({ source: 'compila-candidatura', type: 'fill-status', orderId: message.orderId, status: message.status, detail: message.detail }, window.location.origin);
+    const payload = { source: 'compila-candidatura', type: 'fill-status', orderId: message.orderId, status: message.status, detail: message.detail };
+    if (message.status !== 'submitted') {
+      window.postMessage(payload, window.location.origin);
+      return;
+    }
+    const requestId = String(message.requestId || '');
+    if (!requestId) {
+      sendResponse({ ok: false, error: 'missing_request_id' });
+      return;
+    }
+    let settled = false;
+    const finish = (response) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timer);
+      window.removeEventListener('message', onAck);
+      sendResponse(response);
+    };
+    const onAck = (event) => {
+      if (event.source !== window || event.origin !== window.location.origin) return;
+      const data = event.data;
+      if (data?.source !== 'frontaliere-queue' || data.type !== 'fill-status-ack'
+        || data.orderId !== message.orderId || data.requestId !== requestId) return;
+      finish(data.ok ? { ok: true } : { ok: false, error: String(data.error || 'queue_action_failed').slice(0, 200) });
+    };
+    const timer = window.setTimeout(() => finish({ ok: false, error: 'queue_ack_timeout' }), 30_000);
+    window.addEventListener('message', onAck);
+    window.postMessage({ ...payload, requestId }, window.location.origin);
+    return true;
   });
 })();

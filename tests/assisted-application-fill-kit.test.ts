@@ -107,6 +107,52 @@ describe('fill kit', () => {
     });
   });
 
+  it('passes explicit CV language and education facts and only a date-proven latest position', () => {
+    const profile = {
+      ...draft.profile,
+      languages: [{ language: 'English', level: 'B2' }, { language: 'Deutsch', level: 'A2' }],
+      education: [{ degree: 'Diploma linguistico', institution: 'Scuola di esempio' }],
+      experience: [
+        { kind: 'job', role: 'Addetta vendite', end: '12/2023' },
+        { kind: 'job', role: 'Assistente HR', end: '07/2025' },
+        { kind: 'job', role: 'Consulente HR', end: '2025-08-31' },
+      ],
+    };
+    const kit = buildFillKit({ orderId: ORDER, order, draft: { ...draft, profile }, flow: takenOver });
+    expect(kit.profile).toMatchObject({
+      languages: [{ language: 'English', level: 'B2' }, { language: 'Deutsch', level: 'A2' }],
+      education: [{ degree: 'Diploma linguistico', institution: 'Scuola di esempio' }],
+      latestPosition: 'Consulente HR',
+    });
+
+    const ambiguous = buildFillKit({
+      orderId: ORDER, order,
+      draft: { ...draft, profile: { ...profile, experience: [...profile.experience, { kind: 'job', role: 'Ruolo senza date', end: '' }] } },
+      flow: takenOver,
+    });
+    expect(ambiguous.profile.latestPosition).toBe('');
+
+    const current = buildFillKit({
+      orderId: ORDER, order,
+      draft: { ...draft, profile: { ...profile, experience: [
+        { kind: 'job', role: 'Addetta vendite', end: '12/2023' },
+        { kind: 'job', role: 'Consulente HR', start: 'seit März 2025', end: '' },
+      ] } },
+      flow: takenOver,
+    });
+    expect(current.profile.latestPosition).toBe('Consulente HR');
+
+    const currentFromFullDate = buildFillKit({
+      orderId: ORDER, order,
+      draft: { ...draft, profile: { ...profile, experience: [
+        { kind: 'job', role: 'Addetta vendite', end: '12/2023' },
+        { kind: 'job', role: 'Consulente HR', start: 'dal 14.03.2025', end: '' },
+      ] } },
+      flow: takenOver,
+    });
+    expect(currentFromFullDate.profile.latestPosition).toBe('Consulente HR');
+  });
+
   it('maps a candidate-language choice back to the application-language option', () => {
     const kit = buildFillKit({
       orderId: ORDER,
@@ -335,7 +381,8 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(store.read(`${PATH}/automation/flow`)).toMatchObject({ state: 'submitted', submittedVia: 'owner_extension', heldBy: [] });
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner_extension', by: 'owner@example.com' } });
     expect(effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
-    await expect(call('automationMarkSubmitted')).rejects.toMatchObject({ code: 'not_taken_over', status: 409 });
+    expect(await call('automationMarkSubmitted', { via: 'extension' })).toEqual({ ok: true, state: 'submitted', duplicate: true });
+    expect(effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
   });
 
   it('accepts the explicit manual-owner producer payload for the current round', async () => {

@@ -21,14 +21,17 @@
 (function (root) {
   'use strict';
 
-  const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
+  const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächst(?:e(?:r|s|n)?(?:\s+schritt)?)|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|^senden$|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia(?:re)?$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
   const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|^inviare$|envoyer( ma)? candidature)/i;
+  // Cippà labels the human's final action «Invia CV». Keep this recognition in
+  // the owner extension: the shared runner regex also authorizes its click.
+  const OWNER_EXTENSION_FINAL_RE = /^invia (?:il )?cv$/i;
   const FILE_UPLOAD_RE = /\b(attach|upload|choose|carica|allega|scegli|seleziona)\b/i;
   const FILE_BROWSE_RE = /\bbrowse\b/i;
   const START_DATE_AVAILABILITY_RE = /\b(earliest available|start date|available from|notice period|preavviso|data di inizio|data d entrata|date de debut|date d entree|eintritt|verfugbar ab)\b/i;
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
-  const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
+  const CONFIRM_RE = /(thank you (very much |so much )?for (your )?(?:application|applying)\b|many thanks for (your )?(?:application|applying)\b|thanks for applying|application (has been )?(received|submitted|sent)|we have received your application\b|you have successfully applied|vielen dank für (ihre|deine) bewerbung|wir haben (ihre|deine) unterlagen erhalten|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (?:(?:la tua|la sua) candidatura\b|aver inviato (?:(?:la|la tua|la sua) )?candidatura\b|esserti candidat[oa]\b)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|abbiamo ricevuto (?:la )?(?:tua|sua|vostra) candidatura\b|(?:la|l['’])\s*(?:tua|sua|vostra) candidatura (?:è stata )?(?:correttamente )?(?:inoltrata|ricevuta|inviata)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
@@ -47,6 +50,32 @@
   const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia|nazione)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 
   const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+  const BIRTH_DATE_PARTS = [
+    ['Day', /\b(day|giorno|tag|jour)\b/],
+    ['Month', /\b(month|mese|monat|mois)\b/],
+    ['Year', /\b(year|anno|jahr|annee)\b/],
+  ];
+  const LANGUAGE_LEVEL_RE = /\b(level|livello|niveau|sprachniveau|sprachkenntnisse|proficiency|fluency|competence|conoscenz\w*|parl\w*|speak\w*|kenntnisse)\b/;
+  const LANGUAGE_NAMES = [
+    { code: 'de', names: ['deutsch', 'tedesco', 'allemand', 'german'] },
+    { code: 'en', names: ['english', 'englisch', 'inglese', 'anglais'] },
+    { code: 'fr', names: ['francais', 'français', 'francese', 'franzosisch', 'franzoesisch', 'french'] },
+    { code: 'it', names: ['italiano', 'italian', 'italienisch', 'italien'] },
+  ];
+  const EDUCATION_FIELD_RE = /\b(education|qualification|degree|schooling|ausbildung|bildung|formation|educazione|istruzione|formazione|titolo di studio|titolo accademico|diplome|diploma)\b/;
+  const EDUCATION_EXCLUSION_RE = /\b(current|currently|present|attualmente|in corso|actuel|derzeit|do you have|possiedi|deten\w*|hold|holding|required (?:diploma|qualification|degree)|diploma required|qualification required)\b/;
+  const LAST_POSITION_RE = /\b(last|latest|most recent|ultima|ultimo|derzeitige letzte|letzte|dernier|derniere)\b/;
+  const POSITION_WORD_RE = /\b(position|role|job|title|posizione|ruolo|mansione|funktion|poste|emploi|stelle)\b/;
+  const MONTH_NAMES = [
+    ['january', 'jan'], ['february', 'feb'], ['march', 'mar'], ['april', 'apr'], ['may'], ['june', 'jun'],
+    ['july', 'jul'], ['august', 'aug'], ['september', 'sep', 'sept'], ['october', 'oct'], ['november', 'nov'], ['december', 'dec'],
+    ['gennaio', 'gen'], ['febbraio', 'feb'], ['marzo', 'mar'], ['aprile', 'apr'], ['maggio', 'mag'], ['giugno', 'giu'],
+    ['luglio', 'lug'], ['agosto', 'ago'], ['settembre', 'set'], ['ottobre', 'ott'], ['novembre', 'nov'], ['dicembre', 'dic'],
+    ['januar', 'jan'], ['februar', 'feb'], ['märz', 'maerz', 'marz'], ['april', 'apr'], ['mai'], ['juni', 'jun'],
+    ['juli', 'jul'], ['august', 'aug'], ['september', 'sep'], ['oktober', 'okt'], ['november', 'nov'], ['dezember', 'dez'],
+    ['janvier', 'jan'], ['fevrier', 'février', 'fev', 'fév'], ['mars'], ['avril', 'avr'], ['mai'], ['juin', 'jui'],
+    ['juillet', 'juil'], ['aout', 'août'], ['septembre', 'sep'], ['octobre', 'oct'], ['novembre', 'nov'], ['decembre', 'décembre', 'dec', 'déc'],
+  ];
 
   // Field families, on the normalized label (accents gone, lower case).
   // German compounds («Geburtsdatum», «Telefonnummer», «Postleitzahl»): a
@@ -193,6 +222,102 @@
       if (style.display === 'none' || style.visibility === 'hidden') return false;
     }
     return true;
+  }
+
+  /** Page receipts must come from rendered text, not stale hidden templates. */
+  function isFullyTransparent(style) {
+    return style.opacity !== '' && Number(style.opacity) === 0;
+  }
+
+  function visibleTextOf(element) {
+    if (!element) return '';
+    const parts = [];
+    const view = element.ownerDocument.defaultView;
+    const walk = (node) => {
+      if (node.nodeType === 3) {
+        if (node.parentElement?.isConnected) parts.push(node.textContent || '');
+        return;
+      }
+      if (node.nodeType !== 1) return;
+      const current = node;
+      if (current.matches('script, style, svg, select, textarea, template') || current.hidden || current.hasAttribute('inert')
+        || String(current.getAttribute('aria-hidden') || '').toLowerCase() === 'true') return;
+      const style = view.getComputedStyle(current);
+      if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse'
+        || style.contentVisibility === 'hidden' || isFullyTransparent(style)) return;
+      for (const child of current.childNodes) walk(child);
+    };
+    walk(element);
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function isVisibleForReceipt(element) {
+    const view = element.ownerDocument.defaultView;
+    for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
+      if (node.hidden || node.hasAttribute('inert') || String(node.getAttribute('aria-hidden') || '').toLowerCase() === 'true') return false;
+      const style = view.getComputedStyle(node);
+      if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse'
+        || style.contentVisibility === 'hidden' || isFullyTransparent(style)) return false;
+    }
+    return true;
+  }
+
+  function hasActiveApplicationForm(doc, channelType) {
+    const entries = collect(doc, channelType).filter((entry) => isVisibleForReceipt(entry.element));
+    const scopes = [...doc.querySelectorAll('form, [role="form"]')].filter(isVisibleForReceipt);
+    const entryNode = (entry) => entry.source || entry.nativeSelect || entry.element;
+    const belongsTo = (entry, scope) => {
+      const node = entryNode(entry);
+      return scope.contains(node) || node.form === scope;
+    };
+    const likelyApplicationFields = (items) => items.filter((entry) => {
+      const family = familyOf(entry);
+      if (family && !['fullName', 'firstName', 'lastName', 'email', 'phone', 'phoneCountry', 'postalCode', 'city', 'street', 'country'].includes(family)) return true;
+      const label = normalize((entry.labels || [entry.label]).join(' '));
+      return (LANGUAGE_LEVEL_RE.test(label) && Boolean(languageCodeIn(label)))
+        || EDUCATION_FIELD_RE.test(label)
+        || (LAST_POSITION_RE.test(label) && POSITION_WORD_RE.test(label))
+        || LETTER_RE.test(label) || CV_RE.test(label);
+    }).length;
+    const applicationContextOf = (scope) => /\b(job application|application form|bewerbungsformular|bewerbung|candidatur|candidatura|candidature|postul\w*|lebenslauf|curriculum vitae)\b/i.test(visibleTextOf(scope));
+    const active = (scope, items) => {
+      const required = items.filter((entry) => entry.required).length;
+      const candidateFields = likelyApplicationFields(items);
+      const labels = buttons(scope).filter((button) => isVisibleForReceipt(button.element));
+      const hasOwnerFinal = labels.some((button) => OWNER_EXTENSION_FINAL_RE.test(button.text));
+      const hasFinal = labels.some((button) => (SUBMIT_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text))
+        && (button.element.tagName !== 'A' || PLAIN_FINAL_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text)));
+      const hasSpecificFinal = labels.some((button) => PLAIN_FINAL_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text));
+      const hasNext = labels.some((button) => NEXT_RE.test(button.text) && !SUBMIT_RE.test(button.text)
+        && !SOCIAL_RE.test(button.text) && !NOT_ADVANCE_RE.test(button.text) && button.element.tagName !== 'A');
+      const applicationContext = applicationContextOf(scope);
+      if (!items.length) return hasOwnerFinal || hasSpecificFinal;
+      return hasOwnerFinal
+        || applicationContext && items.length > 0
+        || hasSpecificFinal
+        || (hasFinal || hasNext) && candidateFields > 0
+        || required >= 2 && candidateFields > 0
+        || candidateFields >= 2 && required > 0;
+    };
+    for (const scope of scopes) {
+      if (active(scope, entries.filter((entry) => belongsTo(entry, scope)))) return true;
+    }
+    const unscoped = entries.filter((entry) => !scopes.some((scope) => belongsTo(entry, scope)));
+    const pageButtons = buttons(doc).filter((button) => isVisibleForReceipt(button.element));
+    const hasOwnerFinal = pageButtons.some((button) => OWNER_EXTENSION_FINAL_RE.test(button.text));
+    const hasFinal = pageButtons.some((button) => (SUBMIT_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text))
+      && (button.element.tagName !== 'A' || PLAIN_FINAL_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text)));
+    const hasSpecificFinal = pageButtons.some((button) => PLAIN_FINAL_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text));
+    if (!unscoped.length) return hasOwnerFinal || hasSpecificFinal;
+    const required = unscoped.filter((entry) => entry.required).length;
+    const candidateFields = likelyApplicationFields(unscoped);
+    const hasNext = pageButtons.some((button) => NEXT_RE.test(button.text) && !SUBMIT_RE.test(button.text)
+      && !SOCIAL_RE.test(button.text) && !NOT_ADVANCE_RE.test(button.text) && button.element.tagName !== 'A');
+    return hasOwnerFinal && unscoped.length > 0
+      || hasSpecificFinal && unscoped.length > 0
+      || (hasFinal || hasNext) && candidateFields > 0
+      || required >= 2 && candidateFields > 0
+      || candidateFields >= 2 && required > 0;
   }
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -648,6 +773,31 @@
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
     }
+    // CKEditor 4 hides its textarea and exposes the actual editor in a
+    // same-origin, contenteditable iframe. Read and write that visible editor
+    // while keeping the backing textarea synchronized for form submission.
+    const usedRichTextSources = new Set();
+    for (const frame of doc.querySelectorAll('iframe')) {
+      if (!isShown(frame)) continue;
+      let editorDocument;
+      try { editorDocument = frame.contentDocument; } catch { continue; }
+      const body = editorDocument?.body;
+      if (!body || !(body.isContentEditable || body.getAttribute('contenteditable') === 'true')) continue;
+      const wrapper = frame.closest('.cke[id]');
+      const wrapperId = wrapper?.id.replace(/^cke_/, '');
+      const titleId = /(?:editor|texte|text)\s*[, :]+\s*([\w-]+)$/i.exec(frame.title || '')?.[1] || '';
+      const group = frame.closest('fieldset, .field, .form-group, .form-field, [role="group"]');
+      const groupedTextareas = [...(group?.querySelectorAll('textarea') || [])];
+      const source = [wrapperId, titleId].map((id) => id && doc.getElementById(id))
+        .find((node) => node?.tagName === 'TEXTAREA')
+        || (groupedTextareas.length === 1 ? groupedTextareas[0] : null);
+      if (source && usedRichTextSources.has(source)) continue;
+      if (source) usedRichTextSources.add(source);
+      const label = source ? labelOf(source) : labelOf(frame);
+      const labels = source ? labelsOf(source, label, runnerLabelOf(runner, source)) : labelsOf(frame, label);
+      entries.push({ kind: 'rich-text', element: frame, source, label, labels,
+        required: Boolean(source && isRequiredControl(source)) || labels.some((value) => REQUIRED_RE.test(value)), type: 'text' });
+    }
     // Classic jQuery UI spans own a native select and its exact menu. The
     // extension uses the same visible UI and verifies its submitted value.
     for (const button of doc.querySelectorAll('.ui-selectmenu-button[role="combobox"]')) {
@@ -788,6 +938,11 @@
 
   function isEmpty(entry) {
     const { element } = entry;
+    if (entry.kind === 'rich-text') {
+      let body = null;
+      try { body = element.contentDocument?.body || null; } catch { /* cross-origin editors stay manual */ }
+      return !String(body?.textContent || entry.source?.value || '').trim();
+    }
     if (entry.widget === 'jquery-selectmenu') return !entry.nativeSelect.value;
     if (entry.kind === 'checkbox') return !element.checked;
     if (entry.kind === 'file') return !(element.files && element.files.length);
@@ -859,6 +1014,55 @@
     }));
   }
 
+  function languageCodeIn(value) {
+    const text = ` ${normalize(value)} `;
+    const matches = LANGUAGE_NAMES.filter((item) => item.names.some((name) => text.includes(` ${normalize(name)} `)));
+    return matches.length === 1 ? matches[0].code : '';
+  }
+
+  function languageLevelAnswer(entry, kit) {
+    const label = normalize((entry.labels || [entry.label]).join(' '));
+    if (!LANGUAGE_LEVEL_RE.test(label)) return null;
+    const code = languageCodeIn(label);
+    if (!code) return null;
+    const candidates = (kit.profile?.languages || []).filter((item) => languageCodeIn(item?.language) === code && String(item?.level || '').trim());
+    if (candidates.length !== 1) return null;
+    return { value: candidates[0].level, family: `languageLevel:${String(kit.language || 'it').slice(0, 2).toLowerCase()}` };
+  }
+
+  function choiceOptions(entry) {
+    const select = entry.nativeSelect || (entry.kind === 'select' ? entry.element : null);
+    if (select?.options) return [...select.options]
+      .filter((option) => !option.matches(':disabled') && !option.closest('optgroup:disabled'))
+      .map((option) => ({ element: option, label: option.text }));
+    return Array.isArray(entry.options) ? entry.options : [];
+  }
+
+  function latestPositionAnswer(entry, kit) {
+    const label = normalize((entry.labels || [entry.label]).join(' '));
+    if (!LAST_POSITION_RE.test(label) || !POSITION_WORD_RE.test(label)) return null;
+    const value = String(kit.profile?.latestPosition || '').trim();
+    if (!value) return null;
+    const options = choiceOptions(entry);
+    if (!options.length) return { value, family: 'latestPosition' };
+    const option = bestOption(options, value, 'latestPosition');
+    return option ? { value: option.label, family: 'latestPosition' } : null;
+  }
+
+  function educationAnswer(entry, kit) {
+    const label = normalize((entry.labels || [entry.label]).join(' '));
+    if (!EDUCATION_FIELD_RE.test(label) || EDUCATION_EXCLUSION_RE.test(label)) return null;
+    const degrees = (kit.profile?.education || []).map((item) => String(item?.degree || '').trim()).filter(Boolean);
+    if (!degrees.length) return null;
+    const options = choiceOptions(entry);
+    if (options.length) {
+      const matches = degrees.map((degree) => bestOption(options, degree, 'education')).filter(Boolean);
+      const unique = new Map(matches.map((option) => [normalize(option.label), option]));
+      return unique.size === 1 ? { value: [...unique.values()][0].label, family: 'education' } : null;
+    }
+    return degrees.length === 1 ? { value: degrees[0], family: 'education' } : null;
+  }
+
   function addressEntryNeedsOwnership(entry) {
     if (isIdentityEmailCaption(entry.label || entry.labels?.find(Boolean) || '')) return false;
     if (isPhoneCountryEntry({ ...entry, labels: [entry.label || entry.labels?.find(Boolean) || ''] })) return false;
@@ -912,12 +1116,17 @@
 
   function familyOf(entry) {
     if ((entry.labels || [entry.label]).some(name => BIRTH_LOCATION_RE.test(normalize(name)))) return null;
+    const labels = entry.labels || [entry.label];
+    const primaryLabel = entry.label || labels.find(Boolean) || '';
+    const birthText = normalize(`${entry.section || ''} ${primaryLabel}`);
+    const ownBirthParts = BIRTH_DATE_PARTS.filter(([, pattern]) => pattern.test(normalize(primaryLabel)));
+    const birthPart = ownBirthParts.length === 1 ? ownBirthParts[0][0] : '';
+    const nativeDateControl = ['native-date', 'date', 'ui5-date'].includes(entry.kind) || entry.type === 'date';
+    if (!nativeDateControl && birthPart && DATE_OF_BIRTH_RE.test(birthText)) return `birthDate${birthPart}`;
     const nativeBirthDate = (entry.type === 'date' || entry.kind === 'date') && /^(?:birth|nascita|geburt|naissance)$/iu.test(normalize(entry.label));
     if (BIRTH_FIELD_RE.test(normalize(`${entry.label || ''} ${entry.section || ''}`))
       && !DATE_OF_BIRTH_RE.test(normalize(entry.label)) && !nativeBirthDate) return null;
     if (nativeBirthDate) return 'birthDate';
-    const labels = entry.labels || [entry.label];
-    const primaryLabel = entry.label || labels.find(Boolean) || '';
     if (isPhoneCountryEntry({ ...entry, labels: [primaryLabel] })) return 'phoneCountry';
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
@@ -990,6 +1199,18 @@
       case 'country': return address.country || (locationParts.length > 1 ? locationParts[locationParts.length - 1] : '');
       case 'linkedin': return id.linkedin;
       case 'birthDate': return kit.profile?.dateOfBirth;
+      case 'birthDateDay': {
+        const date = parseDate(kit.profile?.dateOfBirth);
+        return date ? String(date.day).padStart(2, '0') : '';
+      }
+      case 'birthDateMonth': {
+        const date = parseDate(kit.profile?.dateOfBirth);
+        return date ? String(date.month).padStart(2, '0') : '';
+      }
+      case 'birthDateYear': {
+        const date = parseDate(kit.profile?.dateOfBirth);
+        return date ? String(date.year) : '';
+      }
       case 'availability': return kit.profile?.availability;
       case 'salary': return kit.profile?.salary;
       default: return '';
@@ -1088,6 +1309,12 @@
     const labelText = normalize((entry.labels || [entry.label]).join(' '));
     if (!family && !fromKit && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
+    const languageAnswer = languageLevelAnswer(entry, kit);
+    if (languageAnswer) return languageAnswer;
+    const positionAnswer = latestPositionAnswer(entry, kit);
+    if (positionAnswer) return positionAnswer;
+    const degreeAnswer = educationAnswer(entry, kit);
+    if (degreeAnswer) return degreeAnswer;
     const value = family ? identityValue(family, kit) : '';
     // «Full time»/«Part time» describes the desired workload, not a notice
     // period or an earliest start date. Keep that candidate value available
@@ -1097,7 +1324,7 @@
     if (family === 'availability' && START_DATE_AVAILABILITY_RE.test(fieldLabel)
       && WORK_SCHEDULE_ONLY_RE.test(normalize(value))) return null;
     if (value) return { value, family };
-    if (entry.kind === 'textarea' && LETTER_RE.test(normalize(entry.label)) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
+    if (['textarea', 'rich-text'].includes(entry.kind) && LETTER_RE.test(labelText) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
     return null;
   }
 
@@ -1106,20 +1333,48 @@
   /** The one option the answer names (equal, or the answer starts with it), else null. */
   function bestOption(options, answer, family = '') {
     const wanted = normalize(answer);
+    const [familyName, locale = 'it'] = String(family).split(':');
     const wantedCountry = ['country', 'phoneCountry'].includes(family) ? countryCodeOfLabel(answer) : '';
     if (!wanted) return null;
+    if (familyName === 'birthDateMonth') {
+      const month = Number(wanted);
+      const monthNumber = (label) => {
+        const text = normalize(label);
+        const numeric = /^(0?[1-9]|1[0-2])(?:\b|$)/.exec(text);
+        if (numeric) return Number(numeric[1]);
+        const words = new Set(text.split(' '));
+        const matches = MONTH_NAMES.flatMap((names, index) => names.some((name) => words.has(normalize(name))) ? [index % 12 + 1] : []);
+        return new Set(matches).size === 1 ? matches[0] : 0;
+      };
+      if (month >= 1 && month <= 12) {
+        const matches = options.filter((option) => monthNumber(option.label) === month);
+        if (matches.length === 1) return matches[0];
+        if (matches.length > 1) return null;
+      }
+    }
     const scored = options.map((option) => {
       const full = normalize(option.label);
       // JOIN letters its choices («a», «b»…): without the marker.
       const bare = full.replace(/^[a-z] /, '');
       let score = 0;
       if (wantedCountry && countryCodeOfLabel(option.label) === wantedCountry) score = 4;
+      else if (familyName === 'languageLevel' && /^[abc][12]$/.test(wanted) && new RegExp(`(?:^| )${wanted}(?: |$)`).test(full)) score = 4;
       else if (full === wanted || bare === wanted) score = 3;
       else if (bare.length >= 3 && (wanted.startsWith(`${bare} `) || bare.startsWith(`${wanted} `))) score = 2;
       else if (wanted.length >= 6 && bare.includes(wanted)) score = 1;
       return { option, score };
     }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score);
-    if (!scored.length) return null;
+    if (!scored.length) {
+      if (familyName === 'languageLevel') {
+        const synonyms = {
+          it: { a1: ['scolastico', 'elementare'], a2: ['scolastico', 'elementare'], b1: ['intermedio', 'discreto'], b2: ['buono'], c1: ['ottimo'] },
+        }[locale] || {};
+        const aliases = synonyms[wanted] || [];
+        const matches = options.filter((option) => aliases.includes(normalize(option.label)));
+        return matches.length === 1 ? matches[0] : null;
+      }
+      return null;
+    }
     if (scored.length > 1 && scored[1].score === scored[0].score) return null;
     return scored[0].option;
   }
@@ -1379,6 +1634,25 @@
   async function fillEntry(entry, answer, { getFile, getFiles }) {
     const { element } = entry;
     switch (entry.kind) {
+      case 'rich-text': {
+        let body = null;
+        try { body = element.contentDocument?.body || null; } catch { /* cross-origin editors stay manual */ }
+        if (!body || !(body.isContentEditable || body.getAttribute('contenteditable') === 'true')) return false;
+        const value = String(answer.value || '');
+        const editorDocument = body.ownerDocument;
+        body.replaceChildren(...value.replace(/\r\n?/g, '\n').split('\n').map((line) => {
+          const paragraph = editorDocument.createElement('p');
+          if (line) paragraph.textContent = line;
+          else paragraph.appendChild(editorDocument.createElement('br'));
+          return paragraph;
+        }));
+        fire(body, 'input');
+        fire(body, 'change');
+        if (entry.source?.tagName === 'TEXTAREA') setValue(entry.source, value);
+        const actual = [...body.childNodes].map((node) => node.textContent || '').join('\n').replace(/\s+/g, ' ').trim();
+        return actual === value.replace(/\s+/g, ' ').trim()
+          && (!entry.source || entry.source.value === value);
+      }
       case 'file': {
         if (!await prepareFileInput(element)) return false;
         const files = getFiles ? await getFiles(answer.document) : [await getFile(answer.document)].filter(Boolean);
@@ -1571,8 +1845,8 @@
     // Fincons/JazzHR renders «SUBMIT APPLICATION» as a plain anchor. It is
     // recognized and highlighted here; content.js only watches it and never
     // presses a final control.
-    return buttons(doc).find((button) => SUBMIT_RE.test(button.text)
-      && (button.element.tagName !== 'A' || PLAIN_FINAL_RE.test(button.text))) || null;
+    return buttons(doc).find((button) => (SUBMIT_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text))
+      && (button.element.tagName !== 'A' || PLAIN_FINAL_RE.test(button.text) || OWNER_EXTENSION_FINAL_RE.test(button.text))) || null;
   }
 
   /**
@@ -1635,10 +1909,22 @@
    * no field, «Invia candidatura» is the send button, never a start.
    */
   function pageState(doc, { sawForm = false, channelType = '' } = {}) {
-    const text = textOf(doc.body);
+    const text = visibleTextOf(doc.body);
     if (REFUSED_RE.test(text)) return { kind: 'refused' };
     // An error page may retain generic thank-you copy; refusal is authoritative.
-    if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
+    const visibleConfirmation = CONFIRM_RE.test(text);
+    const hiddenConfirmation = !visibleConfirmation && CONFIRM_RE.test(String(doc.body?.textContent || '').replace(/\s+/g, ' '));
+    if (visibleConfirmation || hiddenConfirmation) {
+      const activeApplicationForm = hasActiveApplicationForm(doc, channelType);
+      // A portal can keep its receipt in a hidden template while the live form
+      // is still open. Accept success only after visible application controls
+      // from that form have disappeared; hidden uploads and unrelated page
+      // forms do not keep a real receipt pending.
+      if (visibleConfirmation && !activeApplicationForm) return { kind: 'confirmed' };
+      // A hidden receipt plus an unrelated active form is not a reason to fill
+      // that form with candidate data or to mark the order as sent.
+      if (hiddenConfirmation && !activeApplicationForm) return { kind: 'unknown', suppressFill: true };
+    }
     const next = nextButton(doc);
     if (VERIFY_RE.test(text) && !collect(doc, channelType).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
     const required = collect(doc, channelType).filter((entry) => entry.required).length;

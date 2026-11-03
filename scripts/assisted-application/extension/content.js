@@ -16,7 +16,7 @@
   const isTop = window === window.top;
   // Steps a whole application may take, and one page's attempts at moving on.
   const MAX_ADVANCES = 40;
-  const state = { kit: null, busy: false, stopped: false, done: false, sawForm: false, sawFinal: false, advances: 0, lastAdvance: '', lastAdvanceAt: 0, started: '' };
+  const state = { kit: null, busy: false, stopped: false, done: false, sawForm: false, sawFinal: false, submittedRetryAt: 0, reportAttempt: 0, advances: 0, lastAdvance: '', lastAdvanceAt: 0, started: '' };
   const attempts = new WeakMap();
   const uploaded = new Set();
   const files = {};
@@ -24,7 +24,8 @@
 
   const send = (message) => chrome.runtime.sendMessage(message).catch(() => null);
   let ticker = null;
-  const report = (status, detail = '') => send({ type: 'status', status, detail: String(detail).slice(0, 300) });
+  const report = (status, detail = '') => send({ type: 'status', status, detail: String(detail).slice(0, 300),
+    ...(status === 'submitted' ? { requestId: `${Date.now()}-${++state.reportAttempt}` } : {}) });
 
   /** The Files of a document: the CV or the letter, a requested document's files (extra_N), or all of them (extra_all). */
   async function getFiles(which) {
@@ -130,18 +131,29 @@
     try {
       const page = F.pageState(document, { sawForm: state.sawForm, channelType: state.kit?.channelType });
       if (page.kind === 'confirmed') {
-        // A confirmation counts only after this tab reached the send button
-        // (in this document or an earlier one of the same tab).
-        if (!state.sawFinal) return;
+        // The portal's own success receipt is authoritative. Keep it tied to
+        // an application tab so ordinary job-page copy cannot close an order;
+        // the final button may have been missed by an earlier extension build.
+        if (!state.sawForm && !state.sawFinal) return;
+        if (Date.now() < state.submittedRetryAt) return;
+        const acknowledged = await report('submitted');
+        if (!acknowledged?.ok) {
+          state.submittedRetryAt = Date.now() + 10_000;
+          show('Il portale conferma l’invio, ma la coda non ha ancora aggiornato l’ordine. Riprovo automaticamente.', 'warn');
+          return;
+        }
         state.done = true;
         clearInterval(ticker);
-        show('Candidatura inviata ✓ — la segno come inviata nella coda.', 'ok');
-        await report('submitted');
+        show('Candidatura inviata ✓ — la coda è aggiornata.', 'ok');
         return;
       }
       if (page.kind === 'refused') {
         show('Il portale dice che non ha inviato la candidatura: riprova dal pulsante evidenziato.', 'warn');
         await report('refused');
+      }
+      if (page.suppressFill) {
+        show('Schermata ambigua: non compilo un modulo estraneo. Verifica il portale e aggiorna la coda se l’invio è già avvenuto.', 'warn');
+        return;
       }
       if (page.kind === 'verify') {
         // The verification e-mail reaches the order's alias: the queue
@@ -171,6 +183,7 @@
       const after = F.pageState(document, { sawForm: state.sawForm, channelType: state.kit?.channelType });
       if (after.kind === 'final') {
         state.sawFinal = true;
+        await send({ type: 'mark', sawFinal: true });
         if (result.missing.length) {
           show('Mancano risposte prima dell’invio:', 'warn', result.missing.map((item) => item.label));
           await report('needs', result.missing.map((item) => item.label).join(' · '));
@@ -179,17 +192,18 @@
         highlight(after.final);
         watchSend(after.final);
         show(`Tutto compilato. Premi «${F.textOf(after.final)}» (evidenziato) per inviare.`, 'ok');
-        await send({ type: 'mark', sawFinal: true });
         await report('ready');
         return;
       }
-      if (after.kind !== 'step') {
-        if (result.filled.length) show(`Compilati ${result.filled.length} campi.`);
+      if (result.missing.length) {
+        show('Completa questi campi obbligatori:', 'warn', result.missing.map((item) => item.label));
+        await report('needs', result.missing.map((item) => item.label).join(' · '));
         return;
       }
-      if (result.missing.length && after.nextDisabled) {
-        show('Mi manca una risposta, completala tu:', 'warn', result.missing.map((item) => item.label));
-        await report('needs', result.missing.map((item) => item.label).join(' · '));
+      if (after.kind !== 'step') {
+        if (result.entries) {
+          show(`Non riconosco questa schermata. Controlla i campi compilati (${result.filled.length}) e continua tu.`, 'warn');
+        }
         return;
       }
       if (after.nextDisabled) return; // an upload or a choice still settling: the next mutation retries

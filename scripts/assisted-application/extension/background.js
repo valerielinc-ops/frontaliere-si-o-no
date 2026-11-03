@@ -25,6 +25,37 @@ async function entryFor(tabId) {
   return (await chrome.storage.session.get(key))[key] || null;
 }
 
+async function queueTabIds(preferredTabId) {
+  const ids = new Set(Number.isInteger(preferredTabId) ? [preferredTabId] : []);
+  const tabs = await chrome.tabs.query({ url: 'https://frontaliereticino.ch/*' }).catch(() => []);
+  for (const tab of tabs) {
+    if (Number.isInteger(tab.id) && /^https:\/\/frontaliereticino\.ch\/gestione-contenuti-xk9mp2q(?:\/|$|[?#])/i.test(String(tab.url || ''))) {
+      ids.add(tab.id);
+    }
+  }
+  return [...ids];
+}
+
+async function reportSubmittedToQueue(entry, requestId, detail) {
+  const tabIds = await queueTabIds(entry.queueTabId);
+  if (!tabIds.length) return { ok: false, error: 'queue_tab_unavailable' };
+  const attempts = tabIds.map((tabId) => chrome.tabs.sendMessage(tabId, {
+    type: 'fill-status', orderId: entry.kit.orderId, status: 'submitted', detail, requestId,
+  }).then((response) => {
+    if (response?.ok) return response;
+    throw new Error(response?.error || 'queue_not_acknowledged');
+  }));
+  try {
+    // The original queue tab may have been closed while the portal remained
+    // open. A replacement admin tab for the same order can still acknowledge.
+    return await Promise.any(attempts);
+  } catch (error) {
+    const reasons = error?.errors || [];
+    const reason = reasons.map((item) => String(item?.message || item)).find(Boolean);
+    return { ok: false, error: String(reason || 'queue_not_acknowledged').slice(0, 200) };
+  }
+}
+
 function base64Of(buffer) {
   const bytes = new Uint8Array(buffer);
   let binary = '';
@@ -105,9 +136,17 @@ async function handle(message, sender) {
       const entry = sender.tab ? await entryFor(sender.tab.id) : null;
       if (!entry) return { ok: false };
       // Told to the queue once per order, whichever of its tabs saw it.
-      if (message.status === 'submitted' && (await tabsOfOrder(entry.kit.orderId)).some((item) => item.entry.state === 'submitted')) return { ok: true, duplicate: true };
       if (message.status === 'submitted') {
+        if ((await tabsOfOrder(entry.kit.orderId)).some((item) => item.entry.state === 'submitted')) {
+          await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, state: 'submitted' } });
+          return { ok: true, duplicate: true };
+        }
+        const requestId = typeof message.requestId === 'string' && message.requestId.trim()
+          ? message.requestId.slice(0, 120) : `${Date.now()}-${sender.tab.id}`;
+        const acknowledgement = await reportSubmittedToQueue(entry, requestId, message.detail || '');
+        if (!acknowledgement?.ok) return { ok: false, error: acknowledgement?.error || 'queue_not_acknowledged' };
         await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, state: 'submitted' } });
+        return { ok: true };
       }
       if (entry.queueTabId != null) {
         await chrome.tabs.sendMessage(entry.queueTabId, {

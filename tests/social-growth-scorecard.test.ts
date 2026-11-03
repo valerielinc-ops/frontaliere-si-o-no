@@ -109,6 +109,28 @@ describe('cross-social growth scorecard', () => {
     });
   });
 
+  it('reports absolute Reel follows separately from follows per reach', () => {
+    const posts = [
+      { kind: 'reel', day: '2026-10-28', windowHours: 72, snapshotAgeHours: 72, reach: 100, views: 140, reachSource: 'reach', follows: 4, availableMetrics: ['reach', 'views', 'follows'] },
+      { kind: 'reel', day: '2026-10-29', windowHours: 72, snapshotAgeHours: 72, reach: 200, views: 250, reachSource: 'reach', follows: 6, availableMetrics: ['reach', 'views', 'follows'] },
+      { kind: 'reel', day: '2026-10-30', windowHours: 72, snapshotAgeHours: 72, reach: 200, views: 300, reachSource: 'reach', follows: 5, availableMetrics: ['reach', 'views', 'follows'] },
+      { kind: 'reel', day: '2026-10-31', windowHours: 72, snapshotAgeHours: 72, reach: null, views: 100, reachSource: 'views', follows: 2, availableMetrics: ['views', 'follows'] },
+      { kind: 'article', day: '2026-10-30', windowHours: 72, snapshotAgeHours: 72, reach: 100, views: 100, reachSource: 'reach', follows: 99, availableMetrics: ['reach', 'views', 'follows'] },
+    ];
+    const scorecard = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      instagramInsights: { posts },
+      sources: { instagram: { status: 'available' } },
+    });
+
+    expect(scorecard.channels.instagram.metrics.reelFollowsPerPost)
+      .toMatchObject({ status: 'available', observations: 4, baselineMedian: 4.5 });
+    expect(scorecard.channels.instagram.metrics.reelFollowsPerThousandReach)
+      .toMatchObject({ status: 'available', observations: 3, baselineMedian: 30 });
+    expect(scorecard.channels.instagram.metrics.reelFollowsPerThousandViews)
+      .toMatchObject({ status: 'insufficient-sample', observations: 1, baselineMedian: null });
+  });
+
   it('sets a 90-day tagged-session target with a registered-event-rate guardrail', () => {
     const followupRows = Array.from({ length: 30 }, (_, index) => {
       const date = new Date(Date.parse('2026-08-30T12:00:00.000Z') + index * 24 * 60 * 60 * 1000)

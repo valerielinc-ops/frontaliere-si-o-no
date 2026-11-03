@@ -265,15 +265,26 @@ function measurementPosts(rows, windowHours, asOfMs) {
 
 function instagramScorecard(insights, asOfMs, sourceStatus, minimumPosts) {
   const posts = measurementPosts(insights?.posts, 72, asOfMs);
+  const reels = posts.filter((row) => String(row.kind || row.copySlot || '').toLowerCase() === 'reel');
   const reachPosts = posts.filter((row) => String(row.reachSource || row.audienceMetric || 'reach') !== 'views'
     && denominatorForInstagram(row) > 0);
   const viewPosts = posts.filter((row) => String(row.reachSource || row.audienceMetric || '') === 'views'
+    && denominatorForInstagram(row) > 0);
+  const reelReachPosts = reels.filter((row) => String(row.reachSource || row.audienceMetric || 'reach') !== 'views'
+    && denominatorForInstagram(row) > 0);
+  const reelViewPosts = reels.filter((row) => String(row.reachSource || row.audienceMetric || '') === 'views'
     && denominatorForInstagram(row) > 0);
   const rates = (rows, field) => summarizeMetric(
     rows.filter((row) => metricIsAvailable(row, field)),
     (row) => perThousand(row[field], denominatorForInstagram(row)),
     { sourceStatus, minimumPosts },
   );
+  const reelRates = (rows, field) => summarizeMetric(
+    rows.filter((row) => metricIsAvailable(row, field)),
+    (row) => perThousand(row.metrics?.[field] ?? row[field], denominatorForInstagram(row)),
+    { sourceStatus, minimumPosts },
+  );
+  const reelFollows = reels.filter((row) => metricIsAvailable(row, 'follows'));
   return {
     status: sourceStatus,
     measurementWindow: '72h; snapshot age within ±6h',
@@ -291,6 +302,13 @@ function instagramScorecard(insights, asOfMs, sourceStatus, minimumPosts) {
       linkClicksPerThousandViews: rates(viewPosts, 'linkClicks'),
       commentsPerThousandReach: rates(reachPosts, 'comments', null),
       commentsPerThousandViews: rates(viewPosts, 'comments', null),
+      reelFollowsPerPost: summarizeMetric(
+        reelFollows,
+        (row) => finite(row.metrics?.follows ?? row.follows),
+        { sourceStatus, minimumPosts },
+      ),
+      reelFollowsPerThousandReach: reelRates(reelReachPosts, 'follows'),
+      reelFollowsPerThousandViews: reelRates(reelViewPosts, 'follows'),
     },
     denominatorSources: [...new Set([...reachPosts.map(() => 'reach'), ...viewPosts.map(() => 'views')])].sort(),
   };
