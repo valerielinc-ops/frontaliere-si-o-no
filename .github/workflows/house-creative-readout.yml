@@ -83,4 +83,3 @@ jobs:
           path: ${{ runner.temp }}/house-ad-readout.json
           retention-days: 90
           if-no-files-found: error
-
