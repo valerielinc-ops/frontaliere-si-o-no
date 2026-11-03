@@ -1,13 +1,6 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 import { legalLinks, type LegalDocument, type LegalLocale } from './types';
 
-const APPLICATION_CONCIERGE_PRIVACY_PATHS: Record<LegalLocale, string> = {
-  it: '/automatizza-ricerca-lavoro-svizzera/',
-  en: '/en/automate-job-search-switzerland/',
-  de: '/de/arbeitssuche-schweiz-automatisieren/',
-  fr: '/fr/automatiser-recherche-emploi-suisse/',
-};
-
 // Trusted editorial HTML only; no visitor or remote input enters these documents.
 // Preserve the full policy in each locale; the interactive CMP remains a separate block.
 const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLinks>) => LegalDocument> = {
@@ -64,7 +57,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Il Meta Pixel viene caricato solo sulla pagina <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.it}">Automatizza la ricerca di lavoro in Svizzera</a> e soltanto dopo che concedi il consenso pubblicitario. Invia a Meta l'evento standard PageView per registrare la visita. Puoi revocare il consenso nella sezione «Cookie e Storage Locale» qui sopra. Consulta l'<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Meta</a>.</p>` },
+          { html: `<p>Il Meta Pixel viene caricato sul sito soltanto dopo che concedi il consenso pubblicitario. Durante la navigazione invia a Meta l'evento standard PageView per registrare le pagine visitate. Puoi revocare il consenso nella sezione «Cookie e Storage Locale» qui sopra. Consulta l'<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Meta</a>.</p>` },
         ],
       },
       {
@@ -213,7 +206,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Meta Pixel is loaded only on the <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.en}">Automate your job search in Switzerland</a> page and only after you grant advertising consent. It sends Meta the standard PageView event to record the visit. You can withdraw consent in the “Cookies and Local Storage” section above. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta’s Privacy Policy</a>.</p>` },
+          { html: `<p>Meta Pixel is loaded across the site only after you grant advertising consent. As you navigate, it sends Meta the standard PageView event for each page visited. You can withdraw consent in the “Cookies and Local Storage” section above. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta’s Privacy Policy</a>.</p>` },
         ],
       },
       {
@@ -352,7 +345,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Meta Pixel wird nur auf der Seite <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.de}">Automatisiere deine Jobsuche in der Schweiz</a> und erst nach deiner Werbeeinwilligung geladen. Dabei wird das Standardereignis PageView an Meta gesendet, um den Seitenaufruf zu erfassen. Du kannst deine Einwilligung im obigen Abschnitt «Cookies und lokaler Speicher» widerrufen. Weitere Informationen findest du in Metas <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.</p>` },
+          { html: `<p>Meta Pixel wird erst nach deiner Werbeeinwilligung auf der Website geladen. Während der Navigation sendet es das Standardereignis PageView für jede besuchte Seite an Meta. Du kannst deine Einwilligung im obigen Abschnitt «Cookies und lokaler Speicher» widerrufen. Weitere Informationen findest du in Metas <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.</p>` },
         ],
       },
       {
@@ -488,7 +481,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Meta Pixel est chargé uniquement sur la page <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.fr}">Automatiser votre recherche d’emploi en Suisse</a> et seulement après que vous avez accordé votre consentement publicitaire. Il envoie à Meta l’événement standard PageView pour enregistrer la visite. Vous pouvez retirer votre consentement dans la section « Cookies et stockage local » ci-dessus. Consultez la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">politique de confidentialité de Meta</a>.</p>` },
+          { html: `<p>Meta Pixel est chargé sur l’ensemble du site uniquement après que vous avez accordé votre consentement publicitaire. Pendant la navigation, il envoie à Meta l’événement standard PageView pour chaque page visitée. Vous pouvez retirer votre consentement dans la section « Cookies et stockage local » ci-dessus. Consultez la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">politique de confidentialité de Meta</a>.</p>` },
         ],
       },
       {
