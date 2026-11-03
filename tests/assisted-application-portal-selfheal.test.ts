@@ -163,6 +163,28 @@ describe('portal runner self-correction', () => {
     expect(controls.next).toBeNull();
   });
 
+  it('keeps a distinct application next control on a mixed gallery snapshot', () => {
+    const next = { text: 'Next', formId: 'application', frame: 0, disabled: false };
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Select one or more files (optional).', required: false,
+        formId: 'public-gallery', frame: 0,
+      }],
+      buttons: [
+        { text: 'Previous', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Next', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Open image in full size', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Print page', formId: 'public-gallery', frame: 0, disabled: false },
+        next,
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(true);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/', { snapshot }).next)
+      .toBe(next);
+  });
+
   it('keeps a field-less application next widget on a gallery-shaped page', () => {
     const next = { text: 'Next application step', disabled: false };
     const snapshot = {

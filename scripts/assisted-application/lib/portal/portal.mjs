@@ -623,25 +623,36 @@ const APPLICATION_CONTROL_RE = /(?:application|bewerb(?:ung)?|candidat(?:ure|ura
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
 const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
   || isGalleryPagingButton(button, GALLERY_NEXT_RE);
-const samePortalFrame = (left, right) => (left?.frame || 0) === (right?.frame || 0);
-const samePortalForm = (button, field) => String(button?.formId || '')
-  && String(button.formId) === String(field?.formId || '')
-  && samePortalFrame(button, field);
+const isGalleryToolButton = (button) => !button?.chrome
+  && (GALLERY_VIEW_RE.test(String(button.text || '')) || GALLERY_PRINT_RE.test(String(button.text || '')));
+const portalControlIdentity = (control) => `${control?.frame || 0}\u0000${String(control?.formId || '')}`;
 const isGenericOptionalAttachment = (field) => isFileField(field)
   && field.required !== true
   && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
+
+const galleryToolIdentities = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlIdentity));
+
+function galleryNavigationButtons(buttons) {
+  const galleryTools = galleryToolIdentities(buttons);
+  return new Set(buttons.filter((button) => isGalleryNavigationButton(button)
+    && !APPLICATION_CONTROL_RE.test(String(button.text || ''))
+    && galleryTools.has(portalControlIdentity(button))));
+}
 
 /**
  * Stadt Zürich's public content pages expose a gallery with «Vorheriges» /
  * «Nächstes», full-size-image and print controls. A generic optional upload
  * field is also present, so labels alone make the gallery look like a wizard.
- * Keep a real application step when its control owns the form or its fields
- * carry application vocabulary; otherwise fail closed before clicking it.
+ * Keep a real application step when its control is distinct from the
+ * gallery-owned records or its fields carry application vocabulary; otherwise
+ * fail closed before clicking it.
  */
 function isNonApplicationGallerySurface(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
-  const hasPaging = buttons.some(isGalleryNavigationButton);
+  const galleryTools = galleryToolIdentities(buttons);
+  const galleryButtons = galleryNavigationButtons(buttons);
+  const hasPaging = galleryButtons.size > 0;
   const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
     && buttons.some((button) => !button?.chrome && GALLERY_PRINT_RE.test(String(button.text || '')));
   if (!hasPaging || !hasGalleryTools) return false;
@@ -653,10 +664,10 @@ function isNonApplicationGallerySurface(snapshot = {}) {
     // A public gallery may wrap its pager and generic optional attachment in
     // one HTML form. The shared form id is not application ownership when the
     // control itself is the gallery's «Vorheriges»/«Nächstes» navigation.
-    if (button?.chrome || button?.disabled || isGalleryNavigationButton(button)) return false;
+    if (button?.chrome || button?.disabled || galleryTools.has(portalControlIdentity(button))) return false;
     const text = String(button.text || '');
     if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
-    return fields.some((field) => samePortalForm(button, field));
+    return true;
   }) || buttons.some((button) => !button?.chrome
     && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || '')))
     && APPLICATION_CONTROL_RE.test(String(button.text || '')));
@@ -3906,11 +3917,16 @@ export function pageControls(buttons, known, url, context = null) {
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }
   const here = anonymizePath(url);
-  const gallerySurface = isNonApplicationGallerySurface({ buttons, fields: context?.snapshot?.fields });
-  const submit = gallerySurface ? null : findButton(buttons, SUBMIT_RE);
-  const usualNext = gallerySurface ? null : findButton(buttons, NEXT_RE);
-  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(buttons, labelsAt(known.nextButtons, here));
-  const learnedSubmit = gallerySurface ? null : learnedButton(buttons, labelsAt(known.finalButtons, here));
+  const gallerySnapshot = { buttons, fields: context?.snapshot?.fields };
+  const gallerySurface = isNonApplicationGallerySurface(gallerySnapshot);
+  const galleryButtons = galleryNavigationButtons(buttons);
+  const applicationButtons = galleryButtons.size
+    ? buttons.filter((button) => !galleryButtons.has(button))
+    : buttons;
+  const submit = gallerySurface ? null : findButton(applicationButtons, SUBMIT_RE);
+  const usualNext = gallerySurface ? null : findButton(applicationButtons, NEXT_RE);
+  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(applicationButtons, labelsAt(known.nextButtons, here));
+  const learnedSubmit = gallerySurface ? null : learnedButton(applicationButtons, labelsAt(known.finalButtons, here));
   return {
     submit: submit || (usualNext || taughtNext ? null : learnedSubmit),
     next: usualNext || taughtNext,
