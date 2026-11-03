@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-11-03T09:55:00.776Z",
+  "assembledAt": "2026-11-03T12:40:01.367Z",
   "runId": "41610156133",
   "jobs": [
     {
@@ -8535,122 +8535,6 @@
       "salaryMax": 75000
     },
     {
-      "id": "company-prp0sv",
-      "slug": "senior-software-ingegnere-last-mile-m-w-d-galaxus-zurich-prp0sv",
-      "company": "Galaxus",
-      "title": "Senior Software Engineer - Last Mile (w/m/d)",
-      "location": "Zürich",
-      "canton": "ZH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Für die letzte Meile verstärken wir unser Produktentwicklungsteam. Die letzte Meile ist die Schnittstelle zwischen unseren Lagern und der Kundschaft: Sie beginnt im Checkout und reicht über Rampen- und Yardmanagement, Gefahrgut und Zollprozesse bis zur Sendungsverfolgung und zum Tracking von Verlusten und Transportschäden. Geht dort etwas schief merken es die Kundinnen und Kunden sofort.\n\n**Luogo di lavoro:** Galaxus, DG Hauptsitz, Pfingstweidstrasse 60b, 8005 Zürich\n\n## Wichtige Hinweise\nWir freuen uns über jede Bewerbung, können aber nur Online-Bewerbungen berücksichtigen. Bewerbungen per Post werden aus Datenschutzgründen entsorgt und nicht retourniert.\n\n## Mansioni\n- Du baust die Services der letzten Meile und betreibst sie auch. Von der Carrier-Anbindung über die Sendungsverfolgung bis zur Sendungsverlusterfassung gilt: was dein Team baut, verantwortet es auch im Betrieb\n- Gewachsene Strukturen modernisierst du im laufenden Versand. In kleinen Schritten, abgesichert durch Tests und Messwerte, ohne dass die Versandkette stillsteht\n- Externe Systeme anbinden gehört zu deinem Alltag. Versanddienstleister und Behörden liefern selten saubere Schnittstellen, deshalb baust du sie fehlertolerant, idempotent und beobachtbar\n- Die Engineering-Kultur im Team prägst du mit. Reviews, API-Guidelines, Monitoring und Dokumentation entwickeln wir laufend weiter, du bringst deine Erfahrung ein und setzt Standards, statt nur Vorgaben zu übernehmen\n- Zusammen mit Product Owner, Team und Architektur schneidest du die Arbeit. Technische Abwägungen und ihre Konsequenzen machst du transparent, auch gegenüber Logistik, Operations und externen Partnern\n\n## Requisiti\n- Mehrere Jahre Berufserfahrung: Als Software Engineer – davon ein Teil in der Verantwortung für Lösungen, die produktiv und unter Last laufen\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): In Informatik (ETH/Uni/FH) oder gleichwertige praktische Berufserfahrung\n- Fundierte Kenntnisse in C# und .NET, dazu SQL und Erfahrung mit verteilten, eventbasierten Systemen mit hohem Durchsatz\n- Erfahrung mit der Anbindung externer Partnersysteme und deren Schnittstellen, idealerweise im Versand- oder Logistikumfeld\n- Sicherer Umgang mit gewachsenem Code und das Gespür, ihn inkrementell zu modernisieren, ohne den laufenden Versand zu stören\n- An den Betrieb wird von dir von Anfang an mitgedacht, von Monitoring und Alerting bis zum Verhalten in Peak-Zeiten\n- AI als integraler Bestandteil von Analyse, Konzeption, Umsetzung und Testing – kein Buzzword\n- Klare, situationsgerechte Kommunikation, auch gegenüber Logistik, Operations und externen Partnerunternehmen\n- Berechnete Risiken eingehen, um Wert zu schaffen und Wachstum voranzutreiben\n- Die Bereitschaft, „wie es immer gemacht wurde“ in Frage zu stellen und effizientere, automatisierte oder effektivere Lösungen vorzuschlagen\n- Deutsch (verhandlungssicher)\n- Englisch (fliessend)\n\n## Cosa offriamo\n- Flexible Arbeitszeit: Du erfasst deine Arbeitszeit – und kompensierst jede einzelne Minute über deiner vertraglich vereinbarten Sollzeit.\n- Flexibler Arbeitsort / Home Office: Du gestaltest deine Arbeitszeiten und Orte individuell auf dich abgestimmt. Zudem kannst du bis zu acht Wochen im Jahr aus dem Ausland arbeiten.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: Erweiterte Elternzeit für Mütter und Väter\n- Handy-Abo: Du (und deine Friends & Family) profitieren von vergünstigten Konditionen auf das Galaxus Mobile Abo.\n- Mitarbeiterangebote: Als Mitarbeiter profitierst du von Spezialpreisen (für deinen Eigenbedarf) auf unser gesamtes Sortiment\n- Ferien: Fünf Wochen Ferien pro Jahr mit der Möglichkeit für unbezahlten Urlaub\n- Individuelle Weiterbildung: 2'000 Edu-Points pro Jahr für dein Selbststudium und deine Garagenprojekte\n- Aus- und Weiterbildung: Unterstützung bei externen Aus- und Weiterbildungen, so dass du dein Know-how laufend erweitern kannst\n- Eigenverantwortung & Freiraum: Unser Arbeitsumfeld ist geprägt von unseren Werten, einer offenen Feedback- und einer positiven Fehlerkultur\n- Gestaltungs- und Entscheidungsspielraum: Via unserem Innovationsboard haben alle die Möglichkeit, seine Ideen direkt bei der Geschäftsleitung einzubringen\n- Werte statt blabla: Kooperativ, innovativ, piratisch, eigenverantwortlich, ambitioniert – diese fünf Werte fordern wir alle und leben wir alle.\n- Mutig selbst denken: Wir ermutigen alle, selbst und aktiv mitzudenken. Und lieben es, wenn du noch dazu mutig, neu und anders denkst.\n- Unkompliziert: Wir vermeiden Unnötiges und fokussieren uns aufs Wichtige. Vom Meistern von Herausforderungen bis zum Feiern unserer Erfolge.\n- Flexibilität statt verbiegen (Office Jobs): Neben Homeoffice Möglichkeiten ermöglichen wir dir bis zu 8 Wochen Workation. Zudem ist jede Position auch im 80%-Pensum möglich.\n- Schnelles Wachstum: Bei uns wächst und entwickelst du dich laufend. Und erhältst EDU Punkte (2'000 CHF für Mitarbeitende in der Schweiz, 1'600 EUR für deutsche Mitarbeitende und 700 EUR für unsere serbischen Mitarbeitenden) für deine Weiterentwicklung, damit du nicht stehenbleibst.\n- Weitere Benefits Schweiz: Profitiere von 25 Tagen Ferien, exklusiven Mitarbeiterpreisen im Shop, Handy-, Internet- und TV-Abos zum Firmentarif und weiteren Vorteilen.\n\n## Contatto\n**Bewerbung & Kontakt**\nPatrick Meise\nPeople Attraction & Active Sourcing Specialist\n\n**Hinweis für Personaldienstleister**\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "requirements": [
-        "Mehrere Jahre Berufserfahrung: Als Software Engineer – davon ein Teil in der Verantwortung für Lösungen, die produktiv und unter Last laufen",
-        "Abgeschlossenes Studium (Uni/ETH, FH, HF): In Informatik (ETH/Uni/FH) oder gleichwertige praktische Berufserfahrung",
-        "Fundierte Kenntnisse in C# und .NET, dazu SQL und Erfahrung mit verteilten, eventbasierten Systemen mit hohem Durchsatz",
-        "Erfahrung mit der Anbindung externer Partnersysteme und deren Schnittstellen, idealerweise im Versand- oder Logistikumfeld",
-        "Sicherer Umgang mit gewachsenem Code und das Gespür, ihn inkrementell zu modernisieren, ohne den laufenden Versand zu stören",
-        "An den Betrieb wird von dir von Anfang an mitgedacht, von Monitoring und Alerting bis zum Verhalten in Peak-Zeiten",
-        "AI als integraler Bestandteil von Analyse, Konzeption, Umsetzung und Testing – kein Buzzword",
-        "Klare, situationsgerechte Kommunikation, auch gegenüber Logistik, Operations und externen Partnerunternehmen",
-        "Berechnete Risiken eingehen, um Wert zu schaffen und Wachstum voranzutreiben",
-        "Die Bereitschaft, „wie es immer gemacht wurde“ in Frage zu stellen und effizientere, automatisierte oder effektivere Lösungen vorzuschlagen",
-        "Deutsch (verhandlungssicher)",
-        "Englisch (fliessend)"
-      ],
-      "featured": false,
-      "datePosted": "2026-10-28T05:32:05+01:00",
-      "postedDate": "2026-10-28T05:32:05+01:00",
-      "postingDateSource": "reported",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/senior-software-engineer-last-mile-wmd/86201885-a71a-4da9-a3e3-1fee95417b01",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/senior-software-engineer-last-mile-wmd/86201885-a71a-4da9-a3e3-1fee95417b01",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du baust die Services der letzten Meile und betreibst sie auch. Von der Carrier-Anbindung über die Sendungsverfolgung bis zur Sendungsverlusterfassung gilt: was dein Team baut, verantwortet es auch im Betrieb",
-        "Gewachsene Strukturen modernisierst du im laufenden Versand. In kleinen Schritten, abgesichert durch Tests und Messwerte, ohne dass die Versandkette stillsteht",
-        "Externe Systeme anbinden gehört zu deinem Alltag. Versanddienstleister und Behörden liefern selten saubere Schnittstellen, deshalb baust du sie fehlertolerant, idempotent und beobachtbar",
-        "Die Engineering-Kultur im Team prägst du mit. Reviews, API-Guidelines, Monitoring und Dokumentation entwickeln wir laufend weiter, du bringst deine Erfahrung ein und setzt Standards, statt nur Vorgaben zu übernehmen",
-        "Zusammen mit Product Owner, Team und Architektur schneidest du die Arbeit. Technische Abwägungen und ihre Konsequenzen machst du transparent, auch gegenüber Logistik, Operations und externen Partnern"
-      ],
-      "_migrosBenefits": [
-        "Werte statt blabla: Kooperativ, innovativ, piratisch, eigenverantwortlich, ambitioniert – diese fünf Werte fordern wir alle und leben wir alle.",
-        "Mutig selbst denken: Wir ermutigen alle, selbst und aktiv mitzudenken. Und lieben es, wenn du noch dazu mutig, neu und anders denkst.",
-        "Unkompliziert: Wir vermeiden Unnötiges und fokussieren uns aufs Wichtige. Vom Meistern von Herausforderungen bis zum Feiern unserer Erfolge.",
-        "Flexibilität statt verbiegen (Office Jobs): Neben Homeoffice Möglichkeiten ermöglichen wir dir bis zu 8 Wochen Workation. Zudem ist jede Position auch im 80%-Pensum möglich.",
-        "Schnelles Wachstum: Bei uns wächst und entwickelst du dich laufend. Und erhältst EDU Punkte (2'000 CHF für Mitarbeitende in der Schweiz, 1'600 EUR für deutsche Mitarbeitende und 700 EUR für unsere serbischen Mitarbeitenden) für deine Weiterentwicklung, damit du nicht stehenbleibst.",
-        "Weitere Benefits Schweiz: Profitiere von 25 Tagen Ferien, exklusiven Mitarbeiterpreisen im Shop, Handy-, Internet- und TV-Abos zum Firmentarif und weiteren Vorteilen."
-      ],
-      "_migrosWorkPercentage": "80-100%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-11-03T09:53:25.836Z",
-      "firstSeenAt": "2026-10-28T21:49:44.363Z",
-      "titleByLocale": {
-        "it": "Senior Software Ingegnere - Last Mile (w/m/d)",
-        "en": "Senior Software Engineer - Last Mile (m/f/d)",
-        "de": "Senior Software Ingenieur - Last Mile (w/m/d)",
-        "fr": "Senior Software Ingénieur - Last Mile (w/m/d)"
-      },
-      "descriptionByLocale": {
-        "it": "Per l'ultimo miglio, stiamo rafforzando il nostro team di sviluppo del prodotto. L'ultimo miglio è l'interfaccia tra i nostri magazzini e i nostri clienti: inizia nel checkout e si estende alla gestione di rampe e cantieri, merci pericolose e processi doganali, al monitoraggio delle spedizioni e al monitoraggio delle perdite e danni al trasporto. Se qualcosa va storto lì, i clienti lo notano immediatamente.\n\nLuogo di lavoro Galaxus, sede della DG, Pfingstweidstrasse 60b, 8005 Zurigo\n\n## Informazioni importanti\nAccogliamo ogni applicazione, ma possiamo considerare solo applicazioni online. Le domande per posta sono smaltite per motivi di protezione dei dati e non restituite.\n\n## Mansioni\n- Costruisci gli ultimi mili e li gestisci anche tu. Dal collegamento del vettore al monitoraggio della spedizione al rilevamento della perdita di spedizione, ciò che il vostro team costruisce è anche responsabile per le operazioni\n- Strutture in crescita si modernizzare nella spedizione in corso. In piccoli passi, fissati da test e valori misurati senza catena di spedizione in piedi ancora\n- Collegare sistemi esterni fa parte della vostra vita quotidiana. I fornitori di servizi di trasporto e le autorità raramente forniscono interfacce pulite, in modo da costruirle fault-tolerant, idempotent e osservabile\n- Forma la cultura ingegneristica nel team. Sviluppiamo continuamente recensioni, linee guida API, monitoraggio e documentazione, porti la tua esperienza e standard impostati invece di adottare le specifiche\n- Insieme con il proprietario del prodotto, il team e l'architettura si taglia il lavoro. Si fanno considerazioni tecniche e le loro conseguenze trasparenti, anche verso logistica, operazioni e partner esterni\n\n## Requisiti\n- Diversi anni di esperienza professionale: Come ingegnere software – parte delle quali è responsabile di soluzioni che funzionano in modo produttivo e sotto carico\n- Studi completi (Uni/ETH, FH, HF): In informatica (ETH/Uni/FH) o esperienza lavorativa pratica equivalente\n- Conoscenza approfondita di C# e .NET, SQL ed esperienza con sistemi basati su eventi distribuiti e ad alto rendimento\n- Esperienza con il collegamento di sistemi partner esterni e le loro interfacce, idealmente nell'ambiente di spedizione o logistica\n- Gestione sicura del codice coltivato e il senso di modernizzare incrementalmente senza disturbare la spedizione corrente\n- L'operazione è considerata dall'inizio, dal monitoraggio e allerta al comportamento in tempi di punta\n- AI come parte integrante dell'analisi, del concepimento, dell'implementazione e del test – nessuna parola d'ordine\n- Comunicazione chiara e situzionale, anche verso la logistica, le operazioni e le società partner esterne\n- Assunzione di rischi calcolati per creare valore e crescita dell'azionamento\n- La volontà di interrogarsi “come è sempre stato fatto” e proporre soluzioni più efficienti, automatizzate o efficaci\n- in tedesco (negoziato fiducioso)\n- Inglese (flusso)\n\n## Cosa di friamo\n- Orario di lavoro flessibile: registra le ore di lavoro e compensa ogni singolo minuto nel tempo di destinazione concordato.\n- Luogo flessibile di lavoro / ufficio domestico: Lei organizza le Sue ore di lavoro e posti adattati individualmente a Lei. Puoi anche lavorare dall'estero per otto settimane all'anno.\n- congedo di maternità / congedo di paternità: prolungato congedo parentale per madri e padri\n- Abbonamento mobile: L'utente (e i tuoi amici e familiari) beneficiano di condizioni scontate sull'abbonamento Galaxy Mobile.\n- Employee offre: Come dipendente si beneficia di prezzi speciali (per le proprie esigenze) su tutta la nostra gamma\n- Vacanze: Cinque settimane vacanze all'anno con possibilità di vacanze non pagate\n- Formazione individuale: 2.000 punti Edu all'anno per i vostri progetti di auto-studio e garage\n- Istruzione e formazione: Supporto per l'educazione esterna e formazione in modo da poter espandere continuamente il tuo know-how\n- Responsabilità e libertà personali: Il nostro ambiente di lavoro è caratterizzato dai nostri valori, un feedback aperto e una cultura positiva di errore\n- Design e decision-making leeway: Attraverso il nostro consiglio di innovazione, ognuno ha la possibilità di contribuire direttamente alla gestione\n- Valori invece di blabla: cooperativa, innovativa, pirata, auto-responsabile, ambiziosa – questi cinque valori che tutti noi chiediamo e viviamo.\n- Pensate coraggiosamente a voi stessi: incoraggiamo tutti a pensare a se stessi e attivamente. E amarlo quando si pensa coraggiosamente, di nuovo e in modo diverso.\n- Scomplicato: Evitiamo il superfluo e ci concentriamo sull'importante. Dalla padronanza delle sfide per celebrare i nostri successi.\n- Flessibilità invece di piegare (Office Jobs): Oltre alle possibilità di ufficio domestico, ti permettiamo fino a 8 settimane di lavoro. Inoltre, ogni posizione è possibile anche nella penalità dell'80%.\n- Rapida crescita: Con noi, si sta costantemente crescendo e sviluppando. E ottenere punti EDU (2'000 CHF per i dipendenti in Svizzera, 1600 EUR per i dipendenti tedeschi e 700 EUR per i nostri dipendenti serbi) per il vostro ulteriore sviluppo, in modo che non si sta fermando.\n- Ulteriori vantaggi Svizzera: Approfitta di 25 giorni di vacanza, prezzi esclusivi per i dipendenti nel negozio, mobile, Internet e TV a tariffa aziendale e altri vantaggi.\n\n## Contatto\nApplicazione e contatto\nPatrick Meise\nPersone attrazione e specialista di approvvigionamento attivo\n\nNota per i fornitori di servizi del personale*\nPer questa posizione, consideriamo solo applicazioni dirette.\n\nGrado di occupazione: 80-100 %",
-        "en": "For the last mile, we are strengthening our product development team. The last mile is the interface between our warehouses and our customers: it starts in the checkout and extends to ramp and yard management, dangerous goods and customs processes, to tracking of shipments and tracking of losses and transport damage. If something goes wrong there, customers notice it immediately.\n\n**Luogo di lavoro:** Galaxus, DG Headquarters, Pfingstweidstrasse 60b, 8005 Zurich\n\n## Important information\nWe welcome every application, but can only consider online applications. Applications by post are disposed of for data protection reasons and not returned.\n\n## Mansioni\n- You build the last mile services and you run them too. From carrier connection to shipment tracking to shipment loss detection, what your team builds is also responsible for operations\n- Grown structures you modernize in the ongoing shipping. In small steps, secured by tests and measured values without the shipping chain standing still\n- Connecting external systems is part of your everyday life. Shipping service providers and authorities rarely provide clean interfaces, so you build them fault-tolerant, idempotent and observable\n- You shape the engineering culture in the team. We continuously develop reviews, API guidelines, monitoring and documentation, you bring your experience and set standards instead of just adopting specifications\n- Together with product owner, team and architecture you cut the work. You make technical considerations and their consequences transparent, also towards logistics, operations and external partners\n\n## Requirements\n- Several years of professional experience: As a software engineer – part of which is responsible for solutions that run productively and under load\n- Completed studies (Uni/ETH, FH, HF): In computer science (ETH/Uni/FH) or equivalent practical work experience\n- In-depth knowledge of C# and .NET, SQL and experience with distributed, high-throughput event-based systems\n- Experience with the connection of external partner systems and their interfaces, ideally in the shipping or logistics environment\n- Secure handling of grown code and the sense to modernize it incrementally without disturbing the current shipping\n- The operation is considered by you from the beginning, from monitoring and alerting to behavior in peak times\n- AI as an integral part of analysis, conception, implementation and testing – no buzzword\n- Clear, situational communication, also towards logistics, operations and external partner companies\n- Taking calculated risks to create value and drive growth\n- The willingness to question “as it has always been done” and propose more efficient, automated or effective solutions\n- in German (negotiation confident)\n- English (flowing)\n\n## Cosa of friamo\n- Flexible working hours: You record your working hours – and compensate for every single minute over your contractually agreed target time.\n- Flexible place of work / home office: You arrange your working hours and places individually adapted to you. You can also work from abroad for up to eight weeks a year.\n- Maternity leave / paternity leave: extended parental leave for mothers and fathers\n- Mobile subscription: You (and your friends & family) benefit from discounted conditions on the Galaxy Mobile subscription.\n- Employee offers: As an employee you benefit from special prices (for your own needs) on our entire range\n- Holidays: Five weeks holidays per year with the possibility of unpaid holidays\n- Individual training: 2,000 Edu Points per year for your self-study and garage projects\n- Education and training: Support for external education and training so that you can continuously expand your know-how\n- Personal responsibility & freedom: Our working environment is characterized by our values, an open feedback and a positive culture of error\n- Design and decision-making leeway: Via our innovation board, everyone has the opportunity to contribute their ideas directly to the management\n- Values instead of blabla: cooperative, innovative, pirate, self-responsible, ambitious – these five values we all demand and live.\n- Boldly think for yourself: We encourage everyone to think for themselves and actively. And love it when you think bravely, newly and differently.\n- Uncomplicated: We avoid the unnecessary and focus on the important. From mastering challenges to celebrating our successes.\n- Flexibility instead of bending (Office Jobs): In addition to home office possibilities, we allow you up to 8 weeks of workation. In addition, every position is also possible in the 80% penalty.\n- Rapid growth: With us, you are constantly growing and developing. And get EDU points (2'000 CHF for employees in Switzerland, 1'600 EUR for German employees and 700 EUR for our Serbian employees) for your further development, so that you do not stand still.\n- Further benefits Switzerland: Benefit from 25 days of holidays, exclusive employee prices in the shop, mobile, Internet and TV subscriptions at the company rate and other benefits.\n\n## Contatto\n**Application and contact * *\nPatrick Meise\nPeople Attraction & Active Sourcing Specialist\n\n**Note for personnel service providers* *\nFor this position, we only consider direct applications.\n\n**Grado di occupazione:** 80-100 %",
-        "de": "Für die letzte Meile verstärken wir unser Produktentwicklungsteam. Die letzte Meile ist die Schnittstelle zwischen unseren Lagern und der Kundschaft: Sie beginnt im Checkout und reicht über Rampen- und Yardmanagement, Gefahrgut und Zollprozesse bis zur Sendungsverfolgung und zum Tracking von Verlusten und Transportschäden. Geht dort etwas schief merken es die Kundinnen und Kunden sofort.\n\n**Luogo di lavoro:** Galaxus, DG Hauptsitz, Pfingstweidstrasse 60b, 8005 Zürich\n\n## Wichtige Hinweise\nWir freuen uns über jede Bewerbung, können aber nur Online-Bewerbungen berücksichtigen. Bewerbungen per Post werden aus Datenschutzgründen entsorgt und nicht retourniert.\n\n## Mansioni\n- Du baust die Services der letzten Meile und betreibst sie auch. Von der Carrier-Anbindung über die Sendungsverfolgung bis zur Sendungsverlusterfassung gilt: was dein Team baut, verantwortet es auch im Betrieb\n- Gewachsene Strukturen modernisierst du im laufenden Versand. In kleinen Schritten, abgesichert durch Tests und Messwerte, ohne dass die Versandkette stillsteht\n- Externe Systeme anbinden gehört zu deinem Alltag. Versanddienstleister und Behörden liefern selten saubere Schnittstellen, deshalb baust du sie fehlertolerant, idempotent und beobachtbar\n- Die Engineering-Kultur im Team prägst du mit. Reviews, API-Guidelines, Monitoring und Dokumentation entwickeln wir laufend weiter, du bringst deine Erfahrung ein und setzt Standards, statt nur Vorgaben zu übernehmen\n- Zusammen mit Product Owner, Team und Architektur schneidest du die Arbeit. Technische Abwägungen und ihre Konsequenzen machst du transparent, auch gegenüber Logistik, Operations und externen Partnern\n\n## Requisiti\n- Mehrere Jahre Berufserfahrung: Als Software Engineer – davon ein Teil in der Verantwortung für Lösungen, die produktiv und unter Last laufen\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): In Informatik (ETH/Uni/FH) oder gleichwertige praktische Berufserfahrung\n- Fundierte Kenntnisse in C# und .NET, dazu SQL und Erfahrung mit verteilten, eventbasierten Systemen mit hohem Durchsatz\n- Erfahrung mit der Anbindung externer Partnersysteme und deren Schnittstellen, idealerweise im Versand- oder Logistikumfeld\n- Sicherer Umgang mit gewachsenem Code und das Gespür, ihn inkrementell zu modernisieren, ohne den laufenden Versand zu stören\n- An den Betrieb wird von dir von Anfang an mitgedacht, von Monitoring und Alerting bis zum Verhalten in Peak-Zeiten\n- AI als integraler Bestandteil von Analyse, Konzeption, Umsetzung und Testing – kein Buzzword\n- Klare, situationsgerechte Kommunikation, auch gegenüber Logistik, Operations und externen Partnerunternehmen\n- Berechnete Risiken eingehen, um Wert zu schaffen und Wachstum voranzutreiben\n- Die Bereitschaft, „wie es immer gemacht wurde“ in Frage zu stellen und effizientere, automatisierte oder effektivere Lösungen vorzuschlagen\n- Deutsch (verhandlungssicher)\n- Englisch (fliessend)\n\n## Cosa offriamo\n- Flexible Arbeitszeit: Du erfasst deine Arbeitszeit – und kompensierst jede einzelne Minute über deiner vertraglich vereinbarten Sollzeit.\n- Flexibler Arbeitsort / Home Office: Du gestaltest deine Arbeitszeiten und Orte individuell auf dich abgestimmt. Zudem kannst du bis zu acht Wochen im Jahr aus dem Ausland arbeiten.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: Erweiterte Elternzeit für Mütter und Väter\n- Handy-Abo: Du (und deine Friends & Family) profitieren von vergünstigten Konditionen auf das Galaxus Mobile Abo.\n- Mitarbeiterangebote: Als Mitarbeiter profitierst du von Spezialpreisen (für deinen Eigenbedarf) auf unser gesamtes Sortiment\n- Ferien: Fünf Wochen Ferien pro Jahr mit der Möglichkeit für unbezahlten Urlaub\n- Individuelle Weiterbildung: 2'000 Edu-Points pro Jahr für dein Selbststudium und deine Garagenprojekte\n- Aus- und Weiterbildung: Unterstützung bei externen Aus- und Weiterbildungen, so dass du dein Know-how laufend erweitern kannst\n- Eigenverantwortung & Freiraum: Unser Arbeitsumfeld ist geprägt von unseren Werten, einer offenen Feedback- und einer positiven Fehlerkultur\n- Gestaltungs- und Entscheidungsspielraum: Via unserem Innovationsboard haben alle die Möglichkeit, seine Ideen direkt bei der Geschäftsleitung einzubringen\n- Werte statt blabla: Kooperativ, innovativ, piratisch, eigenverantwortlich, ambitioniert – diese fünf Werte fordern wir alle und leben wir alle.\n- Mutig selbst denken: Wir ermutigen alle, selbst und aktiv mitzudenken. Und lieben es, wenn du noch dazu mutig, neu und anders denkst.\n- Unkompliziert: Wir vermeiden Unnötiges und fokussieren uns aufs Wichtige. Vom Meistern von Herausforderungen bis zum Feiern unserer Erfolge.\n- Flexibilität statt verbiegen (Office Jobs): Neben Homeoffice Möglichkeiten ermöglichen wir dir bis zu 8 Wochen Workation. Zudem ist jede Position auch im 80%-Pensum möglich.\n- Schnelles Wachstum: Bei uns wächst und entwickelst du dich laufend. Und erhältst EDU Punkte (2'000 CHF für Mitarbeitende in der Schweiz, 1'600 EUR für deutsche Mitarbeitende und 700 EUR für unsere serbischen Mitarbeitenden) für deine Weiterentwicklung, damit du nicht stehenbleibst.\n- Weitere Benefits Schweiz: Profitiere von 25 Tagen Ferien, exklusiven Mitarbeiterpreisen im Shop, Handy-, Internet- und TV-Abos zum Firmentarif und weiteren Vorteilen.\n\n## Contatto\n**Bewerbung & Kontakt**\nPatrick Meise\nPeople Attraction & Active Sourcing Specialist\n\n**Hinweis für Personaldienstleister**\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-        "fr": "Pour le dernier kilomètre, nous renforçons notre équipe de développement de produits. Le dernier mile est l'interface entre nos entrepôts et nos clients: il commence à la caisse et s'étend à la gestion des rampes et des chantiers, aux marchandises dangereuses et aux processus douaniers, au suivi des expéditions et au suivi des pertes et des dégâts de transport. Si quelque chose va mal, les clients le remarquent immédiatement.\n\n**Luogo di lavoro:** Galaxus, DG Siège, Pfingstweidstrasse 60b, 8005 Zurich\n\n## Informations importantes\nNous accueillons chaque demande, mais nous ne pouvons considérer que les demandes en ligne. Les demandes par la poste sont éliminées pour des raisons de protection des données et ne sont pas retournées.\n\n## Mansioni\n- Vous construisez les services du dernier kilomètre et vous les dirigez aussi. De la connexion du transporteur au suivi des expéditions à la détection des pertes d'expédition, ce que votre équipe construit est également responsable des opérations\n- Structures développées que vous modernisez dans le transport en cours. En petites étapes, sécurisées par des essais et des valeurs mesurées sans que la chaîne d'expédition reste immobile\n- Connecter des systèmes externes fait partie de votre vie quotidienne. Les fournisseurs de services d'expédition et les autorités fournissent rarement des interfaces propres, de sorte que vous les construisez tolérant les défauts, idémpotent et observable\n- Vous façonnez la culture d'ingénierie dans l'équipe. Nous développons continuellement des revues, des lignes directrices API, du suivi et de la documentation, vous apportez votre expérience et définissez des normes au lieu d'adopter simplement des spécifications\n- Avec le propriétaire du produit, l'équipe et l'architecture, vous coupez le travail. Vous rendez les considérations techniques et leurs conséquences transparentes, également pour la logistique, les opérations et les partenaires externes\n\n## Exigences\n- Plusieurs années d'expérience professionnelle: En tant qu'ingénieur logiciel – dont une partie est responsable des solutions qui fonctionnent de manière productive et sous charge\n- Études terminées (Uni/ETH, FH, HF): en informatique (ETH/Uni/FH) ou expérience de travail pratique équivalente\n- Connaissance approfondie de C# et de .NET, SQL et expérience avec des systèmes d'événements distribués à haut débit\n- Expérience de la connexion des systèmes partenaires externes et de leurs interfaces, idéalement dans l'environnement maritime ou logistique\n- Manipulation sécurisée du code cultivé et du sens de le moderniser progressivement sans perturber le transport actuel\n- L'opération est considérée par vous dès le début, de la surveillance et de l'alerte au comportement dans les heures de pointe\n- L'IA en tant que partie intégrante de l'analyse, de la conception, de la mise en œuvre et des essais – aucun mot à la mode\n- Communication claire et situationnelle, également vers la logistique, les opérations et les entreprises partenaires externes\n- Prise de risques calculés pour créer de la valeur et stimuler la croissance\n- La volonté de questionner comme elle a toujours été faite et proposer des solutions plus efficaces, automatisées ou efficaces\n- en allemand (négociation confiante)\n- Anglais (flux)\n\n## Cosa de friamo\n- Heures de travail flexibles : Vous enregistrez vos heures de travail – et compensez chaque minute au cours de votre période cible contractuellement convenue.\n- Lieu de travail flexible / bureau à domicile: Vous organisez vos heures de travail et lieux individuellement adaptés à vous. Vous pouvez également travailler à l'étranger jusqu'à huit semaines par an.\n- Congé de maternité / congé de paternité: congé parental prolongé pour les mères et les pères\n- Abonnement mobile: Vous (et vos amis et votre famille) bénéficiez de conditions avantageuses sur l'abonnement Galaxy Mobile.\n- Offres des employés : En tant qu'employé, vous bénéficiez de prix spéciaux (pour vos propres besoins) sur toute notre gamme\n- Vacances: Cinq semaines de vacances par an avec la possibilité de vacances non rémunérées\n- Formation individuelle : 2 000 points Edu par an pour vos projets d'autoformation et de garage\n- Éducation et formation: soutien à l'éducation et à la formation externes afin que vous puissiez développer continuellement votre savoir-faire\n- Responsabilité personnelle et liberté : Notre environnement de travail est caractérisé par nos valeurs, une rétroaction ouverte et une culture d'erreur positive\n- Conception et prise de décision : via notre conseil d'innovation, chacun a la possibilité de contribuer directement à la gestion\n- Valeurs au lieu de blabla : coopérative, innovante, pirate, auto-responsable, ambitieuse – ces cinq valeurs que nous exigeons et vivons tous.\n- Pensons avec force : Nous encourageons chacun à penser par lui-même et activement. Et aimez-le quand vous pensez courageusement, récemment et différemment.\n- Non compliqué : Nous évitons le superflu et nous concentrons sur l'important. De la maîtrise des défis à la célébration de nos succès.\n- Flexibilité au lieu de flexion (emplois de bureau): En plus des possibilités de bureau à domicile, nous vous permettons jusqu'à 8 semaines de travail. En outre, chaque position est également possible dans la pénalité de 80%.\n- Croissance rapide : Avec nous, vous vous développez constamment. Et obtenez des points EDU (2'000 CHF pour les employés en Suisse, 1'600 EUR pour les employés allemands et 700 EUR pour nos employés serbes) pour votre développement ultérieur, afin que vous ne soyez pas immobile.\n- Autres avantages Suisse: Bénéficiez de 25 jours de vacances, des tarifs salariés exclusifs dans la boutique, les abonnements mobiles, Internet et TV au tarif de l'entreprise et autres avantages.\n\n## Contatto\n** Demande et contact * *\nPatrick Meise\nSpécialiste de l'attraction des personnes et de l'approvisionnement actif\n\n**Note pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\n**Grado di occupationazione:** 80-100 %"
-      },
-      "slugByLocale": {
-        "it": "senior-software-ingegnere-last-mile-m-w-d-galaxus-zurich-prp0sv",
-        "en": "senior-software-engineer-last-mile-m-w-d-galaxus-zurich-prp0sv",
-        "de": "senior-software-ingenieur-last-mile-m-w-d-galaxus-zurich-prp0sv",
-        "fr": "senior-software-ingenieur-last-mile-m-w-d-galaxus-zurich-prp0sv"
-      },
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossenes Studium (Uni/ETH, FH, HF): In Informatik (ETH/Uni/FH) oder gleichwertige praktische Berufserfahrung",
-          "Fundierte Kenntnisse in C# und .NET, dazu SQL und Erfahrung mit verteilten, eventbasierten Systemen mit hohem Durchsatz",
-          "An den Betrieb wird von dir von Anfang an mitgedacht, von Monitoring und Alerting bis zum Verhalten in Peak-Zeiten",
-          "AI als integraler Bestandteil von Analyse, Konzeption, Umsetzung und Testing – kein Buzzword",
-          "Klare, situationsgerechte Kommunikation, auch gegenüber Logistik, Operations und externen Partnerunternehmen",
-          "Berechnete Risiken eingehen, um Wert zu schaffen und Wachstum voranzutreiben",
-          "Deutsch (verhandlungssicher)",
-          "Englisch (fliessend)"
-        ],
-        "it": [],
-        "en": [],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-software-engineer-last-mile-m-w-d-galaxus-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-software-engineer-last-mile-m-w-d-galaxus-zurich"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:53:25.836Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 121500,
-      "salaryMax": 206500
-    },
-    {
       "id": "company-jje7a1",
       "slug": "gestione-del-ramo-aggiunto-genossenschaft-migros-ostschweiz-chur",
       "company": "Genossenschaft Migros Ostschweiz",
@@ -9871,7 +9755,6 @@
       "postalCode": "9000",
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
         "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
@@ -9879,7 +9762,6 @@
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
           "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
@@ -32784,123 +32666,6 @@
       "salaryMax": 111500
     },
     {
-      "id": "company-66rc0n",
-      "slug": "responsabile-del-reparto-carne-pesce-genossenschaft-migros-ostschweiz-amriswil",
-      "company": "Genossenschaft Migros Ostschweiz",
-      "title": "Abteilungsleiter*in Fleisch/Fisch",
-      "location": "Amriswil",
-      "canton": "TG",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Hast du ein Gespür für hochwertige Fleischprodukte 🥩 und begeisterst dich für die Vielfalt unseres Sortiments im Bereich Fleisch und Fisch? 🍖Du bist verkaufsstark 💪 und kommunizierst gerne und sicher mit unserer Kundschaft? 😊 Dann bist du bei uns genau richtig! ✅ Lass uns «zämä erfolgrich» sein. 🤝🧡\n\n**Luogo di lavoro:** Genossenschaft Migros Ostschweiz, MM Amriswil, Rütistrasse 10a, 8580 Amriswil\n\n## Mansioni\n- Du übernimmst die fachliche Verantwortung für den Bereich Metzgerei 🥩🔪 und sorgst dafür, dass alles reibungslos läuft.\n- Du kümmerst dich um Verkaufsförderung . 📅🤝 Mit deinem Organisationstalent sorgst du für einen reibungslosen Ablauf.\n- Umsatz-, Kosten-, Inventar- und Lagerbewirtschaftung 📈📦 gehören zu deinen Kernaufgaben – du hast dabei stets den Überblick und steuerst gezielt.\n- Bestellwesen, Wareneingangskontrollen, Warenpräsentation und -disposition 📋🚛✨ liegen in deinen Händen – du sorgst dafür, dass alles perfekt läuft.\n- Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ an der Bedienungstheke gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite.\n\n## Requisiti\n- Berufserfahrung: im Fleischverkauf\n- Abgeschlossene Grund- oder Weiterbildung: im Detailhandel, Branche Lebensmittel/Fleischwirtschaft; als Fleischfachmann*frau oder als Koch*Köchin\n- Du bringst sehr gute Fach- und Verwendungskenntnisse in den Bereichen Fleisch/Fisch/Käse 🥩🐟🧀 mit.\n- Zuverlässigkeit, Flexibilität und eine hohe Einsatzbereitschaft 💪⏰ zeichnen dich aus – du bist immer da, wenn man dich braucht.\n- Mit deiner selbstständigen Arbeitsweise und deinem freundlichen Umgang 😊🤝 schaffst du eine angenehme Atmosphäre für Kundschaft und Team.\n- Du bist bereit, dich stetig weiterzubilden 📚🚀 und bleibst so immer auf dem neuesten Stand.\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde\n- Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung\n- Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel\n- Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen\n\n## Contatto\n**Bewerbung & Kontakt**\nPeter Kornberger\nMarktleiter MM Amriswil\n+41 58 712 61 02\n\n**Grado di occupazione:** 80-100%",
-      "requirements": [
-        "Berufserfahrung: im Fleischverkauf",
-        "Abgeschlossene Grund- oder Weiterbildung: im Detailhandel, Branche Lebensmittel/Fleischwirtschaft; als Fleischfachmann*frau oder als Koch*Köchin",
-        "Du bringst sehr gute Fach- und Verwendungskenntnisse in den Bereichen Fleisch/Fisch/Käse 🥩🐟🧀 mit.",
-        "Zuverlässigkeit, Flexibilität und eine hohe Einsatzbereitschaft 💪⏰ zeichnen dich aus – du bist immer da, wenn man dich braucht.",
-        "Mit deiner selbstständigen Arbeitsweise und deinem freundlichen Umgang 😊🤝 schaffst du eine angenehme Atmosphäre für Kundschaft und Team.",
-        "Du bist bereit, dich stetig weiterzubilden 📚🚀 und bleibst so immer auf dem neuesten Stand.",
-        "Deutsch (sehr gute Kenntnisse)"
-      ],
-      "featured": false,
-      "datePosted": "2026-10-14T02:49:06+02:00",
-      "postedDate": "2026-10-14T02:49:06+02:00",
-      "postingDateSource": "reported",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fleischfisch/a3bf550f-a2d9-4d06-8c0e-244c167fa389",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fleischfisch/a3bf550f-a2d9-4d06-8c0e-244c167fa389",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du übernimmst die fachliche Verantwortung für den Bereich Metzgerei 🥩🔪 und sorgst dafür, dass alles reibungslos läuft.",
-        "Du kümmerst dich um Verkaufsförderung . 📅🤝 Mit deinem Organisationstalent sorgst du für einen reibungslosen Ablauf.",
-        "Umsatz-, Kosten-, Inventar- und Lagerbewirtschaftung 📈📦 gehören zu deinen Kernaufgaben – du hast dabei stets den Überblick und steuerst gezielt.",
-        "Bestellwesen, Wareneingangskontrollen, Warenpräsentation und -disposition 📋🚛✨ liegen in deinen Händen – du sorgst dafür, dass alles perfekt läuft.",
-        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ an der Bedienungstheke gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite."
-      ],
-      "_migrosBenefits": [
-        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
-        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
-        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
-        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
-      ],
-      "_migrosWorkPercentage": "80-100%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-11-03T09:53:25.836Z",
-      "firstSeenAt": "2026-10-14T21:38:44.785Z",
-      "titleByLocale": {
-        "de": "Abteilungsleiter*in Fleisch/Fisch",
-        "it": "Responsabile del reparto carne/pesce",
-        "en": "Department manager, meat/fish",
-        "fr": "Responsable du département viande/poisson"
-      },
-      "descriptionByLocale": {
-        "de": "Hast du ein Gespür für hochwertige Fleischprodukte 🥩 und begeisterst dich für die Vielfalt unseres Sortiments im Bereich Fleisch und Fisch? 🍖Du bist verkaufsstark 💪 und kommunizierst gerne und sicher mit unserer Kundschaft? 😊 Dann bist du bei uns genau richtig! ✅ Lass uns «zämä erfolgrich» sein. 🤝🧡\n\n**Luogo di lavoro:** Genossenschaft Migros Ostschweiz, MM Amriswil, Rütistrasse 10a, 8580 Amriswil\n\n## Mansioni\n- Du übernimmst die fachliche Verantwortung für den Bereich Metzgerei 🥩🔪 und sorgst dafür, dass alles reibungslos läuft.\n- Du kümmerst dich um Verkaufsförderung . 📅🤝 Mit deinem Organisationstalent sorgst du für einen reibungslosen Ablauf.\n- Umsatz-, Kosten-, Inventar- und Lagerbewirtschaftung 📈📦 gehören zu deinen Kernaufgaben – du hast dabei stets den Überblick und steuerst gezielt.\n- Bestellwesen, Wareneingangskontrollen, Warenpräsentation und -disposition 📋🚛✨ liegen in deinen Händen – du sorgst dafür, dass alles perfekt läuft.\n- Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ an der Bedienungstheke gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite.\n\n## Requisiti\n- Berufserfahrung: im Fleischverkauf\n- Abgeschlossene Grund- oder Weiterbildung: im Detailhandel, Branche Lebensmittel/Fleischwirtschaft; als Fleischfachmann*frau oder als Koch*Köchin\n- Du bringst sehr gute Fach- und Verwendungskenntnisse in den Bereichen Fleisch/Fisch/Käse 🥩🐟🧀 mit.\n- Zuverlässigkeit, Flexibilität und eine hohe Einsatzbereitschaft 💪⏰ zeichnen dich aus – du bist immer da, wenn man dich braucht.\n- Mit deiner selbstständigen Arbeitsweise und deinem freundlichen Umgang 😊🤝 schaffst du eine angenehme Atmosphäre für Kundschaft und Team.\n- Du bist bereit, dich stetig weiterzubilden 📚🚀 und bleibst so immer auf dem neuesten Stand.\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde\n- Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung\n- Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel\n- Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen\n\n## Contatto\n**Bewerbung & Kontakt**\nPeter Kornberger\nMarktleiter MM Amriswil\n+41 58 712 61 02\n\n**Grado di occupazione:** 80-100%",
-        "it": "Avete una sensazione per prodotti di carne di alta qualità 🥩 e siete entusiasti della varietà della nostra gamma nel settore della carne e del pesce? 🍖 Siete forti vendite 💪 e come comunicare in modo sicuro con i nostri clienti? Allora avete esattamente ragione con noi! ✅ Siamo «il successo di tämä».\n\n**Luogo di lavoro Cooperativa Migros Svizzera orientale, MM Amriswil, Rütistrasse 10a, 8580 Amriswil\n\n## Mansioni\n- Si assume la responsabilità professionale per il settore macelleria 🥩🔪 e assicurarsi che tutto funzioni senza intoppi.\n- Ti occupi della promozione delle vendite. 📅🤝 Con il tuo talento organizzativo garantisci un processo regolare.\n- I ricavi, i costi, l'inventario e la gestione dell'inventario 📈📦 sono tra i vostri compiti principali – avete sempre la panoramica e il controllo in particolare.\n- L'ordine, i controlli delle merci in entrata, la presentazione e la disposizione delle merci 📋🚛✨ sono nelle vostre mani – si assicura che tutto funzioni perfettamente.\n- Servizio clienti amichevole e competente 😊🛍️ presso il banco assistenza sono una questione naturalmente per voi e siete a disposizione per consigliare i clienti con la vostra esperienza.\n\n## Requisiti\n- Esperienza professionale: nelle vendite di carne\n- Completata la formazione iniziale o successiva: nel commercio al dettaglio, nell'industria alimentare/carne; come specialista in carne o cuoco*\n- Si porta molto buona conoscenza di carne / pesce / formaggio 🥩🐟🧀.\n- Affidabilità, flessibilità e un alto livello di impegno 💪⏰ ti distinguono – sei sempre lì quando hai bisogno.\n- Con il vostro lavoro indipendente e il vostro approccio amichevole 😊🤝 si crea un'atmosfera piacevole per i clienti e il team.\n- Siete pronti a continuare la vostra formazione 📚🚀 e rimanere sempre aggiornati.\n- tedesco (molto buona conoscenza)\n\n## Cosa di Friamo\n- Abbonamento mobile: Condizioni altamente scontate per abbonamento privato mobile anche per famiglia e amici\n- Previdenza occupazionale: Prestazioni di fondo pensionistico attraente con alta partecipazione del datore di lavoro\n- Punti di cumulo: punti di cumulo multipli sugli alimenti e sugli oggetti non alimentari\n- Club School Migros: Partecipazione finanziaria Generosa ai corsi auto-selezionati\n\n## Contatto\n**Applicazione e contatto\nPeter Kornberger\nResponsabile del mercato MM Amriswil\n+41 58 712 61 02\n\n**Grado di occupazione: ** 80-100 %",
-        "en": "Do you have a feeling for high-quality meat products 🥩 and are enthusiastic about the variety of our range in the meat and fish sector? 🍖You are strong sales 💪 and like to communicate safely with our customers? 😊 Then you are exactly right with us! ✅ Let us be «tämä success». 🤝🧡\n\nLuogo di lavoro: Cooperative Migros Eastern Switzerland, MM Amriswil, Rütistrasse 10a, 8580 Amriswil\n\n## Mansioni\n- You take on the professional responsibility for the butchery sector 🥩🔪 and ensure that everything runs smoothly.\n- You take care of sales promotion. 📅🤝 With your organizational talent you ensure a smooth process.\n- Revenue, cost, inventory and inventory management 📈📦 are among your core tasks – you always have the overview and control specifically.\n- Ordering, incoming goods checks, presentation and disposition of goods 📋🚛✨ are in your hands – you ensure that everything runs perfectly.\n- Friendly and competent customer service and advice 😊🛍️ at the service counter are a matter of course for you and you are on hand to advise the customers with your expertise.\n\n## Requirements\n- Professional experience: in meat sales\n- Completed initial or further training: in the retail trade, food/meat industry; as a meat specialist or cook*\n- You bring very good knowledge of meat/fish/cheese 🥩🐟🧀.\n- Reliability, flexibility and a high level of commitment 💪⏰ distinguish you – you are always there when you are needed.\n- With your independent work and your friendly approach 😊🤝 you create a pleasant atmosphere for customers and team.\n- You are ready to continue your education 📚🚀 and always stay up to date.\n- German (very good knowledge)\n\n## Cosa of Friamo\n- Mobile subscription: Highly discounted conditions for private mobile subscription also for family and friends\n- Occupational pension provision: Attractive pension fund benefits with high employer participation\n- Cumulus points: Multiple cumulus points on food and nonfood items\n- Club School Migros: Generous financial participation in self-selected courses\n\n## Contatto\nApplication and contact * *\nPeter Kornberger\nMarket Manager MM Amriswil\n+41 58 712 61 02\n\nGrado di occupazione: 80-100 %",
-        "fr": "Avez-vous un sentiment pour les produits de viande de haute qualité et êtes-vous enthousiaste par la variété de notre gamme dans le secteur de la viande et du poisson? Vous êtes des ventes fortes et aimez communiquer en toute sécurité avec nos clients ? Alors, vous avez exactement raison avec nous!\n\nLuogo di lavoro: Coopérative Migros Suisse orientale, MM Amriswil, Rütistrasse 10a, 8580 Amriswil\n\n## Mansioni\n- Vous assumez la responsabilité professionnelle du secteur de la boucherie et vous assurez que tout fonctionne bien.\n- Prenez soin de la promotion des ventes. (en milliers de dollars) Avec votre talent organisationnel, vous assurez un processus en douceur.\n- Les revenus, les coûts, les stocks et la gestion des stocks sont parmi vos tâches principales – vous avez toujours l'aperçu et le contrôle spécifiquement.\n- Commande, contrôle des marchandises entrantes, présentation et disposition des marchandises sont entre vos mains – vous assurez que tout fonctionne parfaitement.\n- Un service client amical et compétent et des conseils . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n\n## Exigences\n- Expérience professionnelle: vente de viande\n- Formation initiale ou continue terminée: dans le commerce de détail, l'industrie alimentaire/viande; comme spécialiste de la viande ou cuisinier*\n- Vous apportez une très bonne connaissance de la viande/poisson/cheese.\n- Fiabilité, flexibilité et un haut niveau d'engagement vous distinguent – vous êtes toujours là quand vous êtes nécessaire.\n- Avec votre travail indépendant et votre approche amicale, vous créez une atmosphère agréable pour les clients et l'équipe.\n- Vous êtes prêt à poursuivre votre éducation et restez toujours à jour.\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n Demande et contact * *\nPeter Kornberger\nDirecteur du marché MM Amriswil\n+41 58 712 61 02\n\nGrade di occupation: 80-100 %"
-      },
-      "slugByLocale": {
-        "it": "responsabile-del-reparto-carne-pesce-genossenschaft-migros-ostschweiz-amriswil",
-        "en": "department-manager-meat-fish-genossenschaft-migros-ostschweiz-amriswil-66rc0n",
-        "de": "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil-66rc0n",
-        "fr": "responsable-du-departement-viande-poisson-genossenschaft-migros-ostschweiz-amriswil-66rc0n"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Berufserfahrung: im Fleischverkauf",
-          "Du bringst sehr gute Fach- und Verwendungskenntnisse in den Bereichen Fleisch/Fisch/Käse 🥩🐟🧀 mit.",
-          "Du bist bereit, dich stetig weiterzubilden 📚🚀 und bleibst so immer auf dem neuesten Stand.",
-          "Deutsch (sehr gute Kenntnisse)"
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil",
-          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil-66rc0n"
-        ],
-        "en": [
-          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil-66rc0n",
-          "department-manager-meat-fish-genossenschaft-migros-ostschweiz-amriswil"
-        ],
-        "fr": [
-          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil-66rc0n",
-          "responsable-du-departement-viande-poisson-genossenschaft-migros-ostschweiz-amriswil"
-        ]
-      },
-      "previousSlugs": [
-        "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil",
-        "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-amriswil-66rc0n",
-        "department-manager-meat-fish-genossenschaft-migros-ostschweiz-amriswil",
-        "responsable-du-departement-viande-poisson-genossenschaft-migros-ostschweiz-amriswil"
-      ],
-      "salarySource": "reported",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Amriswil",
-      "addressRegion": "TG",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8580",
-      "streetAddress": "Amriswil",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:53:25.836Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 57500,
-      "salaryMax": 87000
-    },
-    {
       "id": "company-ap1akv",
       "slug": "venditore-al-banco-carne-e-pesce-genossenschaft-migros-zurich-stafa",
       "company": "Genossenschaft Migros Zürich",
@@ -33822,7 +33587,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-allschwil",
           "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7",
-          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f766808089",
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
         ],
         "fr": [
@@ -33832,7 +33596,6 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-allschwil",
         "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7",
-        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f766808089",
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
       ],
       "salarySource": "estimated",
@@ -46955,7 +46718,6 @@
       "previousSlugs": [
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
         "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f9fe347b3f",
         "fitness-instructor-m-w-d-activ-fitness-allschwil",
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
       ],
@@ -46963,7 +46725,6 @@
         "it": [
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
           "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f9fe347b3f",
           "fitness-instructor-m-w-d-activ-fitness-allschwil",
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
         ]
@@ -49882,116 +49643,6 @@
       "salaryMax": 106000
     },
     {
-      "id": "company-gdek39",
-      "slug": "panificio-pasticceria-grenchen-fresh-food-beverage-group-grenchen",
-      "company": "Fresh Food & Beverage Group",
-      "title": "Bäcker-Konditor Grenchen",
-      "location": "Grenchen",
-      "canton": "SO",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Du bist ein Frühaufsteher mit einer Leidenschaft fürs Backen? Du liebst es, mit deinen Händen etwas zu erschaffen, das Menschen glücklich macht? Dann komm in unsere Bäckerei und werde Teil eines Teams, das jeden Tag mit Hingabe und Kreativität arbeitet!\n\n**Luogo di lavoro:** Fresh Food & Beverage Group, Hausbäckerei Grenchen, Freiestrasse 10, 2540 Grenchen\n\n## Wichtige Hinweise\nWir freuen uns über jede Bewerbung, können aber nur Online-Bewerbungen berücksichtigen. Bewerbungen per Post werden aus Datenschutzgründen entsorgt und nicht retourniert.\n\n## Mansioni\n- Du bist mitverantwortlich für die Herstellung unserer vielseitigen Backwaren\n- Überwachen der Produktion und führen von Teig-, Tisch-, sowie Ofenarbeiten\n- Du setzt die Qualität- und Hygiene-Vorgaben um und bist der Botschafter der Produkte gegenüber unserer Kundschaft\n\n## Requisiti\n- Lehrabgänger sind ebenfalls willkommen: Bäcker\n- Abgeschlossene Berufslehre (EFZ): Bäcker\n- Bereitschaft für flexible Arbeitszeiten sowie Samstagsarbeiten\n- Freude am Beruf sowie eine zuverlässige Arbeitsweise und Belastbarkeit auch in hektischen Situationen\n- Deutsch (fliessend)\n\n## Cosa offriamo\n- Mitarbeiterangebote: Mitarbeiterpunkte Cumulus, Vergünstigte Mobileabos, Höhere Zinssätze Migros Bank, Beiträge Klubschule/Fitness und mehr.\n- Berufliche Vorsorge: Umfassend abgesichert in der Migros-Pensionskasse – mit erstklassigen und attraktiven Leistungen.\n- Ferien: 5 Wochen Ferien für alle, 6 Wochen Ferien ab 50. Altersjahr, 7 Wochen Ferien ab 60. Altersjahr, Zukauf von zusätzlichen Ferientagen möglich.\n- Aus- und Weiterbildung: Wir bilden Mitarbeitende aktiv im Rahmen interner Programme aus und unterstützen bei Bedarf externe Weiterbildungen mit Zeit- und Geldleistungen.\n\n## Contatto\n**Bewerbung & Kontakt**\nCarmen Peluso\nHR Recruiterin\n\n**Rekrutierungsprozess**\n\n- Vorselektion der Bewerbungen (FFB-Group): Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert.\n- Persönliches Video- oder Telefongespräch (FFB-Group): Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen.\n- Probearbeiten: Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Angebot & Vertragsausstellung (FFB-Group): Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet.\n\n**Grado di occupazione:** 60-100%",
-      "requirements": [
-        "Lehrabgänger sind ebenfalls willkommen: Bäcker",
-        "Abgeschlossene Berufslehre (EFZ): Bäcker",
-        "Bereitschaft für flexible Arbeitszeiten sowie Samstagsarbeiten",
-        "Freude am Beruf sowie eine zuverlässige Arbeitsweise und Belastbarkeit auch in hektischen Situationen",
-        "Deutsch (fliessend)"
-      ],
-      "featured": false,
-      "datePosted": "2026-10-06T01:12:25+02:00",
-      "postedDate": "2026-10-06T01:12:25+02:00",
-      "postingDateSource": "reported",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/backer-konditor-grenchen/c6051b2c-a88c-4e62-871f-2baf211d705d",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/backer-konditor-grenchen/c6051b2c-a88c-4e62-871f-2baf211d705d",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du bist mitverantwortlich für die Herstellung unserer vielseitigen Backwaren",
-        "Überwachen der Produktion und führen von Teig-, Tisch-, sowie Ofenarbeiten",
-        "Du setzt die Qualität- und Hygiene-Vorgaben um und bist der Botschafter der Produkte gegenüber unserer Kundschaft"
-      ],
-      "_migrosBenefits": [
-        "Mitarbeiterangebote: Mitarbeiterpunkte Cumulus, Vergünstigte Mobileabos, Höhere Zinssätze Migros Bank, Beiträge Klubschule/Fitness und mehr.",
-        "Berufliche Vorsorge: Umfassend abgesichert in der Migros-Pensionskasse – mit erstklassigen und attraktiven Leistungen.",
-        "Ferien: 5 Wochen Ferien für alle, 6 Wochen Ferien ab 50. Altersjahr, 7 Wochen Ferien ab 60. Altersjahr, Zukauf von zusätzlichen Ferientagen möglich.",
-        "Aus- und Weiterbildung: Wir bilden Mitarbeitende aktiv im Rahmen interner Programme aus und unterstützen bei Bedarf externe Weiterbildungen mit Zeit- und Geldleistungen."
-      ],
-      "_migrosWorkPercentage": "60-100%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-11-03T09:53:25.836Z",
-      "firstSeenAt": "2026-10-06T09:38:31.629Z",
-      "titleByLocale": {
-        "de": "Bäcker-Konditor Grenchen",
-        "it": "Panificio pasticceria Grenchen",
-        "en": "Baker confectioner Grenchen",
-        "fr": "La confiserie de Baker Grenchen"
-      },
-      "descriptionByLocale": {
-        "de": "Du bist ein Frühaufsteher mit einer Leidenschaft fürs Backen? Du liebst es, mit deinen Händen etwas zu erschaffen, das Menschen glücklich macht? Dann komm in unsere Bäckerei und werde Teil eines Teams, das jeden Tag mit Hingabe und Kreativität arbeitet!\n\n**Luogo di lavoro:** Fresh Food & Beverage Group, Hausbäckerei Grenchen, Freiestrasse 10, 2540 Grenchen\n\n## Wichtige Hinweise\nWir freuen uns über jede Bewerbung, können aber nur Online-Bewerbungen berücksichtigen. Bewerbungen per Post werden aus Datenschutzgründen entsorgt und nicht retourniert.\n\n## Mansioni\n- Du bist mitverantwortlich für die Herstellung unserer vielseitigen Backwaren\n- Überwachen der Produktion und führen von Teig-, Tisch-, sowie Ofenarbeiten\n- Du setzt die Qualität- und Hygiene-Vorgaben um und bist der Botschafter der Produkte gegenüber unserer Kundschaft\n\n## Requisiti\n- Lehrabgänger sind ebenfalls willkommen: Bäcker\n- Abgeschlossene Berufslehre (EFZ): Bäcker\n- Bereitschaft für flexible Arbeitszeiten sowie Samstagsarbeiten\n- Freude am Beruf sowie eine zuverlässige Arbeitsweise und Belastbarkeit auch in hektischen Situationen\n- Deutsch (fliessend)\n\n## Cosa offriamo\n- Mitarbeiterangebote: Mitarbeiterpunkte Cumulus, Vergünstigte Mobileabos, Höhere Zinssätze Migros Bank, Beiträge Klubschule/Fitness und mehr.\n- Berufliche Vorsorge: Umfassend abgesichert in der Migros-Pensionskasse – mit erstklassigen und attraktiven Leistungen.\n- Ferien: 5 Wochen Ferien für alle, 6 Wochen Ferien ab 50. Altersjahr, 7 Wochen Ferien ab 60. Altersjahr, Zukauf von zusätzlichen Ferientagen möglich.\n- Aus- und Weiterbildung: Wir bilden Mitarbeitende aktiv im Rahmen interner Programme aus und unterstützen bei Bedarf externe Weiterbildungen mit Zeit- und Geldleistungen.\n\n## Contatto\n**Bewerbung & Kontakt**\nCarmen Peluso\nHR Recruiterin\n\n**Rekrutierungsprozess**\n\n- Vorselektion der Bewerbungen (FFB-Group): Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert.\n- Persönliches Video- oder Telefongespräch (FFB-Group): Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen.\n- Probearbeiten: Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Angebot & Vertragsausstellung (FFB-Group): Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet.\n\n**Grado di occupazione:** 60-100%",
-        "it": "Sei un mattiniero con una passione per la pasticceria? Ami creare qualcosa con le mani che renda felici le persone? Allora vieni nella nostra panetteria e diventa parte di un team che lavora ogni giorno con dedizione e creatività!\n\n**Luogo di lavoro:** Fresh Food & Beverage Group, panetteria domestica Grenchen, Freiestrasse 10, 2540 Grenchen\n\n## Note importanti\nAccogliamo con favore ogni candidatura, ma possiamo considerare solo le domande online. Le domande per posta saranno smaltite per motivi di protezione dei dati e non saranno restituite.\n\n## Mansioni\n- Siete congiuntamente responsabili della produzione dei nostri prodotti da forno versatili\n- Monitoraggio della produzione ed esecuzione di impasti, tavoli e forni\n- Implementi le specifiche di qualità e igiene e sei l'ambasciatore dei prodotti per i nostri clienti\n\n## Oggetti di scena\n- Sono benvenuti anche i laureati in apprendistato: Pasticceri\n- Apprendistato completato (EFZ): Baker\n- Disponibilità a lavorare in orari flessibili e il sabato\n- Piacere della professione, un modo affidabile di lavorare e resilienza anche in situazioni frenetiche\n- Tedesco (fluente)\n\n## Cosa offriamo\n- Offerte per i dipendenti: punti dipendenti Cumulus, abbonamenti mobili scontati, tassi di interesse più alti Migros Bank, tasse di club per scuole/fitness e altro ancora.\n- Pensioni professionali: Protezione completa nel Fondo Pensione Migros – con benefici di prima classe e attraenti.\n- Festività: 5 settimane di vacanza per tutti, 6 settimane di vacanza da 50. Anno di età, 7 settimane di vacanza da 60. Anno di età, acquisto di giorni di ferie aggiuntive possibili.\n- Formazione e formazione ulteriore: Formiamo attivamente i dipendenti come parte di programmi interni e, se necessario, supportiamo la formazione esterna con benefici di tempo e denaro.\n\n## Contatto\n**Candidatura e Contatto**\nCarmen Peluso\nHR Recruiter\n\n**Processo di reclutamento**\n\n- Preselezione delle candidature (FFB-Group): Esaminiamo continuamente le candidature ricevute, creiamo una preselezione e la rilasciamo al responsabile per la visione. La decisione su progredire o lasciare il processo di selezione viene comunicata tramite telefono o e-mail.\n- Intervista personale video o telefonica (FFB Group): Se ci sono molti candidati, opzionalmente effettuiamo un colloquio personale telefonico o video. Questo ci dà l'opportunità di conoscere meglio altri candidati in breve tempo per invitare le persone adatte al turno successivo.\n- Lavoro di prova: Una giornata di prova o mezza giornata ci dà l'opportunità di conoscere meglio il futuro ambiente di lavoro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si integri nel team. Durata del feedback: fino a tre settimane\n- Offerta e Emissione del Contratto (FFB-Group): Dopo la nostra offerta verbale di lavoro, i punti più importanti del contratto vengono nuovamente verificati. Dopo l'accordo, il contratto viene commissionato e inviato per posta.\n\nGrado di occupazione: * * 60-100%",
-        "en": "Are you an early riser with a passion for baking? Do you love to create something with your hands that makes people happy? Then come to our bakery and become part of a team that works with dedication and creativity every day!\n\n**Luogo di lavoro:** Fresh Food & Beverage Group, house bakery Grenchen, Freiestrasse 10, 2540 Grenchen\n\n## Important notes\nWe welcome every application, but can only consider online applications. Applications by post will be disposed of for data protection reasons and will not be returned.\n\n## Mansioni\n- You are jointly responsible for the production of our versatile baked goods\n- Monitoring of production and carrying out dough, table and oven work\n- You implement the quality and hygiene specifications and are the ambassador of the products to our customers\n\n## Props\n- Apprenticeship graduates are also welcome: Bakers\n- Completed apprenticeship (EFZ): Baker\n- Willingness to work flexible working hours and Saturdays\n- Enjoyment of the profession as well as a reliable way of working and resilience even in hectic situations\n- German (fluent)\n\n## Cosa offriamo\n- Employee offers: Cumulus employee points, discounted mobile subscriptions, higher interest rates Migros Bank, club school/fitness fees and more.\n- Occupational pensions: Comprehensive protection in the Migros Pension Fund – with first-class and attractive benefits.\n- Holidays: 5 weeks holiday for everyone, 6 weeks holiday from 50. Age year, 7 weeks holiday from 60. Age year, purchase of additional vacation days possible.\n- Training and further education: We actively train employees as part of internal programs and, if necessary, support external training with time and money benefits.\n\n## Contatto\n**Application & Contact**\nCarmen Peluso\nHR Recruiter\n\n**Recruitment Process**\n\n- Pre-selection of applications (FFB-Group): We review received applications on an ongoing basis, create a pre-selection and release it to the manager for viewing. The decision on whether to advance or leave the recruitment process is communicated by telephone or e-mail.\n- Personal video or telephone interview (FFB Group): If there is a large number of applicants, we optionally conduct a personal telephone or video interview. This gives us the opportunity to get to know more candidates better within a short period of time in order to invite suitable people for the next round.\n- Trial work: A trial day or half-day gives us the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration to feedback: Up to three weeks\n- Offer & Contract Issuance (FFB-Group): After our verbal job offer, the most important points of the contract are verified again. After agreement, the contract is commissioned and sent by post.\n\n**Grade of occupancy:** 60-100%",
-        "fr": "Êtes-vous un lève-tôt passionné par la pâtisserie? Aimez-vous créer quelque chose avec vos mains qui rend les gens heureux? Alors venez dans notre boulangerie et rejoignez une équipe qui travaille chaque jour avec dévouement et créativité !\n\n**Lieu de lavoro :** Fresh Food & Beverage Group, Hausbäckerei Grenchen, Freiestrasse 10, 2540 Grenchen\n\n## Notes importantes\nNous acceptons chaque candidature, mais nous ne pouvons considérer que les candidatures en ligne. Pour des raisons de protection des données, les candidatures envoyées par courrier seront éliminées et ne seront pas renvoyées.\n\n## Manoir\n- Vous êtes conjointement responsables de la production de nos produits polyvalents de boulangerie\n- Surveillance de la production et réalisation des travaux de pâte, de table et de four\n- Vous mettez en œuvre les spécifications de qualité et d'hygiène et êtes l'ambassadeur des produits auprès de nos clients\n\n## Requirements\n- Les diplômés en apprentissage sont également les bienvenus : boulangers\n- Apprentissage achevé (EFZ) : Boulanger\n- Volonté de travailler des horaires flexibles et les samedis\n- Appréciation de la profession ainsi qu'un mode de travail fiable et de la résilience même dans des situations mouvementées\n- Allemand (couramment)\n\n## Cosa offriamo\n- Offres pour les employés : points employés Cumulus, abonnements mobiles réduits, taux d'intérêt plus élevés à la Banque Migros, frais de club scolaires/fitness et plus encore.\n- Pensions professionnelles : Protection complète au Fonds de pension Migros – avec des avantages de première classe et attractifs.\n- Vacances : 5 semaines de vacances pour tout le monde, 6 semaines de vacances à partir de 50. Année d'âge, 7 semaines de vacances à partir de 60. Année d'âge, achat de jours de vacances supplémentaires possibles.\n- Formation et formation complémentaire : Nous formons activement les employés dans le cadre de programmes internes et, si nécessaire, soutenons la formation externe avec des avantages en temps et en argent.\n\n## Contact\n**Candidature & Contact**\nCarmen Peluso\nRecruteur RH\n\n**Processus de recrutement**\n\n- Présélection des candidatures (FFB-Group) : Nous examinons en continu les candidatures reçues, créons une présélection et la transmettons au responsable pour visionnage. La décision de faire avancer ou de quitter le processus de recrutement est communiquée par téléphone ou e-mail.\n- Conversation personnelle par vidéo ou par téléphone (Groupe FFB) : En cas de nombre important de candidats, nous réalisons éventuellement une conversation personnelle par téléphone ou par vidéo. Cela nous donne la possibilité de mieux connaître davantage de candidats dans un court laps de temps afin d'inviter des personnes appropriées pour le prochain tour.\n- Travail d'essai : Une journée ou une demi-journée d'essai nous donne l'opportunité de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et inversement, cela nous permet d'évaluer la compatibilité de l'intégration de quelqu'un dans l'équipe. Durée de retour : jusqu'à trois semaines\n- Offre & Délivrance de contrat (FFB-Group) : Après notre offre d'emploi verbale, les points les plus importants du contrat sont à nouveau vérifiés. Après l'accord, le contrat est commandé et envoyé par la poste.\n\n**Grado di occupazione :** 60-100 %"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Lehrabgänger sind ebenfalls willkommen: Bäcker",
-          "Abgeschlossene Berufslehre (EFZ): Bäcker",
-          "Bereitschaft für flexible Arbeitszeiten sowie Samstagsarbeiten",
-          "Freude am Beruf sowie eine zuverlässige Arbeitsweise und Belastbarkeit auch in hektischen Situationen",
-          "Deutsch (fliessend)"
-        ],
-        "fr": []
-      },
-      "slugByLocale": {
-        "it": "panificio-pasticceria-grenchen-fresh-food-beverage-group-grenchen",
-        "en": "baker-confectioner-grenchen-fresh-food-beverage-group-grenchen",
-        "de": "backer-konditor-grenchen-fresh-food-beverage-group-grenchen-gdek39",
-        "fr": "la-confiserie-de-baker-grenchen-fresh-food-beverage-group-grenchen"
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "backer-konditor-grenchen-fresh-food-beverage-group-grenchen",
-          "backer-konditor-grenchen-fresh-food-beverage-group-grenchen-gdek39"
-        ],
-        "en": [
-          "backer-konditor-grenchen-fresh-food-beverage-group-grenchen-gdek39"
-        ],
-        "fr": [
-          "backer-konditor-grenchen-fresh-food-beverage-group-grenchen-gdek39"
-        ]
-      },
-      "previousSlugs": [
-        "backer-konditor-grenchen-fresh-food-beverage-group-grenchen",
-        "backer-konditor-grenchen-fresh-food-beverage-group-grenchen-gdek39"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Grenchen",
-      "addressRegion": "SO",
-      "employmentType": "FULL_TIME",
-      "postalCode": "2540",
-      "streetAddress": "Grenchen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:53:25.836Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 68500,
-      "salaryMax": 104000
-    },
-    {
       "id": "company-ugsay8",
       "slug": "testa-di-pane-pane-genossenschaft-migros-luzern-luzern",
       "company": "Genossenschaft Migros Luzern",
@@ -51904,7 +51555,6 @@
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -51918,7 +51568,6 @@
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "salarySource": "estimated",
@@ -81921,123 +81570,6 @@
       "salaryMax": 98500
     },
     {
-      "id": "company-p5e85u",
-      "slug": "pittura-e-disegno-pittura-acrilica-acquerello-su-base-oraria-genossenschaft-migros-ostschweiz-schaffhausen",
-      "company": "Genossenschaft Migros Ostschweiz",
-      "title": "Lehrperson Malen und Zeichnen/Acrylmalen/Aquarellieren im Stundenlohn",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Die Klubschule Migros ist die grösste Anbieterin für Erwachsenenbildung in der Schweiz. Die Genossenschaft Migros Ostschweiz betreibt 7 Klubschulen, in denen unseren Kunden über 600 verschiedene Kurse und Lehrgänge in einer angenehmen Unterrichtsatmosphäre angeboten werden.\n\n**Luogo di lavoro:** Klubschule Migros, Klubschule Schaffhausen, Herrenacker 13, 8200 Schaffhausen\n\n## Wichtige Hinweise\nEinsätze Montag bis Freitag Tagesworkshops und Abendkurse\n\n## Mansioni\n- Deine Freude am Unterrichten, dein Engagement und dein gewinnendes Auftreten begeistern die Teilnehmenden\n- Du gestaltest den Unterricht im Angebot Malen und Zeichnen / Aquarellieren und Acrylmalen nach erwachsenenbildnerischen Kriterien, indem du die unterschiedlichen Lebenserfahrungen, Lernstile und Bedürfnisse der Teilnehmenden berücksichtigst\n- Die umfassende Vor- und Nachbereitung des Unterrichts gehört ebenfalls zu deinen Aufgaben\n- Du schaffst eine positive Lernatmosphäre, welche die Motivation der Lernenden fördert, und knüpfst Beziehungen, die auf Vertrauen und Respekt gegründet sind\n- Durch regelmässige Absprachen mit den zuständigen Ansprechpersonen der Klubschuladministration gewährleistest du eine reibungslose Zusammenarbeit\n\n## Requisiti\n- Erfahrung: Im Bereich der Erwachsenenbildung sowie im entsprechenden Fachbereich\n- Abgeschlossene Grund- oder Weiterbildung: Fachliche Qualifikation mit eidgenössischer Anerkennung EFZ oder Abschluss an einer Fach- oder Hochschule im zu unterrichtenden Fachgebiet\n- Vertieftes Fachwissen im entsprechenden Fachbereich Zeichnen und Malen, Acrylmalen, Aquarellieren\n- Idealerweise verfügst du über das SVEB-Zertifikat 1 oder einen gleichwertigen Abschluss\n- Du zeichnest dich durch Selbstreflexion und Empathie gegenüber den Teilnehmenden aus\n- Deine Arbeit gestaltest du verantwortungsbewusst und eigenständig\n- Du kommunizierst klar, effektiv und respektvoll\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde\n- Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen\n- Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften\n\n## Contatto\n**Bewerbung & Kontakt**\nRegula Styger\nFachverantwortliche\n+41 58 712 43 27\n\n**Grado di occupazione:** 5-10%",
-      "requirements": [
-        "Erfahrung: Im Bereich der Erwachsenenbildung sowie im entsprechenden Fachbereich",
-        "Abgeschlossene Grund- oder Weiterbildung: Fachliche Qualifikation mit eidgenössischer Anerkennung EFZ oder Abschluss an einer Fach- oder Hochschule im zu unterrichtenden Fachgebiet",
-        "Vertieftes Fachwissen im entsprechenden Fachbereich Zeichnen und Malen, Acrylmalen, Aquarellieren",
-        "Idealerweise verfügst du über das SVEB-Zertifikat 1 oder einen gleichwertigen Abschluss",
-        "Du zeichnest dich durch Selbstreflexion und Empathie gegenüber den Teilnehmenden aus",
-        "Deine Arbeit gestaltest du verantwortungsbewusst und eigenständig",
-        "Du kommunizierst klar, effektiv und respektvoll",
-        "Deutsch (sehr gute Kenntnisse)"
-      ],
-      "featured": false,
-      "postedDate": "2026-09-15T11:25:38+02:00",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lehrperson-malen-und-zeichnenacrylmalenaquarellieren-im-stundenlohn/d7e29ab3-e381-43cd-beaa-ef7423760808",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lehrperson-malen-und-zeichnenacrylmalenaquarellieren-im-stundenlohn/d7e29ab3-e381-43cd-beaa-ef7423760808",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Deine Freude am Unterrichten, dein Engagement und dein gewinnendes Auftreten begeistern die Teilnehmenden",
-        "Du gestaltest den Unterricht im Angebot Malen und Zeichnen / Aquarellieren und Acrylmalen nach erwachsenenbildnerischen Kriterien, indem du die unterschiedlichen Lebenserfahrungen, Lernstile und Bedürfnisse der Teilnehmenden berücksichtigst",
-        "Die umfassende Vor- und Nachbereitung des Unterrichts gehört ebenfalls zu deinen Aufgaben",
-        "Du schaffst eine positive Lernatmosphäre, welche die Motivation der Lernenden fördert, und knüpfst Beziehungen, die auf Vertrauen und Respekt gegründet sind",
-        "Durch regelmässige Absprachen mit den zuständigen Ansprechpersonen der Klubschuladministration gewährleistest du eine reibungslose Zusammenarbeit"
-      ],
-      "_migrosBenefits": [
-        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
-        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen",
-        "Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften"
-      ],
-      "_migrosWorkPercentage": "5-10%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-11-03T09:53:25.836Z",
-      "firstSeenAt": "2026-09-17T07:39:05.465Z",
-      "titleByLocale": {
-        "it": "Pittura e disegno/pittura acrilica/acquerello su base oraria",
-        "en": "Teacher Painting and drawing/acrylic painting/watercolouring on an hourly basis",
-        "de": "Lehrperson Malen und Zeichnen/Acrylmalen/Aquarellieren im Stundenlohn",
-        "fr": "Professeur Peinture et dessin / peinture acrylique / aquarelle sur une base horaire"
-      },
-      "descriptionByLocale": {
-        "it": "La Migros Club School è il più grande fornitore di istruzione per adulti in Svizzera. La cooperativa Migros Eastern Svizzera gestisce 7 scuole di club in cui i nostri clienti sono offerti più di 600 corsi e corsi diversi in una piacevole atmosfera didattica.\n\n## Mansioni\n- La vostra gioia nell'insegnamento, il vostro impegno e il vostro aspetto vincente ispirano i partecipanti\n- Progetti le lezioni nell'offerta Pittura e Disegno / Aquarelling e pittura acrilica secondo criteri educativi per adulti, tenendo conto delle diverse esperienze di vita, stili di apprendimento e esigenze dei partecipanti\n- La preparazione completa e il follow-up delle lezioni è anche uno dei vostri compiti\n- Si crea un'atmosfera di apprendimento positiva che incoraggia la motivazione degli studenti e costruire relazioni basate sulla fiducia e il rispetto.\n- Gli accordi regolari con le persone di contatto pertinenti dell'amministrazione della scuola club hanno garantito una cooperazione regolare\n\n## Requisiti\n- Esperienza: nel campo dell'educazione degli adulti e nella corrispondente area tematica\n- Istruzione di base completa o continua: qualifica professionale con il riconoscimento federale EFZ o laurea in un settore tecnico o universitario da insegnare\n- Competenza approfondita nel settore rilevante del disegno e della pittura, pittura acrilica, acquarelling\n- Idealmente, si avrà il certificato SVEB 1 o un grado equivalente.\n- Si distinguono attraverso l'autoriflessione e l'empatia verso i partecipanti\n- Progetta il tuo lavoro in modo responsabile e indipendente\n- Comunica chiaramente, efficacemente e con rispetto\n- tedesco (molto buona conoscenza)\n\n## Cosa di Friamo\n- Punti Cumulus: Punti Cumulus multipli su prodotti alimentari e non alimentari\n- Abbonamento mobile: Condizioni altamente scontate per abbonamento privato mobile anche per famiglia e amici\n- Club School Migros: Partecipazione finanziaria Generosa ai corsi auto-selezionati\n\n## Contatto\n## Applicazione & Regulazione Styger Specialist responsabile +41 58 712 43 27\n\n**Grado di occupazione: ** 808 %",
-        "en": "The Migros Club School is the largest adult education provider in Switzerland. The cooperative Migros Eastern Switzerland operates 7 club schools in which our customers are offered more than 600 different courses and courses in a pleasant teaching atmosphere.\n\n## Mansioni\n- Your joy in teaching, your commitment and your winning appearance inspire the participants\n- You design the lessons in the offer Painting and Drawing / Aquarelling and Acrylic Painting according to adult educational criteria, taking into account the different life experiences, learning styles and needs of the participants\n- The comprehensive preparation and follow-up of the lessons is also one of your tasks\n- You create a positive learning atmosphere that encourages the motivation of learners and build relationships based on trust and respect.\n- Regular agreements with the relevant contact persons of the club school administration ensured a smooth cooperation\n\n## Requirements\n- Experience: In the field of adult education and in the corresponding subject area\n- Completed basic or continuing education: Professional qualification with federal recognition EFZ or degree at a technical or university in the subject area to be taught\n- In-depth expertise in the relevant field of drawing and painting, acrylic painting, aquarelling\n- Ideally, you will have the SVEB certificate 1 or an equivalent degree.\n- You distinguish yourself through self-reflection and empathy towards the participants\n- You design your work responsibly and independently\n- You communicate clearly, effectively and respectfully\n- German (very good knowledge)\n\n## Cosa of Friamo\n- Cumulus Points: Multiple Cumulus Points on food and nonfood items\n- Mobile subscription: Highly discounted conditions for private mobile subscription also for family and friends\n- Club School Migros: Generous financial participation in self-selected courses\n\n## Contatto\n## Application & Contact Regula Styger Specialist responsible +41 58 712 43 27\n\n**Grado di occupazione:** 808 %",
-        "de": "Die Klubschule Migros ist die grösste Anbieterin für Erwachsenenbildung in der Schweiz. Die Genossenschaft Migros Ostschweiz betreibt 7 Klubschulen, in denen unseren Kunden über 600 verschiedene Kurse und Lehrgänge in einer angenehmen Unterrichtsatmosphäre angeboten werden.\n\n## Mansioni\n- Deine Freude am Unterrichten, dein Engagement und dein gewinnendes Auftreten begeistern die Teilnehmenden\n- Du gestaltest den Unterricht im Angebot Malen und Zeichnen / Aquarellieren und Acrylmalen nach erwachsenenbildnerischen Kriterien, indem du die unterschiedlichen Lebenserfahrungen, Lernstile und Bedürfnisse der Teilnehmenden berücksichtigst\n- Die umfassende Vor- und Nachbereitung des Unterrichts gehört ebenfalls zu deinen Aufgaben\n- Du schaffst eine positive Lernatmosphäre, welche die Motivation der Lernenden fördert, und knüpfst Beziehungen, die auf Vertrauen und Respekt gegründet sind\n- Durch regelmässige Absprachen mit den zuständigen Ansprechpersonen der Klubschuladministration gewährleistest du eine reibungslose Zusammenarbeit\n\n## Requisiti\n- Erfahrung: Im Bereich der Erwachsenenbildung sowie im entsprechenden Fachbereich\n- Abgeschlossene Grund- oder Weiterbildung: Fachliche Qualifikation mit eidgenössischer Anerkennung EFZ oder Abschluss an einer Fach- oder Hochschule im zu unterrichtenden Fachgebiet\n- Vertieftes Fachwissen im entsprechenden Fachbereich Zeichnen und Malen, Acrylmalen, Aquarellieren\n- Idealerweise verfügst du über das SVEB-Zertifikat 1 oder einen gleichwertigen Abschluss\n- Du zeichnest dich durch Selbstreflexion und Empathie gegenüber den Teilnehmenden aus\n- Deine Arbeit gestaltest du verantwortungsbewusst und eigenständig\n- Du kommunizierst klar, effektiv und respektvoll\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel\n- Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde\n- Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen\n\n## Contatto\n## Bewerbung & Kontakt Regula Styger Fachverantwortliche +41 58 712 43 27\n\n**Grado di occupazione:** 808%",
-        "fr": "La Migros Club School est le plus grand fournisseur d'éducation pour adultes en Suisse. La coopérative Migros Eastern Switzerland exploite 7 écoles de club dans lesquelles nos clients offrent plus de 600 cours différents dans une atmosphère d'enseignement agréable.\n\n## Mansioni\n- Votre joie dans l'enseignement, votre engagement et votre apparence gagnante inspirent les participants\n- Vous concevez les leçons dans l'offre Peinture et Dessin / Aquarelling et Peinture acrylique selon des critères éducatifs adultes, en tenant compte des différentes expériences de vie, styles d'apprentissage et besoins des participants\n- La préparation et le suivi complets des leçons sont également une de vos tâches\n- Vous créez une atmosphère d'apprentissage positive qui encourage la motivation des apprenants et crée des relations fondées sur la confiance et le respect.\n- Des accords réguliers avec les personnes de contact concernées de l'administration de l'école du club assurent une coopération sans heurts\n\n## Exigences\n- Expérience: dans le domaine de l'éducation des adultes et dans le domaine correspondant\n- Formation de base ou continue terminée: qualification professionnelle avec reconnaissance fédérale EFZ ou diplôme dans une université technique ou dans le domaine à enseigner\n- Expertise approfondie dans le domaine pertinent du dessin et de la peinture, de la peinture acrylique, de l'aquarellage\n- Idéalement, vous aurez le certificat SVEB 1 ou un diplôme équivalent.\n- Vous vous distinguez par la réflexion et l'empathie envers les participants\n- Vous concevez votre travail de manière responsable et indépendante\n- Vous communiquez clairement, efficacement et respectueusement\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n## Application & Contact Regula Styger Spécialiste responsable +41 58 712 43 27\n\n**Grade di occupation:** 808 %"
-      },
-      "slugByLocale": {
-        "it": "pittura-e-disegno-pittura-acrilica-acquerello-su-base-oraria-genossenschaft-migros-ostschweiz-schaffhausen",
-        "en": "teacher-painting-and-drawing-acrylic-painting-watercolouring-on-an-hourly-basis-genossenschaft-migros-ostschweiz",
-        "de": "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen-p5e85u",
-        "fr": "professeur-peinture-et-dessin-peinture-acrylique-aquarelle-sur-une-base-horaire-genossenschaft-migros-ostschweiz"
-      },
-      "requirementsByLocale": {
-        "de": [
-          "Erfahrung: Im Bereich der Erwachsenenbildung sowie im entsprechenden Fachbereich",
-          "Vertieftes Fachwissen im entsprechenden Fachbereich Zeichnen und Malen, Acrylmalen, Aquarellieren",
-          "Idealerweise verfügst du über das SVEB-Zertifikat 1 oder einen gleichwertigen Abschluss",
-          "Du zeichnest dich durch Selbstreflexion und Empathie gegenüber den Teilnehmenden aus",
-          "Deine Arbeit gestaltest du verantwortungsbewusst und eigenständig",
-          "Du kommunizierst klar, effektiv und respektvoll",
-          "Deutsch (sehr gute Kenntnisse)"
-        ],
-        "it": [],
-        "en": [],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen",
-          "lehrperson-malen-e-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen-p5e85u"
-        ],
-        "en": [
-          "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen-p5e85u"
-        ],
-        "fr": [
-          "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen-p5e85u"
-        ]
-      },
-      "previousSlugs": [
-        "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen",
-        "lehrperson-malen-e-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen-p5e85u",
-        "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-schaffhausen-p5e85u"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-09-15T11:25:38+02:00",
-      "postingDateSource": "reported",
-      "postalCode": "8200",
-      "streetAddress": "Schaffhausen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:53:25.836Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 57500,
-      "salaryMax": 87000
-    },
-    {
       "id": "company-kdtoa6",
       "slug": "area-di-supervisione-negozio-buchs-thusis-genossenschaft-migros-ostschweiz-gossau",
       "company": "Genossenschaft Migros Ostschweiz",
@@ -89561,127 +89093,6 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
-    },
-    {
-      "id": "company-xijoth",
-      "slug": "latticini-specializzati-genossenschaft-migros-zurich-uitikon-waldegg",
-      "company": "Genossenschaft Migros Zürich",
-      "title": "Fachleiter*in Molkerei",
-      "location": "Uitikon Waldegg",
-      "canton": "ZH",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Übernimm die Fachverantwortung im Bereich Molkerei der Filiale M Uitikon-Waldegg. Mit deinem fundierten Wissen über Molkerei-Produkte berätst du unsere Kundschaft erstklassig. Dank deiner motivierten und begeisternden Art trägst du wesentlich zur Kundenzufriedenheit bei. Das klingt nach dir? Dann bewirbt dich jetzt!\n\n**Luogo di lavoro:** Genossenschaft Migros Zürich, Uitikon-Waldegg, Zürcherstrasse 8, 8142 Uitikon Waldegg\n\n## Wichtige Hinweise\nWir freuen uns über jede Bewerbung, können aber nur Online-Bewerbungen berücksichtigen. Bewerbungen per Post werden aus Datenschutzgründen entsorgt und nicht retourniert.\n\n## Mansioni\n- Du agierst als kompetente Ansprechperson für unsere Kundschaft zusammen mit dem Team und übernimmst die Verantwortung für den Bereich Molkerei\n- Es bereitet dir Freude, deine Fachkenntnisse und dein Wissen neuen Mitarbeitenden weiterzugeben und diese im Bereich Molkerei einzuführen\n- Du bist für Warenbestellungen zuständig\n- Du übernimmst die Verantwortung für die effiziente Warenbewirtschaftung, die ansprechende Präsentation der Produkte und sorgst dafür, dass unsere Regale stets gut gefüllt sind\n- Du sicherst die hohe Qualität unserer Produkte inklusive Datumskontrolle\n- Bei Bedarf unterstützt du auch in anderen Ladenbereichen\n\n## Requisiti\n- 2 Jahre Berufserfahrung: im Detailhandel/Verkauf\n- Abgeschlossene Grund- oder Weiterbildung: im Verkauf/Detailhandel\n- Du trittst kundenorientiert und freundlich auf\n- Du arbeitest gerne eigenverantwortlich und zuverlässig\n- Du bist stresstolerant und verfügst über gute Kommunikationsfähigkeiten\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Gesund arbeiten: Gesundheitsfördernde Angebote wie Massagen und Gesundheitschecks\n- Mobilität: Mit dem einmaligen Freizeitbonus pro Jahr von insgesamt max. CHF 500.– beteiligen wir uns an deinem ÖV-Abo\n- Handy-Abo: Du darfst dich auf Sonderkonditionen für das Handy-Abo freuen\n- Berufliche Vorsorge: Hervorragende Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung\n- Sozialleistungen: Faire Sozialleistungen\n- Cumulus-Punkte: Du erhältst zusätzliche Cumulus-Punkte beim Einkaufen\n- Migros Bank: Vorzugszinsen bei Privat- und Anlagekonto, kostenlose Kontoführung, vergünstigte Hypotheken und mehr\n- Mitarbeiterangebote: Bis zu 1.000 CHF pro Jahr (abhängig von deinem Pensum) für deine Erholung und Weiterentwicklung – nutzbar für Fitness-Abos, Kurse, Gesundheitsangebote oder einen Zuschuss fürs ÖV-Abo.\n- Sport- und Fitnessangebote: Du kannst einmalig pro Jahr einen Freizeitbonus von insgesamt max. CHF 1000.– z. B. für ein Jahresabo fürs M-Fitnesscenter einlösen\n- Aus- und Weiterbildung: Unterstützung bei berufsbezogener Aus- und Weiterbildung,\n\n## Contatto\n**Bewerbung & Kontakt**\nBettina Erne\nRecruitment Partner\n\n**Rekrutierungsprozess**\n\n- Vorselektion der Bewerbungen: Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Fachgespräch: In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Probearbeiten: Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Angebot & Vertragsausstellung: Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen\n\n**Hinweis für Personaldienstleister**\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "requirements": [
-        "2 Jahre Berufserfahrung: im Detailhandel/Verkauf",
-        "Abgeschlossene Grund- oder Weiterbildung: im Verkauf/Detailhandel",
-        "Du trittst kundenorientiert und freundlich auf",
-        "Du arbeitest gerne eigenverantwortlich und zuverlässig",
-        "Du bist stresstolerant und verfügst über gute Kommunikationsfähigkeiten",
-        "Deutsch (gute Kenntnisse)"
-      ],
-      "featured": false,
-      "postedDate": "2026-09-08T01:53:37+02:00",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/fachleiterin-molkerei/5c0a8799-6e10-4c4f-b1ef-73a182ace4f4",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du agierst als kompetente Ansprechperson für unsere Kundschaft zusammen mit dem Team und übernimmst die Verantwortung für den Bereich Molkerei",
-        "Es bereitet dir Freude, deine Fachkenntnisse und dein Wissen neuen Mitarbeitenden weiterzugeben und diese im Bereich Molkerei einzuführen",
-        "Du bist für Warenbestellungen zuständig",
-        "Du übernimmst die Verantwortung für die effiziente Warenbewirtschaftung, die ansprechende Präsentation der Produkte und sorgst dafür, dass unsere Regale stets gut gefüllt sind",
-        "Du sicherst die hohe Qualität unserer Produkte inklusive Datumskontrolle",
-        "Bei Bedarf unterstützt du auch in anderen Ladenbereichen"
-      ],
-      "_migrosBenefits": [
-        "Gesund arbeiten: Gesundheitsfördernde Angebote wie Massagen und Gesundheitschecks",
-        "Mobilität: Mit dem einmaligen Freizeitbonus pro Jahr von insgesamt max. CHF 500.– beteiligen wir uns an deinem ÖV-Abo",
-        "Handy-Abo: Du darfst dich auf Sonderkonditionen für das Handy-Abo freuen",
-        "Berufliche Vorsorge: Hervorragende Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
-        "Sozialleistungen: Faire Sozialleistungen",
-        "Cumulus-Punkte: Du erhältst zusätzliche Cumulus-Punkte beim Einkaufen",
-        "Migros Bank: Vorzugszinsen bei Privat- und Anlagekonto, kostenlose Kontoführung, vergünstigte Hypotheken und mehr",
-        "Mitarbeiterangebote: Bis zu 1.000 CHF pro Jahr (abhängig von deinem Pensum) für deine Erholung und Weiterentwicklung – nutzbar für Fitness-Abos, Kurse, Gesundheitsangebote oder einen Zuschuss fürs ÖV-Abo.",
-        "Sport- und Fitnessangebote: Du kannst einmalig pro Jahr einen Freizeitbonus von insgesamt max. CHF 1000.– z. B. für ein Jahresabo fürs M-Fitnesscenter einlösen",
-        "Aus- und Weiterbildung: Unterstützung bei berufsbezogener Aus- und Weiterbildung,"
-      ],
-      "_migrosWorkPercentage": "80-100%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-11-03T09:53:25.836Z",
-      "firstSeenAt": "2026-09-08T23:40:24.924Z",
-      "titleByLocale": {
-        "it": "Latticini specializzati",
-        "en": "Specialist dairy",
-        "de": "Fachleiter*in Molkerei",
-        "fr": "Produits laitiers spécialisés"
-      },
-      "descriptionByLocale": {
-        "it": "Assumere la responsabilità tecnica nel settore lattiero-caseario della filiale M Uitikon-Waldegg. Con la vostra conoscenza approfondita dei prodotti caseari, consigliate ai nostri clienti di prima classe. Grazie alla sua natura motivata e stimolante, contribuisce in modo significativo alla soddisfazione del cliente. Ti sembra? Quindi applicare ora!\n\n**Luogo di lavoro Cooperativa Migros Zurich, Uitikon-Waldegg, Zürcherstrasse 8, 8142 Uitikon Waldegg\n\n## Informazioni importanti\nAccogliamo ogni applicazione, ma possiamo considerare solo applicazioni online. Le applicazioni per posta sono smaltite per motivi di protezione dei dati e non restituite.\n\n## Mansioni\n- L'utente agisce come referente competente per i nostri clienti insieme al team e si assume la responsabilità per il settore lattiero-caseario\n- Vi dà il piacere di trasmettere le vostre competenze e conoscenze ai nuovi dipendenti e presentarli al settore lattiero-caseario\n- Sei responsabile dell'ordine dei beni\n- Si assume la responsabilità per l'efficiente gestione dei beni, la presentazione attraente dei prodotti e assicurarsi che i nostri scaffali sono sempre ben riempiti\n- Garantisci l'alta qualità dei nostri prodotti, compreso il controllo della data\n- Se necessario, è anche possibile sostenere in altre aree di negozio\n\n## Requisiti\n- 2 anni di esperienza professionale: nel commercio al dettaglio/vendita\n- Istruzione di base o continua: nelle vendite/dettaglio\n- Sei orientato al cliente e amichevole\n- Ti piace lavorare in modo indipendente e affidabile\n- Sei stress-tollerante e hai buone capacità di comunicazione\n- Tedesco (buona conoscenza)\n\n## Cosa di Friamo\n- Lavoro sano: offerte di promozione della salute come massaggi e controlli sanitari\n- Mobilità: Con il bonus di tempo libero una volta all'anno di max. CHF 500.– partecipiamo al vostro abbonamento sui trasporti pubblici\n- Abbonamento pratico: Puoi aspettarti condizioni speciali per l'abbonamento Handy\n- Previdenza occupazionale: Ottime prestazioni del fondo pensionistico con alta partecipazione del datore di lavoro\n- Prestazioni sociali: prestazioni sociali eque\n- Punti Cumulus: ottieni ulteriori Punti Cumulus quando acquisti\n- Migros Bank: Preferito interesse sul conto privato e di investimento, gestione del conto libero, mutui scontati e altro\n- Employee offre: Fino a 1.000 CHF all'anno (a seconda del carico di lavoro) per il recupero e l'ulteriore sviluppo – utilizzabile per abbonamenti, corsi, offerte di salute o un sussidio per i trasporti pubblici.\n- Offerte di sport e fitness: È possibile ottenere un bonus di tempo libero totale di max una volta all'anno. CHF 1000.– ad es. redeem per un abbonamento annuale al M-Fitnesscenter\n- istruzione e formazione: sostegno all'istruzione e alla formazione professionale,\n\n## Contatto\n**Applicazione e contatto\nBettina Erne\nPartner di reclutamento\n\n** Processo di reclutamento\n\n- Preselezione delle applicazioni: Controlliamo le applicazioni ricevute su base continuativa, creiamo una pre-selezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata del feedback: fino a tre settimane\n- Discussione esperto: In una discussione specialistica, le conoscenze specifiche per l'esecuzione del lavoro sono richieste dal responsabile e/o da un altro specialista e, se necessario, dal team. Se possibile, c'è tempo dopo per conoscere il posto di lavoro e la squadra meglio in una conversazione gratuita. Durata del feedback: fino a tre settimane\n- Test: Un giorno di prova o mezza giornata offre l'opportunità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata del feedback: fino a tre settimane\n- Offer & Contract Exhibition: Dopo la nostra offerta di lavoro orale, i punti contrattuali più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata del feedback: fino a tre settimane\n\n**Nota per i fornitori di servizi del personale*\nPer questa posizione, consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 80-100 %",
-        "en": "Take over the technical responsibility in the dairy sector of the M Uitikon-Waldegg branch. With your in-depth knowledge of dairy products, you advise our customers first-class. Thanks to your motivated and inspiring nature, you contribute significantly to customer satisfaction. Does that sound like you? Then apply now!\n\nLuogo di lavoro: Cooperative Migros Zurich, Uitikon-Waldegg, Zürcherstrasse 8, 8142 Uitikon Waldegg\n\n## Important information\nWe welcome every application, but can only consider online applications. Applications by post are disposed of for data protection reasons and not returned.\n\n## Mansioni\n- You act as a competent contact person for our customers together with the team and assume responsibility for the dairy sector\n- It gives you pleasure to pass on your expertise and knowledge to new employees and introduce them to the dairy sector\n- You are responsible for ordering goods\n- You take responsibility for the efficient goods management, the attractive presentation of the products and ensure that our shelves are always well filled\n- You ensure the high quality of our products including date control\n- If necessary, you can also support in other store areas\n\n## Requirements\n- 2 years of professional experience: in retail trade/sale\n- Basic or continuing education: in sales/detailing\n- You are customer-oriented and friendly\n- You like to work independently and reliably\n- You are stress-tolerant and have good communication skills\n- German (good knowledge)\n\n## Cosa of Friamo\n- Healthy work: Health-promoting offers such as massages and health checks\n- Mobility: With the one-time leisure bonus per year of max. CHF 500.– we participate in your public transport subscription\n- Handy subscription: You can look forward to special conditions for the Handy subscription\n- Occupational pension provision: Excellent pension fund benefits with high employer participation\n- Social benefits: Fair social benefits\n- Cumulus Points: You get additional Cumulus Points when shopping\n- Migros Bank: Preferred interest on private and investment account, free account management, discounted mortgages and more\n- Employee offers: Up to 1,000 CHF per year (depending on your workload) for your recovery and further development – usable for fitness subscriptions, courses, health offers or a subsidy for public transport.\n- Sports and fitness offers: You can get a total free time bonus of max once a year. CHF 1000.– e.g. redeem for an annual subscription to the M-Fitnesscenter\n- education and training: support for professional education and training,\n\n## Contatto\nApplication and contact * *\nBettina Erne\nRecruitment partners\n\nRecruitment process * *\n\n- Pre-selection of applications: We check applications received on an ongoing basis, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration to feedback: Up to three weeks\n- Expert Discussion: In a specialist discussion, specific knowledge relevant for the execution of the job is requested by the manager and/or another specialist and, if necessary, the team. If possible, there is time afterwards to get to know the workplace and team better in a free conversation. Duration to feedback: Up to three weeks\n- Test work: A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration to feedback: Up to three weeks\n- Offer & Contract Exhibition: After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration to feedback: Up to three weeks\n\nNote for personnel service providers* *\nFor this position, we only consider direct applications.\n\nGrado di occupazione: 80-100 %",
-        "de": "Übernimm die Fachverantwortung im Bereich Molkerei der Filiale M Uitikon-Waldegg. Mit deinem fundierten Wissen über Molkerei-Produkte berätst du unsere Kundschaft erstklassig. Dank deiner motivierten und begeisternden Art trägst du wesentlich zur Kundenzufriedenheit bei. Das klingt nach dir? Dann bewirbt dich jetzt!\n\n**Luogo di lavoro:** Genossenschaft Migros Zürich, Uitikon-Waldegg, Zürcherstrasse 8, 8142 Uitikon Waldegg\n\n## Wichtige Hinweise\nWir freuen uns über jede Bewerbung, können aber nur Online-Bewerbungen berücksichtigen. Bewerbungen per Post werden aus Datenschutzgründen entsorgt und nicht retourniert.\n\n## Mansioni\n- Du agierst als kompetente Ansprechperson für unsere Kundschaft zusammen mit dem Team und übernimmst die Verantwortung für den Bereich Molkerei\n- Es bereitet dir Freude, deine Fachkenntnisse und dein Wissen neuen Mitarbeitenden weiterzugeben und diese im Bereich Molkerei einzuführen\n- Du bist für Warenbestellungen zuständig\n- Du übernimmst die Verantwortung für die effiziente Warenbewirtschaftung, die ansprechende Präsentation der Produkte und sorgst dafür, dass unsere Regale stets gut gefüllt sind\n- Du sicherst die hohe Qualität unserer Produkte inklusive Datumskontrolle\n- Bei Bedarf unterstützt du auch in anderen Ladenbereichen\n\n## Requisiti\n- 2 Jahre Berufserfahrung: im Detailhandel/Verkauf\n- Abgeschlossene Grund- oder Weiterbildung: im Verkauf/Detailhandel\n- Du trittst kundenorientiert und freundlich auf\n- Du arbeitest gerne eigenverantwortlich und zuverlässig\n- Du bist stresstolerant und verfügst über gute Kommunikationsfähigkeiten\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Gesund arbeiten: Gesundheitsfördernde Angebote wie Massagen und Gesundheitschecks\n- Mobilität: Mit dem einmaligen Freizeitbonus pro Jahr von insgesamt max. CHF 500.– beteiligen wir uns an deinem ÖV-Abo\n- Handy-Abo: Du darfst dich auf Sonderkonditionen für das Handy-Abo freuen\n- Berufliche Vorsorge: Hervorragende Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung\n- Sozialleistungen: Faire Sozialleistungen\n- Cumulus-Punkte: Du erhältst zusätzliche Cumulus-Punkte beim Einkaufen\n- Migros Bank: Vorzugszinsen bei Privat- und Anlagekonto, kostenlose Kontoführung, vergünstigte Hypotheken und mehr\n- Mitarbeiterangebote: Bis zu 1.000 CHF pro Jahr (abhängig von deinem Pensum) für deine Erholung und Weiterentwicklung – nutzbar für Fitness-Abos, Kurse, Gesundheitsangebote oder einen Zuschuss fürs ÖV-Abo.\n- Sport- und Fitnessangebote: Du kannst einmalig pro Jahr einen Freizeitbonus von insgesamt max. CHF 1000.– z. B. für ein Jahresabo fürs M-Fitnesscenter einlösen\n- Aus- und Weiterbildung: Unterstützung bei berufsbezogener Aus- und Weiterbildung,\n\n## Contatto\n**Bewerbung & Kontakt**\nBettina Erne\nRecruitment Partner\n\n**Rekrutierungsprozess**\n\n- Vorselektion der Bewerbungen: Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Fachgespräch: In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Probearbeiten: Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Angebot & Vertragsausstellung: Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen\n\n**Hinweis für Personaldienstleister**\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-        "fr": "Prendre en charge la responsabilité technique dans le secteur laitier de la branche M Uitikon-Waldegg. Avec votre connaissance approfondie des produits laitiers, vous conseillez nos clients de première classe. Grâce à votre nature motivée et inspirante, vous contribuez significativement à la satisfaction des clients. Ça te ressemble ? Alors appliquez maintenant !\n\nLuogo di lavoro: Coopérative Migros Zurich, Uitikon-Waldegg, Zürcherstrasse 8, 8142 Uitikon Waldegg\n\n## Informations importantes\nNous accueillons chaque demande, mais nous ne pouvons considérer que les demandes en ligne. Les demandes par la poste sont éliminées pour des raisons de protection des données et non renvoyées.\n\n## Mansioni\n- Vous agissez comme une personne de contact compétente pour nos clients avec l'équipe et assumez la responsabilité du secteur laitier\n- Il vous donne le plaisir de transmettre votre expertise et vos connaissances aux nouveaux employés et de les présenter au secteur laitier\n- Vous êtes responsable de la commande des marchandises\n- Vous assumez la responsabilité de la gestion efficace des marchandises, la présentation attrayante des produits et vous assurez que nos étagères sont toujours bien remplies\n- Vous assurez la haute qualité de nos produits, y compris le contrôle de la date\n- Si nécessaire, vous pouvez également soutenir dans d'autres zones de magasin\n\n## Exigences\n- 2 ans d'expérience professionnelle: commerce de détail/vente\n- Formation de base ou continue: vente/détail\n- Vous êtes orienté client et amical\n- Vous aimez travailler de façon indépendante et fiable\n- Vous êtes tolérant au stress et avez de bonnes compétences en communication\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus de loisirs unique par année de max. CHF 500.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur compte privé et d'investissement, gestion de compte libre, prêts hypothécaires à taux réduit et plus\n- Offres des employés: Jusqu'à 1000 CHF par an (selon votre charge de travail) pour votre récupération et votre développement ultérieur – utilisables pour les abonnements fitness, les cours, les offres santé ou une subvention pour les transports en commun.\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- éducation et formation: soutien à la formation professionnelle,\n\n## Contatto\n Demande et contact * *\nBettina Erne\nPartenaires de recrutement\n\nProcessus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Débat d'experts : Lors d'une discussion spécialisée, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction: Jusqu'à trois semaines\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Offer & Contract Exhibition: Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction: Jusqu'à trois semaines\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrade di occupation: 80-100 %"
-      },
-      "slugByLocale": {
-        "it": "latticini-specializzati-genossenschaft-migros-zurich-uitikon-waldegg",
-        "en": "specialist-dairy-genossenschaft-migros-zurich-uitikon-waldegg",
-        "de": "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg-xijoth",
-        "fr": "produits-laitiers-specialises-genossenschaft-migros-zurich-uitikon-waldegg"
-      },
-      "requirementsByLocale": {
-        "de": [
-          "2 Jahre Berufserfahrung: im Detailhandel/Verkauf",
-          "Abgeschlossene Grund- oder Weiterbildung: im Verkauf/Detailhandel",
-          "Du trittst kundenorientiert und freundlich auf",
-          "Du arbeitest gerne eigenverantwortlich und zuverlässig",
-          "Du bist stresstolerant und verfügst über gute Kommunikationsfähigkeiten",
-          "Deutsch (gute Kenntnisse)"
-        ],
-        "it": [],
-        "en": [],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg",
-          "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg-xijoth"
-        ],
-        "en": [
-          "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg-xijoth"
-        ],
-        "fr": [
-          "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg-xijoth"
-        ]
-      },
-      "previousSlugs": [
-        "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg",
-        "fachverantwortliche-r-molkerei-genossenschaft-migros-zurich-uitikon-waldegg-xijoth"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Uitikon Waldegg",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/fachleiterin-molkerei/5c0a8799-6e10-4c4f-b1ef-73a182ace4f4",
-      "datePosted": "2026-09-08T01:53:37+02:00",
-      "postingDateSource": "reported",
-      "postalCode": "8142",
-      "streetAddress": "Uitikon Waldegg",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:53:25.836Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 73500,
-      "salaryMax": 111500
     },
     {
       "id": "company-sd2qh8",
