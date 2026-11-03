@@ -776,6 +776,7 @@ describe('deploy.yml — job OG cache version isolation (#12380)', () => {
     expect(resolveVersion?.run).toContain("./build-plugins/shared/jobOgImageVersion.mjs");
     expect(resolveVersion?.run).toContain('GITHUB_OUTPUT');
     expect(restore?.uses).toBe('actions/cache/restore@v6');
+    expect(restore?.id).toBe('job_og_images_cache');
     expect(restore?.with?.path).toBe('.cache/og-jobs');
     expect(String(restore?.with?.key)).toContain(
       'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
@@ -792,6 +793,10 @@ describe('deploy.yml — job OG cache version isolation (#12380)', () => {
     expect(String(save?.if)).toContain("steps.build_step.outcome == 'success'");
     expect(steps.indexOf(resolveVersion!)).toBeLessThan(steps.indexOf(restore!));
     expect(steps.indexOf(restore!)).toBeLessThan(steps.indexOf(save!));
+    const observer = steps.find((step) => step.name === 'Observe phase timing per locale');
+    expect(observer?.env?.PHASE_TIMING_JOB_OG_CACHE_MATCHED_KEY).toContain(
+      'steps.job_og_images_cache.outputs.cache-matched-key',
+    );
   });
 });
 

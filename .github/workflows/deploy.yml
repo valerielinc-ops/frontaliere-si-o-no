@@ -757,6 +757,7 @@ jobs:
 
       - name: Restore per-job OG images
         if: matrix.locale == 'it'
+        id: job_og_images_cache
         uses: actions/cache/restore@v6
         with:
           path: .cache/og-jobs
@@ -1109,6 +1110,7 @@ jobs:
           PHASE_TIMING_HISTORY: data/build-history/memory-peaks.jsonl
           PHASE_TIMING_LOCALE: ${{ matrix.locale }}
           PHASE_TIMING_ALERT_FILE: ${{ runner.temp }}/phase-timing-alert.md
+          PHASE_TIMING_JOB_OG_CACHE_MATCHED_KEY: ${{ steps.job_og_images_cache.outputs.cache-matched-key }}
         run: node scripts/ci/phase-timing-observer.mjs | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Report build phase timing regression to GitHub Issues

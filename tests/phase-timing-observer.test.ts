@@ -11,7 +11,10 @@ import {
   PHASE_TIMING_BASELINE_WINDOW,
   PHASE_TIMING_RECOVERY_RUNS,
   PHASE_TIMING_SPREAD_CAP,
+  JOB_OG_IMAGES_PHASE,
+  isExpectedColdJobOgCache,
   observePhaseTimings,
+  parseJobOgImageStats,
   parsePhaseMarkers,
 } from '../scripts/ci/phase-timing-observer.mjs';
 
@@ -109,6 +112,21 @@ describe('phase-timing-observer', () => {
     ]);
   });
 
+  it('parses one unambiguous job-OG accounting line', () => {
+    const log = '[job-og-images] rendered=12 cached=0 skipped=3 errors=0 pruned-stale=1 (~0MB) in 4.2s';
+    expect(parseJobOgImageStats(log)).toEqual({ rendered: 12, cached: 0, skipped: 3, errors: 0, pruned: 1 });
+    expect(isExpectedColdJobOgCache(log, '')).toBe(true);
+    expect(isExpectedColdJobOgCache(log, undefined)).toBe(false);
+    expect(isExpectedColdJobOgCache(log, 'og-jobs-Linux-v5-previous')).toBe(false);
+  });
+
+  it('leaves ambiguous or failed OG accounting alertable', () => {
+    const first = '[job-og-images] rendered=12 cached=0 skipped=3 errors=0 pruned-stale=1 (~0MB) in 4.2s';
+    const second = '[job-og-images] rendered=12 cached=1 skipped=3 errors=0 pruned-stale=1 (~0MB) in 4.2s';
+    expect(parseJobOgImageStats(`${first}\n${second}`)).toBeNull();
+    expect(isExpectedColdJobOgCache('[job-og-images] rendered=12 cached=0 skipped=3 errors=1 pruned-stale=1 (~0MB) in 4.2s', '')).toBe(false);
+  });
+
   it('confirms only a material increase repeated in the previous run', () => {
     const observation = observePhaseTimings({
       locale: 'de',
@@ -203,6 +221,53 @@ describe('phase-timing-observer', () => {
     expect(observation.rows[0].previousSeconds).toBe(100);
     expect(observation.rows[0].status).toBe('oltre soglia, in attesa di conferma');
     expect(observation.regressions).toEqual([]);
+  });
+
+  it('does not open an alert for an explicitly reported cold job-OG cache', () => {
+    const history = [
+      timingRow(1, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(2, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(3, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(4, { [JOB_OG_IMAGES_PHASE]: 40 }),
+    ].join('\n');
+    const log = [
+      timingLog({ [JOB_OG_IMAGES_PHASE]: 45 }),
+      '[job-og-images] rendered=100 cached=0 skipped=0 errors=0 pruned-stale=0 (~0MB) in 45.0s',
+    ].join('\n');
+    const observation = observePhaseTimings({
+      locale: 'de',
+      history,
+      log,
+      jobOgCacheMatchedKey: '',
+    });
+    expect(observation.rows[0]).toMatchObject({
+      marker: JOB_OG_IMAGES_PHASE,
+      exceedsThreshold: true,
+      previousExceedsThreshold: true,
+      expectedColdCache: true,
+      regression: false,
+      status: 'cache cold — warm-up atteso',
+    });
+    expect(observation.regressions).toEqual([]);
+  });
+
+  it('keeps a matched-cache OG slowdown alertable', () => {
+    const history = [
+      timingRow(1, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(2, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(3, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(4, { [JOB_OG_IMAGES_PHASE]: 40 }),
+    ].join('\n');
+    const observation = observePhaseTimings({
+      locale: 'de',
+      history,
+      log: [
+        timingLog({ [JOB_OG_IMAGES_PHASE]: 45 }),
+        '[job-og-images] rendered=100 cached=0 skipped=0 errors=0 pruned-stale=0 (~0MB) in 45.0s',
+      ].join('\n'),
+      jobOgCacheMatchedKey: 'og-jobs-Linux-v5-2026-11-02-portrait-q72-previous',
+    });
+    expect(observation.regressions.map((row) => row.marker)).toEqual([JOB_OG_IMAGES_PHASE]);
   });
 
   it('keeps a phase without three baseline samples unconfirmed', () => {
