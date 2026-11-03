@@ -1158,6 +1158,7 @@ describe('account failure observability', () => {
   it('emits diagnostics from the real account stop and throw branches', async () => {
     const missingCreateLink = {
       url: () => 'https://ats.example/login',
+      frames: () => [],
       getByRole: vi.fn(() => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('not-visible')) }) })),
     };
     const stopped = await handleAuth({

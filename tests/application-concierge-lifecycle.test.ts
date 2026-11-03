@@ -245,6 +245,28 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
   });
 
+  it('queues a fresh pass when candidate facts change during an active match', async () => {
+    const store = withdrawalRefreshFixture();
+    let finishMatch: ((value: { status: string }) => void) | undefined;
+    const blockedMatch = vi.fn(() => new Promise<{ status: string }>(resolve => { finishMatch = resolve; }));
+    const first = runConciergeMatchingWithLease({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID,
+      nowMs: WITHDRAWAL_NOW, match: blockedMatch });
+    await vi.waitFor(() => expect(blockedMatch).toHaveBeenCalledTimes(1));
+
+    await store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+      .set({ eligibilityFactsRevision: 1, matchingStatus: 'queued' }, { merge: true });
+    const duplicate = await runConciergeMatchingWithLease({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID,
+      nowMs: WITHDRAWAL_NOW, match: blockedMatch });
+    expect(duplicate).toMatchObject({ status: 'skipped', reason: 'matching_worker_active' });
+
+    finishMatch?.({ status: 'complete' });
+    await first;
+    const after = store.read(WITHDRAWAL_SERVICE_PATH);
+    expect(after.proposalRefreshRequestedBy).toBe('lifecycle');
+    expect(after.proposalRefreshRequestId).toBeTruthy();
+    expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
+  });
+
   it('backs off stale worker recovery, caps retries, and marks exhausted services explicitly', async () => {
     const store = withdrawalRefreshFixture({
       matchingStatus: 'running',
