@@ -44,6 +44,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   physioswiss: ['physioswiss.ch'],
   'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
   'swiss-timing-swatch-group': ['swisstiming.com'],
+  'sympajobs-reinach-bl': ['sympajobs.ch'],
   'deillon-delley-architectes': ['deillondelley.ch'],
   'project-interim': ['projectinterim.ch'],
   'technic-emplois': ['technic-emplois.ch'],
