@@ -190,7 +190,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         transaction.set(ref, { [key]: { clickedAt: nowMs, ...(current.channel === 'portal' ? { formBinding } : {}) } }, { merge: true });
       });
     },
-    async markSent(record = {}, nowMs = Date.now(), proof = null) {
+    async markSent(record = {}, nowMs = Date.now(), proof = null, { transaction: sharedTransaction = null } = {}) {
       const proofKind = String(proof?.kind || '');
       const attemptId = String(proof?.attemptId || activeAttemptId || record.attemptId || '');
       const channel = String(record.channel || proof?.channel || '');
@@ -206,7 +206,10 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         throw new Error('submission_receipt_channel_mismatch');
       }
       let durableReceipt = null;
-      await db.runTransaction(async transaction => {
+      let receiptOrderPatch = null;
+      const persist = async transaction => {
+        durableReceipt = null;
+        receiptOrderPatch = null;
         // The first durable receipt is immutable. A replay must return the
         // original proof, not replace its timestamp, channel or send record.
         const [submissionSnapshot, orderSnapshot] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
@@ -262,14 +265,20 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           } }, { merge: true });
         }
         const dueAt = Number(orderSnapshot.data()?.submissionReceiptDueAt) || 0;
-        transaction.set(orderRef, {
+        receiptOrderPatch = {
           submissionReceiptDueAt: dueAt > 0 ? Math.min(dueAt, Number(nowMs)) : Number(nowMs),
           submissionReceiptAttempts: 0,
           submissionReceiptStatus: 'pending', submissionReceiptIssue: null,
-        }, { merge: true });
+        };
+        if (!sharedTransaction) transaction.set(orderRef, receiptOrderPatch, { merge: true });
         durableReceipt = receipt;
-      });
-      return { receiptId: durableReceipt.receiptId, attemptId: durableReceipt.attemptId, receipt: durableReceipt };
+      };
+      if (sharedTransaction) await persist(sharedTransaction);
+      else await db.runTransaction(persist);
+      return {
+        receiptId: durableReceipt.receiptId, attemptId: durableReceipt.attemptId, receipt: durableReceipt,
+        ...(sharedTransaction && receiptOrderPatch ? { orderPatch: receiptOrderPatch } : {}),
+      };
     },
     async release(reason, nowMs = Date.now(), metadata = {}) {
       const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')

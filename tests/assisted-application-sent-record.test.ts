@@ -466,6 +466,27 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     return { store, keepSentAttempt, draft: () => store.read(`${BASE}/ai_drafts/current`)! };
   }
 
+  it('does not persist an owner receipt when the live flow advances after the precheck', async () => {
+    const store = createMemoryFirestore({
+      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover' },
+      [`${BASE}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'], answers: {}, feedback: [] },
+      [`${BASE}/ai_drafts/current`]: draftFor(),
+    });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      store.docs.set(`${BASE}/automation/flow`, { state: 'candidate_handoff', round: 2, answers: {}, feedback: [] });
+      return originalTransaction(callback);
+    });
+
+    try {
+      expect(await recordOwnerSubmission({ db: store.db, orderId: ORDER, adminEmail: 'owner@example.com', nowMs: NOW }))
+        .toMatchObject({ ok: false, ignored: 'stale_round' });
+      expect(store.read(`${BASE}/automation/submission`)?.r1).toBeUndefined();
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
   it('keeps the attempt of an e-mail of unknown outcome, and the owner’s «Segna come inviata» makes it the record of what left', async () => {
     const { store, keepSentAttempt, draft } = await ambiguousSetup();
     const bucket = fakeBucket();

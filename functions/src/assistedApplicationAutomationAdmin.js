@@ -495,14 +495,16 @@ export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'ow
   const guard = submissionGuard(db, orderId, flow.round || 1);
   const existing = await guard.read();
   const draft = (await draftRefFor(db, orderId).get()).data() || {};
-  await guard.markSent({
-    channel: via, by: adminEmail, sent: draft.sentAttempt || draft.sent || existing?.sent || {},
-  }, nowMs, {
-    kind: 'owner_confirmation', attemptId: existing?.attemptId || `owner-${randomUUID()}`,
-    observedAt: nowMs, evidence: { via, actor: adminEmail },
-  });
+  const attemptId = existing?.attemptId || `owner-${randomUUID()}`;
   const result = await applyAutomationEvent({
-    db, orderId, event: { type: 'owner_submitted' }, actor: `owner:${adminEmail}`, runEffect, nowMs, patchFlow: () => ({ submittedVia: via }),
+    db, orderId, event: { type: 'owner_submitted' }, actor: `owner:${adminEmail}`, runEffect, nowMs,
+    expectedRound: Number(flow.round) || 1, patchFlow: () => ({ submittedVia: via }),
+    writeSubmissionReceipt: ({ transaction }) => guard.markSent({
+      channel: via, by: adminEmail, sent: draft.sentAttempt || draft.sent || existing?.sent || {},
+    }, nowMs, {
+      kind: 'owner_confirmation', attemptId,
+      observedAt: nowMs, evidence: { via, actor: adminEmail },
+    }, { transaction }),
   });
   if (!result.ok) return { ok: false, ignored: result.ignored || 'not_allowed' };
   // Best effort: the flow is closed; without a record the candidate's page shows the prepared files.

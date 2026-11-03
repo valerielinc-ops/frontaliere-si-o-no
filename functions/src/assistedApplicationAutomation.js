@@ -252,12 +252,15 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  * @param {string} [args.actor] 'runner' | 'candidate' | 'owner:<email>' | 'clock'
  * @param {(ctx:object)=>Promise<object>} args.runEffect executes one side effect
  * @param {number} [args.nowMs]
+ * @param {number} [args.expectedRound] rejects a request whose round changed after its precheck
  * @param {(flow:object)=>object} [args.patchFlow] extra fields merged into the next flow
+ * @param {(ctx:object)=>Promise<object>} [args.writeSubmissionReceipt] writes a validated submission
+ *   receipt only after the live transition succeeds, in the same Firestore transaction
  * @param {FirebaseFirestore.DocumentReference} [args.claimRef] a runner event document: marked
  *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
-export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), patchFlow = null, claimRef = null }) {
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -288,6 +291,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const order = orderSnapshot.data() || {};
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    if (Number(expectedRound) && Number(expectedRound) !== Number(flow.round || 1)) {
+      claim('ignored:stale_round');
+      outcome = { ok: false, ignored: 'stale_round', state: flow.state };
+      return;
+    }
     const candidateAnswerContext = await candidateQuestionAnswerContext({
       db, transaction, orderId, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
     });
@@ -357,10 +365,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
       questionAnswerConfirmationHashes: candidateAnswerContext.orderAnswerConfirmationHashes,
       questionAnswerSources: candidateAnswerContext.orderAnswerSources };
+    const receiptResult = writeSubmissionReceipt ? await writeSubmissionReceipt({ transaction, flow, order, draft, event, nextFlow: persistedFlow }) : null;
     const accountFailure = getAccountFailure(event);
     claim('applied');
     transaction.set(flowRef, persistedFlow);
-    transaction.set(orderRef, mirrorFields(persistedFlow), { merge: true });
+    transaction.set(orderRef, { ...mirrorFields(persistedFlow), ...(receiptResult?.orderPatch || {}) }, { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
       eventType: event.type,
