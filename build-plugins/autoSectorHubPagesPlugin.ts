@@ -346,7 +346,10 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       // replace or remove this sitemap.
       const ownsSharedSitemap = shouldEmitLocale('it');
       if (registry.hubs.length === 0) {
-        if (ownsSharedSitemap) fs.rmSync(sitemapFile, { force: true });
+        // Only a present, valid, empty registry retires the sitemap. A missing
+        // source file reads as empty too, and must not delete a good sitemap.
+        const registrySourcePresent = fs.existsSync(np.join(rootDir, 'data', 'sector-hub-publications.json'));
+        if (ownsSharedSitemap && registrySourcePresent) fs.rmSync(sitemapFile, { force: true });
         return;
       }
       const dateStamp = BUILD_DATE_STAMP;

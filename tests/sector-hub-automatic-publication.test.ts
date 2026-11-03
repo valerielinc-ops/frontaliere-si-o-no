@@ -558,6 +558,43 @@ describe('automatic sector hub publication', () => {
     }
   });
 
+  it('keeps the shared sitemap when the registry source is missing, removes it for a present empty registry', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'auto-sector-hub-registry-source-'));
+    const distDir = path.join(rootDir, 'dist');
+    const dataDir = path.join(rootDir, 'data');
+    fs.mkdirSync(distDir, { recursive: true });
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(path.join(dataDir, 'jobs.json'), '[]');
+    const sitemapFile = path.join(distDir, 'sitemap-auto-sector-hubs.xml');
+    const previous = '<?xml version="1.0" encoding="UTF-8"?><urlset><url><loc>https://frontaliereticino.ch/cerca-lavoro-ticino/settore/admin/</loc></url></urlset>';
+    fs.writeFileSync(sitemapFile, previous);
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      vi.stubEnv('BUILD_LOCALE', 'it');
+      vi.resetModules();
+      const { autoSectorHubPagesPlugin } = await import('../build-plugins/autoSectorHubPagesPlugin');
+      const run = async () => {
+        const plugin = autoSectorHubPagesPlugin(rootDir);
+        if (typeof plugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
+        await (plugin.closeBundle as () => Promise<void>)();
+      };
+
+      await run();
+      expect(fs.readFileSync(sitemapFile, 'utf-8')).toBe(previous);
+
+      fs.writeFileSync(path.join(dataDir, 'sector-hub-publications.json'), JSON.stringify({
+        schemaVersion: 1, generatedAt: new Date().toISOString(), sourceWeek: 'fixture', hubs: [],
+      }));
+      await run();
+      expect(fs.existsSync(sitemapFile)).toBe(false);
+    } finally {
+      vi.unstubAllEnvs();
+      vi.resetModules();
+      log.mockRestore();
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('drops prior locale labels when a candidate source label changes', () => {
     const previous = {
       schemaVersion: 1 as const,
