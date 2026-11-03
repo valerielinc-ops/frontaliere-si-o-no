@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-03T09:27:38.874Z",
-  "runId": "41608567313",
+  "assembledAt": "2026-11-03T21:29:08.928Z",
+  "runId": "41719156389",
   "jobs": [
     {
       "id": "caritas-schweiz-6b39cbcf8a7a",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:31.827Z",
+      "crawledAt": "2026-11-03T21:29:00.023Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,8 +87,83 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:31.827Z",
+      "validThrough": "2027-01-12T21:29:00.023Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "caritas-schweiz-7210a83051f7",
+      "slug": "interkulturell-dolmetschende-caritas-schweiz-bern",
+      "slugByLocale": {
+        "de": "interkulturell-dolmetschende-caritas-schweiz-bern",
+        "it": "interkulturell-dolmetschende-caritas-schweiz-bern",
+        "en": "interkulturell-dolmetschende-caritas-schweiz-bern",
+        "fr": "interkulturell-dolmetschende-caritas-schweiz-bern"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Interkulturell Dolmetschende",
+      "titleByLocale": {
+        "de": "Interkulturell Dolmetschende",
+        "it": "Interkulturell Dolmetschende",
+        "en": "Interkulturell Dolmetschende",
+        "fr": "Interkulturell Dolmetschende"
+      },
+      "description": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als\n\nInterkulturell Dolmetschende\n\nFür das Dolmetschen vor Ort sucht der Dolmetschdienst Comprendi\nper sofort oder nach Vereinbarung für die Sprache\nSOMALISCH und UKRAINISCH\nDiese bilden eine Sprachbrücke mit dem nötigen kulturellen und sozialen Hintergrund bei der Kommunikation zwischen Migrantinnen und Migranten sowie öffentlichen Stellen des Gesundheits-, Sozial- und Bildungsbereiches im Kanton Bern.\n\nIhre Aufgaben\n\nAls interkulturell Dolmetschende sind Sie dafür verantwortlich, dass ein korrektes und inhaltlich vollständiges Dolmetschen zwischen Gesprächspartnern unterschiedlicher Herkunft möglich wird. Dabei achten Sie auf die kulturellen, ethischen und sozialen Hintergründe, mit dem Ziel, eine Kommunikation und den gleichberechtigten Zugang zu Dienstleistungen zu ermöglichen.\n\nUnsere Anforderungen\n\n- Ihre Muttersprache ist Somalisch oder Ukrainisch\n- Sie sind mindestens 25 Jahre alt\n- Sie verfügen über sehr gute Deutschkenntnisse (Niveau C1, mindestens Niveau B2 des europäischen Referenzsystems)\n- Sie verfügen über eine abgeschlossene Berufsausbildung und gute Allgemeinbildung\n- Im Idealfall haben Sie bereits Erfahrungen im mündlichen Dolmetschen\n- Sie besitzen das Zertifikat INTERPRET oder sind interessiert, dieses zu erwerben\n- Sie wohnen im Kanton Bern und haben Zugang zu Internet / E-Mail und verfügen über Mobiltelefon und PC/Laptop\n- Zu Ihren Stärken gehören Verantwortungsbewusstsein, Zuverlässigkeit, Pünktlichkeit, Flexibilität, Diskretion sowie gute administrative Fähigkeiten\n\nWir bieten\n- Ausstellung eines Arbeitsvertrags (Einsätze auf Anfrage, ein Anspruch auf Einsätze besteht nicht)\n- Flexible Einsatzmöglichkeiten auf Anfrage für interkulturelles Dolmetschen vor Ort und am Telefon\n- Zeitgemässe Entlohnung, Sozialleistungen und Spesen\n- Informations- und Austauschsitzungen, interne Weiterbildungen und Supervision\n\nWeitere Informationen über Comprendi finden Sie unter Dolmetschdienst Comprendi Caritas Bern. Bei Fragen steht Ihnen Frau L. Zbinden gerne zur Verfügung (031 378 60 52).\n\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal www.caritas-bern.ch oder an folgende Emailadresse: l.zbinden@caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook",
+      "descriptionByLocale": {
+        "de": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als\n\nInterkulturell Dolmetschende\n\nFür das Dolmetschen vor Ort sucht der Dolmetschdienst Comprendi\nper sofort oder nach Vereinbarung für die Sprache\nSOMALISCH und UKRAINISCH\nDiese bilden eine Sprachbrücke mit dem nötigen kulturellen und sozialen Hintergrund bei der Kommunikation zwischen Migrantinnen und Migranten sowie öffentlichen Stellen des Gesundheits-, Sozial- und Bildungsbereiches im Kanton Bern.\n\nIhre Aufgaben\n\nAls interkulturell Dolmetschende sind Sie dafür verantwortlich, dass ein korrektes und inhaltlich vollständiges Dolmetschen zwischen Gesprächspartnern unterschiedlicher Herkunft möglich wird. Dabei achten Sie auf die kulturellen, ethischen und sozialen Hintergründe, mit dem Ziel, eine Kommunikation und den gleichberechtigten Zugang zu Dienstleistungen zu ermöglichen.\n\nUnsere Anforderungen\n\n- Ihre Muttersprache ist Somalisch oder Ukrainisch\n- Sie sind mindestens 25 Jahre alt\n- Sie verfügen über sehr gute Deutschkenntnisse (Niveau C1, mindestens Niveau B2 des europäischen Referenzsystems)\n- Sie verfügen über eine abgeschlossene Berufsausbildung und gute Allgemeinbildung\n- Im Idealfall haben Sie bereits Erfahrungen im mündlichen Dolmetschen\n- Sie besitzen das Zertifikat INTERPRET oder sind interessiert, dieses zu erwerben\n- Sie wohnen im Kanton Bern und haben Zugang zu Internet / E-Mail und verfügen über Mobiltelefon und PC/Laptop\n- Zu Ihren Stärken gehören Verantwortungsbewusstsein, Zuverlässigkeit, Pünktlichkeit, Flexibilität, Diskretion sowie gute administrative Fähigkeiten\n\nWir bieten\n- Ausstellung eines Arbeitsvertrags (Einsätze auf Anfrage, ein Anspruch auf Einsätze besteht nicht)\n- Flexible Einsatzmöglichkeiten auf Anfrage für interkulturelles Dolmetschen vor Ort und am Telefon\n- Zeitgemässe Entlohnung, Sozialleistungen und Spesen\n- Informations- und Austauschsitzungen, interne Weiterbildungen und Supervision\n\nWeitere Informationen über Comprendi finden Sie unter Dolmetschdienst Comprendi Caritas Bern. Bei Fragen steht Ihnen Frau L. Zbinden gerne zur Verfügung (031 378 60 52).\n\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal www.caritas-bern.ch oder an folgende Emailadresse: l.zbinden@caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook",
+        "it": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als\n\nInterkulturell Dolmetschende\n\nFür das Dolmetschen vor Ort sucht der Dolmetschdienst Comprendi\nper sofort oder nach Vereinbarung für die Sprache\nSOMALISCH und UKRAINISCH\nDiese bilden eine Sprachbrücke mit dem nötigen kulturellen und sozialen Hintergrund bei der Kommunikation zwischen Migrantinnen und Migranten sowie öffentlichen Stellen des Gesundheits-, Sozial- und Bildungsbereiches im Kanton Bern.\n\nIhre Aufgaben\n\nAls interkulturell Dolmetschende sind Sie dafür verantwortlich, dass ein korrektes und inhaltlich vollständiges Dolmetschen zwischen Gesprächspartnern unterschiedlicher Herkunft möglich wird. Dabei achten Sie auf die kulturellen, ethischen und sozialen Hintergründe, mit dem Ziel, eine Kommunikation und den gleichberechtigten Zugang zu Dienstleistungen zu ermöglichen.\n\nUnsere Anforderungen\n\n- Ihre Muttersprache ist Somalisch oder Ukrainisch\n- Sie sind mindestens 25 Jahre alt\n- Sie verfügen über sehr gute Deutschkenntnisse (Niveau C1, mindestens Niveau B2 des europäischen Referenzsystems)\n- Sie verfügen über eine abgeschlossene Berufsausbildung und gute Allgemeinbildung\n- Im Idealfall haben Sie bereits Erfahrungen im mündlichen Dolmetschen\n- Sie besitzen das Zertifikat INTERPRET oder sind interessiert, dieses zu erwerben\n- Sie wohnen im Kanton Bern und haben Zugang zu Internet / E-Mail und verfügen über Mobiltelefon und PC/Laptop\n- Zu Ihren Stärken gehören Verantwortungsbewusstsein, Zuverlässigkeit, Pünktlichkeit, Flexibilität, Diskretion sowie gute administrative Fähigkeiten\n\nWir bieten\n- Ausstellung eines Arbeitsvertrags (Einsätze auf Anfrage, ein Anspruch auf Einsätze besteht nicht)\n- Flexible Einsatzmöglichkeiten auf Anfrage für interkulturelles Dolmetschen vor Ort und am Telefon\n- Zeitgemässe Entlohnung, Sozialleistungen und Spesen\n- Informations- und Austauschsitzungen, interne Weiterbildungen und Supervision\n\nWeitere Informationen über Comprendi finden Sie unter Dolmetschdienst Comprendi Caritas Bern. Bei Fragen steht Ihnen Frau L. Zbinden gerne zur Verfügung (031 378 60 52).\n\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal www.caritas-bern.ch oder an folgende Emailadresse: l.zbinden@caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook",
+        "en": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als\n\nInterkulturell Dolmetschende\n\nFür das Dolmetschen vor Ort sucht der Dolmetschdienst Comprendi\nper sofort oder nach Vereinbarung für die Sprache\nSOMALISCH und UKRAINISCH\nDiese bilden eine Sprachbrücke mit dem nötigen kulturellen und sozialen Hintergrund bei der Kommunikation zwischen Migrantinnen und Migranten sowie öffentlichen Stellen des Gesundheits-, Sozial- und Bildungsbereiches im Kanton Bern.\n\nIhre Aufgaben\n\nAls interkulturell Dolmetschende sind Sie dafür verantwortlich, dass ein korrektes und inhaltlich vollständiges Dolmetschen zwischen Gesprächspartnern unterschiedlicher Herkunft möglich wird. Dabei achten Sie auf die kulturellen, ethischen und sozialen Hintergründe, mit dem Ziel, eine Kommunikation und den gleichberechtigten Zugang zu Dienstleistungen zu ermöglichen.\n\nUnsere Anforderungen\n\n- Ihre Muttersprache ist Somalisch oder Ukrainisch\n- Sie sind mindestens 25 Jahre alt\n- Sie verfügen über sehr gute Deutschkenntnisse (Niveau C1, mindestens Niveau B2 des europäischen Referenzsystems)\n- Sie verfügen über eine abgeschlossene Berufsausbildung und gute Allgemeinbildung\n- Im Idealfall haben Sie bereits Erfahrungen im mündlichen Dolmetschen\n- Sie besitzen das Zertifikat INTERPRET oder sind interessiert, dieses zu erwerben\n- Sie wohnen im Kanton Bern und haben Zugang zu Internet / E-Mail und verfügen über Mobiltelefon und PC/Laptop\n- Zu Ihren Stärken gehören Verantwortungsbewusstsein, Zuverlässigkeit, Pünktlichkeit, Flexibilität, Diskretion sowie gute administrative Fähigkeiten\n\nWir bieten\n- Ausstellung eines Arbeitsvertrags (Einsätze auf Anfrage, ein Anspruch auf Einsätze besteht nicht)\n- Flexible Einsatzmöglichkeiten auf Anfrage für interkulturelles Dolmetschen vor Ort und am Telefon\n- Zeitgemässe Entlohnung, Sozialleistungen und Spesen\n- Informations- und Austauschsitzungen, interne Weiterbildungen und Supervision\n\nWeitere Informationen über Comprendi finden Sie unter Dolmetschdienst Comprendi Caritas Bern. Bei Fragen steht Ihnen Frau L. Zbinden gerne zur Verfügung (031 378 60 52).\n\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal www.caritas-bern.ch oder an folgende Emailadresse: l.zbinden@caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook",
+        "fr": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als\n\nInterkulturell Dolmetschende\n\nFür das Dolmetschen vor Ort sucht der Dolmetschdienst Comprendi\nper sofort oder nach Vereinbarung für die Sprache\nSOMALISCH und UKRAINISCH\nDiese bilden eine Sprachbrücke mit dem nötigen kulturellen und sozialen Hintergrund bei der Kommunikation zwischen Migrantinnen und Migranten sowie öffentlichen Stellen des Gesundheits-, Sozial- und Bildungsbereiches im Kanton Bern.\n\nIhre Aufgaben\n\nAls interkulturell Dolmetschende sind Sie dafür verantwortlich, dass ein korrektes und inhaltlich vollständiges Dolmetschen zwischen Gesprächspartnern unterschiedlicher Herkunft möglich wird. Dabei achten Sie auf die kulturellen, ethischen und sozialen Hintergründe, mit dem Ziel, eine Kommunikation und den gleichberechtigten Zugang zu Dienstleistungen zu ermöglichen.\n\nUnsere Anforderungen\n\n- Ihre Muttersprache ist Somalisch oder Ukrainisch\n- Sie sind mindestens 25 Jahre alt\n- Sie verfügen über sehr gute Deutschkenntnisse (Niveau C1, mindestens Niveau B2 des europäischen Referenzsystems)\n- Sie verfügen über eine abgeschlossene Berufsausbildung und gute Allgemeinbildung\n- Im Idealfall haben Sie bereits Erfahrungen im mündlichen Dolmetschen\n- Sie besitzen das Zertifikat INTERPRET oder sind interessiert, dieses zu erwerben\n- Sie wohnen im Kanton Bern und haben Zugang zu Internet / E-Mail und verfügen über Mobiltelefon und PC/Laptop\n- Zu Ihren Stärken gehören Verantwortungsbewusstsein, Zuverlässigkeit, Pünktlichkeit, Flexibilität, Diskretion sowie gute administrative Fähigkeiten\n\nWir bieten\n- Ausstellung eines Arbeitsvertrags (Einsätze auf Anfrage, ein Anspruch auf Einsätze besteht nicht)\n- Flexible Einsatzmöglichkeiten auf Anfrage für interkulturelles Dolmetschen vor Ort und am Telefon\n- Zeitgemässe Entlohnung, Sozialleistungen und Spesen\n- Informations- und Austauschsitzungen, interne Weiterbildungen und Supervision\n\nWeitere Informationen über Comprendi finden Sie unter Dolmetschdienst Comprendi Caritas Bern. Bei Fragen steht Ihnen Frau L. Zbinden gerne zur Verfügung (031 378 60 52).\n\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal www.caritas-bern.ch oder an folgende Emailadresse: l.zbinden@caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook"
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-03T21:28:59.598Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "category": "Sociale / Educazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-03-18T09:30:42.595061+00:00",
+      "postedDate": "2025-03-18T09:30:42.595061+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/126757/2020/pub/5/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 10,
+      "pensumMax": 10,
+      "pensum": "10%",
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T21:28:59.598Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-03T21:28:59.598Z"
     },
     {
       "id": "caritas-schweiz-43f6a37e0add",
@@ -122,7 +197,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:31.345Z",
+      "crawledAt": "2026-11-03T21:28:59.176Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -174,16 +249,16 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:27:31.345Z",
+      "validThrough": "2026-12-03T21:28:59.176Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-4972e95ee6b3",
       "slug": "responsabile-del-team-e-persona-di-riferimento-socioeducativa-80-100-a-uster-m-f-d-caritas-schweiz-zurich",
       "slugByLocale": {
-        "de": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
         "it": "responsabile-del-team-e-persona-di-riferimento-socioeducativa-80-100-a-uster-m-f-d-caritas-schweiz-zurich",
         "en": "team-management-and-social-pedagogical-caregiver-80-100-in-uster-m-f-d-caritas-schweiz-zurich",
+        "de": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
         "fr": "gestion-d-equipe-et-aidant-pedagogique-social-80-100-en-uster-h-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
@@ -191,25 +266,25 @@
       "companyDomain": "caritas.ch",
       "title": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
       "titleByLocale": {
-        "de": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
         "it": "Responsabile del team e persona di riferimento socioeducativa 80 - 100 % a Uster (m/f/d)",
         "en": "Team management and social pedagogical caregiver 80 - 100% in Uster (m/f/d)",
+        "de": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
         "fr": "Gestion d'équipe et aidant pédagogique social 80 - 100% en Uster (h/f/d)"
       },
       "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
       "descriptionByLocale": {
-        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
         "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\nCaritas Svizzera gestisce centri di asilo per famiglie, individui e minori non accompagnati (MNA) in cinque sedi nel Cantone di Zurigo dal marzo 2024 per conto dell'Ufficio Sociale cantonale (KSA). In questo ruolo responsabile, si combinano competenze di leadership con il lavoro di specialisti socio-pedagogici e modellano attivamente lo sviluppo del team e dei giovani.\nI loro compiti\n• Gestione professionale e del personale e consulenza del gruppo MNA residenziale, intervento orientato alla soluzione nei problemi e conflitti\n• Pianificazione del personale in conformità con la pianificazione dei requisiti del personale in accordo con la gestione del centro\n• Partecipazione al reclutamento di professionisti aggiuntivi per il team\n• Preparazione, follow-up e svolgimento delle riunioni, comprese le riunioni dei casi\n• Promozione dello sviluppo professionale dei dipendenti\n• Rappresentanza del gruppo di alloggio nei confronti di organismi interni ed esterni\n• Promuovere il lavoro di squadra costruttivo, apprezzativo e interdisciplinare\n• Gestione delle interviste ai dipendenti e supporto per l'accordo di destinazione e lo sviluppo delle prestazioni\n• Ripresa da un case management MNA\nI nostri requisiti\n• Formazione socio-pedagogica riconosciuta completa (o equivalente)\n• Esperienza nella migrazione e/o nella gioventù\n• Forte capacità di leadership e comunicazione\n• Buona conoscenza del tedesco, ulteriore conoscenza delle lingue straniere benefico\n• Competenza interculturale\n• Volontà di fornire il tempo varia orari di lavoro\n• Alto senso di responsabilità e qualità\n• Iniziativa e autooccupazione\n• Alta resilienza e resilienza\n• Buona conoscenza di Microsoft Office\n• Gomma affidabile\nLuogo di lavoro: Cantone di Zurigo (Uster)\nInizio del lavoro: Immediatamente o d'accordo.\nCaritas offre interessanti condizioni di lavoro e un ambiente di lavoro aperto al polso delle questioni sociali. Per la trasformazione verso il lavoro basato sul ruolo, contiamo sui dipendenti con una mentalità digitale e agile che amano partecipare ai processi di cambiamento e prendersi la responsabilità.\nPer informazioni su questo punto si prega di contattare Tijana Tomovic, Capo del Centro MNA, e-mail: ttomovic@caritas.ch\nVi ringraziamo per l'interesse e non vediamo l'ora della vostra applicazione fino al 1 °. Dicembre 2026 tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
         "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\nCaritas Switzerland has been running asylum centres for families, individuals and unaccompanied minors (MNA) at five locations in the Canton of Zurich since March 2024 on behalf of the Cantonal Social Office (KSA). In this responsible role, you combine leadership skills with socio-pedagogical specialist work and actively shape the development of the team and young people.\nTheir tasks\n• Professional and personnel management and advice of the MNA residential group team, solution-oriented intervention in problems and conflicts\n• Planning of the personnel deployment in accordance with the personnel requirements planning in agreement with the centre management\n• Participation in the recruitment of additional professionals for the team\n• Preparation, follow-up and conduct of meetings, including case meetings\n• Promotion of the professional development of employees\n• Representation of the housing group vis-à-vis internal and external bodies\n• Promoting constructive, appreciative and interdisciplinary teamwork\n• Conduct of employee interviews as well as support for target agreement and performance development\n• Taking over from an MNA case management\nOur requirements\n• Completed recognised socio-pedagogical training (or equivalent)\n• Experience in migration and/or youth work desirable\n• Strong leadership and communication skills\n• Good knowledge of German, further knowledge of foreign languages beneficial\n• Intercultural competence\n• Willingness to provide time varying working hours\n• High sense of responsibility and quality\n• Own initiative and self-employment and enforcement\n• High resilience and resilience\n• Good Microsoft Office knowledge\n• Reliable gum\nPlace of work: Canton of Zurich (Uster)\nStart of work: Immediately or by agreement.\nCaritas offers attractive employment conditions and an open working environment at the pulse of social issues. For the transformation towards role-based work, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\nFor information on this point please contact Tijana Tomovic, Head of MNA Centre, e-mail: ttomovic@caritas.ch\nWe thank you for the interest and look forward to your application until the 1st. December 2026 via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
+        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les personnes et les mineurs non accompagnés (MNA) dans cinq localités du canton de Zurich depuis mars 2024 au nom de l'Office social cantonal (KSA). Dans ce rôle responsable, vous combinez les compétences de leadership avec le travail sociopédagogique de spécialiste et façonnez activement le développement de l'équipe et des jeunes.\nLeurs tâches\n• Gestion professionnelle et du personnel et conseils de l'équipe du groupe résidentiel MNA, intervention axée sur la solution dans les problèmes et les conflits\n• Planification du déploiement du personnel conformément à la planification des besoins en personnel en accord avec la direction du centre\n• Participation au recrutement de professionnels supplémentaires pour l ' équipe\n• Préparation, suivi et organisation de réunions, y compris de réunions de cas\n• Promotion du perfectionnement professionnel des salariés\n• Représentation du groupe logement par rapport aux organismes internes et externes\n• Promouvoir un travail d'équipe constructif, reconnaissant et interdisciplinaire\n• Conduite d'entrevues avec des employés ainsi que soutien à l'établissement d'un accord sur les cibles et au perfectionnement du rendement\n• Reprise d'une gestion de cas de l'ANM\nNos exigences\n• Formation sociopédagogique reconnue (ou équivalent)\n• Expérience de la migration et/ou du travail des jeunes souhaitable\n• Forte capacité de leadership et de communication\n• Bonne connaissance de l'allemand, meilleure connaissance des langues étrangères\n• Compétence interculturelle\n• Volonté de prévoir des horaires variables\n• Haute responsabilité et qualité\n• Initiative propre et travail indépendant et application\n• Haute résilience et résilience\n• Bonne connaissance de Microsoft Office\n• Gomme fiable\nLieu de travail: Canton de Zurich (Uster)\nDébut du travail: Immédiatement ou d'un commun accord.\nCaritas offre des conditions d'emploi attrayantes et un environnement de travail ouvert à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nPour plus d'informations sur ce point, veuillez contacter Tijana Tomovic, Chef du Centre MNA, e-mail: ttomovic@caritas.ch\nNous vous remercions de l'intérêt et attendons avec impatience votre candidature jusqu'au 1er. Décembre 2026 via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:30.858Z",
+      "crawledAt": "2026-11-03T21:28:58.755Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -227,12 +302,14 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+        "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
@@ -245,28 +322,24 @@
           "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz"
         ]
       },
-      "previousSlugs": [
-        "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-        "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
-      ],
-      "salaryMin": 63000,
-      "salaryMax": 116500,
+      "firstSeenAt": "2026-11-03T09:27:30.858Z",
+      "salaryMin": 95000,
+      "salaryMax": 175500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 116500,
+          "minValue": 95000,
+          "maxValue": 175500,
           "unitText": "YEAR"
         }
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:27:30.858Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:27:30.858Z"
+      "validThrough": "2027-01-31T21:28:58.755Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-24125545a89f",
@@ -287,11 +360,11 @@
         "de": "Sachbearbeitung zentrale Administration 80 - 100 % (m/w/d)",
         "fr": "Administration centrale 80 - 100% (h/f/d)"
       },
-      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). Die zentrale Administration ist für die Erfassung der Klient*innen-Stammdaten sowie Dossiermutationen verantwortlich. Zudem werden sämtliche klientenbezogenen Rechnungen geprüft, bei Bedarf interne Kostengutsprachen eingeholt, kontiert und zur Zahlungsfreigabe an die Zentrumsleitungen weitergeleitet. Des Weiteren stellt die zentrale Administration die Versicherungspflicht aller Klient:innen in den Mandaten Zürich sicher. Für diese standortsübergreifende Tätigkeit suchen wir im Mandatsbüro am Bleicherweg nach Verstärkung.\nIhre Aufgaben\n• Erfassung der Stammdaten und Weitergabe der Dossiers an die Zentren zur Bearbeitung\n• Bearbeitung von Statuswechseln und Veränderungen der Haushaltsgrösse\n• Prüfung, Verarbeitung und Verbuchung von klientenbezogenen Rechnungen und Gutschriften in Tutoris\n• Sicherstellung der Einhaltung sowie Weiterentwicklung der Vorgaben von Caritas Schweiz im Fachbereich Administration und Finanzen\n• Mitarbeit beim Aufbau des Organisationshandbuches, Arbeitsanweisungen und Checklisten\n• Interdisziplinäre Zusammenarbeit (Fachbereiche Gesundheit, Sozialarbeit und Fallführung)\n• Sicherstellung der Versicherungspflicht aller Klient*innen in den Mandaten Zürich\n• Verarbeitung sämtlicher gesundheitsbezogener Rechnungen inkl. Prämien- und Leistungsabrechnungen sowie Rückforderung bei der Krankenkasse\n• Übernahme eines Verantwortungsbereiches (z.B. zahnärztliche Leistungen) inklusive Erstellen/Überarbeiten von Prozessabläufen, Pflege des Wissensmanagements und Schulung des Teams im Verantwortungsbereich, Ansprechperson für interne und externe Stellen im Verantwortungsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (mind. E-Profil)\n• Mindestens drei Jahre Berufserfahrung im administrativen Bereich, vorzugsweise in der öffentlichen Sozialhilfe und/oder öffentlichen Verwaltung im Kanton Zürich\n• Kenntnisse und Erfahrungen im Asylwesen\n• Mindestens ein Jahr Buchhaltungserfahrung, speziell Rechnungsverarbeitung inkl. Kontrolle und Kontierung\n• Sehr gute Computeranwenderkenntnisse (v.a. MS-Office inkl. Teams, SharePoint und Internet) idealerweise mit Fallführungssoftware Tutoris\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Ausgeprägte Fachführungs- und Kommunikationsfähigkeiten\n• Fähigkeit und Resilienz in einem dynamischen Umfeld zu arbeiten\n• Rasche Auffassungsgabe, vernetztes Denken und Handeln\nArbeitsort: Stadt Zürich, direkt beim Bahnhof Enge\nArbeitsbeginn: Per 01.01.2027 oder nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Stefanie Zweifel, Fachbereichsleitung zentrale Administration, Telefon +41 76 346 19 39.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 13. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). Die zentrale Administration ist für die Erfassung der Klient*innen-Stammdaten sowie Dossiermutationen verantwortlich. Zudem werden sämtliche klientenbezogenen Rechnungen geprüft, bei Bedarf interne Kostengutsprachen eingeholt, kontiert und zur Zahlungsfreigabe an die Zentrumsleitungen weitergeleitet. Des Weiteren stellt die zentrale Administration die Versicherungspflicht aller Klient:innen in den Mandaten Zürich sicher. Für diese standortsübergreifende Tätigkeit suchen wir im Mandatsbüro am Bleicherweg nach Verstärkung.\nIhre Aufgaben\n• Erfassung der Stammdaten und Weitergabe der Dossiers an die Zentren zur Bearbeitung\n• Bearbeitung von Statuswechseln und Veränderungen der Haushaltsgrösse\n• Prüfung, Verarbeitung und Verbuchung von klientenbezogenen Rechnungen und Gutschriften in Tutoris\n• Sicherstellung der Einhaltung sowie Weiterentwicklung der Vorgaben von Caritas Schweiz im Fachbereich Administration und Finanzen\n• Mitarbeit beim Aufbau des Organisationshandbuches, Arbeitsanweisungen und Checklisten\n• Interdisziplinäre Zusammenarbeit (Fachbereiche Gesundheit, Sozialarbeit und Fallführung)\n• Sicherstellung der Versicherungspflicht aller Klient*innen in den Mandaten Zürich\n• Verarbeitung sämtlicher gesundheitsbezogener Rechnungen inkl. Prämien- und Leistungsabrechnungen sowie Rückforderung bei der Krankenkasse\n• Übernahme eines Verantwortungsbereiches (z.B. zahnärztliche Leistungen) inklusive Erstellen/Überarbeiten von Prozessabläufen, Pflege des Wissensmanagements und Schulung des Teams im Verantwortungsbereich, Ansprechperson für interne und externe Stellen im Verantwortungsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (mind. E-Profil)\n• Mindestens drei Jahre Berufserfahrung im administrativen Bereich, vorzugsweise in der öffentlichen Sozialhilfe und/oder öffentlichen Verwaltung im Kanton Zürich\n• Kenntnisse und Erfahrungen im Asylwesen\n• Mindestens ein Jahr Buchhaltungserfahrung, speziell Rechnungsverarbeitung inkl. Kontrolle und Kontierung\n• Sehr gute Computeranwenderkenntnisse (v.a. MS-Office inkl. Teams, SharePoint und Internet) idealerweise mit Fallführungssoftware Tutoris\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Ausgeprägte Fachführungs- und Kommunikationsfähigkeiten\n• Fähigkeit und Resilienz in einem dynamischen Umfeld zu arbeiten\n• Rasche Auffassungsgabe, vernetztes Denken und Handeln\nArbeitsort: Stadt Zürich, direkt beim Bahnhof Enge\nArbeitsbeginn: Per 01.01.2027 oder nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Stefanie Zweifel, Fachbereichsleitung zentrale Administration, Telefon +41 76 346 19 39.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 6. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
       "descriptionByLocale": {
         "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\nCaritas Svizzera gestisce centri di asilo per famiglie, individui e minori non accompagnati (MNA) in cinque sedi nel Cantone di Zurigo dal marzo 2024 per conto dell'Ufficio Sociale cantonale (KSA). L'amministrazione centrale è responsabile della raccolta dei dati e delle mutazioni dei dossier del cliente. Inoltre, tutte le fatture relative al cliente sono controllate, le lingue del conto costi interno sono ottenute, inserite e inoltrate alla gestione centrale per il rilascio del pagamento. Inoltre, l'amministrazione centrale assicura l'obbligo di assicurazione di tutti i clienti nei mandati di Zurigo. Per questa attività di cross-location, stiamo cercando rinforzi nell'ufficio del mandato di Bleicherweg.\nI loro compiti\n• Raccolta di dati master e trasferimento di dossier a centri di elaborazione\n• Elaborazione dei cambiamenti di stato e delle modifiche delle dimensioni delle famiglie\n• Esame, elaborazione e contabilità delle fatture e dei crediti relativi al cliente nei tutorial\n• Garantire la conformità e l'ulteriore sviluppo dei requisiti della Caritas Svizzera nel Dipartimento di Amministrazione e Finanza\n• Cooperazione nello sviluppo del manuale di organizzazione, istruzioni di lavoro e liste di controllo\n• Cooperazione interdisciplinare (salute, lavoro sociale e gestione dei casi)\n• Assicurare l'obbligo di assicurazione di tutti i clienti nei mandati di Zurigo\n• Elaborazione di tutte le fatture relative alla salute incl. Prestazioni e benefici e recupero dal fondo di assicurazione sanitaria\n• Assunzione di responsabilità (ad es. servizi odontoiatrici) tra cui creazione/revisione dei flussi di processo, manutenzione della gestione della conoscenza e formazione del team nel settore della responsabilità, persona di contatto per posizioni interne ed esterne nel settore della responsabilità\nI nostri requisiti\n• Formazione completa nel settore commerciale (minor e-profile)\n• Almeno tre anni di esperienza professionale nel settore amministrativo, preferibilmente nel welfare pubblico e/o nell'amministrazione pubblica nel Cantone di Zurigo\n• Conoscenza e esperienza in materia di asilo\n• Almeno un anno di esperienza contabile, in particolare l'elaborazione delle fatture incl. Controllo e contabilità\n• Ottima conoscenza dell'utente del computer (specialmente MS-Office incl.) Squadre, SharePoint e Internet idealmente con il software di orientamento caso Tutoris\n• Molto buona conoscenza orale e scritta del tedesco\n• Forte capacità di orientamento e comunicazione sul campo\n• Capacità e resilienza di lavorare in un ambiente dinamico\n• Rapida comprensione, pensiero e azione in rete\nLuogo di lavoro: Città di Zurigo, direttamente alla stazione Enge\nInizio del lavoro: a partire dal 01.01.2027 o da accordo\nCaritas offre interessanti condizioni di lavoro e un ambiente di lavoro aperto al polso delle questioni sociali. Per la trasformazione verso il lavoro basato sul ruolo, contiamo sui dipendenti con una mentalità digitale e agile che amano partecipare ai processi di cambiamento e prendersi la responsabilità.\nLe informazioni su questa posizione possono essere fornite dalla sig.ra Stefanie Zweifel, responsabile dell'amministrazione centrale, telefono +41 76 346 19 39.\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione fino al 13. Novembre 2026 tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
         "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\nCaritas Switzerland has been running asylum centres for families, individuals and unaccompanied minors (MNA) at five locations in the Canton of Zurich since March 2024 on behalf of the Cantonal Social Office (KSA). The central administration is responsible for the collection of client master data and dossier mutations. In addition, all client-related invoices are checked, internal cost account languages are obtained, entered and forwarded to the center management for payment release. Furthermore, the central administration ensures the insurance obligation of all clients in the Zurich mandates. For this cross-location activity, we are looking for reinforcements in the mandate office at Bleicherweg.\nTheir tasks\n• Collection of master data and transfer of dossiers to centres for processing\n• Processing of status changes and changes in household size\n• Examination, processing and accounting of client-related invoices and credits in tutorials\n• Ensuring compliance and further development of the requirements of Caritas Switzerland in the Department of Administration and Finance\n• Cooperation in the development of the organisation manual, work instructions and checklists\n• Interdisciplinary cooperation (health, social work and case management)\n• Ensuring the insurance obligation of all clients in the Zurich mandates\n• Processing of all health-related invoices incl. Premium and benefit statements and recovery from the health insurance fund\n• Assumption of responsibility (e.g. dental services) including creation/revision of process flows, maintenance of knowledge management and training of the team in the area of responsibility, contact person for internal and external positions in the area of responsibility\nOur requirements\n• Completed training in the commercial sector (minor e-profile)\n• At least three years of professional experience in the administrative sector, preferably in public welfare and/or public administration in the Canton of Zurich\n• Knowledge and experience in asylum matters\n• At least one year of accounting experience, especially invoice processing incl. Control and accounting\n• Very good computer user knowledge (especially MS-Office incl.) Teams, SharePoint and Internet ideally with case guidance software Tutoris\n• Very good oral and written knowledge of German\n• Strong field guidance and communication skills\n• Ability and resilience to work in a dynamic environment\n• Rapid comprehension, networked thinking and action\nPlace of work: City of Zurich, directly at Enge Station\nStart of work: as of 01.01.2027 or by agreement\nCaritas offers attractive employment conditions and an open working environment at the pulse of social issues. For the transformation towards role-based work, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\nInformation on this position can be provided by Mrs. Stefanie Zweifel, Head of Department Central Administration, telephone +41 76 346 19 39.\nWe thank you for your interest and look forward to your application until the 13th. November 2026 via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
-        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). Die zentrale Administration ist für die Erfassung der Klient*innen-Stammdaten sowie Dossiermutationen verantwortlich. Zudem werden sämtliche klientenbezogenen Rechnungen geprüft, bei Bedarf interne Kostengutsprachen eingeholt, kontiert und zur Zahlungsfreigabe an die Zentrumsleitungen weitergeleitet. Des Weiteren stellt die zentrale Administration die Versicherungspflicht aller Klient:innen in den Mandaten Zürich sicher. Für diese standortsübergreifende Tätigkeit suchen wir im Mandatsbüro am Bleicherweg nach Verstärkung.\nIhre Aufgaben\n• Erfassung der Stammdaten und Weitergabe der Dossiers an die Zentren zur Bearbeitung\n• Bearbeitung von Statuswechseln und Veränderungen der Haushaltsgrösse\n• Prüfung, Verarbeitung und Verbuchung von klientenbezogenen Rechnungen und Gutschriften in Tutoris\n• Sicherstellung der Einhaltung sowie Weiterentwicklung der Vorgaben von Caritas Schweiz im Fachbereich Administration und Finanzen\n• Mitarbeit beim Aufbau des Organisationshandbuches, Arbeitsanweisungen und Checklisten\n• Interdisziplinäre Zusammenarbeit (Fachbereiche Gesundheit, Sozialarbeit und Fallführung)\n• Sicherstellung der Versicherungspflicht aller Klient*innen in den Mandaten Zürich\n• Verarbeitung sämtlicher gesundheitsbezogener Rechnungen inkl. Prämien- und Leistungsabrechnungen sowie Rückforderung bei der Krankenkasse\n• Übernahme eines Verantwortungsbereiches (z.B. zahnärztliche Leistungen) inklusive Erstellen/Überarbeiten von Prozessabläufen, Pflege des Wissensmanagements und Schulung des Teams im Verantwortungsbereich, Ansprechperson für interne und externe Stellen im Verantwortungsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (mind. E-Profil)\n• Mindestens drei Jahre Berufserfahrung im administrativen Bereich, vorzugsweise in der öffentlichen Sozialhilfe und/oder öffentlichen Verwaltung im Kanton Zürich\n• Kenntnisse und Erfahrungen im Asylwesen\n• Mindestens ein Jahr Buchhaltungserfahrung, speziell Rechnungsverarbeitung inkl. Kontrolle und Kontierung\n• Sehr gute Computeranwenderkenntnisse (v.a. MS-Office inkl. Teams, SharePoint und Internet) idealerweise mit Fallführungssoftware Tutoris\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Ausgeprägte Fachführungs- und Kommunikationsfähigkeiten\n• Fähigkeit und Resilienz in einem dynamischen Umfeld zu arbeiten\n• Rasche Auffassungsgabe, vernetztes Denken und Handeln\nArbeitsort: Stadt Zürich, direkt beim Bahnhof Enge\nArbeitsbeginn: Per 01.01.2027 oder nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Stefanie Zweifel, Fachbereichsleitung zentrale Administration, Telefon +41 76 346 19 39.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 13. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). Die zentrale Administration ist für die Erfassung der Klient*innen-Stammdaten sowie Dossiermutationen verantwortlich. Zudem werden sämtliche klientenbezogenen Rechnungen geprüft, bei Bedarf interne Kostengutsprachen eingeholt, kontiert und zur Zahlungsfreigabe an die Zentrumsleitungen weitergeleitet. Des Weiteren stellt die zentrale Administration die Versicherungspflicht aller Klient:innen in den Mandaten Zürich sicher. Für diese standortsübergreifende Tätigkeit suchen wir im Mandatsbüro am Bleicherweg nach Verstärkung.\nIhre Aufgaben\n• Erfassung der Stammdaten und Weitergabe der Dossiers an die Zentren zur Bearbeitung\n• Bearbeitung von Statuswechseln und Veränderungen der Haushaltsgrösse\n• Prüfung, Verarbeitung und Verbuchung von klientenbezogenen Rechnungen und Gutschriften in Tutoris\n• Sicherstellung der Einhaltung sowie Weiterentwicklung der Vorgaben von Caritas Schweiz im Fachbereich Administration und Finanzen\n• Mitarbeit beim Aufbau des Organisationshandbuches, Arbeitsanweisungen und Checklisten\n• Interdisziplinäre Zusammenarbeit (Fachbereiche Gesundheit, Sozialarbeit und Fallführung)\n• Sicherstellung der Versicherungspflicht aller Klient*innen in den Mandaten Zürich\n• Verarbeitung sämtlicher gesundheitsbezogener Rechnungen inkl. Prämien- und Leistungsabrechnungen sowie Rückforderung bei der Krankenkasse\n• Übernahme eines Verantwortungsbereiches (z.B. zahnärztliche Leistungen) inklusive Erstellen/Überarbeiten von Prozessabläufen, Pflege des Wissensmanagements und Schulung des Teams im Verantwortungsbereich, Ansprechperson für interne und externe Stellen im Verantwortungsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im kaufmännischen Bereich (mind. E-Profil)\n• Mindestens drei Jahre Berufserfahrung im administrativen Bereich, vorzugsweise in der öffentlichen Sozialhilfe und/oder öffentlichen Verwaltung im Kanton Zürich\n• Kenntnisse und Erfahrungen im Asylwesen\n• Mindestens ein Jahr Buchhaltungserfahrung, speziell Rechnungsverarbeitung inkl. Kontrolle und Kontierung\n• Sehr gute Computeranwenderkenntnisse (v.a. MS-Office inkl. Teams, SharePoint und Internet) idealerweise mit Fallführungssoftware Tutoris\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Ausgeprägte Fachführungs- und Kommunikationsfähigkeiten\n• Fähigkeit und Resilienz in einem dynamischen Umfeld zu arbeiten\n• Rasche Auffassungsgabe, vernetztes Denken und Handeln\nArbeitsort: Stadt Zürich, direkt beim Bahnhof Enge\nArbeitsbeginn: Per 01.01.2027 oder nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Stefanie Zweifel, Fachbereichsleitung zentrale Administration, Telefon +41 76 346 19 39.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 6. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les personnes et les mineurs non accompagnés (MNA) dans cinq localités du canton de Zurich depuis mars 2024 au nom de l'Office social cantonal (KSA). L'administration centrale est responsable de la collecte des données maîtresses du client et des mutations de dossiers. En outre, toutes les factures relatives au client sont vérifiées, des langages de compte de coûts internes sont obtenus, entrés et transmis à la direction du centre pour libération de paiement. En outre, l'administration centrale assure l'obligation d'assurance de tous les clients dans les mandats de Zurich. Pour cette activité interlocalisée, nous cherchons des renforts au bureau du mandat de Bleicherweg.\nLeurs tâches\n• Collecte de données de base et transfert de dossiers aux centres de traitement\n• Traitement des changements de statut et de taille des ménages\n• Examen, traitement et comptabilisation des factures et des crédits liés aux clients dans les tutoriels\n• Assurer le respect et le développement des exigences de Caritas Suisse au sein du Département de l'administration et des finances\n• Coopération dans l'élaboration du manuel d'organisation, des instructions de travail et des listes de contrôle\n• Coopération interdisciplinaire (santé, travail social et gestion des cas)\n• Assurer l'obligation d'assurance de tous les clients dans les mandats de Zurich\n• Traitement de toutes les factures liées à la santé, y compris : Déclarations de primes et de prestations et recouvrement auprès du fonds d ' assurance maladie\n• Assomption de la responsabilité (p. ex. services dentaires) y compris la création ou la révision des flux de processus, le maintien de la gestion des connaissances et la formation de l'équipe dans le domaine de responsabilité, la personne-ressource pour les postes internes et externes dans le domaine de responsabilité\nNos exigences\n• Formation complète dans le secteur commercial (profil électronique mineur)\n• Au moins trois ans d'expérience professionnelle dans le secteur administratif, de préférence dans le domaine de la protection sociale et/ou de l'administration publique dans le canton de Zurich\n• Connaissances et expérience en matière d'asile\n• Au moins un an d'expérience comptable, en particulier le traitement des factures, y compris Contrôle et comptabilité\n• Très bonne connaissance des utilisateurs d'ordinateur (en particulier MS-Office incl.) Les équipes, SharePoint et Internet idéalement avec le logiciel de guidage de cas\n• Très bonne connaissance orale et écrite de l'allemand\n• Compétences solides en matière d ' orientation et de communication sur le terrain\n• Capacité et résilience à travailler dans un environnement dynamique\n• Compréhension rapide, pensée en réseau et action\nLieu de travail: Ville de Zurich, directement à la gare d'Enge\nDébut des travaux: au 01.01.2027 ou par accord\nCaritas offre des conditions d'emploi attrayantes et un environnement de travail ouvert à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nDes informations sur ce poste peuvent être fournies par Mme Stefanie Zweifel, chef du département Administration centrale, téléphone +41 76 346 19 39.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature jusqu'au 13. Novembre 2026 via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
       "needsRetranslation": false,
@@ -300,7 +373,7 @@
       "url": "https://apply.refline.ch/126757/2385/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:30.378Z",
+      "crawledAt": "2026-11-03T21:28:58.334Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -352,7 +425,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:27:30.378Z",
+      "validThrough": "2027-01-28T21:28:58.334Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -387,7 +460,7 @@
       "url": "https://apply.refline.ch/126757/2386/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:29.863Z",
+      "crawledAt": "2026-11-03T21:28:57.912Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -439,7 +512,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:27:29.863Z",
+      "validThrough": "2027-01-28T21:28:57.912Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -474,7 +547,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:29.379Z",
+      "crawledAt": "2026-11-03T21:28:57.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -528,7 +601,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:27:29.379Z",
+      "validThrough": "2026-12-20T21:28:57.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -563,7 +636,7 @@
       "url": "https://apply.refline.ch/126757/2384/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:28.894Z",
+      "crawledAt": "2026-11-03T21:28:57.065Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -617,7 +690,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:27:28.894Z",
+      "validThrough": "2027-01-26T21:28:57.065Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -652,7 +725,7 @@
       "url": "https://apply.refline.ch/126757/2382/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:28.411Z",
+      "crawledAt": "2026-11-03T21:28:56.634Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -706,7 +779,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:27:28.411Z",
+      "validThrough": "2027-01-18T21:28:56.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -741,7 +814,7 @@
       "url": "https://apply.refline.ch/126757/2341/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:27.928Z",
+      "crawledAt": "2026-11-03T21:28:56.085Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -795,7 +868,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:27:27.928Z",
+      "validThrough": "2026-12-03T21:28:56.085Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -830,7 +903,7 @@
       "url": "https://apply.refline.ch/126757/2383/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:27.446Z",
+      "crawledAt": "2026-11-03T21:28:55.664Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -882,7 +955,7 @@
       },
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:27:27.446Z",
+      "validThrough": "2027-01-20T21:28:55.664Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -917,7 +990,7 @@
       "url": "https://apply.refline.ch/126757/2371/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:27:26.965Z",
+      "crawledAt": "2026-11-03T21:28:53.985Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -969,7 +1042,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:27:26.965Z",
+      "validThrough": "2026-12-29T21:28:53.985Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1003,7 +1076,7 @@
       "url": "https://apply.refline.ch/126757/2380/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:26.480Z",
+      "crawledAt": "2026-11-03T21:28:53.559Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1054,7 +1127,7 @@
       },
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:27:26.480Z",
+      "validThrough": "2027-01-17T21:28:53.559Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1089,7 +1162,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:27:25.891Z",
+      "crawledAt": "2026-11-03T21:28:53.120Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1135,7 +1208,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:27:25.891Z",
+      "validThrough": "2026-12-24T21:28:53.120Z",
       "validThroughSource": "last-observed-window"
     }
   ]
