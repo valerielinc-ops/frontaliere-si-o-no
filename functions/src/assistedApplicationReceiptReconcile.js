@@ -139,7 +139,7 @@ export async function reconcileSubmissionReceipt({ db, orderId, applyEvent, runE
     if (record?.state === 'sent') await deferInvalidReceipt({ db, orderId, round, receiptKey, observedRecord: record, nowMs });
     return { reconciled: false, reason: 'receipt_missing_or_invalid' };
   }
-  if (receipt.observedAt > nowMs || record.state !== 'sent') {
+  if (receipt.observedAt > nowMs || (record.state !== 'sent' && receiptKey !== 'candidate')) {
     await setNextAttempt({ db, orderId, round, receiptId: receipt.receiptId, receiptKey, nowMs, reason: 'receipt_not_committed' });
     return { reconciled: false, pending: true, receiptVerified: true, reason: 'receipt_not_committed' };
   }

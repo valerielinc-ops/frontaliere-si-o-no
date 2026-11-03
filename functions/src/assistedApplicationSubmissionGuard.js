@@ -278,8 +278,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           // has no receipt yet, so the candidate proof cannot make it invalid.
           transaction.set(ref, { [key]: {
             ...current,
-            state: 'sent', sent: sentMaterial,
-            sentAt: Number(current.sentAt || record.sentAt) || Number(nowMs), confirmedNotSent: false,
+            sent: sentMaterial,
             confirmationReceipts: { ...(current.confirmationReceipts || {}), candidate: receipt },
             confirmationSubmissionAttemptIds: {
               ...(current.confirmationSubmissionAttemptIds || {}), candidate: expectedSubmissionAttemptId,

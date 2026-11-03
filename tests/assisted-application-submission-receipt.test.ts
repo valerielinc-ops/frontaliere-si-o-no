@@ -252,7 +252,7 @@ describe('durable submission receipts', () => {
 
   it('keeps a candidate confirmation separate when a legacy handoff has no primary receipt', async () => {
     store.docs.set(`${ROOT}/automation/submission`, { r1: {
-      state: 'sent', channel: 'whatsapp', attemptId: 'legacy-handoff', sentAt: T0, sent,
+      state: 'sending', channel: 'portal', attemptId: 'legacy-handoff', clickedAt: T0, confirmedNotSent: false, sent,
     } });
     store.docs.set(`${ROOT}/automation/flow`, flow('candidate_handoff'));
 
@@ -265,7 +265,7 @@ describe('durable submission receipts', () => {
     });
     const persisted = store.read(`${ROOT}/automation/submission`)?.r1;
 
-    expect(persisted).toMatchObject({ state: 'sent', channel: 'whatsapp', attemptId: 'legacy-handoff' });
+    expect(persisted).toMatchObject({ state: 'sending', channel: 'portal', attemptId: 'legacy-handoff', confirmedNotSent: false });
     expect(persisted?.receipt).toBeUndefined();
     expect(persisted?.confirmationReceipts?.candidate).toMatchObject({
       receiptId: confirmation?.receiptId, proofKind: 'candidate_confirmation', attemptId: 'candidate_confirm_legacy',
@@ -273,6 +273,15 @@ describe('durable submission receipts', () => {
     expect(verifySubmissionReceipt(persisted?.confirmationReceipts?.candidate, {
       orderId: ORDER, round: 1, attemptId: 'candidate_confirm_legacy', channel: 'candidate', sentRecord: sent,
     })).toBe(true);
+
+    const summary = await runAutomationSweep({ db: store.db, nowMs: T0 + 2, runEffect: async context => {
+      effects.push(context.effect);
+      return runAutomationEffect(context);
+    } });
+    expect(summary).toMatchObject({ receiptsReconciled: 1, redispatched: 0 });
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+    expect(store.read(`${ROOT}/automation/submission`)?.r1?.state).toBe('sending');
+    expect(store.read(ROOT)).toMatchObject({ submissionStatus: 'submitted', submissionReceiptDueAt: null });
   });
 
   it('refuses the final click if the flow moved to owner takeover after claim', async () => {
