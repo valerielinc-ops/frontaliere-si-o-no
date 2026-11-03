@@ -193,6 +193,9 @@ export function mergeRittmeyerListingPages(pages, expectedCount = null) {
     if (!Array.isArray(page)) {
       throw new Error('Rittmeyer: listing page parser returned a non-array result');
     }
+    if (page.rittmeyerListingCountConflict === true) {
+      throw new Error('Rittmeyer: listing page exposed conflicting usable advertised counts');
+    }
     const pageAdvertisedCount = page.rittmeyerListingAdvertisedCount;
     if (pageAdvertisedCount != null) {
       if (advertisedCount == null) advertisedCount = pageAdvertisedCount;
@@ -230,6 +233,9 @@ export function mergeRittmeyerListingPages(pages, expectedCount = null) {
 export async function fetchRittmeyerOnlyfyListingSource(source, fetchPage = fetchText) {
   const firstUrl = buildRittmeyerOnlyfyListingPageUrl(source.url, 1);
   const firstPage = parseRittmeyerListingsPage(await fetchPage(firstUrl));
+  if (firstPage.rittmeyerListingCountConflict === true) {
+    throw new Error('Rittmeyer: first listing page exposed conflicting usable advertised counts');
+  }
   const advertisedCount = firstPage.rittmeyerListingAdvertisedCount;
   if (advertisedCount == null) return mergeRittmeyerListingPages([firstPage]);
   if (firstPage.length > advertisedCount) {
@@ -252,6 +258,9 @@ export async function fetchRittmeyerOnlyfyListingSource(source, fetchPage = fetc
   for (let pageNumber = 2; pageNumber <= pageCount; pageNumber += 1) {
     const pageUrl = buildRittmeyerOnlyfyListingPageUrl(source.url, pageNumber);
     const pageRows = parseRittmeyerListingsPage(await fetchPage(pageUrl));
+    if (pageRows.rittmeyerListingCountConflict === true) {
+      throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} exposed conflicting usable advertised counts`);
+    }
     if (pageRows.length === 0) {
       throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} was empty before reaching ${advertisedCount} jobs`);
     }
