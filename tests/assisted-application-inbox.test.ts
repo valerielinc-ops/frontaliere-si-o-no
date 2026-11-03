@@ -500,6 +500,30 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     }
   });
 
+  it('rejects an employer receipt when a concurrent claim supersedes the confirmed attempt', async () => {
+    const { store } = await ambiguousOrder({
+      guard: { state: 'sending', channel: 'portal', attemptId: 'attempt-old', startedAt: 500, clickedAt: 600 },
+    });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      const submission = store.read(GUARD_PATH)!;
+      store.docs.set(GUARD_PATH, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(confirmSubmissionByEmployer({
+        db: store.db, orderId: ORDER, receivedAt: 700, nowMs: 1000, runEffect: async () => ({ ok: true }),
+      })).rejects.toThrow('submission_attempt_superseded');
+      expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', attemptId: 'attempt-new' });
+      expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
+      expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
+      expect(store.read(ORDER_PATH)!.submissionStatus).toBe('ready_for_manual_submission');
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
   it('confirms an ambiguous e-mail application on the employer’s reply and schedules its follow-ups', async () => {
     const { store, effects, receive } = await ambiguousOrder({
       flow: { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
