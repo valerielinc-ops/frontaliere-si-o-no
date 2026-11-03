@@ -23,7 +23,7 @@ import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, countHtmlBodyWords } f
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { SECTOR_HUB_LOCALE_PREFIX, SECTOR_HUB_SECTION } from './shared/jobSectorPaths';
-import { isIndexableSectorHubPublication, type SectorPublicationLocale } from '../data/sector-hub-publications';
+import { isIndexableSectorHubPublication } from '../data/sector-hub-publications';
 import { clampMetaDescription, TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 
 const LOCALES: readonly JobBoardLocale[] = ['it', 'en', 'de', 'fr'];
