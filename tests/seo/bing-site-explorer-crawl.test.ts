@@ -1235,6 +1235,34 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_HTTP_ERROR);
   });
 
+  it('keeps category navigation on the same emitted inventory/path set', () => {
+    const jobsSeoSource = readFileSync(
+      join(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+
+    expect(jobsSeoSource).toContain('const emittedCategoryListingPaths = new Set<string>();');
+    expect(jobsSeoSource).toContain('const catJobs = legacyCategoryJobs.get(catKey) ?? [];');
+    expect(jobsSeoSource).toContain('emittedCategoryListingPaths.has(buildJobCategoryPath(locale, sectionByLocale[locale], k))');
+    expect(jobsSeoSource).toContain('if (!catLabel || !emittedCategoryListingPaths.has(href)) return [];');
+    expect(jobsSeoSource).toContain('const rawCategory = String(job.category ?? \'\').trim().toLowerCase();');
+
+    const canonicalCategory = `${BASE}/cerca-lavoro-zurigo/categoria-sanita/`;
+    const links = extractInternalLinks(
+      `<a href="${canonicalCategory}">Sanità</a>`,
+      `${BASE}/cerca-lavoro-zurigo/`,
+      BASE,
+    );
+    expect(links).toEqual([canonicalCategory]);
+    const result = classifyDocument({
+      url: canonicalCategory,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Sanità a Zurigo</title><link rel="canonical" href="${canonicalCategory}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina categoria nel controllo SEO completo e mantenere il contratto di crawling.">`,
+    });
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+  });
+
   it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {
     const report = await crawlPartition({
       manifest: { baseUrl: BASE, urls: [`${BASE}/source/`] },

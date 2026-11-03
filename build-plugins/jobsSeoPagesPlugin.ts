@@ -377,6 +377,25 @@ function buildSeoPageHtml(opts: Parameters<typeof buildSeoPageHtmlBase>[0]): str
  });
 }
 
+type CategoryListingJob = { category?: unknown };
+
+export function normalizeCategoryListingKey(job: CategoryListingJob): JobCategoryKey | null {
+ const rawCategory = String(job.category ?? '').trim().toLowerCase();
+ return isKnownExistingCategorySlug(rawCategory) ? rawCategory : null;
+}
+
+export function groupCategoryListingJobs<T extends CategoryListingJob>(jobs: readonly T[]): Map<JobCategoryKey, T[]> {
+ const grouped = new Map<JobCategoryKey, T[]>();
+ for (const job of jobs) {
+  const category = normalizeCategoryListingKey(job);
+  if (!category) continue;
+  const bucket = grouped.get(category);
+  if (bucket) bucket.push(job);
+  else grouped.set(category, [job]);
+ }
+ return grouped;
+}
+
 // Bound repeated company-job payloads only at the shared in-feed boundary.
 // Keep one trailing card so the renderer can place the last eligible slot
 // after card 36 while keeping cards and ItemList on the same set.
@@ -8983,8 +9002,38 @@ ${staticAnalyticsHtml}
  };
  let categoryPageCount = 0;
  const categorySitemapEntries: string[] = [];
+ const legacyCategoryJobs = groupCategoryListingJobs(sortedForPagination);
+ const categoryListingJobsByCanton = new Map<string, Map<JobCategoryKey, typeof validJobs>>();
+ const emittedCategoryListingPaths = new Set<string>();
+
+ // The per-canton category emitter and every category navigator must consume
+ // the same de-duplicated job-board inventory. Keeping the floor and canonical
+ // path in this precomputed set prevents a nav-only category alias from being
+ // emitted when its listing page was skipped.
+ for (const canton of SHARED_ALL_CANTON_CODES) {
+  if (canton === 'TI') continue;
+  const categoryJobs = groupCategoryListingJobs(selectJobBoardInventory(validJobs, canton));
+  categoryListingJobsByCanton.set(canton, categoryJobs);
+  for (const [catKey, catJobs] of categoryJobs) {
+   if (catJobs.length < 3) continue;
+   for (const locale of localeList) {
+    if (!shouldEmitLocale(locale)) continue;
+    emittedCategoryListingPaths.add(
+     buildJobCategoryPath(locale, sharedResolveCantonSection(locale, canton), catKey),
+    );
+   }
+  }
+ }
+ for (const [catKey, catJobs] of legacyCategoryJobs) {
+  if (catJobs.length < 3) continue;
+  for (const locale of localeList) {
+   if (!shouldEmitLocale(locale)) continue;
+   emittedCategoryListingPaths.add(buildJobCategoryPath(locale, sectionByLocale[locale], catKey));
+  }
+ }
+
  for (const catKey of JOB_CATEGORY_KEYS) {
- const catJobs = sortedForPagination.filter((j: any) => String(j.category || '').toLowerCase() === catKey);
+ const catJobs = legacyCategoryJobs.get(catKey) ?? [];
  if (catJobs.length < 3) continue;
  const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(catJobs.length / CATEGORY_LISTING_PAGE_SIZE));
  for (let catPage = 1; catPage <= catTotalPages; catPage++) {
@@ -9028,7 +9077,10 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = JOB_CATEGORY_KEYS.filter((k) => k !== catKey).map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionByLocale[locale], k)}">${catLabels[k][locale]}</a>`);
+ const catOtherLinks = JOB_CATEGORY_KEYS
+  .filter((k) => k !== catKey)
+  .filter((k) => emittedCategoryListingPaths.has(buildJobCategoryPath(locale, sectionByLocale[locale], k)))
+  .map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionByLocale[locale], k)}">${catLabels[k][locale]}</a>`);
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -9111,27 +9163,14 @@ ${staticAnalyticsHtml}
   * Additive: for every (canton, category) bucket with >= 3 jobs (excluding TI),
   * emit /cerca-lavoro-{cantonSlug}/categoria-{slug}/ pages.
   * TI is NOT iterated here — the legacy TI emit above is byte-identical.
-  */
+ */
  {
- // Group validJobs by (canton, category)
- const cantonCategoryCounts: Map<string, Map<string, typeof validJobs>> = new Map();
- for (const job of validJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
- const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
- if (c === 'TI') continue;
- const cat = String((job as any).category || '').toLowerCase();
- if (!isKnownExistingCategorySlug(cat)) continue;
- if (!cantonCategoryCounts.has(c)) cantonCategoryCounts.set(c, new Map());
- const byCat = cantonCategoryCounts.get(c)!;
- if (!byCat.has(cat)) byCat.set(cat, []);
- byCat.get(cat)!.push(job);
- }
  const cantonDisplayLocalCat = (canton: string, locale: typeof localeList[number]): string => {
  return getCantonDisplayLabel(canton, locale);
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
- const byCat = cantonCategoryCounts.get(canton);
+ const byCat = categoryListingJobsByCanton.get(canton);
  if (!byCat) continue;
  for (const catKey of JOB_CATEGORY_KEYS) {
  const catJobs = byCat.get(catKey) ?? [];
@@ -9179,7 +9218,10 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = JOB_CATEGORY_KEYS.filter((k) => k !== catKey).map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionSlug, k)}">${catLabels[k][locale]}</a>`);
+ const catOtherLinks = JOB_CATEGORY_KEYS
+  .filter((k) => k !== catKey)
+  .filter((k) => emittedCategoryListingPaths.has(buildJobCategoryPath(locale, sectionSlug, k)))
+  .map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionSlug, k)}">${catLabels[k][locale]}</a>`);
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -12317,35 +12359,20 @@ ${staticAnalyticsHtml}
          sales: { it: 'Vendita', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
          other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' },
        };
-       // Source-of-truth alignment: the per-canton category-listing emitter
-       // (~line 5921) keys buckets by `job.category` directly and only emits
-       // a page when that bucket has ≥3 jobs. The previous implementation of
-       // this link emitter classified by `job.sector` via a heuristic alias
-       // table — which silently funnelled unrecognised sectors into the
-       // `other` bucket and emitted /categoria-altro/ links pointing at
-       // pages the listing emitter had refused to generate (404 in same-tab
-       // navigation, reported 2026-05-18). Read the same field, apply the
-       // same gate, exclude the `other` catch-all (no SEO value + frequent
-       // misclassifications).
-       const categoryCountAggregated = new Map<JobCategoryKey, number>();
-       for (const j of cantonJobsAll) {
-         const rawCat = String((j as { category?: string }).category || '').toLowerCase().trim();
-         if (!rawCat) continue;
-         if (!isKnownExistingCategorySlug(rawCat)) continue;
-         if (rawCat === 'other') continue;
-         categoryCountAggregated.set(rawCat, (categoryCountAggregated.get(rawCat) ?? 0) + 1);
-       }
-       const topCategoryHubs: Array<{ href: string; label: string }> = [];
-       for (const [catKey, count] of [...categoryCountAggregated.entries()].sort((a, b) => b[1] - a[1])) {
-         if (topCategoryHubs.length >= 6) break;
-         if (count < 3) continue; // same gate as the page emitter
-         const catLabel = categoryLabelMap[catKey]?.[entry.locale];
-         if (!catLabel) continue;
-         topCategoryHubs.push({
-           href: buildJobCategoryPath(entry.locale, entry.section, catKey),
-           label: catLabel,
+       // Use the exact category inventory and path set consumed by the
+       // per-canton listing emitter. A hub link is valid only when its page
+       // passed the same >=3 floor and was registered for this locale.
+       const categoryJobs = categoryListingJobsByCanton.get(entry.key);
+       const topCategoryHubs: Array<{ href: string; label: string }> = [...(categoryJobs?.entries() ?? [])]
+         .filter(([catKey, catJobs]) => catKey !== 'other' && catJobs.length >= 3)
+         .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+         .slice(0, 6)
+         .flatMap(([catKey]) => {
+           const href = buildJobCategoryPath(entry.locale, entry.section, catKey);
+           const catLabel = categoryLabelMap[catKey]?.[entry.locale];
+           if (!catLabel || !emittedCategoryListingPaths.has(href)) return [];
+           return [{ href, label: catLabel }];
          });
-       }
        // Editorial slot pages (Phase 8d). Non-TI cantons collapse to short
        // slugs (`oggi` / `infermieri` / `lavoro-part-time` / `cliniche`);
        // TI is filtered out earlier so we don't worry about its long-form
