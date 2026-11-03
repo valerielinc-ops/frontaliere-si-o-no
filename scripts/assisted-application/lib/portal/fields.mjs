@@ -122,13 +122,19 @@ function nativeQuestionText(value, counter = null) {
     const labelRect = label.getBoundingClientRect();
     return labelRect.width > 0 && labelRect.height > 0;
   };
-  // A small set of explicitly allowlisted public forms (currently Solique)
-  // keeps every step mounted and only swaps its layout box. The draft reader
-  // may inspect those controls without interacting with them; ordinary portal
-  // runs stay visibility-scoped so stale steps and hidden traps are ignored.
-  const readable = (element) => includeHidden
-    ? !element.closest('[hidden]')
-    : visible(element);
+  // A small set of explicitly allowlisted public forms keeps every step
+  // mounted and only swaps its layout box. The draft reader may inspect those
+  // controls without interacting with them. A conditional step that the
+  // portal actually hides remains out of the read-ahead contract: hidden,
+  // aria-hidden and display:none/visibility:hidden ancestors are not proof
+  // that its questions are currently discoverable. Ordinary portal runs stay
+  // visibility-scoped so stale steps and hidden traps are ignored.
+  const mountedForReadAhead = (element) => {
+    if (element.closest('[hidden], [aria-hidden="true"]')) return false;
+    const style = window.getComputedStyle(element);
+    return style.display !== 'none' && style.visibility !== 'hidden';
+  };
+  const readable = (element) => includeHidden ? mountedForReadAhead(element) : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
   const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
   const dialogIdFor = (element) => {

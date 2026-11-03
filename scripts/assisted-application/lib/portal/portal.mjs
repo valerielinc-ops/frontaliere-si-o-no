@@ -3995,6 +3995,24 @@ export function isSafeEmployerSitePreread(url) {
   }
 }
 
+/**
+ * The read-ahead capability is deliberately explicit. It permits one browser
+ * snapshot of controls already mounted by an allowlisted ATS, but it never
+ * permits a click, a fill, a wizard advance or a submit during draft creation.
+ * Fields hidden by an actual conditional container are filtered by
+ * extractFieldsInPage and are discovered only after the candidate answers the
+ * step that reveals them.
+ */
+export function portalReadAheadCapability({ channelType = '', entryUrl = '', verifiedPostingEntry = false } = {}) {
+  if (PREREAD_CHANNELS.has(String(channelType || ''))) {
+    return { kind: 'mounted_read_only', source: 'ats_guest_form' };
+  }
+  if (verifiedPostingEntry || isSafeEmployerSitePreread(entryUrl)) {
+    return { kind: 'mounted_read_only', source: 'verified_application_route' };
+  }
+  return null;
+}
+
 const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
 
 function portalDocumentId(field, label, context) {
@@ -4151,8 +4169,12 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  const safeEmployerSite = channelType === 'employer_site' && isSafeEmployerSitePreread(entryUrl);
-  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry && !safeEmployerSite)
+  const readAhead = portalReadAheadCapability({
+    channelType,
+    entryUrl,
+    verifiedPostingEntry: verifiedJobs2WebEntry,
+  });
+  if (!readAhead
     || !ctx.applyUrl || !ctx.codex) {
     return { questions: [], documents: [] };
   }
@@ -4176,15 +4198,29 @@ export async function readPortalRequirements(ctx) {
     const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
-    // Solique keeps the later steps mounted with zero-sized controls. The
-    // exact host allowlist makes it safe to read those labels and required
-    // flags now, without filling or advancing the live form.
-    snapshot = await awaitFields(page, await extractFields(page, safeEmployerSite
+    // An allowlisted ATS may keep later, unconditional steps mounted with
+    // zero-sized controls. Read the complete mounted contract once, without
+    // pressing Next/Continue or fabricating an answer. Conditional containers
+    // stay excluded and are handled by the submit runner after an explicit
+    // candidate answer.
+    snapshot = await awaitFields(page, await extractFields(page, readAhead
       ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
       : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
+    // The live form is authoritative for the selected posting. A verified
+    // route is sufficient provenance for a generic ATS form; otherwise a
+    // mismatch must stop before any job-specific question reaches the draft.
+    const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
+    if (hasJobContract) {
+      const formMatch = formPostingMatch(`${snapshot.text || ''}\n${page.url()}`, ctx.job, {
+        postingMatched: verifiedJobs2WebEntry,
+        postingEntry: isVerifiedPostingEntry(ctx),
+        pageUrl: page.url(),
+      });
+      if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
+    }
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
     if (requirements.unreadableFields?.length) {
@@ -4240,6 +4276,22 @@ export async function submitViaPortal(ctx) {
   // start date, the employer's own questions, review): 8 pages were not enough.
   const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
+  let candidateRequestRound = Number.isInteger(Number(ctx.candidateRequestRound))
+    ? Math.min(1000, Math.max(0, Number(ctx.candidateRequestRound))) : 0;
+  const knownPortalQuestionKeys = new Set((Array.isArray(ctx.knownPortalQuestionKeys) ? ctx.knownPortalQuestionKeys : [])
+    .map((key) => String(key || '').trim()).filter(Boolean).slice(0, 100));
+  const candidateRequestTelemetryFor = (questions) => {
+    const items = Array.isArray(questions) ? questions : [];
+    const keys = items.map((question) => portalQuestionKey(question) || portalQuestionId(question)).filter(Boolean);
+    const afterNewlyRevealedPortalFields = keys.some((key) => !knownPortalQuestionKeys.has(key));
+    for (const key of keys) knownPortalQuestionKeys.add(key);
+    candidateRequestRound = Math.min(1000, candidateRequestRound + 1);
+    return {
+      round: candidateRequestRound,
+      questionCount: Math.min(20, items.length),
+      afterNewlyRevealedPortalFields,
+    };
+  };
   const browser = extensionPath ? null : await launch();
   let context = null;
   let page = null;
@@ -4555,6 +4607,7 @@ export async function submitViaPortal(ctx) {
         event: {
           type: 'submit_needs_candidate',
           ...request,
+          candidateRequestTelemetry: candidateRequestTelemetryFor(request.questions),
         },
         evidence,
       };
@@ -4676,7 +4729,10 @@ export async function submitViaPortal(ctx) {
         };
         if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
         if (auth.questions?.length || auth.documents?.length) return {
-          event: { type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [] }, evidence,
+          event: {
+            type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [],
+            candidateRequestTelemetry: candidateRequestTelemetryFor(auth.questions || []),
+          }, evidence,
         };
         if (auth.dryRun) {
           evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');

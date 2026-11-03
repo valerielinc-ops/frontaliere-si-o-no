@@ -252,6 +252,7 @@ export async function submitApplication(ctx) {
   const submitFlow = Object.keys(mergedAnswers).length
     ? { ...(flow || {}), answers: mergedAnswers }
     : (flow || {});
+  const candidateRequestRound = Number(submitFlow?.candidateRequestTelemetry?.rounds) || 0;
   const answers = submitFlow.answers || {};
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
   const emailBody = operationalEmailBody(draft, edited.answers);
@@ -306,6 +307,17 @@ export async function submitApplication(ctx) {
     }));
     const result = { type: 'submit_needs_candidate', questions: open.map(({ id }) => ({ id })), documents: missingDocuments };
     if (questionDetails.length) result.questionDetails = questionDetails;
+    const portalOpen = open.filter((question) => question.source === 'portal');
+    if (portalOpen.length) {
+      result.candidateRequestTelemetry = {
+        round: Math.min(1000, candidateRequestRound + 1),
+        questionCount: Math.min(20, portalOpen.length),
+        // These questions came from the persisted draft, not from a newly
+        // revealed live portal step. The live runner reports true only after
+        // a candidate answer exposes another mounted contract field.
+        afterNewlyRevealedPortalFields: false,
+      };
+    }
     return result;
   }
 
@@ -539,6 +551,8 @@ export async function submitApplication(ctx) {
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),
+        candidateRequestRound,
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,
