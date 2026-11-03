@@ -115,7 +115,7 @@ describe('stringhe di prompt', () => {
   });
 
   it('toglie le etichette del prompt tradotte', () => {
-    expect(repairEditorialClaims("Fine.\n\nTITRE DE L'ARTICLE : Un titre\n\n## Suite", { locale: 'fr' }).value).toBe('Fine.\n\n## Suite');
+    expect(repairEditorialClaims("Fine.\n\nTITRE DE L'ARTICLE : Un titre\n\n## Suite", { locale: 'fr', title: 'Un titre' }).value).toBe('Fine.\n\n## Suite');
     expect(repairEditorialClaims('Il TITOLO non cambia: resta.', { locale: 'it' }).changes).toEqual([]);
   });
 });
@@ -246,8 +246,29 @@ describe('rilievi di review', () => {
     expect(stripPromptTitleLabels('Intro TITOLO ARTICOLO:\nDopo').value).toBe('Intro\nDopo');
   });
 
+  it('rileva marker titolo con spazi Unicode prima dei due punti', () => {
+    for (const space of ['\u00a0', '\u202f']) {
+      const text = `Intro TITRE ARTICLE${space}: titre`;
+      expect(findEditorialClaims(text, { locale: 'fr' })).toContainEqual({
+        class: 'stringa-prompt',
+        sentence: `TITRE ARTICLE${space}:`,
+      });
+      expect(stripPromptTitleLabels(text).value).toBe('Intro titre');
+    }
+    expect(stripPromptTitleLabels('\u00a0TITRE ARTICLE\u202f:\nDopo').value).toBe('Dopo');
+  });
+
   it('rifiuta aliquote sul lordo anche quando il nome della base precede l’aggettivo', () => {
     expect(repairHealthTaxSentence('La tassa sulla salute è del 5% del salario lordo.', 'it')).toBe('');
     expect(repairHealthTaxSentence('La taxe santé est de 5 % du salaire brut.', 'fr')).toBe('');
+  });
+
+  it('rifiuta un intervallo se uno dei due estremi è fuori da 3-6%', () => {
+    expect(repairHealthTaxSentence('La tassa sulla salute è dal 2–6% del salario netto.', 'it')).toBe('');
+    expect(repairHealthTaxSentence('La tassa sulla salute è dal 2%–6% del salario netto.', 'it')).toBe('');
+    expect(repairHealthTaxSentence('La taxe santé varie de 2–6 % du salaire net.', 'fr')).toBe('');
+    expect(repairHealthTaxSentence('The health tax is 2 to 6% of net salary.', 'en')).toBe('');
+    expect(repairHealthTaxSentence('La tassa sulla salute è dal 3–6% del salario netto.', 'it')).toBeNull();
+    expect(repairHealthTaxSentence('The health tax is 3% to 6% of net salary.', 'en')).toBeNull();
   });
 });

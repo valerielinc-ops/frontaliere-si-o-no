@@ -396,13 +396,26 @@ function hasPromptEcho(sentence, locale) {
 }
 
 /** Etichette del prompt tradotte: «TITOLO ARTICOLO:» arriva in quattro lingue. */
-const PROMPT_TITLE_LABEL = /(?<![\p{L}\p{N}])(?:TITOLO\s+(?:DELL['’]?ARTICOLO|ARTICOLO)|TITRE(?:\s+(?:DE\s+L['’]ARTICLE|ARTICLE))?|TITEL(?:\s+(?:DES\s+ARTIKELS|ARTIKEL))?|ARTIKEL-?TITEL|ARTICLE\s+TITLE|TITLE\s+ARTICLE|TITLE\s+OF\s+THE\s+ARTICLE)[ \t]*:[ \t]*/iu;
+const PROMPT_TITLE_HWS = String.raw`[\t\p{Zs}]`;
+const PROMPT_TITLE_LABEL = new RegExp(
+  String.raw`(?<![\p{L}\p{N}])(?:TITOLO\s+(?:DELL['’]?ARTICOLO|ARTICOLO)|TITRE(?:\s+(?:DE\s+L['’]ARTICLE|ARTICLE))?|TITEL(?:\s+(?:DES\s+ARTIKELS|ARTIKEL))?|ARTIKEL-?TITEL|ARTICLE\s+TITLE|TITLE\s+ARTICLE|TITLE\s+OF\s+THE\s+ARTICLE)${PROMPT_TITLE_HWS}*:${PROMPT_TITLE_HWS}*`,
+  'iu',
+);
 /** Stessa etichetta come riga intera, anche in minuscolo o come intestazione. */
-const PROMPT_TITLE_LINE = /^[ \t]*#{0,6}[ \t]*(?:\*\*)?(?:titolo\s+(?:dell['’]?articolo|articolo)|article\s+title|title\s+of\s+the\s+article|title\s+article|titel\s+des\s+artikels|artikel-?titel|titre\s+(?:de\s+l['’]artic\S*|article))(?:\*\*)?[ \t]*(?::[ \t]*)?$\n?/gimu;
+const PROMPT_TITLE_LINE = new RegExp(
+  String.raw`^${PROMPT_TITLE_HWS}*#{0,6}${PROMPT_TITLE_HWS}*(?:\*\*)?(?:titolo\s+(?:dell['’]?articolo|articolo)|article\s+title|title\s+of\s+the\s+article|title\s+article|titel\s+des\s+artikels|artikel-?titel|titre\s+(?:de\s+l['’]artic\S*|article))(?:\*\*)?${PROMPT_TITLE_HWS}*(?::${PROMPT_TITLE_HWS}*)?$\n?`,
+  'gimu',
+);
+const PROMPT_TITLE_STANDALONE_PREFIX = new RegExp(
+  String.raw`^${PROMPT_TITLE_HWS}*(?:#{0,6}${PROMPT_TITLE_HWS}*(?:\*\*)?)?$`,
+  'u',
+);
+const PROMPT_TITLE_LEADING_HWS = new RegExp(String.raw`^${PROMPT_TITLE_HWS}+`, 'u');
+const PROMPT_TITLE_TRAILING_HWS = new RegExp(String.raw`${PROMPT_TITLE_HWS}+$`, 'u');
 
 /**
- * Toglie l'etichetta del prompt. Se apre una riga propria, anche il titolo sulla
- * stessa riga e' eco del prompt; altrove il testo successivo resta se ignoto.
+ * Toglie l'etichetta del prompt e il titolo che segue solo quando e' noto;
+ * il testo successivo ignoto resta integro.
  */
 export function stripPromptTitleLabels(text, { title = '' } = {}) {
   let removed = 0;
@@ -419,18 +432,18 @@ export function stripPromptTitleLabels(text, { title = '' } = {}) {
     const rest = value.slice(afterLabel, lineEnd);
     const lineStart = value.lastIndexOf('\n', start - 1) + 1;
     const linePrefix = value.slice(lineStart, start);
-    const standaloneLabel = /^[ \t]*(?:#{0,6}[ \t]*(?:\*\*)?)?$/.test(linePrefix);
+    const standaloneLabel = PROMPT_TITLE_STANDALONE_PREFIX.test(linePrefix);
     let cut = afterLabel;
     if (title && rest.startsWith(title)) cut = afterLabel + title.length;
-    else if (standaloneLabel) cut = lineEnd;
-    const before = value.slice(0, start).replace(/[ \t]+$/, '');
+    else if (standaloneLabel && !rest.trim()) cut = lineEnd;
+    const before = value.slice(0, start).replace(PROMPT_TITLE_TRAILING_HWS, '');
     const after = value.slice(cut);
     if (cut === lineEnd) {
       const previous = standaloneLabel ? value.slice(0, lineStart) : before;
       value = `${previous.replace(/\n+$/, '')}${after}`;
     } else {
       const separator = before && !/\s$/.test(before) && after && !/^\s/.test(after) ? ' ' : '';
-      value = `${before}${separator}${after.replace(/^[ \t]+/, '')}`;
+      value = `${before}${separator}${after.replace(PROMPT_TITLE_LEADING_HWS, '')}`;
     }
     removed += 1;
   }
@@ -595,11 +608,12 @@ function hasMonthlyAmountOutOfRange(sentence, locale) {
   });
 }
 
+const PERCENT_RATE = String.raw`(?<![\d.,])(\d+(?:[.,]\d+)?)(?:(?:\s*%?\s*[-–—]\s*|\s*%?\s+(?:to|bis|al|a|à)\s+)(\d+(?:[.,]\d+)?))?(?![\d.,])\s?`;
 const PERCENT_OF_PAY = {
-  it: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|per\s+cento)\s+(?:del(?:lo|l['’])?|sul(?:lo|l['’])?)\s+(?:(?:salario|stipendio|reddito)(?:\s+(?:netto|lord[oaie]))?|netto|lord[oaie]|imposta)/gi,
-  en: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|percent)\s+(?:of|on)\s+(?:the\s+)?(?:gross|net|salary|income|wage)/gi,
-  de: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|Prozent)\s+(?:des|vom|auf\s+das)\s+(?:Brutto|Netto|Lohn\w*|Einkommen\w*|Gehalt\w*)/gi,
-  fr: /(?<![\d.,])(\d+(?:[.,]\d+)?)(?![\d.,])\s?(?:%|pour\s+cent)\s+(?:du|sur\s+le)\s+(?:(?:salaire|revenu)(?:\s+(?:brut|net))?|brut|net)/gi,
+  it: new RegExp(String.raw`${PERCENT_RATE}(?:%|per\s+cento)\s+(?:del(?:lo|l['’])?|sul(?:lo|l['’])?)\s+(?:(?:salario|stipendio|reddito)(?:\s+(?:netto|lord[oaie]))?|netto|lord[oaie]|imposta)`, 'gi'),
+  en: new RegExp(String.raw`${PERCENT_RATE}(?:%|percent)\s+(?:of|on)\s+(?:the\s+)?(?:gross|net|salary|income|wage)`, 'gi'),
+  de: new RegExp(String.raw`${PERCENT_RATE}(?:%|Prozent)\s+(?:des|vom|auf\s+das)\s+(?:Brutto|Netto|Lohn\w*|Einkommen\w*|Gehalt\w*)`, 'gi'),
+  fr: new RegExp(String.raw`${PERCENT_RATE}(?:%|pour\s+cent)\s+(?:du|sur\s+le)\s+(?:(?:salaire|revenu)(?:\s+(?:brut|net))?|brut|net)`, 'gi'),
 };
 const GROSS_PAY_BASE = {
   it: /\b(?:lord[oaie])\b/i,
@@ -615,8 +629,9 @@ function isHealthTaxClaim(sentence, locale) {
   if (SWISS_FRANC_AMOUNT.test(sentence) || YEARLY_EURO[locale].test(sentence)) return true;
   if (hasMonthlyAmountOutOfRange(sentence, locale)) return true;
   return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some((match) => {
-    const rate = Number(match[1].replace(',', '.'));
-    return !Number.isFinite(rate) || rate < 3 || rate > 6 || GROSS_PAY_BASE[locale].test(match[0]);
+    const rates = [match[1], match[2]].filter(Boolean).map((rate) => Number(rate.replace(',', '.')));
+    return rates.some((rate) => !Number.isFinite(rate) || rate < 3 || rate > 6)
+      || GROSS_PAY_BASE[locale].test(match[0]);
   });
 }
 
