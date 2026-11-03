@@ -1699,8 +1699,9 @@ function renderHubPlanningProse(
 
 /**
  * In-article unit between two webcams of the same crossing. `aria-label` feeds
- * the `.ft-webcam-ad::before` disclosure so the `<ins>` stays the only child
- * and the shared no-fill rule can collapse the whole wrapper; the top padding
+ * the `.ft-webcam-ad::before` disclosure without putting a label in Google's
+ * ins. The owned slot frame handles Google collapse and first-party fill;
+ * the top padding
  * reserves the label's height, which the async stylesheet would otherwise add
  * as a layout shift.
  */
