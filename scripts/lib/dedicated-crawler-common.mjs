@@ -1485,7 +1485,7 @@ export function resetHardenCache() {
  *   stale translation (issue 6109: housekeeping commit of 2026-10-04 turned
  *   161 empty Coop jobs into source copies).
  */
-export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true }) {
+export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true, includeJobs = false }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
@@ -1495,7 +1495,11 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   // re-deriving slugs and generating spurious previousSlugs.
   const resolvedPath = path.resolve(dataJobsPath);
   if (_hardenResultCache.has(resolvedPath)) {
-    return _hardenResultCache.get(resolvedPath);
+    const cached = _hardenResultCache.get(resolvedPath);
+    if (!includeJobs) return cached;
+    // A caller that needs the in-memory rows must make the first call with
+    // includeJobs; a cached summary does not retain the potentially large array.
+    _hardenResultCache.delete(resolvedPath);
   }
 
   const parsed = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
@@ -1503,7 +1507,9 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   const raw = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
   const isWrapped = !Array.isArray(parsed) && Array.isArray(parsed?.jobs);
   if (!raw) {
-    return { changed: false, repaired: 0, total: 0 };
+    const result = { changed: false, repaired: 0, total: 0 };
+    if (includeJobs) result.jobs = null;
+    return result;
   }
 
   let changed = false;
@@ -2123,7 +2129,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   if (!changed) {
     const result = { changed: false, repaired: 0, total: raw.length };
     _hardenResultCache.set(resolvedPath, result);
-    return result;
+    return includeJobs ? { ...result, jobs: raw } : result;
   }
 
   // Safety net: per-locale slug cleanup. Only strips a previousSlug if it
@@ -2140,7 +2146,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   }
   const result = { changed: true, repaired, total: raw.length };
   _hardenResultCache.set(resolvedPath, result);
-  return result;
+  return includeJobs ? { ...result, jobs: raw } : result;
 }
 
 /**
