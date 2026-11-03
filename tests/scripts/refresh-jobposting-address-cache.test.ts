@@ -4,6 +4,8 @@ import {
   cacheJobPostalCodeMap,
   collectLookups,
   matchAddress,
+  mergeJobPostalCodeMaps,
+  jobPostalCodeMap,
   processLookupBatches,
   queryLindasWithRetry,
   registryNameKey,
@@ -222,6 +224,115 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
       postalCode: '8048',
       jobPostalCode: '8048',
       checkedAt: new Date(now).toISOString(),
+    });
+  });
+
+  it('retries the oldest checked unmatched records first using the live job postcode', () => {
+    const now = Date.now();
+    const olderJob = {
+      company: 'Older Company AG',
+      city: 'Zürich',
+      canton: 'ZH',
+      postalCode: '8001',
+    };
+    const newerJob = {
+      company: 'Newer Company AG',
+      city: 'Basel',
+      canton: 'BS',
+      postalCode: '4051',
+    };
+    const olderKey = 'older company ag|zurich|ZH';
+    const newerKey = 'newer company ag|basel|BS';
+    const entries = {
+      [olderKey]: {
+        status: 'not-found',
+        companyName: olderJob.company,
+        addressLocality: olderJob.city,
+        addressRegion: olderJob.canton,
+        checkedAt: new Date(now - 10_000).toISOString(),
+      },
+      [newerKey]: {
+        status: 'not-found',
+        companyName: newerJob.company,
+        addressLocality: newerJob.city,
+        addressRegion: newerJob.canton,
+        checkedAt: new Date(now - 1_000).toISOString(),
+      },
+    };
+
+    expect(collectLookups([olderJob, newerJob], entries, now, 10)).toEqual([]);
+    expect(collectLookups([newerJob, olderJob], entries, now, 1, { retryUnmatchedCache: true })).toMatchObject([{
+      key: olderKey,
+      companyName: 'Older Company AG',
+      jobPostalCode: '8001',
+      requirePostalCodeForMatch: true,
+    }]);
+    expect(collectLookups([{ ...olderJob, postalCode: '' }], entries, now, 1, { retryUnmatchedCache: true }))
+      .toEqual([]);
+  });
+
+  it('retries only cached unmatched records and matches with their cached postcode', async () => {
+    const now = Date.parse('2026-11-03T00:00:00.000Z');
+    const cachedKey = 'cached company|lugano|TI';
+    const cachedEntry = {
+      status: 'unmatched',
+      source: 'zefix-lindas',
+      companyName: 'Cached Company AG',
+      addressLocality: 'Lugano',
+      addressRegion: 'TI',
+      jobPostalCode: '6900',
+      checkedAt: '2026-10-01T00:00:00.000Z',
+    };
+    const jobsWithoutCache = Array.from({ length: 101 }, (_, index) => ({
+      company: `Never Checked ${index} AG`,
+      city: 'Lugano',
+      canton: 'TI',
+      postalCode: '6900',
+    }));
+    const entries = { [cachedKey]: cachedEntry };
+    const normalRequests = collectLookups(jobsWithoutCache, entries, now, 1);
+    const retryRequests = collectLookups(jobsWithoutCache, entries, now, 1, { retryUnmatchedCache: true });
+
+    expect(normalRequests).toHaveLength(1);
+    expect(normalRequests[0].key).not.toBe(cachedKey);
+    expect(retryRequests).toMatchObject([{
+      key: cachedKey,
+      companyName: cachedEntry.companyName,
+      jobPostalCode: '6900',
+      requirePostalCodeForMatch: true,
+    }]);
+    expect(retryRequests.some(({ key }) => jobsWithoutCache.some((job) => (
+      key === `${job.company.toLowerCase()}|lugano|TI`
+    )))).toBe(false);
+
+    const postalCodes = mergeJobPostalCodeMaps(
+      cacheJobPostalCodeMap(retryRequests),
+      jobPostalCodeMap(jobsWithoutCache, retryRequests),
+    );
+    let queriedKeys: string[] = [];
+    const result = await processLookupBatches(retryRequests, {
+      entries,
+      postalCodes,
+      queryBatch: async (batch) => {
+        queriedKeys = batch.map(({ key }) => key);
+        return [zefixBinding({
+          registeredName: 'Cached Company AG',
+          locality: 'Lugano',
+          region: 'TI',
+          street: 'Via Nassa 10',
+          postalCode: '6900',
+        })];
+      },
+      checkedAt: () => new Date(now).toISOString(),
+      batchDelayMs: 0,
+    });
+
+    expect(queriedKeys).toEqual([cachedKey]);
+    expect(result.entries[cachedKey]).toMatchObject({
+      status: 'matched',
+      streetAddress: 'Via Nassa 10',
+      postalCode: '6900',
+      jobPostalCode: '6900',
     });
   });
 

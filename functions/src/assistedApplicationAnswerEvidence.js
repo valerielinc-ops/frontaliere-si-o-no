@@ -548,10 +548,13 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   return (job, { purpose = 'eligibility', communicationLocale = job?.communicationLocale } = {}) => {
     const targetLocale = normalizeCommunicationLocale(communicationLocale);
     const evidence = verified.filter(record => retained(sources.get(record.provenance.orderId)?.order, nowMs + Math.max(0, Date.now() - startedAt))
-      && targetLocale && (record.version === LEGACY_ANSWER_EVIDENCE_VERSION
-        ? sources.get(record.provenance.orderId)?.orderLocaleSnapshot === targetLocale
-        : record.communicationLocale === targetLocale)
-      && (record.scope === 'candidate' || samePosting(record.provenance, job)) && (purpose === 'form' || record.category !== 'form_preference'))
+      && (purpose === 'matching'
+        ? record.scope === 'candidate' && record.sourceKind === 'direct_user'
+        : targetLocale && (record.version === LEGACY_ANSWER_EVIDENCE_VERSION
+          ? sources.get(record.provenance.orderId)?.orderLocaleSnapshot === targetLocale
+          : record.communicationLocale === targetLocale))
+      && (purpose === 'matching' || record.scope === 'candidate' || samePosting(record.provenance, job))
+      && (purpose === 'form' || record.category !== 'form_preference'))
       .map(record => record.version === LEGACY_ANSWER_EVIDENCE_VERSION
         ? { ...record, communicationLocale: sources.get(record.provenance.orderId).orderLocaleSnapshot,
           provenance: { ...record.provenance, communicationLocale: sources.get(record.provenance.orderId).orderLocaleSnapshot } }

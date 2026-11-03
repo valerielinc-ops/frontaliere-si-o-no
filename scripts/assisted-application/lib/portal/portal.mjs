@@ -866,7 +866,11 @@ async function sameControl(page, button) {
 
 /** Presses a control of a snapshot; says how it was found (`id`, `again`, `text`, `href`). */
 async function clickButton(page, button) {
-  const frame = page.frames()[button.frame || 0] || page.mainFrame();
+  const frameNumber = Number(button.frame) || 0;
+  const frames = typeof page.frames === 'function' ? page.frames() : [];
+  const frame = frames[frameNumber]
+    || (frameNumber === 0 ? (typeof page.mainFrame === 'function' ? page.mainFrame() : page) : null);
+  if (typeof frame?.locator !== 'function') throw new Error('portal_frame_unavailable');
   try {
     await frame.locator(`[data-aa-id="${button.id}"]`).first().click({ timeout: 6_000 });
     return 'id';
@@ -1805,6 +1809,7 @@ function authFormIdentity(snapshot) {
 
 /** Presses the first control one of the patterns names; false when there is none, else how it was found. */
 async function clickFirst(page, snapshot, patterns) {
+  const frames = typeof page.frames === 'function' ? page.frames() : [];
   for (const pattern of patterns) {
     const button = findButton(snapshot.buttons, pattern);
     if (button) return clickButton(page, button);
@@ -1813,12 +1818,16 @@ async function clickFirst(page, snapshot, patterns) {
     if (snapshotLink) {
       const id = String(snapshotLink.id || '');
       if (/^[\w-]{1,80}$/.test(id)) {
-        const frame = page.frames()[Number(snapshotLink.frame) || 0] || page.mainFrame();
-        const locator = frame.locator(`[data-aa-id="${id}"]`).first();
-        const linkVisible = await locator.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-        if (linkVisible) {
-          await clickPortalLink(page, locator);
-          return 'link';
+        const frameNumber = Number(snapshotLink.frame) || 0;
+        const frame = frames[frameNumber]
+          || (frameNumber === 0 ? (typeof page.mainFrame === 'function' ? page.mainFrame() : page) : null);
+        if (typeof frame?.locator === 'function') {
+          const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+          const linkVisible = await locator.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+          if (linkVisible) {
+            await clickPortalLink(page, locator);
+            return 'link';
+          }
         }
       }
     }
@@ -1827,7 +1836,6 @@ async function clickFirst(page, snapshot, patterns) {
     // embedded form frame. Page.getByRole only searches the main frame; keep
     // this lookup explicit and frame-scoped so a generic header control is
     // never promoted to an auth action.
-    const frames = page.frames();
     const authForm = authFormIdentity(snapshot);
     const formFrameNumbers = [...new Set([
       ...(snapshot.fields || []), ...(snapshot.buttons || []),

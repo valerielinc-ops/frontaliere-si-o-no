@@ -11,6 +11,10 @@ on:
     - cron: '0 6 * * 1' # Every Monday 06:00 UTC
   workflow_dispatch:
 
+concurrency:
+  group: snapshot-jobs-weekly
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: write
@@ -18,8 +22,9 @@ permissions:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    # 45 = 10 (snapshot+delta+pairs) + 30 (AI enrichment cap) + 5 buffer
-    timeout-minutes: 45
+    # 80 = 10 (snapshot+delta+pairs) + 30 (AI enrichment cap)
+    # + 20 (new address lookups) + 15 (address retries) + 5 buffer
+    timeout-minutes: 80
     steps:
       - uses: actions/checkout@v7
         with:
@@ -178,6 +183,33 @@ jobs:
 
       - name: Refresh deploy token from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      - name: Snapshot JobPosting address cache before refresh
+        run: cp data/prospector/jobposting-address-cache.json "$RUNNER_TEMP/jobposting-address-cache.before.json"
+
+      # New lookups first: ~24k companies in the inventory have never been
+      # queried. 3000 a week clears that backlog in about two months.
+      - name: Look up uncached JobPosting addresses from the assembled inventory
+        run: node scripts/refresh-jobposting-address-cache.mjs --limit=3000
+        timeout-minutes: 20
+
+      - name: Retry unmatched JobPosting addresses from the assembled inventory
+        run: node scripts/refresh-jobposting-address-cache.mjs --retry-unmatched-cache --limit=100
+        timeout-minutes: 15
+
+      - name: Validate matched JobPosting address coverage
+        run: >-
+          node scripts/check-jobposting-address-cache-regression.mjs
+          --before "$RUNNER_TEMP/jobposting-address-cache.before.json"
+          --after data/prospector/jobposting-address-cache.json
+
+      - name: Commit only the JobPosting address cache
+        env:
+          MAX_PUSH_ATTEMPTS: '5'
+        run: >-
+          bash scripts/lib/git-commit-data.sh --extra-only
+          "📍 Refresh JobPosting address cache"
+          data/prospector/jobposting-address-cache.json
 
       - name: Record self-driven weekly deploy handoff
         run: |

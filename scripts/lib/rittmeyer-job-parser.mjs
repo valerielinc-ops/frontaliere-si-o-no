@@ -79,6 +79,71 @@ function isRittmeyerListingHref(rawHref = '') {
   }
 }
 
+function distinctListingCounts(text, pattern) {
+  const counts = [];
+  let hasUnsafeNumericTotal = false;
+  for (const match of String(text || '').matchAll(pattern)) {
+    const count = Number(match[1]);
+    if (!Number.isSafeInteger(count)) {
+      hasUnsafeNumericTotal = true;
+      continue;
+    }
+    if (count >= 0 && !counts.includes(count)) counts.push(count);
+  }
+  return { counts, hasUnsafeNumericTotal };
+}
+
+function readRittmeyerListingCount(listingText, rowCount) {
+  // The source prints both a structural total ("16 jobs found") and a pager
+  // range ("1-10 out of 16"). Only totals that can account for the rows
+  // already read are usable. Equal structural/pager totals are one signal;
+  // genuinely different usable totals must fail closed instead of becoming a
+  // guessed count.
+  const {
+    counts: explicitTotals,
+    hasUnsafeNumericTotal: explicitHasUnsafeNumericTotal,
+  } = distinctListingCounts(
+    listingText,
+    /\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/giu,
+  );
+  const {
+    counts: rangeTotals,
+    hasUnsafeNumericTotal: rangeHasUnsafeNumericTotal,
+  } = distinctListingCounts(
+    listingText,
+    /\b\d+\s*(?:[-–—‑]|to|bis|a|à)\s*\d+\s+(?:out\s+of|of|von|de|di|sur)\s+(\d+)\b/giu,
+  );
+
+  if (explicitHasUnsafeNumericTotal || rangeHasUnsafeNumericTotal) {
+    return { count: null, conflict: true };
+  }
+
+  const usableTotals = [...new Set([
+    ...explicitTotals.filter((count) => count >= rowCount),
+    ...rangeTotals.filter((count) => count >= rowCount),
+  ])];
+  if (usableTotals.length === 1) {
+    return { count: usableTotals[0], conflict: false };
+  }
+  if (usableTotals.length > 1) {
+    return { count: null, conflict: true };
+  }
+
+  // Preserve the old fail-closed mismatch for a lone count below the number
+  // of parsed cards. The caller will reject it instead of publishing a
+  // partial snapshot.
+  if (explicitTotals.length === 1) {
+    return { count: explicitTotals[0], conflict: false };
+  }
+  if (rangeTotals.length === 1) {
+    return { count: rangeTotals[0], conflict: false };
+  }
+  if (explicitTotals.length > 1 || rangeTotals.length > 1) {
+    return { count: null, conflict: true };
+  }
+  return { count: null, conflict: false };
+}
+
 export function parseRittmeyerListingsPage(html = '') {
   const document = new JSDOM(html).window.document;
   const byHref = new Map();
@@ -142,18 +207,15 @@ export function parseRittmeyerListingsPage(html = '') {
     '#jobList, .results, ul.rex-navi2, .job-list, [data-job-list], [data-testid="job-card"], [class*="job-list"], [class*="stellen"], [class*="career"]',
   );
   const listingText = normalizeSpace(document.body?.textContent || listingContainer?.textContent || '');
-  // Onlyfy's pager uses a range without the word "jobs" (e.g. "1-10 out of
-  // 16"), while the legacy board uses "16 jobs found". Read the total from
-  // either source-backed listing-count shape before allowing a single page.
-  const advertisedCount = listingText.match(
-    /\b\d+\s*(?:[-–—‑]|to|bis|a|à)\s*\d+\s+(?:out\s+of|of|von|de|di|sur)\s+(\d+)\b/i,
-  )?.[1] ?? listingText.match(
-    /\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/i,
-  )?.[1];
+  const { count: advertisedCount, conflict: advertisedCountConflict } = readRittmeyerListingCount(
+    listingText,
+    rows.length,
+  );
   Object.defineProperties(rows, {
     rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
-    rittmeyerListingAdvertisedCount: { value: advertisedCount == null ? null : Number(advertisedCount), enumerable: false },
+    rittmeyerListingAdvertisedCount: { value: advertisedCount, enumerable: false },
+    rittmeyerListingCountConflict: { value: advertisedCountConflict, enumerable: false },
     rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     rittmeyerListingEmptyStateObserved: {
       value: hasExplicitEmptyJobListing(listingContainer, {
