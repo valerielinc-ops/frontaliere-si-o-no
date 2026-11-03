@@ -2461,11 +2461,14 @@ function buildGroupWorkflowObject(
     // The aggregate records every
     // member's terminal outcome, but a failed/missing member has no descriptor
     // to publish: `--group-batch` therefore publishes only data explicitly
-    // produced by successful siblings. The finalizer below receives the
-    // aggregate `wait_outcome` and remains fail-closed for the group manifest.
+    // produced by successful siblings. The aggregate step is continue-on-error
+    // and exits 0 after writing its verdict, so its step outcome alone cannot
+    // authorize publication; require the explicit wait_outcome output as well.
+    // The finalizer below receives the same aggregate verdict and remains
+    // fail-closed for the group manifest.
     // A retryable ref/lease loss is retried in THIS token; exhausting that
     // bounded retry is a real step failure, never a green "next cycle" result.
-    if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
+    if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'",
     run: crawlerGroupBatchCommitRun(groupIndex),
   });
   steps.push(saveCrawlerAiCacheStep(groupName));
