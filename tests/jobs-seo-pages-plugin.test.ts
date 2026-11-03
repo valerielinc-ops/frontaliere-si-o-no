@@ -11,6 +11,8 @@ import {
   deriveJobCanton,
   deriveJobAddressLocality,
   deriveJobStreetAddress,
+  groupCategoryListingJobs,
+  normalizeCategoryListingKey,
 } from '../build-plugins/jobsSeoPagesPlugin';
 import { HUB_SLUG_BY_LOCALE } from '../build-plugins/seoHubsData';
 import { TITLE_MAX_CHARS, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
@@ -69,6 +71,25 @@ describe('jobsSeoPagesPlugin reserved hub slugs', () => {
         expect(reserved.has(slug), `${locale}/${slug}`).toBe(true);
       }
     }
+  });
+});
+
+describe('category listing inventory contract', () => {
+  it('normalizes only canonical category keys before emitter and navigation share them', () => {
+    expect(normalizeCategoryListingKey({ category: '  HEALTH ' })).toBe('health');
+    expect(normalizeCategoryListingKey({ category: 'Healthcare' })).toBeNull();
+    expect(normalizeCategoryListingKey({ category: '' })).toBeNull();
+
+    const grouped = groupCategoryListingJobs([
+      { id: 'h1', category: ' health ' },
+      { id: 'h2', category: 'HEALTH' },
+      { id: 'f1', category: 'finance' },
+      { id: 'alias', category: 'healthcare' },
+    ]);
+
+    expect(grouped.get('health')?.map((job) => job.id)).toEqual(['h1', 'h2']);
+    expect(grouped.get('finance')?.map((job) => job.id)).toEqual(['f1']);
+    expect(grouped.has('other')).toBe(false);
   });
 });
 
