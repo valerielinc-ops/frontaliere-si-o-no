@@ -188,6 +188,7 @@ describe('portal field extraction', () => {
       fields: [],
       buttons: [{ id: 'accept', text: 'Akzeptieren', disabled: false }, { id: 'close', text: 'Schließen', disabled: false }],
       dialogs: [],
+      errors: [],
     };
     const receipt = { ...banner, buttons: [], text: 'Vielen Dank. Wir haben deine Unterlagen erhalten.' };
     const frame = {
