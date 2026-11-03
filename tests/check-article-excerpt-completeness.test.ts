@@ -8,6 +8,8 @@ import {
   ARTICLE_KEY,
   ISOLATED_SECTION_LABELS,
   MIN_SUMMARY_LENGTH,
+  SEO_RECORD_KEY,
+  inspectArticleExcerptFiles,
   validateArticleExcerptFiles,
 } from '../scripts/ci/check-article-excerpt-completeness.mjs';
 
@@ -79,6 +81,41 @@ describe('article excerpt completeness gate', () => {
       expect(result.failures).toHaveLength(4);
       expect(result.failures.join('\n')).toContain('isolated section label');
       expect(result.failures.join('\n')).toContain('known truncated fragment');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('checks the Swiss canonical SEO record before generic SEO records in all mode', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'article-excerpt-canonical-seo-'));
+    try {
+      const incomingRoot = join(directory, 'incoming');
+      const seoDir = join(incomingRoot, 'seo');
+      mkdirSync(seoDir, { recursive: true });
+      const seo = join(seoDir, 'seo-blog-ch.ts');
+      writeFileSync(
+        seo,
+        `export const seoPages = {\n  '${SEO_RECORD_KEY}': { headline: '' },\n  'blog-other': { description: '${complete}' },\n};\n`,
+        'utf8',
+      );
+
+      const inspected = inspectArticleExcerptFiles([seo], { all: true });
+      const description = inspected.fields.find((field) => field.field === 'description');
+      expect(description?.failures).toContain(`${seo}:description: value is missing`);
+      expect(inspected.fields.some((field) => field.key === 'blog-other')).toBe(true);
+
+      const repaired = repairArticleExcerptFiles({
+        files: [seo],
+        incomingRoot,
+        localRoot: join(directory, 'local'),
+      });
+      expect(repaired.actions).toContainEqual(expect.objectContaining({
+        field: 'description',
+        strategy: 'kept-incomplete-no-local-value',
+        value: null,
+      }));
+      expect(repaired.remainingFailures.some((failure) => failure.includes(':description: value is missing')))
+        .toBe(true);
     } finally {
       rmSync(directory, { recursive: true, force: true });
     }
@@ -301,6 +338,38 @@ export default translations;
       expect(result.remainingFailures.length).toBeGreaterThan(0);
       expect(parseStaticArticleTranslationEntries(readFileSync(meta, 'utf8'), meta)[0].value)
         .toBe('Parmelin am 17.');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('does not reuse an incomplete local value as a fallback', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'article-excerpt-repair-incomplete-local-'));
+    try {
+      const incomingRoot = join(directory, 'incoming');
+      const localRoot = join(directory, 'local');
+      mkdirSync(incomingRoot, { recursive: true });
+      mkdirSync(localRoot, { recursive: true });
+      const meta = join(incomingRoot, 'blog-meta-it.ts');
+      const localMeta = join(localRoot, 'blog-meta-it.ts');
+      const truncated = 'Parmelin am 17.';
+      const source = `const translations: Record<string, string> = {\n  '${ARTICLE_KEY}': '${truncated}',\n};\nexport default translations;\n`;
+      writeFileSync(meta, source, 'utf8');
+      writeFileSync(localMeta, source, 'utf8');
+
+      const result = repairArticleExcerptFiles({
+        files: [meta],
+        incomingRoot,
+        localRoot,
+      });
+
+      expect(result.actions).toContainEqual(expect.objectContaining({
+        field: 'excerpt',
+        strategy: 'kept-incomplete-no-local-value',
+        value: null,
+      }));
+      expect(result.actions.some((action) => action.strategy === 'local-value')).toBe(false);
+      expect(result.remainingFailures.length).toBeGreaterThan(0);
     } finally {
       rmSync(directory, { recursive: true, force: true });
     }

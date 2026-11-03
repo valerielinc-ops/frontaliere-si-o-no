@@ -59,7 +59,11 @@ function localFallbackIndex(localRoot) {
     const isSeoFile = path.basename(file).startsWith('seo-blog');
     const scope = isSeoFile ? 'seo' : `meta:${path.basename(file)}`;
     for (const field of fields) {
-      if (typeof field.value !== 'string' || !field.value.trim()) continue;
+      if (
+        field.failures.length > 0
+        || typeof field.value !== 'string'
+        || !field.value.trim()
+      ) continue;
       const identity = fieldIdentity(field);
       const exactKey = `${path.relative(localRoot, file)}\u0000${identity}`;
       const scopedKey = `${scope}\u0000${identity}`;

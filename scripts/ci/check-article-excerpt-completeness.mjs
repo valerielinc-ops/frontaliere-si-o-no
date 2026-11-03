@@ -229,8 +229,45 @@ export function inspectArticleExcerptFiles(files, { all = false } = {}) {
       }
       continue;
     }
+    if (file.endsWith('seo-blog-ch.ts')) {
+      const recordFields = {};
+      for (const property of ['description', 'ogDescription']) {
+        const entry = valueFromSeoRecordEntry(sourceFile, property);
+        const failures = checkSummary(entry?.value, `${file}:${property}`);
+        recordFields[property] = { value: entry?.value ?? null, failures };
+        addField({
+          file,
+          key: SEO_RECORD_KEY,
+          field: property,
+          value: entry?.value ?? null,
+          node: entry?.node,
+          failures,
+        });
+      }
+      const structuredEntry = valueFromSeoRecordEntry(sourceFile, 'structuredData.description');
+      const structuredFailures = checkSummary(
+        structuredEntry?.value,
+        `${file}:structuredData.description`,
+      );
+      recordFields['structuredData.description'] = {
+        value: structuredEntry?.value ?? null,
+        failures: structuredFailures,
+      };
+      addField({
+        file,
+        key: SEO_RECORD_KEY,
+        field: 'structuredData.description',
+        value: structuredEntry?.value ?? null,
+        node: structuredEntry?.node,
+        failures: structuredFailures,
+      });
+      const headline = valueFromSeoRecordEntry(sourceFile, 'headline')?.value ?? null;
+      seoFallbacks.push({ file, key: SEO_RECORD_KEY, fields: recordFields, headline });
+      if (!all) continue;
+    }
     if (all && path.basename(file).startsWith('seo-blog')) {
       for (const { key, object } of allSeoRecords(sourceFile)) {
+        if (file.endsWith('seo-blog-ch.ts') && key === SEO_RECORD_KEY) continue;
         const recordFields = {};
         for (const property of ['description', 'ogDescription', 'structuredData.description']) {
           const entry = valueFromRecordEntry(object, property);
@@ -250,29 +287,7 @@ export function inspectArticleExcerptFiles(files, { all = false } = {}) {
       }
       continue;
     }
-    if (file.endsWith('seo-blog-ch.ts')) {
-      for (const property of ['description', 'ogDescription']) {
-        const entry = valueFromSeoRecordEntry(sourceFile, property);
-        addField({
-          file,
-          key: SEO_RECORD_KEY,
-          field: property,
-          value: entry?.value ?? null,
-          node: entry?.node,
-          failures: checkSummary(entry?.value, `${file}:${property}`),
-        });
-      }
-      const structuredEntry = valueFromSeoRecordEntry(sourceFile, 'structuredData.description');
-      addField({
-        file,
-        key: SEO_RECORD_KEY,
-        field: 'structuredData.description',
-        value: structuredEntry?.value ?? null,
-        node: structuredEntry?.node,
-        failures: checkSummary(structuredEntry?.value, `${file}:structuredData.description`),
-      });
-      continue;
-    }
+    if (file.endsWith('seo-blog-ch.ts')) continue;
 
     const entry = findPropertyEntry(sourceFile, ARTICLE_KEY);
     addField({
