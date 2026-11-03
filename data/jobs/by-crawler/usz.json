@@ -17617,12 +17617,12 @@
     },
     {
       "id": "usz-962b71a87a23",
-      "slug": "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch",
+      "slug": "stage-individuale-secondo-misura-nell-area-dell-asilo-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch",
-        "it": "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch",
-        "en": "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch",
-        "fr": "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch"
+        "it": "stage-individuale-secondo-misura-nell-area-dell-asilo-universitatsspital-zurich-usz-zurich",
+        "en": "individual-internship-according-to-measure-in-the-kindergarten-area-universitatsspital-zurich-usz-zurich",
+        "fr": "stage-individuel-selon-mesure-dans-la-maternelle-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17684,7 +17684,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:32:31.259Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:32:31.259Z"
+      "firstSeenAt": "2026-11-03T09:32:31.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch"
+        ],
+        "en": [
+          "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch"
+        ],
+        "fr": [
+          "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "individuelles-praktikum-nach-mass-im-kitabereich-usz-ch"
+      ]
     }
   ]
 }

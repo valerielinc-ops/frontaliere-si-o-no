@@ -9156,12 +9156,12 @@
     },
     {
       "id": "uzh-f526e37bbfe7",
-      "slug": "stellvertretende-teamleitung-user-services-uzh-zurich",
+      "slug": "servizi-per-gli-utenti-del-team-leader-aggiunto-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "stellvertretende-teamleitung-user-services-uzh-zurich",
-        "it": "stellvertretende-teamleitung-user-services-uzh-zurich",
-        "en": "stellvertretende-teamleitung-user-services-uzh-zurich",
-        "fr": "stellvertretende-teamleitung-user-services-uzh-zurich"
+        "it": "servizi-per-gli-utenti-del-team-leader-aggiunto-universitat-zurich-zurich",
+        "en": "deputy-team-leader-user-services-universitat-zurich-zurich",
+        "fr": "chef-d-equipe-adjoint-services-aux-utilisateurs-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9223,7 +9223,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:22:25.230Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:22:25.230Z"
+      "firstSeenAt": "2026-11-03T09:22:25.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-teamleitung-user-services-uzh-zurich"
+        ],
+        "en": [
+          "stellvertretende-teamleitung-user-services-uzh-zurich"
+        ],
+        "fr": [
+          "stellvertretende-teamleitung-user-services-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-teamleitung-user-services-uzh-zurich"
+      ]
     }
   ]
 }

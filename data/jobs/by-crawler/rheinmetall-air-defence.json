@@ -2757,12 +2757,12 @@
     },
     {
       "id": "rheinmetall-air-defence-76a3d4c69e06",
-      "slug": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "fresatrice-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "fresatrice-cnc-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "cnc-milling-machine-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "fraiseuse-cnc-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2825,16 +2825,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:33:16.583Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:33:16.583Z"
+      "firstSeenAt": "2026-11-03T09:33:16.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-fraser-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-f190293ee520",
-      "slug": "projekt-e-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "responsabile-di-progetto-e-dei-processi-logistici-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "projekt-e-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "responsabile-di-progetto-e-dei-processi-logistici-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "project-and-process-manager-logistics-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "gestionnaire-de-projet-et-de-processus-logistique-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2884,11 +2898,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "projekt-e-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
           "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "projekt-und-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "projekt-e-prozessmanager-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2910,12 +2932,12 @@
     },
     {
       "id": "rheinmetall-air-defence-c120180a4098",
-      "slug": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "importazione-esportazione-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "importazione-esportazione-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "import-exportation-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2978,16 +3000,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:33:15.029Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:33:15.029Z"
+      "firstSeenAt": "2026-11-03T09:33:15.029Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-6b4df5e92e9b",
-      "slug": "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "gestione-del-team-import-export-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "gestione-del-team-import-export-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "team-management-import-export-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "gestion-d-equipe-import-export-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3050,7 +3083,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T09:33:14.017Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:33:14.017Z"
+      "firstSeenAt": "2026-11-03T09:33:14.017Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-b36e57e764e7",

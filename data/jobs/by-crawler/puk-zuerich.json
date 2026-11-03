@@ -5939,12 +5939,12 @@
     },
     {
       "id": "puk-zuerich-0fa52af16fd7",
-      "slug": "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
+      "slug": "formazione-per-dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-specializzazione-in-cura",
       "slugByLocale": {
         "de": "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
-        "it": "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
-        "en": "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
-        "fr": "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+        "it": "formazione-per-dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-specializzazione-in-cura",
+        "en": "training-for-dipl-nursing-professional-dipl-nursing-specialist-hf-specialisation-in-psychiatric-care-rheinau-location",
+        "fr": "formation-pour-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-hf-specialisation-en-soins"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -6010,7 +6010,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:22:40.962Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:22:40.962Z"
+      "firstSeenAt": "2026-11-03T09:22:40.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+        ],
+        "en": [
+          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+        ],
+        "fr": [
+          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+      ]
     },
     {
       "id": "puk-zuerich-7520fabeb690",

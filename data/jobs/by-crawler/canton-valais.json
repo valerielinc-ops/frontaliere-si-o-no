@@ -2104,11 +2104,11 @@
     },
     {
       "id": "canton-valais-537e639a760c",
-      "slug": "juriste-60-70-canton-valais-ch",
+      "slug": "legale-60-70-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "juriste-60-70-canton-valais-ch",
-        "it": "juriste-60-70-canton-valais-ch",
-        "en": "juriste-60-70-canton-valais-ch",
+        "it": "legale-60-70-canton-du-valais-sion",
+        "en": "legal-60-70-canton-du-valais-sion",
         "de": "juriste-60-70-canton-valais-ch"
       },
       "company": "Canton du Valais",
@@ -2171,16 +2171,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:37:43.838Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:37:43.838Z"
+      "firstSeenAt": "2026-11-03T09:37:43.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-60-70-canton-valais-ch"
+        ],
+        "en": [
+          "juriste-60-70-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-60-70-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-7d2a2f048ff1",
-      "slug": "secretaires-de-direction-60-90-canton-valais-ch",
+      "slug": "segreteria-esecutiva-60-90-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "secretaires-de-direction-60-90-canton-valais-ch",
-        "it": "secretaires-de-direction-60-90-canton-valais-ch",
-        "en": "secretaires-de-direction-60-90-canton-valais-ch",
-        "de": "secretaires-de-direction-60-90-canton-valais-ch"
+        "it": "segreteria-esecutiva-60-90-canton-du-valais-sion",
+        "en": "executive-secretaries-60-90-canton-du-valais-sion",
+        "de": "exekutivsekretare-60-90-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2242,16 +2253,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:37:43.170Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:37:43.170Z"
+      "firstSeenAt": "2026-11-03T09:37:43.170Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaires-de-direction-60-90-canton-valais-ch"
+        ],
+        "en": [
+          "secretaires-de-direction-60-90-canton-valais-ch"
+        ],
+        "de": [
+          "secretaires-de-direction-60-90-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "secretaires-de-direction-60-90-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-5f124da7a34d",
-      "slug": "greffiers-ou-greffieres-10-100-canton-valais-ch",
+      "slug": "registratori-10-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "greffiers-ou-greffieres-10-100-canton-valais-ch",
-        "it": "greffiers-ou-greffieres-10-100-canton-valais-ch",
-        "en": "greffiers-ou-greffieres-10-100-canton-valais-ch",
-        "de": "greffiers-ou-greffieres-10-100-canton-valais-ch"
+        "it": "registratori-10-100-canton-du-valais-sion",
+        "en": "registrars-10-100-canton-du-valais-sion",
+        "de": "registrar-10-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2313,7 +2338,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:37:42.454Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:37:42.454Z"
+      "firstSeenAt": "2026-11-03T09:37:42.454Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffiers-ou-greffieres-10-100-canton-valais-ch"
+        ],
+        "en": [
+          "greffiers-ou-greffieres-10-100-canton-valais-ch"
+        ],
+        "de": [
+          "greffiers-ou-greffieres-10-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffiers-ou-greffieres-10-100-canton-valais-ch"
+      ]
     }
   ]
 }

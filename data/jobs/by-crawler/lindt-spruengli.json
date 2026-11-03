@@ -95,7 +95,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -153,7 +153,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -175,7 +175,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -1730,12 +1730,12 @@
     },
     {
       "id": "lindt-spruengli-5fdb929d1ae8",
-      "slug": "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg",
+      "slug": "conduttore-trice-di-impianti-di-formatura-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg",
-        "it": "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg",
-        "en": "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg",
-        "fr": "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg"
+        "it": "conduttore-trice-di-impianti-di-formatura-lindt-sprungli-kilchberg",
+        "en": "molding-line-operator-lindt-sprungli-kilchberg",
+        "fr": "operateur-trice-d-installation-de-moulage-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1799,7 +1799,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:26:26.725Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:26:26.725Z"
+      "firstSeenAt": "2026-11-03T09:26:26.725Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg"
+        ],
+        "en": [
+          "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-formanlage-lindt-spruengli-kilchberg"
+      ]
     },
     {
       "id": "lindt-spruengli-ddc1d6d88cac",

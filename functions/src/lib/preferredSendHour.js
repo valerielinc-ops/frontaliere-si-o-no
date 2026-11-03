@@ -28,6 +28,8 @@ const RECENCY_HALF_LIFE_DAYS = 4;
 
 export const PREFERRED_SEND_MIN_EVENTS = 3;
 export const PREFERRED_SEND_WINDOW_DAYS = 180;
+export const PREFERRED_SEND_HOUR_BUFFER_SIZE = 300;
+const PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP = 'preferred_send_hour_buffer_last_timestamp';
 // Staleness-gate window for refreshPreferredSendHour (see below): once a
 // subscriber has enough samples to trust the circular mean, re-derive it at
 // most this often instead of on every single open/click.
@@ -117,57 +119,169 @@ export function computePreferredSendHour(events, now = new Date()) {
  return { hourUtc, sampleCount, strength };
 }
 
+function preferredEventFromData(data) {
+ return preferredEventFromInput(data);
+}
+
+function preferredEventFromInput(event) {
+ if (!event) return null;
+ const type = event.type ?? event.event_type;
+ const occurredAt = parseEventDate(event.occurredAt ?? event.occurred_at);
+ if ((type !== 'open' && type !== 'click') || !occurredAt) return null;
+ return { type, occurredAt };
+}
+
+function bufferEntryFromEvent(event) {
+ const normalized = preferredEventFromInput(event);
+ if (!normalized) return null;
+ return {
+  event_type: normalized.type,
+  hour_utc: normalized.occurredAt.getUTCHours(),
+  occurred_at: normalized.occurredAt.toISOString(),
+ };
+}
+
+function bufferEntryToEvent(entry) {
+ if (!entry || (entry.event_type !== 'open' && entry.event_type !== 'click')) return null;
+ const occurredAt = parseEventDate(entry.occurred_at);
+ if (!occurredAt || !Number.isInteger(entry.hour_utc)
+  || entry.hour_utc < 0 || entry.hour_utc > 23
+  || entry.hour_utc !== occurredAt.getUTCHours()) return null;
+ return { type: entry.event_type, occurredAt };
+}
+
+function normalizePreferredSendHourBuffer(value) {
+ if (!Array.isArray(value)) return null;
+ const entries = value.map((entry) => {
+  const event = bufferEntryToEvent(entry);
+  return event ? bufferEntryFromEvent(event) : null;
+ });
+ // A partially malformed buffer cannot be safely repaired without the source
+ // events, so treat it like a missing backfill rather than silently changing
+ // the subscriber's sample.
+ if (entries.some((entry) => !entry)) return null;
+ return entries
+  .sort(compareBufferEntries)
+  .slice(-PREFERRED_SEND_HOUR_BUFFER_SIZE);
+}
+
+function compareBufferEntries(left, right) {
+ return parseEventDate(left.occurred_at).getTime() - parseEventDate(right.occurred_at).getTime();
+}
+
+function latestBufferTimestamp(entries, fallback = null) {
+ let latest = parseEventDate(fallback);
+ for (const entry of entries) {
+  const occurredAt = parseEventDate(entry.occurred_at);
+  if (occurredAt && (!latest || occurredAt.getTime() > latest.getTime())) latest = occurredAt;
+ }
+ return latest ? latest.toISOString() : null;
+}
+
+function bufferEntriesFromEventDocs(docs) {
+ return docs
+  .map((doc) => bufferEntryFromEvent(preferredEventFromData(doc.data())))
+  .filter(Boolean)
+  .sort(compareBufferEntries)
+  .slice(-PREFERRED_SEND_HOUR_BUFFER_SIZE);
+}
+
+function insertEventIntoBuffer(entries, event) {
+ const entry = bufferEntryFromEvent(event);
+ if (!entry) return entries;
+
+ return [...entries, entry]
+  .sort(compareBufferEntries)
+  .slice(-PREFERRED_SEND_HOUR_BUFFER_SIZE);
+}
+
+function bufferEvents(entries) {
+ return entries
+  .filter((entry) => entry.event_type === 'open' || entry.event_type === 'click')
+  .map((entry) => ({ type: entry.event_type, occurredAt: entry.occurred_at }));
+}
+
+function preferredEventsQuery(subscriberRef) {
+ return subscriberRef
+  .collection('events')
+  .where('event_type', 'in', ['open', 'click'])
+  .orderBy('occurred_at', 'desc')
+  .limit(PREFERRED_SEND_HOUR_BUFFER_SIZE);
+}
+
+function isPreferredSendHourFresh(current) {
+ if (!current || current.preferred_send_sample_count < PREFERRED_SEND_MIN_EVENTS) return false;
+ const updatedAt = parseEventDate(current.preferred_send_updated_at);
+ const freshAgeMs = updatedAt ? Date.now() - updatedAt.getTime() : null;
+ return freshAgeMs !== null
+  && freshAgeMs >= 0 && freshAgeMs < PREFERRED_SEND_REFRESH_INTERVAL_MS;
+}
+
 /**
- * Re-read a subscriber's recent events and persist a freshly computed
- * preferred send hour. Safe to call after any open/click — failures are
- * swallowed and logged (identical contract to refreshEngagementScore).
+ * Update the subscriber's preferred-send-hour buffer and, when stale, persist
+ * a freshly computed preferred send hour. Safe to call after any open/click —
+ * failures are swallowed and logged (identical contract to
+ * refreshEngagementScore).
  *
- * Unlike refreshEngagementScore, this is NOT wrapped in a Firestore
- * transaction: the events query has to run outside any transaction (see
- * below), and the derived value is a pure function of the events
- * subcollection alone — no other concurrently-mutated counter feeds into it,
- * so there's no read-decide-write race to protect against the way
- * refreshEngagementScore's transaction protects concurrent counter
- * increments. A plain get() + compare-before-write is sufficient here.
+ * The subscriber document read, buffer read-modify-write, staleness gate and
+ * derived-value write share one transaction. A missing buffer performs one
+ * historical legacy events query in that transaction to backfill it; subsequent
+ * calls never read the events subcollection again. Buffer entries retain only
+ * open/click event types, their timestamps and UTC hours. The separate
+ * timestamp is a watermark for the backfill/update state, not a replacement
+ * for each entry's timestamp.
  *
- * Staleness gate (Firestore cost — #3798 code review): open/click webhooks
- * fire at high volume, and without a gate every single one of them paid for
- * an `events` query of up to 300 docs (~301 reads/event) just to re-derive a
- * number that, once a subscriber has enough history, barely moves from event
- * to event. refreshEngagementScore is O(1) (a counter increment inside a
- * transaction) — this was the expensive one by a wide margin. So: read the
- * subscriber doc FIRST (1 read); if it already has >= PREFERRED_SEND_MIN_EVENTS
- * samples AND was refreshed within the last PREFERRED_SEND_REFRESH_INTERVAL_MS
- * (6h), skip the events query entirely and return the cached values. The gate
- * intentionally does NOT engage below the sample-count threshold: a
- * cold-start subscriber (<3 events) has few events, so the query is cheap,
- * and every additional event materially changes whether they clear the
- * cold-start floor at all — recomputing on every event there is correct, not
- * wasteful.
+ * The staleness gate still does not engage below the sample-count threshold:
+ * every additional open/click can change whether a cold-start subscriber
+ * clears the floor. Once the buffer exists, a fresh calculation returns
+ * cached derived values after recording the new open/click in the buffer.
  *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
  * @param {*} FieldValue FieldValue from firebase-admin/firestore
+ * @param {{type?: string, event_type?: string, occurredAt?: *, occurred_at?: *}} [currentEvent]
  * @returns {Promise<{ updated: boolean, hourUtc?: number|null, sampleCount?: number, strength?: number|null, churned?: boolean }>}
  */
-export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
+export async function refreshPreferredSendHour(subscriberRef, FieldValue, currentEvent = null) {
  try {
-  // Read the subscriber doc BEFORE the events query — this is what makes the
-  // staleness gate below cheap (1 read) instead of paying for the up-to-300
-  // doc events query first and only then discovering a refresh wasn't needed.
-  const currentSnap = await subscriberRef.get();
-  const current = currentSnap.exists ? currentSnap.data() : null;
+  const firestore = subscriberRef?.firestore;
+  if (!firestore || typeof firestore.runTransaction !== 'function') {
+   throw new Error('Preferred send hour refresh requires a Firestore transaction');
+  }
 
-  if (current && current.preferred_send_sample_count >= PREFERRED_SEND_MIN_EVENTS) {
-   const updatedAt = parseEventDate(current.preferred_send_updated_at);
-   // Intervallo, non semiretta: senza il limite inferiore a zero un
-   // `preferred_send_updated_at` nel futuro (clock skew, data scritta male)
-   // resterebbe "fresco" per sempre e congelerebbe il ricalcolo dell'ora di
-   // invio a vita. Una data futura non e' un dato fresco, e' un dato rotto:
-   // ricalcola.
-   const freshAgeMs = updatedAt ? Date.now() - updatedAt.getTime() : null;
-   const isFresh = freshAgeMs !== null
-    && freshAgeMs >= 0 && freshAgeMs < PREFERRED_SEND_REFRESH_INTERVAL_MS;
+  return await firestore.runTransaction(async (transaction) => {
+   const currentSnap = await transaction.get(subscriberRef);
+   const current = currentSnap?.exists ? (currentSnap.data() || {}) : null;
+   let buffer = normalizePreferredSendHourBuffer(current?.preferred_send_hour_buffer);
+   const bufferWasMissing = buffer === null;
+
+   if (bufferWasMissing) {
+    // The one and only historical backfill for a subscriber. Keep this query
+    // identical to the legacy window: the server-side open/click filter is
+    // applied before the occurred_at ordering and 300-row limit.
+    const eventsSnap = await transaction.get(preferredEventsQuery(subscriberRef));
+    buffer = bufferEntriesFromEventDocs(eventsSnap.docs || []);
+   } else {
+    buffer = insertEventIntoBuffer(buffer, currentEvent);
+   }
+
+   const bufferLastTimestamp = latestBufferTimestamp(
+    buffer,
+    current?.[PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP],
+   );
+   const isFresh = isPreferredSendHourFresh(current);
+   const bufferUpdate = {
+    preferred_send_hour_buffer: buffer,
+    [PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP]: bufferLastTimestamp,
+   };
+
    if (isFresh) {
+    // A real webhook always supplies currentEvent, so its buffer append is
+    // still committed transactionally even when the derived value is fresh.
+    // A direct maintenance/read call with an already-present buffer needs no
+    // no-op write.
+    if (bufferWasMissing || bufferEntryFromEvent(currentEvent)) {
+     transaction.set(subscriberRef, bufferUpdate, { merge: true });
+    }
     return {
      updated: false,
      hourUtc: current.preferred_send_hour_utc ?? null,
@@ -175,53 +289,31 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
      strength: current.preferred_send_strength ?? null,
     };
    }
-  }
 
-  // Query the events subcollection OUTSIDE of any transaction (Firestore
-  // transactions can't mix an initial query read with later ref.get() reads
-  // the way this needs). Filter server-side before the limit: delivery and
-  // other event rows can greatly outnumber open/click rows, especially after
-  // a newsletter send, and reading them only to discard them locally is
-  // unnecessary billable read amplification. Keep the client-side filter as
-  // a defensive guard for legacy or malformed documents.
-  const eventsSnap = await subscriberRef
-   .collection('events')
-   .where('event_type', 'in', ['open', 'click'])
-   .orderBy('occurred_at', 'desc')
-   .limit(300)
-   .get();
+   const { hourUtc, sampleCount, strength } = computePreferredSendHour(bufferEvents(buffer));
 
-  const events = eventsSnap.docs
-   .map((doc) => doc.data())
-   .filter((data) => data && (data.event_type === 'open' || data.event_type === 'click'))
-   .map((data) => ({ type: data.event_type, occurredAt: data.occurred_at }));
+   // Churn instrumentation (#3798 Fix MEDIO-BASSO #6 — prep for calibrating the
+   // 6h staleness gate above): only counts an actual change between two known
+   // hours, not the first assignment (null → hour) a cold-start subscriber
+   // gets once they clear PREFERRED_SEND_MIN_EVENTS.
+   const previousHourUtc = current?.preferred_send_hour_utc ?? null;
+   const churned = previousHourUtc !== null && hourUtc !== null && hourUtc !== previousHourUtc;
 
-  const { hourUtc, sampleCount, strength } = computePreferredSendHour(events);
+   // Always write, even if the derived values are identical to what's already
+   // stored: preferred_send_updated_at is what resets the staleness-gate
+   // window above. The same transaction also commits the circular buffer.
+   const update = {
+    ...bufferUpdate,
+    preferred_send_hour_utc: hourUtc,
+    preferred_send_sample_count: sampleCount,
+    preferred_send_strength: strength,
+    preferred_send_updated_at: FieldValue.serverTimestamp(),
+   };
+   if (churned) update.preferred_send_hour_churn_count = FieldValue.increment(1);
+   transaction.set(subscriberRef, update, { merge: true });
 
-  // Churn instrumentation (#3798 Fix MEDIO-BASSO #6 — prep for calibrating the
-  // 6h staleness gate above): only counts an actual change between two known
-  // hours, not the first assignment (null → hour) a cold-start subscriber
-  // gets once they clear PREFERRED_SEND_MIN_EVENTS. Feeds a future decision on
-  // whether PREFERRED_SEND_REFRESH_INTERVAL_MS is too short (high churn = the
-  // "preference" is still noisy) or safely longer (low churn = stable).
-  const previousHourUtc = current?.preferred_send_hour_utc ?? null;
-  const churned = previousHourUtc !== null && hourUtc !== null && hourUtc !== previousHourUtc;
-
-  // Always write, even if the derived values are identical to what's already
-  // stored: preferred_send_updated_at is what resets the staleness-gate
-  // window above, so skipping the write on "unchanged" would mean the gate
-  // never re-engages and this subscriber keeps paying the full events-query
-  // cost on every future event forever.
-  const update = {
-   preferred_send_hour_utc: hourUtc,
-   preferred_send_sample_count: sampleCount,
-   preferred_send_strength: strength,
-   preferred_send_updated_at: FieldValue.serverTimestamp(),
-  };
-  if (churned) update.preferred_send_hour_churn_count = FieldValue.increment(1);
-  await subscriberRef.set(update, { merge: true });
-
-  return { updated: true, hourUtc, sampleCount, strength, churned };
+   return { updated: true, hourUtc, sampleCount, strength, churned };
+  });
  } catch (err) {
   // Non-critical: webhook delivery should not fail because of this scoring.
   console.warn('[preferredSendHour] refresh failed:', err?.message);

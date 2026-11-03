@@ -2305,12 +2305,12 @@
     },
     {
       "id": "transgourmet-044fb809-462",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-transgourmet-winterthur",
+      "slug": "addetta-addetto-alla-vendita-di-prodotti-freschi-transgourmet-winterthur",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur",
-        "it": "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-transgourmet-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur",
-        "fr": "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur"
+        "it": "addetta-addetto-alla-vendita-di-prodotti-freschi-transgourmet-winterthur",
+        "en": "fresh-produce-sales-employee-transgourmet-winterthur",
+        "fr": "collaboratrice-collaborateur-en-vente-de-produits-frais-transgourmet-winterthur"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2374,11 +2374,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur",
+          "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-transgourmet-winterthur"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur"
+        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-transgourmet-winterthur",
+        "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-transgourmet-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

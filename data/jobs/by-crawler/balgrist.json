@@ -4447,12 +4447,12 @@
     },
     {
       "id": "balgrist-f2e43fe10cc8",
-      "slug": "apprendistato-come-medizinproduktetechnologe-in-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+      "slug": "posto-di-apprendistato-come-tecnologo-a-di-dispositivi-medici-afc-m-f-d-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich",
-        "it": "apprendistato-come-medizinproduktetechnologe-in-cfc-m-w-d-universitatsklinik-balgrist-zurich",
-        "en": "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich",
-        "fr": "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich"
+        "it": "posto-di-apprendistato-come-tecnologo-a-di-dispositivi-medici-afc-m-f-d-universitatsklinik-balgrist-zurich",
+        "en": "apprenticeship-as-a-medical-product-technologist-efz-m-f-d-universitatsklinik-balgrist-zurich",
+        "fr": "place-d-apprentissage-de-technologue-en-dispositifs-medicaux-cfc-h-f-d-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4501,11 +4501,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich",
+          "apprendistato-come-medizinproduktetechnologe-in-cfc-m-w-d-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich"
+        ],
+        "fr": [
           "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich"
+        "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich",
+        "apprendistato-come-medizinproduktetechnologe-in-cfc-m-w-d-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,

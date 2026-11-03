@@ -7,7 +7,7 @@
       "id": "bls-7afab74d709b",
       "slug": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
       "slugByLocale": {
-        "it": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
+        "it": "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez",
         "en": "automotive-mechatronics-technician-automation-technician-bls-ag-spiez",
         "de": "automobilmechatroniker-in-automatiker-in-bls-ch",
         "fr": "technicien-en-mecatronique-automobile-technicien-en-automatisation-bls-ag-spiez"
@@ -69,14 +69,12 @@
       },
       "previousSlugs": [
         "automobilmechatroniker-in-automatiker-in-bls-ch",
-        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
-        "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-automatiker-in-bls-ch",
-          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
-          "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
         ],
         "en": [
           "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
@@ -208,7 +206,7 @@
         "it": "fornitori-di-veicoli-bls-ag-spiez",
         "en": "vehicle-suppliers-bls-ag-spiez",
         "de": "fahrzeugbereitsteller-in-bls-ch",
-        "fr": "preparateur-rice-de-vehicules-bls-ag-spiez"
+        "fr": "fournisseur-du-vehicule-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -271,7 +269,7 @@
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
         "vehicle-supplier-in-bls-ag-spiez",
-        "fournisseur-du-vehicule-bls-ag-spiez"
+        "preparateur-rice-de-vehicules-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -285,7 +283,7 @@
         ],
         "fr": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "fournisseur-du-vehicule-bls-ag-spiez"
+          "preparateur-rice-de-vehicules-bls-ag-spiez"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
@@ -313,7 +311,7 @@
         "it": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
         "en": "electrical-installers-bls-ag-hasle-bei-burgdorf",
         "de": "elektroinstallateur-in-bls-ch",
-        "fr": "electricien-ne-bls-ag-hasle-bei-burgdorf"
+        "fr": "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -378,7 +376,7 @@
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-        "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+        "electricien-ne-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -398,7 +396,7 @@
         "fr": [
           "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-          "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+          "electricien-ne-bls-ag-hasle-bei-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:15.744Z",
@@ -1932,12 +1930,12 @@
     },
     {
       "id": "bls-b2ef660707b3",
-      "slug": "metallbauer-in-nautiker-in-thun-bls-ch",
+      "slug": "costruttore-trice-metallico-a-nautico-a-thun-bls-ag-bern",
       "slugByLocale": {
         "de": "metallbauer-in-nautiker-in-thun-bls-ch",
-        "it": "metallbauer-in-nautiker-in-thun-bls-ch",
-        "en": "metallbauer-in-nautiker-in-thun-bls-ch",
-        "fr": "metallbauer-in-nautiker-in-thun-bls-ch"
+        "it": "costruttore-trice-metallico-a-nautico-a-thun-bls-ag-bern",
+        "en": "metalworker-nautical-officer-thun-bls-ag-bern",
+        "fr": "constructeur-trice-metallique-nauticien-ne-thun-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2015,7 +2013,21 @@
       "addressRegion": "BE",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-03T09:25:47.994Z"
+      "firstSeenAt": "2026-11-03T09:25:47.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-nautiker-in-thun-bls-ch"
+        ],
+        "en": [
+          "metallbauer-in-nautiker-in-thun-bls-ch"
+        ],
+        "fr": [
+          "metallbauer-in-nautiker-in-thun-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-in-nautiker-in-thun-bls-ch"
+      ]
     }
   ]
 }

@@ -3752,7 +3752,7 @@
       "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
         "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3799,14 +3799,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+        "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
@@ -4838,12 +4839,12 @@
     },
     {
       "id": "kispi-zurich-bae480e64237",
-      "slug": "pflegehelferin-m-w-d-40-kispi-zurich-zurich",
+      "slug": "assistente-di-cura-m-f-d-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "pflegehelferin-m-w-d-40-kispi-zurich-zurich",
-        "it": "pflegehelferin-m-w-d-40-kispi-zurich-zurich",
-        "en": "pflegehelferin-m-w-d-40-kispi-zurich-zurich",
-        "fr": "pflegehelferin-m-w-d-40-kispi-zurich-zurich"
+        "it": "assistente-di-cura-m-f-d-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "care-assistant-m-f-d-40-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "assistant-de-soins-h-f-d-40-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4905,7 +4906,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:15:47.196Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:15:47.196Z"
+      "firstSeenAt": "2026-11-03T09:15:47.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-m-w-d-40-kispi-zurich-zurich"
+        ],
+        "en": [
+          "pflegehelferin-m-w-d-40-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "pflegehelferin-m-w-d-40-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-m-w-d-40-kispi-zurich-zurich"
+      ]
     }
   ]
 }

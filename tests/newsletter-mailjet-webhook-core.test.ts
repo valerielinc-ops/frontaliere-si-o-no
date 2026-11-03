@@ -42,6 +42,15 @@ function createFakeDb(
         },
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
+          const query = {
+            where: () => query,
+            orderBy: () => query,
+            limit: () => query,
+            get: async () => {
+              const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+              return { docs: seeded.map((d) => ({ data: () => d })) };
+            },
+          };
           return {
             doc: (subDocId: string) => ({
               set: async (data: Record<string, unknown>, _opts?: unknown) => {
@@ -53,16 +62,7 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            where: () => ({
-              orderBy: () => ({
-                limit: () => ({
-                  get: async () => {
-                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                    return { docs: seeded.map((d) => ({ data: () => d })) };
-                  },
-                }),
-              }),
-            }),
+            ...query,
           };
         },
       };
@@ -212,7 +212,7 @@ describe('newsletterMailjetWebhookCore', () => {
           { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
           { event_type: 'click', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
           { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
-          // Wrong type — must be filtered out client-side (no where clause).
+          // Wrong type — defensive client-side filtering still discards it.
           { event_type: 'bounce', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
         ],
       });

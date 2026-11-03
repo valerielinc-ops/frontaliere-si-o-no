@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-27",
+  "generatedAt": "2026-11-03",
   "generatedLimit": 150,
   "items": {
     "article-como-manifestazioni-24-ottobre": {
@@ -11,7 +11,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-como-manifestazioni-24-ottobre.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 2307003459111,
+      "priority": 2350612576137,
       "references": [
         {
           "section": "frontaliere",
@@ -34,7 +34,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-nobel-economia-fehr-2026.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 2003837231703,
+      "priority": 2008622441049,
       "references": [
         {
           "section": "svizzera",
@@ -57,7 +57,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-malnate-imprenditrice-azienda-famiglia.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1900913333781,
+      "priority": 1904292881283,
       "references": [
         {
           "section": "frontaliere",
@@ -117,6 +117,29 @@
       "generatedAssetId": "article-a13-code-grigioni-vacanze-zurighesi",
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T04:02:43.599Z"
+    },
+    "article-abitazioni-svizzere-rincaro-settembre": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-abitazioni-svizzere-rincaro-settembre.webp",
+      "toCover": "/images/blog/article-abitazioni-svizzere-rincaro-settembre.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-abitazioni-svizzere-rincaro-settembre.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "abitazioni-svizzere-rincaro-settembre",
+          "category": "novita",
+          "date": "2026-10-27T12:37:22.077Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-abitazioni-svizzere-rincaro-settembre",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T12:37:15.068Z"
     },
     "article-abstimmung-bahnhof-wil-allee": {
       "mode": "generated",
@@ -187,6 +210,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-22T11:46:42.903Z"
     },
+    "article-allarme-popolazione-165-milioni": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-allarme-popolazione-165-milioni.webp",
+      "toCover": "/images/blog/article-allarme-popolazione-165-milioni.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-allarme-popolazione-165-milioni.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "allarme-popolazione-165-milioni",
+          "category": "novita",
+          "date": "2026-10-28T16:52:57.192Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-allarme-popolazione-165-milioni",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T16:52:49.491Z"
+    },
     "article-andermatt-fisco-wyden": {
       "mode": "generated",
       "status": "generated",
@@ -256,6 +302,98 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T02:03:26.503Z"
     },
+    "article-appenzello-deficit-budget": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-appenzello-deficit-budget.webp",
+      "toCover": "/images/blog/article-appenzello-deficit-budget.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-appenzello-deficit-budget.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "appenzello-deficit-budget",
+          "category": "fiscale",
+          "date": "2026-10-28T18:13:37.671Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-appenzello-deficit-budget",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T18:13:29.799Z"
+    },
+    "article-arcisate-ticino-scelta-frontaliere": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-arcisate-ticino-scelta-frontaliere.webp",
+      "toCover": "/images/blog/article-arcisate-ticino-scelta-frontaliere.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-arcisate-ticino-scelta-frontaliere.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arcisate-ticino-scelta-frontaliere",
+          "category": "pratico",
+          "date": "2026-10-29T22:16:41.376Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-arcisate-ticino-scelta-frontaliere",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T22:16:22.293Z"
+    },
+    "article-arco-giurassiano-frontalieri": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-arco-giurassiano-frontalieri.webp",
+      "toCover": "/images/blog/article-arco-giurassiano-frontalieri.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-arco-giurassiano-frontalieri.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "arco-giurassiano-frontalieri",
+          "category": "novita",
+          "date": "2026-10-27T19:06:44.911Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-arco-giurassiano-frontalieri",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T19:06:37.008Z"
+    },
+    "article-arresto-ticino-banca-occulta": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-arresto-ticino-banca-occulta.webp",
+      "toCover": "/images/blog/article-arresto-ticino-banca-occulta.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-arresto-ticino-banca-occulta.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-ticino-banca-occulta",
+          "category": "novita",
+          "date": "2026-10-21T23:28:08.334Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-arresto-ticino-banca-occulta",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-26T17:13:53.632Z"
+    },
     "article-assemblea-pvl-avs-finanziamento": {
       "mode": "generated",
       "status": "generated",
@@ -278,6 +416,144 @@
       "generatedAssetId": "article-assemblea-pvl-avs-finanziamento",
       "provider": "openai-codex",
       "generatedAt": "2026-10-24T21:42:03.910Z"
+    },
+    "article-attrattivita-economica-zurigo-ticino": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-attrattivita-economica-zurigo-ticino.webp",
+      "toCover": "/images/blog/article-attrattivita-economica-zurigo-ticino.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-attrattivita-economica-zurigo-ticino.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "attrattivita-economica-zurigo-ticino",
+          "category": "novita",
+          "date": "2026-10-29T08:24:27.655Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-attrattivita-economica-zurigo-ticino",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T08:24:21.418Z"
+    },
+    "article-aumento-salari-statale-2027": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-aumento-salari-statale-2027.webp",
+      "toCover": "/images/blog/article-aumento-salari-statale-2027.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aumento-salari-statale-2027.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "aumento-salari-statale-2027",
+          "category": "novita",
+          "date": "2026-10-27T13:05:27.562Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-aumento-salari-statale-2027",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T13:05:19.845Z"
+    },
+    "article-aumento-soglie-reddito-2027": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-aumento-soglie-reddito-2027.webp",
+      "toCover": "/images/blog/article-aumento-soglie-reddito-2027.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aumento-soglie-reddito-2027.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "aumento-soglie-reddito-2027",
+          "category": "fiscale",
+          "date": "2026-10-30T21:03:54.671Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-aumento-soglie-reddito-2027",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-30T21:03:46.109Z"
+    },
+    "article-axenstrasse-chiusa-novembre-2026": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-axenstrasse-chiusa-novembre-2026.webp",
+      "toCover": "/images/blog/article-axenstrasse-chiusa-novembre-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-axenstrasse-chiusa-novembre-2026.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "axenstrasse-chiusa-novembre-2026",
+          "category": "pratico",
+          "date": "2026-10-27T10:48:04.296Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-axenstrasse-chiusa-novembre-2026",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T10:47:44.529Z"
+    },
+    "article-bains-ovronnaz-nuovo-sursis": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bains-ovronnaz-nuovo-sursis.webp",
+      "toCover": "/images/blog/article-bains-ovronnaz-nuovo-sursis.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bains-ovronnaz-nuovo-sursis.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "bains-ovronnaz-nuovo-sursis",
+          "category": "novita",
+          "date": "2026-10-28T15:29:18.560Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-bains-ovronnaz-nuovo-sursis",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T15:29:11.364Z"
+    },
+    "article-balti-zug-robatech-acquisizione": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-balti-zug-robatech-acquisizione.webp",
+      "toCover": "/images/blog/article-balti-zug-robatech-acquisizione.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-balti-zug-robatech-acquisizione.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "balti-zug-robatech-acquisizione",
+          "category": "novita",
+          "date": "2026-10-28T01:30:31.021Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-balti-zug-robatech-acquisizione",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T01:30:21.076Z"
     },
     "article-basel-stadt-siti-online-di-nuoto": {
       "mode": "generated",
@@ -325,6 +601,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T02:22:03.665Z"
     },
+    "article-basilea-stop-sconto-elettriche": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-basilea-stop-sconto-elettriche.webp",
+      "toCover": "/images/blog/article-basilea-stop-sconto-elettriche.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-basilea-stop-sconto-elettriche.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "basilea-stop-sconto-elettriche",
+          "category": "fiscale",
+          "date": "2026-10-26T23:14:00.134Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-basilea-stop-sconto-elettriche",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-26T23:13:40.659Z"
+    },
     "article-battaglia-frontalieri-tasse-diritti": {
       "mode": "generated",
       "status": "generated",
@@ -370,6 +669,52 @@
       "generatedAssetId": "article-batterie-sodio-soletta",
       "provider": "openai-codex",
       "generatedAt": "2026-10-25T08:55:25.726Z"
+    },
+    "article-bellinzona-imposte-piu-salate-2028": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bellinzona-imposte-piu-salate-2028.webp",
+      "toCover": "/images/blog/article-bellinzona-imposte-piu-salate-2028.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bellinzona-imposte-piu-salate-2028.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-imposte-piu-salate-2028",
+          "category": "fiscale",
+          "date": "2026-10-31T08:56:46.770Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-bellinzona-imposte-piu-salate-2028",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-31T08:56:35.344Z"
+    },
+    "article-bellinzona-nuova-strada-ciclabile": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bellinzona-nuova-strada-ciclabile.webp",
+      "toCover": "/images/blog/article-bellinzona-nuova-strada-ciclabile.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bellinzona-nuova-strada-ciclabile.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-nuova-strada-ciclabile",
+          "category": "novita",
+          "date": "2026-10-22T00:55:34.728Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-bellinzona-nuova-strada-ciclabile",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T01:23:15.449Z"
     },
     "article-berna-stato-pagina-non-disponibile": {
       "mode": "generated",
@@ -486,6 +831,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-22T02:24:39.229Z"
     },
+    "article-brigels-sette-milioni-impianti": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-brigels-sette-milioni-impianti.webp",
+      "toCover": "/images/blog/article-brigels-sette-milioni-impianti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-brigels-sette-milioni-impianti.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "brigels-sette-milioni-impianti",
+          "category": "novita",
+          "date": "2026-10-27T09:37:54.912Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-brigels-sette-milioni-impianti",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T09:37:47.483Z"
+    },
     "article-bristenstrasse-regimi-traffico-2026": {
       "mode": "generated",
       "status": "generated",
@@ -555,6 +923,52 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-22T14:10:11.733Z"
     },
+    "article-bus-sostitutivi-grigioni": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bus-sostitutivi-grigioni.webp",
+      "toCover": "/images/blog/article-bus-sostitutivi-grigioni.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bus-sostitutivi-grigioni.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "bus-sostitutivi-grigioni",
+          "category": "pratico",
+          "date": "2026-10-29T15:42:15.733Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-bus-sostitutivi-grigioni",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T15:42:07.430Z"
+    },
+    "article-bvb-rasatura-tram-episodio": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bvb-rasatura-tram-episodio.webp",
+      "toCover": "/images/blog/article-bvb-rasatura-tram-episodio.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bvb-rasatura-tram-episodio.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "bvb-rasatura-tram-episodio",
+          "category": "pratico",
+          "date": "2026-10-27T00:34:47.659Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-bvb-rasatura-tram-episodio",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T00:34:33.345Z"
+    },
     "article-cambio-ora-incidenti-stradali-soletta": {
       "mode": "generated",
       "status": "generated",
@@ -578,6 +992,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T00:45:16.588Z"
     },
+    "article-cantiere-caraa-guera-interrogazione": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-cantiere-caraa-guera-interrogazione.webp",
+      "toCover": "/images/blog/article-cantiere-caraa-guera-interrogazione.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cantiere-caraa-guera-interrogazione.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "cantiere-caraa-guera-interrogazione",
+          "category": "pratico",
+          "date": "2026-10-27T07:03:29.459Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-cantiere-caraa-guera-interrogazione",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T07:03:22.881Z"
+    },
     "article-cantiere-stazione-morges-2026": {
       "mode": "generated",
       "status": "generated",
@@ -600,6 +1037,144 @@
       "generatedAssetId": "article-cantiere-stazione-morges-2026",
       "provider": "openai-codex",
       "generatedAt": "2026-10-25T11:58:04.913Z"
+    },
+    "article-cantieri-strade-glarona-2027": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-cantieri-strade-glarona-2027.webp",
+      "toCover": "/images/blog/article-cantieri-strade-glarona-2027.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cantieri-strade-glarona-2027.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "cantieri-strade-glarona-2027",
+          "category": "pratico",
+          "date": "2026-10-29T22:36:35.347Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-cantieri-strade-glarona-2027",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T22:36:27.532Z"
+    },
+    "article-cassa-pensione-snl-sev-attacca": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-cassa-pensione-snl-sev-attacca.webp",
+      "toCover": "/images/blog/article-cassa-pensione-snl-sev-attacca.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cassa-pensione-snl-sev-attacca.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "cassa-pensione-snl-sev-attacca",
+          "category": "pensione",
+          "date": "2026-10-30T22:23:25.055Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "generatedAssetId": "article-cassa-pensione-snl-sev-attacca",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-30T22:23:15.023Z"
+    },
+    "article-cff-cargo-rinuncia-legno-alle": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-cff-cargo-rinuncia-legno-alle.webp",
+      "toCover": "/images/blog/article-cff-cargo-rinuncia-legno-alle.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cff-cargo-rinuncia-legno-alle.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "cff-cargo-rinuncia-legno-alle",
+          "category": "novita",
+          "date": "2026-10-29T08:45:30.807Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-cff-cargo-rinuncia-legno-alle",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T08:45:23.763Z"
+    },
+    "article-cham-moltiplicatore-fiscale-2027": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-cham-moltiplicatore-fiscale-2027.webp",
+      "toCover": "/images/blog/article-cham-moltiplicatore-fiscale-2027.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cham-moltiplicatore-fiscale-2027.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "cham-moltiplicatore-fiscale-2027",
+          "category": "fiscale",
+          "date": "2026-10-28T11:33:27.848Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-cham-moltiplicatore-fiscale-2027",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T11:33:20.246Z"
+    },
+    "article-chiasso-via-motta-lavoro": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-chiasso-via-motta-lavoro.webp",
+      "toCover": "/images/blog/article-chiasso-via-motta-lavoro.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-chiasso-via-motta-lavoro.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "chiasso-via-motta-lavoro",
+          "category": "novita",
+          "date": "2026-10-28T02:02:16.502Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-chiasso-via-motta-lavoro",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T02:02:08.338Z"
+    },
+    "article-chiusura-ponte-scheidgraben": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
+      "toCover": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-chiusura-ponte-scheidgraben.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-nw",
+          "id": "chiusura-ponte-scheidgraben",
+          "category": "pratico",
+          "date": "2026-10-30T20:11:37.696Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-chiusura-ponte-scheidgraben",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-30T20:11:28.237Z"
     },
     "article-chuv-ostetriche-salari-classi": {
       "mode": "generated",
@@ -693,6 +1268,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T08:31:27.043Z"
     },
+    "article-competenze-finanziarie-sciaffusa": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-competenze-finanziarie-sciaffusa.webp",
+      "toCover": "/images/blog/article-competenze-finanziarie-sciaffusa.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-competenze-finanziarie-sciaffusa.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "competenze-finanziarie-sciaffusa",
+          "category": "novita",
+          "date": "2026-10-29T22:48:05.136Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-competenze-finanziarie-sciaffusa",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T22:47:58.165Z"
+    },
     "article-consiglio-poverta-prima-conferenza": {
       "mode": "generated",
       "status": "generated",
@@ -762,6 +1360,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T18:56:39.772Z"
     },
+    "article-conteggio-traffico-uri-novembre": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-conteggio-traffico-uri-novembre.webp",
+      "toCover": "/images/blog/article-conteggio-traffico-uri-novembre.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-conteggio-traffico-uri-novembre.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "conteggio-traffico-uri-novembre",
+          "category": "novita",
+          "date": "2026-10-27T11:34:34.578Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-conteggio-traffico-uri-novembre",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T11:34:26.881Z"
+    },
     "article-contributi-rotbach-saanen": {
       "mode": "generated",
       "status": "generated",
@@ -808,6 +1429,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T12:21:00.416Z"
     },
+    "article-controllo-traffico-san-gallo-ottobre": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-controllo-traffico-san-gallo-ottobre.webp",
+      "toCover": "/images/blog/article-controllo-traffico-san-gallo-ottobre.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-controllo-traffico-san-gallo-ottobre.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "controllo-traffico-san-gallo-ottobre",
+          "category": "pratico",
+          "date": "2026-10-27T00:06:31.670Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-controllo-traffico-san-gallo-ottobre",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T00:06:23.732Z"
+    },
     "article-coop-aumento-salari-2027": {
       "mode": "generated",
       "status": "generated",
@@ -831,6 +1475,98 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T12:36:26.539Z"
     },
+    "article-costi-sanita-meno-entrate": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-costi-sanita-meno-entrate.webp",
+      "toCover": "/images/blog/article-costi-sanita-meno-entrate.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-costi-sanita-meno-entrate.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "costi-sanita-meno-entrate",
+          "category": "fiscale",
+          "date": "2026-10-28T19:28:05.243Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-costi-sanita-meno-entrate",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T19:27:59.261Z"
+    },
+    "article-credito-pfas-appenzello": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-credito-pfas-appenzello.webp",
+      "toCover": "/images/blog/article-credito-pfas-appenzello.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-credito-pfas-appenzello.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "credito-pfas-appenzello",
+          "category": "novita",
+          "date": "2026-10-27T00:02:34.724Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-credito-pfas-appenzello",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T00:02:26.641Z"
+    },
+    "article-credito-volksschule-breitfeld": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-credito-volksschule-breitfeld.webp",
+      "toCover": "/images/blog/article-credito-volksschule-breitfeld.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-credito-volksschule-breitfeld.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "credito-volksschule-breitfeld",
+          "category": "novita",
+          "date": "2026-10-29T08:31:57.808Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-credito-volksschule-breitfeld",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T08:31:47.414Z"
+    },
+    "article-cuira-alloggi-acqua-sursaissa": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-cuira-alloggi-acqua-sursaissa.webp",
+      "toCover": "/images/blog/article-cuira-alloggi-acqua-sursaissa.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cuira-alloggi-acqua-sursaissa.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "cuira-alloggi-acqua-sursaissa",
+          "category": "novita",
+          "date": "2026-10-27T02:19:08.615Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-cuira-alloggi-acqua-sursaissa",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T02:19:02.251Z"
+    },
     "article-dashboard-mobilita-aarau": {
       "mode": "generated",
       "status": "generated",
@@ -853,6 +1589,29 @@
       "generatedAssetId": "article-dashboard-mobilita-aarau",
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T12:23:45.293Z"
+    },
+    "article-disparita-stipendi-frontalieri": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-disparita-stipendi-frontalieri.webp",
+      "toCover": "/images/blog/article-disparita-stipendi-frontalieri.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-disparita-stipendi-frontalieri.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "disparita-stipendi-frontalieri",
+          "category": "fiscale",
+          "date": "2026-10-24T21:09:51.910Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-disparita-stipendi-frontalieri",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-26T17:42:28.604Z"
     },
     "article-domande-edilizie-solo-digitale-2027": {
       "mode": "generated",
@@ -899,6 +1658,75 @@
       "generatedAssetId": "article-driessen-oncologia-herisau-2026",
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T12:25:02.648Z"
+    },
+    "article-economia-neuchateloise-incertezza": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-economia-neuchateloise-incertezza.webp",
+      "toCover": "/images/blog/article-economia-neuchateloise-incertezza.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-economia-neuchateloise-incertezza.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "economia-neuchateloise-incertezza",
+          "category": "novita",
+          "date": "2026-10-28T17:45:20.321Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-economia-neuchateloise-incertezza",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T17:45:13.533Z"
+    },
+    "article-einwohnerrat-budget-bahnhof-ost": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-einwohnerrat-budget-bahnhof-ost.webp",
+      "toCover": "/images/blog/article-einwohnerrat-budget-bahnhof-ost.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-einwohnerrat-budget-bahnhof-ost.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "einwohnerrat-budget-bahnhof-ost",
+          "category": "fiscale",
+          "date": "2026-10-27T08:22:48.687Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-einwohnerrat-budget-bahnhof-ost",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T08:22:40.944Z"
+    },
+    "article-elezione-consiglio-prefetture-lista-unica": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-elezione-consiglio-prefetture-lista-unica.webp",
+      "toCover": "/images/blog/article-elezione-consiglio-prefetture-lista-unica.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-elezione-consiglio-prefetture-lista-unica.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "elezione-consiglio-prefetture-lista-unica",
+          "category": "novita",
+          "date": "2026-10-27T02:55:55.536Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-elezione-consiglio-prefetture-lista-unica",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T02:55:47.294Z"
     },
     "article-elezioni-friburgo-8-novembre": {
       "mode": "generated",
@@ -992,6 +1820,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-26T12:22:14.911Z"
     },
+    "article-farmaci-riserve-finanziamento": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-farmaci-riserve-finanziamento.webp",
+      "toCover": "/images/blog/article-farmaci-riserve-finanziamento.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-farmaci-riserve-finanziamento.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "farmaci-riserve-finanziamento",
+          "category": "novita",
+          "date": "2026-10-29T09:02:50.918Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-farmaci-riserve-finanziamento",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T09:02:40.953Z"
+    },
     "article-fdp-lucerna-due-liste": {
       "mode": "generated",
       "status": "generated",
@@ -1061,6 +1912,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T03:02:40.605Z"
     },
+    "article-fiscalita-coppie-marite-voto": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-fiscalita-coppie-marite-voto.webp",
+      "toCover": "/images/blog/article-fiscalita-coppie-marite-voto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fiscalita-coppie-marite-voto.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "fiscalita-coppie-marite-voto",
+          "category": "fiscale",
+          "date": "2026-10-27T00:08:19.325Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-fiscalita-coppie-marite-voto",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T00:08:09.919Z"
+    },
     "article-fisco-vaud-indennita-abuso-imposte": {
       "mode": "generated",
       "status": "generated",
@@ -1083,6 +1957,29 @@
       "generatedAssetId": "article-fisco-vaud-indennita-abuso-imposte",
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T04:19:23.418Z"
+    },
+    "article-fislisbach-acqua-potabile": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-fislisbach-acqua-potabile.webp",
+      "toCover": "/images/blog/article-fislisbach-acqua-potabile.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fislisbach-acqua-potabile.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "fislisbach-acqua-potabile",
+          "category": "pratico",
+          "date": "2026-10-28T11:31:41.205Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-fislisbach-acqua-potabile",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T11:31:33.833Z"
     },
     "article-fislisbach-steuerfuss-109": {
       "mode": "generated",
@@ -1153,6 +2050,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-23T16:48:45.845Z"
     },
+    "article-frauenfeld-revisione-regolamento-salariale": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-frauenfeld-revisione-regolamento-salariale.webp",
+      "toCover": "/images/blog/article-frauenfeld-revisione-regolamento-salariale.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frauenfeld-revisione-regolamento-salariale.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "frauenfeld-revisione-regolamento-salariale",
+          "category": "novita",
+          "date": "2026-10-29T23:14:34.048Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-frauenfeld-revisione-regolamento-salariale",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T23:14:25.370Z"
+    },
     "article-friburgo-no-linea-diretta": {
       "mode": "generated",
       "status": "generated",
@@ -1176,6 +2096,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-26T15:03:44.314Z"
     },
+    "article-frontaliere-ora-mezza-viaggio": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-frontaliere-ora-mezza-viaggio.webp",
+      "toCover": "/images/blog/article-frontaliere-ora-mezza-viaggio.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontaliere-ora-mezza-viaggio.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontaliere-ora-mezza-viaggio",
+          "category": "pratico",
+          "date": "2026-10-25T01:38:53.028Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-frontaliere-ora-mezza-viaggio",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T11:07:15.037Z"
+    },
     "article-frontalieri-luino-incontro-fisco-previdenza-sanita": {
       "mode": "generated",
       "status": "generated",
@@ -1198,6 +2141,29 @@
       "generatedAssetId": "article-frontalieri-luino-incontro-fisco-previdenza-sanita",
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T09:24:54.515Z"
+    },
+    "article-frontalieri-riforma-disoccupazione-ue": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-frontalieri-riforma-disoccupazione-ue.webp",
+      "toCover": "/images/blog/article-frontalieri-riforma-disoccupazione-ue.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-riforma-disoccupazione-ue.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "frontalieri-riforma-disoccupazione-ue",
+          "category": "novita",
+          "date": "2026-10-29T21:47:51.269Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-frontalieri-riforma-disoccupazione-ue",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T21:47:37.060Z"
     },
     "article-frontalieri-rimborsi-lpp-svizzera": {
       "mode": "generated",
@@ -1268,6 +2234,52 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T20:47:33.302Z"
     },
+    "article-gaggiolo-articoli-lusso-non-dichiarati": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+      "toCover": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gaggiolo-articoli-lusso-non-dichiarati.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gaggiolo-articoli-lusso-non-dichiarati",
+          "category": "fiscale",
+          "date": "2026-10-28T15:59:32.918Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-gaggiolo-articoli-lusso-non-dichiarati",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T15:59:21.522Z"
+    },
+    "article-giornico-consiglio-stato-fermata": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-giornico-consiglio-stato-fermata.webp",
+      "toCover": "/images/blog/article-giornico-consiglio-stato-fermata.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-giornico-consiglio-stato-fermata.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "giornico-consiglio-stato-fermata",
+          "category": "novita",
+          "date": "2026-10-30T21:52:11.914Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-giornico-consiglio-stato-fermata",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-30T21:52:00.244Z"
+    },
     "article-giura-aumento-sussidi-famiglie": {
       "mode": "generated",
       "status": "generated",
@@ -1314,6 +2326,52 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T12:36:04.368Z"
     },
+    "article-glarona-adesione-programma-perspecta": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-glarona-adesione-programma-perspecta.webp",
+      "toCover": "/images/blog/article-glarona-adesione-programma-perspecta.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-glarona-adesione-programma-perspecta.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "glarona-adesione-programma-perspecta",
+          "category": "novita",
+          "date": "2026-10-29T07:33:02.883Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-glarona-adesione-programma-perspecta",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-29T07:32:56.423Z"
+    },
+    "article-glarona-detrazioni-energia": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-glarona-detrazioni-energia.webp",
+      "toCover": "/images/blog/article-glarona-detrazioni-energia.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-glarona-detrazioni-energia.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "glarona-detrazioni-energia",
+          "category": "fiscale",
+          "date": "2026-10-30T15:30:05.508Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-glarona-detrazioni-energia",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-30T15:29:58.017Z"
+    },
     "article-glarona-mercato-immobiliare-2026": {
       "mode": "generated",
       "status": "generated",
@@ -1336,6 +2394,52 @@
       "generatedAssetId": "article-glarona-mercato-immobiliare-2026",
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T01:34:44.004Z"
+    },
+    "article-governo-giurassiano-nomine-2027": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-governo-giurassiano-nomine-2027.webp",
+      "toCover": "/images/blog/article-governo-giurassiano-nomine-2027.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-governo-giurassiano-nomine-2027.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "governo-giurassiano-nomine-2027",
+          "category": "novita",
+          "date": "2026-10-26T18:04:54.331Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-governo-giurassiano-nomine-2027",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-26T18:04:39.970Z"
+    },
+    "article-governo-sh-previsioni-fiscali": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-governo-sh-previsioni-fiscali.webp",
+      "toCover": "/images/blog/article-governo-sh-previsioni-fiscali.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-governo-sh-previsioni-fiscali.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "governo-sh-previsioni-fiscali",
+          "category": "fiscale",
+          "date": "2026-10-27T02:57:10.663Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-governo-sh-previsioni-fiscali",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T02:57:02.154Z"
     },
     "article-governo-soletta-ottobre-2026": {
       "mode": "generated",
@@ -1475,6 +2579,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T19:28:00.193Z"
     },
+    "article-hergiswil-fattura-fiscale-online": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-hergiswil-fattura-fiscale-online.webp",
+      "toCover": "/images/blog/article-hergiswil-fattura-fiscale-online.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-hergiswil-fattura-fiscale-online.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-nw",
+          "id": "hergiswil-fattura-fiscale-online",
+          "category": "fiscale",
+          "date": "2026-10-30T19:39:12.910Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-hergiswil-fattura-fiscale-online",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-30T19:39:06.099Z"
+    },
     "article-hug-primo-ospedale-svizzero-2027": {
       "mode": "generated",
       "status": "generated",
@@ -1566,6 +2693,29 @@
       "generatedAssetId": "article-imprenditori-cantone-turgovia-sostegno",
       "provider": "openai-codex",
       "generatedAt": "2026-10-25T12:54:38.360Z"
+    },
+    "article-incidente-matran-friburgo": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-incidente-matran-friburgo.webp",
+      "toCover": "/images/blog/article-incidente-matran-friburgo.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-incidente-matran-friburgo.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "incidente-matran-friburgo",
+          "category": "pratico",
+          "date": "2026-10-27T01:51:04.787Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-incidente-matran-friburgo",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T01:50:53.146Z"
     },
     "article-industria-ticino-strategie-personale": {
       "mode": "generated",
@@ -1797,6 +2947,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-21T20:49:57.943Z"
     },
+    "article-lavori-barriere-antirumore-a8": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-lavori-barriere-antirumore-a8.webp",
+      "toCover": "/images/blog/article-lavori-barriere-antirumore-a8.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lavori-barriere-antirumore-a8.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavori-barriere-antirumore-a8",
+          "category": "pratico",
+          "date": "2026-10-31T08:27:33.922Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-lavori-barriere-antirumore-a8",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-31T08:27:18.516Z"
+    },
     "article-lavoro-ridotto-normalizzazione-2027": {
       "mode": "generated",
       "status": "generated",
@@ -2004,6 +3177,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-20T18:24:44.634Z"
     },
+    "article-malnate-ristorni-500-mila-meno": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-malnate-ristorni-500-mila-meno.webp",
+      "toCover": "/images/blog/article-malnate-ristorni-500-mila-meno.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-malnate-ristorni-500-mila-meno.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "malnate-ristorni-500-mila-meno",
+          "category": "fiscale",
+          "date": "2026-10-28T11:59:45.372Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-malnate-ristorni-500-mila-meno",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T19:15:27.184Z"
+    },
     "article-mellingen-budget-2027": {
       "mode": "generated",
       "status": "generated",
@@ -2026,6 +3222,29 @@
       "generatedAssetId": "article-mellingen-budget-2027",
       "provider": "openai-codex",
       "generatedAt": "2026-10-24T12:03:03.084Z"
+    },
+    "article-mobilit-elettrica-sciaffusa-20": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-mobilit-elettrica-sciaffusa-20.webp",
+      "toCover": "/images/blog/article-mobilit-elettrica-sciaffusa-20.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mobilit-elettrica-sciaffusa-20.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "mobilit-elettrica-sciaffusa-20",
+          "category": "novita",
+          "date": "2026-10-27T10:58:31.090Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-mobilit-elettrica-sciaffusa-20",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-27T10:58:24.455Z"
     },
     "article-mobilita-aargovia-sistema-unico": {
       "mode": "generated",
@@ -2096,6 +3315,52 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-22T10:54:04.349Z"
     },
+    "article-mozione-ticino-ristorni-salute": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+      "toCover": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mozione-ticino-ristorni-salute.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mozione-ticino-ristorni-salute",
+          "category": "fiscale",
+          "date": "2026-10-28T12:47:07.552Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "generatedAssetId": "article-mozione-ticino-ristorni-salute",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T12:46:58.481Z"
+    },
+    "article-mutazioni-lavoro-frontaliero-jura": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-mutazioni-lavoro-frontaliero-jura.webp",
+      "toCover": "/images/blog/article-mutazioni-lavoro-frontaliero-jura.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mutazioni-lavoro-frontaliero-jura.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "mutazioni-lavoro-frontaliero-jura",
+          "category": "novita",
+          "date": "2026-10-28T11:22:42.284Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-mutazioni-lavoro-frontaliero-jura",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T11:22:35.009Z"
+    },
     "article-negozio-ticino-fisco-frontiere": {
       "mode": "generated",
       "status": "generated",
@@ -2142,6 +3407,29 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-22T02:31:28.448Z"
     },
+    "article-norme-flessibilita-start-up": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-norme-flessibilita-start-up.webp",
+      "toCover": "/images/blog/article-norme-flessibilita-start-up.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-norme-flessibilita-start-up.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1793,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "norme-flessibilita-start-up",
+          "category": "novita",
+          "date": "2026-10-28T18:52:28.427Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-norme-flessibilita-start-up",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-28T18:52:20.931Z"
+    },
     "article-nuova-app-schaffhauser-nachrichten-2026": {
       "mode": "generated",
       "status": "generated",
@@ -2164,1294 +3452,6 @@
       "generatedAssetId": "article-nuova-app-schaffhauser-nachrichten-2026",
       "provider": "openai-codex",
       "generatedAt": "2026-10-22T03:16:43.192Z"
-    },
-    "article-ora-solare-ritorno-ottobre-svizzera": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-ora-solare-ritorno-ottobre-svizzera.webp",
-      "toCover": "/images/blog/article-ora-solare-ritorno-ottobre-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-ora-solare-ritorno-ottobre-svizzera.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "ora-solare-ritorno-ottobre-svizzera",
-          "category": "novita",
-          "date": "2026-10-21T23:00:36.449Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-ora-solare-ritorno-ottobre-svizzera",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T23:00:29.472Z"
-    },
-    "article-organico-comunale-zurigo": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-organico-comunale-zurigo.webp",
-      "toCover": "/images/blog/article-organico-comunale-zurigo.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-organico-comunale-zurigo.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-zh",
-          "id": "organico-comunale-zurigo",
-          "category": "novita",
-          "date": "2026-10-21T11:30:34.419Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-organico-comunale-zurigo",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T11:30:25.909Z"
-    },
-    "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp",
-      "toCover": "/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
-          "category": "novita",
-          "date": "2026-10-20T23:39:39.771Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-20T23:39:32.869Z"
-    },
-    "article-pacchetto-imprese-sgravi": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-pacchetto-imprese-sgravi.webp",
-      "toCover": "/images/blog/article-pacchetto-imprese-sgravi.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-pacchetto-imprese-sgravi.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "pacchetto-imprese-sgravi",
-          "category": "novita",
-          "date": "2026-10-21T10:00:03.042Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-pacchetto-imprese-sgravi",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T09:59:48.966Z"
-    },
-    "article-parcheggi-cascate-reno": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-parcheggi-cascate-reno.webp",
-      "toCover": "/images/blog/article-parcheggi-cascate-reno.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-parcheggi-cascate-reno.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sh",
-          "id": "parcheggi-cascate-reno",
-          "category": "novita",
-          "date": "2026-10-21T20:45:07.801Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-parcheggi-cascate-reno",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T20:44:58.513Z"
-    },
-    "article-pbv-rpg2-turgovia-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-pbv-rpg2-turgovia-2026.webp",
-      "toCover": "/images/blog/article-pbv-rpg2-turgovia-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-pbv-rpg2-turgovia-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-tg",
-          "id": "pbv-rpg2-turgovia-2026",
-          "category": "novita",
-          "date": "2026-10-23T01:44:38.536Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-pbv-rpg2-turgovia-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T01:44:30.822Z"
-    },
-    "article-pesca-zurigo-servizi-regolati": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-pesca-zurigo-servizi-regolati.webp",
-      "toCover": "/images/blog/article-pesca-zurigo-servizi-regolati.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-pesca-zurigo-servizi-regolati.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "pesca-zurigo-servizi-regolati",
-          "category": "pratico",
-          "date": "2026-10-25T16:33:10.314Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-pesca-zurigo-servizi-regolati",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-25T16:33:02.788Z"
-    },
-    "article-piano-berna-civilisti-cantoni": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-piano-berna-civilisti-cantoni.webp",
-      "toCover": "/images/blog/article-piano-berna-civilisti-cantoni.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-piano-berna-civilisti-cantoni.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "piano-berna-civilisti-cantoni",
-          "category": "novita",
-          "date": "2026-10-21T11:26:40.028Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-piano-berna-civilisti-cantoni",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T11:26:30.402Z"
-    },
-    "article-polizia-soletta-comunicazione-media-droni": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-polizia-soletta-comunicazione-media-droni.webp",
-      "toCover": "/images/blog/article-polizia-soletta-comunicazione-media-droni.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-polizia-soletta-comunicazione-media-droni.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-so",
-          "id": "polizia-soletta-comunicazione-media-droni",
-          "category": "novita",
-          "date": "2026-10-23T03:30:32.771Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-polizia-soletta-comunicazione-media-droni",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T03:30:25.215Z"
-    },
-    "article-prezzi-pompa-non-calano-svizzera": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp",
-      "toCover": "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-prezzi-pompa-non-calano-svizzera.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "prezzi-pompa-non-calano-svizzera",
-          "category": "pratico",
-          "date": "2026-10-24T04:24:26.071Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-prezzi-pompa-non-calano-svizzera",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-24T04:24:18.459Z"
-    },
-    "article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2.webp",
-      "toCover": "/images/blog/article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-be",
-          "id": "primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2",
-          "category": "novita",
-          "date": "2026-10-22T12:06:19.622Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T12:06:11.514Z"
-    },
-    "article-questionario-frontalieri-ticino-condizioni-lavoro": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp",
-      "toCover": "/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "questionario-frontalieri-ticino-condizioni-lavoro",
-          "category": "novita",
-          "date": "2026-10-23T09:28:26.287Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-questionario-frontalieri-ticino-condizioni-lavoro",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T09:28:18.128Z"
-    },
-    "article-rafforzamento-paghe-frontalieri": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-rafforzamento-paghe-frontalieri.webp",
-      "toCover": "/images/blog/article-rafforzamento-paghe-frontalieri.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-rafforzamento-paghe-frontalieri.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-ti",
-          "id": "rafforzamento-paghe-frontalieri",
-          "category": "novita",
-          "date": "2026-10-23T10:32:20.964Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-rafforzamento-paghe-frontalieri",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T10:32:10.966Z"
-    },
-    "article-rbh-herisau-piu-risorse": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-rbh-herisau-piu-risorse.webp",
-      "toCover": "/images/blog/article-rbh-herisau-piu-risorse.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-rbh-herisau-piu-risorse.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-appenzello",
-          "id": "rbh-herisau-piu-risorse",
-          "category": "novita",
-          "date": "2026-10-23T12:58:04.345Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-rbh-herisau-piu-risorse",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T12:57:54.225Z"
-    },
-    "article-referendum-legge-collettivo-lavoro": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-referendum-legge-collettivo-lavoro.webp",
-      "toCover": "/images/blog/article-referendum-legge-collettivo-lavoro.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-referendum-legge-collettivo-lavoro.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "referendum-legge-collettivo-lavoro",
-          "category": "fiscale",
-          "date": "2026-10-25T00:47:25.471Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ],
-      "generatedAssetId": "article-referendum-legge-collettivo-lavoro",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-25T00:47:17.131Z"
-    },
-    "article-regole-usato-mercatini-svizzera": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-regole-usato-mercatini-svizzera.webp",
-      "toCover": "/images/blog/article-regole-usato-mercatini-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-regole-usato-mercatini-svizzera.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "regole-usato-mercatini-svizzera",
-          "category": "pratico",
-          "date": "2026-10-22T03:59:32.955Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-regole-usato-mercatini-svizzera",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T03:59:24.448Z"
-    },
-    "article-revisione-pbg-zugo-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-revisione-pbg-zugo-2026.webp",
-      "toCover": "/images/blog/article-revisione-pbg-zugo-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-revisione-pbg-zugo-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-zg",
-          "id": "revisione-pbg-zugo-2026",
-          "category": "novita",
-          "date": "2026-10-22T03:09:05.531Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-revisione-pbg-zugo-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T03:08:59.336Z"
-    },
-    "article-revisione-serv-consultazione-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-revisione-serv-consultazione-2026.webp",
-      "toCover": "/images/blog/article-revisione-serv-consultazione-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-revisione-serv-consultazione-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "revisione-serv-consultazione-2026",
-          "category": "novita",
-          "date": "2026-10-22T01:25:51.304Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-revisione-serv-consultazione-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T01:25:33.016Z"
-    },
-    "article-revolut-servizi-interrotti": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-revolut-servizi-interrotti.webp",
-      "toCover": "/images/blog/article-revolut-servizi-interrotti.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-revolut-servizi-interrotti.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "revolut-servizi-interrotti",
-          "category": "novita",
-          "date": "2026-10-21T14:40:19.762Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-revolut-servizi-interrotti",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T14:40:07.156Z"
-    },
-    "article-rhb-albula-chiusura-thusis-preda": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-rhb-albula-chiusura-thusis-preda.webp",
-      "toCover": "/images/blog/article-rhb-albula-chiusura-thusis-preda.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-rhb-albula-chiusura-thusis-preda.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-gr",
-          "id": "rhb-albula-chiusura-thusis-preda",
-          "category": "pratico",
-          "date": "2026-10-23T12:26:06.032Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-rhb-albula-chiusura-thusis-preda",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T12:25:50.632Z"
-    },
-    "article-ricerca-cisl-frontalieri-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-ricerca-cisl-frontalieri-2026.webp",
-      "toCover": "/images/blog/article-ricerca-cisl-frontalieri-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-ricerca-cisl-frontalieri-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "ricerca-cisl-frontalieri-2026",
-          "category": "pratico",
-          "date": "2026-10-20T19:40:19.854Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-ricerca-cisl-frontalieri-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-20T19:40:11.501Z"
-    },
-    "article-rolex-acquisisce-cpautomation": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-rolex-acquisisce-cpautomation.webp",
-      "toCover": "/images/blog/article-rolex-acquisisce-cpautomation.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-rolex-acquisisce-cpautomation.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-fr",
-          "id": "rolex-acquisisce-cpautomation",
-          "category": "novita",
-          "date": "2026-10-24T06:40:18.212Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-rolex-acquisisce-cpautomation",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-24T06:40:11.011Z"
-    },
-    "article-salario-minimo-basilea-2027": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-salario-minimo-basilea-2027.webp",
-      "toCover": "/images/blog/article-salario-minimo-basilea-2027.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-salario-minimo-basilea-2027.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-basilea",
-          "id": "salario-minimo-basilea-2027",
-          "category": "novita",
-          "date": "2026-10-26T11:06:00.747Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-salario-minimo-basilea-2027",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-26T11:05:52.841Z"
-    },
-    "article-san-gallo-autostrada-rosenberg-terza-canna": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-san-gallo-autostrada-rosenberg-terza-canna.webp",
-      "toCover": "/images/blog/article-san-gallo-autostrada-rosenberg-terza-canna.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-san-gallo-autostrada-rosenberg-terza-canna.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sg",
-          "id": "san-gallo-autostrada-rosenberg-terza-canna",
-          "category": "novita",
-          "date": "2026-10-23T04:27:56.026Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-san-gallo-autostrada-rosenberg-terza-canna",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T04:27:47.153Z"
-    },
-    "article-san-gallo-protezione-infrastrutture-critiche": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-san-gallo-protezione-infrastrutture-critiche.webp",
-      "toCover": "/images/blog/article-san-gallo-protezione-infrastrutture-critiche.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-san-gallo-protezione-infrastrutture-critiche.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sg",
-          "id": "san-gallo-protezione-infrastrutture-critiche",
-          "category": "novita",
-          "date": "2026-10-23T03:10:46.389Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-san-gallo-protezione-infrastrutture-critiche",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T03:10:39.648Z"
-    },
-    "article-sbb-chiude-reisezentrum-doettingen": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sbb-chiude-reisezentrum-doettingen.webp",
-      "toCover": "/images/blog/article-sbb-chiude-reisezentrum-doettingen.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sbb-chiude-reisezentrum-doettingen.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-ag",
-          "id": "sbb-chiude-reisezentrum-doettingen",
-          "category": "novita",
-          "date": "2026-10-22T23:32:53.543Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sbb-chiude-reisezentrum-doettingen",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T23:32:46.136Z"
-    },
-    "article-sbb-sportelli-st-margrethen-uznach": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sbb-sportelli-st-margrethen-uznach.webp",
-      "toCover": "/images/blog/article-sbb-sportelli-st-margrethen-uznach.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sbb-sportelli-st-margrethen-uznach.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sg",
-          "id": "sbb-sportelli-st-margrethen-uznach",
-          "category": "pratico",
-          "date": "2026-10-23T00:23:33.274Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sbb-sportelli-st-margrethen-uznach",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T00:23:25.599Z"
-    },
-    "article-sciaffusa-banche-riforma-federale": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sciaffusa-banche-riforma-federale.webp",
-      "toCover": "/images/blog/article-sciaffusa-banche-riforma-federale.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-banche-riforma-federale.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sh",
-          "id": "sciaffusa-banche-riforma-federale",
-          "category": "novita",
-          "date": "2026-10-22T01:01:24.569Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sciaffusa-banche-riforma-federale",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T01:01:15.951Z"
-    },
-    "article-sciaffusa-budget-correzione": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sciaffusa-budget-correzione.webp",
-      "toCover": "/images/blog/article-sciaffusa-budget-correzione.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-budget-correzione.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sh",
-          "id": "sciaffusa-budget-correzione",
-          "category": "novita",
-          "date": "2026-10-25T00:28:46.390Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sciaffusa-budget-correzione",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-25T00:28:35.397Z"
-    },
-    "article-sciaffusa-regole-datacenter": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sciaffusa-regole-datacenter.webp",
-      "toCover": "/images/blog/article-sciaffusa-regole-datacenter.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-regole-datacenter.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sh",
-          "id": "sciaffusa-regole-datacenter",
-          "category": "novita",
-          "date": "2026-10-23T03:48:32.749Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sciaffusa-regole-datacenter",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T03:48:26.539Z"
-    },
-    "article-sciaffusa-regole-datencenter-beringen": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sciaffusa-regole-datencenter-beringen.webp",
-      "toCover": "/images/blog/article-sciaffusa-regole-datencenter-beringen.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-regole-datencenter-beringen.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sh",
-          "id": "sciaffusa-regole-datencenter-beringen",
-          "category": "novita",
-          "date": "2026-10-23T01:48:34.863Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sciaffusa-regole-datencenter-beringen",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T01:48:27.733Z"
-    },
-    "article-sconti-vereina-locali-ospiti": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sconti-vereina-locali-ospiti.webp",
-      "toCover": "/images/blog/article-sconti-vereina-locali-ospiti.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sconti-vereina-locali-ospiti.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-gr",
-          "id": "sconti-vereina-locali-ospiti",
-          "category": "pratico",
-          "date": "2026-10-21T03:29:46.324Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sconti-vereina-locali-ospiti",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T03:29:31.148Z"
-    },
-    "article-sedi-rav-lavoratori-tg": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sedi-rav-lavoratori-tg.webp",
-      "toCover": "/images/blog/article-sedi-rav-lavoratori-tg.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sedi-rav-lavoratori-tg.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-tg",
-          "id": "sedi-rav-lavoratori-tg",
-          "category": "pratico",
-          "date": "2026-10-25T12:02:52.564Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sedi-rav-lavoratori-tg",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-25T12:02:40.830Z"
-    },
-    "article-skyguide-ginevra-capacita-ottobre": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
-      "toCover": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-skyguide-ginevra-capacita-ottobre.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-ge",
-          "id": "skyguide-ginevra-capacita-ottobre",
-          "category": "novita",
-          "date": "2026-10-20T18:26:56.192Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-skyguide-ginevra-capacita-ottobre",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-20T18:26:44.268Z"
-    },
-    "article-soletta-regierungsrat-attiparlamentari-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-soletta-regierungsrat-attiparlamentari-2026.webp",
-      "toCover": "/images/blog/article-soletta-regierungsrat-attiparlamentari-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-soletta-regierungsrat-attiparlamentari-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-so",
-          "id": "soletta-regierungsrat-attiparlamentari-2026",
-          "category": "novita",
-          "date": "2026-10-20T15:42:25.788Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-soletta-regierungsrat-attiparlamentari-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-20T15:42:18.125Z"
-    },
-    "article-sondaggio-paga-colleghi-svizzeri": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp",
-      "toCover": "/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sondaggio-paga-colleghi-svizzeri.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "sondaggio-paga-colleghi-svizzeri",
-          "category": "novita",
-          "date": "2026-10-25T12:30:34.435Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sondaggio-paga-colleghi-svizzeri",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-25T12:30:10.271Z"
-    },
-    "article-sondaggio-votazioni-novembre-svizzera": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sondaggio-votazioni-novembre-svizzera.webp",
-      "toCover": "/images/blog/article-sondaggio-votazioni-novembre-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sondaggio-votazioni-novembre-svizzera.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "sondaggio-votazioni-novembre-svizzera",
-          "category": "novita",
-          "date": "2026-10-23T05:43:55.776Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ],
-      "generatedAssetId": "article-sondaggio-votazioni-novembre-svizzera",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T05:43:48.481Z"
-    },
-    "article-sostenibilita-abitativa-svizzera": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-sostenibilita-abitativa-svizzera.webp",
-      "toCover": "/images/blog/article-sostenibilita-abitativa-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-sostenibilita-abitativa-svizzera.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "sostenibilita-abitativa-svizzera",
-          "category": "pratico",
-          "date": "2026-10-23T00:22:46.124Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-sostenibilita-abitativa-svizzera",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T00:22:37.733Z"
-    },
-    "article-stadtfonds-steuerfuss-wil": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-stadtfonds-steuerfuss-wil.webp",
-      "toCover": "/images/blog/article-stadtfonds-steuerfuss-wil.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-stadtfonds-steuerfuss-wil.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sg",
-          "id": "stadtfonds-steuerfuss-wil",
-          "category": "fiscale",
-          "date": "2026-10-24T08:43:34.169Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ],
-      "generatedAssetId": "article-stadtfonds-steuerfuss-wil",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-24T08:43:27.672Z"
-    },
-    "article-stazione-le-locle-accessibilita": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-stazione-le-locle-accessibilita.webp",
-      "toCover": "/images/blog/article-stazione-le-locle-accessibilita.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-stazione-le-locle-accessibilita.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-ne",
-          "id": "stazione-le-locle-accessibilita",
-          "category": "novita",
-          "date": "2026-10-22T14:27:21.584Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-stazione-le-locle-accessibilita",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T14:27:14.533Z"
-    },
-    "article-stockmar-ritardo-cantiere-2027": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-stockmar-ritardo-cantiere-2027.webp",
-      "toCover": "/images/blog/article-stockmar-ritardo-cantiere-2027.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-stockmar-ritardo-cantiere-2027.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-ju",
-          "id": "stockmar-ritardo-cantiere-2027",
-          "category": "novita",
-          "date": "2026-10-22T00:17:44.643Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-stockmar-ritardo-cantiere-2027",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T00:17:33.730Z"
-    },
-    "article-stop-emergenza-centrale-nucleare-gosgen": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-stop-emergenza-centrale-nucleare-gosgen.webp",
-      "toCover": "/images/blog/article-stop-emergenza-centrale-nucleare-gosgen.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-stop-emergenza-centrale-nucleare-gosgen.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "stop-emergenza-centrale-nucleare-gosgen",
-          "category": "novita",
-          "date": "2026-10-22T02:15:54.166Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-stop-emergenza-centrale-nucleare-gosgen",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-22T02:15:35.829Z"
-    },
-    "article-successione-parmelin-otto-nomi": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-successione-parmelin-otto-nomi.webp",
-      "toCover": "/images/blog/article-successione-parmelin-otto-nomi.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-successione-parmelin-otto-nomi.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "successione-parmelin-otto-nomi",
-          "category": "fiscale",
-          "date": "2026-10-24T05:11:58.276Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ],
-      "generatedAssetId": "article-successione-parmelin-otto-nomi",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-24T05:11:49.764Z"
-    },
-    "article-tagli-orologeria-locle-lvmh": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
-      "toCover": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-tagli-orologeria-locle-lvmh.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-ne",
-          "id": "tagli-orologeria-locle-lvmh",
-          "category": "novita",
-          "date": "2026-10-26T09:27:07.480Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-tagli-orologeria-locle-lvmh",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-26T09:26:59.804Z"
-    },
-    "article-tamedia-zurigo-protesta-licenziamenti-ia": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp",
-      "toCover": "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "tamedia-zurigo-protesta-licenziamenti-ia",
-          "category": "novita",
-          "date": "2026-10-21T07:32:04.450Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-tamedia-zurigo-protesta-licenziamenti-ia",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T07:31:48.625Z"
-    },
-    "article-telecom-358-licenziamenti": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-telecom-358-licenziamenti.webp",
-      "toCover": "/images/blog/article-telecom-358-licenziamenti.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-telecom-358-licenziamenti.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "telecom-358-licenziamenti",
-          "category": "novita",
-          "date": "2026-10-24T13:01:20.849Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-telecom-358-licenziamenti",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-24T13:01:12.427Z"
-    },
-    "article-trasporti-varese-peduncolo-vedano-gallarate-luino": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp",
-      "toCover": "/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "trasporti-varese-peduncolo-vedano-gallarate-luino",
-          "category": "novita",
-          "date": "2026-10-21T20:21:52.607Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-trasporti-varese-peduncolo-vedano-gallarate-luino",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T20:21:44.640Z"
-    },
-    "article-turgovia-modifica-piano-direttore-2027": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-turgovia-modifica-piano-direttore-2027.webp",
-      "toCover": "/images/blog/article-turgovia-modifica-piano-direttore-2027.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-turgovia-modifica-piano-direttore-2027.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-tg",
-          "id": "turgovia-modifica-piano-direttore-2027",
-          "category": "novita",
-          "date": "2026-10-23T03:27:25.835Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-turgovia-modifica-piano-direttore-2027",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T03:27:18.687Z"
-    },
-    "article-unfall-a13-sevelen-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-unfall-a13-sevelen-2026.webp",
-      "toCover": "/images/blog/article-unfall-a13-sevelen-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-unfall-a13-sevelen-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sg",
-          "id": "unfall-a13-sevelen-2026",
-          "category": "pratico",
-          "date": "2026-10-26T16:46:48.908Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-unfall-a13-sevelen-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-26T16:46:41.006Z"
-    },
-    "article-vbz-tram-50-51-cambio": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-vbz-tram-50-51-cambio.webp",
-      "toCover": "/images/blog/article-vbz-tram-50-51-cambio.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-vbz-tram-50-51-cambio.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-zh",
-          "id": "vbz-tram-50-51-cambio",
-          "category": "pratico",
-          "date": "2026-10-21T10:20:51.886Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-vbz-tram-50-51-cambio",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-21T10:20:33.372Z"
-    },
-    "article-violazioni-sicurezza-svizzera-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-violazioni-sicurezza-svizzera-2026.webp",
-      "toCover": "/images/blog/article-violazioni-sicurezza-svizzera-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-violazioni-sicurezza-svizzera-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "violazioni-sicurezza-svizzera-2026",
-          "category": "novita",
-          "date": "2026-10-25T13:07:25.419Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-violazioni-sicurezza-svizzera-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-25T13:07:18.095Z"
-    },
-    "article-voto-comunale-stranieri-berna": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-voto-comunale-stranieri-berna.webp",
-      "toCover": "/images/blog/article-voto-comunale-stranieri-berna.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-voto-comunale-stranieri-berna.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-be",
-          "id": "voto-comunale-stranieri-berna",
-          "category": "novita",
-          "date": "2026-10-20T22:00:47.607Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-voto-comunale-stranieri-berna",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-20T22:00:39.652Z"
-    },
-    "article-voto-iva-2028-pensione": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-voto-iva-2028-pensione.webp",
-      "toCover": "/images/blog/article-voto-iva-2028-pensione.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-voto-iva-2028-pensione.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "voto-iva-2028-pensione",
-          "category": "pensione",
-          "date": "2026-10-23T03:49:50.323Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ],
-      "generatedAssetId": "article-voto-iva-2028-pensione",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T03:49:38.982Z"
-    },
-    "article-weissenbach-incidente-quattro-auto": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-weissenbach-incidente-quattro-auto.webp",
-      "toCover": "/images/blog/article-weissenbach-incidente-quattro-auto.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-weissenbach-incidente-quattro-auto.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-be",
-          "id": "weissenbach-incidente-quattro-auto",
-          "category": "pratico",
-          "date": "2026-10-20T22:21:08.267Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-weissenbach-incidente-quattro-auto",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-20T22:20:14.961Z"
-    },
-    "article-wetzikon-binzacher-kempten-info": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-wetzikon-binzacher-kempten-info.webp",
-      "toCover": "/images/blog/article-wetzikon-binzacher-kempten-info.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-wetzikon-binzacher-kempten-info.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-zh",
-          "id": "wetzikon-binzacher-kempten-info",
-          "category": "pratico",
-          "date": "2026-10-23T13:48:03.003Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-wetzikon-binzacher-kempten-info",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T13:47:52.898Z"
-    },
-    "article-wil-sedute-novembre-2026": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-wil-sedute-novembre-2026.webp",
-      "toCover": "/images/blog/article-wil-sedute-novembre-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-wil-sedute-novembre-2026.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1793,
-      "references": [
-        {
-          "section": "canton-sg",
-          "id": "wil-sedute-novembre-2026",
-          "category": "novita",
-          "date": "2026-10-23T08:59:08.998Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-wil-sedute-novembre-2026",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-23T08:58:55.243Z"
     }
   },
   "rewrittenArticles": 0,
@@ -3461,69 +3461,119 @@
     "article-malnate-imprenditrice-azienda-famiglia",
     "article-a1-lavori-notturni-luterbach",
     "article-a13-code-grigioni-vacanze-zurighesi",
+    "article-abitazioni-svizzere-rincaro-settembre",
     "article-abstimmung-bahnhof-wil-allee",
     "article-adeguamento-piano-direttore-zone-bianche-2026",
     "article-adeguamento-rendite-superstiti-invalidita-2027",
+    "article-allarme-popolazione-165-milioni",
     "article-andermatt-fisco-wyden",
     "article-appenzell-remunerazioni-energia-2027",
     "article-appenzello-cooperazione-strategica-2024",
+    "article-appenzello-deficit-budget",
+    "article-arcisate-ticino-scelta-frontaliere",
+    "article-arco-giurassiano-frontalieri",
+    "article-arresto-ticino-banca-occulta",
     "article-assemblea-pvl-avs-finanziamento",
+    "article-attrattivita-economica-zurigo-ticino",
+    "article-aumento-salari-statale-2027",
+    "article-aumento-soglie-reddito-2027",
+    "article-axenstrasse-chiusa-novembre-2026",
+    "article-bains-ovronnaz-nuovo-sursis",
+    "article-balti-zug-robatech-acquisizione",
     "article-basel-stadt-siti-online-di-nuoto",
     "article-basilea-cantieri-alle-sei",
+    "article-basilea-stop-sconto-elettriche",
     "article-battaglia-frontalieri-tasse-diritti",
     "article-batterie-sodio-soletta",
+    "article-bellinzona-imposte-piu-salate-2028",
+    "article-bellinzona-nuova-strada-ciclabile",
     "article-berna-stato-pagina-non-disponibile",
     "article-bns-cambi-energia",
     "article-bollettino-frontaliere-2026-10-24",
     "article-bollettino-frontaliere-2026-10-25",
     "article-braunwald-progetto-80-milioni",
+    "article-brigels-sette-milioni-impianti",
     "article-bristenstrasse-regimi-traffico-2026",
     "article-budget-2027-preavviso-consiglio",
     "article-bulle-friburgo-linea-diretta",
+    "article-bus-sostitutivi-grigioni",
+    "article-bvb-rasatura-tram-episodio",
     "article-cambio-ora-incidenti-stradali-soletta",
+    "article-cantiere-caraa-guera-interrogazione",
     "article-cantiere-stazione-morges-2026",
+    "article-cantieri-strade-glarona-2027",
+    "article-cassa-pensione-snl-sev-attacca",
+    "article-cff-cargo-rinuncia-legno-alle",
+    "article-cham-moltiplicatore-fiscale-2027",
+    "article-chiasso-via-motta-lavoro",
+    "article-chiusura-ponte-scheidgraben",
     "article-chuv-ostetriche-salari-classi",
     "article-circolare-221-deduzione-figli-2027",
     "article-cofinanziamento-tox-info-suisse",
     "article-collegio-longueville-cantiere-colombier",
+    "article-competenze-finanziarie-sciaffusa",
     "article-consiglio-poverta-prima-conferenza",
     "article-consiglio-stato-21-ottobre-2026",
     "article-consultazione-abitazioni-lucerna",
+    "article-conteggio-traffico-uri-novembre",
     "article-contributi-rotbach-saanen",
     "article-controlli-distrazione-zurigo",
+    "article-controllo-traffico-san-gallo-ottobre",
     "article-coop-aumento-salari-2027",
+    "article-costi-sanita-meno-entrate",
+    "article-credito-pfas-appenzello",
+    "article-credito-volksschule-breitfeld",
+    "article-cuira-alloggi-acqua-sursaissa",
     "article-dashboard-mobilita-aarau",
+    "article-disparita-stipendi-frontalieri",
     "article-domande-edilizie-solo-digitale-2027",
     "article-driessen-oncologia-herisau-2026",
+    "article-economia-neuchateloise-incertezza",
+    "article-einwohnerrat-budget-bahnhof-ost",
+    "article-elezione-consiglio-prefetture-lista-unica",
     "article-elezioni-friburgo-8-novembre",
     "article-energy-tagli-radio-svizzera",
     "article-epfl-eth-top-20-europee",
     "article-esecutivo-zugo-mandato-2030",
+    "article-farmaci-riserve-finanziamento",
     "article-fdp-lucerna-due-liste",
     "article-finanzkommission-k-rzt-kredit-digitalisierung",
     "article-finma-etf-bitcoin-primo-fondo",
+    "article-fiscalita-coppie-marite-voto",
     "article-fisco-vaud-indennita-abuso-imposte",
+    "article-fislisbach-acqua-potabile",
     "article-fislisbach-steuerfuss-109",
     "article-fluhli-tassa-seconde-case",
     "article-franco-euro-cambio-ottobre-2026",
+    "article-frauenfeld-revisione-regolamento-salariale",
     "article-friburgo-no-linea-diretta",
+    "article-frontaliere-ora-mezza-viaggio",
     "article-frontalieri-luino-incontro-fisco-previdenza-sanita",
+    "article-frontalieri-riforma-disoccupazione-ue",
     "article-frontalieri-rimborsi-lpp-svizzera",
     "article-furti-cantone-ginevra-2025",
     "article-furto-dati-publica-100mila-dipendenti",
+    "article-gaggiolo-articoli-lusso-non-dichiarati",
+    "article-giornico-consiglio-stato-fermata",
     "article-giura-aumento-sussidi-famiglie",
     "article-giura-formazione-postobbligatoria-2026",
+    "article-glarona-adesione-programma-perspecta",
+    "article-glarona-detrazioni-energia",
     "article-glarona-mercato-immobiliare-2026",
+    "article-governo-giurassiano-nomine-2027",
+    "article-governo-sh-previsioni-fiscali",
     "article-governo-soletta-ottobre-2026",
     "article-grand-conseil-27-ottobre",
     "article-guasto-sistemi-skyguide-scali",
     "article-guida-saldatore-ticino-frontiera",
     "article-hackeraggio-ipct-casse-pensioni-ticino",
     "article-heiden-risparmi-preventivo-2027",
+    "article-hergiswil-fattura-fiscale-online",
     "article-hug-primo-ospedale-svizzero-2027",
     "article-hundwil-imposte-preventivo",
     "article-impetigine-casi-vaud",
     "article-imprenditori-cantone-turgovia-sostegno",
+    "article-incidente-matran-friburgo",
     "article-industria-ticino-strategie-personale",
     "article-inflazione-premi-rincaro-svizzera",
     "article-interrogazione-wicht-clausola-regionale",
@@ -3534,6 +3584,7 @@
     "article-kurzarbeit-regole-ordinarie",
     "article-landrat-ottobre-glarona-2026",
     "article-lausanne-marathon-2026-chiusure-strade",
+    "article-lavori-barriere-antirumore-a8",
     "article-lavoro-ridotto-normalizzazione-2027",
     "article-lega-misure-lugano",
     "article-lotteriefonds-89-progetti-cantone",
@@ -3543,68 +3594,17 @@
     "article-lucerna-stop-riscaldamenti-fossili-2050",
     "article-lucerna-tassi-fiscali-zero-2027",
     "article-maja-riniker-eletta-governo-argovia",
+    "article-malnate-ristorni-500-mila-meno",
     "article-mellingen-budget-2027",
+    "article-mobilit-elettrica-sciaffusa-20",
     "article-mobilita-aargovia-sistema-unico",
     "article-molestie-lavoro-pmi-svizzere",
     "article-morges-label-energia-gold-2026",
+    "article-mozione-ticino-ristorni-salute",
+    "article-mutazioni-lavoro-frontaliero-jura",
     "article-negozio-ticino-fisco-frontiere",
     "article-neunkirch-supervisore-cantonale",
-    "article-nuova-app-schaffhauser-nachrichten-2026",
-    "article-ora-solare-ritorno-ottobre-svizzera",
-    "article-organico-comunale-zurigo",
-    "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
-    "article-pacchetto-imprese-sgravi",
-    "article-parcheggi-cascate-reno",
-    "article-pbv-rpg2-turgovia-2026",
-    "article-pesca-zurigo-servizi-regolati",
-    "article-piano-berna-civilisti-cantoni",
-    "article-polizia-soletta-comunicazione-media-droni",
-    "article-prezzi-pompa-non-calano-svizzera",
-    "article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2",
-    "article-questionario-frontalieri-ticino-condizioni-lavoro",
-    "article-rafforzamento-paghe-frontalieri",
-    "article-rbh-herisau-piu-risorse",
-    "article-referendum-legge-collettivo-lavoro",
-    "article-regole-usato-mercatini-svizzera",
-    "article-revisione-pbg-zugo-2026",
-    "article-revisione-serv-consultazione-2026",
-    "article-revolut-servizi-interrotti",
-    "article-rhb-albula-chiusura-thusis-preda",
-    "article-ricerca-cisl-frontalieri-2026",
-    "article-rolex-acquisisce-cpautomation",
-    "article-salario-minimo-basilea-2027",
-    "article-san-gallo-autostrada-rosenberg-terza-canna",
-    "article-san-gallo-protezione-infrastrutture-critiche",
-    "article-sbb-chiude-reisezentrum-doettingen",
-    "article-sbb-sportelli-st-margrethen-uznach",
-    "article-sciaffusa-banche-riforma-federale",
-    "article-sciaffusa-budget-correzione",
-    "article-sciaffusa-regole-datacenter",
-    "article-sciaffusa-regole-datencenter-beringen",
-    "article-sconti-vereina-locali-ospiti",
-    "article-sedi-rav-lavoratori-tg",
-    "article-skyguide-ginevra-capacita-ottobre",
-    "article-soletta-regierungsrat-attiparlamentari-2026",
-    "article-sondaggio-paga-colleghi-svizzeri",
-    "article-sondaggio-votazioni-novembre-svizzera",
-    "article-sostenibilita-abitativa-svizzera",
-    "article-stadtfonds-steuerfuss-wil",
-    "article-stazione-le-locle-accessibilita",
-    "article-stockmar-ritardo-cantiere-2027",
-    "article-stop-emergenza-centrale-nucleare-gosgen",
-    "article-successione-parmelin-otto-nomi",
-    "article-tagli-orologeria-locle-lvmh",
-    "article-tamedia-zurigo-protesta-licenziamenti-ia",
-    "article-telecom-358-licenziamenti",
-    "article-trasporti-varese-peduncolo-vedano-gallarate-luino",
-    "article-turgovia-modifica-piano-direttore-2027",
-    "article-unfall-a13-sevelen-2026",
-    "article-vbz-tram-50-51-cambio",
-    "article-violazioni-sicurezza-svizzera-2026",
-    "article-voto-comunale-stranieri-berna",
-    "article-voto-iva-2028-pensione",
-    "article-weissenbach-incidente-quattro-auto",
-    "article-wetzikon-binzacher-kempten-info",
-    "article-wil-sedute-novembre-2026"
+    "article-norme-flessibilita-start-up",
+    "article-nuova-app-schaffhauser-nachrichten-2026"
   ]
 }
