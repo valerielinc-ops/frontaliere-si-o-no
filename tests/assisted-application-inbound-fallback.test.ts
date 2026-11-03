@@ -452,6 +452,22 @@ describe('attachments left out of the forward', () => {
     expect(forward.html).toContain('Apri Application Concierge');
   });
 
+  it('preserves terminal URL characters in employer links', () => {
+    const firstUrl = 'https://employer.example/document?token=final.';
+    const secondUrl = 'https://employer.example/(open)';
+    const forward = buildForward({
+      order: { locale: 'it' },
+      message: { ...message, text: `${firstUrl} ${secondUrl}` },
+      classification,
+      sender: 'hr@employer.example',
+    });
+
+    expect(forward.html).toContain(`<a href="${firstUrl}"`);
+    expect(forward.html).toContain(`>${firstUrl}</a>`);
+    expect(forward.html).toContain(`<a href="${secondUrl}"`);
+    expect(forward.html).toContain(`>${secondUrl}</a>`);
+  });
+
   for (const [locale, [, , names, , fallback]] of Object.entries(COPY)) {
     it(`uses a generic safe display for hostile names in ${locale} while preserving Unicode filenames`, () => {
       const omittedAttachments = [

@@ -626,21 +626,10 @@ function forwardedMessageHtml(value) {
   let cursor = 0;
   for (const match of text.matchAll(/https:\/\/[^\s<>"'`]+/gi)) {
     const rawUrl = match[0];
-    let url = rawUrl;
-    let trailing = '';
-    while (/[.,;!?]$/.test(url)) {
-      trailing = url.slice(-1) + trailing;
-      url = url.slice(0, -1);
-    }
-    while (url.endsWith(')') && (url.match(/\)/g) || []).length > (url.match(/\(/g) || []).length) {
-      trailing = `)${trailing}`;
-      url = url.slice(0, -1);
-    }
-
     let href = '';
-    if (url.length <= 2048) {
+    if (rawUrl.length <= 2048) {
       try {
-        const parsed = new URL(url);
+        const parsed = new URL(rawUrl);
         if (parsed.protocol === 'https:' && parsed.hostname && !parsed.username && !parsed.password) href = parsed.toString();
       } catch {
         href = '';
@@ -649,7 +638,7 @@ function forwardedMessageHtml(value) {
 
     html += escapeHtml(text.slice(cursor, match.index));
     html += href
-      ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" style="color:#c2410c;text-decoration:underline;overflow-wrap:anywhere;word-break:break-all;">${escapeHtml(url)}</a>${escapeHtml(trailing)}`
+      ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" style="color:#c2410c;text-decoration:underline;overflow-wrap:anywhere;word-break:break-all;">${escapeHtml(rawUrl)}</a>`
       : escapeHtml(rawUrl);
     cursor = match.index + rawUrl.length;
   }
