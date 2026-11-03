@@ -108,14 +108,15 @@ describe('portal runner self-correction', () => {
       fields: [{
         id: 'attachment', kind: 'file', inputType: 'file',
         label: 'Eine oder mehrere Dateien auswählen (optional) (optional).', required: false,
+        formId: 'public-gallery', frame: 0,
       }],
       buttons: [
         { text: 'Menü', chrome: true },
         { text: 'Mein Konto', chrome: true },
-        { text: 'Vorheriges', disabled: false },
-        { text: 'Nächstes', disabled: false },
-        { text: 'Öffne Bild in Grossansicht', disabled: false },
-        { text: 'Seite drucken', disabled: false },
+        { text: 'Vorheriges', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Nächstes', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Öffne Bild in Grossansicht', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Seite drucken', formId: 'public-gallery', frame: 0, disabled: false },
       ],
     };
 

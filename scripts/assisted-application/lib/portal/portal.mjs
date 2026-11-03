@@ -621,6 +621,8 @@ const GENERIC_ATTACHMENT_RE = /(?:eine oder mehrere dateien auswählen|select (?
 const APPLICATION_CONTROL_RE = /(?:application|bewerb(?:ung)?|candidat(?:ure|ura)?|postul|resume|r[ée]sum[ée]|lebenslauf|\bcv\b|curriculum(?:\s+vitae)?|anschreiben|cover\s+letter|work\s+permit|salary|starting\s+date|notice\s+period|workload|motivation)/iu;
 
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
+const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
+  || isGalleryPagingButton(button, GALLERY_NEXT_RE);
 const samePortalFrame = (left, right) => (left?.frame || 0) === (right?.frame || 0);
 const samePortalForm = (button, field) => String(button?.formId || '')
   && String(button.formId) === String(field?.formId || '')
@@ -639,8 +641,7 @@ const isGenericOptionalAttachment = (field) => isFileField(field)
 function isNonApplicationGallerySurface(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
-  const hasPaging = buttons.some((button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE))
-    || buttons.some((button) => isGalleryPagingButton(button, GALLERY_NEXT_RE));
+  const hasPaging = buttons.some(isGalleryNavigationButton);
   const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
     && buttons.some((button) => !button?.chrome && GALLERY_PRINT_RE.test(String(button.text || '')));
   if (!hasPaging || !hasGalleryTools) return false;
@@ -649,7 +650,10 @@ function isNonApplicationGallerySurface(snapshot = {}) {
   const hasApplicationField = APPLICATION_CONTROL_RE.test(fieldText)
     || fields.some((field) => isCvFileField(field) || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(String(field.label || '')));
   const hasApplicationControl = buttons.some((button) => {
-    if (button?.chrome || button?.disabled) return false;
+    // A public gallery may wrap its pager and generic optional attachment in
+    // one HTML form. The shared form id is not application ownership when the
+    // control itself is the gallery's «Vorheriges»/«Nächstes» navigation.
+    if (button?.chrome || button?.disabled || isGalleryNavigationButton(button)) return false;
     const text = String(button.text || '');
     if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
     return fields.some((field) => samePortalForm(button, field));
