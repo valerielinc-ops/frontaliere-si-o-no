@@ -2603,6 +2603,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(patterns).toContain('!/public/images/');
     expect(patterns).toContain('!/data/translation-cache/');
     expect(patterns).not.toContain('!/data/future-crawler-input/');
+    expect(patterns).toContain('/data/crawler-generation-ledger.jsonl');
+    expect(patterns.at(-1)).toBe('/data/crawler-generation-ledger.jsonl');
   });
 
   it('gli artifact portabili committati includono hash del transformer e sono la sorgente del corpus', () => {
