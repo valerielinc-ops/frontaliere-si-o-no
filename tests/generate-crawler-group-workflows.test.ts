@@ -1205,12 +1205,10 @@ describe('crawler generation state cleanup', () => {
     }, 24);
     expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-5}"`);
 
-    const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
-    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
-    const watchdogDurations = assignments.groups[23].map((slug: string) => {
-      const durationMs = baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs;
-      return crawlerWorkerWatchdogMinutes({ durationMs }) * 60 * 1000;
-    });
+    const workflow = fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/crawler-group-24.yml'), 'utf8');
+    const watchdogDurations = [...workflow.matchAll(
+      /worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-([0-9]+)}"/g,
+    )].map(([, minutes]) => Number(minutes) * 60 * 1000);
     const timeoutMs = 340 * 60 * 1000;
     expect(watchdogDurations).toHaveLength(18);
     expect(projectedLaneDurationMs(watchdogDurations, CRAWLER_GROUP_MAX_PARALLEL)).toBeGreaterThan(timeoutMs);
