@@ -159,6 +159,10 @@ _publish_cdn_r2() {
     echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
     return 0
   fi
+  if ! node scripts/ci/check-house-ad-images.mjs --root "$stage"; then
+    echo "::error::[r2] campaign image stage is incomplete — refusing to publish executable assets"
+    return 1
+  fi
   # rclone COPY with --checksum: a true CONTENT diff (per-file MD5 vs the S3
   # ETag read from the LIST — no per-object HEAD) → only files whose BYTES
   # changed are PUT. We use `copy`, NOT `sync`: `sync` DELETES dest objects
@@ -310,6 +314,11 @@ _publish_cdn_r2() {
       "") ;;
       *) echo "::error::[r2] unsupported copy option for $3/: ${6}"; return 1 ;;
     esac
+    if [ "$3" = images/job-search-campaign ]; then
+      # Every manifest asset is WebP. Do not rely on the runner's mime.types,
+      # and leave provenance JSON sidecars to the ordinary images batch.
+      copy_flags+=(--include '*.webp' --header-upload 'Content-Type: image/webp')
+    fi
     # `copy` is additive and checksum-diffed, so repeating a prefix resumes
     # objects left behind by a timed-out attempt without deleting live keys.
     # Keep each attempt's upload log separately and append it to the aggregate:
@@ -458,6 +467,14 @@ _publish_cdn_r2() {
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     echo "::warning::R2 publish-start marker PUT failed — refusing to mutate the CDN origin without a visible upload window"
     return 0
+  fi
+  # A support script can reach existing HTML before Pages finishes publishing.
+  # Publish its photographs before exposing any executable asset, including
+  # content-hashed loaders. The existing image redirect keeps deployed apex
+  # image URLs working independently of the Pages artifact.
+  if ! _r2_sync 120 "$stage/images/job-search-campaign" images/job-search-campaign "public,max-age=86400" "" no-traverse; then
+    echo "::error::[r2] campaign images not published — withholding executable assets and completion markers"
+    return 1
   fi
   # assets/ Cache-Control — read this before changing it.
   #
@@ -1214,7 +1231,7 @@ step_push_cdn() {
   # CDN_TARGET is ever flipped back to 'pages' the events images WOULD be
   # dropped from the frontaliere-cdn repo — flip it only after giving that path
   # its own source for them.
-  for d in brands insurers providers logos authors publisher; do
+  for d in brands insurers providers logos authors publisher job-search-campaign; do
     [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
   done
   # Build-time generated per-category "catalog" fallback SVGs (#3740,
@@ -1229,6 +1246,12 @@ step_push_cdn() {
   # still rewrote the HTML refs to the CDN and deleted the dist copies, leaving
   # cdn.frontaliereticino.ch/images/events/catalog/*.svg permanently 404.
   [ -d dist/images/events/catalog ] && mkdir -p "$stage/images/events" && cp -r dist/images/events/catalog "$stage/images/events/catalog"
+  # Both R2 and the legacy Pages publisher must receive the complete campaign;
+  # a skipped source directory or failed staging copy is not an empty success.
+  if ! node scripts/ci/check-house-ad-images.mjs --root "$stage"; then
+    echo "::error::campaign image staging failed — refusing the CDN publish"
+    return 1
+  fi
   # Strip junk the recursive copies drag in: macOS .DS_Store files and the
   # internal build-telemetry assets/.hash-age.json (chunk first-seen/last-access
   # timestamps — not a runtime asset, must not be published).
