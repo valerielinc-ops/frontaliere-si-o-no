@@ -8,6 +8,7 @@ import { requeueMiskeyedCandidate } from '../scripts/lib/prospector/candidate-st
 import { evaluatePromotion } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { KNOWN_AGGREGATOR_DOMAINS } from '../scripts/lib/known-aggregator-domains.mjs';
 import { isGenericVacancyTitle, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
 
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
 
@@ -46,6 +47,36 @@ describe('crawlerKeyFor — vendor host labels', () => {
   });
 });
 
+describe('companyLogoKeyForJob — legacy tenant identity', () => {
+  it('maps the Elvetino row only when employer and official domain agree', () => {
+    expect(companyLogoKeyForJob({
+      companyKey: 'company',
+      company: 'elvetino',
+      companyDomain: 'company.sbb.ch',
+      url: 'https://company.sbb.ch/de/jobs/elvetino-role',
+    })).toBe('elvetino');
+    expect(companyLogoKeyForJob({
+      companyKey: 'company',
+      company: 'Elvetino AG',
+      companyDomain: 'careers.elvetino.ch',
+      url: 'https://company.sbb.ch/de/jobs/elvetino-role',
+    })).toBe('elvetino');
+  });
+
+  it('does not infer Elvetino from the shared SBB tenant without employer context', () => {
+    expect(companyLogoKeyForJob({
+      companyKey: 'company',
+      company: 'SBB CFF FFS',
+      companyDomain: 'company.sbb.ch',
+      url: 'https://company.sbb.ch/de/jobs/elvetino-role',
+    })).toBe('company');
+    expect(companyLogoKeyForJob({
+      companyKey: 'company',
+      company: 'another employer',
+      companyDomain: 'elvetino.ch',
+    })).toBe('company');
+  });
+});
 describe('disambiguateCrawlerKey', () => {
   it('returns the key untouched when it is free', () => {
     expect(disambiguateCrawlerKey('acme', { domain: 'acme.ch' }, () => false)).toBe('acme');

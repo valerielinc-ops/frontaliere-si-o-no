@@ -23,6 +23,20 @@ export const VERIFIED_EMPLOYER_LOGO_KEY_OVERRIDES = Object.freeze({
   'recruitingapp-2563': 'switch',
 });
 
+// `company.sbb.ch` is a shared legacy tenant. Its historical Elvetino rows
+// carry `company` as the crawler key, so the tenant alone cannot identify the
+// employer. Keep this mapping narrow: both the declared employer and an
+// employer-owned domain or the known legacy source context must corroborate
+// the logo key. The tenant host is source context, never employer proof.
+const LEGACY_EMPLOYER_LOGO_IDENTITIES = Object.freeze({
+  company: Object.freeze({
+    employerKeys: Object.freeze(['elvetino', 'elvetino-ag']),
+    legacyTenantDomains: Object.freeze(['company.sbb.ch']),
+    officialDomains: Object.freeze(['elvetino.ch']),
+    logoKey: 'elvetino',
+  }),
+});
+
 const GLOBAL_SANA_LEGACY_KEY = 'ch';
 const GLOBAL_SANA_LOGO_KEY = 'global-sana';
 const GLOBAL_SANA_NAME_KEY = 'global-sana';
@@ -66,6 +80,26 @@ export function companyLogoKeyFromEmployer(employer = '') {
   return slugify(employer);
 }
 
+function isWithinOfficialDomain(hostname, domain) {
+  return hostname === domain || hostname.endsWith(`.${domain}`);
+}
+
+function legacyEmployerLogoKey(job = {}, normalizedCompanyKey = '') {
+  const identity = LEGACY_EMPLOYER_LOGO_IDENTITIES[normalizedCompanyKey];
+  if (!identity) return '';
+
+  const employerKey = companyLogoKeyFromEmployer(job?.company || job?.employer || '');
+  if (!identity.employerKeys.includes(employerKey)) return '';
+
+  const knownHosts = [job?.companyDomain, job?.url]
+    .map(normalizedHost)
+    .filter(Boolean);
+  const hasKnownContext = knownHosts.some((hostname) => identity.legacyTenantDomains
+    .some((domain) => hostname === domain)
+    || identity.officialDomains.some((domain) => isWithinOfficialDomain(hostname, domain)));
+  return hasKnownContext ? identity.logoKey : '';
+}
+
 export function companyLogoKeyForJob(job = {}) {
   const companyKey = String(job?.companyKey || '').trim();
   const normalizedCompanyKey = companyKey.toLowerCase();
@@ -88,6 +122,8 @@ export function companyLogoKeyForJob(job = {}) {
   }
   const verifiedEmployerLogoKey = VERIFIED_EMPLOYER_LOGO_KEY_OVERRIDES[normalizedCompanyKey];
   if (verifiedEmployerLogoKey) return verifiedEmployerLogoKey;
+  const contextualLegacyKey = legacyEmployerLogoKey(job, normalizedCompanyKey);
+  if (contextualLegacyKey) return contextualLegacyKey;
   if (!sharedSource) return companyKey;
   return companyLogoKeyFromEmployer(job?.company || job?.employer || '');
 }
