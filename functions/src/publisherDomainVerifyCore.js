@@ -14,15 +14,16 @@
  */
 
 import { getAuth } from 'firebase-admin/auth';
-import { FieldValue, getFirestore } from 'firebase-admin/firestore';
+import { FieldValue } from 'firebase-admin/firestore';
 import { promises as dns } from 'node:dns';
 import { randomBytes } from 'node:crypto';
+import { getAdminDb } from './newsletterResendWebhookCore.js';
 
 const TXT_HOST_PREFIX = '_frontaliereticino';
 const TXT_VALUE_PREFIX = 'frontaliereticino-verify=';
 
 function db() {
-  return getFirestore();
+  return getAdminDb();
 }
 
 async function verifyCaller(req) {

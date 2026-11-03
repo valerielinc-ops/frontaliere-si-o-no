@@ -54,4 +54,22 @@ describe('firebase-admin v14 Cloud Functions imports', () => {
     expect(source).toContain('return getFirestore(app);');
     expect(source).not.toContain('return getFirestore();');
   });
+
+  it('routes publisher Firestore helpers through the same app-pinned client', () => {
+    const publisherSources = [
+      'stripePublisherCore.js',
+      'publisherApplicationsCore.js',
+      'publisherRenewalCore.js',
+      'publisherDomainVerifyCore.js',
+      'publisherFreeCapCore.js',
+      'publisherPendingReapCore.js',
+    ];
+
+    for (const file of publisherSources) {
+      const source = readFileSync(resolve('functions/src', file), 'utf8');
+      expect(source, file).toContain("from './newsletterResendWebhookCore.js'");
+      expect(source, file).toContain('return getAdminDb();');
+      expect(source, file).not.toContain('return getFirestore();');
+    }
+  });
 });
