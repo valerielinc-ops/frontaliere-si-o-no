@@ -538,6 +538,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'swiss-re': cLogo('swissre.ch'),
  'swisscom-sede-ticino': gFavicon('swisscom.ch'),
  'swissquote': cLogo('swissquote.com'),
+ 'switch': '/images/brands/switch.svg',
  'szb-chb': cLogo('szb-chb.ch'),
  'talan': cLogo('talan.com'),
  'tally-weijl': '/images/brands/tally-weijl.png',

@@ -63,7 +63,9 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   pianorm: ['pianorm.ch'],
   'pks-bewerbung-ch': ['pks-personal.ch'],
   'mpa-praxisstellen-ch': ['pks-personal.ch'],
+  'recruitingapp-2563': ['switch.ch'],
   'proman-fleurier': ['proman-group.ch'],
+  switch: ['switch.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
 };
@@ -271,6 +273,22 @@ describe('missing company-logo acquisition', () => {
       companyDomains: new Set(['conservatorio.ch']),
       urlHosts: new Set(['conservatorio.ch']),
     }, { fromAudit: true })).toEqual(['conservatorio.ch']);
+  });
+
+  it('maps the verified recruitingapp tenant to Switch without probing the ATS host', () => {
+    const job = {
+      company: 'Switch Bewerbermanagement Stellen',
+      companyKey: 'recruitingapp-2563',
+      companyDomain: 'recruitingapp-2563.umantis.com',
+      url: 'https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1',
+    };
+    expect(companyLogoKeyForJob(job)).toBe('switch');
+    expect(resolveCompanyLogoUrl(job)).toBe('/images/brands/switch.svg');
+
+    const metadata = metadataFromJobs([job]).get('switch');
+    expect(metadata).toBeDefined();
+    expect(domainCandidates('switch', metadata, { fromAudit: true })).toEqual(['switch.ch']);
+    expect(domainCandidates('recruitingapp-2563', metadata, { fromAudit: true })).toEqual(['switch.ch']);
   });
 
   it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {
