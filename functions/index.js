@@ -3136,7 +3136,7 @@ export const sweepAssistedApplicationAutomation = onSchedule(
   async () => {
     try {
       const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context), postingClosed: postingClosedForOrder });
-      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds) {
+      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds || summary.receiptsReconciled) {
         console.log('[sweepAssistedApplicationAutomation]', summary);
       }
     } catch (error) {

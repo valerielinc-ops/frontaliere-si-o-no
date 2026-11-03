@@ -26,7 +26,7 @@
 //   • worktree clean, 0-ahead, NESSUNA PR, fermo da IDLE_WORKTREE_MS e senza
 //      processi con la cwd dentro      → remove (niente da perdere: è tutto su main)
 //   • worktree/branch clean, non in uso, senza PR OPEN, con commit e segnali
-//      HEAD/index/reflog vecchi da EXPIRY_DAYS (default 3, minimo 1)
+//      HEAD/reflog vecchi da EXPIRY_DAYS (default 3, minimo 1)
 //                                      → snapshot remoto verificato + remove
 //   • worktree/branch scaduto ma 0-ahead → remove senza snapshot
 //   • worktree LOCKED, in uso (cwd di un processo), checkout corrente o hooks-main
@@ -73,6 +73,8 @@
 // Uso:
 //   node scripts/prune-merged-worktrees.mjs           # dry-run, stampa il piano
 //   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
+//   node scripts/prune-merged-worktrees.mjs --reclaim  # recupero report-only, dry-run
+//   node scripts/prune-merged-worktrees.mjs --reclaim --apply
 //   node scripts/prune-merged-worktrees.mjs --expiry-days 5
 //   PRUNE_WORKTREE_EXPIRY_DAYS=5 node scripts/prune-merged-worktrees.mjs
 //   node scripts/prune-merged-worktrees.mjs --only <branch-o-path>  # solo il
@@ -83,12 +85,16 @@
 // `--orphans-only` è volutamente più prudente: considera solo branch
 // `worktree-agent-*` senza worktree, richiede una lista completa delle PR aperte
 // e non rimuove un branch ahead>0 finché il tag non è verificato sul remoto.
+// `--reclaim` è il percorso di recupero locale: default 60 minuti di inattività,
+// tag/commit snapshot locale se serve, nessuna cancellazione di branch. Un
+// `--apply` del hook entra qui automaticamente quando `df` scende sotto
+// `PRUNE_RECLAIM_MIN_FREE_BYTES` (default 10 GiB).
 //
 // Richiede: git + gh CLI autenticato (per lo stato PR). Senza gh la regola di
 // scadenza resta report-only; il percorso normale conserva soltanto la vecchia
 // eccezione locale `worktree-agent-*` 0-ahead.
 
-import { execFileSync, execSync } from 'node:child_process';
+import { execFileSync, execSync, spawn } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import {
   appendFileSync, existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
@@ -135,6 +141,9 @@ import {
 import {
   isDanglingGitPointer, makeContentProver, makeGitRunner, nodeModulesLinks, removeTreeNoFollow, workingBlob,
 } from './lib/merged-content-proof.mjs';
+import {
+  diskFreeBytes, reclaimFreeThresholdBytes, reclaimIdleMs, runWorktreeReclaim,
+} from './lib/worktree-reclaimer.mjs';
 
 import { acquireSingleFlightLockHandle, withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import {
@@ -151,13 +160,13 @@ const DEFAULT_EXPIRY_DAYS = 3;
 
 // La scadenza è intenzionalmente separata da IDLE_WORKTREE_MS: un checkout
 // vuoto può essere raccolto dopo un giorno, ma un branch con commit propri
-// deve avere sia l'ultimo commit sia l'ultimo segnale HEAD/index più vecchi di
+// deve avere sia l'ultimo commit sia l'ultimo segnale HEAD/reflog più vecchi di
 // questa soglia. `--orphans-only` usa la stessa soglia, con guardie ancora più
 // strette perché non ha un worktree da ispezionare.
 // Valida l'intera CLI prima di leggere o modificare lo stato Git: un refuso non
 // deve mai trasformare un prune mirato in uno sweep completo.
 function parseOptions(args, env) {
-  const values = { apply: false, only: null, orphansOnly: false, expiryDays: undefined };
+  const values = { apply: false, only: null, orphansOnly: false, reclaim: false, expiryDays: undefined };
   const seen = new Set();
   const markSeen = (name) => {
     if (seen.has(name)) throw new Error(`${name} può essere specificato una sola volta`);
@@ -173,6 +182,9 @@ function parseOptions(args, env) {
     } else if (arg === '--orphans-only') {
       markSeen(arg);
       values.orphansOnly = true;
+    } else if (arg === '--reclaim') {
+      markSeen(arg);
+      values.reclaim = true;
     } else if (arg === '--only') {
       markSeen(arg);
       const value = args[i + 1];
@@ -202,6 +214,9 @@ function parseOptions(args, env) {
   if (values.only && values.orphansOnly) {
     throw new Error('--only e --orphans-only non possono essere usati insieme');
   }
+  if (values.reclaim && values.orphansOnly) {
+    throw new Error('--reclaim e --orphans-only non possono essere usati insieme');
+  }
 
   const envExpiry = env.PRUNE_WORKTREE_EXPIRY_DAYS ?? env.PRUNE_EXPIRY_DAYS;
   const rawExpiryDays = values.expiryDays ?? (envExpiry === '' ? undefined : envExpiry);
@@ -213,6 +228,7 @@ function parseOptions(args, env) {
     apply: values.apply,
     only: values.only,
     orphansOnly: values.orphansOnly,
+    reclaim: values.reclaim,
     expiryDays: Math.max(1, expiryDays),
   };
 }
@@ -226,6 +242,7 @@ try {
 }
 const APPLY = OPTIONS.apply;
 const ONLY = OPTIONS.only;
+const RECLAIM = OPTIONS.reclaim;
 const EXPIRY_DAYS = OPTIONS.expiryDays;
 const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
 const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n === ONLY);
@@ -321,6 +338,46 @@ if (!releasePruneRunLock) {
   process.exit(0);
 }
 process.once('exit', releasePruneRunLock);
+
+// Il reclaim è una modalità separata e non tocca mai branch. I hook esistenti
+// continuano a invocare questo script in background: quando `--apply` vede il
+// filesystem sotto la soglia entra automaticamente qui, senza aggiungere un
+// secondo processo o bloccare la sessione. `--reclaim` forza invece il dry-run
+// (o l'azione con `--apply`) anche con disco libero.
+const reclaimThreshold = reclaimFreeThresholdBytes(process.env);
+const reclaimFree = diskFreeBytes(process.cwd());
+const reclaimAutomatic = APPLY && !ONLY && reclaimFree !== null && reclaimFree < reclaimThreshold;
+if (RECLAIM || reclaimAutomatic) {
+  // SessionEnd still invokes `--orphans-only` synchronously with a short hook
+  // timeout. Under the emergency threshold, hand the heavier hash/snapshot
+  // pass to a detached child after releasing this lock; the hook returns
+  // immediately and the child acquires the same single-flight lock itself.
+  if (reclaimAutomatic && ORPHANS_ONLY) {
+    process.removeListener('exit', releasePruneRunLock);
+    releasePruneRunLock();
+    const child = spawn(process.execPath, [resolve(process.argv[1]), '--reclaim', '--apply'], {
+      cwd: process.cwd(),
+      env: process.env,
+      detached: true,
+      stdio: 'ignore',
+    });
+    child.unref();
+    console.log(`[reclaim] trigger automatico accodato in background: spazio libero ${reclaimFree === null ? 'sconosciuto' : `${Math.round(reclaimFree / 1024 ** 2)} MiB`} sotto soglia.`);
+    process.exit(0);
+  }
+  runWorktreeReclaim({
+    apply: APPLY,
+    only: ONLY,
+    automatic: reclaimAutomatic,
+    freeBytes: reclaimFree,
+    freeThresholdBytes: reclaimThreshold,
+    idleMs: reclaimIdleMs(process.env),
+    repoPath: process.cwd(),
+    mainBranch,
+  });
+  process.exit(0);
+}
+
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
@@ -946,19 +1003,23 @@ function isAncestorOfMain(ref) {
   }
 }
 
-// Directory amministrativa del worktree (`.git/worktrees/<id>`): ci sono HEAD,
-// index e reflog, cioè i file che un agente vivo tocca.
+// Directory amministrativa del worktree (`.git/worktrees/<id>`): HEAD e reflog
+// sono segnali di attività. L'index è escluso: `git status` e gli sweep stessi
+// possono riscriverne il mtime senza che l'agente abbia lavorato.
 function adminDirOf(wtPath) {
   return gitOut(['-C', wtPath, 'rev-parse', '--absolute-git-dir'], { allowFail: true });
 }
 
-// Ultima attività git del worktree. La radice del working tree conta perché
-// creare/cancellare un file in cima ne cambia la data; le modifiche più in
-// profondità rendono il worktree sporco, e quello basta già a tenerlo.
-function lastActivityMs(wtPath, adminDir) {
+// Ultima attività git del worktree. Le modifiche sul disco contano solo per i
+// file che la classificazione ha dimostrato essere realmente diversi da HEAD;
+// la directory radice e l'index non sono segnali affidabili.
+function lastActivityMs(wtPath, adminDir, significant = []) {
   let newest = 0;
-  for (const p of [join(adminDir, 'HEAD'), join(adminDir, 'index'), join(adminDir, 'logs', 'HEAD'), wtPath]) {
+  for (const p of [join(adminDir, 'HEAD'), join(adminDir, 'logs', 'HEAD')]) {
     try { newest = Math.max(newest, statSync(p).mtimeMs); } catch { /* assente: non è attività */ }
+  }
+  for (const filePath of significant) {
+    try { newest = Math.max(newest, lstatSync(join(wtPath, filePath)).mtimeMs); } catch { /* file rimosso */ }
   }
   return newest;
 }
@@ -1295,7 +1356,7 @@ function saveProofCache() {
 // Il cuore delle regole nuove, per un worktree o un branch. `wtPath` assente =
 // branch senza worktree: solo i commit contano. Ritorna { remove } con il
 // motivo, oppure le note per il report.
-function contentProof({ head, branch, wtPath = null, dirty = false, prExists = false, activityMs = 0, indexMs = 0 }) {
+function contentProof({ head, branch, wtPath = null, dirty = false, prExists = false, activityMs = 0 }) {
   const cacheKey = !dirty && head ? `${branch || '-'}@${head}` : null;
   const cached = cacheKey ? cachedNegative(cacheKey) : null;
   if (cached) return { notes: cached.notes || {} };
@@ -1346,7 +1407,7 @@ function contentProof({ head, branch, wtPath = null, dirty = false, prExists = f
       }
     }
     if (wtPath && dirty && onMain && isIdleSince(activityMs, { idleMs: STALE_CHECKOUT_IDLE_MS })) {
-      const stale = prover.staleMainCheckout(wtPath, head, { aroundMs: indexMs || activityMs, prExists });
+      const stale = prover.staleMainCheckout(wtPath, head, { aroundMs: activityMs, prExists });
       if (stale.proven) {
         return { remove: `vecchio checkout di main: ${stale.files} file sporchi identici a ${stale.commit.slice(0, 12)} (first-parent di main)` };
       }
@@ -1435,7 +1496,7 @@ function expiryWorktreeRecheck(entry, currentHead) {
     return { ok: false, reason: 'worktree diventato sporco durante lo sweep' };
   }
   const adminDir = adminDirOf(entry.path);
-  const currentActivityMs = adminDir ? lastActivityMs(entry.path, adminDir) : 0;
+  const currentActivityMs = adminDir ? lastActivityMs(entry.path, adminDir, classification.significant) : 0;
   if (!Number.isFinite(entry.expiryActivityMs) || currentActivityMs !== entry.expiryActivityMs) {
     return { ok: false, reason: 'attività del worktree cambiata durante lo sweep' };
   }
@@ -1536,7 +1597,7 @@ for (const wt of worktrees) {
     ? 'stato git illeggibile'
     : `DIRTY su ${significant.length} file`;
   const head = wt.head || (wt.branch ? headOfLocalBranch(wt.branch) : '');
-  const activity = adminDir ? lastActivityMs(wt.path, adminDir) : 0;
+  const activity = adminDir ? lastActivityMs(wt.path, adminDir, significant) : 0;
   const idle = isIdleSince(activity);
   const expiryClassification = ignored.length && !aborted
     ? classifyDirty(wt.path, { prExists: false })
@@ -1588,10 +1649,8 @@ for (const wt of worktrees) {
   const proofOrReport = (reason, { dirtyNow = dirty, prExists = Boolean(state) } = {}) => {
     let proof = {};
     if (!statusError && idle && busySnapshot.known && ghOk) {
-      let indexMs = 0;
-      try { indexMs = statSync(join(adminDir, 'index')).mtimeMs; } catch { /* senza index */ }
       proof = contentProof({
-        head, branch: wt.branch, wtPath: wt.path, dirty: dirtyNow, prExists, activityMs: activity, indexMs,
+        head, branch: wt.branch, wtPath: wt.path, dirty: dirtyNow, prExists, activityMs: activity,
       });
     }
     if (canRemoveWithProof({ proven: Boolean(proof.remove), idle, busy: false, busyKnown: busySnapshot.known, ghOk })) {

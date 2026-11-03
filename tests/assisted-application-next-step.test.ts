@@ -17,7 +17,8 @@ const order = (flow: Record<string, unknown> | null, extra: Partial<NextStepOrde
 const step = (flow: Record<string, unknown> | null, extra: Partial<NextStepOrder> = {}) => nextStepFor(order(flow, extra), NOW);
 
 describe('next step of an assisted-application order', () => {
-  it.each(['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'])('keeps a scheduled %s retry in the robot queue', held => {
+  it('keeps a scheduled unsupported-page retry in the robot queue', () => {
+    const held = 'portal:portal_needs_candidate';
     expect(step({ state: 'owner_takeover', heldBy: [held], portalAutoRetryAt: NOW + HOUR })).toMatchObject({ group: 'robot', code: 'portal_auto_retry' });
     expect(step({ state: 'owner_takeover', heldBy: [held], portalAutoRetryAt: null }).group).not.toBe('robot');
     expect(step({ state: 'owner_takeover', heldBy: ['portal_ambiguous'], portalAutoRetryAt: NOW + HOUR })).toMatchObject({ group: 'owner', code: 'check_if_received' });
@@ -61,6 +62,10 @@ describe('next step of an assisted-application order', () => {
     for (const held of ['portal:captcha', 'portal_refused', 'portal:rejected']) {
       expect(step({ state: 'owner_takeover', heldBy: [held] })).toMatchObject({ group: 'owner', code: 'complete_with_extension', label: 'Completa con l’estensione' });
     }
+    expect(step({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: NOW + HOUR }))
+      .toMatchObject({ group: 'owner', code: 'complete_with_extension', label: 'Completa con l’estensione' });
+    expect(heldLabel('portal:captcha')).toContain('risolvilo tu nella scheda');
+    expect(heldLabel('portal:captcha_provider_unavailable')).toContain('risolvilo tu nella scheda');
     // A send of unknown outcome may be at the employer: checked first, never straight to a second send (review of #11016).
     for (const held of ['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']) {
       const check = step({ state: 'owner_takeover', heldBy: [held] });

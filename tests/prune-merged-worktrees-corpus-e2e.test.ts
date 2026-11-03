@@ -63,6 +63,12 @@ function age(worktreePath: string, when: Date = at(5 * DAY)): void {
   for (const p of [path.join(admin, 'HEAD'), path.join(admin, 'index'), path.join(admin, 'logs', 'HEAD'), worktreePath]) {
     if (fs.existsSync(p)) fs.utimesSync(p, when, when);
   }
+  for (const entry of fs.readdirSync(worktreePath, { withFileTypes: true })) {
+    if (entry.name === '.git') continue;
+    const full = path.join(worktreePath, entry.name);
+    if (entry.isSymbolicLink()) fs.lutimesSync(full, when, when);
+    else fs.utimesSync(full, when, when);
+  }
 }
 
 function ageTree(dir: string, when: Date): void {

@@ -914,7 +914,8 @@ describe('sweep', () => {
     }
   });
 
-  it.each(['portal_needs_candidate', 'captcha_provider_unavailable'])('automatically retries an approved %s handoff when its backoff expires', async (reason) => {
+  it('automatically retries an approved unsupported-page handoff when its backoff expires', async () => {
+    const reason = 'portal_needs_candidate';
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
@@ -930,13 +931,32 @@ describe('sweep', () => {
     expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: retryAt })).toMatchObject({ portalRetries: 1 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
       state: 'submitting',
-      portalAutoRetryCount: reason === 'captcha_provider_unavailable' ? 0 : 1,
-      transportAutoRetryCount: reason === 'captcha_provider_unavailable' ? 1 : 0,
+      portalAutoRetryCount: 1,
+      transportAutoRetryCount: 0,
       portalAutoRetryAt: null,
       dispatch: { mode: 'submit', round: 1, requestedAt: retryAt, attempts: 1, reason: 'portal_auto_retry' },
     });
     expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'submitting', automationDueAt: retryAt + RUN_WATCHDOG_MS });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
+  it('does not schedule legacy CAPTCHA provider failures for another automatic submit', async () => {
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_approve' }, actor: 'candidate', runEffect, nowMs: T0 + 1_000 });
+    effects = [];
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, actor: 'runner', runEffect, nowMs: T0 + 2_000 });
+
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'owner_takeover', automationDueAt: null });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['portal:captcha_provider_unavailable'],
+      portalAutoRetryAt: null,
+    });
+    expect(effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover', reason: 'portal:captcha_provider_unavailable' })]);
+    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 + RUN_WATCHDOG_MS + 1 })).toMatchObject({ portalRetries: 0 });
+    expect(effects).toHaveLength(1);
   });
 
   it('does not reuse a candidate-wide answer without its confirmed source', async () => {
@@ -977,27 +997,30 @@ describe('sweep', () => {
     expect(computeDueAt({ state: 'submitted', deadlineAt: 5 })).toBeNull();
     expect(computeDueAt({ state: 'candidate_review', deadlineAt: 10, reminderAt: 7 })).toBe(7);
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
-    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1_000 })).toBeNull();
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: Infinity })).toBeNull();
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: T0 + 1_000 })).toBeNull();
   });
 });
 
 describe('legacy portal retry schedule reconciliation', () => {
-  it('exposes the retry clock in the owner queue payload', async () => {
+  it('does not treat a legacy CAPTCHA retry timestamp as a schedulable deadline', async () => {
     const { loadAutomationForAdmin } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1000 });
-    expect((await loadAutomationForAdmin(store.db, ORDER)).flow?.portalAutoRetryAt).toBe(T0 + 1000);
+    const flow = (await loadAutomationForAdmin(store.db, ORDER)).flow;
+    expect(flow?.portalAutoRetryAt).toBeNull();
+    expect(computeDueAt(flow)).toBeNull();
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.portalAutoRetryAt).toBe(T0 + 1000);
   });
   it('previews then repairs only the stale mirror and is idempotent', async () => {
     const flow = { state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1000 };
-    await store.db.collection('assisted_applications').doc(ORDER).set({ automationState: 'owner_takeover', automationDueAt: null }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).set({ automationState: 'owner_takeover', automationDueAt: T0 + 1000 }, { merge: true });
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set(flow);
     const args = { db: store.db, orderId: ORDER };
     expect(await reconcilePortalRetrySchedule(args)).toEqual({ changed: true });
-    expect(store.read(ORDER_PATH)?.automationDueAt).toBeNull();
-    expect(await reconcilePortalRetrySchedule({ ...args, apply: true })).toEqual({ changed: true });
     expect(store.read(ORDER_PATH)?.automationDueAt).toBe(T0 + 1000);
+    expect(await reconcilePortalRetrySchedule({ ...args, apply: true })).toEqual({ changed: true });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBeNull();
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toEqual(flow);
     expect(await reconcilePortalRetrySchedule({ ...args, apply: true })).toEqual({ changed: false });
   });
@@ -1122,8 +1145,12 @@ describe('account failure observability', () => {
     expect(clickedUnknown).toEqual(clickedBefore);
 
     const sentGuard = submissionGuard(store.db, ORDER, 1);
-    await sentGuard.claim('portal', T0, { resumable: true });
-    await sentGuard.markSent({ channel: 'portal' }, T0 + 1);
+    const sentClaim = await sentGuard.claim('portal', T0, { resumable: true });
+    await sentGuard.markClicked(T0, { formBinding: 'a'.repeat(64) });
+    await sentGuard.markSent({ channel: 'portal', finalUrl: 'https://ats.example/confirmation', sent: {} }, T0 + 1, {
+      kind: 'portal_success_page', attemptId: sentClaim?.attemptId, observedAt: T0 + 1,
+      evidence: { finalUrl: 'https://ats.example/confirmation' },
+    });
     expect(await sentGuard.read()).toMatchObject({ state: 'sent', channel: 'portal' });
     const clickedGuard = submissionGuard(store.db, ORDER, 2);
     await clickedGuard.claim('portal', T0, { resumable: true });
@@ -1133,18 +1160,24 @@ describe('account failure observability', () => {
 
   it('keeps a verified send terminal over an earlier or late confirmed failure', async () => {
     const guard = submissionGuard(store.db, ORDER, 3);
-    await guard.claim('portal', T0, { resumable: true });
+    const claim = await guard.claim('portal', T0, { resumable: true });
     await guard.release('portal_validation', T0 + 1);
     expect(await guard.read()).toMatchObject({ state: 'failed', confirmedNotSent: true });
 
-    await guard.markSent({ channel: 'portal', confirmedBy: 'acknowledgement' }, T0 + 2);
+    await guard.markSent({ channel: 'portal', confirmedBy: 'acknowledgement', confirmedAt: T0 + 2, sent: {} }, T0 + 2, {
+      kind: 'employer_acknowledgement', attemptId: claim?.attemptId, observedAt: T0 + 2,
+      evidence: { receivedAt: T0 + 2 },
+    });
     expect(await guard.read()).toMatchObject({
       state: 'sent', channel: 'portal', confirmedBy: 'acknowledgement', confirmedNotSent: false,
     });
 
     await guard.release('late_failure_event', T0 + 3);
     expect(await guard.read()).toMatchObject({ state: 'sent', confirmedNotSent: false });
-    await guard.markSent({ channel: 'portal', confirmedBy: 'late_duplicate_receipt' }, T0 + 4);
+    await guard.markSent({ channel: 'portal', confirmedBy: 'late_duplicate_receipt', sent: {} }, T0 + 4, {
+      kind: 'employer_acknowledgement', attemptId: claim?.attemptId, observedAt: T0 + 4,
+      evidence: { receivedAt: T0 + 4 },
+    });
     expect(await guard.read()).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement' });
   });
 
@@ -1164,7 +1197,8 @@ describe('account failure observability', () => {
   it('emits diagnostics from the real account stop and throw branches', async () => {
     const missingCreateLink = {
       url: () => 'https://ats.example/login',
-      frames: () => [],
+      frames: () => [missingCreateLink],
+      mainFrame: () => missingCreateLink,
       getByRole: vi.fn(() => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('not-visible')) }) })),
     };
     const stopped = await handleAuth({

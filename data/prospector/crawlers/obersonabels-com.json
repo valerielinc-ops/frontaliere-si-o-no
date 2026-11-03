@@ -1,0 +1,25 @@
+{
+  "companyKey": "obersonabels-com",
+  "companyName": "OBERSON ABELS SA",
+  "companyHost": "obersonabels.com",
+  "verifiedEmployerDomain": "obersonabels.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://obersonabels.com/offres-demploi/"
+  ],
+  "detailTemplate": "/job_posts/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "lire la suite",
+    "lire la suite",
+    "lire la suite"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-03T13:27:42.795Z",
+  "candidateKey": "oberson-abels@grand-lancy"
+}

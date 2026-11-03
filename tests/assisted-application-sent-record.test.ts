@@ -5,7 +5,7 @@ import { jsPDF } from 'jspdf';
 import sharp from 'sharp';
 import { PDFDocument, PDFHexString, PDFName, PDFString } from 'pdf-lib';
 import { getDocumentProxy, getResolvedPDFJS } from 'unpdf';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createRawMemoryFirestore } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
@@ -13,7 +13,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { keepSentFiles, portalUploads, recordOfSend, submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { keepSentFiles, portalUploads, recordOfSend, submitApplication: submitApplicationImpl } = await import('../scripts/assisted-application/lib/submit.mjs');
 const { keepSentRecord } = await import('../scripts/assisted-application/agent.mjs');
 const { decryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
 const { submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
@@ -46,6 +46,11 @@ const order = {
   locale: 'de', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', applicantPhone: '+41 79 000 00 00',
   cvStorageKey: `${UPLOADS}/1-cv.pdf`,
 };
+
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const seeded = { ...seed, [BASE]: { ...order, ...(seed[BASE] || {}) } };
+  return createRawMemoryFirestore(seeded);
+}
 const profile = {
   fullName: 'Maria Rossi', headline: 'Pflegefachfrau HF', location: 'Como', languages: [{ language: 'Deutsch', level: 'B2' }],
   experience: [{ role: 'Pflegefachfrau HF', employer: 'Spital Beispiel', location: 'Lugano', start: '2018', end: '2023', kind: 'job', highlights: ['Akutpflege auf einer Station mit 24 Betten.'] }],
@@ -168,12 +173,14 @@ const fakeFetch = () => vi.fn(async (url: string, init: any = {}) => {
 });
 const delivered = () => vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
 
-async function submit({ draft = draftFor(), flow = TWO_DOCUMENTS, bucket = fakeBucket(), sendCascade = delivered(), lines = [] as string[], nowMs = NOW, ...extra }: Record<string, any> = {}) {
-  return submitApplication({
+async function submit({ draft = draftFor(), flow = TWO_DOCUMENTS, bucket = fakeBucket(), sendCascade = delivered(), lines = [] as string[], nowMs = NOW, submissionGuard: providedGuard = null, ...extra }: Record<string, any> = {}) {
+  const store = createMemoryFirestore();
+  return submitApplicationImpl({
     order, orderId: ORDER, flow, draft, bucket, runKey: KEY, nowMs, sendCascade,
     cvBuffer: pdfOf('Lebenslauf Maria Rossi'), cvType: 'pdf',
     resolve: publicDns, fetchImpl: fakeFetch(), log: (...args: unknown[]) => lines.push(args.join(' ')),
     ...extra,
+    submissionGuard: providedGuard || submissionGuard(store.db, ORDER, Number(draft.round) || 1),
   });
 }
 const attachmentsOf = (sendCascade: any) => sendCascade.mock.calls[0][0][0].payload.attachments as Array<{ filename: string; content: string }>;
@@ -252,7 +259,9 @@ describe('what leaves by e-mail, and the record of it', () => {
     await keepSentRecord(event, { draftRef, dryRun: false });
     expect(store.read(`${BASE}/ai_drafts/current`)).toMatchObject({ sent, sentAttempt: null });
     // Nothing of the candidate in the event the runner reports, nor in its log.
-    expect(event).toEqual({ type: 'submit_succeeded', channel: 'email' });
+    expect(event).toEqual({
+      type: 'submit_succeeded', channel: 'email', receiptId: expect.stringMatching(/^[a-f0-9]{40}$/),
+    });
     expect(lines.length).toBeGreaterThan(0);
     for (const text of [...lines, JSON.stringify(event)]) expect(text).not.toMatch(/Maria|Rossi/);
   }, 60_000);
@@ -391,7 +400,12 @@ describe('what a portal and WhatsApp received', () => {
   it('records the files the form’s fields received, keeps the letter, and hands the record over on a replay', async () => {
     const store = createMemoryFirestore();
     const bucket = fakeBucket();
-    const runner = vi.fn(async () => ({ event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED } }));
+    const runner = vi.fn(async (ctx: any) => {
+      const finalUrl = 'https://jobs.lever.co/spital/1/confirmation';
+      await ctx.onBeforeSubmit({ uploads: UPLOADED, formBinding: 'f'.repeat(64) });
+      await ctx.onReceipt({ finalUrl });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED, finalUrl } };
+    });
     const run = () => submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner, submissionGuard: submissionGuard(store.db, ORDER, 1) });
     const event: any = await run();
     expect(event.sent).toMatchObject({ at: NOW, channel: 'lever', packaging: 'portal', letterRenderer: 'typst', letterKey: SENT_KEY('letter') });
@@ -430,7 +444,10 @@ describe('what a portal and WhatsApp received', () => {
       bucket, codex: vi.fn(), portalRunner: vi.fn(),
     });
     const sent = { at: NOW, channel: 'whatsapp', packaging: 'whatsapp', reason: 'default', ad: '', adCue: '', documentsGrouped: false, documentsReason: null, pages: null, bytes: null, letterRenderer: null, letterKey: null, files: [] };
-    expect(event).toEqual({ type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: PASTA, sent });
+    expect(event).toEqual({
+      type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: PASTA,
+      receiptId: expect.stringMatching(/^[a-f0-9]{40}$/), sent,
+    });
     expect(evidence(bucket, 'submit-whatsapp').sent).toEqual(sent);
   }, 60_000);
 });
@@ -448,6 +465,54 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     const keepSentAttempt = (attempt: unknown) => draftRef.set({ sentAttempt: attempt }, { merge: true });
     return { store, keepSentAttempt, draft: () => store.read(`${BASE}/ai_drafts/current`)! };
   }
+
+  it('does not persist an owner receipt when the live flow advances after the precheck', async () => {
+    const store = createMemoryFirestore({
+      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover' },
+      [`${BASE}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'], answers: {}, feedback: [] },
+      [`${BASE}/ai_drafts/current`]: draftFor(),
+    });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      store.docs.set(`${BASE}/automation/flow`, { state: 'candidate_handoff', round: 2, answers: {}, feedback: [] });
+      return originalTransaction(callback);
+    });
+
+    try {
+      expect(await recordOwnerSubmission({ db: store.db, orderId: ORDER, adminEmail: 'owner@example.com', nowMs: NOW }))
+        .toMatchObject({ ok: false, ignored: 'stale_round' });
+      expect(store.read(`${BASE}/automation/submission`)?.r1).toBeUndefined();
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
+  it('rejects an owner confirmation when a concurrent claim supersedes its attempt', async () => {
+    const store = createMemoryFirestore({
+      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover' },
+      [`${BASE}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'], answers: {}, feedback: [] },
+      [`${BASE}/automation/submission`]: { r1: {
+        state: 'sending', channel: 'portal', attemptId: 'attempt-old', startedAt: NOW, clickedAt: null, confirmedNotSent: false,
+      } },
+      [`${BASE}/ai_drafts/current`]: draftFor(),
+    });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      const submission = store.read(`${BASE}/automation/submission`);
+      store.docs.set(`${BASE}/automation/submission`, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(recordOwnerSubmission({ db: store.db, orderId: ORDER, adminEmail: 'owner@example.com', nowMs: NOW }))
+        .rejects.toThrow('submission_attempt_superseded');
+      expect(store.read(`${BASE}/automation/submission`)?.r1).toMatchObject({ state: 'sending', attemptId: 'attempt-new' });
+      expect(store.read(`${BASE}/automation/submission`)?.r1?.receipt).toBeUndefined();
+      expect(store.read(`${BASE}/automation/flow`)?.state).toBe('owner_takeover');
+    } finally {
+      transaction.mockRestore();
+    }
+  });
 
   it('keeps the attempt of an e-mail of unknown outcome, and the owner’s «Segna come inviata» makes it the record of what left', async () => {
     const { store, keepSentAttempt, draft } = await ambiguousSetup();
