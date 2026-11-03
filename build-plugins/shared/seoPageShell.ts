@@ -424,7 +424,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   // as an exemption. Producers that own a narrower route contract may provide
   // the same marker explicitly; do not duplicate it in the shared shell.
   const paginationNoindexMarker = /(?:^|[, ])noindex(?:[, ]|$)/i.test(robots)
-    && !extraHeadHtml.includes(PAGINATION_NOINDEX_TARGET_MARKER)
+    && !(extraHeadHtml ?? '').includes(PAGINATION_NOINDEX_TARGET_MARKER)
     && paginationPageFromPath(canonicalUrl) >= 11
     ? `\n${PAGINATION_NOINDEX_TARGET_MARKER}`
     : '';
