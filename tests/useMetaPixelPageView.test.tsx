@@ -227,6 +227,28 @@ describe('useMetaPixelPageView', () => {
     unsubscribe();
   });
 
+  it('notifies consent listeners once when another tab updates both consent keys', () => {
+    const previousAt = Date.now() - 10_000;
+    const latestAt = Date.now() - 5_000;
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
+    localStorage.setItem(ADS_CONSENT_DECISION_AT_STORAGE_KEY, String(previousAt));
+    getAdsConsentDecisionAt();
+    const listener = vi.fn();
+    const unsubscribe = onAdsConsentChange(listener);
+
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'denied');
+    localStorage.setItem(ADS_CONSENT_DECISION_AT_STORAGE_KEY, String(latestAt));
+    window.dispatchEvent(new StorageEvent('storage', { key: ADS_CONSENT_STORAGE_KEY, newValue: 'denied' }));
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: ADS_CONSENT_DECISION_AT_STORAGE_KEY,
+      newValue: String(latestAt),
+    }));
+
+    expect(listener).toHaveBeenCalledTimes(1);
+    expect(getAdsConsentDecisionAt()).toBe(latestAt);
+    unsubscribe();
+  });
+
   it('sends checkout events only on the initialized, consented concierge route', () => {
     window.history.replaceState({}, '', AD_FALLBACK_PATH);
     act(() => setAdsConsent('granted'));

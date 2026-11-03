@@ -252,6 +252,13 @@ export function onAdsConsentChange(listener: (value: AdsConsentValue | null) => 
   const onStorage = (e: StorageEvent) => {
     if (e.key === null || e.key === ADS_CONSENT_STORAGE_KEY || e.key === ADS_CONSENT_DECISION_AT_STORAGE_KEY) {
       const memory = window as AdsConsentWindow;
+      if (e.key === ADS_CONSENT_DECISION_AT_STORAGE_KEY
+        && e.newValue !== null
+        && Number(memory.__ftAdsConsentDecisionAt) === Number(e.newValue)) {
+        try {
+          if (memory.__ftAdsConsentDecision === window.localStorage.getItem(ADS_CONSENT_STORAGE_KEY)) return;
+        } catch { /* process the storage event when the current decision cannot be confirmed */ }
+      }
       delete memory.__ftAdsConsentDecision;
       delete memory.__ftAdsConsentDecisionAt;
       const decision = getAdsConsent();
