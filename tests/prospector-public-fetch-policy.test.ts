@@ -797,6 +797,47 @@ describe('prospector public-only polite transport', () => {
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 
+  it('rescues a non-empty partial listing when the browser exposes the full board', async () => {
+    const seed = 'https://ipersonal.example/offene-stellen/';
+    const details = [1, 2, 3].map((id) => `${seed}jobs/position-${id}/`);
+    const directListing = [1, 2].map((id) => JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: `Position ${id}`,
+      url: details[id - 1],
+      description: 'Eine verantwortungsvolle Aufgabe in einem verlässlichen Schweizer Team mit klaren Abläufen und persönlicher Begleitung.',
+      jobLocation: { '@type': 'Place', address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+    })).map((record) => `<script type="application/ld+json">${record}</script>`).join('');
+    const browserListing = details.map((url, index) => `<a href="${url}">Position ${index + 1}</a>`).join('');
+    const detailHtml = (id: number) => `<h1>Position ${id}</h1><div class="job-location">Zürich</div>`
+      + '<article class="vacancy-description">Eine verantwortungsvolle Aufgabe in einem verlässlichen Schweizer Team mit klaren Abläufen, '
+      + 'persönlicher Begleitung und täglicher Zusammenarbeit in Zürich. Die Stelle bietet Entwicklungsmöglichkeiten und einen langfristigen Einsatz.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, directListing);
+      const id = details.indexOf(url) + 1;
+      if (id > 0) return response(url, 200, null, detailHtml(id));
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const browserFetchImpl = vi.fn(async () => browserListing);
+
+    const rows = await runSpecInProduction({
+      companyKey: 'ipersonal', companyName: 'MediPersonal', companyHost: 'ipersonal.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/offene-stellen/jobs/*/',
+      rescueOnPartialListing: true, sampleVacancyCount: 3,
+    } as any, {
+      fetchImpl,
+      browserFetchImpl,
+      retries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toHaveLength(3);
+    expect(rows.map((row) => row.url)).toEqual(details);
+    expect(browserFetchImpl).toHaveBeenCalledWith(seed, expect.objectContaining({ timeoutMs: undefined }));
+  });
+
   it('rescues an Akamai challenge served as HTTP 200 instead of treating it as an empty listing', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
