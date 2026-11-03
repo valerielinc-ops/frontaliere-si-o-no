@@ -109,6 +109,8 @@ import {
 } from './src/applicationConciergeCore.js';
 import { enrichCandidateProfileFromCv, refreshCandidateCvProfile as refreshCandidateCvProfileRecord } from './src/candidateCvProfile.js';
 import {
+  queueConciergeMatchesForCandidateAnswerUpdate,
+  queueSubmittedConciergeLetterFeedback,
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
@@ -3202,6 +3204,60 @@ export const processApplicationConciergeCv = onDocumentWritten(
       console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
     } catch (error) {
       console.error('[processApplicationConciergeCv]', event.params.serviceId, error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// Candidate-scoped direct answers are shared profile evidence; a changed
+// verified answer ledger queues each active concierge owned by that candidate.
+export const refreshConciergeMatchesAfterCandidateAnswers = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'user_cv_profiles/{userId}' },
+  async (event) => {
+    const before = event.data?.before?.exists ? event.data.before.data() || {} : null;
+    const after = event.data?.after?.exists ? event.data.after.data() || {} : null;
+    try {
+      await queueConciergeMatchesForCandidateAnswerUpdate({
+        db: getAdminDb(), userId: event.params.userId, before, after, eventTime: event.time,
+      });
+    } catch (error) {
+      console.error('[refreshConciergeMatchesAfterCandidateAnswers]', error instanceof Error ? error.name : 'unknown_error');
+    }
+  },
+);
+
+// A submitted letter becomes preference evidence only after its accepted
+// application, fact check and durable send receipt are all verified.
+export const refreshConciergeMatchesAfterSubmittedApplication = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return;
+    const beforeData = event.data?.before?.exists ? event.data.before.data() || {} : {};
+    const afterData = after.data() || {};
+    if (afterData.billingMode !== 'application_concierge'
+      || (beforeData.submissionStatus === afterData.submissionStatus
+        && beforeData.automationState === afterData.automationState)) return;
+    try {
+      await queueSubmittedConciergeLetterFeedback({ db: getAdminDb(), orderId: event.params.orderId });
+    } catch (error) {
+      console.error('[refreshConciergeMatchesAfterSubmittedApplication]', error instanceof Error ? error.name : 'unknown_error');
+    }
+  },
+);
+
+// The portal can persist send proof before or after the child order mirrors
+// the submitted state, so both writes call the same idempotent verification.
+export const refreshConciergeMatchesAfterLetterProof = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}/ai_drafts/{draftId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists || event.params.draftId !== 'current') return;
+    const draft = after.data() || {};
+    if (!Number(draft.sent?.at) || !draft.sent?.letterKey) return;
+    try {
+      await queueSubmittedConciergeLetterFeedback({ db: getAdminDb(), orderId: event.params.orderId });
+    } catch (error) {
+      console.error('[refreshConciergeMatchesAfterLetterProof]', error instanceof Error ? error.name : 'unknown_error');
     }
   },
 );

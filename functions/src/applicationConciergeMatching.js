@@ -7,7 +7,7 @@
  * application child is created.
  */
 
-import { CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID, CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import {
@@ -20,7 +20,13 @@ import {
 import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
+import { factCheckAcknowledged } from './assistedApplicationFlow.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
+import { CANDIDATE_LANGUAGE_OPTIONS } from './lib/languageFacts.js';
 import {
+  APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
   APPLICATION_CONCIERGE_MAX_POSITIONS,
   APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
   APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -36,6 +42,17 @@ const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS;
 const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
 const MIN_MATCH_SCORE = 28;
+const LETTER_PREFERENCE_STOP_WORDS = new Set([
+  'interested', 'interest', 'interesse', 'interessata', 'interessato', 'motivated', 'motivation', 'motivazione',
+  'company', 'azienda', 'entreprise', 'unternehmen', 'position', 'posizione', 'stelle', 'role', 'ruolo', 'job',
+  'application', 'candidatura', 'bewerbung', 'postulation', 'candidate', 'candidato', 'candidata', 'opportunity',
+  'opportunita', 'contribute', 'contributing', 'contribution', 'team', 'organization', 'organisation', 'employer',
+]);
+const COMMON_LANGUAGE_SIGNALS_BY_CODE = Object.freeze({
+  it: 'italiano', de: 'tedesco', fr: 'francese', en: 'inglese', es: 'spagnolo', pt: 'portoghese', nl: 'olandese',
+});
+const LANGUAGE_CODE_SIGNALS = Object.freeze(Object.fromEntries(CANDIDATE_LANGUAGE_OPTIONS
+  .map(({ code, label }) => [code, COMMON_LANGUAGE_SIGNALS_BY_CODE[code] || label.toLowerCase()])));
 export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
 export const APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED = true;
 const STOP_WORDS = new Set([
@@ -61,7 +78,7 @@ const ROLE_SIGNAL_LABELS = Object.freeze({
   application_management: 'gestione applicazioni',
   technology_strategy: 'strategia IT',
 });
-const LANGUAGE_ALIASES = Object.freeze({
+const COMMON_LANGUAGE_ALIASES = {
   italiano: /\b(?:italian|italiano|italiana|italien|italienisch(?:e|en|kenntnis(?:se|sen)?)?)\b/,
   tedesco: /\b(?:german|tedesco|tedesca|deutsch(?:e|en|kenntnis(?:se|sen)?)?|allemand|allemande)\b/,
   francese: /\b(?:french|francese|francais|franzosisch(?:e|en|kenntnis(?:se|sen)?)?)\b/,
@@ -69,7 +86,15 @@ const LANGUAGE_ALIASES = Object.freeze({
   spagnolo: /\b(?:spanish|spagnolo|spagnola|espanol|spanisch|espagnol)\b/,
   portoghese: /\b(?:portuguese|portoghese|portugues|portugiesisch)\b/,
   olandese: /\b(?:dutch|olandese|neerlandese|nederlands|neerlandais)\b/,
-});
+};
+const ADDITIONAL_LANGUAGE_ALIASES = Object.fromEntries(CANDIDATE_LANGUAGE_OPTIONS
+  .filter(({ code }) => !Object.hasOwn(COMMON_LANGUAGE_SIGNALS_BY_CODE, code))
+  .map(({ code, label }) => {
+    const signal = LANGUAGE_CODE_SIGNALS[code];
+    const escaped = label.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return [signal, new RegExp(`\\b${escaped}\\b`)];
+  }));
+const LANGUAGE_ALIASES = Object.freeze({ ...COMMON_LANGUAGE_ALIASES, ...ADDITIONAL_LANGUAGE_ALIASES });
 const LANGUAGE_PROFICIENCY_CONTEXT = /\b(?:fluent|fluency|proficient|proficiency|knowledge|command|written|spoken|speaking|mother tongue|native speaker|conoscenza|conoscenze|madrelingua|fluente|padronanza|livello|excellent|good|fliessend(?:e|er|es|em|en)?|verhandlungssicher(?:e|er|es|em|en)?|muttersprache|maitrise|courant|niveau|maternelle|kenntnisse|a[1-2]|b[1-2]|c[1-2])\b/;
 const LANGUAGE_SECTION_HEADING = /^(?:languages?|lingue?|langues?|sprachen?)\b/;
 const LANGUAGE_SKILL_CONTEXT_BEFORE = new RegExp(`${LANGUAGE_PROFICIENCY_CONTEXT.source}(?:\\s+\\w+){0,6}\\s*$`);
@@ -87,6 +112,9 @@ const LANGUAGE_LABELS = Object.freeze({
   spagnolo: 'spagnolo',
   portoghese: 'portoghese',
   olandese: 'olandese',
+  ...Object.fromEntries(CANDIDATE_LANGUAGE_OPTIONS
+    .filter(({ code }) => !Object.hasOwn(COMMON_LANGUAGE_SIGNALS_BY_CODE, code))
+    .map(({ code, label }) => [LANGUAGE_CODE_SIGNALS[code], label])),
 });
 const SPECIALTY_MISMATCHES = [
   /\b(?:sales|key account|account executive|business development|vendite|vente|vertrieb)\b/,
@@ -124,22 +152,61 @@ function stripEmployerSuffix(value) {
   return String(value || '').replace(/\s+(?:at|presso|bei|chez)\s+.+$/i, '');
 }
 
-function profileEvidence(profile) {
+function answerMatchEvidence(answerEvidence) {
+  const skills = new Set();
+  const experience = new Set();
+  const languages = [];
+  const languageLevels = [];
+  for (const record of Array.isArray(answerEvidence) ? answerEvidence : []) {
+    if (record?.scope !== 'candidate' || record?.sourceKind !== 'direct_user') continue;
+    const fact = record.fact || {};
+    const answer = normalize(record.answer);
+    if (record.category === 'language' && String(record.answer ?? '').trim()) {
+      const candidateLanguages = candidateLanguageAnswerSignals(record.question?.question || '', record.answer);
+      languages.push(...candidateLanguages);
+      const level = normalizeLanguageLevel(record.answer);
+      if (level && candidateLanguages.length === 1) languageLevels.push({ language: candidateLanguages[0], level, source: 'confirmed_answer' });
+    } else if (fact.type === 'experience_duration' && Number(String(record.answer).replace(',', '.')) > 0) {
+      for (const token of tokenize(fact.subject)) experience.add(token);
+    } else if (fact.type === 'credential_held' && /^(?:yes|si|ja|oui|true)$/.test(answer)) {
+      for (const token of tokenize(fact.subject)) skills.add(token);
+    }
+  }
+  return { skills, experience, languages: [...new Set(languages)], languageLevels };
+}
+
+function profileEvidence(profile, matchSignals = {}) {
   const skillTokens = new Set((profile?.skills || []).flatMap((value) => [...tokenize(value)]));
+  const confirmed = matchSignals.candidateAnswerSignals || answerMatchEvidence(matchSignals.candidateAnswerEvidence);
   const currentTitleText = [profile?.workPosition, profile?.headline].map(stripEmployerSuffix).filter(Boolean);
   const previousPositionText = (profile?.previousPositions || []).map(stripEmployerSuffix).filter(Boolean);
   const titleText = [...currentTitleText, ...previousPositionText];
   const titleTokens = new Set(titleText.flatMap((value) => [...tokenize(value)]));
   const experienceTokens = new Set([...(profile?.experienceSummary || []), ...previousPositionText]
     .flatMap((value) => [...tokenize(stripEmployerSuffix(value))]));
+  const profileLanguages = (profile?.languages || []).map((value) => value && typeof value === 'object'
+    ? `${value.language || ''} ${value.level || ''}` : value);
+  const factLanguages = (Array.isArray(matchSignals.candidateLanguageFacts) ? matchSignals.candidateLanguageFacts : [])
+    .map(item => LANGUAGE_CODE_SIGNALS[item?.languageCode]).filter(Boolean);
+  const candidateLanguageLevels = [
+    ...(confirmed.languageLevels || []),
+    ...(Array.isArray(matchSignals.candidateLanguageFacts) ? matchSignals.candidateLanguageFacts : [])
+      .filter(item => LANGUAGE_CODE_SIGNALS[item?.languageCode])
+      .map(item => ({ language: LANGUAGE_CODE_SIGNALS[item.languageCode], level: normalizeLanguageLevel(item.level), source: 'candidate_confirmed' })),
+  ];
   const allTokens = new Set([...skillTokens, ...titleTokens, ...experienceTokens]);
   const profileText = normalize([
     ...currentTitleText,
     ...previousPositionText,
     ...(profile?.skills || []),
     ...(profile?.experienceSummary || []).map(stripEmployerSuffix),
+    ...confirmed.skills,
+    ...confirmed.experience,
   ].join(' '));
-  return { skillTokens, titleTokens, experienceTokens, allTokens, roleText: titleText.join(' '), profileText };
+  return { skillTokens, confirmedSkillTokens: confirmed.skills, titleTokens, experienceTokens,
+    confirmedExperienceTokens: confirmed.experience, profileLanguages,
+    languages: [...profileLanguages, ...confirmed.languages, ...factLanguages], confirmedLanguages: [...confirmed.languages, ...factLanguages],
+    candidateLanguageLevels, allTokens, roleText: titleText.join(' '), profileText };
 }
 
 function jobText(job) {
@@ -265,18 +332,92 @@ function languageSignals(value, { requireContext = false } = {}) {
   return signals;
 }
 
+function languageMentionIsNegated(text, language) {
+  const pattern = LANGUAGE_ALIASES[language];
+  if (!pattern) return false;
+  const normalized = normalize(text);
+  const matcher = new RegExp(pattern.source, 'g');
+  for (const match of normalized.matchAll(matcher)) {
+    const before = normalized.slice(Math.max(0, match.index - 60), match.index)
+      .split(/\b(?:but|however|although|though)\b/).at(-1).trim();
+    const after = normalized.slice(match.index + match[0].length, match.index + match[0].length + 32);
+    if (/\b(?:not|no|never|without|non|nicht|kein(?:e|en)?|pas|sans)\b(?:\s+\w+){0,5}\s*$/.test(before)
+      || /^\s*(?:not|no|never|without|non|nicht|kein(?:e|en)?|pas|sans)\b/.test(after)) return true;
+  }
+  return false;
+}
+
+function candidateLanguageAnswerSignals(question, answer) {
+  const answerText = normalize(answer);
+  if (/^(?:no|non|nein|pas|not|false|0)\b/.test(answerText)) return [];
+  const answerSignals = languageSignals(answerText);
+  const questionSignals = languageSignals(question);
+  const affirmativeOrLevel = /^(?:yes|si|ja|oui|true)\b/.test(answerText)
+    || /\b(?:a[1-2]|b[1-2]|c[1-2]|native|fluent|beginner|elementary|intermediate|advanced|proficient|professional|conversational|business)\b/.test(answerText);
+  const resolvedLanguages = answerSignals.size ? answerSignals
+    : affirmativeOrLevel && questionSignals.size === 1 ? questionSignals : new Set();
+  return [...resolvedLanguages]
+    .filter(language => !languageMentionIsNegated(answerText, language) && !languageMentionIsNegated(question, language))
+    .map(language => LANGUAGE_LABELS[language] || language);
+}
+
+function normalizeLanguageLevel(answer) {
+  const value = normalize(answer);
+  if (/\b(?:native|mother tongue|madrelingua|muttersprach|lingua materna)\b/.test(value)) return 'native';
+  if (/\b(?:fluent|fluente|fliessend|courant|verhandlungssicher)\b/.test(value)) return 'fluent';
+  if (/\b(?:professional|professionale|professionnel|beruflich|business)\b/.test(value)) return 'professional';
+  if (/\b(?:conversational|conversazionale|conversationnel|conversacional)\b/.test(value)) return 'conversational';
+  if (/\b(?:intermediate|intermedio|intermediaire|mittelstufe)\b/.test(value)) return 'intermediate';
+  if (/\b(?:beginner|elementary|basic|principiante|base|grundkenntnisse)\b/.test(value)) return 'basic';
+  return value.match(/\b(?:a1|a2|b1|b2|c1|c2)\b/)?.[0] || '';
+}
+
+function languageLevelRankingPenalty(job, languageLevels) {
+  const rank = { basic: 1, a1: 1, a2: 2, conversational: 2, b1: 3, intermediate: 3, b2: 4, c1: 5,
+    fluent: 5, professional: 5, c2: 6, native: 7 };
+  const clauses = [job?.title, job?.description, job?.requirements, ...(Array.isArray(job?.languages) ? job.languages : [job?.languages])].filter(Boolean)
+    .flatMap(value => String(value).split(/[\n.;!?•|]+/)).map(normalize).filter(Boolean);
+  const levelsByLanguage = new Map();
+  for (const entry of Array.isArray(languageLevels) ? languageLevels : []) {
+    const level = rank[normalizeLanguageLevel(entry?.level)];
+    const language = entry?.language;
+    if (level && LANGUAGE_ALIASES[language]) levelsByLanguage.set(language, Math.max(level, levelsByLanguage.get(language) || 0));
+  }
+  let penalty = 0;
+  for (const [language, candidateLevel] of levelsByLanguage) {
+    const languagePattern = LANGUAGE_ALIASES[language];
+    const requiredLevel = clauses.reduce((highest, clause) => {
+      const matcher = new RegExp(languagePattern.source, 'g');
+      for (const mention of clause.matchAll(matcher)) {
+        if (!isLanguageRequirement(clause, mention)) continue;
+        const tail = clause.slice(mention.index + mention[0].length);
+        const before = clause.slice(Math.max(0, mention.index - 40), mention.index);
+        const levelText = `${before} ${tail}`;
+        const cefr = levelText.match(/\b(c2|c1|b2|b1|a2|a1)\b/);
+        const explicit = cefr?.[1] || (/\b(?:native|mother tongue|fluent|business fluent|professional proficiency|excellent|proficient|verhandlungssicher)\b/.test(levelText)
+          ? 'professional' : '');
+        highest = Math.max(highest, rank[explicit] || 0);
+      }
+      return highest;
+    }, 0);
+    if (requiredLevel > candidateLevel) penalty += Math.min(4, (requiredLevel - candidateLevel) * 2);
+  }
+  return Math.min(8, penalty);
+}
+
 /** Pure scorer exported for tests and future ranking improvements. */
-export function scoreJobForProfile(job, profile, candidateLocation = '') {
-  const candidate = profileEvidence(profile);
-  if (!candidate.allTokens.size && !candidate.roleText) return { score: 0, reasons: [] };
+export function scoreJobForProfile(job, profile, candidateLocation = '', matchSignals = {}) {
+  const candidate = profileEvidence(profile, matchSignals);
+  if (!candidate.allTokens.size && !candidate.roleText && !candidate.confirmedSkillTokens.size && !candidate.confirmedExperienceTokens.size) return { score: 0, reasons: [] };
   const jobTitle = [job?.title, job?.category, job?.sector].filter(Boolean).join(' ');
   const titleTokens = tokenize(jobTitle);
   const allJobTokens = tokenize(jobText(job));
   const candidateRoles = roleSignals(candidate.roleText);
   const jobRoles = roleSignals(job?.title || '');
   const roleMatches = overlap(candidateRoles, jobRoles);
-  const candidateLanguages = new Set((profile?.languages || [])
+  const profileLanguages = new Set(candidate.profileLanguages
     .flatMap((value) => [...languageSignals(value)]));
+  const candidateLanguages = new Set(candidate.languages.flatMap((value) => [...languageSignals(value)]));
   // Count languages only when the listing states a language requirement or
   // proficiency. A passing mention of a country or language is not evidence.
   const jobLanguageText = [job?.title, job?.description, job?.requirements].filter(Boolean);
@@ -288,6 +429,9 @@ export function scoreJobForProfile(job, profile, candidateLocation = '') {
     ...languageSignals(explicitJobLanguages),
   ]);
   const languageMatches = overlap(candidateLanguages, jobLanguages);
+  const profileLanguageMatches = overlap(profileLanguages, jobLanguages);
+  const confirmedLanguageSet = new Set(candidate.confirmedLanguages.flatMap((value) => [...languageSignals(value)]));
+  const confirmedLanguageMatches = overlap(confirmedLanguageSet, jobLanguages);
   // Composite role signals already account for their anchor terms; do not
   // award the same IT/application words twice as plain title overlap.
   const roleCoveredTokens = new Set([
@@ -295,37 +439,56 @@ export function scoreJobForProfile(job, profile, candidateLocation = '') {
     ...(roleMatches.includes('enterprise_applications') || roleMatches.includes('application_management') ? ['application'] : []),
   ]);
   const skillMatches = overlap(candidate.skillTokens, allJobTokens);
+  const confirmedSkillMatches = overlap(candidate.confirmedSkillTokens, allJobTokens)
+    .filter(token => !candidate.skillTokens.has(token));
   const titleMatches = overlap(candidate.titleTokens, titleTokens)
     .filter((token) => !candidate.skillTokens.has(token) && !roleCoveredTokens.has(token));
   const titleInBody = [...candidate.titleTokens]
     .filter((token) => !candidate.skillTokens.has(token) && !roleCoveredTokens.has(token) && !titleTokens.has(token) && allJobTokens.has(token));
   const rawExperienceMatches = overlap(candidate.experienceTokens, allJobTokens);
+  const confirmedExperienceMatches = overlap(candidate.confirmedExperienceTokens, allJobTokens)
+    .filter(token => !candidate.skillTokens.has(token) && !candidate.titleTokens.has(token) && !candidate.experienceTokens.has(token));
   const experienceMatches = rawExperienceMatches
     .filter((token) => !candidate.skillTokens.has(token) && !candidate.titleTokens.has(token) && allJobTokens.has(token));
-  // A matching title can rank relevant evidence, but it cannot replace proof
-  // from a CV skill or experience entry on its own.
-  if (!skillMatches.length && !rawExperienceMatches.length) return { score: 0, reasons: [] };
+  // Candidate answers can add verified skills or experience but do not make
+  // language overlap alone sufficient to create a proposal.
+  if (!skillMatches.length && !rawExperienceMatches.length && !confirmedSkillMatches.length && !confirmedExperienceMatches.length) return { score: 0, reasons: [] };
   const experienceInTitle = experienceMatches.filter((token) => titleTokens.has(token));
   const experienceInBody = experienceMatches.filter((token) => !titleTokens.has(token));
   const skillPoints = skillMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 16 : 9), 0);
   const titlePoints = titleMatches.length * 12 + titleInBody.length * 4;
   const experiencePoints = experienceInTitle.length * 7 + experienceInBody.length * 2;
+  const confirmedAnswerPoints = Math.min(16, confirmedSkillMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 8 : 4), 0)
+    + confirmedExperienceMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 5 : 2), 0));
   const rolePoints = roleMatches.reduce((sum, role) => sum + ROLE_SIGNAL_POINTS[role], 0);
   const languagePoints = Math.min(8, languageMatches.length * 4);
+  const letterPreferenceTokens = matchSignals.letterPreferenceTokens instanceof Set
+    ? matchSignals.letterPreferenceTokens : new Set(matchSignals.letterPreferenceTokens || []);
+  const letterPreferenceMatches = overlap(letterPreferenceTokens, allJobTokens);
+  const letterPreferencePoints = Math.min(10, letterPreferenceMatches.length * 2);
   const locationPoints = locationMatchPoints(candidateLocation, job);
+  const languageRankingPenalty = languageLevelRankingPenalty(job, candidate.candidateLanguageLevels);
   const relevanceScore = Math.max(0, Math.min(99,
-    Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + Math.min(58, rolePoints) + languagePoints
+    Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + confirmedAnswerPoints
+      + Math.min(58, rolePoints) + languagePoints
       - specialtyPenalty(jobTitle, candidate.profileText, candidateRoles, jobRoles),
   ));
   if (relevanceScore < MIN_MATCH_SCORE) return { score: 0, reasons: [] };
-  const rankScore = relevanceScore + locationPoints;
-  const score = Math.min(99, rankScore);
+  const rankScore = relevanceScore + locationPoints + letterPreferencePoints - languageRankingPenalty;
+  const score = Math.min(99, relevanceScore + locationPoints);
 
   const reasons = [];
   if (roleMatches.length) reasons.push('Ruolo compatibile: ' + roleMatches.map((role) => ROLE_SIGNAL_LABELS[role]).join(', '));
+  if (confirmedSkillMatches.length || confirmedExperienceMatches.length) {
+    reasons.push('Competenze o qualifiche confermate nelle risposte');
+  }
+  if (confirmedLanguageMatches.length) reasons.push('Lingue confermate: ' + confirmedLanguageMatches.map((language) => LANGUAGE_LABELS[language]).join(', '));
+  if (letterPreferenceMatches.length) reasons.push('Interessi professionali ricorrenti nelle lettere inviate');
   if (locationPoints) reasons.push('Località vicina alla zona di residenza');
   if (skillMatches.length) reasons.push('Competenze nel CV: ' + skillMatches.slice(0, 4).join(', '));
-  if (languageMatches.length) reasons.push('Lingue richieste: ' + languageMatches.map((language) => LANGUAGE_LABELS[language]).join(', '));
+  if (!confirmedLanguageMatches.length && profileLanguageMatches.length) {
+    reasons.push('Lingue richieste: ' + profileLanguageMatches.map((language) => LANGUAGE_LABELS[language]).join(', '));
+  }
   const titleEvidence = [...titleMatches, ...titleInBody]
     .filter((token) => token !== 'it' && !(token === 'application' && roleMatches.includes('enterprise_applications')));
   if (titleEvidence.length) reasons.push('Ambiti presenti nel CV: ' + titleEvidence.slice(0, 4).join(', '));
@@ -336,7 +499,8 @@ export function scoreJobForProfile(job, profile, candidateLocation = '') {
     // the user-facing percentage reaches 99.
     rankScore,
     reasons: reasons.slice(0, 3),
-    evidenceStrength: skillMatches.length * 3 + roleMatches.length * 2 + titleMatches.length + experienceMatches.length + languageMatches.length,
+    evidenceStrength: skillMatches.length * 3 + confirmedSkillMatches.length * 3 + roleMatches.length * 2
+      + titleMatches.length + experienceMatches.length + confirmedExperienceMatches.length + languageMatches.length,
   };
 }
 
@@ -527,6 +691,201 @@ export function rankingFeedbackPreference(job, proposals) {
   return Math.max(-12, approvedRolePreference(job, proposals) - negative);
 }
 
+function letterPreferenceTokens(text, excludedTokens) {
+  return [...tokenize(text)].filter(token => !excludedTokens.has(token) && !LETTER_PREFERENCE_STOP_WORDS.has(token)).slice(0, 40);
+}
+
+function submittedLetterParagraph(draft) {
+  const firstParagraph = Array.isArray(draft?.coverLetter?.paragraphs) ? draft.coverLetter.paragraphs[0] : '';
+  return String(firstParagraph || '').replace(/\s+/g, ' ').trim().slice(0, 1_500);
+}
+
+async function loadSubmittedAcceptedLetters({ db, proposals, serviceId, userId, nowMs }) {
+  const accepted = proposals.map(doc => ({ id: doc.id, ...(doc.data() || {}) }))
+    .filter(proposal => proposal.status === 'accepted' && !proposal.withdrawnAt
+      && typeof proposal.childApplicationId === 'string' && proposal.childApplicationId.trim()
+      && !proposal.childApplicationId.includes('/'));
+  const rows = await Promise.all(accepted.map(async proposal => {
+    const orderId = proposal.childApplicationId;
+    const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+    let childSnapshot; let flowSnapshot; let draftSnapshot;
+    try {
+      [childSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+        childRef.get(),
+        childRef.collection('automation').doc('flow').get(),
+        childRef.collection('ai_drafts').doc('current').get(),
+      ]);
+    } catch {
+      return null;
+    }
+    const child = childSnapshot.data() || {};
+    const flow = flowSnapshot.data() || {};
+    const draft = draftSnapshot.data() || {};
+    const retentionDueAt = retentionPurgeDueAt(child);
+    const sentLetterKey = String(draft.sent?.letterKey || '');
+    if (!childSnapshot.exists || child.userId !== userId || child.parentServiceId !== serviceId
+      || child.parentProposalId !== proposal.id || child.billingMode !== 'application_concierge'
+      || child.submissionStatus !== 'submitted' || child.retentionPurgingAt != null || child.retentionPurgedAt != null
+      || child.retentionPayloadPurgedAt != null || (retentionDueAt != null && nowMs >= retentionDueAt)
+      || flow.retentionPurgingAt != null || flow.retentionPurgedAt != null || flow.state !== 'submitted'
+      || Number(draft.round) !== (Number(flow.round) || 1)
+      || (draft.factCheck?.ok !== true && !factCheckAcknowledged(draft))
+      || !Number(draft.sent?.at) || Number(draft.sent.at) > nowMs
+      || !sentLetterKey.startsWith(`assisted-application-uploads/${orderId}/`)) return null;
+    const paragraph = submittedLetterParagraph(draft);
+    if (paragraph.length < 20) return null;
+    const jobTitle = String(proposal.jobTitle || child.jobTitle || '');
+    const companyName = String(proposal.companyName || child.companyName || '');
+    return { jobTitle, companyName, paragraph };
+  }));
+  return rows.filter(Boolean);
+}
+
+async function loadConciergeMatchSignals({ db, serviceRef, service, serviceId, userId, profileRecord, proposals, nowMs }) {
+  const answerEvidenceMap = profileRecord.applicationQuestionAnswerEvidence || {};
+  const questionKeys = Object.entries(answerEvidenceMap)
+    .filter(([, record]) => record?.scope === 'candidate' && record?.sourceKind === 'direct_user')
+    .map(([key]) => key);
+  let candidateAnswerEvidence = [];
+  if (questionKeys.length) {
+    try {
+      const loadForCandidate = await loadCandidateAnswerEvidence({ db, profileRecord, userId, nowMs, questionKeys });
+      candidateAnswerEvidence = loadForCandidate({}, { purpose: 'matching' }).answerEvidence;
+    } catch {
+      candidateAnswerEvidence = [];
+    }
+  }
+  let candidateLanguageFacts = [];
+  const purgeAt = timestampMillis(service?.eligibilityPurgeAt);
+  if (purgeAt > nowMs && service.eligibilityPurgingAt == null && service.eligibilityPurgedAt == null) {
+    try {
+      const factsSnapshot = await serviceRef.collection('eligibility').doc(CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID).get();
+      const facts = factsSnapshot.data() || {};
+      if (facts.provenance === 'candidate_confirmed'
+        && facts.schemaVersion === APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION
+        && timestampMillis(facts.confirmedAt) > 0
+        && timestampMillis(facts.confirmedAt) <= nowMs
+        && Array.isArray(facts.languages)) {
+        candidateLanguageFacts = facts.languages.map(item => ({
+          languageCode: String(item?.languageCode || '').toLowerCase(),
+          level: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(item?.level)
+            ? item.level : ['native', 'unknown'].includes(item?.level) ? item.level : 'unknown',
+        })).filter(item => LANGUAGE_CODE_SIGNALS[item.languageCode]);
+      }
+    } catch {
+      candidateLanguageFacts = [];
+    }
+  }
+  const letters = await loadSubmittedAcceptedLetters({ db, proposals, serviceId, userId, nowMs });
+  const excludedLetterTokens = new Set(letters.flatMap(letter => [...tokenize(letter.jobTitle), ...tokenize(letter.companyName)]));
+  const letterPreferenceTokenSet = new Set(letters.flatMap(letter => letterPreferenceTokens(letter.paragraph, excludedLetterTokens)));
+  const answerSignals = answerMatchEvidence(candidateAnswerEvidence);
+  const fingerprint = createHash('sha256').update(JSON.stringify({
+    answers: {
+      skills: [...answerSignals.skills].sort(),
+      experience: [...answerSignals.experience].sort(),
+      languages: answerSignals.languages.slice().sort(),
+      languageLevels: answerSignals.languageLevels.slice().sort((left, right) =>
+        `${left.language}:${left.level}`.localeCompare(`${right.language}:${right.level}`)),
+    },
+    candidateLanguageFacts: candidateLanguageFacts.map(item => [item.languageCode, item.level]).sort(([left], [right]) => left.localeCompare(right)),
+    letterPreferences: [...letterPreferenceTokenSet].sort(),
+  })).digest('hex');
+  return { candidateAnswerEvidence, candidateAnswerSignals: answerSignals, candidateLanguageFacts,
+    letterPreferenceTokens: letterPreferenceTokenSet, fingerprint };
+}
+
+function candidateAnswerProfileFingerprint(profileRecord) {
+  const records = Object.entries(profileRecord?.applicationQuestionAnswerEvidence || {})
+    .filter(([, record]) => record?.scope === 'candidate' && record?.sourceKind === 'direct_user')
+    .map(([key, record]) => [key, String(record?.version || ''), String(record?.provenance?.orderId || ''),
+      String(record?.category || ''), String(record?.question?.question || ''),
+      String(record?.answer ?? ''), String(record?.fact?.type || ''), String(record?.fact?.subject || '')])
+    .sort(([left], [right]) => left.localeCompare(right));
+  return createHash('sha256').update(JSON.stringify(records)).digest('hex');
+}
+
+/** Requeue active concierge services when verified candidate-scoped answers change. */
+export async function queueConciergeMatchesForCandidateAnswerUpdate({ db, userId, before = null, after = null, eventTime = '', nowMs = Date.now() }) {
+  const uid = String(userId || '').trim();
+  if (!db || !uid || candidateAnswerProfileFingerprint(before) === candidateAnswerProfileFingerprint(after)) return 0;
+  const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).where('userId', '==', uid).get();
+  const active = (snapshot.docs || []).filter(doc => {
+    const service = doc.data() || {};
+    return Boolean(service.cvStorageKey && timestampMillis(service.consentedAt) > 0 && serviceIsActive(service, nowMs));
+  });
+  const eventAt = String(eventTime || '').trim();
+  const eventMs = Date.parse(eventAt) || 0;
+  if (!eventMs) return 0;
+  let queued = 0;
+  for (let offset = 0; offset < active.length; offset += 20) {
+    const updates = await Promise.all(active.slice(offset, offset + 20).map(doc => db.runTransaction(async transaction => {
+      const currentSnapshot = await transaction.get(doc.ref);
+      const service = currentSnapshot.data() || {};
+      if (!currentSnapshot.exists || !service.cvStorageKey || timestampMillis(service.consentedAt) <= 0 || !serviceIsActive(service, nowMs)) return false;
+      const lastEventAt = String(service.matchingCandidateAnswerEventAt || '').trim();
+      const lastEventMs = Date.parse(lastEventAt) || 0;
+      if (lastEventAt && (lastEventMs > eventMs || (lastEventMs === eventMs && lastEventAt >= eventAt))) return false;
+      transaction.set(doc.ref, {
+        matchingCandidateAnswerEventAt: eventAt,
+        matchingFeedbackRevision: FieldValue.increment(1),
+        matchingStatus: 'queued', matchingError: null, updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+      return true;
+    })));
+    queued += updates.filter(Boolean).length;
+  }
+  return queued;
+}
+
+/** Queue a ranking refresh only after an accepted concierge application's sent letter is proven. */
+export async function queueSubmittedConciergeLetterFeedback({ db, orderId, nowMs = Date.now() }) {
+  if (!db || typeof orderId !== 'string' || !orderId.trim() || orderId.includes('/')) return false;
+  const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  return db.runTransaction(async transaction => {
+    const childSnapshot = await transaction.get(childRef);
+    if (!childSnapshot.exists) return false;
+    const child = childSnapshot.data() || {};
+    const serviceId = String(child.parentServiceId || '').trim();
+    const proposalId = String(child.parentProposalId || '').trim();
+    const purgeDueAt = retentionPurgeDueAt(child);
+    if (child.billingMode !== 'application_concierge' || !child.userId || !serviceId || serviceId.includes('/')
+      || !proposalId || proposalId.includes('/') || child.submissionStatus !== 'submitted'
+      || child.retentionPurgingAt != null || child.retentionPurgedAt != null || child.retentionPayloadPurgedAt != null
+      || (purgeDueAt != null && nowMs >= purgeDueAt)) return false;
+
+    const flowRef = childRef.collection('automation').doc('flow');
+    const draftRef = childRef.collection('ai_drafts').doc('current');
+    const [flowSnapshot, draftSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
+    const flow = flowSnapshot.data() || {};
+    const draft = draftSnapshot.data() || {};
+    const sentAt = Number(draft.sent?.at) || 0;
+    const letterKey = String(draft.sent?.letterKey || '');
+    const round = Number(draft.round) || 1;
+    if (!flowSnapshot.exists || !draftSnapshot.exists || flow.state !== 'submitted'
+      || Number(flow.round || 1) !== round || !Number.isFinite(sentAt) || sentAt <= 0 || sentAt > nowMs
+      || !letterKey.startsWith(`assisted-application-uploads/${orderId}/`)
+      || flow.retentionPurgingAt != null || flow.retentionPurgedAt != null
+      || (draft.factCheck?.ok !== true && !factCheckAcknowledged(draft))) return false;
+
+    const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
+    const proposalRef = serviceRef.collection('proposals').doc(proposalId);
+    const [serviceSnapshot, proposalSnapshot] = await Promise.all([transaction.get(serviceRef), transaction.get(proposalRef)]);
+    const service = serviceSnapshot.data() || {};
+    const proposal = proposalSnapshot.data() || {};
+    if (!serviceSnapshot.exists || service.userId !== child.userId || timestampMillis(service.consentedAt) <= 0 || !serviceIsActive(service, nowMs)
+      || !proposalSnapshot.exists || proposal.status !== 'accepted' || proposal.withdrawnAt
+      || proposal.childApplicationId !== orderId) return false;
+
+    const signature = createHash('sha256').update(JSON.stringify([orderId, round, sentAt, letterKey])).digest('hex');
+    if (child.matchingLetterFeedbackSignature === signature) return false;
+    transaction.set(childRef, { matchingLetterFeedbackSignature: signature }, { merge: true });
+    transaction.set(serviceRef, { matchingFeedbackRevision: FieldValue.increment(1), matchingStatus: 'queued',
+      matchingError: null, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    return true;
+  });
+}
+
 async function ensureOpenProposalCounter(db, serviceRef, fallbackCount) {
   return db.runTransaction(async transaction => {
     const snapshot = await transaction.get(serviceRef);
@@ -707,13 +1066,15 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const candidateLocation = String(service.applicantLocation || '').trim();
     const matchingNowMs = Date.now();
     const existingData = existing.map(doc => doc.data() || {});
+    const matchSignals = await loadConciergeMatchSignals({ db, serviceRef, serviceId, userId: service.userId,
+      profileRecord, proposals: existing, service, nowMs: matchingNowMs });
     const fallbackOpenCount = existingData.filter(data => data.status === 'proposed').length;
     await ensureOpenProposalCounter(db, serviceRef, fallbackOpenCount);
     const existingUrls = new Set(existingData.map(data => data.jobUrl).filter(Boolean));
     const excludedUrls = new Set(existingData.filter(data => !['proposed', 'retracted'].includes(data.status)).map(data => data.jobUrl));
     const rankedWork = jobs.map((job) => {
       const url = jobUrl(job);
-      const scored = scoreJobForProfile(job, profile, candidateLocation);
+      const scored = scoreJobForProfile(job, profile, candidateLocation, matchSignals);
       const preference = scored.score > 0 ? rankingFeedbackPreference(job, existingData) : 0;
       return { job, url, ...scored, rankScore: (scored.rankScore || 0) + preference };
     }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !excludedUrls.has(entry.url)
@@ -750,6 +1111,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       candidateLocation,
       rankingFeedbackContext(existingData),
       ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
+      matchSignals.fingerprint,
     ])).digest('hex');
     const eligibilityRecoveryContext = createHash('sha256').update(JSON.stringify([
       CONCIERGE_ELIGIBILITY_VERSION,
@@ -794,7 +1156,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         recoveryPreflight.set(row.id, { kind: 'terminal', reason: 'job_closed', job });
         continue;
       }
-      const rescored = scoreJobForProfile(job, profile, candidateLocation);
+      const rescored = scoreJobForProfile(job, profile, candidateLocation, matchSignals);
       if (rescored.score < MIN_MATCH_SCORE) {
         recoveryPreflight.set(row.id, { kind: 'retry', reason: 'match_below_threshold' });
         continue;
@@ -971,7 +1333,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (data.status === 'retracted' && (proposedUrls.has(data.jobUrl) || excludedUrls.has(data.jobUrl)
         || retractionOwners.get(data.jobUrl) !== doc.id)) continue;
       const job = jobsByUrl.get(data.jobUrl);
-      const rescored = job ? scoreJobForProfile(job, profile, candidateLocation) : { score: 0, reasons: [] };
+      const rescored = job ? scoreJobForProfile(job, profile, candidateLocation, matchSignals) : { score: 0, reasons: [] };
       const result = checks.get(data.jobUrl) || { status: 'unverified' };
       const proposalRef = doc.ref || doc;
       const jobClosed = Boolean(job && explicitlyClosedJob(job, matchingNowMs));

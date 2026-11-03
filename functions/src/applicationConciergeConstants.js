@@ -16,7 +16,7 @@ export const APPLICATION_CONCIERGE_MAX_POSITIONS = 10;
 export const APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS = 3;
 export const APPLICATION_CONCIERGE_CONSENT_VERSION = 'application-concierge-v1';
 export const APPLICATION_CONCIERGE_CV_PREFIX = 'application-concierge-uploads';
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v16-progressive-proposals';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v17-confirmed-profile-signals';
 export const APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION = 'application-concierge-candidate-languages-v1';
 export const APPLICATION_CONCIERGE_CANDIDATE_ANSWERS_VERSION = 'application-concierge-candidate-answers-v1';
 
