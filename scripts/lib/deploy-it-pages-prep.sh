@@ -230,8 +230,8 @@ _publish_cdn_r2() {
   # So every rclone/aws call in this file runs under coreutils `timeout`
   # (present on the runner); tests/r2-calls-bounded.test.ts fails on one that
   # does not. Budgets are ~3x the slowest measured duration (deploys
-  # 36088944074 and 37138892066), except data/:
-  #   copy assets 66-135 s → 420 · og 61-83 s → 300 · images 16-26 s → 120
+  # 36088944074 and 37138892066), except og/ and data/:
+  #   copy assets 66-135 s → 420 · og 61-83 s → 900 (Nov 3 timeout) · images 16-26 s → 120
   #   copy data 153-201 s, 1,622 s on a backlog → 1800 · job-canon 4-6 s → 120
   #   one object (index.html, marker, ledger) ~1 s → 60
   # No R2 listing runs on this path: a missing purge ledger starts empty (see
@@ -247,8 +247,12 @@ _publish_cdn_r2() {
   # (marker withheld, the full prep retries the push), a ledger read falls back
   # to the log-only purge. The step itself has `timeout-minutes` in deploy.yml
   # as the last backstop.
-  local _t_obj _t_purge
+  local _t_obj _t_og _t_purge
   _t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
+  # The incident retry observed og/ exceeding 300 s while the assets purge and
+  # ledger completed. Keep the operation bounded, but allow this large
+  # mostly-static prefix enough time to finish on a slow R2 listing.
+  _t_og="$(_r2_timeout_s R2_TIMEOUT_OG_S 900)"
   _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
@@ -625,7 +629,7 @@ _publish_cdn_r2() {
   if [ "$assets_sync_status" -eq 0 ]; then
     assets_sync_ok=1
   fi
-  _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
+  _r2_sync "$_t_og" "$stage/og"   og        "public,max-age=86400"
   local _image_namespaces=''
   if [ -d "$stage/images/blog" ]; then
     _image_namespaces=blog
