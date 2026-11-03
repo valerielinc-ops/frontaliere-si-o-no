@@ -730,7 +730,7 @@ export default function jobOgImagesPlugin(): Plugin {
         );
         // eslint-disable-next-line no-console
         console.log(
-          `[job-og-images] rendering ${renderQueue.length} cards across ${workerCount} workers (cache hits: ${stats.cached}/${jobs.length + 1})`,
+          `[job-og-images] rendering ${renderQueue.length} cards across ${workerCount} workers (cache hits: ${stats.cached}/${jobs.length - stats.skipped + 1})`,
         );
 
         // Resolve worker URL relative to this file, so the build path

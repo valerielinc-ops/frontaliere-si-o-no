@@ -13943,7 +13943,13 @@ ${staticAnalyticsHtml}
   || clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale);
  const socialTitleHtml = socialPreview ? esc(socialPreview.title) : pageTitle;
  const socialDescription = socialPreview?.description || metaDescription;
- const socialImage = archivedJobOgImageUrl(BASE_URL);
+ const hasArchivedJobOgImage = process.env.SKIP_JOB_OG_IMAGES !== '1';
+ const socialImage = hasArchivedJobOgImage
+  ? archivedJobOgImageUrl(BASE_URL)
+  : `${BASE_URL}/og-image.png`;
+ const socialImageWidth = hasArchivedJobOgImage ? '1080' : '1200';
+ const socialImageHeight = hasArchivedJobOgImage ? '1350' : '630';
+ const socialImageType = hasArchivedJobOgImage ? 'image/webp' : 'image/png';
  // The expired article is a static-first body. Keep its canonical pathname in
  // the marker so App.tsx can remove it synchronously if the user soft-navigates
  // to another route before a full document load.
@@ -13979,9 +13985,9 @@ ${staticAnalyticsHtml}
  <meta property="og:description" content="${esc(socialDescription)}">
  <meta property="og:url" content="${selfUrl}">
  <meta property="og:image" content="${socialImage}">
- <meta property="og:image:width" content="1080">
- <meta property="og:image:height" content="1350">
- <meta property="og:image:type" content="image/webp">
+ <meta property="og:image:width" content="${socialImageWidth}">
+ <meta property="og:image:height" content="${socialImageHeight}">
+ <meta property="og:image:type" content="${socialImageType}">
  <meta property="og:image:alt" content="${socialTitleHtml}">
  ${buildTwitterCardMetaTags({ title: socialPreview?.title || decodeHtmlText(pageTitle), description: socialDescription, locale, image: socialImage })}
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
