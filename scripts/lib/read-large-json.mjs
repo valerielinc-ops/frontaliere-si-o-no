@@ -6,6 +6,7 @@ import { TextDecoder } from 'node:util';
 // for the assembled jobs array once the file crosses the limit.
 export const DEFAULT_JSON_STRING_LIMIT = 0x1fffffe8;
 const READ_CHUNK_BYTES = 1024 * 1024;
+const TEXT_PART_CHARS = 16 * 1024;
 
 function isWhitespace(char) {
   return char === ' ' || char === '\n' || char === '\r' || char === '\t';
@@ -68,34 +69,60 @@ function skipWhitespace(reader) {
   }
 }
 
-function consumeString(reader) {
-  const parts = ['"'];
+function createTextAccumulator(maxItemBytes) {
+  const parts = [];
+  let pending = [];
+  let pendingLength = 0;
+  let totalLength = 0;
+
+  return {
+    append(value) {
+      totalLength += value.length;
+      if (totalLength > maxItemBytes) {
+        throw new SyntaxError('large JSON value exceeds the inline parser limit');
+      }
+      pending.push(value);
+      pendingLength += value.length;
+      if (pendingLength >= TEXT_PART_CHARS) {
+        parts.push(pending.join(''));
+        pending = [];
+        pendingLength = 0;
+      }
+    },
+    finish() {
+      if (pending.length > 0) parts.push(pending.join(''));
+      return parts.join('');
+    },
+  };
+}
+
+function consumeString(reader, maxItemBytes = DEFAULT_JSON_STRING_LIMIT) {
+  const text = createTextAccumulator(maxItemBytes);
+  text.append('"');
   let escaped = false;
   while (true) {
     const char = nextChar(reader, 'unterminated JSON string');
-    parts.push(char);
+    text.append(char);
     if (escaped) {
       escaped = false;
     } else if (char === '\\') {
       escaped = true;
     } else if (char === '"') {
-      return parts.join('');
+      return text.finish();
     }
   }
 }
 
 function consumeContainer(reader, firstChar, maxItemBytes) {
-  const parts = [firstChar];
+  const text = createTextAccumulator(maxItemBytes);
+  text.append(firstChar);
   let depth = 1;
   let inString = false;
   let escaped = false;
 
   while (depth > 0) {
     const char = nextChar(reader, 'unterminated large JSON value');
-    parts.push(char);
-    if (parts.length > maxItemBytes) {
-      throw new SyntaxError('large JSON value exceeds the inline parser limit');
-    }
+    text.append(char);
     if (inString) {
       if (escaped) escaped = false;
       else if (char === '\\') escaped = true;
@@ -111,25 +138,23 @@ function consumeContainer(reader, firstChar, maxItemBytes) {
     }
   }
   if (inString) throw new SyntaxError('unterminated JSON string');
-  return parts.join('');
+  return text.finish();
 }
 
 function consumeValue(reader, firstChar, maxItemBytes) {
-  if (firstChar === '"') return consumeString(reader);
+  if (firstChar === '"') return consumeString(reader, maxItemBytes);
   if (firstChar === '{' || firstChar === '[') {
     return consumeContainer(reader, firstChar, maxItemBytes);
   }
 
-  const parts = [firstChar];
+  const text = createTextAccumulator(maxItemBytes);
+  text.append(firstChar);
   while (true) {
     const next = reader.peek();
     if (next === null || next === ',' || next === ']' || next === '}') break;
-    parts.push(reader.next().value);
-    if (parts.length > maxItemBytes) {
-      throw new SyntaxError('large JSON value exceeds the inline parser limit');
-    }
+    text.append(reader.next().value);
   }
-  return parts.join('');
+  return text.finish();
 }
 
 function parseArrayAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
@@ -176,7 +201,7 @@ function parseLargeJsonObject(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT
     if (nextChar(reader, 'large JSON object key must be a string') !== '"') {
       throw new SyntaxError('large JSON object key must be a string');
     }
-    const key = JSON.parse(consumeString(reader));
+    const key = JSON.parse(consumeString(reader, maxItemBytes));
     skipWhitespace(reader);
     if (nextChar(reader, 'expected a colon after large JSON object key') !== ':') {
       throw new SyntaxError('expected a colon after large JSON object key');
@@ -268,5 +293,13 @@ function* readTextChunks(filePath) {
 export function readJsonFile(filePath, { maxInlineBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
   const { size } = fs.statSync(filePath);
   if (size <= maxInlineBytes) return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  return parseLargeJsonDocument(readTextChunks(filePath));
+  const chunks = readTextChunks(filePath);
+  try {
+    return parseLargeJsonDocument(chunks);
+  } finally {
+    // Parsing can stop before the generator reaches EOF (for example on a
+    // malformed separator). Explicitly closing it releases the file descriptor
+    // instead of leaving the generator suspended until garbage collection.
+    chunks.return?.();
+  }
 }

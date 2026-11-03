@@ -31,6 +31,19 @@ describe('large JSON reader', () => {
     }
   });
 
+  it('parses a record larger than one read chunk without per-character buffering', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-record-'));
+    const target = path.join(dir, 'jobs.json');
+    const payload = [{ id: 'large', description: 'x'.repeat(2 * 1024 * 1024) }];
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(payload), 'utf8');
+      expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(payload);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('streams the supported jobs wrapper when it crosses the inline threshold', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-wrapper-'));
     const target = path.join(dir, 'jobs.json');
