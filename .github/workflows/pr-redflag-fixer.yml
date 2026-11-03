@@ -114,6 +114,31 @@ jobs:
           PR_AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
         run: |
           set -uo pipefail
+          GH_CALL_TIMEOUT_SECONDS=30
+          GH_CALL_KILL_AFTER_SECONDS=5
+          GH_CALL_RETRY_ATTEMPTS=3
+          GH_CALL_RETRY_DELAY_SECONDS=2
+          gh_bounded() {
+            timeout --kill-after="${GH_CALL_KILL_AFTER_SECONDS}s" "$GH_CALL_TIMEOUT_SECONDS" "$@"
+          }
+          # A review can arrive immediately after the PR is created or updated.
+          # Retry only this idempotent live snapshot read so a transient
+          # GitHub API/DNS failure does not make the fixer red; malformed data
+          # and an exhausted budget remain fail-closed below.
+          gh_bounded_retry() {
+            local attempt=1
+            while [ "$attempt" -le "$GH_CALL_RETRY_ATTEMPTS" ]; do
+              if gh_bounded "$@"; then
+                return 0
+              fi
+              if [ "$attempt" -eq "$GH_CALL_RETRY_ATTEMPTS" ]; then
+                return 1
+              fi
+              sleep "$((GH_CALL_RETRY_DELAY_SECONDS * attempt))"
+              attempt=$((attempt + 1))
+            done
+            return 1
+          }
           # Marker 🔴-Important tollerante al markdown: il reviewer a volte bolda
           # ("🔴 **Important —**") o varia la spaziatura. Accetta il delimitatore
           # (`:`, `—`, `-`) subito dopo "Important" (+ bold di chiusura opzionale)
@@ -167,7 +192,7 @@ jobs:
           # live della PR con quella che ha emesso l'evento. Un errore di lettura
           # è fail-closed; una PR chiusa, draft o con HEAD/ref/base cambiati è
           # un no-op sicuro e non deve consumare un round del loop.
-          if ! live_pr=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
+          if ! live_pr=$(gh_bounded_retry "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
             echo "::error::PR #$PR_NUMBER non leggibile nel preflight live: stop fail-closed."
             exit 1
           fi

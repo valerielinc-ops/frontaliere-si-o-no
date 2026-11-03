@@ -83,8 +83,29 @@ jobs:
           # five-minute job cap, never consume the whole job silently.
           GH_CALL_TIMEOUT_SECONDS=30
           GH_CALL_KILL_AFTER_SECONDS=5
+          GH_CALL_RETRY_ATTEMPTS=3
+          GH_CALL_RETRY_DELAY_SECONDS=2
           gh_bounded() {
             timeout --kill-after="${GH_CALL_KILL_AFTER_SECONDS}s" "$GH_CALL_TIMEOUT_SECONDS" "$@"
+          }
+          # The producer dispatches immediately after it has opened the PR. A
+          # short-lived GitHub API/DNS failure during that handoff must not turn
+          # an otherwise valid fixer admission into a red workflow. Retry only
+          # this idempotent metadata read; malformed data and an exhausted
+          # budget still fail closed below.
+          gh_bounded_retry() {
+            local attempt=1
+            while [ "$attempt" -le "$GH_CALL_RETRY_ATTEMPTS" ]; do
+              if gh_bounded "$@"; then
+                return 0
+              fi
+              if [ "$attempt" -eq "$GH_CALL_RETRY_ATTEMPTS" ]; then
+                return 1
+              fi
+              sleep "$((GH_CALL_RETRY_DELAY_SECONDS * attempt))"
+              attempt=$((attempt + 1))
+            done
+            return 1
           }
           skip() { echo "$1"; echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0; }
 
@@ -93,7 +114,7 @@ jobs:
             echo "::error::Numero PR non valido: '$PR'; stop fail-closed."
             exit 1
           fi
-          if ! pr=$(gh_bounded gh api "repos/$REPO/pulls/$PR" 2>/dev/null); then
+          if ! pr=$(gh_bounded_retry gh api "repos/$REPO/pulls/$PR" 2>/dev/null); then
             echo "::error::PR #$PR non leggibile: impossibile legare la run alla HEAD corrente."
             exit 1
           fi
