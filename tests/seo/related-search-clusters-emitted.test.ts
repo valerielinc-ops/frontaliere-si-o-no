@@ -40,9 +40,11 @@ import {
   countHreflangLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
 import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { expectIndexableWithLargePreview, robotsDirectiveOf } from '../helpers/robotsAssertions';
 import { isArchivedStubHtml, isBridgePageHtml, isNoindexHtml } from './_bridgeMarker';
-import { buildJunkRetirementHtml } from '../../build-plugins/relatedSearchClustersPlugin';
+import { buildJunkRetirementHtml, renderHubPage } from '../../build-plugins/relatedSearchClustersPlugin';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
@@ -358,6 +360,28 @@ function ratio(html: string): number {
 function isBridgePage(html: string): boolean {
   return html.includes(REDIRECT_STUB_MARKER) || isArchivedStubHtml(html);
 }
+
+describe('related-search hub pagination noindex contract', () => {
+  const render = (page: number) => renderHubPage({
+    locale: 'it',
+    items: [],
+    page,
+    totalPages: 11,
+    distDir: '',
+    dateStamp: '2026-11-03',
+  });
+
+  it('declares only deep noindex pages to the crawler', () => {
+    const shallow = render(10);
+    expect(shallow.html).not.toContain(PAGINATION_NOINDEX_TARGET_MARKER);
+    expectIndexableWithLargePreview(shallow.html, shallow.urlPath);
+
+    const deep = render(11);
+    expect(deep.urlPath).toBe('/cerca-lavoro-ticino/ricerca/page-11/');
+    expect(robotsDirectiveOf(deep.html)).toBe('noindex,follow');
+    expect(deep.html.split(PAGINATION_NOINDEX_TARGET_MARKER).length - 1).toBe(1);
+  });
+});
 
 /**
  * The BreadcrumbList check's offender predicate.

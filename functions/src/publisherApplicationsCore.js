@@ -14,9 +14,10 @@
  */
 
 import { getAuth } from 'firebase-admin/auth';
-import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { randomUUID } from 'node:crypto';
+import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 
@@ -32,7 +33,7 @@ const STORAGE_BUCKET =
 const CV_SIGNED_URL_TTL_MS = 7 * 86400000;
 
 function db() {
-  return getFirestore();
+  return getAdminDb();
 }
 
 function esc(s) {

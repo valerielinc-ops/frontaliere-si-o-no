@@ -373,6 +373,33 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
+  it('daily station anchors use only the post-gate emitted leaf inventory', () => {
+    const kept = DATASET.municipalities[0].swiss!.nearbyStations![0];
+    const filtered = DATASET.municipalities[0].swiss!.nearbyStations![1];
+    const keptPath = buildFuelStationPath(
+      'it',
+      'benzina',
+      'chiasso',
+      buildStationSlug({ brand: kept.brand, name: kept.name, address: kept.address }),
+    );
+    const filteredPath = buildFuelStationPath(
+      'it',
+      'benzina',
+      'chiasso',
+      buildStationSlug({ brand: filtered.brand, name: filtered.name, address: filtered.address }),
+    );
+    const gatedPages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-daily-emitted-inventory-test',
+      dataset: DATASET,
+      history: [],
+      today,
+      emittedStationPaths: new Set([keptPath]),
+    });
+    const html = gatedPages['/prezzi-benzina/oggi/'];
+    expect(html).toContain(`href="${keptPath}"`);
+    expect(html).not.toContain(`href="${filteredPath}"`);
+  });
+
   it('every page has hreflang alternates for all 4 locales', () => {
     for (const html of Object.values(pages)) {
       expect(html).toMatch(htmlAttr('hreflang', 'it'));

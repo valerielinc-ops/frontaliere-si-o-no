@@ -797,6 +797,23 @@ describe('candidate review API', () => {
     expect(confirmed).toMatchObject({ status: 200, body: { state: 'submitted' } });
     expect(effects.at(-1)).toEqual({ type: 'mark_submitted', by: 'candidate' });
   });
+
+  it('does not persist a candidate receipt when the live flow advances after the precheck', async () => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'candidate_handoff' }, { merge: true });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      store.docs.set(`${BASE}/automation/flow`, { state: 'candidate_handoff', round: 2, answers: {}, feedback: [] });
+      return originalTransaction(callback);
+    });
+
+    try {
+      const result = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'confirm_submitted' } }, deps());
+      expect(result).toMatchObject({ status: 409, body: { error: 'stale_round' } });
+      expect(store.read(`${BASE}/automation/submission`)?.r1).toBeUndefined();
+    } finally {
+      transaction.mockRestore();
+    }
+  });
 });
 
 // Owner decisions of 2026-10-03 (P4): the Swiss status on the review page, legacy values kept.

@@ -4,9 +4,17 @@ export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 *
 const TRANSPORT_HOLDS = new Set([
   'portal:navigation_unavailable',
   'transport:email_provider_unavailable',
-  'portal:captcha_provider_unavailable',
   'portal:question_localization_unavailable',
 ]);
+
+/** CAPTCHA holds belong to the owner and never enter automatic retry or candidate handoff. */
+export function isCaptchaHandoffReason(reason) {
+  return /^(?:portal:)?(?:captcha|recaptcha|hcaptcha|turnstile)(?:_|$)/i.test(String(reason || ''));
+}
+
+export function isCaptchaPortalHold(flow) {
+  return Array.isArray(flow?.heldBy) && flow.heldBy.some(isCaptchaHandoffReason);
+}
 
 export function isInfrastructureRetryHold(flow) {
   return (flow?.heldBy || []).some(reason => TRANSPORT_HOLDS.has(reason));

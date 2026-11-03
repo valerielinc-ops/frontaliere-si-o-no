@@ -106,7 +106,7 @@ Source for cross-border insurance: https://www.bag.admin.ch/dam/en/sd-web/eW3bxV
 - Cross-border workers typically convert CHF salary to EUR monthly. (Source: Frontaliere Ticino user survey data, 2025)
 - Historical comparison assumptions: Wise (~0.25% markup), Revolut (~0.3% markup); these are not current quotes or a cheapest-provider ranking. (Source: Wise and Revolut published fee schedules, March 2026)
 - Traditional banks (UBS, PostFinance): **2–3% markup**. (Source: BNS/SNB — Swiss National Bank, published exchange rate vs. retail bank rates, 2026)
-- Today's rate is on [/cambio-franco-euro/](https://frontaliereticino.ch/cambio-franco-euro/). In 2026, up to 30 October, ECB reference rates ranged from **1 CHF = 1.055 to 1.110 EUR**. (Source: ECB euro reference rates)
+- Current CHF/EUR snapshot: {{CHF_EUR_SNAPSHOT}}. Details and live chart: [/cambio-franco-euro/](https://frontaliereticino.ch/cambio-franco-euro/).
 
 ### Unemployment for Frontalieri
 - Frontalieri who lose their job receive unemployment benefits in **Italy** (NASpI), not in Switzerland. (Source: SECO — State Secretariat for Economic Affairs, EU Reg. 883/2004 implementation)
@@ -189,7 +189,7 @@ All URLs below are canonical (`https://frontaliereticino.ch`), trailing-slash-te
 - **Partner Services** — [/servizi-partner/](https://frontaliereticino.ch/servizi-partner/) — Verified accountants, insurance brokers, real estate
 - **Contact** — [/contattaci/](https://frontaliereticino.ch/contattaci/) — Contact the Frontaliere Ticino team
 - **Feedback** — [/supporto/](https://frontaliereticino.ch/supporto/) — Report issues, suggest features, or give feedback
-- **3000+ Blog Articles** — [/articoli-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/) — In-depth articles on cross-border taxation (2026 New Agreement), permits, pension planning, health insurance, and daily life for frontalieri, organized in 4 editorial categories: Fiscale (taxation), Pratico (practical guides), Novità (legislative updates), Pensione (pension planning)
+- **{{FRONTALIERE_ARTICLE_COUNT_EVIDENCE}}** — [/articoli-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/) — In-depth articles on cross-border taxation (2026 New Agreement), permits, pension planning, health insurance, and daily life for frontalieri, organized in 4 editorial categories: Fiscale (taxation), Pratico (practical guides), Novità (legislative updates), Pensione (pension planning)
   - **Fiscale (taxation) — curated picks**:
     - Net Salary Calculation Guide 2026 — [/articoli-frontaliere/stipendio-netto-frontaliere-2026/](https://frontaliereticino.ch/articoli-frontaliere/stipendio-netto-frontaliere-2026/)
     - 13th Month Salary, Net Amount — [/articoli-frontaliere/tredicesima-netta-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/tredicesima-netta-frontaliere/)

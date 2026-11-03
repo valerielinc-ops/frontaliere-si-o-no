@@ -1917,9 +1917,6 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.directEmployers]: { tab: 'direct-employers' },
  [table.permanentEmployers]: { tab: 'permanent-employers' },
  [table.employerQr]: { tab: 'employer-qr' },
- [table.directEmployerVerify]: { tab: 'direct-employer-verify' },
- [table.directEmployerApply]: { tab: 'direct-employer-apply' },
- [table.directEmployerRenew]: { tab: 'direct-employer-renew' },
  [table.partners]: { tab: 'partners' },
  [table.consulting]: { tab: 'consulting' },
  [table.pressKit]: { tab: 'press-kit' as const },
@@ -3919,12 +3916,6 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.permanentEmployers}${hashSuffix}`);
  case 'employer-qr':
  return finish(`${prefix}/${table.employerQr}${hashSuffix}`);
- case 'direct-employer-verify':
- return finish(`${prefix}/${table.directEmployerVerify}${hashSuffix}`);
- case 'direct-employer-apply':
- return finish(`${prefix}/${table.directEmployerApply}${hashSuffix}`);
- case 'direct-employer-renew':
- return finish(`${prefix}/${table.directEmployerRenew}${hashSuffix}`);
  case 'employer-insights':
  // Per-company stats page; the real per-company link (with ?t=token) is
  // generated server-side (scripts/lib/employer-insights-token.mjs). The

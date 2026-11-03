@@ -47,4 +47,29 @@ describe('firebase-admin v14 Cloud Functions imports', () => {
     expect(runtimeMajor, 'firebase.json must declare a concrete Node runtime').toBeDefined();
     expect(runtimeMajor).toBe(packageMajor);
   });
+
+  it('pins the shared Firestore client to the initialized Admin app', () => {
+    const source = readFileSync(resolve('functions/src/newsletterResendWebhookCore.js'), 'utf8');
+    expect(source).toContain('const app = ensureAdminApp();');
+    expect(source).toContain('return getFirestore(app);');
+    expect(source).not.toContain('return getFirestore();');
+  });
+
+  it('routes publisher Firestore helpers through the same app-pinned client', () => {
+    const publisherSources = [
+      'stripePublisherCore.js',
+      'publisherApplicationsCore.js',
+      'publisherRenewalCore.js',
+      'publisherDomainVerifyCore.js',
+      'publisherFreeCapCore.js',
+      'publisherPendingReapCore.js',
+    ];
+
+    for (const file of publisherSources) {
+      const source = readFileSync(resolve('functions/src', file), 'utf8');
+      expect(source, file).toContain("from './newsletterResendWebhookCore.js'");
+      expect(source, file).toContain('return getAdminDb();');
+      expect(source, file).not.toContain('return getFirestore();');
+    }
+  });
 });

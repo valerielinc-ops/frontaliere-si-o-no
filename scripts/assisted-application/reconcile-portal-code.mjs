@@ -95,7 +95,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         const receipt = submissionDoc.data()?.portalCodeRecovery;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;
         if (apply) {
-          const heldBy = flow.heldBy[0] === 'portal:captcha_provider_unavailable' ? flow.heldBy : ['portal:portal_needs_candidate'];
+          const heldBy = ['portal:portal_needs_candidate'];
           const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
             ? {} : trustedLocalAnswers ? answerContext.orderAnswers
               : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });

@@ -515,6 +515,22 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(pageInsideIndexableWindowCodes).toContain(BING_FRONTIER_NOINDEX);
     expect(pageInsideIndexableWindowCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
 
+    const topicUrl = `${BASE}/articoli-frontaliere/argomenti/tasse-e-imposte/page-11/`;
+    const topicMarked = `${PAGINATION_NOINDEX_TARGET_MARKER}<title>Tasse e imposte</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${topicUrl}">`;
+    expect(isDeclaredPaginationTarget({ url: topicUrl, html: topicMarked })).toBe(true);
+    expect(isDeclaredPaginationTarget({
+      url: topicUrl.replace('/page-11/', '/page-10/'),
+      html: topicMarked,
+    })).toBe(false);
+    const topicCodes = classifyDocument({
+      url: topicUrl,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: topicMarked,
+    }).findings.map((item) => item.code);
+    expect(topicCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(topicCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
     const redirectCodes = classifyDocument({
       url,
       status: 301,
@@ -1233,6 +1249,34 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX);
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_HTTP_ERROR);
+  });
+
+  it('keeps category navigation on the same emitted inventory/path set', () => {
+    const jobsSeoSource = readFileSync(
+      join(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+
+    expect(jobsSeoSource).toContain('const emittedCategoryListingPaths = new Set<string>();');
+    expect(jobsSeoSource).toContain('const catJobs = legacyCategoryJobs.get(catKey) ?? [];');
+    expect(jobsSeoSource).toContain('emittedCategoryListingPaths.has(buildJobCategoryPath(locale, sectionByLocale[locale], k))');
+    expect(jobsSeoSource).toContain('if (!catLabel || !emittedCategoryListingPaths.has(href)) return [];');
+    expect(jobsSeoSource).toContain('return normalizeJobCategoryKey(job.category);');
+
+    const canonicalCategory = `${BASE}/cerca-lavoro-zurigo/categoria-sanita/`;
+    const links = extractInternalLinks(
+      `<a href="${canonicalCategory}">Sanità</a>`,
+      `${BASE}/cerca-lavoro-zurigo/`,
+      BASE,
+    );
+    expect(links).toEqual([canonicalCategory]);
+    const result = classifyDocument({
+      url: canonicalCategory,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Sanità a Zurigo</title><link rel="canonical" href="${canonicalCategory}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina categoria nel controllo SEO completo e mantenere il contratto di crawling.">`,
+    });
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
   });
 
   it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {

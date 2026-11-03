@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { CONCIERGE_DAY_MS as DAY, CONCIERGE_FRESH_PENDING_INTERVAL_MS, CONCIERGE_RETRY_INTERVAL_MS,
-  CONCIERGE_STALE_RECOVERY_BACKOFF_MS, CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS, conciergeMatchingRecoveryContext,
-  conciergeRefreshDue, conciergeRenewalOffer, conciergeStaleRecoveryExhausted } from '../functions/src/applicationConciergeLifecyclePolicy.js';
+  CONCIERGE_MATCHING_VERSION_SETTLE_MS, CONCIERGE_STALE_RECOVERY_BACKOFF_MS, CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
+  conciergeMatchingRecoveryContext, conciergeMatchingVersionRefreshReady, conciergeRefreshDue, conciergeRenewalOffer,
+  conciergeStaleRecoveryExhausted } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 
 const now = Date.now();
 function active(overrides = {}) {
@@ -12,6 +13,17 @@ function active(overrides = {}) {
 }
 
 describe('three-day proposal refresh', () => {
+  it('waits for the observed matcher version to settle before a rollout refresh', () => {
+    const legacy = active({ matchingStatus: 'complete', matchingVersion: 'legacy-version', matchingCompletedAt: now });
+    expect(conciergeMatchingVersionRefreshReady(legacy, now)).toBe(false);
+    expect(conciergeMatchingVersionRefreshReady({ ...legacy,
+      matchingVersionRefreshVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+      matchingVersionRefreshObservedAt: now }, now + CONCIERGE_MATCHING_VERSION_SETTLE_MS - 1)).toBe(false);
+    expect(conciergeMatchingVersionRefreshReady({ ...legacy,
+      matchingVersionRefreshVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+      matchingVersionRefreshObservedAt: now }, now + CONCIERGE_MATCHING_VERSION_SETTLE_MS)).toBe(true);
+  });
+
   it('revalidates legacy proposals immediately while retaining cap, expiry and active-run guards', () => {
     const legacy = active({ matchingStatus: 'complete', matchingVersion: 'legacy-version', matchingCompletedAt: now });
     expect(conciergeRefreshDue(legacy, now)).toBe(true);

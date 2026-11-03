@@ -17,8 +17,8 @@
 // Gli ignorati vengono restituiti separatamente, mai scartati in silenzio: chi
 // chiama li conta e li riporta.
 import { execFileSync } from 'node:child_process';
-import { lstatSync } from 'node:fs';
-import { join } from 'node:path';
+import { lstatSync, readdirSync, readlinkSync, statSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 
 import { isCronManagedPath } from './cron-managed-paths.mjs';
 
@@ -126,4 +126,183 @@ export function classifyDirty(wtPath, { prExists = true } = {}) {
   const porcelain = statusPorcelain(wtPath);
   if (porcelain === null) return { significant: [], significantEntries: [], ignored: [], error: true };
   return { ...classifyDirtyEntries(parsePorcelainEntries(porcelain), { prExists, isSymlink: symlinkProbe(wtPath) }), error: false };
+}
+
+function gitRead(wtPath, args, { input } = {}) {
+  return execFileSync('git', ['--no-optional-locks', '-C', wtPath, ...args], {
+    encoding: 'utf8',
+    input,
+    stdio: ['pipe', 'pipe', 'ignore'],
+    maxBuffer: 256 * 1024 * 1024,
+  });
+}
+
+function normalizeRelativePath(filePath) {
+  return String(filePath).split(sep).join('/');
+}
+
+function headTree(wtPath) {
+  const tree = new Map();
+  const raw = gitRead(wtPath, ['ls-tree', '-r', '-z', '--full-tree', 'HEAD']);
+  for (const record of raw.split('\0')) {
+    if (!record) continue;
+    const tab = record.indexOf('\t');
+    if (tab < 0) throw new Error('ls-tree ha restituito un record senza path');
+    const [mode, type, oid] = record.slice(0, tab).split(/\s+/);
+    const filePath = normalizeRelativePath(record.slice(tab + 1));
+    if (!mode || !type || !oid || !filePath) throw new Error('ls-tree ha restituito un record incompleto');
+    tree.set(filePath, { mode, type, oid });
+  }
+  return tree;
+}
+
+function indexFlags(wtPath) {
+  const flags = new Map();
+  const raw = gitRead(wtPath, ['ls-files', '-v', '-z']);
+  for (const record of raw.split('\0')) {
+    if (!record) continue;
+    const filePath = normalizeRelativePath(record.slice(2));
+    if (record.length < 3 || record[1] !== ' ' || !filePath) throw new Error('ls-files ha restituito un record incompleto');
+    flags.set(filePath, record[0]);
+  }
+  return flags;
+}
+
+function isSkipWorktree(flag) {
+  return flag === 'S' || flag === 's';
+}
+
+function walkWorkingFiles(wtPath) {
+  const files = [];
+  const ignored = [];
+  const walk = (directory, relativeDirectory, isRoot = false) => {
+    let entries;
+    try {
+      entries = readdirSync(directory, { withFileTypes: true });
+    } catch (error) {
+      throw new Error(`lettura di ${directory} fallita: ${error?.message || 'errore sconosciuto'}`);
+    }
+    for (const entry of entries) {
+      // A linked worktree has a `.git` file; a main worktree has a `.git`
+      // directory. Neither is part of the working tree content.
+      if (isRoot && entry.name === '.git') continue;
+      const filePath = relativeDirectory ? `${relativeDirectory}/${entry.name}` : entry.name;
+      const fullPath = join(directory, entry.name);
+      let lstat;
+      try { lstat = lstatSync(fullPath); } catch (error) {
+        throw new Error(`stat di ${fullPath} fallita: ${error?.message || 'errore sconosciuto'}`);
+      }
+      if (lstat.isSymbolicLink()) {
+        if (isRoot && entry.name === 'node_modules') ignored.push(filePath);
+        else files.push({ path: normalizeRelativePath(filePath), kind: 'symlink', fullPath });
+        continue;
+      }
+      if (lstat.isDirectory()) {
+        // Traversing an installed dependency tree is both expensive and unsafe:
+        // it is machine state, never a source change to preserve in a snapshot.
+        // A real directory is kept fail-closed because unlike the usual symlink
+        // it would be removed with this worktree.
+        if (isRoot && entry.name === 'node_modules') {
+          throw new Error('node_modules è una directory reale, non un symlink: classificazione non sicura');
+        }
+        walk(fullPath, normalizeRelativePath(filePath));
+        continue;
+      }
+      if (lstat.isFile()) files.push({ path: normalizeRelativePath(filePath), kind: 'file', fullPath });
+    }
+  };
+  walk(wtPath, '', true);
+  return { files, ignored };
+}
+
+function hashWorkingFiles(wtPath, files) {
+  const regular = files.filter((file) => file.kind === 'file');
+  const hashes = new Map();
+  if (regular.length) {
+    if (regular.some((file) => file.path.includes('\n') || file.path.includes('\0'))) {
+      throw new Error('path con newline/NUL: hash-object --stdin-paths non è sicuro');
+    }
+    const output = gitRead(wtPath, ['hash-object', '--no-filters', '--stdin-paths'], {
+      input: `${regular.map((file) => file.path).join('\n')}\n`,
+    });
+    const values = output.split('\n').filter(Boolean);
+    if (values.length !== regular.length) throw new Error('hash-object ha restituito un numero di blob inatteso');
+    regular.forEach((file, index) => hashes.set(file.path, values[index]));
+  }
+  for (const file of files.filter((entry) => entry.kind === 'symlink')) {
+    const target = readlinkSync(file.fullPath);
+    hashes.set(file.path, execFileSync('git', ['--no-optional-locks', '-C', wtPath, 'hash-object', '--no-filters', '--stdin'], {
+      input: target,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+      maxBuffer: 1024 * 1024,
+    }).trim());
+  }
+  return hashes;
+}
+
+function workingMode(file) {
+  if (file.kind === 'symlink') return '120000';
+  return (statSync(file.fullPath).mode & 0o111) ? '100755' : '100644';
+}
+
+// Classifica il contenuto reale sul disco, indipendentemente da un index
+// corrotto. `git status` non è adatto al reclaim: su sparse worktree con un
+// index incoerente può dichiarare migliaia di cancellazioni staged mentre i
+// file sono tutti presenti e il contenuto è quasi intatto. Qui confrontiamo
+// direttamente i blob di HEAD con hash-object sui file presenti.
+export function classifyRealChanges(wtPath, { prExists = true } = {}) {
+  try {
+    const tree = headTree(wtPath);
+    const flags = indexFlags(wtPath);
+    const { files, ignored } = walkWorkingFiles(wtPath);
+    const hashes = hashWorkingFiles(wtPath, files);
+    const significantEntries = [];
+    const significant = [];
+    const present = new Set();
+
+    for (const file of files) {
+      present.add(file.path);
+      if (isCronManagedPath(file.path)
+        || (prExists && file.kind === 'file' && isPrScratchPath(file.path))) {
+        ignored.push(file.path);
+        continue;
+      }
+      const head = tree.get(file.path);
+      const mode = workingMode(file);
+      const oid = hashes.get(file.path);
+      if (!oid) throw new Error(`hash mancante per ${file.path}`);
+      if (!head || head.oid !== oid || head.mode !== mode) {
+        const entry = { path: file.path, kind: file.kind, mode, oid, missing: false };
+        significantEntries.push(entry);
+        significant.push(file.path);
+      }
+    }
+
+    for (const [filePath, head] of tree) {
+      if (present.has(filePath) || isCronManagedPath(filePath)) continue;
+      if (isSkipWorktree(flags.get(filePath))) continue;
+      // A missing path with no skip-worktree bit is a real deletion. Keeping
+      // this check separate from the physical walk is what makes staged-D +
+      // restored-file sparse indexes safe to reclaim.
+      const entry = { path: filePath, kind: 'file', mode: head.mode, oid: null, missing: true };
+      significantEntries.push(entry);
+      significant.push(filePath);
+    }
+
+    return {
+      significant,
+      significantEntries,
+      ignored: [...new Set(ignored)],
+      error: false,
+    };
+  } catch (error) {
+    return {
+      significant: [],
+      significantEntries: [],
+      ignored: [],
+      error: true,
+      errorMessage: error?.message || 'classificazione hash fallita',
+    };
+  }
 }

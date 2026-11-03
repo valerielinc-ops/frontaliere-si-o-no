@@ -10,7 +10,7 @@
  * ad and its refund.
  */
 
-import { isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
+import { isCaptchaHandoffReason, isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
 import {
   brandButton,
   brandCallout,
@@ -129,7 +129,7 @@ const CANDIDATE_COPY = {
       auto: 'Se non rispondi entro {deadline}, il sollecito partirà così com’è, a tuo nome come la candidatura. Dalla pagina puoi anche inviarlo subito o fermarlo.',
       cta: 'Invia o ferma il sollecito',
     },
-    reasons: { captcha: 'una verifica anti-robot', account: 'la creazione o la verifica di un account', rejected: 'un controllo del sito sull’invio automatico', portal_needs_candidate: 'un controllo del sito', whatsapp: 'la candidatura si fa solo via WhatsApp, dal tuo telefono' },
+    reasons: { account: 'la creazione o la verifica di un account', rejected: 'un controllo del sito sull’invio automatico', portal_needs_candidate: 'un controllo del sito', whatsapp: 'la candidatura si fa solo via WhatsApp, dal tuo telefono' },
   },
   de: {
     greeting: (name) => (name ? `Hallo ${name},` : 'Hallo,'),
@@ -202,7 +202,7 @@ const CANDIDATE_COPY = {
       auto: 'Wenn du bis {deadline} nicht antwortest, geht die Nachfrage so in deinem Namen raus, wie die Bewerbung. Auf der Seite kannst du sie auch sofort senden oder stoppen.',
       cta: 'Nachfrage senden oder stoppen',
     },
-    reasons: { captcha: 'eine Anti-Roboter-Prüfung', account: 'das Erstellen oder Bestätigen eines Kontos', rejected: 'eine Prüfung der Website beim automatischen Versand', portal_needs_candidate: 'eine Prüfung der Website', whatsapp: 'die Bewerbung läuft nur über WhatsApp, von deinem Handy aus' },
+    reasons: { account: 'das Erstellen oder Bestätigen eines Kontos', rejected: 'eine Prüfung der Website beim automatischen Versand', portal_needs_candidate: 'eine Prüfung der Website', whatsapp: 'die Bewerbung läuft nur über WhatsApp, von deinem Handy aus' },
   },
   fr: {
     greeting: (name) => (name ? `Bonjour ${name},` : 'Bonjour,'),
@@ -275,7 +275,7 @@ const CANDIDATE_COPY = {
       auto: 'Sans réponse de votre part avant {deadline}, la relance partira telle quelle, en votre nom comme la candidature. Depuis la page, vous pouvez aussi l’envoyer tout de suite ou l’arrêter.',
       cta: 'Envoyer ou arrêter la relance',
     },
-    reasons: { captcha: 'une vérification anti-robot', account: 'la création ou la vérification d’un compte', rejected: 'un contrôle du site sur l’envoi automatique', portal_needs_candidate: 'un contrôle du site', whatsapp: 'la candidature se fait uniquement par WhatsApp, depuis votre téléphone' },
+    reasons: { account: 'la création ou la vérification d’un compte', rejected: 'un contrôle du site sur l’envoi automatique', portal_needs_candidate: 'un contrôle du site', whatsapp: 'la candidature se fait uniquement par WhatsApp, depuis votre téléphone' },
   },
   en: {
     greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
@@ -348,7 +348,7 @@ const CANDIDATE_COPY = {
       auto: 'If you don’t reply by {deadline}, the follow-up goes out as it is, in your name like the application. From the page you can also send it now or stop it.',
       cta: 'Send or stop the follow-up',
     },
-    reasons: { captcha: 'an anti-robot check', account: 'creating or verifying an account', rejected: 'a site check on automated submissions', portal_needs_candidate: 'a site check', whatsapp: 'the application goes through WhatsApp only, from your phone' },
+    reasons: { account: 'creating or verifying an account', rejected: 'a site check on automated submissions', portal_needs_candidate: 'a site check', whatsapp: 'the application goes through WhatsApp only, from your phone' },
   },
 };
 
@@ -394,6 +394,7 @@ const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’inv
 // Why the portal runner stopped (scripts/assisted-application/lib/portal/portal.mjs).
 const PORTAL_STOPS = {
   captcha: 'il portale ha chiesto un controllo anti-robot (CAPTCHA), che il robot non aggira',
+  captcha_provider_unavailable: 'il controllo anti-robot non è stato risolto dal runner',
   account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
@@ -404,6 +405,8 @@ const PORTAL_STOPS = {
 // whatsapp (#11161): a retry completes the order when the channel has a PastaHR https link (the
 // candidate gets it by e-mail, with the steps); any other WhatsApp channel stops here again.
 const PORTAL_STOP_HINTS = {
+  captcha: 'Il candidato non deve fare nulla. Dalla coda premi «Compila con l’estensione»: si apre il portale con link, risposte e documenti già pronti. Se compare il CAPTCHA, risolvilo tu nella scheda e premi tu il pulsante d’invio; l’estensione non risolve i CAPTCHA e non invia da sola.',
+  captcha_provider_unavailable: 'Il candidato non deve fare nulla. Dalla coda premi «Compila con l’estensione»: si apre il portale con link, risposte e documenti già pronti. Se compare il CAPTCHA, risolvilo tu nella scheda e premi tu il pulsante d’invio; l’estensione non risolve i CAPTCHA e non invia da sola.',
   whatsapp: 'Non c’è un modulo da compilare: il candidato deve completare la candidatura nella chat WhatsApp del datore, dal suo telefono. Se il canale ha un link PastaHR (https), dalla coda «Riprova l’invio automatico» chiude l’ordine: il candidato riceve per email il link e i passaggi. Altrimenti premi «Affida al candidato»: riceve il link WhatsApp, le risposte già pronte e i documenti, e conferma quando ha inviato.',
 };
 const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l’invio sul portale (link, risposte e documenti sono nel pannello) e segnala la candidatura come inviata, oppure premi «Riprova l’invio automatico».';
@@ -436,8 +439,7 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
   const raw = String(reason || '').trim();
   if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
     return {
-      reason: raw === 'portal:captcha_provider_unavailable' ? 'il servizio di verifica anti-robot non è disponibile'
-        : raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
+      reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
       hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
       detail: '',
     };
@@ -476,6 +478,9 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
  *   fitNoticeWording (assistedApplicationFitNotice.js) gives them
  */
 export function buildCandidateAutomationEmail(kind, vars) {
+  if (kind === 'candidate_handoff' && isCaptchaHandoffReason(vars.reason)) {
+    throw new Error('captcha_requires_owner');
+  }
   const locale = CANDIDATE_COPY[vars.locale] ? vars.locale : 'it';
   const copy = CANDIDATE_COPY[locale];
   const section = {

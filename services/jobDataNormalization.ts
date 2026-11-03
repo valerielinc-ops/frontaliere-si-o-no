@@ -396,7 +396,9 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'modellstation-somosa': cLogo('somosa.ch'),
  'molecular-partners': cLogo('molecularpartners.com'),
  'moncucco': '/images/brands/moncucco.png',
- 'mpa-praxisstellen-ch': 'https://www.mpa-praxisstellen.ch/favicon.ico',
+ // #16769: the official PKS microsite links its full logo from the media
+ // host; do not regress to the 32px favicon used by the old registry entry.
+ 'mpa-praxisstellen-ch': 'https://partner.jobbzz.ch/jobbzzFramework/minisites/img/pks-logo-new.png',
  'msc-cargo': cLogo('msc.com'),
  'mtic-group': gFavicon('mtic-group.org'),
  'mueller-frauenfeld': 'https://www.mueller-frauenfeld.ch/img/touch/apple-touch-icon-114x114.png',
@@ -627,6 +629,7 @@ export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
  'imerys',
  'farmacia-internazionale-dr-merloni',
  'mediamarkt',
+ 'mpa-praxisstellen-ch',
 ]);
 
 /**

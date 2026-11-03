@@ -65,6 +65,7 @@ vi.mock('@/services/firebase', () => ({
  db: {},
  getApp: vi.fn(async () => ({})),
  getConfigValue: vi.fn(async () => ''),
+ fetchAndActivate: vi.fn(async () => false),
  createTrace: vi.fn(async () => null),
  measureTrace: vi.fn(async (_name: string, fn: () => Promise<any>) => fn()),
 }));

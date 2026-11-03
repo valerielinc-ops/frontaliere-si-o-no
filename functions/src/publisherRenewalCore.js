@@ -13,7 +13,8 @@
  * renew together).
  */
 
-import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
+import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 
@@ -22,7 +23,7 @@ const DASHBOARD_URL = 'https://frontaliereticino.ch/i-miei-annunci';
 const REMINDER_WINDOW_DAYS = 3;
 
 function db() {
-  return getFirestore();
+  return getAdminDb();
 }
 
 /**

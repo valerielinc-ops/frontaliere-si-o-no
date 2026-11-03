@@ -74,12 +74,19 @@ function wt(name: string): string {
   return path.join(clone, '.claude', 'worktrees', name);
 }
 
-// Invecchia i segnali di attività che lo script legge: HEAD, index e reflog
-// del worktree, più la sua radice.
+// Invecchia i segnali di attività e i file reali della fixture. L'index resta
+// presente per simulare un worktree normale, ma il pruner non lo usa come
+// segnale di attività.
 function age(worktreePath: string): void {
   const admin = git(worktreePath, 'rev-parse', '--absolute-git-dir');
   for (const p of [path.join(admin, 'HEAD'), path.join(admin, 'index'), path.join(admin, 'logs', 'HEAD'), worktreePath]) {
     if (fs.existsSync(p)) fs.utimesSync(p, OLD, OLD);
+  }
+  for (const entry of fs.readdirSync(worktreePath, { withFileTypes: true })) {
+    if (entry.name === '.git') continue;
+    const full = path.join(worktreePath, entry.name);
+    if (entry.isSymbolicLink()) fs.lutimesSync(full, OLD, OLD);
+    else fs.utimesSync(full, OLD, OLD);
   }
 }
 

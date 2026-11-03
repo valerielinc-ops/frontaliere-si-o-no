@@ -53,6 +53,11 @@ export function isKnownExistingCategorySlug(slug: string): slug is JobCategoryKe
   return (JOB_CATEGORY_KEYS as readonly string[]).includes(slug);
 }
 
+export function normalizeJobCategoryKey(value: unknown): JobCategoryKey | null {
+  const normalized = String(value ?? '').trim().toLowerCase();
+  return isKnownExistingCategorySlug(normalized) ? normalized : null;
+}
+
 function trimPathSlashes(value: string): string {
   return value.replace(/^\/+|\/+$/g, '');
 }

@@ -18,6 +18,9 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * below stay as the cheap, always-available core of the verdict.
  * The runtime public-config endpoint is also checked at its stable and fresh
  * URLs: a fail-open 200 with no Firebase API key cannot initialize Auth.
+ * Normal user-facing requests for all four locale home pages are compared
+ * with the fresh `/build-id.txt` marker and become exact cache-purge targets
+ * when their HTML belongs to an older build.
  *
  * No credentials are needed to probe. The script never prints response bodies;
  * it emits only status, sizes, hashes and URLs safe for a GitHub issue.
@@ -32,8 +35,14 @@ import {
   evaluateChunkGraph,
   purgeUrlsInBatches,
 } from './ci/cdn-chunk-graph.mjs';
+import {
+  HOME_PAGE_LOCALES,
+  HOME_PAGE_PATH_BY_LOCALE,
+  SITE_ORIGIN,
+  evaluateHomePageFreshness,
+} from './lib/home-page-freshness.mjs';
+export { SITE_ORIGIN } from './lib/home-page-freshness.mjs';
 
-export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
 export const SITE_BUILD_ID_PATH = '/build-id.txt';
 export const CDN_BUILD_ID_PATH = '/cdn-build-id.txt';
@@ -96,10 +105,17 @@ export function runtimeFailureFingerprint(result) {
     // Only the failing part of the graph: a new divergence or a new broken
     // link must reopen the repair path, a healthy chunk must not churn it.
     chunkGraph: chunkGraphSignature(result?.chunkGraph),
+    homePages: (result?.homePages?.pages || []).map((page) => ({
+      buildId: page.buildId || null,
+      locale: page.locale,
+      path: page.path,
+      state: page.state,
+      status: page.status || 0,
+    })),
     markerState: result?.markerState || 'unknown',
     publicConfig: result?.publicConfig || null,
     siteBuildId: result?.siteBuildId || null,
-    version: 'runtime-reliability/v4',
+    version: 'runtime-reliability/v5',
   };
   return sha256(JSON.stringify(signature)).slice(0, 16);
 }
@@ -148,7 +164,7 @@ export function evaluateRepairPolicy({
       action: markerAllowsPurge ? 'none' : 'blocked_marker',
       circuit: 'closed',
       fingerprint,
-      reason: markerAllowsPurge ? 'no_targeted_assets' : 'marker_not_coherent',
+      reason: markerAllowsPurge ? 'no_targeted_urls' : 'marker_not_coherent',
     };
   }
   if (cooldownActive) {
@@ -327,7 +343,11 @@ export async function purgeFromReport(report, {
   return { deferred: true, report: deferredReport, outcome: null };
 }
 
-async function readUrl(url, { fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
+async function readUrl(url, {
+  fetchImpl = fetch,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  accept = 'text/plain,text/css,application/javascript,*/*;q=0.8',
+} = {}) {
   let lastFailure = null;
   for (let attempt = 0; attempt <= TRANSIENT_RETRIES; attempt++) {
     const controller = new AbortController();
@@ -336,7 +356,7 @@ async function readUrl(url, { fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS 
       const response = await fetchImpl(url, {
         headers: {
           'User-Agent': USER_AGENT,
-          Accept: 'text/plain,text/css,application/javascript,*/*;q=0.8',
+          Accept: accept,
         },
         redirect: 'follow',
         signal: controller.signal,
@@ -457,6 +477,7 @@ export function evaluateProbe({
   siteFresh,
   cdnMarker,
   assets,
+  homePageObservations = null,
   chunkGraph = null,
   publicConfig = null,
   cdnPublish = { state: 'legacy', startId: null, completeId: null },
@@ -490,6 +511,10 @@ export function evaluateProbe({
     ? Number(BigInt(cdnBuildId) - BigInt(siteBuildId))
     : null;
 
+  const homePages = homePageObservations === null
+    ? null
+    : evaluateHomePageFreshness(siteBuildId, homePageObservations);
+
   const assetResults = assets.map(({ path, cached, fresh }) => ({
     path,
     cachedStatus: cached.status,
@@ -506,10 +531,10 @@ export function evaluateProbe({
   const cdnPublishState = cdnPublish?.state || 'legacy';
   const deferred = Boolean(deferReason);
   const publishAllowsObservation = ['legacy', 'stable'].includes(cdnPublishState);
-  // Critical assets first (they boot every page), then the graph's own order
-  // (chunks on a broken link first). Only states a purge can repair — the edge
-  // disagrees with an R2 copy that exists — and only while the markers say R2
-  // holds the generation the site is moving to (see the docblock).
+  // Critical assets first (they boot every page), then graph chunks (broken
+  // links first), then stale home HTML. Only states a purge can repair — the
+  // edge disagrees with an authoritative current copy — and only while the
+  // markers permit a repair (see the docblock).
   const purgeAllowed = !deferred
     && publishAllowsObservation
     && (markerState === 'coherent' || markerState === 'rollout_in_progress');
@@ -518,6 +543,7 @@ export function evaluateProbe({
       .filter((asset) => asset.state === 'stale' || asset.state === 'cached_failure')
       .map((asset) => `${CDN_ORIGIN}${asset.path}`),
     ...(graph?.purgeUrls || []),
+    ...(homePages?.purgeUrls || []),
   ])];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
   // A rollout explains the marker skew, not which generation a stable asset
@@ -535,6 +561,7 @@ export function evaluateProbe({
     && (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
     && blockingAssets.length === 0
+    && (homePages ? homePages.ok : true)
     && (graph ? graph.ok : true)
     && (publicConfig ? publicConfig.ok : true);
 
@@ -552,11 +579,11 @@ export function evaluateProbe({
     siteCachedStatus: siteCached?.status || 0,
     siteFreshStatus: siteFresh?.status || 0,
     cdnMarkerStatus: cdnMarker?.status || 0,
-    // Normal apex HTML can legitimately be up to its bounded 600s edge TTL
-    // behind the cache-busted origin marker; expose this fact without failing
-    // the runtime verdict or initiating a zone-wide purge.
+    // The normal /build-id.txt response can lag its cache-busted copy; keep it
+    // informational because the HTML pages below are checked directly.
     siteCachedBuildId: validBuildId(siteCached?.body),
     siteFreshBuildId: validBuildId(siteFresh?.body),
+    homePages,
     assets: assetResults,
     publicConfig,
     chunkGraph: graph ? {
@@ -597,6 +624,11 @@ export function evaluateProbe({
             ? 'CDN publish-window markers regressed'
             : null,
       ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      ...(homePages?.pages || []).filter((page) => page.state !== 'healthy').map((page) =>
+        page.state === 'stale'
+          ? `home page ${page.path}: stale build ${page.buildId} (expected ${homePages.expectedBuildId})`
+          : `home page ${page.path}: build marker unavailable (HTTP ${page.status})`,
+      ),
       ...['cached', 'fresh'].flatMap((variant) => publicConfig?.[variant]?.state && publicConfig[variant].state !== 'healthy'
         ? [`public config (${variant}): ${publicConfig[variant].state}, HTTP ${publicConfig[variant].status}`]
         : []),
@@ -612,7 +644,7 @@ export async function probeRuntime({
   now = new Date(),
   timeoutMs = DEFAULT_TIMEOUT_MS,
   assetPaths = CRITICAL_ASSET_PATHS,
-  // `false` skips the full walk (unit tests of the marker/critical-asset core).
+  // `false` skips the full graph walk (unit tests of the marker/page/asset core).
   chunkGraph = true,
   chunkGraphOptions = {},
 } = {}) {
@@ -621,13 +653,24 @@ export async function probeRuntime({
   const cdnMarkerUrl = `${CDN_ORIGIN}${CDN_BUILD_ID_PATH}`;
   const cdnPublishStartUrl = `${CDN_ORIGIN}${CDN_PUBLISH_START_ID_PATH}`;
   const cdnPublishCompleteUrl = `${CDN_ORIGIN}${CDN_PUBLISH_COMPLETE_ID_PATH}`;
-  const [siteCached, siteFresh, cdnMarker, cdnPublishStart, cdnPublishComplete, publicConfig] = await Promise.all([
+  const homePageReads = Promise.all(HOME_PAGE_LOCALES.map(async (locale) => {
+    const path = HOME_PAGE_PATH_BY_LOCALE[locale];
+    const url = new URL(path, SITE_ORIGIN).href;
+    const observation = await readUrl(url, {
+      fetchImpl,
+      timeoutMs,
+      accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    });
+    return { locale, ...observation };
+  }));
+  const [siteCached, siteFresh, cdnMarker, cdnPublishStart, cdnPublishComplete, publicConfig, homePageObservations] = await Promise.all([
     readUrl(siteBuildUrl, { fetchImpl, timeoutMs }),
     readUrl(cacheBust(siteBuildUrl, nonce), { fetchImpl, timeoutMs }),
     readUrl(cacheBust(cdnMarkerUrl, nonce), { fetchImpl, timeoutMs }),
     readUrl(cacheBust(cdnPublishStartUrl, nonce), { fetchImpl, timeoutMs }),
     readUrl(cacheBust(cdnPublishCompleteUrl, nonce), { fetchImpl, timeoutMs }),
     probePublicConfig({ fetchImpl, timeoutMs, nonce }),
+    homePageReads,
   ]);
   const initialPublish = classifyCdnPublishWindow({
     startMarker: cdnPublishStart,
@@ -641,6 +684,7 @@ export async function probeRuntime({
         siteCached,
         siteFresh,
         cdnMarker,
+        homePageObservations,
         assets: [],
         publicConfig,
         cdnPublish: initialPublish,
@@ -699,6 +743,7 @@ export async function probeRuntime({
         siteCached,
         siteFresh,
         cdnMarker: cdnMarkerAfter,
+        homePageObservations,
         assets: [],
         publicConfig,
         cdnPublish: activePublish,
@@ -708,7 +753,7 @@ export async function probeRuntime({
   }
   return {
     checkedAt: new Date().toISOString(),
-    ...evaluateProbe({ siteCached, siteFresh, cdnMarker: cdnMarkerAfter, assets, chunkGraph: graph, publicConfig, cdnPublish: finalPublish }),
+    ...evaluateProbe({ siteCached, siteFresh, cdnMarker: cdnMarkerAfter, assets, homePageObservations, chunkGraph: graph, publicConfig, cdnPublish: finalPublish }),
   };
 }
 
@@ -741,6 +786,12 @@ export function formatIssueDescription(final, { first = null, runUrl = '' } = {}
     `- CDN build: ${final?.cdnBuildId || 'unavailable'}`,
     `- CDN publish window: ${final?.cdnPublishState || 'legacy'} (start ${final?.cdnPublishStartId || 'unavailable'}, complete ${final?.cdnPublishCompleteId || 'unavailable'})`,
   );
+  if (final?.homePages) {
+    const summary = final.homePages.pages
+      .map((page) => `${page.locale} ${page.state}${page.buildId ? ` (${page.buildId})` : ''}`)
+      .join(', ');
+    lines.push(`- HTML home builds vs site marker ${final.homePages.expectedBuildId || 'unavailable'}: ${summary}`);
+  }
   if (final?.publicConfig) {
     for (const variant of ['cached', 'fresh']) {
       const config = final.publicConfig[variant];
@@ -793,7 +844,7 @@ export function formatIssueDescription(final, { first = null, runUrl = '' } = {}
   const targetedPurgeAttempted = [repair, verificationRepair]
     .some((attempt) => attempt?.action === 'purge');
   lines.push('', targetedPurgeAttempted
-    ? 'The watchdog attempted only exact CDN URL purges (scripts/cf-purge-cache.mjs `--files=`, batches of at most 30, both cache variants). No zone-wide purge was performed.'
+    ? 'The watchdog attempted only exact URL purges (scripts/cf-purge-cache.mjs `--files=`, batches of at most 30, both cache variants). No zone-wide purge was performed.'
     : 'The watchdog did not perform a targeted purge. No zone-wide purge was performed.');
   return lines.join('\n');
 }

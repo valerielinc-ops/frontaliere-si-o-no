@@ -2115,6 +2115,71 @@
       "copyTemplateId": "job-read-next-step",
       "copyHook": "Un ruolo da leggere se stai valutando il prossimo passo.",
       "copyCta": "Scopri i dettagli."
+    },
+    {
+      "id": "company-213gyf",
+      "ts": "2026-11-03T14:38:46.096Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "job-beyond-border-search",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Se cerchi lavoro oltreconfine, qui trovi un annuncio da esplorare.",
+      "copyCta": "Consulta il ruolo."
+    },
+    {
+      "id": "company-213gye",
+      "ts": "2026-11-03T14:38:46.096Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "job-beyond-border-search",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Se cerchi lavoro oltreconfine, qui trovi un annuncio da esplorare.",
+      "copyCta": "Consulta il ruolo."
+    },
+    {
+      "id": "livit-ca2cb64e1892",
+      "ts": "2026-11-03T14:38:46.096Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "job-beyond-border-search",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Se cerchi lavoro oltreconfine, qui trovi un annuncio da esplorare.",
+      "copyCta": "Consulta il ruolo."
+    },
+    {
+      "id": "seco-jobroom-7f7ffdd0-acfe-4bf5-b79e-fef7ff8bf428",
+      "ts": "2026-11-03T14:38:46.096Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "job-beyond-border-search",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Se cerchi lavoro oltreconfine, qui trovi un annuncio da esplorare.",
+      "copyCta": "Consulta il ruolo."
+    },
+    {
+      "id": "company-3bcpzw",
+      "ts": "2026-11-03T14:38:46.096Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "job-beyond-border-search",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Se cerchi lavoro oltreconfine, qui trovi un annuncio da esplorare.",
+      "copyCta": "Consulta il ruolo."
     }
   ]
 }

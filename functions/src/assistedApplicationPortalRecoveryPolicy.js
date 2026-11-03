@@ -1,4 +1,4 @@
-/** Only technical pre-send stops may resume after the portal engine changes. */
+/** Only recoverable pre-send stops resume after engine changes; CAPTCHA stays with Valerie. */
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, isUnknownAnswer } from './assistedApplicationCandidateEdits.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
@@ -7,7 +7,7 @@ import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js
 import { validateAnswer } from './lib/answerRules.js';
 
 export const portalCodeVersion = value => /^[a-f0-9]{64}$/.test(String(value || '')) ? String(value) : null;
-const RECOVERABLE = new Set(['portal:account', 'portal:account_create_unanswered', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate', 'portal:captcha_provider_unavailable']);
+const RECOVERABLE = new Set(['portal:account', 'portal:account_create_unanswered', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate']);
 
 export function portalCodeChanged(flow, version) {
   return Boolean(portalCodeVersion(version)) && flow?.state === 'owner_takeover'

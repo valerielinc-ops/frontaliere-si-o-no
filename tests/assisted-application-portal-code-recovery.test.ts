@@ -170,11 +170,13 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(flowPath).answers).toEqual(flow.answers);
   });
 
-  it('retains the provider-outage lane instead of treating it as an unanswered personal question', async () => {
+  it('does not automatically retry a legacy CAPTCHA provider hold after a runner change', async () => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: ['portal:captcha_provider_unavailable'] });
-    await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true });
+    const result = await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true });
+    expect(result).toMatchObject({ eligible: 0, queued: 0 });
     expect(store.read(`${base}/automation/flow`).heldBy).toEqual(['portal:captcha_provider_unavailable']);
+    expect(store.read(base).automationDueAt).toBeNull();
   });
 
   it('changes the fingerprint only for runner sources and covers those files in the workflow trigger', () => {

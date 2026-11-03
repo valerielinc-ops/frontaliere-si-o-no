@@ -17,7 +17,12 @@ const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 function writeFixture(root: string, omitItNewestTitle = false) {
   mkdirSync(join(root, 'data'), { recursive: true });
+  mkdirSync(join(root, 'public'), { recursive: true });
   mkdirSync(join(root, 'services', 'locales'), { recursive: true });
+  writeFileSync(
+    join(root, 'public', 'sitemap-blog.xml'),
+    '<urlset><url><loc>https://example.test/articoli-frontaliere/newest-it/</loc></url><url><loc>https://example.test/articoli-frontaliere/older-it/</loc></url><url><loc>https://example.test/articoli-frontaliere/</loc></url></urlset>',
+  );
 
   writeFileSync(
     join(root, 'data', 'blog-articles-data.ts'),
@@ -149,6 +154,34 @@ describe('refreshArticleHubLandings', () => {
         expect(html).not.toContain('href="https://www.bfs.admin.ch"');
         expect(html).toContain('<nav class="s-eazYqN">nav</nav>');
       }
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('reconciles the live hub count and separates telework from the 45-day return rule', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'article-hub-claims-'));
+    const dist = join(root, 'dist');
+    try {
+      writeFixture(root);
+      const shell = `${SHELL}<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. Le novità includono la ratifica definitiva del telelavoro fino a 45 giorni.</p>`;
+      const result = await refreshArticleHubLandings({
+        rootDir: root,
+        distDir: dist,
+        section: 'frontaliere',
+        locales: ['it'],
+        siteBase: 'https://example.test',
+        now: new Date('2026-11-03T12:00:00Z'),
+        fetchImpl: fakeFetch(shell, []),
+      });
+
+      expect(result.errors).toEqual([]);
+      const html = readFileSync(join(dist, 'articoli-frontaliere/index.html'), 'utf-8');
+      expect(html).toContain('2 — URL italiane canoniche di dettaglio nella sezione Frontaliere; hub escluso; conteggio al 2026-11-03');
+      expect(html).toContain('Protocollo sul telelavoro fino al 25%');
+      expect(html).toContain('45 giorni previsti dall’Accordo riguardano i mancati rientri');
+      expect(html).not.toContain('oltre 870 articoli');
+      expect(html).not.toContain('ratifica definitiva del telelavoro fino a 45 giorni');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { renderCorrectionsEditorial } from '../build-plugins/shared/correctionsEditorial';
 import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
 import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
+import correctionsLog from '../data/corrections-log.json';
 
 describe('static corrections policy locale contract', () => {
   it.each([
@@ -20,7 +21,7 @@ describe('static corrections policy locale contract', () => {
     expect(metadata.canonical).toBe(`https://frontaliereticino.ch${DISCLOSURE_ROUTE_CONTRACT[locale].corrections}`);
     expect(metadata.jsonLd).toMatchObject({ inLanguage: locale, url: metadata.canonical });
     expect(metadata.jsonLd.about).toMatchObject({ name: policyName, inLanguage: locale });
-    expect(metadata.jsonLd).not.toHaveProperty('lastReviewed');
+    expect(metadata.jsonLd).toHaveProperty('lastReviewed', '2026-10-31');
     expect(metadata.description).not.toMatch(/SLA|48/);
   });
   it('renders populated log types in each locale and escapes source descriptions', () => {
@@ -42,5 +43,23 @@ describe('static corrections policy locale contract', () => {
     const source = readFileSync(new URL('../build-plugins/staticPagesPlugin.ts', import.meta.url), 'utf8');
     expect(source.indexOf('editorialBlocks.push(...renderCorrectionsEditorial')).toBeLessThan(source.indexOf('editorialBlocks.push(...SECTION_EDITORIAL'));
     expect(source).not.toContain("} else if (canonicalPath === '/correzioni'");
+  });
+
+  it('publishes the actual 31 October corrections with affected URLs and source references', () => {
+    expect(correctionsLog.entries).toHaveLength(7);
+    expect(correctionsLog.entries.map((entry) => entry.date)).toContain('2026-10-31T08:16:20Z');
+    expect(correctionsLog.entries.map((entry) => entry.date)).toContain('2026-10-31T12:26:24Z');
+    for (const entry of correctionsLog.entries) {
+      expect(entry.articleId).toMatch(/^https:\/\/frontaliereticino\.ch\/.+\/$/);
+      expect(entry.description).toContain('Prima:');
+      expect(entry.description).toContain('Corretto:');
+      expect(entry.description).toContain('Riferiment');
+    }
+
+    const html = renderCorrectionsEditorial('it').join('');
+    expect(html).toContain('2026-10-31');
+    expect(html).toContain('Accordo CH-IT art. 3 par. 1');
+    expect(html).toContain('L. 83/2023 ha 15 articoli');
+    expect(html).not.toContain('Nessuna correzione registrata finora');
   });
 });
