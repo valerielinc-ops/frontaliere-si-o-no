@@ -2933,3 +2933,29 @@ index 2e00ca9..d24ba62 100644
  }
  
  /**
+diff --git a/generator/scripts/lib/article-slug-registry.mjs b/generator/scripts/lib/article-slug-registry.mjs
+--- a/generator/scripts/lib/article-slug-registry.mjs
++++ b/generator/scripts/lib/article-slug-registry.mjs
+@@ -31,5 +31,5 @@
+ import {
+   ARTICLE_SECTION_CORE,
+   SITE_RENDERED_ARTICLE_SECTIONS,
+-} from '../../build-plugins/shared/articleSectionCore.mjs';
+-import { parseArticleUrlSlugs } from '../../packages/articles/engine/shared/articleReaderSource.mjs';
++} from '../../../engine/shared/articleSectionCore.mjs';
++import { parseArticleUrlSlugs } from '../../../engine/shared/articleReaderSource.mjs';
+diff --git a/generator/scripts/lib/journalist-article-identity.mjs b/generator/scripts/lib/journalist-article-identity.mjs
+--- a/generator/scripts/lib/journalist-article-identity.mjs
++++ b/generator/scripts/lib/journalist-article-identity.mjs
+@@ -9,1 +9,2 @@
+ import { ARTICLE_REGISTRY_FILES, readSlugRegistry } from './article-slug-registry.mjs';
++import { corpusPath } from './corpus-paths.mjs';
+@@ -14,7 +15,7 @@
+ export function getAllArticleIds() {
+   if (articleIdsCache) return articleIdsCache;
+   const ids = new Set();
+   for (const { file, constName } of Object.values(ARTICLE_REGISTRY_FILES)) {
+     try {
+-      const registry = readSlugRegistry(new URL(`../../${file}`, import.meta.url), constName);
++      const registry = readSlugRegistry(new URL(`../../../${corpusPath(file)}`, import.meta.url), constName);
+       for (const id of Object.keys(registry)) ids.add(id);
