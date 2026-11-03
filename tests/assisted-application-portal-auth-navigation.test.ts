@@ -14,8 +14,8 @@ describe('assisted portal account navigation', () => {
       click,
     };
     const loginFields = [
-      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true },
-      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, formId: 'login-form' },
     ];
     const registrationFields = [
       ...loginFields,
@@ -30,7 +30,7 @@ describe('assisted portal account navigation', () => {
       evaluate: vi.fn(async () => ({
         url: URL,
         fields: pageKind === 'sign_in' ? loginFields : registrationFields,
-        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Login' }] : [],
+        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Login', formId: 'login-form' }] : [],
         links: pageKind === 'sign_in' ? [{ id: 'create-account', text: 'Create an account' }] : [],
         dialogs: [],
         captcha: false,
@@ -68,7 +68,7 @@ describe('assisted portal account navigation', () => {
       snapshot: {
         url: URL,
         fields: loginFields.map((field) => ({ ...field, frame: 1 })),
-        buttons: [{ id: 'login', text: 'Login', frame: 1 }],
+        buttons: [{ id: 'login', text: 'Login', frame: 1, formId: 'login-form' }],
         links: [{ id: 'create-account', text: 'Create an account', frame: 1 }],
         dialogs: [],
         captcha: false,
@@ -97,8 +97,8 @@ describe('assisted portal account navigation', () => {
       click,
     };
     const loginFields = [
-      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true },
-      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, formId: 'login-form' },
     ];
     const registrationFields = [
       ...loginFields,
@@ -110,7 +110,7 @@ describe('assisted portal account navigation', () => {
       evaluate: vi.fn(async () => ({
         url: URL,
         fields: pageKind === 'sign_in' ? loginFields : registrationFields,
-        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Login' }] : [],
+        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Login', formId: 'login-form' }] : [],
         links: [],
         dialogs: [],
         captcha: false,
@@ -157,8 +157,14 @@ describe('assisted portal account navigation', () => {
       page: page as any,
       snapshot: {
         url: URL,
-        fields: loginFields.map((field) => ({ ...field, frame: 1 })),
-        buttons: [{ id: 'login', text: 'Login', frame: 1 }],
+        fields: [
+          { id: 'unrelated-field', kind: 'text', inputType: 'text', label: 'Unrelated field', frame: 2, formId: 'other-form' },
+          ...loginFields.map((field) => ({ ...field, frame: 1 })),
+        ],
+        buttons: [
+          { id: 'unrelated-button', text: 'Help', frame: 2, formId: 'other-form' },
+          { id: 'login', text: 'Login', frame: 1, formId: 'login-form' },
+        ],
         links: [],
         dialogs: [],
         captcha: false,
@@ -208,10 +214,10 @@ describe('assisted portal account navigation', () => {
       snapshot: {
         url: URL,
         fields: [
-          { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, frame: 1 },
-          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, frame: 1 },
+          { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, frame: 1, formId: 'login-form' },
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, frame: 1, formId: 'login-form' },
         ],
-        buttons: [{ id: 'login', text: 'Login', frame: 1 }],
+        buttons: [{ id: 'login', text: 'Login', frame: 1, formId: 'login-form' }],
         links: [],
         dialogs: [],
         passwordVisible: true,

@@ -1756,6 +1756,16 @@ export function dedupePortalQuestions(questions = []) {
   });
 }
 
+function authFormIdentity(snapshot) {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const password = fields.find((field) => field.inputType === 'password');
+  const anchor = password || codeField(snapshot);
+  if (!anchor) return null;
+  const frame = Number(anchor.frame);
+  if (!Number.isSafeInteger(frame) || frame < 0) return null;
+  return { frame, formId: String(anchor.formId || '').trim() };
+}
+
 /** Presses the first control one of the patterns names; false when there is none, else how it was found. */
 async function clickFirst(page, snapshot, patterns) {
   for (const pattern of patterns) {
@@ -1781,9 +1791,14 @@ async function clickFirst(page, snapshot, patterns) {
     // this lookup explicit and frame-scoped so a generic header control is
     // never promoted to an auth action.
     const frames = page.frames();
+    const authForm = authFormIdentity(snapshot);
     const formFrameNumbers = [...new Set([
       ...(snapshot.fields || []), ...(snapshot.buttons || []),
-    ].map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
+    ].filter((control) => {
+      const frame = Number(control.frame);
+      return authForm && frame === authForm.frame
+        && (!authForm.formId || String(control.formId || '').trim() === authForm.formId);
+    }).map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
     const formFrames = formFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
     for (const frame of formFrames) {
       if (typeof frame?.getByRole !== 'function') continue;
