@@ -76,6 +76,12 @@ export const RX = Object.freeze({
   igKeepEditing: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
   igVideoReelNotice: /video posts are now shared as reels|i post con video ora vengono condivisi come reel|video-?beiträge werden jetzt als reels geteilt|les publications vidéo sont désormais partagées sous forme de reels/i,
   igNoticeAcknowledge: EXACT_TEXT_ONE_OF('Ok', 'OK', 'Got it', 'Va bene', 'D’accord', "D'accord", 'D’accordo', "D'accordo", 'Verstanden', 'Compris'),
+  // Instagram can surface the unsaved-post confirmation as a roleless div.
+  // Match the complete warning and both actions before taking the safe cancel
+  // path; a loose "Annulla" match could close an unrelated dialog.
+  igUnsavedPostTitle: /vuoi eliminare il post\?\s*se abbandoni, le tue modifiche non verranno salvate\.?|do you want to discard (?:the )?post\?\s*if you leave, your changes won't be saved\.?|möchtest du den beitrag löschen\?\s*wenn du gehst, werden deine änderungen nicht gespeichert\.?|voulez-vous supprimer (?:la publication|le post)\s*\?\s*si vous quittez, vos modifications ne seront pas enregistrées\.?/i,
+  igUnsavedPostCancel: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
+  igUnsavedPostDelete: EXACT_TEXT_ONE_OF('Elimina', 'Delete', 'Löschen', 'Supprimer'),
   igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
@@ -886,6 +892,14 @@ export const INTERSTITIAL_REGISTRY = Object.freeze({
     Object.freeze({ id: 'instagram-not-now', surface: 'button', name: RX.notNow, safeAction: 'click' }),
     Object.freeze({ id: 'instagram-discard-post-confirmation', surface: 'dialog', role: 'dialog', title: RX.igDiscardPostTitle, name: RX.igKeepEditing, safeAction: 'keep-editing' }),
     Object.freeze({ id: 'instagram-video-reel-notice', surface: 'dialog', role: 'dialog', title: RX.igVideoReelNotice, name: RX.igNoticeAcknowledge, safeAction: 'click-dialog-acknowledge' }),
+    Object.freeze({
+      id: 'instagram-unsaved-post',
+      surface: 'text-container',
+      title: RX.igUnsavedPostTitle,
+      name: RX.igUnsavedPostCancel,
+      secondaryName: RX.igUnsavedPostDelete,
+      safeAction: 'cancel-unsaved-post',
+    }),
   ]),
   tiktok: Object.freeze([
     // Cookie consent is always handled first: it can cover a tour action.
@@ -937,6 +951,36 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
       dialog.locator('button').filter({ hasText: entry.name }),
     ], { timeout: Math.max(DIALOG_ACTION_LOOKUP_TIMEOUT_MS, deadline - Date.now()) });
     return { root: dialog, action };
+  }
+
+  if (entry.surface === 'text-container') {
+    const deadline = Date.now() + timeout;
+    for (;;) {
+      const containers = page.locator('div').filter({ hasText: entry.title });
+      const matches = [];
+      const count = await containers.count().catch(() => 0);
+      for (let i = 0; i < count; i += 1) {
+        const root = containers.nth(i);
+        if (!await visible(root)) continue;
+        const action = await findVisible([
+          root.getByRole('button', { name: entry.name }),
+          root.locator('button').filter({ hasText: entry.name }),
+        ], { timeout: 0 });
+        const secondary = await findVisible([
+          root.getByRole('button', { name: entry.secondaryName }),
+          root.locator('button').filter({ hasText: entry.secondaryName }),
+        ], { timeout: 0 });
+        if (!action || !secondary) continue;
+        matches.push({ root, action, textLength: normalize(await root.innerText().catch(() => '')).length });
+      }
+      if (matches.length > 0) {
+        matches.sort((a, b) => a.textLength - b.textLength);
+        if (matches.length === 1 || matches[0].textLength < matches[1].textLength) return matches[0];
+        return null;
+      }
+      if (Date.now() >= deadline) return null;
+      await sleep(Math.min(100, Math.max(1, deadline - Date.now())));
+    }
   }
 
   if (entry.surface === 'banner') {
@@ -1027,6 +1071,14 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe discard action`, { step: step.get() });
     }
     await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `discard action for ${entry.id}` });
+    return;
+  }
+
+  if (entry.safeAction === 'cancel-unsaved-post') {
+    if (!await visible(target.action)) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe cancel action`, { step: step.get() });
+    }
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `safe cancel action for ${entry.id}` });
     return;
   }
 

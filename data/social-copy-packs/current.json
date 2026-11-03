@@ -1,417 +1,945 @@
 {
-  "schemaVersion": 1,
-  "promptVersion": "frontaliere-social-copy-v1",
-  "packId": "9147b54fb0eb5b76",
-  "generatedAt": "2026-11-02T12:54:02.004Z",
-  "validUntil": "2026-12-17T12:54:02.004Z",
+  "schemaVersion": 4,
+  "promptVersion": "frontaliere-social-copy-v4",
+  "packId": "27d7e35f8b311304",
+  "generatedAt": "2026-11-03T17:52:25.653Z",
+  "validUntil": "2026-12-18T17:52:25.653Z",
+  "editorialPlan": {
+    "pillars": [
+      {
+        "id": "opportunita-concrete",
+        "name": "Opportunità concrete",
+        "audienceNeed": "Capire quali passi pratici si possono valutare"
+      },
+      {
+        "id": "vita-oltreconfine",
+        "name": "Vita oltreconfine",
+        "audienceNeed": "Orientarsi tra lavoro e vita tra Italia e Svizzera"
+      },
+      {
+        "id": "strumenti-utili",
+        "name": "Strumenti utili",
+        "audienceNeed": "Trovare risposte verificabili a domande ricorrenti"
+      }
+    ],
+    "angles": {
+      "instagram": {
+        "article": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "job": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "border": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "reel": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ]
+      },
+      "tiktok": {
+        "article": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "job": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "border": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "video": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ]
+      },
+      "facebook": {
+        "article": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "job": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "event": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "digest": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ]
+      },
+      "linkedin": {
+        "article": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "job": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ]
+      },
+      "telegram": {
+        "job": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "border": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ]
+      },
+      "reddit": {
+        "article": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ],
+        "job": [
+          {
+            "id": "passo-pratico",
+            "pillarId": "opportunita-concrete",
+            "audienceNeed": "Capire quale passo concreto valutare",
+            "angle": "Portare un tema verso il prossimo passo verificabile",
+            "intent": "both",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "contesto-chiaro",
+            "pillarId": "vita-oltreconfine",
+            "audienceNeed": "Orientarsi nel contesto oltreconfine",
+            "angle": "Dare il contesto essenziale prima di una scelta oltreconfine",
+            "intent": "searchable",
+            "evidenceBasis": "publisher-source-inventory"
+          },
+          {
+            "id": "domanda-comune",
+            "pillarId": "strumenti-utili",
+            "audienceNeed": "Trovare una risposta utile a un dubbio preciso",
+            "angle": "Partire da una domanda circoscritta e aprire un confronto utile",
+            "intent": "both",
+            "evidenceBasis": "editorial-hypothesis"
+          }
+        ]
+      }
+    }
+  },
   "channels": {
     "instagram": {
       "article": [
         {
-          "id": "article-share-colleague",
+          "id": "ig-article-share-step",
           "objective": "share",
-          "hook": "Hai trovato una risposta utile per chi vive tra Italia e Svizzera?",
-          "cta": "Condividi questa guida con chi ne ha bisogno."
+          "angleId": "passo-pratico",
+          "hook": "Hai trovato un passaggio utile da passare a chi lavora oltreconfine?",
+          "cta": "Condividi la guida con chi ne ha bisogno."
         },
         {
-          "id": "article-share-beyond-border",
+          "id": "ig-article-share-context",
           "objective": "share",
-          "hook": "Un approfondimento da passare a chi lavora oltreconfine",
-          "cta": "Condividi l'articolo con il tuo collega."
+          "angleId": "contesto-chiaro",
+          "hook": "Un contesto chiaro da condividere con chi vive tra Italia e Svizzera",
+          "cta": "Condividi questo approfondimento con il tuo collega."
         },
         {
-          "id": "article-share-community",
+          "id": "ig-article-share-question",
           "objective": "share",
-          "hook": "Quando un tema riguarda anche il tuo collega, portagli questa guida",
-          "cta": "Condividi questo approfondimento nella tua cerchia."
+          "angleId": "domanda-comune",
+          "hook": "Una risposta da far arrivare a chi si pone la stessa domanda",
+          "cta": "Condividi la risposta nella tua cerchia."
         },
         {
-          "id": "article-save-clarity",
+          "id": "ig-article-save-step",
           "objective": "save",
-          "hook": "Una guida da ritrovare quando vorrai fare chiarezza",
-          "cta": "Salva questa guida per il momento giusto."
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio pratico da ritrovare quando ti servirà",
+          "cta": "Salva questa guida per ritrovarla."
         },
         {
-          "id": "article-save-reference",
+          "id": "ig-article-save-context",
           "objective": "save",
-          "hook": "Un punto utile da tenere a portata di mano",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto da tenere a portata di mano",
           "cta": "Conserva questo approfondimento per dopo."
         },
         {
-          "id": "article-save-reread",
+          "id": "ig-article-save-question",
           "objective": "save",
-          "hook": "Per il momento in cui vorrai rileggere con calma",
-          "cta": "Metti da parte questo articolo per quando ti servirà."
+          "angleId": "domanda-comune",
+          "hook": "Una risposta utile da rileggere con calma",
+          "cta": "Metti da parte questa risposta per quando ti servirà."
         },
         {
-          "id": "article-conversation-question",
+          "id": "ig-article-talk-step",
           "objective": "conversation",
-          "hook": "Quale domanda ti resta dopo aver letto questo tema?",
-          "cta": "Quale domanda ti resta? Scrivila nei commenti."
+          "angleId": "passo-pratico",
+          "hook": "Quale passaggio vuoi rendere più semplice?",
+          "cta": "Quale passaggio vuoi rendere più semplice? Scrivilo nei commenti."
         },
         {
-          "id": "article-conversation-clarity",
+          "id": "ig-article-talk-context",
           "objective": "conversation",
-          "hook": "Dove senti più spesso il bisogno di chiarezza?",
-          "cta": "Dove cerchi più chiarezza? Raccontalo nei commenti."
+          "angleId": "contesto-chiaro",
+          "hook": "Che cosa vorresti capire meglio del contesto?",
+          "cta": "Che cosa vorresti capire meglio? Raccontalo nei commenti."
         },
         {
-          "id": "article-conversation-detail",
+          "id": "ig-article-talk-question",
           "objective": "conversation",
-          "hook": "Che cosa vorresti capire meglio su questo argomento?",
-          "cta": "Che cosa vorresti capire meglio? Scrivilo nei commenti."
+          "angleId": "domanda-comune",
+          "hook": "Quale dubbio ti accompagna su questo tema?",
+          "cta": "Quale dubbio ti accompagna? Lascia un commento."
         }
       ],
       "job": [
         {
-          "id": "job-share-next-step",
+          "id": "ig-job-share-step",
           "objective": "share",
-          "hook": "Conosci qualcuno che sta cercando il prossimo passo professionale?",
-          "cta": "Condividi questa offerta con chi la sta cercando."
+          "angleId": "passo-pratico",
+          "hook": "Conosci chi sta valutando un nuovo passo professionale?",
+          "cta": "Condividi l'offerta con chi la cerca."
         },
         {
-          "id": "job-share-right-person",
+          "id": "ig-job-share-context",
           "objective": "share",
-          "hook": "Un'offerta da far arrivare alla persona giusta",
+          "angleId": "contesto-chiaro",
+          "hook": "Un ruolo da far conoscere a chi guarda oltreconfine",
           "cta": "Condividi il ruolo con una persona interessata."
         },
         {
-          "id": "job-share-network",
+          "id": "ig-job-share-question",
           "objective": "share",
-          "hook": "Questo ruolo può interessare chi sta valutando un cambiamento",
-          "cta": "Condividi l'annuncio nella tua rete professionale."
+          "angleId": "domanda-comune",
+          "hook": "Questa posizione può rispondere a una ricerca concreta?",
+          "cta": "Condividi l'annuncio nella tua rete."
         },
         {
-          "id": "job-save-review",
+          "id": "ig-job-save-step",
           "objective": "save",
-          "hook": "Un'offerta da ritrovare quando cerchi con calma",
+          "angleId": "passo-pratico",
+          "hook": "Un ruolo da ritrovare quando cerchi con calma",
           "cta": "Salva questa offerta per rivederla."
         },
         {
-          "id": "job-save-options",
+          "id": "ig-job-save-context",
           "objective": "save",
-          "hook": "Il ruolo da tenere tra le tue opzioni",
+          "angleId": "contesto-chiaro",
+          "hook": "Un'opportunità da tenere tra le tue opzioni",
           "cta": "Conserva il ruolo tra le tue opzioni."
         },
         {
-          "id": "job-save-next-move",
+          "id": "ig-job-save-question",
           "objective": "save",
-          "hook": "Per valutare il prossimo passo senza fretta",
+          "angleId": "domanda-comune",
+          "hook": "Un annuncio da rileggere prima di decidere",
           "cta": "Metti da parte l'annuncio per dopo."
         },
         {
-          "id": "job-conversation-detail",
+          "id": "ig-job-talk-step",
           "objective": "conversation",
-          "hook": "Quale dettaglio guardi in un'offerta?",
-          "cta": "Quale dettaglio guardi? Scrivilo nei commenti."
+          "angleId": "passo-pratico",
+          "hook": "Quale dettaglio verifichi per primo in un'offerta?",
+          "cta": "Quale dettaglio verifichi? Scrivilo nei commenti."
         },
         {
-          "id": "job-conversation-values",
+          "id": "ig-job-talk-context",
           "objective": "conversation",
-          "hook": "Che cosa conta per te quando valuti un ruolo?",
+          "angleId": "contesto-chiaro",
+          "hook": "Che cosa conta per te in un ruolo oltreconfine?",
           "cta": "Che cosa conta per te? Raccontalo nei commenti."
         },
         {
-          "id": "job-conversation-direction",
+          "id": "ig-job-talk-question",
           "objective": "conversation",
-          "hook": "Dove cerchi il tuo prossimo passo professionale?",
-          "cta": "Dove cerchi il prossimo passo? Commenta nei commenti."
+          "angleId": "domanda-comune",
+          "hook": "Quale domanda ti fai prima di candidarti?",
+          "cta": "Quale domanda ti fai? Lascia un commento."
         }
       ],
       "border": [
         {
-          "id": "border-share-useful",
+          "id": "ig-border-share-step",
           "objective": "share",
-          "hook": "Un'informazione utile per chi passa il confine",
-          "cta": "Condividi questa guida con chi attraversa il confine."
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio utile per chi attraversa il confine",
+          "cta": "Condividi questa guida con chi si sposta."
         },
         {
-          "id": "border-share-mobility",
+          "id": "ig-border-share-context",
           "objective": "share",
-          "hook": "Conosci qualcuno che si sposta tra Italia e Svizzera?",
-          "cta": "Condividi l'informazione con chi si sposta oltreconfine."
+          "angleId": "contesto-chiaro",
+          "hook": "Un contesto da far arrivare a chi vive oltreconfine",
+          "cta": "Condividi l'informazione con chi ne ha bisogno."
         },
         {
-          "id": "border-share-community",
+          "id": "ig-border-share-question",
           "objective": "share",
-          "hook": "Un tema da far arrivare a chi vive oltreconfine",
-          "cta": "Condividi questo approfondimento con la tua comunità."
+          "angleId": "domanda-comune",
+          "hook": "Una risposta da condividere prima di organizzarsi",
+          "cta": "Condividi questo approfondimento nella tua cerchia."
         },
         {
-          "id": "border-save-travel",
+          "id": "ig-border-save-step",
           "objective": "save",
-          "hook": "La guida da tenere con te quando attraversi il confine",
-          "cta": "Salva questa guida prima di partire."
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio da ritrovare prima di muoverti",
+          "cta": "Salva questa guida per quando ti servirà."
         },
         {
-          "id": "border-save-reference",
+          "id": "ig-border-save-context",
           "objective": "save",
-          "hook": "Un riferimento da ritrovare prima di partire",
-          "cta": "Conserva queste indicazioni per quando ti serviranno."
+          "angleId": "contesto-chiaro",
+          "hook": "Le indicazioni da tenere a portata di mano",
+          "cta": "Conserva queste indicazioni per dopo."
         },
         {
-          "id": "border-save-planning",
+          "id": "ig-border-save-question",
           "objective": "save",
-          "hook": "Per orientarti quando il confine entra nei tuoi piani",
-          "cta": "Metti da parte questo riferimento per il momento giusto."
+          "angleId": "domanda-comune",
+          "hook": "Un dubbio da chiarire prima di partire",
+          "cta": "Metti da parte questo riferimento per dopo."
         },
         {
-          "id": "border-conversation-step",
+          "id": "ig-border-talk-step",
           "objective": "conversation",
-          "hook": "Quale passaggio del confine vuoi chiarire?",
+          "angleId": "passo-pratico",
+          "hook": "Quale passaggio vuoi chiarire prima di muoverti?",
           "cta": "Quale passaggio vuoi chiarire? Scrivilo nei commenti."
         },
         {
-          "id": "border-conversation-doubt",
+          "id": "ig-border-talk-context",
           "objective": "conversation",
-          "hook": "Che cosa ti crea più dubbi prima di partire?",
-          "cta": "Che cosa ti crea dubbi? Raccontalo nei commenti."
+          "angleId": "contesto-chiaro",
+          "hook": "Che cosa ti crea più incertezza quando ti sposti?",
+          "cta": "Che cosa ti crea più incertezza? Raccontalo nei commenti."
         },
         {
-          "id": "border-conversation-uncertainty",
+          "id": "ig-border-talk-question",
           "objective": "conversation",
-          "hook": "Dove trovi più incertezza quando ti sposti?",
-          "cta": "Dove trovi più incertezza? Commenta nei commenti."
+          "angleId": "domanda-comune",
+          "hook": "Quale informazione cerchi prima di partire?",
+          "cta": "Quale informazione cerchi? Lascia un commento."
         }
       ],
       "reel": [
         {
-          "id": "reel-share-video",
-          "objective": "share",
-          "hook": "Un punto chiaro da mandare a chi vive oltreconfine",
-          "cta": "Condividi questo video con chi ne ha bisogno."
+          "id": "ig-reel-follow-step",
+          "objective": "follow",
+          "angleId": "passo-pratico",
+          "hook": "Il passaggio pratico da capire prima di muoverti",
+          "cta": "Segui Frontaliere per orientarti meglio."
         },
         {
-          "id": "reel-share-nearby",
-          "objective": "share",
-          "hook": "Quando un breve video può aiutare una persona vicina",
-          "cta": "Condividi il passaggio con una persona vicina."
+          "id": "ig-reel-follow-context",
+          "objective": "follow",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto oltreconfine spiegato senza giri",
+          "cta": "Segui Frontaliere per capire il contesto."
         },
         {
-          "id": "reel-share-orientation",
-          "objective": "share",
-          "hook": "Un passaggio da condividere con chi cerca orientamento",
-          "cta": "Condividi la sintesi nella tua rete."
-        },
-        {
-          "id": "reel-save-reread",
-          "objective": "save",
-          "hook": "Un video da rivedere quando ti servirà",
-          "cta": "Salva questo video per rivederlo."
-        },
-        {
-          "id": "reel-save-choice",
-          "objective": "save",
-          "hook": "Tieni questo passaggio per il momento della scelta",
-          "cta": "Conserva il passaggio per il momento giusto."
-        },
-        {
-          "id": "reel-save-summary",
-          "objective": "save",
-          "hook": "Una sintesi da ritrovare con calma",
-          "cta": "Metti da parte questa sintesi per dopo."
-        },
-        {
-          "id": "reel-conversation-explore",
-          "objective": "conversation",
-          "hook": "Quale passaggio del video vuoi esplorare?",
-          "cta": "Quale passaggio vuoi esplorare? Scrivilo nei commenti."
-        },
-        {
-          "id": "reel-conversation-pause",
-          "objective": "conversation",
-          "hook": "Che cosa ti ha fatto fermare?",
-          "cta": "Che cosa ti ha fatto fermare? Raccontalo nei commenti."
-        },
-        {
-          "id": "reel-conversation-clarity",
-          "objective": "conversation",
-          "hook": "Dove vorresti più chiarezza?",
-          "cta": "Dove vorresti più chiarezza? Commenta nei commenti."
+          "id": "ig-reel-follow-question",
+          "objective": "follow",
+          "angleId": "domanda-comune",
+          "hook": "La domanda utile per leggere meglio il tema",
+          "cta": "Segui Frontaliere per trovare risposte chiare."
         }
       ]
     },
     "tiktok": {
       "article": [
         {
-          "id": "article-read-context",
-          "hook": "Il punto da capire prima di leggere l'approfondimento",
-          "cta": "Leggi l'approfondimento dal link in bio."
+          "id": "tt-article-step",
+          "angleId": "passo-pratico",
+          "hook": "Il passaggio pratico da capire prima di leggere",
+          "cta": "Leggi la guida dal link in bio."
         },
         {
-          "id": "article-read-orientation",
-          "hook": "Una guida breve per orientarti tra Italia e Svizzera",
+          "id": "tt-article-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto utile per orientarti tra Italia e Svizzera",
           "cta": "Approfondisci il tema dal link in bio."
         },
         {
-          "id": "article-read-answer",
-          "hook": "Quando ti serve una risposta chiara, parti da qui",
+          "id": "tt-article-question",
+          "angleId": "domanda-comune",
+          "hook": "La domanda da portare dentro l'approfondimento",
           "cta": "Consulta la guida dal link in bio."
         }
       ],
       "job": [
         {
-          "id": "job-search-next-step",
-          "hook": "Stai cercando un ruolo per il tuo prossimo passo?",
+          "id": "tt-job-step",
+          "angleId": "passo-pratico",
+          "hook": "Il passo professionale parte dai dettagli del ruolo",
           "cta": "Scopri l'offerta dal link in bio."
         },
         {
-          "id": "job-view-offer",
-          "hook": "L'offerta da guardare con attenzione",
-          "cta": "Candidati dal link in bio."
+          "id": "tt-job-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Un contesto chiaro per valutare un ruolo oltreconfine",
+          "cta": "Consulta il ruolo dal link in bio."
         },
         {
-          "id": "job-targeted-search",
-          "hook": "Un nuovo ruolo può iniziare da una ricerca mirata",
-          "cta": "Consulta il ruolo dal link in bio."
+          "id": "tt-job-question",
+          "angleId": "domanda-comune",
+          "hook": "La domanda da farti prima di una candidatura",
+          "cta": "Candidati dal link in bio."
         }
       ],
       "border": [
         {
-          "id": "border-practical-view",
-          "hook": "Il confine visto dal lato pratico",
-          "cta": "Consulta la guida dal link in bio."
-        },
-        {
-          "id": "border-before-travel",
-          "hook": "Prima di partire, chiarisci questo passaggio",
+          "id": "tt-border-step",
+          "angleId": "passo-pratico",
+          "hook": "Il passaggio da chiarire prima di attraversare il confine",
           "cta": "Leggi le indicazioni dal link in bio."
         },
         {
-          "id": "border-between-countries",
-          "hook": "Per chi si muove tra Italia e Svizzera",
+          "id": "tt-border-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto utile per chi si muove oltreconfine",
           "cta": "Approfondisci il tema dal link in bio."
+        },
+        {
+          "id": "tt-border-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda pratica prima di organizzare lo spostamento",
+          "cta": "Consulta la guida dal link in bio."
         }
       ],
       "video": [
         {
-          "id": "video-short-answer",
-          "hook": "Una risposta breve a una domanda che torna",
+          "id": "tt-video-step",
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio breve per capire meglio il tema",
           "cta": "Guarda il video dal link in bio."
         },
         {
-          "id": "video-clarity-point",
-          "hook": "Il passaggio da rivedere quando serve chiarezza",
-          "cta": "Approfondisci il tema dal link in bio."
+          "id": "tt-video-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto da rivedere quando serve chiarezza",
+          "cta": "Ascolta il video dal link in bio."
         },
         {
-          "id": "video-stay-focused",
-          "hook": "Un video per orientarti senza perdere il punto",
-          "cta": "Consulta la guida dal link in bio."
+          "id": "tt-video-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda concreta per seguire il punto",
+          "cta": "Approfondisci dal link in bio."
         }
       ]
     },
     "facebook": {
       "article": [
         {
-          "id": "article-context-decision",
-          "hook": "Quando una regola o una scelta crea dubbi, qui trovi un approfondimento da leggere con calma.",
-          "cta": "Leggi l'approfondimento completo."
+          "id": "fb-article-step",
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio pratico per leggere con più chiarezza un tema oltreconfine.",
+          "cta": "Leggi l'approfondimento."
         },
         {
-          "id": "article-cross-border-life",
-          "hook": "Un tema utile per chi vive, lavora o si muove tra Italia e Svizzera.",
+          "id": "fb-article-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto utile per chi lavora o vive tra Italia e Svizzera.",
           "cta": "Approfondisci il tema."
         },
         {
-          "id": "article-clearer-choice",
-          "hook": "Il contesto che serve per affrontare una decisione con più chiarezza.",
-          "cta": "Consulta la guida editoriale."
+          "id": "fb-article-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda concreta può aprire una lettura più attenta del tema.",
+          "cta": "Consulta la guida."
         }
       ],
       "job": [
         {
-          "id": "job-professional-step",
-          "hook": "Stai valutando un nuovo passo professionale in Svizzera?",
-          "cta": "Scopri l'offerta completa."
-        },
-        {
-          "id": "job-verified-details",
-          "hook": "Una posizione da esplorare con calma, con i dettagli verificati nell'offerta.",
-          "cta": "Consulta i dettagli del ruolo."
-        },
-        {
-          "id": "job-focused-search",
-          "hook": "Il tuo prossimo ruolo può partire da una ricerca più mirata.",
+          "id": "fb-job-step-read",
+          "angleId": "passo-pratico",
+          "hook": "Un ruolo da valutare partendo dai dettagli che contano per te.",
           "cta": "Apri l'annuncio di lavoro."
         },
         {
-          "id": "job-use-experience",
-          "hook": "Cerchi un ambiente in cui mettere a frutto la tua esperienza?",
-          "cta": "Leggi la posizione disponibile."
-        },
-        {
-          "id": "job-right-fit",
-          "hook": "Un'offerta da confrontare con ciò che cerchi davvero.",
-          "cta": "Approfondisci il ruolo proposto."
-        },
-        {
-          "id": "job-market-view",
-          "hook": "Sei pronto a guardare il mercato del lavoro da un'altra prospettiva?",
-          "cta": "Visita la scheda dell'offerta."
-        },
-        {
-          "id": "job-new-possibility",
-          "hook": "Una nuova possibilità professionale da valutare senza fretta.",
+          "id": "fb-job-step-check",
+          "angleId": "passo-pratico",
+          "hook": "Il prossimo passo professionale comincia da una verifica concreta.",
           "cta": "Verifica i requisiti indicati."
         },
         {
-          "id": "job-informed-choice",
-          "hook": "Il ruolo giusto inizia da informazioni chiare e da una scelta consapevole.",
-          "cta": "Esplora il percorso di candidatura."
+          "id": "fb-job-step-explore",
+          "angleId": "passo-pratico",
+          "hook": "Una posizione da esplorare con attenzione, senza saltare i passaggi.",
+          "cta": "Esplora la posizione."
         },
         {
-          "id": "job-beyond-border",
-          "hook": "Stai cercando un lavoro oltreconfine o un nuovo orientamento?",
+          "id": "fb-job-step-review",
+          "angleId": "passo-pratico",
+          "hook": "Un'offerta da confrontare con ciò che stai cercando.",
+          "cta": "Controlla il ruolo proposto."
+        },
+        {
+          "id": "fb-job-context-discover",
+          "angleId": "contesto-chiaro",
+          "hook": "Un'opportunità per chi guarda al lavoro oltreconfine con attenzione.",
+          "cta": "Scopri l'offerta completa."
+        },
+        {
+          "id": "fb-job-context-details",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto del ruolo può aiutarti a leggere meglio la posizione.",
+          "cta": "Consulta i dettagli del ruolo."
+        },
+        {
+          "id": "fb-job-context-path",
+          "angleId": "contesto-chiaro",
+          "hook": "Una posizione da considerare nel tuo percorso professionale.",
+          "cta": "Approfondisci il ruolo."
+        },
+        {
+          "id": "fb-job-context-read",
+          "angleId": "contesto-chiaro",
+          "hook": "Un nuovo ruolo da leggere con calma prima di scegliere.",
+          "cta": "Leggi la posizione disponibile."
+        },
+        {
+          "id": "fb-job-question-fit",
+          "angleId": "domanda-comune",
+          "hook": "Stai cercando un ruolo che corrisponda davvero alle tue competenze?",
           "cta": "Trova i dettagli utili nell'annuncio."
         },
         {
-          "id": "job-read-announcement",
-          "hook": "Un annuncio da leggere se vuoi capire meglio il ruolo.",
-          "cta": "Guarda la posizione aperta."
+          "id": "fb-job-question-info",
+          "angleId": "domanda-comune",
+          "hook": "Quale informazione ti serve per valutare una nuova posizione?",
+          "cta": "Consulta l'annuncio completo."
         },
         {
-          "id": "job-attentive-application",
-          "hook": "La prossima candidatura merita un momento di attenzione.",
+          "id": "fb-job-question-border",
+          "angleId": "domanda-comune",
+          "hook": "Cerchi un'opportunità oltreconfine da esaminare con cura?",
           "cta": "Candidati seguendo le indicazioni."
         },
         {
-          "id": "job-shape-next-step",
-          "hook": "Dai forma al tuo prossimo passo professionale partendo dall'offerta.",
-          "cta": "Controlla se il ruolo fa per te."
+          "id": "fb-job-question-care",
+          "angleId": "domanda-comune",
+          "hook": "La prossima candidatura merita una lettura attenta del ruolo.",
+          "cta": "Guarda la posizione aperta."
         }
       ],
       "event": [
         {
-          "id": "event-territory-program",
-          "hook": "Un appuntamento del territorio con le informazioni utili per partecipare.",
+          "id": "fb-event-step",
+          "angleId": "passo-pratico",
+          "hook": "Un appuntamento del territorio da verificare prima di organizzarti.",
           "cta": "Consulta il programma."
         },
         {
-          "id": "event-local-agenda",
-          "hook": "Vuoi sapere cosa succede nella tua zona?",
+          "id": "fb-event-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Una proposta locale da inserire nella tua agenda.",
           "cta": "Scopri l'evento."
         },
         {
-          "id": "event-plan-ahead",
-          "hook": "Un evento da conoscere prima di organizzare la tua agenda.",
-          "cta": "Apri tutte le informazioni."
+          "id": "fb-event-question",
+          "angleId": "domanda-comune",
+          "hook": "Un'occasione per scegliere cosa seguire in zona.",
+          "cta": "Apri le informazioni."
         }
       ],
       "digest": [
         {
-          "id": "digest-close-news",
-          "hook": "Le notizie da tenere vicine se vivi tra Italia e Svizzera.",
+          "id": "fb-digest-step",
+          "angleId": "passo-pratico",
+          "hook": "Un riepilogo pratico per ritrovare i temi utili della settimana.",
           "cta": "Leggi il riepilogo."
         },
         {
-          "id": "digest-stay-updated",
-          "hook": "Un riepilogo utile per restare aggiornato.",
+          "id": "fb-digest-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il punto sulle novità per chi vive e lavora oltreconfine.",
           "cta": "Consulta gli aggiornamenti."
         },
         {
-          "id": "digest-cross-border-point",
-          "hook": "Il punto sulle novità per chi lavora oltreconfine.",
+          "id": "fb-digest-question",
+          "angleId": "domanda-comune",
+          "hook": "Le domande da tenere presenti quando cambiano le priorità.",
           "cta": "Scopri le notizie."
         }
       ]
@@ -419,35 +947,41 @@
     "linkedin": {
       "article": [
         {
-          "id": "article-professional-context",
-          "hook": "Un approfondimento per chi lavora tra Italia e Svizzera e cerca contesto prima di decidere.",
+          "id": "li-article-step",
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio pratico per chi lavora tra Italia e Svizzera.",
           "cta": "Leggi l'approfondimento."
         },
         {
-          "id": "article-practical-information",
-          "hook": "Informazioni pratiche per affrontare i temi del lavoro oltreconfine.",
+          "id": "li-article-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto utile prima di valutare una scelta professionale oltreconfine.",
           "cta": "Approfondisci il tema."
         },
         {
-          "id": "article-precise-question",
-          "hook": "Una lettura utile per trasformare un dubbio in una domanda più precisa.",
+          "id": "li-article-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda circoscritta rende più utile anche la lettura.",
           "cta": "Consulta la guida."
         }
       ],
       "job": [
         {
-          "id": "job-match-skills",
-          "hook": "Una nuova posizione da valutare in base alle tue competenze.",
+          "id": "li-job-step",
+          "angleId": "passo-pratico",
+          "hook": "Una posizione da valutare partendo dalle competenze richieste.",
           "cta": "Esplora la posizione."
         },
         {
-          "id": "job-professional-path",
-          "hook": "Stai cercando un ruolo che apra un nuovo percorso professionale?",
+          "id": "li-job-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Un ruolo da inquadrare nel tuo percorso professionale.",
           "cta": "Consulta i requisiti."
         },
         {
-          "id": "job-next-step",
-          "hook": "Un'offerta per chi vuole confrontare con calma il prossimo passo.",
+          "id": "li-job-question",
+          "angleId": "domanda-comune",
+          "hook": "Un'offerta da esaminare prima di scegliere il prossimo passo.",
           "cta": "Candidati seguendo l'offerta."
         }
       ]
@@ -455,36 +989,84 @@
     "telegram": {
       "job": [
         {
-          "id": "job-open-offer",
-          "hook": "Una posizione da consultare con i dettagli dell'offerta.",
+          "id": "tg-job-step",
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio pratico per valutare una posizione.",
           "cta": "Apri l'offerta."
         },
         {
-          "id": "job-beyond-border-search",
-          "hook": "Se cerchi lavoro oltreconfine, qui trovi un annuncio da esplorare.",
+          "id": "tg-job-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Un ruolo da leggere nel contesto del lavoro oltreconfine.",
           "cta": "Consulta il ruolo."
         },
         {
-          "id": "job-read-next-step",
-          "hook": "Un ruolo da leggere se stai valutando il prossimo passo.",
+          "id": "tg-job-question",
+          "angleId": "domanda-comune",
+          "hook": "Una posizione da esaminare partendo dalla domanda giusta.",
           "cta": "Scopri i dettagli."
         }
       ],
       "border": [
         {
-          "id": "border-orient-yourself",
-          "hook": "Indicazioni utili per chi attraversa il confine e vuole orientarsi meglio.",
+          "id": "tg-border-step",
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio utile per chi attraversa il confine.",
           "cta": "Leggi le indicazioni."
         },
         {
-          "id": "border-plan-movement",
-          "hook": "Un aggiornamento da leggere prima di organizzare lo spostamento.",
+          "id": "tg-border-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto da conoscere prima di organizzare lo spostamento.",
           "cta": "Consulta la guida."
         },
         {
-          "id": "border-practical-point",
-          "hook": "Il punto pratico per chi vive tra Italia e Svizzera.",
+          "id": "tg-border-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda pratica per orientarsi oltreconfine.",
           "cta": "Approfondisci il tema."
+        }
+      ]
+    },
+    "reddit": {
+      "article": [
+        {
+          "id": "rd-article-step",
+          "angleId": "passo-pratico",
+          "hook": "Un passaggio pratico per leggere un tema oltreconfine senza semplificarlo.",
+          "cta": "Leggi il contesto completo."
+        },
+        {
+          "id": "rd-article-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto che aiuta a separare una domanda concreta dalle ipotesi.",
+          "cta": "Approfondisci il tema."
+        },
+        {
+          "id": "rd-article-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda circoscritta può rendere più utile la discussione.",
+          "cta": "Consulta la guida di riferimento."
+        }
+      ],
+      "job": [
+        {
+          "id": "rd-job-step",
+          "angleId": "passo-pratico",
+          "hook": "Un ruolo da valutare partendo dai requisiti verificabili.",
+          "cta": "Consulta i requisiti."
+        },
+        {
+          "id": "rd-job-context",
+          "angleId": "contesto-chiaro",
+          "hook": "Il contesto utile prima di commentare una posizione oltreconfine.",
+          "cta": "Esplora la posizione."
+        },
+        {
+          "id": "rd-job-question",
+          "angleId": "domanda-comune",
+          "hook": "Una domanda concreta da porsi prima di una candidatura.",
+          "cta": "Leggi l'offerta."
         }
       ]
     }

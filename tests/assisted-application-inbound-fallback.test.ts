@@ -123,7 +123,8 @@ describe('safe forwarding of MIME links and reply destinations', () => {
     const { payload } = (sendCascade.mock.calls as any)[0][0][0];
     expect(payload.text).toContain('Open requested documents: https://employer.example/documents?case=42&lang=en');
     expect(payload.replyTo).toBe('apply@employer.example');
-    expect(payload.html).toContain('Open requested documents: https://employer.example/documents?case=42&amp;lang=en');
+    expect(payload.html).toContain('Open requested documents: <a href="https://employer.example/documents?case=42&amp;lang=en"');
+    expect(payload.html).toContain('>https://employer.example/documents?case=42&amp;lang=en</a>');
     expect(payload.html).not.toContain('<a href="javascript:');
   });
 
@@ -449,6 +450,22 @@ describe('attachments left out of the forward', () => {
     const pageUrl = [...forward.text.matchAll(/https:\/\/frontaliereticino\.ch\S+/g)].map(match => match[0]).find(url => url.includes('assisted_application_order_id='));
     expect(pageUrl).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order_FALLBACK1');
     expect(forward.html).toContain('Apri Application Concierge');
+  });
+
+  it('preserves terminal URL characters in employer links', () => {
+    const firstUrl = 'https://employer.example/document?token=final.';
+    const secondUrl = 'https://employer.example/(open)';
+    const forward = buildForward({
+      order: { locale: 'it' },
+      message: { ...message, text: `${firstUrl} ${secondUrl}` },
+      classification,
+      sender: 'hr@employer.example',
+    });
+
+    expect(forward.html).toContain(`<a href="${firstUrl}"`);
+    expect(forward.html).toContain(`>${firstUrl}</a>`);
+    expect(forward.html).toContain(`<a href="${secondUrl}"`);
+    expect(forward.html).toContain(`>${secondUrl}</a>`);
   });
 
   for (const [locale, [, , names, , fallback]] of Object.entries(COPY)) {

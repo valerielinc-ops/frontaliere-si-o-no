@@ -620,6 +620,31 @@ function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+function forwardedMessageHtml(value) {
+  const text = String(value || '');
+  let html = '';
+  let cursor = 0;
+  for (const match of text.matchAll(/https:\/\/[^\s<>"'`]+/gi)) {
+    const rawUrl = match[0];
+    let href = '';
+    if (rawUrl.length <= 2048) {
+      try {
+        const parsed = new URL(rawUrl);
+        if (parsed.protocol === 'https:' && parsed.hostname && !parsed.username && !parsed.password) href = parsed.toString();
+      } catch {
+        href = '';
+      }
+    }
+
+    html += escapeHtml(text.slice(cursor, match.index));
+    html += href
+      ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" style="color:#c2410c;text-decoration:underline;overflow-wrap:anywhere;word-break:break-all;">${escapeHtml(rawUrl)}</a>`
+      : escapeHtml(rawUrl);
+    cursor = match.index + rawUrl.length;
+  }
+  return html + escapeHtml(text.slice(cursor));
+}
+
 /**
  * Cloudflare may retry the same RFC message with a new request timestamp. An
  * RFC Message-ID is the strongest transport identity; raw bytes are the
@@ -663,7 +688,7 @@ export function buildForward({ order, orderId = '', message, classification, sen
       brandParagraph(escapeHtml(copy.reply)),
       pageUrl ? brandCallout(`${escapeHtml(copy.page)}<br>${brandButton(pageUrl, copy.pageCta)}`) : '',
       `<p style="margin:16px 0 4px;font-size:12px;color:#64748b">${escapeHtml(copy.original)} — ${escapeHtml(sender)}</p>`,
-      `<div style="white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:1.6;max-width:100%;border-left:3px solid #e2e8f0;padding-left:12px;font-size:14px;color:#1e293b">${escapeHtml(original)}</div>`,
+      `<div style="white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:1.6;max-width:100%;border-left:3px solid #e2e8f0;padding-left:12px;font-size:14px;color:#1e293b">${forwardedMessageHtml(original)}</div>`,
       brandSignature('Frontaliere Ticino', ''),
     ].join(''),
     footerLines: [],

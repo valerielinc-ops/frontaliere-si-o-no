@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import type { ApplicationConciergeProposal, ApplicationConciergeService } from '../services/applicationConciergeService';
 import translations from '../services/locales/it-core';
 
@@ -18,7 +18,10 @@ vi.mock('@/components/community/AssistedApplicationLegalLinks', () => ({ Assiste
 
 import ApplicationConciergePortal from '../components/community/ApplicationConciergePortal';
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
 
 const proposal: ApplicationConciergeProposal = {
   proposalId: 'proposal-test', jobId: 'job-test', jobUrl: 'https://example.test/job/',
@@ -43,6 +46,41 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(card.queryByRole('button', { name: translations['jobBoard.concierge.accept'] })).not.toBeInTheDocument();
     expect(card.queryByRole('link', { name: translations['jobBoard.concierge.openChild'] })).not.toBeInTheDocument();
     expect(screen.getByText('0/10')).toBeInTheDocument();
+  });
+
+  it('switches between distinct proposal categories and keeps every status available', () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+    const proposals: ApplicationConciergeProposal[] = [
+      { ...proposal, proposalId: 'proposal-offered', jobTitle: 'Offerta da valutare', status: 'proposed', childApplicationId: null },
+      { ...proposal, proposalId: 'proposal-needs-info', jobTitle: 'Informazioni richieste', childApplicationState: 'needs_candidate_action' },
+      { ...proposal, proposalId: 'proposal-accepted', jobTitle: 'Proposta accettata', childApplicationState: 'accepted' },
+      { ...proposal, proposalId: 'proposal-queued', jobTitle: 'Candidatura in coda', childApplicationState: 'submitting' },
+      { ...proposal, proposalId: 'proposal-submitted', jobTitle: 'Candidatura inviata', childSendState: 'sent' },
+      { ...proposal, proposalId: 'proposal-failed', jobTitle: 'Candidatura fallita', childApplicationState: 'failed' },
+      { ...proposal, proposalId: 'proposal-unknown', jobTitle: 'Esito incerto', childApplicationId: 'child-unknown', childApplicationState: undefined },
+      { ...proposal, proposalId: 'proposal-declined', jobTitle: 'Proposta rifiutata', status: 'declined', childApplicationId: null },
+      { ...proposal, proposalId: 'proposal-retracted', jobTitle: 'Proposta ritirata', status: 'retracted', childApplicationId: null },
+    ];
+    const snapshot = { ...service, proposals };
+    render(<ApplicationConciergePortal serviceId={snapshot.serviceId} previewService={snapshot} locationSearch="" />);
+
+    const categories = screen.getByRole('group', { name: translations['jobBoard.concierge.proposalsTitle'] });
+    const expectedStatuses = ['proposed', 'needs_information', 'accepted', 'queued', 'submitted', 'failed', 'unknown', 'declined', 'retracted'] as const;
+    expect(within(categories).getAllByRole('button')).toHaveLength(expectedStatuses.length);
+    for (const status of expectedStatuses) {
+      const label = translations[`jobBoard.concierge.proposalStatus.${status}`];
+      expect(within(categories).getByRole('button', { name: new RegExp(label) })).toHaveTextContent('1');
+    }
+
+    const offered = within(categories).getByRole('button', { name: new RegExp(translations['jobBoard.concierge.proposalStatus.proposed']) });
+    expect(offered).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('region', { name: translations['jobBoard.concierge.proposalStatus.proposed'] })).toHaveTextContent('Offerta da valutare');
+
+    const queued = within(categories).getByRole('button', { name: new RegExp(translations['jobBoard.concierge.proposalStatus.queued']) });
+    fireEvent.click(queued);
+    expect(queued).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('region', { name: translations['jobBoard.concierge.proposalStatus.queued'] })).toHaveTextContent('Candidatura in coda');
+    expect(screen.queryByRole('heading', { name: 'Offerta da valutare' })).not.toBeInTheDocument();
   });
 
   it('keeps the existing child link for an accepted queued application without another accept action', () => {

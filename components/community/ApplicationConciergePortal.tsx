@@ -29,6 +29,7 @@ import {
   saveApplicationConciergeProfile,
   saveApplicationConciergeCandidateLanguageFacts,
   type ApplicationConciergeProposal,
+  type ApplicationConciergeProposalCategory,
   type ApplicationConciergeService,
 } from '@/services/applicationConciergeService';
 
@@ -178,6 +179,7 @@ export default function ApplicationConciergePortal({
     [locale],
   );
   const [service, setService] = useState<ApplicationConciergeService | null>(previewService || null);
+  const [selectedProposalCategory, setSelectedProposalCategory] = useState<ApplicationConciergeProposalCategory | null>(null);
   const [childReview, setChildReview] = useState<{ childId: string; token: string } | null>(null);
   const [childReviewError, setChildReviewError] = useState(false);
   const requestedChildId = new URLSearchParams(locationSearch).get('application_concierge_application_id');
@@ -216,6 +218,7 @@ export default function ApplicationConciergePortal({
   const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
+  useEffect(() => { setSelectedProposalCategory(null); }, [serviceId, previewService?.serviceId]);
   useEffect(() => {
     locationEditedByUser.current = false;
     serviceLocationLoaded.current = Boolean(previewService?.applicantLocation);
@@ -1053,6 +1056,8 @@ export default function ApplicationConciergePortal({
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
   const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
   const proposalGroups = groupApplicationConciergeProposals(visibleProposals);
+  const activeProposalGroup = proposalGroups.find(group => group.category === selectedProposalCategory) || proposalGroups[0] || null;
+  const activeProposalLabelStatus = activeProposalGroup?.category === 'reviewing' ? 'technical_review' : activeProposalGroup?.category;
 
   const matchingStatus = String(service.matchingStatus || '');
   const matchingActive = MATCHING_STATES.has(matchingStatus);
@@ -1069,8 +1074,7 @@ export default function ApplicationConciergePortal({
       <div className="space-y-6">
         <header className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{t('jobBoard.concierge.eyebrow')}</p>
-            <PortalTitle className="mt-1 text-3xl font-bold tracking-[-0.025em] font-display text-heading">{t('jobBoard.concierge.portalTitle')}</PortalTitle>
+            <PortalTitle className="text-3xl font-bold tracking-[-0.025em] font-display text-heading">{t('jobBoard.concierge.portalTitle')}</PortalTitle>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-subtle">{t('jobBoard.concierge.portalIntro')}</p>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-accent-border bg-accent-subtle/60 px-4 py-3">
@@ -1276,20 +1280,35 @@ export default function ApplicationConciergePortal({
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
                 {verificationPending && <div className="mt-5"><Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.verificationPending')} /></div>}
                 {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
-                <div className="mt-5 space-y-3">
+                <div className="mt-5">
                   {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {proposalGroups.map(({ category, proposals: groupProposals }) => {
-                    const labelStatus = category === 'reviewing' ? 'technical_review' : category;
-                    return <div key={category} className="mt-5" role="group" aria-labelledby={'concierge-proposal-group-' + category}>
-                      <div className="mb-2 flex items-center justify-between gap-3">
-                        <h3 id={'concierge-proposal-group-' + category} className="text-sm font-semibold text-heading">{t('jobBoard.concierge.proposalStatus.' + labelStatus)}</h3>
-                        <span className="rounded-full bg-surface-raised px-2.5 py-1 text-xs font-semibold text-muted">{groupProposals.length}</span>
-                      </div>
+                  {proposalGroups.length > 0 && <>
+                    <div role="group" aria-label={t('jobBoard.concierge.proposalsTitle')} className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-2">
+                      {proposalGroups.map(({ category, proposals: groupProposals }) => {
+                        const labelStatus = category === 'reviewing' ? 'technical_review' : category;
+                        const selected = activeProposalGroup?.category === category;
+                        return <button
+                          key={category}
+                          type="button"
+                          aria-pressed={selected}
+                          aria-controls="concierge-proposal-category-panel"
+                          onClick={() => setSelectedProposalCategory(category)}
+                          className={`inline-flex min-h-[44px] shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${selected ? 'border-accent bg-accent-subtle text-accent' : 'border-edge bg-surface text-body hover:border-accent-border hover:text-accent'}`}
+                        >
+                          <span>{t('jobBoard.concierge.proposalStatus.' + labelStatus)}</span>
+                          <span className="rounded-full bg-surface/80 px-2 py-0.5 tabular-nums text-muted">{groupProposals.length}</span>
+                        </button>;
+                      })}
+                    </div>
+                    {activeProposalGroup && <div id="concierge-proposal-category-panel" className="mt-4" role="region" aria-labelledby="concierge-proposal-category-title">
+                      <h3 id="concierge-proposal-category-title" className="mb-2 text-sm font-semibold text-heading">
+                        {t('jobBoard.concierge.proposalStatus.' + activeProposalLabelStatus)}
+                      </h3>
                       <div className="space-y-3">
-                        {groupProposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
+                        {activeProposalGroup.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
                       </div>
-                    </div>;
-                  })}
+                    </div>}
+                  </>}
                 </div>
               </section>
             </div>

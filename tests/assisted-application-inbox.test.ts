@@ -146,6 +146,21 @@ function htmlEmployerMail({ subject = 'Mot de passe à usage unique pour vérifi
   ].join('\r\n'), 'latin1');
 }
 
+function htmlEmployerLinkMail() {
+  const html = '<html><body><p>Per i dettagli:</p><p><a href="https://careers.example.test/application?id=abc&amp;source=email">Apri il portale</a></p></body></html>';
+  return Buffer.from([
+    'From: Recruiting System <notices@employer.example>',
+    'Reply-To: Recruiting <team@employer.example>',
+    'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example',
+    'Subject: Documenti candidatura',
+    'Content-Type: text/html; charset=utf-8',
+    'Content-Transfer-Encoding: base64',
+    '',
+    Buffer.from(html, 'utf8').toString('base64'),
+    '',
+  ].join('\r\n'), 'latin1');
+}
+
 async function setupInbound() {
   const store = createMemoryFirestore({
     [`assisted_applications/${ORDER}`]: { paymentStatus: 'paid', locale: 'de', companyName: 'Arbeitgeber AG', jobTitle: 'Pflegefachfrau', applicantEmail: 'maria@example.com' },
@@ -667,6 +682,25 @@ it('keeps UTF-8 and the full long employer text in a wrapping forwarded email', 
   expect(payload.html).toContain('word-break:break-word');
   expect(payload.html).toContain('Réception confirmée');
   expect(payload.replyTo).toBe('hr@example.test');
+});
+
+it('keeps HTML-only HTTPS links clickable and uses the authenticated original Reply-To', async () => {
+  const { store, alias } = await setupInbound();
+  const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+  const { processed } = await deliver({
+    store,
+    alias,
+    raw: htmlEmployerLinkMail(),
+    sendCascade,
+    classify: async () => ({ category: 'documents_request', summaryCandidate: 'Invia i documenti richiesti.', needsReply: true }),
+  });
+
+  expect(processed).toMatchObject({ ok: true, category: 'documents_request', forwarded: 'sent' });
+  const payload = (sendCascade.mock.calls as any)[0][0][0].payload;
+  expect(payload.replyTo).toBe('team@employer.example');
+  expect(payload.text).toContain('Apri il portale https://careers.example.test/application?id=abc&source=email');
+  expect(payload.html).toContain('Apri il portale <a href="https://careers.example.test/application?id=abc&amp;source=email"');
+  expect(payload.html).toContain('overflow-wrap:anywhere;word-break:break-all');
 });
 
 
