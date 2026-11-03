@@ -1196,6 +1196,27 @@ describe('crawler generation state cleanup', () => {
     expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
+  it('gives group 24 enough bounded slots for its worker-watchdog worst case', () => {
+    expect(crawlerGroupMaxParallel(24)).toBe(5);
+    const group24Body = buildCrawlerLaunchShellBody({
+      slug: 'group-24-member',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 24);
+    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-5}"`);
+
+    const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
+    const watchdogDurations = assignments.groups[23].map((slug: string) => {
+      const durationMs = baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs;
+      return crawlerWorkerWatchdogMinutes({ durationMs }) * 60 * 1000;
+    });
+    const timeoutMs = 340 * 60 * 1000;
+    expect(watchdogDurations).toHaveLength(18);
+    expect(projectedLaneDurationMs(watchdogDurations, CRAWLER_GROUP_MAX_PARALLEL)).toBeGreaterThan(timeoutMs);
+    expect(projectedLaneDurationMs(watchdogDurations, crawlerGroupMaxParallel(24))).toBeLessThanOrEqual(timeoutMs);
+  });
+
   it('benchmarks the committed group 15/16 rosters below the 340-minute job budget', () => {
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
