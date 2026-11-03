@@ -1,0 +1,25 @@
+{
+  "companyKey": "sauter-building-control-ch",
+  "companyName": "Sauter Building Control Schweiz AG",
+  "companyHost": "sauter-building-control.ch",
+  "verifiedEmployerDomain": "sauter-building-control.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.sauter-building-control.ch/unternehmen/jobs-und-karriere/"
+  ],
+  "detailTemplate": "/unternehmen/jobs-und-karriere/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "SAUTER: Ihr innovativer Arbeitgeber",
+    "SAUTER: Unsere Jobs – Ihre Karriere",
+    "SAUTER: Ihr Türöffner ins Berufsleben"
+  ],
+  "canton": "GE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-03T13:28:09.220Z",
+  "candidateKey": "sauter-building-control@plan-les-ouates"
+}

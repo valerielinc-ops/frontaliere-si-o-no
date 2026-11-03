@@ -44,19 +44,26 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   physioswiss: ['physioswiss.ch'],
   'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
   'swiss-timing-swatch-group': ['swisstiming.com'],
+  'sympajobs-reinach-bl': ['sympajobs.ch'],
   'deillon-delley-architectes': ['deillondelley.ch'],
   'project-interim': ['projectinterim.ch'],
   'technic-emplois': ['technic-emplois.ch'],
   'fondation-domus': ['fondation-domus.ch'],
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
+  'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   'rh-expert-ch': ['rh-expert.ch'],
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'pks-bewerbung-ch': ['pks-personal.ch'],
   'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
+};
+
+const SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES = {
+  'csc-costruzioni-sa': ['csc-sa.ch'],
 };
 
 describe('missing company-logo acquisition', () => {
@@ -176,6 +183,16 @@ describe('missing company-logo acquisition', () => {
       expect(domainCandidates(key, {
         companyDomains: new Set(['jobs.ch']),
         urlHosts: new Set(['jobalino.ch']),
+      }, { fromAudit: true })).toEqual(domains);
+    }
+  });
+
+  it('uses the source-backed CSC employer domain instead of its NCore ATS in audit mode', () => {
+    for (const [key, domains] of Object.entries(SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES)) {
+      expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
+      expect(domainCandidates(key, {
+        companyDomains: new Set(['ncoreplat.com']),
+        urlHosts: new Set(['app.ncoreplat.com']),
       }, { fromAudit: true })).toEqual(domains);
     }
   });

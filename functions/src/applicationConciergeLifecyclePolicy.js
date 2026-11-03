@@ -13,6 +13,10 @@ export const CONCIERGE_DAY_MS = 24 * 60 * 60 * 1000;
 export const CONCIERGE_REFRESH_INTERVAL_MS = 3 * CONCIERGE_DAY_MS;
 export const CONCIERGE_FRESH_PENDING_INTERVAL_MS = 15 * 60 * 1000;
 export const CONCIERGE_RETRY_INTERVAL_MS = 60 * 60 * 1000;
+// Several matcher deploys can land during one rollout window.  Let the latest
+// version settle before starting a full scan for each active service; the
+// lifecycle sweep still retries every 15 minutes and never drops the refresh.
+export const CONCIERGE_MATCHING_VERSION_SETTLE_MS = 60 * 60 * 1000;
 export const CONCIERGE_RENEWAL_DISCOUNT_MS = 3 * CONCIERGE_DAY_MS;
 export const CONCIERGE_RENEWAL_PRICE_EUR_CENTS = 2999;
 export const CONCIERGE_MATCHING_STALE_AFTER_MS = 10 * 60 * 1000;
@@ -53,6 +57,16 @@ function staleRecoveryDue(service, nowMs) {
   const recovery = staleRecoveryState(service);
   return recovery.attempts < CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS
     && (!recovery.retryAt || nowMs >= recovery.retryAt);
+}
+
+export function conciergeMatchingVersionRefreshReady(service, nowMs = Date.now()) {
+  if (service?.matchingStatus !== 'complete'
+    || service.matchingVersion === APPLICATION_CONCIERGE_MATCHING_VERSION) return false;
+  const observedVersion = String(service.matchingVersionRefreshVersion || '');
+  const observedAt = timestampMillis(service.matchingVersionRefreshObservedAt);
+  return observedVersion === APPLICATION_CONCIERGE_MATCHING_VERSION
+    && observedAt > 0
+    && nowMs >= observedAt + CONCIERGE_MATCHING_VERSION_SETTLE_MS;
 }
 
 export function conciergeRefreshDue(service, nowMs = Date.now()) {

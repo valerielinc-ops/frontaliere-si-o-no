@@ -1,0 +1,25 @@
+{
+  "companyKey": "visilabgroup-ch-visilabgroup-ch",
+  "companyName": "VisilabGroup SA",
+  "companyHost": "careers-page.com",
+  "verifiedEmployerDomain": "visilabgroup.ch",
+  "platform": "careers-page.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.careers-page.com/visilabgroup"
+  ],
+  "detailTemplate": "/visilabgroup/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Opticien (H/F) - McOptic Yverdon-Les-Bains",
+    "Optométriste (H/F) - McOptic Crissier",
+    "Opticiens Monteur m/f (100%)"
+  ],
+  "canton": "GE",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:25:01.833Z",
+  "candidateKey": "visilabgroup@geneve"
+}
