@@ -1,4 +1,4 @@
-const FRONTALIERE_DETAIL_PATH_RX = /^\/articoli-frontaliere\/[^/]+\/?$/;
+const FRONTALIERE_DETAIL_PATH_RX = /^\/articoli-frontaliere\/(?!tutti\/?$|guida\/?$)[^/]+\/?$/i;
 
 const NUMBER_LOCALE = Object.freeze({
   it: 'it-IT',
