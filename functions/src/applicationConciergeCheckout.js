@@ -8,6 +8,7 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
+import { sanitizeHouseAdAttribution } from './houseAdAttribution.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
 import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
@@ -118,7 +119,7 @@ function expectedPriceOf(service) {
   return [2999, APPLICATION_CONCIERGE_PRICE_EUR_CENTS].includes(value) ? value : APPLICATION_CONCIERGE_PRICE_EUR_CENTS;
 }
 
-function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail, renewalOfServiceId = null, amountTotal = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, discountExpiresAt = null }) {
+function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail, houseAdAttribution = null, renewalOfServiceId = null, amountTotal = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, discountExpiresAt = null }) {
   return {
     serviceId,
     serviceType: APPLICATION_CONCIERGE_PRODUCT,
@@ -126,6 +127,7 @@ function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, c
     userId,
     paymentProvider,
     paymentStatus: 'pending',
+    houseAdAttribution,
     serviceStatus: 'awaiting_payment',
     checkoutSessionStatus: 'creating',
     checkoutAttempt: 1,
@@ -480,6 +482,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           locale,
           successUrl,
           customerEmail,
+          houseAdAttribution: sanitizeHouseAdAttribution(body.houseAdAttribution),
           renewalOfServiceId: renewalOfServiceId || null,
           amountTotal: renewalOffer?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
           discountExpiresAt: renewalOffer?.discountExpiresAt || null,

@@ -49,7 +49,7 @@ afterEach(() => { cleanup(); document.querySelectorAll('script[src*="gpt.js"]').
 function mount(collapseOnEmpty = true, slotSizes = sizes) {
   const onEmptyChange = vi.fn();
   const result = render(<GptAdSlot adUnitPath="/test/rail" sizes={slotSizes} minHeight={600} collapseOnEmpty={collapseOnEmpty} onEmptyChange={onEmptyChange} />);
-  const box = result.container.firstElementChild as HTMLElement;
+  const box = result.container.querySelector('[data-ft-house-google]') as HTMLElement;
   box.getBoundingClientRect = () => ({ top, bottom: top + 600, left: 0, right: width, width, height: 600, x: 0, y: top, toJSON() {} });
   act(() => observers[0]?.callback([{ target: box, isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver));
   return { ...result, box, onEmptyChange };

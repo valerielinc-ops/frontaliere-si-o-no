@@ -52,6 +52,7 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: StaticAdSlotHtmlOptions): 
     `data-ad-client="${AD_CLIENT}"`,
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,
+    `data-ft-house-google=""`,
   ];
   const signature = JSON.stringify([cfg.slot, cfg.format, 'layout' in cfg ? cfg.layout : '']);
   if (opts?.placement) attrs.push(`data-ad-placement="${safeDataValue(opts.placement)}"`);
@@ -62,7 +63,7 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: StaticAdSlotHtmlOptions): 
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
   if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
-  return `<ins ${attrs.join(' ')}></ins>`;
+  return `<span style="display:block" data-ft-house-slot="${safeDataValue(opts?.placement || slotKey.toLowerCase())}" data-ft-house-library="adsense" data-ft-house-height="${cfg.placeholderMinHeight}"><ins ${attrs.join(' ')}></ins><span data-ft-house-host=""></span></span>`;
 }
 
 /**

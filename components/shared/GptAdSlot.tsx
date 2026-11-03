@@ -390,15 +390,18 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   if (!active) return null;
 
   return (
+    <div className={className} data-ft-house-slot={adUnitPath.split('/').filter(Boolean).at(-1) || 'gpt-display'} data-ft-house-library="gpt" data-ft-house-height={minHeight}>
     <div
       ref={wrapperRef}
+      data-ft-house-google=""
       aria-hidden={!rendered || adState !== 'filled'}
       data-ad-state={adState}
       // Only an explicit terminal response may release the reserve offscreen.
       style={collapsed ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
-      className={className}
     >
       <div id={divIdRef.current} />
+    </div>
+    <div data-ft-house-host="" />
     </div>
   );
 };
