@@ -131,13 +131,15 @@ export default function AssistedApplicationAutomationPanel({
   }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
 
   const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
-    if (busy) return;
+    if (busy) return false;
     setBusy(action);
     try {
       await runAutomationAdminAction(user, order.orderId, action, extra);
-      await onChanged({ ok: true, text: success });
+      try { await onChanged({ ok: true, text: success }); } catch { /* the admin action is already persisted */ }
+      return true;
     } catch (error) {
-      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Operazione non riuscita.' });
+      try { await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Operazione non riuscita.' }); } catch { /* keep the failed action retryable */ }
+      return false;
     } finally {
       setBusy(null);
     }
@@ -191,6 +193,7 @@ export default function AssistedApplicationAutomationPanel({
     return () => window.clearTimeout(timer);
   }, []);
   const markedByExtension = useRef(false);
+  const markingByExtension = useRef<Promise<boolean> | null>(null);
   // When Valerie pressed send: the verification e-mail the portal sends after it is newer.
   const sendPressedAt = useRef(0);
   const openingVerification = useRef(false);
@@ -238,13 +241,28 @@ export default function AssistedApplicationAutomationPanel({
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
       if (event.source !== window || event.origin !== window.location.origin) return;
-      const data = event.data as { source?: string; type?: string; orderId?: string; status?: string; detail?: string; ok?: boolean; error?: string } | null;
+      const data = event.data as { source?: string; type?: string; orderId?: string; status?: string; detail?: string; requestId?: string; ok?: boolean; error?: string } | null;
       if (data?.source !== 'compila-candidatura' || data.orderId !== order.orderId) return;
       if (data.type === 'fill-opened' && !data.ok) {
         void onChanged({ ok: false, text: `L’estensione non ha aperto il portale: ${data.error || 'errore'}.` });
-      } else if (data.type === 'fill-status' && data.status === 'submitted' && !markedByExtension.current) {
-        markedByExtension.current = true;
-        void act('automationMarkSubmitted', { via: 'extension' }, 'Il portale ha confermato l’invio: candidatura segnata come inviata, il cliente riceve la conferma.');
+      } else if (data.type === 'fill-status' && data.status === 'submitted') {
+        void (async () => {
+          let ok = markedByExtension.current;
+          if (!ok) {
+            let pending = markingByExtension.current;
+            if (!pending) {
+              pending = act('automationMarkSubmitted', { via: 'extension' }, 'Il portale ha confermato l’invio: candidatura segnata come inviata, il cliente riceve la conferma.');
+              markingByExtension.current = pending;
+            }
+            ok = await pending;
+            if (markingByExtension.current === pending) markingByExtension.current = null;
+            if (ok) markedByExtension.current = true;
+          }
+          if (data.requestId) window.postMessage({
+            source: 'frontaliere-queue', type: 'fill-status-ack', orderId: order.orderId,
+            requestId: data.requestId, ok, ...(ok ? {} : { error: 'admin_action_failed' }),
+          }, window.location.origin);
+        })();
       } else if (data.type === 'fill-status' && data.status === 'verify-email') {
         void openVerificationLink();
       } else if (data.type === 'fill-status' && data.status === 'clicked') {

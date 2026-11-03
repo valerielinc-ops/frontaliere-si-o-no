@@ -32,6 +32,9 @@ const queuePage = `<!doctype html><html><body><h1>Coda</h1><script>
   window.addEventListener('message', (event) => {
     if (!event.data || event.data.source !== 'compila-candidatura') return;
     window.__statuses.push(event.data);
+    if (event.data.type === 'fill-status' && event.data.status === 'submitted') {
+      window.postMessage({ source: 'frontaliere-queue', type: 'fill-status-ack', orderId: event.data.orderId, requestId: event.data.requestId, ok: true }, window.location.origin);
+    }
     if (event.data.type === 'fill-status' && event.data.status === 'verify-email') {
       // First a link of another site (refused, the queue must hear it), then the portal's own.
       window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: event.data.orderId, url: 'https://elsewhere.example/verify?token=e2e' }, window.location.origin);

@@ -13,6 +13,8 @@ const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'script
 const applyControlSource = readFileSync(resolve(extension, 'apply-control.js'), 'utf8');
 const fillerSource = readFileSync(resolve(extension, 'filler.js'), 'utf8');
 const runnerFieldsSource = readFileSync(resolve(extension, 'runner-fields.js'), 'utf8');
+const contentSource = readFileSync(resolve(extension, 'content.js'), 'utf8');
+const bridgeSource = readFileSync(resolve(extension, 'bridge.js'), 'utf8');
 
 /** The page engine loaded into a page, as the extension injects it. */
 function page(html: string, url = 'https://join.com/companies/acme/1/apply/step') {
@@ -31,6 +33,29 @@ function nativeFieldReading(window: JSDOM['window']) {
   Object.defineProperty(window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
   Object.defineProperty(window, 'CSS', { value: { escape: (value: string) => value } });
   window.eval(runnerFieldsSource);
+}
+
+async function runContent(html: string, entry: Record<string, any>, options: { retryAfterFailure?: boolean; onMessage?: (message: Record<string, any>) => Promise<any> } = {}) {
+  const { window } = page(html, 'https://careers.example.ch/annunci-lavoro/send-cv-thank-you');
+  const messages: Array<Record<string, any>> = [];
+  let intervalCallback = () => {};
+  let fakeNow = Date.now();
+  (window as any).Date.now = () => fakeNow;
+  (window as any).setInterval = (callback: () => void) => { intervalCallback = callback; return 1; };
+  (window as any).clearInterval = () => {};
+  (window as any).chrome = { runtime: { sendMessage: async (message: Record<string, any>) => {
+    messages.push(message);
+    return message.type === 'get-kit' ? { entry } : await options.onMessage?.(message) || { ok: true };
+  } } };
+  window.eval(contentSource);
+  await new Promise((resolve) => setTimeout(resolve, 800));
+  if (options.retryAfterFailure) {
+    fakeNow += 11_000;
+    intervalCallback();
+    await new Promise((resolve) => setTimeout(resolve, 800));
+  }
+  window.close();
+  return messages;
 }
 
 // The trial order's kit (JOIN, giro di prova 2026-10-01): the runner's own answers, worded as JOIN asks.
@@ -361,6 +386,154 @@ describe('fill extension: JOIN steps', () => {
 
     const upload = page('<form><button type="submit">Inviare i documenti</button></form>', 'https://jobs.amag-group.ch/apply');
     expect(upload.F.pageState(upload.document, { sawForm: true }).kind).toBe('unknown');
+  });
+
+  it('recognizes Cippà’s «Invia CV» final button and its Italian success receipt', () => {
+    const form = page('<form><button type="submit">Invia CV</button></form>', 'https://careers.example.ch/annunci-lavoro/apply');
+    expect(SUBMIT_RE.test('Invia CV')).toBe(false); // only the human-operated extension treats this as its final button
+    let pressed = 0;
+    form.document.querySelector('button')!.addEventListener('click', () => { pressed += 1; });
+    expect(form.F.pageState(form.document, { sawForm: true }).kind).toBe('final');
+    expect(form.F.textOf(form.F.pageState(form.document, { sawForm: true }).final)).toBe('Invia CV');
+    expect(pressed).toBe(0);
+
+    const receipt = page('<main><h1>Grazie</h1><p>La tua candidatura è stata correttamente inoltrata.</p><p>Abbiamo ricevuto la tua candidatura.</p></main>', 'https://careers.example.ch/annunci-lavoro/send-cv-thank-you');
+    expect(receipt.F.pageState(receipt.document, { sawForm: true }).kind).toBe('confirmed');
+
+    const staleReceipt = page('<form><div style="display:none">Abbiamo ricevuto la tua candidatura.</div><label for="name">Nome</label><input id="name"><button type="submit">Invia CV</button></form>', 'https://careers.example.ch/annunci-lavoro/apply');
+    expect(staleReceipt.F.pageState(staleReceipt.document, { sawForm: true }).kind).toBe('final');
+    const liveReceiptWithForm = page('<form><p>Abbiamo ricevuto la tua candidatura.</p><label for="name">Nome</label><input id="name"><button type="submit">Invia CV</button></form>', 'https://careers.example.ch/annunci-lavoro/apply');
+    expect(liveReceiptWithForm.F.pageState(liveReceiptWithForm.document, { sawForm: true }).kind).toBe('final');
+    const receiptWithNewsletter = page('<main><p>Abbiamo ricevuto la tua candidatura.</p></main><form><label for="newsletter">Email newsletter</label><input id="newsletter" type="email" required><button type="submit">Iscriviti</button><input type="file" hidden></form>', 'https://careers.example.ch/annunci-lavoro/send-cv-thank-you');
+    expect(receiptWithNewsletter.F.pageState(receiptWithNewsletter.document, { sawForm: true }).kind).toBe('confirmed');
+    const receiptWithForeignForm = page('<main><p>Abbiamo ricevuto la tua candidatura.</p></main><form><label for="signup-name">Nome</label><input id="signup-name" required><label for="signup-email">Email</label><input id="signup-email" type="email" required><button type="submit">Submit</button></form>', 'https://careers.example.ch/annunci-lavoro/send-cv-thank-you');
+    expect(receiptWithForeignForm.F.pageState(receiptWithForeignForm.document, { sawForm: true }).kind).toBe('confirmed');
+    const confirmationRouteWithNewsletter = page('<main><p>Abbiamo ricevuto la tua candidatura.</p></main><form><label for="newsletter-email">Email</label><input id="newsletter-email" type="email" required><button type="submit">Submit</button></form>', 'https://careers.example.ch/application/confirmation');
+    expect(confirmationRouteWithNewsletter.F.pageState(confirmationRouteWithNewsletter.document, { sawForm: true }).kind).toBe('confirmed');
+    const transparentReceipt = page('<main><p style="opacity:0" aria-hidden="true">Abbiamo ricevuto la tua candidatura.</p></main><form><label for="newsletter-route">Email</label><input id="newsletter-route" type="email" required><button type="submit">Submit</button></form>', 'https://careers.example.ch/apply/thank-you');
+    expect(transparentReceipt.F.pageState(transparentReceipt.document, { sawForm: true })).toMatchObject({ kind: 'unknown', suppressFill: true });
+    const receiptWithReviewButton = page('<form><p>Abbiamo ricevuto la tua candidatura.</p><button type="submit">Submit application</button></form>', 'https://careers.example.ch/application/confirmation');
+    expect(receiptWithReviewButton.F.pageState(receiptWithReviewButton.document, { sawForm: true }).kind).toBe('final');
+    const receiptWithReviewLink = page('<form><p>Abbiamo ricevuto la tua candidatura.</p><a href="/submit">Submit application</a></form>', 'https://careers.example.ch/application/confirmation');
+    expect(receiptWithReviewLink.F.pageState(receiptWithReviewLink.document, { sawForm: true }).kind).toBe('final');
+    const receiptWithHiddenForm = page('<main><p>Abbiamo ricevuto la tua candidatura.</p><form aria-hidden="true"><label for="hidden-education">Titolo di studio *</label><select id="hidden-education" required><option value="">Seleziona</option></select><button type="submit">Submit application</button></form></main>', 'https://careers.example.ch/annunci-lavoro/send-cv-thank-you');
+    expect(receiptWithHiddenForm.F.pageState(receiptWithHiddenForm.document, { sawForm: true }).kind).toBe('confirmed');
+    const receiptWithOpenApplication = page('<form><p>Abbiamo ricevuto la tua candidatura.</p><label for="email">Email *</label><input id="email" type="email" required><button type="submit">Submit</button></form>', 'https://careers.example.ch/annunci-lavoro/apply');
+    expect(receiptWithOpenApplication.F.pageState(receiptWithOpenApplication.document, { sawForm: true }).kind).toBe('final');
+  });
+
+  it('does not mark a hidden receipt or fill an unrelated form', async () => {
+    const html = '<main><div style="opacity:0" aria-hidden="true">Abbiamo ricevuto la tua candidatura.</div></main><form><label for="newsletter">Email</label><input id="newsletter" type="email" required><button type="submit">Submit</button></form>';
+    const { F, document } = page(html, 'https://careers.example.ch/apply/thank-you');
+    expect(F.pageState(document, { sawForm: true })).toMatchObject({ kind: 'unknown', suppressFill: true });
+    const messages = await runContent(html, {
+      kit: { orderId: 'cippa', identity: { email: 'candidate@example.test' }, job: { title: 'Impiegato', company: 'Cippà Trasporti SA' } },
+      state: 'filling', sawForm: true, sawFinal: false,
+    });
+    expect(messages).not.toContainEqual(expect.objectContaining({ type: 'status', status: 'submitted' }));
+    expect(messages).not.toContainEqual(expect.objectContaining({ type: 'status', status: 'needs' }));
+  });
+
+  it('reports a portal success receipt even when an earlier build missed its final button', async () => {
+    const messages = await runContent('<main><h1>Grazie</h1><p>La tua candidatura è stata correttamente inoltrata.</p></main>', {
+      kit: { orderId: 'cippa', job: { title: 'Impiegato', company: 'Cippà Trasporti SA' } },
+      state: 'filling', sawForm: true, sawFinal: false,
+    });
+    expect(messages).toContainEqual(expect.objectContaining({ type: 'status', status: 'submitted', detail: '', requestId: expect.any(String) }));
+  });
+
+  it('retries the sent status when the owner queue did not acknowledge the first update', async () => {
+    let attempts = 0;
+    const messages = await runContent('<main><h1>Grazie</h1><p>La tua candidatura è stata correttamente inoltrata.</p></main>', {
+      kit: { orderId: 'cippa', job: { title: 'Impiegato', company: 'Cippà Trasporti SA' } },
+      state: 'filling', sawForm: true, sawFinal: false,
+    }, {
+      retryAfterFailure: true,
+      onMessage: async (message) => {
+        if (message.status !== 'submitted') return { ok: true };
+        attempts += 1;
+        return attempts === 1 ? { ok: false, error: 'queue_unavailable' } : { ok: true };
+      },
+    });
+    expect(attempts).toBe(2);
+    expect(messages.filter((message) => message.type === 'status' && message.status === 'submitted')).toHaveLength(2);
+  });
+
+  it('waits for the owner queue to confirm its admin update before acknowledging a sent status', async () => {
+    const { window } = page('<main>Coda</main>', 'https://frontaliereticino.ch/gestione-contenuti-xk9mp2q/');
+    let listener: ((message: any, sender: any, respond: (value: any) => void) => boolean | void) | undefined;
+    (window as any).chrome = { runtime: {
+      getManifest: () => ({ version: '1.0.0' }),
+      onMessage: { addListener: (handler: typeof listener) => { listener = handler; } },
+    } };
+    window.eval(bridgeSource);
+    let response: any;
+    const answer = new Promise((resolve) => {
+      const keepOpen = listener!({ type: 'fill-status', status: 'submitted', orderId: 'cippa', requestId: 'receipt-1' }, {}, (value) => {
+        response = value;
+        resolve(value);
+      });
+      expect(keepOpen).toBe(true);
+    });
+    expect(response).toBeUndefined();
+    const ack = new window.MessageEvent('message', {
+      data: { source: 'frontaliere-queue', type: 'fill-status-ack', orderId: 'cippa', requestId: 'receipt-1', ok: true },
+      origin: window.location.origin,
+    });
+    Object.defineProperty(ack, 'source', { value: window });
+    window.dispatchEvent(ack);
+    await expect(answer).resolves.toEqual({ ok: true });
+    window.close();
+  });
+
+  it('surfaces required answers on a page whose final control is not recognized', async () => {
+    const messages = await runContent('<form><label for="classification">Inquadramento *</label><select id="classification" required><option value="">Seleziona</option><option>Impiegato</option></select></form>', {
+      kit: { orderId: 'cippa', answers: [], profile: {} }, state: 'filling', sawForm: true, sawFinal: false,
+    });
+    expect(messages).toContainEqual(expect.objectContaining({ type: 'status', status: 'needs', detail: expect.stringContaining('Inquadramento') }));
+  });
+
+  it('fills Cippà-style segmented birth dates, letter editor, explicit CV facts, and leaves classification for the candidate', async () => {
+    const { window, document, F } = page(`<form>
+      <label for="day">Data di nascita - Giorno *</label><select id="day" required><option value="">Giorno</option><option value="14">14</option></select>
+      <label for="month">Data di nascita - Mese *</label><select id="month" required><option value="">Mese</option><option value="03">Marzo</option></select>
+      <label for="year">Data di nascita - Anno *</label><select id="year" required><option value="">Anno</option><option value="1986">1986</option></select>
+      <label for="english">Livello di Inglese *</label><select id="english" required><option value="">Seleziona</option><option>Buono</option><option>Ottimo</option></select>
+      <label for="german">Livello di Tedesco *</label><select id="german" required><option value="">Seleziona</option><option>Scolastico</option><option>Buono</option></select>
+      <label for="french">Livello di Francese *</label><select id="french" required><option value="">Seleziona</option><option>Scolastico</option><option>Buono</option></select>
+      <label for="education">Titolo di studio *</label><select id="education" required><option value="">Seleziona</option><option>Diploma</option><option>Laurea</option></select>
+      <label for="position">Ultima posizione *</label><input id="position" required>
+      <label for="classification">Inquadramento *</label><select id="classification" required><option value="">Seleziona</option><option>Impiegato</option><option>Dirigente</option></select>
+      <label for="letter">Lettera di presentazione *</label><div class="cke" id="cke_letter"><iframe class="cke_wysiwyg_frame" title="Rich Text Editor, letter"></iframe><textarea id="letter" required style="display:none"></textarea></div>
+    </form>`);
+    const frame = document.querySelector('.cke_wysiwyg_frame') as HTMLIFrameElement;
+    frame.contentDocument!.body.setAttribute('contenteditable', 'true');
+    const applicationKit = {
+      ...kit,
+      language: 'it',
+      profile: {
+        dateOfBirth: '1986-03-14',
+        languages: [{ language: 'English', level: 'B2' }, { language: 'Deutsch', level: 'A2' }, { language: 'Français', level: 'A2' }],
+        education: [{ degree: 'Diploma di maturità linguistica', institution: 'Scuola linguistica' }],
+        latestPosition: 'Consulente HR',
+      },
+      texts: { coverLetter: 'Gentili responsabili,\n\nmi candido per la posizione.' },
+    };
+    const result = await F.fillPage(document, applicationKit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    const value = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement).value;
+    expect(['day', 'month', 'year', 'english', 'german', 'french', 'education', 'position', 'letter'].map(value)).toEqual([
+      '14', '03', '1986', 'Buono', 'Scolastico', 'Scolastico', 'Diploma', 'Consulente HR', 'Gentili responsabili,\n\nmi candido per la posizione.',
+    ]);
+    expect(result.missing.map((item: any) => item.label)).toContain('Inquadramento *');
+    expect(value('classification')).toBe('');
+    window.close();
+  });
+
+  it('does not treat date-entry instructions as a segmented birth-date control', async () => {
+    const { window, document, F } = page('<form><label for="dob">Data di nascita *</label><small id="dob-help">Inserire giorno, mese e anno</small><input id="dob" aria-describedby="dob-help" required></form>');
+    await F.fillPage(document, { ...kit, profile: { ...kit.profile, dateOfBirth: '1986-03-14' } }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('dob') as HTMLInputElement).value).toBe('14.03.1986');
+    window.close();
   });
 
   it('starts Coop’s application with «Jetzt bewerben», never «Später bewerben»', () => {
@@ -694,7 +867,11 @@ describe('fill extension: the tab the start link opens', () => {
   const START = 'https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/';
 
   /** background.js on a fake `chrome`: session storage and the listeners it registers. */
-  function worker(store = new Map<string, any>([['loadedFingerprint', 'loaded']])) {
+  function worker(
+    store = new Map<string, any>([['loadedFingerprint', 'loaded']]),
+    sendToQueue: (...args: any[]) => Promise<any> = async () => ({ ok: true }),
+    queueTabs: Array<{ id: number; url: string }> = [],
+  ) {
     const listeners: Record<string, Array<(...args: any[]) => any>> = { created: [], message: [] };
     const on = (name: string) => ({ addListener: (listener: any) => (listeners[name] ||= []).push(listener) });
     const chrome = {
@@ -709,7 +886,7 @@ describe('fill extension: the tab the start link opens', () => {
         },
         local: { async get() { return {}; }, async set() {} },
       },
-      tabs: { onCreated: on('created'), onUpdated: on('updated'), onRemoved: on('removed'), async query() { return []; }, async get() { return null; }, async create() { return { id: 99 }; }, async update() {}, async sendMessage() {} },
+      tabs: { onCreated: on('created'), onUpdated: on('updated'), onRemoved: on('removed'), async query() { return queueTabs; }, async get() { return null; }, async create() { return { id: 99 }; }, async update() {}, async sendMessage(tabId: number, message: any) { return sendToQueue(tabId, message); } },
       runtime: { onMessage: on('message'), onStartup: on('startup'), onInstalled: on('installed'), getURL: (file: string) => file, getManifest: () => ({ content_scripts: [{ matches: [], js: [] }] }), reload() {} },
       alarms: { async get() { return {}; }, create() {}, onAlarm: on('alarm') },
       scripting: { async executeScript() { return []; } },
@@ -783,6 +960,46 @@ describe('fill extension: the tab the start link opens', () => {
     await message({ type: 'mark', startedAt: 'soon', startUrl: START }, 1);
     await created({ id: 2, openerTabId: 1, pendingUrl: START });
     expect(store.has('tab:2')).toBe(false);
+  });
+
+  it('keeps the portal tab retryable until the owner queue acknowledges the sent status', async () => {
+    const queued: Array<{ tabId: number; requestId?: string }> = [];
+    const replies = [{ ok: false, error: 'admin_action_failed' }, { ok: true }];
+    const { store, message } = worker(undefined, async (tabId, payload) => {
+      queued.push({ tabId, requestId: payload.requestId });
+      return replies.shift();
+    });
+    store.set('tab:1', {
+      kit: { orderId: 'cippa', applyUrl: 'https://careers.example.ch/apply' },
+      queueTabId: 9, state: 'filling',
+    });
+    const failed = await message({ type: 'status', status: 'submitted', requestId: 'receipt-1' }, 1);
+    expect(failed).toMatchObject({ ok: false, error: 'admin_action_failed' });
+    expect(store.get('tab:1').state).toBe('filling');
+
+    const retried = await message({ type: 'status', status: 'submitted', requestId: 'receipt-2' }, 1);
+    expect(retried).toMatchObject({ ok: true });
+    expect(store.get('tab:1').state).toBe('submitted');
+    expect(queued).toEqual([{ tabId: 9, requestId: 'receipt-1' }, { tabId: 9, requestId: 'receipt-2' }]);
+  });
+
+  it('finds a replacement owner queue tab when the original tab was closed', async () => {
+    const sent: number[] = [];
+    const { store, message } = worker(undefined, async (tabId) => {
+      sent.push(tabId);
+      if (tabId === 9) throw new Error('No tab with id: 9');
+      return { ok: true };
+    }, [{ id: 12, url: 'https://frontaliereticino.ch/gestione-contenuti-xk9mp2q/?order=cippa' }]);
+    store.set('tab:1', {
+      kit: { orderId: 'cippa', applyUrl: 'https://careers.example.ch/apply' },
+      queueTabId: 9, state: 'filling',
+    });
+
+    const result = await message({ type: 'status', status: 'submitted', requestId: 'receipt-after-reopen' }, 1);
+
+    expect(result).toEqual({ ok: true });
+    expect(store.get('tab:1').state).toBe('submitted');
+    expect(sent).toEqual([9, 12]);
   });
 });
 

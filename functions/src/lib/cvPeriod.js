@@ -55,6 +55,18 @@ export function parseEndpoint(raw) {
   return null;
 }
 
+/**
+ * A recognized start with no end denotes a current period. Accept full dates
+ * as well as month/year endpoints without inventing current jobs from an
+ * undated role.
+ */
+export function isOngoingPeriod(start, end) {
+  const rawStart = String(start || '').trim();
+  if (!rawStart || String(end || '').trim() || !SINCE.test(fold(rawStart))) return false;
+  const unprefixedStart = fold(rawStart).replace(SINCE, '');
+  return Boolean(parseEndpoint(rawStart) || isoDateOf(unprefixedStart));
+}
+
 function formatEndpoint(endpoint, language) {
   if (endpoint === 'ongoing') return ONGOING_LABEL[language] || ONGOING_LABEL.it;
   return endpoint.month ? `${String(endpoint.month).padStart(2, '0')}.${endpoint.year}` : String(endpoint.year);

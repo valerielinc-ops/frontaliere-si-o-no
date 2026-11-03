@@ -17,13 +17,40 @@ import { addressContextContract } from './lib/addressContextContract.js';
 import { LETTER_FILE_LABEL, applicationFileName } from './assistedApplicationAiDraftCore.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
-import { isoDateOf } from './lib/cvPeriod.js';
+import { isoDateOf, isOngoingPeriod, parseEndpoint } from './lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from './lib/permitStatus.js';
 import { operationalAnswerForOption, operationalQuestionTopic } from './assistedApplicationOperationalAnswers.js';
 import { portalAnswerForApplication } from './lib/portalQuestionMapping.js';
 import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from './lib/phoneNormalization.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
+
+/** Pick a latest job only when every dated job has a comparable, explicit end. */
+function latestPosition(profile) {
+  const jobs = (Array.isArray(profile?.experience) ? profile.experience : [])
+    .filter((item) => item?.kind === 'job' && text(item?.role, 200));
+  if (!jobs.length) return '';
+  const dated = jobs.map((item) => {
+    const rawEnd = text(item?.end, 40);
+    const periodEndpoint = isOngoingPeriod(item?.start, rawEnd) ? 'ongoing' : parseEndpoint(rawEnd);
+    const fullDate = !periodEndpoint && isoDateOf(rawEnd);
+    const endpoint = periodEndpoint || (fullDate ? {
+      year: Number(fullDate.slice(0, 4)), month: Number(fullDate.slice(5, 7)),
+    } : null);
+    return endpoint ? { role: text(item.role, 200), endpoint } : null;
+  });
+  if (dated.some((item) => !item)) return '';
+  const ongoing = dated.filter((item) => item.endpoint === 'ongoing');
+  if (ongoing.length) return ongoing.length === 1 ? ongoing[0].role : '';
+  const latestYear = Math.max(...dated.map((item) => item.endpoint.year));
+  const latestYearJobs = dated.filter((item) => item.endpoint.year === latestYear);
+  if (latestYearJobs.length === 1) return latestYearJobs[0].role;
+  // A year alone cannot order two roles within the same year.
+  if (latestYearJobs.some((item) => !item.endpoint.month)) return '';
+  const latestMonth = Math.max(...latestYearJobs.map((item) => item.endpoint.month));
+  const latestMonthJobs = latestYearJobs.filter((item) => item.endpoint.month === latestMonth);
+  return latestMonthJobs.length === 1 ? latestMonthJobs[0].role : '';
+}
 
 function applicationAnswer(question, answer) {
   return text(portalAnswerForApplication(question, operationalAnswerForOption(question, answer) || answer), 2000);
@@ -90,6 +117,14 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     // stay empty so a generic «Land» field cannot inherit a stale portal answer.
     country: text(address.country || locationCountry, 100),
   };
+  const languages = (Array.isArray(profile.languages) ? profile.languages : [])
+    .slice(0, 12)
+    .map((item) => ({ language: text(item?.language, 60), level: text(item?.level, 60) }))
+    .filter((item) => item.language);
+  const education = (Array.isArray(profile.education) ? profile.education : [])
+    .slice(0, 6)
+    .map((item) => ({ degree: text(item?.degree, 200), institution: text(item?.institution, 200) }))
+    .filter((item) => item.degree || item.institution);
   // Keep the validated ATS kind with the owner handoff. An employer-branded
   // SuccessFactors page cannot identify itself from its hostname alone; when
   // the draft or redirect already carries the ATS kind, the extension passes
@@ -127,6 +162,9 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       workPermit: text(profile.permitStatus ? permitStatement(profile.permitStatus, language) : printedPermitText(profile.workPermit), 200),
       availability: text(profile.availability, 200),
       salary: text(answers.salary_expectation, 200),
+      languages,
+      education,
+      latestPosition: text(latestPosition(profile), 200),
     },
     answers: kitAnswers,
     texts: {
