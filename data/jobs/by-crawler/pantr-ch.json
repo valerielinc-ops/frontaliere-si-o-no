@@ -3996,12 +3996,12 @@
     },
     {
       "id": "pantr-ch-3afd34c599f9",
-      "slug": "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9",
+      "slug": "imposte-per-esperti-esperti-pantr-gmbh-biel-bern-3afd34c599f9",
       "slugByLocale": {
         "de": "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9",
-        "it": "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9",
-        "en": "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9",
-        "fr": "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9"
+        "it": "imposte-per-esperti-esperti-pantr-gmbh-biel-bern-3afd34c599f9",
+        "en": "expert-expert-taxation-pantr-gmbh-biel-bern-3afd34c599f9",
+        "fr": "fiscalite-des-experts-pantr-gmbh-biel-bern-3afd34c599f9"
       },
       "slugDisambiguator": "3afd34c599f9",
       "company": "Pantr GmbH",
@@ -4064,7 +4064,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:39:10.904Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:10.904Z"
+      "firstSeenAt": "2026-11-02T21:39:10.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9"
+        ],
+        "en": [
+          "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9"
+        ],
+        "fr": [
+          "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-fachfrau-steuern-pantr-gmbh-biel-bern-3afd34c599f9"
+      ]
     }
   ]
 }

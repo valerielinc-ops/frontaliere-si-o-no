@@ -94,10 +94,10 @@ function sha256File(filePath) {
     while ((bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0) {
       hash.update(buffer.subarray(0, bytesRead));
     }
-    return hash.digest('hex');
   } finally {
     fs.closeSync(fd);
   }
+  return hash.digest('hex');
 }
 
 function snapshotDigest({ candidateRaw, candidatePath }) {
@@ -181,6 +181,11 @@ export function writeCrossCrawlerDedupProofFile(
 ) {
   if (!Array.isArray(entries) || entries.length === 0) {
     return clearCrossCrawlerDedupProofFile({ proofDir, env });
+  }
+  const hasCandidateRaw = typeof candidateRaw === 'string';
+  const hasCandidatePath = typeof candidatePath === 'string' && candidatePath.length > 0;
+  if (hasCandidateRaw === hasCandidatePath) {
+    throw new Error('provide exactly one of candidateRaw or candidatePath for the cross-crawler dedup proof');
   }
   const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
   if (!candidateDigest) {

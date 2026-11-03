@@ -2143,12 +2143,12 @@
     },
     {
       "id": "livit-4e459d6a70b8",
-      "slug": "sachbearbeiter-in-lieferantenmanagement-befristet-per-12-monate-livit-ag-zurich",
+      "slug": "impiegato-a-per-la-gestione-dei-fornitori-a-tempo-determinato-per-12-mesi-livit-ag-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich",
-        "it": "sachbearbeiter-in-lieferantenmanagement-befristet-per-12-monate-livit-ag-zurich",
-        "en": "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich",
-        "fr": "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich"
+        "it": "impiegato-a-per-la-gestione-dei-fornitori-a-tempo-determinato-per-12-mesi-livit-ag-zurich",
+        "en": "supplier-management-administrative-assistant-fixed-term-for-12-months-livit-ag-zurich",
+        "fr": "collaborateur-trice-administratif-ve-en-gestion-des-fournisseurs-a-duree-determinee-pour-12-mois-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2197,11 +2197,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich",
+          "sachbearbeiter-in-lieferantenmanagement-befristet-per-12-monate-livit-ag-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich"
+        ],
+        "fr": [
           "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich"
+        "sachbearbeiter-in-lieferantenmanagement-befristet-fur-12-monate-livit-zurich",
+        "sachbearbeiter-in-lieferantenmanagement-befristet-per-12-monate-livit-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2226,9 +2234,9 @@
       "slug": "assistente-amministrazione-livit-lugano",
       "slugByLocale": {
         "it": "assistente-amministrazione-livit-lugano",
-        "en": "assistente-amministrazione-livit-lugano",
-        "de": "assistente-amministrazione-livit-lugano",
-        "fr": "assistente-amministrazione-livit-lugano"
+        "en": "administrative-assistant-livit-ag-lugano",
+        "de": "verwaltungsassistent-livit-ag-lugano",
+        "fr": "assistant-administratif-livit-ag-lugano"
       },
       "company": "Livit AG",
       "companyKey": "livit",

@@ -269,10 +269,10 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a67d4d96c44e",
-      "slug": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de",
+      "slug": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de",
-        "it": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de",
+        "it": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-la-chaux-de-fonds",
         "en": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de",
         "de": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de"
       },
@@ -337,7 +337,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:55:24.678Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:55:24.678Z"
+      "firstSeenAt": "2026-11-02T21:55:24.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a6bf579a795f",

@@ -1902,12 +1902,12 @@
     },
     {
       "id": "tally-weijl-c60b082234e6",
-      "slug": "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden",
+      "slug": "store-manager-100-w-m-d-tally-weijl-baden",
       "slugByLocale": {
         "de": "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden",
-        "it": "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden",
+        "it": "store-manager-100-w-m-d-tally-weijl-baden",
         "en": "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden",
-        "fr": "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden"
+        "fr": "gestionnaire-de-magasins-100-w-m-d-tally-weijl-baden"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1969,7 +1969,18 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:53:58.127Z"
+      "firstSeenAt": "2026-11-02T21:53:58.127Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden"
+        ],
+        "fr": [
+          "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden"
+        ]
+      },
+      "previousSlugs": [
+        "filialleiterin-storemanager-100-w-m-d-tally-weijl-baden"
+      ]
     },
     {
       "id": "tally-weijl-b2ab92c8758b",

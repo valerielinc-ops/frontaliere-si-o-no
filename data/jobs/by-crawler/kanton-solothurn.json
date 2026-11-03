@@ -1823,12 +1823,12 @@
     },
     {
       "id": "kanton-solothurn-2551fa658cc6",
-      "slug": "apprendistato-come-kaufmann-frau-cfc-personalamt-kanton-solothurn",
+      "slug": "posto-di-apprendistato-come-impiegato-a-di-commercio-afc-personalamt-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn",
-        "it": "apprendistato-come-kaufmann-frau-cfc-personalamt-kanton-solothurn",
-        "en": "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn",
-        "fr": "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn"
+        "it": "posto-di-apprendistato-come-impiegato-a-di-commercio-afc-personalamt-kanton-solothurn-solothurn",
+        "en": "apprenticeship-as-a-commercial-employee-efz-personalamt-kanton-solothurn-solothurn",
+        "fr": "place-d-apprentissage-d-employe-e-de-commerce-cfc-personalamt-kanton-solothurn-solothurn"
       },
       "company": "Personalamt Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1877,11 +1877,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn",
+          "apprendistato-come-kaufmann-frau-cfc-personalamt-kanton-solothurn"
+        ],
+        "en": [
+          "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn"
+        "lehrstelle-als-kaufmann-frau-efz-kanton-solothurn-solothurn",
+        "apprendistato-come-kaufmann-frau-cfc-personalamt-kanton-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 91500,

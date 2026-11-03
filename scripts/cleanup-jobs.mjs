@@ -710,6 +710,7 @@ async function main() {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
   }
+  readJsonArrayFile(PUBLIC_JOBS_PATH, { collect: false });
 
   // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
   const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH, includeJobs: true });
@@ -717,7 +718,10 @@ async function main() {
     console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs.`);
   }
   let dataJobs = localeHardening.jobs;
-  if (!Array.isArray(dataJobs)) throw new Error('jobs.json must be an array');
+  delete localeHardening.jobs;
+  if (!Array.isArray(dataJobs)) {
+    throw new Error('jobs.json must be an array');
+  }
 
   // ── 0b. Enrich short descriptions (deploy-blocking safety net) ──────────
   // If any job's description in any locale is too short or contains garbage
@@ -731,10 +735,8 @@ async function main() {
     dataJobs = repairedJobs;
     if (enriched > 0) {
       writeJson(DATA_JOBS_PATH, dataJobs);
-      // Keep public copy in sync
-      if (fs.existsSync(PUBLIC_JOBS_PATH)) {
-        writeJson(PUBLIC_JOBS_PATH, dataJobs);
-      }
+      // Keep public copy in sync without reading either large file back into a string.
+      writeJson(PUBLIC_JOBS_PATH, dataJobs);
       console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
     }
   }
@@ -746,11 +748,6 @@ async function main() {
   if (String(process.env.JOBS_HOUSEKEEPING_TRANSLATE_MISSING || '0') === '1') {
     console.log('ℹ️  Housekeeping locale translation explicitly enabled via JOBS_HOUSEKEEPING_TRANSLATE_MISSING=1');
   }
-
-  if (!Array.isArray(dataJobs)) throw new Error('jobs.json must be an array');
-  // Validate the public copy without constructing a second 500+ MB string or
-  // retaining a second copy of the entire job dataset in memory.
-  readJsonArrayFile(PUBLIC_JOBS_PATH, { collect: false });
 
   // Use data/ as source of truth, but ensure public/ stays in sync.
   const jobs = dataJobs;

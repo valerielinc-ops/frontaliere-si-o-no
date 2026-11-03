@@ -1302,12 +1302,12 @@
     },
     {
       "id": "kanton-zuerich-bddfc866e968",
-      "slug": "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil",
+      "slug": "assistente-d-immobile-custode-kantonale-verwaltung-zurich-wadenswil",
       "slugByLocale": {
         "de": "objektassistent-in-hauswart-in-kanton-zuerich-wadenswil",
-        "it": "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil",
-        "en": "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil",
-        "fr": "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil"
+        "it": "assistente-d-immobile-custode-kantonale-verwaltung-zurich-wadenswil",
+        "en": "property-assistant-caretaker-kantonale-verwaltung-zurich-wadenswil",
+        "fr": "assistant-e-d-objet-concierge-kantonale-verwaltung-zurich-wadenswil"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1359,11 +1359,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "objektassistent-in-hauswart-in-kanton-zuerich-wadenswil"
+          "objektassistent-in-hauswart-in-kanton-zuerich-wadenswil",
+          "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil"
+        ],
+        "en": [
+          "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil"
+        ],
+        "fr": [
+          "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil"
         ]
       },
       "previousSlugs": [
-        "objektassistent-in-hauswart-in-kanton-zuerich-wadenswil"
+        "objektassistent-in-hauswart-in-kanton-zuerich-wadenswil",
+        "objektassistent-in-hauswart-in-kantonale-verwaltung-zurich-wadenswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2723,12 +2731,12 @@
     },
     {
       "id": "kanton-zuerich-4a7b5fcc23f4",
-      "slug": "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach",
+      "slug": "auditor-trice-nella-protezione-dell-infanzia-sede-di-bulach-kantonale-verwaltung-zurich-bulach",
       "slugByLocale": {
         "de": "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kanton-zuerich-bulach",
-        "it": "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach",
-        "en": "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach",
-        "fr": "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach"
+        "it": "auditor-trice-nella-protezione-dell-infanzia-sede-di-bulach-kantonale-verwaltung-zurich-bulach",
+        "en": "auditor-in-child-protection-bulach-office-kantonale-verwaltung-zurich-bulach",
+        "fr": "auditeur-trice-dans-la-protection-de-l-enfance-bureau-de-bulach-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2780,11 +2788,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kanton-zuerich-bulach"
+          "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kanton-zuerich-bulach",
+          "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach"
+        ],
+        "en": [
+          "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach"
+        ],
+        "fr": [
+          "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach"
         ]
       },
       "previousSlugs": [
-        "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kanton-zuerich-bulach"
+        "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kanton-zuerich-bulach",
+        "auditor-in-im-kindesschutz-geschaftsstelle-bulach-kantonale-verwaltung-zurich-bulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3559,12 +3575,12 @@
     },
     {
       "id": "kanton-zuerich-5a5f4ec3625f",
-      "slug": "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich",
+      "slug": "addetto-a-al-supporto-sinistri-servizio-interno-kantonale-verwaltung-zurich-8050-zurich",
       "slugByLocale": {
         "de": "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
-        "it": "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich",
-        "en": "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
-        "fr": "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
+        "it": "addetto-a-al-supporto-sinistri-servizio-interno-kantonale-verwaltung-zurich-8050-zurich",
+        "en": "temporary-claims-support-internal-service-kantonale-verwaltung-zurich-8050-zurich",
+        "fr": "aide-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3616,11 +3632,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
+          "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich"
+        ],
+        "en": [
+          "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
+        ],
+        "fr": [
           "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
         ]
       },
       "previousSlugs": [
-        "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
+        "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
+        "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3831,12 +3855,12 @@
     },
     {
       "id": "kanton-zuerich-766b3df3644f",
-      "slug": "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich",
+      "slug": "responsabile-generale-di-progetto-per-le-piste-ciclabili-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "gesamtprojektleiter-in-velobahnen-kanton-zuerich-zurich",
-        "it": "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich",
-        "en": "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich",
-        "fr": "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich"
+        "it": "responsabile-generale-di-progetto-per-le-piste-ciclabili-kantonale-verwaltung-zurich-zurich",
+        "en": "overall-project-manager-for-cycle-routes-kantonale-verwaltung-zurich-zurich",
+        "fr": "responsable-general-e-de-projet-pour-les-pistes-cyclables-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3888,11 +3912,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "gesamtprojektleiter-in-velobahnen-kanton-zuerich-zurich"
+          "gesamtprojektleiter-in-velobahnen-kanton-zuerich-zurich",
+          "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "gesamtprojektleiter-in-velobahnen-kanton-zuerich-zurich"
+        "gesamtprojektleiter-in-velobahnen-kanton-zuerich-zurich",
+        "gesamtprojektleiter-in-velobahnen-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4372,12 +4404,12 @@
     },
     {
       "id": "kanton-zuerich-fbda28c672b4",
-      "slug": "sozialarbeiter-in-fh-kjz-kloten-befristet-kantonale-verwaltung-zurich-kloten",
+      "slug": "assistente-sociale-sup-kjz-kloten-a-tempo-determinato-kantonale-verwaltung-zurich-kloten",
       "slugByLocale": {
         "de": "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten",
-        "it": "sozialarbeiter-in-fh-kjz-kloten-befristet-kantonale-verwaltung-zurich-kloten",
-        "en": "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten",
-        "fr": "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten"
+        "it": "assistente-sociale-sup-kjz-kloten-a-tempo-determinato-kantonale-verwaltung-zurich-kloten",
+        "en": "social-worker-fh-kjz-kloten-fixed-term-kantonale-verwaltung-zurich-kloten",
+        "fr": "assistant-e-social-e-hes-kjz-kloten-a-duree-determinee-kantonale-verwaltung-zurich-kloten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4429,11 +4461,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten",
+          "sozialarbeiter-in-fh-kjz-kloten-befristet-kantonale-verwaltung-zurich-kloten"
+        ],
+        "en": [
+          "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten"
+        ],
+        "fr": [
           "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten"
+        "sozialarbeiter-in-fh-kjz-kloten-befristet-kanton-zuerich-kloten",
+        "sozialarbeiter-in-fh-kjz-kloten-befristet-kantonale-verwaltung-zurich-kloten"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6181,12 +6221,12 @@
     },
     {
       "id": "kanton-zuerich-9b690ce0a28c",
-      "slug": "sozialarbeiter-in-fh-kjz-bulach-befristet-kantonale-verwaltung-zurich-bulach",
+      "slug": "assistente-sociale-sup-kjz-bulach-a-tempo-determinato-kantonale-verwaltung-zurich-bulach",
       "slugByLocale": {
         "de": "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach",
-        "it": "sozialarbeiter-in-fh-kjz-bulach-befristet-kantonale-verwaltung-zurich-bulach",
-        "en": "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach",
-        "fr": "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach"
+        "it": "assistente-sociale-sup-kjz-bulach-a-tempo-determinato-kantonale-verwaltung-zurich-bulach",
+        "en": "social-worker-fh-kjz-bulach-fixed-term-kantonale-verwaltung-zurich-bulach",
+        "fr": "assistant-e-social-e-hes-kjz-bulach-a-duree-determinee-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6238,11 +6278,19 @@
       "pensum": "60 - 70%",
       "previousSlugsByLocale": {
         "it": [
+          "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach",
+          "sozialarbeiter-in-fh-kjz-bulach-befristet-kantonale-verwaltung-zurich-bulach"
+        ],
+        "en": [
+          "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach"
+        ],
+        "fr": [
           "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach"
+        "sozialarbeiter-in-fh-kjz-bulach-befristet-kanton-zuerich-bulach",
+        "sozialarbeiter-in-fh-kjz-bulach-befristet-kantonale-verwaltung-zurich-bulach"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

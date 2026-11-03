@@ -83,10 +83,10 @@
     },
     {
       "id": "komax-10ba8a78e59f",
-      "slug": "quality-assurance-manager-m-w-d-komax-ch",
+      "slug": "gestione-della-garanzia-di-qualita-m-f-d-komax-dierikon",
       "slugByLocale": {
         "de": "quality-assurance-manager-m-w-d-komax-ch",
-        "it": "quality-assurance-manager-m-w-d-komax-ch",
+        "it": "gestione-della-garanzia-di-qualita-m-f-d-komax-dierikon",
         "en": "quality-assurance-manager-m-w-d-komax-ch",
         "fr": "quality-assurance-manager-m-w-d-komax-ch"
       },
@@ -151,7 +151,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:58:57.179Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:57.179Z"
+      "firstSeenAt": "2026-11-02T21:58:57.179Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-assurance-manager-m-w-d-komax-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-assurance-manager-m-w-d-komax-ch"
+      ]
     },
     {
       "id": "komax-925f9fb150d6",
@@ -400,7 +408,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -451,7 +459,8 @@
         "facility-manager-w-m-d-komax-ch-68e9421a",
         "gestionnaire-d-installations-h-f-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -469,7 +478,7 @@
           "facility-manager-w-m-d-komax-ch-68e9421a"
         ],
         "fr": [
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-21T16:17:37.993Z",

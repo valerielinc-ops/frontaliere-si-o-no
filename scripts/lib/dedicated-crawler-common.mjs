@@ -1517,7 +1517,9 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   // Support both flat array format and { jobs: [...] } wrapper format
   const raw = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
   if (!raw) {
-    return { changed: false, repaired: 0, total: 0 };
+    const result = { changed: false, repaired: 0, total: 0 };
+    if (includeJobs) result.jobs = null;
+    return result;
   }
 
   let changed = false;
@@ -2137,7 +2139,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   if (!changed) {
     const result = { changed: false, repaired: 0, total: raw.length, ...(includeJobs ? { jobs: raw } : {}) };
     _hardenResultCache.set(resolvedPath, result);
-    return result;
+    return includeJobs ? { ...result, jobs: raw } : result;
   }
 
   // Safety net: per-locale slug cleanup. Only strips a previousSlug if it
@@ -2154,7 +2156,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   }
   const result = { changed: true, repaired, total: raw.length, ...(includeJobs ? { jobs: raw } : {}) };
   _hardenResultCache.set(resolvedPath, result);
-  return result;
+  return includeJobs ? { ...result, jobs: raw } : result;
 }
 
 /**

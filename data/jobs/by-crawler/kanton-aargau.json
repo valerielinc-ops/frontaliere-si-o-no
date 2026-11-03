@@ -5810,12 +5810,12 @@
     },
     {
       "id": "kanton-aargau-718f5ce0b5d9",
-      "slug": "verantwortliche-verantwortlicher-geschaftskoordination-e-vertrags-e-lieferantenmanagement-kanton-aargau-aarau",
+      "slug": "responsabile-del-coordinamento-aziendale-e-della-gestione-dei-contratti-e-dei-fornitori-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und",
-        "it": "verantwortliche-verantwortlicher-geschaftskoordination-e-vertrags-e-lieferantenmanagement-kanton-aargau-aarau",
-        "en": "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und",
-        "fr": "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und"
+        "it": "responsabile-del-coordinamento-aziendale-e-della-gestione-dei-contratti-e-dei-fornitori-kanton-aargau-aarau",
+        "en": "responsible-responsible-business-coordination-and-contract-and-supplier-management-kanton-aargau-aarau",
+        "fr": "coordination-responsable-responsable-des-entreprises-et-gestion-des-contrats-et-des-fournisseurs-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5866,11 +5866,19 @@
       "department": "Generalsekretariat BVU",
       "previousSlugsByLocale": {
         "it": [
+          "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und",
+          "verantwortliche-verantwortlicher-geschaftskoordination-e-vertrags-e-lieferantenmanagement-kanton-aargau-aarau"
+        ],
+        "en": [
+          "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und"
+        ],
+        "fr": [
           "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und"
         ]
       },
       "previousSlugs": [
-        "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und"
+        "verantwortliche-verantwortlicher-geschaftskoordination-und-vertrags-und",
+        "verantwortliche-verantwortlicher-geschaftskoordination-e-vertrags-e-lieferantenmanagement-kanton-aargau-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5891,12 +5899,12 @@
     },
     {
       "id": "kanton-aargau-befbd77ca49c",
-      "slug": "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch",
+      "slug": "specialista-comunicazione-specialistica-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch"
+        "it": "specialista-comunicazione-specialistica-80-100-kanton-aargau-aarau",
+        "en": "specialist-specialist-communication-80-100-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-communication-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5959,7 +5967,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:35:17.015Z"
+      "firstSeenAt": "2026-11-02T21:35:17.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-kommunikation-80-100-kanton-aargau-ch"
+      ]
     }
   ]
 }
