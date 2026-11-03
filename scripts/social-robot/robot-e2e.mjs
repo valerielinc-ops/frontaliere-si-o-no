@@ -46,7 +46,7 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false, unsavedPost = false } = {}) {
   const menuItem = (id, label) => rolelessCreateMenu
     ? `<div id="${id}"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></div>`
     : `<a href="#" id="${id}" role="link"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></a>`;
@@ -80,6 +80,9 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const noticeMarkup = videoReelNotice
     ? '<div id="video-reel-notice" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:20;background:#fff;padding:20%" hidden><h2>I post con video ora vengono condivisi come reel</h2><p>Il tuo account è pubblico, pertanto chiunque può scoprire il tuo video.</p><button id="video-reel-notice-ok" type="button">Ok</button></div>'
     : '';
+  const unsavedPostMarkup = unsavedPost
+    ? '<div id="instagram-unsaved-post" data-action="none" hidden style="position:fixed;inset:0;z-index:30;background:#fff;padding:25% 20%"><div>Vuoi eliminare il post?</div><div>Se abbandoni, le tue modifiche non verranno salvate.</div><button id="instagram-delete-post" type="button">Elimina</button><button id="instagram-cancel-post" type="button">Annulla</button></div>'
+    : '';
   const openDialog = (entry) => {
     const entryCode = JSON.stringify(entry);
     const mount = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').dataset.entry = ${entryCode}; $('dialog').hidden = false; bindDialog();`;
@@ -93,7 +96,7 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
 <nav>${createMarkup}<a href="/">Home</a><a href="/reels/">Reels</a></nav>
 ${externalPostMarkup}
 ${createMenuMarkup}
-${dialogMarkup}${noticeMarkup}`, `
+${dialogMarkup}${noticeMarkup}${unsavedPostMarkup}`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
 $('create').onclick = (e) => { e.preventDefault(); ${createAction} };
@@ -111,7 +114,8 @@ function bindDialog() {
       : "$('crop').hidden = false;"}
   };
   const steps = ['crop', 'edit', 'share-step'];
-  document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); $(steps[i]).hidden = true; $(steps[i + 1]).hidden = false; });
+  document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); const nextStep = steps[i + 1]; $(steps[i]).hidden = true; $(nextStep).hidden = false; ${unsavedPost ? "if (nextStep === 'share-step') setTimeout(() => { $('instagram-unsaved-post').hidden = false; }, 0);" : ''} });
+  ${unsavedPost ? "$('instagram-delete-post').onclick = () => { $('instagram-unsaved-post').dataset.action = 'delete'; $('instagram-unsaved-post').hidden = true; }; $('instagram-cancel-post').onclick = () => { $('instagram-unsaved-post').dataset.action = 'cancel'; $('instagram-unsaved-post').hidden = true; };" : ''}
   $('share').onclick = async () => {
     await fetch(${JSON.stringify(reel ? '/api/ig/reel' : '/api/ig/share')}, { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
     $('share-step').hidden = true;
@@ -321,6 +325,7 @@ function fakePlatforms() {
       case '/ig-roleless-create-menu/': return send(200, instagramPage({ rolelessCreateMenu: true, externalPost: true }));
       case '/ig-roleless-create-menu-no-upload/': return send(200, instagramPage({ rolelessCreateMenu: true, missingUpload: true, externalPost: true }));
       case '/ig-bare-upload/': return send(200, instagramPage({ bareUpload: true }));
+      case '/ig-unsaved-post/': return send(200, instagramPage({ unsavedPost: true }));
       case '/ig-reel-roleless-menu/': return send(200, instagramPage({ reel: true, rolelessCreateMenu: true, externalPost: true }));
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
@@ -433,6 +438,11 @@ async function main() {
     r = await run('instagram', `${base}/ig-bare-upload/`, { dryRun: true, label: 'ig-bare-upload' });
     check(r.result?.status === 'dry-run', `a bare upload input without accept metadata remains usable (${r.error?.message || 'ok'})`);
     check(state.igShares.length === 0, 'bare-upload dry run never shares');
+
+    r = await run('instagram', `${base}/ig-unsaved-post/`, { dryRun: true, label: 'ig-unsaved-post' });
+    check(r.result?.status === 'dry-run', `a roleless unsaved-post confirmation is cancelled before caption entry (${r.error?.message || 'ok'})`);
+    check(await tab.locator('#instagram-unsaved-post').getAttribute('data-action') === 'cancel', 'the unsaved-post interstitial uses only the safe cancel action');
+    check(!(await tab.locator('#instagram-unsaved-post').isVisible()), 'the unsaved-post interstitial is gone before the dry-run publish checkpoint');
 
     r = await run('instagram', `${base}/ig-reel-roleless-menu/`, { dryRun: true, label: 'ig-reel-roleless-menu', reel: true, flowTimeouts: { ...timeouts, optional: 100 } });
     check(r.result?.status === 'dry-run', `a roleless Reel menu opens the Reel composer (${r.error?.message || 'ok'})`);
