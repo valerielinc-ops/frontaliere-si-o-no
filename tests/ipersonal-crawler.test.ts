@@ -155,6 +155,18 @@ describe('MediPersonal crawler parser', () => {
       expect(extractIpersonalDescription(html)).toBe('');
     });
 
+    it('does not combine workplace and candidature evidence from sibling listing cards', () => {
+      const workplaceCardBody = Array.from({ length: 28 }, (_, index) => `Arbeitsinhalt${index + 1}`).join(' ');
+      const candidatureCardBody = Array.from({ length: 28 }, (_, index) => `Bewerbungsinhalt${index + 1}`).join(' ');
+      const html = `
+        <main>
+          <div><p>Einsatzort: Zürich</p><p>${workplaceCardBody}</p><ul><li>Patientinnen und Patienten sorgfältig betreuen.</li></ul></div>
+          <div><p>Wir freuen uns auf Ihre Bewerbung.</p><p>${candidatureCardBody}</p></div>
+        </main>`;
+
+      expect(extractIpersonalDescription(html)).toBe('');
+    });
+
     it('recovers the current semantic detail shell without the application tail', () => {
       const html = `
         <header><nav>Navigation noise</nav></header>

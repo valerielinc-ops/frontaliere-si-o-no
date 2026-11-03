@@ -258,6 +258,22 @@ function isLikelyIpersonalDetailMain(source) {
   // intermediate semantic container, so its own <main> remains the candidate.
   const candidatureNodes = [...source.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, button, li, dt, dd, span')]
     .filter((node) => IPERSONAL_CANDIDATURE_RE.test(String(node.textContent || '')));
+  const siblingGroups = [source, ...source.querySelectorAll('div, section')].flatMap((parent) => {
+    const blocks = [...parent.children].filter((child) => ['DIV', 'SECTION'].includes(child.tagName));
+    if (blocks.length < 2) return [];
+    const candidatureBlocks = blocks.filter((block) => candidatureNodes.some((node) => block.contains(node)));
+    const workplaceBlocks = blocks.filter((block) => IPERSONAL_SOURCE_LOCATION_RE.test(stripHtml(String(block.innerHTML || ''))));
+    return candidatureBlocks.some((candidatureBlock) => workplaceBlocks.some((workplaceBlock) => workplaceBlock !== candidatureBlock))
+      ? [blocks]
+      : [];
+  });
+  if (siblingGroups.length) {
+    // A bare <main> can hold several unmarked listing cards. When workplace
+    // and candidature signals sit in different sibling blocks, the combined
+    // main text is not proof of one vacancy: require one block to carry the
+    // complete detail contract, including its own rich-body floor.
+    return siblingGroups.some((blocks) => blocks.some((block) => isLikelyIpersonalDetailContainer(block)));
+  }
   const containers = new Set(candidatureNodes.map((node) => findIpersonalDetailContainer(node, source)));
   return [...containers].some((container) => isLikelyIpersonalDetailContainer(container));
 }
