@@ -45,7 +45,6 @@ import worker, {
   apexLegacyResponse,
   legacyStubTarget,
   lookupRetired,
-  retiredEdgeResponse,
   upgradeLegacyStub,
 } from '../infra/cloudflare-worker/locale-router.js';
 // @ts-expect-error — plain JS generated module.
@@ -55,7 +54,7 @@ const ROOT = path.resolve(__dirname, '..');
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 const STUB_TABLE = EDGE_LEGACY_STUB_REDIRECTS as Record<string, string>;
-const LIVE_BIG_BEND_PATHS = [
+const RETIRED_BIG_BEND_PATHS = [
   '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/',
   '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/',
   '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/',
@@ -153,12 +152,12 @@ describe('generated edge table', () => {
     }
   });
 
-  it('leaves republished Big Bend URLs live without creating a stub redirect', () => {
-    for (const route of LIVE_BIG_BEND_PATHS) {
-      expect(legacyStubTarget(route), `${route} must not create a redirect`).toBeUndefined();
+  it('serves retired Big Bend URLs as 410 before any stub fallback', async () => {
+    for (const route of RETIRED_BIG_BEND_PATHS) {
       expect(apexLegacyResponse(new URL(`${APEX}${route}`)), route).toBeNull();
-      expect(lookupRetired(route), `${route} must remain live`).toBeUndefined();
-      expect(retiredEdgeResponse(new URL(`${APEX}${route}`)), route).toBeNull();
+      expect(lookupRetired(route), `${route} must be retired`).toBeNull();
+      const response = await worker.fetch(new Request(`${APEX}${route}`), {}, ctx);
+      expect(response.status, route).toBe(410);
     }
   });
 

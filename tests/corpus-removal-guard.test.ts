@@ -205,6 +205,22 @@ describe('retirement ledger', () => {
     expect(sources.size).toBeGreaterThan(100);
   });
 
+  it('recognises all four Big Bend locale retirement declarations', () => {
+    const src = fs.readFileSync(
+      path.join(ROOT, 'build-plugins', 'legacyRedirectsPlugin.ts'),
+      'utf-8',
+    );
+    const sources = parseRedirectSources(src);
+    for (const p of [
+      '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/',
+      '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/',
+      '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/',
+      '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/',
+    ]) {
+      expect(sources.has(p), `${p} missing from the corpus retirement ledger`).toBe(true);
+    }
+  });
+
   it('ignores the plugin\'s other object literals', () => {
     const src = [
       'const somethingElse: Record<string, string> = {',

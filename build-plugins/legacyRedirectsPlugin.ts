@@ -278,6 +278,14 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-graubunden-as-a-border-worker/',
  '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-graubunden-als-grenzarbeiter/',
  '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grisons-comme-travailleur-frontalier/',
+ // ── Corpus-retired Texas article (frontaliere-articles PR #3474) ────────
+ // The corpus deliberately withdrew this unrelated US border-wall story on
+ // all 11 surfaces; it has no equivalent page. These section-root targets are
+ // retirement declarations, so EDGE_RETIRED_PATHS serves each URL as HTTP 410.
+ '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/': '/articoli-svizzera/',
+ '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/': '/en/swiss-articles/',
+ '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/': '/de/schweiz-artikel/',
+ '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/': '/fr/articles-suisse/',
  // ── Upstream-aborted articles (2026-10-07) — three records, 12 URLs ──
  // The corpus removed these explicit abort records after rejecting their
  // topics: Pré-Saint-Didier is outside the relevant cross-border area,

@@ -32,10 +32,11 @@
  * ─────────────
  * A removal is legitimate when a human decided it, and the site already records
  * that decision in one place: the `redirects` table in
- * `build-plugins/legacyRedirectsPlugin.ts`. Withdrawing an article means giving
- * its URL a redirect bridge there (PR #5299 retired four articles exactly this
- * way, 16 URLs across 4 locales) — otherwise the next shard deploy turns a live
- * page into a bare 404 with no signal for the crawler. So:
+ * `build-plugins/legacyRedirectsPlugin.ts`. Each locale URL needs a declaration
+ * there. A real equivalent target becomes a 301 at the edge; a section-root
+ * target is only a retirement sentinel and becomes 410, never a soft-404 hub
+ * redirect. Without a declaration, the next shard deploy can turn a live page
+ * into a bare 404 with no signal for the crawler. So:
  *
  *   removal WITH a bridge for all four locale URLs → deliberate retirement, allow.
  *   removal WITHOUT one                           → nobody decided this, refuse.
