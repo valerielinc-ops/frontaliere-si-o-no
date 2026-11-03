@@ -961,7 +961,9 @@ main()
           // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
           const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
           const seconds = ((performance.now() - reportStartedAt) / 1000).toFixed(1);
-          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (report ${seconds} s)`);
+          // Keep the "reparse" telemetry token stable for the existing CI contract.
+          // This now measures the in-memory report path without rereading jobs.json.
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
         } catch {
           /* the probe must never change the outcome or the exit code */
         }
