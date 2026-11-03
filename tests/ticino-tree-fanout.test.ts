@@ -6,6 +6,8 @@ import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
 import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral fan-out helper has no separate declarations.
 import { ticinoTreePhysicalPath } from '../scripts/lib/ticino-tree-fanout.mjs';
 
 const HELPER = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh');

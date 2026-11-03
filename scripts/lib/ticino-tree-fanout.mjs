@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import { mkdirSync, readFileSync, readdirSync, renameSync, rmdirSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, realpathSync, renameSync, rmdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ticinoTreeBucket } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 export function ticinoTreePhysicalPath(relativePath) {
@@ -66,18 +67,29 @@ function mapPathStream() {
   process.stdout.write(output ? `${output}\0` : '');
 }
 
-const [command, root] = process.argv.slice(2);
-try {
-  if (command === 'map-paths') {
-    mapPathStream();
-  } else if (!root || !['fanout', 'unfanout'].includes(command)) {
-    throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root>');
-  } else if (command === 'fanout') {
-    fanoutTicinoTree(root);
-  } else {
-    unfanoutTicinoTree(root);
+function isInvokedDirectly() {
+  if (!process.argv[1]) return false;
+  try {
+    return realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+  } catch {
+    return false;
   }
-} catch (error) {
-  console.error(`::error::${error instanceof Error ? error.message : String(error)}`);
-  process.exitCode = 1;
+}
+
+if (isInvokedDirectly()) {
+  const [command, root] = process.argv.slice(2);
+  try {
+    if (command === 'map-paths') {
+      mapPathStream();
+    } else if (!root || !['fanout', 'unfanout'].includes(command)) {
+      throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout|map-paths> [section-root]');
+    } else if (command === 'fanout') {
+      fanoutTicinoTree(root);
+    } else {
+      unfanoutTicinoTree(root);
+    }
+  } catch (error) {
+    console.error(`::error::${error instanceof Error ? error.message : String(error)}`);
+    process.exitCode = 1;
+  }
 }
