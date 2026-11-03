@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "ch-c130346fd255",
-      "slug": "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur",
+      "slug": "consulente-di-servizio-nel-settore-automobilistico-m-f-d-100-temporaneo-global-sana-winterthur-canton-of-zurich",
       "slugByLocale": {
         "de": "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch",
-        "it": "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur",
-        "en": "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur",
-        "fr": "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur"
+        "it": "consulente-di-servizio-nel-settore-automobilistico-m-f-d-100-temporaneo-global-sana-winterthur-canton-of-zurich",
+        "en": "automotive-service-advisor-m-f-d-100-temporary-global-sana-winterthur-canton-of-zurich",
+        "fr": "conseiller-ere-de-service-dans-le-secteur-automobile-h-f-d-100-temporaire-global-sana-winterthur-canton-of-zurich"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -57,11 +57,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch"
+          "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch",
+          "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur"
+        ],
+        "en": [
+          "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur"
+        ],
+        "fr": [
+          "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur"
         ]
       },
       "previousSlugs": [
-        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch"
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch",
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -85,12 +93,12 @@
     },
     {
       "id": "ch-bbf364092e77",
-      "slug": "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch",
+      "slug": "consulente-di-servizio-industria-automobilistica-in-4-giorni-settimana-100-m-f-d-global-sana-winterthur-canton-of-zurich",
       "slugByLocale": {
         "de": "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch",
-        "it": "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch",
-        "en": "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch",
-        "fr": "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch"
+        "it": "consulente-di-servizio-industria-automobilistica-in-4-giorni-settimana-100-m-f-d-global-sana-winterthur-canton-of-zurich",
+        "en": "service-consultant-car-industry-in-4-days-week-100-m-f-d-global-sana-winterthur-canton-of-zurich",
+        "fr": "service-consultant-industrie-automobile-en-4-jours-semaine-100-h-f-d-global-sana-winterthur-canton-of-zurich"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -152,7 +160,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T21:58:55.000Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:55.000Z"
+      "firstSeenAt": "2026-11-02T21:58:55.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch"
+        ],
+        "en": [
+          "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch"
+        ],
+        "fr": [
+          "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch"
+      ]
     },
     {
       "id": "ch-9e72d8e76c62",

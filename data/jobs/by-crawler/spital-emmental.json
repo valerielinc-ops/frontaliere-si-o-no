@@ -3976,12 +3976,12 @@
     },
     {
       "id": "spital-emmental-9ba70a5a0e89",
-      "slug": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+      "slug": "dipl-tecnica-chirurgica-specialistica-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "it": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "en": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "fr": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        "it": "dipl-tecnica-chirurgica-specialistica-a-spital-emmental-burgdorf",
+        "en": "dipl-specialist-surgical-technique-a-spital-emmental-burgdorf",
+        "fr": "oui-technique-chirurgicale-specialisee-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4049,16 +4049,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:23:13.487Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:13.487Z"
+      "firstSeenAt": "2026-11-02T21:23:13.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-6f71057b7e80",
-      "slug": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
+      "slug": "dipl-expert-expert-intensive-care-nds-hf-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
-        "it": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
+        "it": "dipl-expert-expert-intensive-care-nds-hf-a-spital-emmental-burgdorf",
         "en": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
-        "fr": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4126,16 +4140,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:23:12.831Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:12.831Z"
+      "firstSeenAt": "2026-11-02T21:23:12.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-88b631db5430",
-      "slug": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
+      "slug": "medico-senior-medico-senior-old-age-psychiatric-ambulatorium-consulnt-service-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "it": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "en": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "fr": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        "it": "medico-senior-medico-senior-old-age-psychiatric-ambulatorium-consulnt-service-a-spital-emmental-burgdorf",
+        "en": "senior-physician-senior-physician-old-age-psychiatric-ambulatorium-consultant-service-a-spital-emmental-burgdorf",
+        "fr": "medecin-principal-medecin-principal-vieillesse-services-ambulatoires-psychiatriques-et-consultants-a-spital-emmental"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4203,7 +4228,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:23:12.172Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:12.172Z"
+      "firstSeenAt": "2026-11-02T21:23:12.172Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ],
+        "en": [
+          "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+      ]
     },
     {
       "id": "spital-emmental-ca51139fa24e",
@@ -4297,12 +4336,12 @@
     },
     {
       "id": "spital-emmental-28b396a85e83",
-      "slug": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
+      "slug": "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "it": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "en": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "fr": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        "it": "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf",
+        "en": "training-place-for-dipl-radiology-specialist-hf-dipl-radiology-specialist-hf-a-spital-emmental-burgdorf",
+        "fr": "lieu-de-formation-pour-le-dipl-specialiste-en-radiologie-hf-dipl-specialiste-de-radiologie-hf-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4370,16 +4409,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T21:23:10.863Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:10.863Z"
+      "firstSeenAt": "2026-11-02T21:23:10.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        ],
+        "en": [
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        ],
+        "fr": [
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+      ]
     },
     {
       "id": "spital-emmental-4bb4af389085",
-      "slug": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "it": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "en": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "fr": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        "it": "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf",
+        "en": "assistant-physician-assistant-physician-in-old-age-psychiatry-a-spital-emmental-burgdorf",
+        "fr": "medecin-adjoint-en-psychiatrie-de-la-vieillesse-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4447,7 +4500,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T21:23:10.053Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:10.053Z"
+      "firstSeenAt": "2026-11-02T21:23:10.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-1d6aabe1433f",

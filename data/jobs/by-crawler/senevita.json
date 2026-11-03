@@ -441,8 +441,8 @@
       "slugByLocale": {
         "fr": "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita",
         "it": "collaboratore-di-pianificazione-80-bilingue-francese-svizzera-tedesco-senevita-renens",
-        "en": "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita-renens",
-        "de": "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita-renens"
+        "en": "planning-collaborator-80-bilingual-french-switzerland-german-senevita-renens",
+        "de": "planungsmitarbeiter-80-zweisprachig-franzosisch-schweizerisch-senevita-renens"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -493,16 +493,15 @@
           "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita"
         ],
         "en": [
-          "planning-collaborator-80-bilingual-french-switzerland-german-senevita-renens"
+          "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita-renens"
         ],
         "de": [
-          "planungsmitarbeiter-80-zweisprachig-franzosisch-schweizerisch-senevita-renens"
+          "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita-renens"
         ]
       },
       "previousSlugs": [
         "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita",
-        "planning-collaborator-80-bilingual-french-switzerland-german-senevita-renens",
-        "planungsmitarbeiter-80-zweisprachig-franzosisch-schweizerisch-senevita-renens"
+        "collaboratrice-teur-a-la-planification-80-bilingue-francais-suisse-allemand-senevita-renens"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,
@@ -3469,11 +3468,11 @@
     },
     {
       "id": "senevita-1323186b7632",
-      "slug": "directeur-trice-de-site-a-100-senevita-neuchatel-ne",
+      "slug": "100-sito-manager-senevita-neuchatel-ne",
       "slugByLocale": {
         "fr": "directeur-trice-de-site-a-100-senevita-neuchatel-ne",
-        "it": "directeur-trice-de-site-a-100-senevita-neuchatel-ne",
-        "en": "directeur-trice-de-site-a-100-senevita-neuchatel-ne",
+        "it": "100-sito-manager-senevita-neuchatel-ne",
+        "en": "100-site-manager-senevita-neuchatel-ne",
         "de": "directeur-trice-de-site-a-100-senevita-neuchatel-ne"
       },
       "company": "Senevita",
@@ -3536,7 +3535,18 @@
       "streetAddress": "Neuchâtel NE",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:32:02.346Z"
+      "firstSeenAt": "2026-11-02T21:32:02.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-de-site-a-100-senevita-neuchatel-ne"
+        ],
+        "en": [
+          "directeur-trice-de-site-a-100-senevita-neuchatel-ne"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-trice-de-site-a-100-senevita-neuchatel-ne"
+      ]
     },
     {
       "id": "senevita-05bb61bcc8c3",
@@ -7111,7 +7121,7 @@
         "it": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
         "en": "hr-employee-50-senevita-bl-lausen",
         "de": "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "fr": "collaborateur-trice-rh-50-senevita-bl-lausen"
+        "fr": "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7157,14 +7167,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+        "collaborateur-trice-rh-50-senevita-bl-lausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ],
         "fr": [
-          "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+          "collaborateur-trice-rh-50-senevita-bl-lausen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:20.770Z",
@@ -7430,7 +7440,7 @@
         "it": "cuocere-cucinare-80-senevita-be-bern",
         "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
-        "fr": "cuisinier-ere-80-senevita-be-bern"
+        "fr": "cuire-cuir-80-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7477,7 +7487,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-80-senevita-be-bern",
-        "cuire-cuir-80-senevita-be-bern"
+        "cuisinier-ere-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7488,7 +7498,7 @@
         ],
         "fr": [
           "kochin-koch-80-senevita-be-bern",
-          "cuire-cuir-80-senevita-be-bern"
+          "cuisinier-ere-80-senevita-be-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T15:13:56.696Z",
@@ -8950,7 +8960,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8996,7 +9006,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9006,7 +9016,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -12298,12 +12308,12 @@
     },
     {
       "id": "senevita-4251b2290e0e",
-      "slug": "mitarbeitender-administration-empfang-senevita-zh-dietikon",
+      "slug": "staff-reception-senevita-zh-dietikon",
       "slugByLocale": {
         "de": "mitarbeitender-administration-empfang-senevita-zh-dietikon",
-        "it": "mitarbeitender-administration-empfang-senevita-zh-dietikon",
+        "it": "staff-reception-senevita-zh-dietikon",
         "en": "mitarbeitender-administration-empfang-senevita-zh-dietikon",
-        "fr": "mitarbeitender-administration-empfang-senevita-zh-dietikon"
+        "fr": "reception-du-personnel-senevita-zh-dietikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12365,7 +12375,18 @@
       "streetAddress": "ZH Dietikon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:31:04.940Z"
+      "firstSeenAt": "2026-11-02T21:31:04.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitender-administration-empfang-senevita-zh-dietikon"
+        ],
+        "fr": [
+          "mitarbeitender-administration-empfang-senevita-zh-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitender-administration-empfang-senevita-zh-dietikon"
+      ]
     },
     {
       "id": "senevita-fb0e6ad31017",

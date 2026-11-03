@@ -2436,12 +2436,12 @@
     },
     {
       "id": "sro-cf19ab3d62be",
-      "slug": "dipl-logopade-logopadin-40-80-sro-langenthal",
+      "slug": "dipl-terapeuta-del-discorso-terapeuta-del-discorso-40-80-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "dipl-logopade-logopadin-40-80-sro-langenthal",
-        "it": "dipl-logopade-logopadin-40-80-sro-langenthal",
-        "en": "dipl-logopade-logopadin-40-80-sro-langenthal",
-        "fr": "dipl-logopade-logopadin-40-80-sro-langenthal"
+        "it": "dipl-terapeuta-del-discorso-terapeuta-del-discorso-40-80-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-speech-therapist-speech-therapist-40-80-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "dipl-orthophoniste-orthophoniste-40-80-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2507,7 +2507,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:29:58.927Z"
+      "firstSeenAt": "2026-11-02T21:29:58.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-logopade-logopadin-40-80-sro-langenthal"
+        ],
+        "en": [
+          "dipl-logopade-logopadin-40-80-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-logopade-logopadin-40-80-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-logopade-logopadin-40-80-sro-langenthal"
+      ]
     },
     {
       "id": "sro-692dbbd65d95",

@@ -2648,12 +2648,12 @@
     },
     {
       "id": "ksw-9388b51afc0f",
-      "slug": "mitarbeiterin-collaboratore-trice-empfang-arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "addetta-addetto-alla-reception-segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch",
-        "it": "mitarbeiterin-collaboratore-trice-empfang-arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch"
+        "it": "addetta-addetto-alla-reception-segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "employee-employee-reception-medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "reception-des-employes-secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2702,11 +2702,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-empfang-arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch"
+        "mitarbeiterin-mitarbeiter-empfang-arztsekretarin-arztsekretar-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-empfang-arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -24380,12 +24380,12 @@
     },
     {
       "id": "interdiscount-ccb050bb-428",
-      "slug": "verkaufsberater-in-interdiscount-dietikon",
+      "slug": "consulente-di-vendita-interdiscount-dietikon",
       "slugByLocale": {
         "de": "verkaufsberater-in-interdiscount-dietikon",
-        "it": "verkaufsberater-in-interdiscount-dietikon",
-        "en": "verkaufsberater-in-interdiscount-dietikon",
-        "fr": "verkaufsberater-in-interdiscount-dietikon"
+        "it": "consulente-di-vendita-interdiscount-dietikon",
+        "en": "sales-advisor-interdiscount-dietikon",
+        "fr": "conseiller-ere-de-vente-interdiscount-dietikon"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24462,16 +24462,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:32:29.237Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:32:29.237Z"
+      "firstSeenAt": "2026-11-02T21:32:29.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-dietikon"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-dietikon"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-dietikon"
+      ]
     },
     {
       "id": "interdiscount-5cdaea98-20d",
-      "slug": "verkaufsberater-in-interdiscount-basel",
+      "slug": "consulente-di-vendita-interdiscount-basel",
       "slugByLocale": {
         "de": "verkaufsberater-in-interdiscount-basel",
-        "it": "verkaufsberater-in-interdiscount-basel",
-        "en": "verkaufsberater-in-interdiscount-basel",
-        "fr": "verkaufsberater-in-interdiscount-basel"
+        "it": "consulente-di-vendita-interdiscount-basel",
+        "en": "sales-advisor-interdiscount-basel",
+        "fr": "conseiller-ere-de-vente-interdiscount-basel"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24547,16 +24561,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-01T21:32:29.214Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-basel"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-basel"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-basel"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-basel"
+      ]
     },
     {
       "id": "interdiscount-0c3a5fd4-66b",
-      "slug": "verkaufsberater-in-interdiscount-baden",
+      "slug": "consulente-di-vendita-interdiscount-baden",
       "slugByLocale": {
         "de": "verkaufsberater-in-interdiscount-baden",
-        "it": "verkaufsberater-in-interdiscount-baden",
-        "en": "verkaufsberater-in-interdiscount-baden",
-        "fr": "verkaufsberater-in-interdiscount-baden"
+        "it": "consulente-di-vendita-interdiscount-baden",
+        "en": "sales-advisor-interdiscount-baden",
+        "fr": "conseiller-ere-de-vente-interdiscount-baden"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24633,7 +24661,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:32:29.202Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:32:29.202Z"
+      "firstSeenAt": "2026-11-02T21:32:29.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-baden"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-baden"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-baden"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-baden"
+      ]
     }
   ]
 }

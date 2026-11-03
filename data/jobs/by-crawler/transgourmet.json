@@ -2305,12 +2305,12 @@
     },
     {
       "id": "transgourmet-820444df-716",
-      "slug": "collaboratrice-collaborateur-non-food-transgourmet-rennaz",
+      "slug": "collaboratore-collaboratore-non-food-transgourmet-rennaz",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-non-food-transgourmet-rennaz",
-        "it": "collaboratrice-collaborateur-non-food-transgourmet-rennaz",
-        "en": "collaboratrice-collaborateur-non-food-transgourmet-rennaz",
-        "de": "collaboratrice-collaborateur-non-food-transgourmet-rennaz"
+        "it": "collaboratore-collaboratore-non-food-transgourmet-rennaz",
+        "en": "collaborator-collaborator-non-food-transgourmet-rennaz",
+        "de": "mitarbeiter-mitarbeiter-non-food-transgourmet-rennaz"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2391,16 +2391,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:24:44.012Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:24:44.012Z"
+      "firstSeenAt": "2026-11-02T21:24:44.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-non-food-transgourmet-rennaz"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-non-food-transgourmet-rennaz"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-non-food-transgourmet-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-non-food-transgourmet-rennaz"
+      ]
     },
     {
       "id": "transgourmet-1c99fa33-73d",
-      "slug": "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey",
+      "slug": "collaboratore-collaboratore-frutta-e-verdura-transgourmet-conthey",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey",
-        "it": "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey",
-        "en": "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey",
-        "de": "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey"
+        "it": "collaboratore-collaboratore-frutta-e-verdura-transgourmet-conthey",
+        "en": "collaborator-collaborator-fruit-vegetables-transgourmet-conthey",
+        "de": "mitarbeiter-mitarbeiter-obst-gemuse-transgourmet-conthey"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2481,16 +2495,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:24:44.009Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:24:44.009Z"
+      "firstSeenAt": "2026-11-02T21:24:44.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-fruits-amp-legumes-transgourmet-conthey"
+      ]
     },
     {
       "id": "transgourmet-df4d5b15-0e6",
-      "slug": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
+      "slug": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-wilderswil",
       "slugByLocale": {
         "de": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "it": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "en": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "fr": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        "it": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-wilderswil",
+        "en": "deputy-head-of-department-deputy-head-of-department-food-transgourmet-wilderswil",
+        "fr": "chef-adjoint-de-departement-chef-adjoint-de-departement-alimentation-transgourmet-wilderswil"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2569,7 +2597,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-29T21:24:43.994Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T09:21:33.119Z"
+      "firstSeenAt": "2026-10-31T09:21:33.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ],
+        "en": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ],
+        "fr": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+      ]
     }
   ]
 }

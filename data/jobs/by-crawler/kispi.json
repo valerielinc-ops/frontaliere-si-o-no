@@ -4782,12 +4782,12 @@
     },
     {
       "id": "kispi-3ca26a9bfc75",
-      "slug": "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich",
+      "slug": "segretario-medico-m-f-d-100-dipartimento-di-orl-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "de": "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich",
-        "it": "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich",
-        "en": "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich",
-        "fr": "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich"
+        "it": "segretario-medico-m-f-d-100-dipartimento-di-orl-universitats-kinderspital-zurich-zurich",
+        "en": "medical-secretary-m-f-d-100-department-of-orl-universitats-kinderspital-zurich-zurich",
+        "fr": "secretaire-medical-h-f-d-100-departement-de-l-orl-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4849,7 +4849,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:50:00.802Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:50:00.802Z"
+      "firstSeenAt": "2026-11-02T21:50:00.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich"
+        ],
+        "en": [
+          "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich"
+        ],
+        "fr": [
+          "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-m-w-d-100-fachbereich-orl-kispi-zurich"
+      ]
     }
   ]
 }

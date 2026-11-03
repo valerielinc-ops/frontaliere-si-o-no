@@ -95,8 +95,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-support-w-m-d-generalagentur-zug-mobiliar-ch",
         "it": "collaboratore-trice-support-m-w-d-agenzia-generale-zug-die-mobiliar-zug",
-        "en": "mitarbeiter-support-w-m-d-generalagentur-zug-mobiliar-ch",
-        "fr": "mitarbeiter-support-w-m-d-generalagentur-zug-mobiliar-ch"
+        "en": "staff-support-m-f-d-general-agency-zug-die-mobiliar-zug",
+        "fr": "personnel-soutien-h-f-d-agence-generale-zug-die-mobiliar-zug"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -160,6 +160,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-support-w-m-d-generalagentur-zug-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-support-w-m-d-generalagentur-zug-mobiliar-ch"
+        ],
+        "fr": [
+          "mitarbeiter-support-w-m-d-generalagentur-zug-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -188,12 +194,12 @@
     },
     {
       "id": "mobiliar-42c5b5cbd9c5",
-      "slug": "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag",
+      "slug": "danni-stranieri-del-personale-m-f-d-die-mobiliar-xpertcenter-ag",
       "slugByLocale": {
         "de": "sachbearbeiter-auslandschaden-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag",
-        "en": "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag",
-        "fr": "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
+        "it": "danni-stranieri-del-personale-m-f-d-die-mobiliar-xpertcenter-ag",
+        "en": "personnel-foreign-damage-m-f-d-die-mobiliar-xpertcenter-ag",
+        "fr": "personnel-endommage-a-l-etranger-h-f-d-die-mobiliar-xpertcenter-ag"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -241,11 +247,19 @@
       "sfJobId": "1165722455",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-auslandschaden-w-m-d-mobiliar-ch"
+          "sachbearbeiter-auslandschaden-w-m-d-mobiliar-ch",
+          "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
+        ],
+        "en": [
+          "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
+        ],
+        "fr": [
+          "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-auslandschaden-w-m-d-mobiliar-ch"
+        "sachbearbeiter-auslandschaden-w-m-d-mobiliar-ch",
+        "sachbearbeiter-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8378,9 +8392,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -8444,17 +8458,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

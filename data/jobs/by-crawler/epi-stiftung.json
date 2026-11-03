@@ -1229,10 +1229,10 @@
     },
     {
       "id": "epi-stiftung-39ed669601d7",
-      "slug": "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich",
+      "slug": "junior-responsabile-di-sala-responsabile-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich",
-        "it": "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich",
+        "it": "junior-responsabile-di-sala-responsabile-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich",
         "fr": "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
       },
@@ -1297,7 +1297,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:28:57.825Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:57.825Z"
+      "firstSeenAt": "2026-11-02T21:28:57.825Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
+      ]
     }
   ]
 }

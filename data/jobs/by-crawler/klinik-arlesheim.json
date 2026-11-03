@@ -345,12 +345,12 @@
     },
     {
       "id": "klinik-arlesheim-3919803c771c",
-      "slug": "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim",
+      "slug": "servizio-civile-missione-paziente-trasporto-klinik-arlesheim-arlesheim",
       "slugByLocale": {
         "de": "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim",
-        "it": "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim",
-        "en": "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim",
-        "fr": "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim"
+        "it": "servizio-civile-missione-paziente-trasporto-klinik-arlesheim-arlesheim",
+        "en": "civil-service-mission-patient-transport-klinik-arlesheim-arlesheim",
+        "fr": "transport-de-patients-dans-la-fonction-publique-klinik-arlesheim-arlesheim"
       },
       "company": "Klinik Arlesheim",
       "companyKey": "klinik-arlesheim",
@@ -423,7 +423,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T21:48:17.254Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:48:17.254Z"
+      "firstSeenAt": "2026-11-02T21:48:17.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim"
+        ],
+        "en": [
+          "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim"
+        ],
+        "fr": [
+          "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "zivildiensteinsatz-patiententransport-klinik-arlesheim-arlesheim"
+      ]
     },
     {
       "id": "klinik-arlesheim-d9e1612b7d04",

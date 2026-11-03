@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bcv-aa259bff5f0b",
-      "slug": "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne",
+      "slug": "formazione-universitaria-12-mesi-rischio-di-progetto-e-credito-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne",
-        "it": "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne",
-        "en": "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne",
-        "de": "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne"
+        "it": "formazione-universitaria-12-mesi-rischio-di-progetto-e-credito-banque-cantonale-vaudoise-lausanne",
+        "en": "university-trainee-12-months-project-and-credit-risk-banque-cantonale-vaudoise-lausanne",
+        "de": "universitatspraktikant-12-monate-projekt-und-kreditrisiko-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:24:49.316Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:24:49.316Z"
+      "firstSeenAt": "2026-11-02T21:24:49.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne"
+        ],
+        "en": [
+          "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne"
+        ],
+        "de": [
+          "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-universitaire-12-mois-projet-et-risque-credit-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-1f84b3d537fe",
@@ -1985,7 +1999,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -2046,7 +2060,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -2055,7 +2069,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,

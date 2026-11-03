@@ -526,7 +526,7 @@
         "de": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
         "it": "psicologo-40-60-pain-clinic-hopital-du-valais-brig",
         "en": "psychologist-40-60-pain-clinic-hopital-du-valais-brig",
-        "fr": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        "fr": "psychologue-40-60-clinique-de-la-douleur-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -576,12 +576,11 @@
           "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
         ],
         "fr": [
-          "psychologue-40-60-clinique-de-la-douleur-hopital-du-valais-brig"
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
         ]
       },
       "previousSlugs": [
-        "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
-        "psychologue-40-60-clinique-de-la-douleur-hopital-du-valais-brig"
+        "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
       ],
       "salaryMin": 51900,
       "salaryMax": 72300,
@@ -3346,12 +3345,12 @@
     },
     {
       "id": "hopital-du-valais-fa40df7ca677",
-      "slug": "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion",
+      "slug": "analisi-biomedica-technician-chief-fe-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion",
-        "it": "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion",
-        "en": "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion",
-        "de": "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
+        "it": "analisi-biomedica-technician-chief-fe-100-hopital-du-valais-sion",
+        "en": "biomedical-analysis-technician-chief-fe-100-hopital-du-valais-sion",
+        "de": "biomedizinische-analyse-techniker-chief-fe-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3415,7 +3414,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:54.368Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:54.368Z"
+      "firstSeenAt": "2026-11-02T21:26:54.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-2132e370ba2d",

@@ -247,12 +247,12 @@
     },
     {
       "id": "novelis-f0b2b7e74a1d",
-      "slug": "mecanicien-de-maintenance-novelis-ch",
+      "slug": "ingegnere-di-manutenzione-novelis-sierre",
       "slugByLocale": {
         "fr": "mecanicien-de-maintenance-novelis-ch",
-        "it": "mecanicien-de-maintenance-novelis-ch",
-        "en": "mecanicien-de-maintenance-novelis-ch",
-        "de": "mecanicien-de-maintenance-novelis-ch"
+        "it": "ingegnere-di-manutenzione-novelis-sierre",
+        "en": "maintenance-engineer-novelis-sierre",
+        "de": "instandhaltungsingenieur-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -313,16 +313,30 @@
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:53:34.307Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-de-maintenance-novelis-ch"
+        ],
+        "en": [
+          "mecanicien-de-maintenance-novelis-ch"
+        ],
+        "de": [
+          "mecanicien-de-maintenance-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-de-maintenance-novelis-ch"
+      ]
     },
     {
       "id": "novelis-73ff6350f30b",
-      "slug": "metallurgy-scientist-novelis-ch",
+      "slug": "scienziato-di-metallurgia-novelis-sierre",
       "slugByLocale": {
         "fr": "metallurgy-scientist-novelis-ch",
-        "it": "metallurgy-scientist-novelis-ch",
-        "en": "metallurgy-scientist-novelis-ch",
-        "de": "metallurgy-scientist-novelis-ch"
+        "it": "scienziato-di-metallurgia-novelis-sierre",
+        "en": "metallu-energy-novelis-sierre",
+        "de": "metallurgiewissenschaftler-novelis-sierre"
       },
       "company": "Novelis",
       "companyKey": "novelis",
@@ -384,7 +398,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:53:33.075Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:53:33.075Z"
+      "firstSeenAt": "2026-11-02T21:53:33.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallurgy-scientist-novelis-ch"
+        ],
+        "en": [
+          "metallurgy-scientist-novelis-ch"
+        ],
+        "de": [
+          "metallurgy-scientist-novelis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "metallurgy-scientist-novelis-ch"
+      ]
     }
   ]
 }

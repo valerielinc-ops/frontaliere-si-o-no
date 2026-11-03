@@ -202,7 +202,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -263,7 +263,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -271,7 +271,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7867,12 +7867,12 @@
     },
     {
       "id": "emmi-24ebe1939f45",
-      "slug": "maschinenfuhrer-in-kaffeerahm-emmi-emmen",
+      "slug": "operatore-trice-di-macchina-per-la-panna-da-caffe-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "maschinenfuhrer-in-kaffeerahm-emmi-ch",
-        "it": "maschinenfuhrer-in-kaffeerahm-emmi-emmen",
-        "en": "maschinenfuhrer-in-kaffeerahm-emmi-emmen",
-        "fr": "maschinenfuhrer-in-kaffeerahm-emmi-emmen"
+        "it": "operatore-trice-di-macchina-per-la-panna-da-caffe-emmi-emmen-luzern",
+        "en": "coffee-creamer-machine-operator-emmi-emmen-luzern",
+        "fr": "conducteur-rice-de-machine-de-creme-a-cafe-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7934,11 +7934,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maschinenfuhrer-in-kaffeerahm-emmi-ch"
+          "maschinenfuhrer-in-kaffeerahm-emmi-ch",
+          "maschinenfuhrer-in-kaffeerahm-emmi-emmen"
+        ],
+        "en": [
+          "maschinenfuhrer-in-kaffeerahm-emmi-emmen"
+        ],
+        "fr": [
+          "maschinenfuhrer-in-kaffeerahm-emmi-emmen"
         ]
       },
       "previousSlugs": [
-        "maschinenfuhrer-in-kaffeerahm-emmi-ch"
+        "maschinenfuhrer-in-kaffeerahm-emmi-ch",
+        "maschinenfuhrer-in-kaffeerahm-emmi-emmen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -8054,12 +8062,12 @@
     },
     {
       "id": "emmi-454a5ce45d08",
-      "slug": "sachbearbeiterin-customer-service-b2b-emmi-ch",
+      "slug": "impiegata-nel-servizio-clienti-b2b-emmi-luzern-luzern",
       "slugByLocale": {
         "de": "sachbearbeiterin-customer-service-b2b-emmi-ch",
-        "it": "sachbearbeiterin-customer-service-b2b-emmi-ch",
+        "it": "impiegata-nel-servizio-clienti-b2b-emmi-luzern-luzern",
         "en": "sachbearbeiterin-customer-service-b2b-emmi-ch",
-        "fr": "sachbearbeiterin-customer-service-b2b-emmi-ch"
+        "fr": "collaboratrice-du-service-clientele-b2b-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8135,7 +8143,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:31:48.580Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:31:48.580Z"
+      "firstSeenAt": "2026-11-02T21:31:48.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-customer-service-b2b-emmi-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-customer-service-b2b-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-customer-service-b2b-emmi-ch"
+      ]
     },
     {
       "id": "emmi-0e8c41567e93",

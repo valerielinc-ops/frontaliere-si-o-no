@@ -519,12 +519,12 @@
     },
     {
       "id": "bcvs-716bb0a931f5",
-      "slug": "specialiste-tresorerie-devises-bcvs-sion",
+      "slug": "tesore-specializzato-amp-valuta-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "specialiste-tresorerie-devises-bcvs-sion",
-        "it": "specialiste-tresorerie-devises-bcvs-sion",
-        "en": "specialiste-tresorerie-devises-bcvs-sion",
-        "de": "specialiste-tresorerie-devises-bcvs-sion"
+        "it": "tesore-specializzato-amp-valuta-banque-cantonale-du-valais-sion",
+        "en": "specialist-treasury-currency-banque-cantonale-du-valais-sion",
+        "de": "spezialisiertes-treasury-currency-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -611,16 +611,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T21:52:44.369Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:52:44.369Z"
+      "firstSeenAt": "2026-11-02T21:52:44.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
+        "en": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
+        "de": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-tresorerie-devises-bcvs-sion"
+      ]
     },
     {
       "id": "bcvs-850d87c11f4b",
-      "slug": "conseiller-conseillere-clientele-des-entreprises-bcvs-sion",
+      "slug": "consulente-commerciale-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "conseiller-conseillere-clientele-des-entreprises-bcvs-sion",
-        "it": "conseiller-conseillere-clientele-des-entreprises-bcvs-sion",
-        "en": "conseiller-conseillere-clientele-des-entreprises-bcvs-sion",
-        "de": "conseiller-conseillere-clientele-des-entreprises-bcvs-sion"
+        "it": "consulente-commerciale-banque-cantonale-du-valais-sion",
+        "en": "business-advisor-banque-cantonale-du-valais-sion",
+        "de": "unternehmensberater-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -708,7 +722,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T21:52:43.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:52:43.954Z"
+      "firstSeenAt": "2026-11-02T21:52:43.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-clientele-des-entreprises-bcvs-sion"
+        ],
+        "en": [
+          "conseiller-conseillere-clientele-des-entreprises-bcvs-sion"
+        ],
+        "de": [
+          "conseiller-conseillere-clientele-des-entreprises-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-clientele-des-entreprises-bcvs-sion"
+      ]
     }
   ]
 }

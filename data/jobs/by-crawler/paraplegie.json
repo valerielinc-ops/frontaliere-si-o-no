@@ -1968,12 +1968,12 @@
     },
     {
       "id": "paraplegie-d13e1615cd52",
-      "slug": "fachfrau-mann-gesundheit-ips-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "operatrice-operatore-sociosanitario-a-ips-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-ips-paraplegie-nottwil",
-        "it": "fachfrau-mann-gesundheit-ips-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "fachfrau-mann-gesundheit-ips-paraplegie-nottwil",
-        "fr": "fachfrau-mann-gesundheit-ips-paraplegie-nottwil"
+        "it": "operatrice-operatore-sociosanitario-a-ips-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "healthcare-assistant-icu-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-ips-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2022,11 +2022,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-ips-paraplegie-nottwil",
+          "fachfrau-mann-gesundheit-ips-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-ips-paraplegie-nottwil"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-ips-paraplegie-nottwil"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-ips-paraplegie-nottwil"
+        "fachfrau-mann-gesundheit-ips-paraplegie-nottwil",
+        "fachfrau-mann-gesundheit-ips-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

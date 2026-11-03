@@ -764,11 +764,6 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "48770",
-      "previousSlugs": [
-        "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770",
-        "praktikant-in-pflege-kinderklinik-stadtspital-zurich-zurich",
-        "praktikant-in-pflege-kinderklinik-stadtspital-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770",
@@ -781,7 +776,11 @@
           "praktikant-in-pflege-kinderklinik-stadtspital-zurich"
         ]
       },
-      "firstSeenAt": "2026-10-09T09:38:44.838Z",
+      "previousSlugs": [
+        "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770",
+        "praktikant-in-pflege-kinderklinik-stadtspital-zurich-zurich",
+        "praktikant-in-pflege-kinderklinik-stadtspital-zurich"
+      ],
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -797,7 +796,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-07T21:56:50.212Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-09T09:38:44.838Z"
     },
     {
       "id": "stadtspital-zuerich-aa314dbd64a9",

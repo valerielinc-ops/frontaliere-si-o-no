@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-594e3ec0017b",
-      "slug": "teamleitung-handchirurige-100-spital-limmattal-ch",
+      "slug": "team-management-hand-chief-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "teamleitung-handchirurige-100-spital-limmattal-ch",
-        "it": "teamleitung-handchirurige-100-spital-limmattal-ch",
+        "it": "team-management-hand-chief-100-spital-limmattal-schlieren",
         "en": "teamleitung-handchirurige-100-spital-limmattal-ch",
-        "fr": "teamleitung-handchirurige-100-spital-limmattal-ch"
+        "fr": "gestion-d-equipe-responsable-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -75,7 +75,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:16.766Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:16.766Z"
+      "firstSeenAt": "2026-11-02T21:26:16.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-handchirurige-100-spital-limmattal-ch"
+        ],
+        "fr": [
+          "teamleitung-handchirurige-100-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-handchirurige-100-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-ecf2b762ca26",
@@ -2482,7 +2493,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2543,9 +2554,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

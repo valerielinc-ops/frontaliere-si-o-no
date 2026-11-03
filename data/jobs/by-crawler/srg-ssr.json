@@ -4291,12 +4291,12 @@
     },
     {
       "id": "srg-ssr-b0106563d465",
-      "slug": "praktikant-in-styling-srg-ssr-zurich",
+      "slug": "tirocinante-styling-srg-ssr-zurich",
       "slugByLocale": {
         "de": "praktikant-in-styling-srg-ssr-zurich",
-        "it": "praktikant-in-styling-srg-ssr-zurich",
-        "en": "praktikant-in-styling-srg-ssr-zurich",
-        "fr": "praktikant-in-styling-srg-ssr-zurich"
+        "it": "tirocinante-styling-srg-ssr-zurich",
+        "en": "styling-intern-srg-ssr-zurich",
+        "fr": "stagiaire-en-stylisme-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4376,7 +4376,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:23:56.852Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:56.852Z"
+      "firstSeenAt": "2026-11-02T21:23:56.852Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-styling-srg-ssr-zurich"
+        ],
+        "en": [
+          "praktikant-in-styling-srg-ssr-zurich"
+        ],
+        "fr": [
+          "praktikant-in-styling-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-styling-srg-ssr-zurich"
+      ]
     }
   ]
 }

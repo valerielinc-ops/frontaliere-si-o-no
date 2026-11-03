@@ -1160,12 +1160,12 @@
     },
     {
       "id": "gmo-9fef9e68dc08",
-      "slug": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
+      "slug": "assistente-medico-al-60-gmo-1213-onex-9fef9e68",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
-        "it": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
+        "it": "assistente-medico-al-60-gmo-1213-onex-9fef9e68",
         "en": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
-        "de": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+        "de": "assistent-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
       },
       "slugDisambiguator": "9fef9e68",
       "company": "gmo",
@@ -1228,16 +1228,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:15.926Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:15.926Z"
+      "firstSeenAt": "2026-11-02T21:28:15.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+      ]
     },
     {
       "id": "gmo-1ae4d6aefdb4",
-      "slug": "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae",
+      "slug": "50-assistente-medico-gmo-1213-onex-1ae4d6ae",
       "slugByLocale": {
         "fr": "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae",
-        "it": "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae",
-        "en": "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae",
-        "de": "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae"
+        "it": "50-assistente-medico-gmo-1213-onex-1ae4d6ae",
+        "en": "50-medical-assistant-gmo-1213-onex-1ae4d6ae",
+        "de": "assistent-e-medicale-a-50-gmo-1213-onex-1ae4d6ae"
       },
       "slugDisambiguator": "1ae4d6ae",
       "company": "gmo",
@@ -1300,16 +1311,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:15.925Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:15.925Z"
+      "firstSeenAt": "2026-11-02T21:28:15.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae"
+        ],
+        "en": [
+          "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae"
+        ],
+        "de": [
+          "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medicale-a-50-gmo-1213-onex-1ae4d6ae"
+      ]
     },
     {
       "id": "gmo-a29a35ecb67c",
-      "slug": "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec",
+      "slug": "assistente-medico-al-50-80-gmo-1227-les-acacias-a29a35ec",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec",
-        "it": "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec",
+        "it": "assistente-medico-al-50-80-gmo-1227-les-acacias-a29a35ec",
         "en": "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec",
-        "de": "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec"
+        "de": "assistent-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec"
       },
       "slugDisambiguator": "a29a35ec",
       "company": "gmo",
@@ -1372,16 +1397,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:15.924Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:15.924Z"
+      "firstSeenAt": "2026-11-02T21:28:15.924Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-50-80-gmo-1227-les-acacias-a29a35ec"
+      ]
     },
     {
       "id": "gmo-823b83e9a629",
-      "slug": "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9",
+      "slug": "80-assistente-medico-gmo-1226-thonex-823b83e9",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9",
-        "it": "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9",
+        "it": "80-assistente-medico-gmo-1226-thonex-823b83e9",
         "en": "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9",
-        "de": "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9"
+        "de": "assistent-e-medical-e-a-80-gmo-1226-thonex-823b83e9"
       },
       "slugDisambiguator": "823b83e9",
       "company": "gmo",
@@ -1444,16 +1480,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:15.894Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:15.894Z"
+      "firstSeenAt": "2026-11-02T21:28:15.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-80-gmo-1226-thonex-823b83e9"
+      ]
     },
     {
       "id": "gmo-878881503e1e",
-      "slug": "assistant-e-en-pharmacie-gmo-1207-geneve-87888150",
+      "slug": "assistente-di-farmacia-gmo-1207-geneve-87888150",
       "slugByLocale": {
         "fr": "assistant-e-en-pharmacie-gmo-1207-geneve-87888150",
-        "it": "assistant-e-en-pharmacie-gmo-1207-geneve-87888150",
-        "en": "assistant-e-en-pharmacie-gmo-1207-geneve-87888150",
-        "de": "assistant-e-en-pharmacie-gmo-1207-geneve-87888150"
+        "it": "assistente-di-farmacia-gmo-1207-geneve-87888150",
+        "en": "pharmacy-assistant-gmo-1207-geneve-87888150",
+        "de": "assistent-e-en-pharmacie-gmo-1207-geneve-87888150"
       },
       "slugDisambiguator": "87888150",
       "company": "gmo",
@@ -1516,7 +1563,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:15.879Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:15.879Z"
+      "firstSeenAt": "2026-11-02T21:28:15.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-pharmacie-gmo-1207-geneve-87888150"
+        ],
+        "en": [
+          "assistant-e-en-pharmacie-gmo-1207-geneve-87888150"
+        ],
+        "de": [
+          "assistant-e-en-pharmacie-gmo-1207-geneve-87888150"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-pharmacie-gmo-1207-geneve-87888150"
+      ]
     }
   ]
 }

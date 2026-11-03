@@ -29,9 +29,12 @@
         "fr": "Dipl. Professionnel de soins comme une veille de nuit permanente"
       },
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network"
+        "de": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network",
+        "it": "dipl-cura-professionale-come-un-guardia-notturna-permanente-swiss-medical-network-rapperswil-jona",
+        "en": "dipl-care-professional-as-a-permanent-night-watch-swiss-medical-network-rapperswil-jona",
+        "fr": "dipl-professionnel-de-soins-comme-une-veille-de-nuit-permanente-swiss-medical-network-rapperswil-jona"
       },
-      "slug": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network",
+      "slug": "dipl-cura-professionale-come-un-guardia-notturna-permanente-swiss-medical-network-rapperswil-jona",
       "category": "nursing",
       "datePosted": "2026-11-02T17:10:25.609Z",
       "postedDate": "2026-11-02T17:10:25.609Z",
@@ -64,7 +67,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-02T21:26:37.833Z"
+      "firstSeenAt": "2026-11-02T21:26:37.833Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158458232-facharztin-facharzt-fur-allgemeine-innere-medizin-60-100-",
@@ -2431,7 +2442,7 @@
         "fr": "Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+        "it": "specialista-medicina-interna-swiss-medical-network-wengen",
         "en": "specialist-general-internal-medicine-swiss-medical-network-wengen",
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"

@@ -509,12 +509,12 @@
     },
     {
       "id": "medimeo-1e76f4031a67",
-      "slug": "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern",
+      "slug": "senior-medico-senior-medico-interdisciplinare-emergenza-medimeo-ag-region-bern-berner-oberland-emmental",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-interdisziplinarer-notfall-region-bern-berner-oberland-emmental",
-        "it": "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern",
-        "en": "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern",
-        "fr": "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern"
+        "it": "senior-medico-senior-medico-interdisciplinare-emergenza-medimeo-ag-region-bern-berner-oberland-emmental",
+        "en": "senior-physician-senior-physician-interdisciplinary-emergency-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "medecin-superieur-medecin-superieur-d-urgence-interdisciplinaire-medimeo-ag-region-bern-berner-oberland-emmental"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -560,11 +560,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-interdisziplinarer-notfall-region-bern-berner-oberland-emmental"
+          "oberarzt-oberarztin-interdisziplinarer-notfall-region-bern-berner-oberland-emmental",
+          "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern"
+        ],
+        "en": [
+          "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern"
         ]
       },
       "previousSlugs": [
-        "oberarzt-oberarztin-interdisziplinarer-notfall-region-bern-berner-oberland-emmental"
+        "oberarzt-oberarztin-interdisziplinarer-notfall-region-bern-berner-oberland-emmental",
+        "oberarzt-oberarztin-interdisziplinarer-notfall-medimeo-ag-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

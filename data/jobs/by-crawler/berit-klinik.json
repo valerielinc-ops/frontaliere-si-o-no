@@ -744,7 +744,7 @@
     },
     {
       "title": "Küche, 80%",
-      "slug": "kuche-80-berit-klinik",
+      "slug": "cucina-80-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__9af54c673e.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -782,9 +782,9 @@
       },
       "slugByLocale": {
         "de": "kuche-80-berit-klinik-speicher",
-        "it": "kuche-80-berit-klinik",
-        "en": "kuche-80-berit-klinik",
-        "fr": "kuche-80-berit-klinik"
+        "it": "cucina-80-berit-klinik-speicher",
+        "en": "kitchen-80-berit-klinik-speicher",
+        "fr": "cuisine-80-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter__in_k_che_80__9af54c673e.pdf"
@@ -818,7 +818,21 @@
       "streetAddress": "Vögelinsegg 5",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:27:33.377Z"
+      "firstSeenAt": "2026-11-02T21:27:33.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kuche-80-berit-klinik"
+        ],
+        "en": [
+          "kuche-80-berit-klinik"
+        ],
+        "fr": [
+          "kuche-80-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "kuche-80-berit-klinik"
+      ]
     }
   ]
 }

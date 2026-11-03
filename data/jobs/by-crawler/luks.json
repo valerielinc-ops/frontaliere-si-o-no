@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17596,12 +17596,12 @@
     },
     {
       "id": "luks-a2dd8fc6a148",
-      "slug": "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern",
+      "slug": "assistente-assistente-del-dipartimento-capo-di-chirurgia-40-50-in-condivisione-di-lavoro-luzerner-kantonsspital-luks",
       "slugByLocale": {
         "de": "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern",
-        "it": "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern",
-        "en": "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern",
-        "fr": "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern"
+        "it": "assistente-assistente-del-dipartimento-capo-di-chirurgia-40-50-in-condivisione-di-lavoro-luzerner-kantonsspital-luks",
+        "en": "assistant-assistant-of-the-department-head-of-surgery-40-50-in-job-sharing-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-assistant-du-chef-de-departement-chirurgie-40-50-en-partage-d-emploi-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17663,16 +17663,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:52:18.581Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:52:18.581Z"
+      "firstSeenAt": "2026-11-02T21:52:18.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern"
+        ],
+        "en": [
+          "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern"
+        ],
+        "fr": [
+          "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-assistent-des-departementleiters-chirurgie-40-50-im-job-sharing-luks-luzern"
+      ]
     },
     {
       "id": "luks-d7cf9f44f735",
-      "slug": "chefarztin-chefarzt-kardiologie-80-100-luks-luzern",
+      "slug": "chief-physician-chief-physician-cardiology-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "chefarztin-chefarzt-kardiologie-80-100-luks-luzern",
-        "it": "chefarztin-chefarzt-kardiologie-80-100-luks-luzern",
+        "it": "chief-physician-chief-physician-cardiology-80-100-luzerner-kantonsspital-luks-luzern",
         "en": "chefarztin-chefarzt-kardiologie-80-100-luks-luzern",
-        "fr": "chefarztin-chefarzt-kardiologie-80-100-luks-luzern"
+        "fr": "medecin-en-chef-medecin-en-chef-cardiologie-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17734,7 +17748,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:52:18.565Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:52:18.565Z"
+      "firstSeenAt": "2026-11-02T21:52:18.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-chefarzt-kardiologie-80-100-luks-luzern"
+        ],
+        "fr": [
+          "chefarztin-chefarzt-kardiologie-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-chefarzt-kardiologie-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-2d1ea9651214",

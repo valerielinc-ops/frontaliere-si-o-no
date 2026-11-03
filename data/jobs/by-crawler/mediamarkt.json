@@ -3108,15 +3108,6 @@
       "legalEntity": "Media Markt Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
-        "aiuto-alle-vendite-40-m-f-d-mediamarkt-buchs",
-        "sales-assistant-40-m-f-d-mediamarkt-buchs",
-        "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
-        "aushilfe-sales-40-m-w-d-mediamarkt-buchs",
-        "aushilfe-vente-40-m-w-d-mediamarkt-buchs",
-        "aushilfe-vendita-40-m-w-d-mediamarkt-buchs"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
@@ -3134,7 +3125,15 @@
           "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch"
         ]
       },
-      "firstSeenAt": "2026-10-05T21:57:57.146Z",
+      "previousSlugs": [
+        "aushilfe-verkauf-40-m-w-d-mediamarkt-buchs-ch",
+        "aiuto-alle-vendite-40-m-f-d-mediamarkt-buchs",
+        "sales-assistant-40-m-f-d-mediamarkt-buchs",
+        "auxiliaire-de-vente-40-h-f-d-mediamarkt-buchs",
+        "aushilfe-sales-40-m-w-d-mediamarkt-buchs",
+        "aushilfe-vente-40-m-w-d-mediamarkt-buchs",
+        "aushilfe-vendita-40-m-w-d-mediamarkt-buchs"
+      ],
       "salaryMin": 29600,
       "salaryMax": 45400,
       "salarySource": "estimated",
@@ -3150,7 +3149,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:43:38.888Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-05T21:57:57.146Z"
     },
     {
       "id": "mediamarkt-100891",

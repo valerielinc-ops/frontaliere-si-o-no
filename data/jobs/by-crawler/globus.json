@@ -1529,12 +1529,12 @@
     },
     {
       "id": "globus-54d5a13196b4",
-      "slug": "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2",
+      "slug": "addetto-a-al-supporto-vendite-per-impieghi-il-sabato-nel-settore-alimentare-20-m-f-d-globus-bern",
       "slugByLocale": {
         "de": "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch",
-        "it": "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2",
-        "en": "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2",
-        "fr": "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2"
+        "it": "addetto-a-al-supporto-vendite-per-impieghi-il-sabato-nel-settore-alimentare-20-m-f-d-globus-bern",
+        "en": "sales-support-staff-saturday-shifts-in-the-food-sector-20-m-f-d-globus-bern",
+        "fr": "soutien-aux-ventes-dans-les-missions-du-samedi-dans-la-region-alimentation-20-h-f-d-globus-bern"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -1600,21 +1600,29 @@
       "firstSeenAt": "2026-10-09T21:13:21.094Z",
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch"
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch",
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2"
+        ],
+        "en": [
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2"
+        ],
+        "fr": [
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2"
         ]
       },
       "previousSlugs": [
-        "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch"
+        "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch",
+        "sales-support-in-samstagseinsatze-im-bereich-food-20-w-m-d-globus-ch-2"
       ]
     },
     {
       "id": "globus-fc2457198827",
-      "slug": "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch",
+      "slug": "consulente-di-vendita-delicatessa-nel-reparto-prodotti-freschi-40-60-m-f-d-globus-st-gallen",
       "slugByLocale": {
         "de": "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch",
-        "it": "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch",
-        "en": "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch",
-        "fr": "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch"
+        "it": "consulente-di-vendita-delicatessa-nel-reparto-prodotti-freschi-40-60-m-f-d-globus-st-gallen",
+        "en": "sales-advisor-delicatessa-in-the-fresh-produce-department-40-60-m-f-d-globus-st-gallen",
+        "fr": "conseiller-ere-de-vente-delicatessa-dans-le-secteur-des-produits-frais-40-60-h-f-d-globus-st-gallen"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -1677,7 +1685,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:22:33.288Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:22:33.288Z"
+      "firstSeenAt": "2026-11-02T21:22:33.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-delicatessa-im-bereich-frische-40-60-w-m-d-globus-ch"
+      ]
     }
   ]
 }

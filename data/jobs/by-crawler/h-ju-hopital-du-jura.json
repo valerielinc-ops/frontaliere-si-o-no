@@ -976,12 +976,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-d3c0c49a3c92",
-      "slug": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
+      "slug": "operatore-hopital-du-jura-h-ju-delemont-b4c77a",
       "slugByLocale": {
         "fr": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "it": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "en": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "de": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+        "it": "operatore-hopital-du-jura-h-ju-delemont-b4c77a",
+        "en": "operator-hopital-du-jura-h-ju-delemont-b4c77a",
+        "de": "betreiber-hopital-du-jura-h-ju-delemont-b4c77a"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1044,16 +1044,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:24:06.339Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T23:03:34.932Z"
+      "firstSeenAt": "2026-09-09T23:03:34.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-e7477eb82e3b",
-      "slug": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
+      "slug": "operatore-hopital-du-jura-h-ju-delemont-84303a",
       "slugByLocale": {
         "fr": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "it": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
-        "en": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
-        "de": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        "it": "operatore-hopital-du-jura-h-ju-delemont-84303a",
+        "en": "operator-hopital-du-jura-h-ju-delemont-84303a",
+        "de": "betreiber-hopital-du-jura-h-ju-delemont-84303a"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1119,21 +1133,29 @@
       "firstSeenAt": "2026-09-09T23:03:34.932Z",
       "previousSlugsByLocale": {
         "it": [
-          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        ],
+        "en": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        ],
+        "de": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
         ]
       },
       "previousSlugs": [
-        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
       ]
     },
     {
       "id": "h-ju-hopital-du-jura-77c92fa345c7",
-      "slug": "sage-femme-h-ju-hopital-du-jura-delemont",
+      "slug": "mutua-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "sage-femme-h-ju-hopital-du-jura-delemont",
-        "it": "sage-femme-h-ju-hopital-du-jura-delemont",
-        "en": "sage-femme-h-ju-hopital-du-jura-delemont",
-        "de": "sage-femme-h-ju-hopital-du-jura-delemont"
+        "it": "mutua-hopital-du-jura-h-ju-delemont",
+        "en": "midwife-hopital-du-jura-h-ju-delemont",
+        "de": "hebamme-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1196,7 +1218,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:24:05.202Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:24:05.202Z"
+      "firstSeenAt": "2026-11-02T21:24:05.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "sage-femme-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "sage-femme-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "sage-femme-h-ju-hopital-du-jura-delemont"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-cef8f1c976b5",

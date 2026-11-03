@@ -9067,12 +9067,12 @@
     },
     {
       "id": "uzh-3490bd5d8620",
-      "slug": "forschungsassistenz-universitat-zurich-zurich",
+      "slug": "assistenza-alla-ricerca-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "forschungsassistenz-uzh-zurich",
-        "it": "forschungsassistenz-universitat-zurich-zurich",
-        "en": "forschungsassistenz-universitat-zurich-zurich",
-        "fr": "forschungsassistenz-universitat-zurich-zurich"
+        "it": "assistenza-alla-ricerca-universitat-zurich-zurich",
+        "en": "research-assistance-universitat-zurich-zurich",
+        "fr": "aide-a-la-recherche-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9120,11 +9120,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "forschungsassistenz-uzh-zurich"
+          "forschungsassistenz-uzh-zurich",
+          "forschungsassistenz-universitat-zurich-zurich"
+        ],
+        "en": [
+          "forschungsassistenz-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "forschungsassistenz-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "forschungsassistenz-uzh-zurich"
+        "forschungsassistenz-uzh-zurich",
+        "forschungsassistenz-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

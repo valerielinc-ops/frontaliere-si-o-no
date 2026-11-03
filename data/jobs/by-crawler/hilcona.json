@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilcona-f1a7940c71da",
-      "slug": "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel",
+      "slug": "caso-ufficiale-acquisizione-della-tecnologia-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-sachbearbeiterin-einkauf-technik-hilcona-basel",
-        "it": "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel",
-        "en": "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel",
-        "fr": "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel"
+        "it": "caso-ufficiale-acquisizione-della-tecnologia-bell-schweiz-ag-basel",
+        "en": "case-officer-purchasing-technology-bell-schweiz-ag-basel",
+        "fr": "agent-de-cas-achats-de-technologie-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -52,11 +52,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-sachbearbeiterin-einkauf-technik-hilcona-basel"
+          "sachbearbeiter-sachbearbeiterin-einkauf-technik-hilcona-basel",
+          "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel"
+        ],
+        "en": [
+          "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-sachbearbeiterin-einkauf-technik-hilcona-basel"
+        "sachbearbeiter-sachbearbeiterin-einkauf-technik-hilcona-basel",
+        "sachbearbeiter-sachbearbeiterin-einkauf-technik-bell-schweiz-ag-basel"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,

@@ -503,12 +503,12 @@
     },
     {
       "id": "schulthess-klinik-eeade1126952",
-      "slug": "radiologiefachperson-schulthess-klinik-zurich",
+      "slug": "specialista-di-radiologia-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "radiologiefachperson-schulthess-klinik-zurich",
-        "it": "radiologiefachperson-schulthess-klinik-zurich",
-        "en": "radiologiefachperson-schulthess-klinik-zurich",
-        "fr": "radiologiefachperson-schulthess-klinik-zurich"
+        "it": "specialista-di-radiologia-schulthess-klinik-zurich",
+        "en": "radiology-specialist-schulthess-klinik-zurich",
+        "fr": "specialiste-de-radiologie-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -570,7 +570,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:23:44.932Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:44.932Z"
+      "firstSeenAt": "2026-11-02T21:23:44.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-schulthess-klinik-zurich"
+      ]
     }
   ]
 }

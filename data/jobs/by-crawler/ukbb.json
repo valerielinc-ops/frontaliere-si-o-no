@@ -1766,8 +1766,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gastronomie-nemo-80-ukbb-basel",
         "it": "collaboratore-trice-in-gastronomie-nemo-80-universitats-kinderspital-beider-basel",
-        "en": "mitarbeiter-in-gastronomie-nemo-80-universitats-kinderspital-beider-basel-basel",
-        "fr": "mitarbeiter-in-gastronomie-nemo-80-universitats-kinderspital-beider-basel-basel"
+        "en": "food-service-employee-nemo-80-universitats-kinderspital-beider-basel-basel",
+        "fr": "employe-e-en-restauration-nemo-80-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1817,10 +1817,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-nemo-80-ukbb-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-gastronomie-nemo-80-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiter-in-gastronomie-nemo-80-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-nemo-80-ukbb-basel"
+        "mitarbeiter-in-gastronomie-nemo-80-ukbb-basel",
+        "mitarbeiter-in-gastronomie-nemo-80-universitats-kinderspital-beider-basel-basel"
       ],
       "salaryMin": 70400,
       "salaryMax": 98400,

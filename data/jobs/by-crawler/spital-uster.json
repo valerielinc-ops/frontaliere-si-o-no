@@ -4351,12 +4351,12 @@
     },
     {
       "id": "spital-uster-a23b203db292",
-      "slug": "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+      "slug": "salute-professionale-50-100-riabilitazione-geriatrica-acute-spital-uster-uster",
       "slugByLocale": {
         "de": "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "it": "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "en": "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "fr": "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        "it": "salute-professionale-50-100-riabilitazione-geriatrica-acute-spital-uster-uster",
+        "en": "professional-health-50-100-geriatric-acute-rehabilitation-spital-uster-uster",
+        "fr": "sante-professionnelle-50-100-readaptation-aigue-geriatrique-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4419,16 +4419,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:06.631Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:29:06.631Z"
+      "firstSeenAt": "2026-11-02T21:29:06.631Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-b8522270b36f",
-      "slug": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster",
+      "slug": "infermiere-a-50-100-riabilitazione-geriatrica-acuta-turno-serale-e-notturno-spital-uster-uster",
       "slugByLocale": {
         "de": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
-        "it": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster",
-        "en": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
-        "fr": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+        "it": "infermiere-a-50-100-riabilitazione-geriatrica-acuta-turno-serale-e-notturno-spital-uster-uster",
+        "en": "care-professional-50-100-geriatric-acute-rehabilitation-late-and-night-service-spital-uster-uster",
+        "fr": "professionnel-de-soins-50-100-readaptation-geriatrique-aigue-service-tard-et-nuit-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4477,11 +4491,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster"
+        ],
+        "en": [
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+        ],
+        "fr": [
           "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4504,12 +4526,12 @@
     },
     {
       "id": "spital-uster-86fc9dd4c01f",
-      "slug": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+      "slug": "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
       "slugByLocale": {
         "de": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "it": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "en": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "fr": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        "it": "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
+        "en": "care-professionals-50-100-geriatric-acute-rehabilitation-spital-uster-uster",
+        "fr": "professionnels-de-soins-50-100-readaptation-geriatrique-aigue-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4572,16 +4594,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:06.629Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:29:06.629Z"
+      "firstSeenAt": "2026-11-02T21:29:06.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ],
+        "en": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ],
+        "fr": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-3d65fe478284",
-      "slug": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
+      "slug": "professionisti-infermieri-variabile-di-carico-di-lavoro-fixpool-spital-uster-uster",
       "slugByLocale": {
         "de": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
-        "it": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
-        "en": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
-        "fr": "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
+        "it": "professionisti-infermieri-variabile-di-carico-di-lavoro-fixpool-spital-uster-uster",
+        "en": "nursing-professionals-workload-variable-fixpool-spital-uster-uster",
+        "fr": "professionnels-des-soins-infirmiers-variable-de-charge-de-travail-fixpool-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4644,16 +4680,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:06.628Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:29:06.628Z"
+      "firstSeenAt": "2026-11-02T21:29:06.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
+        ],
+        "en": [
+          "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
+        ],
+        "fr": [
+          "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-83236760572d",
-      "slug": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
+      "slug": "professionista-sanitario-80-100-unita-chirurgica-privata-spital-uster-uster",
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
-        "it": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
-        "en": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
-        "fr": "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
+        "it": "professionista-sanitario-80-100-unita-chirurgica-privata-spital-uster-uster",
+        "en": "health-professional-80-100-private-surgical-unit-spital-uster-uster",
+        "fr": "professionnels-de-la-sante-80-100-unite-chirurgicale-privee-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4715,7 +4765,21 @@
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:06.624Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
+      ]
     }
   ]
 }

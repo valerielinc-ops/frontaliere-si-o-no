@@ -500,7 +500,7 @@
         "it": "responsabile-di-cantiere-e-di-progetto-migrolino-suhr",
         "en": "construction-project-manager-migrolino-suhr",
         "de": "bau-projektleiter-in-migrolino-suhr",
-        "fr": "responsable-de-chantier-et-de-projets-migrolino-suhr"
+        "fr": "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -545,7 +545,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bau-projektleiter-in-migrolino-suhr",
-        "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
+        "responsable-de-chantier-et-de-projets-migrolino-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -556,7 +556,7 @@
         ],
         "fr": [
           "bau-projektleiter-in-migrolino-suhr",
-          "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
+          "responsable-de-chantier-et-de-projets-migrolino-suhr"
         ]
       },
       "firstSeenAt": "2026-10-08T21:17:33.089Z",
@@ -905,12 +905,12 @@
     },
     {
       "id": "migrolino-d94e82f0f295",
-      "slug": "verkaufsmitarbeiter-in-migrolino-sins",
+      "slug": "addetto-a-alle-vendite-migrolino-sins",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-migrolino-sins",
-        "it": "verkaufsmitarbeiter-in-migrolino-sins",
-        "en": "verkaufsmitarbeiter-in-migrolino-sins",
-        "fr": "verkaufsmitarbeiter-in-migrolino-sins"
+        "it": "addetto-a-alle-vendite-migrolino-sins",
+        "en": "sales-associate-migrolino-sins",
+        "fr": "employe-e-de-vente-migrolino-sins"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -972,7 +972,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:25:19.529Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:25:19.529Z"
+      "firstSeenAt": "2026-11-02T21:25:19.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-sins"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-sins"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-sins"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-sins"
+      ]
     },
     {
       "id": "migrolino-b39a3b5f46a7",

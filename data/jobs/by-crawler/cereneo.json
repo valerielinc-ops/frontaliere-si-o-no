@@ -281,12 +281,12 @@
     },
     {
       "id": "cereneo-de29cc742f22",
-      "slug": "speech-and-language-therapist-cereneo-vitznau",
+      "slug": "discorso-e-terapeuta-della-lingua-cereneo-vitznau",
       "slugByLocale": {
         "en": "speech-and-language-therapist-cereneo-vitznau",
-        "it": "speech-and-language-therapist-cereneo-vitznau",
-        "de": "speech-and-language-therapist-cereneo-vitznau",
-        "fr": "speech-and-language-therapist-cereneo-vitznau"
+        "it": "discorso-e-terapeuta-della-lingua-cereneo-vitznau",
+        "de": "sprachtherapeutin-und-sprachtherapeutin-cereneo-vitznau",
+        "fr": "therapeute-de-la-parole-et-de-la-langue-cereneo-vitznau"
       },
       "company": "Cereneo",
       "companyKey": "cereneo",
@@ -348,16 +348,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:16.162Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:16.162Z"
+      "firstSeenAt": "2026-11-02T21:28:16.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "speech-and-language-therapist-cereneo-vitznau"
+        ],
+        "de": [
+          "speech-and-language-therapist-cereneo-vitznau"
+        ],
+        "fr": [
+          "speech-and-language-therapist-cereneo-vitznau"
+        ]
+      },
+      "previousSlugs": [
+        "speech-and-language-therapist-cereneo-vitznau"
+      ]
     },
     {
       "id": "cereneo-1a200435b981",
-      "slug": "physiotherapist-or-occupational-therapist-cereneo-vitznau",
+      "slug": "fisioterapista-o-terapista-del-lavoro-cereneo-vitznau",
       "slugByLocale": {
         "en": "physiotherapist-or-occupational-therapist-cereneo-vitznau",
-        "it": "physiotherapist-or-occupational-therapist-cereneo-vitznau",
-        "de": "physiotherapist-or-occupational-therapist-cereneo-vitznau",
-        "fr": "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+        "it": "fisioterapista-o-terapista-del-lavoro-cereneo-vitznau",
+        "de": "physiotherapeut-oder-ergotherapeut-cereneo-vitznau",
+        "fr": "physiotherapeute-ou-therapeute-professionnel-cereneo-vitznau"
       },
       "company": "Cereneo",
       "companyKey": "cereneo",
@@ -419,7 +433,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:28:15.699Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:15.699Z"
+      "firstSeenAt": "2026-11-02T21:28:15.699Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+        ],
+        "de": [
+          "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+        ],
+        "fr": [
+          "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+      ]
     },
     {
       "id": "cereneo-cc06eccccbe9",

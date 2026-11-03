@@ -1569,12 +1569,12 @@
     },
     {
       "id": "arsante-clinique-de-carouge-5233ef9f64aa",
-      "slug": "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex",
+      "slug": "assistente-medico-al-60-arsante-clinique-de-carouge-groupe-medical-d-onex-onex",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex",
-        "it": "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex",
+        "it": "assistente-medico-al-60-arsante-clinique-de-carouge-groupe-medical-d-onex-onex",
         "en": "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex",
-        "de": "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex"
+        "de": "assistent-e-medical-e-a-60-arsante-clinique-de-carouge-groupe-medical-d-onex-onex"
       },
       "company": "Arsanté (Clinique de Carouge) — Groupe Médical d'Onex",
       "companyKey": "arsante-clinique-de-carouge",
@@ -1636,16 +1636,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:15.948Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:15.948Z"
+      "firstSeenAt": "2026-11-02T21:26:15.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-60-arsante-clinique-de-carouge-onex"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-8938b5f9e5eb",
-      "slug": "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex",
+      "slug": "50-assistente-medico-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
       "slugByLocale": {
         "fr": "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex",
-        "it": "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex",
-        "en": "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex",
-        "de": "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex"
+        "it": "50-assistente-medico-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
+        "en": "50-medical-assistant-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
+        "de": "assistent-e-medicale-a-50-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       },
       "company": "Arsanté (Clinique de Carouge) — Clinique et Permanence d'Onex",
       "companyKey": "arsante-clinique-de-carouge",
@@ -1707,16 +1718,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:15.099Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:15.099Z"
+      "firstSeenAt": "2026-11-02T21:26:15.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex"
+        ],
+        "en": [
+          "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex"
+        ],
+        "de": [
+          "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medicale-a-50-arsante-clinique-de-carouge-onex"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-7bc5078e606c",
-      "slug": "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge",
+      "slug": "assistente-medico-al-50-80-arsante-clinique-de-carouge-centre-medical-des-acacias-carouge",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge",
-        "it": "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge",
+        "it": "assistente-medico-al-50-80-arsante-clinique-de-carouge-centre-medical-des-acacias-carouge",
         "en": "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge",
-        "de": "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge"
+        "de": "assistent-e-medical-e-a-50-80-arsante-clinique-de-carouge-centre-medical-des-acacias-carouge"
       },
       "company": "Arsanté (Clinique de Carouge) — Centre Médical des Acacias",
       "companyKey": "arsante-clinique-de-carouge",
@@ -1778,16 +1803,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:14.255Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:14.255Z"
+      "firstSeenAt": "2026-11-02T21:26:14.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-50-80-arsante-clinique-de-carouge-carouge"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-752618cd6a74",
-      "slug": "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge",
+      "slug": "80-assistente-medico-arsante-clinique-de-carouge-centre-de-sante-belle-terre-carouge",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge",
-        "it": "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge",
+        "it": "80-assistente-medico-arsante-clinique-de-carouge-centre-de-sante-belle-terre-carouge",
         "en": "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge",
-        "de": "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge"
+        "de": "assistent-e-medical-e-a-80-arsante-clinique-de-carouge-centre-de-sante-belle-terre-carouge"
       },
       "company": "Arsanté (Clinique de Carouge) — Centre de Santé Belle-Terre",
       "companyKey": "arsante-clinique-de-carouge",
@@ -1849,16 +1885,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:13.544Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:13.544Z"
+      "firstSeenAt": "2026-11-02T21:26:13.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-80-arsante-clinique-de-carouge-carouge"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-6af3e286786d",
-      "slug": "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve",
+      "slug": "assistente-di-farmacia-arsante-clinique-de-carouge-pharmacie-eaux-vives-gare-geneve",
       "slugByLocale": {
         "fr": "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve",
-        "it": "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve",
+        "it": "assistente-di-farmacia-arsante-clinique-de-carouge-pharmacie-eaux-vives-gare-geneve",
         "en": "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve",
-        "de": "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve"
+        "de": "assistent-e-en-pharmacie-arsante-clinique-de-carouge-pharmacie-eaux-vives-gare-geneve"
       },
       "company": "Arsanté (Clinique de Carouge) — Pharmacie Eaux-Vives Gare",
       "companyKey": "arsante-clinique-de-carouge",
@@ -1920,7 +1967,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:12.811Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:12.811Z"
+      "firstSeenAt": "2026-11-02T21:26:12.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve"
+        ],
+        "de": [
+          "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-pharmacie-arsante-clinique-de-carouge-geneve"
+      ]
     }
   ]
 }

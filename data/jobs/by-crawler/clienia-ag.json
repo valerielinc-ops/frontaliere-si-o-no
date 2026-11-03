@@ -289,7 +289,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -370,7 +370,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -380,7 +381,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -776,7 +777,7 @@
       "slug": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-        "en": "graduated-day-care-professional-60-100-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
         "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
@@ -860,7 +861,7 @@
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
         "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+        "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -870,7 +871,7 @@
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+          "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon"
@@ -7873,12 +7874,12 @@
     },
     {
       "id": "clienia-ag-395a2fa48cc8",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend",
+      "slug": "infermiere-a-diplomato-a-hf-fh-m-f-d-accettazione-dei-pazienti-servizio-di-triage-nessun-servizio-notturno-nei-fine",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend"
+        "it": "infermiere-a-diplomato-a-hf-fh-m-f-d-accettazione-dei-pazienti-servizio-di-triage-nessun-servizio-notturno-nei-fine",
+        "en": "dipl-hf-fh-m-f-d-patient-admission-triage-center-no-night-weekend-or-holiday-services-50-clienia-ag-pfaffikon-zh",
+        "fr": "dipl-hf-fh-h-f-d-centre-d-admission-et-de-triage-des-patients-pas-de-service-de-nuit-de-week-end-ou-de-vacances-50"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7941,7 +7942,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:55:47.857Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:55:47.857Z"
+      "firstSeenAt": "2026-11-02T21:55:47.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-m-w-d-patientenaufnahme-triagestelle-keine-nacht-wochenend"
+      ]
     }
   ]
 }

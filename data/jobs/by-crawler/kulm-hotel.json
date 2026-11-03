@@ -635,7 +635,7 @@
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -704,8 +704,7 @@
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -726,8 +725,7 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -762,12 +760,12 @@
     },
     {
       "id": "kulm-hotel-094215386d10",
-      "slug": "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz",
+      "slug": "assistente-al-supervisore-dei-piani-assistente-della-governante-m-f-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
         "en": "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz",
-        "it": "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz",
-        "de": "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz",
-        "fr": "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz"
+        "it": "assistente-al-supervisore-dei-piani-assistente-della-governante-m-f-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "assistent-floor-vorgesetzter-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "fr": "assistant-e-responsable-des-etages-assistant-e-gouvernant-e-h-f-d-kulm-hotel-st-moritz-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -834,7 +832,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:45.946Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:29:45.946Z"
+      "firstSeenAt": "2026-11-02T21:29:45.946Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "de": [
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-435470f943ce",

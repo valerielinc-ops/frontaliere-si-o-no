@@ -651,11 +651,11 @@
     },
     {
       "id": "evam-vaud-8498507",
-      "slug": "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch",
+      "slug": "assistente-sociale-100-csd-1-anno-evam-montreux",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch",
-        "en": "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch",
+        "it": "assistente-sociale-100-csd-1-anno-evam-montreux",
+        "en": "social-assistant-100-csd-1-year-evam-montreux",
         "de": "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -715,7 +715,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-02T21:49:59.295Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:39:55.376Z"
+      "firstSeenAt": "2026-10-05T21:39:55.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"
+        ],
+        "en": [
+          "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-100-cdd-1-an-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8511521",

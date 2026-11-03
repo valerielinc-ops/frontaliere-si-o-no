@@ -685,12 +685,12 @@
     },
     {
       "id": "institution-lavigny-5abc686a8baa",
-      "slug": "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80",
+      "slug": "un-insegnante-socio-professionale-specialista-tsa-situazioni-complesse-all-80-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80",
-        "it": "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80",
-        "en": "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80",
-        "de": "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80"
+        "it": "un-insegnante-socio-professionale-specialista-tsa-situazioni-complesse-all-80-institution-de-lavigny-lavigny",
+        "en": "a-socio-professional-teacher-specialist-tsa-complex-situations-at-80-institution-de-lavigny-lavigny",
+        "de": "ein-sozialprofessioneller-lehrer-spezialist-tsa-komplexe-situationen-bei-80-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -753,7 +753,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:53:56.868Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:53:56.868Z"
+      "firstSeenAt": "2026-11-02T21:53:56.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80"
+        ],
+        "en": [
+          "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80"
+        ],
+        "de": [
+          "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-maitre-sse-socioprofessionnel-le-specialiste-tsa-situations-complexes-a-80"
+      ]
     }
   ]
 }

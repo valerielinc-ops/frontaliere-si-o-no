@@ -731,12 +731,12 @@
     },
     {
       "id": "pictet-10b84f68e866",
-      "slug": "legal-advisor-pictet-geneva",
+      "slug": "legal-consulente-pictet-group-geneva",
       "slugByLocale": {
         "en": "legal-advisor-pictet-geneva",
-        "it": "legal-advisor-pictet-geneva",
-        "de": "legal-advisor-pictet-geneva",
-        "fr": "legal-advisor-pictet-geneva"
+        "it": "legal-consulente-pictet-group-geneva",
+        "de": "legal-berater-pictet-group-geneva",
+        "fr": "legal-conseiller-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -799,7 +799,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T21:54:36.392Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:22:12.934Z"
+      "firstSeenAt": "2026-10-03T09:22:12.934Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-advisor-pictet-geneva"
+        ],
+        "de": [
+          "legal-advisor-pictet-geneva"
+        ],
+        "fr": [
+          "legal-advisor-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "legal-advisor-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-21dc28c44047",

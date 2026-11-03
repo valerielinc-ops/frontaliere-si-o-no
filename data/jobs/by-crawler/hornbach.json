@@ -2420,12 +2420,12 @@
     },
     {
       "id": "hornbach-155885",
-      "slug": "collaboratore-trice-holzzuschnitt-hornbach-sirnach",
+      "slug": "collaboratore-trice-al-taglio-del-legno-hornbach-sirnach",
       "slugByLocale": {
         "de": "mitarbeiter-in-holzzuschnitt-hornbach-sirnach",
-        "it": "collaboratore-trice-holzzuschnitt-hornbach-sirnach",
-        "en": "mitarbeiter-in-holzzuschnitt-hornbach-sirnach",
-        "fr": "mitarbeiter-in-holzzuschnitt-hornbach-sirnach"
+        "it": "collaboratore-trice-al-taglio-del-legno-hornbach-sirnach",
+        "en": "wood-cutting-associate-hornbach-sirnach",
+        "fr": "collaborateur-rice-a-la-decoupe-du-bois-hornbach-sirnach"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2474,11 +2474,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-holzzuschnitt-hornbach-sirnach",
+          "collaboratore-trice-holzzuschnitt-hornbach-sirnach"
+        ],
+        "en": [
+          "mitarbeiter-in-holzzuschnitt-hornbach-sirnach"
+        ],
+        "fr": [
           "mitarbeiter-in-holzzuschnitt-hornbach-sirnach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-holzzuschnitt-hornbach-sirnach"
+        "mitarbeiter-in-holzzuschnitt-hornbach-sirnach",
+        "collaboratore-trice-holzzuschnitt-hornbach-sirnach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

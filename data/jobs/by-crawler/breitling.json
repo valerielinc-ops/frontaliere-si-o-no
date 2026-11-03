@@ -84,12 +84,12 @@
     },
     {
       "id": "breitling-0d2561d3249e",
-      "slug": "junior-hr-business-partner-f-m-x-temporary-5-9-months-breitling-la-chaux-de-fonds-ne",
+      "slug": "junior-hr-business-partner-m-f-x-temporaneo-5-9-mesi-breitling-la-chaux-de-fonds-ne",
       "slugByLocale": {
         "en": "junior-hr-business-partner-f-m-x-temporary-6-9-months-breitling-la-chaux-de-fonds-ne",
         "fr": "partenaire-d-affaires-rh-junior-f-m-x-temporaire-6-9-mois-breitling-la-chaux-de-fonds-ne",
-        "it": "junior-hr-business-partner-f-m-x-temporary-5-9-months-breitling-la-chaux-de-fonds-ne",
-        "de": "junior-hr-business-partner-f-m-x-temporary-5-9-months-breitling-la-chaux-de-fonds-ne"
+        "it": "junior-hr-business-partner-m-f-x-temporaneo-5-9-mesi-breitling-la-chaux-de-fonds-ne",
+        "de": "junior-hr-business-partner-m-w-x-befristet-5-9-monate-breitling-la-chaux-de-fonds-ne"
       },
       "company": "Breitling",
       "companyKey": "breitling",
@@ -153,7 +153,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T21:21:18.306Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:21:18.306Z"
+      "firstSeenAt": "2026-11-02T21:21:18.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-hr-business-partner-f-m-x-temporary-5-9-months-breitling-la-chaux-de-fonds-ne"
+        ],
+        "de": [
+          "junior-hr-business-partner-f-m-x-temporary-5-9-months-breitling-la-chaux-de-fonds-ne"
+        ]
+      },
+      "previousSlugs": [
+        "junior-hr-business-partner-f-m-x-temporary-5-9-months-breitling-la-chaux-de-fonds-ne"
+      ]
     },
     {
       "id": "breitling-857a8b77f06d",

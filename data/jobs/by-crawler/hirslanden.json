@@ -28525,12 +28525,12 @@
     {
       "id": "hirslanden-bb24d36abcad",
       "externalId": "1453437033",
-      "slug": "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil",
+      "slug": "infermiera-all-80-flex-hirslanden-klinik-hirslanden-clinique-cecil-c51409",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil",
-        "de": "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil"
+        "it": "infermiera-all-80-flex-hirslanden-klinik-hirslanden-clinique-cecil-c51409",
+        "en": "nurse-at-80-flex-hirslanden-klinik-hirslanden-clinique-cecil-c51409",
+        "de": "krankenschwester-bei-80-flex-hirslanden-klinik-hirslanden-clinique-cecil-c51409"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28592,7 +28592,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:26:44.891Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-30T21:21:26.685Z"
+      "firstSeenAt": "2026-10-30T21:21:26.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-flex-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-7a0dff9a08db",
@@ -28601,8 +28615,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik-im",
         "it": "mitarbeiterin-collaboratore-trice-a-hotelservice-abenddienst-20-hirslanden-klinik-im-park",
-        "en": "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik-im",
-        "fr": "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik-im"
+        "en": "employee-a-hotel-service-evening-service-20-hirslanden-klinik-hirslanden-klinik-im-park",
+        "fr": "employe-a-service-d-hotel-service-du-soir-20-hirslanden-klinik-hirslanden-klinik-im-park"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28650,6 +28664,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik-im"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik-im"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik-im"
         ]
       },

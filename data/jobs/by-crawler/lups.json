@@ -5868,12 +5868,12 @@
     },
     {
       "id": "lups-1765707e3793",
-      "slug": "assistenzarzt-m-w-d-80-100-lups-luzern",
+      "slug": "assistente-medico-m-f-d-80-100-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
         "de": "assistenzarzt-m-w-d-80-100-lups-luzern",
-        "it": "assistenzarzt-m-w-d-80-100-lups-luzern",
-        "en": "assistenzarzt-m-w-d-80-100-lups-luzern",
-        "fr": "assistenzarzt-m-w-d-80-100-lups-luzern"
+        "it": "assistente-medico-m-f-d-80-100-luzerner-psychiatrie-lups-luzern",
+        "en": "assistant-doctor-m-f-d-80-100-luzerner-psychiatrie-lups-luzern",
+        "fr": "assistant-medecin-h-f-d-80-100-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5935,16 +5935,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:21:50.204Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:21:50.204Z"
+      "firstSeenAt": "2026-11-02T21:21:50.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-m-w-d-80-100-lups-luzern"
+        ],
+        "en": [
+          "assistenzarzt-m-w-d-80-100-lups-luzern"
+        ],
+        "fr": [
+          "assistenzarzt-m-w-d-80-100-lups-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-m-w-d-80-100-lups-luzern"
+      ]
     },
     {
       "id": "lups-3c9af4b90892",
-      "slug": "psychologin-m-w-d-40-lups-sarnen",
+      "slug": "psicologo-m-f-d-40-luzerner-psychiatrie-lups-sarnen",
       "slugByLocale": {
         "de": "psychologin-m-w-d-40-lups-sarnen",
-        "it": "psychologin-m-w-d-40-lups-sarnen",
-        "en": "psychologin-m-w-d-40-lups-sarnen",
-        "fr": "psychologin-m-w-d-40-lups-sarnen"
+        "it": "psicologo-m-f-d-40-luzerner-psychiatrie-lups-sarnen",
+        "en": "psychologist-m-f-d-40-luzerner-psychiatrie-lups-sarnen",
+        "fr": "psychologue-h-f-d-40-luzerner-psychiatrie-lups-sarnen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6006,16 +6020,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:21:49.770Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:21:49.770Z"
+      "firstSeenAt": "2026-11-02T21:21:49.770Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-m-w-d-40-lups-sarnen"
+        ],
+        "en": [
+          "psychologin-m-w-d-40-lups-sarnen"
+        ],
+        "fr": [
+          "psychologin-m-w-d-40-lups-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-m-w-d-40-lups-sarnen"
+      ]
     },
     {
       "id": "lups-c853dec9f430",
-      "slug": "psychologin-m-w-d-70-80-lups-sarnen",
+      "slug": "psicologo-m-f-d-70-80-luzerner-psychiatrie-lups-sarnen",
       "slugByLocale": {
         "de": "psychologin-m-w-d-70-80-lups-sarnen",
-        "it": "psychologin-m-w-d-70-80-lups-sarnen",
-        "en": "psychologin-m-w-d-70-80-lups-sarnen",
-        "fr": "psychologin-m-w-d-70-80-lups-sarnen"
+        "it": "psicologo-m-f-d-70-80-luzerner-psychiatrie-lups-sarnen",
+        "en": "psychologist-m-f-d-70-80-luzerner-psychiatrie-lups-sarnen",
+        "fr": "psychologue-h-f-d-70-80-luzerner-psychiatrie-lups-sarnen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6077,16 +6105,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:21:49.352Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:21:49.352Z"
+      "firstSeenAt": "2026-11-02T21:21:49.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-m-w-d-70-80-lups-sarnen"
+        ],
+        "en": [
+          "psychologin-m-w-d-70-80-lups-sarnen"
+        ],
+        "fr": [
+          "psychologin-m-w-d-70-80-lups-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-m-w-d-70-80-lups-sarnen"
+      ]
     },
     {
       "id": "lups-e19816446fb2",
-      "slug": "pflegeassistentin-srk-m-w-d-80-100-befristet-luzerner-psychiatrie-lups-st-urban",
+      "slug": "assistente-infermieristico-srk-m-f-d-80-100-temporaneo-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban",
-        "it": "pflegeassistentin-srk-m-w-d-80-100-befristet-luzerner-psychiatrie-lups-st-urban",
-        "en": "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban",
-        "fr": "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban"
+        "it": "assistente-infermieristico-srk-m-f-d-80-100-temporaneo-luzerner-psychiatrie-lups-st-urban",
+        "en": "nursing-assistant-srk-m-f-d-80-100-temporary-luzerner-psychiatrie-lups-st-urban",
+        "fr": "assistant-infirmier-srk-h-f-d-80-100-temporaire-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6133,11 +6175,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban",
+          "pflegeassistentin-srk-m-w-d-80-100-befristet-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "en": [
+          "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban"
+        ],
+        "fr": [
           "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban"
         ]
       },
       "previousSlugs": [
-        "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban"
+        "pflegeassistentin-srk-w-m-d-80-100-befristet-lups-st-urban",
+        "pflegeassistentin-srk-m-w-d-80-100-befristet-luzerner-psychiatrie-lups-st-urban"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

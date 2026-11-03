@@ -87,12 +87,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1376447957",
-      "slug": "werkstudent-schaden-sos-assistance-m-w-d-befristet-per-6-monate-zurich-insurance-zurich",
+      "slug": "studente-lavoratore-sinistri-sos-assistance-m-f-d-a-tempo-determinato-per-6-mesi-zurich-insurance-zurich-1376447957",
       "slugByLocale": {
         "de": "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede",
-        "it": "werkstudent-schaden-sos-assistance-m-w-d-befristet-per-6-monate-zurich-insurance-zurich",
-        "en": "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede",
-        "fr": "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede"
+        "it": "studente-lavoratore-sinistri-sos-assistance-m-f-d-a-tempo-determinato-per-6-mesi-zurich-insurance-zurich-1376447957",
+        "en": "working-student-damage-sos-assistance-m-f-d-temporary-for-6-months-zurich-insurance-zurich-1376447957",
+        "fr": "etudiant-au-travail-dommages-sos-assistance-h-f-d-temporaire-pendant-6-mois-zurich-insurance-zurich-1376447957"
       },
       "slugDisambiguator": "1376447957",
       "company": "Zurich Insurance",
@@ -142,11 +142,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede",
+          "werkstudent-schaden-sos-assistance-m-w-d-befristet-per-6-monate-zurich-insurance-zurich"
+        ],
+        "en": [
+          "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede"
+        ],
+        "fr": [
           "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede"
         ]
       },
       "previousSlugs": [
-        "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede"
+        "werkstudent-schaden-sos-assistance-m-w-d-befristet-fur-6-monate-zurich-insurance-sede",
+        "werkstudent-schaden-sos-assistance-m-w-d-befristet-per-6-monate-zurich-insurance-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -168,12 +176,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1376457657",
-      "slug": "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657",
+      "slug": "senior-underwriter-assicurazione-di-trasporto-m-f-d-zurich-insurance-zurich-1376457657",
       "slugByLocale": {
         "de": "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657",
+        "it": "senior-underwriter-assicurazione-di-trasporto-m-f-d-zurich-insurance-zurich-1376457657",
         "en": "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657",
-        "fr": "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657"
+        "fr": "assurance-de-l-assureur-principal-h-f-d-zurich-insurance-zurich-1376457657"
       },
       "slugDisambiguator": "1376457657",
       "company": "Zurich Insurance",
@@ -222,11 +230,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-sede-ticino-zurich"
+          "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657"
+        ],
+        "fr": [
+          "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657"
         ]
       },
       "previousSlugs": [
-        "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "senior-underwriter-transportversicherung-m-w-d-zurich-insurance-zurich-1376457657"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -248,12 +261,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1376454257",
-      "slug": "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "servizio-clienti-specializzato-uvg-m-f-d-zurich-insurance-zurich-1376454257",
       "slugByLocale": {
         "de": "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "en": "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "servizio-clienti-specializzato-uvg-m-f-d-zurich-insurance-zurich-1376454257",
+        "en": "specialist-customer-team-uvg-m-f-d-zurich-insurance-zurich-1376454257",
+        "fr": "equipe-client-specialisee-uvg-h-f-d-zurich-insurance-zurich-1376454257"
       },
       "slugDisambiguator": "1376454257",
       "company": "Zurich Insurance",
@@ -316,7 +329,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:50:20.895Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:50:20.895Z"
+      "firstSeenAt": "2026-11-02T21:50:20.895Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "en": [
+          "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-kundenteam-uvg-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1376328557",

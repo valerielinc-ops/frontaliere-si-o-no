@@ -422,12 +422,12 @@
     },
     {
       "id": "spitex-ch-6274609d9f10",
-      "slug": "collaboratore-trice-in-hauswirtschaft-40-60-per-das-zentrum-hinwil-spitex-bachtel-ag-hinwil",
+      "slug": "collaboratore-trice-in-economia-domestica-40-60-per-il-centro-hinwil-spitex-bachtel-ag-hinwil",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil",
-        "it": "collaboratore-trice-in-hauswirtschaft-40-60-per-das-zentrum-hinwil-spitex-bachtel-ag-hinwil",
-        "en": "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil",
-        "fr": "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil"
+        "it": "collaboratore-trice-in-economia-domestica-40-60-per-il-centro-hinwil-spitex-bachtel-ag-hinwil",
+        "en": "employees-in-housekeeping-40-60-for-the-hinwil-center-spitex-bachtel-ag-hinwil",
+        "fr": "employes-en-menage-40-60-pour-le-centre-hinwil-spitex-bachtel-ag-hinwil"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -480,22 +480,26 @@
         "collaboratore-trice-per-l-economia-domestica-40-50-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
         "employees-in-housekeeping-40-50-for-the-wetzikon-base-spitex-bachtel-ag-wetzikon-zh",
         "employes-en-menage-40-50-pour-la-base-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil"
+        "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil",
+        "collaboratore-trice-in-hauswirtschaft-40-60-per-das-zentrum-hinwil-spitex-bachtel-ag-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
           "collaboratore-trice-in-hauswirtschaft-40-50-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
           "collaboratore-trice-per-l-economia-domestica-40-50-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-          "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil"
+          "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil",
+          "collaboratore-trice-in-hauswirtschaft-40-60-per-das-zentrum-hinwil-spitex-bachtel-ag-hinwil"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-          "employees-in-housekeeping-40-50-for-the-wetzikon-base-spitex-bachtel-ag-wetzikon-zh"
+          "employees-in-housekeeping-40-50-for-the-wetzikon-base-spitex-bachtel-ag-wetzikon-zh",
+          "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil"
         ],
         "fr": [
           "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-          "employes-en-menage-40-50-pour-la-base-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+          "employes-en-menage-40-50-pour-la-base-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+          "mitarbeiter-in-hauswirtschaft-40-60-fur-das-zentrum-hinwil-spitex-ch-hinwil"
         ],
         "de": [
           "mitarbeiter-in-hauswirtschaft-40-50-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
@@ -1013,12 +1017,12 @@
     },
     {
       "id": "spitex-ch-76366dfa3612",
-      "slug": "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach",
+      "slug": "operatrice-sociosanitaria-operatore-sociosanitario-efz-60-80-spitex-bodensee-rorschach",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach",
-        "it": "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach",
-        "en": "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach",
-        "fr": "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach"
+        "it": "operatrice-sociosanitaria-operatore-sociosanitario-efz-60-80-spitex-bodensee-rorschach",
+        "en": "professional-health-efz-60-80-spitex-bodensee-rorschach",
+        "fr": "sante-professionnelle-efz-60-80-spitex-bodensee-rorschach"
       },
       "company": "Spitex Bodensee",
       "companyKey": "spitex-ch",
@@ -1081,7 +1085,21 @@
       "streetAddress": "Rorschach",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:52:29.848Z"
+      "firstSeenAt": "2026-11-02T21:52:29.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-60-80-spitex-ch-rorschach"
+      ]
     },
     {
       "id": "spitex-ch-c897776d150b",
@@ -1090,7 +1108,7 @@
         "de": "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
         "fr": "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach",
         "it": "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach",
-        "en": "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach"
+        "en": "dipl-care-professional-hf-fh-60-80-spitex-bodensee-rorschach"
       },
       "company": "Spitex Bodensee",
       "companyKey": "spitex-ch",
@@ -1167,12 +1185,12 @@
     },
     {
       "id": "spitex-ch-67363732f963",
-      "slug": "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen",
+      "slug": "psichiatria-professionale-salute-spitex-rebeno-ag-zollikofen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen",
-        "it": "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen",
-        "en": "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen",
-        "fr": "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen"
+        "it": "psichiatria-professionale-salute-spitex-rebeno-ag-zollikofen",
+        "en": "professional-health-psychiatry-spitex-rebeno-ag-zollikofen",
+        "fr": "psychiatrie-professionnelle-de-la-sante-spitex-rebeno-ag-zollikofen"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -1234,7 +1252,21 @@
       "streetAddress": "Zollikofen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:52:26.790Z"
+      "firstSeenAt": "2026-11-02T21:52:26.790Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-psychiatrie-spitex-ch-zollikofen"
+      ]
     },
     {
       "id": "spitex-ch-6843935c295a",
@@ -1470,12 +1502,12 @@
     },
     {
       "id": "spitex-ch-d1cc98a9b6e7",
-      "slug": "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon",
+      "slug": "operatore-sociosanitario-efz-60-80-spitex-kempt-effretikon",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon",
-        "it": "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon",
-        "en": "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon",
-        "fr": "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon"
+        "it": "operatore-sociosanitario-efz-60-80-spitex-kempt-effretikon",
+        "en": "health-professional-efz-60-80-spitex-kempt-effretikon",
+        "fr": "professionnels-de-la-sante-efz-60-80-spitex-kempt-effretikon"
       },
       "company": "SPITEX Kempt",
       "companyKey": "spitex-ch",
@@ -1538,16 +1570,30 @@
       "streetAddress": "Effretikon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:52:24.399Z"
+      "firstSeenAt": "2026-11-02T21:52:24.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-60-80-spitex-ch-effretikon"
+      ]
     },
     {
       "id": "spitex-ch-e2c49469062d",
-      "slug": "sachbearbeitung-finanzen-e-administration-40-50-spitex-rotbachtal-teufen",
+      "slug": "addetto-a-finanze-e-amministrazione-40-50-spitex-rotbachtal-teufen",
       "slugByLocale": {
         "de": "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen",
-        "it": "sachbearbeitung-finanzen-e-administration-40-50-spitex-rotbachtal-teufen",
-        "en": "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen",
-        "fr": "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen"
+        "it": "addetto-a-finanze-e-amministrazione-40-50-spitex-rotbachtal-teufen",
+        "en": "finance-and-administration-40-50-spitex-rotbachtal-teufen",
+        "fr": "finances-et-administration-40-50-spitex-rotbachtal-teufen"
       },
       "company": "Spitex Rotbachtal",
       "companyKey": "spitex-ch",
@@ -1596,11 +1642,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen",
+          "sachbearbeitung-finanzen-e-administration-40-50-spitex-rotbachtal-teufen"
+        ],
+        "en": [
+          "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen"
+        ],
+        "fr": [
           "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen"
+        "sachbearbeitung-finanzen-und-administration-40-50-spitex-ch-teufen",
+        "sachbearbeitung-finanzen-e-administration-40-50-spitex-rotbachtal-teufen"
       ],
       "salaryMin": 32500,
       "salaryMax": 49300,
@@ -1622,12 +1676,12 @@
     },
     {
       "id": "spitex-ch-0e6cec3e7007",
-      "slug": "fachperson-gesundheit-fage-efz-spitex-ch-teufen",
+      "slug": "operatore-sociosanitario-fage-efz-spitex-rotbachtal-teufen",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-efz-spitex-ch-teufen",
-        "it": "fachperson-gesundheit-fage-efz-spitex-ch-teufen",
-        "en": "fachperson-gesundheit-fage-efz-spitex-ch-teufen",
-        "fr": "fachperson-gesundheit-fage-efz-spitex-ch-teufen"
+        "it": "operatore-sociosanitario-fage-efz-spitex-rotbachtal-teufen",
+        "en": "professional-health-fage-efz-spitex-rotbachtal-teufen",
+        "fr": "sante-professionnelle-fage-efz-spitex-rotbachtal-teufen"
       },
       "company": "Spitex Rotbachtal",
       "companyKey": "spitex-ch",
@@ -1690,16 +1744,30 @@
       "streetAddress": "Teufen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:52:23.184Z"
+      "firstSeenAt": "2026-11-02T21:52:23.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-efz-spitex-ch-teufen"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-efz-spitex-ch-teufen"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-efz-spitex-ch-teufen"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-efz-spitex-ch-teufen"
+      ]
     },
     {
       "id": "spitex-ch-753472a4346f",
-      "slug": "ausbildung-wundexperte-in-spitex-ch-mullheim",
+      "slug": "esperto-delle-ferite-da-allenamento-spitex-region-mullheim-mullheim",
       "slugByLocale": {
         "de": "ausbildung-wundexperte-in-spitex-ch-mullheim",
-        "it": "ausbildung-wundexperte-in-spitex-ch-mullheim",
-        "en": "ausbildung-wundexperte-in-spitex-ch-mullheim",
-        "fr": "ausbildung-wundexperte-in-spitex-ch-mullheim"
+        "it": "esperto-delle-ferite-da-allenamento-spitex-region-mullheim-mullheim",
+        "en": "training-wound-expert-in-spitex-region-mullheim-mullheim",
+        "fr": "formation-d-un-expert-en-blessure-spitex-region-mullheim-mullheim"
       },
       "company": "Spitex Region Müllheim",
       "companyKey": "spitex-ch",
@@ -1761,7 +1829,21 @@
       "streetAddress": "Müllheim",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T21:52:22.605Z"
+      "firstSeenAt": "2026-11-02T21:52:22.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-wundexperte-in-spitex-ch-mullheim"
+        ],
+        "en": [
+          "ausbildung-wundexperte-in-spitex-ch-mullheim"
+        ],
+        "fr": [
+          "ausbildung-wundexperte-in-spitex-ch-mullheim"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-wundexperte-in-spitex-ch-mullheim"
+      ]
     },
     {
       "id": "spitex-ch-6953c41a8c87",
@@ -2258,7 +2340,7 @@
         "it": "assistente-infermieristico-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "nursing-assistant-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "fr": "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "fr": "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -2305,7 +2387,7 @@
       "previousSlugs": [
         "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
         "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2313,7 +2395,7 @@
         ],
         "fr": [
           "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-          "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+          "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:06.749Z",

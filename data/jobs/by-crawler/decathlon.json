@@ -2464,12 +2464,12 @@
     },
     {
       "id": "decathlon-f1534f0f3f8a",
-      "slug": "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch",
+      "slug": "responsabile-del-team-responsabile-di-reparto-m-f-d-100-outdoor-acqua-decathlon-zurich",
       "slugByLocale": {
         "de": "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch",
-        "it": "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch",
-        "en": "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch",
-        "fr": "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch"
+        "it": "responsabile-del-team-responsabile-di-reparto-m-f-d-100-outdoor-acqua-decathlon-zurich",
+        "en": "team-leader-head-of-department-m-f-d-100-outdoor-water-decathlon-zurich",
+        "fr": "chef-d-equipe-chef-de-departement-h-f-d-100-exterieur-eau-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2531,7 +2531,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T21:39:08.324Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:08.324Z"
+      "firstSeenAt": "2026-11-02T21:39:08.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch"
+        ],
+        "en": [
+          "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch"
+        ],
+        "fr": [
+          "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-abteilungsleiter-m-w-d-100-outdoor-wasser-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-9cb7983414c4",
@@ -3525,12 +3539,12 @@
     },
     {
       "id": "decathlon-3bd1249a1bf0",
-      "slug": "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch",
+      "slug": "responsabile-del-team-responsabile-di-reparto-m-f-d-100-decathlon-basel",
       "slugByLocale": {
         "de": "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch",
-        "it": "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch",
+        "it": "responsabile-del-team-responsabile-di-reparto-m-f-d-100-decathlon-basel",
         "en": "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch",
-        "fr": "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch"
+        "fr": "chef-d-equipe-chef-de-departement-h-f-d-100-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3592,7 +3606,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:39:00.099Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:00.099Z"
+      "firstSeenAt": "2026-11-02T21:39:00.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch"
+        ],
+        "fr": [
+          "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-abteilungsleiter-m-w-d-100-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-51c7ab256760",
@@ -3601,7 +3626,7 @@
         "de": "sport-leader-verkaufsberater-m-w-d-80-decathlon-altstetten-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-80-decathlon-altstetten-decathlon-ch",
         "en": "sport-leader-verkaufsberater-m-w-d-80-decathlon-altstetten-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-decathlon-altstetten-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-80-decathlon-altstetten-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",

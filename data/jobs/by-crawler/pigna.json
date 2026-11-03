@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "pigna-1f2b6d021016",
-      "slug": "ict-support-1st-level-100-pigna-kloten",
+      "slug": "supporto-ict-1-livello-100-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "ict-support-1st-level-100-pigna-kloten",
-        "it": "ict-support-1st-level-100-pigna-kloten",
+        "it": "supporto-ict-1-livello-100-stiftung-pigna-kloten",
         "en": "ict-support-1st-level-100-pigna-kloten",
-        "fr": "ict-support-1st-level-100-pigna-kloten"
+        "fr": "soutien-tic-1er-niveau-100-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -73,7 +73,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:50:49.513Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:50:49.513Z"
+      "firstSeenAt": "2026-11-02T21:50:49.513Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-support-1st-level-100-pigna-kloten"
+        ],
+        "fr": [
+          "ict-support-1st-level-100-pigna-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "ict-support-1st-level-100-pigna-kloten"
+      ]
     },
     {
       "id": "pigna-cbec9ee4e061",

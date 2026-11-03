@@ -246,12 +246,12 @@
     },
     {
       "id": "implenia-86ffe94b9636",
-      "slug": "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch",
+      "slug": "responsabile-senior-vice-responsabile-della-sede-m-f-d-olten-80-100-implenia-aarauerstrasse-11-postfach-4601-olten",
       "slugByLocale": {
         "de": "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch",
-        "it": "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch",
-        "en": "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch",
-        "fr": "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch"
+        "it": "responsabile-senior-vice-responsabile-della-sede-m-f-d-olten-80-100-implenia-aarauerstrasse-11-postfach-4601-olten",
+        "en": "senior-property-manager-deputy-site-manager-m-f-d-olten-80-100-implenia-aarauerstrasse-11-postfach-4601-olten",
+        "fr": "gerant-immobilier-senior-adjoint-a-la-direction-du-site-h-f-d-olten-80-100-implenia-aarauerstrasse-11-postfach-4601"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -314,7 +314,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:48:20.835Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:48:20.835Z"
+      "firstSeenAt": "2026-11-02T21:48:20.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch"
+        ],
+        "en": [
+          "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch"
+        ],
+        "fr": [
+          "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-bewirtschafter-stv-standortleitung-m-w-d-olten-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-8541298e579f",
@@ -2635,7 +2649,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2682,7 +2696,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2693,7 +2707,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",
@@ -5358,9 +5372,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -5414,17 +5428,18 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,

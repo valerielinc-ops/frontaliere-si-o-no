@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "galliker-194e77bd432a",
-      "slug": "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen",
+      "slug": "chauffeur-ce-autotransporte-international-a-area-lake-constance-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen",
-        "it": "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen",
+        "it": "chauffeur-ce-autotransporte-international-a-area-lake-constance-galliker-transport-ag-altishofen",
         "en": "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen",
-        "fr": "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen"
+        "fr": "chauffeur-ce-autotransporte-international-a-region-lac-de-constance-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -73,15 +73,26 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:35:10.682Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:35:10.682Z"
+      "firstSeenAt": "2026-11-02T21:35:10.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen"
+        ],
+        "fr": [
+          "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-ce-autotransporte-international-a-raum-bodensee-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-3e7612cec4b0",
-      "slug": "chauffeur-ce-autotransporte-international-a-galliker-altishofen",
+      "slug": "autista-ce-trasporti-auto-internazionale-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "chauffeur-ce-autotransporte-international-a-galliker-altishofen",
-        "it": "chauffeur-ce-autotransporte-international-a-galliker-altishofen",
-        "en": "chauffeur-ce-autotransporte-international-a-galliker-altishofen",
+        "it": "autista-ce-trasporti-auto-internazionale-a-galliker-transport-ag-altishofen",
+        "en": "chauffeur-ce-car-transports-international-a-galliker-transport-ag-altishofen",
         "fr": "chauffeur-ce-autotransporte-international-a-galliker-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -145,16 +156,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:35:10.267Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:35:10.267Z"
+      "firstSeenAt": "2026-11-02T21:35:10.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-ce-autotransporte-international-a-galliker-altishofen"
+        ],
+        "en": [
+          "chauffeur-ce-autotransporte-international-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-ce-autotransporte-international-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-5644ca14a401",
-      "slug": "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen",
+      "slug": "autotrasporto-ce-chauffeur-internazionale-posizione-camion-pfungen-galliker-transport-ag-pfungen",
       "slugByLocale": {
         "de": "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen",
-        "it": "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen",
-        "en": "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen",
-        "fr": "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen"
+        "it": "autotrasporto-ce-chauffeur-internazionale-posizione-camion-pfungen-galliker-transport-ag-pfungen",
+        "en": "chauffeur-ce-autotransporte-international-truck-location-pfungen-galliker-transport-ag-pfungen",
+        "fr": "chauffeur-ce-autotransporte-international-emplacement-du-camion-pfungen-galliker-transport-ag-pfungen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -217,7 +239,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:35:09.855Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:35:09.855Z"
+      "firstSeenAt": "2026-11-02T21:35:09.855Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen"
+        ],
+        "en": [
+          "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen"
+        ],
+        "fr": [
+          "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-ce-autotransporte-international-lkw-standort-pfungen-galliker-pfungen"
+      ]
     },
     {
       "id": "galliker-d7dfbdc558e6",
@@ -3389,7 +3425,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3437,7 +3473,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3449,7 +3485,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3636,7 +3672,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3683,14 +3719,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

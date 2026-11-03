@@ -19095,12 +19095,12 @@
     },
     {
       "id": "jumbo-bfd47b22-99d",
-      "slug": "verkaufsberater-in-garden-jumbo-schwyz",
+      "slug": "consulente-di-vendita-garden-jumbo-schwyz",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-schwyz",
-        "it": "verkaufsberater-in-garden-jumbo-schwyz",
-        "en": "verkaufsberater-in-garden-jumbo-schwyz",
-        "fr": "verkaufsberater-in-garden-jumbo-schwyz"
+        "it": "consulente-di-vendita-garden-jumbo-schwyz",
+        "en": "sales-advisor-garden-jumbo-schwyz",
+        "fr": "conseiller-ere-de-vente-garden-jumbo-schwyz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19177,7 +19177,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:26:34.710Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:26:34.710Z"
+      "firstSeenAt": "2026-11-02T21:26:34.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-schwyz"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-schwyz"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-schwyz"
+      ]
     },
     {
       "id": "jumbo-2861affd-61c",

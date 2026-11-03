@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "laderach-931478523d3c",
-      "slug": "finance-director-uk-laderach-bilten",
+      "slug": "finanza-direttore-uk-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "de": "finance-director-uk-laderach-bilten",
-        "it": "finance-director-uk-laderach-bilten",
+        "it": "finanza-direttore-uk-laderach-schweiz-ag-bilten",
         "en": "finance-director-uk-laderach-bilten",
-        "fr": "finance-director-uk-laderach-bilten"
+        "fr": "finance-directeur-uk-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -70,7 +70,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:30:58.193Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:30:58.193Z"
+      "firstSeenAt": "2026-11-02T21:30:58.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-director-uk-laderach-bilten"
+        ],
+        "fr": [
+          "finance-director-uk-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "finance-director-uk-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-404cc3b4b128",
@@ -819,7 +830,7 @@
       "id": "laderach-d638f6ff59b7",
       "slug": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
       "slugByLocale": {
-        "it": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "en": "apprenticeship-in-the-retail-trade-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "apprentissage-dans-le-commerce-de-detail-efz-2027-h-f-d-laderach-schweiz-ag-zurich"
@@ -1001,7 +1012,7 @@
       "id": "laderach-b632c366aa12",
       "slug": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
       "slugByLocale": {
-        "it": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "en": "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich"

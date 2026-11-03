@@ -247,12 +247,12 @@
     },
     {
       "id": "suva-e36fd1694b89",
-      "slug": "fachspezialist-in-berufliche-previdenza-80-100-suva-luzern",
+      "slug": "specialista-in-previdenza-professionale-80-100-suva-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern",
-        "it": "fachspezialist-in-berufliche-previdenza-80-100-suva-luzern",
-        "en": "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern",
-        "fr": "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern"
+        "it": "specialista-in-previdenza-professionale-80-100-suva-luzern",
+        "en": "occupational-pensions-specialist-80-100-suva-luzern",
+        "fr": "specialiste-de-la-prevoyance-professionnelle-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -298,11 +298,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern",
+          "fachspezialist-in-berufliche-previdenza-80-100-suva-luzern"
+        ],
+        "en": [
+          "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern"
+        ],
+        "fr": [
           "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern"
+        "fachspezialist-in-berufliche-vorsorge-80-100-suva-luzern",
+        "fachspezialist-in-berufliche-previdenza-80-100-suva-luzern"
       ],
       "salaryMin": 74500,
       "salaryMax": 123500,

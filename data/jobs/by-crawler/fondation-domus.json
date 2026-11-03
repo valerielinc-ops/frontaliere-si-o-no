@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "fondation-domus-bd654b13f26b",
-      "slug": "cuisinier-70-fondation-domus-ch",
+      "slug": "fornello-70-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "cuisinier-70-fondation-domus-ch",
-        "it": "cuisinier-70-fondation-domus-ch",
-        "en": "cuisinier-70-fondation-domus-ch",
-        "de": "cuisinier-70-fondation-domus-ch"
+        "it": "fornello-70-fondation-domus-ardon",
+        "en": "cooker-70-fondation-domus-ardon",
+        "de": "kocher-70-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -83,7 +83,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T21:30:16.456Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:30:16.456Z"
+      "firstSeenAt": "2026-11-02T21:30:16.456Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-70-fondation-domus-ch"
+        ],
+        "en": [
+          "cuisinier-70-fondation-domus-ch"
+        ],
+        "de": [
+          "cuisinier-70-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-70-fondation-domus-ch"
+      ]
     }
   ]
 }
