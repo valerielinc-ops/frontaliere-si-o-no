@@ -33,7 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same shape as fb-jobs-daily-schedule.yml
     # (#4764) — full checkout (sparse removed for this job in #6133, above
-    # the 1.5GB crossover) + `npm ci` + `assemble-jobs-dataset.mjs --stats`
+    # the 1.5GB crossover) + `npm ci` + no-summary assembly with a
+    # content-addressed cache
     # already ate ~9.5min of the 10min ceiling before the actual posting
     # step ever ran (run 32379575268: checkout alone ~5min for ~42.5k
     # objects). This job never got the bump fb-jobs got for the identical
@@ -62,8 +63,31 @@ jobs:
           node scripts/load-rc-env.mjs
           --only-env=REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET,REDDIT_USERNAME,REDDIT_PASSWORD,REDDIT_USER_AGENT,REDDIT_DATA_API_APPROVED,SOCIAL_COPY_EXPERIMENT_CONFIG
 
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --no-summaries
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
       - name: Assemble jobs dataset
-        run: node scripts/assemble-jobs-dataset.mjs --stats
+        id: assemble
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+
+      - name: Save assemble-jobs cache
+        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Schedule Reddit jobs
         if: inputs.dry_run != true && inputs.dry_run != 'true'

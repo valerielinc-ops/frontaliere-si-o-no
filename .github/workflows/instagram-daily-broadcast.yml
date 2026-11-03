@@ -113,10 +113,34 @@ jobs:
       # without it the poster skips the job slot rather than guessing. Needed
       # without a token too unless SOCIAL_ROBOT_MODE=off: the post then goes to
       # the Playwright robot's queue (scripts/lib/social-publish-queue.mjs).
-      - name: Assemble jobs dataset
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
         if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
-        run: node scripts/assemble-jobs-dataset.mjs --stats
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --no-summaries
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Assemble jobs dataset
+        id: assemble
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
         continue-on-error: true
+
+      - name: Save assemble-jobs cache
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`
       # — see linkedin-member-daily.yml's identical comment for why.

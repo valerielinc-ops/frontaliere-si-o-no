@@ -92,9 +92,32 @@ jobs:
       # landing page under the same URL shape. Without it the poster skips the
       # job slot rather than guessing — so this step failing costs one slot,
       # never a wrong post.
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --no-summaries
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
       - name: Assemble jobs dataset
-        run: node scripts/assemble-jobs-dataset.mjs --stats
+        id: assemble
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
         continue-on-error: true
+
+      - name: Save assemble-jobs cache
+        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`.
       # Under `set -e` a trailing test that is FALSE makes the whole step exit

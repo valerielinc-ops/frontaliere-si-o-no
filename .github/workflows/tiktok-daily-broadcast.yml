@@ -50,10 +50,34 @@ jobs:
           echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
-      - name: Assemble jobs dataset
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
         if: env.ONLY != 'article' && env.ONLY != 'border'
-        run: node scripts/assemble-jobs-dataset.mjs --stats
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --no-summaries
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: env.ONLY != 'article' && env.ONLY != 'border' && steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Assemble jobs dataset
+        id: assemble
+        if: env.ONLY != 'article' && env.ONLY != 'border'
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
         continue-on-error: true
+
+      - name: Save assemble-jobs cache
+        if: env.ONLY != 'article' && env.ONLY != 'border' && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Generate TikTok content preview
         run: |
