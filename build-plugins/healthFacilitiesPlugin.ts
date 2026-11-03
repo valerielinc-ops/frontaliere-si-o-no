@@ -27,6 +27,7 @@ import * as np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { formatPageGenerationDate } from './shared/pageGenerationDate';
@@ -603,6 +604,10 @@ function renderBelowFloorBridge(
     hreflangHtml: renderHreflangTags(hreflangPaths),
     bodyHtml: body,
     jsonLdScripts: [inlineScriptJson(breadcrumbLd)],
+    // Reuse the bridge declaration emitted by buildCanonicalBridgePage. The
+    // route-specific crawler guard still requires this exact health detail
+    // shape plus a self-canonical response before treating it as informational.
+    extraHeadHtml: REDIRECT_STUB_MARKER,
     robots: 'noindex,follow',
     distDir,
   });

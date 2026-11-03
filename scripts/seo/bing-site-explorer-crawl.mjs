@@ -19,6 +19,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
 import { EVENTS_UNRESOLVED_CANTON_SEGMENT } from '../lib/eventsSections.mjs';
+import { HEALTH_FACILITIES_SECTION_RX } from '../lib/healthFacilitiesSections.mjs';
 import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
@@ -344,6 +345,37 @@ function isDeclaredCompanyCantonBridge({ url, canonical, html }) {
   const segments = pathname.split('/').filter(Boolean);
   const localeOffset = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
   return segments.length === localeOffset + 2;
+}
+
+/**
+ * Match only one facility slug below a localised health-facilities section.
+ * The shared section matcher also accepts the hub and nested descendants, so
+ * the exact segment count is part of this contract: a copied bridge marker on
+ * the hub or on a route below a facility remains actionable.
+ */
+export function isHealthFacilityDetailPath(value) {
+  const source = pathnameAndOrigin(value);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+
+  const sectionMatch = source.pathname.match(HEALTH_FACILITIES_SECTION_RX);
+  if (!sectionMatch || sectionMatch.index !== 0) return false;
+
+  const segments = source.pathname.split('/').filter(Boolean);
+  const localeOffset = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
+  return segments.length === localeOffset + 2
+    && DETAIL_SLUG_RE.test(segments.at(-1) || '');
+}
+
+/**
+ * Recognise the self-canonical noindex bridge emitted for below-floor health
+ * facilities. The generic marker is safe here only because the route shape,
+ * same-origin URL and self-canonical response are all checked as well.
+ */
+export function isDeclaredHealthFacilityBridge({ url, canonical, html }) {
+  return String(html || '').includes(REDIRECT_STUB_MARKER)
+    && Boolean(canonical)
+    && isHealthFacilityDetailPath(url)
+    && normalizeUrl(canonical) === normalizeUrl(url);
 }
 
 /**
@@ -1104,6 +1136,12 @@ export function classifyDocument({
     && isDeclaredCompanyCantonBridge({ url: finalUrl || url, canonical, html })
     ? 'company-canton-bridge'
     : null;
+  const healthFacilityBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredHealthFacilityBridge({ url: finalUrl || url, canonical, html })
+    ? 'health-facility-bridge'
+    : null;
   const declaredNoindexTarget = isFrontier
     && noindex
     && followableNoindex
@@ -1158,6 +1196,7 @@ export function classifyDocument({
     || searchBridgeExemption
     || relatedSearchMirrorExemption
     || companyCantonBridgeExemption
+    || healthFacilityBridgeExemption
     || weeklyEmployersArchiveExemption
     || editorialBridgeExemption
     || eventMigrationBridgeExemption;
