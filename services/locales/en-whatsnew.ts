@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v39916.title": "Practical help finding work in Switzerland",
+ "whatsNew.v39916.creatives.title": "We do the searching for you",
+ "whatsNew.v39916.creatives.desc": "Empty advertising spaces now show our service: we find offers suited to your profession and prepare your applications.",
  "whatsNew.v39915.title": "More gradual job proposals",
  "whatsNew.v39915.concierge.title": "Interest, checks, and declared languages",
  "whatsNew.v39915.concierge.desc": "Review up to three job proposals at a time. Declare the languages you speak or request another eligibility check without starting an application.",

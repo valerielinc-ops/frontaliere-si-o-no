@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "campaign": "job_search_automation",
+  "images": [
+    {
+      "id": "construction-portrait-v1",
+      "path": "/images/job-search-campaign/construction-portrait-v1.webp",
+      "width": 600,
+      "height": 1200,
+      "bytes": 85522,
+      "sha256": "aa1c83808832edcc7247a5baf059f0c55b811efb0c49055f72cd661f260c45f1",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original photographic campaign asset for Frontaliere Ticino, a service that finds Swiss job offers suitable for a person's trade and prepares the applications for them. The provided images are REFERENCE IMAGES for the intended audience and practical working-world visual language, not edit targets; do not copy their layout, text, person identity or branding verbatim. Audience is ordinary Italian-speaking job seekers, especially tradespeople, production, maintenance and logistics workers. Visually direct, trustworthy and immediately Swiss; not luxury-office, fintech, abstract CV stationery or aspirational executive advertising. Premium realistic commercial photography with strong clear shapes, authentic faces, practical workwear, crisp focus, decisive contrast. Natural Swiss-red, navy and real workwear colors. A Swiss national flag can appear clearly in the environment (not a humanitarian Red Cross emblem). No company logos, no invented employer, no salary or job guarantee. No embedded words, lettering, numerals, icons, badges or button; the real advertisement will add very large HTML headline 'LAVORO IN SVIZZERA? LO CERCHIAMO NOI PER TE.' and CTA above/beside this photo. The image itself must feature the intended worker prominently, with a strong recognisable human face even at 100px crop width. Aspect PORTRAIT1:2. An approachable experienced construction/maintenance worker around40, natural masculine appearance, navy practical work jacket, yellow protective helmet and orange safety vest, standing at a tidy outdoor construction site in Ticino. Half-body portrait, face in upper third and fully within the central60% of the canvas, genuine warm confident expression rather than exaggerated sales smile, arms relaxed, no unsafe machinery. Swiss flag and softly focused Swiss mountains behind. Bold clear separation of face and helmet from the background, no decorative negative-space majority. This is photographed for a narrow160x600 banner's top image panel and 300x250 image panel."
+    },
+    {
+      "id": "construction-wide-v1",
+      "path": "/images/job-search-campaign/construction-wide-v1.webp",
+      "width": 1456,
+      "height": 486,
+      "bytes": 51654,
+      "sha256": "e78237f3dba3b4d0544991f8648c16f96f4795a782bfb9e1973cf7dec727a1f3",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original photographic campaign asset for Frontaliere Ticino, a service that finds Swiss job offers suitable for a person's trade and prepares the applications for them. The provided images are REFERENCE IMAGES for the intended audience and practical working-world visual language, not edit targets; do not copy their layout, text, person identity or branding verbatim. Audience is ordinary Italian-speaking job seekers, especially tradespeople, production, maintenance and logistics workers. Visually direct, trustworthy and immediately Swiss; not luxury-office, fintech, abstract CV stationery or aspirational executive advertising. Premium realistic commercial photography with strong clear shapes, authentic faces, practical workwear, crisp focus, decisive contrast. Natural Swiss-red, navy and real workwear colors. A Swiss national flag can appear clearly in the environment (not a humanitarian Red Cross emblem). No company logos, no invented employer, no salary or job guarantee. No embedded words, lettering, numerals, icons, badges or button; the real advertisement will add very large HTML headline 'LAVORO IN SVIZZERA? LO CERCHIAMO NOI PER TE.' and CTA above/beside this photo. The image itself must feature the intended worker prominently, with a strong recognisable human face even at 100px crop width. Aspect LANDSCAPE3:1. A real-looking experienced construction/maintenance worker around40 in navy work jacket, yellow hard hat and orange safety vest, on a clean Ticino worksite with mountains and a clearly recognisable Swiss national flag behind. The worker occupies RIGHT35% of the image, visible head through chest, face at center-right and helmet entirely in frame; LEFT65% is a subdued softly defocused navy/slate industrial backdrop with simple depth, not empty pure white. Strong purposeful direct expression. Designed for horizontal728x90,970x90 and970x250 advertising, reads instantly at small size."
+    },
+    {
+      "id": "maintenance-portrait-v1",
+      "path": "/images/job-search-campaign/maintenance-portrait-v1.webp",
+      "width": 600,
+      "height": 1200,
+      "bytes": 77978,
+      "sha256": "84340c4a05cee8be988255c829dc5f9ff45cfc399677f0fd796c29a1d2b4b00a",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original photographic campaign asset for Frontaliere Ticino, a service that finds Swiss job offers suitable for a person's trade and prepares the applications for them. The provided images are REFERENCE IMAGES for the intended audience and practical working-world visual language, not edit targets; do not copy their layout, text, person identity or branding verbatim. Audience is ordinary Italian-speaking job seekers, especially tradespeople, production, maintenance and logistics workers. Visually direct, trustworthy and immediately Swiss; not luxury-office, fintech, abstract CV stationery or aspirational executive advertising. Premium realistic commercial photography with strong clear shapes, authentic faces, practical workwear, crisp focus, decisive contrast. Natural Swiss-red, navy and real workwear colors. A Swiss national flag can appear clearly in the environment (not a humanitarian Red Cross emblem). No company logos, no invented employer, no salary or job guarantee. No embedded words, lettering, numerals, icons, badges or button; the real advertisement will add very large HTML headline 'LAVORO IN SVIZZERA? LO CERCHIAMO NOI PER TE.' and CTA above/beside this photo. The image itself must feature the intended worker prominently, with a strong recognisable human face even at 100px crop width. Aspect PORTRAIT1:2. An authentic skilled maintenance technician around45, natural feminine appearance, practical navy workshop overalls and protective glasses resting correctly on the head away from machinery, in a clean precision-maintenance workshop in Switzerland. Half-body portrait, face clearly visible in upper third, simple unbranded hand tool safely carried at waist level, no active electrical repair or unsafe pose. Warm approachable capable expression; a small Swiss flag visible in workshop background. Crisp tactile work clothes and strong contrast. Centered subject inside central60% for narrow160px and rectangular ad crops."
+    },
+    {
+      "id": "maintenance-wide-v1",
+      "path": "/images/job-search-campaign/maintenance-wide-v1.webp",
+      "width": 1456,
+      "height": 486,
+      "bytes": 50382,
+      "sha256": "39d1a52b73592225e420b2d60a8f8da004063dddcd58495701e3427fe5135f05",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original photographic campaign asset for Frontaliere Ticino, a service that finds Swiss job offers suitable for a person's trade and prepares the applications for them. The provided images are REFERENCE IMAGES for the intended audience and practical working-world visual language, not edit targets; do not copy their layout, text, person identity or branding verbatim. Audience is ordinary Italian-speaking job seekers, especially tradespeople, production, maintenance and logistics workers. Visually direct, trustworthy and immediately Swiss; not luxury-office, fintech, abstract CV stationery or aspirational executive advertising. Premium realistic commercial photography with strong clear shapes, authentic faces, practical workwear, crisp focus, decisive contrast. Natural Swiss-red, navy and real workwear colors. A Swiss national flag can appear clearly in the environment (not a humanitarian Red Cross emblem). No company logos, no invented employer, no salary or job guarantee. No embedded words, lettering, numerals, icons, badges or button; the real advertisement will add very large HTML headline 'LAVORO IN SVIZZERA? LO CERCHIAMO NOI PER TE.' and CTA above/beside this photo. The image itself must feature the intended worker prominently, with a strong recognisable human face even at 100px crop width. Aspect LANDSCAPE3:1. An authentic skilled maintenance technician around45 in practical navy overalls in a Swiss precision workshop; natural feminine appearance, capable direct expression, a safely held unbranded hand tool at waist level. Worker face and chest in RIGHT35%; LEFT65% understated softly defocused workshop equipment, dark navy/slate tones, not a pristine executive desk. A small unmistakable Swiss national flag in the workshop. Strong face silhouette at very small horizontal banner size, realistic practical world, no stagey handshake."
+    },
+    {
+      "id": "logistics-portrait-v1",
+      "path": "/images/job-search-campaign/logistics-portrait-v1.webp",
+      "width": 600,
+      "height": 1200,
+      "bytes": 82816,
+      "sha256": "ba6c5cee7776dac38d4b462cd16bbd9b409e2e8661ec97d64caa20137d242290",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: PORTRAIT1:2. Scene: An approachable male logistics worker around35, navy practical warehouse workwear and a clean high-visibility vest, standing safely in a bright tidy Swiss distribution building; pallet racks softly behind, a small visible Swiss national flag, no forklift in use. Half-body portrait, direct capable expression, realistic ordinary worker, clear face in upper third and central60%. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "logistics-wide-v1",
+      "path": "/images/job-search-campaign/logistics-wide-v1.webp",
+      "width": 1456,
+      "height": 486,
+      "bytes": 37520,
+      "sha256": "bc20e25dea01f3f8da9732bc64b8e7a0d3e871bfa03f5c6adf868df4026efdb9",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: LANDSCAPE3:1. Scene: An approachable male logistics worker around35 in navy warehouse workwear and clean high-visibility vest inside a tidy Swiss distribution building, worker's face and chest entirely in RIGHT35%, clear Swiss national flag visible nearby, LEFT65% a subdued softly defocused slate industrial interior. No active machinery or branded packages. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "production-portrait-v1",
+      "path": "/images/job-search-campaign/production-portrait-v1.webp",
+      "width": 600,
+      "height": 1200,
+      "bytes": 62662,
+      "sha256": "941136b75a894903883369b7f62c94e72ba70a45413b72386a3bcb527c3216db",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: PORTRAIT1:2. Scene: An experienced female production/assembly worker around45, practical navy work jacket, standing in a clean well-lit Swiss precision manufacturing setting, not an executive office; hands relaxed at waist away from machinery, genuine approachable capable expression, face fully visible in upper third and central60%; small Swiss national flag clearly in background. No unsafe active machine use. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "production-wide-v1",
+      "path": "/images/job-search-campaign/production-wide-v1.webp",
+      "width": 1456,
+      "height": 486,
+      "bytes": 55372,
+      "sha256": "3b27af306c28f70ea9f29327eefc6dff46e2e14799d846965cfb855064669e4c",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: LANDSCAPE3:1. Scene: An experienced female production/assembly worker around45 in practical navy workwear, head and shoulders in RIGHT35% of a clean Swiss manufacturing hall, clear small Swiss national flag nearby, LEFT65% understated softly defocused industrial setting. A real ordinary working environment, no executive desk, no active machinery handling. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "electrician-portrait-v1",
+      "path": "/images/job-search-campaign/electrician-portrait-v1.webp",
+      "width": 600,
+      "height": 1200,
+      "bytes": 82642,
+      "sha256": "205907146ef78ea6a7d2e74fd074bb8779944f3cbce89cadd851cbdf0e2af706",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: PORTRAIT1:2. Scene: A skilled adult male electrician around40 in practical navy technical work jacket, standing safely beside a fully closed industrial electrical cabinet in a clean Swiss workshop, holding an unbranded insulated hand-tool pouch at waist level without doing a repair. Face in upper third and central60%, approachable confident ordinary worker, small Swiss national flag in background. No exposed live wiring or unsafe pose. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "electrician-wide-v1",
+      "path": "/images/job-search-campaign/electrician-wide-v1.webp",
+      "width": 1456,
+      "height": 486,
+      "bytes": 37580,
+      "sha256": "e075f9e26cea056783c32266fba8dee358ef48a73677eb411a4c09f32ce11bdb",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: LANDSCAPE3:1. Scene: A skilled adult male electrician around40 in navy technical workwear, head and torso entirely in RIGHT35%, beside a fully closed electrical installation in a clean Swiss commercial/workshop interior. Small Swiss flag visible near him; LEFT65% softly defocused dark navy/slate work environment, absolutely no live exposed wiring. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "hospitality-portrait-v1",
+      "path": "/images/job-search-campaign/hospitality-portrait-v1.webp",
+      "width": 600,
+      "height": 1200,
+      "bytes": 66572,
+      "sha256": "46b602f09afca1ae60afb708eb0123cb111986ada6e026898a01472b598e2778",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: PORTRAIT1:2. Scene: An approachable adult hospitality professional around35, natural feminine appearance, practical clean dark service uniform and apron, standing in an inviting modern Swiss hotel dining space, holding a plain service notebook at waist. Face in upper third and central60%, authentic warm capable expression, subtle Swiss national flag in background near the reception, no guests or readable signs. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    },
+    {
+      "id": "hospitality-wide-v1",
+      "path": "/images/job-search-campaign/hospitality-wide-v1.webp",
+      "width": 1456,
+      "height": 486,
+      "bytes": 36880,
+      "sha256": "87555911974a4f0ac83e8589c06975205d97bc04a18f5003522da54795d8c547",
+      "generator": "built-in GPT Image",
+      "referenceImageNames": [
+        "media_01.png",
+        "media_03.png",
+        "media_04.png"
+      ],
+      "prompt": "Use case: ads-marketing. Create a NEW original production photographic asset for Frontaliere Ticino's own service ads. Supplied reference images show audience and direct practical tone only; do not copy identity, layout or text. Audience: ordinary Italian-speaking people seeking work in Switzerland in real working trades. Visual quality: premium credible commercial/editorial photograph with authentic real-looking faces and materials, strong contrast and clear simple composition, practical work clothes rather than luxury-office aspirational imagery. Navy/slate plus real natural workwear colors and recognisable Swiss-red flag. The service finds offers appropriate to the person's profession and prepares applications; never imply an employer, vacancy, salary or hiring guarantee. No text, lettering, logos, watermark, icons, printed ad headline, CTA button or mockup; those are separate HTML in the final banner. Clear large face and professional role instantly legible when the photo is cropped to a100px-wide ad panel. Aspect: LANDSCAPE3:1. Scene: An approachable adult hospitality professional around35, natural feminine appearance in a clean dark practical service uniform, head and shoulders in RIGHT35% of a modern Swiss hotel dining space. Visible small Swiss flag at reception behind her; LEFT65% subdued softly defocused charcoal/slate interior. No guests, no brand logos, no readable room or menu text. Keep all safety equipment plausible. The Swiss flag is the national flag, not a humanitarian Red Cross emblem. Finished photographic campaign artwork, not an existing advertisement screenshot."
+    }
+  ],
+  "selectionNote": "Six working professions, each with portrait and wide composition; product claims supplied by the owner. Earlier office/stationery drafts are superseded."
+}

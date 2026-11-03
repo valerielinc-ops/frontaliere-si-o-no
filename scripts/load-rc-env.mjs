@@ -57,6 +57,7 @@ export const SITE_ONLY_RC_KEYS = new Set([
 // against a live Remote Config template, where a missing key surfaces as
 // nothing worse than a silently `undefined` env var (see #5737).
 export const RC_TO_ENV = {
+  HOUSE_AD_CREATIVE_VARIANT: ['HOUSE_AD_CREATIVE_VARIANT'],
   // Client-visible keys
   // Non-secret feature flag consumed by the static deploy: absent/false keeps
   // direct-employer SEO fail-closed; the owner can enable the next build by

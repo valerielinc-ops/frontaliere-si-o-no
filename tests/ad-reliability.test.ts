@@ -296,6 +296,33 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog')?.textContent).toContain('Gli annunci non si caricano');
     expect(emit.mock.calls.some(([event, props]) => event === 'ad_reliability_state' && props.reason === 'script_failed')).toBe(true);
   });
+  it.each(['self', 'ancestor'])('ignores an invisible app dialog on the %s when offering fallback', async (hiddenAt) => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    w.sessionStorage.setItem('ft_ad_recovery_prompted', '1');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const parent = w.document.createElement('div');
+    const dialog = w.document.createElement('div');
+    dialog.setAttribute('role', 'dialog'); dialog.setAttribute('aria-modal', 'true');
+    (hiddenAt === 'self' ? dialog : parent).style.visibility = 'hidden';
+    parent.append(dialog); w.document.body.append(parent);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+  });
+  it('resumes fallback when an app modal closes without another ad mutation', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    w.sessionStorage.setItem('ft_ad_recovery_prompted', '1');
+    slot(300).setAttribute('data-ad-status', 'unfilled');
+    const dialog = w.document.createElement('div');
+    dialog.setAttribute('role', 'dialog'); dialog.setAttribute('aria-modal', 'true');
+    w.document.body.append(dialog);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
+    dialog.style.visibility = 'hidden';
+    await vi.advanceTimersByTimeAsync(250);
+    expect(w.document.querySelector('.ft-recovery-promo')).not.toBeNull();
+  });
   it.each(['class', 'style'])('reacts to Google CMP visibility changes through %s', async (attribute) => {
     w.localStorage.setItem('frontaliere_ads_consent', 'granted');
     slot(300).setAttribute('data-ad-status', 'unfilled');

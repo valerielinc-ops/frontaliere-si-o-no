@@ -1,4 +1,5 @@
 import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
+import { getHouseAdAttribution, trackHouseAdLanding } from '@/services/houseAdAttribution';
 import { useCallback, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, Plus, ShieldCheck, Sparkles, Target, UploadCloud, X, XCircle } from 'lucide-react';
@@ -251,6 +252,8 @@ export default function ApplicationConciergePortal({
   }, []);
 
   useEffect(() => () => { cancelTelemetryHandoff.current?.(); }, [serviceId]);
+
+  useEffect(() => { if (entry && !previewService) trackHouseAdLanding(); }, [entry, previewService]);
 
   useEffect(() => {
     if (previewService || (!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
@@ -582,6 +585,7 @@ export default function ApplicationConciergePortal({
         cancelUrl: base.toString(),
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
+        houseAdAttribution: getHouseAdAttribution(),
         ...(effectiveServiceId ? { serviceId: effectiveServiceId, expectedAmountTotal: service?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS } : {}),
         ...(renewal ? { renewalOfServiceId: serviceId!, acceptRenewalTerms: true, expectedAmountTotal: service!.renewalOffer!.amountTotal } : {}),
       }, user);

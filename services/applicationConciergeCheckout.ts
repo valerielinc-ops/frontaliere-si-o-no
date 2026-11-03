@@ -9,6 +9,7 @@ export interface ApplicationConciergeCheckoutInput {
   renewalOfServiceId?: string;
   acceptRenewalTerms?: boolean;
   expectedAmountTotal?: number;
+  houseAdAttribution?: ReturnType<typeof import('./houseAdAttribution').getHouseAdAttribution>;
 }
 
 export type ApplicationConciergeCheckoutResult =

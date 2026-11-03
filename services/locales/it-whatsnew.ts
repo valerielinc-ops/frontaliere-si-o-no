@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v39916.title": "Lavoro in Svizzera, un aiuto concreto",
+ "whatsNew.v39916.creatives.title": "La ricerca la facciamo per te",
+ "whatsNew.v39916.creatives.desc": "Negli spazi senza annunci trovi nuove immagini del nostro servizio: cerchiamo le offerte adatte al tuo mestiere e prepariamo le candidature.",
  "whatsNew.v39915.title": "Proposte di lavoro più progressive",
  "whatsNew.v39915.concierge.title": "Interesse, verifiche e lingue dichiarate",
  "whatsNew.v39915.concierge.desc": "Ricevi fino a tre proposte da valutare per volta. Puoi indicare le lingue che parli o chiedere una nuova verifica senza avviare subito una candidatura.",

@@ -75,6 +75,12 @@ beforeEach(() => {
   rc.values = {};
 });
 
+describe('provider recovery proof in CI', () => {
+  it('executes the deterministic pre-click recovery invariants', async () => {
+    await expect(import('../scripts/assisted-application/verify-provider-recovery.mjs')).resolves.toBeDefined();
+  });
+});
+
 describe('starting the flow', () => {
   it('does not reuse an opaque legacy answer without its confirmed source', async () => {
     const userId = 'candidate-1';

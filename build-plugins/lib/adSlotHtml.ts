@@ -38,6 +38,8 @@ export interface StaticAdSlotHtmlOptions {
   placement?: string;
   experimentId?: string;
   experimentVariant?: string;
+  /** Fold an existing disclosure section into the owned frame instead of nesting wrappers. */
+  frame?: { tag?: 'div' | 'section'; className: string; label?: string };
 }
 
 function safeDataValue(value: string): string {
@@ -62,7 +64,11 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: StaticAdSlotHtmlOptions): 
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
   if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
-  return `<ins ${attrs.join(' ')}></ins>`;
+  // Compact marker: reserve/placement already live on the Google ins. The
+  // runtime creates its own sibling host, keeping repeated SSG bytes bounded.
+  const tag = opts?.frame?.tag || 'div';
+  const frameAttrs = opts?.frame ? ` class="${escapeAdLabel(opts.frame.className)}"${opts.frame.label ? ` aria-label="${escapeAdLabel(opts.frame.label)}"` : ''}` : '';
+  return `<${tag} data-house${frameAttrs}><ins ${attrs.join(' ')}></ins></${tag}>`;
 }
 
 /**
@@ -121,10 +127,13 @@ export function pruneStaticInfeedAdsToContentRatio(contentHtml = ''): string {
   let output = String(contentHtml || '');
   const slot = String(AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot);
   const escapedSlot = slot.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const insRe = `<ins\\b[^>]*\\bdata-ad-slot\\s*=\\s*["']?${escapedSlot}["']?(?=[\\s>])[^>]*><\\/ins>`;
+  // These producers emit only the empty slot, optionally inside our owned
+  // frame. Match both closing divs explicitly; a lazy wildcard would stop at
+  // the nested frame and leave a broken grid wrapper behind after pruning.
   const placementRe = new RegExp(
-    `<(li|div)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\bft-infeed-ad\\b[^"']*["'][^>]*>`
-      + `[\\s\\S]*?<ins\\b[^>]*\\bdata-ad-slot\\s*=\\s*["']?${escapedSlot}["']?(?=[\\s>])[^>]*><\\/ins>`
-      + `[\\s\\S]*?<\\/\\1>`,
+    `<(li|div)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\bft-infeed-ad\\b[^"']*["'][^>]*>\\s*`
+      + `(?:<div data-house>\\s*${insRe}\\s*<\\/div>|${insRe})\\s*<\\/\\1>`,
     'gi',
   );
 
