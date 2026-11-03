@@ -205,7 +205,6 @@ import { newsUrlKey, legacyNewsUrlKey, makeLedgerEntry, ledgerViewsForLookup } f
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import {
   checkArticleIdExists,
-  extractRegistryObject,
   getAllArticleIds,
   invalidateArticleIdCache,
 } from './lib/journalist-article-identity.mjs';
@@ -2042,6 +2041,22 @@ const SECTION_META_IT_FILE = `services/locales/${SECTION.metaPrefix}-it.ts`; // 
 /** Read the active section's slug-data source (routerBlogData|routerSwissData). */
 function readSectionSlugData() {
   return read(SECTION_SLUG_DATA_FILE);
+}
+
+/** Extract one registry object without importing a site-only helper. */
+function extractRegistryObject(src, constName) {
+  const declaration = new RegExp(`\\bconst\\s+${constName}\\b[^=]*=\\s*\\{`).exec(src);
+  if (!declaration) return '';
+  const open = declaration.index + declaration[0].length - 1;
+  let depth = 0;
+  for (let i = open; i < src.length; i += 1) {
+    if (src[i] === '{') depth += 1;
+    else if (src[i] === '}') {
+      depth -= 1;
+      if (depth === 0) return src.slice(open, i + 1);
+    }
+  }
+  return '';
 }
 
 /**
