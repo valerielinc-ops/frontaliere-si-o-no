@@ -1,16 +1,16 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-11-02T21:33:46.190Z",
+  "generatedAt": "2026-11-03T09:46:20.666Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4383,
-  "avgDurationMs": 4383,
+  "durationMs": 5800,
+  "avgDurationMs": 5800,
   "durationHistory": [
-    4383
+    5800
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:33:30.927Z",
+      "crawledAt": "2026-11-03T09:46:01.908Z",
       "firstSeenAt": "2026-10-29T21:33:16.262Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -48,7 +48,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:33:30.927Z",
+      "validThrough": "2026-12-14T09:46:01.908Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -80,7 +80,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-In-Service-Bar-100-Restaurant-Bolgen-Plaza_j_3958627",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:33:30.746Z",
+      "crawledAt": "2026-11-03T09:46:01.693Z",
       "firstSeenAt": "2026-10-29T09:39:58.206Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -90,7 +90,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:33:30.746Z",
+      "validThrough": "2026-12-13T09:46:01.693Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -122,7 +122,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/BETRIEBSELEKTRIKER-IN-100-Parsenn_j_3958641",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:33:30.563Z",
+      "crawledAt": "2026-11-03T09:46:01.475Z",
       "firstSeenAt": "2026-10-29T21:33:15.697Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -132,7 +132,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:33:30.563Z",
+      "validThrough": "2026-12-14T09:46:01.475Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -164,7 +164,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-100-Immobilienunterhalt_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:33:30.380Z",
+      "crawledAt": "2026-11-03T09:46:01.263Z",
       "firstSeenAt": "2026-10-29T21:33:15.510Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -174,7 +174,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:33:30.380Z",
+      "validThrough": "2026-12-14T09:46:01.263Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -206,7 +206,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:33:30.196Z",
+      "crawledAt": "2026-11-03T09:46:01.039Z",
       "firstSeenAt": "2026-10-29T21:33:15.324Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -216,7 +216,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:33:30.196Z",
+      "validThrough": "2026-12-14T09:46:01.039Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -227,5 +227,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }
