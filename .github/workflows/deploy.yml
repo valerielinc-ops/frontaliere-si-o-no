@@ -1218,10 +1218,11 @@ jobs:
       - name: Prune to locale shard
         run: node scripts/ci/prune-locale-shard.mjs dist
 
-      # First publish only this leg's complete manifest. No leg rewrites HTML
-      # before all four same-run manifests exist; this is the barrier that
-      # prevents one matrix leg from judging a sibling against a different
-      # run/attempt snapshot.
+      # First publish only this leg's complete manifest. Non-IT source artifacts
+      # defer the rewrite to deploy-publish.yml, after this build run has ended;
+      # that avoids holding three build runners at the slowest locale's barrier.
+      # IT still rewrites here because its Pages artifact is produced in this
+      # workflow. The barrier remains fail-closed and checks the same run/attempt.
       - name: Hreflang index manifest (pre-barrier, no rewrite)
         id: hreflang-index-manifest-pre
         timeout-minutes: 30
@@ -1237,7 +1238,9 @@ jobs:
       # into a warning plus a miss, and a workflow cannot retry it. The manifest
       # is mandatory, so run 41088323300 lost three legs after two hours of
       # build to one `Egress is over the account limit` answer. Same key as
-      # before: run id and attempt, so a leg never reads another attempt.
+      # before: run id and attempt, so a leg never reads another attempt. Keep
+      # these tiny manifests one day longer than the two-day source tarballs:
+      # a delayed/retried publisher must not outlive its hreflang inputs.
       - name: Publish hreflang index manifest (${{ matrix.locale }})
         id: publish-hreflang-index-manifest
         continue-on-error: true
@@ -1245,7 +1248,7 @@ jobs:
         with:
           name: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: .cache/hreflang-index-manifest/${{ matrix.locale }}.json
-          retention-days: 1
+          retention-days: 3
           if-no-files-found: error
           include-hidden-files: true
 
@@ -1255,7 +1258,7 @@ jobs:
         with:
           name: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: .cache/hreflang-index-manifest/${{ matrix.locale }}.json
-          retention-days: 1
+          retention-days: 3
           if-no-files-found: error
           include-hidden-files: true
           overwrite: true
@@ -1267,6 +1270,7 @@ jobs:
       # start, not after a fixed wait: how far apart the legs arrive depends on
       # their cache hits. Then 20 minutes of downloads at most.
       - name: Exchange same-run hreflang manifests
+        if: matrix.locale == 'it'
         id: exchange-hreflang-index-manifests
         timeout-minutes: 285
         env:
@@ -1282,10 +1286,14 @@ jobs:
       # rename failure aborts this leg before packing/publishing and the script
       # restores any files moved before the failure.
       - name: Hreflang index manifest (keep only reciprocal indexable clusters)
+        if: matrix.locale == 'it'
         id: hreflang-index-manifest
         timeout-minutes: 30
         run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests
 
+      # Keep this source-side validation successful for the locale provenance
+      # receipt consumed by resolve-publish-plan. Non-IT publish repeats it
+      # after the deferred hreflang rewrite, before any shard side effects.
       - name: Validate locale shard output
         id: validate-locale-shard
         run: node scripts/ci/validate-locale-shard-build.mjs dist
@@ -1348,6 +1356,10 @@ jobs:
           find "$out" -maxdepth 1 -type f \( -name '*.tar' -o -name '*.tar.zst' \) -size +0 | grep -q .
           grep -qx "${{ matrix.locale }}/" "$out/locale-shard-source-${{ matrix.locale }}.members"
           rm -f "$out/locale-shard-source-${{ matrix.locale }}.members"
+          # Non-IT source tarballs stay raw until deploy-publish has all four
+          # same-run manifests. Keep this sidecar outside the tar so it cannot
+          # leak into the published locale shard.
+          printf '%s\n' 'same-run-hreflang-rewrite-pending-v1' > "$out/hreflang-finalization-required.txt"
           if [ "${PTAR_ZSTD:-}" = 1 ] && [ "${LOCALE_SOURCE_TAR_PARTS:-1}" -gt 1 ]; then
             echo "compression_level=0" >> "$GITHUB_OUTPUT"
           else

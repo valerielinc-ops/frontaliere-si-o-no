@@ -5,9 +5,10 @@
  *
  * Contract and rationale: scripts/lib/hreflang-index-manifest.mjs.
  *
- * Where it runs: deploy.yml `build-locale`, once per locale leg, after
- * `prune-locale-shard.mjs` (so `dist/` holds exactly what this leg ships) and
- * before anything packs or pushes `dist/`.
+ * Where it runs: every deploy.yml `build-locale` leg runs the dry pass after
+ * `prune-locale-shard.mjs` to publish its own manifest. IT performs the rewrite
+ * there before producing Pages; non-IT source artifacts defer the same rewrite
+ * to deploy-publish.yml, after all four same-run manifests are available.
  *
  * Inputs
  *   - `dist/`, the final HTML of the locales this leg owns (`BUILD_LOCALE`,
