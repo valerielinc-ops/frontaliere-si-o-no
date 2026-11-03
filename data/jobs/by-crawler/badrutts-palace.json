@@ -1,16 +1,16 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-11-03T09:48:39.893Z",
-  "runId": "41609872515",
+  "assembledAt": "2026-11-03T21:33:38.900Z",
+  "runId": "41720644141",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
       "slug": "elettricista-m-w-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "it": "elettricista-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "elektriker-m-w-d-badrutts-palace-ch",
-        "fr": "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -34,7 +34,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:30.009Z",
+      "crawledAt": "2026-11-03T21:33:29.588Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -54,18 +54,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-m-w-d-badrutts-palace-ch",
-        "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-m-w-d-badrutts-palace-ch"
+          "elektriker-m-w-d-badrutts-palace-ch",
+          "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
-          "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
-          "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-18T21:52:03.897Z",
@@ -96,7 +98,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:48:30.009Z",
+      "validThrough": "2026-12-03T21:33:29.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +132,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:48:30.000Z",
+      "crawledAt": "2026-11-03T21:33:29.583Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -204,7 +206,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:48:30.000Z",
+      "validThrough": "2026-12-03T21:33:29.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -238,7 +240,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:48:29.990Z",
+      "crawledAt": "2026-11-03T21:33:29.578Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -309,7 +311,95 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:48:29.990Z",
+      "validThrough": "2026-12-03T21:33:29.578Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "badrutts-palace-f6389a361791",
+      "slug": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "gestionnaire-de-restaurant-pour-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
+      "titleByLocale": {
+        "it": "Responsabile del ristorante per «Le Grand Hall» (m/f/d)",
+        "en": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
+        "de": "Restaurantleiter/in für „Le Grand Hall“ (m/w/d)",
+        "fr": "Responsable de restaurant pour « Le Grand Hall » (H/F/D)"
+      },
+      "description": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+      "descriptionByLocale": {
+        "it": "Le vostre responsabilità chiave\n\n- A capo del team di assistenza di Le Grand Hall, il nostro icona dining location e lounge, avrete la responsabilità operativa di uno dei luoghi di ristoro del nostro hotel, servendo tra l'altro genuina china indiana e specialità della nostra cucina pasticceria.\n\n- Le operazioni quotidiane di ristorazione, compresa l'assegnazione dei tavoli e il flusso degli ospiti, saranno sotto la vostra responsabilità, garantendo sia un servizio eccezionale che prestazioni operative ottimali.\n\n- Creare esperienze indimenticabili attraverso una calda ospitalità e un servizio personalizzato sarà il cuore del vostro ruolo.\n\n- Lavorando a stretto contatto con il team Executive Chef, Bar e altri dipartimenti, si manterrà i più alti standard nella presentazione di alimenti e bevande e la consegna del servizio.\n\n- Si assumerà la proprietà di reclutamento, sviluppo e gestione del team di servizi, garantendo i più alti livelli di coinvolgimento, prestazioni e eccellenza di servizio.\n\n- Una stretta collaborazione con il team Events e con altri reparti dell'hotel garantirà la regolare esecuzione delle funzioni private e delle occasioni speciali ospitate nella Grand Hall.\n\n- Sostenere la gestione con reporting operativo, analisi dei costi, budgeting e previsioni contribuirà al successo continuo dello sbocco.\n\n• Cosa si porta al lavoro\n\n- Diversi anni di esperienza manageriale all'interno di un ristorante di lusso o hotel a cinque stelle, idealmente in un Restaurant Manager o un ruolo di leadership comparabile.\n\n- Un leader naturale con la capacità di 106, ispirare e sviluppare team creando un ambiente di lavoro positivo e professionale.\n\n- Una personalità sicura, raffinata e orientata al servizio, unita ad eccellenti capacità comunicative e interpersonali.\n\n- Una vera passione per l'ospitalità di lusso e per offrire esperienze personalizzate agli ospiti di altissimo livello.\n\n- Forte capacità organizzative, una solida consapevolezza commerciale e la capacità di rimanere calmi e orientati alla soluzione in un ambiente a rapida ascesa.\n\n- La fluidità in inglese è essenziale.\n\nLa nostra offerta\n\n- contratto di 10 mesi, iniziare a discutere, con la possibilità di rinnovare dal novembre 2027.\n\n- settimana lavorativa di 5 giorni in media 43,5 ore, con 5 settimane di vacanza e 6 giorni festivi all'anno.\n\n- 13° mese di stipendio dall'inizio dell'occupazione (pro rata temporis).\n\n- Alloggio in una delle nostre nuove case del personale.\n\n- Pasti disponibili nel nostro nuovo e moderno ristorante personale.\n\n- Possibilità di lavorare in un ambiente attraente con opportunità di sviluppo e di crescita professionale.\n\nSe siete appassionati di creare esperienze eccezionali per gli ospiti e godetevi la guida di un team in uno degli hotel di lusso più iconici della Svizzera, non vediamo l'ora di ricevere la vostra applicazione online completa.\n\nReclutamento Frode Avviso Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali vengono inviate esclusivamente da indirizzi e-mail che terminano in @ badruttsgalace.com. Se si riceve qualsiasi richiesta di pagamento o comunicazione sospettosa, si prega di non tener conto e contattarci direttamente attraverso il nostro sito ufficiale.",
+        "en": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+        "de": "Ihre wichtigsten Aufgaben\n\n- Führend im Service-Team in Le Grand Hall, unserem ikonischen Ganztags-Restaurant und Lounge, haben Sie die operative Verantwortung für einen der typischen Restaurants unseres Hotels, der unter anderem authentische indische Küche und Spezialitäten aus unserer Konditoreiküche serviert.\n\n- Tägliche Restaurant-Betriebe, einschließlich Tischzuteilung und Gästefluss, fallen in Ihre Verantwortung, die sowohl hervorragende Service und optimale operative Leistung gewährleisten.\n\n- Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft und personalisierten Service wird das Herzstück Ihrer Rolle sein.\n\n- In enger Zusammenarbeit mit dem Executive Chef, Bar Team und anderen Abteilungen, werden Sie die höchsten Standards in der Lebensmittel-und Getränke-Präsentation und Service-Lieferung zu halten.\n\n- Sie übernehmen die Verantwortung für die Rekrutierung, Entwicklung und Verwaltung des Service-Teams, um höchste Niveaus an Engagement, Leistung und Service-Exzellenz zu gewährleisten.\n\n- Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die reibungslose Durchführung von privaten Funktionen und besonderen Anlässen in Le Grand Hall gewährleisten.\n\n- Die Unterstützung des Managements durch operative Berichterstattung, Kostenanalyse, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.\n\n• Was Sie in den Job bringen\n\n- Mehrere Jahre Management-Erfahrung in einem Luxusrestaurant oder Fünf-Sterne-Hotel, idealerweise in einem Restaurant Manager oder vergleichbarer Führungsrolle.\n\n- Ein natürlicher Führer mit der Fähigkeit, Teams zu motivieren, zu inspirieren und zu entwickeln, während die Schaffung eines positiven und professionellen Arbeitsumfeld.\n\n- Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit ausgezeichneter Kommunikation und zwischenmenschlichen Fähigkeiten.\n\n- Eine echte Leidenschaft für Luxus-Gastfreundschaft und die Bereitstellung personalisierter Gästeerlebnisse auf höchstem Niveau.\n\n- Starke organisatorische Fähigkeiten, solides kommerzielles Bewusstsein und die Fähigkeit, ruhig und lösungsorientiert in einem schnelllebigen Umfeld zu bleiben.\n\n- Eine fließende Englischsprache ist unerlässlich.\n\nUnser Angebot\n\n- 10-Monats-Vertrag, beginnen zu diskutieren, mit der Möglichkeit, ab November 2027 zu verlängern.\n\n- 5-Tage-Arbeitswoche mit durchschnittlich 43,5 Stunden, mit 5 Wochen- und 6 Feiertagen pro Jahr.\n\n- 13 Monatsgehalt ab Beginn der Beschäftigung (pro rata temporis).\n\n- Unterkunft in einem unserer neuen Mitarbeiterhäuser.\n\n- Mahlzeiten in unserem neuen und modernen Personal Restaurant.\n\n- Gelegenheit, in einem attraktiven Umfeld mit Entwicklungs- und Karrierechancen zu arbeiten.\n\nWenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einem der ikonischsten Luxushotels der Schweiz führen möchten, freuen wir uns auf Ihre komplette Online-Bewerbung.\n\nRekrutierung Betrugswarnung Badrutt's Palace Hotel wird nie die Zahlung oder finanzielle Informationen während des Rekrutierungsprozesses anfordern. Alle offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die in @ badruttspalace.com enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, missachten Sie es bitte und kontaktieren Sie uns direkt über unsere offizielle Website.",
+        "fr": "Vos responsabilités clés\n\n- Dirigez l'équipe de service au Grand Hall, notre salle à manger et salon emblématiques toute la journée, vous aurez la responsabilité opérationnelle de l'un des lieux de restauration phares de notre hôtel, servant entre autres une cuisine indienne authentique et des spécialités de notre cuisine en boucherie.\n\n- Les activités quotidiennes des restaurants, y compris l'allocation de la table et le flux des clients, seront sous votre responsabilité, assurant à la fois un service exceptionnel et une performance opérationnelle optimale.\n\n- Créer des expériences mémorables à travers une hospitalité chaleureuse et un service personnalisé sera au cœur de votre rôle.\n\n- En étroite collaboration avec le chef exécutif, l'équipe du Barreau et d'autres ministères, vous maintenirz les normes les plus élevées en matière de présentation des aliments et des boissons et de prestation de services.\n\n- Vous vous approprierez le recrutement, le développement et la gestion de l'équipe de service, assurant ainsi les plus hauts niveaux d'engagement, de rendement et d'excellence dans le service.\n\n- Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la bonne exécution des fonctions privées et des occasions spéciales organisées au Grand Hall.\n\n- Appuyer la gestion en ce qui concerne les rapports opérationnels, l'analyse des coûts, la budgétisation et les prévisions contribuera au succès continu du point de vente.\n\n• Ce que vous apportez au travail\n\n- Plusieurs années d'expérience en gestion dans un restaurant de luxe ou un hôtel cinq étoiles, idéalement dans un restaurant Manager ou un rôle de leadership comparable.\n\n- Un leader naturel capable de motiver, d'inspirer et de développer des équipes tout en créant un environnement de travail positif et professionnel.\n\n- Une personnalité confiante, polie et orientée vers le service, combinée à une excellente communication et à des compétences interpersonnelles.\n\n- Une véritable passion pour l'hospitalité de luxe et la prestation d'expériences personnalisées de clients du plus haut niveau.\n\n- Des compétences organisationnelles solides, une bonne sensibilisation commerciale et la capacité de rester calme et orienté vers la solution dans un environnement à rythme rapide.\n\n- La maîtrise de l'anglais est essentielle. L'allemand ou l'italien est requis.\n\nNotre offre\n\n- Contrat de 10 mois, commencer à être discuté, avec la possibilité de renouveler à partir de novembre 2027.\n\n- 5 jours de travail en moyenne 43,5 heures, avec 5 semaines de vacances et 6 jours fériés par an.\n\n- 13e mois de salaire à partir du début de l'emploi (pro rata temporis).\n\n- Hébergement dans une de nos nouvelles maisons de staff.\n\n- Repas disponibles dans notre nouveau restaurant moderne.\n\n- Possibilité de travailler dans un environnement attrayant avec des possibilités de développement et de croissance de carrière.\n\nSi vous êtes passionné par la création d'expériences exceptionnelles et que vous aimez diriger une équipe dans l'un des hôtels de luxe les plus emblématiques de Suisse, nous sommes impatients de recevoir votre candidature en ligne complète.\n\nRecrutement Fraude Avertissement Badrutt's Palace Hotel ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir des adresses e-mail se terminant par @ badruttspalace.com. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et contactez-nous directement via notre site officiel."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-03T21:33:29.547Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-13T11:03:45+02:00",
+      "postedDate": "2026-07-13T11:03:45+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T13:19:32.662Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Badrutt's Palace Hotel",
+        "streetAddress": "Via Serlas 27",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:00.724Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Via Serlas 27",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-03T21:33:29.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -405,95 +495,8 @@
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T09:48:29.985Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "badrutts-palace-f6389a361791",
-      "slug": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
-        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "gestionnaire-de-restaurant-pour-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
-      "titleByLocale": {
-        "it": "Responsabile del ristorante per «Le Grand Hall» (m/f/d)",
-        "en": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
-        "de": "Restaurantleiter/in für „Le Grand Hall“ (m/w/d)",
-        "fr": "Responsable de restaurant pour « Le Grand Hall » (H/F/D)"
-      },
-      "description": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-      "descriptionByLocale": {
-        "it": "Le vostre responsabilità chiave\n\n- A capo del team di assistenza di Le Grand Hall, il nostro icona dining location e lounge, avrete la responsabilità operativa di uno dei luoghi di ristoro del nostro hotel, servendo tra l'altro genuina china indiana e specialità della nostra cucina pasticceria.\n\n- Le operazioni quotidiane di ristorazione, compresa l'assegnazione dei tavoli e il flusso degli ospiti, saranno sotto la vostra responsabilità, garantendo sia un servizio eccezionale che prestazioni operative ottimali.\n\n- Creare esperienze indimenticabili attraverso una calda ospitalità e un servizio personalizzato sarà il cuore del vostro ruolo.\n\n- Lavorando a stretto contatto con il team Executive Chef, Bar e altri dipartimenti, si manterrà i più alti standard nella presentazione di alimenti e bevande e la consegna del servizio.\n\n- Si assumerà la proprietà di reclutamento, sviluppo e gestione del team di servizi, garantendo i più alti livelli di coinvolgimento, prestazioni e eccellenza di servizio.\n\n- Una stretta collaborazione con il team Events e con altri reparti dell'hotel garantirà la regolare esecuzione delle funzioni private e delle occasioni speciali ospitate nella Grand Hall.\n\n- Sostenere la gestione con reporting operativo, analisi dei costi, budgeting e previsioni contribuirà al successo continuo dello sbocco.\n\n• Cosa si porta al lavoro\n\n- Diversi anni di esperienza manageriale all'interno di un ristorante di lusso o hotel a cinque stelle, idealmente in un Restaurant Manager o un ruolo di leadership comparabile.\n\n- Un leader naturale con la capacità di 106, ispirare e sviluppare team creando un ambiente di lavoro positivo e professionale.\n\n- Una personalità sicura, raffinata e orientata al servizio, unita ad eccellenti capacità comunicative e interpersonali.\n\n- Una vera passione per l'ospitalità di lusso e per offrire esperienze personalizzate agli ospiti di altissimo livello.\n\n- Forte capacità organizzative, una solida consapevolezza commerciale e la capacità di rimanere calmi e orientati alla soluzione in un ambiente a rapida ascesa.\n\n- La fluidità in inglese è essenziale.\n\nLa nostra offerta\n\n- contratto di 10 mesi, iniziare a discutere, con la possibilità di rinnovare dal novembre 2027.\n\n- settimana lavorativa di 5 giorni in media 43,5 ore, con 5 settimane di vacanza e 6 giorni festivi all'anno.\n\n- 13° mese di stipendio dall'inizio dell'occupazione (pro rata temporis).\n\n- Alloggio in una delle nostre nuove case del personale.\n\n- Pasti disponibili nel nostro nuovo e moderno ristorante personale.\n\n- Possibilità di lavorare in un ambiente attraente con opportunità di sviluppo e di crescita professionale.\n\nSe siete appassionati di creare esperienze eccezionali per gli ospiti e godetevi la guida di un team in uno degli hotel di lusso più iconici della Svizzera, non vediamo l'ora di ricevere la vostra applicazione online completa.\n\nReclutamento Frode Avviso Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali vengono inviate esclusivamente da indirizzi e-mail che terminano in @ badruttsgalace.com. Se si riceve qualsiasi richiesta di pagamento o comunicazione sospettosa, si prega di non tener conto e contattarci direttamente attraverso il nostro sito ufficiale.",
-        "en": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-        "de": "Ihre wichtigsten Aufgaben\n\n- Führend im Service-Team in Le Grand Hall, unserem ikonischen Ganztags-Restaurant und Lounge, haben Sie die operative Verantwortung für einen der typischen Restaurants unseres Hotels, der unter anderem authentische indische Küche und Spezialitäten aus unserer Konditoreiküche serviert.\n\n- Tägliche Restaurant-Betriebe, einschließlich Tischzuteilung und Gästefluss, fallen in Ihre Verantwortung, die sowohl hervorragende Service und optimale operative Leistung gewährleisten.\n\n- Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft und personalisierten Service wird das Herzstück Ihrer Rolle sein.\n\n- In enger Zusammenarbeit mit dem Executive Chef, Bar Team und anderen Abteilungen, werden Sie die höchsten Standards in der Lebensmittel-und Getränke-Präsentation und Service-Lieferung zu halten.\n\n- Sie übernehmen die Verantwortung für die Rekrutierung, Entwicklung und Verwaltung des Service-Teams, um höchste Niveaus an Engagement, Leistung und Service-Exzellenz zu gewährleisten.\n\n- Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die reibungslose Durchführung von privaten Funktionen und besonderen Anlässen in Le Grand Hall gewährleisten.\n\n- Die Unterstützung des Managements durch operative Berichterstattung, Kostenanalyse, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.\n\n• Was Sie in den Job bringen\n\n- Mehrere Jahre Management-Erfahrung in einem Luxusrestaurant oder Fünf-Sterne-Hotel, idealerweise in einem Restaurant Manager oder vergleichbarer Führungsrolle.\n\n- Ein natürlicher Führer mit der Fähigkeit, Teams zu motivieren, zu inspirieren und zu entwickeln, während die Schaffung eines positiven und professionellen Arbeitsumfeld.\n\n- Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit ausgezeichneter Kommunikation und zwischenmenschlichen Fähigkeiten.\n\n- Eine echte Leidenschaft für Luxus-Gastfreundschaft und die Bereitstellung personalisierter Gästeerlebnisse auf höchstem Niveau.\n\n- Starke organisatorische Fähigkeiten, solides kommerzielles Bewusstsein und die Fähigkeit, ruhig und lösungsorientiert in einem schnelllebigen Umfeld zu bleiben.\n\n- Eine fließende Englischsprache ist unerlässlich.\n\nUnser Angebot\n\n- 10-Monats-Vertrag, beginnen zu diskutieren, mit der Möglichkeit, ab November 2027 zu verlängern.\n\n- 5-Tage-Arbeitswoche mit durchschnittlich 43,5 Stunden, mit 5 Wochen- und 6 Feiertagen pro Jahr.\n\n- 13 Monatsgehalt ab Beginn der Beschäftigung (pro rata temporis).\n\n- Unterkunft in einem unserer neuen Mitarbeiterhäuser.\n\n- Mahlzeiten in unserem neuen und modernen Personal Restaurant.\n\n- Gelegenheit, in einem attraktiven Umfeld mit Entwicklungs- und Karrierechancen zu arbeiten.\n\nWenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einem der ikonischsten Luxushotels der Schweiz führen möchten, freuen wir uns auf Ihre komplette Online-Bewerbung.\n\nRekrutierung Betrugswarnung Badrutt's Palace Hotel wird nie die Zahlung oder finanzielle Informationen während des Rekrutierungsprozesses anfordern. Alle offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die in @ badruttspalace.com enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, missachten Sie es bitte und kontaktieren Sie uns direkt über unsere offizielle Website.",
-        "fr": "Vos responsabilités clés\n\n- Dirigez l'équipe de service au Grand Hall, notre salle à manger et salon emblématiques toute la journée, vous aurez la responsabilité opérationnelle de l'un des lieux de restauration phares de notre hôtel, servant entre autres une cuisine indienne authentique et des spécialités de notre cuisine en boucherie.\n\n- Les activités quotidiennes des restaurants, y compris l'allocation de la table et le flux des clients, seront sous votre responsabilité, assurant à la fois un service exceptionnel et une performance opérationnelle optimale.\n\n- Créer des expériences mémorables à travers une hospitalité chaleureuse et un service personnalisé sera au cœur de votre rôle.\n\n- En étroite collaboration avec le chef exécutif, l'équipe du Barreau et d'autres ministères, vous maintenirz les normes les plus élevées en matière de présentation des aliments et des boissons et de prestation de services.\n\n- Vous vous approprierez le recrutement, le développement et la gestion de l'équipe de service, assurant ainsi les plus hauts niveaux d'engagement, de rendement et d'excellence dans le service.\n\n- Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la bonne exécution des fonctions privées et des occasions spéciales organisées au Grand Hall.\n\n- Appuyer la gestion en ce qui concerne les rapports opérationnels, l'analyse des coûts, la budgétisation et les prévisions contribuera au succès continu du point de vente.\n\n• Ce que vous apportez au travail\n\n- Plusieurs années d'expérience en gestion dans un restaurant de luxe ou un hôtel cinq étoiles, idéalement dans un restaurant Manager ou un rôle de leadership comparable.\n\n- Un leader naturel capable de motiver, d'inspirer et de développer des équipes tout en créant un environnement de travail positif et professionnel.\n\n- Une personnalité confiante, polie et orientée vers le service, combinée à une excellente communication et à des compétences interpersonnelles.\n\n- Une véritable passion pour l'hospitalité de luxe et la prestation d'expériences personnalisées de clients du plus haut niveau.\n\n- Des compétences organisationnelles solides, une bonne sensibilisation commerciale et la capacité de rester calme et orienté vers la solution dans un environnement à rythme rapide.\n\n- La maîtrise de l'anglais est essentielle. L'allemand ou l'italien est requis.\n\nNotre offre\n\n- Contrat de 10 mois, commencer à être discuté, avec la possibilité de renouveler à partir de novembre 2027.\n\n- 5 jours de travail en moyenne 43,5 heures, avec 5 semaines de vacances et 6 jours fériés par an.\n\n- 13e mois de salaire à partir du début de l'emploi (pro rata temporis).\n\n- Hébergement dans une de nos nouvelles maisons de staff.\n\n- Repas disponibles dans notre nouveau restaurant moderne.\n\n- Possibilité de travailler dans un environnement attrayant avec des possibilités de développement et de croissance de carrière.\n\nSi vous êtes passionné par la création d'expériences exceptionnelles et que vous aimez diriger une équipe dans l'un des hôtels de luxe les plus emblématiques de Suisse, nous sommes impatients de recevoir votre candidature en ligne complète.\n\nRecrutement Fraude Avertissement Badrutt's Palace Hotel ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir des adresses e-mail se terminant par @ badruttspalace.com. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et contactez-nous directement via notre site officiel."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:48:29.960Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-13T11:03:45+02:00",
-      "postedDate": "2026-07-13T11:03:45+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T13:19:32.662Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Badrutt's Palace Hotel",
-        "streetAddress": "Via Serlas 27",
-        "postalCode": "7500",
-        "addressLocality": "St. Moritz",
-        "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:00.724Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Via Serlas 27",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:48:29.960Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
