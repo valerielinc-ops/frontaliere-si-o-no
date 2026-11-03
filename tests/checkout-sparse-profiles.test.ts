@@ -480,8 +480,12 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
   it('boccia la allow-list del watchdog arrivata su main con #9835, e accetta quella corretta', () => {
     // The core now also imports its generated sibling (canton sections), which
     // the #9835 list misses for the same reason: both targets are reported.
-    expect(uncoveredAllowListCode(OLD_WATCHDOG_LIST, WATCHDOG_ENTRIES, { cone: false }))
+    // The new home freshness import reaches the Worker route table, adding
+    // these shared modules to the loaded closure as well.
+    expect(uncoveredAllowListCode(OLD_WATCHDOG_LIST, WATCHDOG_ENTRIES, { cone: false }).sort())
       .toEqual([
+        'build-plugins/shared/fuelRouteSlugs.mjs',
+        'build-plugins/shared/redirectStubMarker.mjs',
         'packages/articles/engine/shared/articleSectionCore.mjs',
         'packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs',
       ]);

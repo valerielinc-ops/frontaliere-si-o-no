@@ -617,7 +617,10 @@ describe('owner policy excluding test files from review', () => {
     expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_scope')).toBeLessThan(checkoutIndex);
     expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_review')).toBeLessThan(checkoutIndex);
     expect(ledgerPolicy.if).toContain("github.event.pull_request.user.login == 'frontaliere-automation[bot]'");
-    expect(ledgerPolicy.run).toContain('POLICY_REF');
+    // The downloader is sourced from the shared helper, so the pinned ref is
+    // supplied by the step environment rather than repeated in this script.
+    expect(ledgerPolicy.env.POLICY_REF).toBe('${{ steps.policy_ref.outputs.sha }}');
+    expect(ledgerPolicy.run).toContain('source "$RUNNER_TEMP/trusted-policy-downloader.sh"');
     expect(ledgerScope.if).toContain("steps.ledger_policy.outcome == 'success'");
     expect(ledgerScope.run).toContain('LOOP_FLEET_REGISTRY_PATH=');
     const unknownExit = ledgerScope.run.slice(ledgerScope.run.indexOf('*)'));
