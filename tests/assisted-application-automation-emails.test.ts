@@ -130,9 +130,10 @@ describe('automation e-mails', () => {
   });
 
   it('explains the portal handoff and the closed-ad refund', () => {
-    const handoff = buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'de', reason: 'captcha' });
-    expect(handoff.text).toContain('eine Anti-Roboter-Prüfung');
-    expect(handoff.text).toContain('«Ich habe die Bewerbung gesendet»');
+    for (const reason of ['captcha', 'portal:captcha_provider_unavailable', 'recaptcha', 'hcaptcha', 'turnstile']) {
+      expect(() => buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'de', reason }))
+        .toThrow('captcha_requires_owner');
+    }
     // Coop's apprenticeships: the application is a WhatsApp chat from the candidate's phone.
     expect(buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'it', reason: 'whatsapp' }).text).toContain('la candidatura si fa solo via WhatsApp, dal tuo telefono');
     expect(buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'fr', reason: 'whatsapp' }).text).toContain('uniquement par WhatsApp');
@@ -174,7 +175,11 @@ describe('automation e-mails', () => {
     const portal = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'portal:captcha', stage: 'submit', attempts: 1 });
     expect(portal.text).toContain('Motivo: l’invio sul portale si è fermato: il portale ha chiesto un controllo anti-robot (CAPTCHA)');
     expect(portal.text).toContain('Il candidato non deve fare nulla');
-    expect(portal.text).toContain('«Riprova l’invio automatico»');
+    expect(portal.text).toContain('«Compila con l’estensione»');
+    expect(portal.text).toContain('risolvilo tu nella scheda');
+    expect(portal.text).not.toContain('Affida al candidato');
+    expect(describeTakeover({ reason: 'portal:captcha_provider_unavailable', stage: 'submit' }).hint)
+      .toContain('«Compila con l’estensione»');
     // JOIN, 2026-10-01: a refusal in words is completed by Valerie (the candidate paid for it), with no check for an ambiguous send.
     const refused = describeTakeover({ reason: 'portal_refused', stage: 'submit', attempts: 1 });
     expect(refused.reason).toContain('NON è partita');

@@ -30,7 +30,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -86,10 +86,10 @@ function takeoverEmail(flow, event, stage) {
 
 /*
  * `candidate_handoff` is career-ops' "browser handoff": when a portal needs a
- * human (CAPTCHA, a verification the automation must not bypass, a form the
- * runner cannot complete), the candidate gets the direct link, the numbered
- * answers and the documents, submits from their own browser and confirms.
- * Like career-ops, the order counts as submitted only on that confirmation.
+ * step only the candidate can perform (for example, an SMS to their phone),
+ * the candidate gets the direct link, the numbered answers and the documents,
+ * submits from their own browser and confirms. CAPTCHA stops stay with
+ * Valerie, who can finish them with the owner fill extension.
  */
 export const FLOW_STATES = Object.freeze([
   'drafting',
@@ -524,8 +524,7 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
     : null;
   // Infrastructure retries continue after the short backoff ladder. Notify
   // operations once, without handing every affected application to a human.
-  if (next.portalAutoRetryAt && ((!infrastructure && reason === 'captcha_provider_unavailable')
-    || (infrastructure && attempts !== delays.length))) return null;
+  if (next.portalAutoRetryAt && infrastructure && attempts !== delays.length) return null;
   return {
     type: 'email',
     kind: 'owner_takeover',
@@ -533,6 +532,10 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
     stage: 'submit',
     attempts: Number(attemptsOverride) || Number(current?.dispatch?.attempts) || 1,
   };
+}
+
+export function canOwnerHandoffToCandidate(flow, reason = '') {
+  return flow?.state === 'owner_takeover' && !isCaptchaPortalHold(flow) && !isCaptchaHandoffReason(reason);
 }
 
 /**
@@ -719,8 +722,9 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'submit_handoff':
       // CAPTCHA, account verification and candidate-only steps stay with
       // Valerie. A generic unsupported page gets two delayed retries so the
-      // portal-stop fixer can teach the runner before the order stays held. A
-      // measured solver outage waits and retries without asking for personal data.
+      // portal-stop fixer can teach the runner before the order stays held.
+      // A CAPTCHA provider outage is also an owner takeover; the robot does not
+      // retry CAPTCHA challenges.
       if (state !== 'submitting') return ignore('not_submitting');
       effects = [portalTakeover(next, current, event, nowMs)].filter(Boolean);
       break;
@@ -730,6 +734,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // own draft, which the candidate approved.
       if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_retryable');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      if (isCaptchaPortalHold(current)) return ignore('captcha_requires_owner');
       // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
       // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
@@ -755,12 +760,13 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'owner_handoff':
       // Valerie's choice, for a step only the candidate can do (an SMS to their phone).
       if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (!canOwnerHandoffToCandidate(current, event.reason)) return ignore('captcha_requires_owner');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       next.state = 'candidate_handoff';
       next.deadlineAt = null;
       next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
       next.reminderSentAt = null;
-      // The candidate is told why: the portal's own stop (a WhatsApp-only application, a CAPTCHA…).
+      // The candidate is told why: the portal's own candidate-only step (for example, WhatsApp).
       effects = [{ type: 'email', kind: 'candidate_handoff', reason: event.reason || portalStopOf(current.heldBy) }];
       next.heldBy = ['owner_handoff'];
       break;
