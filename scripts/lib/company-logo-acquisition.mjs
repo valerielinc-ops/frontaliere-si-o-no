@@ -67,9 +67,9 @@ export const DOMAIN_OVERRIDES = {
   'gim-architekten': ['gim.ch'],
   imerys: ['imerys.com'],
   mediamarkt: ['mediamarkt.ch'],
-  // The official mpa-praxisstellen.ch microsite is operated by PKS Personal
-  // AG and is the only employer-owned source allowed in audit mode.
-  'mpa-praxisstellen-ch': ['mpa-praxisstellen.ch'],
+  // mpa-praxisstellen.ch is a PKS Personal AG microsite; use the employer
+  // domain declared by its dedicated crawler in audit mode.
+  'mpa-praxisstellen-ch': ['pks-personal.ch'],
   brefispersonal: ['brefis.ch'],
   parmag: ['parmag.ch'],
   endeso: ['endeso.ch'],

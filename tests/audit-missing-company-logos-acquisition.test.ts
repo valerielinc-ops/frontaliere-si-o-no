@@ -58,7 +58,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
-  'mpa-praxisstellen-ch': ['mpa-praxisstellen.ch'],
+  'mpa-praxisstellen-ch': ['pks-personal.ch'],
 };
 
 const MPA_OFFICIAL_LOGO_URL = 'https://partner.jobbzz.ch/jobbzzFramework/minisites/img/pks-logo-new.png';
