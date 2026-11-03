@@ -88,12 +88,10 @@ function distinctListingCounts(text, pattern) {
 
 function readRittmeyerListingCount(listingText, rowCount) {
   // The source prints both a structural total ("16 jobs found") and a pager
-  // range ("1-10 out of 16"). The structural total is the stronger signal:
-  // Onlyfy can briefly leave a stale/duplicate pager range behind while the
-  // cards already contain the current page. Prefer an explicit total that can
-  // account for the rows already read; use the range only when that stronger
-  // signal is absent or visibly stale. Never turn genuinely conflicting,
-  // usable totals into a guessed count.
+  // range ("1-10 out of 16"). Only totals that can account for the rows
+  // already read are usable. Equal structural/pager totals are one signal;
+  // genuinely different usable totals must fail closed instead of becoming a
+  // guessed count.
   const explicitTotals = distinctListingCounts(
     listingText,
     /\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/giu,
@@ -103,19 +101,14 @@ function readRittmeyerListingCount(listingText, rowCount) {
     /\b\d+\s*(?:[-–—‑]|to|bis|a|à)\s*\d+\s+(?:out\s+of|of|von|de|di|sur)\s+(\d+)\b/giu,
   );
 
-  const usableExplicitTotals = explicitTotals.filter((count) => count >= rowCount);
-  if (usableExplicitTotals.length === 1) {
-    return { count: usableExplicitTotals[0], conflict: false };
+  const usableTotals = [...new Set([
+    ...explicitTotals.filter((count) => count >= rowCount),
+    ...rangeTotals.filter((count) => count >= rowCount),
+  ])];
+  if (usableTotals.length === 1) {
+    return { count: usableTotals[0], conflict: false };
   }
-  if (usableExplicitTotals.length > 1) {
-    return { count: null, conflict: true };
-  }
-
-  const usableRangeTotals = rangeTotals.filter((count) => count >= rowCount);
-  if (usableRangeTotals.length === 1) {
-    return { count: usableRangeTotals[0], conflict: false };
-  }
-  if (usableRangeTotals.length > 1) {
+  if (usableTotals.length > 1) {
     return { count: null, conflict: true };
   }
 
