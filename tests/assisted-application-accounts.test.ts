@@ -192,6 +192,7 @@ describe('what the portal answers', () => {
     const signIn = [field('e', 'text', 'Email Address'), field('p', 'password', 'Password')];
     expect(registrationOutcome(page('Sign In Your account has been created.', signIn, ['Your account has been created.']))).toBe('created');
     expect(registrationOutcome(page('Sign In Please verify your email address to activate your account.', signIn, ['Please verify your email address.']))).toBe('verify');
+    expect(registrationOutcome(page('Sign In', signIn, ['An email has been sent to you. Please verify your account.']))).toBe('verify');
     expect(registrationOutcome(page('Create Account', createForm, ['An account already exists for this email address.']))).toBe('refused');
   });
 

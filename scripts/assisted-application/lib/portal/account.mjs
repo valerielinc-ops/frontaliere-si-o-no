@@ -49,6 +49,14 @@ const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|con
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
 const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
+/** The portal can expose a form message outside the body text (for example as role=alert). */
+export function accountResponseText(snapshot = {}) {
+  return [snapshot.text, ...(Array.isArray(snapshot.errors) ? snapshot.errors : [])]
+    .map((value) => String(value ?? '').trim())
+    .filter(Boolean)
+    .join(' ');
+}
+
 function verifiedLanding(after) {
   const text = String(after?.text || '').trim();
   // A verification/instructions page may expose a generic sign-in control as
@@ -66,7 +74,7 @@ function verifiedLanding(after) {
  */
 export function registrationOutcome(after) {
   if (authPageKind(after) === 'create') return 'refused';
-  if (VERIFY_PAGE_RE.test(after.text) || codeField(after)) return 'verify';
+  if (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after)) return 'verify';
   // The sign-in page is where a portal sends a new account (Workday, with a notice of its own): its notice
   // is no refusal. The sign-in that follows says whether the account is there.
   if (authPageKind(after) === 'sign_in') return 'created';

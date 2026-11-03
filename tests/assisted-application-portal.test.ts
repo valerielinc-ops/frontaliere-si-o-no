@@ -104,6 +104,74 @@ describe('account verification recovery', () => {
     });
     expect(resendClicked).toBe(true);
   });
+
+  it('waits for Workday verification when the login message is only a form error', async () => {
+    const url = 'https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/login';
+    const verificationMessage = 'An email has been sent to you. Please verify your account.';
+    const fields = [
+      { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address*', required: true, value: '' },
+      { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Password*', required: true, value: '' },
+    ];
+    const buttons = [
+      { id: 'sign-in', text: 'Sign In', disabled: false, frame: 0 },
+      { id: 'search', text: 'Search for Jobs', disabled: false, frame: 0 },
+      { id: 'create', text: 'Create Account', disabled: false, frame: 0 },
+      { id: 'forgot', text: 'Forgot your password?', disabled: false, frame: 0 },
+    ];
+    const initial = { url, fields, buttons, errors: [], text: 'Sign In', passwordVisible: true };
+    const afterSignIn = { url, fields, buttons, errors: [verificationMessage], text: 'Sign In', passwordVisible: true };
+    let afterClick = false;
+    const values = new Map<string, string>();
+    const current = () => ({
+      ...(afterClick ? afterSignIn : initial),
+      fields: fields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+    });
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_fn: unknown, args?: unknown) => args ? current() : null),
+      locator: vi.fn((selector: string) => {
+        const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+        const locator: any = {
+          first: () => locator,
+          click: vi.fn(async () => { if (id === 'sign-in') afterClick = true; }),
+          fill: vi.fn(async (value: string) => { values.set(id, value); }),
+          inputValue: vi.fn(async () => values.get(id) || ''),
+          count: vi.fn(async () => 0),
+        };
+        return locator;
+      }),
+      getByText: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => {}) }) })),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({ first: () => ({ waitFor: vi.fn(async () => { throw new Error('not-visible'); }) }) })),
+    };
+    const waitForVerification = vi.fn(async () => null);
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: initial,
+      ctx: {
+        accounts: {
+          // A stale verifiedAt must not suppress a fresh Workday verification
+          // notice emitted by the sign-in response.
+          load: vi.fn(async () => ({ email: 'synthetic-alias', password: 'synthetic-password', createdAt: 1, verifiedAt: 2 })),
+          verificationMessageIds: vi.fn(async () => []),
+          waitForVerification,
+        },
+      },
+    });
+
+    expect(result).toMatchObject({
+      handoff: 'account_verification_timeout',
+      accountFailure: { code: 'verification_timeout', stage: 'verification' },
+      pressed: 'id',
+    });
+    expect(waitForVerification).toHaveBeenCalledWith(expect.objectContaining({ host: 'capri.wd1.myworkdayjobs.com' }));
+  });
 });
 
 describe('assisted application profile history and file replacement', () => {
