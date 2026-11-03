@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-la-plaine",
   "label": "Clinique de la Plaine",
-  "generatedAt": "2026-11-03T09:47:26.207Z",
+  "generatedAt": "2026-11-03T21:56:39.374Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 9106,
-  "avgDurationMs": 9106,
+  "durationMs": 5229,
+  "avgDurationMs": 5229,
   "durationHistory": [
-    9106
+    5229
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:47:02.680Z",
+      "crawledAt": "2026-11-03T21:56:21.338Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:47:02.680Z",
+      "validThrough": "2026-12-03T21:56:21.338Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:46:59.624Z",
+      "crawledAt": "2026-11-03T21:56:20.679Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:46:59.624Z",
+      "validThrough": "2026-12-13T21:56:20.679Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -117,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

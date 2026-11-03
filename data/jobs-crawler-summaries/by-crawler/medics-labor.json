@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-11-03T09:49:25.602Z",
+  "generatedAt": "2026-11-03T21:57:03.736Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4681,
-  "avgDurationMs": 4681,
+  "durationMs": 4541,
+  "avgDurationMs": 4541,
   "durationHistory": [
-    4681
+    4541
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://app.reflinejobs.io/1474/0144/pub/107/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:49:10.003Z",
+      "crawledAt": "2026-11-03T21:56:43.341Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:49:10.003Z",
+      "validThrough": "2027-01-21T21:56:43.341Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:49:09.141Z",
+      "crawledAt": "2026-11-03T21:56:42.729Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:49:09.141Z",
+      "validThrough": "2027-01-13T21:56:42.729Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -156,7 +156,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T21:53:06.433Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,5 +166,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }
