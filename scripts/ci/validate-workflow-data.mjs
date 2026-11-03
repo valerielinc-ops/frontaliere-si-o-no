@@ -332,6 +332,21 @@ function relativeRepositoryPath(root, file) {
 }
 
 export function readHeadFile(root, relative) {
+  let treeEntry;
+  try {
+    // Cross-repo callers run from a sparse/blobless checkout whose HEAD may
+    // not contain the append-only artifact yet. Inspect the tree first so an
+    // absent path is a first-write baseline without triggering a lazy fetch.
+    treeEntry = execFileSync('git', ['ls-tree', '-z', 'HEAD', '--', relative], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch (error) {
+    throw new Error(`Impossibile leggere il baseline HEAD:${relative}`, { cause: error });
+  }
+  if (!treeEntry) return null;
+
   try {
     return execFileSync('git', ['show', `HEAD:${relative}`], {
       cwd: root,
@@ -339,8 +354,6 @@ export function readHeadFile(root, relative) {
       stdio: ['ignore', 'pipe', 'pipe'],
     });
   } catch (error) {
-    const stderr = String(error?.stderr ?? '');
-    if (error?.status === 128 && /fatal: path .+ does not exist in 'HEAD'/u.test(stderr)) return null;
     throw new Error(`Impossibile leggere il baseline HEAD:${relative}`, { cause: error });
   }
 }

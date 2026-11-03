@@ -30,11 +30,13 @@ import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/
 import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventDetailNoindexTargetMarker.mjs';
 import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
+import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
+import { PLATE_AUCTION_BASE_BY_LOCALE } from '../lib/plateAuctionSections.mjs';
 import {
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_ROUTE_CONFIG,
@@ -106,6 +108,9 @@ const EVENT_CANTON_SLUGS_BY_LOCALE = (() => {
   for (const { locale } of EVENT_ROUTE_CONFIG) slugs[locale].add(EVENTS_UNRESOLVED_CANTON_SEGMENT[locale]);
   return slugs;
 })();
+const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
+const PLATE_AUCTION_CANTON_SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*-[a-z]{2}$/;
+const PLATE_AUCTION_DETAIL_SLUG_RE = /^[a-z]{2}\d+(?:-(?:moto|rimorchio|altro))?$/;
 
 function pathnameAndOrigin(value) {
   try {
@@ -380,7 +385,7 @@ export function isJobBoardDetailPath(value) {
   const section = getJobBoardSectionPrefix(source.pathname);
   if (!section) return false;
   const suffix = source.pathname.slice(section.length).split('/').filter(Boolean);
-  return suffix.length === 1 && DETAIL_SLUG_RE.test(suffix[0]);
+  return suffix.length === 1 && JOB_BOARD_DETAIL_SLUG_RE.test(suffix[0]);
 }
 
 /**
@@ -430,6 +435,40 @@ export function isDeclaredPaginationTarget({ url, html }) {
   if (!match) return false;
   const page = Number(match[1]);
   return Number.isSafeInteger(page) && page >= PAGINATION_NOINDEX_FROM_PAGE;
+}
+
+/**
+ * Match only a generated plate-auction detail route: localized vertical root,
+ * canton slug and the canton-prefixed normalized plate (optionally with the
+ * generated vehicle suffix). Hub, catalogue, pagination and neighbouring
+ * routes deliberately stay outside this contract; the marker is required
+ * separately below.
+ */
+export function isPlateAuctionDetailPath(value) {
+  const source = pathnameAndOrigin(value);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+
+  const segments = source.pathname.split('/').filter(Boolean);
+  const locale = ['en', 'de', 'fr'].includes(segments[0]) ? segments.shift() : 'it';
+  const base = PLATE_AUCTION_BASE_BY_LOCALE[locale];
+  if (!base || segments.length !== 3 || segments[0] !== base) return false;
+
+  const [, cantonSlug, detailSlug] = segments;
+  if (!PLATE_AUCTION_CANTON_SLUG_RE.test(cantonSlug) || !PLATE_AUCTION_DETAIL_SLUG_RE.test(detailSlug)) return false;
+
+  // The route builder uses the same canton code for the slug suffix and the
+  // normalized plate prefix. This rejects a copied marker on another canton
+  // detail-shaped URL without maintaining a second canton slug registry here.
+  return detailSlug.slice(0, 2).toLowerCase() === cantonSlug.slice(-2).toLowerCase();
+}
+
+/**
+ * Recognise the explicit noindex contract emitted by plateAuctionsPagesPlugin
+ * for detail pages whose four-locale group has no Search Console demand.
+ */
+export function isDeclaredPlateAuctionTarget({ url, html }) {
+  return String(html || '').includes(PLATE_AUCTION_NOINDEX_TARGET_MARKER)
+    && isPlateAuctionDetailPath(url);
 }
 
 // Pharmacy directory and duty roots in every locale (services/pharmacies).
@@ -1090,6 +1129,11 @@ export function classifyDocument({
             && followableNoindex
             && isDeclaredEventDetailTarget({ url: finalUrl || url, html })
             ? 'event-detail-target'
+            : isFrontier
+              && noindex
+              && followableNoindex
+              && isDeclaredPlateAuctionTarget({ url: finalUrl || url, html })
+              ? 'plate-auction-target'
         : null;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex

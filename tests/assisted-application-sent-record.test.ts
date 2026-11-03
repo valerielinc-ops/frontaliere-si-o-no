@@ -504,7 +504,7 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     const uploads = [{ document: 'cv' }, { document: 'cover_letter' }];
     let pressed = false;
     const runner = vi.fn(async (ctx: any) => {
-      await ctx.onBeforeSubmit({ uploads });
+      await ctx.onBeforeSubmit({ uploads, formBinding: 'c'.repeat(64) });
       pressed = true;
       return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads } };
     });
@@ -531,7 +531,7 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     const portalDraft = draftFor({ channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } });
     const uploads = [{ document: 'cv' }, { document: 'cover_letter' }, { document: 'extra_1', files: 2 }];
     const pressed = (outcome: Record<string, unknown>) => vi.fn(async (ctx: any) => {
-      await ctx.onBeforeSubmit({ uploads });
+      await ctx.onBeforeSubmit({ uploads, formBinding: 'c'.repeat(64) });
       return { event: outcome, evidence: { steps: [], uploads, finalOutcomes: ['ambiguous'] } };
     });
     const unknown = await ambiguousSetup();

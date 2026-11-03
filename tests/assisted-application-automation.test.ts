@@ -1121,7 +1121,7 @@ describe('account failure observability', () => {
     expect(await sentGuard.read()).toMatchObject({ state: 'sent', channel: 'portal' });
     const clickedGuard = submissionGuard(store.db, ORDER, 2);
     await clickedGuard.claim('portal', T0, { resumable: true });
-    await clickedGuard.markClicked(T0 + 1);
+    await clickedGuard.markClicked(T0 + 1, { formBinding: 'a'.repeat(64) });
     expect(await clickedGuard.read()).toMatchObject({ state: 'sending', clickedAt: T0 + 1 });
   });
 
@@ -1138,6 +1138,21 @@ describe('account failure observability', () => {
 
     await guard.release('late_failure_event', T0 + 3);
     expect(await guard.read()).toMatchObject({ state: 'sent', confirmedNotSent: false });
+    await guard.markSent({ channel: 'portal', confirmedBy: 'late_duplicate_receipt' }, T0 + 4);
+    expect(await guard.read()).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement' });
+  });
+
+  it('requires the exact bound native form before a portal click is recorded', async () => {
+    const guard = submissionGuard(store.db, ORDER, 4);
+    await guard.claim('portal', T0, { resumable: true });
+    await expect(guard.markClicked(T0 + 1)).rejects.toThrow('submission_form_unbound');
+    expect(await guard.read()).toMatchObject({ state: 'sending', clickedAt: null });
+
+    const binding = 'd'.repeat(64);
+    await guard.markClicked(T0 + 2, { formBinding: binding });
+    await guard.markClicked(T0 + 3, { formBinding: binding });
+    expect(await guard.read()).toMatchObject({ state: 'sending', clickedAt: T0 + 2, formBinding: binding });
+    await expect(guard.markClicked(T0 + 4, { formBinding: 'e'.repeat(64) })).rejects.toThrow('submission_already_clicked');
   });
 
   it('emits diagnostics from the real account stop and throw branches', async () => {
