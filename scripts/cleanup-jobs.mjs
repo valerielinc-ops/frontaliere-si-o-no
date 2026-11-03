@@ -47,6 +47,7 @@ import {
 } from './lib/crawler-slice-integrity.mjs';
 import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -81,8 +82,7 @@ const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)))
 const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 
 function readJson(filePath) {
-  const raw = fs.readFileSync(filePath, 'utf-8');
-  return JSON.parse(raw);
+  return readJsonFile(filePath);
 }
 
 function dedupProofJob(job) {
@@ -723,7 +723,7 @@ async function main() {
   // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
   // blocking predicate of validate:translation-completeness.
   {
-    const raw = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+    const raw = readJson(DATA_JOBS_PATH);
     const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
     const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
 
@@ -921,9 +921,12 @@ async function main() {
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
-  writeCrossCrawlerDedupProofFile(dedupProofEntries, {
-    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
-  });
+  writeCrossCrawlerDedupProofFile(
+    dedupProofEntries,
+    dedupProofEntries.length > 0
+      ? { candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8') }
+      : undefined,
+  );
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
   const suspiciousFiles = [

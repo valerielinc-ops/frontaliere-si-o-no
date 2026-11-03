@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { collectBlockingIssues } from '../validate-translation-completeness.mjs';
 import { listSliceFilePaths } from './crawler-slice-files.mjs';
+import { readJsonFile } from './read-large-json.mjs';
 
 export const ANNOTATION_TITLE = 'Job locale slots blocking';
 export const SLUG_SAMPLE_LIMIT = 5;
@@ -198,7 +199,7 @@ export function reportBlockingLocaleSlots({
 }) {
   try {
     if (!fs.existsSync(dataJobsPath)) return null;
-    const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+    const raw = readJsonFile(dataJobsPath);
     const jobs = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
     if (!jobs) {
       log(`::warning title=${ANNOTATION_TITLE}::${escapeAnnotationData(`${path.basename(dataJobsPath)} is not a job array — locale slots not checked`)}`);
