@@ -116,6 +116,7 @@ describe('phase-timing-observer', () => {
     const log = '[job-og-images] rendered=12 cached=0 skipped=3 errors=0 pruned-stale=1 (~0MB) in 4.2s';
     expect(parseJobOgImageStats(log)).toEqual({ rendered: 12, cached: 0, skipped: 3, errors: 0, pruned: 1 });
     expect(isExpectedColdJobOgCache(log, '')).toBe(true);
+    expect(isExpectedColdJobOgCache(log, undefined)).toBe(false);
     expect(isExpectedColdJobOgCache(log, 'og-jobs-Linux-v5-previous')).toBe(false);
   });
 
@@ -234,7 +235,7 @@ describe('phase-timing-observer', () => {
       '[job-og-images] rendered=100 cached=0 skipped=0 errors=0 pruned-stale=0 (~0MB) in 45.0s',
     ].join('\n');
     const observation = observePhaseTimings({
-      locale: 'it',
+      locale: 'de',
       history,
       log,
       jobOgCacheMatchedKey: '',
@@ -258,7 +259,7 @@ describe('phase-timing-observer', () => {
       timingRow(4, { [JOB_OG_IMAGES_PHASE]: 40 }),
     ].join('\n');
     const observation = observePhaseTimings({
-      locale: 'it',
+      locale: 'de',
       history,
       log: [
         timingLog({ [JOB_OG_IMAGES_PHASE]: 45 }),
