@@ -948,6 +948,11 @@ const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[s
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
 const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
+// Some consent managers render the disclosure copy outside the button's local
+// zone. Keep generic accept labels scoped to an active banner whose page
+// snapshot still contains an explicit consent statement, rather than treating
+// every "Accept" button on an otherwise unrelated page as a cookie control.
+const COOKIE_CONSENT_COPY_RE = /(?:\b(?:agree|consent|accept|stimmen|einverstanden|akzeptier(?:en|e|t)|accepter|acceptez|accett(?:a|are|o))\b[\s\S]{0,180}\bcookies?\b|\bcookies?\b[\s\S]{0,180}\b(?:agree|consent|accept|stimmen|einverstanden|akzeptier(?:en|e|t)|accepter|acceptez|accett(?:a|are|o))\b)/i;
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -960,7 +965,7 @@ const cookieSupportingContext = (button) => {
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
-async function cookieControlHasCookieContext(page, button) {
+async function cookieControlHasCookieContext(page, button, snapshot) {
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -971,8 +976,13 @@ async function cookieControlHasCookieContext(page, button) {
     }
   }
   const supportingContext = cookieSupportingContext(button);
+  const genericBannerAccept = COOKIE_GENERIC_ACCEPT_LABEL_RE.test(
+    [button.text, button.label, button.ariaLabel, button.title]
+      .map(value => String(value || '').trim()).find(Boolean) || '',
+  );
   return button.cookieSurface === 'banner'
-    && COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`);
+    && (COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`)
+      || (genericBannerAccept && COOKIE_CONSENT_COPY_RE.test(String(snapshot?.text || ''))));
 }
 
 async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
@@ -981,7 +991,7 @@ async function findCookieControl(page, snapshot, pattern, { genericPreferences =
     const label = [button.text, button.label, button.ariaLabel, button.title]
       .map(value => String(value || '').trim()).find(Boolean) || '';
     if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
-    if (await cookieControlHasCookieContext(page, button)) return button;
+    if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
   }
   return null;
 }

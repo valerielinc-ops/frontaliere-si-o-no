@@ -179,6 +179,42 @@ describe('portal field extraction', () => {
     expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
   });
 
+  it('dismisses a page-level consent disclosure when generic banner labels lack local cookie context', async () => {
+    const url = 'https://careers.helsana.ch/';
+    let stage = 0;
+    const clicks: string[] = [];
+    const currentSnapshot = () => stage === 0
+      ? {
+        url,
+        text: 'Mit der weiteren Nutzung dieser Website und der Navigation auf dieser Website stimmen Sie der Verwendung von Cookies zu.',
+        fields: [],
+        buttons: [
+          { id: 'accept', text: 'Akzeptieren', cookieSurface: 'banner', disabled: false },
+          { id: 'close', text: 'Schließen', cookieSurface: 'banner', disabled: false },
+        ],
+        links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
+      }
+      : { url, text: 'Helsana Jobs', fields: [], buttons: [], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(clicks).toEqual(['[data-aa-id="accept"]']);
+  });
+
   it('opens an active preference center, then applies only its explicit cookie choice', async () => {
     const url = 'https://careers.example/apply';
     let stage = 0;
