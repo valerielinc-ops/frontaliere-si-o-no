@@ -145,7 +145,7 @@ describe('transient CAPTCHA provider failures', () => {
     expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1, finalClickAttempted: true })).toBe(reason);
   });
   it('scopes the final-click fence to the current attempt', () => {
-    const context = { diagnostics: { responses }, attempt: 2 };
+    const context = { diagnostics: { responses: responses.map(entry => ({ ...entry, attempt: 2 })) }, attempt: 2 };
     expect(portalHandoffReason('captcha', { ...context, finalClickAttempt: 1 })).toBe('captcha_provider_unavailable');
     expect(portalHandoffReason('captcha', { ...context, finalClickAttempt: 2 })).toBe('captcha');
   });
