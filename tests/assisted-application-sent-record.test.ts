@@ -5,7 +5,7 @@ import { jsPDF } from 'jspdf';
 import sharp from 'sharp';
 import { PDFDocument, PDFHexString, PDFName, PDFString } from 'pdf-lib';
 import { getDocumentProxy, getResolvedPDFJS } from 'unpdf';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createRawMemoryFirestore } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
@@ -13,7 +13,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { keepSentFiles, portalUploads, recordOfSend, submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { keepSentFiles, portalUploads, recordOfSend, submitApplication: submitApplicationImpl } = await import('../scripts/assisted-application/lib/submit.mjs');
 const { keepSentRecord } = await import('../scripts/assisted-application/agent.mjs');
 const { decryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
 const { submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
@@ -46,6 +46,11 @@ const order = {
   locale: 'de', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', applicantPhone: '+41 79 000 00 00',
   cvStorageKey: `${UPLOADS}/1-cv.pdf`,
 };
+
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const seeded = { ...seed, [BASE]: { ...order, ...(seed[BASE] || {}) } };
+  return createRawMemoryFirestore(seeded);
+}
 const profile = {
   fullName: 'Maria Rossi', headline: 'Pflegefachfrau HF', location: 'Como', languages: [{ language: 'Deutsch', level: 'B2' }],
   experience: [{ role: 'Pflegefachfrau HF', employer: 'Spital Beispiel', location: 'Lugano', start: '2018', end: '2023', kind: 'job', highlights: ['Akutpflege auf einer Station mit 24 Betten.'] }],
@@ -168,12 +173,14 @@ const fakeFetch = () => vi.fn(async (url: string, init: any = {}) => {
 });
 const delivered = () => vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
 
-async function submit({ draft = draftFor(), flow = TWO_DOCUMENTS, bucket = fakeBucket(), sendCascade = delivered(), lines = [] as string[], nowMs = NOW, ...extra }: Record<string, any> = {}) {
-  return submitApplication({
+async function submit({ draft = draftFor(), flow = TWO_DOCUMENTS, bucket = fakeBucket(), sendCascade = delivered(), lines = [] as string[], nowMs = NOW, submissionGuard: providedGuard = null, ...extra }: Record<string, any> = {}) {
+  const store = createMemoryFirestore();
+  return submitApplicationImpl({
     order, orderId: ORDER, flow, draft, bucket, runKey: KEY, nowMs, sendCascade,
     cvBuffer: pdfOf('Lebenslauf Maria Rossi'), cvType: 'pdf',
     resolve: publicDns, fetchImpl: fakeFetch(), log: (...args: unknown[]) => lines.push(args.join(' ')),
     ...extra,
+    submissionGuard: providedGuard || submissionGuard(store.db, ORDER, Number(draft.round) || 1),
   });
 }
 const attachmentsOf = (sendCascade: any) => sendCascade.mock.calls[0][0][0].payload.attachments as Array<{ filename: string; content: string }>;

@@ -14,10 +14,10 @@ import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draf
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
-import { openRequiredQuestions, portalNeedsPlanner, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
+import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createRawMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
@@ -144,6 +144,25 @@ const order = {
   locale: 'it', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', applicantPhone: '+41 79 123 45 67',
   cvStorageKey: `assisted-application-uploads/${ORDER_ID}/1-cv.pdf`,
 };
+
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const orderPath = `assisted_applications/${ORDER_ID}`;
+  const seeded = { ...seed, [orderPath]: { ...order, ...(seed[orderPath] || {}) } };
+  return createRawMemoryFirestore(seeded);
+}
+
+async function submitApplication(context: Record<string, any>) {
+  if (context.dryRun || context.submissionGuard) return submitApplicationImpl(context);
+  return submitApplicationImpl({
+    ...context,
+    submissionGuard: {
+      claim: async () => ({ status: 'claimed', attemptId: 'test-attempt' }),
+      markClicked: async () => {},
+      markSent: async () => ({ receiptId: 'a'.repeat(40) }),
+      release: async () => {},
+    },
+  });
+}
 
 const quiet = () => {};
 const publicDns = async () => [{ address: "93.184.216.34", family: 4 }];
