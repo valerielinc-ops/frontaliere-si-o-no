@@ -51,6 +51,9 @@ export const DOMAIN_OVERRIDES = {
   gmo: ['gmo.ch'],
   'gz-dielsdorf': ['gzdielsdorf.ch'],
   'elettra-1938': ['elettra1938.ch', 'elettra.ch'],
+  // Global Sana's employer domain is verified on https://globalsana.ch/;
+  // `ch.talent.com` is only the shared publishing source.
+  'global-sana': ['globalsana.ch'],
   'impresa-pizzarotti': ['pizzarotti.it'],
   jsafrasarasin: ['jsafrasarasin.ch', 'jsafrasarasin.com'],
   'kanton-aargau': ['ag.ch'],
