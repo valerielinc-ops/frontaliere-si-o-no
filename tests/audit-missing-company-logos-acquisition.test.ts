@@ -54,6 +54,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'pks-bewerbung-ch': ['pks-personal.ch'],
   'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
