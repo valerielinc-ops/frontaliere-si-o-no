@@ -29,6 +29,71 @@ function downloaders(): Step[] {
   return steps().filter((step) => /\bdownload_main (?:scripts\/|"\$)/u.test(String(step.run ?? '')));
 }
 
+function shellWords(command: string): string[] {
+  const words: string[] = [];
+  let word = '';
+  let quote: 'single' | 'double' | null = null;
+  let escaped = false;
+  for (const char of command.trim()) {
+    if (escaped) {
+      word += char;
+      escaped = false;
+      continue;
+    }
+    if (char === '\\' && quote !== 'single') {
+      escaped = true;
+      continue;
+    }
+    if (char === "'" && quote !== 'double') {
+      quote = quote === 'single' ? null : 'single';
+      continue;
+    }
+    if (char === '"' && quote !== 'single') {
+      quote = quote === 'double' ? null : 'double';
+      continue;
+    }
+    if (/\s/u.test(char) && quote === null) {
+      if (word) words.push(word);
+      word = '';
+      continue;
+    }
+    word += char;
+  }
+  if (escaped) word += '\\';
+  if (word) words.push(word);
+  return words;
+}
+
+function downloaderWorkflowSource(): string {
+  return steps().map((step) => String(step.run ?? '')).join('\n');
+}
+
+function requiredPositionalArguments(functionName: 'download_main' | 'download_trusted_policy'): number {
+  const source = downloaderWorkflowSource();
+  const definition = new RegExp(`^\\s*${functionName}\\s*\\(\\s*\\)\\s*\\{\\s*$`, 'mu');
+  const match = definition.exec(source);
+  expect(match, `definizione di ${functionName} assente da tests.yml`).toBeTruthy();
+  const bodyStart = match!.index + match![0].length;
+  const nextDefinition = /^\s*[A-Za-z_][\w]*\s*\(\s*\)\s*\{/mu.exec(source.slice(bodyStart));
+  const body = source.slice(bodyStart, nextDefinition ? bodyStart + nextDefinition.index : undefined);
+  const required = [...body.matchAll(/\$\{(\d+)(?::-[^}]*|=[^}]*)?\}|\$(\d+)/gu)]
+    .filter((reference) => !reference[0].includes(':-') && !reference[0].includes('='))
+    .map((reference) => Number(reference[1] ?? reference[2]));
+  return Math.max(0, ...required);
+}
+
+function downloaderCalls(): { functionName: string; argumentCount: number; line: string }[] {
+  const calls: { functionName: string; argumentCount: number; line: string }[] = [];
+  for (const run of steps().map((step) => String(step.run ?? ''))) {
+    for (const line of run.split('\n')) {
+      const match = /^\s*(download_main|download_trusted_policy)\b(.*)$/u.exec(line);
+      if (!match || match[2].trimStart().startsWith('()')) continue;
+      calls.push({ functionName: match[1], argumentCount: shellWords(match[2]).length, line: line.trim() });
+    }
+  }
+  return calls;
+}
+
 function downloaderScript(): string {
   const step = steps().find((candidate) => candidate.id === 'trusted_policy_downloader');
   const run = String(step?.run ?? '');
@@ -39,7 +104,12 @@ function downloaderScript(): string {
   return run.slice(open + "<<'POLICY_DOWNLOADER'\n".length, close);
 }
 
-function runDownload(responses: string[], path = 'scripts/ci/policy.mjs', mode: 'required' | 'optional' = 'required') {
+function runDownload(
+  responses: string[],
+  path = 'scripts/ci/policy.mjs',
+  mode: 'required' | 'optional' = 'required',
+  invocation?: string[],
+) {
   const dir = mkdtempSync(join(tmpdir(), 'policy-download-'));
   const binDir = join(dir, 'bin');
   const fakeGh = join(dir, 'gh');
@@ -49,7 +119,7 @@ function runDownload(responses: string[], path = 'scripts/ci/policy.mjs', mode: 
   const responseFile = join(dir, 'responses.txt');
   const callCountFile = join(dir, 'calls.txt');
   const sleepLog = join(dir, 'sleeps.txt');
-  const destination = join(dir, 'policy', path.split('/').at(-1)!);
+  const destination = join(dir, 'policy', path);
   mkdirSync(binDir, { recursive: true });
   writeFileSync(responseFile, `${responses.join('\n')}\n`);
   writeFileSync(downloader, downloaderScript());
@@ -71,7 +141,7 @@ function runDownload(responses: string[], path = 'scripts/ci/policy.mjs', mode: 
   writeFileSync(runner, [
     'set -euo pipefail',
     'source "$POLICY_DOWNLOADER"',
-    `${mode === 'required' ? 'download_main' : 'download_optional'} "$TEST_PATH" "$TEST_DEST"`,
+    ...(invocation ?? [`${mode === 'required' ? 'download_main' : 'download_optional'} "$TEST_PATH" "$TEST_DEST"`]),
   ].join('\n'));
   chmodSync(fakeGh, 0o755);
   chmodSync(fakeSleep, 0o755);
@@ -93,6 +163,7 @@ function runDownload(responses: string[], path = 'scripts/ci/policy.mjs', mode: 
         SLEEP_LOG: sleepLog,
         TEST_PATH: path,
         TEST_DEST: destination,
+        REFRESH_ROOT: join(dir, 'policy'),
       },
     });
   } catch (error) {
@@ -113,6 +184,38 @@ function runDownload(responses: string[], path = 'scripts/ci/policy.mjs', mode: 
 }
 
 describe('ref della policy fidata', () => {
+  it('tutte le chiamate ai downloader passano gli argomenti richiesti dalla definizione', () => {
+    const calls = downloaderCalls();
+    const source = downloaderWorkflowSource();
+    const references = [...source.matchAll(/\b(download_main|download_trusted_policy)\b/gu)].length;
+    const definitions = [...source.matchAll(/^\s*(?:download_main|download_trusted_policy)\s*\(\s*\)\s*\{/gmu)].length;
+    expect(calls.length).toBeGreaterThan(0);
+    expect(calls.length + definitions, 'ogni riferimento deve essere una definizione o una chiamata estratta')
+      .toBe(references);
+    for (const call of calls) {
+      const required = requiredPositionalArguments(call.functionName as 'download_main' | 'download_trusted_policy');
+      expect(call.argumentCount, `${call.functionName} richiede ${required} argomenti: ${call.line}`)
+        .toBeGreaterThanOrEqual(required);
+    }
+  });
+
+  it('il refresh esegue download_main con path e destinazione sotto bash -u e gh finto', () => {
+    const result = runDownload(
+      ['OK:export const refreshed = true;'],
+      'scripts/ci/review-gate.mjs',
+      'required',
+      [
+        'policy_root="$REFRESH_ROOT"',
+        'for trusted_path in "$TEST_PATH"; do',
+        '  download_main "${trusted_path}" "$policy_root/$trusted_path"',
+        'done',
+      ],
+    );
+    expect(result.status).toBe(0);
+    expect(result.attempts).toBe(1);
+    expect(result.downloaded).toContain('refreshed = true');
+  });
+
   it('nessuno step della policy si ancora a base.sha', () => {
     const anchored = downloaders()
       .filter((step) => String((step.env ?? {}).POLICY_REF ?? '').includes('pull_request.base.sha'))

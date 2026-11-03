@@ -3546,7 +3546,7 @@ jobs:
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/githubApiHeaders.mjs \
             functions/src/githubApiHeaders.js; do
-            download_main "$trusted_path"
+            download_main "${trusted_path}" "$policy_root/$trusted_path"
           done
           for trusted_file in \
             "$policy_root/scripts/ci/review-test-policy.mjs" \
@@ -3707,7 +3707,7 @@ jobs:
             scripts/ci/claude-rate-limit.mjs \
             scripts/ci/claude-rate-limit-contract.mjs \
             scripts/lib/codex-fallback-contract.mjs; do
-            download_main "$trusted_path"
+            download_main "${trusted_path}" "$policy_root/$trusted_path"
           done
           node --check "$policy_root/scripts/ci/claude-codex-fallback.mjs"
           node --check "$policy_root/scripts/ci/claude-rate-limit.mjs"
@@ -3970,7 +3970,7 @@ jobs:
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/pr-body-closes-check.mjs \
             scripts/lib/pr-body-sections-check.mjs; do
-            download_main "$trusted_path"
+            download_main "${trusted_path}" "$policy_root/$trusted_path"
           done
           # Moduli che una PR CONCORRENTE può introdurre nel grafo di import di
           # review-gate.mjs (p.es. `scripts/ci/lib/review-findings.mjs` di

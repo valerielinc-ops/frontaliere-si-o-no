@@ -186,7 +186,7 @@ export function downloadedTrustedPaths(run: string): Set<string> {
     paths.add(match[1]);
   }
   const loops = run.matchAll(
-    /for (\w+) in \\\n((?:[ \t]*\S+[ \t]*\\\n)*[ \t]*\S+?);[ \t]*do\n[ \t]*download_(?:main|optional) "\$\1"/gu,
+    /for (\w+) in \\\n((?:[ \t]*\S+[ \t]*\\\n)*[ \t]*\S+?);[ \t]*do\n[ \t]*download_(?:main|optional) "\$\{?\1\}?"/gu,
   );
   for (const loop of loops) {
     for (const item of loop[2].split(/\\\n/u)) {
@@ -238,7 +238,7 @@ describe('gli elenchi trusted di tests.yml sono chiusi rispetto agli import del 
       'for trusted_path in \\',
       '  scripts/ci/b.mjs \\',
       '  scripts/lib/c.mjs; do',
-      '  download_main "$trusted_path"',
+      '  download_main "${trusted_path}" "$policy_root/$trusted_path"',
       'done',
     ].join('\n');
     expect([...downloadedTrustedPaths(run)].sort()).toEqual([
