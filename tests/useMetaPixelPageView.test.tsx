@@ -39,6 +39,7 @@ type PixelWindow = Window & {
   _fbq?: PixelFunction;
   __ftMetaPixelInitialized?: boolean;
   __ftMetaPixelLastTrackedPath?: string | null;
+  __ftMetaPixelLastViewContentPath?: string | null;
   __ftAdsConsentDecision?: string;
   __ftAdsConsentDecisionAt?: number;
   __FT_META_PIXEL_DISABLED__?: boolean;
@@ -65,6 +66,7 @@ beforeEach(() => {
   delete pixelWindow._fbq;
   delete pixelWindow.__ftMetaPixelInitialized;
   delete pixelWindow.__ftMetaPixelLastTrackedPath;
+  delete pixelWindow.__ftMetaPixelLastViewContentPath;
   delete pixelWindow.__ftAdsConsentDecision;
   delete pixelWindow.__ftAdsConsentDecisionAt;
   delete pixelWindow.__FT_META_PIXEL_DISABLED__;
@@ -81,6 +83,7 @@ afterEach(() => {
   delete pixelWindow._fbq;
   delete pixelWindow.__ftMetaPixelInitialized;
   delete pixelWindow.__ftMetaPixelLastTrackedPath;
+  delete pixelWindow.__ftMetaPixelLastViewContentPath;
   delete pixelWindow.__ftAdsConsentDecision;
   delete pixelWindow.__ftAdsConsentDecisionAt;
   delete pixelWindow.__FT_META_PIXEL_DISABLED__;

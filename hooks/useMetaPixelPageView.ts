@@ -30,11 +30,27 @@ type MetaPixelWindow = Window & {
   _fbq?: MetaPixelFunction;
   __ftMetaPixelInitialized?: boolean;
   __ftMetaPixelLastTrackedPath?: string | null;
+  __ftMetaPixelLastViewContentPath?: string | null;
   __FT_META_PIXEL_DISABLED__?: boolean;
 };
 
 function isMetaPixelSite(): boolean {
   return window.location.hostname === 'frontaliereticino.ch';
+}
+
+function trackTargetViewContent(): void {
+  const pixelWindow = window as MetaPixelWindow;
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (pixelWindow.__ftMetaPixelLastViewContentPath === currentPath) return;
+  if (trackMetaPixelEvent('ViewContent', {
+    content_type: 'product',
+    content_ids: ['application-concierge-30d-10'],
+    content_name: 'Servizio candidature assistite',
+    value: 39.99,
+    currency: 'EUR',
+  })) {
+    pixelWindow.__ftMetaPixelLastViewContentPath = currentPath;
+  }
 }
 
 function initializeAndTrackPageView(): void {
@@ -72,19 +88,14 @@ function initializeAndTrackPageView(): void {
   fbq('consent', 'grant');
   fbq('track', 'PageView');
   if (isMetaPixelTargetPage()) {
-    trackMetaPixelEvent('ViewContent', {
-      content_type: 'product',
-      content_ids: ['application-concierge-30d-10'],
-      content_name: 'Servizio candidature assistite',
-      value: 39.99,
-      currency: 'EUR',
-    });
+    trackTargetViewContent();
   }
 }
 
 function revokeMetaPixelConsent(): void {
   const pixelWindow = window as MetaPixelWindow;
   pixelWindow.__ftMetaPixelLastTrackedPath = null;
+  pixelWindow.__ftMetaPixelLastViewContentPath = null;
   if (pixelWindow.__ftMetaPixelInitialized && pixelWindow.fbq) {
     if (Array.isArray(pixelWindow.fbq.queue)) {
       pixelWindow.fbq.queue = pixelWindow.fbq.queue.filter((call) => call[0] !== 'track');
@@ -138,9 +149,16 @@ export function useMetaPixelPageView(
 
       const pixelWindow = window as MetaPixelWindow;
       const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
-      if (lastTrackedPath.current === currentPath) return;
+      const isTargetPage = isMetaPixelTargetPage();
+      if (!isTargetPage) pixelWindow.__ftMetaPixelLastViewContentPath = null;
+
+      if (lastTrackedPath.current === currentPath) {
+        if (isTargetPage) trackTargetViewContent();
+        return;
+      }
       if (pixelWindow.__ftMetaPixelLastTrackedPath === currentPath) {
         lastTrackedPath.current = currentPath;
+        if (isTargetPage) trackTargetViewContent();
         return;
       }
 
