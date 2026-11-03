@@ -178,8 +178,8 @@ export function writeCrossCrawlerDedupProofFile(
   }
   const hasCandidateRaw = typeof candidateRaw === 'string';
   const hasCandidatePath = typeof candidatePath === 'string' && candidatePath.length > 0;
-  if (!hasCandidateRaw && !hasCandidatePath) {
-    throw new Error('cannot write cross-crawler dedup proof without the final jobs.json snapshot');
+  if (hasCandidateRaw === hasCandidatePath) {
+    throw new Error('provide exactly one of candidateRaw or candidatePath for the cross-crawler dedup proof');
   }
 
   const resolvedBaseSha = String(baseSha || env.GITHUB_SHA || checkoutHeadSha(cwd) || '').trim();

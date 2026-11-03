@@ -1496,7 +1496,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   const resolvedPath = path.resolve(dataJobsPath);
   if (_hardenResultCache.has(resolvedPath)) {
     const cached = _hardenResultCache.get(resolvedPath);
-    if (!includeJobs || Array.isArray(cached.jobs)) return cached;
+    if (!includeJobs) return cached;
     // A caller that needs the in-memory rows must make the first call with
     // includeJobs; a cached summary does not retain the potentially large array.
     _hardenResultCache.delete(resolvedPath);
@@ -2128,9 +2128,8 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
 
   if (!changed) {
     const result = { changed: false, repaired: 0, total: raw.length };
-    if (includeJobs) result.jobs = raw;
     _hardenResultCache.set(resolvedPath, result);
-    return result;
+    return includeJobs ? { ...result, jobs: raw } : result;
   }
 
   // Safety net: per-locale slug cleanup. Only strips a previousSlug if it
@@ -2146,9 +2145,8 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
     writeJson(publicJobsPath, raw);
   }
   const result = { changed: true, repaired, total: raw.length };
-  if (includeJobs) result.jobs = raw;
   _hardenResultCache.set(resolvedPath, result);
-  return result;
+  return includeJobs ? { ...result, jobs: raw } : result;
 }
 
 /**

@@ -47,6 +47,7 @@ import {
 } from './lib/crawler-slice-integrity.mjs';
 import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
+import { parser } from 'stream-json';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -83,6 +84,23 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+async function assertJsonArrayFile(filePath) {
+  const input = fs.createReadStream(filePath);
+  const tokens = input.pipe(parser());
+  let rootToken = null;
+  try {
+    for await (const token of tokens) {
+      if (rootToken === null) rootToken = token.name;
+    }
+  } catch (error) {
+    input.destroy();
+    throw new Error(`${path.basename(filePath)} is not valid JSON: ${error?.message ?? error}`, { cause: error });
+  }
+  if (rootToken !== 'startArray') {
+    throw new Error(`${path.basename(filePath)} must be a JSON array`);
+  }
 }
 
 function dedupProofJob(job) {
@@ -708,6 +726,7 @@ async function main() {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
   }
+  await assertJsonArrayFile(PUBLIC_JOBS_PATH);
 
   // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
   const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH, includeJobs: true });
@@ -715,6 +734,7 @@ async function main() {
     console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs.`);
   }
   let dataJobs = localeHardening.jobs;
+  delete localeHardening.jobs;
   if (!Array.isArray(dataJobs)) {
     throw new Error('jobs.json must be an array');
   }
