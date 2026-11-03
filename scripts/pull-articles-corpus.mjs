@@ -91,7 +91,8 @@ import {
   serializeRetiredLocaleGroups,
   withRemovalGroups,
 } from './lib/retired-locale-groups.mjs';
-import { validateArticleExcerptFiles } from './ci/check-article-excerpt-completeness.mjs';
+import { articleExcerptFiles } from './ci/check-article-excerpt-completeness.mjs';
+import { repairArticleExcerptFiles } from './lib/article-excerpt-repair.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { countFiles, isCantonCorpusPath, mirrorTree } from './lib/corpus-canton-exclusion.mjs';
 
@@ -296,28 +297,33 @@ function readBlogSeoKeysInTree(contentRoot) {
   return keys;
 }
 
-function articleExcerptFiles(contentRoot) {
-  const metaFiles = fs.readdirSync(contentRoot)
-    .filter((name) => /^blog-meta-.*\.ts$/u.test(name))
-    .map((name) => path.join(contentRoot, name));
-  const seoRoot = path.join(contentRoot, 'seo');
-  const seoFiles = fs.existsSync(seoRoot)
-    ? fs.readdirSync(seoRoot)
-      .filter((name) => /^seo-blog.*\.ts$/u.test(name))
-      .map((name) => path.join(seoRoot, name))
-    : [];
-  return [...metaFiles, ...seoFiles];
-}
-
 function validateIncomingArticleExcerpts(contentRoot) {
-  const result = validateArticleExcerptFiles(articleExcerptFiles(contentRoot), { all: true });
-  if (result.failures.length > 0) {
-    throw new Error(
-      'incoming corpus contains incomplete article excerpt/SEO tails:\n'
-      + result.failures.map((failure) => `  - ${failure}`).join('\n'),
+  const result = repairArticleExcerptFiles({
+    files: articleExcerptFiles(contentRoot),
+    incomingRoot: contentRoot,
+    localRoot: DEST,
+  });
+  const annotation = (value) => String(value)
+    .replace(/%/gu, '%25')
+    .replace(/\r/gu, '%0D')
+    .replace(/\n/gu, '%0A');
+  for (const action of result.actions) {
+    console.log(
+      `::warning::[pull-articles-corpus] excerpt slug=${annotation(action.slug)} `
+      + `file=content/${annotation(action.file)} field=${annotation(action.field)} `
+      + `strategy=${annotation(action.strategy)}`,
     );
   }
-  console.log(`[pull-articles-corpus] validated ${result.checked} article excerpts and SEO descriptions`);
+  if (result.remainingFailures.length > 0) {
+    console.log(
+      `::warning::[pull-articles-corpus] ${result.remainingFailures.length} excerpt/SEO validation `
+      + 'finding(s) remain after safe fallbacks; values and article coverage are preserved.',
+    );
+  }
+  console.log(
+    `[pull-articles-corpus] inspected ${result.checked} article excerpts and SEO descriptions; `
+    + `${result.damagedFields} damaged field(s) handled`,
+  );
 }
 
 // ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────

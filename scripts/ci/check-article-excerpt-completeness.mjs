@@ -38,42 +38,55 @@ function propertyName(node) {
   return null;
 }
 
+function lastPropertyInitializer(objectLiteral, wantedName) {
+  if (!objectLiteral || !ts.isObjectLiteralExpression(objectLiteral)) return null;
+  let initializer = null;
+  let found = false;
+  for (const member of objectLiteral.properties) {
+    if (!ts.isPropertyAssignment(member) || propertyName(member.name) !== wantedName) continue;
+    initializer = member.initializer;
+    found = true;
+  }
+  return found ? initializer : null;
+}
+
 function parseSource(source, fileName) {
   return ts.createSourceFile(fileName, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
 }
 
-function directPropertyValue(objectLiteral, wantedName) {
+function directPropertyEntry(objectLiteral, wantedName) {
   if (!objectLiteral || !ts.isObjectLiteralExpression(objectLiteral)) return null;
+  let entry = null;
+  let found = false;
+  // RSS and the page generator resolve duplicate static properties last-write-wins.
   for (const member of objectLiteral.properties) {
     if (!ts.isPropertyAssignment(member) || propertyName(member.name) !== wantedName) continue;
+    found = true;
     const initializer = member.initializer;
     if (ts.isStringLiteral(initializer) || ts.isNoSubstitutionTemplateLiteral(initializer)) {
-      return initializer.text;
+      entry = { value: initializer.text, node: initializer };
+    } else {
+      entry = null;
     }
-    return null;
   }
-  return null;
+  return found ? entry : null;
 }
 
-function findPropertyValue(sourceFile, wantedName) {
-  let value = null;
+function findPropertyEntry(sourceFile, wantedName) {
+  let entry = null;
   function visit(node) {
-    if (value !== null) return;
+    if (entry !== null) return;
     if (ts.isPropertyAssignment(node) && propertyName(node.name) === wantedName) {
       const initializer = node.initializer;
       if (ts.isStringLiteral(initializer) || ts.isNoSubstitutionTemplateLiteral(initializer)) {
-        value = initializer.text;
+        entry = { value: initializer.text, node: initializer };
         return;
       }
     }
     ts.forEachChild(node, visit);
   }
   visit(sourceFile);
-  return value;
-}
-
-function valueFromArticleMeta(sourceFile) {
-  return findPropertyValue(sourceFile, ARTICLE_KEY);
+  return entry;
 }
 
 function seoRecord(sourceFile) {
@@ -90,16 +103,14 @@ function seoRecord(sourceFile) {
   return record;
 }
 
-function valueFromSeoRecord(sourceFile, property) {
+function valueFromSeoRecordEntry(sourceFile, property) {
   const record = seoRecord(sourceFile);
   if (!record) return null;
   if (property === 'structuredData.description') {
-    const structuredData = record.properties.find(
-      (member) => ts.isPropertyAssignment(member) && propertyName(member.name) === 'structuredData',
-    )?.initializer;
-    return directPropertyValue(structuredData, 'description');
+    const structuredData = lastPropertyInitializer(record, 'structuredData');
+    return directPropertyEntry(structuredData, 'description');
   }
-  return directPropertyValue(record, property);
+  return directPropertyEntry(record, property);
 }
 
 function allSeoRecords(sourceFile) {
@@ -118,14 +129,25 @@ function allSeoRecords(sourceFile) {
   return records;
 }
 
-function valueFromRecord(record, property) {
+function valueFromRecordEntry(record, property) {
   if (property === 'structuredData.description') {
-    const structuredData = record.properties.find(
-      (member) => ts.isPropertyAssignment(member) && propertyName(member.name) === 'structuredData',
-    )?.initializer;
-    return directPropertyValue(structuredData, 'description');
+    const structuredData = lastPropertyInitializer(record, 'structuredData');
+    return directPropertyEntry(structuredData, 'description');
   }
-  return directPropertyValue(record, property);
+  return directPropertyEntry(record, property);
+}
+
+export function articleExcerptFiles(contentRoot) {
+  const metaFiles = fs.readdirSync(contentRoot)
+    .filter((name) => /^blog-meta-.*\.ts$/u.test(name))
+    .map((name) => path.join(contentRoot, name));
+  const seoRoot = path.join(contentRoot, 'seo');
+  const seoFiles = fs.existsSync(seoRoot)
+    ? fs.readdirSync(seoRoot)
+      .filter((name) => /^seo-blog.*\.ts$/u.test(name))
+      .map((name) => path.join(seoRoot, name))
+    : [];
+  return [...metaFiles, ...seoFiles];
 }
 
 function checkIsolatedSectionLabelTail(value, label) {
@@ -145,6 +167,10 @@ function checkKnownTruncatedTail(value, label) {
   return failures;
 }
 
+export function hasKnownTruncatedArticleTail(value) {
+  return checkKnownTruncatedTail(value, 'article excerpt').length > 0;
+}
+
 function checkSummary(value, label) {
   const normalized = String(value || '').replace(/\s+/gu, ' ').trim();
   const failures = [];
@@ -162,9 +188,26 @@ function checkSummary(value, label) {
   return failures;
 }
 
-export function validateArticleExcerptFiles(files, { all = false } = {}) {
-  const failures = [];
+function fieldRecord({ file, key, field, value, node, literalStart, literalEnd, failures }) {
+  return {
+    file,
+    key,
+    field,
+    value,
+    literalStart: node ? node.getStart() : literalStart ?? null,
+    literalEnd: node ? node.getEnd() : literalEnd ?? null,
+    failures,
+  };
+}
+
+export function inspectArticleExcerptFiles(files, { all = false } = {}) {
+  const fields = [];
+  const seoFallbacks = [];
   let checked = 0;
+  const addField = (entry) => {
+    checked += 1;
+    fields.push(fieldRecord(entry));
+  };
 
   for (const file of files) {
     const source = fs.readFileSync(file, 'utf8');
@@ -173,44 +216,82 @@ export function validateArticleExcerptFiles(files, { all = false } = {}) {
       const entries = parseStaticArticleTranslationEntries(source, file)
         .filter((entry) => entry.field === 'excerpt');
       for (const entry of entries) {
-        checked += 1;
-        failures.push(...checkKnownTruncatedTail(
-          entry.value,
-          `${file}:blog.article.${entry.articleId}.excerpt`,
-        ));
+        const key = `blog.article.${entry.articleId}.${entry.field}`;
+        addField({
+          file,
+          key,
+          field: entry.field,
+          value: entry.value,
+          literalStart: entry.valueStart - 1,
+          literalEnd: entry.valueEnd + 1,
+          failures: checkKnownTruncatedTail(entry.value, `${file}:${key}`),
+        });
       }
       continue;
     }
     if (all && path.basename(file).startsWith('seo-blog')) {
       for (const { key, object } of allSeoRecords(sourceFile)) {
+        const recordFields = {};
         for (const property of ['description', 'ogDescription', 'structuredData.description']) {
-          checked += 1;
-          failures.push(...checkKnownTruncatedTail(
-            valueFromRecord(object, property),
-            `${file}:${key}.${property}`,
-          ));
+          const entry = valueFromRecordEntry(object, property);
+          const failures = checkKnownTruncatedTail(entry?.value, `${file}:${key}.${property}`);
+          recordFields[property] = { value: entry?.value ?? null, failures };
+          addField({
+            file,
+            key,
+            field: property,
+            value: entry?.value ?? null,
+            node: entry?.node,
+            failures,
+          });
         }
+        const headline = valueFromRecordEntry(object, 'headline')?.value ?? null;
+        seoFallbacks.push({ file, key, fields: recordFields, headline });
       }
       continue;
     }
     if (file.endsWith('seo-blog-ch.ts')) {
       for (const property of ['description', 'ogDescription']) {
-        const value = valueFromSeoRecord(sourceFile, property);
-        checked += 1;
-        failures.push(...checkSummary(value, `${file}:${property}`));
+        const entry = valueFromSeoRecordEntry(sourceFile, property);
+        addField({
+          file,
+          key: SEO_RECORD_KEY,
+          field: property,
+          value: entry?.value ?? null,
+          node: entry?.node,
+          failures: checkSummary(entry?.value, `${file}:${property}`),
+        });
       }
-      const structuredValue = valueFromSeoRecord(sourceFile, 'structuredData.description');
-      checked += 1;
-      failures.push(...checkSummary(structuredValue, `${file}:structuredData.description`));
+      const structuredEntry = valueFromSeoRecordEntry(sourceFile, 'structuredData.description');
+      addField({
+        file,
+        key: SEO_RECORD_KEY,
+        field: 'structuredData.description',
+        value: structuredEntry?.value ?? null,
+        node: structuredEntry?.node,
+        failures: checkSummary(structuredEntry?.value, `${file}:structuredData.description`),
+      });
       continue;
     }
 
-    const value = valueFromArticleMeta(sourceFile);
-    checked += 1;
-    failures.push(...checkSummary(value, `${file}:${ARTICLE_KEY}`));
+    const entry = findPropertyEntry(sourceFile, ARTICLE_KEY);
+    addField({
+      file,
+      key: ARTICLE_KEY,
+      field: 'excerpt',
+      value: entry?.value ?? null,
+      node: entry?.node,
+      failures: checkSummary(entry?.value, `${file}:${ARTICLE_KEY}`),
+    });
   }
 
-  return { checked, failures };
+  return { checked, fields, seoFallbacks };
+}
+
+export function validateArticleExcerptFiles(files, { all = false } = {}) {
+  const inspected = inspectArticleExcerptFiles(files, { all });
+  const failures = inspected.fields.flatMap((field) => field.failures);
+  return { checked: inspected.checked, failures };
 }
 
 function runCli() {
