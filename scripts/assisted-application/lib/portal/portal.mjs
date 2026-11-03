@@ -5097,6 +5097,11 @@ export async function submitViaPortal(ctx) {
       if (receiptResult) return receiptResult;
       if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
       if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
+      // A later SPA step can land on public site content that still exposes a
+      // generic optional upload and gallery controls. The entry-point guard
+      // above does not run again, so stop before the no-controls agent fallback
+      // treats that content as an unanswered application question.
+      if (!hasApplicationSurface(after)) return await handoff('posting_mismatch');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
