@@ -262,7 +262,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       });
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
-        if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
+        if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'",
         run: crawlerGroupBatchCommitRun(Number(group)),
       });
       expect(crawlerGroupBatchCommitRun(Number(group))).toContain(
@@ -340,7 +340,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(stepByName(portableJob.steps, 'Commit crawler group data atomically').if)
-        .toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
+        .toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'");
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(portableJob.steps.at(-1).name).toBe(
