@@ -515,6 +515,22 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(pageInsideIndexableWindowCodes).toContain(BING_FRONTIER_NOINDEX);
     expect(pageInsideIndexableWindowCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
 
+    const topicUrl = `${BASE}/articoli-frontaliere/argomenti/tasse-e-imposte/page-11/`;
+    const topicMarked = `${PAGINATION_NOINDEX_TARGET_MARKER}<title>Tasse e imposte</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${topicUrl}">`;
+    expect(isDeclaredPaginationTarget({ url: topicUrl, html: topicMarked })).toBe(true);
+    expect(isDeclaredPaginationTarget({
+      url: topicUrl.replace('/page-11/', '/page-10/'),
+      html: topicMarked,
+    })).toBe(false);
+    const topicCodes = classifyDocument({
+      url: topicUrl,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: topicMarked,
+    }).findings.map((item) => item.code);
+    expect(topicCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(topicCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
     const redirectCodes = classifyDocument({
       url,
       status: 301,
