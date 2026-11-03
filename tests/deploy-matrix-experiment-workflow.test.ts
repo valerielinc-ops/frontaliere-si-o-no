@@ -123,6 +123,27 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
   });
 
+  it('scopes every OG cache restore to the raster version source', () => {
+    for (const jobName of ['build-locale', 'monolith']) {
+      const steps = WORKFLOW.jobs[jobName].steps as Array<Record<string, any>>;
+      const resolveVersion = steps.find((step) => step.name === 'Resolve job OG image cache version');
+      const cache = steps.find((step) => step.name === 'Cache per-job OG images');
+      expect(resolveVersion, `${jobName}: missing OG cache version step`).toBeDefined();
+      expect(cache, `${jobName}: missing OG cache restore`).toBeDefined();
+      expect(resolveVersion?.id).toBe('job_og_image_version');
+      expect(resolveVersion?.run).toContain('./build-plugins/shared/jobOgImageVersion.mjs');
+      expect(cache?.uses).toBe('actions/cache/restore@v6');
+      expect(String(cache?.with?.key)).toContain(
+        'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+      );
+      expect(String(cache?.with?.['restore-keys']).trim().split('\n')).toEqual([
+        'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+        'og-jobs-${{ runner.os }}-',
+      ]);
+      expect(steps.indexOf(resolveVersion!)).toBeLessThan(steps.indexOf(cache!));
+    }
+  });
+
   // Osservatore del budget di capacità (misura 2026-09-19: 3.091 job-minuti/24 h,
   // media 2,14 slot, picco 6, media 5,24 nel plateau 18:30→19:45Z, su un tetto
   // account di 20-22 job). Lo studio scarta il proprio output: il costo va

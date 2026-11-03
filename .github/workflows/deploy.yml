@@ -742,6 +742,19 @@ jobs:
             exit 1
           fi
 
+      - name: Resolve job OG image cache version
+        if: matrix.locale == 'it'
+        id: job_og_image_version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(node --input-type=module -e "import { JOB_OG_IMAGE_VERSION } from './build-plugins/shared/jobOgImageVersion.mjs'; process.stdout.write(JOB_OG_IMAGE_VERSION)")"
+          if [[ ! "$version" =~ ^[A-Za-z0-9._-]+$ ]]; then
+            echo "Invalid job OG image cache version: $version" >&2
+            exit 1
+          fi
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+
       - name: Restore per-job OG images
         if: matrix.locale == 'it'
         uses: actions/cache/restore@v6
@@ -753,15 +766,19 @@ jobs:
           # share the same github.run_id. Without this IT-only guard, the first
           # leg to save the run-specific key would win and the other legs could
           # not add their files. jobOgImagesPlugin skips cache reads/writes on
-          # non-IT legs, so only IT needs to restore and save this cache. The
-          # run-specific suffix makes each IT run save an updated snapshot; the
-          # prefix restore still picks the newest prior snapshot across
-          # code/content hash changes.
-          # jobOgImagesPlugin stores <slug>.<OG_RENDER_VERSION>.webp, so title /
-          # company / city changes produce a different per-job key, and its
-          # `pruned-stale` pass removes old render versions after restore.
-          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
+          # non-IT legs, so only IT needs to restore and save this cache.
+          #
+          # The version is read from jobOgImageVersion.mjs rather than copied
+          # into this workflow. It must be part of the restore prefix: a plain
+          # `og-jobs-${runner.os}-` restore can select the newest cache from a
+          # different raster version and turn a version rollback into a cold
+          # render of every card (run 41521068653). The legacy prefix remains a
+          # one-release migration path; cache filenames also contain the
+          # version, and the plugin only consumes files for the current one.
+          # The run-specific suffix makes each IT run save an updated snapshot.
+          key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
           restore-keys: |
+            og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-
             og-jobs-${{ runner.os }}-
 
       # Incremental manifest carry (#8878 1b): each locale owns one JSONL

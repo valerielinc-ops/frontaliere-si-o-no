@@ -763,6 +763,30 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
   });
 });
 
+describe('deploy.yml — job OG cache version isolation (#12380)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const resolveVersion = steps.find((step) => step.name === 'Resolve job OG image cache version');
+  const cache = steps.find((step) => step.name === 'Cache per-job OG images');
+
+  it('derives the cache namespace from the raster version source', () => {
+    expect(resolveVersion?.if).toBe("matrix.locale == 'it'");
+    expect(resolveVersion?.id).toBe('job_og_image_version');
+    expect(resolveVersion?.run).toContain("./build-plugins/shared/jobOgImageVersion.mjs");
+    expect(resolveVersion?.run).toContain('GITHUB_OUTPUT');
+    expect(cache?.uses).toBe('actions/cache@v6');
+    expect(cache?.with?.path).toBe('.cache/og-jobs');
+    expect(String(cache?.with?.key)).toContain(
+      'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+    );
+    expect(String(cache?.with?.['restore-keys']).trim().split('\n')).toEqual([
+      'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+      'og-jobs-${{ runner.os }}-',
+    ]);
+    expect(steps.indexOf(resolveVersion!)).toBeLessThan(steps.indexOf(cache!));
+  });
+});
+
 describe('deploy.yml — shard push mode and advisory delta verification', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const publishWorkflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
