@@ -110,7 +110,7 @@ export function armFinalFormClickGuardInPage(button, {
       disabled: Boolean(node.disabled),
       fieldsetDisabled,
       resolvedFormAction,
-      required: Boolean(node.required) || node.getAttribute?.('aria-required') === 'true',
+      required: Boolean(node.required) || String(node.getAttribute?.('aria-required') || '').trim().toLowerCase() === 'true',
     };
   };
   const collect = () => {

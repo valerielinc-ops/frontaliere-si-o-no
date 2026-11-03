@@ -81,6 +81,7 @@
   // SuccessFactors label may carry only “(erforderlich)” while the input has
   // neither native nor ARIA requiredness.
   const REQUIRED_RE = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
+  const hasAriaRequired = (element) => String(element.getAttribute('aria-required') || '').trim().toLowerCase() === 'true';
   const CV_RE = /\b(cv|curriculum|lebenslauf|resume)\b/;
   const LETTER_RE = /\b(lettera|cover letter|anschreiben|motivation|motivazione|lettre)\b/;
   // A generic attachments field: it takes the requested documents (kit.documents.extra).
@@ -537,7 +538,7 @@
   }
 
   function hasRequiredMarker(element, labelText = '') {
-    if (element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return true;
+    if (element.required || hasAriaRequired(element) || element.hasAttribute('data-required')) return true;
     const doc = element.ownerDocument;
     const labels = new Set(element.labels || []);
     const mirrorLabel = mirroredQuestionLabel(element);
@@ -557,7 +558,7 @@
       if (!groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
     }
     const marker = (node, adjacent = false) => {
-      if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
+      if (node.nodeType === 1 && (node.hasAttribute('data-required') || hasAriaRequired(node))) return true;
       const text = markerText(node);
       const className = String(node.className?.baseVal || node.className || '');
       const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');

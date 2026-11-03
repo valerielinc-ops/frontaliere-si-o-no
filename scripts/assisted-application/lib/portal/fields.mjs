@@ -99,6 +99,8 @@ function nativeQuestionText(value, counter = null) {
   };
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
+  const ariaRequiredToken = (element) => String(element.getAttribute('aria-required') || '').trim().toLowerCase();
+  const hasAriaRequired = (element) => ariaRequiredToken(element) === 'true';
   // Ids a framework generates, which say nothing to the planner: React's
   // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
   const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
@@ -458,7 +460,7 @@ function nativeQuestionText(value, counter = null) {
     }
     const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
-      if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
+      if (node.nodeType === 1 && (node.hasAttribute('data-required') || hasAriaRequired(node))) return true;
       const text = clean(node.innerText || node.textContent);
       const className = String(node.className?.baseVal || node.className || '');
       const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
@@ -500,12 +502,25 @@ function nativeQuestionText(value, counter = null) {
     });
   };
   const isApplicationOwnedControl = (element) => {
-    if (element.required || element.getAttribute('aria-required') === 'true') return true;
+    if (element.required || hasAriaRequired(element)) return true;
     const form = element.form || element.closest('form');
     if (form && !isSiteSearchForm(form)) return true;
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
   };
   const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
+  const SITE_LANGUAGE_LABEL_RE = /^(?:language|lingua|langue|sprache|idioma|sprachauswahl)(?:\s+(?:selector|menu|select))?\s*[:*]?$/i;
+  const isSiteLanguageControl = (element) => {
+    const label = clean(labelFor(element));
+    // Native language selectors are sometimes wrapped in a header form. That
+    // form makes isApplicationOwnedControl true, although the select remains
+    // site chrome rather than an application question. Required controls keep
+    // the application-owned precedence even when placed in a header/footer.
+    if (element.tagName.toLowerCase() !== 'select' || !inSiteChrome(element)
+      || !SITE_LANGUAGE_LABEL_RE.test(label)
+      || element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
+      || hasRequiredMarker(element, label)) return false;
+    return true;
+  };
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
     const inSearchLandmark = Boolean(element.closest('[role="search"]'));
@@ -897,7 +912,7 @@ function nativeQuestionText(value, counter = null) {
       label,
       context: sectionContext(picker),
       addressContext: ownedAddressContext(picker),
-      required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
+      required: ariaRequiredToken(picker) !== 'false' && !picker.hasAttribute('data-optional'),
       value: clean(selected),
       search: false,
       maxLength: null,
@@ -920,12 +935,13 @@ function nativeQuestionText(value, counter = null) {
     // Only omit a search control identified as site-global. An application
     // can place required fields inside the employer's header or footer.
     if (isSiteGlobalSearchField(element)) continue;
+    if (isSiteLanguageControl(element)) continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !readable(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
     if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
-    const required = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
+    const required = element.required || hasAriaRequired(element) || element.hasAttribute('data-required');
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
@@ -984,7 +1000,7 @@ function nativeQuestionText(value, counter = null) {
         field.ownedList = `${nativeId}-menu`;
         field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, native));
         field.label = labelFor(native) || field.label;
-        field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
+        field.required ||= native.required || hasAriaRequired(native) || REQUIRED_LABEL.test(field.label);
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
         fields.push(field);
         continue;
@@ -1056,7 +1072,7 @@ function nativeQuestionText(value, counter = null) {
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
         || (hasSingleQuestionContext(element) ? headingBefore(element) : '');
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), addressContext: ownedAddressContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), addressContext: ownedAddressContext(element), required: hasAriaRequired(container) || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -1087,11 +1103,11 @@ function nativeQuestionText(value, counter = null) {
       name: clean(element.getAttribute('name') || ''),
       label: fieldLabel,
       context: sectionContext(element), addressContext: ownedAddressContext(element),
-      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
+      required: hasAriaRequired(element) || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
         options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
-        required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
+        required: nativeSelect.required || hasAriaRequired(nativeSelect) || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
   }

@@ -103,7 +103,7 @@ export function nativeControlEvidenceInPage(fields) {
         }
       }
     }
-    const ariaRequired = control.getAttribute('aria-required');
+    const ariaRequired = String(control.getAttribute('aria-required') || '').trim().toLowerCase();
     result.push({ id: field.id, nativeControlOwned: true, nativeLabelOwned, nativeReferencesComplete, nativeOwnerGroups, nativeControlId: control.id || '',
       ...semanticIdentifiers(control),
       nativeSelectId: bridged ? control.id : field.nativeSelectId || '', bridged,
