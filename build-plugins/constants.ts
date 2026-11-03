@@ -1102,9 +1102,7 @@ export const OFFERWALL_FC_SNIPPET = `<script>${OFFERWALL_FC_SCRIPT_CONTENT}</scr
  * console unit and swapping that one slot id in services/adsenseSlots.ts —
  * this snippet needs no further change (issue #1911 item 1).
  */
-export const DRIVEBY_AD_SNIPPET = `<div class="my-6 ft-driveby-ad">
-    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true })}
-  </div>`;
+export const DRIVEBY_AD_SNIPPET = adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true, frame: { className: 'my-6 ft-driveby-ad' } });
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>

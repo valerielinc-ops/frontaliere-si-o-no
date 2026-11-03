@@ -19,6 +19,7 @@ export function installHouseAds(
   if (typeof MutationObserver !== 'function') return undefined;
   const variants = ['control', 'time_saved', 'profile_match', 'in_control', 'swiss_work', 'next_chapter'];
   const entries = new Map<HTMLElement, Entry>();
+  const eligibleFrames = new Set<HTMLElement>();
   const started = new WeakMap<HTMLElement, number>();
   const counted = new WeakMap<HTMLElement, Set<string>>();
   let assignment: { variant: HouseAdVariant; enrolled: boolean } = { variant: 'control', enrolled: false };
@@ -40,13 +41,14 @@ export function installHouseAds(
     catch { return false; }
   };
   const report = (name: string, data: Record<string, string | number>) => { if (permitted() && analyticsAllowed()) emit(name, data); };
-  const remove = (frame: HTMLElement) => {
+  const remove = (frame: HTMLElement, keepEligible = false) => {
     const entry = entries.get(frame);
     if (entry) { clearTimeout(entry.timer); entry.creative.remove(); entries.delete(frame); }
     if (frame.hasAttribute('data-ft-house-active')) {
       frame.removeAttribute('data-ft-house-active');
       frame.style.removeProperty('--ft-house-height');
     }
+    if (!keepEligible) { frame.removeAttribute('data-ft-house-eligible'); eligibleFrames.delete(frame); }
   };
   const viewable = (entry: Entry) => {
     if (!permitted() || !entry.creative.isConnected || document.visibilityState === 'hidden' || modalVisible() || !visible(entry.creative)) return false;
@@ -64,7 +66,7 @@ export function installHouseAds(
         entry.timer = undefined;
         if (!viewable(entry) || entry.seen) return;
         entry.seen = true;
-        const frame = entry.creative.closest<HTMLElement>('[data-ft-house-slot]');
+        const frame = entry.creative.closest<HTMLElement>('[data-house]');
         if (frame) {
           const keys = counted.get(frame) || new Set<string>();
           keys.add(`${path}:${entry.data.creative_id}:${entry.data.format}`); counted.set(frame, keys);
@@ -83,10 +85,10 @@ export function installHouseAds(
   };
   function refresh() {
     if (!document.body) return;
-    if (path !== location.pathname) { for (const frame of entries.keys()) remove(frame); path = location.pathname; }
-    for (const frame of entries.keys()) if (!frame.isConnected || !permitted()) remove(frame);
+    if (path !== location.pathname) { for (const frame of eligibleFrames) remove(frame); path = location.pathname; }
+    for (const frame of eligibleFrames) if (!frame.isConnected || !permitted()) remove(frame);
     if (!ready || !permitted()) return;
-    for (const frame of document.querySelectorAll<HTMLElement>('[data-ft-house-slot]')) {
+    for (const frame of document.querySelectorAll<HTMLElement>('[data-house]')) {
       const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
       if (!google) continue;
       let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
@@ -95,7 +97,9 @@ export function installHouseAds(
       const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
       const isFilled = state === 'filled' || google.matches('ins[data-ad-status="filled"]') || !!google.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
       if (isFilled) { remove(frame); continue; }
-      const pending = google.hasAttribute('data-ft-ad-request-pending') || !!google.querySelector('[data-ft-ad-request-pending]') || ['loading', 'waiting_response'].includes(state);
+      const gpt = frame.dataset.ftHouseLibrary === 'gpt';
+      const requested = google.hasAttribute('data-google-query-id') || !!google.querySelector('[data-google-query-id]');
+      const pending = google.hasAttribute('data-ft-ad-request-pending') || !!google.querySelector('[data-ft-ad-request-pending]') || state === 'waiting_response' || (state === 'loading' && (!gpt || requested));
       const scriptSelector = frame.dataset.ftHouseLibrary === 'gpt' ? 'gpt.js' : 'adsbygoogle.js';
       const failed = Array.from(document.querySelectorAll<HTMLScriptElement>('script[data-failed="1"]')).some(s => s.src.includes(scriptSelector) && !['retry_wait','loading','loaded','waiting_response'].includes(s.dataset.ftScriptState || ''));
       const cmpFailed = !!document.querySelector('script[src*="fundingchoicesmessages.google.com"][data-ft-script-state="failed"]');
@@ -104,6 +108,11 @@ export function installHouseAds(
       const eligible = !pending && (terminal || failed || (cmpFailed && !decision));
       if (!eligible) { remove(frame); continue; }
       if (Date.now() - started.get(frame)! < 12000) continue;
+      // A rail may currently have a zero-width track after Google's empty
+      // callback. Announce eligibility before measuring; its React adapter
+      // restores the track, then the next layout mutation supplies real width.
+      if (!frame.hasAttribute('data-ft-house-eligible')) frame.setAttribute('data-ft-house-eligible', '');
+      eligibleFrames.add(frame);
       const width = frame.getBoundingClientRect().width;
       if (width < 160 || !visible(frame)) continue;
       const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || parseFloat(google.style.minHeight) || google.getBoundingClientRect().height);
@@ -114,8 +123,8 @@ export function installHouseAds(
         if (frame.style.getPropertyValue('--ft-house-height') !== `${height}px`) frame.style.setProperty('--ft-house-height', `${height}px`);
         continue;
       }
-      remove(frame);
-      const placement = (frame.dataset.ftHouseSlot || google.dataset.adPlacement || google.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
+      remove(frame, true);
+      const placement = (frame.dataset.house || google.dataset.adPlacement || google.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
       const data = { campaign: 'job_search_automation', experiment_id: 'house_creatives_v1', experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), creative_id: `${assignment.variant}_v1`, component: `${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
       const creative = render({ variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
         if (!permitted()) return;
@@ -132,7 +141,7 @@ export function installHouseAds(
   }
   function schedule() { if (scheduled) return; scheduled = setTimeout(() => { scheduled = undefined; refresh(); }, 100); }
   const style = document.createElement('style'); style.id = 'ft-house-creative-style';
-  style.textContent = css + '\n[data-ft-house-slot]{position:relative;min-width:0}[data-ft-house-host]{display:none}[data-ft-house-slot][data-ft-house-active]{min-height:var(--ft-house-height)}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:var(--ft-house-height);z-index:1}:where(div,li,section):has(>[data-ft-house-slot]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
+  style.textContent = css + '\n[data-house]{position:relative;min-width:0}[data-ft-house-host]{display:none}[data-house][data-ft-house-active]{min-height:var(--ft-house-height)}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:var(--ft-house-height);z-index:1}:where([data-house]):has(>ins[data-ft-static-ad-collapsed]):not([data-ft-house-active]),:where(div,li,section):has(>[data-house]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
   document.head.append(style);
   // Public allowlist only. A missing/failed config renders the safe control
   // without enrolling; no late variant switch after the first creative appears.

@@ -505,7 +505,7 @@ function AdSenseBannerInstance({
  // diagnosis (services/adPageDiag.ts) counts a slot here as collapsed from it.
 
  return (
- <div className={className} data-ft-house-slot={placement || adSlot} data-ft-house-library="adsense" data-ft-house-height={placeholderMinHeight}>
+ <div className={className} data-house={placement || adSlot} data-ft-house-library="adsense" data-ft-house-height={placeholderMinHeight}>
  <div
  ref={wrapperRef}
  data-ft-house-google=""

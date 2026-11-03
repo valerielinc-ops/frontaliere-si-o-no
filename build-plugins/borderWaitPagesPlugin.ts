@@ -2522,9 +2522,7 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-  <section class="s-sC82IX" aria-label="advertisement">
-    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
-  </section>
+  ${adSlotHtml('ARTICLE_END_MULTIPLEX', { frame: { tag: 'section', className: 's-sC82IX', label: 'advertisement' } })}
 </article>${webcamRefreshScript}${hydrationScript}`;
 
   // Per-page OG image: when the build-time webcam snapshot is available, use
@@ -3020,9 +3018,7 @@ function renderHubPage(inp: HubInputs): string {
   ${renderHubPlanningProse(locale, region, crossingsInScope.length)}
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-  <section class="s-sC82IX" aria-label="advertisement">
-    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
-  </section>
+  ${adSlotHtml('ARTICLE_END_MULTIPLEX', { frame: { tag: 'section', className: 's-sC82IX', label: 'advertisement' } })}
 </article>
   ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
@@ -3405,9 +3401,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
           <p class="s-E7ZJqo">${esc(intro)}</p>
         </section>
         ${archiveProse}
-        <section class="s-sC82IX" aria-label="advertisement">
-          ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
-        </section>
+        ${adSlotHtml('ARTICLE_END_MULTIPLEX', { frame: { tag: 'section', className: 's-sC82IX', label: 'advertisement' } })}
       </article>`;
 
   return buildSeoPageHtml({

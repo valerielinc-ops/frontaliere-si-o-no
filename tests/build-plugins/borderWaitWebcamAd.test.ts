@@ -44,7 +44,7 @@ describe('annuncio tra le webcam del valico', () => {
   it('riserva lo spazio e resta collassabile quando non viene servito', () => {
     const html = render([cam('a'), cam('b')]);
     const dom = new JSDOM(html);
-    const wrapper = dom.window.document.querySelector('.ft-webcam-ad [data-ft-house-slot]');
+    const wrapper = dom.window.document.querySelector('.ft-webcam-ad [data-house]');
     expect(wrapper?.querySelectorAll('ins')).toHaveLength(1);
     expect(wrapper?.querySelector('ins')?.childElementCount).toBe(0);
     expect(wrapper?.innerHTML).toContain('data-ft-static-ad="true"');

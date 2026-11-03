@@ -9,7 +9,7 @@ let w: any;
 const emit = vi.fn();
 const config = { publicConfigUrl: 'https://example.test/public-config', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent' };
 function frame(state: string, placement = 'article-inline') {
-  const el = w.document.createElement('div'); el.dataset.ftHouseSlot = placement; el.dataset.ftHouseHeight = '250';
+  const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
   const host = w.document.createElement('div'); host.dataset.ftHouseHost = '';
   el.append(google, host); w.document.body.append(el); return { el, google, host };
@@ -31,8 +31,23 @@ beforeEach(() => {
 afterEach(() => { dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
 
 describe('per-slot first-party creative delivery', () => {
+  it('announces a failed GPT fallback before a collapsed rail can provide width and revokes it for no-ads readers', async () => {
+    let allowed = true; const empty = frame('loading'); empty.el.dataset.ftHouseLibrary = 'gpt'; empty.el.dataset.ftHouseHeight = '600';
+    empty.el.getBoundingClientRect = () => ({ width: 0, height: 0, top: 0, left: 0, right: 0, bottom: 0 });
+    const script = w.document.createElement('script'); script.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'; script.dataset.failed = '1'; script.dataset.ftScriptState = 'failed'; w.document.head.append(script);
+    await start(() => allowed);
+    expect(empty.el.hasAttribute('data-ft-house-eligible')).toBe(true);
+    expect(empty.host.childElementCount).toBe(0);
+    allowed = false; w.__ftHouseAds.refresh();
+    expect(empty.el.hasAttribute('data-ft-house-eligible')).toBe(false);
+  });
+  it('waits for a real GPT request even when its SDK also has a failure marker', async () => {
+    const empty = frame('loading'); empty.el.dataset.ftHouseLibrary = 'gpt'; empty.google.setAttribute('data-google-query-id', 'requested');
+    const script = w.document.createElement('script'); script.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'; script.dataset.failed = '1'; script.dataset.ftScriptState = 'failed'; w.document.head.append(script);
+    await start(); expect(empty.el.hasAttribute('data-ft-house-eligible')).toBe(false); expect(empty.host.childElementCount).toBe(0);
+  });
   it('upgrades compact static markup without duplicating reserve/placement metadata in every page', async () => {
-    const el = w.document.createElement('section'); el.setAttribute('data-ft-house-slot', '');
+    const el = w.document.createElement('section'); el.setAttribute('data-house', '');
     const ins = w.document.createElement('ins'); ins.dataset.adSlot = '1234567890'; ins.dataset.adStatus = 'unfilled'; ins.style.minHeight = '220px';
     el.append(ins); w.document.body.append(el);
     await start();
