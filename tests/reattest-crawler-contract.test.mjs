@@ -103,8 +103,8 @@ test('workflow verifies current artifacts against the landed source revision', (
     workflow.indexOf('      - name: Open or update the reattestation PR'),
   );
 
-  assert.match(verifyStep, /verification_contract=\"\$RUNNER_TEMP\/crawler-contract-for-\$SOURCE_COMMIT\.json\"/u);
-  assert.match(verifyStep, /--path \"\$verification_contract\"/u);
-  assert.match(verifyStep, /--source-commit \"\$SOURCE_COMMIT\"/u);
-  assert.match(verifyStep, /verify-crawler-contract-provenance\.mjs \\\n\s+--contract \"\$verification_contract\"/u);
+  assert.match(verifyStep, /verification_contract="\$RUNNER_TEMP\/crawler-contract-for-\$SOURCE_COMMIT\.json"/u);
+  assert.match(verifyStep, /--path "\$verification_contract"/u);
+  assert.match(verifyStep, /--source-commit "\$SOURCE_COMMIT"/u);
+  assert.match(verifyStep, /verify-crawler-contract-provenance\.mjs \\\n\s+--contract "\$verification_contract"/u);
 });
