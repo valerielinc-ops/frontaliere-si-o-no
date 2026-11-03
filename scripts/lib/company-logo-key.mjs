@@ -28,6 +28,9 @@ const GLOBAL_SANA_LOGO_KEY = 'global-sana';
 const GLOBAL_SANA_NAME_KEY = 'global-sana';
 const GLOBAL_SANA_SOURCE_HOST = 'ch.talent.com';
 const GLOBAL_SANA_EMPLOYER_HOST = 'globalsana.ch';
+const ZAUGG_LEGACY_KEY = 'zaugg-ag';
+const ZAUGG_LOGO_KEY = 'zaugg';
+const ZAUGG_EMPLOYER_HOST = 'zaugg.swiss';
 
 function normalizedHost(value = '') {
   const raw = String(value || '').trim();
@@ -43,6 +46,11 @@ function normalizedHost(value = '') {
 function isGlobalSanaSourceHost(value = '') {
   const host = normalizedHost(value);
   return host === GLOBAL_SANA_SOURCE_HOST || host.endsWith(`.${GLOBAL_SANA_SOURCE_HOST}`);
+}
+
+function isZauggEmployerHost(value = '') {
+  const host = normalizedHost(value);
+  return host === ZAUGG_EMPLOYER_HOST || host.endsWith(`.${ZAUGG_EMPLOYER_HOST}`);
 }
 
 /**
@@ -62,6 +70,22 @@ function isGlobalSanaLogoContext(job = {}) {
   return isGlobalSanaSourceHost(job?.url);
 }
 
+/**
+ * `zaugg-ag` is a historical crawler identity, not a second employer. Fold it
+ * only when the record independently proves the ZAUGG AG source: exact
+ * employer name, the verified employer domain, and an official vacancy URL.
+ * A name or key substring alone is deliberately insufficient because other
+ * Zaugg companies publish jobs in the same inventory.
+ */
+function isZauggLegacyLogoContext(job = {}) {
+  if (String(job?.companyKey || '').trim().toLowerCase() !== ZAUGG_LEGACY_KEY) return false;
+  if (companyLogoKeyFromEmployer(job?.company || job?.employer || '') !== ZAUGG_LEGACY_KEY) {
+    return false;
+  }
+  if (normalizedHost(job?.companyDomain) !== ZAUGG_EMPLOYER_HOST) return false;
+  return isZauggEmployerHost(job?.url);
+}
+
 export function companyLogoKeyFromEmployer(employer = '') {
   return slugify(employer);
 }
@@ -79,6 +103,7 @@ export function companyLogoKeyForJob(job = {}) {
   }
 
   if (isGlobalSanaLogoContext(job)) return GLOBAL_SANA_LOGO_KEY;
+  if (isZauggLegacyLogoContext(job)) return ZAUGG_LOGO_KEY;
 
   const explicit = String(job?.companyLogoKey || '').trim();
   const sharedSource = EMPLOYER_SCOPED_LOGO_SOURCE_KEYS.includes(normalizedCompanyKey);
