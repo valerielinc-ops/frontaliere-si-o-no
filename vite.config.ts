@@ -226,9 +226,9 @@ export default defineConfig(({ mode }) => {
  // sources, so a new cross-plugin `await` is checked here automatically.
  employerProfilePagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
- // Per-job OG images (1200×630) for FB/LinkedIn previews. Reads
- // data/jobs.json + company-logos-manifest, writes dist/og/jobs/<slug>.png.
- // Idempotent: existing PNGs are re-used. ~1-2 min to render 2100 jobs.
+ // Per-job OG images (1080×1350 WebP) for FB/LinkedIn previews. Reads
+ // data/jobs.json, writes dist/og/jobs/<slug>.webp, and includes a neutral
+ // archived-listing card for historical URLs.
  ...(process.env.SKIP_JOB_OG_IMAGES !== '1' ? [jobOgImagesPlugin()] : []),
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),

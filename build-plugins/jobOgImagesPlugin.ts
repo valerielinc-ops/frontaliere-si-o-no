@@ -30,7 +30,11 @@ import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
-import { JOB_OG_IMAGE_VERSION, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
+import {
+  ARCHIVED_JOB_OG_IMAGE_VERSION,
+  JOB_OG_IMAGE_VERSION,
+  versionedJobOgImageUrl,
+} from './shared/jobOgImageVersion.mjs';
 
 const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
@@ -185,6 +189,9 @@ function readJobPhotoSources(rootDir: string): JobPhotoSources | null {
       if (!existsSync(file)) return null;
       specificPhotoPaths[key] = file;
     }
+    const archivePhoto = path.join(photoDir, 'archive-neutral.jpg');
+    if (!existsSync(archivePhoto)) return null;
+    specificPhotoPaths['archive-neutral'] = archivePhoto;
     return { fallbackDataUrls, specificPhotoPaths };
   } catch {
     return null;
@@ -255,11 +262,14 @@ function truncateText(s: string, maxChars: number): string {
 
 interface CardModel {
   title: string;
+  subtitle?: string;
   company: string | null;
   city: string | null;
   salary: string | null;
   employmentLabel: string | null;
   photoKey: JobPhotoKey;
+  ctaLabel?: string;
+  ctaSite?: string;
 }
 
 function buildCardJsx(model: CardModel): unknown {
@@ -404,6 +414,21 @@ function buildCardJsx(model: CardModel): unknown {
                         children: model.title,
                       },
                     },
+                    model.subtitle
+                      ? {
+                          type: 'div',
+                          props: {
+                            style: {
+                              fontSize: 32,
+                              lineHeight: 1.2,
+                              fontWeight: 600,
+                              color: TEXT_MUTED,
+                              marginTop: 20,
+                            },
+                            children: model.subtitle,
+                          },
+                        }
+                      : null,
                     model.company
                       ? {
                           type: 'div',
@@ -460,7 +485,7 @@ function buildCardJsx(model: CardModel): unknown {
                           letterSpacing: 1.2,
                           color: TEXT_PRIMARY,
                         },
-                        children: 'CANDIDATI SU',
+                        children: model.ctaLabel ?? 'CANDIDATI SU',
                       },
                     },
                     {
@@ -473,7 +498,7 @@ function buildCardJsx(model: CardModel): unknown {
                           color: TEXT_PRIMARY,
                           marginTop: 7,
                         },
-                        children: 'frontaliereticino.ch',
+                        children: model.ctaSite ?? 'frontaliereticino.ch',
                       },
                     },
                   ],
@@ -656,6 +681,41 @@ export default function jobOgImagesPlugin(): Plugin {
         });
       }
 
+      const archivedOutPath = path.join(rootDir, outDir, OUT_SUBDIR, 'archive-landing-card.webp');
+      const archivedCachePath = path.join(
+        cacheRoot,
+        `archive-landing-card.archive-neutral.${ARCHIVED_JOB_OG_IMAGE_VERSION}.webp`,
+      );
+      let archiveCardCached = false;
+      if (existsSync(archivedCachePath)) {
+        try {
+          mkdirSync(path.dirname(archivedOutPath), { recursive: true });
+          copyFileSync(archivedCachePath, archivedOutPath);
+          stats.cached += 1;
+          archiveCardCached = true;
+        } catch {
+          /* fall through to enqueue for render */
+        }
+      }
+      if (!archiveCardCached) {
+        renderQueue.push({
+          jobId: 'archive-landing-card',
+          slug: 'archive-landing-card',
+          outPath: archivedOutPath,
+          cachePath: archivedCachePath,
+          tree: buildCardJsx({
+            title: 'ANNUNCIO ARCHIVIATO',
+            subtitle: 'Questa posizione non è più disponibile.',
+            company: null,
+            city: null,
+            salary: null,
+            employmentLabel: null,
+            photoKey: 'archive-neutral',
+            ctaLabel: 'CERCA OFFERTE ATTIVE',
+          }),
+        });
+      }
+
       // ── Pass 2: render the queue across a worker pool ─────────
       if (renderQueue.length > 0) {
         const workerCount = Math.max(
@@ -670,7 +730,7 @@ export default function jobOgImagesPlugin(): Plugin {
         );
         // eslint-disable-next-line no-console
         console.log(
-          `[job-og-images] rendering ${renderQueue.length} cards across ${workerCount} workers (cache hits: ${stats.cached}/${jobs.length})`,
+          `[job-og-images] rendering ${renderQueue.length} cards across ${workerCount} workers (cache hits: ${stats.cached}/${jobs.length + 1})`,
         );
 
         // Resolve worker URL relative to this file, so the build path
@@ -777,12 +837,15 @@ export default function jobOgImagesPlugin(): Plugin {
       // which both wastes the GitHub Actions cache budget and slows future
       // restores. Filenames are `<slug>.<photoKey>.<OG_RENDER_VERSION>.<ext>` so we drop
       // any entry whose suffix doesn't match the current version+extension.
-      const versionSuffix = `.${OG_RENDER_VERSION}.webp`;
+      const versionSuffixes = [
+        `.${OG_RENDER_VERSION}.webp`,
+        `.${ARCHIVED_JOB_OG_IMAGE_VERSION}.webp`,
+      ];
       let pruned = 0;
       let prunedBytes = 0;
       try {
         for (const entry of readdirSync(cacheRoot)) {
-          if (entry.endsWith(versionSuffix)) continue;
+          if (versionSuffixes.some((suffix) => entry.endsWith(suffix))) continue;
           if (!entry.endsWith('.png') && !entry.endsWith('.webp')) continue;
           const orphaned = path.join(cacheRoot, entry);
           try {
