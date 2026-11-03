@@ -21,6 +21,7 @@ describe('isBenignErrorMessage()', () => {
       'InvalidStateError: Object store cannot be found in the database',
       'Database deleted by request of the user',
       'TypeError: Load failed',
+      'TypeError: cancelled',
       '[exchangeRate.twelveDataFetch] Failed to fetch',
       // ── New buckets (2026-06-22 triage) ──
       'TypeError: Failed to fetch',

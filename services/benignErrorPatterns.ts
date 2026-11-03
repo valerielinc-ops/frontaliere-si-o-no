@@ -73,14 +73,15 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /Database deleted by request of the user/i,
 
   // ── Bare transport failures with no actionable source ──
-  // Three browsers emit the same "the fetch failed" signal under different
-  // wording for a network blip / CORS / cancelled XHR / offline / adblock,
+  // Four browser-specific spellings cover the same "fetch failed" signal for a
+  // network blip / CORS / cancelled XHR / offline / adblock,
   // none with a usable stack. Anchored so contextualized `[ctx] …` variants
   // (which DO carry a call site) still report.
-  //   Safari:  TypeError: Load failed
+  //   Safari:  TypeError: cancelled / TypeError: Load failed
   //   Chrome:  TypeError: Failed to fetch        ← 1689 events/3d, top bucket
   //   Firefox: TypeError: NetworkError when attempting to fetch resource.
   /^(?:TypeError: )?Load failed$/i,
+  /^(?:TypeError: )?cancelled$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
 

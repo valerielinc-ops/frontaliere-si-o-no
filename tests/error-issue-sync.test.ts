@@ -662,8 +662,18 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignAbortError!.source);
   });
 
-  it('mirrors the anchored bare-transport-failure patterns ("Failed to fetch" / "Load failed" / "NetworkError") from services/benignErrorPatterns.ts byte-for-byte (#4150)', () => {
-    // The three cross-browser bare transport-failure wordings must be denied
+  it('mirrors Safari\'s cancelled fetch pattern from services/benignErrorPatterns.ts byte-for-byte (#16808)', () => {
+    const benignCancelled = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
+      p.test('TypeError: cancelled'),
+    );
+    expect(benignCancelled).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignCancelled!.source);
+    expect(isIssueDenied('TypeError: cancelled')).toBe(true);
+    expect(isIssueDenied('[jobBoard.loadJobs] TypeError: cancelled')).toBe(false);
+  });
+
+  it('mirrors the anchored bare-transport-failure patterns ("Failed to fetch" / "Load failed" / "cancelled" / "NetworkError") from services/benignErrorPatterns.ts byte-for-byte (#4150, #16808)', () => {
+    // The four cross-browser bare transport-failure wordings must be denied
     // at issue-creation time (environmental noise — no actionable fix). Pattern
     // anchoring ensures contextualized and chunk-load variants stay issue-able.
     // Filter to the ANCHORED bare forms only (starts with `^(?:TypeError: )?`)
@@ -671,9 +681,9 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     // keywords but is a different deny-class.
     const transportPatterns = UNIVERSAL_BENIGN_PATTERNS.filter((p) => {
       if (!p.source.startsWith('^(?:TypeError: )?')) return false;
-      return p.test('Failed to fetch') || p.test('Load failed') || p.test('NetworkError when attempting to fetch resource.');
+      return p.test('Failed to fetch') || p.test('Load failed') || p.test('TypeError: cancelled') || p.test('NetworkError when attempting to fetch resource.');
     });
-    expect(transportPatterns).toHaveLength(3); // sanity: all three browser wordings covered
+    expect(transportPatterns).toHaveLength(4); // sanity: all four browser wordings covered
     const denySources = ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source);
     for (const tp of transportPatterns) {
       expect(denySources).toContain(tp.source);
