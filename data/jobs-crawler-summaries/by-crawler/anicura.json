@@ -1,7 +1,7 @@
 {
   "key": "anicura",
   "label": "anicura",
-  "generatedAt": "2026-11-02T21:39:50.257Z",
+  "generatedAt": "2026-11-03T09:51:52.371Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7510,
-  "avgDurationMs": 7510,
+  "durationMs": 7945,
+  "avgDurationMs": 7945,
   "durationHistory": [
-    7510
+    7945
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "anicura-e2d5759f8115",
-      "slug": "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch",
+      "slug": "cardiologo-veterinario-dipl-acvim-ecvim-ca-cardiologia-m-f-d-thun-anicura-thun",
       "company": "anicura",
       "companyKey": "anicura",
       "companyDomain": "jobs.anicura.ch",
@@ -34,7 +35,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851150-veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:39:39.912Z",
+      "crawledAt": "2026-11-03T09:51:41.555Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,25 +53,24 @@
       "postedDate": "2025-04-25T11:11:40+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.anicura.ch/jobs/5851150-veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-02T21:39:39.912Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:39:39.912Z",
+      "validThrough": "2026-12-03T09:51:41.555Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:39.912Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "anicura-b4541e354d3d",
-      "slug": "tierarzt-in-40-100-m-w-d-netstal-schubelbach-anicura-ch",
+      "slug": "veterinario-a-40-100-m-f-d-netstal-anicura-schubelbach",
       "company": "anicura",
       "companyKey": "anicura",
       "companyDomain": "jobs.anicura.ch",
@@ -80,7 +80,7 @@
       "url": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:39:39.911Z",
+      "crawledAt": "2026-11-03T09:51:41.554Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -98,25 +98,25 @@
       "postedDate": "2025-12-17T07:59:08+01:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-02T21:39:39.911Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:39:39.911Z",
+      "validThrough": "2026-12-03T09:51:41.554Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:39.911Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "anicura-3905a14c5b49",
-      "slug": "tierarzt-in-40-100-m-w-d-buttikon-schubelbach-anicura-ch",
+      "slug": "veterinario-a-40-100-m-f-d-buttikon-anicura-schubelbach",
       "company": "anicura",
       "companyKey": "anicura",
       "companyDomain": "jobs.anicura.ch",
@@ -126,7 +126,7 @@
       "url": "https://jobs.anicura.ch/jobs/6944000-tieraerzt-in-40-100-m-w-d-buttikon",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:39:39.910Z",
+      "crawledAt": "2026-11-03T09:51:41.553Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -145,23 +145,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.anicura.ch/jobs/6944000-tieraerzt-in-40-100-m-w-d-buttikon",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-02T21:39:39.910Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:39:39.910Z",
+      "validThrough": "2026-12-03T09:51:41.553Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:39.910Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -176,7 +175,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:39:39.909Z",
+      "crawledAt": "2026-11-03T09:51:41.552Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -199,7 +198,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:39:39.909Z",
+      "validThrough": "2026-12-03T09:51:41.552Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -210,5 +209,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }
