@@ -22,7 +22,7 @@ vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicat
 vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
 vi.mock('../functions/src/applicationConciergePaymentReminders.js', () => ({ paymentReminderUrl: (uid: string) => `https://example.test/unsubscribe/?uid=${uid}` }));
-const { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
+const { isFreshConciergeProposalRefreshRequest, queueConciergeMatchingRefresh, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
 const { buildConciergeRenewalEmail } = await import('../functions/src/applicationConciergeLifecycleEmails.js');
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -101,6 +101,21 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(ready.queuedRefreshes).toBe(1);
     expect(match).not.toHaveBeenCalled();
     expect(records.get('application_concierge_services/service').matchingVersionRefreshObservedAt).toBeUndefined();
+  });
+
+  it('coalesces event-driven matcher refreshes in the lifecycle sweep', async () => {
+    records.set('application_concierge_services/service', active({ matchingStatus: 'complete', matchingCompletedAt: now }));
+
+    expect(await queueConciergeMatchingRefresh({ db, serviceId: 'service', nowMs: now })).toBe(true);
+    expect(records.get('application_concierge_services/service')).toMatchObject({
+      matchingStatus: 'queued', matchingEventRefreshRequestedAt: new Date(now),
+    });
+
+    const queued = await sweep({ enqueueOnly: true });
+    expect(queued.queuedRefreshes).toBe(1);
+    expect(match).not.toHaveBeenCalled();
+    expect(records.get('application_concierge_services/service').matchingEventRefreshRequestedAt).toBeUndefined();
+    expect(records.get('application_concierge_services/service').proposalRefreshRequestId).toEqual(expect.any(String));
   });
 
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
