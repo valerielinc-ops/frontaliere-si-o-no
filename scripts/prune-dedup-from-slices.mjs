@@ -90,8 +90,11 @@ export function pruneDedupFromSlices(root = ROOT) {
   let assembled = null;
   try {
     assembled = readJsonFile(dataJobs);
+    assembled = Array.isArray(assembled) ? assembled : (Array.isArray(assembled?.jobs) ? assembled.jobs : null);
   } catch {
-    assembled = readJson(dataJobs, null);
+    // Preserve the existing fail-closed behavior when the aggregate is absent,
+    // malformed, or not a top-level job array.
+    assembled = null;
   }
   if (!Array.isArray(assembled)) {
     console.log('ℹ️  data/jobs.json not found or not an array — nothing to prune. Run assemble-jobs-dataset.mjs first.');

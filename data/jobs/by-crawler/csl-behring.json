@@ -1141,12 +1141,12 @@
     },
     {
       "id": "csl-behring-5ac270a9386f",
-      "slug": "senior-project-manager-tech-ops-csl-behring-ch",
+      "slug": "senior-project-manager-operazioni-tecniche-csl-behring-st-gallen",
       "slugByLocale": {
         "en": "senior-project-manager-tech-ops-csl-behring-ch",
-        "it": "senior-project-manager-tech-ops-csl-behring-ch",
+        "it": "senior-project-manager-operazioni-tecniche-csl-behring-st-gallen",
         "de": "senior-project-manager-tech-ops-csl-behring-ch",
-        "fr": "senior-project-manager-tech-ops-csl-behring-ch"
+        "fr": "gestionnaire-de-projet-principal-operations-techniques-csl-behring-st-gallen"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1210,7 +1210,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:59:52.256Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-16T23:01:29.387Z"
+      "firstSeenAt": "2026-07-16T23:01:29.387Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-tech-ops-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-project-manager-tech-ops-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-tech-ops-csl-behring-ch"
+      ]
     }
   ]
 }

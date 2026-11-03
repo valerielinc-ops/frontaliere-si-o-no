@@ -3630,12 +3630,12 @@
     },
     {
       "id": "css-versicherung-bba851f2189d",
-      "slug": "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne",
+      "slug": "testa-fe-squadra-verifica-dei-benefici-alternative-css-versicherung-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne",
-        "it": "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne",
-        "en": "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne",
-        "de": "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne"
+        "it": "testa-fe-squadra-verifica-dei-benefici-alternative-css-versicherung-lausanne",
+        "en": "head-fe-team-verification-of-benefits-alternatives-css-versicherung-lausanne",
+        "de": "head-fe-team-uberprufung-der-leistungen-alternativen-css-versicherung-lausanne"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3697,7 +3697,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:30:44.513Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:30:44.513Z"
+      "firstSeenAt": "2026-11-02T21:30:44.513Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-team-verification-de-prestations-alternatives-css-versicherung-lausanne"
+      ]
     }
   ]
 }

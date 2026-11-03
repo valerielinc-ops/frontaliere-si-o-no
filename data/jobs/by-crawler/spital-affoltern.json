@@ -720,12 +720,12 @@
     },
     {
       "id": "spital-affoltern-89af686c9cc4",
-      "slug": "dipl-fachperson-hf-per-medizinisch-technische-radiologie-spital-affoltern-ag-affoltern-am-albis",
+      "slug": "persona-specializzata-diplomata-sss-in-radiologia-medico-tecnica-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am",
-        "it": "dipl-fachperson-hf-per-medizinisch-technische-radiologie-spital-affoltern-ag-affoltern-am-albis",
-        "en": "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am",
-        "fr": "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am"
+        "it": "persona-specializzata-diplomata-sss-in-radiologia-medico-tecnica-spital-affoltern-ag-affoltern-am-albis",
+        "en": "dipl-professional-hf-for-medical-technical-radiology-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "dipl-hf-professionnel-pour-la-radiologie-medicale-technique-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -773,11 +773,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am",
+          "dipl-fachperson-hf-per-medizinisch-technische-radiologie-spital-affoltern-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am"
+        ],
+        "fr": [
           "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am"
         ]
       },
       "previousSlugs": [
-        "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am"
+        "dipl-fachperson-hf-fur-medizinisch-technische-radiologie-spital-affoltern-affoltern-am",
+        "dipl-fachperson-hf-per-medizinisch-technische-radiologie-spital-affoltern-ag-affoltern-am-albis"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

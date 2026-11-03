@@ -1285,12 +1285,12 @@
     },
     {
       "id": "klinik-sonnenhalde-b816975895c8",
-      "slug": "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen",
+      "slug": "caregiver-hf-fh-tk-fear-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen",
-        "it": "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen",
+        "it": "caregiver-hf-fh-tk-fear-klinik-sonnenhalde-riehen",
         "en": "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen",
-        "fr": "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen"
+        "fr": "aide-hf-fh-peur-des-savoirs-traditionnels-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1353,7 +1353,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:56:14.122Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:56:14.122Z"
+      "firstSeenAt": "2026-11-02T21:56:14.122Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-tk-angst-klinik-sonnenhalde-riehen"
+      ]
     },
     {
       "id": "klinik-sonnenhalde-f966edca4084",

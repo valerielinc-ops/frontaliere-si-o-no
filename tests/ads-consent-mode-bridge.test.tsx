@@ -16,7 +16,7 @@
  *
  *  2. that the decision is REVOCABLE. The banner renders `null` once a decision
  *     exists, so after the first answer the privacy page is the only surface
- *     left; if it stops offering the two buttons, consent becomes permanent and
+ *     left; if it stops offering revocation, consent becomes permanent and
  *     nobody notices, because everything else stays green.
  *
  * `analytics_storage` is asserted to stay `granted` on purpose. That is the
@@ -54,6 +54,13 @@ type ConsentCall = [string, string, Record<string, string>];
 
 /** Every `gtag('consent', …)` call, in order. */
 let consentCalls: ConsentCall[] = [];
+const consentWindow = window as Window & {
+  __ftAdsConsentDecision?: string;
+  googlefc?: {
+    showRevocationMessage?: () => void;
+    callbackQueue?: Array<{ CONSENT_DATA_READY: () => void }>;
+  };
+};
 
 function installGtagSpy(): void {
   consentCalls = [];
@@ -67,12 +74,16 @@ const lastConsentCall = (): ConsentCall => consentCalls[consentCalls.length - 1]
 beforeEach(() => {
   vi.resetModules();
   localStorage.clear();
+  delete consentWindow.__ftAdsConsentDecision;
+  delete consentWindow.googlefc;
   installGtagSpy();
 });
 
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  delete consentWindow.__ftAdsConsentDecision;
+  delete consentWindow.googlefc;
   delete (window as unknown as { gtag?: unknown }).gtag;
   delete (window as unknown as { dataLayer?: unknown }).dataLayer;
 });
@@ -181,7 +192,7 @@ describe('privacy page — the consent stays revocable', () => {
     await renderControls();
 
     expect(screen.getByTestId('ads-consent-status').textContent).toContain('nessuna decisione registrata');
-    expect(screen.getByRole('button', { name: 'Attiva gli annunci' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Apri le preferenze di Google' })).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Disattiva gli annunci' })).toBeTruthy();
   });
 
@@ -192,15 +203,59 @@ describe('privacy page — the consent stays revocable', () => {
     expect(screen.getByTestId('ads-consent-status').textContent).toContain('consenso concesso');
   });
 
-  it('grants on click, and stores what the script gate reads', async () => {
+  it.each([null, ADS_CONSENT_DENIED])('opens Google without granting before its answer (previous: %s)', async (previous) => {
+    if (previous) localStorage.setItem(ADS_CONSENT_STORAGE_KEY, previous);
+    const { setDefaultConsent } = await importConsentService();
+    setDefaultConsent();
+    const showRevocationMessage = vi.fn();
+    consentWindow.googlefc = { showRevocationMessage };
     await renderControls();
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: 'Attiva gli annunci' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Apri le preferenze di Google' }));
     });
 
-    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_GRANTED);
-    expect(screen.getByTestId('ads-consent-status').textContent).toContain('consenso concesso');
+    expect(showRevocationMessage).toHaveBeenCalledTimes(1);
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(previous);
+    const { getAdsConsent } = await import('@/services/adsConsent');
+    expect(getAdsConsent()).toBe(previous);
+    expect(lastConsentCall()[2]).toMatchObject({
+      ad_storage: 'denied', ad_personalization: 'denied', ad_user_data: 'denied',
+    });
+  });
+
+  it.each([null, ADS_CONSENT_DENIED])('keeps the decision when Google is unavailable or arrives late (previous: %s)', async (previous) => {
+    if (previous) localStorage.setItem(ADS_CONSENT_STORAGE_KEY, previous);
+    const { setDefaultConsent } = await importConsentService();
+    setDefaultConsent();
+    await renderControls();
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Apri le preferenze di Google' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Apri le preferenze di Google' }));
+    });
+    const { getAdsConsent } = await import('@/services/adsConsent');
+    expect(getAdsConsent()).toBe(previous);
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(previous);
+    expect(consentWindow.googlefc?.callbackQueue).toHaveLength(1);
+    const showRevocationMessage = vi.fn();
+    consentWindow.googlefc!.showRevocationMessage = showRevocationMessage;
+    act(() => consentWindow.googlefc!.callbackQueue![0].CONSENT_DATA_READY());
+    expect(showRevocationMessage).toHaveBeenCalledTimes(1);
+    expect(getAdsConsent()).toBe(previous);
+    expect(lastConsentCall()[2]).toMatchObject({
+      ad_storage: 'denied', ad_personalization: 'denied', ad_user_data: 'denied',
+    });
+  });
+
+  it('keeps the decision if opening Google throws', async () => {
+    consentWindow.googlefc = { showRevocationMessage: () => { throw new Error('CMP unavailable'); } };
+    await renderControls();
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Apri le preferenze di Google' }));
+    });
+    const { getAdsConsent } = await import('@/services/adsConsent');
+    expect(getAdsConsent()).toBeNull();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
   });
 
   it('REVOKES on click — the case the banner cannot serve at all', async () => {

@@ -4043,8 +4043,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-20",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-am-wochenende-e-feiertage-m-w-d-20-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-20",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-20"
+        "en": "employee-housekeeping-stations-on-weekends-and-public-holidays-m-f-d-20-universitatsklinik-balgrist-zurich",
+        "fr": "stations-d-entretien-des-employes-les-week-ends-et-jours-feries-h-f-d-20-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4094,6 +4094,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-20"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-20"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-20"
         ]
       },
       "previousSlugs": [
@@ -4123,8 +4129,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-auf-abruf-m-w-d-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich"
+        "en": "employee-housekeeping-on-demand-m-f-d-universitatsklinik-balgrist-zurich",
+        "fr": "personnel-de-menage-sur-demande-h-f-d-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4174,6 +4180,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich"
         ]
       },
       "previousSlugs": [
@@ -4203,8 +4215,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-40",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-am-wochenende-e-feiertage-m-w-d-40-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-40",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-40"
+        "en": "employee-housekeeping-stations-on-weekends-and-public-holidays-m-f-d-40-universitatsklinik-balgrist-zurich",
+        "fr": "stations-d-entretien-des-employes-les-week-ends-et-jours-feries-h-f-d-40-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4254,6 +4266,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-40"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-40"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-am-wochenende-und-feiertage-w-m-d-40"
         ]
       },
       "previousSlugs": [
@@ -4279,12 +4297,12 @@
     },
     {
       "id": "balgrist-0c73bee0313e",
-      "slug": "platform-operator-w-m-d-40-60-balgrist-zurich",
+      "slug": "platform-operatore-w-m-d-40-60-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "platform-operator-w-m-d-40-60-balgrist-zurich",
-        "it": "platform-operator-w-m-d-40-60-balgrist-zurich",
+        "it": "platform-operatore-w-m-d-40-60-universitatsklinik-balgrist-zurich",
         "en": "platform-operator-w-m-d-40-60-balgrist-zurich",
-        "fr": "platform-operator-w-m-d-40-60-balgrist-zurich"
+        "fr": "platform-operateur-w-m-d-40-60-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4346,7 +4364,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:54:19.951Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:54:19.951Z"
+      "firstSeenAt": "2026-11-02T21:54:19.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-operator-w-m-d-40-60-balgrist-zurich"
+        ],
+        "fr": [
+          "platform-operator-w-m-d-40-60-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "platform-operator-w-m-d-40-60-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-78ccd1a5552a",

@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "otis-80a35a1e9ae7",
-      "slug": "groupe-leader-service-otis-romanel-sur-lausanne",
+      "slug": "gruppo-di-servizi-leader-otis-sa-romanel-sur-lausanne",
       "slugByLocale": {
         "fr": "groupe-leader-service-otis-romanel-sur-lausanne",
-        "it": "groupe-leader-service-otis-romanel-sur-lausanne",
+        "it": "gruppo-di-servizi-leader-otis-sa-romanel-sur-lausanne",
         "en": "groupe-leader-service-otis-romanel-sur-lausanne",
         "de": "groupe-leader-service-otis-romanel-sur-lausanne"
       },
@@ -69,7 +69,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:56:44.853Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:56:44.853Z"
+      "firstSeenAt": "2026-11-02T21:56:44.853Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "groupe-leader-service-otis-romanel-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "groupe-leader-service-otis-romanel-sur-lausanne"
+      ]
     },
     {
       "id": "otis-3135d3e132a7",
@@ -461,8 +469,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-betrieb-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -504,8 +512,8 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "aufzugsreparateur-in-betrieb-m-w-d-otis-sa-belp",
+        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -513,11 +521,11 @@
         ],
         "de": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "aufzugsreparateur-in-betrieb-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:43.487Z",

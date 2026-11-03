@@ -193,7 +193,7 @@
       "id": "stadtspital-zuerich-53d18d59894f",
       "slug": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -245,14 +245,12 @@
       "referenceNumber": "51306",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -3737,7 +3735,7 @@
       "id": "stadtspital-zuerich-5a2b061390bf",
       "slug": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -3789,14 +3787,12 @@
       "referenceNumber": "50310",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -7687,12 +7683,12 @@
     },
     {
       "id": "stadtspital-zuerich-93ae1427891f",
-      "slug": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
+      "slug": "tirocinante-in-segreteria-medica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-arztsekretariat-stadtspital-zuerich-52150",
-        "it": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
-        "en": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
-        "fr": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        "it": "tirocinante-in-segreteria-medica-stadtspital-zurich-zurich",
+        "en": "medical-secretary-intern-stadtspital-zurich-zurich",
+        "fr": "stagiaire-en-secretariat-medical-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7744,11 +7740,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-arztsekretariat-stadtspital-zuerich-52150"
+          "praktikant-in-arztsekretariat-stadtspital-zuerich-52150",
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-arztsekretariat-stadtspital-zuerich-52150"
+        "praktikant-in-arztsekretariat-stadtspital-zuerich-52150",
+        "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -7960,12 +7964,12 @@
     },
     {
       "id": "stadtspital-zuerich-36b99feb5666",
-      "slug": "arztsekretar-in-institut-per-notfallmedizin-stadtspital-zurich",
+      "slug": "segretario-a-medico-a-istituto-di-medicina-d-urgenza-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144",
-        "it": "arztsekretar-in-institut-per-notfallmedizin-stadtspital-zurich",
-        "en": "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144",
-        "fr": "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144"
+        "it": "segretario-a-medico-a-istituto-di-medicina-d-urgenza-stadtspital-zurich-zurich",
+        "en": "medical-secretary-institute-of-emergency-medicine-stadtspital-zurich-zurich",
+        "fr": "secretaire-medical-e-institut-de-medecine-d-urgence-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8017,11 +8021,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144",
+          "arztsekretar-in-institut-per-notfallmedizin-stadtspital-zurich"
+        ],
+        "en": [
+          "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144"
+        ],
+        "fr": [
           "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144"
+        "arztsekretar-in-institut-fur-notfallmedizin-stadtspital-zuerich-52144",
+        "arztsekretar-in-institut-per-notfallmedizin-stadtspital-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -8043,12 +8055,12 @@
     },
     {
       "id": "stadtspital-zuerich-6a5cde0ed152",
-      "slug": "praktikant-in-it-entwicklung-stadtspital-zuerich-52147",
+      "slug": "stagista-nello-sviluppo-it-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-it-entwicklung-stadtspital-zuerich-52147",
-        "it": "praktikant-in-it-entwicklung-stadtspital-zuerich-52147",
-        "en": "praktikant-in-it-entwicklung-stadtspital-zuerich-52147",
-        "fr": "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
+        "it": "stagista-nello-sviluppo-it-stadtspital-zurich-zurich",
+        "en": "it-development-intern-stadtspital-zurich-zurich",
+        "fr": "stagiaire-en-developpement-informatique-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8114,16 +8126,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:56:50.204Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:56:50.204Z"
+      "firstSeenAt": "2026-11-02T21:56:50.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
+        ],
+        "en": [
+          "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
+        ],
+        "fr": [
+          "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
+      ]
     },
     {
       "id": "stadtspital-zuerich-72a0deb761fa",
-      "slug": "praktikant-in-it-management-e-organisation-stadtspital-zurich",
+      "slug": "tirocinante-in-gestione-it-e-organizzazione-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146",
-        "it": "praktikant-in-it-management-e-organisation-stadtspital-zurich",
-        "en": "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146",
-        "fr": "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
+        "it": "tirocinante-in-gestione-it-e-organizzazione-stadtspital-zurich-zurich",
+        "en": "it-management-and-organization-intern-stadtspital-zurich-zurich",
+        "fr": "stagiaire-en-gestion-et-organisation-informatiques-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8175,11 +8201,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146",
+          "praktikant-in-it-management-e-organisation-stadtspital-zurich"
+        ],
+        "en": [
+          "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
+        ],
+        "fr": [
           "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
+        "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146",
+        "praktikant-in-it-management-e-organisation-stadtspital-zurich"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,

@@ -48,6 +48,7 @@ import {
 import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { readJsonArrayFile } from './lib/streaming-json-array.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -80,6 +81,7 @@ const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
 const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
+let localeReportJobs = null;
 
 function readJson(filePath) {
   return readJsonFile(filePath);
@@ -708,11 +710,17 @@ async function main() {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
   }
+  readJsonArrayFile(PUBLIC_JOBS_PATH, { collect: false });
 
   // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
-  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH });
+  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH, includeJobs: true });
   if (localeHardening.changed) {
     console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs.`);
+  }
+  let dataJobs = localeHardening.jobs;
+  delete localeHardening.jobs;
+  if (!Array.isArray(dataJobs)) {
+    throw new Error('jobs.json must be an array');
   }
 
   // ── 0b. Enrich short descriptions (deploy-blocking safety net) ──────────
@@ -723,36 +731,22 @@ async function main() {
   // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
   // blocking predicate of validate:translation-completeness.
   {
-    const raw = readJson(DATA_JOBS_PATH);
-    const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
-    const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
-
-    if (jobsArr) {
-      const { jobs: repairedJobs, enriched } = repairShortDescriptions(jobsArr);
-      if (enriched > 0) {
-        const out = isWrapped ? { ...raw, jobs: repairedJobs } : repairedJobs;
-        writeJson(DATA_JOBS_PATH, out);
-        // Keep public copy in sync
-        if (fs.existsSync(PUBLIC_JOBS_PATH)) {
-          writeJson(PUBLIC_JOBS_PATH, out);
-        }
-        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
-      }
+    const { jobs: repairedJobs, enriched } = repairShortDescriptions(dataJobs);
+    dataJobs = repairedJobs;
+    if (enriched > 0) {
+      writeJson(DATA_JOBS_PATH, dataJobs);
+      // Keep public copy in sync without reading either large file back into a string.
+      writeJson(PUBLIC_JOBS_PATH, dataJobs);
+      console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
     }
   }
+  localeReportJobs = dataJobs;
 
   // Housekeeping must stay fast and deterministic: missing-locale translation
   // belongs to dedicated crawler localization or the explicit relocalize job,
   // not to the final cleanup pass that runs after every crawler.
   if (String(process.env.JOBS_HOUSEKEEPING_TRANSLATE_MISSING || '0') === '1') {
     console.log('ℹ️  Housekeeping locale translation explicitly enabled via JOBS_HOUSEKEEPING_TRANSLATE_MISSING=1');
-  }
-
-  const dataJobs = readJson(DATA_JOBS_PATH);
-  const publicJobs = readJson(PUBLIC_JOBS_PATH);
-
-  if (!Array.isArray(dataJobs) || !Array.isArray(publicJobs)) {
-    throw new Error('jobs.json must be an array');
   }
 
   // Use data/ as source of truth, but ensure public/ stays in sync.
@@ -917,16 +911,14 @@ async function main() {
   }
 
   const finalJobs = HOUSEKEEPING_SCOPE ? [...untouchedJobs, ...kept] : kept;
+  localeReportJobs = finalJobs;
 
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
-  writeCrossCrawlerDedupProofFile(
-    dedupProofEntries,
-    dedupProofEntries.length > 0
-      ? { candidatePath: DATA_JOBS_PATH }
-      : undefined,
-  );
+  writeCrossCrawlerDedupProofFile(dedupProofEntries, {
+    candidatePath: DATA_JOBS_PATH,
+  });
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
   const suspiciousFiles = [
@@ -952,20 +944,22 @@ main()
   .then(() => {
     // Dataset mode only, and after main() on EVERY exit path — including the
     // early return when nothing was removed, which skips the final writes.
-    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
-    // build) and name, per crawler, the records the dist gate
+    // Reuse the prepared in-memory dataset (the exact data/jobs.json content
+    // written by cleanup) and name, per crawler, the records the dist gate
     // validate:translation-completeness would block. Report only: no record
     // is removed and the exit code does not change (see the module header).
     if (!SLICE_FILE) {
       // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
-      const reparseStartedAt = performance.now();
+      const reportStartedAt = performance.now();
       try {
-        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, jobs: localeReportJobs, slicesDir: ACTIVE_SLICES_DIR });
       } finally {
         try {
           // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
           const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
-          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          const seconds = ((performance.now() - reportStartedAt) / 1000).toFixed(1);
+          // Keep the "reparse" telemetry token stable for the existing CI contract.
+          // This now measures the in-memory report path without rereading jobs.json.
           console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
         } catch {
           /* the probe must never change the outcome or the exit code */

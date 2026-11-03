@@ -308,6 +308,34 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
+  it('stores only bounded candidate-request telemetry for a newly revealed portal step', () => {
+    const step = transition(
+      { state: 'submitting', round: 1 },
+      {
+        type: 'submit_needs_candidate',
+        questions: [{ id: 'notice_period' }],
+        candidateRequestTelemetry: { round: 1, questionCount: 1, afterNewlyRevealedPortalFields: true },
+      },
+      { draft: cleanDraft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({
+      state: 'needs_candidate_action',
+      candidateRequestTelemetry: {
+        rounds: 1,
+        newlyRevealedRounds: 1,
+        lastRound: 1,
+        lastQuestionCount: 1,
+        lastAfterNewlyRevealedPortalFields: true,
+      },
+    });
+    const malformed = transition(
+      { state: 'submitting', round: 1 },
+      { type: 'submit_needs_candidate', questions: [{ id: 'notice_period' }], candidateRequestTelemetry: { round: 1, questionCount: 999, afterNewlyRevealedPortalFields: true } },
+      { draft: cleanDraft, nowMs: T0 },
+    );
+    expect(malformed.flow).not.toHaveProperty('candidateRequestTelemetry');
+  });
+
   it('hands an unidentifiable portal question to owner takeover', () => {
     const step = transition(
       { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },

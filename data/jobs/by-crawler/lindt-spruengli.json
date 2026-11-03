@@ -95,7 +95,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -153,7 +153,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -175,7 +175,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -1310,12 +1310,12 @@
     },
     {
       "id": "lindt-spruengli-198b18bbf6db",
-      "slug": "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt",
+      "slug": "consulente-del-cioccolato-lindt-40-60-collaboratore-trice-stagionale-lindt-sprungli-zermatt",
       "slugByLocale": {
         "de": "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt",
-        "it": "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt",
-        "en": "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt",
-        "fr": "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt"
+        "it": "consulente-del-cioccolato-lindt-40-60-collaboratore-trice-stagionale-lindt-sprungli-zermatt",
+        "en": "lindt-chocolate-advisor-40-60-season-assistance-lindt-sprungli-zermatt",
+        "fr": "lindt-conseiller-ere-en-chocolat-40-60-auxiliaire-saisonnier-ere-lindt-sprungli-zermatt"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1379,7 +1379,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:58:49.568Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:49.568Z"
+      "firstSeenAt": "2026-11-02T21:58:49.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt"
+        ],
+        "en": [
+          "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt"
+        ],
+        "fr": [
+          "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "lindt-chocolate-advisor-40-60-saisonaushilfe-lindt-spruengli-zermatt"
+      ]
     },
     {
       "id": "lindt-spruengli-7e58a0f310d0",
@@ -1388,7 +1402,7 @@
         "en": "internship-finance-controlling-6-months-100-lindt-spruengli-kilchberg",
         "it": "internship-finance-controlling-6-months-100-lindt-spruengli-kilchberg",
         "de": "internship-finance-controlling-6-months-100-lindt-spruengli-kilchberg",
-        "fr": "internship-finance-controlling-6-months-100-lindt-spruengli-kilchberg"
+        "fr": "stage-finance-et-controle-6-mois-100-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",

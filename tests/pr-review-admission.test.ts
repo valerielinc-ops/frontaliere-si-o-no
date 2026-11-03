@@ -420,6 +420,34 @@ Important: 0
 });
 
 describe('review gate uses the first HEAD verdict', () => {
+  it('passes the current review commit to the inner classifier', async () => {
+    let observedCommit = '';
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD,
+      reviews: [[
+        botReview(IMPORTANT, OLD_HEAD, '2026-09-18T04:04:10Z', { id: 26 }),
+        botReview(`${IMPORTANT}\n## LGTM`, HEAD, '2026-09-18T04:40:15Z', { id: 27 }),
+      ]],
+      classifyAndMintReviewFn: async (_body, options) => {
+        observedCommit = String(options.reviewCommit || '');
+        return {
+          findings: [],
+          outside: [],
+          inScope: [],
+          unresolved: [],
+          outsideOnly: false,
+          blocking: false,
+        };
+      },
+      mutate: false,
+    });
+
+    expect(observedCommit).toBe(HEAD);
+    expect(result.approved).toBe(true);
+  });
+
   it('does not let a later same-HEAD Important fail a current-HEAD LGTM', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',

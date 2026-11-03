@@ -273,12 +273,12 @@
     },
     {
       "id": "zermatt-bergbahnen-b23393b97885",
-      "slug": "apprendistato-seilbahnmechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt",
+      "slug": "posto-di-apprendistato-come-meccatronico-a-di-impianti-a-fune-afc-operatore-trice-di-impianti-a-fune-cfp-zermatt",
       "slugByLocale": {
         "de": "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
-        "it": "apprendistato-seilbahnmechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt",
-        "en": "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
-        "fr": "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
+        "it": "posto-di-apprendistato-come-meccatronico-a-di-impianti-a-fune-afc-operatore-trice-di-impianti-a-fune-cfp-zermatt",
+        "en": "apprenticeship-cable-car-mechatronics-technician-efz-cable-car-operator-eba-zermatt-bergbahnen-zermatt",
+        "fr": "place-d-apprentissage-de-mecatronicien-ne-de-remontees-mecaniques-cfc-employe-e-de-remontees-mecaniques-afp-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -321,11 +321,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
+          "apprendistato-seilbahnmechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
+        ],
+        "en": [
+          "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
+        ],
+        "fr": [
           "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
+        "lehrstelle-seilbahnmechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
+        "apprendistato-seilbahnmechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
       ],
       "salaryMin": 49000,
       "salaryMax": 74500,

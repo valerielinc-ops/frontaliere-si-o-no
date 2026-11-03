@@ -190,6 +190,12 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     expect(m, '_r2_sync <limit> "$stage/data" not found').toBeTruthy();
     expect(Number(m![1])).toBeGreaterThanOrEqual(1622);
   });
+
+  it('the og/ sync keeps a bounded budget for the observed slow R2 prefix', () => {
+    const source = read('scripts/lib/deploy-it-pages-prep.sh');
+    expect(source).toContain('_t_og="$(_r2_timeout_s R2_TIMEOUT_OG_S 900)"');
+    expect(source).toMatch(/^\s*_r2_sync "\$_t_og"\s+"\$stage\/og"\s+og\s+/m);
+  });
 });
 
 // ── behaviour: a call that never answers falls back, it does not hang ──────

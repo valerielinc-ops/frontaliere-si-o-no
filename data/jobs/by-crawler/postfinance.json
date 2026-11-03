@@ -1637,12 +1637,12 @@
         "en": "Head of Human Resources (m/f/d)",
         "fr": "Head Ressources Humaines (w/m/d)"
       },
-      "slug": "head-human-resources-w-m-d-postfinance",
+      "slug": "head-risorse-umane-w-m-d-postfinance-bern",
       "slugByLocale": {
         "de": "head-human-resources-w-m-d-postfinance",
-        "it": "head-human-resources-w-m-d-postfinance",
+        "it": "head-risorse-umane-w-m-d-postfinance-bern",
         "en": "head-human-resources-w-m-d-postfinance",
-        "fr": "head-human-resources-w-m-d-postfinance"
+        "fr": "head-ressources-humaines-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1686,7 +1686,18 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:40:34.902Z"
+      "firstSeenAt": "2026-11-02T21:40:34.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-human-resources-w-m-d-postfinance"
+        ],
+        "fr": [
+          "head-human-resources-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "head-human-resources-w-m-d-postfinance"
+      ]
     }
   ]
 }

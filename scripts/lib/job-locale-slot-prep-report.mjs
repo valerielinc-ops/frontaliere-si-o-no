@@ -192,6 +192,7 @@ export function formatStepSummary(groups, { total, stage }) {
  */
 export function reportBlockingLocaleSlots({
   dataJobsPath,
+  jobs: providedJobs,
   slicesDir,
   stage = 'cleanup-jobs',
   summaryPath = process.env.GITHUB_STEP_SUMMARY,
@@ -199,8 +200,12 @@ export function reportBlockingLocaleSlots({
 }) {
   try {
     if (!fs.existsSync(dataJobsPath)) return null;
-    const raw = readJsonFile(dataJobsPath);
-    const jobs = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
+    const jobs = Array.isArray(providedJobs)
+      ? providedJobs
+      : (() => {
+        const raw = readJsonFile(dataJobsPath);
+        return Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
+      })();
     if (!jobs) {
       log(`::warning title=${ANNOTATION_TITLE}::${escapeAnnotationData(`${path.basename(dataJobsPath)} is not a job array — locale slots not checked`)}`);
       return null;

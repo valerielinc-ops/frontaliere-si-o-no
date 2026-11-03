@@ -86,15 +86,12 @@ function sha256(raw) {
 }
 
 function sha256File(filePath) {
-  const fd = fs.openSync(filePath, 'r');
   const hash = createHash('sha256');
+  const fd = fs.openSync(filePath, 'r');
   const buffer = Buffer.allocUnsafe(1024 * 1024);
-  let position = 0;
   try {
-    while (true) {
-      const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, position);
-      if (bytesRead === 0) break;
-      position += bytesRead;
+    let bytesRead;
+    while ((bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0) {
       hash.update(buffer.subarray(0, bytesRead));
     }
   } finally {
@@ -103,6 +100,11 @@ function sha256File(filePath) {
   return hash.digest('hex');
 }
 
+function snapshotDigest({ candidateRaw, candidatePath }) {
+  if (typeof candidateRaw === 'string') return sha256(candidateRaw);
+  if (typeof candidatePath === 'string' && candidatePath) return sha256File(candidatePath);
+  return null;
+}
 function housekeepingProofTarget(slicePath, { proofDir, cwd = process.cwd() } = {}) {
   const absoluteSlicePath = path.resolve(cwd, slicePath);
   const relativePath = path.relative(cwd, absoluteSlicePath);
@@ -179,11 +181,12 @@ export function writeCrossCrawlerDedupProofFile(
   if (!Array.isArray(entries) || entries.length === 0) {
     return clearCrossCrawlerDedupProofFile({ proofDir, env });
   }
-  const candidateDigest = typeof candidateRaw === 'string'
-    ? sha256(candidateRaw)
-    : candidatePath
-      ? sha256File(candidatePath)
-      : null;
+  const hasCandidateRaw = typeof candidateRaw === 'string';
+  const hasCandidatePath = typeof candidatePath === 'string' && candidatePath.length > 0;
+  if (hasCandidateRaw === hasCandidatePath) {
+    throw new Error('provide exactly one of candidateRaw or candidatePath for the cross-crawler dedup proof');
+  }
+  const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
   if (!candidateDigest) {
     throw new Error('cannot write cross-crawler dedup proof without the final jobs.json snapshot');
   }
@@ -239,11 +242,7 @@ export function loadCrossCrawlerDedupProofFile(
   ) {
     throw new Error('invalid cross-crawler dedup proof');
   }
-  const candidateDigest = typeof candidateRaw === 'string'
-    ? sha256(candidateRaw)
-    : candidatePath
-      ? sha256File(candidatePath)
-      : null;
+  const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
   if (!candidateDigest || proof.candidateDigest !== candidateDigest) {
     throw new Error('stale cross-crawler dedup proof: candidate digest mismatch');
   }

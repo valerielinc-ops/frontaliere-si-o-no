@@ -6,7 +6,6 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_DENIED,
   getAdsConsent,
-  grantAdsConsent,
   denyAdsConsent,
   onAdsConsentChange,
   reopenAdsConsentMessage,
@@ -17,17 +16,13 @@ import {
 //
 // La raccolta del consenso e' del popup Google Funding Choices (TCF), l'unica
 // superficie dal rework CMP-single-surface; questo blocco resta la superficie
-// di revoca/modifica (GDPR art. 7.3, nLPD art. 6). ATTENZIONE alla fonte di
-// verita': la decisione vive nella TC string del CMP, e il bridge
-// (FC_CONSENT_BRIDGE_JS) la ri-scrive sul gate locale a OGNI pageload. Una
-// scrittura solo-locale qui verrebbe quindi sovrascritta alla navigazione
-// successiva: per questo i bottoni, oltre alla scrittura locale (effetto
-// immediato in questa sessione), riaprono il messaggio CMP con
-// `googlefc.showRevocationMessage()` cosi' la nuova risposta finisce nella TC
-// string. Se FC non e' caricato (adblock), resta la sola scrittura locale —
-// e senza FC non si servono comunque annunci. Dal 28-09 un rifiuto apre
-// comunque AdSense per gli annunci limitati (`isAdSenseAllowed` in
-// services/adsConsent.ts); Ad Manager e header bidding restano sul consenso.
+// di revoca/modifica. L'apertura del messaggio non e' un'accettazione: solo
+// la risposta al CMP, riportata da FC_CONSENT_BRIDGE_JS, puo' concedere il
+// consenso locale. Se Google e' bloccato o genera un errore, la scelta resta
+// invariata. La revoca esplicita puo' invece chiudere subito il gate locale
+// e riaprire Google per aggiornare anche le sue preferenze. Un rifiuto
+// mantiene gli annunci limitati di AdSense (`isAdSenseAllowed`); Ad Manager
+// e header bidding restano sul consenso.
 //
 // Le stringhe sono inline nelle quattro lingue e non nei file di locale: il
 // documento legale è localizzato separatamente; il visitatore de/en/fr ha ricevuto
@@ -49,52 +44,52 @@ type AdsControlsCopy = {
 const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
   it: {
     heading: 'Gestisci il consenso pubblicitario',
-    intro: 'Prima della tua scelta non viene caricato alcuno script pubblicitario. Se acconsenti, Google AdSense e Google Ad Manager possono mostrare annunci anche personalizzati; se rifiuti, solo Google AdSense mostra annunci limitati, senza personalizzazione e senza cookie pubblicitari. Puoi cambiare idea in qualsiasi momento da qui; la scelta e\' salvata in questo browser.',
+    intro: 'Le preferenze di Google ti consentono di scegliere come usare i tuoi dati per gli annunci. Puoi aprirle per modificare il consenso oppure revocarlo subito da qui.',
     statusLabel: 'Stato attuale',
     granted: 'consenso concesso — gli annunci sono attivi',
     denied: 'consenso rifiutato — solo annunci limitati di AdSense, senza personalizzazione né cookie pubblicitari',
     undecided: 'nessuna decisione registrata — nessuno script pubblicitario viene caricato',
     reading: 'lettura in corso…',
-    accept: 'Attiva gli annunci',
+    accept: 'Apri le preferenze di Google',
     decline: 'Disattiva gli annunci',
   },
   en: {
     heading: 'Manage your advertising consent',
-    intro: 'No advertising script is loaded before you choose. If you consent, Google AdSense and Google Ad Manager may show ads, including personalised ones; if you refuse, only Google AdSense shows limited ads, without personalisation or advertising cookies. You can change your mind at any time here; the choice is stored in this browser.',
+    intro: 'Use Google’s privacy preferences to choose how your data is used for advertising. Open them to change your consent, or withdraw consent immediately here.',
     statusLabel: 'Current status',
     granted: 'consent granted — ads are active',
     denied: 'consent refused — limited AdSense ads only, without personalisation or advertising cookies',
     undecided: 'no decision recorded — no advertising script is loaded',
     reading: 'reading…',
-    accept: 'Enable ads',
+    accept: 'Open Google privacy preferences',
     decline: 'Disable ads',
   },
   de: {
     heading: 'Werbe-Einwilligung verwalten',
-    intro: 'Vor Ihrer Entscheidung wird kein Werbeskript geladen. Wenn Sie einwilligen, können Google AdSense und Google Ad Manager auch personalisierte Werbung zeigen; wenn Sie ablehnen, zeigt nur Google AdSense eingeschränkte Werbung, ohne Personalisierung und ohne Werbe-Cookies. Sie können Ihre Entscheidung hier jederzeit ändern; sie wird in diesem Browser gespeichert.',
+    intro: 'In Googles Datenschutzeinstellungen können Sie wählen, wie Ihre Daten für Werbung verwendet werden. Öffnen Sie diese, um Ihre Einwilligung zu ändern, oder widerrufen Sie sie sofort hier.',
     statusLabel: 'Aktueller Status',
     granted: 'Einwilligung erteilt — Werbung ist aktiv',
     denied: 'Einwilligung verweigert — nur eingeschränkte AdSense-Werbung, ohne Personalisierung und Werbe-Cookies',
     undecided: 'keine Entscheidung gespeichert — es wird kein Werbeskript geladen',
     reading: 'wird gelesen…',
-    accept: 'Werbung aktivieren',
+    accept: 'Google-Datenschutzeinstellungen öffnen',
     decline: 'Werbung deaktivieren',
   },
   fr: {
     heading: 'Gérer votre consentement publicitaire',
-    intro: 'Aucun script publicitaire n\'est chargé avant votre choix. Si vous consentez, Google AdSense et Google Ad Manager peuvent afficher des annonces, y compris personnalisées ; si vous refusez, seul Google AdSense affiche des annonces limitées, sans personnalisation ni cookies publicitaires. Vous pouvez changer d\'avis à tout moment ici ; le choix est enregistré dans ce navigateur.',
+    intro: 'Les préférences de Google vous permettent de choisir comment vos données sont utilisées pour la publicité. Ouvrez-les pour modifier votre consentement, ou retirez-le immédiatement ici.',
     statusLabel: 'Statut actuel',
     granted: 'consentement accordé — les annonces sont actives',
     denied: 'consentement refusé — uniquement des annonces AdSense limitées, sans personnalisation ni cookies publicitaires',
     undecided: 'aucune décision enregistrée — aucun script publicitaire n\'est chargé',
     reading: 'lecture en cours…',
-    accept: 'Activer les publicités',
+    accept: 'Ouvrir les préférences de Google',
     decline: 'Désactiver les publicités',
   },
 };
 
 /**
- * Stato corrente del gate + i due bottoni che lo cambiano.
+ * Stato corrente del gate, apertura delle preferenze Google e revoca locale.
  *
  * La decisione si legge in un effect e non nel primo render: `getAdsConsent()`
  * tocca localStorage, che in prerender non esiste. Leggerla nel render iniziale
@@ -119,14 +114,8 @@ export const AdsConsentControls: React.FC = () => {
     return onAdsConsentChange(setDecision);
   }, []);
 
-  // Rende la scelta persistente lato CMP: senza questa riapertura la TC string
-  // resterebbe quella vecchia e il bridge la ri-applicherebbe al prossimo
-  // pageload, annullando il click (vedi il commento in testa al blocco).
-  // `reopenAdsConsentMessage` chiama FC direttamente quando e' gia' caricato
-  // e accoda la chiamata finche' non lo e' (dettagli in services/adsConsent.ts):
-  // la sola coda non riapriva nulla dopo il caricamento di FC. Se FC non
-  // arriva mai (adblock) non succede nulla, e per la stessa ragione il bridge
-  // non potra' mai sovrascrivere la scrittura locale qui sotto.
+  // Il click apre il CMP e non concede alcun consenso. Se FC arriva tardi,
+  // l'helper accoda una sola apertura; se non arriva, lo stato non cambia.
   const reopenCmp = React.useCallback(() => {
     reopenAdsConsentMessage();
   }, []);
@@ -150,8 +139,7 @@ export const AdsConsentControls: React.FC = () => {
       <div className="flex flex-wrap gap-2 mt-3">
         <button
           type="button"
-          onClick={() => { grantAdsConsent(); reopenCmp(); }}
-          aria-pressed={read && decision === ADS_CONSENT_GRANTED}
+          onClick={reopenCmp}
           className="min-h-[44px] rounded-lg bg-accent px-4 text-sm font-semibold text-white"
         >
           {copy.accept}

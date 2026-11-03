@@ -621,26 +621,59 @@ const GENERIC_ATTACHMENT_RE = /(?:eine oder mehrere dateien auswählen|select (?
 const APPLICATION_CONTROL_RE = /(?:application|bewerb(?:ung)?|candidat(?:ure|ura)?|postul|resume|r[ée]sum[ée]|lebenslauf|\bcv\b|curriculum(?:\s+vitae)?|anschreiben|cover\s+letter|work\s+permit|salary|starting\s+date|notice\s+period|workload|motivation)/iu;
 
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
-const samePortalFrame = (left, right) => (left?.frame || 0) === (right?.frame || 0);
-const samePortalForm = (button, field) => String(button?.formId || '')
-  && String(button.formId) === String(field?.formId || '')
-  && samePortalFrame(button, field);
+const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
+  || isGalleryPagingButton(button, GALLERY_NEXT_RE);
+const isGalleryToolButton = (button) => !button?.chrome
+  && (GALLERY_VIEW_RE.test(String(button.text || '')) || GALLERY_PRINT_RE.test(String(button.text || '')));
+const portalControlScope = (control) => `${control?.frame || 0}\u0000${String(control?.formId || '')}`;
+const portalControlIdentity = (control) => {
+  const controlId = String(control?.id || control?.domId || '').trim();
+  // Real snapshots carry the generated data-aa-id. Minimal contract fixtures
+  // may omit it; retaining the record itself keeps those exact objects
+  // distinguishable without inventing an array-position fallback.
+  return controlId ? `${portalControlScope(control)}\u0000${controlId}` : control;
+};
 const isGenericOptionalAttachment = (field) => isFileField(field)
   && field.required !== true
   && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
+
+const controlOwnershipText = (button) => [
+  button?.text,
+  button?.id,
+  button?.domId,
+  button?.name,
+  button?.label,
+  button?.title,
+  button?.ariaLabel,
+  button?.dataAutomationId,
+  button?.section,
+  button?.context,
+  button?.fileContext,
+].filter(Boolean).join(' ');
+const isApplicationControl = (button) => APPLICATION_CONTROL_RE.test(controlOwnershipText(button));
+const galleryToolScopes = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlScope));
+
+function galleryNavigationButtons(buttons) {
+  const galleryTools = galleryToolScopes(buttons);
+  return new Set(buttons.filter((button) => isGalleryNavigationButton(button)
+    && !isApplicationControl(button)
+    && galleryTools.has(portalControlScope(button))).map(portalControlIdentity));
+}
 
 /**
  * Stadt Zürich's public content pages expose a gallery with «Vorheriges» /
  * «Nächstes», full-size-image and print controls. A generic optional upload
  * field is also present, so labels alone make the gallery look like a wizard.
- * Keep a real application step when its control owns the form or its fields
- * carry application vocabulary; otherwise fail closed before clicking it.
+ * Keep a real application step when its control is distinct from the
+ * gallery-owned records or its fields carry application vocabulary; otherwise
+ * fail closed before clicking it.
  */
 function isNonApplicationGallerySurface(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
-  const hasPaging = buttons.some((button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE))
-    || buttons.some((button) => isGalleryPagingButton(button, GALLERY_NEXT_RE));
+  const galleryTools = galleryToolScopes(buttons);
+  const galleryButtons = galleryNavigationButtons(buttons);
+  const hasPaging = galleryButtons.size > 0;
   const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
     && buttons.some((button) => !button?.chrome && GALLERY_PRINT_RE.test(String(button.text || '')));
   if (!hasPaging || !hasGalleryTools) return false;
@@ -649,13 +682,17 @@ function isNonApplicationGallerySurface(snapshot = {}) {
   const hasApplicationField = APPLICATION_CONTROL_RE.test(fieldText)
     || fields.some((field) => isCvFileField(field) || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(String(field.label || '')));
   const hasApplicationControl = buttons.some((button) => {
-    if (button?.chrome || button?.disabled) return false;
+    // A public gallery may wrap its pager and generic optional attachment in
+    // one HTML form. The shared form id is not application ownership when the
+    // control itself is the gallery's «Vorheriges»/«Nächstes» navigation.
+    if (button?.chrome || button?.disabled || galleryButtons.has(portalControlIdentity(button))) return false;
+    if (galleryTools.has(portalControlScope(button)) && !isApplicationControl(button)) return false;
     const text = String(button.text || '');
     if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
-    return fields.some((field) => samePortalForm(button, field));
+    return true;
   }) || buttons.some((button) => !button?.chrome
     && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || '')))
-    && APPLICATION_CONTROL_RE.test(String(button.text || '')));
+    && isApplicationControl(button));
   if (hasApplicationField || hasApplicationControl) return false;
   return fields.length === 0 || fields.every(isGenericOptionalAttachment);
 }
@@ -1756,6 +1793,16 @@ export function dedupePortalQuestions(questions = []) {
   });
 }
 
+function authFormIdentity(snapshot) {
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const password = fields.find((field) => field.inputType === 'password');
+  const anchor = password || codeField(snapshot);
+  if (!anchor) return null;
+  const frame = Number(anchor.frame);
+  if (!Number.isSafeInteger(frame) || frame < 0) return null;
+  return { frame, formId: String(anchor.formId || '').trim() };
+}
+
 /** Presses the first control one of the patterns names; false when there is none, else how it was found. */
 async function clickFirst(page, snapshot, patterns) {
   for (const pattern of patterns) {
@@ -1773,6 +1820,30 @@ async function clickFirst(page, snapshot, patterns) {
           await clickPortalLink(page, locator);
           return 'link';
         }
+      }
+    }
+    // A SuccessFactors account link can be drawn after the snapshot, or be
+    // filtered from it as site chrome while the login fields remain in an
+    // embedded form frame. Page.getByRole only searches the main frame; keep
+    // this lookup explicit and frame-scoped so a generic header control is
+    // never promoted to an auth action.
+    const frames = page.frames();
+    const authForm = authFormIdentity(snapshot);
+    const formFrameNumbers = [...new Set([
+      ...(snapshot.fields || []), ...(snapshot.buttons || []),
+    ].filter((control) => {
+      const frame = Number(control.frame);
+      return authForm && frame === authForm.frame
+        && (!authForm.formId || String(control.formId || '').trim() === authForm.formId);
+    }).map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
+    const formFrames = formFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
+    for (const frame of formFrames) {
+      if (typeof frame?.getByRole !== 'function') continue;
+      const frameLink = frame.getByRole('link', { name: pattern }).first();
+      const frameLinkVisible = await frameLink.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+      if (frameLinkVisible) {
+        await clickPortalLink(page, frameLink);
+        return 'link';
       }
     }
     const link = page.getByRole('link', { name: pattern }).first();
@@ -3907,11 +3978,16 @@ export function pageControls(buttons, known, url, context = null) {
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }
   const here = anonymizePath(url);
-  const gallerySurface = isNonApplicationGallerySurface({ buttons, fields: context?.snapshot?.fields });
-  const submit = gallerySurface ? null : findButton(buttons, SUBMIT_RE);
-  const usualNext = gallerySurface ? null : findButton(buttons, NEXT_RE);
-  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(buttons, labelsAt(known.nextButtons, here));
-  const learnedSubmit = gallerySurface ? null : learnedButton(buttons, labelsAt(known.finalButtons, here));
+  const gallerySnapshot = { buttons, fields: context?.snapshot?.fields };
+  const gallerySurface = isNonApplicationGallerySurface(gallerySnapshot);
+  const galleryButtons = galleryNavigationButtons(buttons);
+  const applicationButtons = galleryButtons.size
+    ? buttons.filter((button) => !galleryButtons.has(portalControlIdentity(button)))
+    : buttons;
+  const submit = gallerySurface ? null : findButton(applicationButtons, SUBMIT_RE);
+  const usualNext = gallerySurface ? null : findButton(applicationButtons, NEXT_RE);
+  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(applicationButtons, labelsAt(known.nextButtons, here));
+  const learnedSubmit = gallerySurface ? null : learnedButton(applicationButtons, labelsAt(known.finalButtons, here));
   return {
     submit: submit || (usualNext || taughtNext ? null : learnedSubmit),
     next: usualNext || taughtNext,
@@ -3998,6 +4074,24 @@ export function isSafeEmployerSitePreread(url) {
   } catch {
     return false;
   }
+}
+
+/**
+ * The read-ahead capability is deliberately explicit. It permits one browser
+ * snapshot of controls already mounted by an allowlisted ATS, but it never
+ * permits a click, a fill, a wizard advance or a submit during draft creation.
+ * Fields hidden by an actual conditional container are filtered by
+ * extractFieldsInPage and are discovered only after the candidate answers the
+ * step that reveals them.
+ */
+export function portalReadAheadCapability({ channelType = '', entryUrl = '', verifiedPostingEntry = false } = {}) {
+  if (PREREAD_CHANNELS.has(String(channelType || ''))) {
+    return { kind: 'mounted_read_only', source: 'ats_guest_form' };
+  }
+  if (verifiedPostingEntry || isSafeEmployerSitePreread(entryUrl)) {
+    return { kind: 'mounted_read_only', source: 'verified_application_route' };
+  }
+  return null;
 }
 
 const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
@@ -4156,8 +4250,13 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  const safeEmployerSite = channelType === 'employer_site' && isSafeEmployerSitePreread(entryUrl);
-  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry && !safeEmployerSite)
+  const verifiedPostingEntry = verifiedJobs2WebEntry || isVerifiedPostingEntry(ctx);
+  const readAhead = portalReadAheadCapability({
+    channelType,
+    entryUrl,
+    verifiedPostingEntry,
+  });
+  if (!readAhead
     || !ctx.applyUrl || !ctx.codex) {
     return { questions: [], documents: [] };
   }
@@ -4181,15 +4280,29 @@ export async function readPortalRequirements(ctx) {
     const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
-    // Solique keeps the later steps mounted with zero-sized controls. The
-    // exact host allowlist makes it safe to read those labels and required
-    // flags now, without filling or advancing the live form.
-    snapshot = await awaitFields(page, await extractFields(page, safeEmployerSite
+    // An allowlisted ATS may keep later, unconditional steps mounted with
+    // zero-sized controls. Read the complete mounted contract once, without
+    // pressing Next/Continue or fabricating an answer. Conditional containers
+    // stay excluded and are handled by the submit runner after an explicit
+    // candidate answer.
+    snapshot = await awaitFields(page, await extractFields(page, readAhead
       ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
       : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
+    // The live form is authoritative for the selected posting. A verified
+    // route is sufficient provenance for a generic ATS form; otherwise a
+    // mismatch must stop before any job-specific question reaches the draft.
+    const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
+    if (hasJobContract) {
+      const formMatch = formPostingMatch(`${snapshot.text || ''}\n${page.url()}`, ctx.job, {
+        postingMatched: verifiedPostingEntry,
+        postingEntry: verifiedPostingEntry,
+        pageUrl: page.url(),
+      });
+      if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
+    }
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
     if (requirements.unreadableFields?.length) {
@@ -4245,6 +4358,22 @@ export async function submitViaPortal(ctx) {
   // start date, the employer's own questions, review): 8 pages were not enough.
   const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
+  let candidateRequestRound = Number.isInteger(Number(ctx.candidateRequestRound))
+    ? Math.min(1000, Math.max(0, Number(ctx.candidateRequestRound))) : 0;
+  const knownPortalQuestionKeys = new Set((Array.isArray(ctx.knownPortalQuestionKeys) ? ctx.knownPortalQuestionKeys : [])
+    .map((key) => String(key || '').trim()).filter(Boolean).slice(0, 100));
+  const candidateRequestTelemetryFor = (questions) => {
+    const items = Array.isArray(questions) ? questions : [];
+    const keys = items.map((question) => portalQuestionKey(question) || portalQuestionId(question)).filter(Boolean);
+    const afterNewlyRevealedPortalFields = keys.some((key) => !knownPortalQuestionKeys.has(key));
+    for (const key of keys) knownPortalQuestionKeys.add(key);
+    candidateRequestRound = Math.min(1000, candidateRequestRound + 1);
+    return {
+      round: candidateRequestRound,
+      questionCount: Math.min(20, items.length),
+      afterNewlyRevealedPortalFields,
+    };
+  };
   const browser = extensionPath ? null : await launch();
   let context = null;
   let page = null;
@@ -4333,7 +4462,11 @@ export async function submitViaPortal(ctx) {
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
     registerPortalChannelType(context, channelType);
     await registerCookieSessionRecovery(context, { log: ctx.log });
-    await context.addInitScript(installFinalFormGuardCaptureInPage);
+    // Playwright contexts always expose addInitScript. Keep the adapter
+    // boundary tolerant for the deterministic portal harness, whose minimal
+    // context cannot execute page init scripts but still exercises the
+    // read/plan/answer contract without a final submit.
+    if (typeof context.addInitScript === 'function') await context.addInitScript(installFinalFormGuardCaptureInPage);
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
     evidence.diagnostics = diagnostics.data;
     await diagnostics.installFetchObserver().catch(() => { evidence.diagnostics.fetchObserverUnavailable = true; });
@@ -4564,6 +4697,7 @@ export async function submitViaPortal(ctx) {
         event: {
           type: 'submit_needs_candidate',
           ...request,
+          candidateRequestTelemetry: candidateRequestTelemetryFor(request.questions),
         },
         evidence,
       };
@@ -4685,7 +4819,10 @@ export async function submitViaPortal(ctx) {
         };
         if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
         if (auth.questions?.length || auth.documents?.length) return {
-          event: { type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [] }, evidence,
+          event: {
+            type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [],
+            candidateRequestTelemetry: candidateRequestTelemetryFor(auth.questions || []),
+          }, evidence,
         };
         if (auth.dryRun) {
           evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');

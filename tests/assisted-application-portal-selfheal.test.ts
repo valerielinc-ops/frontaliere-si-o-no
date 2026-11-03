@@ -108,14 +108,15 @@ describe('portal runner self-correction', () => {
       fields: [{
         id: 'attachment', kind: 'file', inputType: 'file',
         label: 'Eine oder mehrere Dateien auswählen (optional) (optional).', required: false,
+        formId: 'public-gallery', frame: 0,
       }],
       buttons: [
         { text: 'Menü', chrome: true },
         { text: 'Mein Konto', chrome: true },
-        { text: 'Vorheriges', disabled: false },
-        { text: 'Nächstes', disabled: false },
-        { text: 'Öffne Bild in Grossansicht', disabled: false },
-        { text: 'Seite drucken', disabled: false },
+        { text: 'Vorheriges', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Nächstes', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Öffne Bild in Grossansicht', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Seite drucken', formId: 'public-gallery', frame: 0, disabled: false },
       ],
     };
 
@@ -160,6 +161,50 @@ describe('portal runner self-correction', () => {
     const controls = pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot });
     expect(controls.submit).toBeNull();
     expect(controls.next).toBeNull();
+  });
+
+  it('keeps a distinct application next control on a mixed gallery snapshot', () => {
+    const next = { text: 'Next', formId: 'application', frame: 0, disabled: false };
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Select one or more files (optional).', required: false,
+        formId: 'public-gallery', frame: 0,
+      }],
+      buttons: [
+        { text: 'Previous', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Next', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Open image in full size', formId: 'public-gallery', frame: 0, disabled: false },
+        { text: 'Print page', formId: 'public-gallery', frame: 0, disabled: false },
+        next,
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(true);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/', { snapshot }).next)
+      .toBe(next);
+  });
+
+  it('keeps an application next control with the gallery when frame and form are shared', () => {
+    const next = { id: 'application-next', text: 'Next', formId: 'shared-surface', frame: 0, disabled: false };
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Select one or more files (optional).', required: false,
+        formId: 'shared-surface', frame: 0,
+      }],
+      buttons: [
+        { id: 'gallery-previous', text: 'Previous', formId: 'shared-surface', frame: 0, disabled: false },
+        { id: 'gallery-next', text: 'Next', formId: 'shared-surface', frame: 0, disabled: false },
+        { id: 'gallery-view', text: 'Open image in full size', formId: 'shared-surface', frame: 0, disabled: false },
+        { id: 'gallery-print', text: 'Print page', formId: 'shared-surface', frame: 0, disabled: false },
+        next,
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(true);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/', { snapshot }).next)
+      .toBe(next);
   });
 
   it('keeps a field-less application next widget on a gallery-shaped page', () => {

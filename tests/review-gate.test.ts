@@ -1984,6 +1984,24 @@ describe('review gate: a fallback tree proves scope without tightening anchors',
     expect(fallback).toBe(unavailable);
   });
 
+  it('allows an ignored generated companion after precise anchors are confirmed', () => {
+    const ignored = 'data/jobs.json';
+    const openedWithIgnoredCompanion = bot(
+      `## Findings (Important: 1, Nit: 0)\n\n\`src/changed.mjs:L4\`: 🔴 Important: rotto; il dato arriva da \`${ignored}\`.\n`,
+    );
+    const confirmedAnchor = bot(
+      '## Findings (Important: 0, Nit: 0)\n\nFix di `src/changed.mjs:L4`: ok.\n\n## LGTM',
+    );
+
+    expect(historicalImportantFindings([openedWithIgnoredCompanion, confirmedAnchor], {
+      includeLatest: true,
+      repositoryPaths: ['src/changed.mjs'],
+      repositoryPathsFromFallback: true,
+      changedFiles: ['src/changed.mjs'],
+      isIgnoredPath: (path: string) => path === ignored,
+    })).toHaveLength(0);
+  });
+
   it('uses an exact-head fallback tree to declassify a resolved companion outside the diff', () => {
     const openedWithCompanion = bot(
       '## Findings (Important: 1, Nit: 0)\n\n`src/changed.mjs:L4` e `lib/ghost-helper.mjs`: 🔴 Important: rotto.\n',
