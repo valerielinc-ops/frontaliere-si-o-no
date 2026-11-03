@@ -106,6 +106,22 @@ describe('durable submission receipts', () => {
     expect(store.read(ROOT)?.submissionStatus).toBe('submitted');
   });
 
+  it('does not apply a valid runner receipt to a newer live round', async () => {
+    const { receipt } = await seedReceipt();
+    store.docs.set(`${ROOT}/automation/flow`, flow('submitting', 2));
+    const eventRef = await store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').add({
+      type: 'submit_succeeded', round: 1, channel: 'portal', receiptId: receipt?.receiptId,
+    });
+    const runEffect = vi.fn(async (context: any) => runAutomationEffect(context));
+
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef, data: store.read(eventRef.path), runEffect, nowMs: T0 + 1 });
+
+    expect(result).toMatchObject({ ok: false, ignored: 'stale_round', state: 'submitting' });
+    expect(store.read(`${ROOT}/automation/flow`)).toMatchObject({ state: 'submitting', round: 2 });
+    expect(store.read(ROOT)?.submissionStatus).toBe('in_progress');
+    expect(runEffect).not.toHaveBeenCalled();
+  });
+
   it('keeps a handoff receipt immutable and durably records a later candidate confirmation', async () => {
     const guard = submissionGuard(store.db, ORDER, 1);
     const claim = await guard.claim('whatsapp', T0);
