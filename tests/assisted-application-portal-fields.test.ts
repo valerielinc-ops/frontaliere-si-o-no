@@ -1000,6 +1000,12 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('keeps a required language-labeled select in site chrome when the label carries the marker', () => {
+    const page = extract('<header><form><label for="language">Lingua*</label><select id="language"></select></form></header>');
+
+    expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Lingua*', required: true })]);
+  });
+
   it('keeps an ARIA-required application select in site chrome when the token is uppercase', () => {
     const page = extract('<header><form><select aria-label="Lingua" aria-required="TRUE"></select></form></header>');
 

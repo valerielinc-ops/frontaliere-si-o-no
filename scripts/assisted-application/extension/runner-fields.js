@@ -500,13 +500,16 @@ function nativeQuestionText(value, counter = null) {
   const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
   const SITE_LANGUAGE_LABEL_RE = /^(?:language|lingua|langue|sprache|idioma|sprachauswahl)(?:\s+(?:selector|menu|select))?\s*[:*]?$/i;
   const isSiteLanguageControl = (element) => {
+    const label = clean(labelFor(element));
     // Native language selectors are sometimes wrapped in a header form. That
     // form makes isApplicationOwnedControl true, although the select remains
     // site chrome rather than an application question. Required controls keep
     // the application-owned precedence even when placed in a header/footer.
     if (element.tagName.toLowerCase() !== 'select' || !inSiteChrome(element)
-      || element.required || hasAriaRequired(element) || element.hasAttribute('data-required')) return false;
-    return SITE_LANGUAGE_LABEL_RE.test(clean(labelFor(element)));
+      || !SITE_LANGUAGE_LABEL_RE.test(label)
+      || element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
+      || hasRequiredMarker(element, label)) return false;
+    return true;
   };
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
