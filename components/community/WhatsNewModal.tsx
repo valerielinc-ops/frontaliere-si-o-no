@@ -35,8 +35,8 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
-  { version: '3.99.15', date: '2026-11-03', titleKey: 'whatsNew.v39915.title', items: [
-    { type: 'improvement', titleKey: 'whatsNew.v39915.creatives.title', descKey: 'whatsNew.v39915.creatives.desc', href: '/automatizza-ricerca-lavoro-svizzera/' },
+  { version: '3.99.16', date: '2026-11-03', titleKey: 'whatsNew.v39916.title', items: [
+    { type: 'improvement', titleKey: 'whatsNew.v39916.creatives.title', descKey: 'whatsNew.v39916.creatives.desc', href: '/automatizza-ricerca-lavoro-svizzera/' },
   },
   {
     version: '3.99.14',

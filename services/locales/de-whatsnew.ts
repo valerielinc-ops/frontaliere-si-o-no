@@ -6,9 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
- "whatsNew.v39915.title": "Hilfe bei der Arbeitssuche in der Schweiz",
- "whatsNew.v39915.creatives.title": "Wir suchen für Sie",
- "whatsNew.v39915.creatives.desc": "In freien Anzeigenflächen stellen wir unseren Service vor: Wir suchen passende Stellen für Ihren Beruf und bereiten Ihre Bewerbungen vor.",
+ "whatsNew.v39916.title": "Hilfe bei der Arbeitssuche in der Schweiz",
+ "whatsNew.v39916.creatives.title": "Wir suchen für Sie",
+ "whatsNew.v39916.creatives.desc": "In freien Anzeigenflächen stellen wir unseren Service vor: Wir suchen passende Stellen für Ihren Beruf und bereiten Ihre Bewerbungen vor.",
  "whatsNew.v39914.title": "Eine erste Auswahl zum Einstieg",
  "whatsNew.v39914.discovery.title": "Beliebte Stellen, dann Ihre Interessen",
  "whatsNew.v39914.discovery.desc": "Ohne gespeicherte Suche beginnt die erste E-Mail mit den meistgesehenen Stellen und verfügbaren geografischen Hinweisen. Klicks und Suchanfragen helfen, spätere Vorschläge passender zu machen.",
