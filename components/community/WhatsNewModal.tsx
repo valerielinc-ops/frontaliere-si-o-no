@@ -36,6 +36,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.100.0',
+    date: '2026-11-03',
+    titleKey: 'whatsNew.v31000.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v31000.guides.title',
+        descKey: 'whatsNew.v31000.guides.desc',
+        href: '/guida-frontaliere/',
+      },
+    ],
+  },
+  {
     version: '3.99.17',
     date: '2026-11-03',
     titleKey: 'whatsNew.v39917.title',

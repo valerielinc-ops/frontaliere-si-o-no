@@ -174,6 +174,14 @@ The CSS defines a 6px Stripe radius token, while implemented controls commonly u
 - **Shape:** 6–16px is common for data cards; larger feature cards may use 24px.
 - **Spacing:** Internal padding commonly uses 12–24px and adapts to the viewport.
 
+### Guide Dossiers
+- **Entry point:** Lead with a localized promise and a decision-grouped guide index. Keep links close to the next useful calculator, comparator, or live reference.
+- **Article opening:** Pair the page title and short description with a documentary image from the border region. Place the most relevant action beside the introduction when one supports the page's decision.
+- **Reading flow:** Use a short contents index, clear section headings, and existing freshness and source information where supplied by the source material.
+- **Comparisons:** Put existing scenarios side by side with their assumptions and outcomes visible. Use localized words for affirmative and negative states; keep meaning independent of color and pictograms.
+- **Responsive behavior:** Stack the introduction on narrow screens. Keep comparison tables readable with contained horizontal scrolling and visible keyboard focus.
+- **Content integrity:** Preserve every source, legal rule, figure, and calculation. Do not add unsupported scenarios or decision claims.
+
 ### Inputs / Fields
 - **Style:** Surface-alt fill, edge border, and 8–12px radius.
 - **Focus:** Purple outline with a 2px offset; errors and statuses use semantic colors.

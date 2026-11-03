@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { unlockAchievement, addXp } from '@/services/gamificationService';
-import { CheckCircle2, Circle, ChevronDown, ChevronUp, Flag, Sparkles, ExternalLink, Clock, AlertCircle, Trophy, User, Briefcase } from 'lucide-react';
+import { Check, CheckCircle2, Circle, ChevronDown, ChevronUp, Flag, Sparkles, ExternalLink, Clock, AlertCircle, Trophy, User, Briefcase, IdCard, ClipboardList, Landmark, HeartPulse, Smartphone, Car, Banknote, Hash, BarChart3, FileText, type LucideIcon } from 'lucide-react';
 import { loadUserProfile } from '@/components/pages/UserProfile';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useAuth } from '@/services/authService';
@@ -15,7 +15,7 @@ import AiExtractableTable from '@/components/shared/AiExtractableTable';
 interface ChecklistStep {
  id: string;
  category: 'documents' | 'work' | 'finance' | 'health' | 'life';
- icon: string;
+ icon: LucideIcon;
  estimatedDays: string;
  links?: { label: string; url: string }[];
  substeps?: string[];
@@ -28,7 +28,7 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
  {
  id: 'find_job',
  category: 'documents',
- icon: '💼',
+ icon: Briefcase,
  estimatedDays: '1-3 mesi',
  jobBoardCta: true,
  links: [
@@ -39,7 +39,7 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
  {
  id: 'permit_g',
  category: 'documents',
- icon: '🪪',
+ icon: IdCard,
  estimatedDays: '2-4 settimane',
  substeps: ['permit_g_sub1', 'permit_g_sub2', 'permit_g_sub3', 'permit_g_sub4'],
  links: [
@@ -49,7 +49,7 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
  {
  id: 'aire',
  category: 'documents',
- icon: '📋',
+ icon: ClipboardList,
  estimatedDays: '1 giorno',
  substeps: ['aire_sub1', 'aire_sub2'],
  },
@@ -57,7 +57,7 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
  {
  id: 'open_bank_ch',
  category: 'finance',
- icon: '🏦',
+ icon: Landmark,
  estimatedDays: '1-2 settimane',
  substeps: ['bank_sub1', 'bank_sub2', 'bank_sub3'],
  links: [
@@ -68,7 +68,7 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
  {
  id: 'choose_insurance',
  category: 'health',
- icon: '🏥',
+ icon: HeartPulse,
  estimatedDays: '1-2 settimane',
  substeps: ['insurance_sub1', 'insurance_sub2', 'insurance_sub3'],
  links: [
@@ -78,48 +78,48 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
  {
  id: 'sim_mobile',
  category: 'life',
- icon: '📱',
+ icon: Smartphone,
  estimatedDays: '1 giorno',
  substeps: ['sim_sub1', 'sim_sub2'],
  },
  {
  id: 'transport_plan',
  category: 'life',
- icon: '🚗',
+ icon: Car,
  estimatedDays: '1 settimana',
  substeps: ['transport_sub1', 'transport_sub2', 'transport_sub3'],
  },
  {
  id: 'first_salary',
  category: 'work',
- icon: '💰',
+ icon: Banknote,
  estimatedDays: 'Fine 1° mese',
  substeps: ['salary_sub1', 'salary_sub2', 'salary_sub3'],
  },
  {
  id: 'avs_number',
  category: 'documents',
- icon: '🔢',
+ icon: Hash,
  estimatedDays: '2-4 settimane',
  },
  {
  id: 'tax_setup',
  category: 'finance',
- icon: '📊',
+ icon: BarChart3,
  estimatedDays: 'Entro 1° anno',
  substeps: ['tax_sub1', 'tax_sub2', 'tax_sub3'],
  },
  {
  id: 'pillar3',
  category: 'finance',
- icon: '🏦',
+ icon: Landmark,
  estimatedDays: 'Entro 1° anno',
  substeps: ['pillar3_sub1', 'pillar3_sub2'],
  },
  {
  id: 'first_730',
  category: 'finance',
- icon: '📄',
+ icon: FileText,
  estimatedDays: 'Aprile anno successivo',
  substeps: ['730_sub1', '730_sub2', '730_sub3'],
  },
@@ -333,7 +333,7 @@ const FirstDayGuide: React.FC = () => {
  ? 'bg-success-strong text-on-accent'
  : 'bg-surface-raised text-body'
  }`}>
- {isCompleted ? '✓' : index + 1}
+ {isCompleted ? <Check size={14} aria-hidden="true" /> : index + 1}
  </div>
 
  {/* Checkbox + Content */}
@@ -347,7 +347,7 @@ const FirstDayGuide: React.FC = () => {
  }
  <div className="flex-1">
  <div className="flex items-center gap-2">
- <span className="text-lg">{step.icon}</span>
+ <step.icon className="h-5 w-5 shrink-0 text-muted" aria-hidden="true" />
  <span className={`font-bold text-sm ${isCompleted ? 'text-success line-through' : 'text-strong'}`}>
  {t(`firstday.step.${step.id}`)}
  </span>

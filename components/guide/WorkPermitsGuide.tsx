@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Clock, FileText, Users, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, Briefcase, Calendar, Info, ArrowRight, Building2, AlertTriangle, RefreshCw, Scale } from 'lucide-react';
+import { Shield, Clock, FileText, Users, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, Briefcase, Calendar, Info, ArrowRight, Building2, AlertTriangle, RefreshCw, Scale, MapPin, Home, Lightbulb, type LucideIcon } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 import { scrollToAnchor, parsePermitSectionHash, getPermitSectionSlug, type PermitSectionKey } from '@/services/router';
@@ -11,7 +11,7 @@ interface PermitType {
  name: string;
  fullName: string;
  color: string;
- icon: string;
+ icon: LucideIcon;
  duration: string;
  forWhom: string;
  description: string;
@@ -35,7 +35,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  name: t('permits.g.name'),
  fullName: t('permits.g.fullName'),
  color: 'from-info-strong to-success-strong',
- icon: '🔵',
+ icon: MapPin,
  duration: t('permits.g.duration'),
  forWhom: t('permits.g.forWhom'),
  description: t('permits.g.description'),
@@ -86,7 +86,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  name: t('permits.b.name'),
  fullName: t('permits.b.fullName'),
  color: 'from-success-strong to-info-strong',
- icon: '🟢',
+ icon: Home,
  duration: t('permits.b.duration'),
  forWhom: t('permits.b.forWhom'),
  description: t('permits.b.description'),
@@ -138,7 +138,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  name: t('permits.c.name'),
  fullName: t('permits.c.fullName'),
  color: 'from-warning-strong to-warning-strong',
- icon: '🟠',
+ icon: Shield,
  duration: t('permits.c.duration'),
  forWhom: t('permits.c.forWhom'),
  description: t('permits.c.description'),
@@ -190,7 +190,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  name: t('permits.l.name'),
  fullName: t('permits.l.fullName'),
  color: 'from-info-strong to-info-strong',
- icon: '🟣',
+ icon: Clock,
  duration: t('permits.l.duration'),
  forWhom: t('permits.l.forWhom'),
  description: t('permits.l.description'),
@@ -291,17 +291,17 @@ const WorkPermitsGuide: React.FC = () => {
 
  const comparisonColumns = [
  { header: t('permits.feature'), accessor: 'feature' },
- ...permits.map(p => ({ header: `${p.icon} ${p.name}`, accessor: p.id })),
+ ...permits.map(p => ({ header: p.name, accessor: p.id })),
  ];
 
  const comparisonRows = [
- { feature: t('permits.cmp.residenceCH'), ...valuesByPermit(['\u274c', '\u2705', '\u2705', '\u2705']) },
+ { feature: t('permits.cmp.residenceCH'), ...valuesByPermit([t('permits.cmp.no'), t('permits.cmp.yes'), t('permits.cmp.yes'), t('permits.cmp.yes')]) },
  { feature: t('permits.cmp.duration'), ...valuesByPermit([t('permits.cmp.5years'), t('permits.cmp.5years'), '\u221e', t('permits.cmp.max1year')]) },
- { feature: t('permits.cmp.jobChange'), ...valuesByPermit([t('permits.cmp.limited'), t('permits.cmp.free'), t('permits.cmp.free'), '\u274c']) },
- { feature: t('permits.cmp.familyCH'), ...valuesByPermit(['\u274c', '\u2705', '\u2705', t('permits.cmp.limited')]) },
- { feature: t('permits.cmp.toPermitC'), ...valuesByPermit(['\u274c', t('permits.cmp.5yearsParens'), '\u2014', '\u274c']) },
- { feature: t('permits.cmp.selfEmployed'), ...valuesByPermit([t('permits.cmp.limited'), '\u2705', '\u2705', '\u274c']) },
- { feature: t('permits.cmp.pillar3'), ...valuesByPermit(['\u274c', '\u2705', '\u2705', '\u274c']) },
+ { feature: t('permits.cmp.jobChange'), ...valuesByPermit([t('permits.cmp.limited'), t('permits.cmp.free'), t('permits.cmp.free'), t('permits.cmp.no')]) },
+ { feature: t('permits.cmp.familyCH'), ...valuesByPermit([t('permits.cmp.no'), t('permits.cmp.yes'), t('permits.cmp.yes'), t('permits.cmp.limited')]) },
+ { feature: t('permits.cmp.toPermitC'), ...valuesByPermit([t('permits.cmp.no'), t('permits.cmp.5yearsParens'), '\u2014', t('permits.cmp.no')]) },
+ { feature: t('permits.cmp.selfEmployed'), ...valuesByPermit([t('permits.cmp.limited'), t('permits.cmp.yes'), t('permits.cmp.yes'), t('permits.cmp.no')]) },
+ { feature: t('permits.cmp.pillar3'), ...valuesByPermit([t('permits.cmp.no'), t('permits.cmp.yes'), t('permits.cmp.yes'), t('permits.cmp.no')]) },
  // Soglie per tipo di permesso: dati gia' presenti in getPermits(), finora
  // leggibili solo per il permesso selezionato nelle card in cima alla pagina.
  { feature: t('permits.duration'), ...fieldByPermit(p => p.duration) },
@@ -404,7 +404,7 @@ const WorkPermitsGuide: React.FC = () => {
  <Shield size={32} />
  </div>
  <div>
- <h1 className="text-2xl sm:text-3xl font-extrabold font-display">{t('permits.pageTitle')}</h1>
+ <h2 className="text-2xl sm:text-3xl font-extrabold font-display">{t('permits.pageTitle')}</h2>
  <p className="text-on-accent/80 mt-1">{t('permits.pageSubtitle')}</p>
  </div>
  </div>
@@ -426,7 +426,7 @@ const WorkPermitsGuide: React.FC = () => {
  : 'border-edge bg-surface hover:border-edge'
  }`}
  >
- <div className="text-2xl mb-1">{p.icon}</div>
+ <p.icon size={24} aria-hidden="true" className="mb-1" />
  <div className="font-bold font-display text-lg">{p.name}</div>
  <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-on-accent/90' : 'text-muted'}`}>{p.fullName}</div>
  <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-on-accent/70' : 'text-muted'}`}>{p.duration}</div>
@@ -439,7 +439,7 @@ const WorkPermitsGuide: React.FC = () => {
  {/* Overview */}
  <div className={`bg-gradient-to-r ${permit.color} rounded-2xl p-5 sm:p-6 text-on-accent`}>
  <div className="flex items-center gap-3 mb-3">
- <span className="text-4xl">{permit.icon}</span>
+ <permit.icon size={32} aria-hidden="true" className="shrink-0" />
  <div>
  <h2 className="text-2xl font-bold font-display">{permit.name} — {permit.fullName}</h2>
  <p className="text-on-accent/90 text-sm mt-1">{permit.forWhom}</p>
@@ -582,7 +582,7 @@ const WorkPermitsGuide: React.FC = () => {
  <ul className="space-y-2 mt-2">
  {permit.tips.map((tip, i) => (
  <li key={i} className="flex items-start gap-2 text-sm text-body">
- <span className="text-base">💡</span>
+ <Lightbulb size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-warning" />
  {tip}
  </li>
  ))}

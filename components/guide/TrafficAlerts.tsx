@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import MapCanvas from '@/components/shared/MapCanvas';
-import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Filter, ExternalLink } from 'lucide-react';
+import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Filter, ExternalLink, MapPin } from 'lucide-react';
 import Callout from '@/components/shared/Callout';
 import {
  trafficService,
@@ -339,7 +339,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {traffic?.source && traffic.source !== 'mock' && (
  <div className="flex justify-between">
  <span className="text-muted">{t('traffic.source')}</span>
- <span className="font-bold">📍 Google Maps</span>
+ <span className="inline-flex items-center gap-1 font-bold"><MapPin size={12} aria-hidden="true" /> Google Maps</span>
  </div>
  )}
  <a
@@ -457,7 +457,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.zone')}</span><span className="font-bold">{crossing.canton} — {crossing.province}</span></div>
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.hours')}</span><span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span></div>
  {crossing.customsPresent && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.customs')}</span><span className="font-bold text-link">{t('traffic.customsPresent')}</span></div>)}
- {traffic?.source && traffic.source !== 'mock' && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.source')}</span><span className="font-bold">📍 Google Maps</span></div>)}
+ {traffic?.source && traffic.source !== 'mock' && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.source')}</span><span className="inline-flex items-center gap-1 font-bold"><MapPin size={12} aria-hidden="true" /> Google Maps</span></div>)}
  </div>
  <a href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`} target="_blank" rel="noopener noreferrer" style={POPUP_NAV_LINK_STYLE}>{t('traffic.navigateHere')}</a>
  </div>
@@ -575,7 +575,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.zone')}</span><span className="font-bold">{crossing.canton} — {crossing.province}</span></div>
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.hours')}</span><span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span></div>
  {crossing.customsPresent && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.customs')}</span><span className="font-bold text-link">{t('traffic.customsPresent')}</span></div>)}
- {traffic?.source && traffic.source !== 'mock' && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.source')}</span><span className="font-bold">📍 Google Maps</span></div>)}
+ {traffic?.source && traffic.source !== 'mock' && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.source')}</span><span className="inline-flex items-center gap-1 font-bold"><MapPin size={12} aria-hidden="true" /> Google Maps</span></div>)}
  </div>
  <a href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`} target="_blank" rel="noopener noreferrer" style={POPUP_NAV_LINK_STYLE}>{t('traffic.navigateHere')}</a>
  </div>

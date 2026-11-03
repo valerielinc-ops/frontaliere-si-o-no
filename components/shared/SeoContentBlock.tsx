@@ -39,6 +39,7 @@ export type SeoContext =
 
 interface SeoContentBlockProps {
  context: SeoContext;
+ titleOverride?: string;
 }
 
 // ─── Context Configuration ──────────────────────────────────────────────
@@ -169,11 +170,12 @@ const CROSS_PROMO: Record<SeoContext, FeatureLink[]> = {
 
 // ─── Component ───────────────────────────────────────────────────────────
 
-const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
+const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context, titleOverride }) => {
  const { t } = useTranslation();
  const [expanded, setExpanded] = useState(false);
  const config = CONTEXT_CONFIG[context];
  const nav = useNavigationOptional();
+ const title = titleOverride ?? t(`seoContent.${context}.title`);
 
  // Reset expanded state when the section context changes (e.g. navigating
  // from fisco to guida). Without this, React reuses the component instance
@@ -198,7 +200,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  ? `bg-gradient-to-br ${config.gradient}`
  : config.collapsedBg
  }`}
- aria-label={t(`seoContent.${context}.title`)}
+ aria-label={title}
  >
  {/* Collapsed: minimal one-line header */}
  <button
@@ -208,7 +210,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  >
  <config.Icon className={`w-4 h-4 ${config.iconText} shrink-0`} aria-hidden="true" />
  <h2 className="text-sm font-semibold font-display text-body flex-1 line-clamp-2">
- {t(`seoContent.${context}.title`)}
+ {title}
  </h2>
  <div className="hidden sm:flex items-center gap-2 mr-2">
  <span className="flex items-center gap-1 text-xs text-muted">
