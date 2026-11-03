@@ -85,4 +85,32 @@ describe('assisted portal account navigation', () => {
       'E-Mail-Adresse:*', 'Passwort:*', 'Passwort bestätigen:*',
     ]);
   });
+
+  it('retries a saved unverified SuccessFactors account when the job URL opens registration directly', async () => {
+    const url = 'https://career5.successfactors.eu/career';
+    const result = await handleAuth({
+      page: { url: () => url } as any,
+      snapshot: {
+        url,
+        fields: [
+          { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse: *', required: true },
+          { id: 'email-repeat', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse erneut eingeben: *', required: true },
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Wähle ein Kennwort: *', required: true },
+          { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Kennwort erneut eingeben: *', required: true },
+        ],
+        buttons: [{ id: 'create', text: 'Konto anlegen', disabled: false }],
+        links: [],
+        dialogs: [],
+        errors: [],
+        text: '',
+        passwordVisible: true,
+      },
+      ctx: {
+        dryRun: true,
+        accounts: { load: vi.fn(async () => ({ email: 'runner@example.test', password: 'synthetic-password', status: 'pending', verifiedAt: null })) },
+      },
+    });
+
+    expect(result).toEqual({ dryRun: true });
+  });
 });
