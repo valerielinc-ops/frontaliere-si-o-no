@@ -40,6 +40,12 @@ import {
   renderStatGrid,
 } from './shared/seoContentTokens';
 import {
+  prepareGuideDossierContent,
+  renderGuideDossierHero,
+  resolveStaticGuideVisual,
+  type GuideDossierLocale,
+} from './shared/guideDossier';
+import {
   BORDER_WAIT_HYDRATION_ASSET_PATH,
   BORDER_WAIT_HYDRATION_JS,
   BORDER_WAIT_HYDRATION_SCRIPT_TAG,
@@ -671,6 +677,14 @@ export function renderPage(opts: {
   const copy = COPY[locale];
   const urlPath = `${BORDER_WAIT_LOCALE_PREFIX[locale]}/${MAP_PATH[locale]}/`.replace(/\/+/g, '/');
   const canonicalUrl = `${BASE_URL}${urlPath}`;
+  const guideVisual = resolveStaticGuideVisual(urlPath);
+  if (!guideVisual) throw new Error(`[border-wait-map] Missing dossier visual for ${urlPath}`);
+  const guideHero = renderGuideDossierHero({
+    title: copy.h1,
+    description: copy.quickLede,
+    visual: guideVisual,
+    locale: locale as GuideDossierLocale,
+  });
 
   // Build the 4-locale hreflang cluster plus x-default → IT target
   // (audit-hreflang requires ≥5 entries on every page with hreflang).
@@ -736,6 +750,7 @@ export function renderPage(opts: {
     name: copy.h1,
     description: copy.description,
     url: canonicalUrl,
+    image: `${BASE_URL}${guideVisual.src}`,
     inLanguage: locale,
     mapType: 'https://schema.org/TransitMap',
     ...(snapshotAt ? { dateModified: snapshotAt } : {}),
@@ -786,22 +801,20 @@ export function renderPage(opts: {
       <span class="bw-leg"><span class="bw-leg-dot" style="background:var(--color-danger-strong)"></span>${esc(copy.legendQueue)}</span>
     </div>`;
 
-  // Time windows + emoji are locale-neutral; the descriptive sentence per
-  // window stays unchanged (no SEO content removed, only re-presented).
+  // Time windows are locale-neutral; the descriptive sentence per window
+  // stays unchanged (no SEO content removed, only re-presented).
   const bestTimeWindows = ['05:45–06:15', '08:30–09:15', '15:15–16:00', '19:45+'];
-  const bestTimeEmojis = ['🌅', '☕', '🏁', '🌙'];
   const bestTimeNames = [copy.bestTimeCard1, copy.bestTimeCard2, copy.bestTimeCard3, copy.bestTimeCard4];
   const bestTimeBodies = [copy.bestTime1, copy.bestTime2, copy.bestTime3, copy.bestTime4];
   const bestTimeCards = `<div class="bw-times">${[0, 1, 2, 3].map((i) => `<div class="bw-time">
         <div class="bw-time-h">
-          <span class="bw-time-emoji" aria-hidden="true">${bestTimeEmojis[i]}</span>
           <span class="bw-time-name">${esc(bestTimeNames[i])}</span>
           <span class="bw-time-win">${esc(bestTimeWindows[i])}</span>
         </div>
         <p class="bw-time-p">${esc(bestTimeBodies[i])}</p>
       </div>`).join('')}</div>`;
 
-  const body = `
+  const breadcrumbHtml = `
     <nav class="s-Vigh-K">
       <a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -809,14 +822,14 @@ export function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header class="s-sy52lX">
+  `;
+  const snapshotMetaHtml = `
       <div class="bw-head-row">
         <p class="s-GMBtq0" style="margin:0">${esc(copy.generatedLabel)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></p>
         <span class="bw-live"><span class="bw-live-dot" aria-hidden="true"></span><span data-bw-live-badge data-bw-live="false" data-bw-observed-at="${snapshotAt ? Date.parse(snapshotAt) : ''}">${esc(`${copy.snapshotLabel} · ${snapshotStamp}${snapshotState === 'stale' ? ` · ${copy.staleLabel}` : ''}`)}</span></span>
       </div>
-      <h1 class="s-mvYgwu">${esc(copy.h1)}</h1>
-      <p class="s-MwAgth">${esc(copy.quickLede)}</p>
-    </header>
+  `;
+  const body = `
     ${statGrid}
     <section class="bw-data-area" aria-labelledby="bw-data-heading">
       <div class="bw-data-head">
@@ -824,7 +837,7 @@ export function renderPage(opts: {
           <h2 id="bw-data-heading" class="s-ZQhDLv">${esc(crossingHeading)}</h2>
           <p class="s-AMzWJZ">${esc(copy.crossingsP)}</p>
         </div>
-        <a class="s-cta bw-map-cta" href="${esc(hubUrl)}"><span aria-hidden="true">🗺️</span> ${esc(copy.mapCta)}</a>
+        <a class="s-cta bw-map-cta" href="${esc(hubUrl)}">${esc(copy.mapCta)}</a>
       </div>
       ${legend}
       ${crossingsList}
@@ -867,16 +880,18 @@ export function renderPage(opts: {
       <p class="s-5DjKKm">${esc(copy.ledeP2)}</p>
     </section>
     <section class="s-p1QaOi">
-      <a href="${esc(hubUrl)}" class="s-cta bw-map-cta"><span aria-hidden="true">🗺️</span> ${esc(copy.ctaAll)}</a>
-      <a class="s-uuWBdZ" href="${esc(homeUrl)}"><span aria-hidden="true">🧮</span> ${esc(copy.ctaCalculator)}</a>
+      <a href="${esc(hubUrl)}" class="s-cta bw-map-cta">${esc(copy.ctaAll)}</a>
+      <a class="s-uuWBdZ" href="${esc(homeUrl)}">${esc(copy.ctaCalculator)}</a>
     </section>
-    ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}
   `;
 
-  const wordCount = countHtmlBodyWords(body);
+  const preparedBody = prepareGuideDossierContent(body, locale as GuideDossierLocale);
+  const articleHtml = `<article class="guide-dossier-copy guide-dossier-live-map">${preparedBody.html}</article>`;
+  const visibleContentHtml = `${breadcrumbHtml}${snapshotMetaHtml}${guideHero}${preparedBody.tocHtml}${articleHtml}`;
+  const wordCount = countHtmlBodyWords(visibleContentHtml);
   // buildSeoPageHtml already provides the crawler-facing <main> landmark.
   // Keep this class on a neutral wrapper so the page has one main landmark.
-  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
+  const bodyHtml = `<div class="s-EDtWsL guide-dossier-page guide-dossier-live-map">${visibleContentHtml}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: visibleContentHtml })}${BORDER_WAIT_HYDRATION_SCRIPT_TAG}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
@@ -886,6 +901,12 @@ export function renderPage(opts: {
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
+    ogImage: `${BASE_URL}${guideVisual.src}`,
+    ogImageWidth: guideVisual.width,
+    ogImageHeight: guideVisual.height,
+    ogImageType: 'image/jpeg',
+    ogImageAlt: guideVisual.alt[locale],
+    extraHeadHtml: `<link rel="preload" as="image" href="${esc(`${BASE_URL}${guideVisual.src}`)}" type="image/jpeg" fetchpriority="high">`,
     hreflangHtml: alternates,
     jsonLdScripts: [breadcrumbLd, mapLd, faqLd],
     bodyHtml,

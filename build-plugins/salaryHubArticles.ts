@@ -20,6 +20,12 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
+import {
+  prepareGuideDossierContent,
+  renderGuideDossierHero,
+  resolveSalaryGuideVisual,
+  type GuideDossierLocale,
+} from './shared/guideDossier';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -62,13 +68,38 @@ function scenarioLink(s: SalaryHubScenario, locale: Locale): string {
 }
 
 function scenarioGrid(scenarios: SalaryHubScenario[], locale: Locale): string {
-  const cards = scenarios.slice(0, 8).map(s => {
+  const labels: Record<Locale, {
+    caption: string;
+    gross: string;
+    regime: string;
+    family: string;
+    distance: string;
+    open: string;
+    old: string;
+    newer: string;
+    married: string;
+    single: string;
+    children: string;
+    noChildren: string;
+    within: string;
+    over: string;
+  }> = {
+    it: { caption: 'Casi di esempio: apri una riga per vedere la simulazione completa.', gross: 'Lordo annuo', regime: 'Regime', family: 'Famiglia', distance: 'Distanza', open: 'Apri il caso', old: 'Vecchio frontaliere', newer: 'Nuovo frontaliere', married: 'Sposato', single: 'Single', children: 'figli', noChildren: 'Nessun figlio', within: 'Entro 20 km', over: 'Oltre 20 km' },
+    en: { caption: 'Example cases: open a row to see the full simulation.', gross: 'Annual gross', regime: 'Regime', family: 'Family', distance: 'Distance', open: 'Open case', old: 'Old cross-border worker', newer: 'New cross-border worker', married: 'Married', single: 'Single', children: 'children', noChildren: 'No children', within: 'Within 20 km', over: 'Over 20 km' },
+    de: { caption: 'Beispielfälle: Öffnen Sie eine Zeile für die vollständige Simulation.', gross: 'Jahresbrutto', regime: 'Regime', family: 'Familie', distance: 'Entfernung', open: 'Fall öffnen', old: 'Alter Grenzgänger', newer: 'Neuer Grenzgänger', married: 'Verheiratet', single: 'Ledig', children: 'Kinder', noChildren: 'Keine Kinder', within: 'Innerhalb 20 km', over: 'Über 20 km' },
+    fr: { caption: 'Exemples : ouvrez une ligne pour consulter la simulation complète.', gross: 'Brut annuel', regime: 'Régime', family: 'Foyer', distance: 'Distance', open: 'Voir le cas', old: 'Ancien frontalier', newer: 'Nouveau frontalier', married: 'Marié', single: 'Célibataire', children: 'enfants', noChildren: 'Sans enfant', within: 'Jusqu’à 20 km', over: 'Plus de 20 km' },
+  };
+  const copy = labels[locale];
+  const rows = scenarios.slice(0, 8).map(s => {
     const path = buildFullPath(s, locale);
-    const desc = s.frontierType === 'OLD' ? (locale === 'it' ? 'Vecchio' : 'Old') : (locale === 'it' ? 'Nuovo' : 'New');
-    const family = s.maritalStatus === 'MARRIED' ? (locale === 'it' ? 'Sposato' : 'Married') : (locale === 'it' ? 'Single' : 'Single');
-    return `<a href="${path}" class="related-card"><strong>CHF ${fmtCHF(s.salary)}</strong><br>${desc}, ${family}${s.children > 0 ? `, ${s.children} ${locale === 'it' ? 'figli' : 'children'}` : ''}</a>`;
+    const regime = s.frontierType === 'OLD' ? copy.old : copy.newer;
+    const familyStatus = s.maritalStatus === 'MARRIED' ? copy.married : copy.single;
+    const family = s.children > 0 ? `${familyStatus}, ${s.children} ${copy.children}` : `${familyStatus}, ${copy.noChildren}`;
+    const distance = s.distanceZone === 'OVER_20KM' ? copy.over : copy.within;
+    return `<tr><td>CHF ${fmtCHF(s.salary)}</td><td>${regime}</td><td>${family}</td><td>${distance}</td><td><a href="${path}">${copy.open}</a></td></tr>`;
   });
-  return `<div class="related-grid">${cards.join('\n')}</div>`;
+
+  return `<div class="guide-dossier-table-wrap" role="region" aria-label="${copy.caption}" tabindex="0"><table class="guide-dossier-scenarios"><caption>${copy.caption}</caption><thead><tr><th scope="col">${copy.gross}</th><th scope="col">${copy.regime}</th><th scope="col">${copy.family}</th><th scope="col">${copy.distance}</th><th scope="col">${copy.open}</th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
 }
 
 // ── Article definitions ─────────────────────────────────────────
@@ -649,6 +680,70 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
   },
 ];
 
+export function getSalaryGuideIndexItems(locale: Locale): Array<{ href: string; title: string }> {
+  return EVERGREEN_ARTICLES.map((article) => ({
+    href: articleUrl(article, locale),
+    title: article.titles[locale],
+  }));
+}
+
+const ARTICLE_H1_TITLES: Record<string, Record<Locale, string>> = {
+  'guida-calcolo-stipendio-2026': {
+    it: 'Calcolo dello stipendio netto frontaliere nel 2026',
+    en: 'Calculating a cross-border worker’s net salary in 2026',
+    de: 'Nettogehalt 2026: Berechnung für Grenzgänger',
+    fr: 'Calculer le salaire net d’un frontalier en 2026',
+  },
+  'confronto-vecchio-nuovo-frontaliere': {
+    it: 'Vecchio o nuovo frontaliere: le differenze fiscali',
+    en: 'Old and new cross-border worker tax rules compared',
+    de: 'Alte und neue Grenzgänger: Steuerregeln im Vergleich',
+    fr: 'Anciens et nouveaux frontaliers : comparer la fiscalité',
+  },
+  'tabelle-imposta-fonte-ticino': {
+    it: 'Tabelle dell’imposta alla fonte in Ticino per il 2026',
+    en: '2026 Ticino withholding tax tables: A, B, C and H',
+    de: 'Quellensteuer Tessin 2026: Tarife A, B, C und H',
+    fr: 'Barèmes tessinois 2026 : impôt à la source A, B, C et H',
+  },
+  'impatto-figli-stipendio-frontaliere': {
+    it: 'Quanto cambiano le imposte con i figli a carico',
+    en: 'How dependent children affect cross-border tax and net pay',
+    de: 'Wie Kinder Steuern und Nettolohn von Grenzgängern beeinflussen',
+    fr: 'L’effet des enfants à charge sur les impôts et le salaire net',
+  },
+  'distanza-confine-20km-frontaliere': {
+    it: 'Domicilio entro o oltre 20 km: effetti fiscali per frontalieri',
+    en: 'Living within or beyond 20 km: tax effects for cross-border workers',
+    de: 'Wohnsitz innerhalb oder ausserhalb von 20 km: steuerliche Folgen',
+    fr: 'Résider à moins ou plus de 20 km : effets fiscaux pour les frontaliers',
+  },
+  'progressione-stipendio-frontaliere': {
+    it: 'Stipendio lordo e netto a confronto da 50.000 a 150.000 CHF',
+    en: 'Gross and net pay compared from CHF 50,000 to 150,000',
+    de: 'Brutto und netto im Vergleich: CHF 50.000 bis 150.000',
+    fr: 'Comparer le brut et le net de 50 000 à 150 000 CHF',
+  },
+  'sposato-single-tasse-frontaliere': {
+    it: 'Stato civile e imposte: sposato o single in Ticino',
+    en: 'How marital status affects cross-border taxes',
+    de: 'Wie der Zivilstand die Steuern von Grenzgängern beeinflusst',
+    fr: 'L’effet de l’état civil sur les impôts des frontaliers',
+  },
+  'cambio-chf-eur-stipendio-frontaliere': {
+    it: 'Cambio CHF-EUR: quanto incide sullo stipendio netto',
+    en: 'CHF-EUR exchange rates and their effect on net salary',
+    de: 'CHF-EUR-Wechselkurs: Auswirkungen auf den Nettolohn',
+    fr: 'Taux CHF-EUR : effet sur le salaire net',
+  },
+  'hub-fiscale-frontalieri': {
+    it: 'Tasse per frontalieri in Ticino: panoramica e strumenti',
+    en: 'Cross-border taxes in Ticino: rules and practical tools',
+    de: 'Steuern für Grenzgänger im Tessin: Regeln und Rechner',
+    fr: 'Impôts des frontaliers au Tessin : règles et outils',
+  },
+};
+
 // ── HTML page generation ────────────────────────────────────────
 
 export function generateArticleHtml(
@@ -660,6 +755,7 @@ export function generateArticleHtml(
   const title = article.titles[locale];
   const description = article.descriptions[locale];
   const canonicalUrl = `${BASE_URL}${articleUrl(article, locale)}`;
+  const visual = resolveSalaryGuideVisual(article.id);
   const articleBodyHtml = article.body(locale, scenarioData);
   const faqs = article.faqItems(locale, scenarioData);
 
@@ -697,7 +793,7 @@ export function generateArticleHtml(
     '@type': 'WebPage',
     headline: title,
     description: articleDescription,
-    image: `${BASE_URL}/og-image.png`,
+    image: `${BASE_URL}${visual.src}`,
     inLanguage: locale,
     url: canonicalUrl,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
@@ -720,10 +816,10 @@ export function generateArticleHtml(
     .filter(article.relatedScenarioFilter)
     .slice(0, 8);
 
-  // When buildTitleWithBrand drops the " | Frontaliere Ticino" suffix
-  // (headline + 22 > 66), the rendered <title> becomes byte-identical to
-  // <h1>. Use the shared differentiator to append a locale-aware tag.
-  const h1Display = differentiateH1FromTitle(title, title, locale as 'it' | 'en' | 'de' | 'fr');
+  // Use a natural editorial heading while keeping the SEO title and
+  // structured-data headline unchanged.
+  const h1Display = ARTICLE_H1_TITLES[article.id]?.[locale]
+    ?? differentiateH1FromTitle(title, title, locale);
 
   // Methodology + scenario context block: pushes text/HTML ratio above the
   // 10 % Semrush threshold for these 8 evergreen articles × 4 locales.
@@ -775,33 +871,41 @@ export function generateArticleHtml(
       </section>`;
   })();
 
-  const pageBody = `<article class="salary-hub-article">
-    <div class="hub-grid">
-      <div class="content">
-        <h1>${h1Display}</h1>
-
+  const sectionLabels: Record<Locale, { scenarios: string; calculator: string; openCalculator: string }> = {
+    it: { scenarios: 'Confronta i casi di esempio', calculator: 'Calcola il tuo stipendio netto personalizzato', openCalculator: 'Apri il calcolatore' },
+    en: { scenarios: 'Compare example cases', calculator: 'Calculate your personalized net salary', openCalculator: 'Open calculator' },
+    de: { scenarios: 'Beispielfälle vergleichen', calculator: 'Berechnen Sie Ihr persönliches Nettogehalt', openCalculator: 'Rechner öffnen' },
+    fr: { scenarios: 'Comparer les exemples', calculator: 'Calculez votre salaire net personnalisé', openCalculator: 'Ouvrir le calculateur' },
+  };
+  const sectionCopy = sectionLabels[locale];
+  const articleContent = `
+        ${related.length ? `<section class="guide-dossier-compare"><h2>${sectionCopy.scenarios}</h2>${scenarioGrid(related, locale)}</section>` : ''}
         ${articleBodyHtml}
-
         ${methodologyBlock}
-
         <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>
-
-        <h2>${locale === 'it' ? 'Simulazioni correlate' : 'Related simulations'}</h2>
-        ${scenarioGrid(related, locale)}
-
         <div class="cta-box">
-          <p>${locale === 'it' ? 'Calcola il tuo stipendio netto personalizzato' : 'Calculate your personalized net salary'}</p>
-          <a href="${LOCALE_CALC_PREFIX[locale]}/">${locale === 'it' ? 'Apri il calcolatore' : 'Open calculator'} &rarr;</a>
+          <p>${sectionCopy.calculator}</p>
+          <a href="${LOCALE_CALC_PREFIX[locale]}/">${sectionCopy.openCalculator} &rarr;</a>
         </div>
-
         <div class="faq-section">
-          <h2>${locale === 'it' ? 'Domande frequenti' : 'FAQ'}</h2>
+          <h2>${locale === 'it' ? 'Domande frequenti' : locale === 'de' ? 'Häufige Fragen' : locale === 'fr' ? 'Questions fréquentes' : 'FAQ'}</h2>
           ${faqs.map(f => `<div class="faq-item"><div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div></div>`).join('\n')}
         </div>
-
         ${renderAuthoritativeSourcesHtml(locale)}
-
-        <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
+        <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>`;
+  const preparedArticle = prepareGuideDossierContent(articleContent, locale as GuideDossierLocale);
+  const pageBody = `<article class="salary-hub-article guide-dossier-page">
+    <div class="hub-grid">
+      <div class="content">
+        ${renderGuideDossierHero({
+          title: h1Display,
+          description,
+          visual,
+          locale,
+          action: { href: `${LOCALE_CALC_PREFIX[locale]}/`, label: sectionCopy.openCalculator },
+        })}
+        ${preparedArticle.tocHtml}
+        <div class="guide-dossier-copy">${preparedArticle.html}</div>
       </div>
     </div>
   </article>`;
@@ -813,6 +917,11 @@ export function generateArticleHtml(
     canonicalUrl,
     hreflangHtml,
     ogType: 'article',
+    ogImage: `${BASE_URL}${visual.src}`,
+    ogImageWidth: visual.width,
+    ogImageHeight: visual.height,
+    ogImageType: 'image/jpeg',
+    ogImageAlt: visual.alt[locale],
     jsonLdScripts: [articleSchema, faqSchema, breadcrumbSchema],
     bodyHtml: pageBody,
     distDir,

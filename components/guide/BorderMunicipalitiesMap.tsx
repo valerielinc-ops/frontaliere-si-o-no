@@ -11,7 +11,7 @@ import { calculateMunicipalityTaxImpact, type MunicipalityTaxResult } from '@/se
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { CircleMarker, Popup } from 'react-leaflet';
 import MapCanvas from '@/components/shared/MapCanvas';
-import { MapPin, Filter, Info, AlertTriangle, TrendingDown, TrendingUp, ArrowUpDown, Award, DollarSign, Building2, Navigation, ChevronUp, ChevronDown, SlidersHorizontal } from 'lucide-react';
+import { MapPin, Filter, Info, AlertTriangle, TrendingDown, TrendingUp, ArrowUpDown, Award, DollarSign, Building2, Navigation, ChevronUp, ChevronDown, SlidersHorizontal, Clock, BarChart3, Ruler, Home, Users, CheckCircle2 } from 'lucide-react';
 import { MAP_COLORS } from '@/services/mapColors';
 import { fetchBorderWaitCurrent, effectiveWaitMinutes, type BorderWaitCurrentSnapshot } from '@/services/borderWaitCurrentService';
 import { fmtMinutes, minutesSince } from '@/services/borderWaitFormat';
@@ -224,14 +224,14 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <p className="font-bold">{bc.name}</p>
  <p>{bc.type} — {bc.hours}</p>
  {liveMinutes !== null ? (
- <p>
- ⏱ {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
+ <p className="flex items-center gap-1">
+ <Clock size={12} aria-hidden="true" /> {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
  {liveAgoMinutes !== null && (
  <span className="text-muted"> ({t('bordermap.liveUpdatedAgo', { minutes: liveAgoMinutes })})</span>
  )}
  </p>
  ) : (
- <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
+ <p className="flex items-center gap-1"><Clock size={12} aria-hidden="true" /> AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
  )}
  </div>
  </Popup>
@@ -250,10 +250,10 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <p className="font-bold text-sm">{m.name}</p>
  <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
  <hr />
- <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
- <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
- <p>🏠 {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
- <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
+ <p className="flex items-center gap-1"><BarChart3 size={12} aria-hidden="true" /> IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
+ <p className="flex items-center gap-1"><Ruler size={12} aria-hidden="true" /> {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
+ <p className="flex items-center gap-1"><Home size={12} aria-hidden="true" /> {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
+ <p className="flex items-center gap-1"><Users size={12} aria-hidden="true" /> {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
  </div>
  </Popup>
  </CircleMarker>
@@ -821,16 +821,16 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Extra info row */}
  <div className="flex items-center gap-4 text-xs text-muted mb-3">
  <span className="inline-flex items-center gap-1"><Navigation className="w-3 h-3" /> {m.distanceKm} km</span>
- <span>🏠 <AvgRentValue municipality={m} suffix="/m" /></span>
- <span>👥 {m.population.toLocaleString('it-IT')}</span>
+ <span className="inline-flex items-center gap-1"><Home size={12} aria-hidden="true" /> <AvgRentValue municipality={m} suffix="/m" /></span>
+ <span className="inline-flex items-center gap-1"><Users size={12} aria-hidden="true" /> {m.population.toLocaleString('it-IT')}</span>
  </div>
 
  {/* Fascia note — franchigia applies to all fascia (Art. 1 c.175 L.147/2013) */}
- <p className="text-xs text-info mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
+ <p className="text-xs text-info mb-2 flex items-center gap-1"><CheckCircle2 size={12} aria-hidden="true" /> {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
 
  {/* Campione special note */}
  {isCampione && (
- <p className="text-xs text-link italic mb-2">ℹ️ {t('bordermap.campione')}</p>
+ <p className="text-xs text-link italic mb-2 flex items-center gap-1"><Info size={12} aria-hidden="true" /> {t('bordermap.campione')}</p>
  )}
 
  {/* Delta vs comparison municipality */}

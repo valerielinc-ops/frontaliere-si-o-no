@@ -54,6 +54,18 @@ import { compareArticleSourceDates } from '../services/articleSourceDates';
 import { EDITORIAL_TEAM_ID } from '../services/seo/organizationLd';
 import { localizeOfficialSourceRootLinks } from './shared/officialSourceRootLinks';
 import { countItalianFrontaliereArticleDetails, formatArticleCountEvidence } from './shared/publishedMeasurements.mjs';
+import {
+ buildGuideDossierIndexData,
+ isGuideDossierIndexPath,
+ prepareGuideDossierContent,
+ renderGuideDossierIndexMap,
+ renderGuideDossierHero,
+ isGuideDossierStaticArticlePath,
+ resolveStaticGuideAction,
+ resolveStaticGuideVisual,
+ type GuideDossierLocale,
+} from './shared/guideDossier';
+import { getSalaryGuideIndexItems } from './salaryHubArticles';
 
 // SPA pages initialize PostHog from the consent-gated idle path in App.tsx.
 // Keeping the standalone snippet here would initialize it before React and
@@ -5919,7 +5931,59 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const h1RawText = (seoData.h1 && seoData.h1.trim().length > 0)
  ? seoData.h1
  : h1Fallback;
- const h1Text = differentiateH1FromTitle(h1RawText, capTitle70(seoData.title), h1Locale);
+ const guideDossierH1BySlug: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
+ 'tassa-salute-frontalieri': {
+  it: 'Contributo sanitario dei frontalieri: cosa sapere',
+  en: 'Swiss health contribution for cross-border workers',
+  de: 'Gesundheitsabgabe für Grenzgänger: wichtige Regeln',
+  fr: 'Contribution santé des frontaliers : règles et démarches',
+ },
+ 'lamal-frontalieri': {
+  it: 'LAMal per frontalieri: regole e scelta della copertura',
+  en: 'LAMal for cross-border workers: insurance options',
+  de: 'Krankenversicherung für Grenzgänger: LAMal und Optionen',
+  fr: 'LAMal pour les frontaliers : couverture et choix',
+ },
+ 'cross-border-health-contribution': {
+  it: 'Contributo sanitario dei frontalieri: cosa sapere',
+  en: 'Swiss health contribution for cross-border workers',
+  de: 'Gesundheitsabgabe für Grenzgänger: wichtige Regeln',
+  fr: 'Contribution santé des frontaliers : règles et démarches',
+ },
+ 'lamal-for-cross-border-workers': {
+  it: 'LAMal per frontalieri: regole e scelta della copertura',
+  en: 'LAMal for cross-border workers: insurance options',
+  de: 'Krankenversicherung für Grenzgänger: LAMal und Optionen',
+  fr: 'LAMal pour les frontaliers : couverture et choix',
+ },
+ 'gesundheitsabgabe-grenzgaenger': {
+  it: 'Contributo sanitario dei frontalieri: cosa sapere',
+  en: 'Swiss health contribution for cross-border workers',
+  de: 'Gesundheitsabgabe für Grenzgänger: wichtige Regeln',
+  fr: 'Contribution santé des frontaliers : règles et démarches',
+ },
+ 'krankenversicherung-grenzgaenger': {
+  it: 'LAMal per frontalieri: regole e scelta della copertura',
+  en: 'LAMal for cross-border workers: insurance options',
+  de: 'Krankenversicherung für Grenzgänger: LAMal und Optionen',
+  fr: 'LAMal pour les frontaliers : couverture et choix',
+ },
+ 'contribution-sante-frontaliers': {
+  it: 'Contributo sanitario dei frontalieri: cosa sapere',
+  en: 'Swiss health contribution for cross-border workers',
+  de: 'Gesundheitsabgabe für Grenzgänger: wichtige Regeln',
+  fr: 'Contribution santé des frontaliers : règles et démarches',
+ },
+ 'lamal-frontaliers': {
+  it: 'LAMal per frontalieri: regole e scelta della copertura',
+  en: 'LAMal for cross-border workers: insurance options',
+  de: 'Krankenversicherung für Grenzgänger: LAMal und Optionen',
+  fr: 'LAMal pour les frontaliers : couverture et choix',
+ },
+ };
+ const guideDossierSlug = canonicalPath.replace(/\/+$/, '').split('/').pop() ?? '';
+ const guideDossierH1 = guideDossierH1BySlug[guideDossierSlug]?.[h1Locale];
+ const h1Text = guideDossierH1 ?? differentiateH1FromTitle(h1RawText, capTitle70(seoData.title), h1Locale);
 
  // #5001 punto 2 — la hero del glossario, descritta UNA volta e usata tre:
  // l'<img> nel body, l'ImageObject in JSON-LD e og:image. Sta qui, in scope di
@@ -5939,6 +6003,16 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  eyebrow: GLOSSARY_HERO_EYEBROW[h1Locale],
  alt: h1Text,
  }
+ : null;
+
+ // The editorial guide family has its own documented comparison-dossier
+ // shell and photographic set. Resolve it by canonical route so this change
+ // stays limited to the 11 guide pages and their declared locale variants;
+ // live crossing maps and glossary routes keep their existing renderers.
+ const guideDossierVisual = resolveStaticGuideVisual(canonicalPath);
+ const guideDossierAction = resolveStaticGuideAction(canonicalPath, h1Locale as GuideDossierLocale);
+ const guideDossierHeroSize = guideDossierVisual
+ ? resolveStaticHeroSize(guideDossierVisual.src) ?? { width: guideDossierVisual.width, height: guideDossierVisual.height }
  : null;
 
  // #5001 punto 1/3 — la hero dell'ARTICOLO, risolta una volta sola come sopra
@@ -5966,12 +6040,14 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // non puo' dichiararne un'altra.
  const ogImageUrl = glossaryHero
  ? seoHeroImageUrl(glossaryHero)
+ : guideDossierVisual
+ ? `${BASE_URL}${guideDossierVisual.src}`
  : blogDetailHeroSrc
  ? `${BASE_URL}${blogDetailHeroSrc}`
  : `${BASE_URL}/og-image.png`;
- const ogImageW = glossaryHero ? SEO_HERO_WIDTH : blogDetailHeroSize ? blogDetailHeroSize.width : 1200;
- const ogImageH = glossaryHero ? SEO_HERO_HEIGHT : blogDetailHeroSize ? blogDetailHeroSize.height : 630;
- const ogImageMime = glossaryHero ? 'image/webp' : blogDetailHeroSrc ? blogDetailHeroMime : 'image/png';
+ const ogImageW = glossaryHero ? SEO_HERO_WIDTH : guideDossierHeroSize ? guideDossierHeroSize.width : blogDetailHeroSize ? blogDetailHeroSize.width : 1200;
+ const ogImageH = glossaryHero ? SEO_HERO_HEIGHT : guideDossierHeroSize ? guideDossierHeroSize.height : blogDetailHeroSize ? blogDetailHeroSize.height : 630;
+ const ogImageMime = glossaryHero ? 'image/webp' : guideDossierVisual ? 'image/jpeg' : blogDetailHeroSrc ? blogDetailHeroMime : 'image/png';
  const twitterCardMeta = buildTwitterCardMetaTags({
    title: capTitle70(seoData.title, canonicalPath),
    description: seoData.ogD,
@@ -5990,12 +6066,18 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // `seoMap` ed e' condiviso tra le locale della stessa pagina (stessa cautela
  // dell'heroImageLd del glossario ~200 righe piu' sotto).
  const sdForPage = ((): string | undefined => {
- if (!seoData.sd || !blogDetailHeroSrc) return seoData.sd;
+ if (!seoData.sd || (!blogDetailHeroSrc && !guideDossierVisual)) return seoData.sd;
  const sdSeparator = '</script>\n <script type="application/ld+json">';
  try {
  return seoData.sd.split(sdSeparator).map((part) => {
  const obj = JSON.parse(part) as Record<string, unknown>;
  const img = obj.image;
+ if (guideDossierVisual && ['CollectionPage', 'WebPage', 'Article', 'BlogPosting'].includes(String(obj['@type']))) {
+   obj.image = typeof img === 'object' && img !== null && !Array.isArray(img)
+   ? blogDetailHeroImageObject(img as Record<string, unknown>, { url: ogImageUrl, width: ogImageW, height: ogImageH }, null)
+   : ogImageUrl;
+   return inlineScriptJson(obj);
+ }
  if (!img || typeof img !== 'object' || Array.isArray(img)) return part;
  if ((img as Record<string, unknown>)['@type'] !== 'ImageObject') return part;
  obj.image = blogDetailHeroImageObject(img as Record<string, unknown>, { url: ogImageUrl, width: ogImageW, height: ogImageH }, blogDetailCredit);
@@ -6007,7 +6089,21 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  }
  })();
 
- if (comparatorSlugs.includes(firstSeg)) {
+ if (guideDossierVisual) {
+ const dossier = prepareGuideDossierContent(`${editorialHtml}${editorialSourcesHtml}`, h1Locale as GuideDossierLocale);
+ const isGuideIndex = isGuideDossierIndexPath(canonicalPath);
+ const indexMap = isGuideIndex
+ ? renderGuideDossierIndexMap(canonicalPath, h1Locale as GuideDossierLocale, getSalaryGuideIndexItems(h1Locale as GuideDossierLocale))
+ : '';
+ const guideHeroHtml = renderGuideDossierHero({ title: h1Text, description: seoData.desc, visual: guideDossierVisual, locale: h1Locale as GuideDossierLocale, action: guideDossierAction ?? undefined });
+ const indexData = isGuideIndex
+ ? buildGuideDossierIndexData(canonicalPath, h1Locale as GuideDossierLocale, getSalaryGuideIndexItems(h1Locale as GuideDossierLocale))
+ : null;
+ const indexBootstrap = isGuideIndex
+ ? `<script>window.__FT_GUIDE_DOSSIER_INDEX__=${inlineScriptJson({ locale: h1Locale, data: indexData })};</script>`
+ : '';
+ rootHtml = `<div class="guide-dossier-page guide-dossier-static">${guideHeroHtml}${indexMap}${dossier.tocHtml}${indexBootstrap}<article class="guide-dossier-copy">${dossier.html}</article><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ } else if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
  // #5001 punto 2 — hero SOLO per il glossario. Misurato sulle sitemap live: le
@@ -6215,7 +6311,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
  <meta property="og:image:type" content="${ogImageMime}">
- <meta property="og:image:alt" content="${esc(seoData.ogT)}">
+ <meta property="og:image:alt" content="${esc(guideDossierVisual?.alt[h1Locale as GuideDossierLocale] ?? seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  ${twitterCardMeta}
@@ -6277,7 +6373,7 @@ ${hrefTags}
  // Every staticOverlay SEO landing renders the SSG body as primary content
  // (App.tsx skips React <main>) — there's nothing to defer for, so we
  // load the bundle CSS synchronously like home + hub roots already do.
- const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath) || hubChromeSpec !== null;
+ const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath) || hubChromeSpec !== null || isGuideDossierStaticArticlePath(canonicalPath);
  const stylesheetMarkup = useBlockingHomeCss
  ? `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">`
  : `<link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">
@@ -6372,6 +6468,11 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  ${railGridOpen}
  <main class="seo-static-content">${rootHtml}</main>${railGridClose}
  <div id="footer-root"></div>`
+   : isGuideDossierStaticArticlePath(canonicalPath)
+     ? `${rootShell(hasSpaBundle)}
+ ${railGridOpen}
+ <main class="seo-static-content">${rootHtml}</main>${railGridClose}
+ <div id="footer-root"></div>`
    : `<div id="root"><main id="main-content">${rootHtml}</main></div>
  <div id="footer-root"></div>`;
 
@@ -6392,7 +6493,7 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
  <meta property="og:image:type" content="${ogImageMime}">
- <meta property="og:image:alt" content="${esc(seoData.ogT)}">
+ <meta property="og:image:alt" content="${esc(guideDossierVisual?.alt[h1Locale as GuideDossierLocale] ?? seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  ${twitterCardMeta}
@@ -6403,7 +6504,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
+ ${stylesheetMarkup}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : (guideDossierVisual?.src ?? ''))}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${SPA_ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
@@ -6434,7 +6535,7 @@ ${hrefTags}
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
  <meta property="og:image:type" content="${ogImageMime}">
- <meta property="og:image:alt" content="${esc(seoData.ogT)}">
+ <meta property="og:image:alt" content="${esc(guideDossierVisual?.alt[h1Locale as GuideDossierLocale] ?? seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  ${twitterCardMeta}
@@ -6788,6 +6889,17 @@ ${hrefTags}
  console.log(`[static-pages] Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (hashSkipped > 0 ? ` (${hashSkipped} skipped by content hash)` : ''));
  console.log(`\x1b[36m[static-pages]\x1b[0m Generated ${count} static pages (${skipped} skipped — already exist or no SEO data)`);
+
+ const guideIndexData = {
+   it: buildGuideDossierIndexData('/guida-frontaliere/', 'it', getSalaryGuideIndexItems('it')),
+   en: buildGuideDossierIndexData('/en/cross-border-guide/', 'en', getSalaryGuideIndexItems('en')),
+   de: buildGuideDossierIndexData('/de/grenzgaenger-ratgeber/', 'de', getSalaryGuideIndexItems('de')),
+   fr: buildGuideDossierIndexData('/fr/guide-frontalier/', 'fr', getSalaryGuideIndexItems('fr')),
+ };
+ const guideIndexPath = np.join(distDir, 'data', 'guide-dossier-index.json');
+ fs.mkdirSync(np.dirname(guideIndexPath), { recursive: true });
+ fs.writeFileSync(guideIndexPath, JSON.stringify(guideIndexData), 'utf-8');
+ console.log('[static-pages] Emitted localized guide dossier index data');
 
  // Vite copies the public sitemap seeds before closeBundle. Update those
  // emitted copies after the SEO map and page HTML are complete, before the

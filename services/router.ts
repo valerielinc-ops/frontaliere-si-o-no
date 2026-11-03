@@ -198,6 +198,38 @@ const SEMRUSH_LANDINGS: ReadonlyArray<{ key: string; path: string; tab: 'guida' 
 ];
 const SEMRUSH_LANDING_ROUTES = new Set(SEMRUSH_LANDINGS.map((l) => l.path));
 
+// Standalone localized guide article emitted outside #root by staticPagesPlugin.
+// It has no interactive app sub-tab; staticOverlay keeps the full guide visible
+// while the application chrome hydrates.
+const GUIDE_DOSSIER_STATIC_ARTICLE_LOCALE_PATHS: ReadonlyArray<Record<Locale, string>> = [
+ {
+   it: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/',
+   en: '/en/cross-border-guide/complete-guide-cross-border-work-switzerland-2026/',
+   de: '/de/grenzgaenger-ratgeber/komplettanleitung-grenzgaenger-arbeit-schweiz-2026/',
+   fr: '/fr/guide-frontalier/guide-complet-travail-frontalier-suisse-2026/',
+ },
+ {
+   it: '/guida-frontaliere/tassa-salute-frontalieri/',
+   en: '/en/cross-border-guide/cross-border-health-contribution/',
+   de: '/de/grenzgaenger-ratgeber/gesundheitsabgabe-grenzgaenger/',
+   fr: '/fr/guide-frontalier/contribution-sante-frontaliers/',
+ },
+ {
+   it: '/guida-frontaliere/lamal-frontalieri/',
+   en: '/en/cross-border-guide/lamal-for-cross-border-workers/',
+   de: '/de/grenzgaenger-ratgeber/krankenversicherung-grenzgaenger/',
+   fr: '/fr/guide-frontalier/lamal-frontaliers/',
+ },
+];
+const GUIDE_DOSSIER_STATIC_ARTICLE_PATHS = new Set(
+ GUIDE_DOSSIER_STATIC_ARTICLE_LOCALE_PATHS.flatMap((paths) => Object.values(paths)),
+);
+
+function localizedGuideDossierStaticArticlePath(currentPath: string, newLocale: Locale): string | null {
+ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+ return GUIDE_DOSSIER_STATIC_ARTICLE_LOCALE_PATHS.find((paths) => Object.values(paths).includes(normalizedPath))?.[newLocale] ?? null;
+}
+
 // ── Static-overlay SEO pages (annual/market reports, border-wait map, salary-hub
 //    evergreen articles). All emitted via `buildSeoPageHtml` with
 //    `seoContentOutsideRoot: true`, so the SPA must NOT replace them on hydrate.
@@ -3060,6 +3092,15 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Complete cross-border work guide — standalone editorial article rendered
+ // outside #root so the SPA shell cannot replace it with the first-day checklist.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (GUIDE_DOSSIER_STATIC_ARTICLE_PATHS.has(normalized)) {
+     return { route: { activeTab: 'guida', guidaSubTab: 'first-day', staticOverlay: true }, locale };
+   }
+ }
+
  // Orphan-query cluster landings (F3b): /ricerca/<slug>/, /en/search/<slug>/, …
  // Pages are statically generated; staticOverlay keeps the per-cluster static
  // content visible (otherwise the SPA would render the generic job-board listing).
@@ -4358,6 +4399,11 @@ export function updatePathForLocale(newLocale: Locale): void {
  // though the static SEO content is the per-station detail. Preserve the
  // canonical URL; the per-locale alternates are emitted as <link rel="alternate">.
  if (route.staticOverlay) {
+ const guideArticlePath = localizedGuideDossierStaticArticlePath(currentPath, newLocale);
+ if (guideArticlePath && currentPath !== guideArticlePath) {
+   window.location.assign(guideArticlePath + search + window.location.hash);
+   return;
+ }
  if (route.activeTab === 'social-hub') {
  const newPath = buildPath(route, newLocale);
  if (currentPath !== newPath) {

@@ -261,7 +261,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  priority: 'net',
  horizon: 'short',
  });
- const [easterEgg, setEasterEgg] = useState<{ message: string; emoji: string } | null>(null);
+ const [easterEgg, setEasterEgg] = useState<{ message: string } | null>(null);
  const [easterEggVisible, setEasterEggVisible] = useState(false);
 
  // Sync easter egg toast with popup queue so it doesn't overlap gamification
@@ -292,9 +292,9 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  if (readBestEffortLocalStorage(key)) return;
  writeBestEffortLocalStorage(key, '1');
  if (value === 'old') {
- setEasterEgg({ message: t('permitCompare.easterEggOld'), emoji: '😎' });
+ setEasterEgg({ message: t('permitCompare.easterEggOld') });
  } else {
- setEasterEgg({ message: t('permitCompare.easterEggNew'), emoji: '💪' });
+ setEasterEgg({ message: t('permitCompare.easterEggNew') });
  }
  }, [gType, t]);
 
@@ -447,7 +447,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  {easterEgg && easterEggVisible && (
  <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
  <div className="bg-warning-subtle border border-warning-border rounded-2xl shadow-xl px-6 py-3 flex items-center gap-3 max-w-md">
- <span className="text-2xl">{easterEgg.emoji}</span>
+ <Sparkles className="h-5 w-5 shrink-0" aria-hidden="true" />
  <p className="text-sm font-semibold text-warning">{easterEgg.message}</p>
  </div>
  </div>
