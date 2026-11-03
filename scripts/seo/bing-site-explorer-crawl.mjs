@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import healthFacilitiesRegistry from '../../data/health-facilities-jobs.json' with { type: 'json' };
 
 /**
  * Deterministic, Bing-compatible sitemap/tree crawler.
@@ -90,6 +91,11 @@ const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
 const PAGINATION_NOINDEX_FROM_PAGE = 11;
 const PAGINATION_TARGET_PATH_RE = /^(?:\/[^/]+)+\/(?:page|pagina|seite)-(\d+)\/$/;
 const DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
+const HEALTH_FACILITY_SLUG_SET = new Set(
+  (Array.isArray(healthFacilitiesRegistry?.facilities) ? healthFacilitiesRegistry.facilities : [])
+    .map((facility) => facility?.slug)
+    .filter((slug) => typeof slug === 'string' && DETAIL_SLUG_RE.test(slug)),
+);
 const EVENT_ARCHIVE_ROUTE_SEGMENTS = new Set(['archivio', 'archive', 'archiv', 'archives']);
 const EVENT_ROUTE_CONFIG = Object.freeze([
   { locale: 'it', prefix: [], root: 'eventi' },
@@ -363,7 +369,8 @@ export function isHealthFacilityDetailPath(value) {
   const segments = source.pathname.split('/').filter(Boolean);
   const localeOffset = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
   return segments.length === localeOffset + 2
-    && DETAIL_SLUG_RE.test(segments.at(-1) || '');
+    && DETAIL_SLUG_RE.test(segments.at(-1) || '')
+    && HEALTH_FACILITY_SLUG_SET.has(segments.at(-1));
 }
 
 /**

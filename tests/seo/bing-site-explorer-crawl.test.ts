@@ -383,6 +383,7 @@ describe('Bing-compatible full-tree crawler', () => {
       `${BASE}/strutture-sanitarie/`,
       `${BASE}/strutture-sanitarie/clinique-la-source/details/`,
       `${BASE}/en/strutture-sanitarie/clinique-la-source/`,
+      `${BASE}/strutture-sanitarie/definitely-not-a-facility/`,
       `${BASE}/strutture-sanitarie/clinique-la-source/`,
     ];
     for (const url of invalidCases) {
