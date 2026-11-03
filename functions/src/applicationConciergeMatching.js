@@ -1120,7 +1120,6 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       profile,
       candidateLocation,
       ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
-      matchSignals.fingerprint,
     ])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const recoveryRows = existing.map(doc => ({ id: doc.id, ref: doc.ref || doc, data: doc.data() || {} }));
