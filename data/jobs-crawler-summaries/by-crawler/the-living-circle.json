@@ -1,62 +1,18 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-11-02T21:23:44.558Z",
-  "total": 33,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 31,
-  "durationMs": 1647,
-  "avgDurationMs": 1647,
+  "generatedAt": "2026-11-03T09:15:16.570Z",
+  "total": 32,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
+  "unchangedCount": 30,
+  "durationMs": 2539,
+  "avgDurationMs": 2539,
   "durationHistory": [
-    1647
+    2539
   ],
-  "newJobs": [
-    {
-      "title": "Praktikant Service Bankett und Room Service 100% (all genders)",
-      "slug": "praktikant-service-bankett-e-room-service-100-all-genders-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/68495232/Praktikant-Service-Bankett-und-Room-Service-100-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68495232/Praktikant-Service-Bankett-und-Room-Service-100-all-genders-/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-11-02T14:15:11.626+01:00",
-      "postedDate": "2026-11-02T14:15:11.626+01:00",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-01-31T21:23:29.595Z",
-      "needsRetranslation": true,
-      "id": "the-living-circle-4ac9279fd303",
-      "salaryMin": 58000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:29.595Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 25
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
@@ -99,9 +55,96 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Praktikant Service Bankett und Room Service 100% (all genders)",
+      "slug": "tirocinante-servizio-banchetti-e-room-service-100-tutti-i-generi-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68495232/Praktikant-Service-Bankett-und-Room-Service-100-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68495232/Praktikant-Service-Bankett-und-Room-Service-100-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-11-02T14:15:11.626+01:00",
+      "postedDate": "2026-11-02T14:15:11.626+01:00",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-01-31T21:23:29.595Z",
+      "id": "the-living-circle-4ac9279fd303",
+      "firstSeenAt": "2026-11-02T21:23:29.595Z",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Chef de Rang Frühstück Widder 60-100% (all genders)",
+      "slug": "chef-de-rang-colazione-ariete-60-100-tutti-i-generi-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68359572/Chef-de-Rang-Fr%C3%BChst%C3%BCck-Widder-60-100-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68359572/Chef-de-Rang-Fr%C3%BChst%C3%BCck-Widder-60-100-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-27T16:56:45.464+01:00",
+      "postedDate": "2026-10-27T16:56:45.464+01:00",
+      "postingDateSource": "reported",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "2027-01-25T21:19:47.483Z",
+      "id": "the-living-circle-a0387eae2733",
+      "firstSeenAt": "2026-10-27T21:19:47.483Z",
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)",
@@ -1377,5 +1420,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }

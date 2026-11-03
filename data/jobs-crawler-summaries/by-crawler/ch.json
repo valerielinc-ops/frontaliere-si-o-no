@@ -1,7 +1,7 @@
 {
   "key": "ch",
   "label": "Global Sana",
-  "generatedAt": "2026-11-02T21:59:13.467Z",
+  "generatedAt": "2026-11-03T09:30:53.977Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7612,
-  "avgDurationMs": 7612,
+  "unchangedCount": 1,
+  "durationMs": 7694,
+  "avgDurationMs": 7694,
   "durationHistory": [
-    7612
+    7694
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ch-c130346fd255",
-      "slug": "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur",
+      "slug": "consulente-di-servizio-nel-settore-automobilistico-m-f-d-100-temporaneo-global-sana-winterthur-canton-of-zurich",
       "company": "Global Sana",
       "companyKey": "ch",
       "companyDomain": "ch.talent.com",
@@ -34,7 +35,7 @@
       "url": "https://ch.talent.com/view?id=620345981570851791&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:58:55.001Z",
+      "crawledAt": "2026-11-03T09:30:38.214Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,27 +51,27 @@
       "postedDate": "2026-11-01",
       "postingDateSource": "reported",
       "applyUrl": "https://ch.talent.com/view?id=620345981570851791&trigger_from=related_jobs",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-02T21:58:55.001Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T21:58:55.001Z",
+      "validThrough": "2027-01-30T09:30:38.214Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:55.001Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "ch-bbf364092e77",
-      "slug": "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch",
+      "slug": "consulente-di-servizio-industria-automobilistica-in-4-giorni-settimana-100-m-f-d-global-sana-winterthur-canton-of-zurich",
       "company": "Global Sana",
       "companyKey": "ch",
       "companyDomain": "ch.talent.com",
@@ -80,7 +81,7 @@
       "url": "https://ch.talent.com/view?id=612989830165106339&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:58:55.000Z",
+      "crawledAt": "2026-11-03T09:30:38.213Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,26 +97,26 @@
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
       "applyUrl": "https://ch.talent.com/view?id=612989830165106339&trigger_from=related_jobs",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-02T21:58:55.000Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:58:55.000Z",
+      "validThrough": "2027-01-11T09:30:38.213Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:55.000Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ch-9e72d8e76c62",
       "slug": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
@@ -128,7 +129,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:58:54.998Z",
+      "crawledAt": "2026-11-03T09:30:38.211Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,7 +152,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:58:54.998Z",
+      "validThrough": "2026-12-03T09:30:38.211Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -162,7 +163,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }

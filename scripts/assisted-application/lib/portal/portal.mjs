@@ -29,7 +29,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { applicationReceipt, applicationStage } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -3492,16 +3492,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
-    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
+    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Workday can reveal the verification failure only after the first sign-in
-    // click. The form remains a sign-in page, but its explicit resend control
-    // and verification copy are a safe recovery signal, even when the stored
-    // account record was previously marked verified.
-    const afterText = [after.text, ...(after.errors || [])].join(' ');
-    if (hasResendVerificationControl(after)
-      && VERIFY_PAGE_RE.test(afterText)
+    // click. The form remains a sign-in page and may expose the copy only as a
+    // form message (without a resend control), even when the stored account
+    // record was previously marked verified. The sign-in response is the
+    // signal: the portal has just sent the verification mail.
+    if (authPageKind(after) === 'sign_in'
+      && isAccountVerificationResponse(after)
       && !usesOtpAccountCreation(host)) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
@@ -5097,6 +5097,11 @@ export async function submitViaPortal(ctx) {
       if (receiptResult) return receiptResult;
       if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
       if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
+      // A later SPA step can land on public site content that still exposes a
+      // generic optional upload and gallery controls. The entry-point guard
+      // above does not run again, so stop before the no-controls agent fallback
+      // treats that content as an unanswered application question.
+      if (!hasApplicationSurface(after)) return await handoff('posting_mismatch');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's

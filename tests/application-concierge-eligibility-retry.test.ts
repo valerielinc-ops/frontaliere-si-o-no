@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { dueEligibilityRetries, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary,
-  MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
+  ELIGIBILITY_RETRY_REASON_PROVENANCE, MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
 import { conciergeMatchingWork, eligibilityRetryContext } from '../functions/src/applicationConciergeMatching.js';
 
 const now = Date.now();
@@ -27,6 +29,19 @@ function aggregateOnlyEligibilityServiceRef(serviceRef: any) {
 }
 
 describe('independent qualification retry queue', () => {
+  it('classifies every persisted retry reason and keeps the removed requirements emitter explicitly legacy', () => {
+    for (const [reason, provenance] of Object.entries(ELIGIBILITY_RETRY_REASON_PROVENANCE)) {
+      expect(provenance).toMatch(/^(?:current:[A-Za-z][A-Za-z0-9]+|legacy(?::.*)?|internal:.*)$/);
+      if (provenance.startsWith('current:')) {
+        const producer = provenance.slice('current:'.length);
+        expect(readFileSync(new URL(`../functions/src/${producer}.js`, import.meta.url), 'utf8')).toContain(reason);
+      }
+    }
+    expect(ELIGIBILITY_RETRY_REASON_PROVENANCE.requirements_incomplete).toMatch(/^legacy:/);
+    expect(ELIGIBILITY_RETRY_REASON_PROVENANCE.clarification_questions_missing).toBe('current:applicationConciergeEligibility');
+    expect(Object.keys(ELIGIBILITY_RETRY_REASON_PROVENANCE)).toContain('retry_backoff');
+  });
+
   it('retains unknown jobs, backs off, then removes only a verified outcome', async () => {
     const store = createMemoryFirestore();
     const serviceRef = store.db.collection('application_concierge_services').doc('service_test');
@@ -57,6 +72,88 @@ describe('independent qualification retry queue', () => {
       retryAt: null, statusCounts: {}, reasonCounts: {}, recovery: { count: 1, lastStatus: 'clarification_required' } });
     expect((await eligibilityRetrySummary(serviceRef)).recovery.lastDurationMs).toBe(4 * 3600000 + 17 * 60_000);
     expect(eligibilityRetryRef(serviceRef, ctx.url).path).toMatch(/\/eligibility\/retry-[a-f0-9]{32}$/);
+  });
+
+  it('preserves retry source and candidate-fact dependencies when a refresh cannot fetch the posting', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_fetch_failure');
+    const url = 'https://jobs.example.test/fetch-failure';
+    const ref = eligibilityRetryRef(serviceRef, url);
+    const sourceFingerprint = 'a'.repeat(64);
+    await ref.set({
+      jobUrl: url,
+      context: 'eligibility-context-1',
+      jobContext: 'eligibility-job-context-1',
+      retryBudgetContext: 'stable-budget-source-context',
+      retryBudgetJobContext: 'stable-budget-job-context',
+      sourceFingerprint,
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 1,
+      attempts: 5,
+      deferrals: 0,
+      retryAt: 0,
+      retryState: 'exhausted',
+      lastStatus: 'unverified',
+      lastReason: 'provider_unavailable',
+    });
+
+    await recordEligibilityRetry({
+      db: store.db,
+      serviceRef,
+      url,
+      context: 'eligibility-context-2',
+      jobContext: 'eligibility-job-context-2',
+      budgetContext: 'stable-budget-source-context',
+      budgetJobContext: 'stable-budget-job-context',
+      eligibilityFactsRevision: 2,
+      nowMs: now + 60_000,
+      result: { status: 'unverified', reason: 'posting_unavailable' },
+    });
+
+    expect((await ref.get()).data()).toMatchObject({
+      context: 'eligibility-context-2',
+      jobContext: 'eligibility-job-context-2',
+      retryBudgetContext: 'stable-budget-source-context',
+      retryBudgetJobContext: 'stable-budget-job-context',
+      sourceFingerprint,
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 2,
+      attempts: 5,
+      retryState: 'exhausted',
+    });
+  });
+
+  it('does not reset a legacy retry budget when the posting source is temporarily unavailable', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_legacy_fetch_failure');
+    const url = 'https://jobs.example.test/legacy-fetch-failure';
+    const ref = eligibilityRetryRef(serviceRef, url);
+    await ref.set({
+      jobUrl: url,
+      context: 'legacy-source-context',
+      jobContext: 'stable-job-context',
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 1,
+      attempts: 5,
+      deferrals: 0,
+      retryAt: 0,
+      retryState: 'exhausted',
+      lastStatus: 'unverified',
+      lastReason: 'provider_unavailable',
+    });
+
+    await recordEligibilityRetry({ db: store.db, serviceRef, url, context: 'new-source-context',
+      jobContext: 'stable-job-context', eligibilityFactsRevision: 2, nowMs: now + 60_000,
+      result: { status: 'unverified', reason: 'posting_unavailable' } });
+
+    expect((await ref.get()).data()).toMatchObject({
+      context: 'new-source-context',
+      jobContext: 'stable-job-context',
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 2,
+      attempts: 5,
+      retryState: 'exhausted',
+    });
   });
 
   it.each(['compatible', 'incompatible', 'clarification_required'])('removes retry state after %s', async status => {
@@ -201,7 +298,7 @@ describe('independent qualification retry queue', () => {
     const retry = new Set(candidates.slice(30, 70).map(row => row.url));
     const result = conciergeMatchingWork(candidates, proposed, '', retry);
     expect(result.work).toHaveLength(40);
-    expect(result.work.filter((row: any) => proposed.has(row.url))).toHaveLength(10);
+    expect(result.work.filter((row: any) => proposed.has(row.url))).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
     expect(result.work.filter((row: any) => retry.has(row.url))).toHaveLength(8);
     expect(result.work.some((row: any) => row.url === 'job-70')).toBe(true);
   });

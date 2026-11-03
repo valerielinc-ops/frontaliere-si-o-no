@@ -18,12 +18,12 @@
  * redeploy. Default-safe: renders `null` when inactive.
  */
 
-import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
+import React, { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { trackAdEvent } from '@/services/adAnalytics';
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
-import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { getAdsConsent, isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import { createAdScriptLoader } from '@/services/adScriptLoader';
 import { emitAdDiagnostic } from '@/services/adDiagnostics';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
@@ -165,6 +165,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   collapseOnEmpty = true,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const houseFrameRef = useRef<HTMLDivElement | null>(null);
   // GPT slot + its slotRenderEnded handler, kept so unmount can tear both down
   // (remove the global pubads listener and destroy the slot).
   const slotRef = useRef<any>(null);
@@ -179,6 +180,11 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   // latest callback without re-running the define/display effect.
   const onEmptyChangeRef = useRef(onEmptyChange);
   onEmptyChangeRef.current = onEmptyChange;
+  const notifyEmpty = useCallback((empty: boolean) => {
+    const frame = houseFrameRef.current;
+    const occupied = frame?.hasAttribute('data-ft-house-eligible') || frame?.querySelector('[data-ad-status="filled"],[data-ad-state="filled"]');
+    onEmptyChangeRef.current?.(empty && !occupied);
+  }, []);
   const active = GPT_ENABLED && enabled && IS_PROD && !SKIP_FOR_BOT && !killed;
   // Re-arms the define/display effect when the visitor answers the ads-consent
   // banner (#5842), so accepting fills the rail in the same page view.
@@ -186,14 +192,28 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   useEffect(() => onAdsConsentChange(() => setAdsConsentTick((t) => t + 1)), []);
 
   useEffect(() => {
+    const frame = houseFrameRef.current;
+    if (!frame) return;
+    const sync = () => notifyEmpty(collapsed);
+    sync();
+    if (typeof MutationObserver !== 'function') return;
+    const observer = new MutationObserver(sync);
+    observer.observe(frame, { attributes: true, attributeFilter: ['data-ft-house-eligible'] });
+    return () => observer.disconnect();
+  }, [active, collapsed, notifyEmpty]);
+
+  useEffect(() => {
     // An inactive slot has no creative that can ever occupy its rail. Report
     // that terminal state to the parent so ad-only gutters do not remain as
     // empty 160/300px columns. A later consent decision re-enters this effect
     // and reports `false`, restoring the reserve before requesting GPT.
     if (!active || !canUseGpt()) {
+      // An explicit refusal makes GPT unavailable, while an unanswered CMP
+      // remains idle. The first-party layer never treats idle as no-fill.
+      setAdState(active && getAdsConsent() === 'denied' ? 'unavailable' : 'idle');
       if (collapseOnEmpty) {
         setCollapsed(true);
-        onEmptyChangeRef.current?.(true);
+        notifyEmpty(true);
       }
       return;
     }
@@ -213,17 +233,17 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     let disposed = false;
     adElement.removeAttribute('data-ad-status');
     setCollapsed(false);
-    onEmptyChangeRef.current?.(false);
+    notifyEmpty(false);
     const lifecycle = observeManualAd(adElement, wrapper, AD_FILL_TIMEOUT_MS, (state) => {
       setAdState(state);
       if (state === 'filled') {
         setCollapsed(false);
-        onEmptyChangeRef.current?.(false);
+        notifyEmpty(false);
       } else if (state === 'collapsed' && collapseOnEmpty) {
         setCollapsed(true);
         // The rail gutter owns a second reserve. Only release it at the same
         // offscreen point, never on a timeout or a visible no-fill response.
-        onEmptyChangeRef.current?.(true);
+        notifyEmpty(true);
       }
     }, (event, metrics) => {
       // GPT's own Active View event remains authoritative for GAM viewability.
@@ -385,20 +405,23 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         /* fail-soft */
       }
     };
-  }, [active, adUnitPath, sizes, adsConsentTick, collapseOnEmpty]);
+  }, [active, adUnitPath, sizes, adsConsentTick, collapseOnEmpty, notifyEmpty]);
 
   if (!active) return null;
 
   return (
+    <div ref={houseFrameRef} className={className} data-house={adUnitPath.split('/').filter(Boolean).at(-1) || 'gpt-display'} data-ft-house-library="gpt" data-ft-house-height={Math.max(minHeight, ...sizes.map(size => size === 'fluid' ? 250 : size[1]))}>
     <div
       ref={wrapperRef}
+      data-ft-house-google=""
       aria-hidden={!rendered || adState !== 'filled'}
       data-ad-state={adState}
       // Only an explicit terminal response may release the reserve offscreen.
       style={collapsed ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
-      className={className}
     >
       <div id={divIdRef.current} />
+    </div>
+    <div data-ft-house-host="" />
     </div>
   );
 };

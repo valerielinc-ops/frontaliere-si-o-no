@@ -88,6 +88,8 @@ jobs:
     name: Validate canonical source build
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      source_run_attempt: ${{ steps.validate-source-build-identity.outputs.source_run_attempt }}
     permissions:
       contents: read
       actions: read
@@ -110,6 +112,7 @@ jobs:
         run: node scripts/ci/production-promotion-gate.mjs trigger
 
       - name: Validate source build identity and inputs
+        id: validate-source-build-identity
         env:
           GH_TOKEN: ${{ github.token }}
           PROMOTION_REPOSITORY: ${{ github.repository }}
@@ -146,6 +149,8 @@ jobs:
             fi
             sleep 10
           done
+          source_run_attempt=$(jq -er '.run_attempt | select(type == "number" and . >= 1 and . == floor)' "$source_run_json")
+          echo "source_run_attempt=$source_run_attempt" >> "$GITHUB_OUTPUT"
           PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
             node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
           jq -e \
@@ -187,6 +192,7 @@ jobs:
       it_admitted: ${{ steps.plan.outputs.it_admitted }}
       mode: ${{ steps.plan.outputs.mode }}
       build_id: ${{ steps.plan.outputs.build_id }}
+      source_run_attempt: ${{ needs.validate-source-build.outputs.source_run_attempt }}
       healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
       stale_locales: ${{ steps.plan.outputs.stale_locales }}
       stale_reasons: ${{ steps.plan.outputs.stale_reasons }}
@@ -397,6 +403,7 @@ jobs:
       DURABLE_LOCALE_PUBLISHED: ${{ contains(needs.resolve-publish-receipts.outputs.published_locales, matrix.locale) && 'true' || 'false' }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
+      HREFlANG_RUN_ATTEMPT: ${{ needs.resolve-publish-plan.outputs.source_run_attempt }}
     steps:
       - name: Record non-IT tail job start
         run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
@@ -507,6 +514,49 @@ jobs:
           if [ ! -s "dist/${BUILD_LOCALE}.html" ]; then
             echo "::warning title=Flat locale homepage absent::dist/${BUILD_LOCALE}.html is not in the artifact; the shard is published without /${BUILD_LOCALE}.html (/${BUILD_LOCALE}/ is the homepage)"
           fi
+
+      # New builds mark the non-IT source tar as pending hreflang finalization.
+      # Older successful runs already uploaded rewritten output and do not have
+      # the marker contract in their source checkout, so their artifact remains
+      # publishable without a second rewrite. A new producer missing its marker
+      # fails closed instead of publishing a partial cross-locale graph.
+      - name: Classify non-IT source hreflang state
+        id: locale-source-hreflang-state
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/ci/locale-source-hreflang-contract.mjs ]; then
+            state="$(node scripts/ci/locale-source-hreflang-contract.mjs "$RUNNER_TEMP/locale-shard-source")"
+          else
+            state='already-finalized'
+          fi
+          echo "state=$state" >> "$GITHUB_OUTPUT"
+          echo "[hreflang] non-IT source state=$state"
+
+      # The build run is terminal before this publisher starts, so all locale
+      # manifests are already published. Reuse the same attempt-aware exchange
+      # logic as the IT build leg; this scan/download runs once in the deferred
+      # publisher instead of keeping each non-IT build runner parked for hours.
+      - name: Exchange same-run hreflang manifests for deferred locale
+        if: steps.locale-source-hreflang-state.outputs.state == 'pending'
+        id: exchange-deferred-hreflang-manifests
+        timeout-minutes: 285
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HREFlANG_BUILD_LOCALE: ${{ matrix.locale }}
+          HREFlANG_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
+          HREFlANG_RUN_ID: ${{ inputs.source_run_id }}
+        run: node scripts/ci/exchange-hreflang-manifests.mjs --manifest-dir .cache/hreflang-index-manifest
+
+      - name: Finalize deferred same-run hreflang graph
+        if: steps.locale-source-hreflang-state.outputs.state == 'pending'
+        timeout-minutes: 30
+        run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests
+
+      - name: Validate finalized non-IT locale shard output
+        id: validate-finalized-locale
+        run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       - name: Wait for IT CDN push (cross-shard ordering guard)
         id: cdn-gate
@@ -1565,7 +1615,7 @@ jobs:
           PROVENANCE_SOURCE_SHA: ${{ inputs.source_sha }}
           PROVENANCE_ARTIFACT_RUN_ID: ${{ github.run_id }}
           PROVENANCE_BUILD_OUTCOME: success
-          PROVENANCE_VALIDATE_OUTCOME: success
+          PROVENANCE_VALIDATE_OUTCOME: ${{ steps.validate-finalized-locale.outcome }}
           PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ steps.extract-locale-source.outcome }}
           PROVENANCE_IT_PREP_OUTCOME: deferred
           PROVENANCE_PAGES_ARTIFACT_OUTCOME: deferred

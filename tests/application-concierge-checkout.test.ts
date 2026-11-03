@@ -156,6 +156,17 @@ function pendingService(provider: 'sumup' | 'stripe', overrides: Record<string, 
 }
 
 describe('application concierge checkout', () => {
+  it('saves bounded house creative attribution on creation and preserves it on checkout retries', async () => {
+    const attribution = { campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: Date.now() - 1000 };
+    const base = request();
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, houseAdAttribution: { ...attribution, privateField: 'discard' } } }));
+    expect(result.status).toBe(200);
+    const key = `application_concierge_services/${result.body.serviceId}`;
+    expect(mocks.store.get(key)?.houseAdAttribution).toEqual({ ...attribution, experimentId: 'house_creatives_v1' });
+    expect(mocks.store.get(key)?.paymentStatus).toBe('pending');
+    await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, houseAdAttribution: { ...attribution, variant: 'time_saved', creativeId: 'time_saved_v1' } } }));
+    expect(mocks.store.get(key)?.houseAdAttribution).toEqual({ ...attribution, experimentId: 'house_creatives_v1' });
+  });
   it('uses the verified account address and ignores an email sent by the browser', async () => {
     const base = request();
     const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, customerEmail: 'typed@example.test' } }));

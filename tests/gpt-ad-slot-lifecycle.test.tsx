@@ -6,11 +6,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import GptAdSlot, { type GptSize } from '@/components/shared/GptAdSlot';
 import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
 
-const { trackAdEvent, consent, bidding, requestHeaderBids } = vi.hoisted(() => ({ trackAdEvent: vi.fn(), consent: { granted: true }, bidding: { active: false }, requestHeaderBids: vi.fn() }));
+const { trackAdEvent, consent, bidding, requestHeaderBids } = vi.hoisted(() => ({ trackAdEvent: vi.fn(), consent: { granted: true, denied: false }, bidding: { active: false }, requestHeaderBids: vi.fn() }));
 vi.mock('@/components/shared/AdSenseBanner', () => ({ isAdSenseProductionHost: () => true }));
 vi.mock('@/services/adAnalytics', () => ({ trackAdEvent, isLikelyBot: () => false }));
 vi.mock('@/services/headerBidding', () => ({ prebidActiveFor: () => bidding.active, requestHeaderBids }));
-vi.mock('@/services/adsConsent', () => ({ isAdsConsentGranted: () => consent.granted, onAdsConsentChange: () => () => {} }));
+vi.mock('@/services/adsConsent', () => ({ getAdsConsent: () => consent.granted ? 'granted' : consent.denied ? 'denied' : null, isAdsConsentGranted: () => consent.granted, onAdsConsentChange: () => () => {} }));
 const sizes: GptSize[] = [[300, 600]];
 let observers: Array<{ callback: IntersectionObserverCallback; target?: Element; disconnected: boolean }>;
 let handlers: Map<string, (event: unknown) => void>;
@@ -24,6 +24,7 @@ let width: number;
 beforeEach(() => {
   vi.useFakeTimers();
   consent.granted = true;
+  consent.denied = false;
   bidding.active = false; requestHeaderBids.mockReset().mockResolvedValue(undefined);
   trackAdEvent.mockClear();
   top = 100;
@@ -49,7 +50,7 @@ afterEach(() => { cleanup(); document.querySelectorAll('script[src*="gpt.js"]').
 function mount(collapseOnEmpty = true, slotSizes = sizes) {
   const onEmptyChange = vi.fn();
   const result = render(<GptAdSlot adUnitPath="/test/rail" sizes={slotSizes} minHeight={600} collapseOnEmpty={collapseOnEmpty} onEmptyChange={onEmptyChange} />);
-  const box = result.container.firstElementChild as HTMLElement;
+  const box = result.container.querySelector('[data-ft-house-google]') as HTMLElement;
   box.getBoundingClientRect = () => ({ top, bottom: top + 600, left: 0, right: width, width, height: 600, x: 0, y: top, toJSON() {} });
   act(() => observers[0]?.callback([{ target: box, isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver));
   return { ...result, box, onEmptyChange };
@@ -62,6 +63,19 @@ function leaveViewport() {
 }
 
 describe('GPT manual reserve lifecycle', () => {
+  it('restores the rail for an eligible house creative after an explicit consent refusal', async () => {
+    consent.granted = false; consent.denied = true;
+    const { container, box, onEmptyChange } = mount();
+    expect(box.dataset.adState).toBe('unavailable');
+    expect(onEmptyChange).toHaveBeenLastCalledWith(true);
+    const frame = container.querySelector('[data-house]')!;
+    expect(frame.getAttribute('data-ft-house-height')).toBe('600');
+    await act(async () => { frame.setAttribute('data-ft-house-eligible', ''); await Promise.resolve(); });
+    expect(onEmptyChange).toHaveBeenLastCalledWith(false);
+    await act(async () => { frame.removeAttribute('data-ft-house-eligible'); await Promise.resolve(); });
+    expect(onEmptyChange).toHaveBeenLastCalledWith(true);
+    expect(defineSlot).not.toHaveBeenCalled();
+  });
   it('remeasures sizes when the delayed GPT command drains after a shrink', () => {
     width = 400;
     mount(true, [[300, 250], [160, 600]]);

@@ -36,11 +36,27 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.99.17',
+    date: '2026-11-03',
+    titleKey: 'whatsNew.v39917.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v39917.socialHub.title', descKey: 'whatsNew.v39917.socialHub.desc', link: { tab: 'social-hub' } },
+    ],
+  },
+  {
+    version: '3.99.16',
+    date: '2026-11-03',
+    titleKey: 'whatsNew.v39916.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v39916.creatives.title', descKey: 'whatsNew.v39916.creatives.desc', href: '/automatizza-ricerca-lavoro-svizzera/' },
+    ],
+  },
+  {
     version: '3.99.15',
     date: '2026-11-03',
     titleKey: 'whatsNew.v39915.title',
     items: [
-      { type: 'feature', titleKey: 'whatsNew.v39915.socialHub.title', descKey: 'whatsNew.v39915.socialHub.desc', link: { tab: 'social-hub' } },
+      { type: 'improvement', titleKey: 'whatsNew.v39915.concierge.title', descKey: 'whatsNew.v39915.concierge.desc', link: { tab: 'job-board' } },
     ],
   },
   {

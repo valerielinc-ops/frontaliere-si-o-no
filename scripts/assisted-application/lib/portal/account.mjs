@@ -49,6 +49,26 @@ const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|con
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
 const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
+/** The portal can expose a form message outside the body text (for example as role=alert). */
+export function accountResponseText(snapshot = {}) {
+  return [snapshot.text, ...(Array.isArray(snapshot.errors) ? snapshot.errors : [])]
+    .map((value) => String(value ?? '').trim())
+    .filter(Boolean)
+    // Page copy and each form error are independent messages. Keep a sentence
+    // boundary so a discriminator cannot assemble a phrase across them.
+    .join('. ');
+}
+
+const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;
+const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|code)|\b(?:verification|confirmation) code\b/i;
+
+/** A response that asks to verify the account, not merely to complete an OTP/MFA challenge. */
+export function isAccountVerificationResponse(snapshot = {}) {
+  const text = accountResponseText(snapshot);
+  if (!text || (GENERIC_OTP_RESPONSE_RE.test(text) && !/(?:\baccount\b|\bkonto\b|\bcompte\b)/iu.test(text))) return false;
+  return ACCOUNT_VERIFICATION_RE.test(text);
+}
+
 function verifiedLanding(after) {
   const text = String(after?.text || '').trim();
   // A verification/instructions page may expose a generic sign-in control as
@@ -66,7 +86,7 @@ function verifiedLanding(after) {
  */
 export function registrationOutcome(after) {
   if (authPageKind(after) === 'create') return 'refused';
-  if (VERIFY_PAGE_RE.test(after.text) || codeField(after)) return 'verify';
+  if (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after)) return 'verify';
   // The sign-in page is where a portal sends a new account (Workday, with a notice of its own): its notice
   // is no refusal. The sign-in that follows says whether the account is there.
   if (authPageKind(after) === 'sign_in') return 'created';

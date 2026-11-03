@@ -7,7 +7,7 @@ export function installAdRecovery(
   createLoader: (kind: 'cmp', src: string, allowed: () => boolean, emit: (event: string, props: Record<string, string | number>) => void) => { load: () => void; state: () => string; subscribe: (listener: (state: string) => void) => () => void },
   emit: (event: string, props: Record<string, string | number>) => void,
   allowed: () => boolean,
-  config: { consentKey: string; consentEvent: string; publisherId: string },
+  config: { consentKey: string; consentEvent: string; publisherId: string; inlineHouseAds?: boolean },
 ) {
   type RecoveryWindow = Window & { __ftAdRecovery?: { refresh: () => void }; __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean }; googlefc?: { showRevocationMessage?: () => void; callbackQueue?: unknown[]; __ftRevocationQueued?: boolean }; __ftAdBlockProbe?: string };
   const w = window as RecoveryWindow;
@@ -47,6 +47,7 @@ export function installAdRecovery(
     return true;
   };
   const googleMessage = () => Array.from(document.querySelectorAll('.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(onScreen);
+  const visibleDialog = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')).some(onScreen);
   const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-anchor-status="displayed"],[data-ad-state="filled"]');
   const permitted = () => {
     try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden' && !location.pathname.startsWith(jobPath); }
@@ -97,7 +98,7 @@ export function installAdRecovery(
     schedule();
   };
   const showPopup = () => {
-    if (popup || prompted || storageRead('ft_ad_recovery_prompted') || googleMessage()) return;
+    if (popup || prompted || storageRead('ft_ad_recovery_prompted') || googleMessage() || visibleDialog()) return;
     // Positive detection uses ad-block copy; a terminal script error gets a
     // neutral explanation. Slow responses, no-fill and unanswered consent do
     // not trigger a modal.
@@ -123,7 +124,7 @@ export function installAdRecovery(
     emit('ad_recovery_prompt', { source: w.__ftAdBlock?.blocked ? 'funding_choices' : positive ? 'iab_quick_bait' : 'script_error', reason: reason() });
   };
   const showPromo = () => {
-    if (promo || popup || promoDismissed || googleMessage() || document.querySelector('dialog[open],[role="dialog"][aria-modal="true"]')) return;
+    if (promo || popup || promoDismissed || googleMessage() || visibleDialog()) return;
     const card = document.createElement('aside'); promo = card; card.className = 'ft-recovery-promo'; card.setAttribute('aria-label', copy.label);
     const title = document.createElement('p'); title.className = 'ft-recovery-promo-title'; title.textContent = copy.jobTitle;
     const body = document.createElement('p'); body.textContent = copy.jobBody;
@@ -187,6 +188,9 @@ export function installAdRecovery(
       reportedState = why;
       emit('ad_reliability_state', { reason: why, cmp_state: state, probe: probeResult, decision: hasDecision() ? 'present' : 'none', elapsed_ms: Math.min(600000, Date.now() - started) });
     }
+    // Inline first-party creatives replace the former floating service promo.
+    // Google's certified recovery/CMP remains independent and can still open.
+    if (config.inlineHouseAds) { closePopup(); removePromo(); return; }
     if (why === 'adblock_detected' || why === 'script_failed' || why === 'cmp_unavailable') showPopup();
     if (why !== 'response_pending' && why !== 'consent_pending' && why !== 'script_timeout' && why !== 'cmp_timeout') showPromo();
     else { closePopup(); removePromo(); }
@@ -204,7 +208,7 @@ export function installAdRecovery(
     cmp.load();
     cmp.subscribe(schedule);
     if (typeof MutationObserver === 'function') {
-      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],[data-ft-ad-state],[data-ft-ad-request-pending],[data-google-query-id],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container';
+      const relevant = 'ins[data-ad-slot],ins[data-ad-status],ins[data-anchor-status],[data-ad-state],[data-ft-ad-state],[data-ft-ad-request-pending],[data-google-query-id],script[src*="adsbygoogle.js"],script[src*="gpt.js"],script[src*="fundingchoicesmessages.google.com"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container,dialog,[role="dialog"]';
       const related = (node: Node) => node.nodeType === 1 && ((node as Element).matches(relevant) || !!(node as Element).querySelector(relevant));
       const observer = new MutationObserver((records) => {
         if (!records.some((record) => {
@@ -220,7 +224,7 @@ export function installAdRecovery(
         })) return;
         schedule();
       });
-      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state', 'data-ft-ad-request-pending', 'data-google-query-id', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state', 'class', 'style'] });
+      observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['data-ad-status', 'data-anchor-status', 'data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state', 'data-ft-ad-request-pending', 'data-google-query-id', 'data-ft-ad-width-wait', 'data-failed', 'data-ft-script-state', 'class', 'style', 'open', 'hidden', 'aria-modal'] });
     }
     for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate']) window.addEventListener(name, schedule);
     document.addEventListener('visibilitychange', () => {

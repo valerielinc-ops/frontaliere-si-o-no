@@ -73,11 +73,6 @@ export default function AssistedApplicationOffer({
   const copyKey = (part: 'title' | 'body') => `jobBoard.assisted.copy.handled_for_you.${part}`;
   const hiringText = t('jobBoard.assisted.benefit.hiringText');
   const zeroSpamText = t('jobBoard.assisted.benefit.zeroSpam');
-  const steps = [
-    t('jobBoard.assisted.step1'),
-    t('jobBoard.assisted.step2'),
-    t('jobBoard.assisted.step3'),
-  ];
   const jobPanelClass = layoutVariant === 'proposal_b'
     ? 'border border-accent/20 bg-accent-subtle/70'
     : layoutVariant === 'proposal_5'
@@ -85,6 +80,7 @@ export default function AssistedApplicationOffer({
       : layoutVariant === 'variant_7'
         ? 'border border-edge bg-surface'
         : 'border border-edge bg-surface-raised';
+  const isProposalB = layoutVariant === 'proposal_b';
   // The free and paid buttons sit at the card's bottom, where Google's anchor
   // ad lands: the card stays above it.
   const adClearance = useApplicationOfferAdClearance();
@@ -120,9 +116,22 @@ export default function AssistedApplicationOffer({
     };
   }, [embedded, onClose]);
 
+  const closeButton = (
+    <button
+      type="button"
+      onClick={onClose}
+      autoFocus
+      className="absolute right-0 top-[-0.375rem] inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-stripe text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      aria-label={t('common.close')}
+      data-testid="assisted-application-offer-close"
+    >
+      <X className="h-5 w-5" aria-hidden="true" />
+    </button>
+  );
+
   const modal = (
     <div
-      className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
+      className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-3 pb-[calc(env(safe-area-inset-bottom,0px)+0.75rem)] pt-[calc(env(safe-area-inset-top,0px)+0.75rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 lg:px-8"
       onClick={handleBackdropClick}
       style={adClearance.overlayStyle}
       data-testid="assisted-application-offer"
@@ -132,253 +141,177 @@ export default function AssistedApplicationOffer({
         aria-modal="true"
         aria-labelledby="assisted-application-offer-title"
         aria-describedby="assisted-application-offer-description"
-        className={'relative my-auto max-h-[calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px))] w-full '
-          + (layoutVariant === 'proposal_b' ? 'max-w-lg' : 'max-w-md')
-          + ' overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface px-4 pt-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem,calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px)))] sm:px-6 sm:pt-6'}
+        className="relative my-auto max-h-[calc(100dvh_-_1.5rem_-_var(--offer-ad-inset,0px))] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface px-4 pt-4 shadow-stripe-lg sm:max-h-[min(90dvh,40rem,calc(100dvh_-_1.5rem_-_var(--offer-ad-inset,0px)))] sm:max-w-2xl sm:px-5 sm:pt-5 md:max-w-5xl md:px-6 md:pt-4 lg:max-h-[min(90dvh,42rem,calc(100dvh_-_1.5rem_-_var(--offer-ad-inset,0px)))] lg:max-w-6xl"
         style={adClearance.cardStyle}
         data-layout-variant={layoutVariant}
       >
-        {/* The bottom padding sits here, not on the scrolling card: the pinned
-            actions block then reaches the card's bottom edge, and no scrolled
-            text shows in a strip under it (live 2026-10-07: 16-24 px). */}
-        <div className={'space-y-4 pb-4 sm:pb-6 ' + (layoutVariant === 'proposal_b' ? 'sm:space-y-5' : '')}>
-          <div className="flex items-start justify-between gap-4">
-            {layoutVariant !== 'proposal_b' && (
-              <div className="min-w-0">
-                <p className="text-sm font-semibold text-accent">{companyName}</p>
-                <h2 id="assisted-application-offer-title" className="mt-1 text-xl font-semibold font-display text-heading">
-                  {t(copyKey('title'))}
-                </h2>
-                <p className="mt-2 text-sm text-subtle line-clamp-3">{jobTitle}</p>
-              </div>
-            )}
-            <button
-              type="button"
-              onClick={onClose}
-              autoFocus
-              className="shrink-0 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-stripe text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-              aria-label={t('common.close')}
-              data-testid="assisted-application-offer-close"
-            >
-              <X className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-
-          {layoutVariant === 'proposal_b' && (
-            <section className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-3 rounded-xl border border-accent/15 bg-accent-subtle/65 p-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-5 sm:p-5">
-              <div
-                className="relative mx-auto h-[6.75rem] w-[5rem] sm:h-32 sm:w-24"
-                role="img"
-                aria-label={t('jobBoard.assisted.benefit.tailoredCv')}
-              >
-                <div className="absolute inset-1 rotate-6 rounded-xl border border-accent/15 bg-surface" aria-hidden="true" />
-                <div className="absolute inset-1 rounded-xl border border-edge bg-surface p-2.5 shadow-stripe-sm sm:p-3">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent-subtle text-accent">
-                    <FileText className="h-4 w-4" aria-hidden="true" />
-                  </div>
-                  <p className="mt-2 text-xs font-bold text-heading">CV</p>
-                  <p className="mt-0.5 text-xs font-semibold leading-tight text-accent">{t('jobBoard.assisted.benefit.tailoredCv')}</p>
-                  <div className="mt-2 space-y-1.5" aria-hidden="true">
-                    <span className="block h-1 w-full rounded-full bg-surface-raised" />
-                    <span className="block h-1 w-4/5 rounded-full bg-surface-raised" />
-                    <span className="block h-1 w-3/5 rounded-full bg-surface-raised" />
-                  </div>
-                  <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border border-edge bg-surface text-success shadow-stripe-sm">
-                    <Check className="h-3.5 w-3.5" aria-hidden="true" />
-                  </span>
-                </div>
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs font-semibold text-accent">{t('jobBoard.assisted.dossierTitle')}</p>
-                <h2 id="assisted-application-offer-title" className="mt-1 text-lg font-semibold font-display leading-tight text-heading sm:text-xl">
-                  {t(copyKey('title'))}
-                </h2>
-                <p id="assisted-application-offer-description" className="mt-2 text-xs leading-relaxed text-body sm:text-sm">
-                  {t(copyKey('body'))}
-                </p>
-                <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-accent/15 bg-surface/80 px-2.5 py-1 text-xs font-semibold text-body">
-                  <Check className="h-3 w-3 shrink-0 text-success" aria-hidden="true" />
-                  {t('jobBoard.assisted.dossierReady')}
-                </p>
-              </div>
-            </section>
-          )}
-
-          {layoutVariant === 'proposal_5' ? (
-            <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr] sm:items-stretch" data-testid="assisted-application-benefits">
-              <p id="assisted-application-offer-description" className="text-sm leading-relaxed text-body">
-                {t(copyKey('body'))}
-              </p>
-              <div className="grid grid-cols-2 gap-3 rounded-xl border border-edge bg-surface-raised p-3 sm:grid-cols-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-display text-2xl font-semibold leading-none tracking-tight text-accent">3×</span>
-                  <p className="text-xs font-semibold leading-snug text-body">{hiringText}</p>
-                </div>
-                <div className="flex items-center gap-2 sm:border-t sm:border-edge sm:pt-2">
-                  <Shield className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                  <p className="text-xs font-semibold leading-snug text-body">{zeroSpamText}</p>
-                </div>
-              </div>
-            </div>
-          ) : layoutVariant === 'proposal_b' ? (
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2" data-testid="assisted-application-benefits">
-              <div className="flex items-baseline gap-2">
-                <span className="font-display text-3xl font-semibold leading-none tracking-tight text-accent">3×</span>
-                <p className="text-xs font-semibold text-body">{hiringText}</p>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Shield className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                <p className="text-xs font-semibold text-body">{zeroSpamText}</p>
-              </div>
-            </div>
-          ) : layoutVariant === 'variant_7' ? (
-            <div className="flex items-center gap-3 rounded-stripe border border-edge bg-surface-raised px-3.5 py-3" data-testid="assisted-application-benefits">
-              <span className="font-display text-3xl font-semibold leading-none tracking-tight text-accent">3×</span>
-              <div className="min-w-0 flex-1">
-                <p className="text-xs font-semibold leading-snug text-heading">{hiringText}</p>
-                <p className="mt-1 text-xs leading-snug text-subtle">{zeroSpamText}</p>
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-body" data-testid="assisted-application-benefits">
-              <p className="inline-flex items-center gap-1.5">
-                <Check className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                <span>3× {hiringText}</span>
-              </p>
-              <p className="inline-flex items-center gap-1.5">
-                <Shield className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                <span>{zeroSpamText}</span>
-              </p>
-            </div>
-          )}
-
-          {layoutVariant !== 'proposal_b' && layoutVariant !== 'proposal_5' && (
-            <p id="assisted-application-offer-description" className="text-sm leading-relaxed text-body">
-              {t(copyKey('body'))}
-            </p>
-          )}
-
+        <div className="grid gap-3 pb-2 sm:pb-3 md:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] md:items-stretch md:gap-3 lg:gap-6">
           {jobDetails && (
             <section
-              className={'p-3 ' + (layoutVariant === 'proposal_b' ? 'rounded-xl sm:rounded-2xl sm:p-4 ' : 'rounded-stripe ')
-                + jobPanelClass}
+              className={'order-3 min-w-0 rounded-stripe p-3 sm:p-4 md:order-2 md:col-start-1 md:row-start-2 ' + jobPanelClass}
               aria-label={t('jobBoard.assisted.jobDetails')}
               data-testid="assisted-application-job-details"
-              data-job-panel-style={layoutVariant === 'proposal_b' ? 'proposal_c' : layoutVariant}
+              data-job-panel-style={isProposalB ? 'proposal_c' : layoutVariant}
             >
-              <h3 className={layoutVariant === 'proposal_b'
-                ? 'font-display text-base font-semibold leading-tight text-heading'
-                : 'text-xs font-semibold text-heading'}
-              >
-                {layoutVariant === 'proposal_b' ? jobTitle : t('jobBoard.assisted.jobDetails')}
-              </h3>
-              {layoutVariant === 'proposal_b' && (
-                <p className="mt-1 text-xs font-medium text-subtle">{companyName}</p>
-              )}
-              <dl className={layoutVariant === 'proposal_b'
-                ? 'mt-2 flex flex-wrap gap-2'
-                : 'mt-2 grid grid-cols-2 gap-x-3 gap-y-2'}
-              >
+              <h3 className="font-display text-base font-semibold leading-tight text-heading sm:text-lg">{jobTitle}</h3>
+              <p className="mt-1 text-xs font-medium text-subtle sm:text-sm">{companyName}</p>
+              <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-2">
                 {([
                   ['jobBoard.assisted.jobLocation', jobDetails.location],
                   ['jobBoard.assisted.jobSalary', jobDetails.salary],
                   ['jobBoard.assisted.jobContract', jobDetails.contract],
                 ] as const).map(([labelKey, value]) => (
-                  <div
-                    key={labelKey}
-                    className={layoutVariant === 'proposal_b' ? 'min-w-0 rounded-full bg-surface/80 px-3 py-1.5' : 'min-w-0'}
-                  >
-                    <dt className={layoutVariant === 'proposal_b' ? 'inline text-xs font-medium text-subtle' : 'text-xs font-medium text-subtle'}>
-                      {t(labelKey)}{layoutVariant === 'proposal_b' ? ': ' : ''}
-                    </dt>
-                    <dd className={layoutVariant === 'proposal_b'
-                      ? 'inline break-words text-xs font-semibold text-body'
-                      : 'mt-0.5 break-words text-xs font-semibold text-body'}
-                    >
-                      {value || t('jobBoard.assisted.jobNotListed')}
-                    </dd>
+                  <div key={labelKey} className="min-w-0">
+                    <dt className="text-xs font-medium text-subtle">{t(labelKey)}</dt>
+                    <dd className="mt-0.5 break-words text-xs font-semibold leading-snug text-body">{value || t('jobBoard.assisted.jobNotListed')}</dd>
                   </div>
                 ))}
               </dl>
               {jobDetails.description && (
-                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-body">{jobDetails.description}</p>
+                <p className="mt-3 line-clamp-3 text-xs leading-relaxed text-body">{jobDetails.description}</p>
               )}
             </section>
           )}
 
-          {layoutVariant === 'variant_7' ? (
-            <ol className="space-y-0.5 text-sm text-body" aria-label={t('jobBoard.assisted.stepsLabel')} data-testid="assisted-application-steps-timeline">
-              {steps.map((step, index) => (
-                <li key={step} className="relative flex gap-3 pb-3 last:pb-0">
-                  {index < steps.length - 1 && <span className="absolute left-[15px] top-8 h-[calc(100%-1rem)] w-px bg-edge" aria-hidden="true" />}
-                  <span className="z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/20 bg-accent-subtle text-xs font-bold tabular-nums text-accent">{index + 1}</span>
-                  <span className="pt-1.5 leading-relaxed">{step}</span>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <ul className="space-y-2 text-sm text-body" aria-label={t('jobBoard.assisted.stepsLabel')}>
-              {steps.map((step) => (
-                <li key={step} className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                  <span>{step}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
-            <div className="flex items-start gap-2.5">
-              <Shield className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
-              <p className="text-xs leading-relaxed text-body">{t('jobBoard.assisted.transparency')}</p>
-            </div>
-          </div>
-
-          {/* Pinned to the card's bottom while the card scrolls: with the room
-              Google's anchor ad leaves (adClearance) the card can be shorter
-              than its content, and the free path was below the fold (live
-              2026-10-07, 717 px viewport: card 550 px, content 724 px). */}
-          <div
-            className="sticky bottom-0 z-10 -mx-4 space-y-3 border-t border-edge bg-surface px-4 pb-2 pt-3 sm:-mx-6 sm:px-6"
-            data-testid="assisted-application-offer-actions"
+          <section
+            className={'order-1 min-w-0 space-y-2.5 md:col-start-2 md:row-start-1 md:flex md:flex-col md:space-y-0 md:gap-y-2.5 '
+              + (jobDetails ? 'md:row-span-2' : 'md:col-span-1')}
           >
-            {error && <p role="alert" aria-live="assertive" className="text-sm leading-relaxed text-danger">{error}</p>}
-            <button
-              type="button"
-              onClick={() => { void onChoosePaid(); }}
-              disabled={paidLoading}
-              aria-busy={paidLoading}
-              className="inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
-              data-testid="assisted-application-offer-paid"
+            <header className="relative min-w-0 pr-11">
+              <h2 id="assisted-application-offer-title" className="font-display text-xl font-semibold leading-tight text-heading sm:text-2xl">
+                {t(copyKey('title'))}
+              </h2>
+              {closeButton}
+            </header>
+
+            {isProposalB && (
+              <section className="grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-2 rounded-xl border border-accent/15 bg-accent-subtle/60 p-2">
+                <div
+                  className="relative mx-auto h-12 w-10"
+                  role="img"
+                  aria-label={t('jobBoard.assisted.benefit.tailoredCv')}
+                >
+                  <div className="absolute inset-1 rotate-6 rounded-lg border border-accent/15 bg-surface" aria-hidden="true" />
+                  <div className="absolute inset-1 rounded-lg border border-edge bg-surface p-2 shadow-stripe-sm">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-subtle text-accent">
+                      <FileText className="h-4 w-4" aria-hidden="true" />
+                    </div>
+                    <p className="mt-1.5 text-xs font-bold text-heading">CV</p>
+                    <div className="mt-1.5 space-y-1" aria-hidden="true">
+                      <span className="block h-1 w-full rounded-full bg-surface-raised" />
+                      <span className="block h-1 w-4/5 rounded-full bg-surface-raised" />
+                      <span className="block h-1 w-3/5 rounded-full bg-surface-raised" />
+                    </div>
+                    <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full border border-edge bg-surface text-success shadow-stripe-sm">
+                      <Check className="h-3 w-3" aria-hidden="true" />
+                    </span>
+                  </div>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-accent">{t('jobBoard.assisted.dossierTitle')}</p>
+                  <p className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-body">
+                    <Check className="h-3.5 w-3.5 shrink-0 text-success" aria-hidden="true" />
+                    {t('jobBoard.assisted.dossierReady')}
+                  </p>
+                </div>
+              </section>
+            )}
+
+            <p id="assisted-application-offer-description" className="border-t border-edge pt-3 text-sm leading-relaxed text-body">
+              {t(copyKey('body'))}
+            </p>
+
+            <div
+              className="sticky bottom-0 z-10 -mx-4 space-y-1.5 border-t border-edge bg-surface px-4 pb-1.5 pt-1.5 sm:-mx-5 sm:px-5 md:-mx-6 md:px-6"
+              data-testid="assisted-application-offer-actions"
             >
-              {paidLoading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-              {paidLoading ? t('jobBoard.assisted.paidLoading') : t('jobBoard.assisted.paidCta')}
-            </button>
-            <p className="text-center text-xs font-medium text-subtle">{t('jobBoard.assisted.priceNote')}</p>
-            <div className="rounded-stripe border border-accent/30 bg-accent-subtle/40 p-3">
+              {error && <p role="alert" aria-live="assertive" className="text-sm leading-relaxed text-danger">{error}</p>}
+              <button
+                type="button"
+                onClick={() => { void onChoosePaid(); }}
+                disabled={paidLoading}
+                aria-busy={paidLoading}
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-2 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+                data-testid="assisted-application-offer-paid"
+              >
+                {paidLoading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                {paidLoading ? t('jobBoard.assisted.paidLoading') : t('jobBoard.assisted.paidCta')}
+              </button>
+              <p className="text-center text-xs font-medium leading-tight text-subtle">{t('jobBoard.assisted.priceNote')}</p>
               <a
                 href={conciergeHref}
-                className="block text-sm font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+                className="flex min-h-[44px] items-center justify-center gap-2 rounded-stripe border border-accent/20 bg-accent-subtle/35 px-3 py-1.5 text-center text-xs font-semibold leading-snug text-accent transition-colors hover:bg-accent-subtle/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 {t('jobBoard.concierge.offerLink')}
+                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
               </a>
-              <p className="mt-1 text-xs leading-relaxed text-subtle">{t('jobBoard.concierge.offerLinkHint')}</p>
+              <button
+                type="button"
+                onClick={onChooseExternal}
+                disabled={paidLoading}
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-stripe px-3 py-1.5 text-sm font-semibold text-link underline decoration-link/40 underline-offset-4 transition-colors hover:bg-surface-raised hover:decoration-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+                data-testid="assisted-application-offer-external"
+              >
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                {externalLabel ?? t('jobBoard.assisted.externalCta')}
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={onChooseExternal}
-              disabled={paidLoading}
-              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-stripe px-4 py-2 text-sm font-semibold text-link underline decoration-link/40 underline-offset-4 transition-colors hover:bg-surface-raised hover:decoration-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
-              data-testid="assisted-application-offer-external"
-            >
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              {externalLabel ?? t('jobBoard.assisted.externalCta')}
-            </button>
+          </section>
+
+          <div
+            className="order-2 min-w-0 space-y-2.5 md:col-start-1 md:row-start-1"
+            data-testid="assisted-application-supporting-benefits"
+          >
+            {layoutVariant === 'proposal_5' ? (
+              <div className="grid grid-cols-2 divide-x divide-edge rounded-xl border border-edge bg-surface-raised py-2.5" data-testid="assisted-application-benefits">
+                <div className="flex min-w-0 items-center gap-2 px-2.5 sm:px-3">
+                  <span className="font-display text-2xl font-semibold leading-none tracking-tight text-accent">3×</span>
+                  <p className="text-xs font-semibold leading-snug text-body">{hiringText}</p>
+                </div>
+                <div className="flex min-w-0 items-center gap-2 px-2.5 sm:px-3">
+                  <Shield className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
+                  <p className="text-xs font-semibold leading-snug text-body">{zeroSpamText}</p>
+                </div>
+              </div>
+            ) : layoutVariant === 'variant_7' ? (
+              <div className="flex items-center gap-3 rounded-stripe border border-edge bg-surface-raised px-3 py-3" data-testid="assisted-application-benefits">
+                <span className="font-display text-3xl font-semibold leading-none tracking-tight text-accent">3×</span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold leading-snug text-heading">{hiringText}</p>
+                  <p className="mt-1.5 border-t border-edge pt-1.5 text-xs leading-snug text-subtle">{zeroSpamText}</p>
+                </div>
+              </div>
+            ) : isProposalB ? (
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2" data-testid="assisted-application-benefits">
+                <p className="flex items-baseline gap-2">
+                  <span className="font-display text-3xl font-semibold leading-none tracking-tight text-accent">3×</span>
+                  <span className="text-xs font-semibold leading-snug text-body">{hiringText}</span>
+                </p>
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-body">
+                  <Shield className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
+                  {zeroSpamText}
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-body" data-testid="assisted-application-benefits">
+                <p className="inline-flex items-center gap-1.5">
+                  <span className="font-display text-2xl font-bold leading-none text-accent">3×</span>
+                  <span>{hiringText}</span>
+                </p>
+                <p className="inline-flex items-center gap-1.5">
+                  <Shield className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
+                  <span>{zeroSpamText}</span>
+                </p>
+              </div>
+            )}
           </div>
 
-          <p className="text-xs leading-relaxed text-muted">
-            {t('jobBoard.assisted.disclaimer')} <AssistedApplicationLegalLinks />
-          </p>
+          <details className="order-4 border-t border-edge pt-2 text-xs leading-snug text-muted md:col-span-2">
+            <summary className="cursor-pointer font-medium">{t('common.disclaimer')}</summary>
+            <p className="mt-1">
+              {t('jobBoard.assisted.disclaimer')} <AssistedApplicationLegalLinks />
+            </p>
+          </details>
         </div>
       </div>
     </div>

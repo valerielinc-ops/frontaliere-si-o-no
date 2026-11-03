@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-02T21:34:27.878Z",
-  "runId": "41525302462",
+  "assembledAt": "2026-11-03T09:24:27.510Z",
+  "runId": "41608279260",
   "jobs": [
     {
       "id": "company-7uc3px",
@@ -85,7 +85,8 @@
       "streetAddress": "Bielstrasse 45",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:33:55.401Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

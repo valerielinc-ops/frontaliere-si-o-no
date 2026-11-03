@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { eligibilityRetryRef } from '../functions/src/applicationConciergeEligibilityRetry.js';
 
 vi.mock('firebase-admin/firestore', () => ({
@@ -25,7 +25,15 @@ vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   prepareConciergeEligibility: vi.fn(),
 }));
 
-const { approvedRolePreference, eligibilityRetryContext, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
+const {
+  APPLICATION_CONCIERGE_MATCHING_VERSION,
+  approvedRolePreference,
+  eligibilityRetryContext,
+  rankingFeaturesForJob,
+  rankingFeedbackContext,
+  rankingFeedbackPreference,
+  runApplicationConciergeMatching,
+} = await import('../functions/src/applicationConciergeMatching.js');
 
 const SERVICE_ID = 'service-1';
 const SERVICE_PATH = `application_concierge_services/${SERVICE_ID}`;
@@ -63,6 +71,17 @@ function matchingFixture() {
   });
 }
 
+function legacyEligibilityRecoveryContext(profile: unknown, candidateLocation = '', factsRevision = 0) {
+  return createHash('sha256').update(JSON.stringify([
+    'test-eligibility-v1',
+    APPLICATION_CONCIERGE_MATCHING_VERSION,
+    CV_KEY,
+    profile,
+    candidateLocation,
+    ...(factsRevision > 0 ? [factsRevision] : []),
+  ])).digest('hex');
+}
+
 function stubJobIndex(jobs: unknown[]) {
   const fetchMock = vi.fn(async () => ({ ok: true, json: async () => jobs }));
   vi.stubGlobal('fetch', fetchMock);
@@ -70,6 +89,16 @@ function stubJobIndex(jobs: unknown[]) {
 }
 
 const matchingJob = { id: 'job-1', url: JOB_URL, title: 'IT Manager SAP', company: 'Example AG' };
+
+function serializeTransactions(store: ReturnType<typeof createMemoryFirestore>) {
+  const run = store.db.runTransaction.bind(store.db);
+  let queue = Promise.resolve();
+  store.db.runTransaction = (callback: (transaction: any) => Promise<unknown>) => {
+    const result = queue.then(() => run(callback));
+    queue = result.then(() => undefined, () => undefined);
+    return result;
+  };
+}
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -140,9 +169,7 @@ describe('application concierge proposal retention', () => {
     store.docs.delete(PROPOSAL_PATH);
     stubJobIndex([matchingJob]);
     const profile = store.read('user_cv_profiles/candidate-1')?.profile;
-    const scanContext = createHash('sha256').update(JSON.stringify([
-      APPLICATION_CONCIERGE_MATCHING_VERSION, CV_KEY, profile,
-    ])).digest('hex');
+    const scanContext = createHash('sha256').update(JSON.stringify(['test-eligibility-v1', CV_KEY, profile])).digest('hex');
     const jobContext = eligibilityRetryContext(scanContext, { ...matchingJob, location: '' });
     const originalFingerprint = 'a'.repeat(64);
     const verifiedFingerprint = 'b'.repeat(64);
@@ -186,6 +213,341 @@ describe('application concierge proposal retention', () => {
       matchingEligibilityLastRecoveryStatus: 'compatible',
     });
     expect(store.list(`${SERVICE_PATH}/proposals/`)).toHaveLength(1);
+  });
+
+  it('retries only exhausted eligibility whose per-listing posting fingerprint changed', async () => {
+    const store = matchingFixture();
+    store.docs.delete(PROPOSAL_PATH);
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 1 });
+    const unrelatedUrl = 'https://jobs.example.test/it-manager-legacy-retry';
+    const unrelatedJob = { ...matchingJob, id: 'job-2', url: unrelatedUrl };
+    stubJobIndex([matchingJob, unrelatedJob]);
+
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const eligibilityContext = createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile,
+      1,
+    ])).digest('hex');
+    const retryBudgetContext = createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile,
+    ])).digest('hex');
+    const serviceRef = store.db.collection('application_concierge_services').doc(SERVICE_ID);
+    const relevantRetryRef = eligibilityRetryRef(serviceRef, JOB_URL);
+    const unrelatedRetryRef = eligibilityRetryRef(serviceRef, unrelatedUrl);
+    const seedExhaustedRetry = async (url: string, job: typeof matchingJob, fingerprint: string) => {
+      const normalizedJob = { ...job, location: '' };
+      const retryContext = url === JOB_URL ? eligibilityContext : retryBudgetContext;
+      await eligibilityRetryRef(serviceRef, url).set({
+        jobUrl: url,
+        context: eligibilityRetryContext(retryContext, normalizedJob, fingerprint),
+        jobContext: eligibilityRetryContext(retryContext, normalizedJob),
+        retryBudgetContext: eligibilityRetryContext(retryBudgetContext, normalizedJob, fingerprint),
+        retryBudgetJobContext: eligibilityRetryContext(retryBudgetContext, normalizedJob),
+        eligibilityFactsRevision: 1,
+        candidateFactsDependency: { languages: url === JOB_URL, answers: false },
+        fingerprint,
+        attempts: 5,
+        deferrals: 0,
+        retryAt: 0,
+        retryState: 'exhausted',
+        lastStatus: 'unverified',
+        lastReason: 'posting_unavailable',
+        firstAttemptAt: Date.now() - 5 * 86400000,
+        lastAttemptAt: Date.now(),
+      });
+    };
+    await seedExhaustedRetry(JOB_URL, matchingJob, 'a'.repeat(64));
+    await seedExhaustedRetry(unrelatedUrl, unrelatedJob, 'd'.repeat(64));
+
+    const fingerprintFor = vi.fn(async (job: any) => job.url === JOB_URL ? 'b'.repeat(64) : 'd'.repeat(64));
+    const eligibility = Object.assign(vi.fn(async () => ({ status: 'compatible', fingerprint: 'b'.repeat(64) })), { fingerprintFor });
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(fingerprintFor).toHaveBeenCalledTimes(2);
+    expect(eligibility.mock.calls[0][0].url).toBe(JOB_URL);
+    expect((await relevantRetryRef.get()).exists).toBe(false);
+    expect((await unrelatedRetryRef.get()).data()).toMatchObject({
+      attempts: 5,
+      retryState: 'exhausted',
+      lastReason: 'posting_unavailable',
+    });
+    expect(store.list(`${SERVICE_PATH}/proposals/`)).toHaveLength(1);
+    expect(store.list(`${SERVICE_PATH}/proposals/`).map(path => store.read(path)?.eligibilityFactsRevision)).toEqual([1]);
+  });
+
+  it.each(['hard_requirement_uncovered', 'language_requirement_uncovered'])(
+    'does not revive legacy %s retries after candidate facts change', async reason => {
+      const store = matchingFixture();
+      store.docs.delete(PROPOSAL_PATH);
+      store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 1 });
+      stubJobIndex([matchingJob]);
+      const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+      const retryBudgetContext = createHash('sha256').update(JSON.stringify([
+        'test-eligibility-v1', CV_KEY, profile,
+      ])).digest('hex');
+      const normalizedJob = { ...matchingJob, location: '' };
+      const serviceRef = store.db.collection('application_concierge_services').doc(SERVICE_ID);
+      const retryRef = eligibilityRetryRef(serviceRef, JOB_URL);
+      const fingerprint = '8'.repeat(64);
+      await retryRef.set({
+        jobUrl: JOB_URL,
+        context: eligibilityRetryContext(retryBudgetContext, normalizedJob, fingerprint),
+        jobContext: eligibilityRetryContext(retryBudgetContext, normalizedJob),
+        retryBudgetContext: eligibilityRetryContext(retryBudgetContext, normalizedJob, fingerprint),
+        retryBudgetJobContext: eligibilityRetryContext(retryBudgetContext, normalizedJob),
+        eligibilityFactsRevision: 1,
+        fingerprint,
+        attempts: 5,
+        deferrals: 0,
+        retryAt: 0,
+        retryState: 'exhausted',
+        lastStatus: 'unverified',
+        lastReason: reason,
+      });
+      store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 2 });
+      const eligibility = vi.fn(async () => ({ status: 'unverified', reason: 'provider_unavailable' }));
+
+      const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+      expect(result).toMatchObject({ status: 'complete', proposals: 0 });
+      expect(eligibility).not.toHaveBeenCalled();
+      expect((await retryRef.get()).data()).toMatchObject({
+        attempts: 5,
+        retryState: 'exhausted',
+        lastReason: reason,
+        eligibilityFactsRevision: 1,
+      });
+    },
+  );
+
+  it('rechecks exhausted eligibility after candidate facts revision without resetting its retry budget', async () => {
+    const store = matchingFixture();
+    store.docs.delete(PROPOSAL_PATH);
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 1 });
+    const unrelatedUrl = 'https://jobs.example.test/it-manager-facts-independent';
+    const unrelatedJob = { ...matchingJob, id: 'job-2', url: unrelatedUrl };
+    stubJobIndex([matchingJob, unrelatedJob]);
+
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const eligibilityContextForRevision = (revision: number) => createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile, revision,
+    ])).digest('hex');
+    const retryBudgetContext = createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile,
+    ])).digest('hex');
+    const normalizedJob = { ...matchingJob, location: '' };
+    const fingerprint = 'e'.repeat(64);
+    const nextFingerprint = 'a'.repeat(64);
+    const sourceFingerprint = 'f'.repeat(64);
+    const serviceRef = store.db.collection('application_concierge_services').doc(SERVICE_ID);
+    const retryRef = eligibilityRetryRef(serviceRef, JOB_URL);
+    const unrelatedRetryRef = eligibilityRetryRef(serviceRef, unrelatedUrl);
+    const seedRetry = async (url: string, job: typeof matchingJob, rowFingerprint: string, languageDependent: boolean) => {
+      const jobRecord = { ...job, location: '' };
+      const retryScanContext = languageDependent ? eligibilityContextForRevision(1) : retryBudgetContext;
+      await eligibilityRetryRef(serviceRef, url).set({
+        jobUrl: url,
+        context: eligibilityRetryContext(retryScanContext, jobRecord, rowFingerprint),
+        jobContext: eligibilityRetryContext(retryScanContext, jobRecord),
+        retryBudgetContext: eligibilityRetryContext(retryBudgetContext, jobRecord, sourceFingerprint),
+        retryBudgetJobContext: eligibilityRetryContext(retryBudgetContext, jobRecord),
+        eligibilityFactsRevision: 1,
+        candidateFactsDependency: { languages: languageDependent, answers: false },
+        fingerprint: rowFingerprint,
+        sourceFingerprint,
+        attempts: 5,
+        deferrals: 0,
+        retryAt: 0,
+        retryState: 'exhausted',
+        lastStatus: 'unverified',
+        lastReason: 'posting_unavailable',
+        firstAttemptAt: Date.now() - 5 * 86400000,
+        lastAttemptAt: Date.now(),
+      });
+    };
+    await seedRetry(JOB_URL, matchingJob, fingerprint, true);
+    await seedRetry(unrelatedUrl, unrelatedJob, 'd'.repeat(64), false);
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 2 });
+
+    let evaluatedFingerprint = fingerprint;
+    const eligibility = vi.fn(async () => ({ status: 'unverified', reason: 'provider_unavailable',
+      fingerprint: evaluatedFingerprint, sourceFingerprint }));
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 0 });
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(eligibility.mock.calls[0][0].url).toBe(JOB_URL);
+    expect((await retryRef.get()).data()).toMatchObject({
+      attempts: 5,
+      retryState: 'exhausted',
+      lastReason: 'provider_unavailable',
+      eligibilityFactsRevision: 2,
+      retryBudgetContext: eligibilityRetryContext(retryBudgetContext, normalizedJob, sourceFingerprint),
+      fingerprint,
+    });
+    expect((await retryRef.get()).data()?.jobContext)
+      .toBe(eligibilityRetryContext(eligibilityContextForRevision(2), normalizedJob));
+    expect((await unrelatedRetryRef.get()).data()).toMatchObject({
+      attempts: 5,
+      retryState: 'exhausted',
+      eligibilityFactsRevision: 1,
+      candidateFactsDependency: { languages: false, answers: false },
+    });
+
+    evaluatedFingerprint = nextFingerprint;
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 3 });
+    await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(eligibility).toHaveBeenCalledTimes(2);
+    expect((await retryRef.get()).data()).toMatchObject({
+      attempts: 5,
+      retryState: 'exhausted',
+      eligibilityFactsRevision: 3,
+      fingerprint: nextFingerprint,
+      sourceFingerprint,
+    });
+    expect((await unrelatedRetryRef.get()).data()).toMatchObject({ attempts: 5, retryState: 'exhausted' });
+  });
+
+  it('keeps the retry budget progression when revised candidate facts bypass an active backoff', async () => {
+    const store = matchingFixture();
+    store.docs.delete(PROPOSAL_PATH);
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 1 });
+    stubJobIndex([matchingJob]);
+
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const contextForRevision = (revision: number) => createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile, revision,
+    ])).digest('hex');
+    const retryBudgetContext = createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile,
+    ])).digest('hex');
+    const normalizedJob = { ...matchingJob, location: '' };
+    const sourceFingerprint = 'b'.repeat(64);
+    const serviceRef = store.db.collection('application_concierge_services').doc(SERVICE_ID);
+    const retryRef = eligibilityRetryRef(serviceRef, JOB_URL);
+    await retryRef.set({
+      jobUrl: JOB_URL,
+      context: eligibilityRetryContext(contextForRevision(1), normalizedJob, 'c'.repeat(64)),
+      jobContext: eligibilityRetryContext(contextForRevision(1), normalizedJob),
+      retryBudgetContext: eligibilityRetryContext(retryBudgetContext, normalizedJob, sourceFingerprint),
+      retryBudgetJobContext: eligibilityRetryContext(retryBudgetContext, normalizedJob),
+      eligibilityFactsRevision: 1,
+      candidateFactsDependency: { languages: true, answers: false },
+      fingerprint: 'c'.repeat(64),
+      sourceFingerprint,
+      attempts: 2,
+      deferrals: 0,
+      retryAt: Date.now() + 60 * 60_000,
+      retryState: 'scheduled',
+      lastStatus: 'unverified',
+      lastReason: 'provider_unavailable',
+      firstAttemptAt: Date.now() - 4 * 60 * 60_000,
+      lastAttemptAt: Date.now() - 60 * 60_000,
+    });
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, eligibilityFactsRevision: 2 });
+
+    const eligibility = vi.fn(async () => ({
+      status: 'unverified',
+      reason: 'provider_unavailable',
+      fingerprint: 'd'.repeat(64),
+      sourceFingerprint,
+    }));
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+    const retry = (await retryRef.get()).data();
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 0 });
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(retry).toMatchObject({
+      attempts: 3,
+      retryState: 'scheduled',
+      eligibilityFactsRevision: 2,
+      fingerprint: 'd'.repeat(64),
+      sourceFingerprint,
+      retryBudgetContext: eligibilityRetryContext(retryBudgetContext, normalizedJob, sourceFingerprint),
+    });
+    expect(Number(retry?.retryAt)).toBeGreaterThan(Date.now() + 3 * 60 * 60_000);
+  });
+
+  it('resumes a scheduled legacy proposal when confirmed candidate facts change', async () => {
+    const store = matchingFixture();
+    const originalProposal = store.read(PROPOSAL_PATH)!;
+    const legacyProposal = {
+      ...originalProposal,
+      status: 'retracted',
+      eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+      legacyRecoveryStatus: 'pending',
+      legacyRecoveryAttempts: 4,
+      legacyRecoveryNextAt: Date.now() + 86400000,
+    };
+    store.docs.set(PROPOSAL_PATH, legacyProposal);
+    const service = store.read(SERVICE_PATH)!;
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const previousRecoveryContext = legacyEligibilityRecoveryContext(profile);
+    store.docs.set(SERVICE_PATH, {
+      ...service,
+      eligibilityFactsRevision: 1,
+      matchingLegacyRecoveryContext: previousRecoveryContext,
+      matchingLegacyRecoveryCursor: 'proposal-1',
+    });
+    store.docs.set(PROPOSAL_PATH, { ...legacyProposal, legacyRecoveryContext: previousRecoveryContext });
+    stubJobIndex([matchingJob]);
+    const eligibility = vi.fn(async () => ({ status: 'compatible', fingerprint: 'c'.repeat(64) }));
+
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({
+      status: 'proposed',
+      eligibilityStatus: 'compatible',
+      eligibilityFactsRevision: 1,
+      legacyRecoveryStatus: 'recovered',
+    });
+  });
+
+  it('does not restart a legacy eligibility backoff when ranking feedback changes', async () => {
+    const store = matchingFixture();
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const recoveryContext = legacyEligibilityRecoveryContext(profile);
+    const legacyProposal = {
+      ...store.read(PROPOSAL_PATH)!,
+      status: 'retracted',
+      eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+      legacyRecoveryStatus: 'pending',
+      legacyRecoveryContext: recoveryContext,
+      legacyRecoveryAttempts: 4,
+      legacyRecoveryNextAt: Date.now() + 86400000,
+    };
+    store.docs.set(PROPOSAL_PATH, legacyProposal);
+    store.docs.set(`${SERVICE_PATH}/proposals/declined-feedback`, {
+      jobId: 'job-declined',
+      jobUrl: 'https://jobs.example.test/declined-feedback',
+      jobTitle: 'IT Manager SAP',
+      status: 'declined',
+      declineReason: 'location',
+    });
+    store.docs.set(SERVICE_PATH, {
+      ...store.read(SERVICE_PATH)!,
+      matchingLegacyRecoveryContext: recoveryContext,
+      matchingLegacyRecoveryCursor: 'proposal-1',
+    });
+    stubJobIndex([matchingJob]);
+    const eligibility = vi.fn();
+
+    await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(eligibility).not.toHaveBeenCalled();
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({
+      status: 'retracted',
+      legacyRecoveryContext: recoveryContext,
+      legacyRecoveryAttempts: 4,
+      legacyRecoveryNextAt: legacyProposal.legacyRecoveryNextAt,
+    });
   });
 
   it('reactivates an ambiguous legacy retraction only after current listing and eligibility checks pass', async () => {
@@ -395,5 +757,72 @@ describe('application concierge proposal retention', () => {
     expect(approvedRolePreference(job, [{ status: 'accepted', jobTitle: 'IT Application Specialist' }])).toBe(8);
     expect(approvedRolePreference(job, [{ status: 'accepted', withdrawnAt: new Date(), jobTitle: 'IT Application Specialist' }])).toBe(0);
     expect(approvedRolePreference(job, [{ status: 'proposed', jobTitle: 'IT Application Specialist' }])).toBe(0);
+  });
+
+  it('keeps decline feedback local to its reason and makes reasonless declines weak', () => {
+    const sameRole = { title: 'IT Application Manager', location: 'Lugano', sector: 'technology' };
+    const roleDecline = [{ status: 'declined', jobTitle: 'IT Application Specialist', declineReason: 'role' }];
+    const reasonlessDecline = [{ status: 'declined', jobTitle: 'IT Application Specialist' }];
+    const otherRole = { title: 'Financial Controller', location: 'Lugano', sector: 'technology' };
+
+    expect(rankingFeedbackPreference(sameRole, roleDecline)).toBe(-6);
+    expect(rankingFeedbackPreference(sameRole, reasonlessDecline)).toBe(-1);
+    expect(rankingFeedbackPreference(otherRole, roleDecline)).toBe(0);
+  });
+
+  it('persists ranking features as Firestore-safe arrays and only uses the three latest acceptances', () => {
+    const features = rankingFeaturesForJob({ title: 'IT Application Manager', location: 'Lugano' });
+    expect(features.role).toContain('application');
+    expect(Object.values(features).every(value => Array.isArray(value))).toBe(true);
+    const history = [
+      { status: 'accepted', jobTitle: 'IT Application Specialist', acceptedAt: new Date(1) },
+      { status: 'accepted', jobTitle: 'Financial Controller', acceptedAt: new Date(2) },
+      { status: 'accepted', jobTitle: 'Finance Analyst', acceptedAt: new Date(3) },
+      { status: 'accepted', jobTitle: 'Accountant', acceptedAt: new Date(4) },
+    ];
+    expect(approvedRolePreference({ title: 'IT Application Manager' }, history)).toBe(0);
+    expect(rankingFeedbackContext(history).accepted).toHaveLength(3);
+  });
+
+  it('keeps the open-proposal cap atomic across concurrent triggers and deduplicates a repeated listing', async () => {
+    const store = matchingFixture();
+    const secondOpenPath = `${SERVICE_PATH}/proposals/proposal-open-2`;
+    store.docs.set(secondOpenPath, { status: 'proposed', jobId: 'existing-2', jobUrl: 'https://jobs.example.test/existing-2' });
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, matchingOpenProposalCount: 2 });
+    serializeTransactions(store);
+    const firstJob = { id: 'job-new-1', url: 'https://jobs.example.test/new-1', title: 'IT Manager SAP', company: 'Example AG' };
+    const secondJob = { id: 'job-new-2', url: 'https://jobs.example.test/new-2', title: 'IT Manager SAP', company: 'Example AG' };
+    vi.stubGlobal('fetch', vi.fn(async (input: string) => ({
+      ok: true,
+      json: async () => String(input).endsWith('/first') ? [firstJob] : [secondJob],
+    })));
+    const eligibility = vi.fn(async () => ({ status: 'compatible' }));
+
+    await Promise.all([
+      runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/first', eligibility }),
+      runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/second', eligibility }),
+    ]);
+
+    const proposals = store.list(`${SERVICE_PATH}/proposals/`).map(path => store.read(path)!).filter(row => row.status === 'proposed');
+    expect(proposals).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(new Set(proposals.map(row => row.jobUrl)).size).toBe(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(store.read(SERVICE_PATH)?.matchingOpenProposalCount).toBe(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(proposals.filter(row => row.jobId.startsWith('job-new-'))).toHaveLength(1);
+
+    const duplicate = matchingFixture();
+    duplicate.docs.delete(PROPOSAL_PATH);
+    duplicate.docs.set(SERVICE_PATH, { ...duplicate.read(SERVICE_PATH)!, matchingOpenProposalCount: 0 });
+    serializeTransactions(duplicate);
+    vi.stubGlobal('fetch', vi.fn(async (input: string) => ({
+      ok: true,
+      json: async () => [{ ...matchingJob, id: String(input).endsWith('/first') ? 'provider-id-a' : 'provider-id-b' }],
+    })));
+    await Promise.all([
+      runApplicationConciergeMatching({ db: duplicate.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/first', eligibility }),
+      runApplicationConciergeMatching({ db: duplicate.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/second', eligibility }),
+    ]);
+    const repeated = duplicate.list(`${SERVICE_PATH}/proposals/`).map(path => duplicate.read(path)!).filter(row => row.status === 'proposed');
+    expect(repeated).toHaveLength(1);
+    expect(duplicate.read(SERVICE_PATH)?.matchingOpenProposalCount).toBe(1);
   });
 });

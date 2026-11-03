@@ -46,6 +46,20 @@ const LANGUAGE_NAMES = {
   sw: ['swahili', 'kiswahili'],
 };
 
+const LANGUAGE_CANONICAL_NAMES = {
+  de: 'German', en: 'English', fr: 'French', it: 'Italian', es: 'Spanish', pt: 'Portuguese', rm: 'Romansh',
+  sq: 'Albanian', ar: 'Arabic', bs: 'Bosnian', hr: 'Croatian', sr: 'Serbian', ru: 'Russian', ro: 'Romanian',
+  tr: 'Turkish', zh: 'Chinese', ja: 'Japanese', nl: 'Dutch', el: 'Greek', pl: 'Polish', sv: 'Swedish',
+  da: 'Danish', no: 'Norwegian', fi: 'Finnish', hu: 'Hungarian', cs: 'Czech', sk: 'Slovak', uk: 'Ukrainian',
+  he: 'Hebrew', hi: 'Hindi', fa: 'Persian', ur: 'Urdu', vi: 'Vietnamese', ko: 'Korean', th: 'Thai',
+  id: 'Indonesian', sw: 'Swahili',
+};
+
+export const CANDIDATE_LANGUAGE_OPTIONS = Object.freeze(Object.entries(LANGUAGE_CANONICAL_NAMES)
+  .map(([code, label]) => Object.freeze({ code, label }))
+  .sort((left, right) => left.label.localeCompare(right.label)));
+export const CANDIDATE_LANGUAGE_LEVELS = Object.freeze(['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'native', 'unknown']);
+
 const LANGUAGE_SECTION_TITLE_RE = /^(?:languages?|spoken languages?|foreign languages?|language skills?|language proficiency|lingue?|lingue? parlate|lingue? straniere|conoscenze linguistiche|langues?|langues? parlees|langues? etrangeres|competences linguistiques|sprachen?|sprachkenntnisse|fremdsprachen)$/i;
 const LANGUAGE_PREFERENCE_RE = /\b(?:enjoy\w*|like\w*|love\w*|dislike\w*|fond\s+of|gern(?:e)?|lieb\w*|mog\w*|aim\w*|ador\w*|plais\w*|piac\w*|aimer\w*|gust\w*|gost\w*)\b/i;
 const STRONG_LANGUAGE_INTENT_RE = /\b(?:willing(?:ness)?|learn\w*|study\w*|prefer\w*|interested|interest|want|plan\w*|hope|bereit|mocht\w*|woll\w*|soll\w*|lern\w*|apprend\w*|impar\w*|studier\w*|etudier\w*|dispos\w*|interess\w*|desir\w*|esper\w*|sper\w*|souhait\w*|vuoi|vuol\w*|vogli\w*|vorrei|vorrest\w*|voler\w*|voul\w*|voudr\w*|veu(?:x|t|lent)|pret\w*)\b/i;
@@ -172,9 +186,14 @@ export function explicitLanguageEntries(profile) {
 export function hasCompleteLanguageList(profile) {
   const rawEntries = Array.isArray(profile?.languages) ? profile.languages : [];
   const entries = explicitLanguageEntries(profile);
-  return entries.length > 0
+  const candidateConfirmedComplete = profile?.candidateLanguagesConfirmed === true
+    && profile?.languagesExplicitList === true
+    && profile?.languagesListTruncated !== true
     && entries.length === rawEntries.length
     && entries.every((item) => languageCodesForEntry(item.language).length === 1);
+  return candidateConfirmedComplete || (entries.length > 0
+    && entries.length === rawEntries.length
+    && entries.every((item) => languageCodesForEntry(item.language).length === 1));
 }
 
 /** Whether the CV has a dedicated heading that introduces its spoken-language list. */

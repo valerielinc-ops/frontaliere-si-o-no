@@ -6,9 +6,15 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
- "whatsNew.v39915.title": "Un punto di partenza dai social",
- "whatsNew.v39915.socialHub.title": "Le risorse principali in una pagina",
- "whatsNew.v39915.socialHub.desc": "La pagina raccoglie offerte, strumenti per lo stipendio, aggiornamenti sui valichi, guide e riepilogo settimanale.",
+  "whatsNew.v39917.title": "Un punto di partenza dai social",
+  "whatsNew.v39917.socialHub.title": "Le risorse principali in una pagina",
+  "whatsNew.v39917.socialHub.desc": "La pagina raccoglie offerte, strumenti per lo stipendio, aggiornamenti sui valichi, guide e riepilogo settimanale.",
+  "whatsNew.v39916.title": "Lavoro in Svizzera, un aiuto concreto",
+  "whatsNew.v39916.creatives.title": "La ricerca la facciamo per te",
+  "whatsNew.v39916.creatives.desc": "Negli spazi senza annunci trovi nuove immagini del nostro servizio: cerchiamo le offerte adatte al tuo mestiere e prepariamo le candidature.",
+  "whatsNew.v39915.title": "Proposte di lavoro più progressive",
+  "whatsNew.v39915.concierge.title": "Interesse, verifiche e lingue dichiarate",
+  "whatsNew.v39915.concierge.desc": "Ricevi fino a tre proposte da valutare per volta. Puoi indicare le lingue che parli o chiedere una nuova verifica senza avviare subito una candidatura.",
  "whatsNew.v39914.title": "Una prima selezione per iniziare",
  "whatsNew.v39914.discovery.title": "Le offerte più consultate, poi i tuoi interessi",
  "whatsNew.v39914.discovery.desc": "Se non hai ancora impostato una ricerca, la prima email parte dalle offerte più consultate e dagli indizi geografici disponibili. Clic e ricerche aiutano a rendere i suggerimenti successivi più pertinenti.",

@@ -61,6 +61,8 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
  ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
+ // No enrollment until the public Remote Config key explicitly says auto.
+ HOUSE_AD_CREATIVE_VARIANT: 'control',
  // Near-first-content article ad test. The safe default keeps the existing
  // article layout until the owner explicitly enables the treatment.
  ARTICLE_DETAIL_ATF_AD_TEST_VARIANT: 'control',

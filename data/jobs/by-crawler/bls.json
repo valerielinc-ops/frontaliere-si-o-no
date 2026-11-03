@@ -1,13 +1,13 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-11-02T21:54:41.564Z",
-  "runId": "41526136568",
+  "assembledAt": "2026-11-03T09:26:24.962Z",
+  "runId": "41608999151",
   "jobs": [
     {
       "id": "bls-7afab74d709b",
       "slug": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
       "slugByLocale": {
-        "it": "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez",
+        "it": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
         "en": "automotive-mechatronics-technician-automation-technician-bls-ag-spiez",
         "de": "automobilmechatroniker-in-automatiker-in-bls-ch",
         "fr": "technicien-en-mecatronique-automobile-technicien-en-automatisation-bls-ag-spiez"
@@ -34,7 +34,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:34.466Z",
+      "crawledAt": "2026-11-03T09:26:02.308Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,12 +69,14 @@
       },
       "previousSlugs": [
         "automobilmechatroniker-in-automatiker-in-bls-ch",
-        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+        "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-automatiker-in-bls-ch",
-          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+          "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
         ],
         "en": [
           "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
@@ -132,7 +134,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-lokomotiven/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:33.708Z",
+      "crawledAt": "2026-11-03T09:26:01.564Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -206,7 +208,7 @@
         "it": "fornitori-di-veicoli-bls-ag-spiez",
         "en": "vehicle-suppliers-bls-ag-spiez",
         "de": "fahrzeugbereitsteller-in-bls-ch",
-        "fr": "fournisseur-du-vehicule-bls-ag-spiez"
+        "fr": "preparateur-rice-de-vehicules-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -230,7 +232,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:32.951Z",
+      "crawledAt": "2026-11-03T09:26:00.816Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,7 +271,7 @@
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
         "vehicle-supplier-in-bls-ag-spiez",
-        "preparateur-rice-de-vehicules-bls-ag-spiez"
+        "fournisseur-du-vehicule-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -283,7 +285,7 @@
         ],
         "fr": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "preparateur-rice-de-vehicules-bls-ag-spiez"
+          "fournisseur-du-vehicule-bls-ag-spiez"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
@@ -311,7 +313,7 @@
         "it": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
         "en": "electrical-installers-bls-ag-hasle-bei-burgdorf",
         "de": "elektroinstallateur-in-bls-ch",
-        "fr": "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+        "fr": "electricien-ne-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -335,7 +337,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:32.184Z",
+      "crawledAt": "2026-11-03T09:26:00.071Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,7 +378,7 @@
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-        "electricien-ne-bls-ag-hasle-bei-burgdorf"
+        "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -396,7 +398,7 @@
         "fr": [
           "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-          "electricien-ne-bls-ag-hasle-bei-burgdorf"
+          "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:15.744Z",
@@ -448,7 +450,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:31.407Z",
+      "crawledAt": "2026-11-03T09:25:59.308Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,7 +556,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:30.730Z",
+      "crawledAt": "2026-11-03T09:25:58.659Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,105 +634,6 @@
       "validThroughSource": "source"
     },
     {
-      "id": "bls-29de476924b8",
-      "slug": "diagnosta-bls-ag-spiez",
-      "slugByLocale": {
-        "it": "diagnostico-bls-ag-spiez",
-        "en": "diagnostician-bls-ag-spiez",
-        "de": "diagnostiker-in-bls-ch",
-        "fr": "diagnosticien-bls-ag-spiez"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Diagnostiker:in",
-      "titleByLocale": {
-        "it": "Diagnosta",
-        "en": "Diagnostician",
-        "de": "Diagnostiker:in",
-        "fr": "Diagnosticien·ne"
-      },
-      "description": "Dein Know-how sorgt dafür, dass unsere Züge sturmfest und zuverlässig unterwegs sind – bei Sonne, Wind und Schnee. Du spürst versteckte Fehler auf, bringst Systeme wieder in Einklang und stellst sicher, dass Reisende entspannt und pünktlich von Luzern nach Bern gelangen. So hältst du die Schweiz in Bewegung und schenkst täglich Vertrauen und Sicherheit.\n\nDas wartet auf dich:\n\n• Lokalisieren von komplexen Störungen an Eisenbahnfahrzeugen und deren Komponenten\n\n• Verfolgen, beobachten und analysieren des Verlaufs von Fahrzeugstörungen und Erstellen von Berichten für die Behebung der Störungen\n\n• Enge Zusammenarbeit mit der verantwortlichen Stelle für Eisenbahntechnik\n\n• Teilnahme an den technischen Fachgruppen\n\n• Beraten, unterstützen und schulen von Teamleitenden und Mitarbeitenden\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene technische Grundausbildung EFZ\n\n• Abschluss als dipl. Elektrotechniker:in HF, dipl. Systemtechniker:in HF oder vergleichbare Weiterbildung\n\n• Erfahrung in der Instandhaltung an Schienenfahrzeugen von Vorteil\n\n• Analytische und menschenverbindende Persönlichkeit\n\n• Bereitschaft zu Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nIl tuo know-how fa sì che i nostri treni siano a prova di tempesta e viaggino in modo affidabile – con sole, vento e neve. Individui guasti nascosti, riporti i sistemi in armonia e garantisci che i passeggeri arrivino rilassati e puntuali da Lucerna a Berna. Così mantieni la Svizzera in movimento e offri fiducia e sicurezza ogni giorno.\n\nCosa ti aspetta:\n\n- Localizzazione di guasti complessi sui veicoli ferroviari e sui relativi componenti\n- Monitorare, osservare e analizzare l'andamento dei guasti dei veicoli e redigere rapporti per la risoluzione dei guasti\n- Stretta collaborazione con l'unità responsabile della tecnica ferroviaria\n- Partecipazione ai gruppi tecnici specializzati\n- Consigliare, supportare e formare i responsabili dei team e il personale\n\nCosa porti con te:\n\n- Formazione professionale di base tecnica AFC completata con successo\n- Diploma di tecnico/a diplomato/a SSS in elettrotecnica, tecnico/a diplomato/a SSS in sistemistica o formazione continua equivalente\n- Esperienza nella manutenzione di veicoli ferroviari costituisce titolo preferenziale\n- Personalità analitica e capace di creare relazioni\n- Disponibilità a lavorare di notte e nei fine settimana\n\nI tuoi vantaggi – ecco cosa ti aspetta:\n\n- Promuoviamo una pianificazione il più possibile flessibile dei tuoi servizi e dei tuoi turni\n- Ricevi un GA 2. Fantastico, un GA 1. Classe o un abbonamento metà-prezzo.\n- Hai tempo libero quando gli altri lavorano. Per gli impieghi notturni e nel fine settimana sono previste maggiorazioni.\n- È possibile acquistare da cinque a dieci giorni di ferie supplementari all'anno.\n- Hai a disposizione un sostegno finanziario per la formazione continua esterna e un'interessante offerta interna di formazione e corsi.\n- Promuoviamo la tua salute con eventi e corsi stagionali\n\nInformazioni su BLS\n\nCon quasi 4000 dipendenti, BLS è la seconda più grande azienda ferroviaria della Svizzera. Ma non è tutto: siamo anche una compagnia di navigazione, una società immobiliare, una ferrovia internazionale per il trasporto merci, un'azienda di autobus e trasportiamo auto in tutta sicurezza attraverso il Lötschberg e il Sempione. Cosa ci accomuna? L'orgoglio per ciò che facciamo ogni giorno. Per noi la mobilità ha molte sfaccettature. E tanti lavori stimolanti.",
-        "en": "Description\n\nYour expertise ensures that our trains are storm-proof and reliable – in sunshine, wind and snow. You uncover hidden faults, bring systems back into sync and ensure that passengers reach Bern from Lucerne relaxed and on time. This keeps Switzerland moving and gives people confidence and security every day.\n\nWhat awaits you:\n\n- Localizing complex faults in railway vehicles and their components\n- Tracking, monitoring and analyzing the progression of vehicle faults and preparing reports for resolving the faults\n- Close collaboration with the department responsible for railway engineering\n- Participation in technical working groups\n- Advising, supporting and training team leaders and employees\n\nWhat you bring:\n\n- Successfully completed technical vocational training (EFZ)\n- Qualification as a certified electrical engineering technician HF, certified systems technician HF, or equivalent further training\n- Experience in the maintenance of rail vehicles is an advantage\n- Analytical personality with strong people skills\n- Willingness to work nights and weekends\n\nYour benefits – what you can look forward to:\n\n- We support the most flexible possible planning of your tours and shifts\n- Get a GA 2. Great, a GA 1. Class or a Half-Fare Travelcard.\n- You have free time when others are working. There are additional allowances for working at night and on weekends.\n- It is possible to purchase an additional five to ten vacation days per year.\n- Financial support for external training and an exciting range of internal learning opportunities and courses are available to you.\n- We support your health with seasonal events and courses\n\nAbout BLS\n\nWith almost 4000 employees, BLS is Switzerland's second-largest railway company. What's more, we are also a shipping company, a real estate company, an international freight railway, a bus company, and transport cars safely through the Lötschberg and the Simplon. What do we have in common? Pride in what we do every day. Mobility has many facets for us. And many exciting jobs.",
-        "de": "Dein Know-how sorgt dafür, dass unsere Züge sturmfest und zuverlässig unterwegs sind – bei Sonne, Wind und Schnee. Du spürst versteckte Fehler auf, bringst Systeme wieder in Einklang und stellst sicher, dass Reisende entspannt und pünktlich von Luzern nach Bern gelangen. So hältst du die Schweiz in Bewegung und schenkst täglich Vertrauen und Sicherheit.\n\nDas wartet auf dich:\n\n• Lokalisieren von komplexen Störungen an Eisenbahnfahrzeugen und deren Komponenten\n\n• Verfolgen, beobachten und analysieren des Verlaufs von Fahrzeugstörungen und Erstellen von Berichten für die Behebung der Störungen\n\n• Enge Zusammenarbeit mit der verantwortlichen Stelle für Eisenbahntechnik\n\n• Teilnahme an den technischen Fachgruppen\n\n• Beraten, unterstützen und schulen von Teamleitenden und Mitarbeitenden\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene technische Grundausbildung EFZ\n\n• Abschluss als dipl. Elektrotechniker:in HF, dipl. Systemtechniker:in HF oder vergleichbare Weiterbildung\n\n• Erfahrung in der Instandhaltung an Schienenfahrzeugen von Vorteil\n\n• Analytische und menschenverbindende Persönlichkeit\n\n• Bereitschaft zu Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Description\n\nVotre savoir-faire permet à nos trains de circuler à l’épreuve des intempéries et de manière fiable – par soleil, vent et neige. Vous détectez les défauts cachés, rétablissez la cohérence entre les systèmes et veillez à ce que les voyageurs arrivent détendus et à l’heure de Lucerne à Berne. Ainsi, vous faites avancer la Suisse et inspirez chaque jour confiance et sécurité.\n\nCe qui vous attend :\n\n- Localiser des pannes complexes sur des véhicules ferroviaires et leurs composants\n- Suivre, observer et analyser l’évolution des pannes de véhicules et rédiger des rapports pour remédier aux pannes\n- Collaboration étroite avec le service responsable de la technique ferroviaire\n- Participation aux groupes d’experts techniques\n- Conseiller, soutenir et former les responsables d’équipe et les collaborateurs\n\nCe que vous apportez :\n\n- Formation professionnelle initiale technique achevée avec succès EFZ\n- Diplôme de technicien·ne diplômé·e en électrotechnique HF, de technicien·ne diplômé·e en systèmes HF ou formation continue comparable\n- Expérience dans la maintenance de véhicules ferroviaires, un atout\n- Personnalité analytique et douée pour les relations humaines\n- Disponibilité pour le travail de nuit et le week-end\n\nVos avantages – vous pouvez vous en réjouir :\n\n- Nous favorisons une planification aussi flexible que possible de vos tournées et de vos shifts\n- Recevez un AG 2. Super, un GA 1. Classe ou un abonnement demi-tarif.\n- Vous avez du temps libre lorsque les autres travaillent. Le travail de nuit et du week-end donne droit à des suppléments.\n- Il est possible d’acheter cinq à dix jours de vacances supplémentaires par an.\n- Vous bénéficiez d’un soutien financier pour les formations continues externes ainsi que d’une offre interne passionnante de formations et de cours.\n- Nous soutenons votre santé grâce à des événements et des cours saisonniers\n\nÀ propos de BLS\n\nAvec près de 4000 collaborateurs, la BLS est la deuxième plus grande entreprise ferroviaire de Suisse. Bien plus encore : nous sommes aussi une compagnie de navigation, une société immobilière, une entreprise ferroviaire internationale de fret, une entreprise de transport en bus et transportons des voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu’est-ce qui nous unit ? La fierté de ce que nous faisons chaque jour. Pour nous, la mobilité a de nombreuses facettes. Et de nombreux emplois passionnants."
-      },
-      "location": "Spiez",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/diagnostiker-in/b9bdabad-d3bc-4317-980e-40cb73672195",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:29.951Z",
-      "addressLocality": "Spiez",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3700",
-      "streetAddress": "Krattigstrasse 1A",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25",
-      "postedDate": "2026-09-25",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-23T00:00:00.000Z",
-      "pensum": "60-100%",
-      "salary": "101898",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/b9bdabad-d3bc-4317-980e-40cb73672195",
-      "requirements": [
-        "Erfolgreich abgeschlossene technische Grundausbildung EFZ",
-        "Abschluss als dipl. Elektrotechniker:in HF, dipl. Systemtechniker:in HF oder vergleichbare Weiterbildung",
-        "Erfahrung in der Instandhaltung an Schienenfahrzeugen von Vorteil",
-        "Analytische und menschenverbindende Persönlichkeit",
-        "Bereitschaft zu Nacht- und Wochenendarbeit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Erfolgreich abgeschlossene technische Grundausbildung EFZ",
-          "Abschluss als dipl. Elektrotechniker:in HF, dipl. Systemtechniker:in HF oder vergleichbare Weiterbildung",
-          "Erfahrung in der Instandhaltung an Schienenfahrzeugen von Vorteil",
-          "Analytische und menschenverbindende Persönlichkeit",
-          "Bereitschaft zu Nacht- und Wochenendarbeit"
-        ]
-      },
-      "previousSlugs": [
-        "diagnostiker-in-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diagnostiker-in-bls-ch"
-        ],
-        "en": [
-          "diagnostiker-in-bls-ch"
-        ],
-        "fr": [
-          "diagnostiker-in-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T23:39:56.296Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "source"
-    },
-    {
       "id": "bls-0f895fa37c69",
       "slug": "automatista-formatore-trice-professionale-supplente-bls-ag-spiez",
       "slugByLocale": {
@@ -761,7 +664,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automatiker-in-stv-berufsbildner-in/11a39962-bc21-4f6a-baf9-9aac970393f0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:29.303Z",
+      "crawledAt": "2026-11-03T09:25:57.300Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -854,7 +757,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/eisenbahnmechatroniker-in/45aa358c-d050-4161-8648-20355a29c31a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:28.538Z",
+      "crawledAt": "2026-11-03T09:25:56.557Z",
       "addressLocality": "Oberburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -952,7 +855,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automatiker-in/7eaa92c7-84c1-4498-ae15-2ffeaf8399b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:27.881Z",
+      "crawledAt": "2026-11-03T09:25:55.908Z",
       "addressLocality": "Oberburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1048,7 +951,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhaltungsmechaniker-in-schienenfahrzeuge/356f7c8a-2abe-48cd-886a-9824020de593",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:27.217Z",
+      "crawledAt": "2026-11-03T09:25:55.256Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1148,7 +1051,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/3e576f40-8d9e-4ae0-ae34-5b730ceefdd6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:26.447Z",
+      "crawledAt": "2026-11-03T09:25:54.498Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1252,7 +1155,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-bauwerkserhaltung/1c50cc6b-c798-4996-aa9c-82a891074256",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:25.684Z",
+      "crawledAt": "2026-11-03T09:25:53.744Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1350,7 +1253,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-baufuehrer-in-bahntechnik/f48461e5-de15-4842-9a1b-0a8ee1bd5d21",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:24.921Z",
+      "crawledAt": "2026-11-03T09:25:53.002Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1457,7 +1360,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/quereinstieg-gleisbau/0924473c-1664-47c6-8ad2-d03fc5103eda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:24.155Z",
+      "crawledAt": "2026-11-03T09:25:52.255Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1557,7 +1460,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/3721268d-c3a0-4f45-98b5-92e38a892cf9",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:23.402Z",
+      "crawledAt": "2026-11-03T09:25:51.505Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1649,7 +1552,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-import-export-zoll/41a8f868-8be3-4bf4-9e4f-48732eeae6be",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:22.633Z",
+      "crawledAt": "2026-11-03T09:25:50.761Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1750,7 +1653,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugmechaniker-in/92db5fa0-b2e3-42fb-b03a-55e3b319d1b7",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:21.983Z",
+      "crawledAt": "2026-11-03T09:25:50.115Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1850,7 +1753,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/jurist-in-baurecht/d6cde567-7f14-47c4-8fe3-564f6b798ab7",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:21.314Z",
+      "crawledAt": "2026-11-03T09:25:49.474Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1958,7 +1861,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/projektleiter-in-rohbau-loetschberg-basistunnel/c1d22453-8149-4bed-9598-25837922cd17",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:54:20.559Z",
+      "crawledAt": "2026-11-03T09:25:48.730Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2026,6 +1929,93 @@
       "addressRegion": "BE",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source"
+    },
+    {
+      "id": "bls-b2ef660707b3",
+      "slug": "metallbauer-in-nautiker-in-thun-bls-ch",
+      "slugByLocale": {
+        "de": "metallbauer-in-nautiker-in-thun-bls-ch",
+        "it": "metallbauer-in-nautiker-in-thun-bls-ch",
+        "en": "metallbauer-in-nautiker-in-thun-bls-ch",
+        "fr": "metallbauer-in-nautiker-in-thun-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Metallbauer:in / Nautiker:in Thun",
+      "titleByLocale": {
+        "de": "Metallbauer:in / Nautiker:in Thun",
+        "it": "Costruttore/trice metallico/a / Nautico/a Thun",
+        "en": "Metalworker / Nautical officer Thun",
+        "fr": "Constructeur/trice métallique / nauticien/ne Thun"
+      },
+      "description": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die gemeinsam mit uns zur erfolgreichen Zukunft der BLS Schifffahrt beitragen wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken. Bei uns erhältst du die Möglichkeit, deine handwerkliche Passion mit einer nautischen Ausbildung zum Matrosen, Maschinisten oder sogar Schiffsführer zu ergänzen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ und einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+      "descriptionByLocale": {
+        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die gemeinsam mit uns zur erfolgreichen Zukunft der BLS Schifffahrt beitragen wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken. Bei uns erhältst du die Möglichkeit, deine handwerkliche Passion mit einer nautischen Ausbildung zum Matrosen, Maschinisten oder sogar Schiffsführer zu ergänzen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ und einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "it": "Ci piacciono i laghi, ci piace la natura, ci piacciono i nostri ospiti – e ci piacciono le persone che vogliono contribuire insieme a noi al futuro di successo della spedizione BLS. Offriamo ai nostri dipendenti un ambiente unico, vario e stabile. Con noi si possono scoprire nuovi orizzonti. Con noi, avrete l'opportunità di integrare la vostra artigianalità con una formazione nautica per marinai, macchinisti o anche skipper.\n\nTi aspetta:\n\n• I nostri ospiti nazionali e internazionali forniscono consigli e cure convincenti e competenti\n\n• Check e vendita di biglietti\n\n• Preparazione e follow-up delle navi\n\n• Collaborazione nel servizio nautico (ti formiamo)\n\n• Manutenzione e rinnovo della nostra flotta in inverno\n\nQuesto è ciò che portate con voi:\n\n• Lavoratori di formazione completi: in EFZ e in alcuni anni di esperienza professionale\n\n• Titolo di guida della categoria B\n\n• Godimento di trattare con gli ospiti da culture diverse\n\n• Competenze linguistiche: Molto buono tedesco, orale inglese & francese competenze (o la volontà di imparare loro)\n\n• Forte senso di sicurezza e responsabilità\n\n• Prontezza per incarichi di lavoro irregolari (weekend / sera)\n\nI vostri vantaggi – potete guardare avanti a:\n\n• Prendi un GA 2. Abbonamento di classe o di mezza quota, nonché interessanti benefici per la famiglia e biglietti gratuiti internazionali.\n\n• Hai tempo libero quando gli altri lavorano. È possibile lavorare part-time, e ci sono supplementi per le penne di notte e nei fine settimana.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Contribuiamo il 60% dei contributi del fondo pensione.\n\n• Regali generosi di anzianità da cinque anni di servizio.\n\n• Un luogo di lavoro onirico vi aspetta nel cuore dell'Oberland Bernese.\n\nInformazioni sulla spedizione BLS\n\nNavi bianche. Acqua blu. Aria fresca. Le montagne dell'Oberland Bernese. Quello che sembra quasi cliché non è altro che il fascino della spedizione. Per circa 120 dipendenti sul lago Brienzer e Thunersee, questo fa parte della realtà quotidiana.",
+        "en": "We like lakes, we like nature, we like our guests – and we like people who want to contribute together with us to the successful future of BLS shipping. We offer our employees a unique, varied and stable environment. With us, new horizons can be discovered. With us, you will have the opportunity to supplement your craftsmanship with a nautical training for sailors, machinists or even skippers.\n\nThis is waiting for you:\n\n• Our national and international guests provide convincing and competent advice and care\n\n• Checks and sales of tickets\n\n• Preparation and follow-up of ships\n\n• Collaboration in nautical service (we train you)\n\n• Maintenance and renewal of our fleet in winter\n\nThis is what you bring with you:\n\n• Completed training metalworkers: in EFZ and some years of professional experience\n\n• Category B driving licence\n\n• Enjoyment of dealing with guests from different cultures\n\n• Language skills: Very good German, oral English & French skills (or willingness to learn them)\n\n• Strong sense of security and responsibility\n\n• Readiness for irregular work assignments (weekend / evening)\n\nYour advantages – you can look forward to:\n\n• Get a GA 2. Class or a half-tax subscription, as well as attractive family benefits and free international free tickets.\n\n• You have free time when others work. You can work part-time, and there are surcharges for pens at night and on weekends.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• We contribute 60 percent of the pension fund contributions.\n\n• Generous gifts of seniority from five years of service.\n\n• A dreamlike place of work awaits you in the heart of the Bernese Oberland.\n\nAbout BLS shipping\n\nWhite ships. Blue water. Fresh air. The mountains of the Bernese Oberland. What almost sounds like cliché is nothing more than the fascination of shipping. For around 120 employees on and on Lake Brienzer and Thunersee, this is part of daily reality.",
+        "fr": "Nous aimons les lacs, nous aimons la nature, nous aimons nos invités – et nous aimons les gens qui veulent contribuer avec nous à l'avenir réussi de la navigation BLS. Nous offrons à nos employés un environnement unique, varié et stable. Avec nous, de nouveaux horizons peuvent être découverts. Avec nous, vous aurez la possibilité de compléter votre artisanat par une formation nautique pour marins, machinistes ou même skippers.\n\nCeci vous attend :\n\n• Nos invités nationaux et internationaux fournissent des conseils et des soins convaincants et compétents\n\n• Vérifications et ventes de billets\n\n• Préparation et suivi des navires\n\n• Collaboration en service nautique (nous vous formons)\n\n• Entretien et renouvellement de notre flotte en hiver\n\nC'est ce que vous apportez avec vous :\n\n• Formation complète des métallurgistes: en EFZ et quelques années d'expérience professionnelle\n\n• Permis de conduire de catégorie B\n\n• Amusement à traiter avec des clients de différentes cultures\n\n• Compétences linguistiques : Très bon allemand, anglais oral et français (ou volonté de les apprendre)\n\n• Fort sentiment de sécurité et de responsabilité\n\n• Préparation aux affectations irrégulières (fin de semaine / soir)\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2. Un abonnement en classe ou demi-taxe, ainsi que des prestations familiales attrayantes et des billets gratuits internationaux.\n\n• Vous avez du temps libre quand les autres travaillent. Vous pouvez travailler à temps partiel, et il ya des suppléments pour les stylos la nuit et le week-end.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Nous cotisons 60 % des cotisations du fonds de pension.\n\n• Dons généreux d'ancienneté de cinq ans de service.\n\n• Un lieu de travail onirique vous attend au cœur de l'Oberland bernois.\n\nA propos de l'expédition BLS\n\nDes vaisseaux blancs. De l'eau bleue. L'air frais. Les montagnes de l'Oberland bernois. Ce qui ressemble presque au cliché n'est rien de plus que la fascination de la navigation. Pour environ 120 employés sur et sur le lac Brienzer et Thunersee, cela fait partie de la réalité quotidienne."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/efcf75b6-4248-450e-aaef-49c33b5a3d87",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-03T09:25:47.994Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-03",
+      "postedDate": "2026-11-03",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-02T00:00:00.000Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/efcf75b6-4248-450e-aaef-49c33b5a3d87",
+      "requirements": [
+        "Abgeschlossene Ausbildung Metallbauer:in EFZ und einige Jahre Berufserfahrung",
+        "Führerausweis Kategorie B",
+        "Freude am Umgang mit Gästen aus verschiedenen Kulturen",
+        "Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)",
+        "Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein",
+        "Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abgeschlossene Ausbildung Metallbauer:in EFZ und einige Jahre Berufserfahrung",
+          "Führerausweis Kategorie B",
+          "Freude am Umgang mit Gästen aus verschiedenen Kulturen",
+          "Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)",
+          "Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein",
+          "Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-03T09:25:47.994Z"
     }
   ]
 }

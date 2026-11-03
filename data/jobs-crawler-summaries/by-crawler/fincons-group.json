@@ -1,72 +1,22 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-11-02T21:26:26.809Z",
+  "generatedAt": "2026-11-03T09:20:49.309Z",
   "total": 36,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 36,
-  "durationMs": 19023,
-  "avgDurationMs": 19023,
+  "durationMs": 10384,
+  "avgDurationMs": 10384,
   "durationHistory": [
-    19023
+    10384
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Workplace Engineer 60 - 80%",
-      "slug": "workplace-ingegnere-60-80-fincons-group-bern",
-      "url": "https://fincons.applytojob.com/apply/omWKsMH5kT/Workplace-Engineer-60-80",
-      "applyUrl": "https://fincons.applytojob.com/apply/omWKsMH5kT/Workplace-Engineer-60-80",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bundesplatz 3",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-26",
-      "postedDate": "2026-10-26",
-      "postingDateSource": "reported",
-      "validThrough": "2027-01-24T00:00:00.000Z",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20261026163209_06M5PJGKYU3JNYS0",
-        "listingLocation": "Bern, Bern, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-6cb87c945aef",
-      "salaryMin": 58400,
-      "salaryMax": 99600,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-26T21:18:49.455Z",
-      "needsRetranslation": true,
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Applikations-Manager:in 80 - 100%",
@@ -1510,5 +1460,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }

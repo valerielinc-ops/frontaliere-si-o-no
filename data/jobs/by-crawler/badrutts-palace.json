@@ -1,16 +1,16 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-11-02T21:50:16.635Z",
-  "runId": "41527127007",
+  "assembledAt": "2026-11-03T09:48:39.893Z",
+  "runId": "41609872515",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
       "slug": "elettricista-m-w-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "it": "elettricista-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "elektriker-m-w-d-badrutts-palace-ch",
-        "fr": "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -34,7 +34,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:50:11.159Z",
+      "crawledAt": "2026-11-03T09:48:30.009Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -54,18 +54,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-m-w-d-badrutts-palace-ch",
-        "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-m-w-d-badrutts-palace-ch"
+          "elektriker-m-w-d-badrutts-palace-ch",
+          "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
-          "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
-          "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-18T21:52:03.897Z",
@@ -96,7 +98,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T21:50:11.159Z",
+      "validThrough": "2026-12-03T09:48:30.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +132,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:50:11.156Z",
+      "crawledAt": "2026-11-03T09:48:30.000Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -204,7 +206,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T21:50:11.156Z",
+      "validThrough": "2026-12-03T09:48:30.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -238,7 +240,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:50:11.153Z",
+      "crawledAt": "2026-11-03T09:48:29.990Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -309,32 +311,32 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T21:50:11.153Z",
+      "validThrough": "2026-12-03T09:48:29.990Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "badrutts-palace-4ceec247646e",
       "slug": "maggiordomo-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "en": "butler-m-f-d-badrutts-palace-ch",
         "it": "maggiordomo-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "butler-m-f-d-badrutts-palace-ch",
-        "fr": "butler-m-f-d-badrutts-palace-ch"
+        "en": "butler-m-f-d-badrutts-palace-ch",
+        "de": "butler-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "butler-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
       "companyDomain": "badruttscareers.com",
       "title": "Butler (m/f/d)",
       "titleByLocale": {
-        "en": "Butler (m/f/d)",
         "it": "maggiordomo (m/f/d)",
+        "en": "Butler (m/f/d)",
         "de": "Butler (m/w/d)",
         "fr": "Butler (h/f/d)"
       },
       "description": "<p><strong>Your key responsibilities</strong></p><p><span>As a butler, you embody exceptional guest service and make a significant contribution to our guests’ satisfaction:</span></p><ul><li><p><span>Personalised care and attention to the wishes of our discerning guests are at the heart of your service.</span></p></li><li><p><span>With your thorough knowledge of our guests’ preferences and ability to adapt quickly, you ensure seamless and discreet in-room service.</span></p></li><li><p><span>Special requests and individual suite set-ups are handled in close cooperation with the Housekeeping team.</span></p></li><li><p><span>Packing and unpacking services, along with other specialised suite services, are also part of your role.</span></p></li><li><p><span>The highest standards of discretion and professionalism are always upheld.</span></p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p><span>Ideally, you bring the following qualifications and qualities:</span></p><ul><li><p><span>Completed vocational training in hospitality or an equivalent qualification</span></p></li><li><p><span>Several years of experience in a similar role in luxury hospitality</span></p></li><li><p><span>Excellent guest-relations skills and a strong service orientation</span></p></li><li><p><span>Discretion and the ability to respect and protect guests’ privacy</span></p></li><li><p><span>A confident manner, impeccable etiquette and a well-groomed appearance</span></p></li><li><p><span>A combination of two of these three languages; German, English, Italian</span></p></li><li><p><span>Flexibility, resilience, a strong team spirit and a solution-oriented approach</span></p></li></ul><p></p><p><strong>What We Offer</strong></p><ul><li><p><span>Fixed-term seasonal position, from the end of November 2026 until the end of March 2027</span></p></li><li><p><span>Five-day working week on average, based on 43.5 hours per week</span></p></li><li><p><span>Five weeks of annual leave and six public holidays per year</span></p></li><li><p><span>13th salary from your start date, paid pro rata</span></p></li><li><p><span>Accommodation in one of our attractive staff houses, if required</span></p></li><li><p><span>Meals available in our new, modern staff restaurant</span></p></li><li><p><span>Work in an attractive 50Best environment with opportunities for development</span></p></li></ul><p><span>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</span></p>",
       "descriptionByLocale": {
-        "en": "<p><strong>Your key responsibilities</strong></p><p><span>As a butler, you embody exceptional guest service and make a significant contribution to our guests’ satisfaction:</span></p><ul><li><p><span>Personalised care and attention to the wishes of our discerning guests are at the heart of your service.</span></p></li><li><p><span>With your thorough knowledge of our guests’ preferences and ability to adapt quickly, you ensure seamless and discreet in-room service.</span></p></li><li><p><span>Special requests and individual suite set-ups are handled in close cooperation with the Housekeeping team.</span></p></li><li><p><span>Packing and unpacking services, along with other specialised suite services, are also part of your role.</span></p></li><li><p><span>The highest standards of discretion and professionalism are always upheld.</span></p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p><span>Ideally, you bring the following qualifications and qualities:</span></p><ul><li><p><span>Completed vocational training in hospitality or an equivalent qualification</span></p></li><li><p><span>Several years of experience in a similar role in luxury hospitality</span></p></li><li><p><span>Excellent guest-relations skills and a strong service orientation</span></p></li><li><p><span>Discretion and the ability to respect and protect guests’ privacy</span></p></li><li><p><span>A confident manner, impeccable etiquette and a well-groomed appearance</span></p></li><li><p><span>A combination of two of these three languages; German, English, Italian</span></p></li><li><p><span>Flexibility, resilience, a strong team spirit and a solution-oriented approach</span></p></li></ul><p></p><p><strong>What We Offer</strong></p><ul><li><p><span>Fixed-term seasonal position, from the end of November 2026 until the end of March 2027</span></p></li><li><p><span>Five-day working week on average, based on 43.5 hours per week</span></p></li><li><p><span>Five weeks of annual leave and six public holidays per year</span></p></li><li><p><span>13th salary from your start date, paid pro rata</span></p></li><li><p><span>Accommodation in one of our attractive staff houses, if required</span></p></li><li><p><span>Meals available in our new, modern staff restaurant</span></p></li><li><p><span>Work in an attractive 50Best environment with opportunities for development</span></p></li></ul><p><span>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</span></p>",
         "it": "<p><strong>Le tue principali responsabilità</strong></p><p><span>In qualità di maggiordomo, incarni un servizio eccezionale per gli ospiti e contribuisci in modo significativo alla soddisfazione dei nostri ospiti:</span></p><ul><li><p><span>La cura personalizzata e l'attenzione ai desideri dei nostri ospiti esigenti sono al centro del tuo servizio.</span></p></li><li><p><span>Grazie alla conoscenza approfondita delle preferenze dei nostri ospiti e alla tua capacità di adattarti rapidamente, garantisci un servizio in camera impeccabile e discreto.</span></p></li><li><p><span>Le richieste speciali e gli allestimenti personalizzati delle suite vengono gestiti in stretta collaborazione con il team Housekeeping.</span></p></li><li><p><span>I servizi di preparazione e disfacimento dei bagagli, così come altri servizi specializzati per le suite, rientrano anch'essi nelle tue mansioni.</span></p></li><li><p><span>Gli standard più elevati di discrezione e professionalità sono sempre rispettati.</span></p></li></ul><p></p><p><strong>\n• Cosa porti nel ruolo</strong></p><p><span>Idealmente, possiedi le seguenti qualifiche e qualità:</span></p><ul><li><p><span>Formazione professionale completata nel settore alberghiero o qualifica equivalente</span></p></li><li><p><span>Diversi anni di esperienza in un ruolo simile nel settore dell'ospitalità di lusso</span></p></li><li><p><span>Eccellenti capacità relazionali con gli ospiti e forte orientamento al servizio</span></p></li><li><p><span>Discrezione e capacità di rispettare e tutelare la privacy degli ospiti</span></p></li><li><p><span>Modi sicuri, etichetta impeccabile e aspetto curato</span></p></li><li><p><span>Una combinazione di due di queste tre lingue; tedesco, inglese, italiano</span></p></li><li><p><span>Flessibilità, resilienza, forte spirito di squadra e approccio orientato alle soluzioni</span></p></li></ul><p></p><p><strong>Cosa offriamo</strong></p><ul><li><p><span>Posizione stagionale a tempo determinato, dalla fine di novembre 2026 fino alla fine di marzo 2027</span></p></li><li><p><span>Settimana lavorativa media di cinque giorni, con 43.5 ore settimanali</span></p></li><li><p><span>Cinque settimane di ferie annuali e sei giorni festivi all'anno</span></p></li><li><p><span>13ª mensilità dalla data di inizio, pagata proporzionalmente</span></p></li><li><p><span>Alloggio in una delle nostre gradevoli residenze per il personale, se necessario</span></p></li><li><p><span>Pasti disponibili nel nostro nuovo e moderno ristorante per il personale</span></p></li><li><p><span>Lavorare in un interessante contesto 50Best con opportunità di sviluppo</span></p></li></ul><p><span>Se cerchi un ruolo interessante, stimolante e vario in un ambiente dinamico e desideri entrare a far parte di un team consolidato, saremo lieti di ricevere la tua candidatura online completa.</span></p>",
+        "en": "<p><strong>Your key responsibilities</strong></p><p><span>As a butler, you embody exceptional guest service and make a significant contribution to our guests’ satisfaction:</span></p><ul><li><p><span>Personalised care and attention to the wishes of our discerning guests are at the heart of your service.</span></p></li><li><p><span>With your thorough knowledge of our guests’ preferences and ability to adapt quickly, you ensure seamless and discreet in-room service.</span></p></li><li><p><span>Special requests and individual suite set-ups are handled in close cooperation with the Housekeeping team.</span></p></li><li><p><span>Packing and unpacking services, along with other specialised suite services, are also part of your role.</span></p></li><li><p><span>The highest standards of discretion and professionalism are always upheld.</span></p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p><span>Ideally, you bring the following qualifications and qualities:</span></p><ul><li><p><span>Completed vocational training in hospitality or an equivalent qualification</span></p></li><li><p><span>Several years of experience in a similar role in luxury hospitality</span></p></li><li><p><span>Excellent guest-relations skills and a strong service orientation</span></p></li><li><p><span>Discretion and the ability to respect and protect guests’ privacy</span></p></li><li><p><span>A confident manner, impeccable etiquette and a well-groomed appearance</span></p></li><li><p><span>A combination of two of these three languages; German, English, Italian</span></p></li><li><p><span>Flexibility, resilience, a strong team spirit and a solution-oriented approach</span></p></li></ul><p></p><p><strong>What We Offer</strong></p><ul><li><p><span>Fixed-term seasonal position, from the end of November 2026 until the end of March 2027</span></p></li><li><p><span>Five-day working week on average, based on 43.5 hours per week</span></p></li><li><p><span>Five weeks of annual leave and six public holidays per year</span></p></li><li><p><span>13th salary from your start date, paid pro rata</span></p></li><li><p><span>Accommodation in one of our attractive staff houses, if required</span></p></li><li><p><span>Meals available in our new, modern staff restaurant</span></p></li><li><p><span>Work in an attractive 50Best environment with opportunities for development</span></p></li></ul><p><span>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</span></p>",
         "de": "<p><strong>Ihre wichtigsten Aufgaben</strong></p><p><span>Als Butler verkörpern Sie einen außergewöhnlichen Gästeservice und leisten einen wesentlichen Beitrag zur Zufriedenheit unserer Gäste:</span></p><ul><li><p><span>Die persönliche Betreuung und die Berücksichtigung der Wünsche unserer anspruchsvollen Gäste stehen im Mittelpunkt Ihres Services.</span></p></li><li><p><span>Mit Ihrer umfassenden Kenntnis der Vorlieben unserer Gäste und Ihrer Fähigkeit, sich schnell anzupassen, sorgen Sie für einen reibungslosen und diskreten Zimmerservice.</span></p></li><li><p><span>Sonderwünsche und die individuelle Vorbereitung der Suiten werden in enger Zusammenarbeit mit dem Housekeeping-Team bearbeitet.</span></p></li><li><p><span>Pack- und Auspackservice sowie weitere spezialisierte Suiten-Services gehören ebenfalls zu Ihren Aufgaben.</span></p></li><li><p><span>Höchste Standards in Bezug auf Diskretion und Professionalität werden stets gewahrt.</span></p></li></ul><p></p><p><strong>\n• Was Sie für die Stelle mitbringen</strong></p><p><span>Idealerweise bringen Sie die folgenden Qualifikationen und Eigenschaften mit:</span></p><ul><li><p><span>Abgeschlossene Berufsausbildung im Gastgewerbe oder eine gleichwertige Qualifikation</span></p></li><li><p><span>Mehrjährige Erfahrung in einer vergleichbaren Position in der Luxushotellerie</span></p></li><li><p><span>Hervorragende Fähigkeiten im Umgang mit Gästen und eine ausgeprägte Serviceorientierung</span></p></li><li><p><span>Diskretion sowie die Fähigkeit, die Privatsphäre der Gäste zu respektieren und zu schützen</span></p></li><li><p><span>Ein sicheres Auftreten, einwandfreie Umgangsformen und ein gepflegtes Erscheinungsbild</span></p></li><li><p><span>Eine Kombination aus zwei dieser drei Sprachen; Deutsch, Englisch, Italienisch</span></p></li><li><p><span>Flexibilität, Belastbarkeit, ausgeprägter Teamgeist und eine lösungsorientierte Arbeitsweise</span></p></li></ul><p></p><p><strong>Was wir bieten</strong></p><ul><li><p><span>Befristete Saisonstelle von Ende November 2026 bis Ende März 2027</span></p></li><li><p><span>Durchschnittlich eine Fünf-Tage-Woche bei 43.5 Stunden pro Woche</span></p></li><li><p><span>Fünf Wochen Jahresurlaub und sechs gesetzliche Feiertage pro Jahr</span></p></li><li><p><span>13. Monatsgehalt ab Ihrem Eintrittsdatum, anteilig ausgezahlt</span></p></li><li><p><span>Bei Bedarf Unterkunft in einem unserer attraktiven Personalhäuser</span></p></li><li><p><span>Verpflegung in unserem neuen, modernen Personalrestaurant</span></p></li><li><p><span>Arbeiten in einem attraktiven 50Best-Umfeld mit Entwicklungsmöglichkeiten</span></p></li></ul><p><span>Wenn Sie eine interessante, anspruchsvolle und abwechslungsreiche Position in einem dynamischen Umfeld suchen und Teil eines etablierten Teams werden möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</span></p>",
         "fr": "<p><strong>Vos principales responsabilités</strong></p><p><span>En tant que majordome, vous incarnez un service exceptionnel aux clients et contribuez de manière significative à la satisfaction de nos clients :</span></p><ul><li><p><span>Une prise en charge personnalisée et une attention particulière portée aux souhaits de nos clients exigeants sont au cœur de votre service.</span></p></li><li><p><span>Grâce à votre connaissance approfondie des préférences de nos clients et à votre capacité à vous adapter rapidement, vous garantissez un service en chambre fluide et discret.</span></p></li><li><p><span>Les demandes spéciales et les aménagements personnalisés des suites sont pris en charge en étroite collaboration avec l’équipe de l’entretien ménager.</span></p></li><li><p><span>Les services de préparation et de déballage des bagages, ainsi que d’autres services spécialisés en suite, font également partie de vos tâches.</span></p></li><li><p><span>Les plus hauts standards de discrétion et de professionnalisme sont toujours respectés.</span></p></li></ul><p></p><p><strong>\"\n• Ce que vous apportez au poste</strong></p><p><span>Dans l’idéal, vous disposez des qualifications et qualités suivantes :</span></p><ul><li><p><span>Formation professionnelle achevée dans l’hôtellerie ou qualification équivalente</span></p></li><li><p><span>Plusieurs années d’expérience à un poste similaire dans l’hôtellerie de luxe</span></p></li><li><p><span>Excellentes compétences relationnelles avec les clients et un sens aigu du service</span></p></li><li><p><span>Discrétion et capacité à respecter et à protéger la vie privée des clients</span></p></li><li><p><span>Une attitude assurée, une étiquette irréprochable et une apparence soignée</span></p></li><li><p><span>La maîtrise de deux de ces trois langues : allemand, anglais, italien</span></p></li><li><p><span>Flexibilité, résilience, fort esprit d’équipe et approche axée sur les solutions</span></p></li></ul><p></p><p><strong>Ce que nous offrons</strong></p><ul><li><p><span>Poste saisonnier à durée déterminée, de fin novembre 2026 à fin mars 2027</span></p></li><li><p><span>Semaine de travail de cinq jours en moyenne, sur la base de 43.5 heures par semaine</span></p></li><li><p><span>Cinq semaines de congés annuels et six jours fériés par an</span></p></li><li><p><span>13e salaire dès votre date d’entrée en fonction, versé au prorata</span></p></li><li><p><span>Hébergement dans l’une de nos maisons du personnel attrayantes, si nécessaire</span></p></li><li><p><span>Repas disponibles dans notre nouveau restaurant moderne du personnel</span></p></li><li><p><span>Travail au sein d’un environnement 50Best attrayant, offrant des possibilités d’évolution</span></p></li></ul><p><span>Si vous recherchez un poste intéressant, stimulant et varié dans un environnement dynamique et souhaitez rejoindre une équipe bien établie, nous nous réjouissons de recevoir votre candidature en ligne complète.</span></p>"
       },
@@ -343,7 +345,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8653778-butler-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:50:11.149Z",
+      "crawledAt": "2026-11-03T09:48:29.985Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -360,10 +362,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8653778-butler-m-f-d",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "butler-m-f-d-badrutts-palace-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "butler-m-f-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "butler-m-f-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "butler-m-f-d-badrutts-palace-ch"
+        ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-02T21:50:11.149Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -391,17 +406,8 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T21:50:11.149Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:50:11.149Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "butler-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "previousSlugs": [
-        "butler-m-f-d-badrutts-palace-ch"
-      ]
+      "validThrough": "2027-02-01T09:48:29.985Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "badrutts-palace-f6389a361791",
@@ -434,7 +440,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:50:11.135Z",
+      "crawledAt": "2026-11-03T09:48:29.960Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -488,7 +494,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T21:50:11.135Z",
+      "validThrough": "2026-12-03T09:48:29.960Z",
       "validThroughSource": "last-observed-window"
     }
   ]
