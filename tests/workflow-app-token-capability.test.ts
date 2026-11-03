@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { parse } from 'yaml';
 
@@ -28,7 +29,7 @@ const SHELL_APP_TOKEN = /\$\{?APP_TOKEN(?![A-Za-z0-9_])/;
 // values are populated through GITHUB_ENV and therefore are unavailable to
 // the workflow-expression `env` context. Require both the capability proof and
 // a non-empty App token before selecting it; otherwise select the loaded PAT.
-const DATA_REFRESH_SHELL_TOKEN_SELECTION = /if\s+\[\s*"\$\{APP_TOKEN_DATA_REFRESH:-\}"\s*=\s*"true"\s*\]\s*&&\s*\[\s*-n\s*"\$\{APP_TOKEN:-\}"\s*\]\s*;\s*then\s*(?:export\s+)?GH_TOKEN="\$APP_TOKEN"(?:\s*;\s*|\s+)else\s*(?:export\s+)?GH_TOKEN="\$\{GITHUB_PAT:-\}"(?:\s*;\s*|\s+)fi/s;
+const DATA_REFRESH_SHELL_TOKEN_SELECTION = /if\s+\[\s*"\$\{APP_TOKEN_DATA_REFRESH:-\}"\s*=\s*"true"\s*\]\s*&&\s*\[\s*-n\s*"\$\{APP_TOKEN:-\}"\s*\]\s*;\s*then\s*export\s+GH_TOKEN="\$APP_TOKEN"(?:\s*;\s*|\s+)else\s*export\s+GH_TOKEN="\$\{GITHUB_PAT:-\}"(?:\s*;\s*|\s+)fi/s;
 // Uno script lanciato dallo step che legge APP_TOKEN dall'ambiente (per
 // esempio `restorePromotionAppRemote()` di prospect-promote.mjs).
 const SCRIPT_APP_TOKEN = /process\.env\.APP_TOKEN(?![A-Za-z0-9_])|\$\{?APP_TOKEN(?![A-Za-z0-9_])/;
@@ -133,15 +134,18 @@ export function scanWorkflow(file: string, source: string, root = ROOT): StepFin
 
       const envMap = (step.env ?? {}) as Record<string, unknown>;
       const scripts = [...new Set(body.match(/scripts\/[\w./-]+\.(?:mjs|cjs|js|sh|ts)/g) ?? [])];
-      const readsAppToken =
-        SHELL_APP_TOKEN.test(body) || scripts.some((rel) => SCRIPT_APP_TOKEN.test(readScript(root, rel)));
+      const shellReadsAppToken = SHELL_APP_TOKEN.test(body);
+      const scriptReadsAppToken = scripts.some((rel) => SCRIPT_APP_TOKEN.test(readScript(root, rel)));
+      const readsAppToken = shellReadsAppToken || scriptReadsAppToken;
+      const guardedShellTokenRead =
+        shellReadsAppToken && !scriptReadsAppToken && hasDataRefreshShellTokenSelection(body);
       // APP_TOKEN arriva nell'ambiente solo dal conio (GITHUB_ENV) di uno step
       // precedente dello stesso job: prima, o senza conio, la lettura e' vuota.
       const shellReadsUnmapped =
         readsAppToken &&
         minted &&
         !('APP_TOKEN' in envMap) &&
-        !hasDataRefreshShellTokenSelection(body);
+        !guardedShellTokenRead;
 
       const publishes = PUBLISH_IN_STEP.filter((re) => re.test(body) || re.test(uses)).map(String);
       for (const rel of scripts) {
@@ -355,6 +359,15 @@ describe('scanWorkflow (rilevatore)', () => {
     expect(f.shellReadsUnmapped).toBe(true);
   });
 
+  it('rifiuta la selezione shell se il token non viene esportato al processo publisher', () => {
+    const [f] = scanWorkflow(
+      'x.yml',
+      wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            GH_TOKEN="$APP_TOKEN"\n          else\n            GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          git push origin HEAD:refs/heads/b\n`),
+    );
+    expect(f.publishes.length).toBeGreaterThan(0);
+    expect(f.shellReadsUnmapped).toBe(true);
+  });
+
   it('rifiuta letture APP_TOKEN fuori dal blocco di selezione protetto', () => {
     const [f] = scanWorkflow(
       'x.yml',
@@ -362,6 +375,25 @@ describe('scanWorkflow (rilevatore)', () => {
     );
     expect(f.publishes.length).toBeGreaterThan(0);
     expect(f.shellReadsUnmapped).toBe(true);
+  });
+
+  it('non lascia che la selezione protetta nasconda una lettura APP_TOKEN nello script publisher', () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'app-token-publisher-'));
+    const scriptName = `scripts/token-guard-bypass-${process.pid}-${Date.now()}.mjs`;
+    const scriptPath = path.join(tmpRoot, scriptName);
+    fs.mkdirSync(path.dirname(scriptPath), { recursive: true });
+    fs.writeFileSync(scriptPath, 'const token = process.env.APP_TOKEN;\ngit push origin HEAD:refs/heads/b;\n');
+    try {
+      const [f] = scanWorkflow(
+        'x.yml',
+        wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          node ${scriptName}\n`),
+        tmpRoot,
+      );
+      expect(f.publishes.length).toBeGreaterThan(0);
+      expect(f.shellReadsUnmapped).toBe(true);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
   });
 
   it('non conta la lettura di $APP_TOKEN in un job senza conio', () => {
