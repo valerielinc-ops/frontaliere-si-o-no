@@ -130,7 +130,11 @@ export const DOMAIN_OVERRIDES = {
   // The crawler's official employer domain is pks-personal.ch; never derive
   // an audit source from the pks-bewerbung key or its ATS/job URL.
   'pks-bewerbung-ch': ['pks-personal.ch'],
+  // recruitingapp-2563 is a Umantis tenant; Switch is the verified employer,
+  // so the acquisition source must be switch.ch rather than the ATS host.
+  'recruitingapp-2563': ['switch.ch'],
   'proman-fleurier': ['proman-group.ch'],
+  switch: ['switch.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
 };
