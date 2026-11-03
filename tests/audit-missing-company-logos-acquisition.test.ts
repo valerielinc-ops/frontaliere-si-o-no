@@ -100,6 +100,31 @@ describe('missing company-logo acquisition', () => {
     }, { fromAudit: true })).toEqual(['globalsana.ch']);
   });
 
+  it('maps the legacy Prada Group key only for the verified official source context', () => {
+    const sourceJob = {
+      company: 'Prada Group',
+      companyKey: 'prada-group',
+      companyDomain: 'pradagroup.com',
+      url: 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/',
+    };
+
+    expect(companyLogoKeyForJob(sourceJob)).toBe('prada');
+    expect(resolveCompanyLogoUrl(sourceJob)).toBe('/images/logos/prada-group.svg');
+
+    expect(companyLogoKeyForJob({
+      ...sourceJob,
+      company: 'Prada Group Services',
+    })).toBe('prada-group');
+    expect(companyLogoKeyForJob({
+      ...sourceJob,
+      companyDomain: 'other-employer.example',
+    })).toBe('prada-group');
+    expect(companyLogoKeyForJob({
+      ...sourceJob,
+      url: 'https://pradagroup.com.evil.example/jobs/1',
+    })).toBe('prada-group');
+  });
+
   it('does not probe a guessed domain for a future audit key', async () => {
     const auditInput = { companyKey: 'acme', status: 'missing' };
     const [candidate] = selectAuditCandidates([auditInput]);

@@ -28,6 +28,10 @@ const GLOBAL_SANA_LOGO_KEY = 'global-sana';
 const GLOBAL_SANA_NAME_KEY = 'global-sana';
 const GLOBAL_SANA_SOURCE_HOST = 'ch.talent.com';
 const GLOBAL_SANA_EMPLOYER_HOST = 'globalsana.ch';
+const PRADA_LEGACY_KEY = 'prada-group';
+const PRADA_LOGO_KEY = 'prada';
+const PRADA_NAME_KEY = 'prada-group';
+const PRADA_SOURCE_HOST = 'pradagroup.com';
 
 function normalizedHost(value = '') {
   const raw = String(value || '').trim();
@@ -43,6 +47,11 @@ function normalizedHost(value = '') {
 function isGlobalSanaSourceHost(value = '') {
   const host = normalizedHost(value);
   return host === GLOBAL_SANA_SOURCE_HOST || host.endsWith(`.${GLOBAL_SANA_SOURCE_HOST}`);
+}
+
+function isPradaGroupSourceHost(value = '') {
+  const host = normalizedHost(value);
+  return host === PRADA_SOURCE_HOST || host.endsWith(`.${PRADA_SOURCE_HOST}`);
 }
 
 /**
@@ -62,6 +71,20 @@ function isGlobalSanaLogoContext(job = {}) {
   return isGlobalSanaSourceHost(job?.url);
 }
 
+/**
+ * `prada-group` is a legacy company key from the dedicated Prada Group
+ * source, whose canonical crawler/logo key is `prada`. Require the exact
+ * employer identity plus both official source-domain fields so an unrelated
+ * row cannot inherit the Prada asset from a string-only key match.
+ */
+function isPradaGroupLogoContext(job = {}) {
+  if (String(job?.companyKey || '').trim().toLowerCase() !== PRADA_LEGACY_KEY) return false;
+  if (companyLogoKeyFromEmployer(job?.company || job?.employer || '') !== PRADA_NAME_KEY) return false;
+
+  if (!isPradaGroupSourceHost(job?.companyDomain)) return false;
+  return isPradaGroupSourceHost(job?.url);
+}
+
 export function companyLogoKeyFromEmployer(employer = '') {
   return slugify(employer);
 }
@@ -79,6 +102,7 @@ export function companyLogoKeyForJob(job = {}) {
   }
 
   if (isGlobalSanaLogoContext(job)) return GLOBAL_SANA_LOGO_KEY;
+  if (isPradaGroupLogoContext(job)) return PRADA_LOGO_KEY;
 
   const explicit = String(job?.companyLogoKey || '').trim();
   const sharedSource = EMPLOYER_SCOPED_LOGO_SOURCE_KEYS.includes(normalizedCompanyKey);
