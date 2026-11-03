@@ -1649,7 +1649,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -1696,7 +1696,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1704,7 +1705,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -2072,7 +2073,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -2121,7 +2122,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2131,7 +2132,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -11167,12 +11168,12 @@
     },
     {
       "id": "unispital-basel-071180247c41",
-      "slug": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+      "slug": "medico-senior-angiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-        "it": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-        "en": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-        "fr": "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+        "it": "medico-senior-angiologia-universitatsspital-basel-basel",
+        "en": "senior-physician-angiology-universitatsspital-basel-basel",
+        "fr": "medecin-principal-angiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11234,16 +11235,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:31:42.489Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:31:42.489Z"
+      "firstSeenAt": "2026-11-02T21:31:42.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-ec786b3aef61",
-      "slug": "leitung-ambulante-plattform-apf-unispital-basel-ch",
+      "slug": "responsabile-della-piattaforma-ambulatoria-apf-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "leitung-ambulante-plattform-apf-unispital-basel-ch",
-        "it": "leitung-ambulante-plattform-apf-unispital-basel-ch",
-        "en": "leitung-ambulante-plattform-apf-unispital-basel-ch",
-        "fr": "leitung-ambulante-plattform-apf-unispital-basel-ch"
+        "it": "responsabile-della-piattaforma-ambulatoria-apf-universitatsspital-basel-basel",
+        "en": "head-of-ambulatory-platform-apf-universitatsspital-basel-basel",
+        "fr": "chef-de-la-plate-forme-ambulatoire-apf-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11305,16 +11320,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:31:42.488Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:31:42.488Z"
+      "firstSeenAt": "2026-11-02T21:31:42.488Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-ambulante-plattform-apf-unispital-basel-ch"
+        ],
+        "en": [
+          "leitung-ambulante-plattform-apf-unispital-basel-ch"
+        ],
+        "fr": [
+          "leitung-ambulante-plattform-apf-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-ambulante-plattform-apf-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-9385b82fc2f9",
-      "slug": "arztsekretar-in-auf-der-kuk-unispital-basel-ch",
+      "slug": "segretario-a-medico-a-presso-la-kuk-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-auf-der-kuk-unispital-basel-ch",
-        "it": "arztsekretar-in-auf-der-kuk-unispital-basel-ch",
-        "en": "arztsekretar-in-auf-der-kuk-unispital-basel-ch",
-        "fr": "arztsekretar-in-auf-der-kuk-unispital-basel-ch"
+        "it": "segretario-a-medico-a-presso-la-kuk-universitatsspital-basel-basel",
+        "en": "medical-secretary-at-kuk-universitatsspital-basel-basel",
+        "fr": "secretaire-medical-e-a-la-kuk-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11377,7 +11406,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:31:42.485Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:31:42.485Z"
+      "firstSeenAt": "2026-11-02T21:31:42.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-auf-der-kuk-unispital-basel-ch"
+        ],
+        "en": [
+          "arztsekretar-in-auf-der-kuk-unispital-basel-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-auf-der-kuk-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-auf-der-kuk-unispital-basel-ch"
+      ]
     }
   ]
 }

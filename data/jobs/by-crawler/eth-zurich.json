@@ -8658,12 +8658,12 @@
     },
     {
       "id": "eth-zurich-da3815ef6de0",
-      "slug": "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of",
+      "slug": "posizione-dottorale-ricostruzione-della-scena-3d-e-rilevamento-multimodale-per-gemelli-digitali-del-patrimonio-in-pietra",
       "slugByLocale": {
         "en": "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of",
-        "it": "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of",
-        "de": "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of",
-        "fr": "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of"
+        "it": "posizione-dottorale-ricostruzione-della-scena-3d-e-rilevamento-multimodale-per-gemelli-digitali-del-patrimonio-in-pietra",
+        "de": "doktorandenposition-3d-szenenrekonstruktion-und-multimodale-sensorik-fur-digitale-zwillinge-aus-steinerbe-eth-zurich",
+        "fr": "position-doctorale-reconstruction-de-la-scene-3d-et-detection-multimodale-pour-jumeaux-numeriques-du-patrimoine-en"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8725,16 +8725,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:58:31.970Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:31.970Z"
+      "firstSeenAt": "2026-11-02T21:58:31.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of"
+        ],
+        "de": [
+          "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of"
+        ],
+        "fr": [
+          "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-3d-scene-reconstruction-and-multi-modal-sensing-for-digital-twins-of"
+      ]
     },
     {
       "id": "eth-zurich-7c08d61905b5",
-      "slug": "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch",
+      "slug": "specialista-degli-acquisti-strategici-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch",
-        "it": "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch",
-        "en": "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch",
-        "fr": "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch"
+        "it": "specialista-degli-acquisti-strategici-m-f-d-eth-zurich-zurich",
+        "en": "strategic-buyer-m-f-d-eth-zurich-zurich",
+        "fr": "acheteur-euse-strategique-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8797,7 +8811,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:58:31.508Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:31.508Z"
+      "firstSeenAt": "2026-11-02T21:58:31.508Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategische-r-einkaufer-in-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-39bdb2eb0a04",
@@ -8805,8 +8833,8 @@
       "slugByLocale": {
         "de": "leiter-in-fundraising-m-w-d-eth-zurich-ch",
         "it": "responsabile-fundraising-m-w-d-eth-zurich",
-        "en": "leiter-in-fundraising-m-w-d-eth-zurich-ch",
-        "fr": "leiter-in-fundraising-m-w-d-eth-zurich-ch"
+        "en": "head-of-fundraising-m-f-d-eth-zurich-zurich",
+        "fr": "responsable-de-la-collecte-de-fonds-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8852,6 +8880,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-fundraising-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "leiter-in-fundraising-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "leiter-in-fundraising-m-w-d-eth-zurich-ch"
         ]
       },
@@ -8961,12 +8995,12 @@
     },
     {
       "id": "eth-zurich-536ac2fa051b",
-      "slug": "doctoral-student-in-quantum-error-correction-eth-zurich-ch",
+      "slug": "dottorato-in-correzione-di-errore-quantico-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-student-in-quantum-error-correction-eth-zurich-ch",
-        "it": "doctoral-student-in-quantum-error-correction-eth-zurich-ch",
-        "de": "doctoral-student-in-quantum-error-correction-eth-zurich-ch",
-        "fr": "doctoral-student-in-quantum-error-correction-eth-zurich-ch"
+        "it": "dottorato-in-correzione-di-errore-quantico-eth-zurich-zurich",
+        "de": "doktorand-in-quantenfehlerkorrektur-eth-zurich-zurich",
+        "fr": "etudiant-au-doctorat-en-correction-d-erreur-quantique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9028,7 +9062,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:58:30.114Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:58:30.114Z"
+      "firstSeenAt": "2026-11-02T21:58:30.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-student-in-quantum-error-correction-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-student-in-quantum-error-correction-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-student-in-quantum-error-correction-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-student-in-quantum-error-correction-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-dc38c53f7018",

@@ -802,7 +802,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -851,7 +851,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -859,7 +859,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -15753,7 +15753,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -15805,7 +15805,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15813,7 +15813,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -18008,8 +18008,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-patiententransport-100-hoch-health-st-gallen",
         "it": "collaboratore-trice-patiententransport-100-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-patiententransport-100-hoch-health-st-gallen",
-        "fr": "mitarbeiter-in-patiententransport-100-hoch-health-st-gallen"
+        "en": "patient-transport-employee-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-trice-au-transport-des-patients-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18057,6 +18057,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-patiententransport-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-patiententransport-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "mitarbeiter-in-patiententransport-100-hoch-health-st-gallen"
         ]
       },
@@ -18170,12 +18176,12 @@
     },
     {
       "id": "hoch-health-37cec2f99927",
-      "slug": "fachfrau-mann-room-service-restaurant-40-hoch-health-ostschweiz-uznach",
+      "slug": "specialista-del-room-service-e-del-ristorante-al-40-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach",
-        "it": "fachfrau-mann-room-service-restaurant-40-hoch-health-ostschweiz-uznach",
+        "it": "specialista-del-room-service-e-del-ristorante-al-40-hoch-health-ostschweiz-uznach",
         "en": "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach",
-        "fr": "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach"
+        "fr": "specialiste-du-service-en-chambre-et-du-restaurant-40-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18223,11 +18229,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach",
+          "fachfrau-mann-room-service-restaurant-40-hoch-health-ostschweiz-uznach"
+        ],
+        "fr": [
           "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach"
+        "fachfrau-mann-room-service-restaurant-40-hoch-health-uznach",
+        "fachfrau-mann-room-service-restaurant-40-hoch-health-ostschweiz-uznach"
       ],
       "salaryMin": 32600,
       "salaryMax": 45600,

@@ -1282,7 +1282,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -1332,7 +1332,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1341,7 +1341,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4440,12 +4440,12 @@
     },
     {
       "id": "unibe-264f2e8c216d",
-      "slug": "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern",
+      "slug": "specialista-in-gestione-dei-processi-aziendali-universitat-bern-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-geschaftsprozessmanagement-unibe-bern",
-        "it": "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern",
-        "en": "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern",
-        "fr": "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern"
+        "it": "specialista-in-gestione-dei-processi-aziendali-universitat-bern-bern",
+        "en": "specialist-in-business-process-management-universitat-bern-bern",
+        "fr": "specialiste-de-la-gestion-des-processus-metier-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4494,11 +4494,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-geschaftsprozessmanagement-unibe-bern"
+          "fachspezialist-in-geschaftsprozessmanagement-unibe-bern",
+          "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern"
+        ],
+        "en": [
+          "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-geschaftsprozessmanagement-unibe-bern"
+        "fachspezialist-in-geschaftsprozessmanagement-unibe-bern",
+        "fachspezialist-in-geschaftsprozessmanagement-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4520,12 +4528,12 @@
     },
     {
       "id": "unibe-c635a77f09d8",
-      "slug": "ict-supporter-in-finanzsysteme-unibe-bern",
+      "slug": "addetto-a-al-supporto-ict-per-i-sistemi-finanziari-universitat-bern-bern",
       "slugByLocale": {
         "de": "ict-supporter-in-finanzsysteme-unibe-bern",
-        "it": "ict-supporter-in-finanzsysteme-unibe-bern",
-        "en": "ict-supporter-in-finanzsysteme-unibe-bern",
-        "fr": "ict-supporter-in-finanzsysteme-unibe-bern"
+        "it": "addetto-a-al-supporto-ict-per-i-sistemi-finanziari-universitat-bern-bern",
+        "en": "ict-support-specialist-financial-systems-universitat-bern-bern",
+        "fr": "supporter-euse-ict-des-systemes-financiers-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4588,7 +4596,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T22:01:25.010Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T22:01:25.010Z"
+      "firstSeenAt": "2026-11-02T22:01:25.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-finanzsysteme-unibe-bern"
+        ],
+        "en": [
+          "ict-supporter-in-finanzsysteme-unibe-bern"
+        ],
+        "fr": [
+          "ict-supporter-in-finanzsysteme-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-finanzsysteme-unibe-bern"
+      ]
     }
   ]
 }

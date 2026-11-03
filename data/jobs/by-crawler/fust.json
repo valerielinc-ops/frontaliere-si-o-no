@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-bl89bd",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen",
+      "slug": "specialista-del-commercio-al-dettaglio-efz-creare-esperienze-d-acquisto-fust-st-margrethen",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "St. Margrethen",
@@ -45,10 +45,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-st-margrethen",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen",
+        "it": "specialista-del-commercio-al-dettaglio-efz-creare-esperienze-d-acquisto-fust-st-margrethen",
+        "en": "retail-specialist-efz-creating-shopping-experiences-fust-st-margrethen",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+        "fr": "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-fust-st-margrethen"
       },
       "requirementsByLocale": {},
       "addressLocality": "St. Margrethen",
@@ -73,11 +73,27 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-st-margrethen",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-st-margrethen",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-st-margrethen"
+      ]
     },
     {
       "id": "company-h1uo93",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
+      "slug": "montatore-trice-a-domicilio-di-elettrodomestici-fust-oberburen",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Oberbüren",
@@ -117,10 +133,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
+        "it": "montatore-trice-a-domicilio-di-elettrodomestici-fust-oberburen",
+        "en": "home-delivery-installer-for-electrical-household-appliances-fust-oberburen",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
+        "fr": "monteur-euse-pour-la-livraison-a-domicile-d-appareils-electromenagers-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -145,11 +161,25 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
+        ],
+        "en": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
+        ],
+        "fr": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen"
+      ]
     },
     {
       "id": "company-8dpiin",
-      "slug": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen",
+      "slug": "tecnico-a-di-officina-per-grandi-elettrodomestici-fust-oberburen",
       "company": "Fust",
       "title": "Werkstatt Techniker:in für Elektrogrossgeräte",
       "location": "Oberbüren",
@@ -189,10 +219,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "werkstatt-techniker-in-per-elektrogrossgerate-fust-oberburen",
-        "en": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen",
+        "it": "tecnico-a-di-officina-per-grandi-elettrodomestici-fust-oberburen",
+        "en": "workshop-technician-for-large-electrical-appliances-fust-oberburen",
         "de": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen",
-        "fr": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        "fr": "technicien-ne-d-atelier-pour-gros-appareils-electromenagers-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -217,7 +247,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstatt-techniker-in-per-elektrogrossgerate-fust-oberburen",
+          "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        ],
+        "en": [
+          "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        ],
+        "fr": [
+          "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "werkstatt-techniker-in-per-elektrogrossgerate-fust-oberburen",
+        "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+      ]
     },
     {
       "id": "company-cl1jh0",

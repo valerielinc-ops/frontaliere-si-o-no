@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "anicura-e2d5759f8115",
-      "slug": "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch",
+      "slug": "cardiologo-veterinario-dipl-acvim-ecvim-ca-cardiologia-m-f-d-thun-anicura-thun",
       "slugByLocale": {
         "en": "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch",
-        "it": "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch",
-        "de": "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch",
-        "fr": "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch"
+        "it": "cardiologo-veterinario-dipl-acvim-ecvim-ca-cardiologia-m-f-d-thun-anicura-thun",
+        "de": "veterinarkardiologe-dipl-acvim-ecvim-ca-kardiologie-m-w-d-thun-anicura-thun",
+        "fr": "cardiologiste-veterinaire-dipl-acvim-ecvim-ca-cardiologie-h-f-d-thun-anicura-thun"
       },
       "company": "anicura",
       "companyKey": "anicura",
@@ -72,7 +72,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-02T21:39:39.912Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:39:39.912Z"
+      "firstSeenAt": "2026-11-02T21:39:39.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch"
+        ],
+        "de": [
+          "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch"
+        ],
+        "fr": [
+          "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun-thun-anicura-ch"
+      ]
     },
     {
       "id": "anicura-b4541e354d3d",

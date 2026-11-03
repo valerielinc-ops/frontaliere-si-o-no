@@ -762,12 +762,12 @@
     },
     {
       "id": "seiro-5abc1d7f0906",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-luzern-seiro-gmbh-luzern",
+      "slug": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-lucerna-seiro-seiro-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-luzern-seiro-gmbh-luzern",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch"
+        "it": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-lucerna-seiro-seiro-gmbh-luzern-luzern",
+        "en": "specialist-specialist-gynecology-and-obstetrics-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "fr": "specialiste-specialiste-gynecologie-et-obstetrique-lucerne-seiro-gmbh-luzern-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -815,11 +815,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-luzern-seiro-gmbh-luzern"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-luzern-seiro-luzern-luzern-seiro-ch",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-luzern-seiro-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

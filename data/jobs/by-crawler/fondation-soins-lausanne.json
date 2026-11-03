@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "fondation-soins-lausanne-80a034d907e0",
-      "slug": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "ergoterapisti-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
-        "it": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
-        "en": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
-        "de": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+        "it": "ergoterapisti-m-f-fondation-soins-lausanne-lausanne",
+        "en": "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
+        "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne-c365b6"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:57:12.888Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:58:44.477Z"
+      "firstSeenAt": "2026-09-19T22:58:44.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-b212065e97c3",
@@ -655,12 +669,12 @@
     },
     {
       "id": "fondation-soins-lausanne-88f236558fb0",
-      "slug": "gestionnaire-accueil-et-reception-m-w-d-fondation-soins-lausanne",
+      "slug": "reception-e-reception-manager-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne",
-        "it": "gestionnaire-accueil-et-reception-m-w-d-fondation-soins-lausanne",
-        "en": "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne",
-        "de": "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne"
+        "it": "reception-e-reception-manager-m-f-fondation-soins-lausanne-lausanne",
+        "en": "reception-and-reception-manager-m-f-fondation-soins-lausanne-lausanne",
+        "de": "empfangs-und-empfangsmanager-m-w-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -708,11 +722,19 @@
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne",
+          "gestionnaire-accueil-et-reception-m-w-d-fondation-soins-lausanne"
+        ],
+        "en": [
+          "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
           "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne"
+        "gestionnaire-accueil-et-reception-h-f-fondation-soins-lausanne-lausanne",
+        "gestionnaire-accueil-et-reception-m-w-d-fondation-soins-lausanne"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -735,11 +757,11 @@
     },
     {
       "id": "fondation-soins-lausanne-ffb5842eeae9",
-      "slug": "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne",
+      "slug": "baby-care-ipe-50-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne",
-        "it": "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne",
-        "en": "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne",
+        "it": "baby-care-ipe-50-fondation-soins-lausanne-lausanne",
+        "en": "nurse-child-care-ipe-50-fondation-soins-lausanne-lausanne",
         "de": "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -803,16 +825,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:57:05.073Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:57:05.073Z"
+      "firstSeenAt": "2026-11-02T21:57:05.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-petite-enfance-ipe-50-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-cc6f3b79bd18",
-      "slug": "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "speaker-a-casa-al-35-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne",
-        "it": "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne",
-        "en": "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne",
-        "de": "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne"
+        "it": "speaker-a-casa-al-35-m-f-fondation-soins-lausanne-lausanne",
+        "en": "speaker-at-home-at-35-m-f-fondation-soins-lausanne-lausanne",
+        "de": "sprecher-zu-hause-bei-35-m-w-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -875,7 +908,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:57:04.349Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:57:04.349Z"
+      "firstSeenAt": "2026-11-02T21:57:04.349Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "en": [
+          "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "intervenant-e-a-domicile-a-35-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-1b666f06ad4f",

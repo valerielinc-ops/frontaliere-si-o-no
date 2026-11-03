@@ -18714,12 +18714,12 @@
     },
     {
       "id": "physioswiss-51c448934286",
-      "slug": "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern",
+      "slug": "specialista-nel-riconoscimento-dei-titoli-di-formazione-physio-swiss-schweizerisches-rotes-kreuz-werkstrasse-18-3084",
       "slugByLocale": {
         "de": "fachspezialist-in-anerkennung-ausbildungsabschlusse-schweizerisches-rotes-kreuz",
-        "it": "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern",
-        "en": "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern",
-        "fr": "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern"
+        "it": "specialista-nel-riconoscimento-dei-titoli-di-formazione-physio-swiss-schweizerisches-rotes-kreuz-werkstrasse-18-3084",
+        "en": "specialist-in-recognition-of-educational-qualifications-physio-swiss-schweizerisches-rotes-kreuz-werkstrasse-18-3084",
+        "fr": "specialiste-de-la-reconnaissance-des-diplomes-de-formation-physio-swiss-schweizerisches-rotes-kreuz-werkstrasse-18-3084"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -18766,11 +18766,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-anerkennung-ausbildungsabschlusse-schweizerisches-rotes-kreuz"
+          "fachspezialist-in-anerkennung-ausbildungsabschlusse-schweizerisches-rotes-kreuz",
+          "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern"
+        ],
+        "en": [
+          "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern"
+        ],
+        "fr": [
+          "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-anerkennung-ausbildungsabschlusse-schweizerisches-rotes-kreuz"
+        "fachspezialist-in-anerkennung-ausbildungsabschlusse-schweizerisches-rotes-kreuz",
+        "fachspezialist-in-anerkennung-ausbildungsabschlusse-physio-swiss-wabern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -18794,12 +18802,12 @@
     },
     {
       "id": "physioswiss-dcb09aa677fa",
-      "slug": "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun",
+      "slug": "fisioterapista-diplomato-a-riconosciuto-a-dalla-crs-physio-swiss-3600-thun",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-srk-anerkannt-3600-thun-physioswiss-ch",
-        "it": "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun",
-        "en": "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun",
-        "fr": "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun"
+        "it": "fisioterapista-diplomato-a-riconosciuto-a-dalla-crs-physio-swiss-3600-thun",
+        "en": "qualified-physiotherapist-recognized-by-the-srk-physio-swiss-3600-thun",
+        "fr": "physiotherapeute-diplome-e-reconnu-e-par-la-crs-physio-swiss-3600-thun"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -18847,11 +18855,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-srk-anerkannt-3600-thun-physioswiss-ch"
+          "dipl-physiotherapeut-in-srk-anerkannt-3600-thun-physioswiss-ch",
+          "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-srk-anerkannt-3600-thun-physioswiss-ch"
+        "dipl-physiotherapeut-in-srk-anerkannt-3600-thun-physioswiss-ch",
+        "dipl-physiotherapeut-in-srk-anerkannt-physio-swiss-thun"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -18874,12 +18890,12 @@
     },
     {
       "id": "physioswiss-1dac9b9138c1",
-      "slug": "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch",
+      "slug": "terapia-fisica-home-de-athlets-physio-swiss-4052-basel",
       "slugByLocale": {
         "de": "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch",
-        "it": "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch",
-        "en": "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch",
-        "fr": "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch"
+        "it": "terapia-fisica-home-de-athlets-physio-swiss-4052-basel",
+        "en": "physical-therapy-home-of-athletes-physio-swiss-4052-basel",
+        "fr": "physiotherapie-accueil-des-athletes-physio-swiss-4052-basel"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -18941,7 +18957,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:44:17.964Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:44:17.964Z"
+      "firstSeenAt": "2026-11-02T21:44:17.964Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch"
+        ],
+        "en": [
+          "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch"
+        ],
+        "fr": [
+          "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapie-home-of-athletes-4052-basel-physioswiss-ch"
+      ]
     },
     {
       "id": "physioswiss-82f7ab240e62",
@@ -19361,12 +19391,12 @@
     },
     {
       "id": "physioswiss-7f0e6523a004",
-      "slug": "du-bestimmst-dein-pensum-deine-tage-e-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht-dipl-physiotherapeut-in-40-100-physio-swiss-unterageri",
+      "slug": "decidi-tu-il-tuo-grado-d-impiego-i-tuoi-giorni-e-le-tue-ferie-paghiamo-il-tuo-tempo-amministrativo-cercasi",
       "slugByLocale": {
         "de": "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht",
-        "it": "du-bestimmst-dein-pensum-deine-tage-e-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht-dipl-physiotherapeut-in-40-100-physio-swiss-unterageri",
-        "en": "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht",
-        "fr": "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht"
+        "it": "decidi-tu-il-tuo-grado-d-impiego-i-tuoi-giorni-e-le-tue-ferie-paghiamo-il-tuo-tempo-amministrativo-cercasi",
+        "en": "you-determine-your-workload-your-days-and-your-vacation-we-pay-for-your-administrative-time-seeking-a-qualified",
+        "fr": "vous-determinez-votre-taux-d-occupation-vos-jours-et-vos-vacances-nous-remunerons-votre-temps-administratif"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19414,11 +19444,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht",
+          "du-bestimmst-dein-pensum-deine-tage-e-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht-dipl-physiotherapeut-in-40-100-physio-swiss-unterageri"
+        ],
+        "en": [
+          "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht"
+        ],
+        "fr": [
           "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht"
         ]
       },
       "previousSlugs": [
-        "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht"
+        "du-bestimmst-dein-pensum-deine-tage-und-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht",
+        "du-bestimmst-dein-pensum-deine-tage-e-deinen-urlaub-wir-bezahlen-deine-adminzeit-gesucht-dipl-physiotherapeut-in-40-100-physio-swiss-unterageri"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
