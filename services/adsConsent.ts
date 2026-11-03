@@ -102,7 +102,8 @@ export function getAdsConsentDecisionAt(): number {
   if (decision !== ADS_CONSENT_GRANTED && decision !== ADS_CONSENT_DENIED) {
     try {
       const storedDecision = window.localStorage.getItem(ADS_CONSENT_STORAGE_KEY);
-      if (storedDecision === ADS_CONSENT_GRANTED || storedDecision === ADS_CONSENT_DENIED) decision = storedDecision;
+      if (storedDecision === ADS_CONSENT_GRANTED) decision = ADS_CONSENT_GRANTED;
+      else if (storedDecision === ADS_CONSENT_DENIED) decision = ADS_CONSENT_DENIED;
     } catch { /* without an explicit choice there is nothing to migrate */ }
   }
   if (decision !== ADS_CONSENT_GRANTED && decision !== ADS_CONSENT_DENIED) return 0;
