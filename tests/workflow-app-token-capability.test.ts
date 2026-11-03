@@ -98,9 +98,11 @@ function readScript(root: string, rel: string): string {
 function hasDataRefreshShellTokenSelection(body: string): boolean {
   const selection = body.match(DATA_REFRESH_SHELL_TOKEN_SELECTION);
   if (!selection) return false;
-  // The recognized block must be the only GH_TOKEN assignment in this step;
-  // otherwise a later assignment could silently replace the guarded choice.
-  return !/\bGH_TOKEN\s*=/.test(body.replace(selection[0], ''));
+  const remainder = body.replace(selection[0], '');
+  // The recognized block must be the only GH_TOKEN assignment and the only
+  // APP_TOKEN read in this step; otherwise a later assignment or separate
+  // consumer could bypass the capability guard.
+  return !/\bGH_TOKEN\s*=/.test(remainder) && !SHELL_APP_TOKEN.test(remainder);
 }
 
 export function scanWorkflow(file: string, source: string, root = ROOT): StepFinding[] {
@@ -348,6 +350,15 @@ describe('scanWorkflow (rilevatore)', () => {
     const [f] = scanWorkflow(
       'x.yml',
       wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          git push origin HEAD:refs/heads/b\n`),
+    );
+    expect(f.publishes.length).toBeGreaterThan(0);
+    expect(f.shellReadsUnmapped).toBe(true);
+  });
+
+  it('rifiuta letture APP_TOKEN fuori dal blocco di selezione protetto', () => {
+    const [f] = scanWorkflow(
+      'x.yml',
+      wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          printf '%s' "$APP_TOKEN"\n          git push origin HEAD:refs/heads/b\n`),
     );
     expect(f.publishes.length).toBeGreaterThan(0);
     expect(f.shellReadsUnmapped).toBe(true);
