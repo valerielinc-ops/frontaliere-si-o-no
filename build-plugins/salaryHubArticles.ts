@@ -102,6 +102,180 @@ function scenarioGrid(scenarios: SalaryHubScenario[], locale: Locale): string {
   return `<div class="guide-dossier-table-wrap" role="region" aria-label="${copy.caption}" tabindex="0"><table class="guide-dossier-scenarios"><caption>${copy.caption}</caption><thead><tr><th scope="col">${copy.gross}</th><th scope="col">${copy.regime}</th><th scope="col">${copy.family}</th><th scope="col">${copy.distance}</th><th scope="col">${copy.open}</th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
 }
 
+const DISTANCE_COMPARISON_COPY: Record<Locale, {
+  title: string;
+  intro: string;
+  caption: string;
+  aspect: string;
+  within: string;
+  over: string;
+  net: string;
+  openWithin: string;
+  openOver: string;
+  withholding: string;
+  withinWithholding: string;
+  overWithholding: string;
+  italianTax: string;
+  withinItalianTax: string;
+  overItalianTax: string;
+  allowance: string;
+  withinAllowance: string;
+  overAllowance: string;
+  notes: string;
+  distanceNote: string;
+  allowanceNote: string;
+  source: string;
+  tocLabel: string;
+}> = {
+  it: {
+    title: 'Confronto diretto: cosa cambia con i 20 km',
+    intro: 'Esempio omogeneo: nuovo frontaliere, single, senza figli, CHF 80’000 lordi annui. Tra i due casi cambia la fascia del Comune di residenza.',
+    caption: 'Scenario illustrativo: nuovo frontaliere, single, senza figli, CHF 80’000 lordi annui. Netto stimato dal calcolatore.',
+    aspect: 'Aspetto',
+    within: 'Comune nella fascia dei 20 km',
+    over: 'Comune oltre la fascia dei 20 km',
+    net: 'Netto annuo simulato',
+    openWithin: 'Apri la simulazione entro 20 km',
+    openOver: 'Apri la simulazione oltre 20 km',
+    withholding: 'Imposta alla fonte svizzera',
+    withinWithholding: 'Imposta alla fonte ridotta all’80%.',
+    overWithholding: 'L’imposta alla fonte resta trattenuta in Svizzera.',
+    italianTax: 'Imposizione in Italia',
+    withinItalianTax: 'IRPEF concorrente con credito d’imposta proporzionale.',
+    overItalianTax: 'Tassazione in Italia con credito per le imposte svizzere.',
+    allowance: 'Franchigia di 10.000 €',
+    withinAllowance: 'Prevista nel regime standard descritto per i nuovi frontalieri.',
+    overAllowance: 'Non dipende dalla fascia dei 20 km; vanno verificati gli altri requisiti di legge.',
+    notes: 'Due regole da tenere distinte',
+    distanceNote: 'Per individuare la fascia fa fede l’elenco ufficiale dei Comuni allegato all’accordo amichevole del 22 dicembre 2023. È sufficiente che il territorio comunale ricada anche solo in parte nella zona dei 20 km: non conta la distanza dal luogo di lavoro né il percorso stradale.',
+    allowanceNote: 'Per i residenti in Italia, la franchigia richiede lavoro dipendente all’estero in zona di frontiera o in Paesi limitrofi, continuativo e oggetto esclusivo del rapporto.',
+    source: 'Fonte: Camera dei deputati, articolo 4 della legge 83/2023.',
+    tocLabel: 'Confronto dei due regimi',
+  },
+  en: {
+    title: 'Direct comparison: what changes at 20 km',
+    intro: 'Like-for-like example: a new cross-border worker, single, no children, CHF 80,000 gross per year. The municipality’s zone classification changes between the two cases.',
+    caption: 'Illustrative case: new cross-border worker, single, no children, CHF 80,000 gross per year. Net values are calculated by the salary tool.',
+    aspect: 'Rule',
+    within: 'Municipality in the 20 km zone',
+    over: 'Municipality beyond the 20 km zone',
+    net: 'Simulated annual net',
+    openWithin: 'Open the within-20-km simulation',
+    openOver: 'Open the over-20-km simulation',
+    withholding: 'Swiss withholding tax',
+    withinWithholding: 'Withholding tax reduced to 80%.',
+    overWithholding: 'Swiss withholding tax is still withheld.',
+    italianTax: 'Taxation in Italy',
+    withinItalianTax: 'Concurrent IRPEF taxation with a proportional tax credit.',
+    overItalianTax: 'Italy taxes the income with a credit for Swiss taxes.',
+    allowance: '€10,000 allowance',
+    withinAllowance: 'Included in the standard regime described for new cross-border workers.',
+    overAllowance: 'It is not conditional on the 20 km zone; the other legal requirements still apply.',
+    notes: 'Keep these two rules separate',
+    distanceNote: 'The official municipality list attached to the mutual agreement of 22 December 2023 determines the zone. A municipality partly within the 20 km area is enough. Distance to the workplace and road distance do not determine it.',
+    allowanceNote: 'For Italian residents, the allowance requires employment abroad in a border area or neighbouring country, carried out continuously and as the exclusive object of the employment relationship.',
+    source: 'Source: Chamber of Deputies, Article 4 of Law 83/2023.',
+    tocLabel: 'Compare the two regimes',
+  },
+  de: {
+    title: 'Direkter Vergleich: Was sich bei 20 km ändert',
+    intro: 'Vergleichbares Beispiel: neuer Grenzgänger, ledig, keine Kinder, CHF 80.000 Bruttojahreslohn. Zwischen den Fällen ändert sich die Einordnung der Wohngemeinde.',
+    caption: 'Beispiel: neuer Grenzgänger, ledig, keine Kinder, CHF 80.000 brutto im Jahr. Die Nettowerte stammen aus dem Gehaltsrechner.',
+    aspect: 'Regel',
+    within: 'Gemeinde innerhalb der 20-km-Zone',
+    over: 'Gemeinde ausserhalb der 20-km-Zone',
+    net: 'Simuliertes Jahresnetto',
+    openWithin: 'Simulation innerhalb von 20 km öffnen',
+    openOver: 'Simulation ausserhalb von 20 km öffnen',
+    withholding: 'Schweizer Quellensteuer',
+    withinWithholding: 'Die Quellensteuer wird auf 80 % reduziert.',
+    overWithholding: 'Die Quellensteuer wird weiterhin in der Schweiz abgezogen.',
+    italianTax: 'Besteuerung in Italien',
+    withinItalianTax: 'Parallele IRPEF-Besteuerung mit anteiliger Steueranrechnung.',
+    overItalianTax: 'Italien besteuert das Einkommen und rechnet die Schweizer Steuern an.',
+    allowance: 'Freibetrag von 10.000 €',
+    withinAllowance: 'Im hier beschriebenen Standardregime für neue Grenzgänger vorgesehen.',
+    overAllowance: 'Nicht von der 20-km-Zone abhängig; die übrigen gesetzlichen Voraussetzungen gelten weiterhin.',
+    notes: 'Zwei Regeln, die getrennt zu betrachten sind',
+    distanceNote: 'Massgeblich ist die offizielle Gemeindeliste der Verständigungsvereinbarung vom 22. Dezember 2023. Es reicht, wenn das Gemeindegebiet teilweise in die 20-km-Zone fällt. Die Entfernung zum Arbeitsplatz oder die Strassenstrecke zählt nicht.',
+    allowanceNote: 'Für in Italien Ansässige setzt der Freibetrag eine kontinuierliche Arbeitnehmertätigkeit im Ausland in einem Grenzgebiet oder Nachbarland voraus, die ausschliesslicher Gegenstand des Arbeitsverhältnisses ist.',
+    source: 'Quelle: Abgeordnetenkammer, Artikel 4 des Gesetzes 83/2023.',
+    tocLabel: 'Die beiden Regime vergleichen',
+  },
+  fr: {
+    title: 'Comparaison directe : ce qui change à 20 km',
+    intro: 'Exemple comparable : nouveau frontalier, célibataire, sans enfant, CHF 80 000 bruts par an. Seule la zone attribuée à la commune de résidence change entre les deux cas.',
+    caption: 'Exemple : nouveau frontalier, célibataire, sans enfant, CHF 80 000 bruts par an. Les montants nets sont calculés par l’outil salaire.',
+    aspect: 'Règle',
+    within: 'Commune dans la zone des 20 km',
+    over: 'Commune au-delà de la zone des 20 km',
+    net: 'Net annuel simulé',
+    openWithin: 'Ouvrir la simulation dans la zone de 20 km',
+    openOver: 'Ouvrir la simulation au-delà de 20 km',
+    withholding: 'Impôt à la source suisse',
+    withinWithholding: 'Impôt à la source réduit à 80 %.',
+    overWithholding: 'L’impôt à la source reste prélevé en Suisse.',
+    italianTax: 'Imposition en Italie',
+    withinItalianTax: 'IRPEF en Italie avec crédit d’impôt proportionnel.',
+    overItalianTax: 'L’Italie impose le revenu avec un crédit pour les impôts suisses.',
+    allowance: 'Franchise de 10 000 €',
+    withinAllowance: 'Prévue dans le régime standard décrit pour les nouveaux frontaliers.',
+    overAllowance: 'Elle ne dépend pas de la zone des 20 km ; les autres conditions légales restent nécessaires.',
+    notes: 'Deux règles à distinguer',
+    distanceNote: 'La liste officielle des communes annexée à l’accord amiable du 22 décembre 2023 détermine la zone. Il suffit que le territoire communal soit partiellement situé dans la zone des 20 km. La distance jusqu’au lieu de travail et le trajet routier ne comptent pas.',
+    allowanceNote: 'Pour les résidents en Italie, la franchise suppose une activité salariée exercée à l’étranger en zone frontalière ou dans un pays limitrophe, de façon continue et comme objet exclusif du rapport de travail.',
+    source: 'Source : Chambre des députés, article 4 de la loi 83/2023.',
+    tocLabel: 'Comparer les deux régimes',
+  },
+};
+
+function renderDistanceComparison(data: ScenarioDataMap, locale: Locale): string {
+  const copy = DISTANCE_COMPARISON_COPY[locale];
+  const example = (distanceZone: SalaryHubScenario['distanceZone']) =>
+    data.scenarios.find((scenario) =>
+      scenario.salary === 80_000
+      && scenario.frontierType === 'NEW'
+      && scenario.maritalStatus === 'SINGLE'
+      && scenario.children === 0
+      && scenario.distanceZone === distanceZone,
+    );
+  const within = example('WITHIN_20KM');
+  const over = example('OVER_20KM');
+  const netFor = (scenario: SalaryHubScenario | undefined) => {
+    const value = scenario ? data.results.get(scenario)?.itResident.netIncomeAnnual : undefined;
+    return typeof value === 'number' && Number.isFinite(value) ? `CHF ${fmtCHF(value)}` : '—';
+  };
+  const simulationLink = (scenario: SalaryHubScenario | undefined, label: string) =>
+    scenario ? `<a class="!text-on-accent" href="${buildFullPath(scenario, locale)}">${label}</a>` : '';
+
+  return `<section class="guide-dossier-distance mb-8" aria-labelledby="distance-comparison-title">
+    <div class="mb-4">
+      <h2 class="mb-2 max-w-[42ch] font-display text-2xl font-bold leading-tight tracking-tight text-heading sm:text-3xl" id="distance-comparison-title">${copy.title}</h2>
+      <p class="max-w-[72ch] text-base leading-relaxed text-subtle">${copy.intro}</p>
+    </div>
+    <div class="guide-dossier-table-wrap" role="region" aria-label="${copy.caption}" tabindex="0">
+      <table class="guide-dossier-scenarios guide-dossier-distance__table !min-w-[670px]">
+        <caption>${copy.caption}</caption>
+        <thead><tr>
+          <th class="!w-[18%] !whitespace-normal !bg-surface-alt !px-4 !py-4 !text-sm !text-heading" scope="col">${copy.aspect}</th>
+          <th class="!w-[41%] !whitespace-normal !bg-navy-900 !px-5 !py-5 !text-on-accent" scope="col"><span class="block !whitespace-normal !text-base !leading-snug">${copy.within}</span><small class="mt-4 block !whitespace-normal !text-xs !font-medium !text-on-accent">${copy.net}</small><strong class="mt-0.5 block font-display !whitespace-normal !text-3xl !leading-tight !text-on-accent tabular-nums">${netFor(within)}</strong>${simulationLink(within, copy.openWithin)}</th>
+          <th class="!w-[41%] !whitespace-normal !bg-navy-900 !px-5 !py-5 !text-on-accent" scope="col"><span class="block !whitespace-normal !text-base !leading-snug">${copy.over}</span><small class="mt-4 block !whitespace-normal !text-xs !font-medium !text-on-accent">${copy.net}</small><strong class="mt-0.5 block font-display !whitespace-normal !text-3xl !leading-tight !text-on-accent tabular-nums">${netFor(over)}</strong>${simulationLink(over, copy.openOver)}</th>
+        </tr></thead>
+        <tbody>
+          <tr><th class="!w-[18%] !whitespace-normal !bg-surface-alt !text-sm !text-heading" scope="row">${copy.withholding}</th><td class="!w-[41%] !whitespace-normal">${copy.withinWithholding}</td><td class="!w-[41%] !whitespace-normal">${copy.overWithholding}</td></tr>
+          <tr><th class="!w-[18%] !whitespace-normal !bg-surface-alt !text-sm !text-heading" scope="row">${copy.italianTax}</th><td class="!w-[41%] !whitespace-normal">${copy.withinItalianTax}</td><td class="!w-[41%] !whitespace-normal">${copy.overItalianTax}</td></tr>
+          <tr><th class="!w-[18%] !whitespace-normal !bg-surface-alt !text-sm !text-heading" scope="row">${copy.allowance}</th><td class="!w-[41%] !whitespace-normal">${copy.withinAllowance}</td><td class="!w-[41%] !whitespace-normal">${copy.overAllowance}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="mt-4 rounded-xl bg-surface-alt px-4 py-4 text-body" aria-label="${copy.notes}">
+      <p class="mb-0 text-sm leading-relaxed"><strong class="font-bold text-heading">${copy.notes}</strong></p>
+      <p class="mb-0 mt-2 text-sm leading-relaxed">${copy.distanceNote}</p>
+      <p class="mb-0 mt-2 text-sm leading-relaxed">${copy.allowanceNote} <a class="text-link underline underline-offset-4" href="https://documenti.camera.it/leg19/dossier/testi/FI0093.htm">${copy.source}</a></p>
+    </aside>
+  </section>`;
+}
+
 // ── Article definitions ─────────────────────────────────────────
 
 function getNetForScenario(data: ScenarioDataMap, salary: number, type: 'NEW' | 'OLD', marital: 'SINGLE' | 'MARRIED', children: number): string {
@@ -815,6 +989,8 @@ export function generateArticleHtml(
   const related = scenarioData.scenarios
     .filter(article.relatedScenarioFilter)
     .slice(0, 8);
+  const isDistanceGuide = article.id === 'distanza-confine-20km-frontaliere';
+  const distanceComparisonHtml = isDistanceGuide ? renderDistanceComparison(scenarioData, locale) : '';
 
   // Use a natural editorial heading while keeping the SEO title and
   // structured-data headline unchanged.
@@ -879,7 +1055,7 @@ export function generateArticleHtml(
   };
   const sectionCopy = sectionLabels[locale];
   const articleContent = `
-        ${related.length ? `<section class="guide-dossier-compare"><h2>${sectionCopy.scenarios}</h2>${scenarioGrid(related, locale)}</section>` : ''}
+        ${related.length && !isDistanceGuide ? `<section class="guide-dossier-compare"><h2>${sectionCopy.scenarios}</h2>${scenarioGrid(related, locale)}</section>` : ''}
         ${articleBodyHtml}
         ${methodologyBlock}
         <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>
@@ -894,6 +1070,9 @@ export function generateArticleHtml(
         ${renderAuthoritativeSourcesHtml(locale)}
         <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>`;
   const preparedArticle = prepareGuideDossierContent(articleContent, locale as GuideDossierLocale);
+  const tocHtml = isDistanceGuide
+    ? preparedArticle.tocHtml.replace('<ul>', `<ul><li><a href="#distance-comparison-title">${DISTANCE_COMPARISON_COPY[locale].tocLabel}</a></li>`)
+    : preparedArticle.tocHtml;
   const pageBody = `<article class="salary-hub-article guide-dossier-page">
     <div class="hub-grid">
       <div class="content">
@@ -904,7 +1083,8 @@ export function generateArticleHtml(
           locale,
           action: { href: `${LOCALE_CALC_PREFIX[locale]}/`, label: sectionCopy.openCalculator },
         })}
-        ${preparedArticle.tocHtml}
+        ${distanceComparisonHtml}
+        ${tocHtml}
         <div class="guide-dossier-copy">${preparedArticle.html}</div>
       </div>
     </div>
