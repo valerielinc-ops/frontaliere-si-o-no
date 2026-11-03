@@ -138,7 +138,8 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
         const entry = explicitLanguageEntry(profile, code);
         const remembered = answers[`language_${code}_any_proficiency`];
         const level = rank(remembered || entry?.level || '');
-        const absent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
+        const absent = !entry && !remembered && profile.candidateLanguagesConfirmed === true
+          && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
         return { met: level >= minimum, knownMissing: absent || (level >= 0 && level < minimum) };
       });
       if (alternative ? states.some(state => state.met) : states.every(state => state.met)) continue;
@@ -154,7 +155,8 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const remembered = answers[`language_${code}_any_proficiency`];
     const level = String(remembered || entry?.level || '');
     if (minimum < 0 && !/(?:knowledge|proficien|kenntnis|conoscenz|maîtrise|parlato|written|spoken)/iu.test(row.quote || '')) continue;
-    const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
+    const knownAbsent = !entry && !remembered && profile.candidateLanguagesConfirmed === true
+      && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
       const knownMissing = knownAbsent || (minimum >= 0 && rank(level) >= 0 && rank(level) < minimum);
       const existing = gaps.find(gap => gap.index === index);

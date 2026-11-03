@@ -1,11 +1,30 @@
 import { describe, expect, it } from 'vitest';
-import { sourceCitations, citationSchema, resolveCitations } from '../functions/src/lib/sourceCitations.js';
+import { sourceCitations, candidateConfirmedEvidenceSources, citationSchema, resolveCitations } from '../functions/src/lib/sourceCitations.js';
+import { APPLICATION_CONCIERGE_CANDIDATE_ANSWERS_VERSION, APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { MATCH_SCHEMA } from '../functions/src/assistedApplicationAiPrompts.js';
 import { sanitizeMatch } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { guardMobilityMatch } from '../functions/src/lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from '../functions/src/assistedApplicationFitNotice.js';
 
 describe('source-bound match evidence', () => {
+  it('labels candidate-confirmed language declarations and answers as self-reports', () => {
+    const sources = candidateConfirmedEvidenceSources({
+      languageFacts: {
+        provenance: 'candidate_confirmed', schemaVersion: APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
+        confirmedAt: new Date(), listComplete: false,
+        languages: [{ languageCode: 'de', level: 'unknown' }, { languageCode: 'it', level: 'C1' }],
+      },
+      answers: {
+        provenance: 'candidate_confirmed', schemaVersion: APPLICATION_CONCIERGE_CANDIDATE_ANSWERS_VERSION,
+        confirmedAt: new Date(), answers: [{ question: 'Can you work weekends?', answer: 'Yes, if scheduled in advance.' }],
+      },
+    });
+
+    expect(sources.candidate_confirmed_languages).toContain('incomplete spoken-language list: German: level not specified; Italian: C1');
+    expect(sources.candidate_confirmed_answers).toContain('Candidate response: Yes, if scheduled in advance.');
+    expect(candidateConfirmedEvidenceSources({ languageFacts: { languages: [{ languageCode: 'de', level: 'C1' }] } })).toEqual({});
+  });
+
   it('resolves an ID to the exact CV fragment while rejecting unknown IDs and paraphrases', () => {
     const cv = 'English B2\nResponsabile infrastrutture IT, équipe internazionale.';
     const sources = sourceCitations({ cv, answers: '', notes: 'Disponibile dal mese prossimo' });

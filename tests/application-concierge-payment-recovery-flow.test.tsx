@@ -478,12 +478,13 @@ it('refreshes completed proposals immediately when the user returns to the conci
     render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
 
     expect(await screen.findByText('jobBoard.concierge.noProposals')).toBeTruthy();
-    fireEvent.click(screen.getByRole('checkbox'));
-    expect(screen.getByRole('checkbox')).toBeChecked();
+    const consentCheckbox = screen.getByRole('checkbox', { name: 'jobBoard.concierge.consent' });
+    fireEvent.click(consentCheckbox);
+    expect(consentCheckbox).toBeChecked();
     fireEvent.focus(window);
 
     expect(await screen.findByText('New proposal after focus')).toBeTruthy();
-    expect(screen.getByRole('checkbox')).toBeChecked();
+    expect(consentCheckbox).toBeChecked();
     expect(mocks.fetchService).toHaveBeenCalledTimes(2);
   } finally {
     restoreVisibility();

@@ -5,8 +5,9 @@
  *
  * Contract and rationale of the manifest: scripts/lib/hreflang-index-manifest.mjs.
  *
- * Where it runs: deploy.yml `build-locale`, after this leg published its own
- * manifest as an artifact and before the rewrite pass that requires them all.
+ * Where it runs: deploy.yml `build-locale` for IT (the Pages artifact is made
+ * there), and deploy-publish.yml for non-IT source artifacts after the source
+ * build has completed. Both paths use the same attempt-aware exchange.
  *
  * Why artifacts and not actions/cache. Run 41088323300 lost three legs after
  * more than two hours of build: `actions/cache/restore` reported a cache hit,
