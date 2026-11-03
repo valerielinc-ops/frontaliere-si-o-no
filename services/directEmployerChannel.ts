@@ -1,7 +1,7 @@
 import { FUNCTIONS_BASE } from './functionsBase';
-import { ensureAppCheck, fetchAndActivate, getConfigValue } from './firebase';
+import { ensureAppCheck } from './firebase';
 import { cdnDataUrl } from './cdnDataBase';
-import { DIRECT_EMPLOYER_CHANNEL_FLAG } from './directEmployerFeature';
+import { readDirectEmployerChannelEnabled } from './directEmployerChannelFlag';
 
 export const DIRECT_EMPLOYER_LIST_ENDPOINT = `${FUNCTIONS_BASE}/getPermanentEmployers/`;
 export const DIRECT_EMPLOYER_ADMIN_ENDPOINT = `${FUNCTIONS_BASE}/adminPermanentEmployerSignals/`;
@@ -29,11 +29,7 @@ export interface PermanentEmployerSignal {
 }
 
 async function assertFeatureEnabled(): Promise<boolean> {
-  // Browser-safe equivalent of Remote Config fetchAndActivate: refresh the
-  // allowlisted public config before every feature entrypoint and fail closed
-  // if that refresh cannot prove the current flag value.
-  if (!(await fetchAndActivate())) return false;
-  return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
+  return readDirectEmployerChannelEnabled();
 }
 
 async function callFunction<T>(name: string, data: unknown): Promise<T> {

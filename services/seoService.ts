@@ -54,7 +54,7 @@ import {
  applyHreflangEntries,
  resolveRobotsDirective,
 } from './seo/staticHeadAuthority';
-import { DIRECT_EMPLOYER_CHANNEL_FLAG, isDirectEmployerSeoPath } from './directEmployerFeature';
+import { isDirectEmployerSeoPath } from './directEmployerFeature';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -96,9 +96,8 @@ let seoUpdateEpoch = 0;
 
 async function isDirectEmployerRuntimeEnabled(): Promise<boolean> {
  try {
-  const { fetchAndActivate, getConfigValue } = await import('./firebase');
-  if (!(await fetchAndActivate())) return false;
-  return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
+  const { readDirectEmployerChannelEnabled } = await import('./directEmployerChannelFlag');
+  return readDirectEmployerChannelEnabled();
  } catch {
   return false;
  }

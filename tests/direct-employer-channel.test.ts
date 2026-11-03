@@ -16,6 +16,7 @@ import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerPr
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 import { buildPermanentEmployerFeed } from '../build-plugins/adminDataPlugin';
 import { fetchAndActivate, getConfigValue } from '../services/firebase';
+import { readDirectEmployerChannelEnabled as readClientDirectEmployerChannelEnabled } from '../services/directEmployerChannelFlag';
 import {
   filterDirectEmployerSitemapXml,
   isDirectEmployerBuildEnabled,
@@ -88,6 +89,13 @@ describe('direct employer SEO flag', () => {
 
   it('bridges the owner flag into the static deploy environment', () => {
     expect(RC_TO_ENV.DIRECT_EMPLOYER_CHANNEL_ENABLED).toEqual([DIRECT_EMPLOYER_FLAG]);
+  });
+
+  it('keeps an enabled cached flag when activation reports no newer values', async () => {
+    vi.mocked(fetchAndActivate).mockResolvedValueOnce(false);
+    vi.mocked(getConfigValue).mockResolvedValueOnce('true');
+
+    await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(true);
   });
 
   it('emits the prospector feed when the owner flag is enabled', () => {
