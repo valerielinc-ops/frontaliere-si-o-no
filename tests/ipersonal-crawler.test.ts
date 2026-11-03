@@ -116,6 +116,26 @@ describe('MediPersonal crawler parser', () => {
       expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
     });
 
+    it('recovers a paragraph-only bare main above the source word floor', () => {
+      const paragraph = [
+        'Einsatzort: Zürich und Umgebung.',
+        'Hier findest du offene Stellen und Jobs in der Intensivpflege NDS Zürich, sodass du die passende Position wählen kannst und dich weiterentwickelst.',
+        'Du kannst offene Stellen ansehen, damit du einen Überblick bekommst, und gleichzeitig kannst du dich direkt auf freie Jobs bewerben.',
+        'Unser Temporärbüro Pflege Zürich begleitet dich persönlich und unterstützt dich beim gesamten Bewerbungsprozess.',
+      ].join(' ');
+      const description = extractIpersonalDescription(`
+        <main>
+          <h1>Teamleitung Pflege 80-100% in Zürich</h1>
+          <p>${paragraph}</p>
+          <p>Weitere Bewerbungsmöglichkeiten</p>
+          <form><input aria-label="E-Mail" /></form>
+        </main>`);
+
+      expect(description).toContain('Einsatzort: Zürich und Umgebung');
+      expect(description).toContain('Intensivpflege NDS Zürich');
+      expect(description).not.toContain('Weitere Bewerbungsmöglichkeiten');
+    });
+
     it('does not combine listing-card markers with an unrelated interest prompt', () => {
       const listingItems = Array.from({ length: 16 }, (_, index) =>
         `<li>Aufgabe ${index + 1} mit ausreichend konkreter Beschreibung für diese Stelle und verantwortungsvoller täglicher Arbeit.</li>`
@@ -130,6 +150,32 @@ describe('MediPersonal crawler parser', () => {
             <ul>${listingItems}</ul>
           </div>
           <div class="job-card"><p>Interessiert?</p></div>
+        </main>`;
+
+      expect(extractIpersonalDescription(html)).toBe('');
+    });
+
+    it('does not combine workplace and candidature evidence from sibling listing cards', () => {
+      const workplaceCardBody = Array.from({ length: 28 }, (_, index) => `Arbeitsinhalt${index + 1}`).join(' ');
+      const candidatureCardBody = Array.from({ length: 28 }, (_, index) => `Bewerbungsinhalt${index + 1}`).join(' ');
+      const html = `
+        <main>
+          <div><p>Einsatzort: Zürich</p><p>${workplaceCardBody}</p><ul><li>Patientinnen und Patienten sorgfältig betreuen.</li></ul></div>
+          <div><p>Wir freuen uns auf Ihre Bewerbung.</p><p>${candidatureCardBody}</p></div>
+        </main>`;
+
+      expect(extractIpersonalDescription(html)).toBe('');
+    });
+
+    it('does not combine workplace and candidature evidence from sibling LI listing cards', () => {
+      const workplaceCardBody = Array.from({ length: 28 }, (_, index) => `Arbeitsinhalt${index + 1}`).join(' ');
+      const candidatureCardBody = Array.from({ length: 28 }, (_, index) => `Bewerbungsinhalt${index + 1}`).join(' ');
+      const html = `
+        <main>
+          <ul>
+            <li><p>Einsatzort: Zürich</p><p>${workplaceCardBody}</p></li>
+            <li><p>Wir freuen uns auf Ihre Bewerbung.</p><p>${candidatureCardBody}</p></li>
+          </ul>
         </main>`;
 
       expect(extractIpersonalDescription(html)).toBe('');

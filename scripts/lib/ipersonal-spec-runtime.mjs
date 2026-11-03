@@ -207,6 +207,8 @@ function preferIpersonalRenderedWorkplace(detail = {}) {
 
 const IPERSONAL_DETAIL_CONTAINER_MARKER_RE = /\b(?:job|stelle|inserat|vacan(?:cy)?|position|karriere)\b/iu;
 const IPERSONAL_CANDIDATURE_RE = /\b(?:bewerb\w*|online\s+bewerben|kontakt\s+und\s+bewerbung)\b/iu;
+const IPERSONAL_SIBLING_PARENT_SELECTOR = 'div, section, ul, ol';
+const IPERSONAL_SIBLING_BOUNDARY_TAGS = new Set(['DIV', 'SECTION', 'LI']);
 
 function isIpersonalDetailContainer(element) {
   if (!element) return false;
@@ -227,15 +229,26 @@ function isLikelyIpersonalDetailContainer(source) {
   // Use the rendered HTML rather than textContent: adjacent block elements in
   // minified CMS markup otherwise lose the boundaries between labels.
   const text = stripHtml(String(source.innerHTML || '')).replace(/\s+/g, ' ').trim();
+  // Some current MediPersonal details are authored as paragraphs only: they
+  // carry the source workplace and a rich vacancy body, but no `Ihre
+  // Aufgaben`/`Ihr Profil` heading. Keep the boundary conservative by
+  // requiring the canonical source-body floor after removing page chrome and
+  // forms; the later publication gate applies the same floor to the extracted
+  // body and also requires the workplace label to survive it.
+  const bodyText = stripHtml(String(source.innerHTML || '')
+    .replace(/<(?:form|nav|header|footer|aside)\b[\s\S]*?<\/\s*(?:form|nav|header|footer|aside)\s*>/giu, ' '))
+    .replace(/\s+/g, ' ')
+    .trim();
   const hasWorkplace = /\b(?:einsatzort|arbeitsort)\s*:/iu.test(text);
   const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil|stärken|vorteile)\b|\b(?:diese tätigkeiten erwarten sie|unser angebot|das bieten wir)\b/iu.test(text);
   const hasExplicitCandidature = IPERSONAL_CANDIDATURE_RE.test(text);
+  const hasRichParagraphBody = meetsSourceBodyFloor(bodyText);
 
   // A detail container must carry its own workplace, vacancy section and
   // explicit application wording. Generic calls to action such as
   // "Interessiert?" are common in listings and error shells and are not
   // evidence that this container is a vacancy detail.
-  return hasWorkplace && hasVacancySection && hasExplicitCandidature;
+  return hasWorkplace && hasExplicitCandidature && (hasVacancySection || hasRichParagraphBody);
 }
 
 function isLikelyIpersonalDetailMain(source) {
@@ -247,6 +260,25 @@ function isLikelyIpersonalDetailMain(source) {
   // intermediate semantic container, so its own <main> remains the candidate.
   const candidatureNodes = [...source.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, button, li, dt, dd, span')]
     .filter((node) => IPERSONAL_CANDIDATURE_RE.test(String(node.textContent || '')));
+  const siblingGroups = [source, ...source.querySelectorAll(IPERSONAL_SIBLING_PARENT_SELECTOR)].flatMap((parent) => {
+    // Listing cards can be list items as well as unmarked div/section blocks.
+    // Keep the boundary at the repeated card element, not at the list shell,
+    // so workplace and candidature evidence cannot cross between LI cards.
+    const blocks = [...parent.children].filter((child) => IPERSONAL_SIBLING_BOUNDARY_TAGS.has(child.tagName));
+    if (blocks.length < 2) return [];
+    const candidatureBlocks = blocks.filter((block) => candidatureNodes.some((node) => block.contains(node)));
+    const workplaceBlocks = blocks.filter((block) => IPERSONAL_SOURCE_LOCATION_RE.test(stripHtml(String(block.innerHTML || ''))));
+    return candidatureBlocks.some((candidatureBlock) => workplaceBlocks.some((workplaceBlock) => workplaceBlock !== candidatureBlock))
+      ? [blocks]
+      : [];
+  });
+  if (siblingGroups.length) {
+    // A bare <main> can hold several unmarked listing cards. When workplace
+    // and candidature signals sit in different sibling blocks, the combined
+    // main text is not proof of one vacancy: require one block to carry the
+    // complete detail contract, including its own rich-body floor.
+    return siblingGroups.some((blocks) => blocks.some((block) => isLikelyIpersonalDetailContainer(block)));
+  }
   const containers = new Set(candidatureNodes.map((node) => findIpersonalDetailContainer(node, source)));
   return [...containers].some((container) => isLikelyIpersonalDetailContainer(container));
 }
