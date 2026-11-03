@@ -225,6 +225,38 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
     });
   });
 
+  it('retries the oldest checked unmatched records first using the live job postcode', () => {
+    const now = Date.now();
+    const olderJob = {
+      company: 'Older Company AG',
+      city: 'Zürich',
+      canton: 'ZH',
+      postalCode: '8001',
+    };
+    const newerJob = {
+      company: 'Newer Company AG',
+      city: 'Basel',
+      canton: 'BS',
+      postalCode: '4051',
+    };
+    const olderKey = 'older company ag|zurich|ZH';
+    const newerKey = 'newer company ag|basel|BS';
+    const entries = {
+      [olderKey]: { status: 'not-found', checkedAt: new Date(now - 10_000).toISOString() },
+      [newerKey]: { status: 'not-found', checkedAt: new Date(now - 1_000).toISOString() },
+    };
+
+    expect(collectLookups([olderJob, newerJob], entries, now, 10)).toEqual([]);
+    expect(collectLookups([newerJob, olderJob], entries, now, 1, { retryUnmatchedCache: true })).toMatchObject([{
+      key: olderKey,
+      companyName: 'Older Company AG',
+      jobPostalCode: '8001',
+      requirePostalCodeForMatch: true,
+    }]);
+    expect(collectLookups([{ ...olderJob, postalCode: '' }], entries, now, 1, { retryUnmatchedCache: true }))
+      .toEqual([]);
+  });
+
   it('filters matched cache entries before applying retry offset and limit', () => {
     const requests = collectUnmatchedCacheLookups({
       a: { status: 'matched', companyName: 'Acme AG', addressLocality: 'Lugano', addressRegion: 'TI' },
