@@ -70,10 +70,17 @@ function loadJobs() {
   return jobs;
 }
 
-function collectUnmatchedCacheLookups(entries, limit, offset = 0) {
+function unmatchedCacheLookupCandidates(entries) {
+  // Missing or invalid timestamps go first so bounded retries still make progress.
   return Object.entries(entries)
-    .sort(([left], [right]) => left.localeCompare(right))
     .filter(([, cached]) => cached?.status !== 'matched')
+    .sort(([leftKey, left], [rightKey, right]) => {
+      const leftCheckedAt = Date.parse(String(left?.checkedAt || ''));
+      const rightCheckedAt = Date.parse(String(right?.checkedAt || ''));
+      const leftPriority = Number.isFinite(leftCheckedAt) ? leftCheckedAt : Number.NEGATIVE_INFINITY;
+      const rightPriority = Number.isFinite(rightCheckedAt) ? rightCheckedAt : Number.NEGATIVE_INFINITY;
+      return leftPriority - rightPriority || leftKey.localeCompare(rightKey);
+    })
     .map(([key, cached]) => ({
       key,
       companyName: String(cached?.companyName || key.split('|')[0] || '').trim(),
@@ -82,8 +89,11 @@ function collectUnmatchedCacheLookups(entries, limit, offset = 0) {
       jobPostalCode: String(cached?.jobPostalCode || '').trim(),
       requirePostalCodeForMatch: true,
     }))
-    .filter(({ companyName, locality, region }) => companyName.length >= 3 && locality && /^[A-Z]{2}$/.test(region))
-    .slice(offset, offset + limit);
+    .filter(({ companyName, locality, region }) => companyName.length >= 3 && locality && /^[A-Z]{2}$/.test(region));
+}
+
+function collectUnmatchedCacheLookups(entries, limit, offset = 0) {
+  return unmatchedCacheLookupCandidates(entries).slice(offset, offset + limit);
 }
 
 function cacheEntryIsExpired(cached, now) {
@@ -168,8 +178,25 @@ function sameLocality(left, right, region) {
   return localityKey(left, region) === requestLocalityKey(right, region);
 }
 
-/** Select active job lookups; retry mode revisits unmatched cache keys using live job postcodes. */
+/** Select active job lookups, or only non-matched cache records in retry mode. */
 function collectLookups(jobs, entries, now, limit, { retryUnmatchedCache = false, offset = 0 } = {}) {
+  if (retryUnmatchedCache) {
+    const cacheRequests = unmatchedCacheLookupCandidates(entries);
+    const inventoryPostalCodes = jobPostalCodeMap(jobs, cacheRequests);
+    const eligibleRequests = cacheRequests.map((request) => {
+      const cachedPostalCode = /^\d{4,5}$/.test(request.jobPostalCode) ? request.jobPostalCode : '';
+      const currentPostalCodes = inventoryPostalCodes.get(request.key) || new Set();
+      return {
+        ...request,
+        jobPostalCode: cachedPostalCode || (currentPostalCodes.size === 1 ? [...currentPostalCodes][0] : ''),
+      };
+    }).filter((request) => (
+      /^\d{4,5}$/.test(request.jobPostalCode)
+      || (inventoryPostalCodes.get(request.key)?.size || 0) > 0
+    ));
+    return eligibleRequests.slice(offset, offset + limit);
+  }
+
   const byKey = new Map();
   for (const job of jobs) {
     const companyName = String(job?.company || '').trim();
@@ -179,11 +206,10 @@ function collectLookups(jobs, entries, now, limit, { retryUnmatchedCache = false
     if (!key || companyName.length < 3) continue;
     const cached = entries[key];
     if (cached?.checkedAt && !cacheEntryIsExpired(cached, now)) {
-      if (cached.status === 'matched' || !retryUnmatchedCache) continue;
+      continue;
     }
 
     const jobPostalCode = String(job?.postalCode || cached?.jobPostalCode || '').trim();
-    if (retryUnmatchedCache && !/^\d{4,5}$/.test(jobPostalCode)) continue;
 
     const resolved = resolveJobPostingStreetAddress(job, {
       addressLocality: locality,
@@ -198,25 +224,10 @@ function collectLookups(jobs, entries, now, limit, { retryUnmatchedCache = false
         locality,
         region,
         jobPostalCode,
-        ...(retryUnmatchedCache ? { requirePostalCodeForMatch: true } : {}),
       });
     }
   }
-  const lookups = [...byKey.values()];
-  if (retryUnmatchedCache) {
-    // Bounded weekly retries must advance through the unmatched inventory.
-    // Refreshing a record moves it behind older unchecked records on the next
-    // run; missing/invalid timestamps sort first.
-    lookups.sort((left, right) => {
-      const leftCheckedAt = Date.parse(String(entries[left.key]?.checkedAt || ''));
-      const rightCheckedAt = Date.parse(String(entries[right.key]?.checkedAt || ''));
-      const leftPriority = Number.isFinite(leftCheckedAt) ? leftCheckedAt : Number.NEGATIVE_INFINITY;
-      const rightPriority = Number.isFinite(rightCheckedAt) ? rightCheckedAt : Number.NEGATIVE_INFINITY;
-      return leftPriority - rightPriority || left.key.localeCompare(right.key);
-    });
-  }
-  const start = retryUnmatchedCache ? offset : 0;
-  return lookups.slice(start, start + limit);
+  return [...byKey.values()].slice(0, limit);
 }
 
 function buildLocationBatches(requests, batchSize = LOCATION_BATCH_SIZE) {
@@ -433,6 +444,18 @@ function cacheJobPostalCodeMap(requests) {
   return result;
 }
 
+function mergeJobPostalCodeMaps(...maps) {
+  const result = new Map();
+  for (const postalCodes of maps) {
+    for (const [key, codes] of postalCodes) {
+      const combined = result.get(key) || new Set();
+      for (const code of codes) combined.add(code);
+      if (combined.size) result.set(key, combined);
+    }
+  }
+  return result;
+}
+
 function cacheEntry(request, outcome, checkedAt, jobPostalCode = '') {
   return {
     status: outcome.status,
@@ -575,7 +598,9 @@ async function main({ args = process.argv.slice(2) } = {}) {
   const lock = await withSingleFlightLockAsync(LINDAS_LOCK_PATH, async () => {
     const result = await processLookupBatches(requests, {
       entries: cacheEntries,
-      postalCodes: jobPostalCodeMap(jobs, requests),
+      postalCodes: retryUnmatchedCache
+        ? mergeJobPostalCodeMaps(cacheJobPostalCodeMap(requests), jobPostalCodeMap(jobs, requests))
+        : jobPostalCodeMap(jobs, requests),
       saveBatch: (entries) => writeJsonAtomic(CACHE_PATH, {
         version: 1,
         source: 'Zefix via LINDAS',
@@ -599,6 +624,7 @@ export {
   collectLookups,
   collectUnmatchedCacheLookups,
   jobPostalCodeMap,
+  mergeJobPostalCodeMaps,
   matchAddress,
   processLookupBatches,
   queryLindasWithRetry,
