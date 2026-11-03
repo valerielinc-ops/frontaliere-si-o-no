@@ -755,8 +755,10 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     return { ok: false, ignored: 'unknown_type' };
   }
   let submission = null;
+  let expectedRound = null;
   if (type === 'submit_succeeded') {
     const round = Number(data.round) || 1;
+    expectedRound = round;
     submission = (await submissionRefFor(db, orderId).get()).data()?.[`r${round}`] || null;
     const receiptId = String(data.receiptId || '');
     const validReceipt = /^[a-f0-9]{40}$/.test(receiptId)
@@ -793,6 +795,7 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     actor: 'runner',
     runEffect,
     nowMs,
+    expectedRound,
     patchFlow: type === 'submit_succeeded' && data.channel ? () => ({ submittedVia: String(data.channel).slice(0, 40) }) : null,
     claimRef: eventRef,
   });

@@ -106,6 +106,26 @@ describe('durable submission receipts', () => {
     expect(store.read(ROOT)?.submissionStatus).toBe('submitted');
   });
 
+  it('keeps a defaulted round-1 runner receipt from submitting round 2', async () => {
+    const { receipt } = await seedReceipt();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set(flow('submitting', 2));
+    const eventRef = await store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').add({
+      type: 'submit_succeeded', channel: 'portal', receiptId: receipt?.receiptId,
+    });
+
+    const result = await handleRunnerEvent({
+      db: store.db, orderId: ORDER, eventRef, data: store.read(eventRef.path),
+      runEffect: async context => { effects.push(context.effect); return { ok: true }; },
+      nowMs: T0 + 1,
+    });
+
+    expect(result).toMatchObject({ ok: false, ignored: 'stale_round', state: 'submitting' });
+    expect(store.read(`${ROOT}/automation/flow`)).toMatchObject({ state: 'submitting', round: 2 });
+    expect(store.read(eventRef.path)).toMatchObject({ result: 'ignored:stale_round' });
+    expect(store.read(ROOT)?.submissionStatus).toBe('in_progress');
+    expect(effects).toEqual([]);
+  });
+
   it('keeps a handoff receipt immutable and durably records a later candidate confirmation', async () => {
     const guard = submissionGuard(store.db, ORDER, 1);
     const claim = await guard.claim('whatsapp', T0);

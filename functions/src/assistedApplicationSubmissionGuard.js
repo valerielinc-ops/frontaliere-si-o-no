@@ -192,11 +192,14 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     },
     async markSent(record = {}, nowMs = Date.now(), proof = null, { transaction: sharedTransaction = null } = {}) {
       const proofKind = String(proof?.kind || '');
+      const candidateConfirmation = proofKind === 'candidate_confirmation';
+      const expectedSubmissionAttemptId = proof?.submissionAttemptId == null
+        ? null : String(proof.submissionAttemptId);
       const attemptId = String(proof?.attemptId || activeAttemptId || record.attemptId || '');
       const channel = String(record.channel || proof?.channel || '');
       const sentRecord = record.sent && typeof record.sent === 'object' && !Array.isArray(record.sent) ? record.sent : {};
       if (!proof || !attemptId) throw new Error('submission_receipt_proof_missing');
-      if (activeAttemptId && attemptId !== activeAttemptId && proofKind !== 'candidate_confirmation') {
+      if (activeAttemptId && (candidateConfirmation ? expectedSubmissionAttemptId : attemptId) !== activeAttemptId) {
         throw new Error('submission_attempt_superseded');
       }
       if ((proofKind === 'email_provider_accepted' && channel !== 'email')
@@ -217,11 +220,8 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         const [submissionSnapshot, orderSnapshot] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
         const current = submissionSnapshot.data()?.[key] || {};
         if (!orderSnapshot.exists) throw new Error('submission_receipt_order_missing');
-        const candidateConfirmation = proofKind === 'candidate_confirmation';
         // Candidate confirmation has its own receipt attempt ID, but it is
         // still bound to the submission attempt read by its precheck.
-        const expectedSubmissionAttemptId = proof?.submissionAttemptId == null
-          ? null : String(proof.submissionAttemptId);
         const currentSubmissionAttemptId = current.attemptId == null ? null : String(current.attemptId);
         if (candidateConfirmation && currentSubmissionAttemptId !== expectedSubmissionAttemptId) {
           throw new Error('submission_attempt_superseded');
