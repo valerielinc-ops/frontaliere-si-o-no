@@ -52,6 +52,14 @@ describe('application stage ownership', () => {
     expect(applicationStage(helsanaRoot, context)).toMatchObject({ kind: 'receipt' });
   });
 
+  it('limits a verified SuccessFactors receipt to the same-origin employer root', () => {
+    const context = { applyUrl: 'https://portal.example/job/1', postingEntry: true };
+    const snapshot = { text: 'Wir haben deine Unterlagen erhalten', buttons: [] };
+    expect(applicationReceipt({ ...snapshot, url: 'https://other.example/path' }, context)).toBe(false);
+    expect(applicationReceipt({ ...snapshot, url: 'https://portal.example/path' }, context)).toBe(false);
+    expect(applicationReceipt({ ...snapshot, url: 'https://portal.example/' }, context)).toBe(true);
+  });
+
   it('does not bind a repeated title without an explicit posting route or key', () => {
     const titleOnlyReceipt = { ...receipt, url: `${origin}/Careers/complete/` };
     expect(applicationReceipt(titleOnlyReceipt, { applyUrl, job })).toBe(false);

@@ -184,7 +184,8 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
     // SuccessFactors can redirect a verified posting/apply pair to the
     // employer root. The exact same-requisition pair is the binding here;
     // never enable this for an unverified employer landing page.
-    || (postingEntry && !source.username && !source.password && !source.hash);
+    || (postingEntry && actual.origin === source.origin && actual.pathname === '/'
+      && !source.username && !source.password && !source.hash);
 }
 
 /**
