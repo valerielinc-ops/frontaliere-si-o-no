@@ -41,6 +41,15 @@ function createFakeDb(
         },
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
+          const query = {
+            where: () => query,
+            orderBy: () => query,
+            limit: () => query,
+            get: async () => {
+              const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+              return { docs: seeded.map((d) => ({ data: () => d })) };
+            },
+          };
           return {
             doc: (subDocId: string) => ({
               set: async (data: Record<string, unknown>, _opts?: unknown) => {
@@ -52,16 +61,7 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            where: () => ({
-              orderBy: () => ({
-                limit: () => ({
-                  get: async () => {
-                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                    return { docs: seeded.map((d) => ({ data: () => d })) };
-                  },
-                }),
-              }),
-            }),
+            ...query,
           };
         },
       };

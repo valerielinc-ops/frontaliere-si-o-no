@@ -254,13 +254,10 @@ export async function persistMailgunEvent(db, eventData) {
  occurred_at: timestamp,
  });
 
- // Refresh preferred send hour (#3798) — only open/click carry a time-of-day
- // signal. Runs AFTER the events.add() above so the just-arrived event is
- // itself part of the sample the recompute reads back (otherwise the
- // computation always lags one event behind, and the cold-start threshold
- // would only ever be cleared on the event *after* the 3rd one).
+ // Refresh preferred send hour after the event log write. Only open/click
+ // events belong to the preferred-send-hour window.
  if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue);
+ await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt: timestamp });
  }
 
  return { processed: true, type, email, campaignId };
@@ -323,11 +320,10 @@ async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId
  occurred_at: timestamp,
  });
 
- // Refresh preferred send hour (#3798) — job_alert_subscribers/{email} has the
- // same events subcollection shape as newsletter_subscribers. Runs AFTER the
- // events.add() above so the current event is part of the sample it reads.
+ // Refresh preferred send hour after the event log write. Only open/click
+ // events belong to the preferred-send-hour window.
  if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue);
+ await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt: timestamp });
  }
 
  return { processed: true, type, email, collection: 'job_alert_subscribers' };
