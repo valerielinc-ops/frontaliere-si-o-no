@@ -197,10 +197,12 @@ describe('recover-prev-slugs.yml — history-fetch budgets preserve complete sca
     const job = (parse(readFileSync(WORKFLOW, 'utf8')) as {
       jobs: { recover: { 'timeout-minutes': number; steps: Step[] } };
     }).jobs.recover;
+    const checkout = job.steps.find((step) => step.uses === 'actions/checkout@v7');
     const deepen = job.steps.find((step) => step.id === 'deepen');
     const fallback = job.steps.find((step) => step.name === 'Fallback: unshallow checkout');
 
-    expect(job['timeout-minutes']).toBe(60);
+    expect(job['timeout-minutes']).toBe(70);
+    expect(checkout?.['timeout-minutes']).toBe(10);
     expect(deepen?.['timeout-minutes']).toBe(15);
     expect(fallback?.['timeout-minutes']).toBe(30);
     expect(deepen?.run).toContain('git fetch --shallow-since="$SHALLOW_SINCE"');
