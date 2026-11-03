@@ -26,9 +26,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-03T09:45:08.092Z",
-      "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur",
+      "slug": "specialista-infermieristico-specialista-in-allattamento-geriatria-acuta-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur",
+        "it": "specialista-infermieristico-specialista-in-allattamento-geriatria-acuta-kantonsspital-graubunden-chur",
+        "en": "nursing-specialist-nursing-specialist-acute-geriatrics-kantonsspital-graubunden-chur",
+        "fr": "specialiste-des-soins-infirmiers-specialiste-de-la-geriatrie-aigue-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Akutgeriatrie",
@@ -62,7 +65,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-03T09:45:08.092Z"
+      "firstSeenAt": "2026-11-03T09:45:08.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10238727",
@@ -87,9 +98,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-03T09:45:08.092Z",
-      "slug": "kochin-koch-kantonsspital-graubunden-chur",
+      "slug": "cuocere-cucinare-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "kochin-koch-kantonsspital-graubunden-chur"
+        "de": "kochin-koch-kantonsspital-graubunden-chur",
+        "it": "cuocere-cucinare-kantonsspital-graubunden-chur",
+        "en": "cook-cook-kantonsspital-graubunden-chur",
+        "fr": "cuisiniere-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Köchin / Koch",
@@ -122,7 +136,15 @@
       "salaryMin": 41080,
       "salaryMax": 114000,
       "currency": "CHF",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10241489",

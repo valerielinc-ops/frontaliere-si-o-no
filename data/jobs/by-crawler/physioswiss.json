@@ -19305,12 +19305,12 @@
     },
     {
       "id": "physioswiss-fe4f7a22cb00",
-      "slug": "physiotherapeute-80-100-physio-swiss-nyon",
+      "slug": "fisioterapia-80-100-physio-swiss-vaud",
       "slugByLocale": {
         "fr": "physiotherapeute-80-100-physiocare-allee-de-la-petite-prairie-8-1260-nyon-kanton-waadt",
-        "it": "physiotherapeute-80-100-physio-swiss-nyon",
-        "en": "physiotherapeute-80-100-physio-swiss-nyon",
-        "de": "physiotherapeute-80-100-physiocare-allee-de-la-petite-prairie-8-1260-nyon-kanton-waadt"
+        "it": "fisioterapia-80-100-physio-swiss-vaud",
+        "en": "physiotherapy-80-100-physio-swiss-vaud",
+        "de": "physiotherapie-80-100-physio-swiss-vaud"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19356,11 +19356,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeute-80-100-physiocare-allee-de-la-petite-prairie-8-1260-nyon-kanton-waadt",
+          "physiotherapeute-80-100-physio-swiss-nyon"
+        ],
+        "en": [
+          "physiotherapeute-80-100-physio-swiss-nyon"
+        ],
+        "de": [
           "physiotherapeute-80-100-physiocare-allee-de-la-petite-prairie-8-1260-nyon-kanton-waadt"
         ]
       },
       "previousSlugs": [
-        "physiotherapeute-80-100-physiocare-allee-de-la-petite-prairie-8-1260-nyon-kanton-waadt"
+        "physiotherapeute-80-100-physiocare-allee-de-la-petite-prairie-8-1260-nyon-kanton-waadt",
+        "physiotherapeute-80-100-physio-swiss-nyon"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -19470,12 +19478,12 @@
     },
     {
       "id": "physioswiss-03e3aed80c05",
-      "slug": "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp",
+      "slug": "cercasi-fisioterapista-diplomato-a-al-50-100-physio-swiss-3123-belp",
       "slugByLocale": {
         "de": "dipl-physiotherapeuten-in-50-100-gesucht-3123-belp-physioswiss-ch",
-        "it": "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp",
-        "en": "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp",
-        "fr": "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp"
+        "it": "cercasi-fisioterapista-diplomato-a-al-50-100-physio-swiss-3123-belp",
+        "en": "qualified-physiotherapist-50-100-wanted-physio-swiss-3123-belp",
+        "fr": "physiotherapeute-diplome-e-recherche-e-a-50-100-physio-swiss-3123-belp"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19523,11 +19531,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeuten-in-50-100-gesucht-3123-belp-physioswiss-ch"
+          "dipl-physiotherapeuten-in-50-100-gesucht-3123-belp-physioswiss-ch",
+          "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp"
+        ],
+        "en": [
+          "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp"
+        ],
+        "fr": [
+          "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeuten-in-50-100-gesucht-3123-belp-physioswiss-ch"
+        "dipl-physiotherapeuten-in-50-100-gesucht-3123-belp-physioswiss-ch",
+        "dipl-physiotherapeuten-in-50-100-gesucht-physio-swiss-belp"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -19550,12 +19566,12 @@
     },
     {
       "id": "physioswiss-94f2ba07b3aa",
-      "slug": "collaboratore-trice-in-einer-physiotherapiepraxis-physio-swiss-allschwil",
+      "slug": "collaboratore-in-uno-studio-di-fisioterapia-physio-swiss-4123-allschwil",
       "slugByLocale": {
         "de": "mitarbeiter-in-einer-physiotherapiepraxis-4123-allschwil-physioswiss-ch",
-        "it": "collaboratore-trice-in-einer-physiotherapiepraxis-physio-swiss-allschwil",
-        "en": "mitarbeiter-in-einer-physiotherapiepraxis-physio-swiss-allschwil",
-        "fr": "mitarbeiter-in-einer-physiotherapiepraxis-physio-swiss-allschwil"
+        "it": "collaboratore-in-uno-studio-di-fisioterapia-physio-swiss-4123-allschwil",
+        "en": "employee-in-a-physiotherapy-practice-physio-swiss-4123-allschwil",
+        "fr": "employe-en-physiotherapie-physio-swiss-4123-allschwil"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19603,11 +19619,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-einer-physiotherapiepraxis-4123-allschwil-physioswiss-ch"
+          "mitarbeiter-in-einer-physiotherapiepraxis-4123-allschwil-physioswiss-ch",
+          "collaboratore-trice-in-einer-physiotherapiepraxis-physio-swiss-allschwil"
+        ],
+        "en": [
+          "mitarbeiter-in-einer-physiotherapiepraxis-physio-swiss-allschwil"
+        ],
+        "fr": [
+          "mitarbeiter-in-einer-physiotherapiepraxis-physio-swiss-allschwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-einer-physiotherapiepraxis-4123-allschwil-physioswiss-ch"
+        "mitarbeiter-in-einer-physiotherapiepraxis-4123-allschwil-physioswiss-ch",
+        "collaboratore-trice-in-einer-physiotherapiepraxis-physio-swiss-allschwil",
+        "mitarbeiter-in-einer-physiotherapiepraxis-physio-swiss-allschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -19630,12 +19655,12 @@
     },
     {
       "id": "physioswiss-cf76681da5bb",
-      "slug": "ein-arbeitsort-e-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl-job-sharing-con-physio-active-lenzburg-physio-swiss-lenzburg",
+      "slug": "un-luogo-di-lavoro-e-un-posto-di-cui-innamorarsi-cerchiamo-una-persona-al-40-100-presso-la-promenade-lenzburg",
       "slugByLocale": {
         "de": "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl",
-        "it": "ein-arbeitsort-e-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl-job-sharing-con-physio-active-lenzburg-physio-swiss-lenzburg",
-        "en": "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl",
-        "fr": "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl"
+        "it": "un-luogo-di-lavoro-e-un-posto-di-cui-innamorarsi-cerchiamo-una-persona-al-40-100-presso-la-promenade-lenzburg",
+        "en": "a-place-to-work-and-a-place-to-fall-in-love-we-are-looking-for-40-100-in-the-promenade-lenzburg-possibly-job-sharing",
+        "fr": "un-endroit-pour-travailler-et-un-endroit-pour-tomber-amoureux-nous-sommes-a-la-recherche-de-40-100-dans-la-promenade"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19683,11 +19708,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl",
+          "ein-arbeitsort-e-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl-job-sharing-con-physio-active-lenzburg-physio-swiss-lenzburg"
+        ],
+        "en": [
+          "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl"
+        ],
+        "fr": [
           "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl"
         ]
       },
       "previousSlugs": [
-        "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl"
+        "ein-arbeitsort-und-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl",
+        "ein-arbeitsort-e-platz-zum-verlieben-wir-suchen-40-100-in-der-promenade-lenzburg-evtl-job-sharing-con-physio-active-lenzburg-physio-swiss-lenzburg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -19710,12 +19743,12 @@
     },
     {
       "id": "physioswiss-f550c82d14a5",
-      "slug": "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch",
+      "slug": "non-e-ancora-arrivato-guardaci-fisio-40-100-nella-fogna-vitale-meisterschwanden-physio-swiss-5616-meisterschwanden",
       "slugByLocale": {
         "de": "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch",
-        "it": "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch",
-        "en": "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch",
-        "fr": "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch"
+        "it": "non-e-ancora-arrivato-guardaci-fisio-40-100-nella-fogna-vitale-meisterschwanden-physio-swiss-5616-meisterschwanden",
+        "en": "not-yet-arrived-take-a-look-at-us-physio-40-100-in-the-vitalwerch-meisterschwanden-physio-swiss-5616-meisterschwanden",
+        "fr": "pas-encore-arrive-regardez-nous-physio-40-100-dans-le-vitalwerch-meisterschwanden-physio-swiss-5616-meisterschwanden"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19777,16 +19810,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:57:48.094Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:57:48.094Z"
+      "firstSeenAt": "2026-11-03T09:57:48.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch"
+        ],
+        "en": [
+          "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch"
+        ],
+        "fr": [
+          "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch"
+        ]
+      },
+      "previousSlugs": [
+        "noch-nicht-angekommen-schau-doch-mal-bei-uns-vorbei-physio-40-100-im-vitalwerch"
+      ]
     },
     {
       "id": "physioswiss-ea21e05e6a9a",
-      "slug": "physiotherapeut-in-60-80-physio-swiss-wil",
+      "slug": "terapeuta-fisica-nel-60-80-physio-swiss-san-gallo",
       "slugByLocale": {
         "de": "physiotherapeut-in-60-80-thurvita-ag-haldenstrasse-18-9500-wil-kanton-st-gallen-website",
-        "it": "physiotherapeut-in-60-80-physio-swiss-wil",
-        "en": "physiotherapeut-in-60-80-physio-swiss-wil",
-        "fr": "physiotherapeut-in-60-80-physio-swiss-wil"
+        "it": "terapeuta-fisica-nel-60-80-physio-swiss-san-gallo",
+        "en": "physiotherapist-60-80-physio-swiss-san-gallo",
+        "fr": "physiotherapeute-60-80-physio-swiss-san-gallo"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19833,11 +19880,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-60-80-thurvita-ag-haldenstrasse-18-9500-wil-kanton-st-gallen-website"
+          "physiotherapeut-in-60-80-thurvita-ag-haldenstrasse-18-9500-wil-kanton-st-gallen-website",
+          "physiotherapeut-in-60-80-physio-swiss-wil"
+        ],
+        "en": [
+          "physiotherapeut-in-60-80-physio-swiss-wil"
+        ],
+        "fr": [
+          "physiotherapeut-in-60-80-physio-swiss-wil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-60-80-thurvita-ag-haldenstrasse-18-9500-wil-kanton-st-gallen-website"
+        "physiotherapeut-in-60-80-thurvita-ag-haldenstrasse-18-9500-wil-kanton-st-gallen-website",
+        "physiotherapeut-in-60-80-physio-swiss-wil"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,

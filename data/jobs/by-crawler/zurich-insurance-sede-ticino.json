@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1376505757",
-      "slug": "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier",
+      "slug": "specialista-sinistri-complessi-danni-rc-m-f-d-zurich-insurance-crissier-1376505757",
       "slugByLocale": {
         "fr": "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier",
-        "it": "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier",
-        "en": "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier",
-        "de": "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier"
+        "it": "specialista-sinistri-complessi-danni-rc-m-f-d-zurich-insurance-crissier-1376505757",
+        "en": "complex-disaster-specialist-things-rc-m-f-d-zurich-insurance-crissier-1376505757",
+        "de": "komplexe-katastrophenspezialisten-dinge-rc-m-w-d-zurich-insurance-crissier-1376505757"
       },
       "slugDisambiguator": "1376505757",
       "company": "Zurich Insurance",
@@ -74,7 +74,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:45:38.575Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:45:38.575Z"
+      "firstSeenAt": "2026-11-03T09:45:38.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier"
+        ],
+        "en": [
+          "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier"
+        ],
+        "de": [
+          "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-sinistres-complexes-choses-rc-h-f-d-zurich-insurance-sede-ticino-crissier"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1376447957",

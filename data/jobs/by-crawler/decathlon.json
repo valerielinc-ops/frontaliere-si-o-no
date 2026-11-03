@@ -3699,12 +3699,12 @@
     },
     {
       "id": "decathlon-7120d88b4c8a",
-      "slug": "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch",
+      "slug": "sport-leader-consulente-alla-vendita-con-afc-m-f-d-100-decathlon-kreuzlingen-decathlon-kreuzlingen",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch",
+        "it": "sport-leader-consulente-alla-vendita-con-afc-m-f-d-100-decathlon-kreuzlingen-decathlon-kreuzlingen",
         "en": "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-avec-efz-h-f-d-100-decathlon-kreuzlingen-decathlon-kreuzlingen"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3766,7 +3766,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:47:04.093Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:47:04.093Z"
+      "firstSeenAt": "2026-11-03T09:47:04.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-mit-efz-m-w-d-100-decathlon-kreuzlingen-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-446324242af4",

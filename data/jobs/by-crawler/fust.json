@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-1or32b",
-      "slug": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen",
+      "slug": "tecnico-a-di-officina-per-grandi-elettrodomestici-fust-oberburen",
       "company": "Fust",
       "title": "Werkstatt Techniker:in für Elektrogrossgeräte",
       "location": "Oberbüren",
@@ -45,10 +45,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "werkstatt-techniker-in-per-elektrogrossgerate-fust-oberburen",
-        "en": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen",
+        "it": "tecnico-a-di-officina-per-grandi-elettrodomestici-fust-oberburen",
+        "en": "workshop-technician-for-large-electrical-appliances-fust-oberburen",
         "de": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen",
-        "fr": "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        "fr": "technicien-technicienne-d-atelier-pour-gros-appareils-electriques-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -73,7 +73,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstatt-techniker-in-per-elektrogrossgerate-fust-oberburen",
+          "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        ],
+        "en": [
+          "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        ],
+        "fr": [
+          "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "werkstatt-techniker-in-per-elektrogrossgerate-fust-oberburen",
+        "werkstatt-techniker-in-fur-elektrogrossgerate-fust-oberburen"
+      ]
     },
     {
       "id": "company-bv3xps",
@@ -148,7 +164,7 @@
     },
     {
       "id": "company-xffn4y",
-      "slug": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
+      "slug": "impiegato-a-per-la-gestione-dei-pezzi-di-ricambio-fust-oberburen",
       "company": "Fust",
       "title": "Sachbearbeiter:in Ersatzteilwesen",
       "location": "Oberbüren",
@@ -188,10 +204,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
-        "en": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
+        "it": "impiegato-a-per-la-gestione-dei-pezzi-di-ricambio-fust-oberburen",
+        "en": "spare-parts-clerk-fust-oberburen",
         "de": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
-        "fr": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        "fr": "gestionnaire-du-service-des-pieces-detachees-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -216,7 +232,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        ],
+        "en": [
+          "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+      ]
     },
     {
       "id": "company-bl89bd",

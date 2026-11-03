@@ -2312,9 +2312,9 @@
       "slug": "amministratrice-amministratore-immobiliare-livit-lugano",
       "slugByLocale": {
         "it": "amministratrice-amministratore-immobiliare-livit-lugano",
-        "en": "amministratrice-amministratore-immobiliare-livit-lugano",
-        "de": "amministratrice-amministratore-immobiliare-livit-lugano",
-        "fr": "amministratrice-amministratore-immobiliare-livit-lugano"
+        "en": "real-estate-administrator-livit-ag-lugano",
+        "de": "immobilienverwalter-livit-ag-lugano",
+        "fr": "administrateur-immobilier-livit-ag-lugano"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2391,12 +2391,12 @@
     },
     {
       "id": "livit-4c64cbfb58a7",
-      "slug": "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
+      "slug": "gestore-trice-di-immobili-commerciali-livit-ag-zurich",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
-        "it": "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
-        "en": "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
-        "fr": "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+        "it": "gestore-trice-di-immobili-commerciali-livit-ag-zurich",
+        "en": "property-manager-for-commercial-properties-livit-ag-zurich",
+        "fr": "gerant-e-d-immeubles-commerciaux-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2459,16 +2459,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:44:58.887Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:44:58.887Z"
+      "firstSeenAt": "2026-11-03T09:44:58.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+      ]
     },
     {
       "id": "livit-9c52e9b3dae4",
-      "slug": "immobilienbewirtschafter-in-livit-zurich",
+      "slug": "gestore-trice-immobiliare-livit-ag-zurich",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-livit-zurich",
-        "it": "immobilienbewirtschafter-in-livit-zurich",
-        "en": "immobilienbewirtschafter-in-livit-zurich",
-        "fr": "immobilienbewirtschafter-in-livit-zurich"
+        "it": "gestore-trice-immobiliare-livit-ag-zurich",
+        "en": "property-manager-livit-ag-zurich",
+        "fr": "gerant-e-d-immeubles-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2531,16 +2545,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:44:58.881Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:44:58.881Z"
+      "firstSeenAt": "2026-11-03T09:44:58.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-livit-zurich"
+      ]
     },
     {
       "id": "livit-1041f241e015",
-      "slug": "sachbearbeiter-in-kreditorenbuchhaltung-befristet-per-6-monate-livit-ag-zurich",
+      "slug": "impiegato-a-amministrativo-a-nella-contabilita-fornitori-a-tempo-determinato-per-6-mesi-livit-ag-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich",
-        "it": "sachbearbeiter-in-kreditorenbuchhaltung-befristet-per-6-monate-livit-ag-zurich",
-        "en": "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich",
-        "fr": "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich"
+        "it": "impiegato-a-amministrativo-a-nella-contabilita-fornitori-a-tempo-determinato-per-6-mesi-livit-ag-zurich",
+        "en": "accounts-payable-administrator-fixed-term-for-6-months-livit-ag-zurich",
+        "fr": "collaborateur-rice-en-comptabilite-fournisseurs-contrat-a-duree-determinee-de-6-mois-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2589,11 +2617,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich",
+          "sachbearbeiter-in-kreditorenbuchhaltung-befristet-per-6-monate-livit-ag-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich"
+        ],
+        "fr": [
           "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich"
+        "sachbearbeiter-in-kreditorenbuchhaltung-befristet-fur-6-monate-livit-zurich",
+        "sachbearbeiter-in-kreditorenbuchhaltung-befristet-per-6-monate-livit-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -685,12 +685,12 @@
     },
     {
       "id": "institution-lavigny-9499c64038da",
-      "slug": "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny",
+      "slug": "hr-manager-80-salari-e-assicurazione-sociale-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny",
-        "it": "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny",
-        "en": "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny",
-        "de": "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny"
+        "it": "hr-manager-80-salari-e-assicurazione-sociale-institution-de-lavigny-lavigny",
+        "en": "hr-manager-80-salaries-and-social-insurance-institution-de-lavigny-lavigny",
+        "de": "hr-manager-80-gehalter-und-sozialversicherung-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -753,7 +753,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:47:14.453Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:47:14.453Z"
+      "firstSeenAt": "2026-11-03T09:47:14.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny"
+        ],
+        "en": [
+          "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny"
+        ],
+        "de": [
+          "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "gestionaire-rh-salaires-et-assurances-sociales-a-80-institution-lavigny-lavigny"
+      ]
     },
     {
       "id": "institution-lavigny-5abc686a8baa",

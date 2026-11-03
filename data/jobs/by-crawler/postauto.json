@@ -1277,12 +1277,12 @@
     },
     {
       "id": "postauto-d7efacd1c75e",
-      "slug": "postauto-fahrer-in-postauto-brig",
+      "slug": "autista-postauto-postauto-ag-brig",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-brig",
-        "it": "postauto-fahrer-in-postauto-brig",
-        "en": "postauto-fahrer-in-postauto-brig",
-        "fr": "postauto-fahrer-in-postauto-brig"
+        "it": "autista-postauto-postauto-ag-brig",
+        "en": "postauto-driver-postauto-ag-brig",
+        "fr": "conducteur-rice-postauto-postauto-ag-brig"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1347,7 +1347,21 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-03T09:51:44.673Z"
+      "firstSeenAt": "2026-11-03T09:51:44.673Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-brig"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-brig"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-brig"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-brig"
+      ]
     }
   ]
 }

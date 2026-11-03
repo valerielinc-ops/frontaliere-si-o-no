@@ -126,12 +126,12 @@
     },
     {
       "id": "fhgr-beb700b7a16f",
-      "slug": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
+      "slug": "collaboratore-trice-scientifico-a-di-progetto-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
-        "it": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
-        "en": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
-        "fr": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        "it": "collaboratore-trice-scientifico-a-di-progetto-fachhochschule-graubunden-chur",
+        "en": "research-project-associate-fachhochschule-graubunden-chur",
+        "fr": "collaborateur-trice-scientifique-de-projet-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -180,11 +180,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
+          "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        ],
+        "en": [
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
+        "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
+        "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -218,12 +226,12 @@
     },
     {
       "id": "fhgr-4fcfbe6092ab",
-      "slug": "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur",
+      "slug": "responsabile-scientifico-a-di-progetto-tecnica-e-pratica-dei-media-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch",
-        "it": "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur",
-        "en": "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur",
-        "fr": "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
+        "it": "responsabile-scientifico-a-di-progetto-tecnica-e-pratica-dei-media-fachhochschule-graubunden-chur",
+        "en": "research-project-leader-technology-and-media-practice-fachhochschule-graubunden-chur",
+        "fr": "chef-fe-de-projet-scientifique-technique-et-pratique-des-medias-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -272,11 +280,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch"
+          "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch",
+          "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur"
+        ],
+        "en": [
+          "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch"
+        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch",
+        "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur",
+        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 48500,
       "salaryMax": 89500,

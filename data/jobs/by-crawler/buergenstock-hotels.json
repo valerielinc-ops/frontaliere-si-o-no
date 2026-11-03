@@ -3998,12 +3998,12 @@
     },
     {
       "id": "buergenstock-hotels-691d49779708",
-      "slug": "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
+      "slug": "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "it": "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "en": "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "fr": "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        "it": "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+        "en": "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
+        "fr": "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -4076,7 +4076,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T09:46:35.563Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:46:35.563Z"
+      "firstSeenAt": "2026-11-03T09:46:35.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }

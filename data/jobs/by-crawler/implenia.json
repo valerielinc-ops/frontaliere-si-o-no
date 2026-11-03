@@ -2650,7 +2650,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2697,7 +2697,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2708,7 +2708,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",
@@ -3071,12 +3071,12 @@
     },
     {
       "id": "implenia-ac3c5f489a89",
-      "slug": "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1",
+      "slug": "direttore-immobiliare-m-f-d-basilea-50-implenia-basel-wohnen-1",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-basel-50-implenia-ch",
-        "it": "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1",
-        "en": "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1",
-        "fr": "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1"
+        "it": "direttore-immobiliare-m-f-d-basilea-50-implenia-basel-wohnen-1",
+        "en": "real-estate-manager-m-f-d-basel-50-implenia-basel-wohnen-1",
+        "fr": "directeur-immobilier-h-f-d-bale-50-implenia-basel-wohnen-1"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3124,11 +3124,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-m-w-d-basel-50-implenia-ch"
+          "immobilienbewirtschafter-m-w-d-basel-50-implenia-ch",
+          "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-m-w-d-basel-50-implenia-ch"
+        "immobilienbewirtschafter-m-w-d-basel-50-implenia-ch",
+        "immobilienbewirtschafter-m-w-d-basel-50-implenia-basel-wohnen-1"
       ],
       "salaryMin": 31000,
       "salaryMax": 47000,
@@ -5540,9 +5548,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -5596,17 +5604,18 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,

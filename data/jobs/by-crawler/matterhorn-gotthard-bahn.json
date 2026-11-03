@@ -208,12 +208,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-5f2d552e8132",
-      "slug": "collaboratore-trice-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-oberwald-realp",
+      "slug": "collaboratore-trice-servizio-clienti-e-carico-auto-50-100-m-f-d-matterhorn-gotthard-bahn-oberwald-realp",
       "slugByLocale": {
         "de": "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "collaboratore-trice-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-oberwald-realp",
-        "en": "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "collaboratore-trice-servizio-clienti-e-carico-auto-50-100-m-f-d-matterhorn-gotthard-bahn-oberwald-realp",
+        "en": "employee-customer-service-autoverload-50-100-m-f-d-matterhorn-gotthard-bahn-oberwald-realp",
+        "fr": "service-a-la-clientele-des-employes-autoverload-50-100-h-f-d-matterhorn-gotthard-bahn-oberwald-realp"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -277,11 +277,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch",
+          "collaboratore-trice-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-oberwald-realp"
+        ],
+        "en": [
+          "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
+        "mitarbeiter-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch",
+        "collaboratore-trice-kundenservice-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-oberwald-realp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -307,8 +315,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "collaboratore-trice-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-oberwald-realp",
-        "en": "mitarbeiter-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "mitarbeiter-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "employee-intervention-autoverload-50-100-m-f-d-matterhorn-gotthard-bahn-oberwald-realp",
+        "fr": "intervention-des-employes-et-chargement-automatique-50-100-h-f-d-matterhorn-gotthard-bahn-oberwald-realp"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -375,6 +383,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "mitarbeiter-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "mitarbeiter-intervention-autoverlad-50-100-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
@@ -611,7 +625,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -679,14 +693,12 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",

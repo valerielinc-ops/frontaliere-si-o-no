@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-50-80-senevita-islikon-tg",
         "it": "assistent-in-gesundheit-e-soziales-50-80-senevita-islikon-tg",
-        "en": "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon",
-        "fr": "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon"
+        "en": "assistant-in-health-and-social-affairs-50-80-senevita-islikon-tg",
+        "fr": "assistant-charge-de-la-sante-et-des-affaires-sociales-senevita-islikon-tg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -65,16 +65,14 @@
           "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon"
         ],
         "en": [
-          "assistant-in-health-and-social-affairs-50-80-senevita-islikon-tg"
+          "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon"
         ],
         "fr": [
-          "assistant-charge-de-la-sante-et-des-affaires-sociales-senevita-islikon-tg"
+          "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon",
-        "assistant-in-health-and-social-affairs-50-80-senevita-islikon-tg",
-        "assistant-charge-de-la-sante-et-des-affaires-sociales-senevita-islikon-tg"
+        "assistent-in-gesundheit-und-soziales-50-80-senevita-tg-islikon"
       ],
       "salaryMin": 48000,
       "salaryMax": 81600,
@@ -7453,7 +7451,7 @@
         "it": "cuocere-cucinare-80-senevita-be-bern",
         "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
-        "fr": "cuisinier-ere-80-senevita-be-bern"
+        "fr": "cuire-cuir-80-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7500,7 +7498,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-80-senevita-be-bern",
-        "cuire-cuir-80-senevita-be-bern"
+        "cuisinier-ere-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7511,7 +7509,7 @@
         ],
         "fr": [
           "kochin-koch-80-senevita-be-bern",
-          "cuire-cuir-80-senevita-be-bern"
+          "cuisinier-ere-80-senevita-be-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T15:13:56.696Z",
@@ -8973,7 +8971,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -9019,7 +9017,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9029,7 +9027,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -12574,8 +12572,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verpflegungsdienst-100-senevita-zh-dietikon",
         "it": "collaboratore-trice-in-verpflegungsdienst-100-senevita-zh-dietikon",
-        "en": "mitarbeiter-in-verpflegungsdienst-100-senevita-zh-dietikon",
-        "fr": "mitarbeiter-in-verpflegungsdienst-100-senevita-zh-dietikon"
+        "en": "food-service-employee-100-senevita-zh-dietikon",
+        "fr": "collaborateur-rice-du-service-de-restauration-100-senevita-zh-dietikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12624,6 +12622,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verpflegungsdienst-100-senevita-zh-dietikon"
+        ],
+        "en": [
+          "mitarbeiter-in-verpflegungsdienst-100-senevita-zh-dietikon"
+        ],
+        "fr": [
           "mitarbeiter-in-verpflegungsdienst-100-senevita-zh-dietikon"
         ]
       },
