@@ -203,6 +203,7 @@ function renderCantonPageShell(a: PageShellArgs): string {
     baseUrl: BASE_URL,
     gtagSnippet: GTAG_SNIPPET,
     adsenseSnippet: ADSENSE_SNIPPET,
+    metaPixelSnippet: META_PIXEL_SNIPPET = '',
     partnerizeTagSnippet: PARTNERIZE_TAG_SNIPPET = '',
     faviconLinks: FAVICON_LINKS,
     cdnPreconnectHint: CDN_PRECONNECT_HINT,
@@ -255,6 +256,7 @@ ${ldTags}
     ${asyncCssHeadBlock(CORPUS_PAGE_ENTRY_CSS)}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
+    ${META_PIXEL_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">

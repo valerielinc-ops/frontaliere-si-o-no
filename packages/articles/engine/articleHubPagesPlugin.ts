@@ -816,6 +816,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     baseUrl: BASE_URL,
     faviconLinks: FAVICON_LINKS,
     adsenseSnippet: ADSENSE_SNIPPET,
+    metaPixelSnippet: META_PIXEL_SNIPPET = '',
     // `?? ''`: campo opzionale del contratto, il repo pubblicatore puo' non
     // passarlo ancora — vedi SiteShellContract.partnerizeTagSnippet.
     partnerizeTagSnippet: PARTNERIZE_TAG_SNIPPET = '',
@@ -1019,6 +1020,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${collectionLd}</script>
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
+    ${META_PIXEL_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">

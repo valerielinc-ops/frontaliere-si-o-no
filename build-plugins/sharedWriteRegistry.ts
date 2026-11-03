@@ -204,6 +204,8 @@ export interface SharedPathDeclaration {
  * the collisions.
  */
 const pathHistory = new Map<string, ClaimVersion[]>();
+/** Deterministic post-process fingerprint applied to claimed HTML in deploy manifests. */
+let finalOutputManifestFingerprint: string | null = null;
 /**
  * Path-shape index for the collector's streaming writes. `pathHistory` keeps
  * content versions, while this index answers the cheaper structural question:
@@ -308,6 +310,23 @@ function currentMode(): CollisionMode {
 
 export function hashContent(content: string): string {
   return createHash('sha1').update(content).digest('hex');
+}
+
+/**
+ * Record an intentional build-wide HTML post-process for deploy-file-delta.
+ * The fingerprint is combined with each claimed HTML hash when the manifest is
+ * emitted; no per-page hash map or extra collision claim is needed.
+ */
+export function recordFinalOutputManifestFingerprint(fingerprint: string): void {
+  finalOutputManifestFingerprint = fingerprint;
+}
+
+/** Stable deploy-manifest change detector that includes a registered HTML transform. */
+export function getDeployManifestHash(filePath: string, claimedHash: string): string {
+  if (!finalOutputManifestFingerprint || path.extname(filePath).toLowerCase() !== '.html') {
+    return claimedHash;
+  }
+  return hashContent(`${claimedHash}\0${finalOutputManifestFingerprint}`);
 }
 
 /**
@@ -513,6 +532,7 @@ export function declareSharedPath(decl: SharedPathDeclaration): void {
  */
 export function reset(): void {
   pathHistory.clear();
+  finalOutputManifestFingerprint = null;
   claimedOutputPaths.clear();
   claimedOutputDescendants.clear();
   dumpedHashes.clear();

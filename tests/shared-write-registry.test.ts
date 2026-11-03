@@ -5,6 +5,9 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import {
  claim,
+ hashContent,
+ recordFinalOutputManifestFingerprint,
+ getDeployManifestHash,
  declareSharedPath,
  reset,
  getCollisions,
@@ -46,6 +49,23 @@ describe('sharedWriteRegistry', () => {
  const out = claim('/dist/foo/index.html', 'pluginB', '<html>same</html>');
  expect(out).toBe('skip-write');
  expect(getCollisions()).toHaveLength(0);
+ });
+
+ it('includes an intentional HTML post-process in deploy hashes without adding a collision', () => {
+ const filePath = '/dist/foo/index.html';
+ const claimed = '<html>base</html>';
+ const claimHash = hashContent(claimed);
+ claim(filePath, 'page-emitter', claimed);
+
+ recordFinalOutputManifestFingerprint('pixel-transform-v1');
+ expect(getDeployManifestHash(filePath, claimHash))
+  .toBe(hashContent(`${claimHash}\0pixel-transform-v1`));
+ expect(getDeployManifestHash('/dist/assets/app.js', claimHash)).toBe(claimHash);
+ expect(getPathHistory().get(filePath)).toHaveLength(1);
+ expect(getCollisions()).toHaveLength(0);
+
+ reset();
+ expect(getDeployManifestHash(filePath, claimHash)).toBe(claimHash);
  });
 
  it('throws WriteCollisionError on cross-plugin same-path different-content in throw mode', () => {

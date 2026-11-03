@@ -15,6 +15,7 @@ import { sanitizeTelemetryProperties } from '../services/analyticsUrlPrivacy.js'
 import { isSensitiveThirdPartyDocument } from '../services/thirdPartyDocumentPrivacy.js';
 import {
  ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LAZY_LOADER,
+ META_PIXEL_LOADER_CONTENT, META_PIXEL_LOADER_FILENAME,
  PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_SNIPPET,
  THIRD_PARTY_DOCUMENT_INITIAL_GUARD,
 } from '../build-plugins/constants';
@@ -72,9 +73,10 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
   } finally { dom.window.close(); }
  });
- it.each([['Ads', ADSENSE_LOADER_CONTENT], ['Partnerize', PARTNERIZE_TAG_CONTENT]])('%s bootstrap stays idle for clean-origin HTML containing a sensitive iframe', (_name, source) => {
+ it.each([['Ads', ADSENSE_LOADER_CONTENT], ['Partnerize', PARTNERIZE_TAG_CONTENT], ['Meta Pixel', META_PIXEL_LOADER_CONTENT]])('%s bootstrap stays idle for clean-origin HTML containing a sensitive iframe', (_name, source) => {
   const dom = new JSDOM('<!doctype html><head></head><body><iframe></iframe></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
   try {
+   dom.window.localStorage.setItem('frontaliere_ads_consent', 'granted');
    dom.window.document.querySelector('iframe')!.src = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
    vm.runInContext(source, dom.getInternalVMContext());
    expect(dom.window.document.querySelectorAll('script')).toHaveLength(0);
@@ -83,7 +85,7 @@ describe('signed-origin autonomous SDK startup', () => {
   } finally { dom.window.close(); }
  });
  it.each(['srcset', 'imagesrcset'])('attests each %s URL candidate without splitting SVG data or descriptors', (attribute) => {
-  const dom = new JSDOM('<!doctype html><body><img></body>', { url: 'https://frontaliereticino.ch/' });
+  const dom = new JSDOM('<!doctype html><body><img src="/favicon.svg"></body>', { url: 'https://frontaliereticino.ch/' });
   try {
    const image = dom.window.document.querySelector('img')!;
    const win = dom.window as unknown as PrivacyWindow;
@@ -407,10 +409,11 @@ describe('signed-origin autonomous SDK startup', () => {
   for (const [name, source, stable] of [
    [ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT, 'adsense-loader.js'],
    [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT, 'partnerize-tag.js'],
+   [META_PIXEL_LOADER_FILENAME, META_PIXEL_LOADER_CONTENT, undefined],
   ]) {
    expect(name).toContain(createHash('sha256').update(source).digest('hex').slice(0, 12));
    expect(files.get(name)).toBe(source);
-   expect(files.get(stable)).toBe(source);
+   if (stable) expect(files.get(stable)).toBe(source);
   }
   expect(ADSENSE_LAZY_LOADER).toContain(ADSENSE_LOADER_VERSIONED_FILENAME);
   expect(PARTNERIZE_TAG_SNIPPET).toBe(`<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`);

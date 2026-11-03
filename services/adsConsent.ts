@@ -38,6 +38,8 @@
  * constants below, imported at build time — so the SPA gate and the static
  * shells cannot drift apart about which key means consent.
  * `tests/ads-consent-gate.test.ts` pins the emitted loader to them.
+ * The static Meta Pixel loader reads the same consent key before contacting
+ * Meta; its HTML snippet has no `noscript` beacon that could bypass the gate.
  */
 
 /** localStorage key. Also consumed by build-plugins/constants.ts. */

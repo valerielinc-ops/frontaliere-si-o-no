@@ -95,7 +95,7 @@ export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=600,must-revalidate';
 /** A digest in the filename makes these bytes immutable; stable aliases still
  * revalidate so already-published HTML can receive a corrected loader. */
 export function shellAssetCacheControl(key) {
-  return /(?:^|\/)(?:gtag-init|adsense-loader|partnerize-tag|site-support)-[a-f0-9]{12}\.js$/.test(key)
+  return /(?:^|\/)(?:gtag-init|adsense-loader|partnerize-tag|site-support|meta-pixel-base-code)-[a-f0-9]{12}\.js$/.test(key)
     ? 'public,max-age=31536000,immutable' : SHELL_ASSET_CACHE_CONTROL;
 }
 

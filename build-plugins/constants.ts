@@ -614,6 +614,106 @@ export const TELEMETRY_SANITIZER_JS = fs.readFileSync(new NodeURL('../services/a
 export const THIRD_PARTY_DOCUMENT_GUARD_JS = fs.readFileSync(new NodeURL('../services/thirdPartyDocumentPrivacy.js', import.meta.url), 'utf8').replace(/^export /m, '');
 const thirdPartyDocumentGuardCall = (retry?: string) => `if((${THIRD_PARTY_DOCUMENT_GUARD_JS})((${TELEMETRY_SANITIZER_JS}),window,document,false${retry ? `,${retry}` : ''}))return;`;
 export const THIRD_PARTY_DOCUMENT_GUARD_CALL = thirdPartyDocumentGuardCall();
+export const META_PIXEL_ID = '1090503593451766';
+export const META_PIXEL_LOADER_CONTENT = `(function initializeMetaPixel(){
+  var sensitive = (${THIRD_PARTY_DOCUMENT_GUARD_JS});
+  var sanitize = (${TELEMETRY_SANITIZER_JS});
+  try {
+    if (window.location.hostname !== 'frontaliereticino.ch') return;
+
+    function hasAdvertisingConsent() {
+      if (window.__ftAdsConsentDecision === '${ADS_CONSENT_GRANTED}') return true;
+      if (window.__ftAdsConsentDecision === '${ADS_CONSENT_DENIED}') return false;
+      try {
+        return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}') === '${ADS_CONSENT_GRANTED}';
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function revokeConsent() {
+      window.__ftMetaPixelLastTrackedPath = null;
+      if (window.__ftMetaPixelInitialized && typeof window.fbq === 'function') {
+        window.fbq('consent', 'revoke');
+      }
+    }
+
+    function syncPageView() {
+      if (!hasAdvertisingConsent()) {
+        revokeConsent();
+        return;
+      }
+      if (window.__FT_META_PIXEL_DISABLED__) return;
+      if (sensitive(sanitize, window, document, false)) {
+        window.__FT_META_PIXEL_DISABLED__ = true;
+        return;
+      }
+
+      var currentPath = window.location.pathname.replace(/\\/+$/, '') || '/';
+      if (window.__ftMetaPixelLastTrackedPath === currentPath) return;
+
+      var f = window;
+      var b = document;
+      var n = f.fbq;
+      var t;
+      var s;
+      if (!n) {
+        n = f.fbq = function(){
+          if (n.callMethod) n.callMethod.apply(n, arguments);
+          else n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = true;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement('script');
+        t.async = true;
+        t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        t.dataset.ftMetaPixel = '1';
+        s = b.getElementsByTagName('script')[0];
+        if (s && s.parentNode) s.parentNode.insertBefore(t, s);
+        else (b.head || b.documentElement).appendChild(t);
+      }
+      if (!f.__ftMetaPixelInitialized) {
+        n('init', '${META_PIXEL_ID}');
+        f.__ftMetaPixelInitialized = true;
+      }
+      n('consent', 'grant');
+      n('track', 'PageView');
+      f.__ftMetaPixelLastTrackedPath = currentPath;
+    }
+
+    function syncConsent() {
+      if (!hasAdvertisingConsent()) {
+        revokeConsent();
+        return;
+      }
+      syncPageView();
+    }
+
+    window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}', syncConsent);
+    window.addEventListener('storage', function(event) {
+      if (!event.key || event.key === '${ADS_CONSENT_STORAGE_KEY}') syncConsent();
+    });
+    syncConsent();
+  } catch (error) {
+    // Pixel failures or unreadable privacy context must not affect navigation.
+    window.__FT_META_PIXEL_DISABLED__ = true;
+  }
+})();`;
+export const META_PIXEL_LOADER_FILENAME = `meta-pixel-base-code-${createHash('sha256')
+  .update(META_PIXEL_LOADER_CONTENT)
+  .digest('hex')
+  .slice(0, 12)}.js`;
+export const META_PIXEL_MARKER = '<!-- Meta Pixel Code -->';
+export const META_PIXEL_BASE_CODE = `${META_PIXEL_MARKER}
+<script defer src="/assets/${META_PIXEL_LOADER_FILENAME}"></script>
+<!-- End Meta Pixel Code -->`;
+export const META_PIXEL_MANIFEST_FINGERPRINT = createHash('sha256')
+  .update(META_PIXEL_BASE_CODE)
+  .update(META_PIXEL_LOADER_CONTENT)
+  .digest('hex');
 export const GTAG_INIT_CONTENT = `(function(){if((${GA4_BOT_GATE_FN})())return;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',Object.assign({transport_type:'beacon',send_page_view:false},(${TELEMETRY_SANITIZER_JS})({page_location:location.href,page_referrer:document.referrer})));gtag('event','page_view',(${TELEMETRY_SANITIZER_JS})({page_path:location.pathname,page_location:location.href,page_referrer:document.referrer,page_title:document.title,emission_id:emissionId}));})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
 // New HTML references a content-addressed filename so a stale edge copy of
