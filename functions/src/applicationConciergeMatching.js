@@ -734,6 +734,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       CONCIERGE_ELIGIBILITY_VERSION,
       service.cvStorageKey,
       profile,
+      eligibilityFactsRevision,
     ])).digest('hex');
     const rankingContext = createHash('sha256').update(JSON.stringify([
       APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -741,7 +742,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       profile,
       candidateLocation,
       rankingFeedbackContext(existingData),
-      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
+      eligibilityFactsRevision,
     ])).digest('hex');
     const eligibilityRecoveryContext = createHash('sha256').update(JSON.stringify([
       CONCIERGE_ELIGIBILITY_VERSION,
@@ -749,7 +750,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       service.cvStorageKey,
       profile,
       candidateLocation,
-      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
+      eligibilityFactsRevision,
     ])).digest('hex');
     const retryJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(eligibilityContext, job)]));
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
