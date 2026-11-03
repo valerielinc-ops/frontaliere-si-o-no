@@ -39,6 +39,19 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, url: slashReceiptUrl }, { applyUrl, job })).toBe(true);
   });
 
+  it('recognizes Helsana receipt copy after the verified SuccessFactors route redirects to root', () => {
+    const helsanaApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/970403401/?locale=de_DE';
+    const helsanaRoot = {
+      url: 'https://careers.helsana.ch/',
+      text: 'Mit der weiteren Nutzung dieser Website und der Navigation auf dieser Website stimmen Sie der Verwendung von Cookies zu. Vielen Dank. Wir haben deine Unterlagen erhalten.',
+      fields: [],
+      buttons: [{ text: 'Akzeptieren' }, { text: 'Schließen' }],
+    };
+    const context = { applyUrl: helsanaApplyUrl, postingEntry: true, job: { title: 'Group Controller (a) 80-100%' } };
+    expect(applicationReceipt(helsanaRoot, context)).toBe(true);
+    expect(applicationStage(helsanaRoot, context)).toMatchObject({ kind: 'receipt' });
+  });
+
   it('does not bind a repeated title without an explicit posting route or key', () => {
     const titleOnlyReceipt = { ...receipt, url: `${origin}/Careers/complete/` };
     expect(applicationReceipt(titleOnlyReceipt, { applyUrl, job })).toBe(false);

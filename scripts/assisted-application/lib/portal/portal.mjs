@@ -948,11 +948,6 @@ const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[s
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
 const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
-// Some consent managers render the disclosure copy outside the button's local
-// zone. Keep generic accept labels scoped to an active banner whose page
-// snapshot still contains an explicit consent statement, rather than treating
-// every "Accept" button on an otherwise unrelated page as a cookie control.
-const COOKIE_CONSENT_COPY_RE = /(?:\b(?:agree|consent|accept|stimmen|einverstanden|akzeptier(?:en|e|t)|accepter|acceptez|accett(?:a|are|o))\b[\s\S]{0,180}\bcookies?\b|\bcookies?\b[\s\S]{0,180}\b(?:agree|consent|accept|stimmen|einverstanden|akzeptier(?:en|e|t)|accepter|acceptez|accett(?:a|are|o))\b)/i;
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -965,7 +960,7 @@ const cookieSupportingContext = (button) => {
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
-async function cookieControlHasCookieContext(page, button, snapshot) {
+async function cookieControlHasCookieContext(page, button) {
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -976,13 +971,8 @@ async function cookieControlHasCookieContext(page, button, snapshot) {
     }
   }
   const supportingContext = cookieSupportingContext(button);
-  const genericBannerAccept = COOKIE_GENERIC_ACCEPT_LABEL_RE.test(
-    [button.text, button.label, button.ariaLabel, button.title]
-      .map(value => String(value || '').trim()).find(Boolean) || '',
-  );
   return button.cookieSurface === 'banner'
-    && (COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`)
-      || (genericBannerAccept && COOKIE_CONSENT_COPY_RE.test(String(snapshot?.text || ''))));
+    && COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`);
 }
 
 async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
@@ -991,7 +981,7 @@ async function findCookieControl(page, snapshot, pattern, { genericPreferences =
     const label = [button.text, button.label, button.ariaLabel, button.title]
       .map(value => String(value || '').trim()).find(Boolean) || '';
     if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
-    if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
+    if (await cookieControlHasCookieContext(page, button)) return button;
   }
   return null;
 }
@@ -4295,7 +4285,7 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job });
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job, postingEntry: verifiedPostingEntry });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // An allowlisted ATS may keep later, unconditional steps mounted with
@@ -4399,6 +4389,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
+  const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
@@ -4445,7 +4436,7 @@ export async function submitViaPortal(ctx) {
   };
   const controlsFor = async (current, known) => {
     const snapshot = { ...current, text: await pageText(page), uploadedCv: uploadedCvUrls.has(page.url()) };
-    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     if (controls.stage) {
       const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
       const lastStep = evidence.steps.at(-1);
@@ -4456,7 +4447,7 @@ export async function submitViaPortal(ctx) {
   };
   const confirmedReceipt = async (current) => {
     const snapshot = { ...current, text: await pageText(page) };
-    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job, url: page.url() });
+    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url() });
     if (stage.kind !== 'receipt') return null;
     const lastStep = evidence.steps.at(-1);
     if (lastStep) lastStep.applicationStage = { kind: 'receipt' };
@@ -4493,7 +4484,6 @@ export async function submitViaPortal(ctx) {
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const entryUrl = portalEntryUrl(ctx);
-    const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
     await diagnostics.beginAttempt();
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
@@ -4524,7 +4514,7 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
@@ -4763,7 +4753,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -4859,7 +4849,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
