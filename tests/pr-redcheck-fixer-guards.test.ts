@@ -97,6 +97,19 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
     expect(TESTS).toContain("label?.name === 'agent:autofix'");
   });
 
+  it('ritenta il primo snapshot PR con budget bounded in entrambi i fixer', () => {
+    for (const workflow of [src, TWIN]) {
+      expect(workflow).toContain('GH_CALL_RETRY_ATTEMPTS=3');
+      expect(workflow).toContain('GH_CALL_RETRY_DELAY_SECONDS=2');
+      expect(workflow).toContain('gh_bounded_retry()');
+      expect(workflow).toContain('sleep "$((GH_CALL_RETRY_DELAY_SECONDS * attempt))"');
+      expect(workflow).toContain('return 1');
+      expect(workflow).toContain('fail-closed');
+    }
+    expect(src).toContain('gh_bounded_retry gh api "repos/$REPO/pulls/$PR"');
+    expect(TWIN).toContain('gh_bounded_retry "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER"');
+  });
+
   it('serializza i body writer per PR e cancella il precedente prima del nuovo CAS', () => {
     expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.inputs\.pr \}\}/);
     expect(src).toMatch(/cancel-in-progress: true/);
