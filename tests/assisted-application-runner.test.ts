@@ -891,7 +891,7 @@ describe('submit mode', () => {
       throw new Error('diagnostics failed after receipt');
     };
     const event = await submitApplication({
-      order, orderId: ORDER_ID, flow: { answers: {} }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
       codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(store.db, ORDER_ID, 1),
     });
@@ -914,7 +914,7 @@ describe('submit mode', () => {
       return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: [] } };
     };
     const event = await submitApplication({
-      order, orderId: ORDER_ID, flow: { answers: {} }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
       codex: vi.fn(), portalRunner, submissionGuard: guard,
     });
