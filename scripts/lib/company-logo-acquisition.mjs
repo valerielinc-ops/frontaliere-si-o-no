@@ -106,6 +106,7 @@ export const DOMAIN_OVERRIDES = {
   'fondation-domus': ['fondation-domus.ch'],
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
+  'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
