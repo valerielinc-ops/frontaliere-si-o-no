@@ -325,43 +325,52 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     expect(PREFERRED_SEND_REFRESH_INTERVAL_MS).toBe(6 * 60 * 60 * 1000);
   });
 
-  it('uses the legacy all-event order/limit query without a server-side type filter', async () => {
+  it('uses the legacy open/click order/limit query', async () => {
     const { ref, eventsWhere, eventsOrderBy, eventsLimit } = createFakeSubscriberRef();
 
     await refreshPreferredSendHour(ref as never, fakeFieldValue());
 
-    expect(eventsWhere()).toBeNull();
+    expect(eventsWhere()).toEqual({
+      field: 'event_type',
+      operator: 'in',
+      value: ['open', 'click'],
+    });
     expect(eventsOrderBy()).toEqual({ field: 'occurred_at', direction: 'desc' });
     expect(eventsLimit()).toBe(PREFERRED_SEND_HOUR_BUFFER_SIZE);
   });
 
-  it('backfills all event types with exactly one legacy query and never queries it again', async () => {
+  it('backfills only open/click with exactly one legacy query and never queries it again', async () => {
     const events = [
       { event_type: 'send', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
       { event_type: 'delivered', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
       { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+      { event_type: 'click', occurred_at: new Date(Date.now() - 4 * 86400000).toISOString() },
     ];
     const fake = createFakeSubscriberRef({ events });
 
-    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue(), {
+      type: 'send',
+      occurredAt: new Date(),
+    });
 
     expect(fake.eventsQueryCount()).toBe(1);
     const buffer = fake.docData()?.preferred_send_hour_buffer as Array<Record<string, unknown>>;
-    expect(buffer).toHaveLength(3);
-    expect(buffer.map((entry) => entry.event_type)).toEqual(['open', 'delivered', 'send']);
+    expect(buffer).toHaveLength(2);
+    expect(buffer.map((entry) => entry.event_type)).toEqual(['click', 'open']);
     expect(buffer.every((entry) => Number.isInteger(entry.hour_utc)
       && (entry.hour_utc as number) >= 0 && (entry.hour_utc as number) <= 23)).toBe(true);
-    expect(fake.docData()?.preferred_send_hour_buffer_last_timestamp).toBe(events[0].occurred_at);
+    expect(fake.docData()?.preferred_send_hour_buffer_last_timestamp).toBe(events[2].occurred_at);
 
-    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue(), {
+      type: 'delivered',
+      occurredAt: new Date(),
+    });
     expect(fake.eventsQueryCount()).toBe(1);
   });
 
-  it('keeps send/delivered in the buffer but estimates from open/click only', async () => {
+  it('does not insert send/delivered into an existing open/click buffer', async () => {
     const occurredAt = new Date(Date.now() - 24 * 60 * 60 * 1000);
     const events = [
-      { type: 'send', occurredAt },
-      { type: 'delivered', occurredAt },
       { type: 'open', occurredAt },
       { type: 'click', occurredAt },
     ];
@@ -374,27 +383,26 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
       },
     });
 
-    const result = await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+    const result = await refreshPreferredSendHour(fake.ref as never, fakeFieldValue(), {
+      type: 'delivered',
+      occurredAt: new Date(),
+    });
 
     expect(fake.eventsQueryCount()).toBe(0);
-    expect(result).toMatchObject(computePreferredSendHour(
-      events.filter((event) => event.type === 'open' || event.type === 'click'),
-    ));
+    expect(result).toMatchObject(computePreferredSendHour(events));
     expect((fake.docData()?.preferred_send_hour_buffer as Array<Record<string, unknown>>)
-      .map((entry) => entry.event_type)).toEqual(['send', 'delivered', 'open', 'click']);
+      .map((entry) => entry.event_type)).toEqual(['open', 'click']);
     expect(result.sampleCount).toBe(2);
     expect(result.updated).toBe(true);
   });
 
-  it('matches the legacy calculation on a mixed 300-event window', async () => {
+  it('matches computePreferredSendHour on a 300 open/click window', async () => {
     const occurredAt = new Date(Date.now() - 24 * 60 * 60 * 1000);
     const events = Array.from({ length: PREFERRED_SEND_HOUR_BUFFER_SIZE }, (_, index) => ({
-      type: ['send', 'delivered', 'open', 'click', 'bounce'][index % 5],
+      type: index % 2 === 0 ? 'open' : 'click',
       occurredAt,
     }));
-    const expected = computePreferredSendHour(
-      events.filter((event) => event.type === 'open' || event.type === 'click'),
-    );
+    const expected = computePreferredSendHour(events);
     const fake = createFakeSubscriberRef({
       docData: {
         preferred_send_hour_buffer: events.map((event) => bufferEntry(event.type, event.occurredAt)),
@@ -411,12 +419,12 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     expect(result.strength).toBe(expected.strength);
   });
 
-  it('truncates a mixed circular buffer to the 300 newest events', async () => {
+  it('truncates an open/click circular buffer to the 300 newest events', async () => {
     const hour = 60 * 60 * 1000;
     const currentAt = new Date(Date.now() - 30 * 60 * 1000);
     const firstAt = new Date(currentAt.getTime() - 300 * hour);
     const initialBuffer = Array.from({ length: PREFERRED_SEND_HOUR_BUFFER_SIZE }, (_, index) => (
-      bufferEntry(['send', 'delivered', 'open', 'click'][index % 4], new Date(firstAt.getTime() + index * hour))
+      bufferEntry(index % 2 === 0 ? 'open' : 'click', new Date(firstAt.getTime() + index * hour))
     ));
     const fake = createFakeSubscriberRef({
       docData: {
@@ -428,7 +436,7 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     });
 
     await refreshPreferredSendHour(fake.ref as never, fakeFieldValue(), {
-      type: 'send',
+      type: 'click',
       occurredAt: currentAt,
     });
 
@@ -437,7 +445,7 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     expect(buffer).toHaveLength(PREFERRED_SEND_HOUR_BUFFER_SIZE);
     expect(buffer[0].occurred_at).toBe(initialBuffer[1].occurred_at);
     expect(buffer.at(-1)).toMatchObject({
-      event_type: 'send',
+      event_type: 'click',
       hour_utc: currentAt.getUTCHours(),
       occurred_at: currentAt.toISOString(),
     });
@@ -446,8 +454,6 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
   it('uses a present buffer without querying the events subcollection', async () => {
     const occurredAt = new Date(Date.now() - 24 * 60 * 60 * 1000);
     const events = [
-      { type: 'send', occurredAt },
-      { type: 'delivered', occurredAt },
       { type: 'open', occurredAt },
       { type: 'click', occurredAt },
     ];
@@ -668,11 +674,13 @@ describe('refreshPreferredSendHour — error handling (catch path, #3798 code re
       collection: (name: string) => {
         if (name !== 'events') throw new Error(`unexpected subcollection: ${name}`);
         return {
-          orderBy: () => ({
-            limit: () => ({
-              get: async () => {
-                throw new Error('boom-events-query');
-              },
+          where: () => ({
+            orderBy: () => ({
+              limit: () => ({
+                get: async () => {
+                  throw new Error('boom-events-query');
+                },
+              }),
             }),
           }),
         };

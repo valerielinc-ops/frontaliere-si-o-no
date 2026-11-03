@@ -421,8 +421,11 @@ export async function persistMailerooEvent(db, event) {
     await refreshEngagementScore(subscriberRef, FieldValue);
   }
 
-  // Refresh the all-event preferred-send-hour buffer after the event log write.
-  await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+  // Refresh preferred send hour after the event log write. Only open/click
+  // events belong to the preferred-send-hour window.
+  if (type === 'open' || type === 'click') {
+    await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+  }
 
   return { processed: true, type, email, campaignId };
 }
@@ -517,8 +520,11 @@ async function persistJobAlertMailerooEvent(db, {
     }
   }
 
-  // Refresh the all-event preferred-send-hour buffer after the event log write.
-  await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+  // Refresh preferred send hour after the event log write. Only open/click
+  // events belong to the preferred-send-hour window.
+  if (type === 'open' || type === 'click') {
+    await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+  }
 
   return { processed: true, type, email, collection: 'job_alert_subscribers' };
 }

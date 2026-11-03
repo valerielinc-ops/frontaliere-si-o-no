@@ -425,12 +425,15 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  occurred_at: occurredAt,
  });
 
- // Refresh the all-event preferred-send-hour buffer after the event log write.
+ // Refresh preferred send hour after the event log write. Only open/click
+ // events belong to the preferred-send-hour window.
+ if (type === 'open' || type === 'click') {
  await refreshPreferredSendHour(
  db.collection('newsletter_subscribers').doc(email),
  FieldValue,
  { type, occurredAt },
  );
+ }
 
  return { handled: true, email, type, campaignId };
 }
@@ -556,8 +559,11 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  });
 
  // ── Preferred send hour (#3798) ──────────────────────────────
- // Refresh the all-event preferred-send-hour buffer after the event log write.
+ // Refresh preferred send hour after the event log write. Only open/click
+ // events belong to the preferred-send-hour window.
+ if (type === 'open' || type === 'click') {
  await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+ }
 }
 
 export async function handleResendWebhookRequest({ payload, headers, webhookSecret }) {

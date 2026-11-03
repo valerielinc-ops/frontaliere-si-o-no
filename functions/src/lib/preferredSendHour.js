@@ -127,7 +127,7 @@ function preferredEventFromInput(event) {
  if (!event) return null;
  const type = event.type ?? event.event_type;
  const occurredAt = parseEventDate(event.occurredAt ?? event.occurred_at);
- if (typeof type !== 'string' || !type || !occurredAt) return null;
+ if ((type !== 'open' && type !== 'click') || !occurredAt) return null;
  return { type, occurredAt };
 }
 
@@ -142,7 +142,7 @@ function bufferEntryFromEvent(event) {
 }
 
 function bufferEntryToEvent(entry) {
- if (!entry || typeof entry.event_type !== 'string' || !entry.event_type) return null;
+ if (!entry || (entry.event_type !== 'open' && entry.event_type !== 'click')) return null;
  const occurredAt = parseEventDate(entry.occurred_at);
  if (!occurredAt || !Number.isInteger(entry.hour_utc)
   || entry.hour_utc < 0 || entry.hour_utc > 23
@@ -204,6 +204,7 @@ function bufferEvents(entries) {
 function preferredEventsQuery(subscriberRef) {
  return subscriberRef
   .collection('events')
+  .where('event_type', 'in', ['open', 'click'])
   .orderBy('occurred_at', 'desc')
   .limit(PREFERRED_SEND_HOUR_BUFFER_SIZE);
 }
@@ -218,23 +219,22 @@ function isPreferredSendHourFresh(current) {
 
 /**
  * Update the subscriber's preferred-send-hour buffer and, when stale, persist
- * a freshly computed preferred send hour. Safe to call after any event —
+ * a freshly computed preferred send hour. Safe to call after any open/click —
  * failures are swallowed and logged (identical contract to
  * refreshEngagementScore).
  *
  * The subscriber document read, buffer read-modify-write, staleness gate and
  * derived-value write share one transaction. A missing buffer performs one
  * historical legacy events query in that transaction to backfill it; subsequent
- * calls never read the events subcollection again. Buffer entries retain every
- * event type and timestamp as well as the UTC hour. Only the open/click subset
- * is passed to computePreferredSendHour, which preserves its click-intent and
- * recency weighting. The separate timestamp is a watermark for the
- * backfill/update state, not a replacement for each entry's timestamp.
+ * calls never read the events subcollection again. Buffer entries retain only
+ * open/click event types, their timestamps and UTC hours. The separate
+ * timestamp is a watermark for the backfill/update state, not a replacement
+ * for each entry's timestamp.
  *
  * The staleness gate still does not engage below the sample-count threshold:
- * every additional event can change whether a cold-start subscriber clears
- * the floor. Once the buffer exists, a fresh calculation returns cached
- * derived values after recording the new event in the buffer.
+ * every additional open/click can change whether a cold-start subscriber
+ * clears the floor. Once the buffer exists, a fresh calculation returns
+ * cached derived values after recording the new open/click in the buffer.
  *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
  * @param {*} FieldValue FieldValue from firebase-admin/firestore
@@ -256,8 +256,8 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue, curren
 
    if (bufferWasMissing) {
     // The one and only historical backfill for a subscriber. Keep this query
-    // identical to the legacy window: all event types are ordered and limited
-    // first; open/click filtering happens only in bufferEvents() below.
+    // identical to the legacy window: the server-side open/click filter is
+    // applied before the occurred_at ordering and 300-row limit.
     const eventsSnap = await transaction.get(preferredEventsQuery(subscriberRef));
     buffer = bufferEntriesFromEventDocs(eventsSnap.docs || []);
    } else {

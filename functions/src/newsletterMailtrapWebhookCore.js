@@ -245,8 +245,11 @@ export async function persistMailtrapEvent(db, eventData) {
  occurred_at: occurredAt,
  });
 
- // Refresh the all-event preferred-send-hour buffer after the event log write.
+ // Refresh preferred send hour after the event log write. Only open/click
+ // events belong to the preferred-send-hour window.
+ if (type === 'open' || type === 'click') {
  await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+ }
 
  return { processed: true, type, email, campaignId };
 }
@@ -309,8 +312,11 @@ async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messag
  occurred_at: occurredAt,
  });
 
- // Refresh the all-event preferred-send-hour buffer after the event log write.
+ // Refresh preferred send hour after the event log write. Only open/click
+ // events belong to the preferred-send-hour window.
+ if (type === 'open' || type === 'click') {
  await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
+ }
 
  return { processed: true, type, email, collection: 'job_alert_subscribers' };
 }

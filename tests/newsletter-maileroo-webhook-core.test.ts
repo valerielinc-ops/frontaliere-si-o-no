@@ -10,7 +10,7 @@ import crypto from 'crypto';
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events')`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
  * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
@@ -54,6 +54,7 @@ function createFakeDb(
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
           const query = {
+            where: () => query,
             orderBy: () => query,
             limit: () => query,
             get: async () => {
@@ -182,8 +183,7 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(first).toMatchObject({ processed: true, type: 'delivered' });
     expect(second).toEqual({ skipped: true, reason: 'duplicate' });
     expect(db.__creates).toHaveLength(1);
-    // One subscriber update plus the all-event preferred-send-hour buffer write.
-    expect(db.__sets.filter((entry) => entry.collection === 'newsletter_subscribers').length).toBe(2);
+    expect(db.__sets.filter((entry) => entry.collection === 'newsletter_subscribers').length).toBe(1);
   });
 
   it('deduplicates job-alert events on the same provider event_id', async () => {

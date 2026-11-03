@@ -7,15 +7,14 @@ immediate send) when there isn't enough personal signal yet.
 
 ## How it works
 
-1. **Signal** — every webhook event (all 5 ESP webhook cores: Resend,
-   Mailjet, Mailgun, Mailtrap, Maileroo) calls
+1. **Signal** — every open/click webhook event (all 5 ESP webhook cores:
+   Resend, Mailjet, Mailgun, Mailtrap, Maileroo) calls
    `refreshPreferredSendHour` (`functions/src/lib/preferredSendHour.js`)
    after updating the engagement score and writing the event log. The first
-   call for a subscriber backfills an up-to-300-entry buffer from the existing
-   `events` subcollection using the legacy all-event window; all later calls
-   update that subscriber field transactionally without reading the
-   subcollection. The buffer retains every event's UTC hour, type and timestamp;
-   calculation filters that buffer to open/click before applying the existing
+   call for a subscriber backfills the 300 most recent open/click events from
+   the existing `events` subcollection; all later calls update that subscriber
+   field transactionally without reading the subcollection. The buffer retains
+   each open/click event's UTC hour, type and timestamp for the existing
    **intent- and recency-weighted circular mean**. Clicks have 2.5x the weight
    of opens, while event influence decays continuously with a 4-day half-life;
    the 180-day lookback window remains in place.
@@ -47,11 +46,11 @@ immediate send) when there isn't enough personal signal yet.
 ## End-to-end flow
 
 ```
-any webhook event (any of the 5 ESP cores)
+open/click webhook (any of the 5 ESP cores)
         │
         ▼
 refreshPreferredSendHour(subscriberRef, FieldValue, currentEvent)
-        │  (all-event buffer; open/click subset for the circular mean)
+        │  (circular mean over the open/click buffer, 3-event cold-start floor)
         ▼
 newsletter_subscribers/{email} or job_alert_subscribers/{email}:
   preferred_send_hour_utc / preferred_send_sample_count /
@@ -162,7 +161,7 @@ subscriber.
 | `newsletter_subscribers/{email}` | `preferred_send_sample_count` | Qualifying open/click events behind the mean |
 | `newsletter_subscribers/{email}` | `preferred_send_strength` | Circular concentration, 0-1 |
 | `newsletter_subscribers/{email}` | `preferred_send_updated_at` | Last refresh timestamp |
-| `newsletter_subscribers/{email}` | `preferred_send_hour_buffer` | Up to 300 events of any type with `event_type`, `hour_utc` and `occurred_at` |
+| `newsletter_subscribers/{email}` | `preferred_send_hour_buffer` | Up to 300 open/click events with `event_type`, `hour_utc` and `occurred_at` |
 | `newsletter_subscribers/{email}` | `preferred_send_hour_buffer_last_timestamp` | Newest event timestamp represented/considered by the buffer |
 | `job_alert_subscribers/{email}` | (same preferred-send fields as above) | Same meaning, independent per-collection signal |
 | `newsletter_subscribers/_meta_` | `global_preferred_send_hour_utc` | Site-wide fallback hour, UTC 0-23, or `null` |

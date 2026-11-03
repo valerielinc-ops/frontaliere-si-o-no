@@ -4,7 +4,7 @@ import { persistMailgunEvent } from '../functions/src/newsletterMailgunWebhookCo
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events')`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
  * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
@@ -42,6 +42,7 @@ function createFakeDb(
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
           const query = {
+            where: () => query,
             orderBy: () => query,
             limit: () => query,
             get: async () => {

@@ -6,7 +6,7 @@ import { persistMailjetEvent, handleMailjetWebhookRequest } from '../functions/s
  *
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events')`
+ * `.collection('events').where('event_type', 'in', ['open', 'click'])`
  * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
@@ -43,6 +43,7 @@ function createFakeDb(
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
           const query = {
+            where: () => query,
             orderBy: () => query,
             limit: () => query,
             get: async () => {
@@ -211,7 +212,7 @@ describe('newsletterMailjetWebhookCore', () => {
           { event_type: 'open', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
           { event_type: 'click', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
           { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
-          // Wrong type — must be filtered out client-side (no where clause).
+          // Wrong type — defensive client-side filtering still discards it.
           { event_type: 'bounce', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
         ],
       });
@@ -235,7 +236,7 @@ describe('newsletterMailjetWebhookCore', () => {
       expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
     });
 
-    it('updates the all-event preferred-send-hour buffer on a "sent" event', async () => {
+    it('does NOT refresh preferred_send_hour on a "sent" event (no time-of-day signal)', async () => {
       const db = createFakeDb();
 
       await persistMailjetEvent(db as any, {
@@ -249,8 +250,7 @@ describe('newsletterMailjetWebhookCore', () => {
       const preferredSet = db.__sets.find(
         (s) => s.collection === 'newsletter_subscribers' && 'preferred_send_sample_count' in s.data,
       );
-      expect(preferredSet).toBeTruthy();
-      expect(preferredSet!.data.preferred_send_sample_count).toBe(0);
+      expect(preferredSet).toBeUndefined();
     });
 
     it('processes "bounce" event and marks subscriber as bounced', async () => {
