@@ -625,18 +625,38 @@ const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALL
   || isGalleryPagingButton(button, GALLERY_NEXT_RE);
 const isGalleryToolButton = (button) => !button?.chrome
   && (GALLERY_VIEW_RE.test(String(button.text || '')) || GALLERY_PRINT_RE.test(String(button.text || '')));
-const portalControlIdentity = (control) => `${control?.frame || 0}\u0000${String(control?.formId || '')}`;
+const portalControlScope = (control) => `${control?.frame || 0}\u0000${String(control?.formId || '')}`;
+const portalControlIdentity = (control) => {
+  const controlId = String(control?.id || control?.domId || '').trim();
+  // Real snapshots carry the generated data-aa-id. Minimal contract fixtures
+  // may omit it; retaining the record itself keeps those exact objects
+  // distinguishable without inventing an array-position fallback.
+  return controlId ? `${portalControlScope(control)}\u0000${controlId}` : control;
+};
 const isGenericOptionalAttachment = (field) => isFileField(field)
   && field.required !== true
   && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
 
-const galleryToolIdentities = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlIdentity));
+const controlOwnershipText = (button) => [
+  button?.id,
+  button?.domId,
+  button?.name,
+  button?.label,
+  button?.title,
+  button?.ariaLabel,
+  button?.dataAutomationId,
+  button?.section,
+  button?.context,
+  button?.fileContext,
+].filter(Boolean).join(' ');
+const isApplicationControl = (button) => APPLICATION_CONTROL_RE.test(controlOwnershipText(button));
+const galleryToolScopes = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlScope));
 
 function galleryNavigationButtons(buttons) {
-  const galleryTools = galleryToolIdentities(buttons);
+  const galleryTools = galleryToolScopes(buttons);
   return new Set(buttons.filter((button) => isGalleryNavigationButton(button)
-    && !APPLICATION_CONTROL_RE.test(String(button.text || ''))
-    && galleryTools.has(portalControlIdentity(button))));
+    && !isApplicationControl(button)
+    && galleryTools.has(portalControlScope(button))).map(portalControlIdentity));
 }
 
 /**
@@ -650,7 +670,6 @@ function galleryNavigationButtons(buttons) {
 function isNonApplicationGallerySurface(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
-  const galleryTools = galleryToolIdentities(buttons);
   const galleryButtons = galleryNavigationButtons(buttons);
   const hasPaging = galleryButtons.size > 0;
   const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
@@ -664,13 +683,13 @@ function isNonApplicationGallerySurface(snapshot = {}) {
     // A public gallery may wrap its pager and generic optional attachment in
     // one HTML form. The shared form id is not application ownership when the
     // control itself is the gallery's «Vorheriges»/«Nächstes» navigation.
-    if (button?.chrome || button?.disabled || galleryTools.has(portalControlIdentity(button))) return false;
+    if (button?.chrome || button?.disabled || galleryButtons.has(portalControlIdentity(button))) return false;
     const text = String(button.text || '');
     if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
     return true;
   }) || buttons.some((button) => !button?.chrome
     && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || '')))
-    && APPLICATION_CONTROL_RE.test(String(button.text || '')));
+    && isApplicationControl(button));
   if (hasApplicationField || hasApplicationControl) return false;
   return fields.length === 0 || fields.every(isGenericOptionalAttachment);
 }
