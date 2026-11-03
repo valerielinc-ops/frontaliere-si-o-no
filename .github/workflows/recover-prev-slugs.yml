@@ -68,10 +68,10 @@ jobs:
     runs-on: ubuntu-latest
     # Runs 37832659303 and 37977831139 both exhausted the 5min shallow-since
     # cap and then the 21min unshallow cap. Keep the same scan coverage, but
-    # allow the observed slow fetches to finish: 5 (Checkout) + 15 (targeted
-    # fetch) + 30 (complete-history fallback) + 8 (remaining pipeline) = 58;
-    # 60 leaves two minutes of job-level margin.
-    timeout-minutes: 60
+    # allow the observed slow fetches to finish: 10 (Checkout) + 15 (targeted
+    # fetch) + 30 (complete-history fallback) + 8 (remaining pipeline) = 63;
+    # 70 leaves seven minutes of job-level margin.
+    timeout-minutes: 70
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -98,7 +98,13 @@ jobs:
           # attivando `--filter=blob:none`. Il fix sotto usa `--shallow-since`
           # (limite di PROFONDITÀ, non di contenuto): ogni commit che porta
           # dentro mantiene i suoi blob completi in locale — nessun lazy-fetch.
-        timeout-minutes: 5
+        # The initial depth-1 fetch still transfers the complete current tree:
+        # this scanner must read historical slice blobs with cat-file, so a
+        # blobless checkout would replace one bounded fetch with many lazy
+        # requests and stall the scan. The repository has grown past the old
+        # five-minute ceiling: run 41712693716 timed out in this fetch before
+        # any recovery step could start.
+        timeout-minutes: 10
 
       - name: Deepen checkout to scan window
         # Same idiom as crawler-data-quality-audit.yml's "Deepen history for
