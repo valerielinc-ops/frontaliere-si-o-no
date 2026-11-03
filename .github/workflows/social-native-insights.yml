@@ -1,0 +1,111 @@
+name: Social native insights
+
+on:
+  schedule:
+    # Keeps exact-age post windows and daily audience snapshots; TikTok remains policy-gated.
+    - cron: '15 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: social-native-insights-collection
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo 'FIREBASE_SERVICE_ACCOUNT_JSON is required for the social insights collector.' >&2
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Collect private social post and audience metrics
+        id: collect
+        env:
+          TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
+          LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: ${{ vars.LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          only_env_keys='FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN'
+          if [ "$GITHUB_EVENT_NAME" != schedule ] || [ "$(date -u +%H)" = 00 ]; then
+            only_env_keys="$only_env_keys,LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN"
+          fi
+          if [ "${TIKTOK_DISPLAY_ANALYTICS_APPROVED:-}" = true ]; then
+            only_env_keys="$only_env_keys,TIKTOK_CLIENT_KEY,TIKTOK_CLIENT_SECRET,TIKTOK_ACCESS_TOKEN,TIKTOK_REFRESH_TOKEN"
+          fi
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs "--only-env=$only_env_keys")"
+          eval "$rc_exports"
+          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%H)" != 00 ]; then
+            node scripts/social-native-insights.mjs --skip-linkedin
+          else
+            node scripts/social-native-insights.mjs
+          fi
+
+      - name: Reconcile frozen social-copy registrations and winners
+        if: ${{ steps.collect.outcome == 'success' }}
+        env:
+          LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: ${{ vars.LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED }}
+        shell: bash
+        run: node scripts/social-copy/experiment-protocol.mjs
+
+      - name: Refresh daily GA4 social key-event series
+        id: site-outcomes
+        if: ${{ always() && github.event_name == 'schedule' && steps.collect.outcome != 'skipped' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$(date -u +%u)" = 1 ] && [ "$(date -u +%H)" = 00 ]; then
+            rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GA4_PROPERTY_ID)"
+            eval "$rc_exports"
+            node scripts/social-site-outcomes.mjs
+          fi
+
+      - name: Append weekly deterministic growth and freshness scorecard
+        if: ${{ always() && github.event_name == 'schedule' && steps.collect.outcome != 'skipped' }}
+        env:
+          TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$(date -u +%u)" = 1 ] && [ "$(date -u +%H)" = 00 ]; then
+            node scripts/social-growth-scorecard.mjs --summary --persist-health
+          fi
+
+      - name: Report aggregate stale social publish reservations
+        if: ${{ always() && steps.collect.outcome != 'skipped' }}
+        shell: bash
+        run: node scripts/social-publish-reservations.mjs --summary-all >> "$GITHUB_STEP_SUMMARY"

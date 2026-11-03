@@ -1,35 +1,34 @@
-# Robot social (Instagram e TikTok)
+# Robot social (Instagram; TikTok in sola lettura)
 
-Pubblica i caroselli giornalieri (articoli e lavori più visti di ieri, dogane
-più veloci della settimana) e i Reel sperimentali controllati su Instagram,
-oltre ai contenuti TikTok, **dal browser reale** del Mac host agenti, con
-Playwright e un profilo Chrome persistente. Il trasporto dei post, degli
-Insights e della community passa dall'interfaccia visibile del browser; il
-Graph API resta soltanto un fallback esplicito per le Stories.
+Il robot pubblica i caroselli giornalieri su Instagram dal browser del Mac
+agenti. I Reel sperimentali usano la Graph API ufficiale e non passano dal
+browser. TikTok è escluso dalla pubblicazione automatica:
+il workflow `tiktok-daily-broadcast.yml` è ora solo un'anteprima manuale,
+`post-to-tiktok.mjs` blocca ogni invio reale e il robot filtra TikTok anche
+quando viene richiesto esplicitamente. La raccolta TikTok usa un workflow
+separato e di sola lettura per gli Insights autorizzati.
 
-**Decisione del proprietario, 2026-10-04 (issue 9798 e 7648).** Il
-proprietario accetta il rischio che Instagram e TikTok, secondo i loro termini
-d'uso, limitino o sospendano un account che pubblica tramite automazione. Per
-questo il robot ha una cadenza bassa e dichiarata, ritardi casuali, e non
-insiste mai dopo un errore.
+La precedente decisione del 2026-10-04 su cadenza e rischio dell'automazione
+descrive il comportamento storico. Non autorizza più l'invio automatico su
+TikTok alla luce delle linee guida correnti per i client di pubblicazione.
 
 ## Come funziona
 
-1. I poster giornalieri (`scripts/post-to-instagram.mjs`,
-   `scripts/post-to-tiktok.mjs`, workflow `*-daily-broadcast.yml`) scelgono il
-   carosello, generano le slide, le caricano sulla CDN e, quando il robot è il
+1. Il poster Instagram (`scripts/post-to-instagram.mjs`, workflow
+   `instagram-daily-broadcast.yml`) sceglie il carosello, genera le slide,
+   le carica sulla CDN e, quando il robot è il
    trasporto, mettono il post pronto in `data/<canale>-queue.json` su `main`
    (`scripts/lib/social-publish-queue.mjs`). Il workflow schedulato
    `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
-   generare una cover e un MP4 verticale, con `kind: reel` e ledger separato.
-   Per TikTok la voce in coda porta anche un MP4 fatto dalle stesse slide,
-   perché l'upload web accetta solo video. È la stessa deduplica e lo stesso
-   ledger della pipeline, ma il robot non decide cosa pubblicare.
-2. Il robot (`run.mjs`) legge la coda da `origin/main`, scarica le slide
-   Instagram, il Reel MP4 verticale o l'MP4 TikTok verificato dalla CDN e li
-   pubblica dalla pagina web della piattaforma. Una voce con `video` sul canale
-   Instagram seleziona il composer Reel; senza `video` resta nel composer Post.
-3. Solo dopo aver **visto la conferma** della piattaforma nella pagina,
+   generare cover e MP4, pubblicarli con il container Graph API `REELS`, e
+   registrare l'esatto `mediaId` restituito da Meta. Il workflow rilegge le
+   vecchie voci Reel in coda e, se complete e ancora non pubblicate, le migra
+   alla Graph API. Il workflow TikTok omonimo è solo un'anteprima manuale e
+   non crea code.
+2. Il robot (`run.mjs`) legge la coda Instagram da `origin/main` e pubblica i
+   caroselli dalla pagina web della piattaforma. Eventuali voci Reel legacy
+   restano in hold nel robot e vengono pubblicate solo dal workflow Graph API.
+3. Solo dopo aver **visto la conferma** del carosello nella pagina,
    lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
    `data/<canale>-posted.json`. Un clic senza conferma visibile — o seguito da
    qualunque errore, anche una verifica o un muro di login — resta
@@ -37,15 +36,13 @@ insiste mai dopo un errore.
    **si ferma su quella piattaforma** finché un umano non risolve la riga.
    Non preme nemmeno un post successivo che ripete gli stessi articoli di un
    clic non ancora arrivato nel ledger. Subito dopo la pubblicazione il
-   worker Chrome apre Inbox Instagram/Business Suite, risponde una sola volta
-   per thread accessibile e registra gli Insights leggendo le metriche visibili
-   nel Professional Dashboard.
+   worker Chrome apre Inbox Instagram/Business Suite in sola lettura e registra
+   gli Insights leggendo le metriche visibili nel Professional Dashboard. Le
+   risposte community passano solo dal Graph API esplicitamente selezionato.
 
-Un clic senza conferma ora prova a risolversi da solo: al giro successivo il
-robot cerca la caption nella lista post di TikTok Studio e, se la trova,
-registra il post nel ledger e riparte. Se non la trova il canale resta fermo e
-la issue `needs-human` viene riaperta ogni 24 ore: un blocco non può più
-restare silenzioso come quello del 20-31 ottobre 2026.
+Le funzioni storiche di riconciliazione TikTok restano nel codice per leggere
+eventuali record preesistenti, ma il robot non avvia più il browser TikTok e
+non cerca né pubblica nuovi contenuti su quel canale.
 
 Risolvere a mano un `unconfirmed` (nel journal
 `~/Library/Application Support/frontaliere/social-robot/journal.json`):
@@ -59,11 +56,11 @@ gestione ordinaria dei contenuti.
 
 Parametro `SOCIAL_ROBOT_MODE`, letto dai poster in Actions e dal robot sul Mac:
 
-| Valore | Poster | Robot |
-|---|---|---|
-| `off` | solo API, come prima | non fa nulla |
-| `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali, altrimenti coda | arriva al bottone di pubblicazione, screenshot, non preme |
-| `live` | mai API, sempre coda | preme il bottone (se lanciato con `--publish`) |
+| Valore | Caroselli | Reel | Robot |
+|---|---|---|---|
+| `off` | solo API | Graph API se le credenziali sono configurate | non fa nulla |
+| `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali, altrimenti coda | Graph API se le credenziali sono configurate | arriva al bottone dei caroselli, screenshot, non preme |
+| `live` | sempre coda | Graph API se le credenziali sono configurate | pubblica solo caroselli Instagram in coda; TikTok è filtrato |
 
 In `live`, la stessa finestra avvia il worker browser di community e Insights.
 Il profilo Chrome persistente è la sola autenticazione necessaria; se la
@@ -79,9 +76,10 @@ li maschera nei log di CI.
 
 Il worker legge dal Professional Dashboard autenticato due finestre per ogni
 post eleggibile: 24 ore per la diagnosi dell’hook e 72 ore per la decisione.
-Le righe finiscono in `data/instagram-insights.json`; il workflow
-`instagram-insights-snapshot.yml` calcola ogni giorno lo scorecard e applica
-solo decisioni deterministiche già abilitate in Firebase Remote Config.
+Le righe vengono salvate nella collezione privata Firestore
+`social_native_insights/current`. Il workflow `instagram-insights-snapshot.yml`
+esporta i dati solo in `$RUNNER_TEMP`, calcola lo scorecard e applica decisioni
+deterministiche già abilitate in Firebase Remote Config.
 
 Una variante viene promossa soltanto con almeno tre osservazioni indipendenti,
 un confronto con una seconda variante e un vantaggio che supera sia il 15%
@@ -95,13 +93,13 @@ sufficiente, il relativo vincitore viene rimosso invece di restare attivo.
 Il Graph API resta un fallback esplicito: non si riusa il Page token come token
 Insights.
 
-### Esperimento audio TikTok
+### Esperimento audio TikTok (archiviato)
 
-Il robot può aprire automaticamente l’editor nativo `Suoni` di TikTok Studio,
-selezionare il primo audio della scheda `Per te` (la libreria raccomandata dalla
-piattaforma), salvarlo e poi pubblicare. Non scarica musica da fonti esterne e
-non inserisce file audio nel video. La selezione resta nel trattamento, mentre
-il controllo conserva l’audio originale del video.
+La descrizione seguente è storica e non è operativa. Nessun job o modalità del
+robot lo applica a TikTok mentre la pubblicazione automatica è sospesa.
+
+Storicamente il robot apriva l’editor nativo `Suoni` di TikTok Studio e
+selezionava audio dalla scheda `Per te`.
 
 | Parametro Firebase | Valori | Default locale |
 |---|---|---|
@@ -115,7 +113,10 @@ non espone una card selezionabile, il trattamento si ferma prima di premere
 `Pubblica` e salva screenshot/HTML: non pubblica in silenzio una variante
 diversa.
 
-### Formato TikTok «Risposta a voce»
+### Formato TikTok «Risposta a voce» (archiviato)
+
+Il formato e i relativi parametri sono conservati per riferimento; non
+alimentano alcuna pubblicazione automatica. La descrizione qui sotto è storica.
 
 `answer-voice-v1` risponde a una sola domanda presa dalla FAQ di un articolo
 pubblicato: voce italiana (Gemini TTS), stesse parole a schermo, caption con la
@@ -129,7 +130,10 @@ di tendenza a questi video, perché sostituirebbero la voce.
 Vale per i post `article`. Senza una FAQ adatta o con la voce non disponibile,
 il post torna al formato a slide e il ledger registra quello reale.
 
-### Esperimento video TikTok
+### Esperimento video TikTok (archiviato)
+
+Il formato e i relativi parametri sono conservati per riferimento; non
+alimentano alcuna pubblicazione automatica. La descrizione qui sotto è storica.
 
 I video TikTok hanno ora un secondo test indipendente dall'audio nativo. Il
 controllo resta il video composto dalle slide con dissolvenza; il pool di test
@@ -160,18 +164,16 @@ node scripts/social-robot/run.mjs --login
 node scripts/social-robot/run.mjs --dry-run --platform=instagram
 
 # Pubblicazione: preme solo se Remote Config dice `live`.
-node scripts/social-robot/run.mjs --publish
+node scripts/social-robot/run.mjs --publish --platform=instagram
 
-# Il flag audio viene impostato in Firebase dal maintainer; questa prova mostra
-# il comportamento fino al bottone senza pubblicare.
-TIKTOK_MUSIC_MODE=trend TIKTOK_MUSIC_ROLLOUT_PERCENT=100 \
-  node scripts/social-robot/run.mjs --dry-run --platform=tiktok
+# Anteprima testuale TikTok: non prepara o carica un contenuto multimediale.
+node scripts/post-to-tiktok.mjs --dry-run --only=article
 
 # Preview del prossimo Reel (non carica e non accoda nulla).
 npx tsx scripts/post-to-instagram-reel.mjs --dry-run --kind=article
 
 # La pubblicazione del Reel avviene dagli slot schedulati di
-# instagram-reel-experiment.yml, con dry_run=false, e poi dal robot.
+# instagram-reel-experiment.yml via Graph API; non richiede il robot.
 
 # Launch agent: due finestre al giorno (default 11:30 e 18:30 ora locale,
 # SR_WINDOWS="HH:MM HH:MM" per cambiarle), più fino a 20 minuti casuali.
@@ -188,8 +190,12 @@ sessione grafica aperta sul Mac: il browser non è headless.
 ## Cadenza (`lib/cadence.mjs`)
 
 - al massimo 2 post al giorno per piattaforma, 1 per finestra;
+- il limite giornaliero somma i post confermati nel ledger remoto e i pressi locali
+  non ancora presenti lì, raggruppando i caroselli per media ID;
+- gli slot Reel Graph API sono coordinati con il broadcast giornaliero, per
+  restare entro due pubblicazioni Instagram nei giorni schedulati;
 - 1,2-4,5 s fra un'azione e l'altra, digitazione carattere per carattere;
-- 1,5-6 minuti fra Instagram e TikTok nella stessa finestra;
+- 1,5-6 minuti fra i contenuti Instagram nella stessa finestra;
 - dopo un muro di login o una verifica: piattaforma in pausa 12 ore;
 - dopo un clic senza conferma: piattaforma ferma finché un umano non risolve;
 - nel launch agent (`--jitter`) una sola prova a secco per post in coda, non
@@ -206,18 +212,25 @@ sessione grafica aperta sul Mac: il browser non è headless.
 | Log | `~/Library/Logs/frontaliere/social-robot.log` |
 | Profilo, journal, diagnosi | `~/Library/Application Support/frontaliere/social-robot/` |
 | Screenshot e HTML di un errore o di una prova a secco | `.../social-robot/diagnostics/<ora>-<canale>-<id>/` |
-| Errori | issue «Robot social: pubblicazione Instagram/TikTok non riuscita» (una per piattaforma, deduplicata) |
+| Errori | issue «Robot social: pubblicazione Instagram non riuscita» (deduplicata) |
 
 Per ogni voce Instagram con metadati creativi, il log contiene anche una riga
 `🧭 Instagram engagement` con l'hook, il loop e le finestre automatiche entro
-24/48/72 ore. Lo stato di deduplica del worker è locale in
-`.../social-robot/instagram-community-state.json` e conserva solo hash degli
-ID Instagram: nessun testo di commenti, username o messaggio viene scritto.
+24/48/72 ore. Lo stato del worker è locale in
+`.../social-robot/instagram-community-state.json`: conserva hash degli ID,
+timestamp e classi d'esito limitate; non salva testo di commenti, username o
+messaggi. I conteggi settimanali aggregati e le latenze sono salvati solo nel
+documento Firestore privato `social_native_insights/current`.
 
-Il worker invia un DM solo come risposta a una conversazione avviata dall’utente
-o a una risposta privata a un commento; non fa outreach a freddo. Le Stories
-sono follow-up visuali statici: il worker non finge di poter creare sticker
-interattivi non esposti dal Content Publishing API.
+Il worker Graph invia un DM solo come risposta a una conversazione avviata
+dall’utente e solo quando il Graph API fornisce un timestamp entro la finestra
+automatica di 24 ore. Business Suite resta in sola lettura perché non espone in
+modo affidabile chi ha scritto l'ultimo messaggio o quando. Graph risponde solo
+a ringraziamenti/scelte brevi e semplici
+richieste di link. Domande complesse, dati personali o richieste non coperte da
+una fonte verificata restano da gestire da una persona; non fa outreach a
+freddo. Le Stories sono follow-up visuali statici: il worker non finge di poter
+creare sticker interattivi non esposti dal Content Publishing API.
 
 Nessuna credenziale passa dal repository: la sessione web resta solo nel
 profilo del browser sul Mac. Il Graph token opzionale, quando il fallback è

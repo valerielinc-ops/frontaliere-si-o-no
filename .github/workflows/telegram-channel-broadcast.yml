@@ -77,7 +77,9 @@ jobs:
 
       - name: Load secrets from RC
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=TELEGRAM_BOT_TOKEN,TELEGRAM_CHANNEL_ID,SOCIAL_COPY_EXPERIMENT_CONFIG
 
       # The App identity re-triggers pull-request checks. If the installation
       # is unavailable, the long-lived PAT loaded above remains the fallback.
@@ -119,10 +121,19 @@ jobs:
 
       - name: Open PR with posted ledgers
         if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'border' || env.MODE == 'preferred-source') && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
-        env:
-          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
+          if [ "${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "${APP_TOKEN:-}" ]; then
+            export GH_TOKEN="$APP_TOKEN"
+          else
+            export GH_TOKEN="${GITHUB_PAT:-}"
+          fi
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Neither a data-refresh GitHub App token nor GITHUB_PAT is available to publish the Telegram ledger PR."
+            exit 1
+          fi
           body="$RUNNER_TEMP/telegram-channel-ledgers-pr-body.md"
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           {

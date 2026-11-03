@@ -16,6 +16,7 @@
 import { createHash } from 'node:crypto';
 
 import { instagramEngagementMechanic } from './instagram-engagement.mjs';
+import { AUTONOMOUS_PROMOTION_PROTOCOL_READY } from './instagram-insights-decision.mjs';
 
 export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
   proof: Object.freeze({
@@ -409,7 +410,8 @@ function explorationBucket(seed) {
 }
 
 function autonomousWinner({ kind, baseId, objective, day, env }) {
-  if (!parseBoolean(env?.INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED, false)) return null;
+  if (!AUTONOMOUS_PROMOTION_PROTOCOL_READY
+    || !parseBoolean(env?.INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED, false)) return null;
   const winners = parseWinnerMap(env?.INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS);
   const byObjective = winners?.[kind]?.[baseId];
   const winner = typeof byObjective === 'string'
@@ -461,7 +463,7 @@ export function buildInstagramCaption({ kind, dayLabel, picks, creative, socialC
     ? creative
     : definitionFor(safeKind, 'proof');
   const safePicks = Array.isArray(picks) ? picks.slice(0, 5) : [];
-  const lines = safePicks.map((pick, index) => `${index + 1}. ${captionText(pick?.title || 'Voce', 140)} — ${captionText(pick?.statValue || 'dati disponibili', 80)}`);
+  const lines = safePicks.map((pick, index) => `${index + 1}. ${captionText(pick?.title || 'Voce', 110)} — ${captionText(pick?.statValue || 'dati disponibili', 80)}`);
   const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
   const questionLine = !generatedCopy && selected.question ? `🗣️ ${selected.question}` : '';
   const destinationLine = generatedCopy && !/link in bio/i.test(generatedCopy.cta)
@@ -486,6 +488,141 @@ export function buildInstagramCaption({ kind, dayLabel, picks, creative, socialC
   return caption.length <= INSTAGRAM_MAX_CAPTION_LENGTH
     ? caption
     : `${caption.slice(0, INSTAGRAM_MAX_CAPTION_LENGTH - 1).trimEnd()}…`;
+}
+
+function plainProductionText(value) {
+  return String(value ?? '')
+    .replace(/[\u0000-\u001f\u007f]/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
+function productionText(value, maxLength) {
+  const text = plainProductionText(value);
+  if (text.length <= maxLength) return text;
+  const cut = text.slice(0, maxLength);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > maxLength * 0.6 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
+
+function productionSourceId(value) {
+  const sourceId = String(value ?? '').trim();
+  return sourceId.length <= 120 && !/[\u0000-\u001f\u007f]/u.test(sourceId) ? sourceId || null : null;
+}
+
+/**
+ * Compile the selected Codex hook/CTA and publisher-verified facts into one
+ * source-specific carousel storyboard. The renderer input, caption and
+ * on-screen text stay aligned without asking Codex to invent source facts.
+ */
+export function buildInstagramCarouselProductionKit({
+  kind,
+  dayLabel,
+  items = [],
+  sourceItems = [],
+  creative,
+  backgroundVariant = '',
+  visualCopy = null,
+  caption = '',
+} = {}) {
+  const safeKind = VALID_KINDS.has(kind) ? kind : 'article';
+  const selected = creative && VALID_KINDS.has(creative.kind)
+    ? creative
+    : definitionFor(safeKind, 'proof');
+  const coverTitle = productionText(visualCopy?.coverTitle || selected.cover[safeKind]?.title || '', 90);
+  const rawClosing = visualCopy?.closing || selected.closing[safeKind];
+  const closing = {
+    kicker: productionText(rawClosing?.kicker, 60),
+    title: productionText(rawClosing?.title, 100),
+    body: productionText(rawClosing?.body, 160),
+    cta: productionText(rawClosing?.cta, 80),
+  };
+  const safeItems = Array.isArray(items) ? items.slice(0, 5) : [];
+  const renderItems = safeItems.map((item) => ({
+    title: plainProductionText(item?.title),
+    statLabel: plainProductionText(item?.statLabel),
+    statValue: plainProductionText(item?.statValue),
+    footerNote: plainProductionText(item?.footerNote),
+  }));
+  const facts = renderItems.map((item, index) => {
+    const source = sourceItems[index] || {};
+    return {
+      sourceId: productionSourceId(source?.sourceId),
+      title: plainProductionText(source?.title),
+      metricLabel: item.statLabel,
+      metricValue: item.statValue,
+      context: item.footerNote,
+    };
+  });
+  const storyboard = [
+    {
+      position: 1,
+      beat: 'hook',
+      kicker: productionText(selected.cover[safeKind]?.kicker, 60),
+      title: coverTitle,
+      subtitle: productionText(dayLabel, 60),
+    },
+    ...renderItems.map((item, index) => ({
+      position: index + 2,
+      beat: 'verified-source-fact',
+      sourceId: facts[index].sourceId,
+      title: item.title,
+      statLabel: item.statLabel,
+      statValue: item.statValue,
+      footerNote: item.footerNote,
+    })),
+    {
+      position: renderItems.length + 2,
+      beat: 'action',
+      kicker: closing?.kicker || '',
+      title: closing?.title || '',
+      body: closing?.body || '',
+      cta: closing?.cta || '',
+    },
+  ];
+  const renderInput = {
+    kicker: productionText(selected.cover[safeKind]?.kicker, 60),
+    title: coverTitle,
+    subtitle: productionText(dayLabel, 60),
+    items: renderItems,
+    closing,
+    backgroundVariant: productionText(backgroundVariant, 64),
+  };
+  const sourceTitlesMatchRenderItems = facts.every((fact, index) => fact.title === renderItems[index]?.title);
+  const factsFitRenderer = facts.length > 0 && facts.every((fact) => fact.sourceId
+    && fact.title
+    && fact.metricLabel
+    && fact.metricValue
+    && fact.title.length <= 110
+    && fact.metricLabel.length <= 80
+    && fact.metricValue.length <= 80
+    && fact.context.length <= 80)
+    && sourceTitlesMatchRenderItems;
+  return {
+    schemaVersion: 1,
+    valid: factsFitRenderer,
+    invalidReason: factsFitRenderer ? null : 'verified-source-fact-is-missing-or-exceeds-renderer-contract',
+    channel: 'instagram',
+    format: 'carousel',
+    kind: safeKind,
+    sourceFacts: facts,
+    script: storyboard.map((beat) => productionText(
+      [beat.title, beat.statLabel, beat.statValue, beat.body, beat.cta].filter(Boolean).join(' — '),
+      300,
+    )),
+    storyboard,
+    subtitles: storyboard.map((beat) => productionText(
+      [beat.kicker, beat.title, beat.statLabel, beat.statValue, beat.body, beat.cta].filter(Boolean).join(' · '),
+      240,
+    )),
+    coverGuidance: {
+      treatment: selected.id,
+      backgroundVariant: productionText(backgroundVariant, 64),
+      focus: 'hook-before-ranked-source-facts',
+    },
+    caption: String(caption || '').slice(0, INSTAGRAM_MAX_CAPTION_LENGTH),
+    renderInput,
+  };
 }
 
 /** Keep the generated Instagram cover/closing card aligned with its caption. */

@@ -74,6 +74,14 @@ function contentLabel(kind, sourceKind) {
 
 function promptsFor(creative, { kind, sourceKind }) {
   const label = contentLabel(kind, sourceKind);
+  if (creative.primaryMetric === 'follows') {
+    return {
+      commentPrompt: 'Nessuna richiesta di commento: la CTA invita a seguire il profilo.',
+      storyPrompt: 'Nessuna Story di follow-up è prevista per questo trattamento.',
+      replyTemplate: 'Grazie per la domanda. Fonte e contesto dell’aggiornamento sono nel link in bio.',
+      operatorAction: 'Il worker risponde alle domande ricevute entro 24 ore; Insights misura i follow attribuiti e la reach del Reel.',
+    };
+  }
   if (creative.primaryMetric === 'comments') {
     return {
       commentPrompt: creative.question || creative.cta,
@@ -128,7 +136,8 @@ export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind =
     followUpFormat: creative.followUpFormat,
     primaryAction: creative.primaryMetric === 'comments'
       ? 'comment'
-      : creative.primaryMetric === 'shares' ? 'share' : 'save',
+      : creative.primaryMetric === 'shares' ? 'share'
+        : creative.primaryMetric === 'follows' ? 'follow' : 'save',
     commentPrompt: prompts.commentPrompt,
     storyPrompt: prompts.storyPrompt,
     replyTemplate: prompts.replyTemplate,

@@ -2096,6 +2096,8 @@ const deCore: Record<string, string> = {
  'renovation.cat.environmental': 'Umweltschutz',
  'renovation.catDesc.environmental': 'Photovoltaik, E-Ladestationen, Asbestsanierung, Regenwassernutzung.',
  'faq.title': 'Häufig gestellte Fragen',
+ 'socialHub.title': 'Ressourcen für Grenzgänger',
+ 'socialHub.description': 'Stellen im Tessin, Nettolohn-Rechner, Grenzverkehr, Ratgeber und wöchentlicher Überblick.',
  'faq.questions.permits.q1': 'Was ist der Unterschied zwischen Ausweis G und Ausweis B?',
  'faq.questions.permits.a1': 'Ausweis G ist für Grenzgänger (Wohnsitz in Italien, Arbeit in CH, wöchentliche Rückkehr). Ausweis B ist für Schweizer Einwohner.',
  'faq.questions.permits.q3': 'Wie beantragt man den Ausweis G?',

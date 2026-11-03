@@ -1286,5 +1286,15 @@ service cloud.firestore {
     match /permanent_employer_signals/{signalId} {
       allow read, write: if false;
     }
+
+    // Private social post analytics are read and written only by trusted
+    // backend workflows through the Firebase Admin SDK, which bypasses rules.
+    // Client SDK access must never expose creator-only performance metrics.
+    match /social_native_insights/{documentId} {
+      allow read, write: if false;
+    }
+    match /social_publish_reservations/{documentId} {
+      allow read, write: if false;
+    }
   }
 }

@@ -18,10 +18,11 @@
  * carried by `utm_campaign` instead, so the two never split the source row.
  */
 
-import { withUtm } from './social-post-utils.mjs';
+import { SOCIAL_UTM_MEDIUM, SOCIAL_UTM_SOURCE_BY_CHANNEL } from './social-channel-attribution.mjs';
+import { attributedSocialLink } from './social-redirect-links.mjs';
 
-export const LINKEDIN_UTM_SOURCE = 'linkedin';
-export const LINKEDIN_UTM_MEDIUM = 'social';
+export const LINKEDIN_UTM_SOURCE = SOCIAL_UTM_SOURCE_BY_CHANNEL.linkedin;
+export const LINKEDIN_UTM_MEDIUM = SOCIAL_UTM_MEDIUM;
 
 /**
  * Posts API + Images API version header. LinkedIn sunsets each YYYYMM ~1 year
@@ -29,7 +30,7 @@ export const LINKEDIN_UTM_MEDIUM = 'social';
  * NONEXISTENT_VERSION). One constant so member, company, and image-upload
  * cannot drift.
  */
-export const LINKEDIN_REST_VERSION = '202608';
+export const LINKEDIN_REST_VERSION = '202610';
 
 /** Daily "most read article of yesterday" post, personal profile. */
 export const LINKEDIN_MEMBER_CAMPAIGN_ARTICLE = 'linkedin_member_daily_article';
@@ -47,7 +48,7 @@ export const LINKEDIN_COMPANY_CAMPAIGN_ARTICLE = 'linkedin_company_article';
  * @returns {string} tagged URL (verbatim input if it cannot be parsed)
  */
 export function linkedinUrl(url, campaign, content) {
-  return withUtm(url, {
+  return attributedSocialLink(url, {
     source: LINKEDIN_UTM_SOURCE,
     medium: LINKEDIN_UTM_MEDIUM,
     campaign,

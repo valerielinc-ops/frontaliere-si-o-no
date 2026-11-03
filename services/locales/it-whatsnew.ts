@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v39915.title": "Un punto di partenza dai social",
+ "whatsNew.v39915.socialHub.title": "Le risorse principali in una pagina",
+ "whatsNew.v39915.socialHub.desc": "La pagina raccoglie offerte, strumenti per lo stipendio, aggiornamenti sui valichi, guide e riepilogo settimanale.",
  "whatsNew.v39914.title": "Una prima selezione per iniziare",
  "whatsNew.v39914.discovery.title": "Le offerte più consultate, poi i tuoi interessi",
  "whatsNew.v39914.discovery.desc": "Se non hai ancora impostato una ricerca, la prima email parte dalle offerte più consultate e dagli indizi geografici disponibili. Clic e ricerche aiutano a rendere i suggerimenti successivi più pertinenti.",

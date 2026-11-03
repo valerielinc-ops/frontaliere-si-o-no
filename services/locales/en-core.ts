@@ -2093,6 +2093,8 @@ const enCore: Record<string, string> = {
  'renovation.cat.environmental': 'Environmental protection',
  'renovation.catDesc.environmental': 'Solar panels, EV charging stations, asbestos removal, rainwater harvesting.',
  'faq.title': 'Frequently Asked Questions',
+ 'socialHub.title': 'Resources for cross-border workers',
+ 'socialHub.description': 'Ticino jobs, net salary tools, border traffic, practical guides and a weekly digest.',
  'faq.questions.permits.q1': 'What is the difference between Permit G and Permit B?',
  'faq.questions.permits.a1': 'Permit G is for cross-border workers (residence in Italy, work in CH, weekly return). Permit B is for Swiss residents.',
  'faq.questions.permits.q3': 'How do I apply for Permit G?',

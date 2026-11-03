@@ -1,10 +1,20 @@
 name: Social Copy Experiment Config
 
 on:
+  schedule:
+    - cron: '41 6 * * 0'
   push:
     branches: [main]
     paths:
+      - .github/workflows/social-copy-experiment-config.yml
+      - scripts/social-copy/prune-assignment-history.mjs
+      - scripts/lib/firebase-social-copy-assignment.mjs
+      - scripts/social-copy/experiment-protocol.mjs
+      - scripts/lib/social-copy-experiment-runner.mjs
+      - scripts/lib/social-experiment-protocol.mjs
+      - scripts/lib/social-copy-pack.mjs
       - scripts/experiments/social-copy-rc.mjs
+      - data/social-copy-packs/current.json
   workflow_dispatch:
 
 concurrency:
@@ -48,9 +58,15 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Install Firebase Admin dependency
+      - name: Install dependencies
         run: npm ci
-      - name: Reconcile Firebase Remote Config
+      - name: Freeze qualified cohorts and reconcile Firebase Remote Config
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED: ${{ vars.LINKEDIN_MEMBER_POST_ANALYTICS_STORAGE_APPROVED }}
         run: node scripts/experiments/social-copy-rc.mjs
+
+      - name: Prune assignment records beyond experiment retention
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/social-copy/prune-assignment-history.mjs

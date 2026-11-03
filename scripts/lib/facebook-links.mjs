@@ -14,10 +14,11 @@
  *   utm_source = channel IDENTIFIER → 'facebook'
  */
 
-import { withUtm } from './social-post-utils.mjs';
+import { SOCIAL_UTM_MEDIUM, SOCIAL_UTM_SOURCE_BY_CHANNEL } from './social-channel-attribution.mjs';
+import { attributedSocialLink } from './social-redirect-links.mjs';
 
-export const FACEBOOK_UTM_SOURCE = 'facebook';
-export const FACEBOOK_UTM_MEDIUM = 'social';
+export const FACEBOOK_UTM_SOURCE = SOCIAL_UTM_SOURCE_BY_CHANNEL.facebook;
+export const FACEBOOK_UTM_MEDIUM = SOCIAL_UTM_MEDIUM;
 
 /**
  * One campaign per posting surface. They are distinct so GA4 can answer "which
@@ -41,7 +42,7 @@ export const FACEBOOK_CAMPAIGN_JOB = 'facebook_job';
  * @returns {string} tagged URL (verbatim input if it cannot be parsed)
  */
 export function facebookUrl(url, campaign, content) {
-  return withUtm(url, {
+  return attributedSocialLink(url, {
     source: FACEBOOK_UTM_SOURCE,
     medium: FACEBOOK_UTM_MEDIUM,
     campaign,

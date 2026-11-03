@@ -52,7 +52,7 @@ const {
   buildArticleCaption,
   loadPosted,
   appendPosted,
-  run,
+  run: runImpl,
 } = scheduler as unknown as {
   parseArticleRegistry: (src: string) => Array<{ id: string; category?: string; date: string }>;
   parseSlugMap: (src: string) => Record<string, string>;
@@ -75,10 +75,27 @@ const {
     socialCopyPack?: any;
     selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
     releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
+    socialPublishReservations?: {
+      reserveBatch: (options: { reservations: Array<{ key: string }> }) => Promise<Array<{ key: string; allowed: boolean; reason?: string }>>;
+      markPublished: (options: object) => Promise<boolean>;
+      release: (options: object) => Promise<boolean>;
+    };
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
   }) => Promise<{ ok: boolean; posted: number; dryRun: boolean; payloads: Payload[] }>;
 };
+
+const allowAllSocialPublishReservations = {
+  reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+    reservations.map(({ key }) => ({ key, allowed: true, reason: null }))
+  ),
+  markPublished: async () => true,
+  release: async () => true,
+};
+const run = (opts: Parameters<typeof runImpl>[0]) => runImpl({
+  ...opts,
+  socialPublishReservations: allowAllSocialPublishReservations,
+});
 
 // ── parseArticleRegistry ──────────────────────────────────
 
@@ -401,6 +418,71 @@ describe('run()', () => {
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('a1');
     expect(ledger.posted[0].fbPostId).toBe('pid_post_1');
+  });
+
+  it('keeps the reservation and does not replay a Facebook feed POST after HTTP 5xx', async () => {
+    const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
+    const feedCalls: string[] = [];
+    const fetchSpy = vi.fn(async (url: string | URL | Request, init?: RequestInit) => {
+      const requestUrl = String(url);
+      if (init?.method === 'HEAD') return new Response(null, { status: 200 });
+      if (requestUrl.includes('scrape=true')) return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      feedCalls.push(requestUrl);
+      return new Response(JSON.stringify({ error: { code: 2, message: 'temporary service issue' } }), { status: 503 });
+    });
+    const reservationCalls: string[] = [];
+    const socialPublishReservations = {
+      reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+        reservations.map(({ key }) => { reservationCalls.push('reserved'); return { key, allowed: true, reason: null }; })
+      ),
+      markPublished: async () => { reservationCalls.push('published'); return true; },
+      release: async () => { reservationCalls.push('released'); return true; },
+    };
+    const result = await runImpl({
+      env: { FB_ARTICLE_MAX_AGE_DAYS: '2', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      socialPublishReservations,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.posted).toBe(0);
+    expect(feedCalls).toHaveLength(1);
+    expect(reservationCalls).toEqual(['reserved']);
+    expect(loadPosted(tmp).posted).toHaveLength(0);
+  });
+
+  it('releases the reservation after an explicit HTTP 4xx with an unreadable body', async () => {
+    const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
+    const reservationCalls: string[] = [];
+    const socialPublishReservations = {
+      reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+        reservations.map(({ key }) => { reservationCalls.push('reserved'); return { key, allowed: true, reason: null }; })
+      ),
+      markPublished: async () => { reservationCalls.push('published'); return true; },
+      release: async () => { reservationCalls.push('released'); return true; },
+    };
+    const fetchSpy = vi.fn(async (url: string | URL | Request, init?: RequestInit) => {
+      const requestUrl = String(url);
+      if (init?.method === 'HEAD') return new Response(null, { status: 200 });
+      if (requestUrl.includes('scrape=true')) return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      return new Response('not-json', { status: 429 });
+    });
+    const result = await runImpl({
+      env: { FB_ARTICLE_MAX_AGE_DAYS: '2', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      socialPublishReservations,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.posted).toBe(0);
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+    expect(reservationCalls).toEqual(['reserved', 'released']);
   });
 
   it('carries the selected Codex copy variant into the Facebook link attribution', async () => {

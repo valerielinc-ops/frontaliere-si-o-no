@@ -63,7 +63,9 @@ jobs:
 
       - name: Load secrets from RC
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,SOCIAL_COPY_EXPERIMENT_CONFIG
 
       - name: Schedule FB articles
         if: inputs.dry_run != true && inputs.dry_run != 'true'
@@ -96,6 +98,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(fb): track posted articles [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # In-place resolver unions by article-id when another commit lands on
           # main mid-run, so the ledger commit is never lost (a lost commit
           # would let the next run re-post the same articles).

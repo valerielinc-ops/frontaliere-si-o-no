@@ -15,6 +15,7 @@ function rowsFor(creativeId: string, shares: number[], overrides: Record<string,
     kind: 'article',
     reach: 100,
     shares: value,
+    availableMetrics: ['reach', 'shares', ...(Object.hasOwn(overrides, 'saves') ? ['saves'] : [])],
     ...overrides,
   }));
 }

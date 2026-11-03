@@ -25,24 +25,23 @@ import {
 } from './lib/instagram-insights-snapshot.mjs';
 
 const DEFAULT_LEDGER = 'data/instagram-posted.json';
-const DEFAULT_OUTPUT = 'data/instagram-insights.json';
 
 function usage() {
   return [
     'instagram-insights-snapshot.mjs — collect read-only Instagram Insights snapshots',
     '',
     'Usage:',
-    '  node scripts/instagram-insights-snapshot.mjs',
-    '  node scripts/instagram-insights-snapshot.mjs --dry-run --json',
+    '  node scripts/instagram-insights-snapshot.mjs --output "$RUNNER_TEMP/instagram-insights.json"',
+    '  node scripts/instagram-insights-snapshot.mjs --output insights.json --dry-run --json',
     '',
-    'The command reads data/instagram-posted.json and writes',
-    'data/instagram-insights.json after a successful 72h snapshot.',
+    'The command reads data/instagram-posted.json and writes the requested',
+    'temporary output file after a successful Insights snapshot.',
     'It needs the explicit Graph credentials loaded by the caller.',
     'Missing credentials or unmatchable posts are a clean, non-writing skip.',
     '',
     'Options:',
     '  --ledger PATH              Posted ledger (default: data/instagram-posted.json)',
-    '  --output PATH              Snapshot file (default: data/instagram-insights.json)',
+    '  --output PATH              Temporary snapshot output file (required)',
     '  --window-hours N           Target measurement window (default: 72)',
     '  --tolerance-hours N        Early collection tolerance (default: 0)',
     '  --max-distance-minutes N  Timestamp matching tolerance (default: 30)',
@@ -77,7 +76,7 @@ function booleanValue(value, option) {
 export function parseArgs(argv = []) {
   const options = {
     ledger: DEFAULT_LEDGER,
-    output: DEFAULT_OUTPUT,
+    output: '',
     windowHours: DEFAULT_WINDOW_HOURS,
     toleranceHours: DEFAULT_WINDOW_TOLERANCE_HOURS,
     maxDistanceMinutes: DEFAULT_MEDIA_MATCH_MINUTES,
@@ -105,7 +104,7 @@ export function parseArgs(argv = []) {
     else throw new Error(`unknown option: ${arg}`);
   }
   if (!String(options.ledger).trim()) throw new Error('--ledger cannot be empty');
-  if (!String(options.output).trim()) throw new Error('--output cannot be empty');
+  if (!options.help && !String(options.output).trim()) throw new Error('--output is required');
   if (options.asOf !== undefined && !Number.isFinite(Date.parse(options.asOf))) {
     throw new Error('--as-of must be an ISO timestamp');
   }

@@ -71,6 +71,7 @@ import {
 import {
   chooseInstagramCreative,
   buildInstagramCaption,
+  buildInstagramCarouselProductionKit,
   instagramSocialVisualCopy,
   instagramCreativeContent,
   instagramCreativeLedgerFields,
@@ -98,7 +99,14 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import {
+  markSocialPublishReservationPublished,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishContentFingerprint,
+  socialPublishReservationKey,
+} from './lib/social-publish-reservations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -144,13 +152,64 @@ function getBusinessAccountId() {
 // written here only for an API publish; a queued post reaches the ledger once
 // the robot has seen Instagram's confirmation (scripts/social-robot/confirm.mjs).
 
-async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish, onAccepted }) {
-  return deliverSocialPost({
-    route,
+async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish, onAccepted, igUserId }) {
+  const publishAt = new Date();
+  const reservationKey = socialPublishReservationKey('instagram', 'post', `${kind}-${day}`);
+  let reservationHeld = false;
+  let deliveryRoute = route;
+  if (route.api) {
+    let results;
+    try {
+      results = await reserveSocialPublishBatch({
+        platform: 'instagram',
+        accountId: igUserId,
+        repoRoot: ROOT,
+        reservations: [{
+          key: reservationKey,
+          publishAt,
+          nativeContentFingerprint: socialPublishContentFingerprint('instagram', { caption }),
+        }],
+        now: publishAt,
+      });
+    } catch (error) {
+      const fatal = new Error(`Instagram shared publication gate failed: ${error.message}`, { cause: error });
+      fatal.code = 'SOCIAL_PUBLISH_RESERVATION_REQUIRED';
+      throw fatal;
+    }
+    if (results[0]?.allowed) {
+      reservationHeld = true;
+    } else {
+      console.warn(`🛑 Instagram publication held for ${kind}-${day}: ${results[0]?.reason || 'daily-cap'}`);
+      deliveryRoute = { ...route, api: false };
+    }
+  }
+
+  const releaseReservation = async (reason) => {
+    if (!reservationHeld) return;
+    try {
+      await releaseSocialPublishReservation({
+        platform: 'instagram', accountId: igUserId, key: reservationKey, publishAt,
+      });
+      reservationHeld = false;
+    } catch (error) {
+      console.warn(`⚠️ Instagram reservation remains held for ${kind}-${day} after ${reason}: ${error.message}`);
+    }
+  };
+
+  const outcome = await deliverSocialPost({
+    route: deliveryRoute,
     label: 'Instagram',
-    publish,
-    recordPublished: (res) => {
-      onAccepted?.();
+    publish: async () => {
+      const result = await publish();
+      if (result?.ok === false && result?.uncertain !== true) {
+        await releaseReservation('definite Graph API rejection');
+      }
+      return result;
+    },
+    recordPublished: async (res) => {
+      if (typeof res?.mediaId !== 'string' || !res.mediaId.trim()) {
+        throw new Error('Instagram publisher returned success without a media ID');
+      }
       console.log(`✅ posted — ${res.mediaId}`);
       const ts = new Date().toISOString();
       appendLedger(
@@ -163,6 +222,16 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
         })),
         POSTED_TRIM_LIMIT,
       );
+      if (reservationHeld) {
+        try {
+          await markSocialPublishReservationPublished({
+            platform: 'instagram', accountId: igUserId, key: reservationKey, publishAt, publishedAt: ts,
+          });
+        } catch (error) {
+          console.warn(`⚠️ Instagram reservation remains held after accepted post ${kind}-${day}: ${error.message}`);
+        }
+      }
+      await onAccepted?.(res, ts);
     },
     enqueue: () => {
       enqueuePost(
@@ -174,6 +243,12 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
     // The API covered this kind: an older queued post of it must not reach the robot.
     dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind }),
   });
+  if (outcome === 'api-uncertain') {
+    const error = new Error(`Instagram ${kind}-${day} publish outcome is uncertain; reservation retained for reconciliation`);
+    error.code = 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN';
+    throw error;
+  }
+  return outcome;
 }
 
 // ─────────────────────────── job/article (daily) ───────────────────────────
@@ -226,9 +301,18 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     console.log(`ℹ️  ${kind}: only ${picks.length}/${CAROUSEL_SIZE} unposted candidates — posting a shorter carousel`);
   }
 
-  const slideItems = picks.map((p) => {
+  const sourceItems = picks.map((p) => {
     const job = kind === 'job' ? jobIndex.get(p.slug) : null;
-    const title = job ? [job.title, job.company].filter(Boolean).join(' — ') : p.title || p.slug.replace(/-/g, ' ');
+    const sourceTitle = kind === 'job'
+      ? (typeof job?.title === 'string' && job.title.trim()
+        ? [job.title, typeof job.company === 'string' ? job.company : ''].filter(Boolean).join(' — ')
+        : '')
+      : typeof p.title === 'string' ? p.title : '';
+    return { sourceId: p.slug, title: sourceTitle };
+  });
+  const slideItems = picks.map((p, index) => {
+    const job = kind === 'job' ? jobIndex.get(p.slug) : null;
+    const title = sourceItems[index].title || p.slug.replace(/-/g, ' ');
     return { title, statLabel: 'Visualizzazioni', statValue: String(p.views), footerNote: job?.location || '' };
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
@@ -240,41 +324,49 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     creativeId: creative.id,
     objective: creative.objective,
   });
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
   const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
     kind,
     expectedObjective: creative.objective,
     assignmentKey: kind + ':' + day,
+    blockContext: buildSocialCopyBlockContext({ sourceClass: kind, scheduledDate: day }),
+    allowExperimentExposure: route.api,
     dryRun,
   });
   let reservedCopy = socialCopy;
-  let route = null;
   let deliveryStarted = false;
   let publishRejected = false;
   try {
   const visualCopy = instagramSocialVisualCopy(creative, socialCopy);
-  const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative, socialCopy });
+  const productionKit = buildInstagramCarouselProductionKit({
+    kind,
+    dayLabel,
+    items: slideItems,
+    sourceItems,
+    creative,
+    backgroundVariant: background.id,
+    visualCopy,
+    caption: buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative, socialCopy }),
+  });
+  if (!productionKit.valid) {
+    console.warn('⚠️  Instagram carousel source text does not fit the verified renderer contract — skipping this post');
+    return;
+  }
+  const caption = productionKit.caption;
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
   console.log(caption);
   console.log('───');
 
   if (dryRun) return;
-  route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
   if (!route.render) {
     console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
     return;
   }
 
-  const slides = await renderCarouselSlides({
-    kicker: creative.cover.kicker,
-    title: visualCopy?.coverTitle || creative.cover.title,
-    subtitle: dayLabel,
-    items: slideItems,
-    closing: visualCopy?.closing || creative.closing,
-    backgroundVariant: background.id,
-  });
+  const slides = await renderCarouselSlides(productionKit.renderInput);
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -302,22 +394,31 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     route,
     kind,
     day,
+    igUserId,
     caption,
     urls,
     ledgerEntries,
     publish: async () => {
       deliveryStarted = true;
       const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
-      publishRejected = result?.ok === false;
+      publishRejected = result?.ok === false && result?.uncertain !== true;
       return result;
     },
-    onAccepted: () => { reservedCopy = null; },
+    onAccepted: async (result, publishedAt) => {
+      reservedCopy = null;
+      if (!route.api) return;
+      try {
+        await markSocialCopyAssignmentPublished(socialCopy, { postId: result?.mediaId, publishedAt });
+      } catch (error) {
+        console.warn('⚠️  accepted Instagram post could not close its copy assignment:', error.message);
+      }
+    },
   });
   } finally {
     // A thrown API request has an unknown delivery outcome. Keep its stable
     // assignment until the ledger can reconcile it; release only certain
     // skips before the publish attempt.
-    if (deliveryStarted && route?.api && !publishRejected) reservedCopy = null;
+    if (deliveryStarted && route.api && !publishRejected) reservedCopy = null;
     await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
       reason: 'Instagram carousel skipped before delivery',
       onFailure: (err) => console.warn('⚠️', `could not release social-copy reservation for Instagram ${kind}: ${err.message}`),
@@ -366,47 +467,58 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     creativeId: creative.id,
     objective: creative.objective,
   });
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
   const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
     kind: 'border',
     expectedObjective: creative.objective,
     assignmentKey: 'border:' + weekStart,
+    blockContext: buildSocialCopyBlockContext({ sourceClass: 'border', scheduledDate: weekStart }),
+    allowExperimentExposure: route.api,
     dryRun,
   });
   let reservedCopy = socialCopy;
-  let route = null;
   let deliveryStarted = false;
   let publishRejected = false;
   try {
   const visualCopy = instagramSocialVisualCopy(creative, socialCopy);
-  const caption = buildInstagramCaption({
+  const productionKit = buildInstagramCarouselProductionKit({
     kind: 'border',
     dayLabel,
-    picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+    items: slideItems,
+    sourceItems: fastest.map((crossing) => ({
+      sourceId: crossing.slug,
+      title: BORDER_CROSSING_DISPLAY[crossing.slug] || '',
+    })),
     creative,
-    socialCopy,
+    backgroundVariant: background.id,
+    visualCopy,
+    caption: buildInstagramCaption({
+      kind: 'border',
+      dayLabel,
+      picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+      creative,
+      socialCopy,
+    }),
   });
+  if (!productionKit.valid) {
+    console.warn('⚠️  Instagram border source text does not fit the verified renderer contract — skipping this post');
+    return;
+  }
+  const caption = productionKit.caption;
 
   console.log(`\n─── border carousel (${fastest.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
   console.log(caption);
   console.log('───');
 
   if (dryRun) return;
-  route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
   if (!route.render) {
     console.log('⚠️  no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID — skipping (soft)');
     return;
   }
 
-  const slides = await renderCarouselSlides({
-    kicker: creative.cover.kicker,
-    title: visualCopy?.coverTitle || creative.cover.title,
-    subtitle: dayLabel,
-    items: slideItems,
-    closing: visualCopy?.closing || creative.closing,
-    backgroundVariant: background.id,
-  });
+  const slides = await renderCarouselSlides(productionKit.renderInput);
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -439,19 +551,28 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     route,
     kind: 'border',
     day: weekStart,
+    igUserId,
     caption,
     urls,
     ledgerEntries,
     publish: async () => {
       deliveryStarted = true;
       const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
-      publishRejected = result?.ok === false;
+      publishRejected = result?.ok === false && result?.uncertain !== true;
       return result;
     },
-    onAccepted: () => { reservedCopy = null; },
+    onAccepted: async (result, publishedAt) => {
+      reservedCopy = null;
+      if (!route.api) return;
+      try {
+        await markSocialCopyAssignmentPublished(socialCopy, { postId: result?.mediaId, publishedAt });
+      } catch (error) {
+        console.warn('⚠️  accepted Instagram post could not close its copy assignment:', error.message);
+      }
+    },
   });
   } finally {
-    if (deliveryStarted && route?.api && !publishRejected) reservedCopy = null;
+    if (deliveryStarted && route.api && !publishRejected) reservedCopy = null;
     await releaseUnpublishedSocialCopyAssignmentBestEffort(reservedCopy, {
       reason: 'Instagram border carousel skipped before delivery',
       onFailure: (err) => console.warn('⚠️', `could not release social-copy reservation for Instagram border: ${err.message}`),
@@ -492,9 +613,12 @@ async function main() {
   }
 }
 
+let exitCode = 0;
 main()
   .catch((err) => {
-    // Fail-soft: log and exit 0. See the header.
+    // Preserve the legacy soft-failure behavior except when the shared cap
+    // cannot be verified: an unreserved live post must fail the workflow.
     console.error(`⚠️  post-to-instagram failed: ${err.message}`);
+    if (['SOCIAL_PUBLISH_RESERVATION_REQUIRED', 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN'].includes(err?.code)) exitCode = 1;
   })
-  .finally(() => process.exit(0));
+  .finally(() => process.exit(exitCode));

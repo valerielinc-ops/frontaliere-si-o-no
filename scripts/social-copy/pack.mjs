@@ -1,8 +1,13 @@
 #!/usr/bin/env node
-import { readFileSync, writeFileSync, renameSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, renameSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { normalizeSocialCopyPack, SOCIAL_COPY_PROMPT_VERSION } from '../lib/social-copy-pack.mjs';
+import {
+  assertSocialCopyTreatmentContinuity,
+  normalizeSocialCopyPack,
+  SOCIAL_COPY_PACK_SCHEMA_VERSION,
+  SOCIAL_COPY_PROMPT_VERSION,
+} from '../lib/social-copy-pack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -39,6 +44,17 @@ async function main() {
   const pack = normalizeSocialCopyPack(raw, { generatedAt });
   if (command === 'promote') {
     const output = argument('output', path.join(ROOT, 'data', 'social-copy-packs', 'current.json'));
+    if (existsSync(output)) {
+      const previousRaw = readJson(output);
+      if (Number(previousRaw.schemaVersion) === SOCIAL_COPY_PACK_SCHEMA_VERSION
+        && previousRaw.promptVersion === SOCIAL_COPY_PROMPT_VERSION) {
+        const previous = normalizeSocialCopyPack({
+          editorialPlan: previousRaw.editorialPlan,
+          channels: previousRaw.channels,
+        }, { generatedAt: previousRaw.generatedAt });
+        assertSocialCopyTreatmentContinuity(previous, pack);
+      }
+    }
     writeJsonAtomic(output, pack);
     process.stdout.write('Promoted validated social copy pack ' + pack.packId + ' (' + SOCIAL_COPY_PROMPT_VERSION + ')\n');
     return;

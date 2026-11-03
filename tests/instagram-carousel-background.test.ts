@@ -85,7 +85,7 @@ describe('Instagram carousel background experiment', () => {
     });
   });
 
-  it('promotes a proven background winner while retaining configured exploration', () => {
+  it('ignores a legacy background winner while the promotion protocol is held', () => {
     const config = {
       enabled: true,
       rolloutPercent: 100,
@@ -93,13 +93,21 @@ describe('Instagram carousel background experiment', () => {
       explorationPercent: 0,
       winners: { 'article:proof:share': 'paper-amber' },
     };
-    expect(assignInstagramCarouselBackground({
+    const assignmentWithLegacyWinner = assignInstagramCarouselBackground({
       kind: 'article',
       creativeId: 'proof',
       objective: 'share',
       day: '2026-10-26',
       config,
-    }).id).toBe('paper-amber');
+    });
+    const assignmentWithoutWinner = assignInstagramCarouselBackground({
+      kind: 'article',
+      creativeId: 'proof',
+      objective: 'share',
+      day: '2026-10-26',
+      config: { ...config, winners: {} },
+    });
+    expect(assignmentWithLegacyWinner.id).toBe(assignmentWithoutWinner.id);
   });
 
   it('maps every experiment switch through the Firebase RC bridge', () => {

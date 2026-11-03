@@ -4,8 +4,8 @@
  * The journal is NOT a record of what was posted: that is the ledger on
  * origin/main (data/<channel>-posted.json), written only by confirm.mjs. The
  * journal lives in the robot's state folder on the Mac host and answers three
- * local questions the ledger cannot answer in time:
- *   - how many posts did this machine press today (the daily cap);
+ * local questions that the ledger alone cannot answer in time:
+ *   - which local presses are still pending in the shared daily cap;
  *   - which queue entries did it press and is the confirm commit still on its
  *     way (never press them twice);
  *   - which platforms are paused after a login wall or a challenge, or held
@@ -128,14 +128,39 @@ export function fileJournalStore(dir) {
 const PRESSED = new Set(['published', 'unconfirmed']);
 
 /**
- * Presses of `channel` on the local day of `now`. A press whose time cannot be
- * read counts as today's (fail closed: it uses up the cap instead of making
- * localDay throw and abort the whole robot run).
+ * Confirmed posts in the remote ledger plus local presses missing from it on
+ * the local day of `now`. Carousel rows collapse to one native media ID,
+ * TikTok publish-operation ID, or queue ID, and a local press already present
+ * in the ledger is counted once. A press whose time cannot be read counts as
+ * today's (fail closed).
  */
-export function pressedToday(journal, channel, now, timeZone = ROBOT_TIME_ZONE) {
+export function pressedToday(journal, channel, now, timeZone = ROBOT_TIME_ZONE, ledger = null) {
   const today = localDay(now, timeZone);
   const sameDay = (at) => (Number.isFinite(new Date(at ?? '').getTime()) ? localDay(at, timeZone) === today : true);
-  return journal.attempts.filter((a) => a.channel === channel && PRESSED.has(a.outcome) && sameDay(a.at)).length;
+  const ledgerPostIds = new Set();
+  const ledgerQueueIds = new Set();
+  const postedRows = Array.isArray(ledger) ? ledger : Array.isArray(ledger?.posted) ? ledger.posted : [];
+  for (const [index, row] of postedRows.entries()) {
+    if (!isRecord(row)) continue;
+    const at = row.ts || row.postedAt || row.confirmedAt;
+    const timestamp = new Date(at ?? '').getTime();
+    const queueId = typeof row.queueId === 'string' ? row.queueId.trim() : '';
+    const platformPostId = channel === 'instagram'
+      ? row.instagramMediaId || row.mediaId
+      : row.tiktokPostId || row.videoId || row.mediaId || row.tiktokPublishId;
+    const nativeId = typeof platformPostId === 'string' ? platformPostId.trim() : '';
+    if (Number.isFinite(timestamp) && localDay(timestamp, timeZone) !== today) continue;
+    ledgerPostIds.add(queueId || nativeId || `unidentified:${index}`);
+    if (queueId) ledgerQueueIds.add(queueId);
+  }
+
+  const journalQueueIds = new Set(journal.attempts
+    .filter((attempt) => attempt.channel === channel && PRESSED.has(attempt.outcome) && sameDay(attempt.at))
+    .map((attempt) => attempt.queueId));
+  for (const queueId of journalQueueIds) {
+    if (!ledgerQueueIds.has(queueId)) ledgerPostIds.add(`journal:${queueId}`);
+  }
+  return ledgerPostIds.size;
 }
 
 /**

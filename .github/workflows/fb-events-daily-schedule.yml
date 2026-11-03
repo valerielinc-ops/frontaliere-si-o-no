@@ -61,7 +61,9 @@ jobs:
 
       - name: Load secrets from RC
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,SOCIAL_COPY_EXPERIMENT_CONFIG
 
       - name: Post FB events
         if: inputs.dry_run != true && inputs.dry_run != 'true'
@@ -83,4 +85,6 @@ jobs:
             echo "no changes"; exit 0
           fi
           git commit -m "📅 Track posted FB events"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           bash scripts/lib/git-push-with-retry.sh

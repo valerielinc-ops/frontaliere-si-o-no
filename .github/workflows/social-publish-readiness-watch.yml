@@ -1,8 +1,8 @@
 name: Social Publish Readiness Watch
 
-# Watches the three social publishing channels (Instagram, TikTok, Reddit) whose
-# posters are merged, complete and fail-soft — and which therefore publish
-# NOTHING, silently, for as long as their platform-side approval is missing.
+# Watches Instagram, TikTok, and Reddit readiness. Instagram can become
+# available through Meta grants; TikTok is held by policy for this internal
+# uploader regardless of credentials; Reddit's classic API path was refused.
 #
 # Why this exists rather than "we'll notice". The Instagram/TikTok Remote Config
 # parameters existed for days while scripts/load-rc-env.mjs did not map them, so
@@ -19,16 +19,18 @@ name: Social Publish Readiness Watch
 # scripts/lib/github-issue-creator.mjs, zero-Claude bash+node (see AGENTS.md
 # "Auth automazioni & frugalità quota" — no claude-code-action, no Max quota).
 #
-# It alerts on READY, not on blocked. A channel waiting on Meta's or TikTok's
-# review queue is tracked by its follow-up issue and needs no daily reminder;
-# a channel that CAN post and isn't is a live regression. Reddit's refused
-# Data API path is likewise not re-alerted — it is a decided state, recorded in
-# docs/REDDIT-POSTING.md, not a queue to poll.
+# It opens deduplicated issues for READY channels that need activation and
+# ACTION_REQUIRED and CREDENTIAL_MISSING states that need an owner to verify identity, linkage, or
+# configuration. A missing Page field is ambiguous (link or scopes), so the
+# issue asks for verification instead of declaring the account disconnected.
+# TikTok remains policy-held for this internal workflow; a channel waiting on
+# Meta's review queue is tracked without a daily reminder. Reddit's refused
+# Data API path is likewise a recorded decision, not a queue to poll.
 
 on:
   schedule:
     # 07:50 UTC — after gh-pat-expiry-monitor (06:30) and app-auth-health
-    # (07:10), before the Instagram/TikTok broadcasts (08:20 / 08:25), so a
+    # (07:10), before the Instagram broadcast (08:20), so a
     # channel that flipped ready is flagged on the same morning its first real
     # post would have gone out.
     - cron: '50 7 * * *'
@@ -62,7 +64,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from RC
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,REDDIT_DATA_API_APPROVED,REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET
 
       - name: Probe every channel
         id: probe
@@ -71,6 +75,8 @@ jobs:
           node scripts/check-social-publish-readiness.mjs | tee readiness.txt
           READY="$(node scripts/check-social-publish-readiness.mjs --ready-channels)"
           echo "ready=$READY" >> "$GITHUB_OUTPUT"
+          ACTION_REQUIRED="$(node scripts/check-social-publish-readiness.mjs --action-required-channels)"
+          echo "action_required=$ACTION_REQUIRED" >> "$GITHUB_OUTPUT"
 
       # One issue per newly-ready channel. The title's first 60 chars are stable
       # and carry the channel name FIRST, so the dedup key discriminates between
@@ -100,7 +106,6 @@ jobs:
                 "" \
                 "### What to check" \
                 "- the channel's daily broadcast workflow is no longer logging a soft-skip" \
-                "- for TikTok, whether the audit also cleared (\`TIKTOK_PRIVACY_LEVEL\` past \`SELF_ONLY\`) or posts are still \`SELF_ONLY\`" \
                 "- the follow-up issue that tracked this channel's block can be closed" \
                 "" \
                 "Full probe output:" \
@@ -113,6 +118,50 @@ jobs:
               --workflow "Social Publish Readiness Watch" \
               --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           done
+
+      - name: Alert on setup or identity checks that need owner action (dedup, zero-Claude)
+        if: steps.probe.outputs.action_required != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ACTION_REQUIRED_CHANNELS: ${{ steps.probe.outputs.action_required }}
+        run: |
+          set -euo pipefail
+          for CH in $ACTION_REQUIRED_CHANNELS; do
+            REASON="$(node scripts/check-social-publish-readiness.mjs "--reason=$CH")"
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$CH publishing setup requires owner action — Meta identity or credentials" \
+              --description "$(printf '%s\n' \
+                "## ⚠️ ${CH}: readiness needs owner verification" \
+                "" \
+                "The read-only readiness probe reports a setup state that needs owner action:" \
+                "" \
+                "> ${REASON}" \
+                "" \
+                "A missing instagram_business_account field does not prove that the Instagram account is disconnected; Meta may also withhold the field until the required API scopes are available." \
+                "Confirm in Meta Business Suite that the intended professional Instagram account is linked to the configured Page, then verify App Review and the publishing token. The probe does not print account IDs or tokens." \
+                "" \
+                '```' \
+                "$(cat readiness.txt)" \
+                '```')" \
+              --priority 2 \
+              --label follow-up \
+              --workflow "Social Publish Readiness Watch" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          done
+
+      - name: Resolve the setup issue when Instagram identity is verified
+        if: success() && steps.probe.outputs.action_required == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "instagram publishing setup requires owner action — Meta identity or credentials" \
+            --reason completed \
+            --workflow "Social Publish Readiness Watch" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       # Watcher-of-the-watcher, mirroring app-auth-health-monitor.yml: if the
       # probe step itself breaks, nobody notices that readiness detection is

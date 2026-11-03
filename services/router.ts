@@ -283,7 +283,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'plate-auctions' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'direct-employers' | 'permanent-employers' | 'employer-qr' | 'direct-employer-verify' | 'direct-employer-apply' | 'direct-employer-renew' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'plate-auctions' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'social-hub' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'direct-employers' | 'permanent-employers' | 'employer-qr' | 'direct-employer-verify' | 'direct-employer-apply' | 'direct-employer-renew' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -2194,6 +2194,13 @@ export function parsePath(pathname: string): ParseResult {
  const table = SLUG_TABLES[locale];
  const revTop = REVERSE_TOP[locale];
 
+ // Social bio landing: the static page is emitted for every locale and owns
+ // its body/head outside the SPA root. Keeping a distinct route tab preserves
+ // the canonical localized path when the language switcher builds its sibling.
+ if (parts.length === 1 && parts[0] === table.socialHub) {
+   return { route: { activeTab: 'social-hub', staticOverlay: true }, locale };
+ }
+
  // Swiss plate auctions are a standalone vertical with its own localized
  // slug family, so it must be recognized before the generic top-level table.
  const plateAuctionPath = parsePlateAuctionPath(pathname);
@@ -3933,6 +3940,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.consulting}${hashSuffix}`);
  case 'press-kit':
  return finish(`${prefix}/${table.pressKit}${hashSuffix}`);
+ case 'social-hub':
+ return finish(`${prefix}/${table.socialHub}${hashSuffix}`);
  case 'job-board': {
  // P1.3 cathedral: per-canton + aggregator URL emission. Resolves jobBoard
  // base segment from route.jobBoardCanton (2-letter ISO code or
@@ -4170,6 +4179,8 @@ export function getSeoSection(route: AppRoute): string {
  return route.glossaryTerm ? `glossario-${route.glossaryTerm}` : 'glossario';
  case 'faq':
  return 'faq';
+ case 'social-hub':
+ return 'social-hub';
  case 'dialetto':
  return 'dialetto';
  case 'sitemap':
@@ -4356,6 +4367,13 @@ export function updatePathForLocale(newLocale: Locale): void {
  // though the static SEO content is the per-station detail. Preserve the
  // canonical URL; the per-locale alternates are emitted as <link rel="alternate">.
  if (route.staticOverlay) {
+ if (route.activeTab === 'social-hub') {
+ const newPath = buildPath(route, newLocale);
+ if (currentPath !== newPath) {
+ window.location.assign(newPath + search + window.location.hash);
+ }
+ return;
+ }
  const companyPath = staticCompanyPathForLocale(currentPath, newLocale);
  if (companyPath && currentPath !== companyPath) {
  window.location.assign(companyPath + search + window.location.hash);

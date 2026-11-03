@@ -1,14 +1,30 @@
 name: Social Copy Pack (Codex)
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.agents/skills/social-content/**'
+      - '.agents/skills/ig-reel/**'
+      - '.agents/skills/ig-caption/**'
+      - '.agents/skills/ig-carousel/**'
+      - '.agents/skills/ig-plan/**'
+      - '.agents/skills/ig-audit/**'
+      - '.agents/skills/ig-human/**'
+      - '.github/workflows/social-copy-pack.yml'
+      - 'docs/instagram-creative-study.md'
+      - 'docs/social-ai-automation.md'
+      - 'docs/third-party/instagram-agent-skill/UPSTREAM.md'
+      - 'scripts/lib/social-copy-pack.mjs'
+      - 'scripts/social-copy/**'
   schedule:
-    - cron: '40 4 1 * *' # monthly pack, before the first daily broadcasts
+    - cron: '40 4 * * 1' # weekly adaptive pack, after the Monday insights snapshot
   workflow_dispatch:
     inputs:
       promote:
         description: 'Promote a valid generated pack on main'
         required: false
-        default: false
+        default: true
         type: boolean
 
 concurrency:
@@ -73,18 +89,25 @@ jobs:
           fi
           printf 'brief=%s\n' "$(cat "$output")" >> "$GITHUB_OUTPUT"
 
-      - name: Build minimized Instagram performance brief
-        id: performance
+      - name: Build minimized native social brief and growth scorecard
+        id: native
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
         shell: bash
         run: |
           set -euo pipefail
-          if [ -f data/instagram-insights.json ] && [ -f data/instagram-posted.json ]; then
-            brief="$(node scripts/social-copy/performance-brief.mjs \
-              --input=data/instagram-insights.json \
-              --ledger=data/instagram-posted.json)"
-          else
-            brief='{"schemaVersion":1,"source":"instagram-insights","windowHours":72,"minimumObservations":3,"acceptedRows":0,"variants":[],"interpretation":"Descriptive only; no winner, eligibility, or publishing decision is inferred."}'
-          fi
+          native_brief="$(node scripts/social-copy/native-performance-brief.mjs)"
+          scorecard="$(node scripts/social-growth-scorecard.mjs --json)"
+          printf 'brief=%s\n' "$native_brief" >> "$GITHUB_OUTPUT"
+          printf 'scorecard=%s\n' "$scorecard" >> "$GITHUB_OUTPUT"
+
+      - name: Build sanitized published-topic inventory
+        id: editorial_sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          brief="$(node scripts/social-copy/editorial-source-brief.mjs)"
           printf 'brief=%s\n' "$brief" >> "$GITHUB_OUTPUT"
 
       - name: Generate social copy with Codex
@@ -98,13 +121,51 @@ jobs:
           response_artifact: social-copy-response.json
           prompt: |
             Read scripts/social-copy/CODEX-PROMPT.md and follow it exactly.
-            Recent Instagram 72-hour copy-performance brief, sanitized and descriptive only:
-            ${{ steps.performance.outputs.brief }}
             Recent GA4 30-day social-link attribution brief, sanitized and descriptive only.
             Use only groups marked eligibleForDescription. Session counts are not impressions.
             siteEngagedSessionRate describes website sessions after a click, not social-post
-            engagement or reach. Neither brief establishes causality or a winning template:
+            engagement or reach. The allowlisted siteActions are event counts, not unique users;
+            each row carries a versioned event contract and its strongest supported claim;
+            keyEventStatus does not verify live GA4 property configuration. job_apply_handoff
+            means an outbound click, not a completed application. An empty
+            action list means no matching evidence, not zero actions. Neither brief establishes
+            causality or a winning template:
             ${{ steps.attribution.outputs.brief }}
+            Recent native social performance brief, sanitized and descriptive only.
+            It includes private Instagram and LinkedIn metrics. TikTok rows,
+            including stored snapshots, are included only when
+            TIKTOK_DISPLAY_ANALYTICS_APPROVED is exactly true; otherwise every
+            TikTok row is filtered before Codex receives the brief. Metrics join
+            by exact published IDs, use channel-specific windows, and require at
+            least three observations per metric before a median is exposed. Missing metrics are not zero;
+            assignment mode and experiment hash are separate cohorts. It does not establish
+            causality or a winning copy arm:
+            ${{ steps.native.outputs.brief }}
+            Current dated rolling 30-day descriptive scorecard with source coverage.
+            Its default objective is net audience growth per channel, with qualified
+            social-attributed sessions reported separately. It contains no combined
+            target or forecast. Its provisional GA4 operating target is +25% tagged
+            sessions per channel and registered event at the roughly day-90 follow-up,
+            with a 90% retention guardrail on a positive baseline event rate; this is
+            descriptive and is not a business forecast or causal estimate. Channel
+            `growthTarget90d` values are separate audience-growth stretch goals after
+            a qualified frozen baseline, not forecasts or causal estimates.
+            It distinguishes rolling audience change from any frozen 30-day baseline
+            and 90-day follow-up, which remain descriptive.
+            TikTok audience and post metrics are absent unless its eligibility flag is true.
+            The socialRobotDelivery section is operational telemetry only: queued
+            items and confirmation-dispatch failures are not evidence of audience
+            exposure or content quality; only the UI-confirmed outcome indicates
+            the post appeared to publish.
+            It cannot establish lift or permission to promote a winner:
+            ${{ steps.native.outputs.scorecard }}
+            Current published-article topic inventory and upcoming Ticino event-category
+            inventory, sanitized and dated. It supplies editorial topic context only,
+            never claims, audience evidence, search demand, or performance evidence.
+            Event categories may guide local Facebook event programming; titles, URLs,
+            organizers, people, and dates are intentionally absent. The publisher must
+            verify each fact and event against the current source before posting:
+            ${{ steps.editorial_sources.outputs.brief }}
             Return a complete JSON pack by writing only
             /tmp/social-copy-response.json. Use the existing Frontaliere
             Ticino editorial and platform guidance in this checkout.
@@ -123,7 +184,7 @@ jobs:
     if: >-
       needs.generate.result == 'success' &&
       github.ref == 'refs/heads/main' &&
-      (github.event_name == 'schedule' || inputs.promote == true)
+      (github.event_name == 'schedule' || github.event_name == 'push' || inputs.promote == true)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

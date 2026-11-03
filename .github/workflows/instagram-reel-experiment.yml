@@ -1,7 +1,8 @@
 name: Instagram Reel Experiment
 
-# Two reserved experiment slots per week run before the daily carousel queue:
-# they consume one of the robot's two daily Instagram slots, never a third one.
+# Two reserved experiment slots per week publish through Instagram's Graph
+# API. The daily broadcast reserves the same-day cadence slot so these never
+# become an extra third post; Reels do not use the browser robot.
 # Manual dispatch remains available for previews or an owner-selected cohort.
 on:
   # GitHub exposes the exact cron string in github.event.schedule; keep the
@@ -85,9 +86,11 @@ jobs:
 
       - name: Load Remote Config
         if: env.DRY_RUN != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
-      - name: Render or queue controlled Reel
+      - name: Render and publish controlled Reel through Graph API
         run: |
           set -euo pipefail
           args=("--kind=$KIND")
@@ -95,20 +98,20 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           npx --no-install tsx scripts/post-to-instagram-reel.mjs "${args[@]}"
 
-      - name: Commit Reel queue
+      - name: Commit published Reel ledger
         if: env.DRY_RUN != 'true'
         run: |
           set -euo pipefail
-          if [ ! -f data/instagram-queue.json ]; then
-            echo 'no Instagram queue written — nothing to commit'
+          if [ ! -f data/instagram-posted.json ]; then
+            echo 'no Instagram posted ledger written — nothing to commit'
             exit 0
           fi
-          git add data/instagram-queue.json
+          git add data/instagram-posted.json
           if git diff --cached --quiet; then
-            echo 'no Reel queue changes'
+            echo 'no Reel ledger changes'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'chore(instagram): queue controlled Reel experiment [skip ci]'
+          git commit -m 'chore(instagram): record controlled Reel publication [skip ci]'
           bash scripts/lib/git-push-with-retry.sh --max-attempts 20 --stash-dirty

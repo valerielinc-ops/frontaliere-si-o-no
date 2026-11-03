@@ -15,6 +15,10 @@
  */
 
 export const DECISION_SCHEMA_VERSION = 2;
+// The simple count/lift evaluator below is descriptive only. Publisher winner
+// maps stay quarantined until preregistration, randomized blocks, fixed-sample
+// inference, multiplicity correction, and A/A calibration are implemented.
+export const AUTONOMOUS_PROMOTION_PROTOCOL_READY = false;
 export const DEFAULT_DECISION_WINDOW_HOURS = 72;
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
 export const DEFAULT_MIN_RELATIVE_LIFT = 0.15;

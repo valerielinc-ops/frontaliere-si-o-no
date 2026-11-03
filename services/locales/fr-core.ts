@@ -2070,6 +2070,8 @@ const frCore: Record<string, string> = {
  'renovation.cat.environmental': 'Protection environnementale',
  'renovation.catDesc.environmental': 'Photovoltaïque, bornes de recharge, désamiantage, récupération d\'eau de pluie.',
  'faq.title': 'Questions fréquentes',
+ 'socialHub.title': 'Ressources pour les travailleurs frontaliers',
+ 'socialHub.description': 'Emplois au Tessin, salaire net, trafic frontalier, guides pratiques et résumé hebdomadaire.',
  'faq.questions.permits.q1': 'Quelle est la différence entre le Permis G et le Permis B ?',
  'faq.questions.permits.a1': 'Le Permis G est pour les frontaliers (résidence en Italie, travail en CH, retour hebdomadaire). Le Permis B est pour les résidents en Suisse.',
  'faq.questions.permits.q3': 'Comment demander le Permis G ?',

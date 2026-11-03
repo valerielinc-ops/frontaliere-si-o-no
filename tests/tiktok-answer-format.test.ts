@@ -166,8 +166,33 @@ describe('voice', () => {
     expect(seconds).toBe(5);
   });
 
-  it('fails on a missing key or an empty answer, so the post falls back to slides', async () => {
+  it('uses the current Gemini TTS interaction API and accepts its complete WAV output', async () => {
+    const wav = pcmToWav(Buffer.alloc(48_000));
+    let requestUrl = '';
+    let requestBody: Record<string, any> = {};
+    const fetchImpl = async (url: string, options: { body: string }) => {
+      requestUrl = url;
+      requestBody = JSON.parse(options.body);
+      return new Response(JSON.stringify({
+        steps: [{ type: 'model_output', content: [{ type: 'audio', data: wav.toString('base64') }] }],
+      }));
+    };
+    const result = await synthesizeAnswerVoice('Una risposta verificata.', { apiKey: 'k', fetchImpl });
+
+    expect(requestUrl).toBe('https://generativelanguage.googleapis.com/v1beta/interactions');
+    expect(requestBody).toMatchObject({
+      model: 'gemini-3.8-flash-tts',
+      response_format: { type: 'audio' },
+      generation_config: { speech_config: [{ voice: 'Kore' }] },
+    });
+    expect(requestBody.input[0].content[0].text).toBe('Una risposta verificata.');
+    expect(result.wav.equals(wav)).toBe(true);
+    expect(result.seconds).toBe(1);
+  });
+
+  it('fails on a missing key, empty transcript, or audio-less response', async () => {
     await expect(synthesizeAnswerVoice('ciao', { apiKey: '' })).rejects.toThrow(/GEMINI_API_KEY/);
+    await expect(synthesizeAnswerVoice('', { apiKey: 'k' })).rejects.toThrow(/transcript is empty/);
     const fetchImpl = async () => new Response('{}');
     await expect(synthesizeAnswerVoice('ciao', { apiKey: 'k', fetchImpl })).rejects.toThrow(/no audio/);
   });

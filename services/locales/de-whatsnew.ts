@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v39915.title": "Ein Einstieg über soziale Medien",
+ "whatsNew.v39915.socialHub.title": "Wichtige Ressourcen auf einer Seite",
+ "whatsNew.v39915.socialHub.desc": "Die Seite bündelt Stellen, Nettolohn-Rechner, Grenzverkehr-Updates, Ratgeber und den Wochenüberblick.",
  "whatsNew.v39914.title": "Eine erste Auswahl zum Einstieg",
  "whatsNew.v39914.discovery.title": "Beliebte Stellen, dann Ihre Interessen",
  "whatsNew.v39914.discovery.desc": "Ohne gespeicherte Suche beginnt die erste E-Mail mit den meistgesehenen Stellen und verfügbaren geografischen Hinweisen. Klicks und Suchanfragen helfen, spätere Vorschläge passender zu machen.",

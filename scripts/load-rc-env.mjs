@@ -16,6 +16,10 @@ import { realpathSync } from 'node:fs';
  *     - name: Load secrets from Remote Config
  *       run: node scripts/load-rc-env.mjs
  *
+ *   Jobs with least-privilege needs can request only specific mapped env vars:
+ *
+ *     node scripts/load-rc-env.mjs --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN
+ *
  * ─── Local mode ──────────────────────────────────────────────────────────
  *   Prints export KEY=VALUE lines to stdout.  Use with eval:
  *
@@ -218,6 +222,10 @@ export const RC_TO_ENV = {
 
   // Server-only keys (stored with SERVER_ prefix in RC)
   SERVER_FB_PAGE_ACCESS_TOKEN:    ['FB_PAGE_ACCESS_TOKEN'],
+  // Meta's Page.instagram_business_account read requires a user token whose
+  // user can perform the needed tasks on the Page; keep it server-only and
+  // load it only in the readiness probe that compares the linked account ID.
+  SERVER_FB_USER_ACCESS_TOKEN:    ['FB_USER_ACCESS_TOKEN'],
   SERVER_PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN: ['PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN'],
   SERVER_GA4_PROPERTY_ID:         ['GA4_PROPERTY_ID'],
   SERVER_GSC_CLIENT_SECRET:       ['GSC_CLIENT_SECRET'],
@@ -318,9 +326,10 @@ export const RC_TO_ENV = {
   // Insights source: browser uses the authenticated Chrome Professional
   // Dashboard on the Mac host; graph remains an explicit compatibility path.
   SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],
-  // Insights collection and decision loop. The browser collector uses both
-  // diagnostic (24h) and decision (72h) windows by default; the decision job
-  // promotes a variant only after independent observations and lift gates.
+  // Insights collection and descriptive candidate reporting. The browser
+  // collector uses diagnostic (24h) and decision (72h) windows by default;
+  // the legacy count/lift evaluator cannot promote until the preregistered
+  // statistical decision protocol is implemented.
   INSTAGRAM_INSIGHTS_WINDOWS:           ['INSTAGRAM_INSIGHTS_WINDOWS'],
   INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS: ['INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS'],
   INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: ['INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED'],
@@ -734,7 +743,21 @@ async function fetchTemplateViaRest() {
 
 // ─── Main ────────────────────────────────────────────────────────────────
 
-async function main() {
+function parseArgs(argv) {
+  if (!argv.length) return { onlyEnvKeys: null };
+  if (argv.length !== 1 || !argv[0].startsWith('--only-env=')) {
+    throw new Error('usage: load-rc-env.mjs [--only-env=ENV_KEY,ENV_KEY]');
+  }
+  const raw = argv[0].slice('--only-env='.length);
+  const names = raw.split(',').map((name) => name.trim()).filter(Boolean);
+  const mappedEnvKeys = new Set(Object.values(RC_TO_ENV).flat());
+  if (!names.length || names.some((name) => !/^[A-Z][A-Z0-9_]*$/u.test(name) || !mappedEnvKeys.has(name))) {
+    throw new Error('`--only-env` must list known uppercase environment keys');
+  }
+  return { onlyEnvKeys: new Set(names) };
+}
+
+async function main({ onlyEnvKeys = null } = {}) {
   const isCI = !!process.env.GITHUB_ENV;
 
   // 1. Check for GOOGLE_APPLICATION_CREDENTIALS
@@ -795,7 +818,11 @@ async function main() {
   const lines = []; // For GITHUB_ENV or stdout
   const queuedEnvKeys = new Set();
 
-  for (const [rcKey, envKeys] of Object.entries(RC_TO_ENV)) {
+  for (const [rcKey, mappedEnvKeys] of Object.entries(RC_TO_ENV)) {
+    const envKeys = onlyEnvKeys
+      ? mappedEnvKeys.filter((envKey) => onlyEnvKeys.has(envKey))
+      : mappedEnvKeys;
+    if (!envKeys.length) continue;
     const value = getRcValue(template, rcKey);
 
     // See shouldExportRcValue: getRcValue() already distinguishes "absent" (null)
@@ -860,9 +887,18 @@ const directInvocation = (() => {
 })();
 
 if (directInvocation) {
-  main().catch((err) => {
-    console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
-    console.warn('   Falling back to environment variables / GH Secrets.');
-    process.exit(0); // Non-blocking — never break the workflow
-  });
+  let options;
+  try {
+    options = parseArgs(process.argv.slice(2));
+  } catch (err) {
+    console.error(`load-rc-env: ${err?.message || 'invalid arguments'}`);
+    process.exitCode = 1;
+  }
+  if (options) {
+    main(options).catch((err) => {
+      console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
+      console.warn('   Falling back to environment variables / GH Secrets.');
+      process.exit(0); // Non-blocking — never break the workflow
+    });
+  }
 }

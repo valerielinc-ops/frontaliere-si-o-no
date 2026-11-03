@@ -25,6 +25,8 @@
  *   Prints the Page Access Token and Page ID to save as GitHub secrets.
  */
 
+import { GRAPH_API } from './lib/instagram-graph-constants.mjs';
+
 const [shortToken, appId, appSecret] = process.argv.slice(2);
 
 if (!shortToken || !appId || !appSecret) {
@@ -51,7 +53,7 @@ async function main() {
   console.log('🔄 Step 1: Exchanging short-lived token for long-lived user token...\n');
 
   const llRes = await fetch(
-    `https://graph.facebook.com/v21.0/oauth/access_token?` +
+    `${GRAPH_API}/oauth/access_token?` +
     new URLSearchParams({
       grant_type: 'fb_exchange_token',
       client_id: appId,
@@ -78,7 +80,7 @@ async function main() {
   console.log('🔄 Step 2: Fetching Page Access Tokens...\n');
 
   const pagesRes = await fetch(
-    `https://graph.facebook.com/v21.0/me/accounts?access_token=${longLivedUserToken}`
+    `${GRAPH_API}/me/accounts?access_token=${longLivedUserToken}`
   );
 
   const pagesData = await pagesRes.json();
@@ -98,7 +100,7 @@ async function main() {
   for (const page of pagesData.data) {
     // ── Step 3: Verify each page token is non-expiring ──────
     const debugRes = await fetch(
-      `https://graph.facebook.com/v21.0/debug_token?` +
+      `${GRAPH_API}/debug_token?` +
       new URLSearchParams({
         input_token: page.access_token,
         access_token: `${appId}|${appSecret}`,

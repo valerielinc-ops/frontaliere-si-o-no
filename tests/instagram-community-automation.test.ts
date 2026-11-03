@@ -93,6 +93,22 @@ function ledger() {
   };
 }
 
+function storyReservationClient(allowed = true) {
+  const calls: Array<{ action: string; args: Record<string, unknown> }> = [];
+  return {
+    calls,
+    client: {
+      reserveBatch: async (args: Record<string, unknown>) => {
+        calls.push({ action: 'reserve', args });
+        const reservations = args.reservations as Array<{ key: string }>;
+        return reservations.map(({ key }) => ({ key, allowed, reason: allowed ? null : 'daily-cap' }));
+      },
+      markPublished: async (args: Record<string, unknown>) => { calls.push({ action: 'published', args }); return true; },
+      release: async (args: Record<string, unknown>) => { calls.push({ action: 'released', args }); return true; },
+    },
+  };
+}
+
 describe('Instagram community automation', () => {
   it('uses the existing Firebase-controlled live switch and defaults safely', () => {
     expect(resolveInstagramCommunityMode({})).toBe('dry');
@@ -138,6 +154,7 @@ describe('Instagram community automation', () => {
     const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-'));
     const statePath = path.join(temp, 'nested', 'state.json');
     const first = fakeInstagramFetch();
+    const reservations = storyReservationClient();
     const firstResult = await runInstagramCommunityAutomation({
       accountId: 'account-1',
       accessToken: 'token-never-printed',
@@ -150,6 +167,7 @@ describe('Instagram community automation', () => {
       fetchImpl: first.fetchImpl,
       sleepImpl: async () => {},
       log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: reservations.client,
     });
 
     expect(firstResult).toMatchObject({
@@ -162,6 +180,10 @@ describe('Instagram community automation', () => {
       storiesPublished: 1,
     });
     expect(first.calls.every(({ url }) => !url.includes('token-never-printed'))).toBe(true);
+    expect(reservations.calls.map(({ action }) => action)).toEqual(['reserve', 'published']);
+    expect(reservations.calls[0].args).toMatchObject({
+      platform: 'instagram', capGroup: 'story', accountId: 'account-1',
+    });
     expect(readFileSync(statePath, 'utf8')).not.toContain('comment-1');
     expect(readFileSync(statePath, 'utf8')).not.toContain('message-1');
 
@@ -178,11 +200,118 @@ describe('Instagram community automation', () => {
       fetchImpl: second.fetchImpl,
       sleepImpl: async () => {},
       log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: reservations.client,
     });
     expect(secondResult).toMatchObject({ commentsSeen: 1, commentsReplied: 0, privateRepliesSent: 0, directMessagesSent: 0, storiesPublished: 0 });
     expect(second.calls.filter(({ options }) => options.method === 'POST')).toHaveLength(0);
 
     expect(loadCommunityState(statePath).actions).toHaveLength(4);
+    rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('does not replay a community POST after its response is lost', async () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-uncertain-'));
+    const statePath = path.join(temp, 'state.json');
+    const baseline = fakeInstagramFetch();
+    const uncertainCalls: { url: string; options: any }[] = [];
+    const firstResult = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: ledger(),
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl: async (url, options = {}) => {
+        if (options.method === 'POST' && String(url).includes('/comment-1/replies')) {
+          uncertainCalls.push({ url: String(url), options });
+          throw new Error('network timeout after comment reply');
+        }
+        return baseline.fetchImpl(url, options);
+      },
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: storyReservationClient().client,
+    });
+    expect(firstResult.status).toBe('partial');
+    expect(uncertainCalls).toHaveLength(1);
+    expect(loadCommunityState(statePath).actions).toContainEqual(expect.objectContaining({ status: 'uncertain' }));
+
+    const second = fakeInstagramFetch();
+    const secondResult = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: ledger(),
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl: second.fetchImpl,
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: storyReservationClient().client,
+    });
+    expect(secondResult.commentsReplied).toBe(0);
+    expect(second.calls.some(({ url, options }) => options.method === 'POST' && url.includes('/comment-1/replies'))).toBe(false);
+    rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('holds a Story when the shared daily Story cap is full', async () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-cap-'));
+    const statePath = path.join(temp, 'state.json');
+    const fetch = fakeInstagramFetch();
+    const reservations = storyReservationClient(false);
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: ledger(),
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl: fetch.fetchImpl,
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: reservations.client,
+    });
+    expect(result).toMatchObject({ status: 'completed', storiesPublished: 0, storiesSkipped: 1 });
+    expect(fetch.calls.filter(({ url, options }) => options.method === 'POST' && new URL(url).pathname.endsWith('/media_publish'))).toHaveLength(0);
+    expect(reservations.calls.map(({ action }) => action)).toEqual(['reserve']);
+    rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('keeps the Story reservation after an ambiguous media_publish transport failure', async () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-ambiguous-'));
+    const statePath = path.join(temp, 'state.json');
+    const fetch = fakeInstagramFetch();
+    const reservations = storyReservationClient();
+    const fetchImpl = async (url: string, options: any = {}) => {
+      const parsed = new URL(url);
+      if (options.method === 'POST' && parsed.pathname.endsWith('/media_publish')) {
+        throw new Error('connection reset after request send');
+      }
+      return fetch.fetchImpl(url, options);
+    };
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: ledger(),
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl,
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: reservations.client,
+    });
+
+    expect(result).toMatchObject({ status: 'partial', storiesAttempted: 1, storiesPublished: 0 });
+    expect(reservations.calls.map(({ action }) => action)).toEqual(['reserve']);
     rmSync(temp, { recursive: true, force: true });
   });
 

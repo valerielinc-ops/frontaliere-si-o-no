@@ -9,6 +9,7 @@
  * kept soft-skipping is the failure this module exists to make loud.
  */
 import { describe, it, expect } from 'vitest';
+import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 
 import {
   classifyInstagram,
@@ -16,86 +17,150 @@ import {
   classifyReddit,
   classifyAll,
   actionableChannels,
+  instagramSetupActionChannels,
   isExternalWait,
   isActionable,
   formatVerdictTable,
   READY,
+  ACTION_REQUIRED,
   AWAITING_EXTERNAL_APPROVAL,
   PATH_REFUSED,
   CREDENTIAL_MISSING,
   REDDIT_DATA_API_DENIED_ON,
 } from '../scripts/lib/social-readiness.mjs';
 
-describe('Instagram — Meta App Review', () => {
-  it('is an external wait when the account exists but the Page token has no Instagram scope', () => {
-    const v = classifyInstagram({
-      env: { FB_PAGE_ID: '951226518080080', INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982' },
-      probe: { pageLinked: false },
-    });
-    expect(v.state).toBe(AWAITING_EXTERNAL_APPROVAL);
-    expect(v.waitingOn).toMatch(/App Review/);
-    expect(isExternalWait(v.state)).toBe(true);
-    expect(isActionable(v.state)).toBe(false);
+describe('Instagram — Page link, publisher identity, and Meta publishing grant', () => {
+  it('maps the Page-link verifier token only from its server-side Remote Config key', () => {
+    expect(RC_TO_ENV.SERVER_FB_USER_ACCESS_TOKEN).toEqual(['FB_USER_ACCESS_TOKEN']);
   });
 
-  it('flips to ready the moment the Page starts exposing instagram_business_account', () => {
+  it('requires owner action when the Page is linked but Meta has not granted publishing permission', () => {
     const v = classifyInstagram({
-      env: { FB_PAGE_ID: '951226518080080', INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982' },
-      probe: { pageLinked: true },
+      env: {
+        FB_PAGE_ID: 'page',
+        FB_USER_ACCESS_TOKEN: 'user-token',
+        INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig',
+      },
+      probe: { pageLinkStatus: 'matched', publishPermissionStatus: 'missing' },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+    expect(v.reason).toMatch(/instagram_content_publish permission as granted/);
+    expect(isExternalWait(v.state)).toBe(false);
+    expect(isActionable(v.state)).toBe(true);
+  });
+
+  it('is ready only after Page link, publisher identity, and publishing permission are verified', () => {
+    const v = classifyInstagram({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'ig-token', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
+      probe: {
+        pageLinkStatus: 'matched',
+        publisherTokenStatus: 'matched',
+        publisherTokenSourceStatus: 'matched',
+        pageTaskStatus: 'granted',
+        publishPermissionStatus: 'granted',
+      },
     });
     expect(v.state).toBe(READY);
-    expect(v.reason).toMatch(/SERVER_INSTAGRAM_ACCESS_TOKEN/);
   });
 
-  it('does NOT call the account id alone a sign of approval — it is a public identifier, not a grant', () => {
-    // The whole point of probing the Page instead of trusting Remote Config:
-    // the owner can paste this id in at any time, review or no review.
+  it('does not report ready when a token and account ID exist but publishing probes are unavailable', () => {
+    const v = classifyInstagram({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'ig-token', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
+      probe: { pageLinkStatus: 'unavailable' },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+  });
+
+  it('does not report ready when Page and scope match but publisher token identity is unavailable', () => {
+    const v = classifyInstagram({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'ig-token', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
+      probe: {
+        pageLinkStatus: 'matched',
+        publisherTokenStatus: 'unavailable',
+        publishPermissionStatus: 'granted',
+      },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+  });
+
+  it('does not report ready when the configured Page token came from another user token/app grant', () => {
+    const v = classifyInstagram({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'ig-token', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
+      probe: {
+        pageLinkStatus: 'matched',
+        publisherTokenStatus: 'matched',
+        publisherTokenSourceStatus: 'mismatch',
+        pageTaskStatus: 'granted',
+        publishPermissionStatus: 'granted',
+      },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+    expect(v.reason).toMatch(/same Page and user token/);
+  });
+
+  it('requires action when the publisher token resolves but Meta has not granted publish scope', () => {
+    const v = classifyInstagram({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'ig-token', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
+      probe: {
+        pageLinkStatus: 'matched',
+        publisherTokenStatus: 'matched',
+        publishPermissionStatus: 'missing',
+      },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+  });
+
+  it('requires action when Meta does not expose the Page link and does not infer that ids prove it', () => {
+    const v = classifyInstagram({
+      env: { FB_PAGE_ID: 'page', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
+      probe: { pageLinkStatus: 'unverified' },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+    expect(v.reason).toMatch(/cannot be verified against the Facebook Page/);
+    expect(isActionable(v.state)).toBe(true);
+  });
+
+  it('requires action when the Page exposes a different account than the configured id', () => {
+    const v = classifyInstagram({
+      env: { INSTAGRAM_ACCESS_TOKEN: 'ig-token', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig-configured' },
+      probe: { pageLinkStatus: 'mismatch' },
+    });
+    expect(v.state).toBe(ACTION_REQUIRED);
+    expect(v.reason).toMatch(/does not match INSTAGRAM_BUSINESS_ACCOUNT_ID/);
+  });
+
+  it('does not call a configured id alone a verified Page link', () => {
     const v = classifyInstagram({
       env: { FB_PAGE_ID: 'p', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig' },
-      probe: {},
+      probe: { pageLinkStatus: 'unverified' },
     });
-    expect(v.state).not.toBe(READY);
+    expect(v.state).toBe(ACTION_REQUIRED);
   });
 
   it('is a missing credential, not a wait, when nothing was ever submitted', () => {
-    expect(classifyInstagram({ env: {}, probe: {} }).state).toBe(CREDENTIAL_MISSING);
+    const v = classifyInstagram({ env: {}, probe: {} });
+    expect(v.state).toBe(CREDENTIAL_MISSING);
+    expect(isActionable(v.state)).toBe(true);
   });
 
-  it('is ready on a live access token even if the probe cannot run at all', () => {
-    const v = classifyInstagram({ env: { INSTAGRAM_ACCESS_TOKEN: 'EAAG...' }, probe: { pageLinked: false } });
-    expect(v.state).toBe(READY);
+  it('requires the target account id when only an access token is configured', () => {
+    expect(classifyInstagram({ env: { INSTAGRAM_ACCESS_TOKEN: 'token' } }).state).toBe(ACTION_REQUIRED);
   });
 });
 
-describe('TikTok — app audit', () => {
-  it('separates "no developer app" from "app exists, audit queued"', () => {
-    expect(classifyTikTok({ env: {}, probe: { appLive: false } }).state).toBe(CREDENTIAL_MISSING);
-    expect(classifyTikTok({ env: { TIKTOK_CLIENT_KEY: 'k' }, probe: { appLive: true } }).state).toBe(AWAITING_EXTERNAL_APPROVAL);
-  });
-
-  it('treats an unaudited app with a user token as READY — SELF_ONLY posting is still publishing', () => {
-    const v = classifyTikTok({ env: { TIKTOK_ACCESS_TOKEN: 'act...' }, probe: { appLive: true } });
-    expect(v.state).toBe(READY);
-    expect(v.reason).toMatch(/SELF_ONLY/);
-  });
-
-  it('recognises the refresh-token trio as a usable credential, not just the static token', () => {
-    // TikTok access tokens last 24h: the trio is the shape a cron actually runs on.
-    const v = classifyTikTok({
-      env: { TIKTOK_REFRESH_TOKEN: 'r', TIKTOK_CLIENT_KEY: 'k', TIKTOK_CLIENT_SECRET: 's' },
-      probe: { appLive: true },
-    });
-    expect(v.state).toBe(READY);
-  });
-
-  it('reports the audit as cleared once the privacy level moves past SELF_ONLY', () => {
-    const v = classifyTikTok({ env: { TIKTOK_ACCESS_TOKEN: 'a', TIKTOK_PRIVACY_LEVEL: 'PUBLIC_TO_EVERYONE' }, probe: {} });
-    expect(v.reason).toMatch(/audited/);
-  });
-
-  it('still blames the platform when the client key exists but the probe fails', () => {
-    const v = classifyTikTok({ env: { TIKTOK_CLIENT_KEY: 'k' }, probe: { appLive: false } });
-    expect(v.state).toBe(AWAITING_EXTERNAL_APPROVAL);
+describe('TikTok — internal publishing policy hold', () => {
+  it('stays blocked regardless of user tokens, refresh credentials, or API audit status', () => {
+    for (const env of [
+      {},
+      { TIKTOK_ACCESS_TOKEN: 'act...' },
+      { TIKTOK_REFRESH_TOKEN: 'r', TIKTOK_CLIENT_KEY: 'k', TIKTOK_CLIENT_SECRET: 's' },
+      { TIKTOK_ACCESS_TOKEN: 'a', TIKTOK_PRIVACY_LEVEL: 'PUBLIC_TO_EVERYONE' },
+    ]) {
+      const v = classifyTikTok({ env, probe: { appLive: true } });
+      expect(v.state).toBe(AWAITING_EXTERNAL_APPROVAL);
+      expect(v.reason).toMatch(/internal utilities/);
+      expect(isActionable(v.state)).toBe(false);
+    }
   });
 });
 
@@ -144,22 +209,28 @@ describe('classifyAll / actionableChannels', () => {
     expect(all.map((v) => v.channel).sort()).toEqual(['instagram', 'reddit', 'tiktok']);
   });
 
-  it('keeps platform waits OUT of the actionable set — that is the entire point', () => {
+  it('keeps TikTok external waits out of actionable while Instagram verification remains actionable', () => {
     const all = classifyAll({
       env: { FB_PAGE_ID: 'p', INSTAGRAM_BUSINESS_ACCOUNT_ID: 'ig', TIKTOK_CLIENT_KEY: 'k' },
-      probes: { instagram: { pageLinked: false }, tiktok: { appLive: true } },
+      probes: { instagram: { pageLinkStatus: 'matched' }, tiktok: { appLive: true } },
     });
-    expect(actionableChannels(all).map((v) => v.channel)).toEqual(['reddit']);
+    expect(actionableChannels(all).map((v) => v.channel).sort()).toEqual(['instagram', 'reddit']);
+    expect(instagramSetupActionChannels(all).map((v) => v.channel)).toEqual(['instagram']);
   });
 
-  it('surfaces a channel whose credential quietly arrived — the RC_TO_ENV failure mode', () => {
-    // Instagram/TikTok RC params existed for days while load-rc-env.mjs did not
-    // map them: the posters read undefined and soft-skipped, every day, silently.
+  it('keeps the Instagram setup issue open for both incomplete linkage and missing credentials', () => {
+    const all = classifyAll({ env: {}, probes: {} });
+    expect(instagramSetupActionChannels(all).map((v) => v.channel)).toEqual(['instagram']);
+  });
+
+  it('surfaces an eligible channel whose credential quietly arrived — the RC_TO_ENV failure mode', () => {
+    // Instagram RC params existed for days while load-rc-env.mjs did not map
+    // them; a token without its target account id still needs action.
     const all = classifyAll({
       env: { INSTAGRAM_ACCESS_TOKEN: 'EAAG', TIKTOK_ACCESS_TOKEN: 'act' },
       probes: {},
     });
-    expect(actionableChannels(all).map((v) => v.channel).sort()).toEqual(['instagram', 'reddit', 'tiktok']);
+    expect(actionableChannels(all).map((v) => v.channel).sort()).toEqual(['instagram', 'reddit']);
   });
 
   it('never throws on a completely empty environment', () => {

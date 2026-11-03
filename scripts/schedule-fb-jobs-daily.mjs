@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import { randomUUID } from 'node:crypto';
 /**
  * Daily Facebook scheduler for Ticino job listings.
  *
@@ -24,7 +25,7 @@ import { realpathSync } from 'node:fs';
  * Env:
  *   FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN — Graph API credentials (required for
  *     non-dry-run mode).
- *   FB_JOB_VOLUME=1|24|72|144  — daily post count, default 144 (one every 10 min).
+ *   FB_JOB_VOLUME=1|24|72|144  — daily post count, default 24 (one per hour).
  *   DRY_RUN=1                — log payloads, no API call.
  *
  * Soft-fail: every error path logs and `process.exit(0)`. The workflow's
@@ -32,12 +33,22 @@ import { realpathSync } from 'node:fs';
  * git untouched.
  */
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
+import {
+  markSocialPublishReservationPublished,
+  refreshSocialPublishReservation,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishContentFingerprint,
+  socialPublishReservationKey,
+} from './lib/social-publish-reservations.mjs';
+import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
+import { reconcileFacebookScheduledPosts } from './lib/facebook-scheduled-publish-reconciliation.mjs';
 
 import {
   stripHtml,
@@ -452,6 +463,22 @@ export function appendPosted(repoRoot, entries) {
   appendLedger(postedPath(repoRoot), entries, POSTED_TRIM_LIMIT);
 }
 
+function savePosted(repoRoot, posted) {
+  if (!Array.isArray(posted)) throw new Error('Facebook posted ledger rows must be an array');
+  const file = postedPath(repoRoot);
+  const temporary = `${file}.${process.pid}.${randomUUID()}.tmp`;
+  try {
+    writeFileSync(temporary, JSON.stringify({
+      schemaVersion: 1,
+      posted: posted.slice(-POSTED_TRIM_LIMIT),
+    }, null, 2) + '\n', { flag: 'wx', encoding: 'utf8' });
+    renameSync(temporary, file);
+  } catch (error) {
+    rmSync(temporary, { force: true });
+    throw error;
+  }
+}
+
 // ── Pre-flight: occupied scheduled-posts ────────────────────
 
 async function fetchScheduledPostMinutes({ pageId, token, fetchImpl, log }) {
@@ -569,6 +596,7 @@ export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}
  * @param {(...a: unknown[]) => void} [opts.warn]
  * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
  * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
+ * @param {{ reserveBatch: Function, markPublished: Function, release: Function }} [opts.socialPublishReservations]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -582,10 +610,16 @@ export async function run(opts = {}) {
   });
   const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
   const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
+  const socialPublishReservations = opts.socialPublishReservations || {
+    reserveBatch: reserveSocialPublishBatch,
+    markPublished: markSocialPublishReservationPublished,
+    release: releaseSocialPublishReservation,
+    refresh: refreshSocialPublishReservation,
+  };
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
-  const volumeRaw = Number(env.FB_JOB_VOLUME || 144);
-  const volume = VOLUME_MINUTES[volumeRaw] ? volumeRaw : 144;
+  const volumeRaw = Number(env.FB_JOB_VOLUME || 24);
+  const volume = VOLUME_MINUTES[volumeRaw] ? volumeRaw : 24;
   const pageId = env.FB_PAGE_ID;
   const token = env.FB_PAGE_ACCESS_TOKEN;
 
@@ -593,18 +627,32 @@ export async function run(opts = {}) {
 
   // 1. Load jobs + ledger
   const jobs = loadJobs(repoRoot, log);
+  const ledger = loadPosted(repoRoot);
+  const reconciliation = dryRun
+    ? { checked: 0, reconciled: 0, pending: 0, uncertain: 0 }
+    : await reconcileFacebookScheduledPosts({
+      rows: ledger.posted,
+      pageId,
+      token,
+      fetchImpl,
+      now,
+      markPublished: socialPublishReservations.markPublished,
+      refreshReservation: socialPublishReservations.refresh,
+      saveRows: (rows) => savePosted(repoRoot, rows),
+      log,
+      warn,
+    });
   if (jobs.length === 0) {
     log('ℹ️', 'no jobs available, exiting');
-    return { ok: true, scheduled: 0, dryRun, payloads: [] };
+    return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
   }
-  const ledger = loadPosted(repoRoot);
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
 
   // 2. Pick top-N never-posted jobs
   const candidates = selectUnpostedJobs(jobs, postedSet, volume);
   if (candidates.length === 0) {
     log('ℹ️', 'no unposted jobs eligible, exiting');
-    return { ok: true, scheduled: 0, dryRun, payloads: [] };
+    return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
   }
   log('ℹ️', `selected ${candidates.length}/${volume} candidate jobs`);
 
@@ -619,7 +667,7 @@ export async function run(opts = {}) {
   const usable = Math.min(candidates.length, slots.length);
   if (usable === 0) {
     log('ℹ️', 'no usable slot/candidate pair, exiting');
-    return { ok: true, scheduled: 0, dryRun, payloads: [] };
+    return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
   }
 
   // 5. Build payloads (with FB Place ID lookup per job's location)
@@ -628,37 +676,6 @@ export async function run(opts = {}) {
   const unmappedCities = new Map(); // city → count
   const payloads = [];
   const copyReservations = new Map();
-  for (let i = 0; i < usable; i++) {
-    const job = candidates[i];
-    const url = buildJobUrl(job);
-    if (!url) {
-      log('⚠️', `skipping job ${job.id} — no slug`);
-      continue;
-    }
-    const socialCopy = await selectSocialCopy({
-      pack: socialCopyPack,
-      channel: 'facebook',
-      kind: 'job',
-      assignmentKey: job.id,
-      dryRun,
-    });
-    copyReservations.set(job.id, socialCopy);
-    const message = buildJobCaption(job, { socialCopy });
-    const placeId = lookupPlaceId(job.location, placeIds);
-    if (placeId) {
-      placedCount += 1;
-    } else if (job.location) {
-      unmappedCities.set(job.location, (unmappedCities.get(job.location) || 0) + 1);
-    }
-    payloads.push({
-      jobId: job.id,
-      url,
-      message,
-      placeId,
-      copyFields: socialCopyLedgerFields(socialCopy),
-      scheduled_publish_time: slots[i],
-    });
-  }
   const releaseReservation = async (id, reason) => {
     const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
       releaseBalancedImpl: releaseSocialCopy,
@@ -671,6 +688,43 @@ export async function run(opts = {}) {
   const releaseAllReservations = async (reason) => {
     for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
   };
+  for (let i = 0; i < usable; i++) {
+    const job = candidates[i];
+    const url = buildJobUrl(job);
+    if (!url) {
+      log('⚠️', `skipping job ${job.id} — no slug`);
+      continue;
+    }
+    try {
+      const socialCopy = await selectSocialCopy({
+        pack: socialCopyPack,
+        channel: 'facebook',
+        kind: 'job',
+        assignmentKey: job.id,
+        dryRun,
+      });
+      copyReservations.set(job.id, socialCopy);
+      const message = buildJobCaption(job, { socialCopy });
+      const placeId = lookupPlaceId(job.location, placeIds);
+      if (placeId) {
+        placedCount += 1;
+      } else if (job.location) {
+        unmappedCities.set(job.location, (unmappedCities.get(job.location) || 0) + 1);
+      }
+      payloads.push({
+        jobId: job.id,
+        url,
+        message,
+        placeId,
+        copyFields: socialCopyLedgerFields(socialCopy),
+        scheduled_publish_time: slots[i],
+      });
+    } catch (err) {
+      await releaseReservation(job.id, 'Facebook job payload failed before delivery attempt');
+      await releaseAllReservations('Facebook job payload batch failed before delivery attempt');
+      throw err;
+    }
+  }
   log('📍', `place tag resolved for ${placedCount}/${payloads.length} payloads`);
   if (unmappedCities.size > 0) {
     // Log top unmapped locations so we can extend lookupPlaceId aliases
@@ -690,18 +744,71 @@ export async function run(opts = {}) {
       const placeTag = p.placeId ? ` [place=${p.placeId}]` : '';
       log('  •', `${new Date(p.scheduled_publish_time * 1000).toISOString()} → ${p.url}${placeTag}`);
     }
-    return { ok: true, scheduled: 0, dryRun: true, payloads };
+    return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun: true, payloads };
   }
 
   if (!pageId || !token) {
     warn('⚠️', 'FB_PAGE_ID or FB_PAGE_ACCESS_TOKEN missing — skipping');
     await releaseAllReservations('Facebook credentials missing');
-    return { ok: false, scheduled: 0, dryRun, payloads };
+    return { ok: false, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads };
   }
   if (typeof fetchImpl !== 'function') {
     warn('⚠️', 'no fetch impl available — skipping');
     await releaseAllReservations('Facebook fetch implementation missing');
-    return { ok: false, scheduled: 0, dryRun, payloads };
+    return { ok: false, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads };
+  }
+
+  const publishReservationKeys = new Map(payloads.map((p) => [
+    p.jobId,
+    socialPublishReservationKey('facebook', 'job', p.jobId),
+  ]));
+  let reservationBatch;
+  try {
+    reservationBatch = await socialPublishReservations.reserveBatch({
+      db: opts.socialPublishDb,
+      platform: 'facebook',
+      accountId: pageId,
+      repoRoot,
+      now,
+      reservations: payloads.map((p) => ({
+        key: publishReservationKeys.get(p.jobId),
+        publishAt: new Date(p.scheduled_publish_time * 1000),
+        reserveNextDay: true,
+        nativeContentFingerprint: socialPublishContentFingerprint('facebook', {
+          message: p.message,
+          link: facebookUrl(p.url, FACEBOOK_CAMPAIGN_JOB, socialCopyTrackingContent(p.jobId, p.copyFields)),
+        }),
+      })),
+    });
+  } catch (error) {
+    const fatal = new Error(`Facebook shared publication gate failed: ${error.message}`, { cause: error });
+    fatal.code = 'SOCIAL_PUBLISH_RESERVATION_REQUIRED';
+    throw fatal;
+  }
+  const allowedKeys = new Set(reservationBatch.filter((result) => result.allowed).map((result) => result.key));
+  const deliveryPayloads = payloads.filter((p) => allowedKeys.has(publishReservationKeys.get(p.jobId)));
+  const releasePublishReservation = async (p, reason) => {
+    try {
+      await socialPublishReservations.release({
+        db: opts.socialPublishDb,
+        platform: 'facebook',
+        accountId: pageId,
+        key: publishReservationKeys.get(p.jobId),
+        publishAt: new Date(p.scheduled_publish_time * 1000),
+      });
+    } catch (error) {
+      warn('⚠️', `Facebook reservation remains held for ${p.jobId} after ${reason}: ${error.message}`);
+    }
+  };
+  for (const p of payloads) {
+    if (allowedKeys.has(publishReservationKeys.get(p.jobId))) continue;
+    const reason = reservationBatch.find((result) => result.key === publishReservationKeys.get(p.jobId))?.reason || 'daily-cap';
+    warn('🛑', `Facebook Page publication held for ${p.jobId}: ${reason}`);
+    await releaseReservation(p.jobId, `Facebook Page shared publication gate: ${reason}`);
+  }
+  if (deliveryPayloads.length === 0) {
+    log('🛑', 'Facebook Page shared daily publication cap is exhausted; no posts sent');
+    return { ok: reconciliation.uncertain === 0, scheduled: 0, uncertain: reconciliation.uncertain, dryRun, payloads: [] };
   }
 
   // 7. POST one per slot. Append to ledger after each success so a partial
@@ -715,6 +822,7 @@ export async function run(opts = {}) {
   //   17 — user request limit reached
   const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
+  let uncertain = reconciliation.uncertain;
 
   // Each payload is a separate promise in Promise.all below. Returning false
   // here skips only this payload; later payloads and batches still run.
@@ -732,6 +840,8 @@ export async function run(opts = {}) {
     const requiredImagePath = expectedJobOgImagePath(p.url);
     if (!requiredImagePath) {
       warn('⚠️', `skipping ${p.jobId} — invalid job URL for OG image verification`);
+      await releaseReservation(p.jobId, 'Facebook job URL failed OG image preflight');
+      await releasePublishReservation(p, 'URL preflight failure');
       return false;
     }
     const ogReady = await rescrapeOgAndVerify(fetchImpl, link, token, warn, {
@@ -741,6 +851,8 @@ export async function run(opts = {}) {
     });
     if (!ogReady) {
       warn('⚠️', `skipping ${p.jobId} — Facebook did not resolve a verified job image`);
+      await releaseReservation(p.jobId, 'Facebook job image did not pass OG verification');
+      await releasePublishReservation(p, 'image preflight failure');
       return false;
     }
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
@@ -761,17 +873,20 @@ export async function run(opts = {}) {
     let attempt = 0;
     while (attempt < 2) {
       attempt += 1;
+      res = null;
+      data = null;
       try {
         res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
         data = await res.json();
       } catch (err) {
-        deliveryUncertain = true;
+        deliveryUncertain = !res || res.ok === true || isAmbiguousSocialPublishResponse(res);
         warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
+      if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
       if (res?.ok && data?.id) break;
       const code = data?.error?.code;
-      if (attempt < 2 && TRANSIENT_FB_ERROR_CODES.has(code)) {
+      if (!deliveryUncertain && attempt < 2 && TRANSIENT_FB_ERROR_CODES.has(code)) {
         warn('⏳', `FB transient error ${code} for ${p.jobId}, retrying in 2s`);
         await sleepMs(2000);
         continue;
@@ -790,33 +905,37 @@ export async function run(opts = {}) {
         scheduledFor: new Date(p.scheduled_publish_time * 1000).toISOString(),
         ...p.copyFields,
       }]);
-      log('✅', `${p.jobId} → ${data.id} @ ${new Date(p.scheduled_publish_time * 1000).toISOString()}`);
+      log('✅', `${p.jobId} → ${data.id} scheduled for ${new Date(p.scheduled_publish_time * 1000).toISOString()}; reservation held until Meta confirms publication`);
       return true;
     } else {
       warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
       if (!deliveryUncertain && res && !res.ok) {
         await releaseReservation(p.jobId, 'Facebook explicitly rejected the scheduled job post');
+        await releasePublishReservation(p, 'explicit API rejection');
       }
+      if (deliveryUncertain) uncertain += 1;
       return false;
     }
     } catch (err) {
       warn('⚠️', `FB scheduler failed for ${p.jobId}: ${err.message}`);
       if (!accepted && !deliveryUncertain) {
         await releaseReservation(p.jobId, 'Facebook job failed before delivery attempt');
+        await releasePublishReservation(p, 'failure before delivery');
       }
+      if (deliveryUncertain) uncertain += 1;
       return false;
     }
   };
 
   let scheduled = 0;
-  for (let start = 0; start < payloads.length; start += FB_SCHEDULE_CONCURRENCY) {
-    const batch = payloads.slice(start, start + FB_SCHEDULE_CONCURRENCY);
+  for (let start = 0; start < deliveryPayloads.length; start += FB_SCHEDULE_CONCURRENCY) {
+    const batch = deliveryPayloads.slice(start, start + FB_SCHEDULE_CONCURRENCY);
     const results = await Promise.all(batch.map(scheduleOne));
     scheduled += results.filter(Boolean).length;
   }
 
-  log('🏁', `scheduled ${scheduled}/${payloads.length} posts`);
-  return { ok: scheduled > 0, scheduled, dryRun, payloads };
+  log('🏁', `scheduled ${scheduled}/${deliveryPayloads.length} posts; cap held ${payloads.length - deliveryPayloads.length}`);
+  return { ok: scheduled > 0 && uncertain === 0, scheduled, uncertain, dryRun, payloads: deliveryPayloads };
 }
 
 // ── CLI ─────────────────────────────────────────────────────
@@ -824,10 +943,10 @@ export async function run(opts = {}) {
 const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   run().then(
-    () => process.exit(0),
+    (result) => process.exit(result?.uncertain > 0 ? 1 : 0),
     (err) => {
       console.error('⚠️ scheduler crashed:', err?.message || err);
-      process.exit(0); // soft-fail
+      process.exit(err?.code === 'SOCIAL_PUBLISH_RESERVATION_REQUIRED' ? 1 : 0); // quota gate fails closed; other legacy errors remain soft
     },
   );
 }

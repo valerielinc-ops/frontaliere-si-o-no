@@ -5,6 +5,7 @@ import path from 'node:path';
 
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
+  AUTONOMOUS_PROMOTION_PROTOCOL_READY,
   buildAutonomousDecisions,
   decisionStateChanges,
   mergeAutonomousDecisionState,
@@ -16,29 +17,28 @@ import {
 } from './lib/instagram-insights-report.mjs';
 import { stageRcParamValue, updateRcTemplateWithEtag } from './lib/remote-config-rest.mjs';
 
-const DEFAULT_INPUT = 'data/instagram-insights.json';
 const DEFAULT_LEDGER = 'data/instagram-posted.json';
 
 function usage() {
   return [
-    'instagram-insights-decision.mjs — decide which Instagram variants to promote',
+    'instagram-insights-decision.mjs — report descriptive Instagram candidates',
     '',
     'Usage:',
-    '  node scripts/instagram-insights-decision.mjs',
-    '  node scripts/instagram-insights-decision.mjs --json --apply',
+    '  node scripts/instagram-insights-decision.mjs --input "$RUNNER_TEMP/instagram-insights.json"',
+    '  node scripts/instagram-insights-decision.mjs --input insights.json --json --apply',
     '',
-    'The default is a read-only dry run. --apply can publish only bounded winner',
-    'maps to Firebase Remote Config when the autonomy flag is enabled there.',
-    'A winner needs two comparable variants, three observations per variant,',
-    'and both a relative and absolute lift over the runner-up.',
+    'The default is a read-only dry run. Current threshold signals are',
+    'descriptive candidates only; --apply cannot update Remote Config until',
+    'the preregistered randomized-block decision protocol is implemented.',
+    'The displayed candidate threshold is not evidence of statistical lift.',
     '',
-    `  --input PATH                 Insights JSON/CSV (default: ${DEFAULT_INPUT})`,
+    '  --input PATH                 Private Insights export JSON/CSV (required)',
     `  --ledger PATH                Posted ledger (default: ${DEFAULT_LEDGER})`,
     '  --window-hours N             Decision window (default: Remote Config or 72)',
     '  --min-observations N         Minimum observations per variant',
     '  --min-relative-lift N        Relative lift threshold (0.15 = 15%)',
     '  --min-absolute-lift N        Absolute rate-point threshold (0.005 = 0.5pp)',
-    '  --apply                      Publish eligible winner maps to Remote Config',
+    '  --apply                      Request apply (currently held as unqualified)',
     '  --json                       Emit machine-readable JSON',
     '  --help                       Show this help',
   ].join('\n');
@@ -59,7 +59,7 @@ function positiveNumber(value, option, { integer = false, allowZero = false } = 
 }
 
 export function parseArgs(argv = []) {
-  const options = { input: DEFAULT_INPUT, ledger: DEFAULT_LEDGER, json: false, apply: false };
+  const options = { input: '', ledger: DEFAULT_LEDGER, json: false, apply: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === '--help' || arg === '-h') options.help = true;
@@ -79,7 +79,7 @@ export function parseArgs(argv = []) {
     else if (arg.startsWith('--min-absolute-lift=')) options.minimumAbsoluteLift = positiveNumber(arg.slice('--min-absolute-lift='.length), '--min-absolute-lift', { allowZero: true });
     else throw new Error(`unknown option: ${arg}`);
   }
-  if (!String(options.input).trim()) throw new Error('--input cannot be empty');
+  if (!options.help && !String(options.input).trim()) throw new Error('--input is required');
   if (!String(options.ledger).trim()) throw new Error('--ledger cannot be empty');
   return options;
 }
@@ -139,6 +139,12 @@ async function publishWinnerMaps(nextState, changes) {
 
 function formatComparison(comparison) {
   const label = comparison.type === 'background' ? 'sfondo' : 'creatività';
+  if (comparison.status === 'candidate-unqualified') {
+    const candidate = comparison.candidate;
+    return `   🛈 ${label} ${comparison.winnerKey}: candidato descrittivo non promosso — `
+      + `${candidate?.backgroundVariant || candidate?.creativeId || 'variante'} `
+      + `(${((candidate?.primaryRate || 0) * 100).toFixed(2)}%)`;
+  }
   if (comparison.status === 'winner') {
     const winner = comparison.winner;
     return `   ✅ ${label} ${comparison.winnerKey}: ${winner.backgroundVariant || winner.creativeId} `
@@ -163,28 +169,65 @@ export async function run(argv = process.argv.slice(2)) {
       windowHours: options.windowHours ?? configured.windowHours,
     },
   );
-  const decisions = buildAutonomousDecisions(report, {
+  const rawDecisions = buildAutonomousDecisions(report, {
     windowHours: options.windowHours ?? configured.windowHours,
     minimumObservations: options.minimumObservations ?? configured.minimumObservations,
     minimumRelativeLift: options.minimumRelativeLift ?? configured.minimumRelativeLift,
     minimumAbsoluteLift: options.minimumAbsoluteLift ?? configured.minimumAbsoluteLift,
   });
+  const decisions = AUTONOMOUS_PROMOTION_PROTOCOL_READY ? rawDecisions : {
+    ...rawDecisions,
+    creativeComparisons: rawDecisions.creativeComparisons.map((comparison) => comparison.status === 'winner'
+      ? {
+        ...comparison,
+        status: 'candidate-unqualified',
+        candidate: comparison.winner,
+        winner: null,
+        reason: 'segnale descrittivo; protocollo statistico di promozione non implementato',
+      }
+      : comparison),
+    backgroundComparisons: rawDecisions.backgroundComparisons.map((comparison) => comparison.status === 'winner'
+      ? {
+        ...comparison,
+        status: 'candidate-unqualified',
+        candidate: comparison.winner,
+        winner: null,
+        reason: 'segnale descrittivo; protocollo statistico di promozione non implementato',
+      }
+      : comparison),
+    creativeWinners: {},
+    backgroundWinners: {},
+    winnerCount: 0,
+  };
   const currentState = {
     creativeWinners: configured.currentCreativeWinners,
     backgroundWinners: configured.currentBackgroundWinners,
   };
-  const nextState = mergeAutonomousDecisionState({
-    currentCreativeWinners: currentState.creativeWinners,
-    currentBackgroundWinners: currentState.backgroundWinners,
-    decisions,
-  });
-  const changes = decisionStateChanges(currentState, nextState);
+  const nextState = AUTONOMOUS_PROMOTION_PROTOCOL_READY
+    ? mergeAutonomousDecisionState({
+      currentCreativeWinners: currentState.creativeWinners,
+      currentBackgroundWinners: currentState.backgroundWinners,
+      decisions,
+    })
+    : currentState;
+  const changes = AUTONOMOUS_PROMOTION_PROTOCOL_READY
+    ? decisionStateChanges(currentState, nextState)
+    : [];
   const result = {
     schemaVersion: decisions.schemaVersion,
     status: options.apply && !configured.enabled
       ? 'disabled'
+      : options.apply && configured.enabled && !AUTONOMOUS_PROMOTION_PROTOCOL_READY
+      ? 'unqualified'
       : options.apply ? 'ready-to-apply' : 'dry-run',
     autonomyEnabled: configured.enabled,
+    promotionQualification: {
+      eligible: AUTONOMOUS_PROMOTION_PROTOCOL_READY,
+      status: AUTONOMOUS_PROMOTION_PROTOCOL_READY ? 'qualified' : 'protocol-not-implemented',
+      reason: AUTONOMOUS_PROMOTION_PROTOCOL_READY
+        ? null
+        : 'threshold signals are descriptive until preregistration, randomized blocks, fixed-sample inference, Holm correction, and A/A calibration are implemented',
+    },
     input: {
       path: options.input,
       acceptedRows: report.acceptedRows,
@@ -196,12 +239,18 @@ export async function run(argv = process.argv.slice(2)) {
     changes,
   };
 
-  if (options.apply && configured.enabled) {
+  if (options.apply && configured.enabled && AUTONOMOUS_PROMOTION_PROTOCOL_READY) {
     const published = await publishWinnerMaps(nextState, changes);
     result.status = published.published ? 'published' : 'no-change';
     result.published = published;
   } else {
-    result.published = { published: false, changed: 0 };
+    result.published = {
+      published: false,
+      changed: 0,
+      ...(options.apply && configured.enabled && !AUTONOMOUS_PROMOTION_PROTOCOL_READY
+        ? { reason: result.promotionQualification.reason }
+        : {}),
+    };
   }
 
   if (options.json) {

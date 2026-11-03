@@ -127,7 +127,6 @@ const SIDE_EFFECT_WORKFLOWS = [
   'linkedin-member-daily.yml',
   'reddit-jobs-daily-schedule.yml',
   'telegram-channel-broadcast.yml',
-  'tiktok-daily-broadcast.yml',
 ];
 
 /**
@@ -148,7 +147,6 @@ const TRUSTED_SCHEDULE_SIDE_EFFECTS = [
   ['instagram-daily-broadcast.yml', 'Post to Instagram', 'Commit posted ledger', true],
   ['reddit-jobs-daily-schedule.yml', 'Schedule Reddit jobs', 'Commit posted-jobs tracking', true],
   ['telegram-channel-broadcast.yml', 'Resolve real-send flag', 'Commit posted ledgers', false],
-  ['tiktok-daily-broadcast.yml', 'Post to TikTok', 'Commit posted ledger', true],
 ] as const;
 
 const TRUSTED_SCHEDULE_LIVE_FLAG =
@@ -171,7 +169,6 @@ const DEFENSE_IN_DEPTH_GUARDS = [
   ['send-onboarding-drip.yml', 'Run onboarding drip', 'MODE=dry-run'],
   ['suppression-hygiene.yml', 'Decay proven-alive suppressions', 'MODE=dry-run'],
   ['suppression-hygiene.yml', 'Re-probe never-probed suppressions (ramped)', 'MODE=dry-run'],
-  ['tiktok-daily-broadcast.yml', 'Post to TikTok', 'ARGS+=(--dry-run);'],
 ] as const;
 
 const DEFENSE_IN_DEPTH_GUARD_CONDITION = 'if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then';

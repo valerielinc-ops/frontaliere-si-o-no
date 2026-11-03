@@ -44,6 +44,8 @@ interface PostedEntry {
   url: string;
   ts: string;
   fbPostId: string;
+  scheduledFor?: string;
+  actualPublishedAt?: string;
 }
 
 interface PostedLedger {
@@ -69,7 +71,7 @@ const {
   loadPlaceIds,
   lookupPlaceId,
   FB_SCHEDULE_CONCURRENCY,
-  run,
+  run: runImpl,
 } = scheduler as unknown as {
   pickNextSlots: (
     volume: number,
@@ -99,15 +101,35 @@ const {
     fetchImpl?: typeof fetch;
     selectSocialCopyForPublishImpl?: (options: object) => Promise<Record<string, unknown> | null>;
     releaseSocialCopyAssignmentImpl?: (copy: object) => Promise<boolean>;
+    socialPublishReservations?: {
+      reserveBatch: (options: { reservations: Array<{ key: string }> }) => Promise<Array<{ key: string; allowed: boolean; reason?: string }>>;
+      markPublished: (options: object) => Promise<boolean>;
+      release: (options: object) => Promise<boolean>;
+      refresh?: (options: object) => Promise<boolean>;
+    };
     log?: (...a: unknown[]) => void;
     warn?: (...a: unknown[]) => void;
   }) => Promise<{
     ok: boolean;
     scheduled: number;
+    uncertain?: number;
     dryRun: boolean;
     payloads: Payload[];
   }>;
 };
+
+const allowAllSocialPublishReservations = {
+  reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+    reservations.map(({ key }) => ({ key, allowed: true, reason: null }))
+  ),
+  markPublished: async () => true,
+  release: async () => true,
+  refresh: async () => true,
+};
+const run = (opts: Parameters<typeof runImpl>[0]) => runImpl({
+  ...opts,
+  socialPublishReservations: opts.socialPublishReservations || allowAllSocialPublishReservations,
+});
 
 // ── pickNextSlots ─────────────────────────────────────────
 
@@ -684,6 +706,91 @@ describe('run() — DRY_RUN mode', () => {
     expect(ledger.posted[0].fbPostId).toBe('pid_postid_1');
   });
 
+  it('does not let a manual job batch bypass the shared Facebook Page cap', async () => {
+    const tmp = setupTmp([{
+      id: 'job-capped',
+      title: 'Operaio',
+      slugByLocale: { it: 'operaio-mendrisio' },
+      firstSeenAt: '2026-05-04T00:00:00Z',
+    }]);
+    const fetchSpy = vi.fn(async () => new Response(JSON.stringify({ data: [] }), { status: 200 }));
+    const socialPublishReservations = {
+      reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+        reservations.map(({ key }) => ({ key, allowed: false, reason: 'daily-cap' }))
+      ),
+      markPublished: async () => true,
+      release: async () => true,
+    };
+    const copy = { copyAssignmentMode: 'firebase-balanced', copyAssignment: { assignmentKey: 'job-capped' } };
+    const releaseCopy = vi.fn(async () => true);
+
+    const result = await runImpl({
+      env: { FB_JOB_VOLUME: '144', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => copy,
+      releaseSocialCopyAssignmentImpl: releaseCopy,
+      socialPublishReservations,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result).toMatchObject({ ok: true, scheduled: 0, payloads: [] });
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(String(fetchSpy.mock.calls[0][0])).toContain('/scheduled_posts');
+    expect(loadPosted(tmp).posted).toHaveLength(0);
+    expect(releaseCopy).toHaveBeenCalledWith(copy.copyAssignment);
+  });
+
+  it('releases the balanced arm when Facebook cannot verify the job OG image', async () => {
+    const tmp = setupTmp([{
+      id: 'job-og',
+      title: 'Operaio',
+      slugByLocale: { it: 'operaio-mendrisio' },
+      jobLocation: { address: { addressLocality: 'Mendrisio' } },
+      firstSeenAt: '2026-05-04T00:00:00Z',
+    }]);
+    const socialCopy = {
+      copyAssignmentMode: 'firebase-balanced',
+      copyAssignment: { assignmentKey: 'job-og' },
+    };
+    const release = vi.fn(async () => true);
+    const feedCalls: string[] = [];
+    const fetchSpy = vi.fn(async (url: string | URL | Request, init?: RequestInit) => {
+      const requestUrl = String(url);
+      if (requestUrl.includes('/scheduled_posts')) {
+        return new Response(JSON.stringify({ data: [] }), { status: 200 });
+      }
+      if (requestUrl.includes('scrape=true')) {
+        return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      }
+      if (requestUrl.includes('graph.facebook.com') && !init?.method) {
+        return new Response(JSON.stringify({
+          og_object: { image: [{ url: 'https://example.com/og/jobs/wrong-image.webp?v=1' }] },
+        }), { status: 200 });
+      }
+      feedCalls.push(requestUrl);
+      return new Response(JSON.stringify({ id: 'unexpected-post' }), { status: 200 });
+    });
+
+    const result = await run({
+      env: { FB_JOB_VOLUME: '24', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async () => socialCopy,
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.scheduled).toBe(0);
+    expect(feedCalls).toEqual([]);
+    expect(release).toHaveBeenCalledWith(socialCopy.copyAssignment);
+    expect(loadPosted(tmp).posted).toHaveLength(0);
+  });
+
   it('keeps Graph scheduling bounded instead of processing the batch serially', async () => {
     const tmp = setupTmp(
       Array.from({ length: 6 }, (_, i) => ({
@@ -712,8 +819,12 @@ describe('run() — DRY_RUN mode', () => {
       }
       if (u.includes('graph.facebook.com') && !init?.method) {
         const linkedUrl = new URL(u).searchParams.get('id');
-        const linkedSlug = linkedUrl
-          ? new URL(linkedUrl).pathname.split('/').filter(Boolean).at(-1)
+        const redirect = linkedUrl ? new URL(linkedUrl) : null;
+        const destination = redirect?.pathname.startsWith('/social/r/')
+          ? redirect.searchParams.get('to')
+          : linkedUrl;
+        const linkedSlug = destination
+          ? new URL(destination, 'https://frontaliereticino.ch').pathname.split('/').filter(Boolean).at(-1)
           : '';
         return new Response(
           JSON.stringify({ og_object: { image: [{ url: `https://example.com/og/jobs/${linkedSlug}.webp?v=${JOB_OG_IMAGE_VERSION}` }] } }),
@@ -737,6 +848,40 @@ describe('run() — DRY_RUN mode', () => {
     expect(maxActiveGraphCalls).toBeGreaterThan(1);
     expect(maxActiveGraphCalls).toBeLessThanOrEqual(FB_SCHEDULE_CONCURRENCY);
     expect(loadPosted(tmp).posted).toHaveLength(6);
+  });
+
+  it('releases all payload reservations when caption compilation fails before delivery', async () => {
+    const tmp = setupTmp([
+      { id: 'job-first', title: 'Operaio', slug: 'operaio-primo' },
+      { id: 'job-second', title: 'Cuoco', slug: 'cuoco-secondo' },
+    ]);
+    const failingCopy = {
+      copyAssignmentMode: 'firebase-balanced',
+      copyAssignment: { assignmentKey: 'job-second' },
+    };
+    Object.defineProperty(failingCopy, 'copyMode', {
+      get() { throw new Error('caption copy unavailable'); },
+    });
+    const release = vi.fn(async () => true);
+    const select = vi.fn(async ({ assignmentKey }: { assignmentKey: string }) => assignmentKey === 'job-second'
+      ? failingCopy
+      : {
+          copyAssignmentMode: 'firebase-balanced',
+          copyAssignment: { assignmentKey },
+        });
+
+    await expect(run({
+      env: { FB_JOB_VOLUME: '24' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      selectSocialCopyForPublishImpl: select,
+      releaseSocialCopyAssignmentImpl: release,
+      log: () => {},
+      warn: () => {},
+    })).rejects.toThrow('caption copy unavailable');
+
+    expect(release.mock.calls.map(([assignment]) => (assignment as { assignmentKey: string }).assignmentKey))
+      .toEqual(['job-second', 'job-first']);
   });
 
   it('soft-fails when credentials are missing (no fetch, ok=false)', async () => {
@@ -828,6 +973,51 @@ describe('run() — DRY_RUN mode', () => {
     });
     expect(result.scheduled).toBe(0);
     expect(result.payloads).toEqual([]);
+  });
+
+  it('reconciles due Meta schedules even when there are no new jobs to schedule', async () => {
+    const tmp = setupTmp([]);
+    appendPosted(tmp, [{
+      id: 'job-already-scheduled',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/role/',
+      ts: '2026-11-02T08:00:00.000Z',
+      fbPostId: 'page_post_123',
+      scheduledFor: '2026-11-02T22:55:00.000Z',
+    }]);
+    const markPublished = vi.fn(async () => true);
+    const refresh = vi.fn(async () => true);
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({
+      id: 'page_post_123',
+      is_published: true,
+      created_time: '2026-11-02T23:04:00+0000',
+    }), { status: 200 }));
+
+    const result = await run({
+      env: { FB_PAGE_ID: 'page', FB_PAGE_ACCESS_TOKEN: 'token' },
+      now: new Date('2026-11-03T08:00:00.000Z'),
+      repoRoot: tmp,
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      socialPublishReservations: {
+        reserveBatch: async () => [],
+        markPublished,
+        release: async () => true,
+        refresh,
+      },
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.scheduled).toBe(0);
+    expect(result.uncertain).toBe(0);
+    expect(fetchImpl).toHaveBeenCalledOnce();
+    expect(markPublished).toHaveBeenCalledWith(expect.objectContaining({
+      platform: 'facebook',
+      accountId: 'page',
+      key: 'facebook:job:job-already-scheduled',
+      publishedAt: '2026-11-02T23:04:00.000Z',
+    }));
+    expect(refresh).not.toHaveBeenCalled();
+    expect(loadPosted(tmp).posted[0].actualPublishedAt).toBe('2026-11-02T23:04:00.000Z');
   });
 });
 

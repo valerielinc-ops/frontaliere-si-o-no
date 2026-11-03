@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const WORKFLOWS = ['tiktok-daily-broadcast.yml', 'instagram-reel-experiment.yml'];
+const WORKFLOWS = ['instagram-reel-experiment.yml'];
 
 describe('social broadcast FFmpeg bootstrap', () => {
   it('retries a transient release download before fail-closed verification', () => {

@@ -124,12 +124,13 @@ export function parseInstagramBrowserMetrics(bodyText) {
     reach: audienceBase,
     reachSource: explicitReach === null && views !== null ? 'views' : explicitReach === null ? null : 'reach',
     audienceMetric: explicitReach === null && views !== null ? 'views' : 'reach',
-    shares: metrics.shares || 0,
-    saves: metrics.saves || 0,
-    comments: metrics.comments || 0,
-    profileVisits: metrics.profileVisits || 0,
-    linkClicks: metrics.linkClicks || 0,
+    shares: metrics.shares ?? null,
+    saves: metrics.saves ?? null,
+    comments: metrics.comments ?? null,
+    profileVisits: metrics.profileVisits ?? null,
+    linkClicks: metrics.linkClicks ?? null,
     interactions: metrics.interactions ?? null,
+    availableMetrics: Object.keys(metrics).sort(),
   };
 }
 
@@ -339,6 +340,7 @@ function snapshotAddition(group, mediaId, metrics, { asOfIso, windowHours, dista
     snapshotAt: asOfIso,
     snapshotAgeHours: Math.round(Number(group.ageHours) * 1000) / 1000,
     matchMethod: 'browser-cover-fingerprint',
+    copyAttributionStatus: 'exact',
     visualMatchDistance: Math.round(distance * 1_000_000) / 1_000_000,
     ...metrics,
   };

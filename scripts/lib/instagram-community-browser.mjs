@@ -2,19 +2,12 @@
  * Instagram comments and DM worker through the authenticated Meta Business
  * Suite Chrome session.
  *
- * This is intentionally a UI adapter. It does not inspect browser storage or
- * replay Business Suite's private requests. It only clicks the named Inbox
- * tabs, reads an accessible thread when one is visible and submits a bounded,
- * canned reply through the visible composer. If the current UI does not expose
- * a stable thread/composer, it records no action and fails closed.
+ * This is intentionally a read-only UI adapter. It does not inspect browser
+ * storage or replay Business Suite's private requests. It counts visible Inbox
+ * threads only; the UI does not expose a reliable sender direction and message
+ * age for every thread, so this adapter never submits a reply.
  */
-import {
-  buildDirectMessageReply,
-  buildPublicCommentReply,
-  hashAction,
-  loadCommunityState,
-  recordCommunityAction,
-} from './instagram-community-automation.mjs';
+import { hashAction } from './instagram-community-automation.mjs';
 
 export const BUSINESS_SUITE_INBOX_BASE = 'https://business.facebook.com/latest/inbox';
 export const BUSINESS_SUITE_SURFACES = Object.freeze({
@@ -88,6 +81,7 @@ function resultTemplate(mode) {
     privateRepliesSent: 0,
     conversationsSeen: 0,
     directMessagesSent: 0,
+    directionUnknown: 0,
     skipped: 0,
     errors: [],
   };
@@ -115,55 +109,7 @@ async function visibleThreadRefs(page, surface) {
   }).filter(Boolean), surface).catch(() => []);
 }
 
-async function accessibleThreadText(page) {
-  const selectors = [
-    '[role="main"] [data-testid*="message" i]',
-    '[role="main"] [aria-label*="message" i]',
-    'main [data-testid*="message" i]',
-    'main [aria-label*="message" i]',
-    '[role="article"]',
-  ];
-  for (const selector of selectors) {
-    const values = await page.locator(selector).allInnerTexts().catch(() => []);
-    if (values.length) return values;
-  }
-  return [];
-}
-
-async function visibleComposer(page) {
-  const candidates = page.locator('[contenteditable="true"], textarea, [role="textbox"]');
-  const count = await candidates.count();
-  for (let index = count - 1; index >= 0; index -= 1) {
-    const item = candidates.nth(index);
-    if (await item.isVisible().catch(() => false)) {
-      const label = normalise(await item.getAttribute('aria-label').catch(() => '') || '');
-      const placeholder = normalise(await item.getAttribute('placeholder').catch(() => '') || '');
-      if (label === 'search' || placeholder === 'search') continue;
-      return item;
-    }
-  }
-  return null;
-}
-
-async function sendButton(page) {
-  const buttons = page.locator('button, [role="button"]');
-  const count = await buttons.count();
-  for (let index = count - 1; index >= 0; index -= 1) {
-    const item = buttons.nth(index);
-    if (!await item.isVisible().catch(() => false)) continue;
-    const label = `${await item.getAttribute('aria-label').catch(() => '')} ${await item.innerText().catch(() => '')}`;
-    if (/^(?:\s*)(?:send|invia)(?:\s*)$/iu.test(label.replace(/\s+/gu, ' ').trim())) return item;
-  }
-  return null;
-}
-
-async function fillComposer(composer, message) {
-  await composer.fill(message);
-  const value = await composer.inputValue().catch(async () => composer.innerText().catch(() => ''));
-  return String(value || '').trim() === message;
-}
-
-async function processSurface({ page, surface, state, statePath, result, mode, nowMs, log }) {
+async function processSurface({ page, surface, result }) {
   const route = BUSINESS_SUITE_SURFACES[surface];
   await page.goto(route, { waitUntil: 'domcontentloaded', timeout: 45_000 });
   await page.waitForTimeout(900);
@@ -180,65 +126,14 @@ async function processSurface({ page, surface, state, statePath, result, mode, n
   result.threadsSeen += refs.length;
   if (surface === 'comments') result.commentsSeen += refs.length;
   else result.conversationsSeen += refs.length;
-
-  const actionLimit = surface === 'comments'
-    ? MAX_BROWSER_COMMENT_REPLIES_PER_RUN
-    : MAX_BROWSER_DM_REPLIES_PER_RUN;
-  for (const ref of refs.slice(0, Math.min(MAX_BROWSER_THREADS_PER_RUN, actionLimit))) {
-    const parsed = parseBusinessSuiteThreadRef(ref);
-    if (!parsed) {
-      result.skipped += 1;
-      continue;
-    }
-    try {
-      await page.locator('a[href*="selected_item_id"]').nth(ref.index).click({ timeout: 15_000 });
-      await page.waitForTimeout(700);
-      const composer = await visibleComposer(page);
-      const messages = await accessibleThreadText(page);
-      const latest = extractLatestMessage(messages);
-      if (!composer || !latest) {
-        result.skipped += 1;
-        continue;
-      }
-      // A thread is a long-lived container. Idempotency therefore belongs to
-      // the latest visible inbound message, not to the thread itself: a later
-      // message in the same thread must be eligible for one new reply.
-      const actionKey = hashAction('browser-thread-message', surface, parsed.id, latest);
-      if (state.actions.some((action) => action.key === actionKey && action.status === 'sent')) continue;
-      const reply = surface === 'comments'
-        ? buildPublicCommentReply({ commentText: latest })
-        : buildDirectMessageReply({ message: latest });
-      if (mode !== 'live') continue;
-      if (!await fillComposer(composer, reply)) {
-        result.skipped += 1;
-        continue;
-      }
-      const send = await sendButton(page);
-      if (!send) {
-        result.skipped += 1;
-        continue;
-      }
-      await send.click({ timeout: 15_000 });
-      recordCommunityAction(state, statePath, {
-        key: actionKey,
-        kind: surface === 'comments' ? 'browser-comment-reply' : 'browser-direct-message',
-        at: nowMs,
-      });
-      if (surface === 'comments') result.commentsReplied += 1;
-      else result.directMessagesSent += 1;
-    } catch (error) {
-      addError(result, error);
-      log.warn?.(`⚠️ Instagram Business Suite ${surface} thread skipped: ${String(error.message || error).slice(0, 160)}`);
-    }
-  }
+  result.directionUnknown += refs.length;
+  result.skipped += refs.length;
 }
 
 /** Execute one bounded, visible Business Suite Inbox pass. */
 export async function runInstagramCommunityBrowserAutomation({
   context,
-  statePath = null,
   mode = 'dry',
-  now = new Date(),
   log = console,
 } = {}) {
   const result = resultTemplate(mode);
@@ -247,12 +142,10 @@ export async function runInstagramCommunityBrowserAutomation({
     result.status = 'browser-unavailable';
     return result;
   }
-  const state = loadCommunityState(statePath);
-  const nowMs = now instanceof Date ? now.getTime() : Date.parse(String(now));
   const page = await context.newPage();
   try {
     for (const surface of ['comments', 'direct']) {
-      await processSurface({ page, surface, state, statePath, result, mode, nowMs, log });
+      await processSurface({ page, surface, result });
     }
   } catch (error) {
     addError(result, error);
@@ -260,7 +153,7 @@ export async function runInstagramCommunityBrowserAutomation({
     await page.close().catch(() => {});
   }
   if (result.status !== 'login-required') {
-    result.status = result.errors.length ? 'partial' : 'completed';
+    result.status = result.errors.length ? 'partial' : 'read-only';
   }
   log.log?.(`🤖 Instagram Business Suite browser automation: ${result.status} · commenti ${result.commentsReplied}/${result.commentsSeen} · DM ${result.directMessagesSent}/${result.conversationsSeen}`);
   return result;

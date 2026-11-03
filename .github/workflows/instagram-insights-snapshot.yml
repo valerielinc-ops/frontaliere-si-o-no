@@ -7,8 +7,9 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 
 # Collection is owned by the authenticated Chrome profile on the Mac host.
 # The Mac collector persists the read-only 24h/72h snapshot; this workflow
-# scores it once a day and may publish only bounded winner maps to Remote
-# Config. It never asks for a Graph token when the browser source is active.
+# scores it once a day and reports descriptive candidates. Remote Config
+# writes stay held until the qualified preregistered experiment protocol exists.
+# It never asks for a Graph token when the browser source is active.
 on:
   schedule:
     - cron: '35 9 * * *'
@@ -25,7 +26,7 @@ on:
         default: ''
         type: string
       apply:
-        description: 'Apply eligible decisions to Firebase Remote Config'
+        description: 'Request apply (held until the statistical promotion protocol is implemented)'
         required: false
         default: 'true'
         type: choice
@@ -80,8 +81,10 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Prepare Firebase credentials
-        if: env.APPLY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -90,19 +93,20 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
+      - name: Export private Instagram Insights to runner temp
+        run: node scripts/social-native-insights-export.mjs --output="$RUNNER_TEMP/instagram-insights.json"
+
       - name: Load Remote Config decision settings
         if: env.APPLY == 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS,INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS,INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT,INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS
 
-      - name: Evaluate and optionally apply Instagram decisions
+      - name: Evaluate Instagram candidates (Remote Config writes fail closed)
         run: |
           set -euo pipefail
-          if [ ! -f data/instagram-insights.json ]; then
-            echo "No Instagram Insights snapshot has been committed yet."
-            exit 0
-          fi
           args=(
-            --input data/instagram-insights.json
+            --input "$RUNNER_TEMP/instagram-insights.json"
             --ledger data/instagram-posted.json
             --window-hours="$WINDOW_HOURS"
             --json
@@ -113,18 +117,14 @@ jobs:
       - name: Print creative scorecard
         run: |
           set -euo pipefail
-          if [ -f data/instagram-insights.json ]; then
-            node scripts/instagram-insights-report.mjs \
-              --input data/instagram-insights.json \
-              --ledger data/instagram-posted.json \
-              --window-hours="$WINDOW_HOURS"
-          else
-            echo "No browser Insights snapshot has been committed yet."
-          fi
+          node scripts/instagram-insights-report.mjs \
+            --input "$RUNNER_TEMP/instagram-insights.json" \
+            --ledger data/instagram-posted.json \
+            --window-hours="$WINDOW_HOURS"
 
       - name: Print experiment status
         run: |
           set -euo pipefail
-          args=(--ledger data/instagram-posted.json --queue data/instagram-queue.json --insights data/instagram-insights.json --window-hours="$WINDOW_HOURS")
+          args=(--ledger data/instagram-posted.json --queue data/instagram-queue.json --insights "$RUNNER_TEMP/instagram-insights.json" --window-hours="$WINDOW_HOURS")
           if [ -n "$AS_OF" ]; then args+=(--as-of "$AS_OF"); fi
           node scripts/instagram-experiment-status.mjs "${args[@]}"

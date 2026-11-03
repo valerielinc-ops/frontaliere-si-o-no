@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 /**
- * run.mjs — the Playwright robot that publishes the queued Instagram and
- * TikTok carousels from the owner's browser profile on the agents' Mac host.
+ * run.mjs — the Playwright robot that publishes queued Instagram carousels
+ * from the owner's browser profile on the agents' Mac host. TikTok delivery
+ * is held by the current platform policy guard.
  *
  *   node scripts/social-robot/run.mjs                    # dry run (default)
  *   node scripts/social-robot/run.mjs --publish          # press, if Remote Config says live
- *   node scripts/social-robot/run.mjs --platform=tiktok  # one platform only
+ *   node scripts/social-robot/run.mjs --platform=tiktok  # policy-held, no upload
  *   node scripts/social-robot/run.mjs --login            # owner: log in once, then close the window
  *
- * Owner decision of 2026-10-04 (issues 9798 and 7648): automatic publishing
- * through the real web apps, with no third-party publishing service. The
- * Instagram community loop and Insights reader use the authenticated Chrome
- * UI. The official Graph API remains an explicit compatibility path for
- * permitted comments, inbound messages and static Stories. The owner ACCEPTS
- * the risk that Instagram's and TikTok's terms allow them to restrict or
- * suspend accounts that publish through automation. Hence the cadence limits
- * in lib/cadence.mjs and the rule that the robot never insists.
+ * Instagram's Insights reader uses the authenticated Chrome UI. Business Suite
+ * Inbox is read-only because it does not reliably identify inbound direction
+ * and message age; permitted community actions and static Stories use the
+ * explicitly selected Graph API path. TikTok's current
+ * Content Sharing Guidelines make this internal team uploader ineligible, so
+ * the browser robot skips TikTok even when a pending queue exists.
  *
  * What it publishes: data/<channel>-queue.json on origin/main, filled by the
  * daily posters (see scripts/lib/social-publish-queue.mjs). What it records:
@@ -35,7 +34,7 @@
  *                              (default: ~/Library/Application Support/frontaliere/social-robot)
  *   SOCIAL_ROBOT_BROWSER_PATH  browser binary (default: Google Chrome, else cached Chromium)
  *   SOCIAL_ROBOT_INSIGHTS_SOURCE browser (default) | graph | off
- *                              browser keeps Insights/community in Chrome
+ *                              browser Insights; Graph community only if selected
  *   INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
  *                              optional explicit Graph fallback credentials
  *   FB_PAGE_ID / FB_PAGE_ACCESS_TOKEN
@@ -55,10 +54,19 @@ import {
 } from '../lib/instagram-insights-browser.mjs';
 import { runInstagramCommunityBrowserAutomation } from '../lib/instagram-community-browser.mjs';
 import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '../lib/instagram-community-automation.mjs';
+import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { mergeInstagramCommunityOutcomeSnapshots } from '../lib/instagram-community-outcomes.mjs';
+import { buildSocialRobotDeliverySnapshot } from '../lib/social-robot-delivery-health.mjs';
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
+import { partitionAutomatedDeliveryChannels } from '../lib/social-automation-policy.mjs';
+import {
+  loadPrivateSocialNativeInsights,
+  toInstagramBrowserSnapshotDocument,
+  updatePrivateSocialNativeInsights,
+} from '../lib/social-native-insights-store.mjs';
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, pruneRobotState, resolveBrowserLaunch } from './lib/browser.mjs';
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
-import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, findTikTokPublishedPost, resolveTikTokMusicVariant, stepTracker } from './lib/flows.mjs';
+import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, captureDiagnostics, classifyError, findTikTokPublishedPost, resolveTikTokMusicVariant, stepTracker } from './lib/flows.mjs';
 import { SITE_REPO, downloadEntryFiles, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -82,16 +90,23 @@ export function parseArgs(argv) {
 
 const stamp = (at) => new Date(at).toISOString().replace(/[:.]/g, '-');
 
-export function runHasErrors({ results = [], community = null, insights = null } = {}) {
+export function runHasErrors({ results = [], confirmationRetries = [], community = null, insights = null, deliveryTelemetry = null } = {}) {
   return (Array.isArray(results) && results.some((r) => r.outcome === 'error' || r.outcome === 'unconfirmed'))
+    || (Array.isArray(confirmationRetries) && confirmationRetries.some((retry) => retry.confirmDispatched !== true))
+    || deliveryTelemetry?.status === 'write-failed'
     || community?.status === 'api-error'
     || community?.status === 'partial'
     || community?.status === 'credentials-missing'
     || community?.status === 'login-required'
     || community?.status === 'browser-unavailable'
+    || community?.outcomesPersisted === false
     || insights?.status === 'api-error'
     || insights?.status === 'login-required'
     || insights?.status === 'page-error';
+}
+
+export function filterAutomatedDeliveryPlatforms(platforms) {
+  return partitionAutomatedDeliveryChannels(platforms);
 }
 
 function readLocalJson(file) {
@@ -138,13 +153,14 @@ async function runBrowserInsights({ context, reader, stateDir, mode, log = conso
     return { status: 'disabled', additions: [], candidates: 0, source: resolveInsightsSource() };
   }
   const localPath = path.join(stateDir, 'instagram-insights.json');
-  const remoteExisting = reader.readInsights();
-  const localExisting = readLocalJson(localPath);
-  const existing = mergeInstagramBrowserSnapshots(remoteExisting || localExisting, {
-    additions: localExisting?.posts || [],
-  });
   const page = await context.newPage();
   try {
+    const privateDocument = await loadPrivateSocialNativeInsights(await getFirestoreDb());
+    const remoteExisting = toInstagramBrowserSnapshotDocument(privateDocument);
+    const localExisting = readLocalJson(localPath);
+    const existing = mergeInstagramBrowserSnapshots(remoteExisting, {
+      additions: localExisting?.posts || [],
+    });
     const windows = resolveInsightsWindows();
     const ledger = reader.readLedger('instagram');
     let document = existing;
@@ -206,10 +222,13 @@ async function runBrowserInsights({ context, reader, stateDir, mode, log = conso
 }
 
 async function login({ stateDir, platforms }) {
+  const delivery = filterAutomatedDeliveryPlatforms(platforms);
+  for (const held of delivery.held) console.warn(`⏸️  ${held.channel}: ${held.reason}`);
+  if (delivery.allowed.length === 0) return;
   const context = await openProfile({ stateDir });
-  for (const p of platforms) {
+  for (const p of delivery.allowed) {
     const page = await context.newPage();
-    await page.goto(p === 'instagram' ? INSTAGRAM_HOME : TIKTOK_UPLOAD).catch(() => {});
+    await page.goto(INSTAGRAM_HOME).catch(() => {});
   }
   console.log('🔑 Log in on every tab, then close the browser window. Nothing is read or saved but the profile itself.');
   await new Promise((resolve) => context.on('close', resolve));
@@ -232,6 +251,12 @@ async function main() {
       await login({ stateDir, platforms: opts.platforms });
       return 0;
     }
+    const requestedPlatforms = [...opts.platforms];
+    const delivery = filterAutomatedDeliveryPlatforms(requestedPlatforms);
+    opts.platforms = delivery.allowed;
+    for (const held of delivery.held) {
+      console.warn(`⏸️  ${held.channel}: ${held.reason}`);
+    }
     const stateCleanup = pruneRobotState(stateDir);
     if (stateCleanup.errors.length) {
       throw new Error('social robot state cleanup failed: ' + stateCleanup.errors.join('; '));
@@ -249,11 +274,15 @@ async function main() {
       return context.pages()[0] || context.newPage();
     };
     try {
-      const { results } = await runRobot({
+      const robotStartedAt = new Date();
+      const robotResult = await runRobot({
         cliMode: opts.mode,
         rcMode,
         platforms: opts.platforms,
+        confirmationPlatforms: requestedPlatforms,
         reader,
+        socialPublishAccountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+        socialPublishRepoRoot: repoDir,
         journalStore: fileJournalStore(stateDir),
         fetchImages: (entry) => downloadEntryFiles(entry, path.join(downloadsDir(stateDir), entry.channel, entry.id)),
         cleanupFiles: ({ entry }) => {
@@ -302,6 +331,61 @@ async function main() {
           return resolveGithubIssue(title, { workflow: 'social-robot (Mac host)', exactTitle: true });
         },
       });
+      const { results, confirmationRetries } = robotResult;
+      const deliverySnapshotAt = new Date();
+      const deliveryQueues = {};
+      const deliveryLedgers = {};
+      const deliveryChannels = [
+        ...delivery.allowed.map((channel) => ({ channel, state: 'eligible' })),
+        ...delivery.held.map(({ channel }) => ({ channel, state: 'policy-held' })),
+      ];
+      for (const { channel } of deliveryChannels) {
+        try {
+          deliveryQueues[channel] = reader.readQueue(channel);
+        } catch {
+          deliveryQueues[channel] = null;
+        }
+        try {
+          deliveryLedgers[channel] = reader.readLedger(channel);
+        } catch {
+          deliveryLedgers[channel] = null;
+        }
+      }
+      const deliverySnapshot = buildSocialRobotDeliverySnapshot({
+        startedAt: robotStartedAt,
+        recordedAt: deliverySnapshotAt,
+        mode: rcMode,
+        dryRun: robotResult.dryRun,
+        channels: deliveryChannels,
+        results,
+        confirmationRetries,
+        queues: deliveryQueues,
+        ledgers: deliveryLedgers,
+      });
+      let deliveryTelemetry = { status: 'write-failed' };
+      try {
+        const db = await getFirestoreDb();
+        await updatePrivateSocialNativeInsights(db, (current) => ({
+          ...current,
+          generatedAt: deliverySnapshot.recordedAt,
+          sources: {
+            ...current.sources,
+            socialRobotDelivery: {
+              ...(current.sources?.socialRobotDelivery || {}),
+              status: deliverySnapshot.coverage === 'complete' ? 'available' : 'partial',
+              lastAttemptAt: deliverySnapshot.recordedAt,
+              latestSnapshotAt: deliverySnapshot.recordedAt,
+              ...(deliverySnapshot.coverage === 'complete'
+                ? { lastSuccessAt: deliverySnapshot.recordedAt }
+                : {}),
+            },
+          },
+          robotDelivery: deliverySnapshot,
+        }), { updatedAt: deliverySnapshotAt });
+        deliveryTelemetry = { status: 'persisted' };
+      } catch (error) {
+        console.warn(`⚠️  social robot delivery telemetry could not be persisted (${error.name || 'error'})`);
+      }
       let community = null;
       let insights = null;
       if (opts.platforms.includes('instagram')) {
@@ -313,21 +397,37 @@ async function main() {
             accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
             ledger: reader.readLedger('instagram'),
             statePath: path.join(stateDir, 'instagram-community-state.json'),
+            reservationRepoRoot: repoDir,
             mode: communityMode,
             log: console,
           });
         } else {
           community = await runInstagramCommunityBrowserAutomation({
             context,
-            statePath: path.join(stateDir, 'instagram-community-state.json'),
             mode: communityMode,
             log: console,
           });
         }
+        if (community?.outcomes) {
+          try {
+            const db = await getFirestoreDb();
+            await updatePrivateSocialNativeInsights(db, (current) => ({
+              ...current,
+              communityOutcomes: mergeInstagramCommunityOutcomeSnapshots(current.communityOutcomes, community.outcomes),
+            }), { updatedAt: new Date() });
+            community.outcomesPersisted = true;
+          } catch (error) {
+            community.outcomesPersisted = false;
+            community.errors = [...(Array.isArray(community.errors) ? community.errors : []), `private outcome persistence failed: ${String(error?.message || error).replace(/access_token[=:][^\s&]+/giu, 'access_token=[REDACTED]').slice(0, 180)}`];
+            if (!['api-error', 'partial', 'credentials-missing', 'login-required', 'browser-unavailable'].includes(community.status)) {
+              community.status = 'partial';
+            }
+          }
+        }
         insights = await runBrowserInsights({ context, reader, stateDir, mode: rcMode, log: console });
       }
-      console.log(JSON.stringify({ results, community, insights }));
-      return runHasErrors({ results, community, insights }) ? 1 : 0;
+      console.log(JSON.stringify({ results, community, insights, deliveryTelemetry }));
+      return runHasErrors({ results, confirmationRetries, community, insights, deliveryTelemetry }) ? 1 : 0;
     } finally {
       if (context) await context.close().catch(() => {});
     }

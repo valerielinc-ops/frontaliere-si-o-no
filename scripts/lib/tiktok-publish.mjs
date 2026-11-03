@@ -109,9 +109,16 @@ export async function waitForPublishComplete(publishId, accessToken, opts = {}) 
     const res = await tiktokPost('/post/publish/status/fetch/', { publish_id: publishId }, accessToken, { fetchImpl });
     if (!res.ok) return { ok: false, reason: res.error?.message || `status ${res.status}` };
     const status = res.data?.status;
-    if (status === 'PUBLISH_COMPLETE') return { ok: true, postId: res.data?.publicaly_available_post_id?.[0] || publishId };
+    if (status === 'PUBLISH_COMPLETE') {
+      const nativePostId = res.data?.publicaly_available_post_id?.[0];
+      return {
+        ok: true,
+        publishId,
+        ...(nativePostId === undefined || nativePostId === null ? {} : { postId: String(nativePostId) }),
+      };
+    }
     if (status === 'FAILED') return { ok: false, reason: res.data?.fail_reason || 'FAILED' };
-    await sleepImpl(delayMs);
+    if (attempt < maxAttempts) await sleepImpl(delayMs);
   }
   return { ok: false, reason: 'status never reached PUBLISH_COMPLETE within the poll budget' };
 }

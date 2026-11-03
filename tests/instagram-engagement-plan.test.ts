@@ -38,11 +38,11 @@ describe('Instagram engagement plan', () => {
       kind: 'reel',
       sourceKind: 'job',
       creativeBaseId: 'reel',
-      creativeId: 'reel-number',
-      primaryAction: 'share',
-      primaryMetric: 'shares',
-      engagementLoop: 'share-to-help',
-      followUpFormat: 'story-result',
+      creativeId: 'reel-follow',
+      primaryAction: 'follow',
+      primaryMetric: 'follows',
+      engagementLoop: 'follow-for-reliable-updates',
+      followUpFormat: 'none',
     });
     expect(plan.measurement.comparisonUnit).toContain('content kind');
   });

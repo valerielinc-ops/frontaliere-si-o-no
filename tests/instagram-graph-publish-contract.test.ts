@@ -18,9 +18,11 @@ import {
   graphPost,
   waitForContainerReady,
   publishCarousel,
+  publishReel,
   GRAPH_API,
   GRAPH_API_VERSION,
   CONTAINER_STATUS_MAX_ATTEMPTS,
+  REEL_CONTAINER_STATUS_MAX_ATTEMPTS,
 } from '../scripts/lib/instagram-publish.mjs';
 
 function fakeFetch(responses: any[]) {
@@ -56,6 +58,7 @@ describe('graphPost — form encoding and the error verdict', () => {
   it('pins the Graph API version in one place', () => {
     expect(GRAPH_API).toBe(`https://graph.facebook.com/${GRAPH_API_VERSION}`);
     expect(GRAPH_API_VERSION).toMatch(/^v\d+\.\d+$/);
+    expect(GRAPH_API_VERSION).toBe('v26.0');
   });
 
   it('treats an `error` object as failure even on a 200', async () => {
@@ -70,6 +73,50 @@ describe('graphPost — form encoding and the error verdict', () => {
     const res = await graphPost('x/media', {}, 't', { fetchImpl: impl as any });
     expect(res).toMatchObject({ ok: false, status: 500 });
     expect(res.error.message).toBe('no response body');
+  });
+});
+
+describe('publishReel — server-side video container flow', () => {
+  it('creates a REELS container, waits for processing, then stores the exact published media ID', async () => {
+    const { impl, calls } = fakeFetch([
+      { body: { id: 'reel-container' } },
+      { body: { status_code: 'FINISHED' } },
+      { body: { id: 'reel-media-exact' } },
+    ]);
+    const result = await publishReel({
+      igUserId: '178',
+      accessToken: 'tok',
+      videoUrl: 'https://cdn.frontaliereticino.ch/images/social/instagram/reel.mp4',
+      coverUrl: 'https://cdn.frontaliereticino.ch/images/social/instagram/reel.jpg',
+      caption: 'Una risposta utile',
+      fetchImpl: impl,
+      sleepImpl: noSleep,
+    });
+
+    expect(result).toEqual({ ok: true, mediaId: 'reel-media-exact' });
+    const containerBody = calls[0].options.body as URLSearchParams;
+    expect(containerBody.get('media_type')).toBe('REELS');
+    expect(containerBody.get('video_url')).toContain('.mp4');
+    expect(containerBody.get('cover_url')).toContain('.jpg');
+    expect(containerBody.get('share_to_feed')).toBe('true');
+    expect(containerBody.get('caption')).toBe('Una risposta utile');
+    expect(calls[1].url).toContain('/reel-container?fields=status_code');
+    expect(calls[2].url).toBe(`${GRAPH_API}/178/media_publish`);
+    expect((calls[2].options.body as URLSearchParams).get('creation_id')).toBe('reel-container');
+    expect(REEL_CONTAINER_STATUS_MAX_ATTEMPTS).toBe(30);
+  });
+
+  it('does not publish a Reel before its video container finishes processing', async () => {
+    const { impl, calls } = fakeFetch([
+      { body: { id: 'reel-container' } },
+      { body: { status_code: 'ERROR' } },
+    ]);
+    const result = await publishReel({
+      igUserId: '178', accessToken: 'tok', videoUrl: 'https://cdn.example/reel.mp4', caption: 'ciao',
+      fetchImpl: impl, sleepImpl: noSleep,
+    });
+    expect(result).toMatchObject({ ok: false, reason: expect.stringContaining('never reached FINISHED') });
+    expect(calls).toHaveLength(2);
   });
 });
 
@@ -96,6 +143,21 @@ describe('waitForContainerReady — the step that bites', () => {
       expect(await waitForContainerReady('c', 't', { fetchImpl: impl, sleepImpl: noSleep })).toBe(false);
       expect(calls).toHaveLength(1);
     }
+  });
+
+  it('stops immediately on a failed status request and does not sleep after the last poll', async () => {
+    const failed = fakeFetch([{ status: 401, body: { error: { message: 'expired token' } } }]);
+    const sleep = vi.fn(noSleep);
+    expect(await waitForContainerReady('c', 't', { fetchImpl: failed.impl, sleepImpl: sleep })).toBe(false);
+    expect(failed.calls).toHaveLength(1);
+    expect(sleep).not.toHaveBeenCalled();
+
+    const pending = fakeFetch([
+      { body: { status_code: 'IN_PROGRESS' } },
+      { body: { status_code: 'IN_PROGRESS' } },
+    ]);
+    await waitForContainerReady('c', 't', { fetchImpl: pending.impl, sleepImpl: sleep, maxAttempts: 2 });
+    expect(sleep).toHaveBeenCalledTimes(1);
   });
 
   it('returns false — never hangs — when the container never settles', async () => {
@@ -166,5 +228,45 @@ describe('publishCarousel — the three-step flow in order', () => {
       igUserId: '178', accessToken: 't', imageUrls: ['u'], caption: 'c', fetchImpl: impl, sleepImpl: noSleep,
     });
     expect(res.reason).toBe('publish failed: permission denied');
+  });
+
+  it('returns a definite pre-publish failure when container creation throws', async () => {
+    const fetchImpl = vi.fn(async () => { throw new Error('connection refused'); });
+    const res = await publishCarousel({
+      igUserId: '178', accessToken: 't', imageUrls: ['u'], caption: 'c', fetchImpl, sleepImpl: noSleep,
+    });
+    expect(res).toMatchObject({ ok: false, phase: 'pre-publish' });
+    expect(res.uncertain).toBeUndefined();
+  });
+
+  it('keeps final publish transport failures uncertain and does not retry media_publish', async () => {
+    const responses = [ok('child'), finished, ok('carousel')];
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      calls.push(url);
+      const next = responses.shift();
+      if (next) return { ok: true, status: 200, json: async () => next.body };
+      throw new Error('connection reset after request send');
+    });
+    const res = await publishCarousel({
+      igUserId: '178', accessToken: 't', imageUrls: ['u'], caption: 'c', fetchImpl, sleepImpl: noSleep,
+    });
+    expect(res).toMatchObject({ ok: false, phase: 'publish', uncertain: true });
+    expect(calls).toHaveLength(4);
+    expect(calls[3]).toBe(`${GRAPH_API}/178/media_publish`);
+  });
+
+  it('keeps final 5xx responses uncertain and sends media_publish once', async () => {
+    const { impl, calls } = fakeFetch([
+      ok('child'),
+      finished,
+      ok('carousel'),
+      { status: 503, body: { error: { code: 2, message: 'temporary service issue' } } },
+    ]);
+    const res = await publishCarousel({
+      igUserId: '178', accessToken: 't', imageUrls: ['u'], caption: 'c', fetchImpl: impl, sleepImpl: noSleep,
+    });
+    expect(res).toMatchObject({ ok: false, phase: 'publish', uncertain: true });
+    expect(calls.filter(({ url }) => url.endsWith('/media_publish'))).toHaveLength(1);
   });
 });

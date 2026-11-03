@@ -65,12 +65,6 @@ jobs:
           echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
-      # No npm ci: the loader takes its dependency-free REST path, and
-      # confirm.mjs is dependency-free too (both are entry points of
-      # scripts/ci/check-dependency-free-import-closure.mjs).
-      - name: Load secrets from RC
-        run: node scripts/load-rc-env.mjs
-
       - name: Move the confirmed post into the ledger
         env:
           CHANNEL: ${{ inputs.channel }}
@@ -107,6 +101,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(${CHANNEL}): robot-confirmed post ${QUEUE_ID} [skip ci]"
+          # The local confirmation needs no Remote Config values. Fetch the
+          # push credential only after the ledger commit exists.
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # A concurrent writer can advance main after checkout. Re-run the
           # confirmation against that newest base instead of rebasing the
           # generated JSON blindly: this preserves the robot's queue removal

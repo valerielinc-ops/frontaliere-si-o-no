@@ -2,21 +2,31 @@
  * Read-only Instagram Insights snapshot collector.
  *
  * The Playwright robot confirms a post in the UI, but the confirmation does
- * not necessarily contain Meta's media id. We therefore match confirmed
- * ledger groups to the account's recent media by timestamp and refuse
- * ambiguous matches. A wrong attribution would poison the creative test, so
- * a missing or ambiguous match is always skipped.
+ * not necessarily contain Meta's media id. We first match by the authoritative
+ * ledger media id; a unique nearby timestamp remains a measurement-only
+ * fallback and is marked as inferred. Timestamp matches are excluded from
+ * creative attribution because a wrong ledger join would poison the
+ * experiment. Ambiguous matches are always skipped.
  */
 import { fetchRetry } from './ga4-service-account.mjs';
 import { matchInstagramMedia } from './instagram-media-matching.mjs';
 import { GRAPH_API } from './instagram-graph-constants.mjs';
 
-export const SNAPSHOT_SCHEMA_VERSION = 1;
+export const SNAPSHOT_SCHEMA_VERSION = 2;
 export const DEFAULT_WINDOW_HOURS = 72;
-export const DEFAULT_WINDOW_TOLERANCE_HOURS = 0;
+export const DEFAULT_WINDOW_TOLERANCE_HOURS = 6;
 export const DEFAULT_MEDIA_MATCH_MINUTES = 30;
 export const DEFAULT_MEDIA_FIELDS = Object.freeze(['id', 'timestamp', 'media_type', 'permalink']);
 export const DEFAULT_INSIGHT_METRICS = Object.freeze(['reach', 'saved', 'shares', 'comments']);
+export const OPTIONAL_REEL_INSIGHT_METRICS = Object.freeze({
+  views: 'views',
+  follows: 'follows',
+  igReelsAvgWatchTime: 'ig_reels_avg_watch_time',
+  igReelsVideoViewTotalTime: 'ig_reels_video_view_total_time',
+  reelsSkipRate: 'reels_skip_rate',
+});
+
+const REFRESHABLE_OPTIONAL_STATUSES = new Set(['unavailable']);
 
 const METRIC_ALIASES = Object.freeze({
   reach: ['reach'],
@@ -25,6 +35,11 @@ const METRIC_ALIASES = Object.freeze({
   comments: ['comments', 'comment_count', 'comments_count'],
   profileVisits: ['profile_activity', 'profile_visits', 'profileVisits'],
   linkClicks: ['website_clicks', 'link_clicks', 'linkClicks'],
+  views: ['views', 'plays', 'impressions'],
+  follows: ['follows'],
+  igReelsAvgWatchTime: ['ig_reels_avg_watch_time'],
+  igReelsVideoViewTotalTime: ['ig_reels_video_view_total_time'],
+  reelsSkipRate: ['reels_skip_rate'],
 });
 
 function isRecord(value) {
@@ -88,6 +103,20 @@ function snapshotIdentity(value, windowHours) {
   return identity ? `${identity}\u0000${windowHours}` : null;
 }
 
+function snapshotIdentities(value, windowHours) {
+  const identities = [
+    value.identity,
+    value.queueId,
+    value.queue_id,
+    value.mediaId,
+    value.media_id,
+    value.instagramMediaId,
+    value.postId,
+    value.id,
+  ].map(text).filter(Boolean);
+  return [...new Set(identities.map((identity) => `${identity}\u0000${windowHours}`))];
+}
+
 /** Group the five ledger rows belonging to one carousel into one post. */
 export function groupPostedLedger(ledger) {
   const groups = new Map();
@@ -125,10 +154,19 @@ export function groupPostedLedger(ledger) {
       engagementLoop: firstText(entry.engagementLoop, entry.engagement_loop),
       followUpFormat: firstText(entry.followUpFormat, entry.follow_up_format),
       copyMode: firstText(entry.copyMode, entry.copy_mode),
+      copySlot: firstText(entry.copySlot, entry.copy_slot),
+      copyAssignmentMode: firstText(entry.copyAssignmentMode, entry.copy_assignment_mode),
+      copyExperimentId: firstText(entry.copyExperimentId, entry.copy_experiment_id),
+      copyRegistrationHash: firstText(entry.copyRegistrationHash, entry.copy_registration_hash),
+      copyBlockId: firstText(entry.copyBlockId, entry.copy_block_id),
+      copyBlockCycle: Number.isSafeInteger(entry.copyBlockCycle) ? entry.copyBlockCycle : null,
       copyPromptVersion: firstText(entry.copyPromptVersion, entry.copy_prompt_version),
       copyPackId: firstText(entry.copyPackId, entry.copy_pack_id),
       copyTemplateId: firstText(entry.copyTemplateId, entry.copy_template_id),
       copyObjective: firstText(entry.copyObjective, entry.copy_objective),
+      copyAngleId: firstText(entry.copyAngleId, entry.copy_angle_id),
+      copyPillarId: firstText(entry.copyPillarId, entry.copy_pillar_id),
+      copyAngleIntent: firstText(entry.copyAngleIntent, entry.copy_angle_intent),
       copyHook: firstText(entry.copyHook, entry.copy_hook),
       copyCta: firstText(entry.copyCta, entry.copy_cta),
       publishedAtMs: entryTs,
@@ -144,13 +182,30 @@ export function groupPostedLedger(ledger) {
     }
     const copyMetadata = {
       copyMode: firstText(entry.copyMode, entry.copy_mode),
+      copySlot: firstText(entry.copySlot, entry.copy_slot),
+      copyAssignmentMode: firstText(entry.copyAssignmentMode, entry.copy_assignment_mode),
+      copyExperimentId: firstText(entry.copyExperimentId, entry.copy_experiment_id),
+      copyRegistrationHash: firstText(entry.copyRegistrationHash, entry.copy_registration_hash),
+      copyBlockId: firstText(entry.copyBlockId, entry.copy_block_id),
+      copyBlockCycle: Number.isSafeInteger(entry.copyBlockCycle) ? entry.copyBlockCycle : null,
       copyPromptVersion: firstText(entry.copyPromptVersion, entry.copy_prompt_version),
       copyPackId: firstText(entry.copyPackId, entry.copy_pack_id),
       copyTemplateId: firstText(entry.copyTemplateId, entry.copy_template_id),
       copyObjective: firstText(entry.copyObjective, entry.copy_objective),
+      copyAngleId: firstText(entry.copyAngleId, entry.copy_angle_id),
+      copyPillarId: firstText(entry.copyPillarId, entry.copy_pillar_id),
+      copyAngleIntent: firstText(entry.copyAngleIntent, entry.copy_angle_intent),
       copyHook: firstText(entry.copyHook, entry.copy_hook),
       copyCta: firstText(entry.copyCta, entry.copy_cta),
     };
+    const angleFields = ['copyAngleId', 'copyPillarId', 'copyAngleIntent'];
+    const angleFieldPresence = angleFields.map((field) => Boolean(copyMetadata[field]));
+    if (angleFieldPresence.some(Boolean) && !angleFieldPresence.every(Boolean)) {
+      group.conflictingCopyMetadata = true;
+    }
+    if (group.entries > 0 && angleFields.some((field) => Boolean(group[field]) !== Boolean(copyMetadata[field]))) {
+      group.conflictingCopyMetadata = true;
+    }
     for (const [field, value] of Object.entries(copyMetadata)) {
       if (group[field] && value && group[field] !== value) group.conflictingCopyMetadata = true;
       group[field] ||= value;
@@ -184,11 +239,20 @@ export function groupPostedLedger(ledger) {
 }
 
 function existingSnapshotKeys(existing, windowHours) {
-  return new Set(
-    snapshotRows(existing)
-      .map((row) => snapshotIdentity(row, Number(row.windowHours) || windowHours))
-      .filter(Boolean),
-  );
+  const keys = new Set();
+  for (const row of snapshotRows(existing)) {
+    if (needsOptionalMetricRetry(row)) continue;
+    for (const key of snapshotIdentities(row, Number(row.windowHours) || windowHours)) keys.add(key);
+  }
+  return keys;
+}
+
+function needsOptionalMetricRetry(row) {
+  if (String(row.mediaType || row.media_type || '').toUpperCase() !== 'VIDEO') return false;
+  return Object.keys(OPTIONAL_REEL_INSIGHT_METRICS).some((name) => (
+    row.metricStatus?.[name] === undefined
+    || REFRESHABLE_OPTIONAL_STATUSES.has(row.metricStatus[name])
+  ));
 }
 
 /** Select posts old enough for a stable target-window snapshot. */
@@ -204,12 +268,12 @@ export function selectSnapshotCandidates(
   const candidates = [];
   const skipped = [];
   for (const group of groupPostedLedger(ledger)) {
-    const key = snapshotIdentity(group, targetHours);
+    const groupKeys = snapshotIdentities(group, targetHours);
     if (group.conflictingCreativeId || group.conflictingBackgroundVariant || group.conflictingCopyMetadata) {
       skipped.push({ reason: 'conflicting-creative-metadata' });
     } else if (!group.publishedAtMs) {
       skipped.push({ reason: 'published-at-missing' });
-    } else if (keys.has(key)) {
+    } else if (groupKeys.some((key) => keys.has(key))) {
       skipped.push({ reason: 'snapshot-already-recorded' });
     } else {
       const ageHours = (asOfMs - group.publishedAtMs) / 3_600_000;
@@ -217,6 +281,8 @@ export function selectSnapshotCandidates(
         skipped.push({ reason: 'published-in-future' });
       } else if (ageHours < targetHours - tolerance) {
         skipped.push({ reason: 'window-not-reached' });
+      } else if (ageHours > targetHours + tolerance) {
+        skipped.push({ reason: 'window-expired' });
       } else {
         candidates.push({ ...group, ageHours });
       }
@@ -230,7 +296,11 @@ async function graphGet(pathSuffix, params, accessToken, { fetchImpl = fetchRetr
   const response = await fetchImpl(`${GRAPH_API}/${pathSuffix}?${query.toString()}`, {}, 2, 30_000);
   const body = await response.json().catch(() => ({}));
   if (!response?.ok || body?.error) {
-    throw new Error(`Instagram Graph API ${response?.status || 'error'}: ${body?.error?.message || 'request failed'}`);
+    const error = new Error(`Instagram Graph API ${response?.status || 'error'}: ${body?.error?.message || 'request failed'}`);
+    error.graphCode = body?.error?.code;
+    error.graphSubcode = body?.error?.error_subcode;
+    error.status = response?.status;
+    throw error;
   }
   return body;
 }
@@ -292,11 +362,13 @@ export function normalizeMediaInsights(payload) {
   }
   return {
     reach: values.reach,
-    shares: values.shares || 0,
-    saves: values.saves || 0,
-    comments: values.comments || 0,
-    profileVisits: values.profileVisits || 0,
-    linkClicks: values.linkClicks || 0,
+    shares: values.shares ?? null,
+    saves: values.saves ?? null,
+    comments: values.comments ?? null,
+    profileVisits: values.profileVisits ?? null,
+    linkClicks: values.linkClicks ?? null,
+    views: values.views ?? null,
+    availableMetrics: Object.keys(values).sort(),
   };
 }
 
@@ -314,6 +386,49 @@ export async function fetchMediaInsights(
   return normalizeMediaInsights(body);
 }
 
+function metricItems(payload) {
+  return Array.isArray(payload)
+    ? payload
+    : Array.isArray(payload?.data)
+      ? payload.data
+      : Array.isArray(payload?.insights?.data) ? payload.insights.data : [];
+}
+
+function graphMetricErrorStatus(error) {
+  return [100, 200].includes(Number(error?.graphCode)) ? 'metric-unavailable' : 'unavailable';
+}
+
+/** Probe each Reels-only metric separately so one unsupported name cannot hide the others. */
+export async function fetchOptionalReelInsights(mediaId, accessToken, { fetchImpl = fetchRetry } = {}) {
+  const metrics = {};
+  const metricStatus = {};
+  const availableMetrics = [];
+  for (const [canonical, apiName] of Object.entries(OPTIONAL_REEL_INSIGHT_METRICS)) {
+    try {
+      const payload = await graphGet(
+        `${encodeURIComponent(mediaId)}/insights`,
+        { metric: apiName },
+        accessToken,
+        { fetchImpl },
+      );
+      const item = metricItems(payload).find((row) => isRecord(row) && row.name === apiName);
+      const value = item ? number(metricValue(item)) : null;
+      if (value === null || value < 0) {
+        metrics[canonical] = null;
+        metricStatus[canonical] = 'metric-unavailable';
+        continue;
+      }
+      metrics[canonical] = value;
+      metricStatus[canonical] = 'available';
+      availableMetrics.push(canonical);
+    } catch (error) {
+      metrics[canonical] = null;
+      metricStatus[canonical] = graphMetricErrorStatus(error);
+    }
+  }
+  return { metrics, metricStatus, availableMetrics };
+}
+
 function round(value, decimals = 3) {
   const factor = 10 ** decimals;
   return Math.round(value * factor) / factor;
@@ -321,14 +436,16 @@ function round(value, decimals = 3) {
 
 export function buildSnapshotDocument(existing, additions, { generatedAt = new Date(), windowHours = DEFAULT_WINDOW_HOURS } = {}) {
   const current = snapshotRows(existing);
-  const rows = [...current];
-  const seen = new Set(current.map((row) => snapshotIdentity(row, Number(row.windowHours) || windowHours)).filter(Boolean));
+  const byKey = new Map(current
+    .map((row) => [snapshotIdentity(row, Number(row.windowHours) || windowHours), row])
+    .filter(([key]) => key));
   for (const addition of additions) {
     const key = snapshotIdentity(addition, Number(addition.windowHours) || windowHours);
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    rows.push(addition);
+    if (!key) continue;
+    const previous = byKey.get(key);
+    byKey.set(key, previous ? { ...previous, ...addition } : addition);
   }
+  const rows = [...byKey.values()];
   rows.sort((a, b) => String(a.snapshotAt || '').localeCompare(String(b.snapshotAt || '')) || String(a.postId || '').localeCompare(String(b.postId || '')));
   return {
     schemaVersion: SNAPSHOT_SCHEMA_VERSION,
@@ -376,6 +493,9 @@ export async function collectSnapshots({
   for (const { group, media: mediaItem, method } of matched.matches) {
     try {
       const metrics = await fetchMediaInsights(mediaItem.id, accessToken, { fetchImpl });
+      const reelMetrics = String(mediaItem.media_type || '').toUpperCase() === 'VIDEO'
+        ? await fetchOptionalReelInsights(mediaItem.id, accessToken, { fetchImpl })
+        : null;
       additions.push({
         postId: String(mediaItem.id),
         mediaId: String(mediaItem.id),
@@ -398,10 +518,19 @@ export async function collectSnapshots({
         engagementLoop: group.engagementLoop || undefined,
         followUpFormat: group.followUpFormat || undefined,
         copyMode: group.copyMode || undefined,
+        copySlot: group.copySlot || undefined,
+        copyAssignmentMode: group.copyAssignmentMode || undefined,
+        copyExperimentId: group.copyExperimentId || undefined,
+        copyRegistrationHash: group.copyRegistrationHash || undefined,
+        copyBlockId: group.copyBlockId || undefined,
+        copyBlockCycle: Number.isSafeInteger(group.copyBlockCycle) ? group.copyBlockCycle : undefined,
         copyPromptVersion: group.copyPromptVersion || undefined,
         copyPackId: group.copyPackId || undefined,
         copyTemplateId: group.copyTemplateId || undefined,
         copyObjective: group.copyObjective || undefined,
+        copyAngleId: group.copyAngleId || undefined,
+        copyPillarId: group.copyPillarId || undefined,
+        copyAngleIntent: group.copyAngleIntent || undefined,
         copyHook: group.copyHook || undefined,
         copyCta: group.copyCta || undefined,
         mediaType: text(mediaItem.media_type),
@@ -410,7 +539,16 @@ export async function collectSnapshots({
         snapshotAt: asOfIso,
         snapshotAgeHours: round(group.ageHours),
         matchMethod: method,
+        copyAttributionStatus: method === 'ledger-media-id' ? 'exact' : 'inferred',
         ...metrics,
+        ...(reelMetrics ? {
+          ...reelMetrics.metrics,
+          metricStatus: {
+            ...Object.fromEntries(metrics.availableMetrics.map((name) => [name, 'available'])),
+            ...reelMetrics.metricStatus,
+          },
+          availableMetrics: [...new Set([...metrics.availableMetrics, ...reelMetrics.availableMetrics])].sort(),
+        } : {}),
       });
     } catch (error) {
       skipped.push({ reason: 'insights-fetch-failed', message: String(error.message || error).slice(0, 180) });

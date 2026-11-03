@@ -10,11 +10,13 @@
 
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
 export const DEFAULT_WINDOW_HOURS = 72;
+export const DEFAULT_WINDOW_TOLERANCE_HOURS = 6;
 
 export const PRIMARY_METRIC_BY_OBJECTIVE = Object.freeze({
   share: 'shares',
   save: 'saves',
   conversation: 'comments',
+  follow: 'follows',
 });
 
 const OBJECTIVE_BY_CREATIVE = Object.freeze({
@@ -24,6 +26,7 @@ const OBJECTIVE_BY_CREATIVE = Object.freeze({
   reel: 'conversation',
   'reel-question': 'conversation',
   'reel-number': 'share',
+  'reel-follow': 'follow',
   'reel-save': 'save',
 });
 
@@ -36,6 +39,7 @@ const METRIC_ALIASES = Object.freeze({
   views: ['views', 'view_count', 'impressions', 'visualizzazioni'],
   reach: ['reach', 'reach_count', 'accounts_reached'],
   shares: ['shares', 'share_count', 'shares_count'],
+  follows: ['follows', 'follow_count', 'follows_count'],
   saves: ['saves', 'saved', 'save_count', 'saved_count'],
   comments: ['comments', 'comment_count', 'comments_count'],
   profileVisits: ['profileVisits', 'profile_visits', 'profile_activity'],
@@ -153,6 +157,9 @@ export function parseInstagramInsightsCsv(text) {
       const value = csvField(source, aliases);
       if (value !== null) row[field] = value;
     }
+    row.availableMetrics = Object.keys(row).filter((field) => (
+      ['views', 'reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks'].includes(field)
+    ));
     return row;
   });
 }
@@ -171,6 +178,14 @@ function finiteNumber(value) {
   return Number.isFinite(number) ? number : null;
 }
 
+function nestedInsightRows(row) {
+  return [
+    ...(Array.isArray(row.insights) ? row.insights : []),
+    ...(isRecord(row.insights) && Array.isArray(row.insights.data) ? row.insights.data : []),
+    ...(isRecord(row.metrics) && Array.isArray(row.metrics.data) ? row.metrics.data : []),
+  ];
+}
+
 function directMetric(row, aliases) {
   const containers = [row, row.metrics].filter(isRecord);
   for (const container of containers) {
@@ -182,12 +197,7 @@ function directMetric(row, aliases) {
   // Meta's media-insights response nests the metric list under
   // `insights.data`; dashboard exports and older adapters may expose the
   // same list directly as `insights` or under `metrics.data`.
-  const insights = [
-    ...(Array.isArray(row.insights) ? row.insights : []),
-    ...(isRecord(row.insights) && Array.isArray(row.insights.data) ? row.insights.data : []),
-    ...(isRecord(row.metrics) && Array.isArray(row.metrics.data) ? row.metrics.data : []),
-  ];
-  for (const insight of insights) {
+  for (const insight of nestedInsightRows(row)) {
     if (!isRecord(insight)) continue;
     const name = String(insight.name ?? '').trim();
     if (!aliases.includes(name)) continue;
@@ -197,9 +207,38 @@ function directMetric(row, aliases) {
   return null;
 }
 
-function readMetric(row, name, { required = false } = {}) {
+function metricAvailability(row) {
+  const declared = row?.availableMetrics ?? row?.metricsAvailable ?? row?.metricAvailability;
+  if (Array.isArray(declared)) {
+    return new Set(declared.map((value) => normalizeCsvHeader(value)));
+  }
+  if (isRecord(declared)) {
+    return new Set(Object.entries(declared)
+      .filter(([, value]) => value === true || value === 'available')
+      .map(([key]) => normalizeCsvHeader(key)));
+  }
+  const nestedNames = new Set(nestedInsightRows(row)
+    .filter(isRecord)
+    .map((insight) => normalizeCsvHeader(insight.name))
+    .filter(Boolean));
+  if (nestedNames.size > 0) return nestedNames;
+  return null;
+}
+
+function readMetric(row, name) {
   const value = finiteNumber(directMetric(row, METRIC_ALIASES[name] || [name]));
-  if (value === null) return required ? null : 0;
+  const availability = metricAvailability(row);
+  if (value === null) return null;
+  if (availability) {
+    const aliases = (METRIC_ALIASES[name] || [name]).map(normalizeCsvHeader);
+    if (!aliases.some((alias) => availability.has(alias))) return null;
+  } else if (value === 0 && !['reach', 'views'].includes(name)) {
+    // Older snapshots filled absent interaction metrics with zero and did not
+    // record which fields the source actually returned. Treat those legacy
+    // zeros as unknown; explicit zeroes remain usable when availability is
+    // declared by the collector or the dashboard export.
+    return null;
+  }
   return value;
 }
 
@@ -241,12 +280,16 @@ function buildLedgerLookup(ledger) {
       engagementLoop: firstString(entry.engagementLoop, entry.engagement_loop),
       followUpFormat: firstString(entry.followUpFormat, entry.follow_up_format),
       copyMode: firstString(entry.copyMode, entry.copy_mode),
+      copySlot: firstString(entry.copySlot, entry.copy_slot),
       copyAssignmentMode: firstString(entry.copyAssignmentMode, entry.copy_assignment_mode),
       copyExperimentId: firstString(entry.copyExperimentId, entry.copy_experiment_id),
       copyPromptVersion: firstString(entry.copyPromptVersion, entry.copy_prompt_version),
       copyPackId: firstString(entry.copyPackId, entry.copy_pack_id),
       copyTemplateId: firstString(entry.copyTemplateId, entry.copy_template_id),
       copyObjective: firstString(entry.copyObjective, entry.copy_objective),
+      copyAngleId: firstString(entry.copyAngleId, entry.copy_angle_id),
+      copyPillarId: firstString(entry.copyPillarId, entry.copy_pillar_id),
+      copyAngleIntent: firstString(entry.copyAngleIntent, entry.copy_angle_intent),
       copyHook: firstString(entry.copyHook, entry.copy_hook),
       copyCta: firstString(entry.copyCta, entry.copy_cta),
     };
@@ -267,7 +310,11 @@ function reject(rejected, index, reason) {
  * `ledger` is optional; it lets a Meta export identify a treatment through a
  * media/queue id without copying captions or URLs into the export file.
  */
-export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAULT_WINDOW_HOURS } = {}) {
+export function normalizeInsightRows(input, {
+  ledger = null,
+  windowHours = DEFAULT_WINDOW_HOURS,
+  windowToleranceHours = DEFAULT_WINDOW_TOLERANCE_HOURS,
+} = {}) {
   const source = extractRows(input);
   const lookup = buildLedgerLookup(ledger);
   const rows = [];
@@ -276,6 +323,16 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
   source.forEach((raw, index) => {
     if (!isRecord(raw)) {
       reject(rejected, index, 'row is not an object');
+      return;
+    }
+
+    const copyAttributionStatus = firstString(raw.copyAttributionStatus, raw.copy_attribution_status);
+    if (copyAttributionStatus && copyAttributionStatus !== 'exact') {
+      reject(rejected, index, 'copy attribution is not an exact media-to-ledger join');
+      return;
+    }
+    if (firstString(raw.matchMethod, raw.match_method) === 'confirmation-timestamp') {
+      reject(rejected, index, 'timestamp-matched media cannot attribute creative performance');
       return;
     }
 
@@ -395,37 +452,61 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       ledgerMetadata?.followUpFormat,
     );
     const copyMode = firstString(raw.copyMode, raw.copy_mode, ledgerMetadata?.copyMode);
+    const copySlot = firstString(raw.copySlot, raw.copy_slot, ledgerMetadata?.copySlot);
     const copyAssignmentMode = firstString(raw.copyAssignmentMode, raw.copy_assignment_mode, ledgerMetadata?.copyAssignmentMode);
     const copyExperimentId = firstString(raw.copyExperimentId, raw.copy_experiment_id, ledgerMetadata?.copyExperimentId);
     const copyPromptVersion = firstString(raw.copyPromptVersion, raw.copy_prompt_version, ledgerMetadata?.copyPromptVersion);
     const copyPackId = firstString(raw.copyPackId, raw.copy_pack_id, ledgerMetadata?.copyPackId);
     const copyTemplateId = firstString(raw.copyTemplateId, raw.copy_template_id, ledgerMetadata?.copyTemplateId);
     const copyObjective = firstString(raw.copyObjective, raw.copy_objective, ledgerMetadata?.copyObjective);
+    const copyAngleId = firstString(raw.copyAngleId, raw.copy_angle_id, ledgerMetadata?.copyAngleId);
+    const copyPillarId = firstString(raw.copyPillarId, raw.copy_pillar_id, ledgerMetadata?.copyPillarId);
+    const copyAngleIntent = firstString(raw.copyAngleIntent, raw.copy_angle_intent, ledgerMetadata?.copyAngleIntent);
     const copyHook = firstString(raw.copyHook, raw.copy_hook, ledgerMetadata?.copyHook);
     const copyCta = firstString(raw.copyCta, raw.copy_cta, ledgerMetadata?.copyCta);
+    if ((copyAngleId || copyPillarId || copyAngleIntent)
+      && (!/^[a-z0-9][a-z0-9-]{0,31}$/u.test(copyAngleId)
+        || !/^[a-z0-9][a-z0-9-]{0,31}$/u.test(copyPillarId)
+        || !['searchable', 'shareable', 'both'].includes(copyAngleIntent))) {
+      reject(rejected, index, 'invalid copy editorial angle metadata');
+      return;
+    }
     if (copyMode === 'codex' && copyObjective && copyObjective !== objective) {
       reject(rejected, index, 'copy objective conflicts with creative objective');
       return;
     }
 
-    const explicitReach = readMetric(raw, 'reach', { required: true });
-    const views = readMetric(raw, 'views', { required: true });
-    const reach = explicitReach ?? views;
-    if (reach === null || reach <= 0) {
+    const views = readMetric(raw, 'views');
+    const declaredAudienceMetric = firstString(
+      raw.audienceMetric,
+      raw.audience_metric,
+      raw.reachSource,
+      raw.reach_source,
+    );
+    const explicitReach = declaredAudienceMetric === 'views' ? null : readMetric(raw, 'reach');
+    const audienceBase = explicitReach ?? views;
+    const audienceMetric = explicitReach === null ? 'views' : 'reach';
+    if (audienceBase === null || audienceBase <= 0) {
       reject(rejected, index, 'reach or views must be a positive number');
       return;
     }
 
     const metrics = {
-      views: views ?? 0,
+      views,
+      reach: explicitReach,
       shares: readMetric(raw, 'shares'),
       saves: readMetric(raw, 'saves'),
       comments: readMetric(raw, 'comments'),
       profileVisits: readMetric(raw, 'profileVisits'),
       linkClicks: readMetric(raw, 'linkClicks'),
     };
-    if (Object.values(metrics).some((value) => value < 0)) {
+    if (Object.values(metrics).some((value) => value !== null && value < 0)) {
       reject(rejected, index, 'engagement metrics cannot be negative');
+      return;
+    }
+
+    if (metrics[primaryMetric] === null) {
+      reject(rejected, index, `primary metric ${primaryMetric} is unavailable`);
       return;
     }
 
@@ -433,6 +514,12 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
     const targetWindowHours = rawWindow === null ? windowHours : finiteNumber(rawWindow);
     if (targetWindowHours === null || targetWindowHours <= 0) {
       reject(rejected, index, 'windowHours must be a positive number');
+      return;
+    }
+    const snapshotAgeHours = finiteNumber(raw.snapshotAgeHours ?? raw.snapshot_age_hours);
+    const tolerance = Math.max(0, finiteNumber(windowToleranceHours) ?? DEFAULT_WINDOW_TOLERANCE_HOURS);
+    if (snapshotAgeHours !== null && Math.abs(snapshotAgeHours - targetWindowHours) > tolerance) {
+      reject(rejected, index, 'snapshot age is outside the declared measurement window');
       return;
     }
 
@@ -455,23 +542,26 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       engagementLoop,
       followUpFormat,
       copyMode,
+      copyAttributionStatus,
+      copySlot,
       copyAssignmentMode,
       copyExperimentId,
       copyPromptVersion,
       copyPackId,
       copyTemplateId,
       copyObjective,
+      copyAngleId,
+      copyPillarId,
+      copyAngleIntent,
       copyHook,
       copyCta,
       windowHours: targetWindowHours,
-      reach,
-      reachSource: firstString(
-        raw.reachSource,
-        raw.reach_source,
-        raw.audienceMetric,
-        raw.audience_metric,
-        explicitReach === null ? 'views' : 'reach',
-      ),
+      snapshotAt: firstString(raw.snapshotAt, raw.snapshot_at),
+      snapshotAgeHours,
+      audienceBase,
+      audienceMetric,
+      reachSource: audienceMetric,
+      availableMetrics: Array.from(metricAvailability(raw) || []),
       ...metrics,
     });
   });
@@ -479,8 +569,8 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
   return { rows, rejected };
 }
 
-function rate(value, reach) {
-  return reach > 0 ? value / reach : 0;
+function rate(value, audienceBase) {
+  return value !== null && value !== undefined && audienceBase > 0 ? value / audienceBase : null;
 }
 
 function treatmentId(treatment) {
@@ -505,7 +595,10 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
   for (const row of rows) {
     const kind = firstString(row.kind) || 'unknown';
     const backgroundVariant = firstString(row.backgroundVariant) || 'legacy';
-    const key = `${row.creativeId}\u0000${row.objective}\u0000${backgroundVariant}\u0000${kind}\u0000${row.windowHours}`;
+    const audienceMetric = firstString(row.audienceMetric, row.reachSource) || 'reach';
+    const audienceBase = finiteNumber(row.audienceBase) ?? finiteNumber(row.reach);
+    if (audienceBase === null || audienceBase <= 0) continue;
+    const key = `${row.creativeId}\u0000${row.objective}\u0000${backgroundVariant}\u0000${kind}\u0000${row.windowHours}\u0000${audienceMetric}`;
     const group = groups.get(key) || {
       creativeId: row.creativeId,
       backgroundExperimentId: row.backgroundExperimentId || null,
@@ -524,10 +617,14 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       followUpFormat: row.followUpFormat || null,
       kind,
       windowHours: row.windowHours,
+      audienceMetric,
       observations: 0,
       kinds: new Set(),
       copyVariants: new Map(),
       reachSource: null,
+      audienceBase: 0,
+      metricObservations: Object.fromEntries(['views', 'reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks'].map((name) => [name, 0])),
+      interactionsComplete: true,
       views: 0,
       reach: 0,
       shares: 0,
@@ -556,6 +653,8 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
         row.copyExperimentId || 'unknown',
         row.copyPackId || 'unknown',
         row.copyTemplateId || 'unknown',
+        row.copyAngleId || 'unknown-angle',
+        row.copyPillarId || 'unknown-pillar',
         row.copyObjective || 'unknown',
       ].join('|');
       const copyGroup = group.copyVariants.get(copyKey) || {
@@ -565,30 +664,42 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
         copyPromptVersion: row.copyPromptVersion || null,
         copyPackId: row.copyPackId || null,
         copyTemplateId: row.copyTemplateId || null,
+        copyAngleId: row.copyAngleId || null,
+        copyPillarId: row.copyPillarId || null,
+        copyAngleIntent: row.copyAngleIntent || null,
         copyObjective: row.copyObjective || null,
         copyHook: row.copyHook || null,
         copyCta: row.copyCta || null,
         observations: 0,
-        reach: 0,
+        audienceBase: 0,
         primaryTotal: 0,
         interactions: 0,
+        interactionsComplete: true,
       };
       copyGroup.observations += 1;
-      copyGroup.reach += Number(row.reach) || 0;
+      copyGroup.audienceBase += audienceBase;
       copyGroup.primaryTotal += Number(row[row.primaryMetric]) || 0;
-      copyGroup.interactions += (Number(row.shares) || 0) + (Number(row.saves) || 0) + (Number(row.comments) || 0);
+      const interactionValues = [row.shares, row.saves, row.comments].map(finiteNumber);
+      if (interactionValues.some((value) => value === null)) copyGroup.interactionsComplete = false;
+      if (copyGroup.interactionsComplete) copyGroup.interactions += interactionValues.reduce((sum, value) => sum + value, 0);
       group.copyVariants.set(copyKey, copyGroup);
     }
     group.reachSource ||= row.reachSource || null;
     if (row.reachSource && group.reachSource !== row.reachSource) group.reachSource = 'mixed';
+    group.audienceBase += audienceBase;
     for (const metric of ['views', 'reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
-      group[metric] += Number(row[metric]) || 0;
+      const value = finiteNumber(row[metric]);
+      if (value !== null) {
+        group[metric] += value;
+        group.metricObservations[metric] += 1;
+      }
     }
+    if ([row.shares, row.saves, row.comments].some((value) => finiteNumber(value) === null)) group.interactionsComplete = false;
     groups.set(key, group);
   }
 
   const treatments = Array.from(groups.values()).map((group) => {
-    const interactions = group.shares + group.saves + group.comments;
+    const interactions = group.interactionsComplete ? group.shares + group.saves + group.comments : null;
     const primaryTotal = group[group.primaryMetric] || 0;
     const eligible = group.observations >= minimumObservations;
     return {
@@ -609,26 +720,28 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       followUpFormat: group.followUpFormat,
       copyVariants: Array.from(group.copyVariants.values()).map((copyVariant) => ({
         ...copyVariant,
-        primaryRate: rate(copyVariant.primaryTotal, copyVariant.reach),
-        interactionRate: rate(copyVariant.interactions, copyVariant.reach),
+        interactions: copyVariant.interactionsComplete ? copyVariant.interactions : null,
+        primaryRate: rate(copyVariant.primaryTotal, copyVariant.audienceBase),
+        interactionRate: rate(copyVariant.interactionsComplete ? copyVariant.interactions : null, copyVariant.audienceBase),
       })),
       kind: group.kind,
       windowHours: group.windowHours,
       observations: group.observations,
       kinds: Array.from(group.kinds).sort(),
-      views: group.views,
-      reach: group.reach,
-      audienceMetric: group.reachSource === 'views' ? 'views' : 'reach',
+      views: group.metricObservations.views ? group.views : null,
+      reach: group.metricObservations.reach ? group.reach : null,
+      audienceBase: group.audienceBase,
+      audienceMetric: group.audienceMetric,
       reachSource: group.reachSource || 'reach',
-      shares: group.shares,
-      saves: group.saves,
-      comments: group.comments,
-      profileVisits: group.profileVisits,
-      linkClicks: group.linkClicks,
+      shares: group.metricObservations.shares ? group.shares : null,
+      saves: group.metricObservations.saves ? group.saves : null,
+      comments: group.metricObservations.comments ? group.comments : null,
+      profileVisits: group.metricObservations.profileVisits ? group.profileVisits : null,
+      linkClicks: group.metricObservations.linkClicks ? group.linkClicks : null,
       primaryTotal,
-      primaryRate: rate(primaryTotal, group.reach),
+      primaryRate: rate(primaryTotal, group.audienceBase),
       interactionTotal: interactions,
-      interactionRate: rate(interactions, group.reach),
+      interactionRate: rate(interactions, group.audienceBase),
       eligible,
       status: eligible ? 'eligible' : `needs-${minimumObservations - group.observations}-more`,
     };
@@ -644,7 +757,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
   const comparisonGroups = new Map();
   for (const treatment of sortedTreatments) {
     if (!treatment.eligible) continue;
-    const key = `${treatment.objective}\u0000${treatment.kind}\u0000${treatment.windowHours}`;
+    const key = `${treatment.objective}\u0000${treatment.kind}\u0000${treatment.windowHours}\u0000${treatment.audienceMetric}`;
     const group = comparisonGroups.get(key) || [];
     group.push(treatment);
     comparisonGroups.set(key, group);
@@ -653,7 +766,9 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
   const exploratoryRanking = [];
   const exploratoryWinners = [];
   for (const group of comparisonGroups.values()) {
-    group.sort((a, b) => b.interactionRate - a.interactionRate || b.primaryRate - a.primaryRate || a.creativeId.localeCompare(b.creativeId));
+    group.sort((a, b) => (b.primaryRate ?? -1) - (a.primaryRate ?? -1)
+      || (b.interactionRate ?? -1) - (a.interactionRate ?? -1)
+      || a.creativeId.localeCompare(b.creativeId));
     const winner = group[0];
     exploratoryWinners.push({
       treatmentId: treatmentId(winner),

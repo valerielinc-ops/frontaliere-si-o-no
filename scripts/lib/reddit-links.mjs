@@ -20,9 +20,10 @@
  */
 
 import { withUtm } from './social-post-utils.mjs';
+import { SOCIAL_UTM_MEDIUM, SOCIAL_UTM_SOURCE_BY_CHANNEL } from './social-channel-attribution.mjs';
 
-export const REDDIT_UTM_SOURCE = 'reddit';
-export const REDDIT_UTM_MEDIUM = 'social';
+export const REDDIT_UTM_SOURCE = SOCIAL_UTM_SOURCE_BY_CHANNEL.reddit;
+export const REDDIT_UTM_MEDIUM = SOCIAL_UTM_MEDIUM;
 
 /** New-article link post. */
 export const REDDIT_CAMPAIGN_ARTICLE = 'reddit_article';

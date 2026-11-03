@@ -1,112 +1,85 @@
-// @vitest-environment node
-import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { persistBrowserInsights } from '../scripts/social-robot/persist-browser-insights.mjs';
-import { STALE_PACK_AGE_MS } from '../scripts/lib/stale-fetch-pack-sweep.mjs';
 
-const ROOT = path.resolve(import.meta.dirname, '..');
-const SCRIPT = path.join(ROOT, 'scripts/social-robot/persist-browser-insights.mjs');
+const AS_OF = new Date('2026-11-02T12:00:00.000Z');
 const dirs: string[] = [];
 
 function tempDir(): string {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'social-robot-persistence-'));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'social-robot-private-insights-'));
   dirs.push(dir);
   return dir;
 }
 
-function snapshotPath(root: string): string {
+function fakeDb(initial: Record<string, unknown> | null = null) {
+  let stored = initial;
+  let writes = 0;
+  const reference = {
+    get: async () => ({ exists: stored !== null, data: () => stored }),
+    set: async (document: Record<string, unknown>) => { stored = structuredClone(document); writes += 1; },
+  };
+  const db = {
+    collection(name: string) {
+      expect(name).toBe('social_native_insights');
+      return {
+        doc(id: string) {
+          expect(id).toBe('current');
+          return reference;
+        },
+      };
+    },
+    runTransaction: async (callback: (transaction: any) => Promise<unknown>) => callback({
+      get: (ref: typeof reference) => ref.get(),
+      set: (ref: typeof reference, document: Record<string, unknown>) => ref.set(document),
+    }),
+  };
+  return { db, read: () => stored, writes: () => writes };
+}
+
+function writeSnapshot(root: string, value: unknown): string {
   const file = path.join(root, 'instagram-insights.json');
-  fs.writeFileSync(file, JSON.stringify({ schemaVersion: 1, posts: [] }));
+  fs.writeFileSync(file, JSON.stringify(value));
   return file;
 }
 
-function runGit(repo: string, args: string[]): string {
-  return execFileSync('git', ['-C', repo, ...args], { encoding: 'utf8' });
-}
-
-function fakeGitBin(root: string): string {
-  const bin = path.join(root, 'bin');
-  fs.mkdirSync(bin);
-  const git = path.join(bin, 'git');
-  fs.writeFileSync(git, `#!/bin/sh
-case "$*" in
-  *"worktree add"*) mkdir -p "$7" ;;
-  *"rev-parse"*) printf '%s\\n' '1111111111111111111111111111111111111111' ;;
-  *"merge-base --is-ancestor"*) exit 0 ;;
-  *"ls-tree"*) printf 'tracked-0\\0tracked-1\\0' ;;
-  *"diff --cached --quiet"*) exit 1 ;;
-  *"push "*)
-    # Two MiB exceeds Node's default execFileSync buffer.
-    dd if=/dev/zero bs=1048576 count=2 2>/dev/null
-    if [ "\${FAKE_GIT_FAIL:-0}" = "1" ]; then exit 42; fi
-    ;;
-esac
-exit 0
-`);
-  fs.chmodSync(git, 0o755);
-  return bin;
-}
-
-function runPersistenceCli(root: string, { failPush = false } = {}) {
-  const fakeBin = fakeGitBin(root);
-  return spawnSync(process.execPath, [
-    SCRIPT,
-    '--repo', path.join(root, 'site'),
-    '--snapshot', snapshotPath(root),
-  ], {
-    cwd: ROOT,
-    encoding: 'utf8',
-    maxBuffer: 4 * 1024 * 1024,
-    env: {
-      ...process.env,
-      PATH: [fakeBin, process.env.PATH].filter(Boolean).join(path.delimiter),
-      FAKE_GIT_FAIL: failPush ? '1' : '0',
-    },
-  });
-}
-
-function fakeGit({ pushFailures = 0, fetchFailures = 0 } = {}) {
-  const calls: Array<{
-    repo: string;
-    args: string[];
-    options: { allowFailure?: boolean; env?: Record<string, string> };
-  }> = [];
-  const git = (
-    repo: string,
-    args: string[],
-    options: { allowFailure?: boolean; env?: Record<string, string> } = {},
-  ) => {
-    calls.push({ repo, args: [...args], options });
-    if (args[0] === 'fetch' || args.includes('fetch')) {
-      if (fetchFailures > 0) {
-        fetchFailures -= 1;
-        throw new Error('fetch timed out');
-      }
-      return '';
-    }
-    if (args[0] === 'worktree' && args[1] === 'add') {
-      fs.mkdirSync(args[4], { recursive: true });
-      return '';
-    }
-    if (args[0] === 'worktree' && args[1] === 'remove') {
-      fs.rmSync(args[3], { recursive: true, force: true });
-      return '';
-    }
-    if (args[0] === 'diff' && options.allowFailure) return null;
-    if (args[0] === 'push') {
-      if (pushFailures > 0) {
-        pushFailures -= 1;
-        throw new Error('push rejected');
-      }
-      return '';
-    }
-    return '';
+function instagramRow(snapshotAt = '2026-10-13T12:00:00.000Z') {
+  return {
+    postId: 'media-1',
+    mediaId: 'media-1',
+    queueId: 'article-2026-10-10',
+    kind: 'article',
+    day: '2026-10-10',
+    snapshotAt,
+    snapshotAgeHours: 72,
+    windowHours: 72,
+    reach: 100,
+    saves: 5,
+    shares: 2,
+    comments: 0,
+    availableMetrics: ['reach', 'saves', 'shares', 'comments'],
+    copyMode: 'codex',
+    copySlot: 'article',
+    copyPackId: '0123456789abcdef',
+    copyTemplateId: 'clear-question',
+    copyAssignmentMode: 'firebase-balanced',
   };
-  return { calls, git };
+}
+
+function tiktokPost() {
+  return {
+    channel: 'tiktok',
+    postId: 'video-1',
+    publishedAt: '2026-10-30T12:00:00.000Z',
+    snapshotAt: '2026-11-02T12:00:00.000Z',
+    snapshotAgeHours: 72,
+    windowHours: 72,
+    metrics: { views: 50 },
+    availableMetrics: ['views'],
+    metricStatus: { views: 'available' },
+  };
 }
 
 afterEach(() => {
@@ -114,163 +87,78 @@ afterEach(() => {
 });
 
 describe('persistBrowserInsights', () => {
-  it('preserves the complete main tree from a no-checkout sparse worktree', () => {
+  it('stores normalized Instagram metrics in private Firestore and removes the uploaded local snapshot', async () => {
     const root = tempDir();
-    const repo = path.join(root, 'site');
-    const origin = path.join(root, 'origin.git');
-    const hooks = path.join(root, 'empty-hooks');
-    fs.mkdirSync(repo);
-    fs.mkdirSync(hooks);
-    runGit(root, ['init', '--bare', origin]);
-    runGit(repo, ['init', '-b', 'main']);
-    runGit(repo, ['config', 'core.hooksPath', hooks]);
-    runGit(repo, ['config', 'user.name', 'Persistence test']);
-    runGit(repo, ['config', 'user.email', 'persistence-test@example.invalid']);
+    const snapshot = writeSnapshot(root, { schemaVersion: 2, windowHours: 72, posts: [instagramRow()] });
+    const storage = fakeDb();
 
-    for (const [file, contents] of [
-      ['README.md', 'keep the main tree\n'],
-      ['scripts/keep.mjs', 'export const keep = true;\n'],
-      ['data/instagram-insights.json', '{"posts":[]}\n'],
-    ]) {
-      const filePath = path.join(repo, file);
-      fs.mkdirSync(path.dirname(filePath), { recursive: true });
-      fs.writeFileSync(filePath, contents);
-    }
-    runGit(repo, ['add', '.']);
-    runGit(repo, ['commit', '-m', 'seed main']);
-    runGit(repo, ['remote', 'add', 'origin', origin]);
-    runGit(repo, ['push', '-u', 'origin', 'main']);
-    runGit(repo, ['fetch', 'origin', 'main']);
-
-    const result = persistBrowserInsights({ repo, snapshot: snapshotPath(root) });
-
-    expect(result).toEqual({ status: 'pushed', attempt: 1 });
-    expect(runGit(origin, ['ls-tree', '-r', '--name-only', 'main']).trim().split('\n')).toEqual([
-      'README.md',
-      'data/instagram-insights.json',
-      'scripts/keep.mjs',
-    ]);
-    expect(runGit(origin, ['show', 'main:README.md'])).toBe('keep the main tree\n');
-    expect(runGit(origin, ['show', 'main:scripts/keep.mjs'])).toBe('export const keep = true;\n');
-    expect(JSON.parse(runGit(origin, ['show', 'main:data/instagram-insights.json']))).toEqual({
-      schemaVersion: 1,
-      posts: [],
-    });
-  });
-
-  it('uses the already fetched origin/main without a redundant network fetch', () => {
-    const root = tempDir();
-    const fake = fakeGit();
-
-    const result = persistBrowserInsights({
-      repo: path.join(root, 'site'),
-      snapshot: snapshotPath(root),
-      gitFn: fake.git,
+    await expect(persistBrowserInsights({ snapshot, db: storage.db, now: AS_OF })).resolves.toMatchObject({
+      status: 'persisted', imported: 1, posts: 1,
     });
 
-    expect(result).toEqual({ status: 'pushed', attempt: 1 });
-    expect(fake.calls.some(({ args }) => args.includes('fetch'))).toBe(false);
-    const pushCalls = fake.calls.filter(({ args }) => args[0] === 'push');
-    expect(pushCalls).toHaveLength(1);
-    expect(pushCalls[0].options.env).toEqual({ FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' });
-    expect(fake.calls.filter(({ args }) => args[0] !== 'push').every(({ options }) => !options.env)).toBe(true);
-    expect(fs.existsSync(path.join(root, '.insights-persist.lock'))).toBe(false);
-  });
-
-  it('keeps using the cached ref when a retry refresh times out', () => {
-    const root = tempDir();
-    const fake = fakeGit({ pushFailures: 1, fetchFailures: 1 });
-
-    const result = persistBrowserInsights({
-      repo: path.join(root, 'site'),
-      snapshot: snapshotPath(root),
-      attempts: 2,
-      gitFn: fake.git,
+    expect(storage.writes()).toBe(1);
+    expect((storage.read() as any).sources.instagram).toMatchObject({
+      status: 'available',
+      lastAttemptAt: AS_OF.toISOString(),
+      lastSuccessAt: AS_OF.toISOString(),
+      latestSnapshotAt: '2026-10-13T12:00:00.000Z',
     });
-
-    expect(result).toEqual({ status: 'pushed', attempt: 2 });
-    expect(fake.calls.filter(({ args }) => args.includes('fetch'))).toHaveLength(1);
-    expect(fs.existsSync(path.join(root, '.insights-persist.lock'))).toBe(false);
+    expect((storage.read() as any).posts[0]).toMatchObject({
+      channel: 'instagram', postId: 'media-1', metrics: { reach: 100, saves: 5, comments: 0 },
+      copyPackId: '0123456789abcdef',
+    });
+    expect(fs.existsSync(snapshot)).toBe(false);
   });
 
-  it('skips an overlapping writer while the first one owns the lock', () => {
+  it('preserves other channel observations and replaces an older exact Instagram snapshot', async () => {
     const root = tempDir();
-    const snapshot = snapshotPath(root);
-    fs.writeFileSync(
-      path.join(root, '.insights-persist.lock'),
-      JSON.stringify({ pid: process.pid, startedAt: Date.now() }),
-    );
-    const fake = fakeGit();
-
-    const result = persistBrowserInsights({ repo: path.join(root, 'site'), snapshot, gitFn: fake.git });
-
-    expect(result).toEqual({ status: 'busy' });
-    expect(fake.calls).toEqual([]);
-  });
-
-  it('does not fail when git push writes more than 1 MiB', () => {
-    const root = tempDir();
-    const result = runPersistenceCli(root);
-
-    expect(result.error).toBeUndefined();
-    expect(result.status).toBe(0);
-    expect(result.stdout).toContain('"status":"pushed"');
-    expect(`${result.stdout}${result.stderr}`).not.toContain('ENOBUFS');
-  });
-
-  it('keeps a real git failure fatal after the large-output path', () => {
-    const root = tempDir();
-    const result = runPersistenceCli(root, { failPush: true });
-
-    expect(result.error).toBeUndefined();
-    expect(result.status).toBe(1);
-    expect(`${result.stdout}${result.stderr}`).toContain('❌ persist browser Insights:');
-    expect(result.stdout).not.toContain('"status":"pushed"');
-  });
-
-  it('does not retry a storage failure that cannot succeed until the host has space', () => {
-    const root = tempDir();
-    const snapshot = snapshotPath(root);
-    let worktreeAdds = 0;
-    const git = (repo: string, args: string[], options: { allowFailure?: boolean; env?: Record<string, string> } = {}) => {
-      if (args[0] === 'worktree' && args[1] === 'add') {
-        worktreeAdds += 1;
-        throw new Error('fatal: No space left on device');
-      }
-      if (args[0] === 'worktree' && args[1] === 'remove') {
-        fs.rmSync(args[3], { recursive: true, force: true });
-        return '';
-      }
-      return '';
+    const older = {
+      ...instagramRow('2026-10-13T12:00:00.000Z'),
+      channel: 'instagram',
+      publishedAt: '2026-10-10T12:00:00.000Z',
+      metrics: { reach: 10, saves: 1, shares: 0, comments: 0, views: null, profileVisits: null, linkClicks: null, interactions: null },
+      availableMetrics: ['reach', 'saves', 'shares', 'comments'],
+      metricStatus: { reach: 'available', saves: 'available', shares: 'available', comments: 'available', views: 'unavailable', profileVisits: 'unavailable', linkClicks: 'unavailable', interactions: 'unavailable' },
     };
+    const storage = fakeDb({
+      schemaVersion: 1,
+      sources: { instagram: { status: 'available' }, tiktok: { status: 'available' } },
+      posts: [older, tiktokPost()],
+    });
+    const snapshot = writeSnapshot(root, { schemaVersion: 2, windowHours: 72, posts: [instagramRow('2026-10-13T13:00:00.000Z')] });
 
-    expect(() => persistBrowserInsights({
-      repo: path.join(root, 'site'),
-      snapshot,
-      attempts: 3,
-      gitFn: git,
-    })).toThrow(/No space left on device/);
-    expect(worktreeAdds).toBe(1);
+    await persistBrowserInsights({ snapshot, db: storage.db, now: AS_OF });
+
+    const posts = (storage.read() as any).posts;
+    expect(posts).toHaveLength(2);
+    expect(posts.find((row: any) => row.channel === 'tiktok')?.postId).toBe('video-1');
+    expect(posts.find((row: any) => row.channel === 'instagram')?.snapshotAt).toBe('2026-10-13T13:00:00.000Z');
   });
 
-  it('removes stale fetch packs before creating the Insights worktree', () => {
+  it('keeps a dry-run snapshot and does not write to Firestore', async () => {
     const root = tempDir();
-    const repo = path.join(root, 'site');
-    fs.mkdirSync(repo);
-    runGit(repo, ['init', '-b', 'main']);
-    const packDir = path.resolve(repo, runGit(repo, ['rev-parse', '--git-path', 'objects/pack']).trim());
-    const stalePack = path.join(packDir, 'tmp_pack_stale');
-    fs.writeFileSync(stalePack, Buffer.alloc(4096));
-    const old = new Date(Date.now() - STALE_PACK_AGE_MS - 1_000);
-    fs.utimesSync(stalePack, old, old);
+    const snapshot = writeSnapshot(root, { schemaVersion: 2, windowHours: 72, posts: [instagramRow()] });
+    const storage = fakeDb();
 
-    const result = persistBrowserInsights({
-      repo,
-      snapshot: snapshotPath(root),
-      gitFn: fakeGit().git,
+    await expect(persistBrowserInsights({ snapshot, db: storage.db, now: AS_OF, dryRun: true })).resolves.toMatchObject({
+      status: 'ready', imported: 1,
     });
+    expect(storage.writes()).toBe(0);
+    expect(fs.existsSync(snapshot)).toBe(true);
+  });
 
-    expect(result).toEqual({ status: 'pushed', attempt: 1 });
-    expect(fs.existsSync(stalePack)).toBe(false);
+  it('retains a snapshot and fails closed when any row cannot be normalized', async () => {
+    const root = tempDir();
+    const snapshot = writeSnapshot(root, {
+      schemaVersion: 2,
+      windowHours: 72,
+      posts: [instagramRow(), { mediaId: 'invalid-without-snapshot-time' }],
+    });
+    const storage = fakeDb();
+
+    await expect(persistBrowserInsights({ snapshot, db: storage.db, now: AS_OF }))
+      .rejects.toThrow('local snapshot retained');
+    expect(storage.writes()).toBe(0);
+    expect(fs.existsSync(snapshot)).toBe(true);
   });
 });

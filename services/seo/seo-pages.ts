@@ -7375,6 +7375,23 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ]
  },
 
+  'social-hub': {
+    title: 'Lavoro, stipendio e notizie per frontalieri | Frontaliere Ticino',
+    description: 'Dai social alle risorse utili: offerte di lavoro in Ticino, calcolo dello stipendio netto, traffico ai valichi, guide e riepilogo settimanale.',
+    keywords: 'offerte lavoro Ticino, stipendio netto frontaliere, traffico dogane, guide frontalieri',
+    ogTitle: 'Risorse per frontalieri — Frontaliere Ticino',
+    ogDescription: 'Offerte di lavoro, strumenti per il netto, traffico ai valichi e guide pratiche per frontalieri.',
+    canonicalPath: '/social/',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Risorse per frontalieri — Frontaliere Ticino',
+      url: `${BASE_URL}/social/`,
+      description: 'Offerte di lavoro, strumenti per il netto, traffico ai valichi e guide pratiche per frontalieri.',
+      inLanguage: 'it',
+    },
+  },
+
   // ─── Author profile pages (Google News A1 — E-E-A-T) ─────────────────────
   // Derived from the registry (data/authors.ts), never copied by hand: the
   // copies that lived here kept the superseded expertise text after the
