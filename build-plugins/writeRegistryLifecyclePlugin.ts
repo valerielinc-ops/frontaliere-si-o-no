@@ -33,6 +33,7 @@ import {
  reset,
  getCollisions,
  getPathHistory,
+ getDeployManifestHash,
  configureDumpDir,
  getDumpDir,
  pruneDumpToCollidingHashes,
@@ -94,8 +95,9 @@ export function writeRegistryReportPlugin(opts: LifecycleOptions): Plugin {
  // Deploy file-delta observability: when DEPLOY_CONTENT_MANIFEST=1, dump a
  // `path<TAB>sha1` manifest of every claim()'d page so the post-build step
  // can diff this deploy against the previous one (scripts/deploy-file-delta).
- // The sha1 is the hash claim() already computed for collision detection, so
- // this adds ZERO hashing — only a serialization walk of getPathHistory().
+ // The base sha1 is the hash claim() computed for collision detection.
+ // Registered final HTML transforms add a deterministic fingerprint, without
+ // rereading emitted pages or retaining per-page override maps.
  // Runs BEFORE the zero-collisions early return below so clean builds still
  // emit the manifest. Best-effort: failures never break the build.
  emitDeployContentManifest(opts.rootDir, distDir);
@@ -193,7 +195,8 @@ function emitDeployContentManifest(rootDir: string, distDir: string): void {
  const rel = path.relative(distDir, absPath).split(path.sep).join('/');
  // Skip anything that escaped dist (defensive — shouldn't happen).
  if (rel.startsWith('..')) continue;
- buf += `${rel}\t${versions[versions.length - 1].contentHash}\n`;
+ const finalHash = getDeployManifestHash(absPath, versions[versions.length - 1].contentHash);
+ buf += `${rel}\t${finalHash}\n`;
  count += 1;
  if (count % 50000 === 0) {
  stream.write(buf);

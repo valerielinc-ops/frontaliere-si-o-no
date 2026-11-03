@@ -120,6 +120,8 @@ export interface SiteShellContract {
   baseUrl: string;
   gtagSnippet: string;
   adsenseSnippet: string;
+  /** Optional while the copied engine and the publisher host roll forward separately. */
+  metaPixelSnippet?: string;
   /**
    * Tag Partnerize (`PARTNERIZE_TAG_SNIPPET`). Opzionale di proposito: il
    * contratto attraversa il confine sito/corpus e le due meta' si aggiornano

@@ -6,6 +6,8 @@ import {
   onAdsConsentChange,
   type AdsConsentValue,
 } from '@/services/adsConsent';
+import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
+import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
 import { SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT } from './useSeoPageTracking';
 
 const META_PIXEL_ID = '1090503593451766';
@@ -23,6 +25,8 @@ type MetaPixelWindow = Window & {
   fbq?: MetaPixelFunction;
   _fbq?: MetaPixelFunction;
   __ftMetaPixelInitialized?: boolean;
+  __ftMetaPixelLastTrackedPath?: string | null;
+  __FT_META_PIXEL_DISABLED__?: boolean;
 };
 
 function isMetaPixelSite(): boolean {
@@ -67,9 +71,26 @@ function initializeAndTrackPageView(): void {
 
 function revokeMetaPixelConsent(): void {
   const pixelWindow = window as MetaPixelWindow;
+  pixelWindow.__ftMetaPixelLastTrackedPath = null;
   if (pixelWindow.__ftMetaPixelInitialized && pixelWindow.fbq) {
     pixelWindow.fbq('consent', 'revoke');
   }
+}
+
+function canTrackCurrentDocument(): boolean {
+  const pixelWindow = window as MetaPixelWindow;
+  if (pixelWindow.__FT_META_PIXEL_DISABLED__) return false;
+  try {
+    if (isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, pixelWindow, document, false)) {
+      pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
+      return false;
+    }
+  } catch {
+    // Keep the advertising SDK blocked when the page privacy context is unreadable.
+    pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
+    return false;
+  }
+  return true;
 }
 
 /** Load Meta Pixel across the canonical site after explicit advertising
@@ -82,13 +103,20 @@ export function useMetaPixelPageView(): void {
 
     const syncRoute = (): void => {
       if (!isMetaPixelSite() || !isAdsConsentGranted()) return;
+      if (!canTrackCurrentDocument()) return;
 
+      const pixelWindow = window as MetaPixelWindow;
       const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
       if (lastTrackedPath.current === currentPath) return;
+      if (pixelWindow.__ftMetaPixelLastTrackedPath === currentPath) {
+        lastTrackedPath.current = currentPath;
+        return;
+      }
 
       try {
         initializeAndTrackPageView();
         lastTrackedPath.current = currentPath;
+        pixelWindow.__ftMetaPixelLastTrackedPath = currentPath;
       } catch {
         // Pixel failures must not affect page rendering or navigation.
       }

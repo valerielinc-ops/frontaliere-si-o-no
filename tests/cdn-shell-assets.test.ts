@@ -441,6 +441,7 @@ describe('shellAssetsFromStaticScripts', () => {
 
     expect(assets.map((asset) => asset.key)).toEqual(files.map(([name]) => `assets/${name}`));
     expect(assets.map((asset) => asset.key)).toContain(`assets/${GTAG_INIT_VERSIONED_FILENAME}`);
+    expect(assets.some((asset) => /assets\/meta-pixel-base-code-[a-f0-9]{12}\.js$/.test(asset.key))).toBe(true);
   });
 
   it.each([
@@ -919,7 +920,7 @@ describe('fast emitters run the ensure step before they publish', () => {
 });
 
 describe('content-addressed shell cache headers', () => {
-  it.each(['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support'])('caches immutable %s bytes for a year', (name) => {
+  it.each(['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support', 'meta-pixel-base-code'])('caches immutable %s bytes for a year', (name) => {
     expect(shellAssetCacheControl(`assets/${name}-012345abcdef.js`)).toBe('public,max-age=31536000,immutable');
     expect(shellAssetCacheControl(`assets/${name}.js`)).toBe(SHELL_ASSET_CACHE_CONTROL);
     expect(shellAssetCacheControl(`assets/${name}-not-a-digest.js`)).toBe(SHELL_ASSET_CACHE_CONTROL);

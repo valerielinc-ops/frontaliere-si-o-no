@@ -17,7 +17,9 @@ type PixelWindow = Window & {
   fbq?: PixelFunction;
   _fbq?: PixelFunction;
   __ftMetaPixelInitialized?: boolean;
+  __ftMetaPixelLastTrackedPath?: string | null;
   __ftAdsConsentDecision?: string;
+  __FT_META_PIXEL_DISABLED__?: boolean;
 };
 
 function pixelQueue(): string[][] {
@@ -32,7 +34,9 @@ beforeEach(() => {
   delete pixelWindow.fbq;
   delete pixelWindow._fbq;
   delete pixelWindow.__ftMetaPixelInitialized;
+  delete pixelWindow.__ftMetaPixelLastTrackedPath;
   delete pixelWindow.__ftAdsConsentDecision;
+  delete pixelWindow.__FT_META_PIXEL_DISABLED__;
 });
 
 afterEach(() => {
@@ -42,7 +46,9 @@ afterEach(() => {
   delete pixelWindow.fbq;
   delete pixelWindow._fbq;
   delete pixelWindow.__ftMetaPixelInitialized;
+  delete pixelWindow.__ftMetaPixelLastTrackedPath;
   delete pixelWindow.__ftAdsConsentDecision;
+  delete pixelWindow.__FT_META_PIXEL_DISABLED__;
 });
 
 describe('useMetaPixelPageView', () => {
@@ -93,6 +99,42 @@ describe('useMetaPixelPageView', () => {
 
     act(() => window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT)));
     expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(5);
+  });
+
+  it('does not duplicate the initial PageView already sent by the static loader', () => {
+    act(() => setAdsConsent('granted'));
+    const queue: string[][] = [
+      ['init', META_PIXEL_ID],
+      ['consent', 'grant'],
+      ['track', 'PageView'],
+    ];
+    const stub = ((...args: string[]) => queue.push(args)) as PixelFunction;
+    stub.queue = queue;
+    const pixelWindow = window as PixelWindow;
+    pixelWindow.fbq = stub;
+    pixelWindow.__ftMetaPixelInitialized = true;
+    pixelWindow.__ftMetaPixelLastTrackedPath = '/';
+
+    renderHook(() => useMetaPixelPageView());
+
+    expect(queue.filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
+  });
+
+  it('suppresses PageViews for credential-bearing documents and keeps the document blocked', () => {
+    act(() => setAdsConsent('granted'));
+    window.history.replaceState({}, '', '/newsletter-login/?ne=candidate%40example.test&ac=synthetic-code');
+    renderHook(() => useMetaPixelPageView());
+
+    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).toBeNull();
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(0);
+    expect((window as PixelWindow).__FT_META_PIXEL_DISABLED__).toBe(true);
+
+    act(() => {
+      window.history.pushState({}, '', LANDING_PATH);
+      window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
+    });
+
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(0);
   });
 
   it('revokes Pixel consent and waits for a new grant before tracking again', () => {

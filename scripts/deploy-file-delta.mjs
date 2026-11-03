@@ -18,15 +18,16 @@
  *     Source: two `content-manifest.tsv` files (`path<TAB>sha1`), the previous
  *     deploy's (restored from actions/cache) and this build's (emitted during
  *     the Vite build by writeRegistryReportPlugin from getPathHistory()). The
- *     sha1 is the one claim() already computes for collision detection, so this
- *     signal adds ZERO hashing to the build. Coverage = every HTML page routed
+ *     base sha1 is the one claim() computes for collision detection. A
+ *     deterministic fingerprint for the final HTML injection is combined with
+ *     that hash, so changes to the injected shell are visible without reading
+ *     every emitted page. Coverage = every HTML page routed
  *     through WriteCollector/claim() (the ~1.2M job-SEO pages + static pages);
  *     binary assets (og PNGs) and direct fs.writeFile emits are NOT covered
  *     here — their churn shows up in signal 1 as add/remove instead. The hash
- *     is captured at claim() time, i.e. BEFORE any deterministic post-walk
- *     mutation; it is therefore a reliable change-DETECTOR as long as the
- *     post-walk logic is unchanged between the two deploys, not a byte-image of
- *     the shipped file. When either manifest is missing (first deploy after
+ *     represents the claim plus registered final HTML transforms; it remains
+ *     a change-detector, not a byte-image of the shipped file. When either
+ *     manifest is missing (first deploy after
  *     enabling this, or cache miss) the section degrades gracefully to a note.
  *
  * Usage:
@@ -221,7 +222,8 @@ async function main() {
   out.push('');
   out.push(
     '<sub>Signal 1 = differenza di numero file per bucket (non vede i file riscritti a parità di path). '
-    + 'Signal 2 = pagine HTML il cui contenuto è cambiato, hash sha1 calcolato da claim() al momento della scrittura '
+    + 'Signal 2 = pagine HTML il cui contenuto o fingerprint di trasformazione è cambiato, '
+    + 'hash basato su claim() al momento della scrittura '
     + '(copre le pagine via WriteCollector; asset binari/og non inclusi → compaiono nel Signal 1).</sub>',
   );
 

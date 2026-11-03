@@ -57,7 +57,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Il Meta Pixel viene caricato sul sito soltanto dopo che concedi il consenso pubblicitario. Durante la navigazione invia a Meta l'evento standard PageView per registrare le pagine visitate. Puoi revocare il consenso nella sezione «Cookie e Storage Locale» qui sopra. Consulta l'<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Meta</a>.</p>` },
+          { html: `<p>Il Meta Pixel contatta Meta soltanto dopo che concedi il consenso pubblicitario. Invia l'evento standard PageView per la pagina iniziale e per le pagine raggiunte durante la navigazione. Sui documenti il cui URL o riferimento contiene credenziali o altri dati sensibili, l'invio resta disattivato. Puoi revocare il consenso nella sezione «Cookie e Storage Locale» qui sopra. Consulta l'<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Meta</a>.</p>` },
         ],
       },
       {
@@ -206,7 +206,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Meta Pixel is loaded across the site only after you grant advertising consent. As you navigate, it sends Meta the standard PageView event for each page visited. You can withdraw consent in the “Cookies and Local Storage” section above. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta’s Privacy Policy</a>.</p>` },
+          { html: `<p>Meta Pixel contacts Meta only after you grant advertising consent. It sends the standard PageView event for the initial page and pages reached as you navigate. Tracking stays disabled on documents whose URLs or referrers contain credentials or other sensitive data. You can withdraw consent in the “Cookies and Local Storage” section above. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta’s Privacy Policy</a>.</p>` },
         ],
       },
       {
@@ -345,7 +345,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Meta Pixel wird erst nach deiner Werbeeinwilligung auf der Website geladen. Während der Navigation sendet es das Standardereignis PageView für jede besuchte Seite an Meta. Du kannst deine Einwilligung im obigen Abschnitt «Cookies und lokaler Speicher» widerrufen. Weitere Informationen findest du in Metas <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.</p>` },
+          { html: `<p>Meta Pixel kontaktiert Meta erst nach deiner Werbeeinwilligung. Es sendet das Standardereignis PageView für die erste Seite und für Seiten, die du während der Navigation erreichst. Bei Dokumenten, deren URLs oder Verweise Zugangsdaten oder andere sensible Daten enthalten, bleibt das Tracking deaktiviert. Du kannst deine Einwilligung im obigen Abschnitt «Cookies und lokaler Speicher» widerrufen. Weitere Informationen findest du in Metas <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.</p>` },
         ],
       },
       {
@@ -481,7 +481,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Meta Pixel",
         blocks: [
-          { html: `<p>Meta Pixel est chargé sur l’ensemble du site uniquement après que vous avez accordé votre consentement publicitaire. Pendant la navigation, il envoie à Meta l’événement standard PageView pour chaque page visitée. Vous pouvez retirer votre consentement dans la section « Cookies et stockage local » ci-dessus. Consultez la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">politique de confidentialité de Meta</a>.</p>` },
+          { html: `<p>Meta Pixel ne contacte Meta qu’après votre consentement publicitaire. Il envoie l’événement standard PageView pour la page initiale et pour les pages consultées pendant la navigation. Le suivi reste désactivé sur les documents dont l’URL ou le référent contient des identifiants ou d’autres données sensibles. Vous pouvez retirer votre consentement dans la section « Cookies et stockage local » ci-dessus. Consultez la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">politique de confidentialité de Meta</a>.</p>` },
         ],
       },
       {
