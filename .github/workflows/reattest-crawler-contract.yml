@@ -54,8 +54,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
           sparse-checkout: |
-            /.github/corpus-workflows/contract.json
+            /.github/corpus-workflows/
             /scripts/ci/reattest-crawler-contract.mjs
+            /scripts/ci/verify-crawler-contract-provenance.mjs
             /scripts/ci/check-sibling-patterns.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs
@@ -145,6 +146,9 @@ jobs:
             echo "::error::SOURCE_COMMIT is not an ancestor of the checked-out main revision"
             exit 1
           fi
+
+      - name: Verify crawler contract provenance
+        run: node scripts/ci/verify-crawler-contract-provenance.mjs --strict
 
       - name: Open or update the reattestation PR
         run: |
