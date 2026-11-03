@@ -25,6 +25,11 @@ import path from 'node:path';
 import { isJobBoardSectionPath } from './jobBoardSections.mjs';
 import { discoverSitemapFiles } from '../../build-plugins/sitemapAliasPlugin.ts';
 import { authorSeoPageEntries } from '../../services/seo/authorProfileMetadata.ts';
+import {
+  articleCountMeasurement,
+  formatArticleCountEvidence,
+  formatExchangeRateEvidence,
+} from '../../build-plugins/shared/publishedMeasurements.mjs';
 
 export const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -277,12 +282,38 @@ export function categorizeUrls(urls, locale = 'it') {
   return categories;
 }
 
-/** Replace every curated article count with the sitemap-derived locale count. */
-function replaceBlogArticleCounts(content, count) {
-  const countText = count.toLocaleString('en-US');
+function readExchangeRateSnapshot(rootDir, fs) {
+  try {
+    const snapshot = JSON.parse(fs.readFileSync(path.join(rootDir, 'data', 'exchange-rate-snapshot.json'), 'utf8'));
+    if (!Number.isFinite(snapshot.currentRate) || snapshot.currentRate <= 0 || !/^\d{4}-\d{2}-\d{2}$/.test(snapshot.rateDate)) return null;
+    return { rate: snapshot.currentRate, date: snapshot.rateDate };
+  } catch {
+    return null;
+  }
+}
+
+function replaceArticleCountEvidence(content, measurement) {
+  const evidence = formatArticleCountEvidence(measurement.count, measurement.date, 'en');
+  const detailLabel = `**${evidence}**`;
   return content
-    .replace(/^(\s*-\s*\*\*)(?:[\d,]+\+?\s+)?Blog Articles(\*\*)/m, `$1${countText} Blog Articles$2`)
-    .replace(/\*\*[\d,]+\+? in-depth articles\*\*/g, `**${countText} in-depth articles**`);
+    .replaceAll('{{FRONTALIERE_ARTICLE_COUNT_EVIDENCE}}', evidence)
+    .replace(/^(\s*-\s*\*\*)(?:[\d,]+\+?\s+)?Blog Articles(\*\*)/m, (_match, prefix, suffix) => `${prefix}${evidence}${suffix}`)
+    .replace(/\*\*[\d,]+\+? in-depth articles\*\*/g, detailLabel)
+    .replace(/\b(?:full )?[\d,]+\+? article catalog\b/gi, `catalog of ${evidence}`);
+}
+
+function replaceExchangeRateEvidence(content, snapshot, locale = 'en') {
+  if (!content.includes('{{CHF_EUR_SNAPSHOT}}')) return content;
+  const evidence = snapshot
+    ? formatExchangeRateEvidence(snapshot.rate, snapshot.date, locale)
+    : (locale === 'it'
+      ? 'il tasso corrente e la relativa data sono consultabili nella pagina cambio'
+      : locale === 'de'
+        ? 'Kurs und Beobachtungsdatum stehen auf der Wechselkursseite'
+        : locale === 'fr'
+          ? 'le taux courant et sa date sont indiqués sur la page de change'
+          : 'the current rate and observation date are shown on the exchange page');
+  return content.replaceAll('{{CHF_EUR_SNAPSHOT}}', evidence);
 }
 
 /**
@@ -312,9 +343,12 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const allUrls = parseSitemapUrls(publicDir, fs, 'it', distDir, sitemapFiles);
   const seoMap = parseSeoEntries(rootDir, fs);
   const categorized = categorizeUrls(allUrls);
-  // One count for every mention: the page index and the seed text used to come
-  // from different sources, and the site read 3,000+, 4,487 and 4,506 at once.
-  const articleCount = categorized.get('Blog Articles').length;
+  // Every editorial article count uses canonical Italian detail URLs in the
+  // Frontaliere section; hubs, archives, other sections and locale variants do
+  // not alter this measurement.
+  const articleMeasurement = articleCountMeasurement(allUrls, now);
+  const articleCount = articleMeasurement.count;
+  const exchangeRateSnapshot = readExchangeRateSnapshot(rootDir, fs);
   const { totalUrls, newestDay } = summarizeSitemaps(publicDir, fs, distDir, sitemapFiles);
   const indexDateNote = newestDay ? ` Newest indexed change: ${newestDay}. The reference text carries its own Last Updated date.` : '';
 
@@ -332,7 +366,8 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     ];
     for (const [category, catUrls] of cats) {
       if (catUrls.length === 0) continue;
-      lines.push(`### ${category} (${catUrls.length} pages)`);
+      const label = category === 'Blog Articles' ? 'Blog pages, hubs and archives' : category;
+      lines.push(`### ${label} (${catUrls.length} pages)`);
       lines.push('');
       for (const url of catUrls) {
         const seo = seoMap.get(url);
@@ -370,7 +405,8 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     ];
     for (const [category, catUrls] of cats) {
       if (catUrls.length === 0) continue;
-      lines.push(`- **${category}**: ${catUrls.length} pages`);
+      const label = category === 'Blog Articles' ? 'Blog pages, hubs and archives' : category;
+      lines.push(`- **${label}**: ${catUrls.length} pages`);
     }
     lines.push('');
     return lines.join('\n');
@@ -380,7 +416,10 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   function buildLocaleIndexSummary(urls, locale) {
     const lines = ['', '---', '', '## Page Index (Auto-Generated Summary)', '', `- **Index Generated**: ${isoDate}`, `- **Pages in this language**: ${urls.length}`];
     for (const [category, catUrls] of categorizeUrls(urls, locale)) {
-      if (catUrls.length > 0) lines.push(`- **${category}**: ${catUrls.length} pages`);
+      if (catUrls.length > 0) {
+        const label = category === 'Blog Articles' ? 'Blog pages, hubs and archives' : category;
+        lines.push(`- **${label}**: ${catUrls.length} pages`);
+      }
     }
     lines.push(`- **Full URL index**: [/llms-index.txt](${BASE_URL}/llms-index.txt)`, '');
     return lines.join('\n');
@@ -426,7 +465,8 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const llmsPath = path.join(distDir, 'llms.txt');
   if (fs.existsSync(llmsPath)) {
     let content = fs.readFileSync(llmsPath, 'utf-8');
-    content = replaceBlogArticleCounts(content, articleCount);
+      content = replaceArticleCountEvidence(content, articleMeasurement);
+      content = replaceExchangeRateEvidence(content, exchangeRateSnapshot, 'en');
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
     // Append auto-generated page-index SUMMARY (#3527) — replace an existing
@@ -453,7 +493,8 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     // Editorial/source dates belong to the seed. Building an index is not a source verification.
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
-    content = replaceBlogArticleCounts(content, articleCount);
+    content = replaceArticleCountEvidence(content, articleMeasurement);
+    content = replaceExchangeRateEvidence(content, exchangeRateSnapshot, 'en');
     // The index moved to llms-index.txt: replace a pointer or a legacy index.
     const markerIdx = [content.indexOf('## Page Index'), content.indexOf('## Complete Page Index (Auto-Generated)')]
       .filter((i) => i !== -1)
@@ -499,12 +540,11 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   let localeCount = 0;
   for (const [locale, header] of Object.entries(localeHeaders)) {
     const localeUrls = parseSitemapUrls(publicDir, fs, locale, distDir, sitemapFiles);
-    const localeArticleCount = categorizeUrls(localeUrls, locale).get('Blog Articles').length;
     const localeDir = path.join(distDir, locale);
     const localeFullPath = path.join(localeDir, 'llms-full.txt');
     if (fs.existsSync(localeFullPath)) {
       const localeFull = fs.readFileSync(localeFullPath, 'utf8');
-      fs.writeFileSync(localeFullPath, replaceBlogArticleCounts(localeFull, localeArticleCount));
+      fs.writeFileSync(localeFullPath, replaceExchangeRateEvidence(replaceArticleCountEvidence(localeFull, articleMeasurement), exchangeRateSnapshot, locale));
     }
     if (localeUrls.length === 0) continue;
 
@@ -520,7 +560,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     // conservato. L'elenco per URL ne faceva un file da 7 MB senza Key Facts.
     const localeSeedPath = path.join(publicDir, locale, 'llms.txt');
     const localeSeed = fs.existsSync(localeSeedPath)
-      ? replaceBlogArticleCounts(fs.readFileSync(localeSeedPath, 'utf8').trimEnd(), localeArticleCount)
+      ? replaceExchangeRateEvidence(replaceArticleCountEvidence(fs.readFileSync(localeSeedPath, 'utf8').trimEnd(), articleMeasurement), exchangeRateSnapshot, locale)
       : '';
     const content = localeSeed ? `${localeSeed}\n${localeIndex}` : `# Frontaliere Ticino (${header.lang})
 

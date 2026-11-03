@@ -114,6 +114,50 @@ describe('deriveSitemapLastmods', () => {
     );
     expect(out.get('sitemap-health-premiums.xml')).toContain('<lastmod>2026-10-25</lastmod>');
   });
+
+  it('uses only an article page declared dateModified and leaves unknown articles undated', () => {
+    const articles = urlset(
+      url('/articoli-frontaliere/verified-update/'),
+      url('/articoli-frontaliere/unknown-update/'),
+    );
+    const pages: Record<string, string> = {
+      [`${BASE}/articoli-frontaliere/verified-update/`]: '{"dateModified":"2026-10-28T09:00:00Z"}',
+      [`${BASE}/articoli-frontaliere/unknown-update/`]: '{"datePublished":"2026-10-27T09:00:00Z"}',
+    };
+    const out = deriveSitemapLastmods(
+      [{ file: 'sitemap-blog.xml', xml: articles }],
+      (loc) => pages[loc] ?? null,
+      NOW,
+    ).get('sitemap-blog.xml')!;
+    const updated = /<url>(?:(?!<\/url>)[\s\S])*verified-update[\s\S]*?<\/url>/.exec(out)![0];
+    const unknown = /<url>(?:(?!<\/url>)[\s\S])*unknown-update[\s\S]*?<\/url>/.exec(out)![0];
+    expect(updated).toContain('<lastmod>2026-10-28</lastmod>');
+    expect(unknown).not.toContain('<lastmod>');
+  });
+
+  it('leaves event sitemaps outside the declared-date allowlist', () => {
+    const events = urlset(url('/eventi/ticino/lugano/concerto-2026-10-30/'));
+    const reads: string[] = [];
+    const out = deriveSitemapLastmods(
+      [{ file: 'sitemap-eventi.xml', xml: events }],
+      (loc) => { reads.push(loc); return '{"dateModified":"2026-10-28"}'; },
+      NOW,
+    );
+    expect(out.has('sitemap-eventi.xml')).toBe(false);
+    expect(reads).toEqual([]);
+  });
+
+  it('leaves the article archive pager undated because it declares no modification date', () => {
+    const archive = urlset(url('/articoli-frontaliere/tutti/'));
+    const reads: string[] = [];
+    const out = deriveSitemapLastmods(
+      [{ file: 'sitemap-articles-archive.xml', xml: archive }],
+      (loc) => { reads.push(loc); return '{"dateModified":"2026-10-28"}'; },
+      NOW,
+    );
+    expect(out.has('sitemap-articles-archive.xml')).toBe(false);
+    expect(reads).toEqual([]);
+  });
 });
 
 describe('newestSitemapDay', () => {

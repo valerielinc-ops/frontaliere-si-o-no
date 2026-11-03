@@ -35,6 +35,10 @@ import {
 import { buildTwitterCardMetaTags } from '../../packages/articles/engine/shared/twitterCardMeta.ts';
 import { compareArticleSourceDates } from '../../services/articleSourceDates.ts';
 import { localizeOfficialSourceRootLinks } from '../../build-plugins/shared/officialSourceRootLinks.ts';
+import {
+  articleCountMeasurement,
+  formatArticleCountEvidence,
+} from '../../build-plugins/shared/publishedMeasurements.mjs';
 
 export const ARTICLE_HUB_LANDING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const ARTICLE_HUB_LANDING_TIMEOUT_MS = 20_000;
@@ -109,6 +113,23 @@ export function stripCloudflareJsDetection(html) {
   return String(html ?? '').replace(CLOUDFLARE_JS_DETECTION_RX, '');
 }
 
+function refreshFrontaliereEditorialClaims(html, measurement, locale) {
+  if (locale !== 'it') return html;
+  const evidence = formatArticleCountEvidence(measurement.count, measurement.date, locale);
+  return String(html).replace(/<p\b[^>]*>[\s\S]*?<\/p>/gi, (paragraph) => {
+    if (!paragraph.includes('<strong>Articoli Frontaliere</strong>')) return paragraph;
+    return paragraph
+      .replace(
+        /con oltre\s+[\d.,]+\s+articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera\./i,
+        `con un corpus di ${evidence}.`,
+      )
+      .replace(
+        /ratifica definitiva del telelavoro fino a 45 giorni/i,
+        'ratifica del Protocollo sul telelavoro fino al 25%; i 45 giorni previsti dall’Accordo riguardano i mancati rientri per motivi professionali',
+      );
+  });
+}
+
 /**
  * Add the four X-card tags to a landing whose editorial shell is preserved
  * from the live shard. The normal hub renderer owns archive/topic heads, but
@@ -138,7 +159,8 @@ export function ensureTwitterCardMeta(html, { locale, siteBase }) {
  *
  * @param {{rootDir: string, distDir: string, section: string,
  *          locales?: readonly string[], siteBase?: string,
- *          fetchImpl?: Function, timeoutMs?: number, logPrefix?: string}} opts
+ *          fetchImpl?: Function, timeoutMs?: number, logPrefix?: string,
+ *          now?: Date}} opts
  */
 export async function refreshArticleHubLandings(opts) {
   const {
@@ -150,6 +172,7 @@ export async function refreshArticleHubLandings(opts) {
     fetchImpl = globalThis.fetch,
     timeoutMs = ARTICLE_HUB_LANDING_TIMEOUT_MS,
     logPrefix = '[article-hub-landings]',
+    now = new Date(),
   } = opts;
   const result = emptyResult(locales);
   const cfg = ARTICLE_SECTION_CORE[section];
@@ -177,6 +200,19 @@ export async function refreshArticleHubLandings(opts) {
   if (articles.length === 0) {
     result.errors.push(`${section}: article registry has no renderable entries`);
     return result;
+  }
+
+  let frontaliereMeasurement = null;
+  if (section === 'frontaliere') {
+    try {
+      const sitemap = fs.readFileSync(path.resolve(rootDir, 'public/sitemap-blog.xml'), 'utf-8');
+      const urls = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map((match) => match[1]);
+      frontaliereMeasurement = articleCountMeasurement(urls, now);
+      if (frontaliereMeasurement.count === 0) throw new Error('no canonical Frontaliere article detail URLs');
+    } catch (err) {
+      result.errors.push(`${section}: article-count source unavailable (${err.message})`);
+      return result;
+    }
   }
 
   const cards = articles.slice(0, ARTICLE_HUB_CARD_LIMIT);
@@ -269,12 +305,15 @@ export async function refreshArticleHubLandings(opts) {
       continue;
     }
 
-    const refreshed = ensureArticleHubCards(liveHtml, cardsHtml, locale);
+    let refreshed = ensureArticleHubCards(liveHtml, cardsHtml, locale);
     if (refreshed === null) {
       result.errors.push(
         `${localeLanding}: live shell has no balanced article grid or safe shell navigation anchor`,
       );
       continue;
+    }
+    if (frontaliereMeasurement) {
+      refreshed = refreshFrontaliereEditorialClaims(refreshed, frontaliereMeasurement, locale);
     }
 
     // The fetched shell can predate the full-build root-link rewrite because
