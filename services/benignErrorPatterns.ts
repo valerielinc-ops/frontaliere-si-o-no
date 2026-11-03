@@ -84,6 +84,12 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
 
+  // WebKit/iOS reports an in-flight document fetch cancelled by navigation as
+  // the bare `TypeError: cancelled` instead of `AbortError` (#16806). There is
+  // no first-party stack or actionable failure in this shape; keep the anchor
+  // so a contextualized application error remains visible.
+  /^(?:TypeError: )?cancelled$/i,
+
   // ── User-cancelled requests (navigated away / pressed back mid-fetch) ──
   // 211 events/3d. We never throw AbortError deliberately, so every shape is a
   // benign cancellation. Covers WebKit "The user aborted a request.", the

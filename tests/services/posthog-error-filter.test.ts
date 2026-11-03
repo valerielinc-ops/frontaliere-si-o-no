@@ -62,6 +62,11 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops WebKit bare cancellation wording (#16806)', () => {
+    const event = makeExceptionEvent('TypeError: cancelled');
+    expect(filter(event)).toBeNull();
+  });
+
   it('keeps real Load-failed errors that carry extra context', () => {
     // Only the bare canonical Safari message is benign; anything richer should pass.
     const event = makeExceptionEvent('TypeError: Load failed for https://api.example.com/v1/data');
