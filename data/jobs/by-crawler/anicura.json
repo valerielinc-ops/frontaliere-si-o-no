@@ -1,7 +1,7 @@
 {
   "crawlerKey": "anicura",
-  "assembledAt": "2026-11-03T09:51:45.925Z",
-  "runId": "41610733876",
+  "assembledAt": "2026-11-03T22:00:15.299Z",
+  "runId": "41721620541",
   "jobs": [
     {
       "id": "anicura-e2d5759f8115",
@@ -34,7 +34,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851150-veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:51:41.555Z",
+      "crawledAt": "2026-11-03T22:00:10.325Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.555Z",
+      "validThrough": "2026-12-03T22:00:10.325Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:51:41.554Z",
+      "crawledAt": "2026-11-03T22:00:10.324Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -137,8 +137,9 @@
       "applyUrl": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-11-02T21:39:39.911Z",
+      "previousSlugs": [
+        "tierarzt-in-40-100-m-w-d-netstal-schubelbach-anicura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "tierarzt-in-40-100-m-w-d-netstal-schubelbach-anicura-ch"
@@ -150,9 +151,7 @@
           "tierarzt-in-40-100-m-w-d-netstal-schubelbach-anicura-ch"
         ]
       },
-      "previousSlugs": [
-        "tierarzt-in-40-100-m-w-d-netstal-schubelbach-anicura-ch"
-      ],
+      "firstSeenAt": "2026-11-02T21:39:39.911Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -167,7 +166,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.554Z",
+      "validThrough": "2026-12-03T22:00:10.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +200,7 @@
       "url": "https://jobs.anicura.ch/jobs/6944000-tieraerzt-in-40-100-m-w-d-buttikon",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:51:41.553Z",
+      "crawledAt": "2026-11-03T22:00:10.323Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -221,8 +220,9 @@
       "applyUrl": "https://jobs.anicura.ch/jobs/6944000-tieraerzt-in-40-100-m-w-d-buttikon",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-02T21:39:39.910Z",
+      "previousSlugs": [
+        "tierarzt-in-40-100-m-w-d-buttikon-schubelbach-anicura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "tierarzt-in-40-100-m-w-d-buttikon-schubelbach-anicura-ch"
@@ -234,9 +234,8 @@
           "tierarzt-in-40-100-m-w-d-buttikon-schubelbach-anicura-ch"
         ]
       },
-      "previousSlugs": [
-        "tierarzt-in-40-100-m-w-d-buttikon-schubelbach-anicura-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-02T21:39:39.910Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -251,7 +250,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.553Z",
+      "validThrough": "2026-12-03T22:00:10.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +284,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:51:41.552Z",
+      "crawledAt": "2026-11-03T22:00:10.322Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -328,7 +327,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.552Z",
+      "validThrough": "2026-12-03T22:00:10.322Z",
       "validThroughSource": "last-observed-window"
     }
   ]
