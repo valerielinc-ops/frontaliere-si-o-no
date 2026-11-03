@@ -1781,12 +1781,11 @@ async function clickFirst(page, snapshot, patterns) {
     // this lookup explicit and frame-scoped so a generic header control is
     // never promoted to an auth action.
     const frames = page.frames();
-    const preferredFrameNumbers = [...new Set([
+    const formFrameNumbers = [...new Set([
       ...(snapshot.fields || []), ...(snapshot.buttons || []),
     ].map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
-    const preferredFrames = preferredFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
-    const frameCandidates = [...preferredFrames, ...frames.filter((frame) => !preferredFrames.includes(frame))];
-    for (const frame of frameCandidates) {
+    const formFrames = formFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
+    for (const frame of formFrames) {
       if (typeof frame?.getByRole !== 'function') continue;
       const frameLink = frame.getByRole('link', { name: pattern }).first();
       const frameLinkVisible = await frameLink.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);

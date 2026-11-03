@@ -89,6 +89,7 @@ describe('assisted portal account navigation', () => {
   it('finds a late account link in the login form frame when the snapshot contains only Login', async () => {
     let pageKind: 'sign_in' | 'create' = 'sign_in';
     const click = vi.fn(async () => { pageKind = 'create'; });
+    const unrelatedClick = vi.fn(async () => {});
     const linkLocator = {
       first: () => linkLocator,
       waitFor: vi.fn(async () => {}),
@@ -132,9 +133,19 @@ describe('assisted portal account navigation', () => {
         text: '',
       })),
     };
+    const unrelatedLink = {
+      first: () => unrelatedLink,
+      waitFor: vi.fn(async () => {}),
+      getAttribute: vi.fn(async () => '/career?login_ns=register'),
+      click: unrelatedClick,
+    };
+    const unrelatedFrame = {
+      url: () => URL,
+      getByRole: vi.fn(() => unrelatedLink),
+    };
     const page = {
       url: () => URL,
-      frames: () => [hostFrame, formFrame],
+      frames: () => [hostFrame, formFrame, unrelatedFrame],
       mainFrame: () => hostFrame,
       waitForLoadState: vi.fn(async () => {}),
       waitForTimeout: vi.fn(async () => {}),
@@ -159,11 +170,58 @@ describe('assisted portal account navigation', () => {
     });
 
     expect(click).toHaveBeenCalledOnce();
+    expect(unrelatedFrame.getByRole).not.toHaveBeenCalled();
+    expect(unrelatedClick).not.toHaveBeenCalled();
     expect(formFrame.getByRole).toHaveBeenCalledWith('link', { name: expect.any(RegExp) });
     expect(page.getByRole).not.toHaveBeenCalled();
     expect(result.snapshot.fields.map((field: any) => field.label)).toEqual([
       'E-Mail-Adresse:*', 'Passwort:*', 'Passwort bestätigen:*',
     ]);
+  });
+
+  it('does not use a matching account link from an unrelated frame', async () => {
+    const unrelatedClick = vi.fn(async () => {});
+    const unrelatedLink = {
+      first: () => unrelatedLink,
+      waitFor: vi.fn(async () => {}),
+      getAttribute: vi.fn(async () => '/career?login_ns=register'),
+      click: unrelatedClick,
+    };
+    const formFrame = {
+      getByRole: vi.fn(() => ({
+        first: () => ({ waitFor: vi.fn(async () => { throw new Error('form link not found'); }) }),
+      })),
+    };
+    const unrelatedFrame = {
+      getByRole: vi.fn(() => unrelatedLink),
+    };
+    const page = {
+      url: () => URL,
+      frames: () => [{}, formFrame, unrelatedFrame],
+      mainFrame: () => ({}),
+      getByRole: vi.fn(() => ({
+        first: () => ({ waitFor: vi.fn(async () => { throw new Error('main-frame link not found'); }) }),
+      })),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: URL,
+        fields: [
+          { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, frame: 1 },
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, frame: 1 },
+        ],
+        buttons: [{ id: 'login', text: 'Login', frame: 1 }],
+        links: [],
+        dialogs: [],
+        passwordVisible: true,
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(result).toMatchObject({ handoff: 'account', accountFailure: { code: 'no_create_button', stage: 'login' } });
+    expect(unrelatedFrame.getByRole).not.toHaveBeenCalled();
+    expect(unrelatedClick).not.toHaveBeenCalled();
   });
 
   it('retries a saved unverified SuccessFactors account when the job URL opens registration directly', async () => {
