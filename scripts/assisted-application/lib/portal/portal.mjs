@@ -4250,7 +4250,7 @@ export async function submitViaPortal(ctx) {
   let page = null;
   let sourceProtocol = null;
   let diagnostics = null;
-  let finalClickAttempted = false;
+  let finalClickAttempt = null;
   let activeFinalFormGuard = null;
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
@@ -4267,7 +4267,11 @@ export async function submitViaPortal(ctx) {
   const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
-    reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
+    reason = portalHandoffReason(reason, {
+      diagnostics: evidence.diagnostics,
+      attempt: diagnostics?.currentAttempt(),
+      finalClickAttempt,
+    });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
@@ -5179,14 +5183,14 @@ export async function submitViaPortal(ctx) {
       // capture listener compares it again synchronously before portal click
       // handlers can act.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
-      finalClickAttempted = true;
+      finalClickAttempt = diagnostics?.currentAttempt?.() ?? null;
       diagnostics.finalClick();
       await final.click();
       const clickGuardStatus = final.frame?.evaluate
         ? await final.frame.evaluate(readFinalFormGuardStatusInPage, guardToken).catch(() => 'missing')
         : await final.locator.evaluate(readFinalFormGuardStatusInPage, guardToken).catch(() => 'missing');
       if (clickGuardStatus === 'blocked_before_click') {
-        finalClickAttempted = false;
+        finalClickAttempt = null;
         evidence.finalOutcomes = ['form_changed_before_click'];
         return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
       }

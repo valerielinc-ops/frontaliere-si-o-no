@@ -29,8 +29,19 @@ export function isChallengeRequest(url) {
 }
 
 /** A provider outage before the final click is technical, not an unanswered candidate question. */
-export function portalHandoffReason(reason, { diagnostics, attempt, finalClickAttempted = false } = {}) {
-  if (finalClickAttempted || !['captcha', 'portal_needs_candidate'].includes(reason)) return reason;
+export function portalHandoffReason(reason, {
+  diagnostics,
+  attempt,
+  finalClickAttempt = null,
+  finalClickAttempted = false,
+} = {}) {
+  // The click fence belongs to this portal attempt. A validation response can
+  // start a fresh attempt in the same runner invocation; carrying a boolean
+  // from the previous click would hide a new pre-click provider outage.
+  const clickWasAttempted = Number.isSafeInteger(finalClickAttempt)
+    && Number.isSafeInteger(attempt)
+    && finalClickAttempt === attempt;
+  if (clickWasAttempted || finalClickAttempted || !['captcha', 'portal_needs_candidate'].includes(reason)) return reason;
   const unavailable = (Array.isArray(diagnostics?.responses) ? diagnostics.responses : []).some(entry => {
     if (entry?.attempt !== attempt) return false;
     const host = String(entry?.host || '').toLowerCase();
