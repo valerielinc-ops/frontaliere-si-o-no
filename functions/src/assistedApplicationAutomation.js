@@ -211,8 +211,9 @@ export async function reconcilePortalRetrySchedule({ db, orderId, apply = false 
     const flow = (await transaction.get(flowRefFor(db, orderId))).data();
     if (order?.automationState !== 'owner_takeover' || flow?.state !== 'owner_takeover') return { changed: false };
     const dueAt = computeDueAt(flow);
-    if (!dueAt || order.automationDueAt === dueAt) return { changed: false };
-    if (apply) transaction.set(orderRef, { automationDueAt: dueAt }, { merge: true });
+    const mirroredDueAt = dueAt || null;
+    if ((order.automationDueAt ?? null) === mirroredDueAt) return { changed: false };
+    if (apply) transaction.set(orderRef, { automationDueAt: mirroredDueAt }, { merge: true });
     return { changed: true };
   });
 }

@@ -124,12 +124,7 @@ jobs:
         run: npx playwright install --with-deps chromium
         timeout-minutes: 15
 
-      - name: Install NopeCHA for portal submissions
-        if: inputs.mode != 'draft' && inputs.mode != 'verify_portal'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
-
+      # CAPTCHA challenges go to Valerie's owner takeover; this runner never loads a solver.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
@@ -145,7 +140,6 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
-          NOPECHA_EXTENSION_PATH: ${{ inputs.mode != 'draft' && inputs.mode != 'verify_portal' && format('{0}/nopecha/extension', runner.temp) || '' }}
         # A real (headed) Chromium on a virtual screen: some ATS turn away a
         # browser that calls itself HeadlessChrome, in its user agent and in its
         # client hints. Nothing is disguised (owner decision 2026-10-01).
