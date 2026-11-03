@@ -123,7 +123,8 @@ describe('safe forwarding of MIME links and reply destinations', () => {
     const { payload } = (sendCascade.mock.calls as any)[0][0][0];
     expect(payload.text).toContain('Open requested documents: https://employer.example/documents?case=42&lang=en');
     expect(payload.replyTo).toBe('apply@employer.example');
-    expect(payload.html).toContain('Open requested documents: https://employer.example/documents?case=42&amp;lang=en');
+    expect(payload.html).toContain('Open requested documents: <a href="https://employer.example/documents?case=42&amp;lang=en"');
+    expect(payload.html).toContain('>https://employer.example/documents?case=42&amp;lang=en</a>');
     expect(payload.html).not.toContain('<a href="javascript:');
   });
 
