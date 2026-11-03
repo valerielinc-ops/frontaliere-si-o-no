@@ -39,6 +39,7 @@ import {
   isAtsDomain,
   normalizeDomain,
   selectAuditCandidates,
+  VERIFIED_LOGO_SOURCE_URLS,
 } from './lib/company-logo-acquisition.mjs';
 
 const ROOT = path.resolve(process.cwd());
@@ -470,18 +471,26 @@ export async function downloadForKey(key, metadata, options = {}) {
     sourceDomain: domains[0] || null,
   };
 
-  // A declared logo URL is an explicit acquisition input, not a guessed
-  // domain. Try it first so curated registry entries and publisher-provided
-  // logos can be converted into the same stable CDN asset as domain-based
-  // acquisitions. The URL is never written to runtime output.
-  for (const sourceUrl of metadata?.declaredLogoUrls || []) {
+  // A verified source override or declared logo URL is an explicit acquisition
+  // input, not a guessed domain. Try it first so official media assets,
+  // curated registry entries and publisher-provided logos can be converted
+  // into the same stable CDN asset as domain-based acquisitions. The URL is
+  // never written to runtime output.
+  const sourceUrls = new Set([
+    ...(VERIFIED_LOGO_SOURCE_URLS[key] || []),
+    ...(metadata?.declaredLogoUrls || []),
+  ]);
+  for (const sourceUrl of sourceUrls) {
     let sourceDomain;
     try {
       sourceDomain = normalizeDomain(new URL(sourceUrl).hostname);
     } catch {
       continue;
     }
-    const declared = await readImageUrl(sourceUrl, 'declared-logo-source', sourceDomain);
+    const source = VERIFIED_LOGO_SOURCE_URLS[key]?.includes(sourceUrl)
+      ? 'verified-logo-source'
+      : 'declared-logo-source';
+    const declared = await readImageUrl(sourceUrl, source, sourceDomain);
     if (declared.accepted) return declared;
     lastFailure = declared;
   }

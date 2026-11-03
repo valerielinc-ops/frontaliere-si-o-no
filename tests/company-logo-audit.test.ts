@@ -13,6 +13,8 @@ import {
   readImageDimensions,
 } from '../scripts/lib/company-logo-audit.mjs';
 import { directLogoSources, loadLogoRegistry } from '../scripts/lib/company-logo-registry.mjs';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
+import { resolveCompanyLogoUrl } from '../services/jobDataNormalization.ts';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -293,6 +295,25 @@ describe('company-logo-audit', () => {
     })).toEqual(expect.objectContaining({ status: 'good' }));
   });
 
+  it('keeps the canonical ZAUGG mark above the raster quality floor', () => {
+    const dimensions = readImageDimensions(readFileSync(
+      path.join(REPO_ROOT, 'public/images/brands/zaugg.png'),
+    ));
+
+    expect(dimensions).toEqual(expect.objectContaining({
+      vector: false,
+      width: expect.any(Number),
+      height: expect.any(Number),
+    }));
+    expect(Math.max(dimensions.width || 0, dimensions.height || 0))
+      .toBeGreaterThanOrEqual(96);
+    expect(assessLogoQuality({
+      format: 'png',
+      width: dimensions.width,
+      height: dimensions.height,
+    })).toEqual(expect.objectContaining({ status: 'good' }));
+  });
+
   it('rejects an HTML error page even when the server lies about its MIME type', async () => {
     const report = await auditCompanyLogos([
       { companyKey: 'mislabeled', company: 'Mislabeled AG', url: 'https://html.test/1' },
@@ -391,5 +412,37 @@ describe('company-logo-audit', () => {
 
     expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual(['altra-sa']);
     expect(report.affectedCompanies.map((company) => company.companyKey)).not.toContain('seco-jobroom');
+  });
+
+  it('keeps verified ZAUGG legacy coverage separate from same-name non-official jobs', async () => {
+    const officialLegacyJob = {
+      company: 'ZAUGG AG',
+      companyKey: 'zaugg-ag',
+      companyDomain: 'zaugg.swiss',
+      url: 'https://www.zaugg.swiss/stellen/3728',
+    };
+    const lookalikeJob = {
+      company: 'Zaugg Bau AG',
+      companyKey: 'zaugg-ag',
+      companyDomain: 'zaugg-bau.example',
+      url: 'https://zaugg-bau.example/jobs/1',
+    };
+
+    expect(companyLogoKeyForJob(officialLegacyJob)).toBe('zaugg');
+    expect(resolveCompanyLogoUrl(officialLegacyJob)).toBe('/images/brands/zaugg.png');
+    expect(companyLogoKeyForJob(lookalikeJob)).toBe('zaugg-ag');
+
+    const report = await auditCompanyLogos([officialLegacyJob, lookalikeJob], {
+      resolveLogo: (job) => companyLogoKeyForJob(job) === 'zaugg'
+        ? '/images/brands/zaugg.png'
+        : null,
+      assetBaseUrl: 'https://cdn.test',
+      fetchImpl: async (url) => url === 'https://cdn.test/images/brands/zaugg.png'
+        ? imageResponse(200, pngBytes(128, 128))
+        : new Response('', { status: 404 }),
+    });
+
+    expect(report.affectedCompanies.map((company) => company.companyKey)).toEqual(['zaugg-ag']);
+    expect(report.affectedCompanies[0].affectedJobCount).toBe(1);
   });
 });
