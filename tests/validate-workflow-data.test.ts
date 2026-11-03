@@ -117,7 +117,37 @@ describe('validate-workflow-data', () => {
     const root = path.resolve(import.meta.dirname, '..');
     const missing = `data/__missing-workflow-baseline-${process.pid}.json`;
     expect(readHeadFile(root, missing)).toBeNull();
+    const onDisk = path.join(root, `data/__missing-workflow-baseline-${process.pid}-on-disk.json`);
+    fs.writeFileSync(onDisk, '{"firstWrite":true}\n');
+    try {
+      expect(readHeadFile(root, path.relative(root, onDisk))).toBeNull();
+    } finally {
+      fs.rmSync(onDisk, { force: true });
+    }
     expect(() => readHeadFile(os.tmpdir(), 'data/missing.json')).toThrow(/Impossibile leggere il baseline HEAD/);
+  });
+
+  it('keeps an existing but unreadable HEAD blob fail-closed', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validate-workflow-baseline-'));
+    try {
+      fs.mkdirSync(path.join(root, 'data'));
+      fs.writeFileSync(path.join(root, 'data/baseline.jsonl'), '{"present":true}\n');
+      expect(spawnSync('git', ['init', '-q'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['config', 'user.email', 'ci'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['config', 'user.name', 'test'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['add', 'data/baseline.jsonl'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['commit', '-qm', 'baseline'], { cwd: root }).status).toBe(0);
+      const blob = spawnSync('git', ['rev-parse', 'HEAD:data/baseline.jsonl'], {
+        cwd: root,
+        encoding: 'utf8',
+      }).stdout.trim();
+      fs.rmSync(path.join(root, '.git/objects', blob.slice(0, 2), blob.slice(2)));
+
+      expect(() => readHeadFile(root, 'data/baseline.jsonl'))
+        .toThrow(/Impossibile leggere il baseline HEAD/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it.each(KINDS)('accepts a valid %s artifact', async (kind) => {
