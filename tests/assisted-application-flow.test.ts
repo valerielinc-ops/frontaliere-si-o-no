@@ -557,8 +557,9 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     // into it): that is what says the candidate approved the round.
     const stopped = { ...step.flow, dispatch: { mode: 'submit', attempts: 1 } };
     const retried = transition(stopped, { type: 'owner_retry_submit' }, { draft: roundDraft, nowMs: T0 });
-    expect(retried.flow.state).toBe('submitting');
-    expect(retried.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+    expect(retried.ignored).toBe('captcha_requires_owner');
+    expect(retried.flow.state).toBe('owner_takeover');
+    expect(retried.effects).toEqual([]);
     // Never without the approved draft of the round.
     expect(transition(stopped, { type: 'owner_retry_submit' }, { draft: { ...cleanDraft, round: 0 }, nowMs: T0 }).ignored).toBe('no_approved_draft');
 
