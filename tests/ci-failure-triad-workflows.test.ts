@@ -79,6 +79,32 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     expect(history?.run).not.toMatch(/\+refs\/(?:heads|tags)\/\*/u);
   });
 
+  it('measures the thin-promotion history fetch on the exact PR head before merge', () => {
+    const config = workflow('refresh-thin-promotions.yml');
+    const validation = config.jobs['validate-history-fetch'];
+    const steps = validation.steps;
+    const checkout = steps.find((step: any) => step.uses?.startsWith('actions/checkout@'));
+    const history = steps.find((step: any) => step.name === 'Measure blobless history fetch');
+
+    expect(config.on.pull_request.paths).toContain('.github/workflows/refresh-thin-promotions.yml');
+    expect(validation.if).toBe("github.event_name == 'pull_request'");
+    expect(validation.permissions).toEqual({ contents: 'read' });
+    expect(validation['timeout-minutes']).toBe(15);
+    expect(checkout?.with?.ref).toBe('${{ github.event.pull_request.head.sha }}');
+    expect(checkout?.with?.['fetch-depth']).toBe(1);
+    expect(checkout?.with?.filter).toBe('blob:none');
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(checkout?.['timeout-minutes']).toBe(7);
+    expect(history?.env?.BRANCH).toBe('${{ github.event.pull_request.head.ref }}');
+    expect(history?.env?.HEAD_SHA).toBe('${{ github.event.pull_request.head.sha }}');
+    expect(history?.['timeout-minutes']).toBe(5);
+    expect(history?.run).toContain('git fetch --no-tags --filter=blob:none --unshallow origin');
+    expect(history?.run).toContain('duration_ms');
+    expect(history?.run).toContain('GITHUB_RUN_ID');
+    expect(history?.run).toContain('if [ "$duration_ms" -ge 300000 ]');
+    expect(config.jobs.refresh.if).toBe("github.event_name != 'pull_request'");
+  });
+
   it('refreshes keyword pages after the ranking writer succeeds, not only on a racing schedule', () => {
     const configWorkflow = workflow('refresh-keyword-config.yml');
 

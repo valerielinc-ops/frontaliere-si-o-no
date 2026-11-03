@@ -22,6 +22,9 @@ name: Refresh thin-page promotions
 # H9 del 2026-10-05: GA4 receives the same `thin_page_view`).
 
 on:
+  pull_request:
+    paths:
+      - '.github/workflows/refresh-thin-promotions.yml'
   schedule:
     - cron: '15 * * * *'
   workflow_dispatch:
@@ -44,7 +47,65 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate-history-fetch:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - name: Checkout PR head with production checkout settings
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 7
+
+      - name: Measure blobless history fetch
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test "$(git rev-parse --is-shallow-repository)" = true
+          git config remote.origin.promisor true
+          git config remote.origin.partialclonefilter blob:none
+          started_ns="$(date +%s%N)"
+          git fetch --no-tags --filter=blob:none --unshallow origin \
+            "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
+          finished_ns="$(date +%s%N)"
+          duration_ms=$(( (finished_ns - started_ns) / 1000000 ))
+          echo "history-fetch-validation: run_id=${GITHUB_RUN_ID} head=${HEAD_SHA} duration_ms=${duration_ms}"
+          echo "::notice title=Blobless history fetch measured::run_id=${GITHUB_RUN_ID}; head=${HEAD_SHA}; duration_ms=${duration_ms}; limit_ms=300000"
+          if [ "$duration_ms" -ge 300000 ]; then
+            echo "::error::blobless history fetch took ${duration_ms}ms; expected less than 300000ms"
+            exit 1
+          fi
+        timeout-minutes: 5
+
   refresh:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     # Raised 10 -> 20 (issue #5810, chronic recurrence across #4160..#5754):
     # the "Commit if changed" step's fetch+rebase+push retry loop already
