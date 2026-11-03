@@ -227,15 +227,26 @@ function isLikelyIpersonalDetailContainer(source) {
   // Use the rendered HTML rather than textContent: adjacent block elements in
   // minified CMS markup otherwise lose the boundaries between labels.
   const text = stripHtml(String(source.innerHTML || '')).replace(/\s+/g, ' ').trim();
+  // Some current MediPersonal details are authored as paragraphs only: they
+  // carry the source workplace and a rich vacancy body, but no `Ihre
+  // Aufgaben`/`Ihr Profil` heading. Keep the boundary conservative by
+  // requiring the canonical source-body floor after removing page chrome and
+  // forms; the later publication gate applies the same floor to the extracted
+  // body and also requires the workplace label to survive it.
+  const bodyText = stripHtml(String(source.innerHTML || '')
+    .replace(/<(?:form|nav|header|footer|aside)\b[\s\S]*?<\/\s*(?:form|nav|header|footer|aside)\s*>/giu, ' '))
+    .replace(/\s+/g, ' ')
+    .trim();
   const hasWorkplace = /\b(?:einsatzort|arbeitsort)\s*:/iu.test(text);
   const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil|stärken|vorteile)\b|\b(?:diese tätigkeiten erwarten sie|unser angebot|das bieten wir)\b/iu.test(text);
   const hasExplicitCandidature = IPERSONAL_CANDIDATURE_RE.test(text);
+  const hasRichParagraphBody = meetsSourceBodyFloor(bodyText);
 
   // A detail container must carry its own workplace, vacancy section and
   // explicit application wording. Generic calls to action such as
   // "Interessiert?" are common in listings and error shells and are not
   // evidence that this container is a vacancy detail.
-  return hasWorkplace && hasVacancySection && hasExplicitCandidature;
+  return hasWorkplace && hasExplicitCandidature && (hasVacancySection || hasRichParagraphBody);
 }
 
 function isLikelyIpersonalDetailMain(source) {
