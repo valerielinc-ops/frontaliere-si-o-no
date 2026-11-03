@@ -6055,16 +6055,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
    image: ogImageUrl,
  });
 
- // #5001 punto 3 — la terza sorgente. L'ImageObject del JSON-LD viene dal
- // blocco `structuredData` scritto a mano nei sorgenti SEO, e su queste pagine
- // dichiarava `"width": 1344, "height": 756` su file che ne misurano 1200 di
- // larghezza e un'altezza che varia per file. Qui viene riallineato a
- // `ogImageUrl` + le dimensioni MISURATE, cioe' agli stessi valori che vanno
- // nell'<img> e in og:image.
- //
- // Variabile LOCALE, nessuna mutazione di `seoData.sd`: quell'oggetto viene da
- // `seoMap` ed e' condiviso tra le locale della stessa pagina (stessa cautela
- // dell'heroImageLd del glossario ~200 righe piu' sotto).
+ // Keep the JSON-LD image aligned with the measured page hero. Work on a local
+ // copy because seoMap data is shared by translated pages.
+ const measuredHero = { url: ogImageUrl, width: ogImageW, height: ogImageH };
  const sdForPage = ((): string | undefined => {
  if (!seoData.sd || (!blogDetailHeroSrc && !guideDossierVisual)) return seoData.sd;
  const sdSeparator = '</script>\n <script type="application/ld+json">';
@@ -6072,16 +6065,21 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  return seoData.sd.split(sdSeparator).map((part) => {
  const obj = JSON.parse(part) as Record<string, unknown>;
  const img = obj.image;
- if (guideDossierVisual && ['CollectionPage', 'WebPage', 'Article', 'BlogPosting'].includes(String(obj['@type']))) {
-   obj.image = typeof img === 'object' && img !== null && !Array.isArray(img)
-   ? blogDetailHeroImageObject(img as Record<string, unknown>, { url: ogImageUrl, width: ogImageW, height: ogImageH }, null)
-   : ogImageUrl;
-   return inlineScriptJson(obj);
- }
- if (!img || typeof img !== 'object' || Array.isArray(img)) return part;
- if ((img as Record<string, unknown>)['@type'] !== 'ImageObject') return part;
- obj.image = blogDetailHeroImageObject(img as Record<string, unknown>, { url: ogImageUrl, width: ogImageW, height: ogImageH }, blogDetailCredit);
+ const imageRecord = typeof img === 'object' && img !== null && !Array.isArray(img)
+ ? img as Record<string, unknown>
+ : null;
+ const isGuideDossierSchema = guideDossierVisual && ['CollectionPage', 'WebPage', 'Article', 'BlogPosting'].includes(String(obj['@type']));
+ if (imageRecord?.['@type'] === 'ImageObject' && !isGuideDossierSchema) {
+ obj.image = blogDetailHeroImageObject(imageRecord, measuredHero, blogDetailCredit);
  return inlineScriptJson(obj);
+ }
+ if (isGuideDossierSchema) {
+ obj.image = imageRecord
+ ? blogDetailHeroImageObject(imageRecord, measuredHero, null)
+ : ogImageUrl;
+ return inlineScriptJson(obj);
+ }
+ return part;
  }).join(sdSeparator);
  } catch {
  // Un blocco non parsabile non deve far perdere il JSON-LD alla pagina.

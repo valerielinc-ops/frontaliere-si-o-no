@@ -55,7 +55,7 @@ describe('salary-hub evergreen guides — WebPage JSON-LD', () => {
       expect(article!.description).toBe(taxHub.descriptions[locale]);
       expect(article!.inLanguage).toBe(locale);
       expect(typeof article!.image).toBe('string');
-      expect(article!.image).toMatch(/\/og-image\.png$/);
+      expect(article!.image).toBe('https://frontaliereticino.ch/assets/guide-editorial/salary-desk.jpg');
 
       // url + mainEntityOfPage must agree with the canonical locale URL.
       const url = article!.url as string;

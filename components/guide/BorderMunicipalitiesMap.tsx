@@ -231,7 +231,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  )}
  </p>
  ) : (
- <p className="flex items-center gap-1"><Clock size={12} aria-hidden="true" /> AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
+ <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
  )}
  </div>
  </Popup>
