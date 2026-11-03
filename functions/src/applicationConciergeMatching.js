@@ -1,10 +1,10 @@
 /**
- * CV → job proposal workflow for the 30-day application concierge.
+ * CV and verified candidate evidence → job proposal workflow for the 30-day application concierge.
  *
  * Matching is intentionally explainable and conservative. It proposes only
  * HTTPS listings whose title/category/skills overlap with the private CV
- * projection; the candidate still accepts every position before an assisted
- * application child is created.
+ * projection, direct answers or fact-checked sent letters; the candidate still
+ * accepts every position before an assisted application child is created.
  */
 
 import { CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID, CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
@@ -47,6 +47,13 @@ const LETTER_PREFERENCE_STOP_WORDS = new Set([
   'company', 'azienda', 'entreprise', 'unternehmen', 'position', 'posizione', 'stelle', 'role', 'ruolo', 'job',
   'application', 'candidatura', 'bewerbung', 'postulation', 'candidate', 'candidato', 'candidata', 'opportunity',
   'opportunita', 'contribute', 'contributing', 'contribution', 'team', 'organization', 'organisation', 'employer',
+]);
+const LETTER_EVIDENCE_STOP_WORDS = new Set([
+  ...LETTER_PREFERENCE_STOP_WORDS,
+  'career', 'careers', 'experience', 'experiences', 'expertise', 'professional', 'professionally', 'years',
+  'experienced', 'skills', 'knowledge', 'fluent', 'fluency', 'proficient', 'proficiency', 'native', 'mother',
+  'tongue', 'language', 'languages', 'conversational', 'speaking', 'spoken', 'written', 'strong', 'excellent',
+  'successful', 'successfully',
 ]);
 const COMMON_LANGUAGE_SIGNALS_BY_CODE = Object.freeze({
   it: 'italiano', de: 'tedesco', fr: 'francese', en: 'inglese', es: 'spagnolo', pt: 'portoghese', nl: 'olandese',
@@ -184,6 +191,8 @@ function profileEvidence(profile, matchSignals = {}) {
   const titleTokens = new Set(titleText.flatMap((value) => [...tokenize(value)]));
   const experienceTokens = new Set([...(profile?.experienceSummary || []), ...previousPositionText]
     .flatMap((value) => [...tokenize(stripEmployerSuffix(value))]));
+  const letterEvidenceTokens = new Set(matchSignals.letterEvidenceTokens instanceof Set
+    ? matchSignals.letterEvidenceTokens : matchSignals.letterEvidenceTokens || []);
   const profileLanguages = (profile?.languages || []).map((value) => value && typeof value === 'object'
     ? `${value.language || ''} ${value.level || ''}` : value);
   const factLanguages = (Array.isArray(matchSignals.candidateLanguageFacts) ? matchSignals.candidateLanguageFacts : [])
@@ -194,7 +203,7 @@ function profileEvidence(profile, matchSignals = {}) {
       .filter(item => LANGUAGE_CODE_SIGNALS[item?.languageCode])
       .map(item => ({ language: LANGUAGE_CODE_SIGNALS[item.languageCode], level: normalizeLanguageLevel(item.level), source: 'candidate_confirmed' })),
   ];
-  const allTokens = new Set([...skillTokens, ...titleTokens, ...experienceTokens]);
+  const allTokens = new Set([...skillTokens, ...titleTokens, ...experienceTokens, ...letterEvidenceTokens]);
   const profileText = normalize([
     ...currentTitleText,
     ...previousPositionText,
@@ -202,8 +211,9 @@ function profileEvidence(profile, matchSignals = {}) {
     ...(profile?.experienceSummary || []).map(stripEmployerSuffix),
     ...confirmed.skills,
     ...confirmed.experience,
+    ...letterEvidenceTokens,
   ].join(' '));
-  return { skillTokens, confirmedSkillTokens: confirmed.skills, titleTokens, experienceTokens,
+  return { skillTokens, confirmedSkillTokens: confirmed.skills, titleTokens, experienceTokens, letterEvidenceTokens,
     confirmedExperienceTokens: confirmed.experience, profileLanguages,
     languages: [...profileLanguages, ...confirmed.languages, ...factLanguages], confirmedLanguages: [...confirmed.languages, ...factLanguages],
     candidateLanguageLevels, allTokens, roleText: titleText.join(' '), profileText };
@@ -448,11 +458,16 @@ export function scoreJobForProfile(job, profile, candidateLocation = '', matchSi
   const rawExperienceMatches = overlap(candidate.experienceTokens, allJobTokens);
   const confirmedExperienceMatches = overlap(candidate.confirmedExperienceTokens, allJobTokens)
     .filter(token => !candidate.skillTokens.has(token) && !candidate.titleTokens.has(token) && !candidate.experienceTokens.has(token));
+  const letterEvidenceMatches = overlap(candidate.letterEvidenceTokens, allJobTokens)
+    .filter(token => !candidate.skillTokens.has(token) && !candidate.titleTokens.has(token)
+      && !candidate.experienceTokens.has(token) && !candidate.confirmedSkillTokens.has(token)
+      && !candidate.confirmedExperienceTokens.has(token));
   const experienceMatches = rawExperienceMatches
     .filter((token) => !candidate.skillTokens.has(token) && !candidate.titleTokens.has(token) && allJobTokens.has(token));
-  // Candidate answers can add verified skills or experience but do not make
-  // language overlap alone sufficient to create a proposal.
-  if (!skillMatches.length && !rawExperienceMatches.length && !confirmedSkillMatches.length && !confirmedExperienceMatches.length) return { score: 0, reasons: [] };
+  // Candidate answers and fact-checked letters can add evidence; language
+  // overlap alone still cannot create a proposal.
+  if (!skillMatches.length && !rawExperienceMatches.length && !confirmedSkillMatches.length
+    && !confirmedExperienceMatches.length && !letterEvidenceMatches.length) return { score: 0, reasons: [] };
   const experienceInTitle = experienceMatches.filter((token) => titleTokens.has(token));
   const experienceInBody = experienceMatches.filter((token) => !titleTokens.has(token));
   const skillPoints = skillMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 16 : 9), 0);
@@ -460,16 +475,18 @@ export function scoreJobForProfile(job, profile, candidateLocation = '', matchSi
   const experiencePoints = experienceInTitle.length * 7 + experienceInBody.length * 2;
   const confirmedAnswerPoints = Math.min(16, confirmedSkillMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 8 : 4), 0)
     + confirmedExperienceMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 5 : 2), 0));
+  const letterEvidencePoints = Math.min(32, letterEvidenceMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 8 : 4), 0));
   const rolePoints = roleMatches.reduce((sum, role) => sum + ROLE_SIGNAL_POINTS[role], 0);
   const languagePoints = Math.min(8, languageMatches.length * 4);
   const letterPreferenceTokens = matchSignals.letterPreferenceTokens instanceof Set
     ? matchSignals.letterPreferenceTokens : new Set(matchSignals.letterPreferenceTokens || []);
-  const letterPreferenceMatches = overlap(letterPreferenceTokens, allJobTokens);
+  const letterPreferenceMatches = overlap(letterPreferenceTokens, allJobTokens)
+    .filter(token => !candidate.letterEvidenceTokens.has(token));
   const letterPreferencePoints = Math.min(10, letterPreferenceMatches.length * 2);
   const locationPoints = locationMatchPoints(candidateLocation, job);
   const languageRankingPenalty = languageLevelRankingPenalty(job, candidate.candidateLanguageLevels);
   const relevanceScore = Math.max(0, Math.min(99,
-    Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + confirmedAnswerPoints
+    Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + confirmedAnswerPoints + letterEvidencePoints
       + Math.min(58, rolePoints) + languagePoints
       - specialtyPenalty(jobTitle, candidate.profileText, candidateRoles, jobRoles),
   ));
@@ -482,6 +499,7 @@ export function scoreJobForProfile(job, profile, candidateLocation = '', matchSi
   if (confirmedSkillMatches.length || confirmedExperienceMatches.length) {
     reasons.push('Competenze o qualifiche confermate nelle risposte');
   }
+  if (letterEvidenceMatches.length) reasons.push('Competenze emerse dalle lettere inviate e controllate');
   if (confirmedLanguageMatches.length) reasons.push('Lingue confermate: ' + confirmedLanguageMatches.map((language) => LANGUAGE_LABELS[language]).join(', '));
   if (letterPreferenceMatches.length) reasons.push('Interessi professionali ricorrenti nelle lettere inviate');
   if (locationPoints) reasons.push('Località vicina alla zona di residenza');
@@ -500,7 +518,7 @@ export function scoreJobForProfile(job, profile, candidateLocation = '', matchSi
     rankScore,
     reasons: reasons.slice(0, 3),
     evidenceStrength: skillMatches.length * 3 + confirmedSkillMatches.length * 3 + roleMatches.length * 2
-      + titleMatches.length + experienceMatches.length + confirmedExperienceMatches.length + languageMatches.length,
+      + titleMatches.length + experienceMatches.length + confirmedExperienceMatches.length + letterEvidenceMatches.length * 2 + languageMatches.length,
   };
 }
 
@@ -695,9 +713,14 @@ function letterPreferenceTokens(text, excludedTokens) {
   return [...tokenize(text)].filter(token => !excludedTokens.has(token) && !LETTER_PREFERENCE_STOP_WORDS.has(token)).slice(0, 40);
 }
 
-function submittedLetterParagraph(draft) {
-  const firstParagraph = Array.isArray(draft?.coverLetter?.paragraphs) ? draft.coverLetter.paragraphs[0] : '';
-  return String(firstParagraph || '').replace(/\s+/g, ' ').trim().slice(0, 1_500);
+function letterEvidenceTokens(text, excludedTokens) {
+  return [...tokenize(text)].filter(token => !excludedTokens.has(token)
+    && !LETTER_EVIDENCE_STOP_WORDS.has(token) && languageSignals(token).size === 0).slice(0, 100);
+}
+
+function submittedLetterText(draft) {
+  const paragraphs = Array.isArray(draft?.coverLetter?.paragraphs) ? draft.coverLetter.paragraphs : [];
+  return paragraphs.map(value => String(value || '').replace(/\s+/g, ' ').trim()).filter(Boolean).join(' ').slice(0, 8_000);
 }
 
 async function loadSubmittedAcceptedLetters({ db, proposals, serviceId, userId, nowMs }) {
@@ -732,11 +755,11 @@ async function loadSubmittedAcceptedLetters({ db, proposals, serviceId, userId, 
       || (draft.factCheck?.ok !== true && !factCheckAcknowledged(draft))
       || !Number(draft.sent?.at) || Number(draft.sent.at) > nowMs
       || !sentLetterKey.startsWith(`assisted-application-uploads/${orderId}/`)) return null;
-    const paragraph = submittedLetterParagraph(draft);
-    if (paragraph.length < 20) return null;
+    const text = submittedLetterText(draft);
+    if (text.length < 20) return null;
     const jobTitle = String(proposal.jobTitle || child.jobTitle || '');
     const companyName = String(proposal.companyName || child.companyName || '');
-    return { jobTitle, companyName, paragraph };
+    return { jobTitle, companyName, text, factChecked: draft.factCheck?.ok === true };
   }));
   return rows.filter(Boolean);
 }
@@ -777,8 +800,13 @@ async function loadConciergeMatchSignals({ db, serviceRef, service, serviceId, u
     }
   }
   const letters = await loadSubmittedAcceptedLetters({ db, proposals, serviceId, userId, nowMs });
-  const excludedLetterTokens = new Set(letters.flatMap(letter => [...tokenize(letter.jobTitle), ...tokenize(letter.companyName)]));
-  const letterPreferenceTokenSet = new Set(letters.flatMap(letter => letterPreferenceTokens(letter.paragraph, excludedLetterTokens)));
+  const letterRows = letters.map(letter => ({
+    ...letter,
+    excludedTokens: new Set([...tokenize(letter.jobTitle), ...tokenize(letter.companyName)]),
+  }));
+  const letterPreferenceTokenSet = new Set(letterRows.flatMap(letter => letterPreferenceTokens(letter.text, letter.excludedTokens)));
+  const letterEvidenceTokenSet = new Set(letterRows.filter(letter => letter.factChecked)
+    .flatMap(letter => letterEvidenceTokens(letter.text, letter.excludedTokens)));
   const answerSignals = answerMatchEvidence(candidateAnswerEvidence);
   const fingerprint = createHash('sha256').update(JSON.stringify({
     answers: {
@@ -789,10 +817,11 @@ async function loadConciergeMatchSignals({ db, serviceRef, service, serviceId, u
         `${left.language}:${left.level}`.localeCompare(`${right.language}:${right.level}`)),
     },
     candidateLanguageFacts: candidateLanguageFacts.map(item => [item.languageCode, item.level]).sort(([left], [right]) => left.localeCompare(right)),
+    letterEvidence: [...letterEvidenceTokenSet].sort(),
     letterPreferences: [...letterPreferenceTokenSet].sort(),
   })).digest('hex');
   return { candidateAnswerEvidence, candidateAnswerSignals: answerSignals, candidateLanguageFacts,
-    letterPreferenceTokens: letterPreferenceTokenSet, fingerprint };
+    letterEvidenceTokens: letterEvidenceTokenSet, letterPreferenceTokens: letterPreferenceTokenSet, fingerprint };
 }
 
 function candidateAnswerProfileFingerprint(profileRecord) {
