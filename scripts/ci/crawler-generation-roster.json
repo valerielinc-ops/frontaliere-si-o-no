@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 673,
+  "crawlerCount": 683,
   "groups": {
     "10": [
       "atec-personal",
@@ -456,12 +456,22 @@
     "24": [
       "asanti-ch",
       "avantgarten-ch",
+      "az-systems-ch",
       "bb-trading-werbeartikel-ag",
       "bodmerfischer-ch",
       "comuni-ticino",
       "csl-immobilien-ag",
+      "eqe-ch",
+      "internezzo-ag",
+      "invias-swiss",
+      "jobdoor-ch",
+      "lemco-precision-com",
+      "lipsuisse-ch",
+      "mountains-ch",
       "seco-jobroom",
-      "sintio-ch"
+      "sintio-ch",
+      "skan-com",
+      "zindel-united-swiss"
     ],
     "25": [
       "protectas"
@@ -779,6 +789,7 @@
     "avantgarten-ch": "data/jobs/by-crawler/avantgarten-ch.json",
     "axa-svizzera": "data/jobs/by-crawler/axa-svizzera.json",
     "axpo-group": "data/jobs/by-crawler/axpo-group.json",
+    "az-systems-ch": "data/jobs/by-crawler/az-systems-ch.json",
     "bachem": "data/jobs/by-crawler/bachem.json",
     "bachtelen": "data/jobs/by-crawler/bachtelen.json",
     "badrutts-palace": "data/jobs/by-crawler/badrutts-palace.json",
@@ -923,6 +934,7 @@
     "epfl": "data/jobs/by-crawler/epfl.json",
     "epi-geneve": "data/jobs/by-crawler/epi-geneve.json",
     "epi-stiftung": "data/jobs/by-crawler/epi-stiftung.json",
+    "eqe-ch": "data/jobs/by-crawler/eqe-ch.json",
     "equans": "data/jobs/by-crawler/equans.json",
     "eraneos": "data/jobs/by-crawler/eraneos.json",
     "ergolz-klinik": "data/jobs/by-crawler/ergolz-klinik.json",
@@ -1035,9 +1047,12 @@
     "integra-biosciences": "data/jobs/by-crawler/integra-biosciences.json",
     "interdiscount": "data/jobs/by-crawler/interdiscount.json",
     "international-school-of-ticino": "data/jobs/by-crawler/international-school-of-ticino.json",
+    "internezzo-ag": "data/jobs/by-crawler/internezzo-ag.json",
     "interroll": "data/jobs/by-crawler/interroll.json",
+    "invias-swiss": "data/jobs/by-crawler/invias-swiss.json",
     "ipersonal": "data/jobs/by-crawler/ipersonal.json",
     "ipw": "data/jobs/by-crawler/ipw.json",
+    "jobdoor-ch": "data/jobs/by-crawler/jobdoor-ch.json",
     "josef-mueller": "data/jobs/by-crawler/josef-mueller.json",
     "jsafrasarasin": "data/jobs/by-crawler/jsafrasarasin.json",
     "julius-baer": "data/jobs/by-crawler/julius-baer.json",
@@ -1093,6 +1108,7 @@
     "lalive": "data/jobs/by-crawler/lalive.json",
     "lastminute-com": "data/jobs/by-crawler/lastminute-com.json",
     "le-team": "data/jobs/by-crawler/le-team.json",
+    "lemco-precision-com": "data/jobs/by-crawler/lemco-precision-com.json",
     "leukerbad-clinic": "data/jobs/by-crawler/leukerbad-clinic.json",
     "lhm-luzerner-hohenklinik-montana": "data/jobs/by-crawler/lhm-luzerner-hohenklinik-montana.json",
     "lidl-svizzera": "data/jobs/by-crawler/lidl-svizzera.json",
@@ -1100,6 +1116,7 @@
     "lindenhofgruppe": "data/jobs/by-crawler/lindenhofgruppe.json",
     "lindt-spruengli": "data/jobs/by-crawler/lindt-spruengli.json",
     "linnea": "data/jobs/by-crawler/linnea.json",
+    "lipsuisse-ch": "data/jobs/by-crawler/lipsuisse-ch.json",
     "lis-lugano-istituti-sociali": "data/jobs/by-crawler/lis-lugano-istituti-sociali.json",
     "livit": "data/jobs/by-crawler/livit.json",
     "localsearch": "data/jobs/by-crawler/localsearch.json",
@@ -1139,6 +1156,7 @@
     "modellstation-somosa": "data/jobs/by-crawler/modellstation-somosa.json",
     "molecular-partners": "data/jobs/by-crawler/molecular-partners.json",
     "moncucco": "data/jobs/by-crawler/moncucco.json",
+    "mountains-ch": "data/jobs/by-crawler/mountains-ch.json",
     "mpa-praxisstellen-ch": "data/jobs/by-crawler/mpa-praxisstellen-ch.json",
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
@@ -1263,6 +1281,7 @@
     "sintetica": "data/jobs/by-crawler/sintetica.json",
     "sintio-ch": "data/jobs/by-crawler/sintio-ch.json",
     "six-group": "data/jobs/by-crawler/six-group.json",
+    "skan-com": "data/jobs/by-crawler/skan-com.json",
     "skyguide-sa": "data/jobs/by-crawler/skyguide-sa.json",
     "smg-swiss-marketplace-group": "data/jobs/by-crawler/smg-swiss-marketplace-group.json",
     "sobi": "data/jobs/by-crawler/sobi.json",
@@ -1397,10 +1416,11 @@
     "zaugg": "data/jobs/by-crawler/zaugg.json",
     "zermatt-bergbahnen": "data/jobs/by-crawler/zermatt-bergbahnen.json",
     "zfv-unternehmungen": "data/jobs/by-crawler/zfv-unternehmungen.json",
+    "zindel-united-swiss": "data/jobs/by-crawler/zindel-united-swiss.json",
     "zkb": "data/jobs/by-crawler/zkb.json",
     "zuger-kantonsspital": "data/jobs/by-crawler/zuger-kantonsspital.json",
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:fefa12f0b5fb6718b7429f83f40feebc4c4973626008efaddaa9dd9bcbe12276"
+  "digest": "sha256:76de17fe6ac0859331c3d5a255bc8683ede6b467b264506346c9ac85ca8f2b31"
 }

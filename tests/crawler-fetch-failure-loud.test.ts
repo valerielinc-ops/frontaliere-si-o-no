@@ -295,12 +295,12 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
 // call) followed by a `catch` that returns `[]` or `break`s out of the
 // pagination without rethrowing turns a fetch failure into a cause-less "no
 // jobs" (or silently partial) result. Every such site in the crawler sources
-// must either propagate the error or carry, inside the catch,
-// `// fetch-failure-empty-ok: <reason>` explaining why that is the right
-// answer there.
+// must either propagate the error, document a genuinely empty result with
+// `fetch-failure-empty-ok: <reason>`, or document a surfaced error/partial
+// result with `fetch-failure-status: <reason>`.
 describe('crawler sources never read a swallowed fetch failure as an empty listing', () => {
   const ROOT = path.resolve(__dirname, '..');
-  const MARKER = 'fetch-failure-empty-ok:';
+  const MARKERS = ['fetch-failure-empty-ok:', 'fetch-failure-status:'];
 
   function crawlerSourceFiles(): string[] {
     const files: string[] = [];
@@ -371,7 +371,7 @@ describe('crawler sources never read a swallowed fetch failure as an empty listi
     for (const file of crawlerSourceFiles()) {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
       for (const hit of swallowedFetchCatches(src)) {
-        if (!hit.catchBody.includes(MARKER)) offenders.push(`${file}:${hit.line}`);
+        if (!MARKERS.some((marker) => hit.catchBody.includes(marker))) offenders.push(`${file}:${hit.line}`);
       }
     }
     expect(offenders).toEqual([]);
@@ -382,8 +382,9 @@ describe('crawler sources never read a swallowed fetch failure as an empty listi
     for (const file of crawlerSourceFiles()) {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
       for (const hit of swallowedFetchCatches(src)) {
-        const reason = hit.catchBody.split(MARKER)[1]?.split('\n')[0]?.trim() ?? '';
-        if (hit.catchBody.includes(MARKER) && reason.length < 40) thin.push(`${file}:${hit.line}`);
+        const marker = MARKERS.find((candidate) => hit.catchBody.includes(candidate));
+        const reason = marker ? hit.catchBody.split(marker)[1]?.split('\n')[0]?.trim() ?? '' : '';
+        if (marker && reason.length < 40) thin.push(`${file}:${hit.line}`);
       }
     }
     expect(thin).toEqual([]);
