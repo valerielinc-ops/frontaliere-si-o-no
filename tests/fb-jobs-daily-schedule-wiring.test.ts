@@ -15,7 +15,7 @@ function workflow(file: string): any {
   return YAML.parse(fs.readFileSync(file, 'utf8'));
 }
 
-describe('social jobs dataset assembly wiring', () => {
+describe('jobs dataset assembly wiring', () => {
   it('caches the exact no-summary dataset used by each jobs consumer', () => {
     for (const [file, jobId, consumerName] of WORKFLOWS) {
       const steps = workflow(file).jobs[jobId].steps;
@@ -38,5 +38,12 @@ describe('social jobs dataset assembly wiring', () => {
       expect(order.indexOf('assemble_cache'), file).toBeLessThan(order.indexOf('assemble'));
       expect(order.indexOf('assemble'), file).toBeLessThan(order.indexOf(consumerName));
     }
+  });
+
+  it('does not build unused summaries for employer contact enrichment', () => {
+    const steps = workflow('.github/workflows/employer-contacts-refresh.yml').jobs.refresh.steps;
+    const assemble = steps.find((step: any) => step.name === 'Assemble jobs dataset (own-domain source)');
+
+    expect(assemble?.run).toBe('node scripts/assemble-jobs-dataset.mjs --no-summaries || true');
   });
 });

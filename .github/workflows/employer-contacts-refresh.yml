@@ -62,7 +62,7 @@ jobs:
           fi
 
       - name: Assemble jobs dataset (own-domain source)
-        run: node scripts/assemble-jobs-dataset.mjs --stats || true
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries || true
 
       - name: Discover + upsert employer contacts (Firestore)
         env:

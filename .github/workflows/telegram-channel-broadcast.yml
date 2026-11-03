@@ -49,8 +49,8 @@ jobs:
     # fb-jobs-daily-schedule.yml (#4764) and reddit-jobs-daily-schedule.yml —
     # this job's daily (jobs) mode also runs no-summary assembly with a
     # content-addressed cache on a full checkout (sparse removed in #6133,
-    # above the 1.5GB
-    # crossover), so it shares the same shrinking margin as its two siblings.
+    # above the 1.5GB crossover), so it shares the same shrinking margin as
+    # its two siblings.
     # The ledger push can spend several minutes in the shared main-writer
     # retry convoy after assembly; 20 minutes was cut off at 12m10s in #10543.
     timeout-minutes: 30

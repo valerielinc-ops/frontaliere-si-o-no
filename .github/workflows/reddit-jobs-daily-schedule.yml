@@ -33,9 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same shape as fb-jobs-daily-schedule.yml
     # (#4764) — full checkout (sparse removed for this job in #6133, above
-    # the 1.5GB crossover) + `npm ci` + no-summary assembly with a
-    # content-addressed cache
-    # already ate ~9.5min of the 10min ceiling before the actual posting
+    # the 1.5GB crossover) + `npm ci` + dataset assembly already ate ~9.5min
+    # of the 10min ceiling before the actual posting
     # step ever ran (run 32379575268: checkout alone ~5min for ~42.5k
     # objects). This job never got the bump fb-jobs got for the identical
     # dataset-growth pattern. 20min matches the sibling's headroom.
