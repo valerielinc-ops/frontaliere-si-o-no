@@ -589,13 +589,15 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       })),
     };
     expect(await receive('auto_acknowledgement', { db: flaky })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
-    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement', confirmedAt: 1000 });
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', clickedAt: 600 });
+    expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
     expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
     expect(effects).toEqual([]);
 
     expect((await receive('rejection', { nowMs: 2000 })).submissionConfirmed).toBe(true);
     expect(store.read(FLOW_PATH)!.state).toBe('submitted');
-    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ sentAt: 600, confirmedAt: 1000 });
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', sentAt: 600, confirmedAt: 2000 });
+    expect(store.read(GUARD_PATH)!.r1.receipt).toMatchObject({ proofKind: 'employer_acknowledgement' });
     expect(effects).toEqual([{ type: 'mark_submitted' }]);
     expect(sendCascade).toHaveBeenCalledTimes(2);
   });
