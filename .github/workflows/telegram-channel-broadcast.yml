@@ -121,10 +121,13 @@ jobs:
 
       - name: Open PR with posted ledgers
         if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'border' || env.MODE == 'preferred-source') && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
-        env:
-          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
+          if [ "${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "${APP_TOKEN:-}" ]; then
+            export GH_TOKEN="$APP_TOKEN"
+          else
+            export GH_TOKEN="${GITHUB_PAT:-}"
+          fi
           if [ -z "$GH_TOKEN" ]; then
             echo "::error::Neither a data-refresh GitHub App token nor GITHUB_PAT is available to publish the Telegram ledger PR."
             exit 1
