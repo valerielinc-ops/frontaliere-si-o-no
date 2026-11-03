@@ -71,6 +71,8 @@ export const RX = Object.freeze({
   igNext: ANY_OF('Next', 'Avanti', 'Weiter', 'Suivant'),
   igShare: ANY_OF('Share', 'Condividi', 'Teilen', 'Partager'),
   igCaption: /caption|didascalia|bildunterschrift|légende/i,
+  igDiscardPostTitle: /(?:vuoi\s+eliminare(?:\s+questo|\s+il)?\s+post|discard\s+(?:this\s+)?post|delete\s+(?:this\s+)?post|(?:beitrag|post)\s+(?:löschen|verwerfen)|(?:supprimer|abandonner)\s+(?:cette\s+)?publication)/i,
+  igKeepEditing: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
   igVideoReelNotice: /video posts are now shared as reels|i post con video ora vengono condivisi come reel|video-?beiträge werden jetzt als reels geteilt|les publications vidéo sont désormais partagées sous forme de reels/i,
   igNoticeAcknowledge: EXACT_TEXT_ONE_OF('Ok', 'OK', 'Got it', 'Va bene', 'D’accord', "D'accord", 'D’accordo', "D'accordo", 'Verstanden', 'Compris'),
   igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
@@ -881,6 +883,7 @@ export async function ensureTikTokMusic({ page, musicVariant = 'control', human,
 export const INTERSTITIAL_REGISTRY = Object.freeze({
   instagram: Object.freeze([
     Object.freeze({ id: 'instagram-not-now', surface: 'button', name: RX.notNow, safeAction: 'click' }),
+    Object.freeze({ id: 'instagram-discard-post-confirmation', surface: 'dialog', role: 'dialog', title: RX.igDiscardPostTitle, name: RX.igKeepEditing, safeAction: 'keep-editing' }),
     Object.freeze({ id: 'instagram-video-reel-notice', surface: 'dialog', role: 'dialog', title: RX.igVideoReelNotice, name: RX.igNoticeAcknowledge, safeAction: 'click-dialog-acknowledge' }),
   ]),
   tiktok: Object.freeze([
@@ -1004,6 +1007,18 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe acknowledgement`, { step: step.get() });
     }
     await clickChecked(page, acknowledge, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
+    return;
+  }
+
+  if (entry.safeAction === 'keep-editing') {
+    const keepEditing = await findVisible([
+      target.root.getByRole('button', { name: entry.name }),
+      target.root.locator('button').filter({ hasText: entry.name }),
+    ], { timeout: 0 });
+    if (!keepEditing) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe keep-editing action`, { step: step.get() });
+    }
+    await clickChecked(page, keepEditing, { step, snap, platform, allowInterstitialRecovery: false, label: `keep editing action for ${entry.id}` });
     return;
   }
 

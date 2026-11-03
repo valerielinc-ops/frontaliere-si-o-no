@@ -84,7 +84,11 @@ pack validator checks these action cues. Never ask for a keyword, DM, or
 follow-up the worker cannot deliver. The publisher keeps the chosen CTA aligned
 with the assigned Instagram creative objective. Reel follow variants are
 evaluated only on Meta's exact-media `follows / reach` metric at 72 hours; if
-that metric is absent, no winner can be registered or promoted.
+that metric is absent, no winner can be registered or promoted. In performance
+reports, show absolute Reel follows and sample/denominator coverage alongside
+the registered rate so scale and efficiency stay visible together. Absolute
+follows, follows per view, and account-level follower changes are diagnostics;
+none can replace the preregistered exact-media follows-per-reach winner rule.
 
 Provide exactly twelve distinct templates for `facebook.job`, because that
 publisher schedules twenty-four jobs per day. Every other non-Instagram
@@ -109,7 +113,8 @@ Editorial-plan constraints:
 - For Instagram article, job, and border formats, each angle appears exactly
   once under each objective (`share`, `save`, `conversation`). Reels contain
   exactly one `follow` template per angle, so their only registered outcome is
-  exact-media follows per reach.
+  exact-media follows per reach; reports also show absolute follows and metric
+  coverage without using them to promote a winner.
 - `facebook.job` has twelve templates, so each angle appears four times.
   Every other format has three templates, so each angle appears once.
 - Angle IDs and their treatment definitions persist across weekly packs.

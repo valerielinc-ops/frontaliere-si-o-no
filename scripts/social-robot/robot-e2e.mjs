@@ -46,7 +46,7 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, discardPromptBeforeCaption = false, discardPromptOutsideDialog = false, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false } = {}) {
   const menuItem = (id, label) => rolelessCreateMenu
     ? `<div id="${id}"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></div>`
     : `<a href="#" id="${id}" role="link"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></a>`;
@@ -80,6 +80,11 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const noticeMarkup = videoReelNotice
     ? '<div id="video-reel-notice" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:20;background:#fff;padding:20%" hidden><h2>I post con video ora vengono condivisi come reel</h2><p>Il tuo account è pubblico, pertanto chiunque può scoprire il tuo video.</p><button id="video-reel-notice-ok" type="button">Ok</button></div>'
     : '';
+  const discardPromptMarkup = discardPromptBeforeCaption
+    ? '<div id="discard-post-confirmation" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:30;background:#fff;padding:20%" hidden><h2>Vuoi eliminare il post?</h2><button id="keep-editing" type="button">Annulla</button><button id="discard-post" type="button">Elimina</button></div>'
+    : discardPromptOutsideDialog
+      ? '<div id="discard-post-confirmation" style="position:fixed;inset:0;z-index:30;background:#fff;padding:20%"><h2>Vuoi eliminare il post?</h2><button id="keep-editing" type="button">Annulla</button><button id="discard-post" type="button">Elimina</button></div>'
+    : '';
   const openDialog = (entry) => {
     const entryCode = JSON.stringify(entry);
     const mount = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').dataset.entry = ${entryCode}; $('dialog').hidden = false; bindDialog();`;
@@ -93,12 +98,13 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
 <nav>${createMarkup}<a href="/">Home</a><a href="/reels/">Reels</a></nav>
 ${externalPostMarkup}
 ${createMenuMarkup}
-${dialogMarkup}${noticeMarkup}`, `
+${dialogMarkup}${noticeMarkup}${discardPromptMarkup}`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
 $('create').onclick = (e) => { e.preventDefault(); ${createAction} };
 ${postAction}
 ${videoReelNotice ? "$('video-reel-notice-ok').onclick = () => { $('video-reel-notice').hidden = true; $('dialog').removeAttribute('aria-hidden'); };" : ''}
+${discardPromptBeforeCaption || discardPromptOutsideDialog ? "$('keep-editing').onclick = async () => { await fetch('/api/ig/keep-editing', { method: 'POST', body: '{}' }); $('discard-post-confirmation').hidden = true; }; $('discard-post').onclick = async () => { await fetch('/api/ig/discard-post', { method: 'POST', body: '{}' }); $('discard-post-confirmation').hidden = true; };" : ''}
 function bindDialog() {
   $('file').onchange = () => {
     count = $('file').files.length;
@@ -111,7 +117,7 @@ function bindDialog() {
       : "$('crop').hidden = false;"}
   };
   const steps = ['crop', 'edit', 'share-step'];
-  document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); $(steps[i]).hidden = true; $(steps[i + 1]).hidden = false; });
+  document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); $(steps[i]).hidden = true; $(steps[i + 1]).hidden = false; ${discardPromptBeforeCaption ? "if (steps[i + 1] === 'share-step') $('discard-post-confirmation').hidden = false;" : ''} });
   $('share').onclick = async () => {
     await fetch(${JSON.stringify(reel ? '/api/ig/reel' : '/api/ig/share')}, { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
     $('share-step').hidden = true;
@@ -294,7 +300,7 @@ const tiktokUploadShell = () => page('TikTok Studio', `
 <main><div aria-label="Loading">TikTok Studio</div><script id="__Creator_Center_Context__" type="application/json">${JSON.stringify({ user: { uniqueId: 'frontaliereticino' } })}</script></main>`);
 
 function fakePlatforms() {
-  const state = { igShares: [], igReels: [], ttPosts: [] };
+  const state = { igShares: [], igReels: [], igKeepEditingClicks: 0, igDiscardClicks: 0, ttPosts: [] };
   let shellRetryPending = true;
   const server = http.createServer((req, res) => {
     const send = (status, body, type = 'text/html; charset=utf-8', headers = {}) => {
@@ -308,6 +314,8 @@ function fakePlatforms() {
         const data = JSON.parse(body || '{}');
         if (req.url === '/api/ig/share') state.igShares.push(data);
         if (req.url === '/api/ig/reel') state.igReels.push(data);
+        if (req.url === '/api/ig/keep-editing') state.igKeepEditingClicks += 1;
+        if (req.url === '/api/ig/discard-post') state.igDiscardClicks += 1;
         if (req.url === '/api/tt/post') state.ttPosts.push(data);
         send(200, '{}', 'application/json');
       });
@@ -316,6 +324,8 @@ function fakePlatforms() {
     const url = new URL(req.url, 'http://x');
     switch (url.pathname) {
       case '/ig/': return send(200, instagramPage());
+      case '/ig-discard-confirmation/': return send(200, instagramPage({ discardPromptBeforeCaption: true }));
+      case '/ig-discard-confirmation-unscoped/': return send(200, instagramPage({ discardPromptOutsideDialog: true }));
       case '/ig-direct/': return send(200, instagramPage({ createMenu: false }));
       case '/ig-svg-fallback/': return send(200, instagramPage({ createMenu: false, fallbackCreate: true }));
       case '/ig-roleless-create-menu/': return send(200, instagramPage({ rolelessCreateMenu: true, externalPost: true }));
@@ -449,6 +459,21 @@ async function main() {
     check(r.result?.status === 'published' && /condiviso/i.test(r.result.evidence), `publish returns only with the confirmation (${r.result?.evidence || r.error?.message})`);
     check(state.igShares.length === 1 && state.igShares[0].files === files.length, 'one share with every slide');
     check(state.igShares[0].caption.includes('I 5 articoli più letti') && state.igShares[0].caption.includes('#frontalieri'), 'the caption reached the platform');
+
+    const sharesBeforeDiscardPrompt = state.igShares.length;
+    const keepEditingBeforeDiscardPrompt = state.igKeepEditingClicks;
+    r = await run('instagram', `${base}/ig-discard-confirmation/`, { dryRun: false, label: 'ig-discard-confirmation' });
+    check(r.result?.status === 'published', `the exact discard-post confirmation is safely cancelled and publishing continues (${r.result?.evidence || r.error?.message})`);
+    check(state.igKeepEditingClicks === keepEditingBeforeDiscardPrompt + 1, 'the robot chooses only Annulla to preserve the Instagram draft');
+    check(state.igShares.length === sharesBeforeDiscardPrompt + 1, 'the post is shared once after preserving the draft');
+    check(state.igDiscardClicks === 0, 'the robot never chooses Elimina when preserving a draft');
+
+    const sharesBeforeUnscopedDialog = state.igShares.length;
+    const keepEditingBeforeUnscopedDialog = state.igKeepEditingClicks;
+    r = await run('instagram', `${base}/ig-discard-confirmation-unscoped/`, { dryRun: false, label: 'ig-discard-confirmation-unscoped' });
+    check(r.error?.errorClass === 'interstitial-unknown' && r.error.pressed === false, 'a matching phrase outside a dialog remains an unknown overlay and fails closed');
+    check(state.igKeepEditingClicks === keepEditingBeforeUnscopedDialog, 'the robot does not click Annulla for an unscoped phrase');
+    check(state.igDiscardClicks === 0 && state.igShares.length === sharesBeforeUnscopedDialog, 'an unscoped confirmation neither discards nor publishes');
 
     r = await run('instagram', `${base}/ig-reel/`, { dryRun: true, label: 'ig-reel-dry', reel: true });
     check(r.result?.status === 'dry-run', `Reel dry run reaches the Reel share button (${r.error?.message || 'ok'})`);
