@@ -1767,7 +1767,7 @@ async function clickFirst(page, snapshot, patterns) {
       const id = String(snapshotLink.id || '');
       if (/^[\w-]{1,80}$/.test(id)) {
         const frame = page.frames()[Number(snapshotLink.frame) || 0] || page.mainFrame();
-        const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+        const locator = frame.locator(`[data-aa-id="${id}"]`).filter({ visible: true }).first();
         const linkVisible = await locator.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
         if (linkVisible) {
           await clickPortalLink(page, locator);
@@ -1781,25 +1781,24 @@ async function clickFirst(page, snapshot, patterns) {
     // this lookup explicit and frame-scoped so a generic header control is
     // never promoted to an auth action.
     const frames = page.frames();
-    const preferredFrameNumbers = [...new Set([
-      ...(snapshot.fields || []), ...(snapshot.buttons || []),
-    ].map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
-    const preferredFrames = preferredFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
-    const frameCandidates = [...preferredFrames, ...frames.filter((frame) => !preferredFrames.includes(frame))];
+    const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+    const verificationField = codeField(snapshot);
+    const authFrameNumbers = new Set(fields
+      .filter((field) => field.inputType === 'password' || field === verificationField)
+      .map((field) => Number(field.frame))
+      .filter((frame) => Number.isSafeInteger(frame) && frame >= 0));
+    // An auth page can contain unrelated widgets in other iframes. Only the
+    // frame that owns the current password/verification control may supply a
+    // late auth link; without that ownership evidence, fail closed.
+    const frameCandidates = frames.filter((_frame, index) => authFrameNumbers.has(index));
     for (const frame of frameCandidates) {
       if (typeof frame?.getByRole !== 'function') continue;
-      const frameLink = frame.getByRole('link', { name: pattern }).first();
+      const frameLink = frame.getByRole('link', { name: pattern }).filter({ visible: true }).first();
       const frameLinkVisible = await frameLink.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
       if (frameLinkVisible) {
         await clickPortalLink(page, frameLink);
         return 'link';
       }
-    }
-    const link = page.getByRole('link', { name: pattern }).first();
-    const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-    if (linkVisible) {
-      await clickPortalLink(page, link);
-      return 'link';
     }
   }
   return false;

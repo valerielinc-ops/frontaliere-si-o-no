@@ -9,6 +9,7 @@ describe('assisted portal account navigation', () => {
     const click = vi.fn(async () => { pageKind = 'create'; });
     const linkLocator = {
       first: () => linkLocator,
+      filter: () => linkLocator,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click,
@@ -90,7 +91,17 @@ describe('assisted portal account navigation', () => {
     let pageKind: 'sign_in' | 'create' = 'sign_in';
     const click = vi.fn(async () => { pageKind = 'create'; });
     const linkLocator = {
-      first: () => linkLocator,
+      first: () => hiddenLinkLocator,
+      filter: vi.fn(() => visibleLinkLocator),
+    };
+    const hiddenLinkLocator = {
+      first: () => hiddenLinkLocator,
+      waitFor: vi.fn(async () => { throw new Error('hidden duplicate'); }),
+      getAttribute: vi.fn(async () => '/career?login_ns=register'),
+      click: vi.fn(),
+    };
+    const visibleLinkLocator = {
+      first: () => visibleLinkLocator,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click,
@@ -118,6 +129,28 @@ describe('assisted portal account navigation', () => {
         text: '',
       })),
     };
+    const unrelatedLinkLocator = {
+      first: () => unrelatedLinkLocator,
+      filter: vi.fn(() => unrelatedLinkLocator),
+      waitFor: vi.fn(async () => {}),
+      getAttribute: vi.fn(async () => '/unrelated'),
+      click: vi.fn(),
+    };
+    const unrelatedFrame = {
+      url: () => URL,
+      getByRole: vi.fn(() => unrelatedLinkLocator),
+      evaluate: vi.fn(async () => ({
+        url: URL,
+        fields: [],
+        buttons: [],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      })),
+    };
     const hostFrame = {
       url: () => URL,
       evaluate: vi.fn(async () => ({
@@ -134,7 +167,7 @@ describe('assisted portal account navigation', () => {
     };
     const page = {
       url: () => URL,
-      frames: () => [hostFrame, formFrame],
+      frames: () => [hostFrame, unrelatedFrame, formFrame],
       mainFrame: () => hostFrame,
       waitForLoadState: vi.fn(async () => {}),
       waitForTimeout: vi.fn(async () => {}),
@@ -146,8 +179,11 @@ describe('assisted portal account navigation', () => {
       page: page as any,
       snapshot: {
         url: URL,
-        fields: loginFields.map((field) => ({ ...field, frame: 1 })),
-        buttons: [{ id: 'login', text: 'Login', frame: 1 }],
+        fields: [
+          { id: 'widget-field', kind: 'text', inputType: 'text', label: 'Widget', frame: 1 },
+          ...loginFields.map((field) => ({ ...field, frame: 2 })),
+        ],
+        buttons: [{ id: 'login', text: 'Login', frame: 2 }],
         links: [],
         dialogs: [],
         captcha: false,
@@ -160,6 +196,8 @@ describe('assisted portal account navigation', () => {
 
     expect(click).toHaveBeenCalledOnce();
     expect(formFrame.getByRole).toHaveBeenCalledWith('link', { name: expect.any(RegExp) });
+    expect(unrelatedFrame.getByRole).not.toHaveBeenCalled();
+    expect(hiddenLinkLocator.waitFor).not.toHaveBeenCalled();
     expect(page.getByRole).not.toHaveBeenCalled();
     expect(result.snapshot.fields.map((field: any) => field.label)).toEqual([
       'E-Mail-Adresse:*', 'Passwort:*', 'Passwort bestätigen:*',
