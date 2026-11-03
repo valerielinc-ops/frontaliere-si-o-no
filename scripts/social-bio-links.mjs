@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   SOCIAL_BIO_LINK_CHANNELS,
   socialBioUrl,
@@ -20,6 +20,6 @@ export function main(argv = process.argv.slice(2)) {
   process.stdout.write(`${JSON.stringify(buildSocialBioLinks(locale), null, 2)}\n`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main();
 }

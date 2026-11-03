@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { loadPrivateSocialNativeInsights } from '../lib/social-native-insights-store.mjs';
 
@@ -252,7 +253,7 @@ async function main() {
   process.stdout.write(`${JSON.stringify(brief)}\n`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`native-performance-brief: ${String(error?.message || error).slice(0, 180)}`);
     process.exitCode = 1;

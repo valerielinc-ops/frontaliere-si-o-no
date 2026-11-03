@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_ARTICLE_DIRECTORY = path.join(ROOT, 'data', 'swiss-articles');
@@ -233,6 +234,6 @@ export function buildEditorialSourceBrief({
   };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   process.stdout.write(`${JSON.stringify(buildEditorialSourceBrief())}\n`);
 }

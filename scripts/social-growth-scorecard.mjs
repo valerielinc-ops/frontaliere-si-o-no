@@ -2,6 +2,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 import {
   buildSocialGrowthScorecard,
@@ -174,7 +175,7 @@ async function main() {
   process.stdout.write(options.json ? `${JSON.stringify(scorecard)}\n` : markdown);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`social-growth-scorecard: ${String(error?.message || error).slice(0, 180)}`);
     process.exitCode = 1;

@@ -19,17 +19,6 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
-        with:
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-          sparse-checkout-cone-mode: false
 
       - uses: actions/setup-node@v7
         with:

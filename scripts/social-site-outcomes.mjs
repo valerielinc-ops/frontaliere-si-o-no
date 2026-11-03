@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 import { collectSocialSiteOutcomeSnapshots } from './lib/social-site-outcomes.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
@@ -105,7 +106,7 @@ async function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`social-site-outcomes: ${String(error?.message || error).slice(0, 180)}`);
     process.exitCode = 1;

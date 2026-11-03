@@ -2,6 +2,7 @@
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { loadPrivateSocialNativeInsights, toInstagramBrowserSnapshotDocument } from './lib/social-native-insights-store.mjs';
@@ -28,7 +29,7 @@ export async function exportPrivateInstagramInsights(output, { db, asOf = new Da
   return { status: snapshot.posts.length ? 'available' : 'no-observations', rows: snapshot.posts.length };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   const options = parseArgs(process.argv.slice(2));
   if (options.help) process.stdout.write('node scripts/social-native-insights-export.mjs --output TEMP_FILE\n');
   else exportPrivateInstagramInsights(options.output)

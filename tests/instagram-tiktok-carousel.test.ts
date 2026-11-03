@@ -389,15 +389,21 @@ describe('UTM identity — Instagram and TikTok each get one stable GA4 source r
   });
 });
 
-describe('fail-soft posture — Instagram/TikTok posters never exit non-zero', () => {
+describe('publisher exit posture', () => {
   const root = path.resolve(__dirname, '..', 'scripts');
-  for (const file of ['post-to-instagram.mjs', 'post-to-tiktok.mjs']) {
-    it(`${file} always exits 0, even on a caught error`, () => {
-      const src = fs.readFileSync(path.join(root, file), 'utf-8');
-      expect(src).toContain('process.exit(0)');
-      expect(src).not.toMatch(/process\.exit\([1-9]/);
-    });
+  it('Instagram fails the workflow when reservation or publish outcome is uncertain', () => {
+    const src = fs.readFileSync(path.join(root, 'post-to-instagram.mjs'), 'utf-8');
+    expect(src).toContain("'SOCIAL_PUBLISH_RESERVATION_REQUIRED', 'SOCIAL_PUBLISH_OUTCOME_UNCERTAIN'");
+    expect(src).toContain('.finally(() => process.exit(exitCode))');
+  });
 
+  it('TikTok retains its fail-soft exit contract', () => {
+    const src = fs.readFileSync(path.join(root, 'post-to-tiktok.mjs'), 'utf-8');
+    expect(src).toContain('process.exit(0)');
+    expect(src).not.toMatch(/process\.exit\([1-9]/);
+  });
+
+  for (const file of ['post-to-instagram.mjs', 'post-to-tiktok.mjs']) {
     it(`${file} tags every link it builds with its channel's UTM helper`, () => {
       const src = fs.readFileSync(path.join(root, file), 'utf-8');
       const helper = file.includes('instagram') ? 'instagramUrl(' : 'tiktokUrl(';
