@@ -70,6 +70,9 @@ export const DOMAIN_OVERRIDES = {
   'gim-architekten': ['gim.ch'],
   imerys: ['imerys.com'],
   mediamarkt: ['mediamarkt.ch'],
+  // mpa-praxisstellen.ch is a PKS Personal AG microsite; use the employer
+  // domain declared by its dedicated crawler in audit mode.
+  'mpa-praxisstellen-ch': ['pks-personal.ch'],
   brefispersonal: ['brefis.ch'],
   parmag: ['parmag.ch'],
   endeso: ['endeso.ch'],
