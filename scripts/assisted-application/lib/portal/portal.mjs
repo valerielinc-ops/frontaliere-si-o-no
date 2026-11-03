@@ -4278,7 +4278,7 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job });
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job, postingEntry: verifiedPostingEntry });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // An allowlisted ATS may keep later, unconditional steps mounted with
@@ -4381,6 +4381,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
+  const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
@@ -4427,7 +4428,7 @@ export async function submitViaPortal(ctx) {
   };
   const controlsFor = async (current, known) => {
     const snapshot = { ...current, text: await pageText(page), uploadedCv: uploadedCvUrls.has(page.url()) };
-    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     if (controls.stage) {
       const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
       const lastStep = evidence.steps.at(-1);
@@ -4438,7 +4439,7 @@ export async function submitViaPortal(ctx) {
   };
   const confirmedReceipt = async (current) => {
     const snapshot = { ...current, text: await pageText(page) };
-    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job, url: page.url() });
+    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url() });
     if (stage.kind !== 'receipt') return null;
     const lastStep = evidence.steps.at(-1);
     if (lastStep) lastStep.applicationStage = { kind: 'receipt' };
@@ -4473,7 +4474,6 @@ export async function submitViaPortal(ctx) {
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
     const entryUrl = portalEntryUrl(ctx);
-    const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
     await diagnostics.beginAttempt();
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
@@ -4503,7 +4503,7 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
@@ -4741,7 +4741,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -4837,7 +4837,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);

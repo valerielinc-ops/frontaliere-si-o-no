@@ -153,7 +153,7 @@ function receiptTitleBound(text, title) {
 }
 
 /** Receipt copy must explicitly describe an application received for this posting. */
-export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, job = {} } = {}) {
+export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, postingEntry = false, job = {} } = {}) {
   const text = String(snapshot?.text || '');
   if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || NOT_SUBMITTED_APPLICATION_RE.test(text)
     || REFUSED_RE.test(text) || !CONFIRM_RE.test(text)
@@ -180,7 +180,12 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   const observedSubmissionRoute = Boolean(submissionUrl && source && source.origin === actual.origin
     && !source.username && !source.password && !source.hash);
   return samePostingKey || (observedSubmissionRoute && RECEIPT_PATH_RE.test(actual.pathname)
-    && receiptTitleBound(snapshot.text, job.title));
+    && receiptTitleBound(snapshot.text, job.title))
+    // SuccessFactors can redirect a verified posting/apply pair to the
+    // employer root. The exact same-requisition pair is the binding here;
+    // never enable this for an unverified employer landing page.
+    || (postingEntry && actual.origin === source.origin && actual.pathname === '/'
+      && !source.username && !source.password && !source.hash);
 }
 
 /**
@@ -189,11 +194,11 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
  * stay unknown. A review instruction explicitly announcing the final commit
  * makes its Apply control the real guarded action.
  */
-export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null, job = {} } = {}) {
+export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null, postingEntry = false, job = {} } = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
-  if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, job })) return { kind: 'receipt' };
+  if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, postingEntry, job })) return { kind: 'receipt' };
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
     && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);
   if (mismatchedJob) return { kind: 'posting_mismatch' };
