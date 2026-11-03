@@ -11,7 +11,10 @@ export interface ApplicationConciergeProposal {
   location?: string | null;
   applyMode?: string | null;
   status: 'proposed' | 'accepted' | 'declined' | 'expired' | 'retracted' | string;
-  eligibilityStatus?: 'compatible' | 'incompatible' | 'unverified' | 'needs_verification' | string | null;
+  eligibilityStatus?: 'compatible' | 'clarification_required' | 'incompatible' | 'unverified' | 'needs_verification' | string | null;
+  clarificationQuestions?: Array<{ id: string; question: string; why?: string; required: boolean }>;
+  candidateInterestRecorded?: boolean;
+  declineReason?: 'role' | 'location' | 'contract' | 'schedule' | 'sector' | 'seniority' | string | null;
   proposedAt?: string | null;
   acceptedAt?: string | null;
   declinedAt?: string | null;
@@ -60,6 +63,8 @@ export interface ApplicationConciergeService {
   renewalOffer?: { amountTotal: number; currency: string; discounted: boolean; discountExpiresAt: number; reminderStage: number | null } | null;
   maxPositions: number;
   acceptedPositionsCount: number;
+  openProposalsCount?: number;
+  maxOpenProposals?: number;
   remainingPositions: number;
   paidAt?: string | null;
   expiresAt?: string | null;
@@ -84,6 +89,11 @@ export interface ApplicationConciergeService {
   matchingCompletedAt?: string | null;
   matchingError?: string | null;
   proposals: ApplicationConciergeProposal[];
+  candidateLanguageFacts?: {
+    confirmedAt: string | null;
+    listComplete: boolean;
+    languages: Array<{ languageCode: string; level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'native' | 'unknown' }>;
+  } | null;
   userId?: string | null;
   consentVersion?: string | null;
   cvStorageKey?: string | null;
@@ -262,6 +272,18 @@ export async function saveApplicationConciergeProfile(
   return data.service as ApplicationConciergeService;
 }
 
+export async function saveApplicationConciergeCandidateLanguageFacts(
+  user: any,
+  serviceId: string,
+  input: {
+    listComplete: boolean;
+    languages: Array<{ languageCode: string; level: string }>;
+  },
+): Promise<ApplicationConciergeService> {
+  const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'saveCandidateLanguageFacts', ...input });
+  return data.service as ApplicationConciergeService;
+}
+
 export async function recordApplicationConciergeConsent(
   user: any,
   serviceId: string,
@@ -279,8 +301,25 @@ export async function acceptApplicationConciergeProposal(user: any, serviceId: s
   return data as { service: ApplicationConciergeService; childApplicationId: string };
 }
 
-export async function declineApplicationConciergeProposal(user: any, serviceId: string, proposalId: string): Promise<ApplicationConciergeService> {
-  const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'declineProposal', proposalId });
+export async function declineApplicationConciergeProposal(
+  user: any,
+  serviceId: string,
+  proposalId: string,
+  declineReason = '',
+): Promise<ApplicationConciergeService> {
+  const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'declineProposal', proposalId, declineReason });
+  return data.service as ApplicationConciergeService;
+}
+
+export async function submitApplicationConciergeProposalInterest(
+  user: any,
+  serviceId: string,
+  proposalId: string,
+  answers: Array<{ questionId: string; answer: string }>,
+): Promise<ApplicationConciergeService> {
+  const data = await callApplicationConcierge(user, 'POST', serviceId, {
+    action: 'submitProposalInterest', proposalId, answers,
+  });
   return data.service as ApplicationConciergeService;
 }
 

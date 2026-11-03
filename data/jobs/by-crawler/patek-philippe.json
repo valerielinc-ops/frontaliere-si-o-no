@@ -1,7 +1,7 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-11-02T21:37:44.745Z",
-  "runId": "41525635541",
+  "assembledAt": "2026-11-03T09:29:23.170Z",
+  "runId": "41608567313",
   "jobs": [
     {
       "id": "patek-philippe-d20884e1117f",
@@ -34,7 +34,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:38.657Z",
+      "crawledAt": "2026-11-03T09:29:15.521Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -96,7 +96,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:37:38.657Z",
+      "validThrough": "2027-01-04T09:29:15.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +130,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:38.010Z",
+      "crawledAt": "2026-11-03T09:29:14.889Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -176,7 +176,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:38.010Z",
+      "validThrough": "2026-12-03T09:29:14.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -210,7 +210,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:37.349Z",
+      "crawledAt": "2026-11-03T09:29:14.216Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -262,7 +262,7 @@
       "postalCode": "2300",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:37:37.349Z",
+      "validThrough": "2026-12-03T09:29:14.216Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -296,7 +296,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Constructeur-Mouvement-Am%C3%A9lioration-Continue-%28HF%29/1372806355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:36.699Z",
+      "crawledAt": "2026-11-03T09:29:13.570Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -346,7 +346,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:37:36.699Z",
+      "validThrough": "2027-01-12T09:29:13.570Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -380,7 +380,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1372981955/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:36.036Z",
+      "crawledAt": "2026-11-03T09:29:12.928Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -430,41 +430,41 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:37:36.036Z",
+      "validThrough": "2027-01-13T09:29:12.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "patek-philippe-a6df9c4e8753",
       "slug": "gestione-delle-prestazioni-di-processo-industriale-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "fr": "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates",
         "it": "gestione-delle-prestazioni-di-processo-industriale-m-f-patek-philippe-plan-les-ouates",
         "en": "industrial-process-performance-manager-m-f-patek-philippe-plan-les-ouates",
-        "de": "industrial-process-performance-manager-m-w-patek-philippe-plan-les-ouates"
+        "de": "industrial-process-performance-manager-m-w-patek-philippe-plan-les-ouates",
+        "fr": "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
       "title": "Chargé de Process Performance Industrielle (H/F)",
       "titleByLocale": {
-        "fr": "Chargé de Process Performance Industrielle (H/F)",
         "it": "Gestione delle prestazioni di processo industriale (M/F)",
         "en": "Industrial Process Performance Manager (M/F)",
-        "de": "Industrial Process Performance Manager (M/W)"
+        "de": "Industrial Process Performance Manager (M/W)",
+        "fr": "Chargé de Process Performance Industrielle (H/F)"
       },
       "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Méthodes, vous participerez à la définition, à la mise en oeuvre et à l’ancrage du système de production Patek Philippe au sein de nos différents sites. Vous piloterez également des projets stratégiques et complexes d’amélioration de la performance industrielle, en prenant en compte les contraintes de production et la « manufacturabilité » de nos produits et, ceci, dans le respect de nos engagements en termes d’agilité, qualité et efficacité.\n\nResponsabilités\n\n• Analyser les besoins du client, diagnostiquer les potentiels d’amélioration du processus de production et proposer des actions permettant de réaliser des gains potentiels de performance.\n\n• Soutenir le déploiement des plans de progrès et leur maintien de manière durable.\n\n• Etre le référent des outils Lean, Six Sigma et de la méthodologie DMAIC.\n\n• Assurer la formation, l’accompagnement des collaborateurs aux outils spécifiques et le suivi des équipes dans l’accompagnement au changement.\n\nProfil recherché\n\n• Master en mécanique/microtechnique ou formation jugée équivalente.\n\n• Expérience de minimum 10 ans dans une fonction d’expert du Lean Manufacturing en gestion de projet dans le domaine de la production industrielle.\n\n• Expertise en méthodologie DMAIC, outils Lean Manufacturing, Six Sigma et outils Qualité (8D, capabilité, audit, etc.).\n\n• Maîtrise des outils de gestion, notamment SAP.\n\n• Maîtrise de la gestion de projet et de la gestion des risques.\n\n• Capacité d’écoute, aisance relationnelle, diplomatie.\n\n• Capacité à animer et piloter des équipes de projet.\n\n• Rigueur, esprit critique et de synthèse.\n\n• Sens de la négociation et de la persuasion.\n\n• Approche terrain, orientation client et solutions.\n\nRéférence du poste\n\n3674",
       "descriptionByLocale": {
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Méthodes, vous participerez à la définition, à la mise en oeuvre et à l’ancrage du système de production Patek Philippe au sein de nos différents sites. Vous piloterez également des projets stratégiques et complexes d’amélioration de la performance industrielle, en prenant en compte les contraintes de production et la « manufacturabilité » de nos produits et, ceci, dans le respect de nos engagements en termes d’agilité, qualité et efficacité.\n\nResponsabilités\n\n• Analyser les besoins du client, diagnostiquer les potentiels d’amélioration du processus de production et proposer des actions permettant de réaliser des gains potentiels de performance.\n\n• Soutenir le déploiement des plans de progrès et leur maintien de manière durable.\n\n• Etre le référent des outils Lean, Six Sigma et de la méthodologie DMAIC.\n\n• Assurer la formation, l’accompagnement des collaborateurs aux outils spécifiques et le suivi des équipes dans l’accompagnement au changement.\n\nProfil recherché\n\n• Master en mécanique/microtechnique ou formation jugée équivalente.\n\n• Expérience de minimum 10 ans dans une fonction d’expert du Lean Manufacturing en gestion de projet dans le domaine de la production industrielle.\n\n• Expertise en méthodologie DMAIC, outils Lean Manufacturing, Six Sigma et outils Qualité (8D, capabilité, audit, etc.).\n\n• Maîtrise des outils de gestion, notamment SAP.\n\n• Maîtrise de la gestion de projet et de la gestion des risques.\n\n• Capacité d’écoute, aisance relationnelle, diplomatie.\n\n• Capacité à animer et piloter des équipes de projet.\n\n• Rigueur, esprit critique et de synthèse.\n\n• Sens de la négociation et de la persuasion.\n\n• Approche terrain, orientation client et solutions.\n\nRéférence du poste\n\n3674",
         "it": "Missione\n\nNell'ambito di questa funzione, collegata alla nostra divisione Metodi, parteciperai alla definizione, implementazione e ancoraggio del sistema di produzione Patek Philippe nei nostri vari siti. Condurrai anche progetti strategici e complessi per migliorare le prestazioni industriali, tenendo conto dei vincoli di produzione e della \"fabbricabilità\" dei nostri prodotti e, in linea con i nostri impegni in termini di agilità, qualità ed efficienza.\n\nresponsabilità\n\n• Analizzare le esigenze del cliente, diagnosticare potenziali miglioramenti nel processo di produzione e proporre azioni per raggiungere potenziali guadagni di prestazioni.\n\n• Sostenere la diffusione e la sostenibilità dei piani di progresso.\n\n• Per fare riferimento alla metodologia Lean, Six Sigma e DMAIC.\n\n• Fornire formazione, personale di supporto con strumenti specifici e team di follow-up a sostegno del cambiamento.\n\nProfilo ricercato\n\n• Master in meccanica/microtecnica o formazione ritenuta equivalente.\n\n• Esperienza minima di 10 anni in posizione di esperto Lean Manufacturing nel settore della produzione industriale.\n\n• Competenza nella metodologia DMAIC, strumenti Lean Manufacturing, strumenti Six Sigma e Quality (8D, capacità, audit, ecc.).\n\n• Mastery di strumenti di gestione tra cui SAP.\n\n• Controllo della gestione dei progetti e della gestione dei rischi.\n\n• Abilita' di ascolto, facilita' di relazione, diplomazia.\n\n• Capacità di guidare e guidare i team di progetto.\n\n• Rigor, mente critica e sintesi.\n\n• Un senso di negoziazione e persuasione.\n\n• Approccio sul campo, orientamento del cliente e soluzioni.\n\nRiferimenti\n\n3674",
         "en": "Mission\n\nAs part of this function, attached to our Methods Division, you will participate in the definition, implementation and anchoring of the Patek Philippe production system at our various sites. You will also lead strategic and complex projects to improve industrial performance, taking into account the production constraints and the \"manufacturability\" of our products and, in keeping with our commitments in terms of agility, quality and efficiency.\n\nResponsibilities\n\n• Analyze customer needs, diagnose potential improvements in the production process and propose actions to achieve potential performance gains.\n\n• Support the deployment and sustainability of progress plans.\n\n• To refer to Lean, Six Sigma and DMAIC methodology.\n\n• Provide training, support staff with specific tools and follow-up teams in support of change.\n\nProfile sought\n\n• Master in mechanics/microtechnics or training deemed equivalent.\n\n• Minimum experience of 10 years in a Lean Manufacturing expert position in the field of industrial production.\n\n• Expertise in DMAIC methodology, Lean Manufacturing tools, Six Sigma and Quality tools (8D, capability, audit, etc.).\n\n• Mastery of management tools including SAP.\n\n• Control of project management and risk management.\n\n• Listening ability, relationship ease, diplomacy.\n\n• Ability to lead and lead project teams.\n\n• Rigor, critical mind and synthesis.\n\n• A sense of negotiation and persuasion.\n\n• Field approach, customer orientation and solutions.\n\nPost reference\n\n3674",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, verbunden mit unserer Methods Division, werden Sie an der Definition, Implementierung und Verankerung des Patek Philippe Produktionssystems an unseren verschiedenen Standorten teilnehmen. Sie werden auch strategische und komplexe Projekte zur Verbesserung der industriellen Leistung unter Berücksichtigung der Produktionsbeschränkungen und der \"Herstellbarkeit\" unserer Produkte und im Einklang mit unseren Verpflichtungen in Bezug auf Agilität, Qualität und Effizienz leiten.\n\nZuständigkeiten\n\n• Analysieren Sie die Kundenbedürfnisse, diagnostizieren Sie mögliche Verbesserungen im Produktionsprozess und schlagen Sie Maßnahmen vor, um potenzielle Leistungssteigerungen zu erzielen.\n\n• Unterstützung der Umsetzung und Nachhaltigkeit von Fortschrittsplänen.\n\n• Um auf Lean, Six Sigma und DMAIC-Methodik zu verweisen.\n\n• Bereitstellung von Schulungen, Unterstützung von Mitarbeitern mit spezifischen Tools und Follow-up-Teams zur Unterstützung von Veränderungen.\n\nProfil gesucht\n\n• Master in Mechanik / Mikrotechnik oder Ausbildung als gleichwertig angesehen.\n\n• Mindesterfahrung von 10 Jahren in einer Lean Manufacturing Expertenposition im Bereich der industriellen Produktion.\n\n• Expertise in DMAIC Methodik, Lean Manufacturing Tools, Six Sigma und Quality Tools (8D, Fähigkeit, Audit, etc.).\n\n• Beherrschung von Management-Tools einschließlich SAP.\n\n• Kontrolle von Projektmanagement und Risikomanagement.\n\n• Hörfähigkeit, Beziehung Leichtigkeit, Diplomatie.\n\n• Fähigkeit, Projektteams zu führen und zu leiten.\n\n• Strenge, kritischer Geist und Synthese.\n\n• Ein Gefühl von Verhandlungen und Überzeugungsarbeit.\n\n• Field Approach, Kundenorientierung und Lösungen.\n\nPostleitzahl\n\n3674"
+        "de": "Mission\n\nIm Rahmen dieser Funktion, verbunden mit unserer Methods Division, werden Sie an der Definition, Implementierung und Verankerung des Patek Philippe Produktionssystems an unseren verschiedenen Standorten teilnehmen. Sie werden auch strategische und komplexe Projekte zur Verbesserung der industriellen Leistung unter Berücksichtigung der Produktionsbeschränkungen und der \"Herstellbarkeit\" unserer Produkte und im Einklang mit unseren Verpflichtungen in Bezug auf Agilität, Qualität und Effizienz leiten.\n\nZuständigkeiten\n\n• Analysieren Sie die Kundenbedürfnisse, diagnostizieren Sie mögliche Verbesserungen im Produktionsprozess und schlagen Sie Maßnahmen vor, um potenzielle Leistungssteigerungen zu erzielen.\n\n• Unterstützung der Umsetzung und Nachhaltigkeit von Fortschrittsplänen.\n\n• Um auf Lean, Six Sigma und DMAIC-Methodik zu verweisen.\n\n• Bereitstellung von Schulungen, Unterstützung von Mitarbeitern mit spezifischen Tools und Follow-up-Teams zur Unterstützung von Veränderungen.\n\nProfil gesucht\n\n• Master in Mechanik / Mikrotechnik oder Ausbildung als gleichwertig angesehen.\n\n• Mindesterfahrung von 10 Jahren in einer Lean Manufacturing Expertenposition im Bereich der industriellen Produktion.\n\n• Expertise in DMAIC Methodik, Lean Manufacturing Tools, Six Sigma und Quality Tools (8D, Fähigkeit, Audit, etc.).\n\n• Beherrschung von Management-Tools einschließlich SAP.\n\n• Kontrolle von Projektmanagement und Risikomanagement.\n\n• Hörfähigkeit, Beziehung Leichtigkeit, Diplomatie.\n\n• Fähigkeit, Projektteams zu führen und zu leiten.\n\n• Strenge, kritischer Geist und Synthese.\n\n• Ein Gefühl von Verhandlungen und Überzeugungsarbeit.\n\n• Field Approach, Kundenorientierung und Lösungen.\n\nPostleitzahl\n\n3674",
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Méthodes, vous participerez à la définition, à la mise en oeuvre et à l’ancrage du système de production Patek Philippe au sein de nos différents sites. Vous piloterez également des projets stratégiques et complexes d’amélioration de la performance industrielle, en prenant en compte les contraintes de production et la « manufacturabilité » de nos produits et, ceci, dans le respect de nos engagements en termes d’agilité, qualité et efficacité.\n\nResponsabilités\n\n• Analyser les besoins du client, diagnostiquer les potentiels d’amélioration du processus de production et proposer des actions permettant de réaliser des gains potentiels de performance.\n\n• Soutenir le déploiement des plans de progrès et leur maintien de manière durable.\n\n• Etre le référent des outils Lean, Six Sigma et de la méthodologie DMAIC.\n\n• Assurer la formation, l’accompagnement des collaborateurs aux outils spécifiques et le suivi des équipes dans l’accompagnement au changement.\n\nProfil recherché\n\n• Master en mécanique/microtechnique ou formation jugée équivalente.\n\n• Expérience de minimum 10 ans dans une fonction d’expert du Lean Manufacturing en gestion de projet dans le domaine de la production industrielle.\n\n• Expertise en méthodologie DMAIC, outils Lean Manufacturing, Six Sigma et outils Qualité (8D, capabilité, audit, etc.).\n\n• Maîtrise des outils de gestion, notamment SAP.\n\n• Maîtrise de la gestion de projet et de la gestion des risques.\n\n• Capacité d’écoute, aisance relationnelle, diplomatie.\n\n• Capacité à animer et piloter des équipes de projet.\n\n• Rigueur, esprit critique et de synthèse.\n\n• Sens de la négociation et de la persuasion.\n\n• Approche terrain, orientation client et solutions.\n\nRéférence du poste\n\n3674"
       },
       "location": "Plan-Les-Ouates",
       "canton": "GE",
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:35.391Z",
+      "crawledAt": "2026-11-03T09:29:12.275Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -484,26 +484,10 @@
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "jobReqId": "1368593655",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 68000,
-      "salaryMax": 92000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 92000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:37:35.391Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:51:20.874Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
@@ -515,9 +499,23 @@
           "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
-      ]
+      "firstSeenAt": "2026-09-19T22:51:20.874Z",
+      "salaryMin": 120000,
+      "salaryMax": 162000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 120000,
+          "maxValue": 162000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-13T09:29:12.275Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "patek-philippe-35797ec5dda5",
@@ -550,7 +548,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Am%C3%A9lioration-d'un-Alliage-Pr%C3%A9cieux/1369122755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:34.752Z",
+      "crawledAt": "2026-11-03T09:29:11.586Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -594,7 +592,241 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:34.752Z",
+      "validThrough": "2026-12-03T09:29:11.586Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "patek-philippe-b4a89eb58f5b",
+      "slug": "studio-dei-parametri-chiave-delle-prestazioni-energetiche-della-molla-di-equilibrio-patek-philippe-plan-les-ouates",
+      "slugByLocale": {
+        "it": "studio-dei-parametri-chiave-delle-prestazioni-energetiche-della-molla-di-equilibrio-patek-philippe-plan-les-ouates",
+        "en": "stage-study-of-key-energy-performance-parameters-of-the-balance-spring-patek-philippe-plan-les-ouates",
+        "de": "stufenstudie-der-wichtigsten-energieleistungsparameter-der-ausgleichsfeder-patek-philippe-plan-les-ouates",
+        "fr": "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Stage Étude des paramètres clés de la performance énergétique du balancier-spiral",
+      "titleByLocale": {
+        "it": "Studio dei parametri chiave delle prestazioni energetiche della molla di equilibrio",
+        "en": "Stage Study of key energy performance parameters of the balance spring",
+        "de": "Stufenstudie der wichtigsten Energieleistungsparameter der Ausgleichsfeder",
+        "fr": "Stage Étude des paramètres clés de la performance énergétique du balancier-spiral"
+      },
+      "description": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les paramètres influençant la performance énergétique de l’oscillateur balancier-spiral, l’organe réglant de nos garde-temps.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances sur les pertes énergétiques du balancier-spiral (brevets/articles/études internes).\n\n• Modéliser analytiquement ou en simulation éléments-finis pour quantifier théoriquement l’influence des paramètres identifiés dans l’état de l’art.\n\n• Mettre en place des essais au laboratoire permettant de quantifier les effets en pratique.\n\n• Analyser et interpréter les résultats obtenus pour comprendre et hiérarchiser les différents facteurs et leurs impacts.\n\n• Valider les modèles théoriques à partir des données expérimentales récoltées au laboratoire.\n\n• Apporter des améliorations à nos modèles ainsi qu’à notre produit.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Bonnes compétences en modélisation structurelle par éléments-finis.\n\n• Rigueur, esprit analytique et de synthèse et force de proposition.\n\n• Capacité à résoudre des problèmes complexes.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3775",
+      "descriptionByLocale": {
+        "it": "Missione\n\nIn allegato alla nostra Divisione Ricerca e Sviluppo, sarete responsabili di studiare i parametri che influenzano le prestazioni energetiche dell'oscillatore bilancia-spirale, l'organo regolatore dei nostri orologi.\n\nresponsabilità\n\n• Per raggiungere uno stato di conoscenza delle perdite di energia del bilancio-spirale (patents/articoli/studi interni).\n\n• Modello analiticamente o in simulazione di elementi finiti per quantificare teoricamente l'influenza dei parametri identificati nello stato d'arte.\n\n• Stabilire test di laboratorio per quantificare gli effetti in pratica.\n\n• Analizzare e interpretare i risultati per comprendere e privilegiare diversi fattori e i loro impatti.\n\n• Convalida i modelli teorici dei dati sperimentali raccolti in laboratorio.\n\n• Migliora i nostri modelli e il nostro prodotto.\n\nProfilo ricercato\n\n• Attualmente in Master in Ingegneria Meccanica o Microtecnica.\n\n• Buone competenze nella modellazione strutturale da elementi finiti.\n\n• Rigor, spirito analitico e di sintesi e forza della proposta.\n\n• Capacità di risolvere problemi complessi.\n\n• Interessi nell'orologeria.\n\n• Il progetto del Maestro dura 6 mesi.\n\nRiferimenti\n\n3775",
+        "en": "Mission\n\nAttached to our Research and Development Division, you will be responsible for studying the parameters influencing the energy performance of the balance-spiral oscillator, the regulating organ of our timepieces.\n\nResponsibilities\n\n• To achieve a state of knowledge of the energy losses of the balance-spiral (patents/articles/internal studies).\n\n• Model analytically or in finite element simulation to theoretically quantify the influence of the parameters identified in the state of art.\n\n• Establish laboratory tests to quantify effects in practice.\n\n• Analyze and interpret results to understand and prioritize different factors and their impacts.\n\n• Validate the theoretical models from experimental data collected in the laboratory.\n\n• Make improvements to our models and our product.\n\nProfile sought\n\n• Currently in Master in Mechanical Engineering or Microtechnics.\n\n• Good skills in structural modelling by finite elements.\n\n• Rigor, analytical and synthesis spirit and strength of proposal.\n\n• Ability to solve complex problems.\n\n• Interest in watchmaking.\n\n• Master's project lasting 6 months.\n\nPost reference\n\n3775",
+        "de": "Mission\n\nAn unsere Forschungs- und Entwicklungsabteilung angeschlossen, sind Sie für die Untersuchung der Parameter verantwortlich, die die Energieleistung des Balance-Spiral-Oszillators, des Regelorgans unserer Uhren, beeinflussen.\n\nZuständigkeiten\n\n• Um einen Zustand des Wissens über die Energieverluste der Balance-Spirale (Patente / Artikel / interne Studien) zu erreichen.\n\n• Modellieren Sie analytisch oder in Finite-Elemente-Simulation, um den Einfluss der im Stand der Technik identifizierten Parameter theoretisch zu quantifizieren.\n\n• Etablierung von Labortests zur Quantifizierung der Effekte in der Praxis.\n\n• Analysieren und interpretieren Sie die Ergebnisse, um verschiedene Faktoren und ihre Auswirkungen zu verstehen und zu priorisieren.\n\n• Validierung der theoretischen Modelle anhand der im Labor gesammelten experimentellen Daten.\n\n• Machen Sie Verbesserungen an unseren Modellen und unserem Produkt.\n\nProfil gesucht\n\n• Derzeit in Master in Maschinenbau oder Mikrotechnik.\n\n• Gute Fähigkeiten in der strukturellen Modellierung durch finite Elemente.\n\n• Strenge, analytischer und Synthesegeist und Stärke des Vorschlags.\n\n• Fähigkeit, komplexe Probleme zu lösen.\n\n• Interesse an Uhrmacherei.\n\n• Master-Projekt von 6 Monaten.\n\nPostleitzahl\n\n3775",
+        "fr": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les paramètres influençant la performance énergétique de l’oscillateur balancier-spiral, l’organe réglant de nos garde-temps.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances sur les pertes énergétiques du balancier-spiral (brevets/articles/études internes).\n\n• Modéliser analytiquement ou en simulation éléments-finis pour quantifier théoriquement l’influence des paramètres identifiés dans l’état de l’art.\n\n• Mettre en place des essais au laboratoire permettant de quantifier les effets en pratique.\n\n• Analyser et interpréter les résultats obtenus pour comprendre et hiérarchiser les différents facteurs et leurs impacts.\n\n• Valider les modèles théoriques à partir des données expérimentales récoltées au laboratoire.\n\n• Apporter des améliorations à nos modèles ainsi qu’à notre produit.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Bonnes compétences en modélisation structurelle par éléments-finis.\n\n• Rigueur, esprit analytique et de synthèse et force de proposition.\n\n• Capacité à résoudre des problèmes complexes.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3775"
+      },
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-%C3%89tude-des-param%C3%A8tres-cl%C3%A9s-de-la-performance-%C3%A9nerg%C3%A9tique-du-balancier-spiral/1369122655/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-03T09:29:10.913Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21T00:00:00Z",
+      "postedDate": "2026-09-21T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-%C3%89tude-des-param%C3%A8tres-cl%C3%A9s-de-la-performance-%C3%A9nerg%C3%A9tique-du-balancier-spiral/1369122655/",
+      "jobReqId": "1369122655",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
+        ]
+      },
+      "firstSeenAt": "2026-10-07T09:23:11.815Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:29:10.913Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "patek-philippe-a81ed52186c5",
+      "slug": "influenza-della-pressione-sulle-prestazioni-cronometriche-patek-philippe-plan-les-ouates",
+      "slugByLocale": {
+        "it": "influenza-della-pressione-sulle-prestazioni-cronometriche-patek-philippe-plan-les-ouates",
+        "en": "influence-of-pressure-on-chronometric-performance-patek-philippe-plan-les-ouates",
+        "de": "einfluss-des-drucks-auf-die-chronometrische-leistung-patek-philippe-plan-les-ouates",
+        "fr": "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Stage Influence de la pression sur la performance chronométrique",
+      "titleByLocale": {
+        "it": "Influenza della pressione sulle prestazioni cronometriche",
+        "en": "Influence of pressure on chronometric performance",
+        "de": "Einfluss des Drucks auf die chronometrische Leistung",
+        "fr": "Stage Influence de la pression sur la performance chronométrique"
+      },
+      "description": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les variations de marche d’un mouvement mécanique en fonction de la pression et d’établir l’influence des caractéristiques du mouvement et de son environnement.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances de l’effet de la pression sur la marche (brevets/articles).\n\n• Déterminer expérimentalement la relation entre la pression et la marche du mouvement, selon les caractéristiques de l’oscillateur.\n\n• Quantifier la relation entre les variations de pression autour du mouvement et la construction de la boite (emboitage, actionneurs, temps, …).\n\n• Mettre en place des modèles prédictifs de la variation de pression et de la marche selon la géométrie de la boite et des caractéristiques du mouvement.\n\n• Valider les mesures et modèles à partir des données de production.\n\n• Quantifier l’impact de ces effets sur les dispersions de marche depuis l’assemblage du mouvement jusqu’au porter du client.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Compétences en programmation (Python notamment) et machine learning.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique.\n\n• Autonomie.\n\n• Force de proposition.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3773",
+      "descriptionByLocale": {
+        "it": "Missione\n\nAttaccato alla nostra Divisione Ricerca e Sviluppo, sarete responsabili di studiare le variazioni nel camminare di un movimento meccanico a seconda della pressione e stabilire l'influenza delle caratteristiche del movimento e del suo ambiente.\n\nresponsabilità\n\n• Per raggiungere uno stato d'arte di conoscenza dell'effetto della pressione su camminare (patents/articoli).\n\n• Per determinare sperimentalmente il rapporto tra pressione e movimento, a seconda delle caratteristiche dell'oscillatore.\n\n• Quantifica il rapporto tra le variazioni di pressione intorno al movimento e la costruzione della scatola (emboiting, attuatori, tempo, ...).\n\n• Mettere in posizione modelli predittivi di variazione di pressione e camminare secondo la geometria scatola e le caratteristiche di movimento.\n\n• Convalida misurazioni e modelli dai dati di produzione.\n\n• Quantifica l'impatto di questi effetti sulle dispersioni a piedi dall'assemblaggio del movimento all'usura del cliente.\n\nProfilo ricercato\n\n• Attualmente in Master in Ingegneria Meccanica o Microtecnica.\n\n• Interessi nell'orologeria.\n\n• Capacità di programmazione (incluso Python) e apprendimento automatico.\n\n• Buone capacità di gestione del progetto.\n\n• La mente analitica.\n\n• Autonomia.\n\n• Proposta di forza.\n\n• Il progetto del Maestro dura 6 mesi.\n\nRiferimenti\n\n3773",
+        "en": "Mission\n\nAttached to our Research and Development Division, you will be responsible for studying the variations in walking of a mechanical movement depending on the pressure and establishing the influence of the characteristics of the movement and its environment.\n\nResponsibilities\n\n• To achieve a state of art of knowledge of the effect of pressure on walking (patents/articles).\n\n• To determine experimentally the relationship between pressure and motion, depending on the characteristics of the oscillator.\n\n• Quantify the relationship between the pressure variations around the movement and the box construction (emboiting, actuators, time, ...).\n\n• Put in place predictive models of pressure variation and walking according to box geometry and motion characteristics.\n\n• Validate measurements and models from production data.\n\n• Quantify the impact of these effects on walking dispersions from the assembly of the movement to the customer's wear.\n\nProfile sought\n\n• Currently in Master in Mechanical Engineering or Microtechnics.\n\n• Interest in watchmaking.\n\n• Programming skills (including Python) and machine learning.\n\n• Good project management skills.\n\n• Analytical mind.\n\n• Autonomy.\n\n• Proposal force.\n\n• Master's project lasting 6 months.\n\nPost reference\n\n3773",
+        "de": "Mission\n\nAn unsere Forschungs- und Entwicklungsabteilung angeschlossen, sind Sie dafür verantwortlich, die Veränderungen des Gehens einer mechanischen Bewegung in Abhängigkeit vom Druck zu untersuchen und den Einfluss der Eigenschaften der Bewegung und ihrer Umgebung zu bestimmen.\n\nZuständigkeiten\n\n• Um einen Stand der Technik des Wissens über die Wirkung von Druck auf das Gehen (Patente / Artikel) zu erreichen.\n\n• Experimentell die Beziehung zwischen Druck und Bewegung zu bestimmen, abhängig von den Eigenschaften des Oszillators.\n\n• Quantifizieren Sie die Beziehung zwischen den Druckschwankungen um das Uhrwerk herum und der Kastenkonstruktion (Einpressen, Aktuatoren, Zeit, ...).\n\n• Setzen Sie prädiktive Modelle der Druckvariation und des Gehens nach Boxgeometrie und Bewegungseigenschaften ein.\n\n• Validierung von Messungen und Modellen aus Produktionsdaten.\n\n• Quantifizieren Sie die Auswirkungen dieser Effekte auf die Laufdispersionen von der Montage des Uhrwerks bis zum Verschleiß des Kunden.\n\nProfil gesucht\n\n• Derzeit in Master in Maschinenbau oder Mikrotechnik.\n\n• Interesse an Uhrmacherei.\n\n• Programmierkenntnisse (einschließlich Python) und maschinelles Lernen.\n\n• Gute Projektmanagementfähigkeiten.\n\n• Analytisches Denken.\n\n• Autonomie.\n\n• Vorschlagskraft.\n\n• Master-Projekt von 6 Monaten.\n\nPostleitzahl\n\n3773",
+        "fr": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les variations de marche d’un mouvement mécanique en fonction de la pression et d’établir l’influence des caractéristiques du mouvement et de son environnement.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances de l’effet de la pression sur la marche (brevets/articles).\n\n• Déterminer expérimentalement la relation entre la pression et la marche du mouvement, selon les caractéristiques de l’oscillateur.\n\n• Quantifier la relation entre les variations de pression autour du mouvement et la construction de la boite (emboitage, actionneurs, temps, …).\n\n• Mettre en place des modèles prédictifs de la variation de pression et de la marche selon la géométrie de la boite et des caractéristiques du mouvement.\n\n• Valider les mesures et modèles à partir des données de production.\n\n• Quantifier l’impact de ces effets sur les dispersions de marche depuis l’assemblage du mouvement jusqu’au porter du client.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Compétences en programmation (Python notamment) et machine learning.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique.\n\n• Autonomie.\n\n• Force de proposition.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3773"
+      },
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Influence-de-la-pression-sur-la-performance-chronom%C3%A9trique/1369123255/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-03T09:29:10.246Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21T00:00:00Z",
+      "postedDate": "2026-09-21T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Influence-de-la-pression-sur-la-performance-chronom%C3%A9trique/1369123255/",
+      "jobReqId": "1369123255",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
+        ]
+      },
+      "firstSeenAt": "2026-10-07T09:23:09.455Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:29:10.246Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "patek-philippe-f410a3e2872a",
+      "slug": "analisi-sensoriale-di-caratterizzazione-scenica-patek-philippe-plan-les-ouates",
+      "slugByLocale": {
+        "it": "analisi-sensoriale-di-caratterizzazione-scenica-patek-philippe-plan-les-ouates",
+        "en": "stage-characterization-sensory-analysis-patek-philippe-plan-les-ouates",
+        "de": "phase-charakterisierung-sensorische-analyse-patek-philippe-plan-les-ouates",
+        "fr": "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Stage Caractérisation Analyse Sensorielle",
+      "titleByLocale": {
+        "it": "Analisi sensoriale di caratterizzazione scenica",
+        "en": "Stage Characterization Sensory Analysis",
+        "de": "Phase Charakterisierung Sensorische Analyse",
+        "fr": "Stage Caractérisation Analyse Sensorielle"
+      },
+      "description": "Mission\n\nRattaché(e) à notre service Qualité Entreprise, vous aurez pour mission de définir et de caractériser les terminaisons des composants horlogers afin de garantir l'excellence de nos garde-temps, en conformité avec les exigences du Poinçon Patek Philippe.\n\nVous contribuerez à l'amélioration et la standardisation de nos référentiels de terminaisons nous permettant d'assurer une appréciation homogène et objective de leur qualité perçue.\n\nResponsabilités\n\n• Réaliser un état de l’art transversal des terminaisons Patek Philippe en vous appuyant sur l’existant : plans, critères et référentiels existants.\n\n• Contribuer à l’alignement des parties prenantes sur les définitions, concepts et terminologies de référence.\n\n• Définir pour chaque terminaison les descripteurs sensoriels et les échelles adaptés.\n\n• Faire valider le niveau de qualité souhaité selon la gouvernance établie.\n\nProfil recherché\n\n• Actuellement en Master en Microtechnique.\n\n• Intérêt marqué pour la qualité et l’horlogerie.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique et de synthèse.\n\n• Force de proposition & autonomie.\n\n• Stage conventionné ou dans le cadre d'un Projet de Master, d’une durée de 6 mois.\n\nRéférence du poste\n\n3766",
+      "descriptionByLocale": {
+        "it": "Missione\n\nAttaccato al nostro servizio Quality Entreprise, avrete il compito di definire e caratterizzare le terminazioni dei componenti dell'orologio al fine di garantire l'eccellenza dei nostri orologi, in conformità alle esigenze del Patek Philippe Poinçon.\n\nContribuirai al miglioramento e alla standardizzazione dei nostri standard di risoluzione che ci permettono di garantire un apprezzamento uniforme e oggettivo della loro qualità percepita.\n\nresponsabilità\n\n• Per ottenere uno stato di arte trasversale delle terminazioni di Patek Philippe basato su piani, criteri e benchmark esistenti.\n\n• Contribuisci all'allineamento delle parti interessate con definizioni, concetti e terminologia di riferimento.\n\n• Definire i descrittori sensoriali e le scale appropriate per ogni terminazione.\n\n• Convalida il livello di qualità desiderato in base alla governance stabilita.\n\nProfilo ricercato\n\n• Attualmente in Master in Microtecnica.\n\n• Interessi di qualità e orologeria.\n\n• Buone capacità di gestione del progetto.\n\n• mente analitica e sintetica.\n\n• Forza di proposizione e autonomia.\n\n• Contratto di stage o come parte di un progetto di Master, della durata di 6 mesi.\n\nRiferimenti\n\n3766",
+        "en": "Mission\n\nAttached to our Quality Entreprise service, you will have the task of defining and characterising the terminations of watch components in order to guarantee the excellence of our timepieces, in accordance with the requirements of the Patek Philippe Poinçon.\n\nYou will contribute to the improvement and standardization of our termination standards allowing us to ensure a uniform and objective appreciation of their perceived quality.\n\nResponsibilities\n\n• To achieve a state of transversal art of Patek Philippe terminations based on existing plans, criteria and benchmarks.\n\n• Contribute to the alignment of stakeholders with definitions, concepts and reference terminology.\n\n• Define sensory descriptors and appropriate scales for each termination.\n\n• Validate the desired level of quality according to established governance.\n\nProfile sought\n\n• Currently in Master in Microtechnics.\n\n• Interest in quality and watchmaking.\n\n• Good project management skills.\n\n• Analytical and synthetic mind.\n\n• Proposition force & autonomy.\n\n• Internship contract or as part of a Master's Project, lasting 6 months.\n\nPost reference\n\n3766",
+        "de": "Mission\n\nIn Verbindung mit unserem Service Quality Entreprise haben Sie die Aufgabe, die Terminierungen von Uhrenkomponenten zu definieren und zu charakterisieren, um die Exzellenz unserer Uhren gemäß den Anforderungen der Patek Philippe Poinçon zu gewährleisten.\n\nSie tragen zur Verbesserung und Standardisierung unserer Terminierungsstandards bei, so dass wir eine einheitliche und objektive Wertschätzung ihrer wahrgenommenen Qualität gewährleisten können.\n\nZuständigkeiten\n\n• Um einen Zustand der transversalen Kunst von Patek Philippe Terminierungen basierend auf bestehenden Plänen, Kriterien und Benchmarks zu erreichen.\n\n• Beitrag zur Ausrichtung der Stakeholder auf Definitionen, Konzepte und Referenzterminologie.\n\n• Definieren Sie sensorische Deskriptoren und geeignete Skalen für jede Termination.\n\n• Validierung des gewünschten Qualitätsniveaus gemäß etablierter Governance.\n\nProfil gesucht\n\n• Derzeit im Master in Mikrotechnik.\n\n• Interesse an Qualität und Uhrmacherei.\n\n• Gute Projektmanagementfähigkeiten.\n\n• Analytisches und synthetisches Denken.\n\n• Propositionskraft und Autonomie.\n\n• Praktikumsvertrag oder im Rahmen eines Master-Projekts, Dauer 6 Monate.\n\nPostleitzahl\n\n3766",
+        "fr": "Mission\n\nRattaché(e) à notre service Qualité Entreprise, vous aurez pour mission de définir et de caractériser les terminaisons des composants horlogers afin de garantir l'excellence de nos garde-temps, en conformité avec les exigences du Poinçon Patek Philippe.\n\nVous contribuerez à l'amélioration et la standardisation de nos référentiels de terminaisons nous permettant d'assurer une appréciation homogène et objective de leur qualité perçue.\n\nResponsabilités\n\n• Réaliser un état de l’art transversal des terminaisons Patek Philippe en vous appuyant sur l’existant : plans, critères et référentiels existants.\n\n• Contribuer à l’alignement des parties prenantes sur les définitions, concepts et terminologies de référence.\n\n• Définir pour chaque terminaison les descripteurs sensoriels et les échelles adaptés.\n\n• Faire valider le niveau de qualité souhaité selon la gouvernance établie.\n\nProfil recherché\n\n• Actuellement en Master en Microtechnique.\n\n• Intérêt marqué pour la qualité et l’horlogerie.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique et de synthèse.\n\n• Force de proposition & autonomie.\n\n• Stage conventionné ou dans le cadre d'un Projet de Master, d’une durée de 6 mois.\n\nRéférence du poste\n\n3766"
+      },
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Caract%C3%A9risation-Analyse-Sensorielle/1369041755/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-03T09:29:09.599Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21T00:00:00Z",
+      "postedDate": "2026-09-21T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Caract%C3%A9risation-Analyse-Sensorielle/1369041755/",
+      "jobReqId": "1369041755",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "firstSeenAt": "2026-10-07T09:23:10.831Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:29:09.599Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -628,7 +860,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Optimisation-du-processus-de-fabrication-de-platines/1369119755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:34.098Z",
+      "crawledAt": "2026-11-03T09:29:08.927Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -675,163 +907,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:34.098Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "patek-philippe-b4a89eb58f5b",
-      "slug": "studio-dei-parametri-chiave-delle-prestazioni-energetiche-della-molla-di-equilibrio-patek-philippe-plan-les-ouates",
-      "slugByLocale": {
-        "it": "studio-dei-parametri-chiave-delle-prestazioni-energetiche-della-molla-di-equilibrio-patek-philippe-plan-les-ouates",
-        "en": "stage-study-of-key-energy-performance-parameters-of-the-balance-spring-patek-philippe-plan-les-ouates",
-        "de": "stufenstudie-der-wichtigsten-energieleistungsparameter-der-ausgleichsfeder-patek-philippe-plan-les-ouates",
-        "fr": "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Stage Étude des paramètres clés de la performance énergétique du balancier-spiral",
-      "titleByLocale": {
-        "it": "Studio dei parametri chiave delle prestazioni energetiche della molla di equilibrio",
-        "en": "Stage Study of key energy performance parameters of the balance spring",
-        "de": "Stufenstudie der wichtigsten Energieleistungsparameter der Ausgleichsfeder",
-        "fr": "Stage Étude des paramètres clés de la performance énergétique du balancier-spiral"
-      },
-      "description": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les paramètres influençant la performance énergétique de l’oscillateur balancier-spiral, l’organe réglant de nos garde-temps.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances sur les pertes énergétiques du balancier-spiral (brevets/articles/études internes).\n\n• Modéliser analytiquement ou en simulation éléments-finis pour quantifier théoriquement l’influence des paramètres identifiés dans l’état de l’art.\n\n• Mettre en place des essais au laboratoire permettant de quantifier les effets en pratique.\n\n• Analyser et interpréter les résultats obtenus pour comprendre et hiérarchiser les différents facteurs et leurs impacts.\n\n• Valider les modèles théoriques à partir des données expérimentales récoltées au laboratoire.\n\n• Apporter des améliorations à nos modèles ainsi qu’à notre produit.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Bonnes compétences en modélisation structurelle par éléments-finis.\n\n• Rigueur, esprit analytique et de synthèse et force de proposition.\n\n• Capacité à résoudre des problèmes complexes.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3775",
-      "descriptionByLocale": {
-        "it": "Missione\n\nIn allegato alla nostra Divisione Ricerca e Sviluppo, sarete responsabili di studiare i parametri che influenzano le prestazioni energetiche dell'oscillatore bilancia-spirale, l'organo regolatore dei nostri orologi.\n\nresponsabilità\n\n• Per raggiungere uno stato di conoscenza delle perdite di energia del bilancio-spirale (patents/articoli/studi interni).\n\n• Modello analiticamente o in simulazione di elementi finiti per quantificare teoricamente l'influenza dei parametri identificati nello stato d'arte.\n\n• Stabilire test di laboratorio per quantificare gli effetti in pratica.\n\n• Analizzare e interpretare i risultati per comprendere e privilegiare diversi fattori e i loro impatti.\n\n• Convalida i modelli teorici dei dati sperimentali raccolti in laboratorio.\n\n• Migliora i nostri modelli e il nostro prodotto.\n\nProfilo ricercato\n\n• Attualmente in Master in Ingegneria Meccanica o Microtecnica.\n\n• Buone competenze nella modellazione strutturale da elementi finiti.\n\n• Rigor, spirito analitico e di sintesi e forza della proposta.\n\n• Capacità di risolvere problemi complessi.\n\n• Interessi nell'orologeria.\n\n• Il progetto del Maestro dura 6 mesi.\n\nRiferimenti\n\n3775",
-        "en": "Mission\n\nAttached to our Research and Development Division, you will be responsible for studying the parameters influencing the energy performance of the balance-spiral oscillator, the regulating organ of our timepieces.\n\nResponsibilities\n\n• To achieve a state of knowledge of the energy losses of the balance-spiral (patents/articles/internal studies).\n\n• Model analytically or in finite element simulation to theoretically quantify the influence of the parameters identified in the state of art.\n\n• Establish laboratory tests to quantify effects in practice.\n\n• Analyze and interpret results to understand and prioritize different factors and their impacts.\n\n• Validate the theoretical models from experimental data collected in the laboratory.\n\n• Make improvements to our models and our product.\n\nProfile sought\n\n• Currently in Master in Mechanical Engineering or Microtechnics.\n\n• Good skills in structural modelling by finite elements.\n\n• Rigor, analytical and synthesis spirit and strength of proposal.\n\n• Ability to solve complex problems.\n\n• Interest in watchmaking.\n\n• Master's project lasting 6 months.\n\nPost reference\n\n3775",
-        "de": "Mission\n\nAn unsere Forschungs- und Entwicklungsabteilung angeschlossen, sind Sie für die Untersuchung der Parameter verantwortlich, die die Energieleistung des Balance-Spiral-Oszillators, des Regelorgans unserer Uhren, beeinflussen.\n\nZuständigkeiten\n\n• Um einen Zustand des Wissens über die Energieverluste der Balance-Spirale (Patente / Artikel / interne Studien) zu erreichen.\n\n• Modellieren Sie analytisch oder in Finite-Elemente-Simulation, um den Einfluss der im Stand der Technik identifizierten Parameter theoretisch zu quantifizieren.\n\n• Etablierung von Labortests zur Quantifizierung der Effekte in der Praxis.\n\n• Analysieren und interpretieren Sie die Ergebnisse, um verschiedene Faktoren und ihre Auswirkungen zu verstehen und zu priorisieren.\n\n• Validierung der theoretischen Modelle anhand der im Labor gesammelten experimentellen Daten.\n\n• Machen Sie Verbesserungen an unseren Modellen und unserem Produkt.\n\nProfil gesucht\n\n• Derzeit in Master in Maschinenbau oder Mikrotechnik.\n\n• Gute Fähigkeiten in der strukturellen Modellierung durch finite Elemente.\n\n• Strenge, analytischer und Synthesegeist und Stärke des Vorschlags.\n\n• Fähigkeit, komplexe Probleme zu lösen.\n\n• Interesse an Uhrmacherei.\n\n• Master-Projekt von 6 Monaten.\n\nPostleitzahl\n\n3775",
-        "fr": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les paramètres influençant la performance énergétique de l’oscillateur balancier-spiral, l’organe réglant de nos garde-temps.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances sur les pertes énergétiques du balancier-spiral (brevets/articles/études internes).\n\n• Modéliser analytiquement ou en simulation éléments-finis pour quantifier théoriquement l’influence des paramètres identifiés dans l’état de l’art.\n\n• Mettre en place des essais au laboratoire permettant de quantifier les effets en pratique.\n\n• Analyser et interpréter les résultats obtenus pour comprendre et hiérarchiser les différents facteurs et leurs impacts.\n\n• Valider les modèles théoriques à partir des données expérimentales récoltées au laboratoire.\n\n• Apporter des améliorations à nos modèles ainsi qu’à notre produit.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Bonnes compétences en modélisation structurelle par éléments-finis.\n\n• Rigueur, esprit analytique et de synthèse et force de proposition.\n\n• Capacité à résoudre des problèmes complexes.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3775"
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-%C3%89tude-des-param%C3%A8tres-cl%C3%A9s-de-la-performance-%C3%A9nerg%C3%A9tique-du-balancier-spiral/1369122655/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:33.445Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21T00:00:00Z",
-      "postedDate": "2026-09-21T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-%C3%89tude-des-param%C3%A8tres-cl%C3%A9s-de-la-performance-%C3%A9nerg%C3%A9tique-du-balancier-spiral/1369122655/",
-      "jobReqId": "1369122655",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T09:23:11.815Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:33.445Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "patek-philippe-a81ed52186c5",
-      "slug": "influenza-della-pressione-sulle-prestazioni-cronometriche-patek-philippe-plan-les-ouates",
-      "slugByLocale": {
-        "it": "influenza-della-pressione-sulle-prestazioni-cronometriche-patek-philippe-plan-les-ouates",
-        "en": "influence-of-pressure-on-chronometric-performance-patek-philippe-plan-les-ouates",
-        "de": "einfluss-des-drucks-auf-die-chronometrische-leistung-patek-philippe-plan-les-ouates",
-        "fr": "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Stage Influence de la pression sur la performance chronométrique",
-      "titleByLocale": {
-        "it": "Influenza della pressione sulle prestazioni cronometriche",
-        "en": "Influence of pressure on chronometric performance",
-        "de": "Einfluss des Drucks auf die chronometrische Leistung",
-        "fr": "Stage Influence de la pression sur la performance chronométrique"
-      },
-      "description": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les variations de marche d’un mouvement mécanique en fonction de la pression et d’établir l’influence des caractéristiques du mouvement et de son environnement.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances de l’effet de la pression sur la marche (brevets/articles).\n\n• Déterminer expérimentalement la relation entre la pression et la marche du mouvement, selon les caractéristiques de l’oscillateur.\n\n• Quantifier la relation entre les variations de pression autour du mouvement et la construction de la boite (emboitage, actionneurs, temps, …).\n\n• Mettre en place des modèles prédictifs de la variation de pression et de la marche selon la géométrie de la boite et des caractéristiques du mouvement.\n\n• Valider les mesures et modèles à partir des données de production.\n\n• Quantifier l’impact de ces effets sur les dispersions de marche depuis l’assemblage du mouvement jusqu’au porter du client.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Compétences en programmation (Python notamment) et machine learning.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique.\n\n• Autonomie.\n\n• Force de proposition.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3773",
-      "descriptionByLocale": {
-        "it": "Missione\n\nAttaccato alla nostra Divisione Ricerca e Sviluppo, sarete responsabili di studiare le variazioni nel camminare di un movimento meccanico a seconda della pressione e stabilire l'influenza delle caratteristiche del movimento e del suo ambiente.\n\nresponsabilità\n\n• Per raggiungere uno stato d'arte di conoscenza dell'effetto della pressione su camminare (patents/articoli).\n\n• Per determinare sperimentalmente il rapporto tra pressione e movimento, a seconda delle caratteristiche dell'oscillatore.\n\n• Quantifica il rapporto tra le variazioni di pressione intorno al movimento e la costruzione della scatola (emboiting, attuatori, tempo, ...).\n\n• Mettere in posizione modelli predittivi di variazione di pressione e camminare secondo la geometria scatola e le caratteristiche di movimento.\n\n• Convalida misurazioni e modelli dai dati di produzione.\n\n• Quantifica l'impatto di questi effetti sulle dispersioni a piedi dall'assemblaggio del movimento all'usura del cliente.\n\nProfilo ricercato\n\n• Attualmente in Master in Ingegneria Meccanica o Microtecnica.\n\n• Interessi nell'orologeria.\n\n• Capacità di programmazione (incluso Python) e apprendimento automatico.\n\n• Buone capacità di gestione del progetto.\n\n• La mente analitica.\n\n• Autonomia.\n\n• Proposta di forza.\n\n• Il progetto del Maestro dura 6 mesi.\n\nRiferimenti\n\n3773",
-        "en": "Mission\n\nAttached to our Research and Development Division, you will be responsible for studying the variations in walking of a mechanical movement depending on the pressure and establishing the influence of the characteristics of the movement and its environment.\n\nResponsibilities\n\n• To achieve a state of art of knowledge of the effect of pressure on walking (patents/articles).\n\n• To determine experimentally the relationship between pressure and motion, depending on the characteristics of the oscillator.\n\n• Quantify the relationship between the pressure variations around the movement and the box construction (emboiting, actuators, time, ...).\n\n• Put in place predictive models of pressure variation and walking according to box geometry and motion characteristics.\n\n• Validate measurements and models from production data.\n\n• Quantify the impact of these effects on walking dispersions from the assembly of the movement to the customer's wear.\n\nProfile sought\n\n• Currently in Master in Mechanical Engineering or Microtechnics.\n\n• Interest in watchmaking.\n\n• Programming skills (including Python) and machine learning.\n\n• Good project management skills.\n\n• Analytical mind.\n\n• Autonomy.\n\n• Proposal force.\n\n• Master's project lasting 6 months.\n\nPost reference\n\n3773",
-        "de": "Mission\n\nAn unsere Forschungs- und Entwicklungsabteilung angeschlossen, sind Sie dafür verantwortlich, die Veränderungen des Gehens einer mechanischen Bewegung in Abhängigkeit vom Druck zu untersuchen und den Einfluss der Eigenschaften der Bewegung und ihrer Umgebung zu bestimmen.\n\nZuständigkeiten\n\n• Um einen Stand der Technik des Wissens über die Wirkung von Druck auf das Gehen (Patente / Artikel) zu erreichen.\n\n• Experimentell die Beziehung zwischen Druck und Bewegung zu bestimmen, abhängig von den Eigenschaften des Oszillators.\n\n• Quantifizieren Sie die Beziehung zwischen den Druckschwankungen um das Uhrwerk herum und der Kastenkonstruktion (Einpressen, Aktuatoren, Zeit, ...).\n\n• Setzen Sie prädiktive Modelle der Druckvariation und des Gehens nach Boxgeometrie und Bewegungseigenschaften ein.\n\n• Validierung von Messungen und Modellen aus Produktionsdaten.\n\n• Quantifizieren Sie die Auswirkungen dieser Effekte auf die Laufdispersionen von der Montage des Uhrwerks bis zum Verschleiß des Kunden.\n\nProfil gesucht\n\n• Derzeit in Master in Maschinenbau oder Mikrotechnik.\n\n• Interesse an Uhrmacherei.\n\n• Programmierkenntnisse (einschließlich Python) und maschinelles Lernen.\n\n• Gute Projektmanagementfähigkeiten.\n\n• Analytisches Denken.\n\n• Autonomie.\n\n• Vorschlagskraft.\n\n• Master-Projekt von 6 Monaten.\n\nPostleitzahl\n\n3773",
-        "fr": "Mission\n\nRattaché à notre Division Recherche et Développement, vous aurez la charge d’étudier les variations de marche d’un mouvement mécanique en fonction de la pression et d’établir l’influence des caractéristiques du mouvement et de son environnement.\n\nResponsabilités\n\n• Réaliser un état de l’art des connaissances de l’effet de la pression sur la marche (brevets/articles).\n\n• Déterminer expérimentalement la relation entre la pression et la marche du mouvement, selon les caractéristiques de l’oscillateur.\n\n• Quantifier la relation entre les variations de pression autour du mouvement et la construction de la boite (emboitage, actionneurs, temps, …).\n\n• Mettre en place des modèles prédictifs de la variation de pression et de la marche selon la géométrie de la boite et des caractéristiques du mouvement.\n\n• Valider les mesures et modèles à partir des données de production.\n\n• Quantifier l’impact de ces effets sur les dispersions de marche depuis l’assemblage du mouvement jusqu’au porter du client.\n\nProfil recherché\n\n• Actuellement en Master en Génie mécanique ou en Microtechnique.\n\n• Intérêt marqué pour l’horlogerie.\n\n• Compétences en programmation (Python notamment) et machine learning.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique.\n\n• Autonomie.\n\n• Force de proposition.\n\n• Projet de Master d’une durée de 6 mois.\n\nRéférence du poste\n\n3773"
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Influence-de-la-pression-sur-la-performance-chronom%C3%A9trique/1369123255/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:32.794Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21T00:00:00Z",
-      "postedDate": "2026-09-21T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Influence-de-la-pression-sur-la-performance-chronom%C3%A9trique/1369123255/",
-      "jobReqId": "1369123255",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T09:23:09.455Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:32.794Z",
+      "validThrough": "2026-12-03T09:29:08.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -865,7 +941,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Calibration-des-simulations-num%C3%A9riques-de-chocs/1369123455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:32.144Z",
+      "crawledAt": "2026-11-03T09:29:08.234Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -909,85 +985,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:32.144Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "patek-philippe-f410a3e2872a",
-      "slug": "analisi-sensoriale-di-caratterizzazione-scenica-patek-philippe-plan-les-ouates",
-      "slugByLocale": {
-        "it": "analisi-sensoriale-di-caratterizzazione-scenica-patek-philippe-plan-les-ouates",
-        "en": "stage-characterization-sensory-analysis-patek-philippe-plan-les-ouates",
-        "de": "phase-charakterisierung-sensorische-analyse-patek-philippe-plan-les-ouates",
-        "fr": "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Stage Caractérisation Analyse Sensorielle",
-      "titleByLocale": {
-        "it": "Analisi sensoriale di caratterizzazione scenica",
-        "en": "Stage Characterization Sensory Analysis",
-        "de": "Phase Charakterisierung Sensorische Analyse",
-        "fr": "Stage Caractérisation Analyse Sensorielle"
-      },
-      "description": "Mission\n\nRattaché(e) à notre service Qualité Entreprise, vous aurez pour mission de définir et de caractériser les terminaisons des composants horlogers afin de garantir l'excellence de nos garde-temps, en conformité avec les exigences du Poinçon Patek Philippe.\n\nVous contribuerez à l'amélioration et la standardisation de nos référentiels de terminaisons nous permettant d'assurer une appréciation homogène et objective de leur qualité perçue.\n\nResponsabilités\n\n• Réaliser un état de l’art transversal des terminaisons Patek Philippe en vous appuyant sur l’existant : plans, critères et référentiels existants.\n\n• Contribuer à l’alignement des parties prenantes sur les définitions, concepts et terminologies de référence.\n\n• Définir pour chaque terminaison les descripteurs sensoriels et les échelles adaptés.\n\n• Faire valider le niveau de qualité souhaité selon la gouvernance établie.\n\nProfil recherché\n\n• Actuellement en Master en Microtechnique.\n\n• Intérêt marqué pour la qualité et l’horlogerie.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique et de synthèse.\n\n• Force de proposition & autonomie.\n\n• Stage conventionné ou dans le cadre d'un Projet de Master, d’une durée de 6 mois.\n\nRéférence du poste\n\n3766",
-      "descriptionByLocale": {
-        "it": "Missione\n\nAttaccato al nostro servizio Quality Entreprise, avrete il compito di definire e caratterizzare le terminazioni dei componenti dell'orologio al fine di garantire l'eccellenza dei nostri orologi, in conformità alle esigenze del Patek Philippe Poinçon.\n\nContribuirai al miglioramento e alla standardizzazione dei nostri standard di risoluzione che ci permettono di garantire un apprezzamento uniforme e oggettivo della loro qualità percepita.\n\nresponsabilità\n\n• Per ottenere uno stato di arte trasversale delle terminazioni di Patek Philippe basato su piani, criteri e benchmark esistenti.\n\n• Contribuisci all'allineamento delle parti interessate con definizioni, concetti e terminologia di riferimento.\n\n• Definire i descrittori sensoriali e le scale appropriate per ogni terminazione.\n\n• Convalida il livello di qualità desiderato in base alla governance stabilita.\n\nProfilo ricercato\n\n• Attualmente in Master in Microtecnica.\n\n• Interessi di qualità e orologeria.\n\n• Buone capacità di gestione del progetto.\n\n• mente analitica e sintetica.\n\n• Forza di proposizione e autonomia.\n\n• Contratto di stage o come parte di un progetto di Master, della durata di 6 mesi.\n\nRiferimenti\n\n3766",
-        "en": "Mission\n\nAttached to our Quality Entreprise service, you will have the task of defining and characterising the terminations of watch components in order to guarantee the excellence of our timepieces, in accordance with the requirements of the Patek Philippe Poinçon.\n\nYou will contribute to the improvement and standardization of our termination standards allowing us to ensure a uniform and objective appreciation of their perceived quality.\n\nResponsibilities\n\n• To achieve a state of transversal art of Patek Philippe terminations based on existing plans, criteria and benchmarks.\n\n• Contribute to the alignment of stakeholders with definitions, concepts and reference terminology.\n\n• Define sensory descriptors and appropriate scales for each termination.\n\n• Validate the desired level of quality according to established governance.\n\nProfile sought\n\n• Currently in Master in Microtechnics.\n\n• Interest in quality and watchmaking.\n\n• Good project management skills.\n\n• Analytical and synthetic mind.\n\n• Proposition force & autonomy.\n\n• Internship contract or as part of a Master's Project, lasting 6 months.\n\nPost reference\n\n3766",
-        "de": "Mission\n\nIn Verbindung mit unserem Service Quality Entreprise haben Sie die Aufgabe, die Terminierungen von Uhrenkomponenten zu definieren und zu charakterisieren, um die Exzellenz unserer Uhren gemäß den Anforderungen der Patek Philippe Poinçon zu gewährleisten.\n\nSie tragen zur Verbesserung und Standardisierung unserer Terminierungsstandards bei, so dass wir eine einheitliche und objektive Wertschätzung ihrer wahrgenommenen Qualität gewährleisten können.\n\nZuständigkeiten\n\n• Um einen Zustand der transversalen Kunst von Patek Philippe Terminierungen basierend auf bestehenden Plänen, Kriterien und Benchmarks zu erreichen.\n\n• Beitrag zur Ausrichtung der Stakeholder auf Definitionen, Konzepte und Referenzterminologie.\n\n• Definieren Sie sensorische Deskriptoren und geeignete Skalen für jede Termination.\n\n• Validierung des gewünschten Qualitätsniveaus gemäß etablierter Governance.\n\nProfil gesucht\n\n• Derzeit im Master in Mikrotechnik.\n\n• Interesse an Qualität und Uhrmacherei.\n\n• Gute Projektmanagementfähigkeiten.\n\n• Analytisches und synthetisches Denken.\n\n• Propositionskraft und Autonomie.\n\n• Praktikumsvertrag oder im Rahmen eines Master-Projekts, Dauer 6 Monate.\n\nPostleitzahl\n\n3766",
-        "fr": "Mission\n\nRattaché(e) à notre service Qualité Entreprise, vous aurez pour mission de définir et de caractériser les terminaisons des composants horlogers afin de garantir l'excellence de nos garde-temps, en conformité avec les exigences du Poinçon Patek Philippe.\n\nVous contribuerez à l'amélioration et la standardisation de nos référentiels de terminaisons nous permettant d'assurer une appréciation homogène et objective de leur qualité perçue.\n\nResponsabilités\n\n• Réaliser un état de l’art transversal des terminaisons Patek Philippe en vous appuyant sur l’existant : plans, critères et référentiels existants.\n\n• Contribuer à l’alignement des parties prenantes sur les définitions, concepts et terminologies de référence.\n\n• Définir pour chaque terminaison les descripteurs sensoriels et les échelles adaptés.\n\n• Faire valider le niveau de qualité souhaité selon la gouvernance établie.\n\nProfil recherché\n\n• Actuellement en Master en Microtechnique.\n\n• Intérêt marqué pour la qualité et l’horlogerie.\n\n• Bonnes compétences en gestion de projet.\n\n• Esprit analytique et de synthèse.\n\n• Force de proposition & autonomie.\n\n• Stage conventionné ou dans le cadre d'un Projet de Master, d’une durée de 6 mois.\n\nRéférence du poste\n\n3766"
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Caract%C3%A9risation-Analyse-Sensorielle/1369041755/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:31.505Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21T00:00:00Z",
-      "postedDate": "2026-09-21T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Caract%C3%A9risation-Analyse-Sensorielle/1369041755/",
-      "jobReqId": "1369041755",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T09:23:10.831Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:31.505Z",
+      "validThrough": "2026-12-03T09:29:08.234Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1021,7 +1019,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Analyse-de-Cycle-de-Vie/1369162755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:30.852Z",
+      "crawledAt": "2026-11-03T09:29:07.574Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1065,7 +1063,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:30.852Z",
+      "validThrough": "2026-12-03T09:29:07.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1099,7 +1097,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Processus-logistiques-et-pilotages-associ%C3%A9s/1369179855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:30.208Z",
+      "crawledAt": "2026-11-03T09:29:06.910Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1143,7 +1141,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:37:30.208Z",
+      "validThrough": "2026-12-03T09:29:06.910Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1177,7 +1175,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1374443355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:29.583Z",
+      "crawledAt": "2026-11-03T09:29:06.265Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1227,7 +1225,7 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:37:29.583Z",
+      "validThrough": "2027-01-24T09:29:06.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1261,7 +1259,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Vie-S%C3%A9rie-%28HF%29/1374406755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:28.911Z",
+      "crawledAt": "2026-11-03T09:29:05.622Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1311,7 +1309,7 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:37:28.911Z",
+      "validThrough": "2027-01-24T09:29:05.622Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1345,7 +1343,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Embo%C3%AEtage-%28HF%29/1374773755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:28.243Z",
+      "crawledAt": "2026-11-03T09:29:04.972Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1395,7 +1393,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:37:28.243Z",
+      "validThrough": "2027-01-26T09:29:04.972Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1429,7 +1427,7 @@
       "url": "https://careers.patek.com/job/Bruegg-Op%C3%A9rateur-Horloger-%28HF%29/1375092055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:27.559Z",
+      "crawledAt": "2026-11-03T09:29:04.329Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Bruegg",
       "addressRegion": "Genève",
@@ -1479,7 +1477,7 @@
       "postalCode": "1204",
       "streetAddress": "Bruegg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:37:27.559Z",
+      "validThrough": "2027-01-28T09:29:04.329Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1513,7 +1511,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Contr%C3%B4le-Qualit%C3%A9-%28HF%29/1367187155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:37:26.903Z",
+      "crawledAt": "2026-11-03T09:29:03.652Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1549,7 +1547,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:37:26.903Z",
+      "validThrough": "2026-12-31T09:29:03.652Z",
       "validThroughSource": "last-observed-window"
     }
   ]

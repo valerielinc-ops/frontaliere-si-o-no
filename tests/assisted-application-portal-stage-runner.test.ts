@@ -43,7 +43,13 @@ function fixture(initial = profile, source: any = null, finalReview = review) {
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
-    locator: () => ({ count: async () => 0, first: () => ({ click: () => state.snapshot === source ? openClick() : click() }) }),
+    locator: () => ({
+      count: async () => 0,
+      first: () => ({
+        click: () => state.snapshot === source ? openClick() : click(),
+        evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
+      }),
+    }),
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
   const run = () => submitViaPortal({ applyUrl: source?.url || applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
@@ -103,5 +109,56 @@ describe('runner final guard across three application stages', () => {
     expect(f.page.goto).toHaveBeenCalledWith(reviewUrl, { waitUntil: 'domcontentloaded' });
     expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('hands off a public gallery reached after an application step before agent fallback', async () => {
+    const initial = snapshot(applyUrl, 'Application step.', [{ id: 'step-next', text: 'Next' }]);
+    initial.fields = [{ id: 'application-note', kind: 'text', inputType: 'text', label: 'Application note', required: false, formId: 'application', frame: 0 }];
+    const gallery = snapshot(`${applyUrl}/bewerbungstipps/`, 'Public content.', [
+      { text: 'Menü', chrome: true },
+      { text: 'Mein Konto', chrome: true },
+      { text: 'Vorheriges', formId: 'public-gallery', frame: 0, disabled: false },
+      { text: 'Nächstes', formId: 'public-gallery', frame: 0, disabled: false },
+      { text: 'Öffne Bild in Grossansicht', formId: 'public-gallery', frame: 0, disabled: false },
+      { text: 'Seite drucken', formId: 'public-gallery', frame: 0, disabled: false },
+    ]);
+    gallery.fields = [{
+      id: 'attachment', kind: 'file', inputType: 'file',
+      label: 'Eine oder mehrere Dateien auswählen (optional) (optional).', required: false,
+      formId: 'public-gallery', frame: 0,
+    }];
+    state.snapshot = initial;
+    const advance = vi.fn(async () => { state.snapshot = gallery; });
+    const codex = vi.fn(async () => { throw new Error('public gallery must not reach the agent'); });
+    const page: any = {
+      frames: () => [page], mainFrame: () => page,
+      url: () => state.snapshot.url,
+      title: async () => title,
+      evaluate: async (fn: Function) => {
+        const source = String(fn);
+        if (source.includes('navigator.userAgent')) return 'Chrome';
+        if (source.includes('document.body')) return state.snapshot.text;
+        return false;
+      },
+      goto: vi.fn(async () => ({ status: () => 200 })),
+      waitForLoadState: async () => {}, waitForTimeout: async () => {},
+      screenshot: async () => Buffer.from('fixture'),
+      locator: () => ({ count: async () => 0, nth: () => ({ click: advance }), first: () => ({ click: advance }) }),
+      getByRole: () => ({ filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not found'); } }) }) }),
+    };
+    const context: any = {
+      route: async () => {}, waitForEvent: async () => null,
+      newPage: async () => page, close: async () => {},
+    };
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '151' };
+
+    const result = await submitViaPortal({
+      applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
+      skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
+    });
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(advance).toHaveBeenCalledOnce();
+    expect(codex).not.toHaveBeenCalled();
   });
 });

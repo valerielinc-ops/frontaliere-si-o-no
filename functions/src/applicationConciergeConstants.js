@@ -13,9 +13,12 @@ export const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 export const APPLICATION_CONCIERGE_CURRENCY = 'eur';
 export const APPLICATION_CONCIERGE_DURATION_DAYS = 30;
 export const APPLICATION_CONCIERGE_MAX_POSITIONS = 10;
+export const APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS = 3;
 export const APPLICATION_CONCIERGE_CONSENT_VERSION = 'application-concierge-v1';
 export const APPLICATION_CONCIERGE_CV_PREFIX = 'application-concierge-uploads';
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v15-bounded-eligibility-retries';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v16-progressive-proposals';
+export const APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION = 'application-concierge-candidate-languages-v1';
+export const APPLICATION_CONCIERGE_CANDIDATE_ANSWERS_VERSION = 'application-concierge-candidate-answers-v1';
 
 export const APPLICATION_CONCIERGE_SERVICE_STATUSES = Object.freeze([
   'awaiting_payment',
@@ -60,4 +63,11 @@ export function serviceIsExpired(service, nowMs = Date.now()) {
 export function acceptedPositionsCount(service) {
   const value = Number(service?.acceptedPositionsCount);
   return Number.isSafeInteger(value) && value >= 0 ? value : 0;
+}
+
+export function openProposalsCount(service, fallback = 0) {
+  const value = Number(service?.matchingOpenProposalCount);
+  if (Number.isSafeInteger(value) && value >= 0) return value;
+  const initial = Number(fallback);
+  return Number.isSafeInteger(initial) && initial >= 0 ? initial : 0;
 }

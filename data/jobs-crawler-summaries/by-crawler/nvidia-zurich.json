@@ -1,7 +1,7 @@
 {
   "key": "nvidia-zurich",
   "label": "NVIDIA (ufficio Zurich)",
-  "generatedAt": "2026-11-02T21:58:24.602Z",
+  "generatedAt": "2026-11-03T09:28:07.897Z",
   "total": 13,
   "discovered": null,
   "parsed": 12,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 19204,
-  "avgDurationMs": 19204,
+  "durationMs": 17115,
+  "avgDurationMs": 17115,
   "durationHistory": [
-    19204
+    17115
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "nvidia-zurich-91e3c1f0bfbc",
-      "slug": "senior-solution-architect-networking-solutions-labs-nvidia-zurich-ch",
+      "slug": "senior-solution-architetto-networking-solutions-labs-nvidia-ufficio-zurich-zurich",
       "company": "NVIDIA (ufficio Zurich)",
       "companyKey": "nvidia-zurich",
       "companyDomain": "nvidia.com",
@@ -35,7 +36,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Solution-Architect--Networking-Solutions-Labs_JR2029065",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:57:53.862Z",
+      "crawledAt": "2026-11-03T09:27:37.617Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,25 +53,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Solution-Architect--Networking-Solutions-Labs_JR2029065",
       "jobReqId": "JR2029065",
+      "firstSeenAt": "2026-11-02T21:57:53.862Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:57:53.862Z",
+      "validThrough": "2027-01-31T09:27:37.617Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:57:53.862Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +85,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-and-AI-Network-Software-Architect_JR2022878",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:07.780Z",
+      "crawledAt": "2026-11-03T09:27:49.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:58:07.780Z",
+      "validThrough": "2026-12-03T09:27:49.089Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Developer_JR2008695",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:06.916Z",
+      "crawledAt": "2026-11-03T09:27:48.344Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:58:06.916Z",
+      "validThrough": "2026-12-15T09:27:48.344Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Autonomous-Systems-and-Physical-AI-Research---2027_JR2024606-1",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:05.239Z",
+      "crawledAt": "2026-11-03T09:27:47.175Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:58:05.239Z",
+      "validThrough": "2026-12-27T09:27:47.175Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Robotics-Simulation-and-Evaluation-PhD-Intern---Summer-2027_JR2027531",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:03.765Z",
+      "crawledAt": "2026-11-03T09:27:46.045Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:58:03.765Z",
+      "validThrough": "2027-01-07T09:27:46.045Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -271,7 +271,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Robotics---Summer-2027_JR2027294",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:03.058Z",
+      "crawledAt": "2026-11-03T09:27:45.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:58:03.058Z",
+      "validThrough": "2027-01-07T09:27:45.083Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -318,7 +318,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineering-Intern---Compute-Performance_JR2027949",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:01.225Z",
+      "crawledAt": "2026-11-03T09:27:43.711Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:58:01.225Z",
+      "validThrough": "2027-01-13T09:27:43.711Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -365,7 +365,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Libraries-Engineer---AI-and-HPC_JR2006812",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:57:59.037Z",
+      "crawledAt": "2026-11-03T09:27:41.814Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:57:59.037Z",
+      "validThrough": "2027-01-17T09:27:41.814Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -412,7 +412,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/AI-Compiler-Formal-Verification-Intern_JR2027025",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:57:58.326Z",
+      "crawledAt": "2026-11-03T09:27:41.155Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:57:58.326Z",
+      "validThrough": "2027-01-03T09:27:41.155Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -458,7 +458,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-GPU-Networking-Architect_JR2015083",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:57:57.618Z",
+      "crawledAt": "2026-11-03T09:27:40.518Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -482,7 +482,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:57:57.618Z",
+      "validThrough": "2027-01-12T09:27:40.518Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -504,7 +504,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/GenAI-Algorithms-Intern---Model-Optimization-for-Inference_JR2028597",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:57:56.722Z",
+      "crawledAt": "2026-11-03T09:27:39.894Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -528,7 +528,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:57:56.722Z",
+      "validThrough": "2027-01-24T09:27:39.894Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -551,7 +551,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Principal-Engineer---Data-Retrieval_JR2028890",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:57:55.911Z",
+      "crawledAt": "2026-11-03T09:27:39.281Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -575,7 +575,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:57:55.911Z",
+      "validThrough": "2027-01-25T09:27:39.281Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -623,7 +623,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-02T09:55:15.251Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -633,5 +633,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }

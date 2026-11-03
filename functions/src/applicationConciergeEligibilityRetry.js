@@ -5,15 +5,45 @@ const DELAYS = [60 * 60_000, 3 * 60 * 60_000, 12 * 60 * 60_000, 3 * 86400_000];
 const DEFERRED_RETRY_DELAY_MS = 15 * 60_000;
 const FAILURE_CAUSES = new Set(['not_configured', 'rate_limited', 'timeout', 'auth', 'network', 'provider_http', 'provider_error']);
 const RETRY_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required', 'unverified']);
-const RETRY_REASONS = new Set([
-  'analysis_deferred', 'analysis_unavailable', 'answer_source_conflict', 'current_education_unverified',
-  'eligibility_metadata_incomplete', 'evidence_entailment_unverified', 'evidence_incomplete', 'evidence_source_changed',
-  'hard_requirement_uncovered', 'incompatibility_not_proven', 'job_language_evidence_unverified',
-  'language_clause_unverified', 'language_evidence_conflict', 'language_requirement_uncovered', 'match_below_threshold',
-  'match_response_incomplete', 'posting_incomplete', 'posting_unavailable', 'profile_incomplete', 'profile_not_ready',
-  'profile_unavailable', 'provider_invalid_json', 'provider_unavailable', 'requirements_incomplete',
-  'requirements_missing', 'requirements_over_limit', 'requirements_response_invalid', 'retry_backoff',
-]);
+/**
+ * Persisted retry reasons are a versioned contract. Reasons marked `current`
+ * have a producer in this source tree. `legacy` keeps old rows readable after
+ * their producer was removed; `internal` is a transient state, not an
+ * eligibility conclusion. In particular, requirements_incomplete was emitted
+ * by the v5 eligibility worker and was split into specific v6 reasons.
+ */
+export const ELIGIBILITY_RETRY_REASON_PROVENANCE = Object.freeze({
+  analysis_deferred: 'current:applicationConciergeMatching',
+  analysis_unavailable: 'current:applicationConciergeMatching',
+  answer_source_conflict: 'legacy',
+  clarification_questions_missing: 'current:applicationConciergeEligibility',
+  current_education_unverified: 'current:applicationConciergeEligibility',
+  eligibility_metadata_incomplete: 'current:applicationConciergeEligibility',
+  evidence_entailment_unverified: 'legacy',
+  evidence_incomplete: 'current:assistedApplicationFitNotice',
+  evidence_source_changed: 'legacy',
+  hard_requirement_uncovered: 'current:applicationConciergeEligibility',
+  incompatibility_not_proven: 'current:applicationConciergeMatching',
+  job_language_evidence_unverified: 'legacy',
+  language_clause_unverified: 'current:assistedApplicationFitNotice',
+  language_evidence_conflict: 'legacy',
+  language_requirement_uncovered: 'current:assistedApplicationFitNotice',
+  match_below_threshold: 'current:applicationConciergeMatching',
+  match_response_incomplete: 'current:assistedApplicationFitNotice',
+  posting_incomplete: 'current:applicationConciergeEligibility',
+  posting_unavailable: 'current:applicationConciergeEligibility',
+  profile_incomplete: 'current:applicationConciergeMatching',
+  profile_not_ready: 'current:applicationConciergeEligibility',
+  profile_unavailable: 'current:applicationConciergeEligibility',
+  provider_invalid_json: 'current:applicationConciergeMatching',
+  provider_unavailable: 'current:applicationConciergeMatching',
+  requirements_incomplete: 'legacy:v5 eligibility worker; split in v6',
+  requirements_missing: 'current:applicationConciergeEligibility',
+  requirements_over_limit: 'current:applicationConciergeEligibility',
+  requirements_response_invalid: 'current:applicationConciergeEligibility',
+  retry_backoff: 'internal:transient retry state',
+});
+const RETRY_REASONS = new Set(Object.keys(ELIGIBILITY_RETRY_REASON_PROVENANCE));
 const TERMINAL_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required']);
 export const MAX_ELIGIBILITY_RETRIES_PER_RUN = 8;
 export const MAX_ELIGIBILITY_RETRY_ATTEMPTS = DELAYS.length + 1;
@@ -60,26 +90,44 @@ export async function dueEligibilityRetries(serviceRef, nowMs) {
   return result.docs;
 }
 
-export async function recordEligibilityRetry({ db, serviceRef, url, result, context, jobContext = context, nowMs }) {
+export async function recordEligibilityRetry({ db, serviceRef, url, result, context, jobContext = context,
+  budgetContext = context, budgetJobContext = jobContext, eligibilityFactsRevision = 0, nowMs }) {
   const ref = eligibilityRetryRef(serviceRef, url);
   const status = allowlisted(result?.status, RETRY_STATUSES);
   const reason = allowlisted(result?.reason, RETRY_REASONS);
   const lastAttemptAt = Number.isFinite(nowMs) ? nowMs : Date.now();
   const fingerprint = safeFingerprint(result?.fingerprint);
+  const sourceFingerprint = safeFingerprint(result?.sourceFingerprint);
+  const candidateFactsDependency = result?.candidateFactsDependency && typeof result.candidateFactsDependency === 'object'
+    ? { languages: result.candidateFactsDependency.languages === true, answers: result.candidateFactsDependency.answers === true }
+    : null;
   await db.runTransaction(async transaction => {
     const previousSnapshot = await transaction.get(ref);
     const previous = previousSnapshot.data();
     const sameJobContext = previous?.jobContext === jobContext;
-    const sameContext = previous?.context === context && sameJobContext;
+    const sameBudgetJobContext = previous?.retryBudgetJobContext === budgetJobContext
+      || (!previous?.retryBudgetJobContext && previous?.jobContext === budgetJobContext);
+    const hasSeparateBudgetContext = budgetContext !== context || budgetJobContext !== jobContext;
+    const unavailableSourceUnchanged = reason === 'posting_unavailable' && !sourceFingerprint;
+    const sameBudgetContext = sameBudgetJobContext && (
+      previous?.retryBudgetContext === budgetContext
+      || (!previous?.retryBudgetContext
+        && (previous?.context === budgetContext || hasSeparateBudgetContext || unavailableSourceUnchanged))
+    );
+    const sameEligibilityContext = previous?.context === context && sameJobContext;
     const providerFailures = safeProviderFailures(result?.providerFailures);
     const retainedProviderFailures = providerFailures.length
       ? providerFailures
-      : sameContext ? safeProviderFailures(previous?.providerFailures) : [];
-    const retainedFingerprint = fingerprint || (sameContext ? safeFingerprint(previous?.fingerprint) : null);
+      : sameBudgetContext ? safeProviderFailures(previous?.providerFailures) : [];
+    const retainedFingerprint = fingerprint || (sameBudgetContext ? safeFingerprint(previous?.fingerprint) : null);
+    const retainedSourceFingerprint = sourceFingerprint || (sameBudgetContext ? safeFingerprint(previous?.sourceFingerprint) : null);
+    const retainedFactsDependency = candidateFactsDependency || (sameBudgetContext
+      ? previous?.candidateFactsDependency || null
+      : null);
 
     if (TERMINAL_STATUSES.has(status)) {
       if (!previous) return;
-      const firstAttemptAt = sameJobContext ? Number(previous.firstAttemptAt) || 0 : 0;
+      const firstAttemptAt = sameBudgetJobContext ? Number(previous.firstAttemptAt) || 0 : 0;
       if (firstAttemptAt > 0) {
         const recoveryDurationMs = Math.max(0, lastAttemptAt - firstAttemptAt);
         const serviceSnapshot = await transaction.get(serviceRef);
@@ -98,17 +146,33 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
       return;
     }
 
-    // A duplicate worker delivery cannot revive an exhausted row with the same
-    // source context. New candidate/job inputs produce a different context and
-    // start a fresh, bounded recovery episode.
-    if (sameContext && previous?.retryState === 'exhausted') return;
+    // A candidate-facts revision can require one fresh eligibility check even
+    // when a listing's own retry budget is exhausted. Record that the new
+    // eligibility context was checked, but preserve the exhausted budget.
+    if (sameBudgetContext && previous?.retryState === 'exhausted') {
+      if (sameEligibilityContext || reason === 'analysis_deferred' || reason === 'retry_backoff') return;
+      transaction.set(ref, {
+        context,
+        jobContext,
+        retryBudgetContext: budgetContext,
+        retryBudgetJobContext: budgetJobContext,
+        eligibilityFactsRevision: Math.max(0, Math.floor(Number(eligibilityFactsRevision) || 0)),
+        lastStatus: status,
+        lastReason: reason,
+        ...(retainedFingerprint ? { fingerprint: retainedFingerprint } : {}),
+        ...(retainedSourceFingerprint ? { sourceFingerprint: retainedSourceFingerprint } : {}),
+        ...(retainedFactsDependency ? { candidateFactsDependency: retainedFactsDependency } : {}),
+        ...(retainedProviderFailures.length ? { providerFailures: retainedProviderFailures } : {}),
+      }, { merge: true });
+      return;
+    }
 
     if (reason === 'retry_backoff') return;
     if (reason === 'analysis_deferred') {
-      const deferrals = sameContext ? Math.max(0, Number(previous?.deferrals) || 0) + 1 : 1;
-      const attempts = sameContext ? Math.max(0, Number(previous?.attempts) || 0) : 0;
+      const deferrals = sameBudgetContext ? Math.max(0, Number(previous?.deferrals) || 0) + 1 : 1;
+      const attempts = sameBudgetContext ? Math.max(0, Number(previous?.attempts) || 0) : 0;
       const exhausted = deferrals >= MAX_ELIGIBILITY_DEFERRALS;
-      const firstAttemptAt = sameContext && Number(previous?.firstAttemptAt) > 0
+      const firstAttemptAt = sameBudgetContext && Number(previous?.firstAttemptAt) > 0
         ? Number(previous.firstAttemptAt)
         : lastAttemptAt;
       const deferredDelay = Math.min(DEFERRED_RETRY_DELAY_MS * (2 ** (deferrals - 1)), 3 * 86400_000);
@@ -116,13 +180,18 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
         jobUrl: previous?.jobUrl || url,
         context,
         jobContext,
+        retryBudgetContext: budgetContext,
+        retryBudgetJobContext: budgetJobContext,
+        eligibilityFactsRevision: Math.max(0, Math.floor(Number(eligibilityFactsRevision) || 0)),
+        ...(retainedSourceFingerprint ? { sourceFingerprint: retainedSourceFingerprint } : {}),
+        ...(retainedFactsDependency ? { candidateFactsDependency: retainedFactsDependency } : {}),
         attempts,
         deferrals,
         retryAt: exhausted ? 0 : lastAttemptAt + deferredDelay,
         retryState: exhausted ? 'exhausted' : 'deferred',
-        lastStatus: sameContext ? previous.lastStatus || status : 'unverified',
-        lastReason: sameContext ? previous.lastReason || reason : reason,
-        ...(sameContext && Number(previous.lastAttemptAt) > 0 ? { lastAttemptAt: Number(previous.lastAttemptAt) } : {}),
+        lastStatus: sameBudgetContext ? previous.lastStatus || status : 'unverified',
+        lastReason: sameBudgetContext ? previous.lastReason || reason : reason,
+        ...(sameBudgetContext && Number(previous.lastAttemptAt) > 0 ? { lastAttemptAt: Number(previous.lastAttemptAt) } : {}),
         lastDeferredAt: lastAttemptAt,
         firstAttemptAt,
         retryExhaustedAt: exhausted ? lastAttemptAt : null,
@@ -132,15 +201,20 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
       return;
     }
 
-    const attempts = sameContext ? (Number(previous?.attempts) || 0) + 1 : 1;
+    const attempts = sameBudgetContext ? (Number(previous?.attempts) || 0) + 1 : 1;
     const exhausted = attempts >= MAX_ELIGIBILITY_RETRY_ATTEMPTS;
-    const firstAttemptAt = sameContext && Number(previous?.firstAttemptAt) > 0
+    const firstAttemptAt = sameBudgetContext && Number(previous?.firstAttemptAt) > 0
       ? Number(previous.firstAttemptAt)
       : lastAttemptAt;
     transaction.set(ref, {
       jobUrl: url,
       context,
       jobContext,
+      retryBudgetContext: budgetContext,
+      retryBudgetJobContext: budgetJobContext,
+      eligibilityFactsRevision: Math.max(0, Math.floor(Number(eligibilityFactsRevision) || 0)),
+      ...(retainedSourceFingerprint ? { sourceFingerprint: retainedSourceFingerprint } : {}),
+      ...(retainedFactsDependency ? { candidateFactsDependency: retainedFactsDependency } : {}),
       attempts,
       deferrals: 0,
       retryAt: exhausted ? 0 : lastAttemptAt + DELAYS[Math.min(attempts - 1, DELAYS.length - 1)],
