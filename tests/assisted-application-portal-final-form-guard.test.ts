@@ -63,6 +63,36 @@ it('binds the effective form route and submitter overrides', () => {
   expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('blocked_before_click');
 });
 
+it('blocks when an owning fieldset becomes disabled after arming', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <button data-aa-id="b1" type="submit">Apply</button>
+    <fieldset id="candidate-address"><legend>Address</legend><input name="street" value="Via Roma 1"></fieldset>
+  </form>`);
+  const fieldset = dom.window.document.querySelector('#candidate-address') as HTMLFieldSetElement;
+  expect(arm(button).ok).toBe(true);
+  fieldset.disabled = true;
+
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(true);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('blocked_before_click');
+});
+
+it('binds the submitter action resolved against the current base URL', () => {
+  const { dom, button } = fixture(`<base href="https://example.invalid/one/"><form data-aa-id="f1" id="application" action="/submit" method="post">
+    <button data-aa-id="b1" type="submit" formaction="submit">Apply</button>
+  </form>`);
+  expect(arm(button).ok).toBe(true);
+  dom.window.document.querySelector('base')!.setAttribute('href', 'https://example.invalid/two/');
+
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(true);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('blocked_before_click');
+});
+
 it('keeps a blocked pointerdown from being followed by an unguarded click', () => {
   const { dom, button, input } = fixture();
   const portalPointer = vi.fn();

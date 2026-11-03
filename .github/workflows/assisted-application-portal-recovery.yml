@@ -57,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.sha }}
           sparse-checkout: |
             functions
             scripts
@@ -67,6 +67,9 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Resolve application recovery marker
+        id: application_recovery
+        run: node scripts/ci/resolve-application-recovery-marker.mjs
       - run: npm ci --no-audit --no-fund
       - run: npm ci --no-audit --no-fund
         working-directory: functions
@@ -86,9 +89,9 @@ jobs:
         # not mutate candidate records or queue real submissions as a side
         # effect of deploying a guard whose live behavior is being verified
         # only with the fake portal suite.
-        if: ${{ !contains(github.event.head_commit.message, '[no-application-recovery]') }}
+        if: ${{ steps.application_recovery.outputs.apply == 'true' }}
         run: node scripts/assisted-application/reconcile-portal-questions.mjs --apply
         timeout-minutes: 5
       - name: Queue recoverable applications through the normal clock
-        if: ${{ !contains(github.event.head_commit.message, '[no-application-recovery]') }}
+        if: ${{ steps.application_recovery.outputs.apply == 'true' }}
         run: node scripts/assisted-application/reconcile-portal-code.mjs --apply

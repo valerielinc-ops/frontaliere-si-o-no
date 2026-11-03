@@ -72,6 +72,15 @@ export function armFinalFormClickGuardInPage(button, {
     const uniqueLabels = [...new Set(labels)];
     const fieldset = node.closest?.('fieldset');
     const legend = fieldset?.querySelector?.(':scope > legend');
+    const fieldsetDisabled = [];
+    for (let ancestor = node.parentElement; ancestor; ancestor = ancestor.parentElement) {
+      if (String(ancestor.tagName || '').toLowerCase() !== 'fieldset') continue;
+      const firstLegend = [...(ancestor.children || [])].find(child => String(child.tagName || '').toLowerCase() === 'legend');
+      fieldsetDisabled.push(Boolean(ancestor.disabled) && !firstLegend?.contains(node));
+    }
+    const resolvedFormAction = node.hasAttribute?.('formaction')
+      ? String(node.formAction || new URL(String(node.getAttribute('formaction') ?? ''), document.baseURI).href)
+      : '';
     const value = tag === 'input' && type === 'file'
       ? [...(node.files || [])].map(file => ({
         name: String(file.name || ''), size: Number(file.size) || 0,
@@ -99,6 +108,8 @@ export function armFinalFormClickGuardInPage(button, {
       options: tag === 'select' ? [...node.options].map(optionContract) : [],
       text: /^(?:button|a)$/u.test(tag) || node.getAttribute?.('role') === 'button' ? textFor(node) : '',
       disabled: Boolean(node.disabled),
+      fieldsetDisabled,
+      resolvedFormAction,
       required: Boolean(node.required) || node.getAttribute?.('aria-required') === 'true',
     };
   };

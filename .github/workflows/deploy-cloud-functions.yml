@@ -32,6 +32,7 @@ jobs:
         uses: actions/checkout@v7
         continue-on-error: true
         with:
+          ref: ${{ github.sha }}
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -66,6 +67,7 @@ jobs:
         if: steps.checkout_primary.outcome == 'failure'
         uses: actions/checkout@v7
         with:
+          ref: ${{ github.sha }}
           # Keep the generated sparse profile identical on the retry.
           sparse-checkout: |
             /*
@@ -100,6 +102,10 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - name: Resolve application recovery marker
+        id: application_recovery
+        run: node scripts/ci/resolve-application-recovery-marker.mjs
+
       - name: Install dependencies
         run: npm ci
 
@@ -131,7 +137,7 @@ jobs:
         # has published the transport fixes; never dispatch a send directly.
         # This PR opts out of automated application recovery because its
         # production verification is intentionally read-only.
-        if: ${{ !contains(github.event.head_commit.message, '[no-application-recovery]') }}
+        if: ${{ steps.application_recovery.outputs.apply == 'true' }}
         run: |
           if [ -f scripts/reconcile-assisted-application-transport-holds.mjs ]; then
             timeout 180s node scripts/reconcile-assisted-application-transport-holds.mjs --apply
@@ -140,7 +146,7 @@ jobs:
       - name: Reconcile resolved operational preferences
         # Run after the new receiver is deployed; the normal clock rechecks
         # consent, hard questions and the submission guard before any send.
-        if: ${{ !contains(github.event.head_commit.message, '[no-application-recovery]') }}
+        if: ${{ steps.application_recovery.outputs.apply == 'true' }}
         run: |
           if [ -f scripts/assisted-application/reconcile-operational-answers.mjs ]; then
             timeout 180s node scripts/assisted-application/reconcile-operational-answers.mjs --apply

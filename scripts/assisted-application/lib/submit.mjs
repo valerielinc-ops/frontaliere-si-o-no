@@ -546,17 +546,17 @@ export async function submitApplication(ctx) {
         knowledge: ctx.knowledge || null,
         log,
         dryRun: Boolean(ctx.dryRun),
-        onBeforeSubmit: guard ? async (form = {}) => {
+        onBeforeSubmit: guard ? async ({ uploads = [], formBinding = null } = {}) => {
           // From here the outcome may stay unknown: what the form holds goes on the draft first, durably, or
           // the click does not happen (submitViaPortal does not catch this throw: see the catch below).
-          const attempt = await portalRecord(form.uploads, 'sent').catch(() => null);
+          const attempt = await portalRecord(uploads, 'sent').catch(() => null);
           if (!attempt || !(await keepAttempt(attempt))) {
             attemptNotStored = true;
             throw new Error('sent_attempt_not_stored');
           }
           attemptKept = true;
           armedSentRecord = attempt;
-          await guard.markClicked(Date.now(), { formBinding: form.formBinding });
+          await guard.markClicked(Date.now(), { formBinding });
           clicked = true;
         } : null,
         onConfirmedNotSent: guard ? async ({ reason = 'portal_validation' } = {}) => {
