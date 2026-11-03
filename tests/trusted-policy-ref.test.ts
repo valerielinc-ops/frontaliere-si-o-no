@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, writeFileSync, chmodSync } from 'node:fs';
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -26,7 +26,90 @@ function steps(): Step[] {
 }
 
 function downloaders(): Step[] {
-  return steps().filter((step) => String(step.run ?? '').includes('download_main'));
+  return steps().filter((step) => /\bdownload_main (?:scripts\/|"\$)/u.test(String(step.run ?? '')));
+}
+
+function downloaderScript(): string {
+  const step = steps().find((candidate) => candidate.id === 'trusted_policy_downloader');
+  const run = String(step?.run ?? '');
+  const open = run.indexOf("<<'POLICY_DOWNLOADER'\n");
+  const close = run.indexOf('\nPOLICY_DOWNLOADER\n', open);
+  expect(open).toBeGreaterThan(-1);
+  expect(close).toBeGreaterThan(open);
+  return run.slice(open + "<<'POLICY_DOWNLOADER'\n".length, close);
+}
+
+function runDownload(responses: string[], path = 'scripts/ci/policy.mjs', mode: 'required' | 'optional' = 'required') {
+  const dir = mkdtempSync(join(tmpdir(), 'policy-download-'));
+  const binDir = join(dir, 'bin');
+  const fakeGh = join(dir, 'gh');
+  const fakeSleep = join(binDir, 'sleep');
+  const downloader = join(dir, 'downloader.sh');
+  const runner = join(dir, 'run.sh');
+  const responseFile = join(dir, 'responses.txt');
+  const callCountFile = join(dir, 'calls.txt');
+  const sleepLog = join(dir, 'sleeps.txt');
+  const destination = join(dir, 'policy', path.split('/').at(-1)!);
+  mkdirSync(binDir, { recursive: true });
+  writeFileSync(responseFile, `${responses.join('\n')}\n`);
+  writeFileSync(downloader, downloaderScript());
+  writeFileSync(fakeGh, [
+    '#!/bin/bash',
+    'set -euo pipefail',
+    'count=0',
+    '[ ! -f "$GH_CALL_COUNT" ] || read -r count < "$GH_CALL_COUNT"',
+    'count=$((count + 1))',
+    'printf "%s\\n" "$count" > "$GH_CALL_COUNT"',
+    'response=$(sed -n "${count}p" "$GH_RESPONSES")',
+    'case "$response" in',
+    '  OK:*) printf "%s\\n" "${response#OK:}" ;;',
+    '  ERR:*) printf "%s\\n" "${response#ERR:}" >&2; exit 1 ;;',
+    '  *) printf "unexpected fake gh response: %s\\n" "$response" >&2; exit 90 ;;',
+    'esac',
+  ].join('\n'));
+  writeFileSync(fakeSleep, '#!/bin/sh\nprintf "%s\\n" "$1" >> "$SLEEP_LOG"\n');
+  writeFileSync(runner, [
+    'set -euo pipefail',
+    'source "$POLICY_DOWNLOADER"',
+    `${mode === 'required' ? 'download_main' : 'download_optional'} "$TEST_PATH" "$TEST_DEST"`,
+  ].join('\n'));
+  chmodSync(fakeGh, 0o755);
+  chmodSync(fakeSleep, 0o755);
+
+  let status = 0;
+  let output = '';
+  try {
+    output = execFileSync('bash', [runner], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH ?? ''}`,
+        POLICY_DOWNLOADER: downloader,
+        TRUSTED_GH_BIN: fakeGh,
+        POLICY_REF: 'a'.repeat(40),
+        GITHUB_REPOSITORY: 'owner/repo',
+        GH_RESPONSES: responseFile,
+        GH_CALL_COUNT: callCountFile,
+        SLEEP_LOG: sleepLog,
+        TEST_PATH: path,
+        TEST_DEST: destination,
+      },
+    });
+  } catch (error) {
+    const failure = error as { status?: number; stdout?: string; stderr?: string };
+    status = failure.status ?? 1;
+    output = `${failure.stdout ?? ''}${failure.stderr ?? ''}`;
+  }
+  const attempts = (() => {
+    try { return Number(readFileSync(callCountFile, 'utf8').trim()); } catch { return 0; }
+  })();
+  const sleeps = (() => {
+    try { return readFileSync(sleepLog, 'utf8').trim().split('\n').filter(Boolean); } catch { return []; }
+  })();
+  let downloaded = '';
+  try { downloaded = readFileSync(destination, 'utf8'); } catch { /* il file può non esistere per fail-closed */ }
+  rmSync(dir, { recursive: true, force: true });
+  return { status, output, attempts, sleeps, downloaded };
 }
 
 describe('ref della policy fidata', () => {
@@ -60,67 +143,126 @@ describe('ref della policy fidata', () => {
   it('il resolver gira prima di ogni downloader', () => {
     const order = steps();
     const resolver = order.findIndex((step) => step.id === 'policy_ref');
-    const firstDownloader = order.findIndex((step) => String(step.run ?? '').includes('download_main'));
+    const firstDownloader = order.findIndex((step) => /\bdownload_main (?:scripts\/|"\$)/u.test(String(step.run ?? '')));
     expect(resolver).toBeGreaterThan(-1);
     expect(resolver).toBeLessThan(firstDownloader);
   });
 
-  it('ogni download fallito nomina il file e il ref', () => {
+  it('tutti i download usano il solo helper di rete condiviso', () => {
+    const helper = downloaderScript();
+    expect(helper).toContain('download_trusted_policy()');
+    expect(helper).toContain("--header 'Accept: application/vnd.github.raw+json'");
+    expect(helper).toContain('non scaricabile da main@${POLICY_REF}');
+    const contentEndpointCalls = steps().map((step) => String(step.run ?? '')).join('\n')
+      .match(/"repos\/\$\{GITHUB_REPOSITORY\}\/contents\/\$\{path\}\?ref=\$\{POLICY_REF\}"/gu) ?? [];
+    expect(contentEndpointCalls).toHaveLength(1);
     for (const step of downloaders()) {
-      const run = String(step.run);
-      expect(run, `messaggio di errore in ${step.id ?? step.name}`)
-        .toContain("non scaricabile da main@${POLICY_REF}");
-      expect(run).toContain("'${path}'");
+      expect(String(step.run), `helper condiviso in ${step.id ?? step.name}`)
+        .toContain('source "$RUNNER_TEMP/trusted-policy-downloader.sh"');
     }
   });
 });
 
-describe('comportamento reale del downloader su un file assente', () => {
-  function downloadMainScript(): string {
-    // Estrae il corpo della funzione dal workflow e lo esegue con un `gh`
-    // finto: il test non deve fidarsi della lettura, deve vedere l'effetto.
-    const step = steps().find((candidate) => candidate.id === 'review_policy');
-    const run = String(step?.run ?? '');
-    // YAML strippa l'indentazione del blocco `run: |`, quindi qui la funzione
-    // è già a colonna 0 e si chiude su una riga `}` nuda.
-    const open = run.indexOf('download_main() {');
-    const close = run.indexOf('\n}', open);
-    expect(open).toBeGreaterThan(-1);
-    expect(close).toBeGreaterThan(open);
-    return run.slice(open, close + 2);
-  }
+describe('retry limitato del downloader della policy fidata', () => {
+  it('ritenta un 500 e attende 5 secondi prima del secondo tentativo', () => {
+    const result = runDownload([
+      'ERR:gh: Internal Server Error (HTTP 500)',
+      'OK:export const trusted = true;',
+    ]);
+    expect(result.status).toBe(0);
+    expect(result.attempts).toBe(2);
+    expect(result.sleeps).toEqual(['5']);
+    expect(result.downloaded).toContain('trusted = true');
+  });
 
-  it('esce non-zero, nomina path e ref, e non lascia un file mutilato', () => {
-    const dir = mkdtempSync(join(tmpdir(), 'policy-ref-'));
-    const fakeGh = join(dir, 'gh');
-    writeFileSync(fakeGh, '#!/bin/sh\necho "gh: Not Found (HTTP 404)" >&2\nexit 1\n');
-    chmodSync(fakeGh, 0o755);
-    const script = join(dir, 'run.sh');
-    writeFileSync(script, [
-      'set -uo pipefail',
-      'GITHUB_REPOSITORY=owner/repo',
-      `TRUSTED_GH_BIN="${fakeGh}"`,
-      'POLICY_REF=' + 'a'.repeat(40),
-      downloadMainScript(),
-      `download_main scripts/ci/nuovo-modulo.mjs "${join(dir, 'out.mjs')}"`,
+  it('usa tutti e quattro i tentativi e il backoff 5/15/30', () => {
+    const result = runDownload([
+      'ERR:gh: Internal Server Error (HTTP 500)',
+      'ERR:gh: Bad Gateway (HTTP 502)',
+      'ERR:gh: Service Unavailable (HTTP 503)',
+      'OK:export const trusted = true;',
+    ]);
+    expect(result.status).toBe(0);
+    expect(result.attempts).toBe(4);
+    expect(result.sleeps).toEqual(['5', '15', '30']);
+  });
+
+  it('ritenta un timeout di rete', () => {
+    const result = runDownload([
+      'ERR:gh: net/http: request canceled (Client.Timeout exceeded while awaiting headers)',
+      'OK:export const trusted = true;',
+    ]);
+    expect(result.status).toBe(0);
+    expect(result.attempts).toBe(2);
+    expect(result.sleeps).toEqual(['5']);
+  });
+
+  it.each([
+    ['404', 'gh: Not Found (HTTP 404)'],
+    ['401', 'gh: Bad credentials (HTTP 401)'],
+    ['403', 'gh: Resource not accessible by integration (HTTP 403)'],
+  ])('non ritenta su %s e fallisce chiuso', (_label, error) => {
+    const result = runDownload([`ERR:${error}`]);
+    expect(result.status).not.toBe(0);
+    expect(result.attempts).toBe(1);
+    expect(result.sleeps).toEqual([]);
+    expect(result.output).toContain('scripts/ci/policy.mjs');
+    expect(result.output).toContain(`main@${'a'.repeat(40)}`);
+  });
+
+  it('per un 404 opzionale non ritenta e continua senza creare il file', () => {
+    const result = runDownload(['ERR:gh: Not Found (HTTP 404)'], 'scripts/ci/optional.mjs', 'optional');
+    expect(result.status).toBe(0);
+    expect(result.attempts).toBe(1);
+    expect(result.sleeps).toEqual([]);
+    expect(result.output).toContain('policy fidata opzionale assente');
+    expect(result.downloaded).toBe('');
+  });
+
+  it('un contenuto JavaScript non valido fallisce senza retry', () => {
+    const result = runDownload(['OK:export const = ;']);
+    expect(result.status).not.toBe(0);
+    expect(result.attempts).toBe(1);
+    expect(result.sleeps).toEqual([]);
+    expect(result.output).toContain('contenuto non valido');
+  });
+
+  it('valida i JSON trusted senza ritentare un payload non valido', () => {
+    const valid = runDownload(['OK:{"type":"module"}'], 'package.json');
+    expect(valid.status).toBe(0);
+    expect(valid.downloaded).toContain('"type":"module"');
+    const invalid = runDownload(['OK:{']);
+    expect(invalid.status).not.toBe(0);
+    expect(invalid.attempts).toBe(1);
+    expect(invalid.sleeps).toEqual([]);
+    expect(invalid.output).toContain('contenuto non valido');
+  });
+
+  it('root finale vuota produce un errore esplicito prima di risolvere moduli Node', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'policy-root-guard-'));
+    const downloader = join(dir, 'downloader.sh');
+    const runner = join(dir, 'run.sh');
+    writeFileSync(downloader, downloaderScript());
+    writeFileSync(runner, [
+      'set -euo pipefail',
+      'source "$POLICY_DOWNLOADER"',
+      'require_trusted_policy_module "${REVIEW_POLICY_ROOT:-}" scripts/ci/review-gate.mjs',
     ].join('\n'));
-
     let status = 0;
     let output = '';
     try {
-      output = execFileSync('bash', [script], { encoding: 'utf8' });
+      output = execFileSync('bash', [runner], {
+        encoding: 'utf8',
+        env: { ...process.env, POLICY_DOWNLOADER: downloader, REVIEW_POLICY_ROOT: '' },
+      });
     } catch (error) {
       const failure = error as { status?: number; stdout?: string; stderr?: string };
       status = failure.status ?? 1;
       output = `${failure.stdout ?? ''}${failure.stderr ?? ''}`;
     }
     expect(status).not.toBe(0);
-    expect(output).toContain('scripts/ci/nuovo-modulo.mjs');
-    expect(output).toContain(`main@${'a'.repeat(40)}`);
-    expect(output).toContain('404');
-    // Il file parziale e il suo scratch non restano in giro a far credere che
-    // il download sia andato.
-    expect(() => readFileSync(join(dir, 'out.mjs'), 'utf8')).toThrow();
-    expect(() => readFileSync(join(dir, 'out.mjs.err'), 'utf8')).toThrow();
+    expect(output).toContain('policy fidata non disponibile');
+    expect(output).not.toContain('Cannot find module');
+    rmSync(dir, { recursive: true, force: true });
   });
 });

@@ -13,10 +13,15 @@ describe('recorded versus URL-inferred job identity', () => {
     const normal = source.slice(source.indexOf('const hasRealTitle = hasRecordedJobIdentity(ejData)'));
     const safetyStart = source.indexOf('const buildHistoricalArchiveHtml =');
     const safety = source.slice(safetyStart, source.indexOf('for (const [slug, paths] of Object.entries(tracking)', safetyStart));
+    const socialPreviewStart = source.indexOf('const UNVERIFIED_JOB_SOCIAL_PREVIEW:');
+    const socialPreviewEnd = source.indexOf('};', socialPreviewStart) + '};'.length;
+    expect(socialPreviewStart).toBeGreaterThan(-1);
+    expect(socialPreviewEnd).toBeGreaterThan(socialPreviewStart);
     const execute = (code: string, bindings: Record<string, unknown>) => {
       const js = ts.transpileModule(code, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } }).outputText;
       return new Function(...Object.keys(bindings), js)(...Object.values(bindings));
     };
+    const socialPreview = execute(`${source.slice(socialPreviewStart, socialPreviewEnd)}\nreturn UNVERIFIED_JOB_SOCIAL_PREVIEW;`, {});
     // Execute the actual normal-writer route and emitted breadcrumb, not a
     // second implementation of its identity decision or canton routing.
     const declarations = ['jobCanton', 'listingPath', 'displayCanton'].map((name) => {
@@ -50,7 +55,7 @@ describe('recorded versus URL-inferred job identity', () => {
       expect.soft(normalHtml).toContain(path);
       expect.soft(normalHtml).toContain(expectedLabel);
       const historicalHtml = execute(`${safety}\nreturn buildHistoricalArchiveHtml('url-reference', '/historical-reference/', locale, archive);`, {
-        ...bindings, archive, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, renderJobPostingDescription, jobTitleLocaleQualifiers, knownEmployerProfileSlugs: new Set(),
+        ...bindings, archive, UNVERIFIED_JOB_SOCIAL_PREVIEW: socialPreview, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, renderJobPostingDescription, jobTitleLocaleQualifiers, knownEmployerProfileSlugs: new Set(),
         finalizeJobBoardTitle: String, jobDisplayTitle: (job: { title?: string } | null | undefined) => job?.title || '',
         expiredDemandIndexable: true,
         historicalArchiveCopy: { [locale]: { notice: 'Archived', original: 'Original', next: 'Browse', cta: 'Browse', details: 'Details' } },

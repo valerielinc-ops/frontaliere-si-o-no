@@ -1056,6 +1056,123 @@ jobs:
           echo "Policy fidata pinnata su main@${policy_ref}."
           printf 'sha=%s\n' "$policy_ref" >> "$GITHUB_OUTPUT"
 
+      # Keep the API download and retry policy in one temporary helper. It
+      # is written before checkout so every later refresh uses the same code,
+      # including the initial no-checkout bootstrap.
+      - name: Prepare trusted policy downloader
+        id: trusted_policy_downloader
+        if: ${{ steps.policy_ref.outcome == 'success' && !cancelled() }}
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/trusted-policy-downloader.sh" <<'POLICY_DOWNLOADER'
+          download_trusted_policy() {
+            local path="$1"
+            local destination="$2"
+            local mode="${3:-required}"
+            local error_file="${destination}.err"
+            local validation_file="${destination}.validation.err"
+            local error_text error_lower error_summary attempt delay
+            local -a backoff=(5 15 30)
+
+            if [[ -z "${TRUSTED_GH_BIN:-}" || ! -x "$TRUSTED_GH_BIN" ]]; then
+              echo "::error::policy fidata non disponibile: CLI GitHub trusted non configurata."
+              return 1
+            fi
+            if [[ ! "${POLICY_REF:-}" =~ ^[0-9a-f]{40}$ ]]; then
+              echo "::error::policy fidata non disponibile: ref trusted non valida."
+              return 1
+            fi
+            if [[ "$mode" != "required" && "$mode" != "optional" ]]; then
+              echo "::error::modalità di download policy non valida: '$mode'."
+              return 1
+            fi
+
+            mkdir -p "$(dirname "$destination")"
+            for attempt in 1 2 3 4; do
+              rm -f "$destination" "$error_file" "$validation_file"
+              if "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+                --header 'Accept: application/vnd.github.raw+json' \
+                > "$destination" 2>"$error_file"; then
+                if [[ ! -s "$destination" ]]; then
+                  echo "::error::policy fidata: '${path}' ha restituito contenuto vuoto da main@${POLICY_REF}; nessun retry."
+                  rm -f "$destination" "$error_file"
+                  return 1
+                fi
+                case "$path" in
+                  *.mjs|*.js)
+                    if ! node --input-type=module --check < "$destination" 2>"$validation_file"; then
+                      error_summary=$(tr -d '\n' < "$validation_file" | tail -c 300)
+                      echo "::error::policy fidata: contenuto non valido per '${path}' da main@${POLICY_REF}; nessun retry — ${error_summary}"
+                      rm -f "$destination" "$error_file" "$validation_file"
+                      return 1
+                    fi
+                    ;;
+                  *.cjs)
+                    if ! node --check "$destination" 2>"$validation_file"; then
+                      error_summary=$(tr -d '\n' < "$validation_file" | tail -c 300)
+                      echo "::error::policy fidata: contenuto non valido per '${path}' da main@${POLICY_REF}; nessun retry — ${error_summary}"
+                      rm -f "$destination" "$error_file" "$validation_file"
+                      return 1
+                    fi
+                    ;;
+                  *.json)
+                    if ! node -e 'JSON.parse(require("node:fs").readFileSync(process.argv[1], "utf8"))' "$destination" 2>"$validation_file"; then
+                      error_summary=$(tr -d '\n' < "$validation_file" | tail -c 300)
+                      echo "::error::policy fidata: contenuto non valido per '${path}' da main@${POLICY_REF}; nessun retry — ${error_summary}"
+                      rm -f "$destination" "$error_file" "$validation_file"
+                      return 1
+                    fi
+                    ;;
+                esac
+                rm -f "$error_file" "$validation_file"
+                return 0
+              fi
+
+              error_text=$(cat "$error_file" 2>/dev/null || true)
+              error_lower=$(printf '%s' "$error_text" | tr '[:upper:]' '[:lower:]')
+              error_summary=$(printf '%s' "$error_text" | tr -d '\n' | tail -c 300)
+              if [[ "$error_lower" =~ http[[:space:]]+(500|502|503|504)([^0-9]|$) ]] \
+                || [[ "$error_lower" =~ timeout|timed[[:space:]]+out|deadline[[:space:]]+exceeded ]]; then
+                if (( attempt < 4 )); then
+                  delay="${backoff[$((attempt - 1))]}"
+                  echo "::warning::policy fidata: errore transitorio su '${path}' da main@${POLICY_REF} (tentativo ${attempt}/4); nuovo tentativo tra ${delay}s — ${error_summary}"
+                  sleep "$delay"
+                  continue
+                fi
+                echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} dopo 4 tentativi — ${error_summary}"
+                rm -f "$destination" "$error_file" "$validation_file"
+                return 1
+              fi
+
+              rm -f "$destination" "$error_file" "$validation_file"
+              if [[ "$mode" == "optional" && "$error_lower" =~ http[[:space:]]+404([^0-9]|$) ]]; then
+                echo "::notice::policy fidata opzionale assente: '${path}' non esiste su main@${POLICY_REF}."
+                return 0
+              fi
+              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — ${error_summary}; nessun retry per questo errore."
+              return 1
+            done
+          }
+
+          download_main() {
+            download_trusted_policy "$1" "$2" required
+          }
+
+          download_optional() {
+            download_trusted_policy "$1" "$2" optional
+          }
+
+          require_trusted_policy_module() {
+            local policy_root="${1:-}"
+            local module_path="${2:-}"
+            if [[ -z "$policy_root" || ! -f "$policy_root/$module_path" ]]; then
+              echo "::error::policy fidata non disponibile: modulo trusted '${module_path}' assente dopo il refresh finale."
+              return 1
+            fi
+          }
+          POLICY_DOWNLOADER
+          chmod 700 "$RUNNER_TEMP/trusted-policy-downloader.sh"
+
       # Review admission, body-revision and gate code are security-sensitive:
       # the PR checkout below is attacker-controlled. Download the complete
       # import cone from the immutable base commit before checkout and execute
@@ -1071,23 +1188,9 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           policy_root="${RUNNER_TEMP}/review-policy"
           mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib"
-          # Un 404 qui vuol dire «main@ref non ha questo file», non «rete giù»:
-          # il messaggio deve nominare file e ref, altrimenti il rosso arriva
-          # come «gate di review saltato» e manda a cercare la causa altrove.
-          download_main() {
-            local path="$1"
-            local destination="$2"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>"${destination}.err"; then
-              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
-              rm -f "$destination" "${destination}.err"
-              exit 1
-            fi
-            rm -f "${destination}.err"
-          }
           download_main scripts/ci/review-gate.mjs "$policy_root/scripts/ci/review-gate.mjs"
           download_main scripts/ci/lib/review-carry-forward.mjs "$policy_root/scripts/ci/lib/review-carry-forward.mjs"
           download_main scripts/ci/pr-contribution-fingerprint.mjs "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs"
@@ -1123,16 +1226,6 @@ jobs:
           # best-effort. La prova che il grafo è completo non è `node --check`
           # — che vede solo la sintassi — ma la risoluzione reale degli import,
           # fatta subito sotto.
-          download_optional() {
-            local path="$1"
-            local destination="$2"
-            mkdir -p "$(dirname "$destination")"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>/dev/null; then
-              rm -f "$destination"
-            fi
-          }
           for optional_path in \
             scripts/ci/lib/review-findings.mjs \
             scripts/ci/followup-resolution-match.mjs; do
@@ -1200,23 +1293,9 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           policy_root="${RUNNER_TEMP}/ledger-fast-policy"
           mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib" "$policy_root/functions/src" "$policy_root/data/loop-fleet"
-          # Un 404 qui vuol dire «main@ref non ha questo file», non «rete giù»:
-          # il messaggio deve nominare file e ref, altrimenti il rosso arriva
-          # come «gate di review saltato» e manda a cercare la causa altrove.
-          download_main() {
-            local path="$1"
-            local destination="$2"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>"${destination}.err"; then
-              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
-              rm -f "$destination" "${destination}.err"
-              exit 1
-            fi
-            rm -f "${destination}.err"
-          }
           download_main package.json "$policy_root/package.json"
           download_main scripts/ci/prefetch-review-diff.mjs "$policy_root/scripts/ci/prefetch-review-diff.mjs"
           download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
@@ -3450,23 +3529,10 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           policy_root="${RUNNER_TEMP}/review-policy-publish-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
-          # Vedi sopra: il 404 nomina file e ref.
-          download_main() {
-            local path="$1"
-            local destination="$policy_root/$path"
-            mkdir -p "$(dirname "$destination")"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>"${destination}.err"; then
-              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
-              rm -f "$destination" "${destination}.err"
-              exit 1
-            fi
-            rm -f "${destination}.err"
-          }
           for trusted_path in \
             scripts/ci/prefetch-review-diff.mjs \
             scripts/ci/review-test-policy.mjs \
@@ -3631,23 +3697,10 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           policy_root="${RUNNER_TEMP}/review-policy-abort-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
-          # Vedi sopra: il 404 nomina file e ref.
-          download_main() {
-            local path="$1"
-            local destination="$policy_root/$path"
-            mkdir -p "$(dirname "$destination")"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>"${destination}.err"; then
-              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
-              rm -f "$destination" "${destination}.err"
-              exit 1
-            fi
-            rm -f "${destination}.err"
-          }
           for trusted_path in \
             scripts/ci/claude-codex-fallback.mjs \
             scripts/lib/codex-fallback-contract.mjs \
@@ -3883,23 +3936,10 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           policy_root="${RUNNER_TEMP}/review-policy-final-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
-          # Vedi sopra: il 404 nomina file e ref.
-          download_main() {
-            local path="$1"
-            local destination="$policy_root/$path"
-            mkdir -p "$(dirname "$destination")"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>"${destination}.err"; then
-              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
-              rm -f "$destination" "${destination}.err"
-              exit 1
-            fi
-            rm -f "${destination}.err"
-          }
           for trusted_path in \
             scripts/ci/review-gate.mjs \
             scripts/ci/lib/review-carry-forward.mjs \
@@ -3938,16 +3978,6 @@ jobs:
           # best-effort. La prova che il grafo è completo non è `node --check`
           # — che vede solo la sintassi — ma la risoluzione reale degli import,
           # fatta subito sotto.
-          download_optional() {
-            local path="$1"
-            local destination="$2"
-            mkdir -p "$(dirname "$destination")"
-            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination" 2>/dev/null; then
-              rm -f "$destination"
-            fi
-          }
           for optional_path in \
             scripts/ci/lib/review-findings.mjs \
             scripts/ci/followup-resolution-match.mjs; do
@@ -4018,6 +4048,8 @@ jobs:
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
+          require_trusted_policy_module "$REVIEW_POLICY_ROOT" scripts/ci/review-marker-recovery.mjs
           reviews_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.json"
           decision_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.decision.json"
           body_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.md"
@@ -4109,6 +4141,8 @@ jobs:
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
+          require_trusted_policy_module "$REVIEW_POLICY_ROOT" scripts/ci/review-marker-recovery.mjs
           if ! reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
             echo "::error::Reviews API unavailable after reviewer: marker non verificabile, nessun retry Codex."
             exit 1
@@ -4139,6 +4173,8 @@ jobs:
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
+          source "$RUNNER_TEMP/trusted-policy-downloader.sh"
+          require_trusted_policy_module "$REVIEW_POLICY_ROOT" scripts/ci/review-gate.mjs
           # Il gate autorevole resta questo step required; la decisione è
           # estratta in un modulo testabile che verifica la coppia review/check
           # sulla HEAD corrente, la classificazione fail-closed e il conio della

@@ -50,14 +50,15 @@ function runGraph(script: string, entries: string[]) {
 }
 
 describe('guard del grafo di import della copia trusted', () => {
-  it('ogni passo che scarica la policy scarica anche i moduli opzionali e cammina il grafo', () => {
-    const downloaders = stepsOf().filter((step) => String(step.run ?? '').includes('download_main'));
+  it('ogni passo che scarica la policy usa il downloader unico e cammina il grafo', () => {
+    const downloaders = stepsOf().filter((step) => /(?:^|\n)\s*download_main (?:scripts\/|"\$)/u.test(String(step.run ?? '')));
     expect(downloaders.length).toBeGreaterThanOrEqual(2);
     const withGate = downloaders.filter((step) =>
       String(step.run).includes('scripts/ci/review-gate.mjs'));
     expect(withGate.length).toBeGreaterThanOrEqual(2);
     for (const step of withGate) {
       const run = String(step.run);
+      expect(run).toContain('source "$RUNNER_TEMP/trusted-policy-downloader.sh"');
       expect(run).toContain('download_optional');
       expect(run).toContain('scripts/ci/lib/review-findings.mjs');
       expect(run).toContain('scripts/ci/followup-resolution-match.mjs');
@@ -214,7 +215,7 @@ function unresolvedTrustedImports(downloaded: Set<string>): string[] {
 }
 
 describe('gli elenchi trusted di tests.yml sono chiusi rispetto agli import del repo', () => {
-  const steps = stepsOf().filter((step) => /\bdownload_main\b/u.test(String(step.run ?? '')));
+  const steps = stepsOf().filter((step) => /(?:^|\n)\s*download_main (?:scripts\/|"\$)/u.test(String(step.run ?? '')));
 
   it('trova gli step che scaricano la policy trusted (non vacuo)', () => {
     expect(steps.length).toBeGreaterThanOrEqual(3);
