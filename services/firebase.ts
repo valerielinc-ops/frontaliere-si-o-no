@@ -244,23 +244,24 @@ type FirebaseInstallationsError = {
 
 /**
  * Firebase Analytics and Performance both start asynchronous Installations
- * work during their otherwise synchronous factory call. A permanent 403
- * from the Installations API therefore rejects an SDK-internal promise after
- * the caller's try/catch has already completed.
+ * work during their otherwise synchronous factory call. A permanent client
+ * configuration error from the Installations API therefore rejects an
+ * SDK-internal promise after the caller's try/catch has already completed.
  */
-function isFirebaseInstallationsPermissionDenied(error: unknown): boolean {
+function isFirebaseInstallationsPermanentFailure(error: unknown): boolean {
  const candidate = (error && typeof error === 'object')
   ? error as FirebaseInstallationsError
   : null;
  const serverCode = candidate?.customData?.serverCode;
- if (candidate?.code === 'installations/request-failed' && Number(serverCode) === 403) {
+ if (candidate?.code === 'installations/request-failed'
+  && [400, 403].includes(Number(serverCode))) {
   return true;
  }
 
  const message = typeof candidate?.message === 'string'
   ? candidate.message
   : String(error ?? '');
- return /Installations:\s*Create Installation request failed with error ["']?403\s+PERMISSION_DENIED\b/i.test(message);
+ return /Installations:\s*Create Installation request failed with error ["']?(?:400\s+INVALID_ARGUMENT|403\s+PERMISSION_DENIED)\b/i.test(message);
 }
 
 let _telemetryInstallationsBlocked = false;
@@ -285,9 +286,9 @@ async function ensureTelemetryInstallationsReady(app: FirebaseApp): Promise<bool
    await getToken(getInstallations(app));
    return true;
   } catch (error) {
-   if (isFirebaseInstallationsPermissionDenied(error)) {
+   if (isFirebaseInstallationsPermanentFailure(error)) {
     _telemetryInstallationsBlocked = true;
-    firebaseWarn('[Firebase] Installations permission denied; optional telemetry disabled for this page');
+    firebaseWarn('[Firebase] Installations rejected the client configuration; optional telemetry disabled for this page');
     return false;
    }
    return true;
