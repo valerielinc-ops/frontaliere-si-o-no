@@ -14,6 +14,7 @@ import { seoBlogShardIndexPlugin, RESOLVED_SEO_BLOG_SHARD_INDEX_ID } from './bui
 import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { versionedCdnAssetsPlugin } from './build-plugins/versionedCdnAssetsPlugin';
+import { metaPixelBaseCodePlugin } from './build-plugins/metaPixelBaseCodePlugin';
 import { assetIntegrityManifestPlugin } from './build-plugins/shared/assetIntegrity';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
@@ -683,6 +684,12 @@ export default defineConfig(({ mode }) => {
  // Vite copies this public asset without optimizing it. Compress the final
  // output after all page emitters and before the write registry is reported.
  withPhaseTiming(minifySeoStaticCssPlugin()),
+ // Inject consent-gated Meta Pixel into every production HTML file after page
+ // emitters and final CSS processing, but before the registry hashes the final
+ // output manifest. Skip FAST_BUILD, whose dist may intentionally be sparse.
+ ...(!isFastBuild ? [
+ withBuildStopAfter(withProfile(withPhaseTiming(metaPixelBaseCodePlugin(__dirname)))),
+ ] : []),
  // Prints the collision summary and writes dist/.write-collisions.json after
  // every other plugin's closeBundle has flushed. enforce/order makes it the
  // last hook in the chain.
