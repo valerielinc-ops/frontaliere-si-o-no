@@ -1,7 +1,7 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-11-02T21:31:03.218Z",
+  "generatedAt": "2026-11-03T09:25:38.384Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4606,
-  "avgDurationMs": 4606,
+  "durationMs": 4595,
+  "avgDurationMs": 4595,
   "durationHistory": [
-    4606
+    4595
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:30:50.272Z",
+      "crawledAt": "2026-11-03T09:25:20.016Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Wagistrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-02T21:30:50.272Z",
+      "validThrough": "2026-12-03T09:25:20.016Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:30:49.713Z",
+      "crawledAt": "2026-11-03T09:25:19.449Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       },
       "streetAddress": "Wagistrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T21:30:49.713Z",
+      "validThrough": "2026-12-23T09:25:19.449Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -140,5 +140,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }
