@@ -120,9 +120,12 @@ function nativeQuestionText(value, counter = null) {
   // that its questions are currently discoverable. Ordinary portal runs stay
   // visibility-scoped so stale steps and hidden traps are ignored.
   const mountedForReadAhead = (element) => {
-    if (element.closest('[hidden], [aria-hidden="true"]')) return false;
-    const style = window.getComputedStyle(element);
-    return style.display !== 'none' && style.visibility !== 'hidden';
+    for (let node = element; node; node = node.parentElement) {
+      if (node.hasAttribute('hidden') || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return false;
+      const style = window.getComputedStyle(node);
+      if (style.display === 'none' || style.visibility === 'hidden') return false;
+    }
+    return true;
   };
   const readable = (element) => includeHidden ? mountedForReadAhead(element) : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
