@@ -3452,8 +3452,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: after, reopen: true, pressed };
   }
 
-  // Create-account page.
-  const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
+  // Create-account page. SuccessFactors can reopen the job URL directly on
+  // registration after a prior run saved the password but did not consume its
+  // OTP; it has no sign-in link on that surface. Reuse the same credential for
+  // that bounded OTP retry, while other portals still require an explicit,
+  // verified sign-in route before an existing account is touched.
+  const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt
+    && (allowExistingRegistration || usesOtpAccountCreation(host)));
   if (account && !retryingUnverifiedAccount) {
     // Created by an earlier run: follow only an explicit, verified login route.
     if (!await openVerifiedSignInNavigation(page, snapshot)) return accountHandoff('account', 'no_sign_in_button', 'registration');
