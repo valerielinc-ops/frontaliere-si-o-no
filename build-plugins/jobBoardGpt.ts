@@ -3,7 +3,12 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
-import { FC_JOBBOARD_OFFERWALL_GATE_JS, TELEMETRY_SANITIZER_JS, THIRD_PARTY_DOCUMENT_GUARD_JS } from './constants';
+import {
+  FC_JOBBOARD_OFFERWALL_GATE_JS,
+  FC_PUBLISHER_ID,
+  TELEMETRY_SANITIZER_JS,
+  THIRD_PARTY_DOCUMENT_GUARD_JS,
+} from './constants';
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 import { serializeStaticFunction } from './shared/serializeStaticFunction';
 import { URL as NodeURL } from 'node:url';
@@ -17,6 +22,8 @@ export const GPT_LOADER_FILENAME = 'gpt-loader.js';
 /** Stable, cacheable Funding Choices carrier for job-board pages. */
 export const JOB_BOARD_FC_LOADER_FILENAME = 'job-board-fc-loader.js';
 export const JOB_BOARD_FC_LOADER_TAG = `<script defer src="/assets/${JOB_BOARD_FC_LOADER_FILENAME}"></script>`;
+/** Pre-fetch the CMP on the main listing; the deferred carrier still controls execution. */
+export const JOB_BOARD_FC_PRELOAD_TAG = `<link rel="preload" as="script" href="https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1">`;
 
 /** Deferred bootstrap: it queues GPT before DOMContentLoaded without blocking parsing. */
 export const GPT_BOOTSTRAP_TAG = `<script defer src="/assets/${GPT_LOADER_FILENAME}"></script>`;
@@ -37,6 +44,15 @@ export function isJobBoardPageUrl(value: string): boolean {
   return isJobBoardSectionPathname(pathname);
 }
 
+function isPrimaryJobBoardListingUrl(value: string): boolean {
+  try {
+    const url = new NodeURL(value, 'https://frontaliereticino.ch');
+    return url.origin === 'https://frontaliereticino.ch' && url.pathname === '/cerca-lavoro-ticino/';
+  } catch {
+    return false;
+  }
+}
+
 /** The two ordered, deferred tags required by every statically emitted job-board page. */
 export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${JOB_BOARD_FC_LOADER_TAG}`;
 
@@ -50,7 +66,8 @@ export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${JOB_BOARD_FC_LOA
  */
 export function jobBoardHeadTags(value: string): string {
   if (!isJobBoardPageUrl(value)) return '';
-  return JOB_BOARD_HEAD_TAGS;
+  const fcPreload = isPrimaryJobBoardListingUrl(value) ? `\n ${JOB_BOARD_FC_PRELOAD_TAG}` : '';
+  return `${fcPreload}${JOB_BOARD_HEAD_TAGS}`;
 }
 
 const scriptSrc = JSON.stringify(GPT_SCRIPT_SRC);
