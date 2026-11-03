@@ -1,5 +1,5 @@
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
-import { isPaginationNoindex, isPaginationSitemapEligible, paginationRobots } from './shared/paginationIndexPolicy';
+import { isPaginationSitemapEligible, paginationRobots } from './shared/paginationIndexPolicy';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
@@ -4223,7 +4223,7 @@ export function renderHubPage(input: HubPageInput): { urlPath: string; html: str
     // The related-search hub owns this noindex decision. Keep the declaration
     // beside the policy that decides it so a shell change cannot silently
     // turn these internal pagination pages into unexplained frontier errors.
-    extraHeadHtml: isPaginationNoindex(page) ? PAGINATION_NOINDEX_TARGET_MARKER : undefined,
+    extraHeadHtml: paginationRobots(page) === 'noindex,follow' ? PAGINATION_NOINDEX_TARGET_MARKER : undefined,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
   });
