@@ -1479,6 +1479,10 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
           # Runs ONLY step_push_cdn (+ nothing else) and returns.
           DEPLOY_CDN_PUSH_ONLY: '1'
+          # Fail fast here: og/ can exceed 900s, and two 900s attempts outlast
+          # this step's 45 minutes. Run 41579534959 lost them that way and the IT
+          # leg hit the 6h job cap. The retry below keeps the 900s default.
+          R2_TIMEOUT_OG_S: '300'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
       # One more try BEFORE the section fan-out gives up. A failed early push
