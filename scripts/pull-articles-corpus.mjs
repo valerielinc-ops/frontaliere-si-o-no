@@ -450,7 +450,9 @@ try {
   // deleted on 2026-08-07 without either floor firing. Compare the registries
   // by article id instead, and let a removal through only when the site's
   // retirement ledger (legacyRedirectsPlugin's `redirects` table) already
-  // carries a bridge for its canonical URL. Rationale and incident:
+  // declares its canonical URL: an equivalent target is a 301, while a
+  // section-root sentinel maps to 410 rather than redirecting to a soft-404.
+  // Rationale and incident:
   // scripts/lib/corpus-removal-guard.mjs.
   //
   // Both sides resolve by BASENAME onto the tree that is actually about to be

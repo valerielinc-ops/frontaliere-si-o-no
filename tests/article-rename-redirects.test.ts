@@ -81,11 +81,11 @@ const CANONICAL_OVERRIDES = loadSwissArticleCanonicalOverrides({ readFileSync },
   resolve(ROOT, 'packages/articles/engine/shared/frontaliere-article-canonical-overrides.json'),
   resolve(ROOT, 'data/swiss-article-canonical-overrides.json'),
 ]);
-const LIVE_BIG_BEND_PATHS = [
-  '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/',
-  '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/',
-  '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/',
-  '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/',
+const RETIRED_BIG_BEND_PATHS: Array<[from: string, sectionRoot: string]> = [
+  ['/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/', '/articoli-svizzera/'],
+  ['/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/', '/en/swiss-articles/'],
+  ['/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/', '/de/schweiz-artikel/'],
+  ['/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/', '/fr/articles-suisse/'],
 ];
 
 describe('articleSectionPrefixes — derived, not hand-copied', () => {
@@ -120,18 +120,18 @@ describe('articleSectionPrefixes — derived, not hand-copied', () => {
   });
 });
 
-describe('republished Big Bend article routes', () => {
-  it('keeps all four republished locale URLs out of both article redirect sources', () => {
+describe('retired Big Bend article routes', () => {
+  it('declares a section-root retirement sentinel for every locale, without a substitute page', () => {
     const redirects = loadArticleRouteRedirects(
       { readFileSync },
       REDIRECTS_ABS,
       resolve(ROOT, 'build-plugins/legacyRedirectsPlugin.ts'),
     );
 
-    for (const route of LIVE_BIG_BEND_PATHS) {
-      expect(HARDCODED[route], `${route} must not be hardcoded as a redirect`).toBeUndefined();
-      expect(redirects[route], `${route} must not be redirected by either source`).toBeUndefined();
-      expect(resolveArticleRouteHref(route, { redirects }), route).toBe(route);
+    for (const [route, sectionRoot] of RETIRED_BIG_BEND_PATHS) {
+      expect(HARDCODED[route], `${route} must use its section root as the 410 sentinel`).toBe(sectionRoot);
+      expect(redirects[route], `${route} must not target an equivalent article`).toBe(sectionRoot);
+      expect(resolveArticleRouteHref(route, { redirects }), route).toBe(sectionRoot);
     }
   });
 });
