@@ -1,0 +1,21 @@
+{
+  "companyKey": "tortorellagroup",
+  "companyName": "Tortorella Group",
+  "companyHost": "tortorellagroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://tortorellagroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Customer Service Representative"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:21:06.842Z",
+  "candidateKey": "tortorellagroup@applytojob.com"
+}

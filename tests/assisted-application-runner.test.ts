@@ -14,10 +14,10 @@ import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draf
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
-import { openRequiredQuestions, portalNeedsPlanner, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
+import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createRawMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
@@ -144,6 +144,26 @@ const order = {
   locale: 'it', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', applicantPhone: '+41 79 123 45 67',
   cvStorageKey: `assisted-application-uploads/${ORDER_ID}/1-cv.pdf`,
 };
+
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const orderPath = `assisted_applications/${ORDER_ID}`;
+  const seeded = { ...seed, [orderPath]: { ...order, ...(seed[orderPath] || {}) } };
+  return createRawMemoryFirestore(seeded);
+}
+
+async function submitApplication(context: Record<string, any>) {
+  if (context.dryRun || context.submissionGuard) return submitApplicationImpl(context);
+  return submitApplicationImpl({
+    ...context,
+    submissionGuard: {
+      claim: async () => ({ status: 'claimed', attemptId: 'test-attempt' }),
+      markClicked: async () => {},
+      markSent: async () => null,
+      validateAnswerSources: async () => true,
+      release: async () => {},
+    },
+  });
+}
 
 const quiet = () => {};
 const publicDns = async () => [{ address: "93.184.216.34", family: 4 }];
@@ -792,10 +812,19 @@ describe('submit mode', () => {
       codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(db, ORDER_ID, 1),
     });
     const sent = createMemoryFirestore();
-    const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
+    const clicksAndSends = vi.fn(async (ctx: any) => {
+      const finalUrl = 'https://jobs.lever.co/ospedale/1/confirmation';
+      await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) });
+      await ctx.onReceipt({ finalUrl });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], finalUrl } };
+    });
     expect(await submit(sent.db, clicksAndSends)).toMatchObject({ type: 'submit_succeeded', channel: 'lever' });
     // The replay hands over the record of the first send, as the e-mail's does.
-    expect(await submit(sent.db, clicksAndSends)).toEqual({ type: 'submit_succeeded', channel: 'lever', replayed: true, sent: expect.objectContaining({ packaging: 'portal', channel: 'lever', files: [] }) });
+    expect(await submit(sent.db, clicksAndSends)).toEqual({
+      type: 'submit_succeeded', channel: 'lever', replayed: true,
+      receiptId: expect.stringMatching(/^[a-f0-9]{40}$/),
+      sent: expect.objectContaining({ packaging: 'portal', channel: 'lever', files: [] }),
+    });
     expect(clicksAndSends).toHaveBeenCalledTimes(1);
 
     // Died after pressing submit: the outcome is unknown, the retry does not press it again.

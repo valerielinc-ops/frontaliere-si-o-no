@@ -1,0 +1,23 @@
+{
+  "companyKey": "moveup-ch-moveup-ch",
+  "companyName": "Move UP SA",
+  "companyHost": "jobs.moveup.ch",
+  "verifiedEmployerDomain": "moveup.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.moveup.ch/job/40666?referrer=Move+UP"
+  ],
+  "detailTemplate": "/job/40666",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Responsable d&#39;Administration (80%)"
+  ],
+  "canton": "GE",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:25:15.733Z",
+  "candidateKey": "move-up@carouge-ge"
+}

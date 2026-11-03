@@ -43,6 +43,9 @@ export const DOMAIN_OVERRIDES = {
   'apleona-schweiz-ag': ['apleona.com'],
   'badrutts-palace': ['badruttspalace.com'],
   cippatrasporti: ['cippatrasporti.ch', 'cippa.ch'],
+  // The dedicated employer crawler identifies csc-sa.ch as CSC's official site;
+  // NCore is only the linked publishing platform for the vacancies.
+  'csc-costruzioni-sa': ['csc-sa.ch'],
   'ferrovia-retica': ['rhb.ch'],
   'fisiocare-sagl': ['fisiocare.ch', 'fisiocare.com'],
   gmo: ['gmo.ch'],
@@ -100,15 +103,21 @@ export const DOMAIN_OVERRIDES = {
   physioswiss: ['physioswiss.ch'],
   'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
   'swiss-timing-swatch-group': ['swisstiming.com'],
+  // Official employer homepage for Sympajobs AG in Reinach BL.
+  'sympajobs-reinach-bl': ['sympajobs.ch'],
   'deillon-delley-architectes': ['deillondelley.ch'],
   'project-interim': ['projectinterim.ch'],
   'technic-emplois': ['technic-emplois.ch'],
   'fondation-domus': ['fondation-domus.ch'],
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
+  'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  // The crawler's official employer domain is pks-personal.ch; never derive
+  // an audit source from the pks-bewerbung key or its ATS/job URL.
+  'pks-bewerbung-ch': ['pks-personal.ch'],
   'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
