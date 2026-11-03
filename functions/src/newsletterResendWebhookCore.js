@@ -38,8 +38,13 @@ export function ensureAdminApp() {
 }
 
 export function getAdminDb() {
- ensureAdminApp();
- return getFirestore();
+ const app = ensureAdminApp();
+ // Pin the Firestore instance to the app we just initialized.  The no-arg
+ // overload re-resolves the default app inside firebase-admin; in the
+ // deployed v14 Gen 2 runtime that resolution can lose the app service and
+ // surface as `Cannot read properties of undefined (reading 'db')` on the
+ // permanent-employer endpoint.  Every caller needs the same initialized app.
+ return getFirestore(app);
 }
 
 function getHeader(headers, key) {

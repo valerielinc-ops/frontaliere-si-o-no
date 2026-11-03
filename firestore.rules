@@ -1273,16 +1273,8 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    // Direct-employer submissions contain verification and application
-    // contacts. They are callable/function-owned data: the browser never
-    // reads or writes these collections directly, so App Check and rate limits
-    // cannot be bypassed through the Firestore SDK.
-    match /direct_employer_submissions/{submissionId} {
-      allow read, write: if false;
-    }
-    match /direct_employer_rate_limits/{rateKey} {
-      allow read, write: if false;
-    }
+    // Permanent-employer signals are callable/function-owned data: the browser
+    // never reads or writes this collection directly.
     match /permanent_employer_signals/{signalId} {
       allow read, write: if false;
     }

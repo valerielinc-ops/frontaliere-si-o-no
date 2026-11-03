@@ -30,8 +30,9 @@
  */
 
 import { getAuth } from 'firebase-admin/auth';
-import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getRemoteConfigValue, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade } from './emailCascade.js';
 import {
   discountRateForUnits,
@@ -72,7 +73,7 @@ export async function getStripe() {
 }
 
 export function db() {
-  return getFirestore();
+  return getAdminDb();
 }
 
 export async function verifyCaller(req, { checkRevoked = false } = {}) {

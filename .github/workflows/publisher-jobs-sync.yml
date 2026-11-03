@@ -1,9 +1,8 @@
-name: Employer Jobs Sync (publisher + direct employers → slice → deploy)
+name: Publisher Jobs Sync (publisher → slice → deploy)
 
 # Projects moderated employer submissions into by-crawler slices, commits them
 # to main (test-gated), and triggers a deploy so the static SEO page is emitted.
-# Direct-employer rows are always sourced from status:'approved' and the
-# fail-closed Remote Config flag; neither path bypasses moderation.
+# Publisher rows are always sourced from the existing publisher_jobs flow.
 
 on:
   schedule:
@@ -73,15 +72,11 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      - name: Build publisher-submitted slice from paid ads
+      - name: Build publisher-submitted slice from live publisher ads
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-publisher-jobs.mjs --stats
-
-      - name: Build direct-employers slice from approved submissions
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/build-direct-employer-jobs.mjs
 
       # Data-refresh-to-main gate (AGENTS: a bot commit to main must validate the
       # invariant it touches BEFORE committing). The slice must assemble cleanly
@@ -113,7 +108,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f data/jobs/by-crawler/publisher-submitted.json data/jobs/by-crawler/direct-employers.json
+          git add -f data/jobs/by-crawler/publisher-submitted.json
           if git diff --cached --quiet; then
             echo "No employer-jobs changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
@@ -149,7 +144,6 @@ jobs:
             # content; any paid-ad change that lands after this snapshot is
             # picked up by the next scheduled run 30min later either way.
             cp data/jobs/by-crawler/publisher-submitted.json /tmp/publisher-submitted-cache.json
-            cp data/jobs/by-crawler/direct-employers.json /tmp/direct-employers-cache.json
             set +e
             if [ -z "${GITHUB_PAT:-}" ]; then
               echo "::error::GITHUB_PAT missing from Remote Config — cannot bypass the main CI ruleset for this scheduled writer"
@@ -157,7 +151,7 @@ jobs:
             fi
             git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
             PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted \
-              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && cp /tmp/direct-employers-cache.json data/jobs/by-crawler/direct-employers.json && git add -f data/jobs/by-crawler/publisher-submitted.json data/jobs/by-crawler/direct-employers.json' 2>&1)
+              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && git add -f data/jobs/by-crawler/publisher-submitted.json' 2>&1)
             rc=$?
             set -e
             echo "$PUSH_LOG"

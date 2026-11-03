@@ -8,12 +8,13 @@
  * only emits paid|published). reCAPTCHA + the 50-word floor are the other layers.
  */
 
-import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
+import { getAdminDb } from './newsletterResendWebhookCore.js';
 
 const FREE_ADS_PER_DAY = 5;
 
 function db() {
-  return getFirestore();
+  return getAdminDb();
 }
 
 /**

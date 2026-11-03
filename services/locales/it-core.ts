@@ -3192,9 +3192,9 @@ Regole:
  // Publisher portal — pubblica un annuncio di lavoro
  'publisher.title': 'Pubblica un\'offerta di lavoro',
  'seo.directEmployer.title': 'Pubblica gratis un’offerta di lavoro | Frontaliere Ticino',
- 'seo.directEmployer.description': 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino senza account: verifica del datore, moderazione umana e scadenza automatica dopo 30 giorni.',
+ 'seo.directEmployer.description': 'Piccole aziende e negozi possono pubblicare gratis un’offerta in Ticino tramite il flusso publisher: accesso sicuro, verifica reCAPTCHA, moderazione e scadenza automatica.',
  'seo.permanentEmployer.title': 'Aziende aperte a candidature spontanee | Frontaliere Ticino',
- 'seo.permanentEmployer.description': 'Elenco pubblico di aziende che possono valutare candidature spontanee, segnalate dai candidati e verificate dal team. Non sono posti di lavoro aperti.',
+'seo.permanentEmployer.description': 'Elenco pubblico di aziende individuate dal prospector perché raccolgono candidature spontanee. I segnali dei candidati sono secondari e non sono posti di lavoro aperti.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

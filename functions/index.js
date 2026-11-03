@@ -154,19 +154,12 @@ import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/stor
 import { resolveCvLink as resolveAssistedApplicationFileLink } from './src/publisherApplicationsCore.js';
 import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import {
-  getDirectEmployerContact as getDirectEmployerContactCore,
-  listDirectEmployerSubmissions,
   listPermanentEmployerSignals,
   listPermanentEmployers,
   markPermanentEmployer as markPermanentEmployerCore,
-  moderateDirectEmployerSubmission,
   moderatePermanentEmployerSignal,
-  purgeDirectEmployerPii,
   readDirectEmployerChannelEnabled,
-  renewDirectEmployerListing as renewDirectEmployerListingCore,
-  submitDirectEmployerListing as submitDirectEmployerListingCore,
-  verifyDirectEmployerEmail,
-} from './src/directEmployerCore.js';
+} from './src/permanentEmployerCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import * as functionsV1 from 'firebase-functions/v1';
@@ -614,116 +607,6 @@ export const getPublicConfig = onRequest(
  },
 );
 
-async function sendDirectEmployerEmail({ to, subject, text, html }) {
-  await bridgeEmailCascadeCredentialsToEnv();
-  const { sent, failed } = await sendEmailCascade([{
-    payload: {
-      from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
-      to,
-      subject,
-      text,
-      html,
-    },
-    recipient: { email: to },
-    meta: { kind: 'direct-employer' },
-  }]);
-  if (failed.length > 0 || sent.length === 0) throw new Error('email_delivery_failed');
-}
-
-const DIRECT_EMPLOYER_EMAIL_COPY = {
-  it: {
-    verifySubject: 'Conferma la tua offerta su Frontaliere Ticino',
-    verifyText: (url) => `Conferma il contatto del datore di lavoro aprendo questo link: ${url}\n\nL'offerta entrerà in moderazione e non sarà pubblicata automaticamente.`,
-    verifyHtml: (url) => `<p>Conferma il contatto del datore di lavoro per la tua offerta:</p><p><a href="${url}">Conferma il contatto</a></p><p>L'offerta entrerà in moderazione e non sarà pubblicata automaticamente.</p>`,
-    approvalSubject: 'La tua offerta è stata approvata',
-    approvalText: (url) => `La tua offerta è stata approvata e resta online per 30 giorni. Rinnovala prima della scadenza: ${url}`,
-    approvalHtml: (url) => `<p>La tua offerta è stata approvata e resta online per 30 giorni.</p><p><a href="${url}">Rinnova l'offerta</a></p>`,
-  },
-  en: {
-    verifySubject: 'Confirm your Frontaliere Ticino job offer',
-    verifyText: (url) => `Confirm the employer contact by opening this link: ${url}\n\nThe offer will be moderated and will not be published automatically.`,
-    verifyHtml: (url) => `<p>Confirm the employer contact for your offer:</p><p><a href="${url}">Confirm the contact</a></p><p>The offer will be moderated and will not be published automatically.</p>`,
-    approvalSubject: 'Your job offer was approved',
-    approvalText: (url) => `Your offer was approved and will stay online for 30 days. Renew it before it expires: ${url}`,
-    approvalHtml: (url) => `<p>Your offer was approved and will stay online for 30 days.</p><p><a href="${url}">Renew the offer</a></p>`,
-  },
-  de: {
-    verifySubject: 'Bestätige dein Stellenangebot bei Frontaliere Ticino',
-    verifyText: (url) => `Bestätige den Arbeitgeberkontakt über diesen Link: ${url}\n\nDas Angebot wird moderiert und nicht automatisch veröffentlicht.`,
-    verifyHtml: (url) => `<p>Bestätige den Arbeitgeberkontakt für dein Angebot:</p><p><a href="${url}">Kontakt bestätigen</a></p><p>Das Angebot wird moderiert und nicht automatisch veröffentlicht.</p>`,
-    approvalSubject: 'Dein Stellenangebot wurde genehmigt',
-    approvalText: (url) => `Dein Angebot wurde genehmigt und bleibt 30 Tage online. Verlängere es vor dem Ablauf: ${url}`,
-    approvalHtml: (url) => `<p>Dein Angebot wurde genehmigt und bleibt 30 Tage online.</p><p><a href="${url}">Angebot verlängern</a></p>`,
-  },
-  fr: {
-    verifySubject: 'Confirmez votre offre sur Frontaliere Ticino',
-    verifyText: (url) => `Confirmez le contact de l’employeur en ouvrant ce lien : ${url}\n\nL’offre sera modérée et ne sera pas publiée automatiquement.`,
-    verifyHtml: (url) => `<p>Confirmez le contact de l’employeur pour votre offre :</p><p><a href="${url}">Confirmer le contact</a></p><p>L’offre sera modérée et ne sera pas publiée automatiquement.</p>`,
-    approvalSubject: 'Votre offre a été approuvée',
-    approvalText: (url) => `Votre offre a été approuvée et restera en ligne pendant 30 jours. Renouvelez-la avant son expiration : ${url}`,
-    approvalHtml: (url) => `<p>Votre offre a été approuvée et restera en ligne pendant 30 jours.</p><p><a href="${url}">Renouveler l’offre</a></p>`,
-  },
-};
-
-function directEmployerEmailCopy(locale) {
-  return DIRECT_EMPLOYER_EMAIL_COPY[locale] || DIRECT_EMPLOYER_EMAIL_COPY.it;
-}
-
-function directEmployerVerificationEmail({ to, verificationUrl, locale }) {
-  const copy = directEmployerEmailCopy(locale);
-  return sendDirectEmployerEmail({
-    to,
-    subject: copy.verifySubject,
-    text: copy.verifyText(verificationUrl),
-    html: copy.verifyHtml(verificationUrl),
-  });
-}
-
-function directEmployerApprovalEmail({ to, renewalUrl, locale }) {
-  const copy = directEmployerEmailCopy(locale);
-  return sendDirectEmployerEmail({
-    to,
-    subject: copy.approvalSubject,
-    text: copy.approvalText(renewalUrl),
-    html: copy.approvalHtml(renewalUrl),
-  });
-}
-
-/** Public, flag-gated employer submission. Callable App Check is mandatory. */
-export const submitDirectEmployerListing = onCall(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, enforceAppCheck: true },
-  async (request) => {
-    try {
-      const result = await submitDirectEmployerListingCore({
-        data: request.data || {},
-        auth: request.auth || null,
-        sendVerificationEmail: directEmployerVerificationEmail,
-      });
-      return result;
-    } catch (error) {
-      if (error?.code === 'rate_limited' || error?.message === 'rate_limited') {
-        throw new HttpsError('resource-exhausted', 'rate_limited');
-      }
-      console.error('[submitDirectEmployerListing]', error instanceof Error ? error.message : String(error));
-      throw new HttpsError('internal', 'submission_failed');
-    }
-  },
-);
-
-/** Email verification link target. It never exposes the submission document. */
-export const verifyDirectEmployerListing = onRequest(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
-  async (req, res) => {
-    try {
-      const result = await verifyDirectEmployerEmail({ token: req.query?.token });
-      res.status(result.ok ? 200 : 400).json(result);
-    } catch (error) {
-      console.error('[verifyDirectEmployerListing]', error instanceof Error ? error.message : String(error));
-      res.status(500).json({ ok: false, error: 'verification_failed' });
-    }
-  },
-);
-
 /** Public sanitized list of employers that accept spontaneous applications. */
 export const getPermanentEmployers = onRequest(
   { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
@@ -739,7 +622,10 @@ export const getPermanentEmployers = onRequest(
       res.status(200).json({ enabled: true, employers });
     } catch (error) {
       console.error('[getPermanentEmployers]', error instanceof Error ? error.message : String(error));
-      res.status(503).json({ enabled: false, employers: [], error: 'employers_unavailable' });
+      // The flag was read successfully above. Keep enabled:true so clients can
+      // distinguish a temporary data outage from an intentionally disabled
+      // channel and use the generated prospector feed as its primary source.
+      res.status(503).json({ enabled: true, employers: [], error: 'employers_unavailable' });
     }
   },
 );
@@ -758,36 +644,8 @@ export const markPermanentEmployer = onCall(
   },
 );
 
-/** Employer-controlled renewal link; possession of the emailed token is the proof. */
-export const renewDirectEmployerListing = onRequest(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
-  async (req, res) => {
-    try {
-      const result = await renewDirectEmployerListingCore({ token: req.query?.token });
-      res.status(result.ok ? 200 : 400).json(result);
-    } catch (error) {
-      console.error('[renewDirectEmployerListing]', error instanceof Error ? error.message : String(error));
-      res.status(500).json({ ok: false, error: 'renewal_failed' });
-    }
-  },
-);
-
-/** Candidate-facing, App Check protected contact lookup; contact stays out of the dataset. */
-export const getDirectEmployerContact = onCall(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, enforceAppCheck: true },
-  async (request) => {
-    try {
-      if (!(await readDirectEmployerChannelEnabled())) return { ok: false, error: 'channel_disabled' };
-      return await getDirectEmployerContactCore({ jobId: request.data?.jobId });
-    } catch (error) {
-      console.error('[getDirectEmployerContact]', error instanceof Error ? error.message : String(error));
-      throw new HttpsError('internal', 'contact_unavailable');
-    }
-  },
-);
-
-/** Admin moderation queue. Contact data is returned only after site-admin auth. */
-export const adminDirectEmployerListings = onRequest(
+/** Admin moderation queue for permanent-employer signals. */
+export const adminPermanentEmployerSignals = onRequest(
   { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
   async (req, res) => {
     try {
@@ -799,33 +657,19 @@ export const adminDirectEmployerListings = onRequest(
       if (req.method === 'GET') {
         const status = req.query?.status || 'pending_moderation';
         const cursor = req.query?.cursor || '';
-        if (req.query?.kind === 'permanent') {
-          const page = await listPermanentEmployerSignals({ status, cursor });
-          res.status(200).json({ ok: true, signals: page.items, nextPageToken: page.nextPageToken });
-          return;
-        }
-        const page = await listDirectEmployerSubmissions({ status, cursor });
-        res.status(200).json({ ok: true, listings: page.items, nextPageToken: page.nextPageToken });
+        const page = await listPermanentEmployerSignals({ status, cursor });
+        res.status(200).json({ ok: true, signals: page.items, nextPageToken: page.nextPageToken });
         return;
       }
       if (req.method === 'POST') {
         const body = req.body || {};
-        if (body.kind === 'permanent') {
-          const result = await moderatePermanentEmployerSignal({ id: body.id, action: body.action });
-          res.status(result.ok ? 200 : 400).json(result);
-          return;
-        }
-        const result = await moderateDirectEmployerSubmission({
-          id: body.id,
-          action: body.action,
-          sendApprovalEmail: directEmployerApprovalEmail,
-        });
+        const result = await moderatePermanentEmployerSignal({ id: body.id, action: body.action });
         res.status(result.ok ? 200 : 400).json(result);
         return;
       }
       res.status(405).json({ ok: false, error: 'method_not_allowed' });
     } catch (error) {
-      console.error('[adminDirectEmployerListings]', error instanceof Error ? error.message : String(error));
+      console.error('[adminPermanentEmployerSignals]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'moderation_failed' });
     }
   },
@@ -3554,23 +3398,6 @@ export const purgeApplicationIntents = onSchedule(
         '[purgeApplicationIntents]',
         error instanceof Error ? error.message : String(error),
       );
-      throw error;
-    }
-  },
-);
-
-// Direct-employer contact details are retained only for verification and
-// candidate contact. The public job slice contains no email or phone; this
-// daily job removes the server-side contact once the declared retention window
-// ends, while leaving the moderation record auditable.
-export const purgeDirectEmployerPersonalData = onSchedule(
-  { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
-  async () => {
-    try {
-      const purged = await purgeDirectEmployerPii();
-      if (purged > 0) console.log('[purgeDirectEmployerPersonalData] purged expired contact data', purged);
-    } catch (error) {
-      console.error('[purgeDirectEmployerPersonalData]', error instanceof Error ? error.message : String(error));
       throw error;
     }
   },
