@@ -50,6 +50,7 @@ import {
   waitForDialogControl,
   findTikTokPublishedPost,
 } from '../scripts/social-robot/lib/flows.mjs';
+import { pathsOutsideSparseRules } from '../scripts/ci/verify-checkout-profiles.mjs';
 import {
   DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE,
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
@@ -1642,6 +1643,42 @@ describe('workflows', () => {
     expect(commit?.run).toContain('scripts/social-robot/confirm.mjs');
     expect(commit?.run).toContain('$LEDGER_ENTRIES');
     expect(commit?.run).toContain('git add -- "$f"');
+  });
+
+  it('keeps the confirmation checkout bounded to its runtime inputs', () => {
+    const checkout = wf('social-robot-confirm.yml').jobs.confirm.steps.find(
+      (step: any) => String(step?.uses).startsWith('actions/checkout@'),
+    );
+    const sparse = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+
+    expect(checkout?.with?.['fetch-depth']).toBe(1);
+    expect(checkout?.with?.filter).toBe('blob:none');
+    expect(checkout?.['timeout-minutes']).toBe(7);
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+
+    for (const required of [
+      'scripts/social-robot/confirm.mjs',
+      'scripts/load-rc-env.mjs',
+      'build-plugins/shared/cantonResolvers.mjs',
+      'data/canton-url-slugs.json',
+      'data/canton-municipalities.json',
+      'data/instagram-queue.json',
+      'data/instagram-posted.json',
+      'data/tiktok-queue.json',
+      'data/tiktok-posted.json',
+    ]) {
+      expect(pathsOutsideSparseRules(sparse, [required], { cone: false }), required).toEqual([]);
+    }
+    for (const heavy of [
+      'data/jobs/by-crawler/example.json',
+      'public/images/example.jpg',
+      'packages/articles/content/example.ts',
+    ]) {
+      expect(pathsOutsideSparseRules(sparse, [heavy], { cone: false }), heavy).toEqual([heavy]);
+    }
   });
 
   it('does not hide a failed social ledger push', () => {
