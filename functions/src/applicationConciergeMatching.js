@@ -734,7 +734,14 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       CONCIERGE_ELIGIBILITY_VERSION,
       service.cvStorageKey,
       profile,
-      eligibilityFactsRevision,
+      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
+    ])).digest('hex');
+    // Candidate facts invalidate eligibility, while retry budgets stay scoped
+    // to the stable CV/profile inputs and each listing's own fingerprint.
+    const retryBudgetContext = createHash('sha256').update(JSON.stringify([
+      CONCIERGE_ELIGIBILITY_VERSION,
+      service.cvStorageKey,
+      profile,
     ])).digest('hex');
     const rankingContext = createHash('sha256').update(JSON.stringify([
       APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -742,7 +749,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       profile,
       candidateLocation,
       rankingFeedbackContext(existingData),
-      eligibilityFactsRevision,
+      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
     ])).digest('hex');
     const eligibilityRecoveryContext = createHash('sha256').update(JSON.stringify([
       CONCIERGE_ELIGIBILITY_VERSION,
@@ -750,9 +757,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       service.cvStorageKey,
       profile,
       candidateLocation,
-      eligibilityFactsRevision,
+      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
     ])).digest('hex');
-    const retryJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(eligibilityContext, job)]));
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const recoveryRows = existing.map(doc => ({ id: doc.id, ref: doc.ref || doc, data: doc.data() || {} }));
     const retractionOwners = new Map();
@@ -807,6 +813,17 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       }
       retryRowsByUrl.set(url, retry);
     }
+    const legacyFactsDependentReasons = new Set(['answer_source_conflict']);
+    const retryScanContexts = new Map(rankedWork.map(({ job, url }) => {
+      const retry = retryRowsByUrl.get(url)?.data() || {};
+      const dependency = retry.candidateFactsDependency || {};
+      const candidateFactsDependent = dependency.languages === true || dependency.answers === true
+        || legacyFactsDependentReasons.has(retry.lastReason);
+      return [url, candidateFactsDependent ? eligibilityContext : retryBudgetContext];
+    }));
+    const retryJobContexts = new Map(rankedWork.map(({ job, url }) =>
+      [url, eligibilityRetryContext(retryScanContexts.get(url) || retryBudgetContext, job)]));
+    const retryBudgetJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(retryBudgetContext, job)]));
     const allRetryUrls = new Set(retryRowsByUrl.keys());
     const nowForRetries = Date.now();
     const retryCandidates = [...retryRowsByUrl.entries()].filter(([url, row]) => {
@@ -844,8 +861,11 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         try { fingerprint = await evaluate.fingerprintFor(entry.job); }
         catch { fingerprint = null; }
         if (typeof fingerprint !== 'string' || !/^[a-f0-9]{64}$/i.test(fingerprint)) continue;
-        const context = eligibilityRetryContext(eligibilityContext, entry.job, fingerprint);
-        const changed = row.data()?.context !== context;
+        const context = eligibilityRetryContext(retryScanContexts.get(url) || retryBudgetContext, entry.job, fingerprint);
+        const previousFingerprint = row.data()?.fingerprint;
+        const changed = typeof previousFingerprint === 'string'
+          ? previousFingerprint !== fingerprint
+          : row.data()?.context !== context;
         retrySourceFingerprints.set(url, { fingerprint: fingerprint.toLowerCase(), context, changed });
         if (changed) selectedRetryCandidates.push([url, row]);
       }
@@ -881,6 +901,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
               status: 'unverified',
               reason: eligibilitySignal.aborted ? 'analysis_deferred' : safeEligibilityFailureReason(error),
               ...(typeof error?.eligibilityFingerprint === 'string' ? { fingerprint: error.eligibilityFingerprint } : {}),
+              ...(typeof error?.eligibilitySourceFingerprint === 'string' ? { sourceFingerprint: error.eligibilitySourceFingerprint } : {}),
+              ...(error?.candidateFactsDependency && typeof error.candidateFactsDependency === 'object'
+                ? { candidateFactsDependency: error.candidateFactsDependency } : {}),
               ...(typeof error?.eligibilityCacheId === 'string' ? { cacheId: error.eligibilityCacheId } : {}),
               ...(Array.isArray(error?.providerFailures) ? { providerFailures: error.providerFailures } : {}),
             };
@@ -896,12 +919,16 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (shouldRecordRetry) {
           const retainedFingerprint = result?.fingerprint || sourceFingerprint?.fingerprint
             || (result?.reason === 'analysis_deferred' ? retry?.fingerprint : null);
-          const retryContext = eligibilityRetryContext(eligibilityContext, job, retainedFingerprint);
+          const retryContext = eligibilityRetryContext(retryScanContexts.get(url) || retryBudgetContext, job, retainedFingerprint);
+          const retryBudgetJobContext = retryBudgetJobContexts.get(url) || retryBudgetContext;
+          const retainedSourceFingerprint = result?.sourceFingerprint || retry?.sourceFingerprint || null;
+          const retryBudgetSourceContext = eligibilityRetryContext(retryBudgetContext, job, retainedSourceFingerprint);
           const retryResult = retainedFingerprint && !result?.fingerprint
             ? { ...result, fingerprint: retainedFingerprint }
             : result;
           await recordEligibilityRetry({ db, serviceRef, url, result: retryResult, context: retryContext,
-            jobContext: retryJobContext, nowMs: Date.now() });
+            jobContext: retryJobContext, budgetContext: retryBudgetSourceContext,
+            budgetJobContext: retryBudgetJobContext, eligibilityFactsRevision, nowMs: Date.now() });
         }
         if (result?.reason === 'analysis_deferred') allRetryUrls.add(url);
         checks.set(url, result);

@@ -74,6 +74,88 @@ describe('independent qualification retry queue', () => {
     expect(eligibilityRetryRef(serviceRef, ctx.url).path).toMatch(/\/eligibility\/retry-[a-f0-9]{32}$/);
   });
 
+  it('preserves retry source and candidate-fact dependencies when a refresh cannot fetch the posting', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_fetch_failure');
+    const url = 'https://jobs.example.test/fetch-failure';
+    const ref = eligibilityRetryRef(serviceRef, url);
+    const sourceFingerprint = 'a'.repeat(64);
+    await ref.set({
+      jobUrl: url,
+      context: 'eligibility-context-1',
+      jobContext: 'eligibility-job-context-1',
+      retryBudgetContext: 'stable-budget-source-context',
+      retryBudgetJobContext: 'stable-budget-job-context',
+      sourceFingerprint,
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 1,
+      attempts: 5,
+      deferrals: 0,
+      retryAt: 0,
+      retryState: 'exhausted',
+      lastStatus: 'unverified',
+      lastReason: 'provider_unavailable',
+    });
+
+    await recordEligibilityRetry({
+      db: store.db,
+      serviceRef,
+      url,
+      context: 'eligibility-context-2',
+      jobContext: 'eligibility-job-context-2',
+      budgetContext: 'stable-budget-source-context',
+      budgetJobContext: 'stable-budget-job-context',
+      eligibilityFactsRevision: 2,
+      nowMs: now + 60_000,
+      result: { status: 'unverified', reason: 'posting_unavailable' },
+    });
+
+    expect((await ref.get()).data()).toMatchObject({
+      context: 'eligibility-context-2',
+      jobContext: 'eligibility-job-context-2',
+      retryBudgetContext: 'stable-budget-source-context',
+      retryBudgetJobContext: 'stable-budget-job-context',
+      sourceFingerprint,
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 2,
+      attempts: 5,
+      retryState: 'exhausted',
+    });
+  });
+
+  it('does not reset a legacy retry budget when the posting source is temporarily unavailable', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_legacy_fetch_failure');
+    const url = 'https://jobs.example.test/legacy-fetch-failure';
+    const ref = eligibilityRetryRef(serviceRef, url);
+    await ref.set({
+      jobUrl: url,
+      context: 'legacy-source-context',
+      jobContext: 'stable-job-context',
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 1,
+      attempts: 5,
+      deferrals: 0,
+      retryAt: 0,
+      retryState: 'exhausted',
+      lastStatus: 'unverified',
+      lastReason: 'provider_unavailable',
+    });
+
+    await recordEligibilityRetry({ db: store.db, serviceRef, url, context: 'new-source-context',
+      jobContext: 'stable-job-context', eligibilityFactsRevision: 2, nowMs: now + 60_000,
+      result: { status: 'unverified', reason: 'posting_unavailable' } });
+
+    expect((await ref.get()).data()).toMatchObject({
+      context: 'new-source-context',
+      jobContext: 'stable-job-context',
+      candidateFactsDependency: { languages: true, answers: false },
+      eligibilityFactsRevision: 2,
+      attempts: 5,
+      retryState: 'exhausted',
+    });
+  });
+
   it.each(['compatible', 'incompatible', 'clarification_required'])('removes retry state after %s', async status => {
     const store = createMemoryFirestore();
     const serviceRef = store.db.collection('application_concierge_services').doc(`service_${status}`);

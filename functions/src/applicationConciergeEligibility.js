@@ -199,6 +199,15 @@ function questionsNeedCandidateFacts(requirements) {
       isLanguageAbilityQuestion(`${item?.requirement || ''} ${item?.quote || ''}`)));
 }
 
+function candidateFactsDependency(requirements, cached = null, result = null) {
+  const questions = Array.isArray(result?.questions) ? result.questions
+    : Array.isArray(cached?.result?.questions) ? cached.result.questions : [];
+  return {
+    languages: questionsNeedCandidateFacts(requirements),
+    answers: Boolean(cached?.candidateAnswerQuestionSetHash || questions.some(question => question?.required === true)),
+  };
+}
+
 async function evaluateConciergePosting({ job, profile, languageFacts = null, answers = {}, typedAnswerRecord = null,
   locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting, metadata = null,
   suppliedRequirements = null }) {
@@ -232,8 +241,17 @@ async function evaluateConciergePosting({ job, profile, languageFacts = null, an
   const typedSources = candidateConfirmedEvidenceSources({ languageFacts, answers: typedAnswerRecord });
   const candidateSources = sourceCitations({ cv: evidenceText, ...typedSources });
   const candidateEvidenceText = Object.values(typedSources).join('\n');
-  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
-    postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
+  let matchRaw;
+  try {
+    matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
+      postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
+  } catch (error) {
+    if (error && typeof error === 'object') {
+      error.candidateFactsDependency = candidateFactsDependency(requirements,
+        { candidateAnswerQuestionSetHash: typedAnswerRecord?.questionSetHash || '' });
+    }
+    throw error;
+  }
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources),
     requirements.requirements.length, `${evidenceText}\n${candidateEvidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: `${evidenceText}\n${candidateEvidenceText}`, answers, memory: answers, locale });
@@ -371,10 +389,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     if (signal?.aborted) return null;
     const loaded = await readPostingForFingerprint(job);
     if (signal?.aborted) return null;
-    if (loaded.error) {
-      const { sourceFingerprint } = fingerprintForPosting(job, { text: '', location: '' });
-      return sourceFingerprint;
-    }
+    if (loaded.error) return null;
     const posting = normalizePosting(loaded.posting);
     const source = fingerprintForPosting(job, posting);
     const cached = (await cache.doc(source.cacheId).get()).data();
@@ -386,9 +401,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const loaded = await readPostingForCheck(job);
     if (loaded.error) {
       signal?.throwIfAborted();
-      const { sourceFingerprint, cacheId } = fingerprintForPosting(job, { text: '', location: '' });
-      return { status: 'unverified', reason: 'posting_unavailable', fingerprint: sourceFingerprint,
-        cacheId };
+      const { cacheId } = fingerprintForPosting(job, { text: '', location: '' });
+      return { status: 'unverified', reason: 'posting_unavailable', cacheId };
     }
     signal?.throwIfAborted();
     const posting = normalizePosting(loaded.posting);
@@ -400,15 +414,27 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       cached = (await ref.get()).data();
       matchInput = await matchInputFor({ cacheId, sourceFingerprint, cached });
     } catch (error) {
-      if (error && typeof error === 'object') error.eligibilityFingerprint = sourceFingerprint;
+      if (error && typeof error === 'object') {
+        error.eligibilityFingerprint = sourceFingerprint;
+        error.eligibilitySourceFingerprint = sourceFingerprint;
+        const cachedRequirements = cached?.sourceFingerprint === sourceFingerprint
+          && Array.isArray(cached?.requirements?.requirements) ? cached.requirements : null;
+        if (cachedRequirements) error.candidateFactsDependency = candidateFactsDependency(cachedRequirements, cached);
+      }
       throw error;
     }
+    let factsDependency = candidateFactsDependency(matchInput.cachedRequirements, cached);
+    const withEligibilityMetadata = result => ({
+      ...result,
+      sourceFingerprint,
+      candidateFactsDependency: factsDependency,
+    });
     let fingerprint = matchInput.fingerprint;
-    if (!posting.text) return { status: 'unverified', reason: posting.source === 'none' ? 'posting_unavailable' : 'posting_incomplete', fingerprint, cacheId };
-    if (posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete', fingerprint, cacheId };
-    if (metadata.truncated) return { status: 'unverified', reason: 'eligibility_metadata_incomplete', fingerprint, cacheId };
-    if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
-    if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred', fingerprint, cacheId };
+    if (!posting.text) return withEligibilityMetadata({ status: 'unverified', reason: posting.source === 'none' ? 'posting_unavailable' : 'posting_incomplete', fingerprint, cacheId });
+    if (posting.text.length < 100 || posting.textTruncated) return withEligibilityMetadata({ status: 'unverified', reason: 'posting_incomplete', fingerprint, cacheId });
+    if (metadata.truncated) return withEligibilityMetadata({ status: 'unverified', reason: 'eligibility_metadata_incomplete', fingerprint, cacheId });
+    if (cached?.fingerprint === fingerprint) return withEligibilityMetadata({ ...cached.result, fingerprint, cacheId });
+    if (analyses >= 20) return withEligibilityMetadata({ status: 'unverified', reason: 'analysis_deferred', fingerprint, cacheId });
     analyses += 1;
     let analysis;
     try {
@@ -420,6 +446,11 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       if (error && typeof error === 'object') {
         error.eligibilityFingerprint = fingerprint;
         error.eligibilityCacheId = cacheId;
+        error.eligibilitySourceFingerprint = sourceFingerprint;
+        error.candidateFactsDependency = {
+          languages: factsDependency.languages === true || error.candidateFactsDependency?.languages === true,
+          answers: factsDependency.answers === true || error.candidateFactsDependency?.answers === true,
+        };
       }
       throw error;
     }
@@ -433,12 +464,25 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const candidateAnswerQuestionSetHash = result.status === 'clarification_required'
       ? candidateQuestionSetHash(result.questions)
       : matchInput.typedAnswers.record?.questionSetHash || '';
+    factsDependency = candidateFactsDependency(requirements, cached, result);
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
-    if (result.status !== 'unverified') await ref.set({ fingerprint, sourceFingerprint, matchInputHash: finalMatchInputHash,
-      languageFactsHash: appliedLanguageFactsHash, candidateAnswerQuestionSetHash,
-      cvHash, answerHash: matchInput.answerHash, postingHash, promptVersion: PROMPT_VERSION,
-      version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
-    return { ...result, fingerprint, cacheId };
+    if (result.status !== 'unverified') {
+      try {
+        await ref.set({ fingerprint, sourceFingerprint, matchInputHash: finalMatchInputHash,
+          languageFactsHash: appliedLanguageFactsHash, candidateAnswerQuestionSetHash,
+          cvHash, answerHash: matchInput.answerHash, postingHash, promptVersion: PROMPT_VERSION,
+          version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
+      } catch (error) {
+        if (error && typeof error === 'object') {
+          error.eligibilityFingerprint = fingerprint;
+          error.eligibilitySourceFingerprint = sourceFingerprint;
+          error.eligibilityCacheId = cacheId;
+          error.candidateFactsDependency = factsDependency;
+        }
+        throw error;
+      }
+    }
+    return withEligibilityMetadata({ ...result, fingerprint, cacheId });
   };
   check.fingerprintFor = fingerprintForJob;
   return check;

@@ -720,7 +720,7 @@ describe('qualification before proposal publication', () => {
     await check({ jobId: 'job-a', jobUrl: 'https://example.test/a', jobTitle: 'Changed title', companyName: 'Alpha' });
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(3);
   });
-  it('records an unavailable primary posting as unknown and fingerprints its recovery', async () => {
+  it('does not fingerprint a failed primary posting fetch as an empty source', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     f.readPosting.mockRejectedValueOnce(new Error('temporary posting read failure'));
     const required = { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2 required', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
@@ -732,17 +732,86 @@ describe('qualification before proposal publication', () => {
     const unavailableFingerprint = await check.fingerprintFor(job);
     const unavailable = await check(job);
     expect(unavailable).toMatchObject({ status: 'unverified', reason: 'posting_unavailable', cacheId: expect.any(String),
-      fingerprint: unavailableFingerprint });
+    });
+    expect(unavailableFingerprint).toBeNull();
+    expect(unavailable).not.toHaveProperty('sourceFingerprint');
+    expect(unavailable).not.toHaveProperty('candidateFactsDependency');
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(0);
 
     f.readPosting.mockResolvedValue({ text: `English B2 required. ${'IT infrastructure duties. '.repeat(12)}`,
       textTruncated: false, source: 'job_detail' });
     const recoveredFingerprint = await check.fingerprintFor(job);
-    expect(recoveredFingerprint).not.toBe(unavailable.fingerprint);
     const recovered = await check(job);
     expect(recovered.fingerprint).toBe(recoveredFingerprint);
     expect(recovered.status).toBe('compatible');
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(1);
+  });
+  it('preserves cached candidate-fact dependencies when reading typed answers fails', async () => {
+    const match = { matches: [{ index: 0, status: 'partial', evidence: '' }], verdict: 'good',
+      questions: [{ id: 'german-level', question: 'What is your German level?', required: true }] };
+    const f = fixture(match);
+    const languageRequirements = {
+      requirements: [{ requirement: 'Fluent German required', sourceRequirement: 'Fluent German required',
+        importance: 'critical', basis: 'stated', quote: 'Fluent German required' }],
+      languageRequirements: [{ language: 'German', level: 'fluent', quote: 'Fluent German required' }],
+    };
+    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile
+      : system === REQUIREMENTS_SYSTEM_PROMPT ? languageRequirements : match);
+    const job = { id: 'answer-cache-failure', title: 'Language role' };
+    const first = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const firstResult = await first(job);
+    expect(firstResult).toMatchObject({ status: 'clarification_required',
+      candidateFactsDependency: { languages: true, answers: true } });
+
+    const originalCollection = f.serviceRef.collection.bind(f.serviceRef);
+    f.serviceRef.collection = (name: string) => {
+      const collection = originalCollection(name);
+      if (name !== 'eligibility') return collection;
+      return { doc: (id: string) => {
+        const document = collection.doc(id);
+        return id === candidateAnswersDocumentId(firstResult.cacheId)
+          ? { ...document, get: async () => { throw new Error('typed answers cache unavailable'); } }
+          : document;
+      } };
+    };
+
+    const second = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    await expect(second(job)).rejects.toMatchObject({
+      eligibilitySourceFingerprint: expect.stringMatching(/^[a-f0-9]{64}$/),
+      candidateFactsDependency: { languages: true, answers: true },
+    });
+  });
+  it('propagates candidate-fact dependencies when writing the eligibility cache fails', async () => {
+    const match = { matches: [{ index: 0, status: 'partial', evidence: '' }], verdict: 'good',
+      questions: [{ id: 'german-level', question: 'What is your German level?', required: true }] };
+    const f = fixture(match);
+    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile
+      : system === REQUIREMENTS_SYSTEM_PROMPT ? {
+        requirements: [{ requirement: 'Fluent German required', sourceRequirement: 'Fluent German required',
+          importance: 'critical', basis: 'stated', quote: 'Fluent German required' }],
+        languageRequirements: [{ language: 'German', level: 'fluent', quote: 'Fluent German required' }],
+      } : match);
+    const job = { id: 'eligibility-cache-write-failure', title: 'Language role' };
+    const cacheId = `job-${eligibilityHash(job.id).slice(0, 32)}`;
+    const originalCollection = f.serviceRef.collection.bind(f.serviceRef);
+    f.serviceRef.collection = (name: string) => {
+      const collection = originalCollection(name);
+      if (name !== 'eligibility') return collection;
+      return { doc: (id: string) => {
+        const document = collection.doc(id);
+        return id === cacheId
+          ? { ...document, set: async () => { throw new Error('eligibility cache write unavailable'); } }
+          : document;
+      } };
+    };
+
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    await expect(check(job)).rejects.toMatchObject({
+      eligibilityFingerprint: expect.stringMatching(/^[a-f0-9]{64}$/),
+      eligibilitySourceFingerprint: expect.stringMatching(/^[a-f0-9]{64}$/),
+      eligibilityCacheId: cacheId,
+      candidateFactsDependency: { languages: true, answers: true },
+    });
   });
   it('reuses a verified positive only for identical CV and posting, ignoring opaque legacy answers', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
