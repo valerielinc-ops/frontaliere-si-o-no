@@ -142,6 +142,33 @@ describe('rittmeyer-job-parser', () => {
     expect(new Set(rows.map((row) => row.href)).size).toBe(16);
   });
 
+  it('prefers the explicit job total when a stale pager reports a smaller total', async () => {
+    const card = (id: number) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">${id <= 10 ? 'Baar' : 'Camorino'} | Full-time employee</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    const pages = new Map([
+      [firstUrl, `<p>16 jobs found</p><p>1-10 out of 1 jobs</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
+      [secondUrl, `<p>16 jobs found</p><p>11-16 out of 16 jobs</p><div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11)).join('')}</div>`],
+    ]);
+    const requested = [];
+    const rows = await fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    );
+
+    expect(requested).toEqual([firstUrl, secondUrl]);
+    expect(rows).toHaveLength(16);
+    expect(rows.rittmeyerListingAdvertisedCount).toBe(16);
+  });
+
   it('fails closed when the Onlyfy page parameter does not advance the listing', async () => {
     const page = `<p>16 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => `
       <a data-testid="job-card" aria-label="Role ${i}" href="/en/job/role-${i}">
