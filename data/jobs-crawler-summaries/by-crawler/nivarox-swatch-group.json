@@ -1,22 +1,21 @@
 {
   "key": "nivarox-swatch-group",
   "label": "nivarox-swatch-group",
-  "generatedAt": "2026-11-03T09:24:25.314Z",
-  "total": 1,
+  "generatedAt": "2026-11-03T21:39:07.590Z",
+  "total": 0,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 423563,
-  "avgDurationMs": 423563,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 475499,
+  "avgDurationMs": 475499,
   "durationHistory": [
-    423563
+    475499
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "company-7uc3o0",
       "slug": "laborantin-physical-laborantine-learning-cfc-nivarox-far-s-a-le-locle",
@@ -70,5 +69,6 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "unchangedJobs": [],
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

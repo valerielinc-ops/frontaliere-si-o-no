@@ -9,18 +9,61 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-03T09:24:57.202Z",
-  "total": 22,
-  "newCount": 0,
+  "generatedAt": "2026-11-03T21:40:01.575Z",
+  "total": 21,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 21,
-  "durationMs": 423563,
-  "avgDurationMs": 423563,
+  "removedCount": 1,
+  "unchangedCount": 19,
+  "durationMs": 475499,
+  "avgDurationMs": 475499,
   "durationHistory": [
-    423563
+    475499
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-esyu3",
+      "slug": "gruppenchef-in-einrichter-in-kunststofftechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu3",
+      "company": "ETA SA (Swatch Group)",
+      "title": "GRUPPENCHEF/IN & EINRICHTER/IN KUNSTSTOFFTECHNIK - vor Ort | Manufacture Horlogère Suisse | ETA SA",
+      "location": "2540 Grenchen",
+      "canton": "SO",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
+      "source": "Company Careers Crawler",
+      "companyKey": "eta-sa-swatch-group",
+      "companyDomain": "eta.ch",
+      "crawledAt": "2026-11-03T21:38:35.354Z",
+      "firstSeenAt": "2026-11-03T21:38:35.354Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2540",
+      "addressLocality": "2540 Grenchen",
+      "addressRegion": "SO",
+      "streetAddress": "2540 Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-01T21:38:35.354Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-esyu5",
@@ -56,6 +99,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-12T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -65,8 +109,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "company-7uc3o0",
       "slug": "laborantin-physical-laborantine-learning-cfc-nivarox-far-s-a-le-locle",
@@ -118,7 +161,9 @@
         "translation": 23,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "company-7uc3px",
       "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc3px",
@@ -152,7 +197,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:33:55.401Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -194,6 +239,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -235,6 +281,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -276,47 +323,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "company-eszdu",
-      "slug": "attrezzista-polimeccanico-a-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen",
-      "company": "ETA SA (Swatch Group)",
-      "title": "WERKZEUGMACHER/POLYMECHANIKER/IN, vor Ort | Manufacture Horlogère Suisse | ETA SA",
-      "location": "2540 Grenchen",
-      "canton": "SO",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3788",
-      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3788",
-      "source": "Company Careers Crawler",
-      "companyKey": "eta-sa-swatch-group",
-      "companyDomain": "eta.ch",
-      "crawledAt": "2026-11-01T22:19:17.931Z",
-      "firstSeenAt": "2026-09-28T21:22:42.869Z",
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "2540 Grenchen",
-      "addressRegion": "SO",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "2540",
-      "streetAddress": "2540 Grenchen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T22:19:17.931Z",
-      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -358,6 +365,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -399,6 +407,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -441,6 +450,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -482,6 +492,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-04T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -523,6 +534,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -564,6 +576,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -604,6 +617,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -645,6 +659,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -686,6 +701,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-12T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -727,6 +743,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -768,6 +785,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -810,6 +828,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T22:19:17.931Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -942,5 +961,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }
