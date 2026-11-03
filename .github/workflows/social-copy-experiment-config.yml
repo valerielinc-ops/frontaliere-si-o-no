@@ -29,6 +29,38 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
+        with:
+          # A full checkout materializes the repository's 6.8 GB generated
+          # corpus before this five-minute job can start. Keep the runtime
+          # inputs explicit: the social protocol reads code, npm manifests,
+          # social ledgers/pack data and the shared runtime data, but never
+          # the image/article and historical cache buckets below.
+          sparse-checkout: |
+            /package.json
+            /package-lock.json
+            /packages/*/package.json
+            /scripts/
+            /build-plugins/
+            /docs/
+            /data/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+            /data/jobs/
+            /public/data/
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v7
         with:
           node-version: 22
