@@ -415,7 +415,7 @@ describe('company-logo-audit', () => {
 
     const report = await auditCompanyLogos([officialLegacyJob, lookalikeJob], {
       resolveLogo: (job) => companyLogoKeyForJob(job) === 'zaugg'
-        ? 'https://cdn.test/images/brands/zaugg.png'
+        ? '/images/brands/zaugg.png'
         : null,
       assetBaseUrl: 'https://cdn.test',
       fetchImpl: async (url) => url === 'https://cdn.test/images/brands/zaugg.png'
