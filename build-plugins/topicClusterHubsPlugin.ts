@@ -587,6 +587,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   };
 
   const prevNext = [
+    topicPaginationNoindexMarker(page),
     page > 1
       ? `<link rel="prev" href="${BASE_URL}${buildTopicHubPath(locale, section, topicKey, page - 1)}">`
       : '',
@@ -609,7 +610,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
       eligibleLocales: TOPIC_HUB_LOCALES,
       hrefFor: (loc) => `${BASE_URL}${buildTopicHubPath(loc as TopicHubLocale, section, topicKey, page)}`,
     }),
-    extraHeadHtml: [topicPaginationNoindexMarker(page), prevNext].filter(Boolean).join('\n'),
+    extraHeadHtml: prevNext,
     jsonLdScripts: [JSON.stringify(breadcrumbLd), JSON.stringify(collectionLd)],
     bodyHtml,
     distDir,
