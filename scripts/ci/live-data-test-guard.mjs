@@ -100,6 +100,8 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/quality-alerts-history.jsonl',
   'data/quota-history.jsonl',
   'data/quota-state.json',
+  // The weekly related-search audit rewrites this candidate corpus.
+  'data/related-search-candidates.json',
   'data/related-search-enriched.json',
   'data/revenue-monitor-history.jsonl',
   'data/road-events.json',
