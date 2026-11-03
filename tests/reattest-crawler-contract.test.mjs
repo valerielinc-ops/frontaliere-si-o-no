@@ -95,3 +95,16 @@ test('workflow publishes through a trusted App/PAT identity, never GITHUB_TOKEN'
   assert.match(workflow, /git remote set-url origin .*\$\{PUSH_TOKEN\}/u);
   assert.match(workflow, /GH_TOKEN=\$PUSH_TOKEN/u);
 });
+
+test('workflow verifies current artifacts against the landed source revision', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const verifyStep = workflow.slice(
+    workflow.indexOf('      - name: Verify crawler contract provenance'),
+    workflow.indexOf('      - name: Open or update the reattestation PR'),
+  );
+
+  assert.match(verifyStep, /verification_contract=\"\$RUNNER_TEMP\/crawler-contract-for-\$SOURCE_COMMIT\.json\"/u);
+  assert.match(verifyStep, /--path \"\$verification_contract\"/u);
+  assert.match(verifyStep, /--source-commit \"\$SOURCE_COMMIT\"/u);
+  assert.match(verifyStep, /verify-crawler-contract-provenance\.mjs \\\n\s+--contract \"\$verification_contract\"/u);
+});
