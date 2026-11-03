@@ -20,6 +20,18 @@ const LANDING_PATH = '/automatizza-ricerca-lavoro-svizzera/';
 const AD_FALLBACK_PATH = '/cerca-lavoro-ticino/?application_concierge=1';
 const META_PIXEL_SRC = 'https://connect.facebook.net/en_US/fbevents.js';
 const META_PIXEL_ID = '1090503593451766';
+const appCheckMocks = vi.hoisted(() => ({
+  appCheck: { app: 'test-app' },
+  ensureAppCheck: vi.fn(async () => {}),
+  getToken: vi.fn(async () => ({ token: 'firebase-app-check-token' })),
+}));
+
+vi.mock('@/services/firebase', () => ({
+  ensureAppCheck: appCheckMocks.ensureAppCheck,
+  get appCheck() { return appCheckMocks.appCheck; },
+}));
+
+vi.mock('firebase/app-check', () => ({ getToken: appCheckMocks.getToken }));
 
 type PixelFunction = ((...args: unknown[]) => void) & { queue: unknown[][] };
 type PixelWindow = Window & {
@@ -42,6 +54,8 @@ function clearMetaCookies(): void {
 }
 
 beforeEach(() => {
+  appCheckMocks.ensureAppCheck.mockClear();
+  appCheckMocks.getToken.mockClear();
   localStorage.clear();
   clearMetaCookies();
   window.history.replaceState({}, '', '/');
@@ -290,6 +304,20 @@ describe('useMetaPixelPageView', () => {
     }));
   });
 
+  it('does not resend a saved consent decision on focus when no retry is pending', async () => {
+    const fetchSpy = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal('fetch', fetchSpy);
+    const user = { uid: 'user-1', getIdToken: vi.fn(async () => 'firebase-id-token') };
+    act(() => setAdsConsent('granted'));
+    renderHook(() => useMetaPixelPageView(user));
+
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(1));
+    act(() => window.dispatchEvent(new Event('focus')));
+    await act(async () => Promise.resolve());
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
   it('does not turn an unanswered consent state into a server-side denial', async () => {
     const fetchSpy = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal('fetch', fetchSpy);
@@ -299,5 +327,55 @@ describe('useMetaPixelPageView', () => {
     await act(async () => Promise.resolve());
 
     expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('ignores malformed saved consent decisions instead of retrying untyped data', async () => {
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+    localStorage.setItem('frontaliere_meta_ads_consent_pending', '{"decision":[],"decisionAtMs":"bad"}');
+    const user = { uid: 'user-1', getIdToken: vi.fn(async () => 'firebase-id-token') };
+
+    renderHook(() => useMetaPixelPageView(user));
+    await act(async () => Promise.resolve());
+
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('keeps a withdrawal pending and retries it after sign-in', async () => {
+    const fetchSpy = vi.fn()
+      .mockResolvedValueOnce({ ok: false, status: 401 })
+      .mockResolvedValueOnce({ ok: true, status: 200 });
+    vi.stubGlobal('fetch', fetchSpy);
+    let user: { uid: string; getIdToken: () => Promise<string> } | null = null;
+    const { rerender } = renderHook(() => useMetaPixelPageView(user));
+
+    act(() => setAdsConsent('denied'));
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(1));
+    expect(localStorage.getItem('frontaliere_meta_ads_consent_pending')).toContain('"decision":"denied"');
+    const anonymousRequest = vi.mocked(fetchSpy).mock.calls[0][1];
+    expect(anonymousRequest?.headers).not.toHaveProperty('Authorization');
+
+    user = { uid: 'user-1', getIdToken: vi.fn(async () => 'firebase-id-token') };
+    rerender();
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(2));
+    expect(vi.mocked(fetchSpy).mock.calls[1][1]?.headers).toEqual(expect.objectContaining({
+      Authorization: 'Bearer firebase-id-token',
+    }));
+    await waitFor(() => expect(localStorage.getItem('frontaliere_meta_ads_consent_pending')).toBeNull());
+  });
+
+  it('sends anonymous Meta consent withdrawals with a Firebase App Check token', async () => {
+    const fetchSpy = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal('fetch', fetchSpy);
+    appCheckMocks.ensureAppCheck.mockRejectedValueOnce(new Error('temporary App Check startup failure'));
+    act(() => setAdsConsent('denied'));
+    renderHook(() => useMetaPixelPageView());
+
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(1));
+    expect(appCheckMocks.ensureAppCheck).toHaveBeenCalledTimes(2);
+    expect(appCheckMocks.getToken).toHaveBeenCalledWith(appCheckMocks.appCheck);
+    expect(vi.mocked(fetchSpy).mock.calls[0][1]?.headers).toEqual(expect.objectContaining({
+      'X-Firebase-AppCheck': 'firebase-app-check-token',
+    }));
   });
 });

@@ -26,7 +26,7 @@
  * ceiling, not a server-guaranteed one.
  */
 
-import { getFirestore } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import {
  APPLICATION_INTENTS_COLLECTION,
  APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION,
@@ -37,6 +37,7 @@ import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
 
 const DELETE_PAGE_SIZE = 450;
 const SUBSCRIBER_UID_FIELDS = Object.freeze(['user_id', 'userId', 'uid', 'auth_uid']);
+const META_ADS_CONSENT_DEVICES_COLLECTION = 'meta_ads_consent_devices';
 
 function normalizedEmail(value) {
  const email = typeof value === 'string' ? value.trim().toLowerCase() : '';
@@ -89,6 +90,41 @@ async function collectHistoricalSubscriberEmails(db, uid, currentEmail) {
  }
 
  return [...emails];
+}
+
+async function unlinkMetaAdsConsentDevicesForDeletedUser(db, uid) {
+ const devices = db.collection(META_ADS_CONSENT_DEVICES_COLLECTION);
+ const [currentLinks, legacyLinks] = await Promise.all([
+  devices.where('userIds', 'array-contains', uid).get(),
+  devices.where('userId', '==', uid).get(),
+ ]);
+ const docsByPath = new Map();
+ for (const snapshot of [...(currentLinks?.docs || []), ...(legacyLinks?.docs || [])]) {
+  const path = snapshot.ref?.path;
+  if (path) docsByPath.set(path, snapshot);
+ }
+ const docs = [...docsByPath.values()];
+ for (const snapshot of docs) {
+  await db.runTransaction(async (transaction) => {
+   const currentSnapshot = await transaction.get(snapshot.ref);
+   if (!currentSnapshot?.exists) return;
+   const stored = currentSnapshot.data() || {};
+   const ids = Array.isArray(stored.userIds) ? stored.userIds : [stored.userId];
+   if (!ids.includes(uid) && stored.userId !== uid) return;
+   const remaining = [...new Set(ids.filter((id) => typeof id === 'string' && id && id !== uid))];
+   if (!remaining.length && !(Number(stored.lastDeniedAtMs) > 0)) {
+    transaction.delete(snapshot.ref);
+   } else {
+    transaction.set(snapshot.ref, {
+     userIds: remaining,
+     userId: FieldValue.delete(),
+     revision: (Number(stored.revision) || 0) + 1,
+     updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+   }
+  });
+ }
+ return docs.length;
 }
 
 export const ACCOUNT_DELETED_STATUS = 'account_deleted';
@@ -146,9 +182,21 @@ async function collectApplicationIntentRefs(db, uid) {
  * The replacement is intentionally not a merge: email, user-agent, IP and
  * any other personal fields must not survive account deletion.
  */
-export async function tombstoneApplicationIntentDataForDeletedUser(uid, injectedDb) {
+export async function writeApplicationIntentAccountDeletionBarrier(uid, injectedDb) {
  const db = injectedDb || getFirestore();
  const tombstone = buildApplicationIntentAccountTombstone(uid);
+ if (!tombstone) return null;
+
+ const accountTombstoneRef = db
+  .collection(APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION)
+  .doc(tombstone.userId);
+ await accountTombstoneRef.set(tombstone, { merge: true });
+ return tombstone;
+}
+
+export async function tombstoneApplicationIntentDataForDeletedUser(uid, injectedDb) {
+ const db = injectedDb || getFirestore();
+ const tombstone = await writeApplicationIntentAccountDeletionBarrier(uid, db);
  if (!tombstone) {
   return {
    tombstonedApplicationIntents: 0,
@@ -156,12 +204,6 @@ export async function tombstoneApplicationIntentDataForDeletedUser(uid, injected
    tombstonedApplicationIntentAccount: false,
   };
  }
-
- const accountTombstoneRef = db
-  .collection(APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION)
-  .doc(tombstone.userId);
- // Write the boundary first. A later read or batch failure must fail closed.
- await accountTombstoneRef.set(tombstone, { merge: true });
 
  const refs = await collectApplicationIntentRefs(db, tombstone.userId);
  let deletedApplicationIntentReminderDeliveries = 0;
@@ -322,7 +364,10 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db, { newsletterS
 export async function cleanupUserDataForDeletedAccount(user, injectedDb, { newsletterSecret } = {}) {
   const db = injectedDb || getFirestore();
  const { uid, email } = user || {};
+ // Persist the account-deletion barrier before unlinking browser consent tokens.
+ // A late checkout or consent request reads this tombstone in its transaction.
  const applicationIntent = await tombstoneApplicationIntentDataForDeletedUser(uid, db);
+ const metaAdsConsentDeviceLinks = uid ? await unlinkMetaAdsConsentDevicesForDeletedUser(db, uid) : 0;
  const subscriberEmails = await collectHistoricalSubscriberEmails(db, uid, email);
  const subscriberResults = await Promise.all(
   subscriberEmails.map((subscriberEmail) => tombstoneEmailKeyedSubscribers(subscriberEmail, db, { newsletterSecret })),
@@ -337,5 +382,5 @@ export async function cleanupUserDataForDeletedAccount(user, injectedDb, { newsl
  // without an address-level cleanup marker.
  const saved = await cleanupSavedJobsForDeletedUser(uid, db);
  const petition = await cleanupPetitionSignatureForDeletedUser(uid, db);
- return { ...saved, ...subscribers, ...petition, ...applicationIntent };
+ return { ...saved, ...subscribers, ...petition, ...applicationIntent, metaAdsConsentDeviceLinksRemoved: metaAdsConsentDeviceLinks };
 }

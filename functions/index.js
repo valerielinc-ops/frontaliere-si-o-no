@@ -102,6 +102,7 @@ import {
   handleSyncApplicationConciergeMetaConsent,
   META_ADS_CONSENTS_COLLECTION,
 } from './src/applicationConciergeCheckout.js';
+import { APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION } from './src/applicationIntentPrivacy.js';
 import { hasCurrentMetaAdsConsent, sendMetaCapiPurchase } from './src/metaConversionsApi.js';
 import {
   handleApplicationConciergePaymentReminderUnsubscribe,
@@ -178,7 +179,11 @@ import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
-import { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } from './src/authAccountCleanup.js';
+import {
+  cleanupUserDataForDeletedAccount,
+  isAccountDeletedTombstone,
+  writeApplicationIntentAccountDeletionBarrier,
+} from './src/authAccountCleanup.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 import {
  signalTierChanged,
@@ -2730,12 +2735,16 @@ export const syncNewsletterSubscriberAuth = onDocumentWritten(
 // rules deny delete on newsletter_subscribers, so the profile wipe cannot).
 export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolicy: true }).auth.user().onDelete(async (user) => {
  try {
+ // CAPI and late consent/checkouts must see the deletion boundary before any
+ // potentially slow Remote Config lookup for the email-affinity secret.
+ const firestore = getAdminDb();
+ await writeApplicationIntentAccountDeletionBarrier(user.uid, firestore);
  // NEWSLETTER_SECRET keys the pseudonymous click-affinity profile. A Remote
  // Config failure throws here, and failurePolicy retries the whole cleanup.
  const { newsletterSecret } = await getNewsletterSecrets();
  const result = await cleanupUserDataForDeletedAccount(
   { uid: user.uid, email: user.email },
-  undefined,
+  firestore,
   { newsletterSecret },
  );
  console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedApplicationIntents=${result.tombstonedApplicationIntents} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert} affinityProfileErased=${result.affinityProfileErased}`);
@@ -3008,11 +3017,13 @@ export const sendApplicationConciergeMetaPurchase = onDocumentWritten(
       const claim = await afterSnapshot.ref.firestore.runTransaction(async (transaction) => {
         const userId = String(eventAfter.userId || '');
         if (!userId || userId.includes('/')) return null;
-        const [currentSnapshot, consentSnapshot] = await Promise.all([
+        const [currentSnapshot, consentSnapshot, accountDeletionSnapshot] = await Promise.all([
           transaction.get(afterSnapshot.ref),
           transaction.get(afterSnapshot.ref.firestore.collection(META_ADS_CONSENTS_COLLECTION).doc(userId)),
+          transaction.get(afterSnapshot.ref.firestore
+            .collection(APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION).doc(userId)),
         ]);
-        if (!currentSnapshot.exists) return null;
+        if (!currentSnapshot.exists || accountDeletionSnapshot.exists) return null;
         const service = currentSnapshot.data() || {};
         const consent = consentSnapshot.exists ? consentSnapshot.data() || {} : {};
         if (service.paymentStatus !== 'paid'
@@ -3036,11 +3047,13 @@ export const sendApplicationConciergeMetaPurchase = onDocumentWritten(
           beforeSend: async () => afterSnapshot.ref.firestore.runTransaction(async (transaction) => {
             const userId = String(current.userId || '');
             if (!userId || userId.includes('/')) return false;
-            const [latestServiceSnapshot, latestConsentSnapshot] = await Promise.all([
+            const [latestServiceSnapshot, latestConsentSnapshot, latestAccountDeletionSnapshot] = await Promise.all([
               transaction.get(afterSnapshot.ref),
               transaction.get(afterSnapshot.ref.firestore.collection(META_ADS_CONSENTS_COLLECTION).doc(userId)),
+              transaction.get(afterSnapshot.ref.firestore
+                .collection(APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION).doc(userId)),
             ]);
-            if (!latestServiceSnapshot.exists) return false;
+            if (!latestServiceSnapshot.exists || latestAccountDeletionSnapshot.exists) return false;
             const latestService = latestServiceSnapshot.data() || {};
             const latestConsent = latestConsentSnapshot.exists ? latestConsentSnapshot.data() || {} : {};
             const claimAtMs = latestService.metaCapiPurchaseClaimedAt?.toMillis?.() || 0;

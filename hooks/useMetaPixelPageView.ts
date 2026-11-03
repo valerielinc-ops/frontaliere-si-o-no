@@ -9,6 +9,7 @@ import {
   type AdsConsentValue,
 } from '@/services/adsConsent';
 import {
+  retryPendingApplicationConciergeMetaConsent,
   syncApplicationConciergeMetaConsent,
   type ApplicationConciergeAuthUser,
 } from '@/services/applicationConciergeCheckout';
@@ -119,17 +120,30 @@ export function useMetaPixelPageView(
   const lastTrackedPath = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!authUser?.uid || typeof authUser.getIdToken !== 'function') return undefined;
     const syncServerConsent = (decision: AdsConsentValue | null): void => {
-      if (!decision) return;
+      if (!decision) {
+        void retryPendingApplicationConciergeMetaConsent(authUser).catch(() => {});
+        return;
+      }
       const decisionAtMs = getAdsConsentDecisionAt();
       if (!decisionAtMs) return;
       void syncApplicationConciergeMetaConsent(authUser, decision, decisionAtMs).catch(() => {
-        // Browser consent stays authoritative locally; retry on the next decision or sign-in.
+        // The pending decision stays in local storage for retry on focus, reconnect or sign-in.
       });
     };
-    syncServerConsent(getAdsConsent());
-    return onAdsConsentChange(syncServerConsent);
+    const syncCurrentConsent = (): void => syncServerConsent(getAdsConsent());
+    const retryPendingConsent = (): void => {
+      void retryPendingApplicationConciergeMetaConsent(authUser).catch(() => {});
+    };
+    const unsubscribe = onAdsConsentChange(syncServerConsent);
+    window.addEventListener('online', retryPendingConsent);
+    window.addEventListener('focus', retryPendingConsent);
+    syncCurrentConsent();
+    return () => {
+      unsubscribe();
+      window.removeEventListener('online', retryPendingConsent);
+      window.removeEventListener('focus', retryPendingConsent);
+    };
   }, [authUser]);
 
   useEffect(() => {
