@@ -638,6 +638,7 @@ const isGenericOptionalAttachment = (field) => isFileField(field)
   && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
 
 const controlOwnershipText = (button) => [
+  button?.text,
   button?.id,
   button?.domId,
   button?.name,
@@ -670,6 +671,7 @@ function galleryNavigationButtons(buttons) {
 function isNonApplicationGallerySurface(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const galleryTools = galleryToolScopes(buttons);
   const galleryButtons = galleryNavigationButtons(buttons);
   const hasPaging = galleryButtons.size > 0;
   const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
@@ -684,6 +686,7 @@ function isNonApplicationGallerySurface(snapshot = {}) {
     // one HTML form. The shared form id is not application ownership when the
     // control itself is the gallery's «Vorheriges»/«Nächstes» navigation.
     if (button?.chrome || button?.disabled || galleryButtons.has(portalControlIdentity(button))) return false;
+    if (galleryTools.has(portalControlScope(button)) && !isApplicationControl(button)) return false;
     const text = String(button.text || '');
     if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
     return true;
@@ -3940,7 +3943,7 @@ export function pageControls(buttons, known, url, context = null) {
   const gallerySurface = isNonApplicationGallerySurface(gallerySnapshot);
   const galleryButtons = galleryNavigationButtons(buttons);
   const applicationButtons = galleryButtons.size
-    ? buttons.filter((button) => !galleryButtons.has(button))
+    ? buttons.filter((button) => !galleryButtons.has(portalControlIdentity(button)))
     : buttons;
   const submit = gallerySurface ? null : findButton(applicationButtons, SUBMIT_RE);
   const usualNext = gallerySurface ? null : findButton(applicationButtons, NEXT_RE);
