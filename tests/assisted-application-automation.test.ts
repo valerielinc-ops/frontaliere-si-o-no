@@ -1122,8 +1122,12 @@ describe('account failure observability', () => {
     expect(clickedUnknown).toEqual(clickedBefore);
 
     const sentGuard = submissionGuard(store.db, ORDER, 1);
-    await sentGuard.claim('portal', T0, { resumable: true });
-    await sentGuard.markSent({ channel: 'portal' }, T0 + 1);
+    const sentClaim = await sentGuard.claim('portal', T0, { resumable: true });
+    await sentGuard.markClicked(T0, { formBinding: 'a'.repeat(64) });
+    await sentGuard.markSent({ channel: 'portal', finalUrl: 'https://ats.example/confirmation', sent: {} }, T0 + 1, {
+      kind: 'portal_success_page', attemptId: sentClaim?.attemptId, observedAt: T0 + 1,
+      evidence: { finalUrl: 'https://ats.example/confirmation' },
+    });
     expect(await sentGuard.read()).toMatchObject({ state: 'sent', channel: 'portal' });
     const clickedGuard = submissionGuard(store.db, ORDER, 2);
     await clickedGuard.claim('portal', T0, { resumable: true });
@@ -1133,18 +1137,24 @@ describe('account failure observability', () => {
 
   it('keeps a verified send terminal over an earlier or late confirmed failure', async () => {
     const guard = submissionGuard(store.db, ORDER, 3);
-    await guard.claim('portal', T0, { resumable: true });
+    const claim = await guard.claim('portal', T0, { resumable: true });
     await guard.release('portal_validation', T0 + 1);
     expect(await guard.read()).toMatchObject({ state: 'failed', confirmedNotSent: true });
 
-    await guard.markSent({ channel: 'portal', confirmedBy: 'acknowledgement' }, T0 + 2);
+    await guard.markSent({ channel: 'portal', confirmedBy: 'acknowledgement', confirmedAt: T0 + 2, sent: {} }, T0 + 2, {
+      kind: 'employer_acknowledgement', attemptId: claim?.attemptId, observedAt: T0 + 2,
+      evidence: { receivedAt: T0 + 2 },
+    });
     expect(await guard.read()).toMatchObject({
       state: 'sent', channel: 'portal', confirmedBy: 'acknowledgement', confirmedNotSent: false,
     });
 
     await guard.release('late_failure_event', T0 + 3);
     expect(await guard.read()).toMatchObject({ state: 'sent', confirmedNotSent: false });
-    await guard.markSent({ channel: 'portal', confirmedBy: 'late_duplicate_receipt' }, T0 + 4);
+    await guard.markSent({ channel: 'portal', confirmedBy: 'late_duplicate_receipt', sent: {} }, T0 + 4, {
+      kind: 'employer_acknowledgement', attemptId: claim?.attemptId, observedAt: T0 + 4,
+      evidence: { receivedAt: T0 + 4 },
+    });
     expect(await guard.read()).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement' });
   });
 

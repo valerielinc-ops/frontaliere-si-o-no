@@ -17,8 +17,10 @@
  *             click evidence, and lets a later run try again
  */
 
+import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { answerSourceGuardMatches } from './assistedApplicationAnswerSourceGuard.js';
+import { createSubmissionReceipt } from './lib/submissionReceiptContract.js';
 
 export const SUBMISSION_DOC_ID = 'submission';
 
@@ -40,6 +42,7 @@ export const ACCOUNT_FAILURE_CODES = Object.freeze([
 ]);
 export const ACCOUNT_FAILURE_STAGES = Object.freeze(['login', 'registration', 'verification', 'application', 'unknown']);
 const ACCOUNT_FAILURE_FIELDS = Object.freeze(['code', 'stage']);
+const EXTERNAL_PROOF_KINDS = new Set(['employer_acknowledgement', 'owner_confirmation', 'candidate_confirmation']);
 
 /** Serialize only the finite admin/read-only account diagnostic shape. */
 export function serializeAccountFailure(value) {
@@ -80,6 +83,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
   const flowRef = orderRef.collection('automation').doc('flow');
   const draftRef = orderRef.collection('ai_drafts').doc('current');
   const key = `r${Number(round) || 1}`;
+  let activeAttemptId = null;
   return {
     async read() {
       return (await ref.get()).data()?.[key] || null;
@@ -102,6 +106,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
      */
     async claim(channel, nowMs = Date.now(), { resumable = false } = {}) {
       let outcome = null;
+      const newAttemptId = randomUUID();
       await db.runTransaction(async (transaction) => {
         const [submissionDoc, orderDoc, flowDoc, draftDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
@@ -110,6 +115,11 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         const order = orderDoc.data() || {}; const flow = flowDoc.data() || {}; const draft = draftDoc.data() || {};
         if (submission?.withdrawnAt || order.withdrawnAt || flow.state === 'withdrawn') {
           outcome = { status: 'withdrawn' };
+          return;
+        }
+        if (flowDoc.exists && (Number(flow.round || 1) !== (Number(round) || 1)
+          || (channel === 'owner_extension' ? flow.state !== 'owner_takeover' : flow.state !== 'submitting'))) {
+          outcome = { status: 'superseded' };
           return;
         }
         let current = submission?.[key];
@@ -143,9 +153,11 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           outcome = { status: 'answer_source_changed' };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null, confirmedNotSent: false } }, { merge: true });
-        outcome = { status: 'claimed', resumed: current?.state === 'sending' };
+        const attemptId = current?.state === 'sending' && current.attemptId ? current.attemptId : newAttemptId;
+        transaction.set(ref, { [key]: { state: 'sending', channel, attemptId, startedAt: nowMs, clickedAt: null, confirmedNotSent: false } }, { merge: true });
+        outcome = { status: 'claimed', resumed: current?.state === 'sending', attemptId };
       });
+      activeAttemptId = outcome?.status === 'claimed' ? outcome.attemptId : null;
       return outcome;
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
@@ -159,7 +171,12 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           throw new Error('application_withdrawn');
         }
         const current = submissionDoc.data()?.[key];
+        if (flowDoc.exists && (Number(flow.round || 1) !== (Number(round) || 1)
+          || (current?.channel === 'owner_extension' ? flow.state !== 'owner_takeover' : flow.state !== 'submitting'))) {
+          throw new Error('submission_superseded');
+        }
         if (current?.state !== 'sending') throw new Error('submission_claim_missing');
+        if (activeAttemptId && current.attemptId !== activeAttemptId) throw new Error('submission_attempt_superseded');
         if (current.channel === 'portal' && !/^[a-f0-9]{64}$/.test(formBinding || '')) {
           throw new Error('submission_form_unbound');
         }
@@ -173,17 +190,86 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         transaction.set(ref, { [key]: { clickedAt: nowMs, ...(current.channel === 'portal' ? { formBinding } : {}) } }, { merge: true });
       });
     },
-    async markSent(record = {}, nowMs = Date.now()) {
+    async markSent(record = {}, nowMs = Date.now(), proof = null) {
+      const proofKind = String(proof?.kind || '');
+      const attemptId = String(proof?.attemptId || activeAttemptId || record.attemptId || '');
+      const channel = String(record.channel || proof?.channel || '');
+      const sentRecord = record.sent && typeof record.sent === 'object' && !Array.isArray(record.sent) ? record.sent : {};
+      if (!proof || !attemptId) throw new Error('submission_receipt_proof_missing');
+      if (activeAttemptId && attemptId !== activeAttemptId) throw new Error('submission_attempt_superseded');
+      if ((proofKind === 'email_provider_accepted' && channel !== 'email')
+        || (proofKind === 'portal_success_page' && ['email', 'whatsapp', 'owner', 'owner_extension', 'candidate'].includes(channel))
+        || (proofKind === 'candidate_handoff_link' && channel !== 'whatsapp')
+        || (proofKind === 'owner_confirmation' && !['owner', 'owner_extension'].includes(channel))
+        || (proofKind === 'candidate_confirmation' && channel !== 'candidate')
+        || (proofKind === 'owner_confirmation' && proof.evidence?.via !== channel)) {
+        throw new Error('submission_receipt_channel_mismatch');
+      }
+      let durableReceipt = null;
       await db.runTransaction(async transaction => {
         // The first durable receipt is immutable. A replay must return the
         // original proof, not replace its timestamp, channel or send record.
-        const snapshot = await transaction.get(ref);
-        const current = snapshot.data()?.[key] || {};
-        if (current.state === 'sent') return;
-        transaction.set(ref, {
-          [key]: { ...current, ...record, state: 'sent', sentAt: nowMs, confirmedNotSent: false },
+        const [submissionSnapshot, orderSnapshot] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
+        const current = submissionSnapshot.data()?.[key] || {};
+        if (!orderSnapshot.exists) throw new Error('submission_receipt_order_missing');
+        const candidateConfirmation = proofKind === 'candidate_confirmation';
+        const priorCandidateReceipt = current.confirmationReceipts?.candidate;
+        if (candidateConfirmation && priorCandidateReceipt) {
+          durableReceipt = priorCandidateReceipt;
+          return;
+        }
+        if (current.state === 'sent' && current.receipt) {
+          if (!candidateConfirmation || current.receipt.proofKind === proofKind) {
+            if (current.attemptId && current.attemptId !== attemptId && !EXTERNAL_PROOF_KINDS.has(proofKind)) {
+              throw new Error('submission_attempt_superseded');
+            }
+            durableReceipt = current.receipt;
+            return;
+          }
+        }
+        if (current.attemptId && current.attemptId !== attemptId && !EXTERNAL_PROOF_KINDS.has(proofKind)) {
+          throw new Error('submission_attempt_superseded');
+        }
+        if (!EXTERNAL_PROOF_KINDS.has(proofKind) && current.state !== 'sent' && current.attemptId !== attemptId) {
+          throw new Error('submission_attempt_superseded');
+        }
+        if (proofKind === 'portal_success_page' && current.state !== 'sent'
+          && (current.channel !== 'portal' || !Number(current.clickedAt) || !/^[a-f0-9]{64}$/.test(current.formBinding || ''))) {
+          throw new Error('submission_form_unbound');
+        }
+        const sentMaterial = current.state === 'sent' && current.sent && typeof current.sent === 'object'
+          ? current.sent : sentRecord;
+        const receipt = createSubmissionReceipt({
+          orderId: String(orderId), round: Number(round) || 1, attemptId, channel, proofKind,
+          evidence: proof.evidence, sentRecord: sentMaterial,
+          observedAt: Number(proof.observedAt) || Number(nowMs),
+        });
+        if (!receipt) throw new Error('submission_receipt_invalid');
+        if (candidateConfirmation && current.receipt && current.receipt.proofKind !== proofKind) {
+          // Candidate confirmation is a second durable fact after a native
+          // handoff. Preserve the first send receipt and its channel/attempt.
+          transaction.set(ref, { [key]: {
+            ...current,
+            confirmationReceipts: { ...(current.confirmationReceipts || {}), candidate: receipt },
+          } }, { merge: true });
+        } else {
+          transaction.set(ref, { [key]: {
+            ...current, ...record,
+            sent: sentMaterial,
+            state: 'sent', sentAt: Number(current.sentAt || record.sentAt) || Number(nowMs), confirmedNotSent: false,
+            attemptId: current.attemptId || attemptId,
+            receipt,
+          } }, { merge: true });
+        }
+        const dueAt = Number(orderSnapshot.data()?.submissionReceiptDueAt) || 0;
+        transaction.set(orderRef, {
+          submissionReceiptDueAt: dueAt > 0 ? Math.min(dueAt, Number(nowMs)) : Number(nowMs),
+          submissionReceiptAttempts: 0,
+          submissionReceiptStatus: 'pending', submissionReceiptIssue: null,
         }, { merge: true });
+        durableReceipt = receipt;
       });
+      return { receiptId: durableReceipt.receiptId, attemptId: durableReceipt.attemptId, receipt: durableReceipt };
     },
     async release(reason, nowMs = Date.now(), metadata = {}) {
       const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')

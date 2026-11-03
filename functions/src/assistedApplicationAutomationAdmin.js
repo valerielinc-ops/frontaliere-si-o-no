@@ -37,7 +37,7 @@ import {
   startAutomation,
 } from './assistedApplicationAutomation.js';
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
-import { factCheckTokens, roundWasSent } from './assistedApplicationFlow.js';
+import { factCheckTokens, roundWasSent, transition } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
@@ -462,6 +462,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const guard = submissionGuard(db, orderId, flow.round || 1);
       const claim = await guard.claim('owner_extension', nowMs, { resumable: true });
       if (claim.status === 'claimed') await guard.markClicked(nowMs);
+      if (claim.status === 'superseded' || claim.status === 'withdrawn') throw new AutomationAdminError('flow_changed', 409);
       return { ok: true, state: flow.state, guard: claim.status === 'already_sent' ? 'sent' : 'sending' };
     }
     case 'automationVerificationLink':
@@ -489,11 +490,21 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
  */
 export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'owner', runEffect, nowMs = Date.now() }) {
   const flow = (await flowRefFor(db, orderId).get()).data() || {};
+  const allowed = transition(flow, { type: 'owner_submitted' }, { nowMs });
+  if (allowed.ignored) return { ok: false, ignored: allowed.ignored };
+  const guard = submissionGuard(db, orderId, flow.round || 1);
+  const existing = await guard.read();
+  const draft = (await draftRefFor(db, orderId).get()).data() || {};
+  await guard.markSent({
+    channel: via, by: adminEmail, sent: draft.sentAttempt || draft.sent || existing?.sent || {},
+  }, nowMs, {
+    kind: 'owner_confirmation', attemptId: existing?.attemptId || `owner-${randomUUID()}`,
+    observedAt: nowMs, evidence: { via, actor: adminEmail },
+  });
   const result = await applyAutomationEvent({
     db, orderId, event: { type: 'owner_submitted' }, actor: `owner:${adminEmail}`, runEffect, nowMs, patchFlow: () => ({ submittedVia: via }),
   });
   if (!result.ok) return { ok: false, ignored: result.ignored || 'not_allowed' };
-  await submissionGuard(db, orderId, flow.round || 1).markSent({ channel: via, by: adminEmail }, nowMs);
   // Best effort: the flow is closed; without a record the candidate's page shows the prepared files.
   await confirmSentAttempt({ db, orderId, round: flow.round || 1, confirmedBy: 'owner', nowMs })
     .catch((error) => console.warn('[assisted-application] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
