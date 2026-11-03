@@ -1655,6 +1655,7 @@ describe('workflows', () => {
       .filter(Boolean);
 
     expect(checkout?.with?.['fetch-depth']).toBe(1);
+    expect(checkout?.with?.filter).toBe('blob:none');
     expect(checkout?.['timeout-minutes']).toBe(7);
     expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
 

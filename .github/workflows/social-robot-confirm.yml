@@ -54,6 +54,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          filter: blob:none
           # This job only moves a confirmed entry between the social queue and
           # ledger. Keep the checkout bounded: the repository tree is ~6.8 GB,
           # while the confirmation runtime needs the shared Node helpers, the
