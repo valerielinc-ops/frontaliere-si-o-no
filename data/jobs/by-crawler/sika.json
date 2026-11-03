@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-11-03T09:29:40.724Z",
-  "runId": "41609144014",
+  "assembledAt": "2026-11-03T21:35:50.028Z",
+  "runId": "41719825180",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -34,7 +34,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:32.025Z",
+      "crawledAt": "2026-11-03T21:35:32.140Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -77,8 +77,94 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:32.025Z",
+      "validThrough": "2026-12-03T21:35:32.140Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sika-5f372ae9687e",
+      "slug": "chemical-plant-worker-m-w-d-chemiemitarbeiter-chemikant-m-w-d-sika-dudingen",
+      "slugByLocale": {
+        "de": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+        "it": "chemical-plant-worker-m-w-d-chemiemitarbeiter-chemikant-m-w-d-sika-dudingen",
+        "en": "chemical-plant-worker-m-f-chemical-employee-chemical-m-f-sika-dudingen",
+        "fr": "chemical-plant-worker-m-w-d-chemiemitarbeiter-chemikant-m-w-d-sika-dudingen"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+      "titleByLocale": {
+        "de": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+        "it": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+        "en": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+        "fr": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)"
+      },
+      "description": "Über die Rolle\nFür den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie:\n\n• Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen\n\n• Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren\n\n• Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage\n\n• Kontinuierliche Verbesserung der Arbeitsabläufe im Team\n\nIhre Fähigkeiten und Erfahrungen\n• Sie verfügen Sie über eine abgeschlossene technische Ausbildung, vorteilhaft ist eine Ausbildung zum Chemikanten und/oder Erfahrung mit chemischen oder verfahrenstechnischen Anlagen\n\n• Manuelles Geschick, eine selbständige, eigenverantwortliche, zuverlässige und exakte Arbeitsweise, kritisches und logisches Denkvermögen sowie Teamfähigkeit zeichnen Sie aus\n\n• Optimierung von Abläufen und Produktionsprozessen spornt Sie an\n\n• Sicheres Umgehen mit MS-Office-Softwareprogrammen, Prozessleitsystemen und SAP R3 (von Vorteil)\n\n• Gute Sprachkenntnisse in Deutsch (m/s)\n\n• Bereitschaft zu regelmässigen Pikettbereitschaftseinsätzen sowie Schichtarbeit\n\n(3-Schicht-Betrieb) setzen wir voraus\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 101 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33'700 Mitarbeiter erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.2 Milliarden.",
+      "descriptionByLocale": {
+        "de": "Über die Rolle\nFür den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie:\n\n• Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen\n\n• Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren\n\n• Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage\n\n• Kontinuierliche Verbesserung der Arbeitsabläufe im Team\n\nIhre Fähigkeiten und Erfahrungen\n• Sie verfügen Sie über eine abgeschlossene technische Ausbildung, vorteilhaft ist eine Ausbildung zum Chemikanten und/oder Erfahrung mit chemischen oder verfahrenstechnischen Anlagen\n\n• Manuelles Geschick, eine selbständige, eigenverantwortliche, zuverlässige und exakte Arbeitsweise, kritisches und logisches Denkvermögen sowie Teamfähigkeit zeichnen Sie aus\n\n• Optimierung von Abläufen und Produktionsprozessen spornt Sie an\n\n• Sicheres Umgehen mit MS-Office-Softwareprogrammen, Prozessleitsystemen und SAP R3 (von Vorteil)\n\n• Gute Sprachkenntnisse in Deutsch (m/s)\n\n• Bereitschaft zu regelmässigen Pikettbereitschaftseinsätzen sowie Schichtarbeit\n\n(3-Schicht-Betrieb) setzen wir voraus\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 101 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33'700 Mitarbeiter erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.2 Milliarden.",
+        "it": "Über die Rolle\nFür den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie:\n\n• Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen\n\n• Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren\n\n• Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage\n\n• Kontinuierliche Verbesserung der Arbeitsabläufe im Team\n\nIhre Fähigkeiten und Erfahrungen\n• Sie verfügen Sie über eine abgeschlossene technische Ausbildung, vorteilhaft ist eine Ausbildung zum Chemikanten und/oder Erfahrung mit chemischen oder verfahrenstechnischen Anlagen\n\n• Manuelles Geschick, eine selbständige, eigenverantwortliche, zuverlässige und exakte Arbeitsweise, kritisches und logisches Denkvermögen sowie Teamfähigkeit zeichnen Sie aus\n\n• Optimierung von Abläufen und Produktionsprozessen spornt Sie an\n\n• Sicheres Umgehen mit MS-Office-Softwareprogrammen, Prozessleitsystemen und SAP R3 (von Vorteil)\n\n• Gute Sprachkenntnisse in Deutsch (m/s)\n\n• Bereitschaft zu regelmässigen Pikettbereitschaftseinsätzen sowie Schichtarbeit\n\n(3-Schicht-Betrieb) setzen wir voraus\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 101 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33'700 Mitarbeiter erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.2 Milliarden.",
+        "en": "Über die Rolle\nFür den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie:\n\n• Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen\n\n• Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren\n\n• Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage\n\n• Kontinuierliche Verbesserung der Arbeitsabläufe im Team\n\nIhre Fähigkeiten und Erfahrungen\n• Sie verfügen Sie über eine abgeschlossene technische Ausbildung, vorteilhaft ist eine Ausbildung zum Chemikanten und/oder Erfahrung mit chemischen oder verfahrenstechnischen Anlagen\n\n• Manuelles Geschick, eine selbständige, eigenverantwortliche, zuverlässige und exakte Arbeitsweise, kritisches und logisches Denkvermögen sowie Teamfähigkeit zeichnen Sie aus\n\n• Optimierung von Abläufen und Produktionsprozessen spornt Sie an\n\n• Sicheres Umgehen mit MS-Office-Softwareprogrammen, Prozessleitsystemen und SAP R3 (von Vorteil)\n\n• Gute Sprachkenntnisse in Deutsch (m/s)\n\n• Bereitschaft zu regelmässigen Pikettbereitschaftseinsätzen sowie Schichtarbeit\n\n(3-Schicht-Betrieb) setzen wir voraus\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 101 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33'700 Mitarbeiter erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.2 Milliarden.",
+        "fr": "Über die Rolle\nFür den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie:\n\n• Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen\n\n• Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren\n\n• Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage\n\n• Kontinuierliche Verbesserung der Arbeitsabläufe im Team\n\nIhre Fähigkeiten und Erfahrungen\n• Sie verfügen Sie über eine abgeschlossene technische Ausbildung, vorteilhaft ist eine Ausbildung zum Chemikanten und/oder Erfahrung mit chemischen oder verfahrenstechnischen Anlagen\n\n• Manuelles Geschick, eine selbständige, eigenverantwortliche, zuverlässige und exakte Arbeitsweise, kritisches und logisches Denkvermögen sowie Teamfähigkeit zeichnen Sie aus\n\n• Optimierung von Abläufen und Produktionsprozessen spornt Sie an\n\n• Sicheres Umgehen mit MS-Office-Softwareprogrammen, Prozessleitsystemen und SAP R3 (von Vorteil)\n\n• Gute Sprachkenntnisse in Deutsch (m/s)\n\n• Bereitschaft zu regelmässigen Pikettbereitschaftseinsätzen sowie Schichtarbeit\n\n(3-Schicht-Betrieb) setzen wir voraus\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 101 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33'700 Mitarbeiter erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.2 Milliarden."
+      },
+      "location": "Düdingen, Canton of Fribourg",
+      "canton": "FR",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-03T21:35:30.415Z",
+      "addressLocality": "Düdingen",
+      "postalCode": "3186",
+      "streetAddress": "Düdingen",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-10-14",
+      "postedDate": "2025-10-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+          "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg"
+        ],
+        "fr": [
+          "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen-canton-of-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+        "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg",
+        "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen-canton-of-fribourg"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T21:35:30.415Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-25T14:51:47.898Z"
     },
     {
       "id": "sika-931b92f5e4c0",
@@ -111,7 +197,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:29:30.887Z",
+      "crawledAt": "2026-11-03T21:35:29.123Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -160,7 +246,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:30.887Z",
+      "validThrough": "2026-12-03T21:35:29.123Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +280,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:29:29.720Z",
+      "crawledAt": "2026-11-03T21:35:27.920Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -243,7 +329,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:29.720Z",
+      "validThrough": "2026-12-03T21:35:27.920Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -277,7 +363,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f2a6afde-4e69-437f-a765-7d03d6f26534.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:28.553Z",
+      "crawledAt": "2026-11-03T21:35:27.572Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -326,7 +412,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:28.553Z",
+      "validThrough": "2026-12-03T21:35:27.572Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +446,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-225018cc-701c-4277-b715-54c0dc18286c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:27.316Z",
+      "crawledAt": "2026-11-03T21:35:26.185Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -406,7 +492,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:27.316Z",
+      "validThrough": "2026-12-03T21:35:26.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +526,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:29:25.934Z",
+      "crawledAt": "2026-11-03T21:35:24.945Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -502,7 +588,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:25.934Z",
+      "validThrough": "2026-12-03T21:35:24.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -536,7 +622,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:25.530Z",
+      "crawledAt": "2026-11-03T21:35:23.867Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -594,7 +680,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:25.530Z",
+      "validThrough": "2026-12-03T21:35:23.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -628,7 +714,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:24.246Z",
+      "crawledAt": "2026-11-03T21:35:22.669Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -677,7 +763,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:24.246Z",
+      "validThrough": "2026-12-03T21:35:22.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -711,7 +797,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:23.029Z",
+      "crawledAt": "2026-11-03T21:35:21.255Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -760,7 +846,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:23.029Z",
+      "validThrough": "2026-12-03T21:35:21.255Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -794,7 +880,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:21.894Z",
+      "crawledAt": "2026-11-03T21:35:19.024Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -843,7 +929,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:21.894Z",
+      "validThrough": "2026-12-03T21:35:19.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -877,7 +963,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:20.283Z",
+      "crawledAt": "2026-11-03T21:35:18.401Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -927,7 +1013,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:20.283Z",
+      "validThrough": "2026-12-03T21:35:18.401Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -961,7 +1047,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f64fb422-e33e-43cf-94c2-412ef76fdcb0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:29:18.896Z",
+      "crawledAt": "2026-11-03T21:35:17.014Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1010,7 +1096,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:18.896Z",
+      "validThrough": "2026-12-03T21:35:17.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1044,7 +1130,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:17.247Z",
+      "crawledAt": "2026-11-03T21:35:15.510Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1106,7 +1192,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:17.247Z",
+      "validThrough": "2026-12-03T21:35:15.510Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1140,7 +1226,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:15.990Z",
+      "crawledAt": "2026-11-03T21:35:14.230Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1191,7 +1277,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:15.990Z",
+      "validThrough": "2026-12-03T21:35:14.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1225,7 +1311,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:14.728Z",
+      "crawledAt": "2026-11-03T21:35:12.981Z",
       "addressLocality": "Altstätten",
       "postalCode": "9450",
       "streetAddress": "Altstätten",
@@ -1276,92 +1362,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:14.728Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "sika-757e4a7d8e68",
-      "slug": "sistemi-di-dosaggio-tecnico-servizio-100-w-m-d-sika-widen-aargau-switzerland",
-      "slugByLocale": {
-        "it": "sistemi-di-dosaggio-tecnico-servizio-100-w-m-d-sika-widen-aargau-switzerland",
-        "en": "service-technician-dosing-systems-100-w-m-d-sika-widen-aargau-switzerland",
-        "de": "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-        "fr": "systemes-de-dosage-des-techniciens-de-service-100-m-j-sika-widen-aargau-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Servicetechniker Dosieranlagen 100% (w/m/d)",
-      "titleByLocale": {
-        "it": "Sistemi di dosaggio tecnico servizio 100% (w/m/d)",
-        "en": "Service technician dosing systems 100% (w/m/d)",
-        "de": "Servicetechniker Dosieranlagen 100% (w/m/d)",
-        "fr": "Systèmes de dosage des techniciens de service 100% (m/j)"
-      },
-      "description": "Über die Rolle\nWir liefern, montieren und gewährleisten die Inbetriebnahme von Dosieranlagen im Bereich der Betonherstellung. Dies umfasst sämtliche Aspekte wie die Installation, Reparatur und Service. Zu den Dosieranlagen gehören Tanks, Pumpen, Rohrleitungen, Verkabelungen, Ventilsteuerungen, Waagen und ähnlichen Komponenten. Im Zuge der Teamverstärkung suchen wir für die Region Westschweiz eine:n Servicetechniker:in mit Wohnsitz idealerweise im Raum Fribourg/Bern.\nIn dieser Funktion sind Sie für folgende Aufgaben verantwortlich:\n\n• Lieferung, Montage und Inbetriebnahme unserer Anlagen in Betonwerken und Mobile Betonanlagen\n\n• Ausführen von Servicearbeiten, Fehlersuche und Reparaturen an Anlagen\n\n• Kontrolle der exakten Dosierung für Betonzusatzmittel\n\n• Durchführung von internen Montage- und Revisionsarbeiten in der eigenen Werkstatt\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene technische Berufsausbildung (z.B. Landmaschinenmechaniker/in, Sanitärinstallateur/in, Polymechaniker/in, Kleingerätemechaniker/in, o.ä.)\n\n• Selbständige, präzise und zuverlässige Arbeitsweise\n\n• Gute Deutschkenntnisse, Französischkenntnisse von Vorteil\n\n• Anwenderkenntnisse in MS Office\n\n• Fahrausweis Kategorie B sowie regelmässige Reisebereitschaft in die Westschweiz\n\nWarum Sie zu uns kommen sollten\n• Unkomplizierte Führungskräfte, die Vertrauen schenken und eine familiäre Atmosphäre mit einem freundlichen Umgangs-ton machen das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\n\n• Viel Gestaltungsspielraum und Raum für kreative Ideen\n\n• Flache Hierarchien und eine gelebte Du-Kultur\n\n• Ein motiviertes, erfahrenes Team mit viel Know-how und Engagement\n\n• Ein faires Anstellungspaket mit guten Sozialleistungen\n\n• 5 Wochen Ferien (ab dem 51. Altersjahr 6 Wochen)\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über Ihr vollständiges Bewerbungsdossier (Lebenslauf, Zeugnisse, Diplome, etc.).\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
-      "descriptionByLocale": {
-        "it": "Informazioni sul ruolo\nForniamo, raccolgiamo e garantiamo la messa in servizio dei sistemi di misura nel settore della produzione di calcestruzzo. Questo include tutti gli aspetti come installazione, riparazione e servizio. I sistemi di dosaggio includono serbatoi, pompe, tubazioni, cablaggio, controlli valvole, saldi e componenti simili. Nel corso del rafforzamento del team, stiamo cercando un tecnico di servizio per la regione della Svizzera occidentale, idealmente nella zona di Fribourg/Berne.\nIn questo ruolo, sei responsabile dei seguenti compiti:\n\n• Fornitura, assemblaggio e messa in servizio dei nostri impianti in impianti di calcestruzzo e impianti mobili in calcestruzzo\n\n• Eseguire lavori di servizio, risoluzione dei problemi e riparazioni di attrezzature\n\n• Controllo del dosaggio esatto per additivi concreti\n\n• Attuazione dei lavori di assemblaggio e di ispezione interni nel proprio laboratorio\n\nLe tue competenze ed esperienza\n• Formazione professionale tecnica completa (ad es. meccanica macchine agricole, installatore sanitario, polimeccanico, meccanica di piccole attrezzature, ecc.)\n\n• Metodi di lavoro indipendenti, precisi e affidabili\n\n• Buona conoscenza del tedesco, conoscenza del francese vantaggioso\n\n• Esperienza utente in MS Office\n\n• Biglietto categoria B e regolarità di viaggio in Svizzera occidentale\n\nPerché dovresti venire da noi\n• Dirigenti semplici che si fidano e un'atmosfera familiare con un tono amichevole fanno lavorare a Sika speciale – molti di noi lo chiamano lo spirito Sika.\n\n• Un sacco di spazio per il design e lo spazio per idee creative\n\n• Gerarchie piatte e una cultura vissuta\n\n• Un team motivato e esperto con un sacco di know-how e impegno\n\n• Un pacchetto di lavoro equo con buone prestazioni sociali\n\n• 5 settimane di ferie (da 51 anni di età 6 settimane)\nSika è un grande datore di lavoro – soprattutto per i dipendenti che si affidano alla fiducia in cooperazione. Accogliamo con favore il dossier completo (CV, certificati, diplomi, ecc.).\n\nOffriamo una remunerazione competitiva basata sugli standard del mercato locale e sulle responsabilità specifiche di ogni lavoro. La remunerazione si basa sulle competenze, responsabilità, istruzione e/o formazione pertinenti alla posizione. Ci impegniamo a regimi di remunerazione equa ed equa in conformità con le leggi applicabili, l'Accordo di Tariffa Chimica e i regolamenti.\n\nA proposito di Sika\nSika è una società chimica specializzata, leader globale nello sviluppo e produzione di sistemi e prodotti per incollaggio, sigillatura, vaporizzazione, rinforzo e protezione nella costruzione e nell'industria. Sika ha una presenza globale con filiali in 103 paesi, produce in oltre 400 fabbriche, sviluppa tecnologie innovative per i clienti di tutto il mondo e contribuisce in modo significativo alla trasformazione sostenibile nella costruzione e nei trasporti. Gli oltre 33.000 dipendenti hanno generato un fatturato di 11,20 miliardi di franchi nel 2025.",
-        "en": "About the role\nWe supply, assemble and guarantee the commissioning of metering systems in the field of concrete production. This includes all aspects such as installation, repair and service. Dosing systems include tanks, pumps, pipelines, wiring, valve controls, balances and similar components. In the course of team strengthening, we are looking for a service technician for the region of Western Switzerland, ideally in the Fribourg/Berne area.\nIn this role, you are responsible for the following tasks:\n\n• Supply, assembly and commissioning of our plants in concrete plants and mobile concrete plants\n\n• Performing service work, troubleshooting and repairs of equipment\n\n• Control of the exact dosage for concrete additives\n\n• Implementation of internal assembly and inspection work in the own workshop\n\nYour skills and experience\n• Completed technical vocational training (e.g. agricultural machinery mechanic, sanitary installer, polymechanic, small equipment mechanic, etc.)\n\n• Independent, precise and reliable working methods\n\n• Good knowledge of German, knowledge of French advantageous\n\n• User experience in MS Office\n\n• Category B ticket and regular willingness to travel to Western Switzerland\n\nWhy you should come to us\n• Uncomplicated managers who trust and a family atmosphere with a friendly tone make working at Sika special – many of us call it the Sika spirit.\n\n• Lots of room for design and space for creative ideas\n\n• Flat hierarchies and a lived du-culture\n\n• A motivated, experienced team with a lot of know-how and commitment\n\n• A fair employment package with good social benefits\n\n• 5 weeks of holidays (from 51 years of age 6 weeks)\nSika is a great employer – especially for employees who rely on trust in cooperation. We welcome your complete application dossier (CV, certificates, diplomas, etc.).\n\nWe offer competitive remuneration based on local market standards and the specific responsibilities of each job. The remuneration shall be based on the skills, responsibility, education and/or training relevant to the position. We are committed to fair and equitable remuneration schemes in accordance with applicable laws, the Chemicals Tariff Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemical company, global leader in the development and production of systems and products for gluing, sealing, steaming, reinforcing and protecting in construction and industry. Sika has a global presence with subsidiaries in 103 countries, produces in over 400 factories, develops innovative technologies for customers around the world and thus contributes significantly to the sustainable transformation in construction and transport. The more than 33,000 employees generated a turnover of CHF 11.20 billion in 2025.",
-        "de": "Über die Rolle\nWir liefern, montieren und gewährleisten die Inbetriebnahme von Dosieranlagen im Bereich der Betonherstellung. Dies umfasst sämtliche Aspekte wie die Installation, Reparatur und Service. Zu den Dosieranlagen gehören Tanks, Pumpen, Rohrleitungen, Verkabelungen, Ventilsteuerungen, Waagen und ähnlichen Komponenten. Im Zuge der Teamverstärkung suchen wir für die Region Westschweiz eine:n Servicetechniker:in mit Wohnsitz idealerweise im Raum Fribourg/Bern.\nIn dieser Funktion sind Sie für folgende Aufgaben verantwortlich:\n\n• Lieferung, Montage und Inbetriebnahme unserer Anlagen in Betonwerken und Mobile Betonanlagen\n\n• Ausführen von Servicearbeiten, Fehlersuche und Reparaturen an Anlagen\n\n• Kontrolle der exakten Dosierung für Betonzusatzmittel\n\n• Durchführung von internen Montage- und Revisionsarbeiten in der eigenen Werkstatt\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene technische Berufsausbildung (z.B. Landmaschinenmechaniker/in, Sanitärinstallateur/in, Polymechaniker/in, Kleingerätemechaniker/in, o.ä.)\n\n• Selbständige, präzise und zuverlässige Arbeitsweise\n\n• Gute Deutschkenntnisse, Französischkenntnisse von Vorteil\n\n• Anwenderkenntnisse in MS Office\n\n• Fahrausweis Kategorie B sowie regelmässige Reisebereitschaft in die Westschweiz\n\nWarum Sie zu uns kommen sollten\n• Unkomplizierte Führungskräfte, die Vertrauen schenken und eine familiäre Atmosphäre mit einem freundlichen Umgangs-ton machen das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\n\n• Viel Gestaltungsspielraum und Raum für kreative Ideen\n\n• Flache Hierarchien und eine gelebte Du-Kultur\n\n• Ein motiviertes, erfahrenes Team mit viel Know-how und Engagement\n\n• Ein faires Anstellungspaket mit guten Sozialleistungen\n\n• 5 Wochen Ferien (ab dem 51. Altersjahr 6 Wochen)\nDie Sika ist eine grossartige Arbeitgeberin – speziell für Mitarbeitende, welche auf Vertrauen in der Zusammenarbeit setzen. Wir freuen uns über Ihr vollständiges Bewerbungsdossier (Lebenslauf, Zeugnisse, Diplome, etc.).\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Unternehmen der Spezialitätenchemie, global führend in der Entwicklung und Produktion von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bau und in der Industrie. Sika ist weltweit präsent mit Tochtergesellschaften in 103 Ländern, produziert in über 400 Fabriken, entwickelt innovative Technologien für Kunden rund um den Globus und trägt damit massgeblich zur nachhaltigen Transformation im Bau- und Transportwesen bei. Die mehr als 33’000 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Umsatz von CHF 11.20 Milliarden.",
-        "fr": "Sur le rôle\nNous fournissons, assemblons et garantissons la mise en service de systèmes de mesure dans le domaine de la production de béton. Cela comprend tous les aspects tels que l'installation, la réparation et le service. Les systèmes de dosage comprennent les réservoirs, les pompes, les pipelines, le câblage, les commandes de vannes, les balances et les composants similaires. Dans le cadre du renforcement de l'équipe, nous recherchons un technicien de service pour la région de Suisse occidentale, idéalement dans la région de Fribourg/Berne.\nDans ce rôle, vous êtes responsable des tâches suivantes:\n\n• Fourniture, montage et mise en service de nos usines de béton et de béton mobile\n\n• Effectuer des travaux de service, de dépannage et de réparation du matériel\n\n• Contrôle de la posologie exacte pour les additifs en béton\n\n• Mise en œuvre des travaux d'assemblage et d'inspection internes dans le cadre de son propre atelier\n\nVos compétences et votre expérience\n• Formation professionnelle technique achevée (mécanicien des machines agricoles, installateur sanitaire, polymécanique, mécanicien de petit matériel, etc.)\n\n• Méthodes de travail indépendantes, précises et fiables\n\n• Bonne connaissance de l'allemand, connaissance du français avantageux\n\n• Expérience utilisateur dans MS Office\n\n• Billet de catégorie B et volonté régulière de voyager en Suisse occidentale\n\nPourquoi tu devrais venir nous voir ?\n• Des gestionnaires simples qui font confiance et une ambiance familiale avec un ton amical rendent le travail à Sika spécial – beaucoup d'entre nous l'appellent l'esprit Sika.\n\n• Beaucoup de place pour le design et l'espace pour les idées créatives\n\n• Hiérarchies plates et une du-culture vécue\n\n• Une équipe motivée et expérimentée avec beaucoup de savoir-faire et d'engagement\n\n• Un ensemble d'emplois équitables avec de bonnes prestations sociales\n\n• 5 semaines de vacances (à partir de 51 ans 6 semaines)\nSika est un excellent employeur – surtout pour les employés qui comptent sur la confiance dans la coopération. Nous accueillons votre dossier de candidature complet (CV, certificats, diplômes, etc.).\n\nNous offrons une rémunération concurrentielle basée sur les normes du marché local et les responsabilités spécifiques de chaque emploi. La rémunération est fondée sur les compétences, les responsabilités, les études et/ou la formation pertinentes au poste. Nous nous engageons à mettre en place des systèmes de rémunération justes et équitables conformément aux lois applicables, à l'Accord tarifaire sur les produits chimiques et à la réglementation.\n\nÀ propos de Sika\nSika est une société chimique spécialisée, leader mondial dans le développement et la production de systèmes et de produits de collage, d'étanchéité, de vapeur, de renforcement et de protection dans la construction et l'industrie. Sika a une présence mondiale avec des filiales dans 103 pays, produit dans plus de 400 usines, développe des technologies innovantes pour les clients à travers le monde et contribue ainsi de manière significative à la transformation durable dans la construction et le transport. Plus de 33 000 salariés ont généré un chiffre d'affaires de CHF 11,20 milliards en 2025."
-      },
-      "location": "Widen, Aargau",
-      "canton": "AG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:13.602Z",
-      "addressLocality": "Widen",
-      "postalCode": "8967",
-      "streetAddress": "Widen",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-05-28",
-      "postedDate": "2026-05-28",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-        "servicetechniker-dosieranlagen-100-m-w-d-sika-widen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-          "servicetechniker-dosieranlagen-100-m-w-d-sika-widen"
-        ],
-        "en": [
-          "servicetechniker-dosieranlagen-100-w-m-d-sika-ch"
-        ],
-        "fr": [
-          "servicetechniker-dosieranlagen-100-w-m-d-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:46:52.538Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:13.602Z",
+      "validThrough": "2026-12-03T21:35:12.981Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1395,7 +1396,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:12.488Z",
+      "crawledAt": "2026-11-03T21:35:11.812Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -1444,7 +1445,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:12.488Z",
+      "validThrough": "2026-12-03T21:35:11.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1478,7 +1479,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:11.074Z",
+      "crawledAt": "2026-11-03T21:35:09.920Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -1531,7 +1532,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:11.074Z",
+      "validThrough": "2026-12-03T21:35:09.920Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1565,7 +1566,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d008f907-3479-4421-970f-a81ee94402c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:09.504Z",
+      "crawledAt": "2026-11-03T21:35:08.501Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1612,7 +1613,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:09.504Z",
+      "validThrough": "2026-12-03T21:35:08.501Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1646,7 +1647,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:29:07.594Z",
+      "crawledAt": "2026-11-03T21:35:06.834Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1697,7 +1698,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:07.594Z",
+      "validThrough": "2026-12-03T21:35:06.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1731,7 +1732,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f3d46566-6b67-4236-ab81-dc432db26d97.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:06.218Z",
+      "crawledAt": "2026-11-03T21:35:05.665Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -1776,7 +1777,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:06.218Z",
+      "validThrough": "2026-12-03T21:35:05.665Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1810,7 +1811,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:04.907Z",
+      "crawledAt": "2026-11-03T21:35:04.156Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -1861,7 +1862,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:04.907Z",
+      "validThrough": "2026-12-03T21:35:04.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1895,7 +1896,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:03.384Z",
+      "crawledAt": "2026-11-03T21:35:02.947Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -1961,7 +1962,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:03.384Z",
+      "validThrough": "2026-12-03T21:35:02.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1995,7 +1996,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:29:01.703Z",
+      "crawledAt": "2026-11-03T21:35:01.385Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "9320",
       "streetAddress": "Arbon / Romanshorn",
@@ -2041,7 +2042,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:29:01.703Z",
+      "validThrough": "2026-12-03T21:35:01.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2075,7 +2076,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8349eaa-d440-4a6a-9632-85b45ced7aac.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:28:59.925Z",
+      "crawledAt": "2026-11-03T21:35:00.286Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -2124,7 +2125,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:59.925Z",
+      "validThrough": "2026-12-03T21:35:00.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2158,7 +2159,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fb414f0f-92ed-454d-b817-0ce5a4e49072.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:58.824Z",
+      "crawledAt": "2026-11-03T21:34:59.026Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2201,7 +2202,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:58.824Z",
+      "validThrough": "2026-12-03T21:34:59.026Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2235,7 +2236,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:57.381Z",
+      "crawledAt": "2026-11-03T21:34:57.706Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -2284,7 +2285,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:57.381Z",
+      "validThrough": "2026-12-03T21:34:57.706Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2318,7 +2319,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-44dde78c-5b75-4262-8b33-9b00aec560ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:56.068Z",
+      "crawledAt": "2026-11-03T21:34:56.219Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2367,7 +2368,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:56.068Z",
+      "validThrough": "2026-12-03T21:34:56.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2401,7 +2402,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-273b4296-5dde-4138-b859-a12db084cba2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:54.814Z",
+      "crawledAt": "2026-11-03T21:34:54.938Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -2456,7 +2457,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:54.814Z",
+      "validThrough": "2026-12-03T21:34:54.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2490,7 +2491,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5ec60ecb-9201-4f09-ba89-e73491532ae1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:53.469Z",
+      "crawledAt": "2026-11-03T21:34:53.805Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -2534,7 +2535,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:53.469Z",
+      "validThrough": "2026-12-03T21:34:53.805Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2568,7 +2569,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c2c3625e-9a1a-440c-a3dc-fc0763c9b33e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:51.873Z",
+      "crawledAt": "2026-11-03T21:34:52.443Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2621,7 +2622,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:51.873Z",
+      "validThrough": "2026-12-03T21:34:52.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2655,7 +2656,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48ca988c-b964-4894-bbd0-b218553955f1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:50.743Z",
+      "crawledAt": "2026-11-03T21:34:52.112Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2710,7 +2711,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:50.743Z",
+      "validThrough": "2026-12-03T21:34:52.112Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2744,7 +2745,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-876da52f-e983-4a7f-a401-e43daa0a535a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:49.399Z",
+      "crawledAt": "2026-11-03T21:34:50.903Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -2795,7 +2796,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:49.399Z",
+      "validThrough": "2026-12-03T21:34:50.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2829,7 +2830,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7900f36e-3cd1-4050-be26-6d0fe6f179bf.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:48.119Z",
+      "crawledAt": "2026-11-03T21:34:49.582Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptthal",
@@ -2878,7 +2879,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:48.119Z",
+      "validThrough": "2026-12-03T21:34:49.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2912,7 +2913,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3f20ee8a-18d4-46c5-8d78-c08b80e686a8.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:28:46.190Z",
+      "crawledAt": "2026-11-03T21:34:48.237Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2965,7 +2966,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:28:46.190Z",
+      "validThrough": "2026-12-03T21:34:48.237Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2999,7 +3000,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-76d19468-d6a7-42d4-b30a-56077410f47f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:28:44.952Z",
+      "crawledAt": "2026-11-03T21:34:46.777Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "streetAddress": "Baar",
@@ -3053,7 +3054,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:28:44.952Z",
+      "validThrough": "2026-12-09T21:34:46.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3087,7 +3088,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-47ad871c-b3e1-479b-9960-a2ba662a0c62.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:43.774Z",
+      "crawledAt": "2026-11-03T21:34:45.494Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -3130,7 +3131,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:28:43.774Z",
+      "validThrough": "2026-12-20T21:34:45.494Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3164,7 +3165,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de82f5e5-b7fb-4b8a-8d96-634e042e0ee1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:42.527Z",
+      "crawledAt": "2026-11-03T21:34:44.076Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -3213,7 +3214,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:28:42.527Z",
+      "validThrough": "2026-12-20T21:34:44.076Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3247,7 +3248,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9a597c4f-1ce9-4b5c-acb2-409c36c97ff4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:28:41.376Z",
+      "crawledAt": "2026-11-03T21:34:42.864Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3296,7 +3297,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:28:41.376Z",
+      "validThrough": "2026-12-23T21:34:42.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3330,7 +3331,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de3fd00a-e533-415b-b1b9-2c1ee89f175c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:39.755Z",
+      "crawledAt": "2026-11-03T21:34:41.604Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3378,7 +3379,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:39.755Z",
+      "validThrough": "2026-12-27T21:34:41.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3412,7 +3413,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-061825ed-c5a1-4ab8-85f4-0b31638d5793.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:28:38.032Z",
+      "crawledAt": "2026-11-03T21:34:40.457Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3461,7 +3462,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:38.032Z",
+      "validThrough": "2026-12-27T21:34:40.457Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3495,7 +3496,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-090579ca-25ed-4812-ac5d-6e5c3c265495.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:36.776Z",
+      "crawledAt": "2026-11-03T21:34:38.823Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3545,7 +3546,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:28:36.776Z",
+      "validThrough": "2026-12-28T21:34:38.823Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3579,7 +3580,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e59d147a-a3c5-4b0e-a9f6-8eb18e64c66e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-03T09:28:35.165Z",
+      "crawledAt": "2026-11-03T21:34:37.543Z",
       "addressLocality": "Cadenazzo",
       "postalCode": "6593",
       "streetAddress": "Cadenazzo",
@@ -3614,7 +3615,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:35.165Z",
+      "validThrough": "2026-12-29T21:34:37.543Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3648,7 +3649,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-470cd65a-d03e-47ac-81e3-a951817ab102.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:33.342Z",
+      "crawledAt": "2026-11-03T21:34:36.390Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3697,7 +3698,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:33.342Z",
+      "validThrough": "2026-12-29T21:34:36.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3731,7 +3732,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-969fd446-9aa7-4f4f-8d15-bbdaa522919a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:32.084Z",
+      "crawledAt": "2026-11-03T21:34:33.829Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3780,7 +3781,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:28:32.084Z",
+      "validThrough": "2027-01-10T21:34:33.829Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3814,7 +3815,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0e422cc2-b766-4b03-b291-57d3cd58c412.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:30.864Z",
+      "crawledAt": "2026-11-03T21:34:31.889Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3863,7 +3864,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:28:30.864Z",
+      "validThrough": "2027-01-18T21:34:31.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3897,7 +3898,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e8630cdd-fa91-47a4-8a31-db3a890660fa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:28:29.339Z",
+      "crawledAt": "2026-11-03T21:34:30.563Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3940,7 +3941,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:28:29.339Z",
+      "validThrough": "2027-01-20T21:34:30.563Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3974,7 +3975,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-eb5c10d3-539b-4691-a17f-8b6d561cd311.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:28:27.933Z",
+      "crawledAt": "2026-11-03T21:34:29.454Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -4023,7 +4024,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:28:27.933Z",
+      "validThrough": "2027-01-21T21:34:29.454Z",
       "validThroughSource": "last-observed-window"
     }
   ]

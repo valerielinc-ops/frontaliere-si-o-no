@@ -1,16 +1,16 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-11-03T09:23:59.096Z",
+  "generatedAt": "2026-11-03T21:32:39.723Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2903,
-  "avgDurationMs": 2903,
+  "durationMs": 2649,
+  "avgDurationMs": 2649,
   "durationHistory": [
-    2903
+    2649
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-03T09:23:45.334Z",
+      "crawledAt": "2026-11-03T21:32:25.765Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -49,7 +49,7 @@
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddress": "Luganese, Malcantone",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:23:45.334Z",
+      "validThrough": "2026-12-03T21:32:25.765Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-03T09:23:45.334Z",
+      "crawledAt": "2026-11-03T21:32:25.765Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +97,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-17T21:20:49.576Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-16T09:23:45.334Z",
+      "validThrough": "2027-01-15T21:32:25.765Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-03T09:23:45.334Z",
+      "crawledAt": "2026-11-03T21:32:25.765Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -142,7 +142,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:23:45.334Z",
+      "validThrough": "2026-12-03T21:32:25.765Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -153,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }
