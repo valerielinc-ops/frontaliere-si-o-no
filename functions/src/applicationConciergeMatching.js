@@ -726,8 +726,14 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
+    const rawEligibilityFactsRevision = Number(service.eligibilityFactsRevision);
+    const eligibilityFactsRevision = Number.isSafeInteger(rawEligibilityFactsRevision) && rawEligibilityFactsRevision >= 0
+      ? rawEligibilityFactsRevision
+      : 0;
     const eligibilityContext = createHash('sha256').update(JSON.stringify([
-      CONCIERGE_ELIGIBILITY_VERSION, service.cvStorageKey, profile,
+      CONCIERGE_ELIGIBILITY_VERSION,
+      service.cvStorageKey,
+      profile,
     ])).digest('hex');
     const rankingContext = createHash('sha256').update(JSON.stringify([
       APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -735,6 +741,15 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       profile,
       candidateLocation,
       rankingFeedbackContext(existingData),
+      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
+    ])).digest('hex');
+    const eligibilityRecoveryContext = createHash('sha256').update(JSON.stringify([
+      CONCIERGE_ELIGIBILITY_VERSION,
+      APPLICATION_CONCIERGE_MATCHING_VERSION,
+      service.cvStorageKey,
+      profile,
+      candidateLocation,
+      ...(eligibilityFactsRevision > 0 ? [eligibilityFactsRevision] : []),
     ])).digest('hex');
     const retryJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(eligibilityContext, job)]));
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
@@ -746,8 +761,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (url && !proposedUrls.has(url) && !excludedUrls.has(url) && !retractionOwners.has(url)) retractionOwners.set(url, row.id);
     }
     const legacyRecovery = selectLegacyProposalRecovery(recoveryRows, {
-      cursor: service.matchingLegacyRecoveryContext === rankingContext ? service.matchingLegacyRecoveryCursor || '' : '',
-      context: rankingContext,
+      cursor: service.matchingLegacyRecoveryContext === eligibilityRecoveryContext ? service.matchingLegacyRecoveryCursor || '' : '',
+      context: eligibilityRecoveryContext,
       nowMs: Date.now(),
     });
     const allLegacyRecoveryUrls = new Set(legacyRecovery.queued
@@ -912,8 +927,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const eligibilityFields = (result = { status: 'unverified' }) => ({
       eligibilityStatus: result.status,
       eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
-      eligibilityFactsRevision: Number.isSafeInteger(Number(service.eligibilityFactsRevision))
-        && Number(service.eligibilityFactsRevision) >= 0 ? Number(service.eligibilityFactsRevision) : 0,
+      eligibilityFactsRevision,
       eligibilityFingerprint: result.fingerprint || null,
       eligibilityCacheId: result.cacheId || null,
       eligibilityCvStorageKey: service.cvStorageKey || null,
@@ -1018,7 +1032,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (preflight.kind === 'terminal') {
         const retractionReason = preflight.reason === 'job_closed' ? 'job_closed' : 'duplicate_proposal';
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
-          ...legacyProposalRecoveryTerminalFields({ context: rankingContext, nowMs: Date.now(), reason: preflight.reason }),
+          ...legacyProposalRecoveryTerminalFields({ context: eligibilityRecoveryContext, nowMs: Date.now(), reason: preflight.reason }),
           retractionReason,
           updatedAt: FieldValue.serverTimestamp(),
         }, service.cvStorageKey, fallbackOpenCount);
@@ -1028,7 +1042,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
 
       if (preflight.kind === 'retry') {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
-          ...legacyProposalRecoveryRetryFields(current, { context: rankingContext, nowMs: Date.now(), reason: preflight.reason }),
+          ...legacyProposalRecoveryRetryFields(current, { context: eligibilityRecoveryContext, nowMs: Date.now(), reason: preflight.reason }),
           updatedAt: FieldValue.serverTimestamp(),
         }), service.cvStorageKey, fallbackOpenCount);
         if (changed) recoveryOutcomes.set(row.id, changed);
@@ -1050,7 +1064,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           status: 'proposed',
           reactivatedAt: FieldValue.serverTimestamp(),
           legacyRecoveryStatus: 'recovered',
-          legacyRecoveryContext: rankingContext,
+          legacyRecoveryContext: eligibilityRecoveryContext,
           legacyRecoveryResolvedAt: Date.now(),
           legacyRecoveryNextAt: null,
           legacyRecoveryLastReason: 'verified_compatible',
@@ -1062,7 +1076,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       } else if (decisiveIncompatibility(result)) {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
           ...eligibilityFields(result),
-          ...legacyProposalRecoveryTerminalFields({ context: rankingContext, nowMs: Date.now(), reason: 'decisive_requirement_missing' }),
+          ...legacyProposalRecoveryTerminalFields({ context: eligibilityRecoveryContext, nowMs: Date.now(), reason: 'decisive_requirement_missing' }),
           retractionReason: 'decisive_requirement_missing',
           matchScore: preflight.rescored.score,
           matchRankingScore: preflight.rescored.rankScore ?? preflight.rescored.score,
@@ -1077,7 +1091,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             ? eligibilityFields({ ...result, status: 'unverified' })
             : {}),
           ...legacyProposalRecoveryRetryFields(current, {
-            context: rankingContext,
+            context: eligibilityRecoveryContext,
             nowMs: Date.now(),
             reason: result.reason || result.status || 'eligibility_unverified',
           }),
@@ -1127,7 +1141,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }
     const retrySummary = await eligibilityRetrySummary(serviceRef);
     const legacyRecoverySummary = summarizeLegacyProposalRecovery(legacyRecovery.queued, recoveryOutcomes, {
-      context: rankingContext,
+      context: eligibilityRecoveryContext,
       nowMs: Date.now(),
     });
     const scannedIndex = frontier.findIndex(entry => entry.url === scannedCursor);
@@ -1149,7 +1163,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       matchingEligibilityLastRecoveryStatus: retrySummary.recovery.lastStatus,
       matchingEligibilityLastRecoveryAt: retrySummary.recovery.lastAt,
       matchingLegacyRecoveryCursor: legacyRecovery.nextCursor,
-      matchingLegacyRecoveryContext: rankingContext,
+      matchingLegacyRecoveryContext: eligibilityRecoveryContext,
       matchingLegacyRecoveryPendingCount: legacyRecoverySummary.count,
       matchingLegacyRecoveryRetryAt: legacyRecoverySummary.retryAt,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
