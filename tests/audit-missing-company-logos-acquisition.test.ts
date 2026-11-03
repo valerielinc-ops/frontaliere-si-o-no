@@ -36,7 +36,7 @@ const ACQUIRED_ASSET_KEYS = [
   'christinavassalli', 'clariant', 'comadur-swatch-group', 'elprom', 'endeso', 'fisba',
   'gim-architekten', 'grischapersonal',
   'integra-biosciences', 'kone', 'mcm-group', 'mueller-steinmaur',
-  'neoproconseils', 'nord-anglia', 'pantr-ch', 'parmag', 'protectas-sa',
+  'neoproconseils', 'nivarox-swatch-group', 'nord-anglia', 'pantr-ch', 'parmag', 'protectas-sa',
   'schweizerhof-flims', 'yellowshark',
 ];
 
@@ -271,6 +271,21 @@ describe('missing company-logo acquisition', () => {
       companyDomains: new Set(['conservatorio.ch']),
       urlHosts: new Set(['conservatorio.ch']),
     }, { fromAudit: true })).toEqual(['conservatorio.ch']);
+  });
+
+  it('uses the official Nivarox site and stable local brand asset', () => {
+    const job = {
+      company: 'Nivarox-FAR SA',
+      companyKey: 'nivarox-swatch-group',
+      companyDomain: 'swatchgroup.com',
+      url: 'https://www.swatchgroup.com/en/job/33351',
+    };
+
+    expect(resolveCompanyLogoUrl(job)).toBe('/images/brands/nivarox-swatch-group.svg');
+    expect(domainCandidates('nivarox-swatch-group', {
+      companyDomains: new Set(['swatchgroup.com']),
+      urlHosts: new Set(['swatchgroup.com']),
+    }, { fromAudit: true })).toEqual(['nivarox.com']);
   });
 
   it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {

@@ -406,6 +406,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'nant': cLogo('nant.ch'),
  'nestle': cLogo('nestle.ch'),
  'nishcom': 'https://static.wixstatic.com/media/aa3922_bc0b3d015d904ae3b951a195a9c20138%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/aa3922_bc0b3d015d904ae3b951a195a9c20138%7Emv2.png',
+ 'nivarox-swatch-group': '/images/brands/nivarox-swatch-group.svg',
  'novartis': cLogo('novartis.ch'),
  'nsn-medical': cLogo('nsn.ch'),
  'nvidia-zurich': cLogo('nvidia.com'),

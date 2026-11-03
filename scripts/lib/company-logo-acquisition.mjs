@@ -70,6 +70,9 @@ export const DOMAIN_OVERRIDES = {
   yellowshark: ['yellowshark.com'],
   bucherer: ['bucherer.com', 'bucherer.ch'],
   'comadur-swatch-group': ['swatchgroup.com'],
+  // Nivarox-FAR has its own official brand site; never use the shared
+  // Swatch Group pool as a logo source for this employer.
+  'nivarox-swatch-group': ['nivarox.com'],
   'edmond-de-rothschild': ['edmond-de-rothschild.com'],
   'nord-anglia': ['nordangliaeducation.com'],
   grischapersonal: ['grischapersonal.ch'],
