@@ -964,6 +964,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       }, nowMs, {
         kind: 'candidate_confirmation',
         attemptId,
+        submissionAttemptId: existing?.attemptId || null,
         observedAt: nowMs, evidence: { actor, confirmedAt: nowMs },
       }, { transaction });
     }

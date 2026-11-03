@@ -6,7 +6,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { runAutomationSweep, handleRunnerEvent } = await import('../functions/src/assistedApplicationAutomation.js');
+const { runAutomationSweep, handleRunnerEvent, applyAutomationEvent } = await import('../functions/src/assistedApplicationAutomation.js');
 const { reconcileSubmissionReceipt } = await import('../functions/src/assistedApplicationReceiptReconcile.js');
 const { SUBMISSION_RECEIPT_RETRY_LIMIT } = await import('../functions/src/assistedApplicationReceiptReconcile.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
@@ -119,6 +119,7 @@ describe('durable submission receipts', () => {
       channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 1, sent,
     }, T0 + 1, {
       kind: 'candidate_confirmation', attemptId: 'candidate_confirm_1', observedAt: T0 + 1,
+      submissionAttemptId: claim.attemptId,
       evidence: { actor: 'candidate-id', confirmedAt: T0 + 1 },
     });
     const persisted = store.read(`${ROOT}/automation/submission`)?.r1;
@@ -132,6 +133,146 @@ describe('durable submission receipts', () => {
     expect(result).toMatchObject({ receiptsReconciled: 1, redispatched: 0 });
     expect(store.read(`${ROOT}/automation/flow`)?.state).toBe('submitted');
     expect(store.read(ROOT)).toMatchObject({ submissionStatus: 'submitted', submissionReceiptDueAt: null });
+  });
+
+  it('reconciles a candidate confirmation after the flow commits but its submitted projection fails', async () => {
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const claim = await guard.claim('whatsapp', T0);
+    const handoff = await guard.markSent({ channel: 'whatsapp', sent }, T0, {
+      kind: 'candidate_handoff_link', attemptId: claim.attemptId, observedAt: T0,
+      evidence: { url: 'https://wa.me/41790000000' },
+    });
+    store.docs.set(`${ROOT}/automation/flow`, flow('candidate_handoff'));
+    const record = await guard.read();
+    const candidateProof = {
+      kind: 'candidate_confirmation', attemptId: 'candidate_confirm_reconcile',
+      submissionAttemptId: record?.attemptId, observedAt: T0 + 1,
+      evidence: { actor: 'candidate-id', confirmedAt: T0 + 1 },
+    };
+    const committed = await applyAutomationEvent({
+      db: store.db, orderId: ORDER, event: { type: 'candidate_confirmed_submitted' },
+      actor: 'candidate', nowMs: T0 + 1, expectedRound: 1,
+      writeSubmissionReceipt: ({ transaction }: any) => guard.markSent({
+        channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 1, sent,
+      }, T0 + 1, candidateProof, { transaction }),
+      runEffect: async () => ({ ok: false, error: 'projection_not_applied' }),
+    });
+    expect(committed).toMatchObject({ ok: true, flow: { state: 'submitted' } });
+    expect(store.read(`${ROOT}/automation/submission`)?.r1).toMatchObject({
+      attemptId: claim.attemptId,
+      receipt: { receiptId: handoff?.receiptId, proofKind: 'candidate_handoff_link' },
+      confirmationReceipts: { candidate: { attemptId: 'candidate_confirm_reconcile' } },
+    });
+
+    const summary = await runAutomationSweep({ db: store.db, nowMs: T0 + 2, runEffect: async context => {
+      effects.push(context.effect);
+      return runAutomationEffect(context);
+    } });
+
+    expect(summary).toMatchObject({ receiptsReconciled: 1, redispatched: 0 });
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+    expect(store.read(ROOT)).toMatchObject({ submissionStatus: 'submitted', submissionReceiptDueAt: null });
+  });
+
+  it('rejects a candidate confirmation if its live submission attempt was superseded after the precheck', async () => {
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const claim = await guard.claim('whatsapp', T0);
+    const handoff = await guard.markSent({ channel: 'whatsapp', sent }, T0, {
+      kind: 'candidate_handoff_link', attemptId: claim.attemptId, observedAt: T0,
+      evidence: { url: 'https://wa.me/41790000000' },
+    });
+    const submissionPath = `${ROOT}/automation/submission`;
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      const submission = store.read(submissionPath);
+      store.docs.set(submissionPath, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(submissionGuard(store.db, ORDER, 1).markSent({
+        channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 1, sent,
+      }, T0 + 1, {
+        kind: 'candidate_confirmation', attemptId: 'candidate_confirm_2',
+        submissionAttemptId: claim.attemptId,
+        observedAt: T0 + 1, evidence: { actor: 'candidate-id', confirmedAt: T0 + 1 },
+      })).rejects.toThrow('submission_attempt_superseded');
+      expect(store.read(submissionPath)?.r1).toMatchObject({
+        state: 'sent', attemptId: 'attempt-new', receipt: { receiptId: handoff?.receiptId },
+      });
+      expect(store.read(submissionPath)?.r1?.confirmationReceipts?.candidate).toBeUndefined();
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
+  it('does not replay a candidate confirmation against a different live attempt', async () => {
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const claim = await guard.claim('whatsapp', T0);
+    await guard.markSent({ channel: 'whatsapp', sent }, T0, {
+      kind: 'candidate_handoff_link', attemptId: claim.attemptId, observedAt: T0,
+      evidence: { url: 'https://wa.me/41790000000' },
+    });
+    const confirmationRecord = { channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 1, sent };
+    const confirmationProof = {
+      kind: 'candidate_confirmation', attemptId: 'candidate_confirm_replay',
+      submissionAttemptId: claim.attemptId, observedAt: T0 + 1,
+      evidence: { actor: 'candidate-id', confirmedAt: T0 + 1 },
+    };
+    await submissionGuard(store.db, ORDER, 1).markSent(confirmationRecord, T0 + 1, confirmationProof);
+    const submissionPath = `${ROOT}/automation/submission`;
+    const submission = store.read(submissionPath);
+    store.docs.set(submissionPath, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+
+    await expect(submissionGuard(store.db, ORDER, 1).markSent(confirmationRecord, T0 + 2, {
+      ...confirmationProof, submissionAttemptId: 'attempt-new', observedAt: T0 + 2,
+    })).rejects.toThrow('submission_attempt_superseded');
+    expect(store.read(submissionPath)?.r1?.confirmationReceipts?.candidate?.attemptId).toBe('candidate_confirm_replay');
+  });
+
+  it('does not replay a primary candidate receipt after its live attempt changes', async () => {
+    const proof = {
+      kind: 'candidate_confirmation', attemptId: 'candidate_confirm_primary',
+      submissionAttemptId: null, observedAt: T0 + 1,
+      evidence: { actor: 'candidate-id', confirmedAt: T0 + 1 },
+    };
+    await submissionGuard(store.db, ORDER, 1).markSent({
+      channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 1, sent,
+    }, T0 + 1, proof);
+    const submissionPath = `${ROOT}/automation/submission`;
+    const submission = store.read(submissionPath);
+    store.docs.set(submissionPath, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+
+    await expect(submissionGuard(store.db, ORDER, 1).markSent({
+      channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 2, sent,
+    }, T0 + 2, { ...proof, submissionAttemptId: 'attempt-new', observedAt: T0 + 2 }))
+      .rejects.toThrow('submission_attempt_superseded');
+    expect(store.read(submissionPath)?.r1?.receipt?.attemptId).toBe('candidate_confirm_primary');
+  });
+
+  it('keeps a candidate confirmation separate when a legacy handoff has no primary receipt', async () => {
+    store.docs.set(`${ROOT}/automation/submission`, { r1: {
+      state: 'sent', channel: 'whatsapp', attemptId: 'legacy-handoff', sentAt: T0, sent,
+    } });
+    store.docs.set(`${ROOT}/automation/flow`, flow('candidate_handoff'));
+
+    const confirmation = await submissionGuard(store.db, ORDER, 1).markSent({
+      channel: 'candidate', confirmedBy: 'candidate', confirmedAt: T0 + 1, sent,
+    }, T0 + 1, {
+      kind: 'candidate_confirmation', attemptId: 'candidate_confirm_legacy',
+      submissionAttemptId: 'legacy-handoff',
+      observedAt: T0 + 1, evidence: { actor: 'candidate-id', confirmedAt: T0 + 1 },
+    });
+    const persisted = store.read(`${ROOT}/automation/submission`)?.r1;
+
+    expect(persisted).toMatchObject({ state: 'sent', channel: 'whatsapp', attemptId: 'legacy-handoff' });
+    expect(persisted?.receipt).toBeUndefined();
+    expect(persisted?.confirmationReceipts?.candidate).toMatchObject({
+      receiptId: confirmation?.receiptId, proofKind: 'candidate_confirmation', attemptId: 'candidate_confirm_legacy',
+    });
+    expect(verifySubmissionReceipt(persisted?.confirmationReceipts?.candidate, {
+      orderId: ORDER, round: 1, attemptId: 'candidate_confirm_legacy', channel: 'candidate', sentRecord: sent,
+    })).toBe(true);
   });
 
   it('refuses the final click if the flow moved to owner takeover after claim', async () => {

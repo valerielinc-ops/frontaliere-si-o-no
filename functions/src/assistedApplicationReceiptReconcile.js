@@ -123,7 +123,7 @@ export async function reconcileSubmissionReceipt({ db, orderId, applyEvent, runE
     .map(key => Number(key.slice(1))).filter(Number.isInteger).sort((a, b) => b - a)[0] || 1;
   const round = Number(flow.round) || latestRound;
   const record = submission[`r${round}`] || null;
-  const receiptKey = flow.state === 'candidate_handoff' && record?.confirmationReceipts?.candidate
+  const receiptKey = ['candidate_handoff', 'submitted'].includes(flow.state) && record?.confirmationReceipts?.candidate
     ? 'candidate' : 'receipt';
   const dueAt = Number(order.submissionReceiptDueAt) || 0;
   if (dueAt && dueAt > nowMs) return { reconciled: false, pending: true, reason: 'not_due' };

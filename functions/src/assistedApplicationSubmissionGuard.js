@@ -216,13 +216,32 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         const current = submissionSnapshot.data()?.[key] || {};
         if (!orderSnapshot.exists) throw new Error('submission_receipt_order_missing');
         const candidateConfirmation = proofKind === 'candidate_confirmation';
-        // Owner and employer confirmations were bound to the attempt read by
-        // their precheck. Only candidate confirmation has its own attempt ID.
-        if (current.attemptId && current.attemptId !== attemptId && !candidateConfirmation) {
+        // Candidate confirmation has its own receipt attempt ID, but it is
+        // still bound to the submission attempt read by its precheck.
+        const expectedSubmissionAttemptId = proof?.submissionAttemptId == null
+          ? null : String(proof.submissionAttemptId);
+        const currentSubmissionAttemptId = current.attemptId == null ? null : String(current.attemptId);
+        if (candidateConfirmation && currentSubmissionAttemptId !== expectedSubmissionAttemptId) {
+          throw new Error('submission_attempt_superseded');
+        }
+        if (candidateConfirmation && current.receipt?.proofKind === proofKind
+          && String(current.receipt.attemptId || '') !== String(current.attemptId || '')) {
+          throw new Error('submission_attempt_superseded');
+        }
+        // Owner and employer confirmations use the attempt ID from their
+        // precheck as the receipt ID too.
+        if (!candidateConfirmation && current.attemptId && current.attemptId !== attemptId) {
           throw new Error('submission_attempt_superseded');
         }
         const priorCandidateReceipt = current.confirmationReceipts?.candidate;
         if (candidateConfirmation && priorCandidateReceipt) {
+          const hasCandidateBinding = Object.hasOwn(current.confirmationSubmissionAttemptIds || {}, 'candidate');
+          const priorSubmissionAttemptId = hasCandidateBinding
+            ? current.confirmationSubmissionAttemptIds.candidate : current.receipt?.attemptId;
+          const normalizedPriorSubmissionAttemptId = priorSubmissionAttemptId == null ? null : String(priorSubmissionAttemptId);
+          if (normalizedPriorSubmissionAttemptId !== currentSubmissionAttemptId) {
+            throw new Error('submission_attempt_superseded');
+          }
           durableReceipt = priorCandidateReceipt;
           return;
         }
@@ -253,12 +272,18 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           observedAt: Number(proof.observedAt) || Number(nowMs),
         });
         if (!receipt) throw new Error('submission_receipt_invalid');
-        if (candidateConfirmation && current.receipt && current.receipt.proofKind !== proofKind) {
-          // Candidate confirmation is a second durable fact after a native
-          // handoff. Preserve the first send receipt and its channel/attempt.
+        if (candidateConfirmation && (current.receipt || current.attemptId)) {
+          // Candidate confirmation is separate from the submission attempt.
+          // Keep the first receipt/channel/attempt even when a legacy record
+          // has no receipt yet, so the candidate proof cannot make it invalid.
           transaction.set(ref, { [key]: {
             ...current,
+            state: 'sent', sent: sentMaterial,
+            sentAt: Number(current.sentAt || record.sentAt) || Number(nowMs), confirmedNotSent: false,
             confirmationReceipts: { ...(current.confirmationReceipts || {}), candidate: receipt },
+            confirmationSubmissionAttemptIds: {
+              ...(current.confirmationSubmissionAttemptIds || {}), candidate: expectedSubmissionAttemptId,
+            },
           } }, { merge: true });
         } else {
           transaction.set(ref, { [key]: {
