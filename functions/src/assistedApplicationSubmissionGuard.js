@@ -196,7 +196,9 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       const channel = String(record.channel || proof?.channel || '');
       const sentRecord = record.sent && typeof record.sent === 'object' && !Array.isArray(record.sent) ? record.sent : {};
       if (!proof || !attemptId) throw new Error('submission_receipt_proof_missing');
-      if (activeAttemptId && attemptId !== activeAttemptId) throw new Error('submission_attempt_superseded');
+      if (activeAttemptId && attemptId !== activeAttemptId && proofKind !== 'candidate_confirmation') {
+        throw new Error('submission_attempt_superseded');
+      }
       if ((proofKind === 'email_provider_accepted' && channel !== 'email')
         || (proofKind === 'portal_success_page' && ['email', 'whatsapp', 'owner', 'owner_extension', 'candidate'].includes(channel))
         || (proofKind === 'candidate_handoff_link' && channel !== 'whatsapp')

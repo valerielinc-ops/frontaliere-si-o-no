@@ -279,7 +279,7 @@ describe('durable submission receipts', () => {
       return runAutomationEffect(context);
     } });
     expect(summary).toMatchObject({ receiptsReconciled: 1, redispatched: 0 });
-    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+    expect(effects).toEqual([{ type: 'mark_submitted', by: 'candidate' }]);
     expect(store.read(`${ROOT}/automation/submission`)?.r1?.state).toBe('sending');
     expect(store.read(ROOT)).toMatchObject({ submissionStatus: 'submitted', submissionReceiptDueAt: null });
   });
