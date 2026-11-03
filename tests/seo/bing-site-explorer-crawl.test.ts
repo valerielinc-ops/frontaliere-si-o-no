@@ -12,12 +12,14 @@ import {
   extractInternalLinks,
   isDeclaredEventMigrationBridge,
   folderFor,
+  isDeclaredHealthFacilityBridge,
   isDeclaredEventDetailTarget,
   isDeclaredPaginationTarget,
   isDeclaredPlateAuctionTarget,
   isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
   isEventDetailPath,
+  isHealthFacilityDetailPath,
   isJobBoardDetailPath,
   isPlateAuctionDetailPath,
   normalizeUrl,
@@ -343,6 +345,60 @@ describe('Bing-compatible full-tree crawler', () => {
 
       const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(url) });
       expect(sitemap.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+    }
+  });
+
+  it('recognizes only marked self-canonical health-facility bridges', () => {
+    const bridgeHtml = (
+      canonical: string,
+      marker = REDIRECT_STUB_MARKER,
+    ) => `${marker}<title>Health facility bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge della struttura sanitaria nel controllo SEO completo del sito e mantenere il contratto di crawling."/>`;
+    const validCases = [
+      `${BASE}/strutture-sanitarie/clinique-la-source/`,
+      `${BASE}/en/healthcare-facilities/clinique-la-source/`,
+      `${BASE}/de/gesundheitseinrichtungen/merian-iselin/`,
+      `${BASE}/fr/etablissements-sante/institution-lavigny/`,
+    ];
+
+    for (const url of validCases) {
+      expect(isHealthFacilityDetailPath(url)).toBe(true);
+      expect(isDeclaredHealthFacilityBridge({ url, canonical: url, html: bridgeHtml(url) })).toBe(true);
+      const frontier = classifyDocument({
+        url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: bridgeHtml(url),
+      });
+      const frontierCodes = frontier.findings.map((item) => item.code);
+      expect(frontierCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(frontierCodes).not.toContain(BING_FRONTIER_NOINDEX);
+      expect(frontierCodes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+      const sitemapCodes = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(url) })
+        .findings.map((item) => item.code);
+      expect(sitemapCodes).toContain('noindex-in-sitemap');
+    }
+
+    const invalidCases = [
+      `${BASE}/strutture-sanitarie/`,
+      `${BASE}/strutture-sanitarie/clinique-la-source/details/`,
+      `${BASE}/en/strutture-sanitarie/clinique-la-source/`,
+      `${BASE}/strutture-sanitarie/definitely-not-a-facility/`,
+      `${BASE}/strutture-sanitarie/clinique-la-source/`,
+    ];
+    for (const url of invalidCases) {
+      const html = url.endsWith('/clinique-la-source/') && !url.includes('/en/strutture-')
+        ? bridgeHtml(url, '<!--COPIED_HEALTH_FACILITY_MARKER-->')
+        : bridgeHtml(url);
+      const codes = classifyDocument({
+        url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html,
+      }).findings.map((item) => item.code);
+      expect(isDeclaredHealthFacilityBridge({ url, canonical: url, html })).toBe(false);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     }
   });
 
