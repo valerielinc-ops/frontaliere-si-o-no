@@ -49,6 +49,7 @@ export const DEFAULT_TIMEOUTS = Object.freeze({
 
 /** Bound the wait for TikTok to upgrade its cookie banner and attach its action. */
 export const TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS = 1_000;
+const DIALOG_ACTION_LOOKUP_TIMEOUT_MS = 750;
 
 const ANY_OF = (...words) => new RegExp(`^\\s*(?:${words.join('|')})\\s*$`, 'i');
 const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join('|')})(?:\\s*\\1)?\\s*$`, 'i');
@@ -71,6 +72,8 @@ export const RX = Object.freeze({
   igNext: ANY_OF('Next', 'Avanti', 'Weiter', 'Suivant'),
   igShare: ANY_OF('Share', 'Condividi', 'Teilen', 'Partager'),
   igCaption: /caption|didascalia|bildunterschrift|légende/i,
+  igDiscardPostTitle: /(?:vuoi\s+eliminare(?:\s+questo|\s+il)?\s+post|discard\s+(?:this\s+)?post|delete\s+(?:this\s+)?post|(?:beitrag|post)\s+(?:löschen|verwerfen)|(?:supprimer|abandonner)\s+(?:cette\s+)?publication)/i,
+  igKeepEditing: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
   igVideoReelNotice: /video posts are now shared as reels|i post con video ora vengono condivisi come reel|video-?beiträge werden jetzt als reels geteilt|les publications vidéo sont désormais partagées sous forme de reels/i,
   igNoticeAcknowledge: EXACT_TEXT_ONE_OF('Ok', 'OK', 'Got it', 'Va bene', 'D’accord', "D'accord", 'D’accordo', "D'accordo", 'Verstanden', 'Compris'),
   // Instagram can surface the unsaved-post confirmation as a roleless div.
@@ -887,6 +890,7 @@ export async function ensureTikTokMusic({ page, musicVariant = 'control', human,
 export const INTERSTITIAL_REGISTRY = Object.freeze({
   instagram: Object.freeze([
     Object.freeze({ id: 'instagram-not-now', surface: 'button', name: RX.notNow, safeAction: 'click' }),
+    Object.freeze({ id: 'instagram-discard-post-confirmation', surface: 'dialog', role: 'dialog', title: RX.igDiscardPostTitle, name: RX.igKeepEditing, safeAction: 'keep-editing' }),
     Object.freeze({ id: 'instagram-video-reel-notice', surface: 'dialog', role: 'dialog', title: RX.igVideoReelNotice, name: RX.igNoticeAcknowledge, safeAction: 'click-dialog-acknowledge' }),
     Object.freeze({
       id: 'instagram-unsaved-post',
@@ -938,8 +942,15 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
   }
 
   if (entry.surface === 'dialog') {
+    const deadline = Date.now() + timeout;
     const dialog = await findVisible([page.getByRole(entry.role).filter({ hasText: entry.title })], { timeout });
-    return dialog ? { root: dialog } : null;
+    if (!dialog) return null;
+    if (!entry.name) return { root: dialog };
+    const action = await findVisible([
+      dialog.getByRole('button', { name: entry.name }),
+      dialog.locator('button').filter({ hasText: entry.name }),
+    ], { timeout: Math.max(DIALOG_ACTION_LOOKUP_TIMEOUT_MS, deadline - Date.now()) });
+    return { root: dialog, action };
   }
 
   if (entry.surface === 'text-container') {
@@ -1040,26 +1051,26 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
   }
 
   if (entry.safeAction === 'click-dialog-acknowledge') {
-    const acknowledge = await findVisible([
-      target.root.getByRole('button', { name: entry.name }),
-      target.root.locator('button').filter({ hasText: entry.name }),
-    ], { timeout: 0 });
-    if (!acknowledge) {
+    if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe acknowledgement`, { step: step.get() });
     }
-    await clickChecked(page, acknowledge, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
+    return;
+  }
+
+  if (entry.safeAction === 'keep-editing') {
+    if (!await visible(target.action)) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe keep-editing action`, { step: step.get() });
+    }
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `keep editing action for ${entry.id}` });
     return;
   }
 
   if (entry.safeAction === 'discard-unsaved-draft') {
-    const discard = await findVisible([
-      target.root.getByRole('button', { name: entry.name }),
-      target.root.locator('button').filter({ hasText: entry.name }),
-    ], { timeout: 0 });
-    if (!discard) {
+    if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe discard action`, { step: step.get() });
     }
-    await clickChecked(page, discard, { step, snap, platform, allowInterstitialRecovery: false, label: `discard action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `discard action for ${entry.id}` });
     return;
   }
 
@@ -1128,8 +1139,16 @@ export async function dismissKnownInterstitials({ page, platform, step, snap = a
           { step: step.get() },
         );
       }
-      await snap(`interstitial-${entry.id}`);
-      await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
+      const safeDialogActionReady = entry.surface === 'dialog'
+        && ['click-dialog-acknowledge', 'keep-editing', 'discard-unsaved-draft'].includes(entry.safeAction)
+        && await visible(target.action);
+      if (safeDialogActionReady) {
+        await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
+        await snap(`interstitial-${entry.id}-dismissed`);
+      } else {
+        await snap(`interstitial-${entry.id}`);
+        await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
+      }
       dismissed = true;
     }
     if (!dismissed) {
