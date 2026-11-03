@@ -487,6 +487,33 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     }
   });
 
+  it('rejects an owner confirmation when a concurrent claim supersedes its attempt', async () => {
+    const store = createMemoryFirestore({
+      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover' },
+      [`${BASE}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'], answers: {}, feedback: [] },
+      [`${BASE}/automation/submission`]: { r1: {
+        state: 'sending', channel: 'portal', attemptId: 'attempt-old', startedAt: NOW, clickedAt: null, confirmedNotSent: false,
+      } },
+      [`${BASE}/ai_drafts/current`]: draftFor(),
+    });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      const submission = store.read(`${BASE}/automation/submission`);
+      store.docs.set(`${BASE}/automation/submission`, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(recordOwnerSubmission({ db: store.db, orderId: ORDER, adminEmail: 'owner@example.com', nowMs: NOW }))
+        .rejects.toThrow('submission_attempt_superseded');
+      expect(store.read(`${BASE}/automation/submission`)?.r1).toMatchObject({ state: 'sending', attemptId: 'attempt-new' });
+      expect(store.read(`${BASE}/automation/submission`)?.r1?.receipt).toBeUndefined();
+      expect(store.read(`${BASE}/automation/flow`)?.state).toBe('owner_takeover');
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
   it('keeps the attempt of an e-mail of unknown outcome, and the owner’s «Segna come inviata» makes it the record of what left', async () => {
     const { store, keepSentAttempt, draft } = await ambiguousSetup();
     const bucket = fakeBucket();

@@ -216,6 +216,11 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         const current = submissionSnapshot.data()?.[key] || {};
         if (!orderSnapshot.exists) throw new Error('submission_receipt_order_missing');
         const candidateConfirmation = proofKind === 'candidate_confirmation';
+        // Owner and employer confirmations were bound to the attempt read by
+        // their precheck. Only candidate confirmation has its own attempt ID.
+        if (current.attemptId && current.attemptId !== attemptId && !candidateConfirmation) {
+          throw new Error('submission_attempt_superseded');
+        }
         const priorCandidateReceipt = current.confirmationReceipts?.candidate;
         if (candidateConfirmation && priorCandidateReceipt) {
           durableReceipt = priorCandidateReceipt;

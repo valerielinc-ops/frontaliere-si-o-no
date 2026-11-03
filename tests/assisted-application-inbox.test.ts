@@ -19,6 +19,7 @@ const { claimedByPortalAccount, classifyByRules, correctedCategory, handleAssist
 const { parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
+const { confirmSubmissionByEmployer } = await import('../functions/src/assistedApplicationAutomation.js');
 const { DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decryptJson } = await import('../functions/src/lib/evidenceCrypto.js');
 
@@ -477,6 +478,26 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(await receive('auto_acknowledgement', { nowMs: 2000 })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
     expect(store.read(GUARD_PATH)!.r1.confirmedAt).toBe(1000);
     expect(effects).toHaveLength(1);
+  });
+
+  it('does not write an employer receipt when the live flow no longer accepts the acknowledgement', async () => {
+    const { store } = await ambiguousOrder();
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      store.docs.set(FLOW_PATH, { ...store.read(FLOW_PATH), state: 'candidate_review' });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(confirmSubmissionByEmployer({
+        db: store.db, orderId: ORDER, receivedAt: 700, nowMs: 1000, runEffect: async () => ({ ok: true }),
+      })).resolves.toMatchObject({ ok: false, ignored: 'not_ambiguous_submit' });
+      expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', clickedAt: 600 });
+      expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
+      expect(store.read(FLOW_PATH)!.state).toBe('candidate_review');
+    } finally {
+      transaction.mockRestore();
+    }
   });
 
   it('confirms an ambiguous e-mail application on the employer’s reply and schedules its follow-ups', async () => {

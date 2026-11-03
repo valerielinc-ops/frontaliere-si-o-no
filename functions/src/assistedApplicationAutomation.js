@@ -852,18 +852,18 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
     sentRecord: record?.sent && typeof record.sent === 'object' ? record.sent : {},
   });
   const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
+  let writeSubmissionReceipt = null;
   if (!existingReceipt) {
     if (!confirmedBefore && !isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
     if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
-    const draft = (await draftRefFor(db, orderId).get()).data() || {};
     const attemptId = record.attemptId || `ack-${Math.floor(Number(receivedAt))}`;
-    await guard.markSent({
+    writeSubmissionReceipt = async ({ transaction, draft }) => guard.markSent({
       channel: record.channel, sentAt: leftAt, confirmedBy: 'acknowledgement', confirmedAt: nowMs,
-      sent: draft.sentAttempt || draft.sent || record.sent || {},
+      sent: draft?.sentAttempt || draft?.sent || record.sent || {},
     }, leftAt || nowMs, {
       kind: 'employer_acknowledgement', attemptId,
       observedAt: Number(receivedAt), evidence: { receivedAt: Number(receivedAt) },
-    });
+    }, { transaction });
   }
   const result = await applyAutomationEvent({
     db,
@@ -872,7 +872,9 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
     actor: 'employer_email',
     runEffect,
     nowMs,
+    expectedRound: Number(flow.round) || 1,
     patchFlow: () => ({ submittedVia: record.channel }),
+    writeSubmissionReceipt,
   });
   // What the runner was sending is what arrived: its record follows the send (best effort, the flow is settled).
   if (result.ok) {
