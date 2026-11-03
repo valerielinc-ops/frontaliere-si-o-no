@@ -49,6 +49,7 @@ jobs:
             !/data/jobs-crawler-summaries/
             /data/jobs/
             /public/data/
+            /services/privacy/faqSearchCategories.mjs
           sparse-checkout-cone-mode: false
 
       - uses: actions/setup-node@v7
