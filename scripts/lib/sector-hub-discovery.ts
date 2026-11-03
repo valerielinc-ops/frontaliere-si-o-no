@@ -923,7 +923,7 @@ export function buildAutomaticSectorHubPublicationRegistry({
       ? old?.routeKind || 'dynamic'
       : candidate.existingCategoryInventoryMatches === true
         && candidate.existingCategoryJobCount >= 3
-        && isKnownExistingCategorySlug(candidate.suggestedSlug)
+        && normalizeJobCategoryKey(candidate.suggestedSlug)
         ? 'static-category'
         : 'dynamic';
     hubs.push({
