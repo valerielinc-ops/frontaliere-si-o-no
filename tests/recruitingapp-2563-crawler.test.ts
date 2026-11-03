@@ -3,6 +3,8 @@ import {
   fetchAllRecruitingapp2563Jobs,
   RECRUITINGAPP_2563_KEY,
   RECRUITINGAPP_2563_COMPANY_NAME,
+  RECRUITINGAPP_2563_COMPANY_DOMAIN,
+  RECRUITINGAPP_2563_LOGO_KEY,
   extractRecruitingapp2563Description,
   extractRecruitingapp2563DetailFields,
   extractRecruitingapp2563TitleLocation,
@@ -16,6 +18,8 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(RECRUITINGAPP_2563_KEY).toBe('recruitingapp-2563');
     expect(RECRUITINGAPP_2563_COMPANY_NAME).toBe('Switch Bewerbermanagement Stellen');
+    expect(RECRUITINGAPP_2563_COMPANY_DOMAIN).toBe('switch.ch');
+    expect(RECRUITINGAPP_2563_LOGO_KEY).toBe('switch');
   });
 
   describe('title-backed workplace evidence', () => {
@@ -183,6 +187,8 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
         disableWafProxy: true,
       })).resolves.toEqual([expect.objectContaining({
         title,
+        companyDomain: 'switch.ch',
+        companyLogoKey: 'switch',
         location: 'Zürich',
         canton: 'ZH',
         addressLocality: 'Zürich',

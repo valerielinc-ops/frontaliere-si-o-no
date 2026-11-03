@@ -32,9 +32,11 @@ import {
 
 export const RECRUITINGAPP_2563_KEY = 'recruitingapp-2563';
 export const RECRUITINGAPP_2563_COMPANY_NAME = 'Switch Bewerbermanagement Stellen';
-export const RECRUITINGAPP_2563_COMPANY_DOMAIN = 'recruitingapp-2563.umantis.com';
+export const RECRUITINGAPP_2563_ATS_DOMAIN = 'recruitingapp-2563.umantis.com';
+export const RECRUITINGAPP_2563_COMPANY_DOMAIN = 'switch.ch';
+export const RECRUITINGAPP_2563_LOGO_KEY = 'switch';
 
-const CAREER_URL = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+const CAREER_URL = `https://${RECRUITINGAPP_2563_ATS_DOMAIN}/Jobs/1?lang=ger&ContentOnly=&message=`;
 
 // Switch publishes the workplace in the vacancy title; the Umantis detail page
 // may also carry only the employer's generic address. Single-site titles and
@@ -192,7 +194,7 @@ export function isRecruitingapp2563Job(job) {
     key === RECRUITINGAPP_2563_KEY ||
     key.startsWith('recruitingapp-2563') ||
     company.includes('switch bewerbermanagement stellen') ||
-    url.includes('recruitingapp-2563.umantis.com')
+    url.includes(RECRUITINGAPP_2563_ATS_DOMAIN)
   );
 }
 
@@ -202,7 +204,8 @@ export function isRecruitingapp2563Job(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'recruitingapp-2563.umantis.com' || host.endsWith('.recruitingapp-2563.umantis.com');
+    return host === RECRUITINGAPP_2563_ATS_DOMAIN
+      || host.endsWith(`.${RECRUITINGAPP_2563_ATS_DOMAIN}`);
   } catch {
     return false;
   }
@@ -312,6 +315,7 @@ export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
       company: RECRUITINGAPP_2563_COMPANY_NAME,
       companyKey: RECRUITINGAPP_2563_KEY,
       companyDomain: RECRUITINGAPP_2563_COMPANY_DOMAIN,
+      companyLogoKey: RECRUITINGAPP_2563_LOGO_KEY,
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
