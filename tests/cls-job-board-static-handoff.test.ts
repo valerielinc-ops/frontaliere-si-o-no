@@ -26,6 +26,7 @@ import {
   INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_PAINT_FRAME_TIMEOUT_MS,
   LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS,
+  shouldWaitForJobBoardLcp,
   shouldWaitForStaticArticleLcp,
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
@@ -93,10 +94,14 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(entry).toContain('main.seo-static-content.job-board-static-hub');
     expect(entry).toContain('main.seo-static-content.job-board-static-content');
     expect(entry).toContain('main.seo-static-content[data-sector-hub]');
-    expect(entry).not.toContain('JOB_BOARD_CONSENT_LCP_SELECTOR');
-    expect(entry).not.toContain('shouldWaitForJobBoardLcp');
+    expect(entry).toContain('JOB_BOARD_CONSENT_LCP_SELECTOR');
+    expect(entry).toContain('shouldWaitForJobBoardLcp');
+    const jobBoardLcpGate = entry.indexOf('if (shouldWaitForJobBoardStaticLcp)');
+    expect(jobBoardLcpGate).toBeGreaterThan(paintGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: jobBoardLcpSelector')).toBeGreaterThan(jobBoardLcpGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: jobBoardLcpSelector')).toBeLessThan(entry.indexOf("import('react')"));
     const articleLcpGate = entry.indexOf('if (shouldWaitForArticleStaticLcp)');
-    expect(articleLcpGate).toBeGreaterThan(paintGate);
+    expect(articleLcpGate).toBeGreaterThan(jobBoardLcpGate);
     expect(entry.indexOf('largestContentfulPaintSelector: STATIC_ARTICLE_LCP_SELECTOR')).toBeGreaterThan(articleLcpGate);
     expect(entry.indexOf('largestContentfulPaintSelector: STATIC_ARTICLE_LCP_SELECTOR')).toBeLessThan(entry.indexOf("import('react')"));
     expect(paintBootstrap).toContain('largest-contentful-paint');
@@ -155,6 +160,10 @@ describe('initial SPA bootstrap — mobile first paint', () => {
   });
 
   it('keeps the static article LCP wait for sub-desktop viewports only', () => {
+    expect(shouldWaitForJobBoardLcp(375)).toBe(true);
+    expect(shouldWaitForJobBoardLcp(1023)).toBe(true);
+    expect(shouldWaitForJobBoardLcp(1024)).toBe(false);
+    expect(shouldWaitForJobBoardLcp(1440)).toBe(false);
     expect(shouldWaitForStaticArticleLcp(375)).toBe(true);
     expect(shouldWaitForStaticArticleLcp(1023)).toBe(true);
     expect(shouldWaitForStaticArticleLcp(1024)).toBe(false);

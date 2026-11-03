@@ -2,6 +2,7 @@ import './index.css';
 import './services/consentDecisionMark';
 import { startScrollRegionObserver } from './services/scrollRegions';
 import {
+ shouldWaitForJobBoardLcp,
  shouldWaitForStaticArticleLcp,
  waitForInitialPaintOpportunity,
 } from './services/initialPaintBootstrap';
@@ -39,10 +40,16 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
 
 const JOB_BOARD_STATIC_CONTENT_SELECTOR =
  'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
+const JOB_BOARD_CONSENT_LCP_SELECTOR =
+ 'div.fc-dialog-content > div.fc-dialog-scrollable-content > div.fc-footer > p';
 const STATIC_ARTICLE_LCP_SELECTOR = 'main.seo-static-content article.ft-blog-article';
 
 const hasJobBoardPreRenderedPaintContent = (): boolean =>
  !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
+const hasVisibleJobBoardConsentLcpCandidate = (): boolean => {
+ const candidate = document.querySelector<HTMLElement>(JOB_BOARD_CONSENT_LCP_SELECTOR);
+ return !!candidate && candidate.getClientRects().length > 0;
+};
 const hasStaticArticlePaintContent = (): boolean =>
  !!document.querySelector(STATIC_ARTICLE_LCP_SELECTOR);
 
@@ -131,6 +138,21 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
+ const shouldWaitForJobBoardStaticLcp =
+   hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth);
+ if (shouldWaitForJobBoardStaticLcp) {
+   const jobBoardLcpSelector = hasVisibleJobBoardConsentLcpCandidate()
+     ? JOB_BOARD_CONSENT_LCP_SELECTOR
+     : JOB_BOARD_STATIC_CONTENT_SELECTOR;
+   // Keep the static job-board surface visible until its mobile LCP candidate
+   // has settled. React can then take over without replacing the only large
+   // candidate before Lighthouse records it; catalog data remains deferred by
+   // JobBoard after the first listing paint.
+   await waitForInitialPaintOpportunity({
+     waitForLargestContentfulPaint: true,
+     largestContentfulPaintSelector: jobBoardLcpSelector,
+   });
+ }
  const shouldWaitForArticleStaticLcp =
    hasStaticArticlePaintContent() && shouldWaitForStaticArticleLcp(window.innerWidth);
  if (shouldWaitForArticleStaticLcp) {
