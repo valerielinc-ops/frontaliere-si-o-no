@@ -597,7 +597,14 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect((await receive('rejection', { nowMs: 2000 })).submissionConfirmed).toBe(true);
     expect(store.read(FLOW_PATH)!.state).toBe('submitted');
     expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', sentAt: 600, confirmedAt: 2000 });
-    expect(store.read(GUARD_PATH)!.r1.receipt).toMatchObject({ proofKind: 'employer_acknowledgement' });
+    expect(store.read(GUARD_PATH)!.r1.receipt).toMatchObject({
+      orderId: ORDER,
+      round: 1,
+      attemptId: 'ack-2000',
+      channel: 'portal',
+      proofKind: 'employer_acknowledgement',
+      observedAt: 2000,
+    });
     expect(effects).toEqual([{ type: 'mark_submitted' }]);
     expect(sendCascade).toHaveBeenCalledTimes(2);
   });
