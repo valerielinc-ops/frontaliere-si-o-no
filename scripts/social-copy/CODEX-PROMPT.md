@@ -142,8 +142,9 @@ the experiment ID/hash groups separate: Firebase-balanced, deterministic,
 fallback, legacy, and separate experiment cohorts are not interchangeable
 evidence. If a native social performance brief is supplied, use only metrics
 marked `descriptive-sample`; it uses exact post IDs for the join, fixed 72-hour
-views/reach windows on Instagram and TikTok, and LinkedIn's first seven UTC
-calendar days. Its values are separate by channel, kind, copy slot, angle, template,
+views/reach windows on Instagram and TikTok, Facebook's first 72 hours from
+Meta's exact `created_time`, and LinkedIn's first seven UTC calendar days. Its
+values are separate by channel, kind, copy slot, angle, template,
 assignment mode, and experiment hash. The dated rolling 30-day benchmark
 describes observed outcomes and source coverage only. The default operating
 objective is net audience growth per channel, with qualified social-attributed

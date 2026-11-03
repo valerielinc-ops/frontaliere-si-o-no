@@ -19,7 +19,14 @@ export function socialCopyInvocationId(env = process.env) {
   return `${repository}/${runId}/${runAttempt}`;
 }
 
+function assertSocialCopyPackProductionRef(env = process.env) {
+  if (String(env.GITHUB_REF || '').trim() !== 'refs/heads/main') {
+    throw new Error('Social copy production generation is restricted to refs/heads/main');
+  }
+}
+
 export async function run({ env = process.env, db, now = new Date(), stdout = process.stdout } = {}) {
+  assertSocialCopyPackProductionRef(env);
   const firestore = db || await getFirestoreDb();
   const result = await reserveSocialCopyCodexInvocation({
     db: firestore,

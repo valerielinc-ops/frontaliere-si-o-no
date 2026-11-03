@@ -96,6 +96,43 @@ describe('native social copy performance brief', () => {
     expect(brief.interpretation).toContain('No winner');
   });
 
+  it('includes Facebook exact-ID post metrics only for the verified 72-hour window', () => {
+    const facebook = [1, 2, 3].map((n) => ({
+      channel: 'facebook',
+      postId: `fb-${n}`,
+      kind: 'job',
+      publishedAt: `2026-10-${10 + n}T12:00:00.000Z`,
+      snapshotAt: `2026-10-${13 + n}T12:00:00.000Z`,
+      snapshotAgeHours: 72,
+      windowHours: 72,
+      measurementWindow: 'first-72h-after-facebook-created-time',
+      publicationTimeBasis: 'facebook-created-time',
+      metrics: { mediaViews: n * 100, uniqueViewers: n * 80, reactions: n * 8, clicks: n * 4 },
+      availableMetrics: ['mediaViews', 'uniqueViewers', 'reactions', 'clicks'],
+      copy: CODEX_COPY,
+      copyAttributionStatus: 'exact',
+    }));
+    const outsideWindow = {
+      ...facebook[0],
+      postId: 'fb-outside-window',
+      snapshotAgeHours: 90,
+    };
+
+    const brief = buildNativeSocialPerformanceBrief({
+      asOf: AS_OF,
+      nativeInsights: { posts: [...facebook, outsideWindow] },
+    });
+
+    expect(brief.variants).toHaveLength(1);
+    expect(brief.variants[0]).toMatchObject({ channel: 'facebook', observations: 3 });
+    expect(brief.variants[0]?.metrics.reactionsPerThousandUniqueViewers)
+      .toMatchObject({ status: 'descriptive-sample', observations: 3, median: 100 });
+    expect(brief.variants[0]?.metrics.clicksPerThousandUniqueViewers)
+      .toMatchObject({ status: 'descriptive-sample', observations: 3, median: 50 });
+    expect(JSON.stringify(brief)).not.toContain('fb-1');
+    expect(JSON.stringify(brief)).not.toContain('fb-outside-window');
+  });
+
   it('does not include incomplete copy joins or promote undersized samples', () => {
     const row = {
       channel: 'tiktok',

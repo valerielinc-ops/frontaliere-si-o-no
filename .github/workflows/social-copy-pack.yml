@@ -33,6 +33,7 @@ concurrency:
 
 jobs:
   generate:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -83,6 +84,7 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_REF: ${{ github.ref }}
         run: node scripts/social-copy/reserve-codex-invocation.mjs >> "$GITHUB_OUTPUT"
 
       - name: Build sanitized GA4 social-copy attribution brief
@@ -147,7 +149,8 @@ jobs:
             causality or a winning template:
             ${{ steps.attribution.outputs.brief }}
             Recent native social performance brief, sanitized and descriptive only.
-            It includes private Instagram and LinkedIn metrics. TikTok rows,
+            It includes private Instagram, Facebook, and LinkedIn metrics when
+            exact-ID rows and valid windows are available. TikTok rows,
             including stored snapshots, are included only when
             TIKTOK_DISPLAY_ANALYTICS_APPROVED is exactly true; otherwise every
             TikTok row is filtered before Codex receives the brief. Metrics join

@@ -3,12 +3,14 @@
 The social publishers use Codex for a scheduled weekly copy pack and a
 structured editorial plan with three pillars and three angle IDs per active
 channel/format. A push to `main` that changes scoped social inputs or an explicit
-`workflow_dispatch` can also request a complete pack. An atomic Firestore
+`workflow_dispatch` on `main` can also request a complete pack; dispatches from
+other refs are skipped before they reserve quota. An atomic Firestore
 reservation caps Codex generation at two invocations per rolling seven days
 across scheduled runs, pushes, manual dispatches, and reruns. The reservation
 fails closed when Firestore is unavailable; an exhausted run skips brief
 collection, Codex, and promotion. Workflow concurrency serializes overlapping
-runs, while the reservation enforces the durable quota. The pack workflow also sends Codex a sanitized 30-day inventory
+runs, while the reservation enforces the durable quota. A generation-only
+preview on `main` still counts as an invocation. The pack workflow also sends Codex a sanitized 30-day inventory
 of published article topics and cluster counts when available, plus up to 12
 historical topics from the prior 365 days with their publication dates, age,
 and separate cluster counts. Historical topics are dated ideation candidates only, not current trends
@@ -27,18 +29,21 @@ and deliver through the existing platform API or browser robot.
 
 1. A push to `main` that changes the social-content skill, copy prompt/schema,
    or source brief requests a pack; the Monday schedule refreshes it after the
-   weekly insights snapshot. Each request first atomically reserves one of two
+   weekly insights snapshot. Production generation runs only on `main`; a
+   dispatch from another ref is skipped before touching the durable quota.
+   Each production request first atomically reserves one of two
    Codex invocations allowed in the rolling seven-day window. The same cap
    applies to `workflow_dispatch` and workflow reruns. A denied reservation
    skips brief collection, generation, and promotion; missing Firestore state
    fails closed. No bootstrap dispatch is required. Publishers
    retain their deterministic copy until a validated pack reaches `main`.
-2. The Codex job receives editorial instructions, minimized Instagram and
-   native TikTok/LinkedIn performance briefs, angle-level outcomes when exact
-   attribution exists, a dated rolling 30-day benchmark,
+2. The Codex job receives editorial instructions, minimized Instagram,
+   Facebook, TikTok, and LinkedIn performance briefs when exact IDs, grants,
+   and measurement windows are eligible, angle-level outcomes when exact
+   attribution exists, and a dated rolling 30-day benchmark,
    a 30-day GA4 attribution and site-action
    brief, an aggregate robot-delivery heartbeat, and CODEX_AUTH_JSON. The GA4 query uses the Firebase service account
-   only in a separate read-only collection step. Raw TikTok/LinkedIn post metrics
+   only in a separate read-only collection step. Raw Facebook, TikTok, and LinkedIn post metrics
    stay in private Firestore; client access is denied. Codex receives aggregate
    metrics and exact copy-arm/angle IDs, never credentials, post text, media IDs,
    destination URLs, or user-level data. GA4 session groups require ten
@@ -91,13 +96,13 @@ and deliver through the existing platform API or browser robot.
    separates a TikTok video template from article-carousel copy even when both
    promote an article. Insights snapshots and reports carry copy attribution
    without changing sample thresholds or winner selection. Native metrics are
-   joined only through exact Instagram media IDs, TikTok video IDs, and LinkedIn
-   post URNs. The Instagram Graph fallback may locate a media object by a
+   joined only through exact Instagram media IDs, Facebook post IDs, TikTok
+   video IDs, and LinkedIn post URNs. The Instagram Graph fallback may locate a media object by a
    unique nearby timestamp when its posted ledger lacks a media ID. It labels
    that row `copyAttributionStatus: inferred`; the native metric remains
    operationally visible but is excluded from creative reports, Codex
    performance briefs, and experiment readiness. Copy performance requires an
-   exact ledger media ID or the unique browser cover-fingerprint join.
+   exact native post ID or media ID, or the unique browser cover-fingerprint join.
    Instagram and TikTok bio-link destinations are not per-post clickable links;
    their UTM values only measure traffic when those destinations are actually
    exposed and clicked.
@@ -271,8 +276,8 @@ ledger; no caption/time matching or historical ID fabrication is allowed
 ([TikTok List Videos](https://developers.tiktok.com/docs/en/tiktok-api-v2-video-list),
 [TikTok Video Object](https://developers.tiktok.com/docs/en/tiktok-api-v2-video-object),
 [LinkedIn Member Post Statistics](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/members/post-statistics?view=li-lms-2026-10)).
-The native collector writes post-level Instagram, TikTok, and LinkedIn rows to
-the server-only `social_native_insights/current` Firestore document. It prints
+The native collector writes post-level Instagram, Facebook, TikTok, and LinkedIn
+rows to the server-only `social_native_insights/current` Firestore document. It prints
 only collection counts and source status; post IDs, URNs, and raw metrics are
 not written to the public repository or workflow output. Instagram browser
 snapshots are uploaded to Firestore from the Mac host; CI exports them to
@@ -421,9 +426,11 @@ PR passes the required checks and merges, deterministic copy remains active.
   aggregated across channels or treated as causal evidence or permission to
   increase posting volume.
 - Native post-level data now enters the feedback loop from Instagram Insights,
-  TikTok Display, LinkedIn Member Analytics, and the exact-ID Facebook collector
+  TikTok Display, LinkedIn Member Analytics, and exact-ID Facebook Page Insights
   when IDs, scopes, permissions, and valid measurement windows are available.
-  Facebook collection is wired but remains gated: Meta documents Page Insights
+  The Codex brief consumes Facebook rows only after exact copy attribution and
+  a valid 72-hour snapshot; the current live probe still returns no rows.
+  Facebook collection remains gated: Meta documents Page Insights
   as available only for Pages with at least 100 likes, and the current live Page
   probe is below that threshold. The collector verifies Meta's exact
   `created_time` and only accepts a 72-hour snapshot within ±6 hours; ledger
@@ -828,7 +835,7 @@ same guardrails.
 | 3 | Persist the first complete 30-day baseline for channel-specific audience and useful-site outcomes. | **blocked: live scheduled data after merge. Motivo:** the collectors and baseline logic are present, but no merged live run has confirmed event registration or sufficient traffic. **Prossimo passo:** after merge, let the schedules run, verify the registered event list and exact UTM coverage, and freeze only channel/event baselines with 25 daily observations across 25 days and, for GA4, 100 sessions.** |
 | 4 | Measure aggregate response and outcomes from the existing Instagram community worker, including its 24-hour response promise and safe escalation classes. | **in questa PR. Motivo:** the Graph path classifies low-risk acknowledgements and simple redirects, escalates sensitive/unsupported requests, enforces known DM age, and persists hashed-event-derived weekly counts, latency buckets, and escalation reasons privately; Business Suite is read-only because it cannot prove message direction or age. **Prossimo passo:** use the weekly scorecard to observe real coverage and SLA outcomes; browser counts remain thread-list-only and Graph totals remain bounded by platform pagination. |
 | 5 | Use the weekly Codex pack in the native formats of currently eligible channels. | **by construction. Motivo:** Instagram carousels and Reels compile the selected Codex hook/CTA with verified source facts; text-first Facebook, LinkedIn, Telegram, and Reddit use their existing native composers. TikTok is policy-held, while X, WhatsApp Channels, Shorts, and Threads have no verified account or grant, so a cross-channel video-asset schema would produce unused outputs. **Prossimo passo:** add a channel-specific asset renderer only after an eligible account and supported format are verified; retain one weekly batch and avoid redundant per-post calls. |
-| 6 | Qualify exact-ID Instagram per-media Reels metrics; finish TikTok/LinkedIn metrics; qualify Facebook post metrics; probe Telegram MTProto and TikTok Display API use-case eligibility. | **blocked: live account probe, baseline, and external grants. Motivo:** Reels now test exact-media follows/reach; the collector probes follows, views, watch time, and skip rate, but no live response has verified optional metric coverage or whether the fixed sample fits the 365-day horizon. TikTok's internal analytics use case needs platform confirmation plus `video.list`; LinkedIn post metrics need `r_member_postAnalytics`, and its member follower endpoint needs a fresh member consent for `r_member_profileAnalytics`; Facebook Page post Insights returned no rows for the current Page below 100 likes; Telegram statistics require an eligible channel and admin `can_view_stats`. **Prossimo passo:** let the private collector probe exact published Reel IDs and activate the follower cohort only if `follows` and reach qualify; retain unqualified metrics as descriptive, and re-probe other exact-ID sources only when eligibility changes.** |
+| 6 | Qualify exact-ID Instagram per-media Reels metrics; finish TikTok/LinkedIn metrics; qualify Facebook post metrics; probe Telegram MTProto and TikTok Display API use-case eligibility. | **blocked: live account probe, baseline, and external grants. Motivo:** the Codex brief now accepts Facebook exact-ID rows with validated Meta publication time and the fixed 72-hour window, but the current Page is below 100 likes and the live probe returned no rows. Reels probe follows, views, watch time, and skip rate, but no live response has verified optional metric coverage or whether the fixed sample fits the 365-day horizon. TikTok's internal analytics use case needs platform confirmation plus `video.list`; LinkedIn post metrics need `r_member_postAnalytics`, and its member follower endpoint needs a fresh member consent for `r_member_profileAnalytics`; Telegram statistics require an eligible channel and admin `can_view_stats`. **Prossimo passo:** let the private collector probe exact published Reel IDs and activate the follower cohort only if `follows` and reach qualify; retain unqualified metrics as descriptive, and re-probe Facebook, TikTok, LinkedIn, and Telegram only when their eligibility changes.** |
 | 7 | Implement and then qualify randomized-block experiments and automatic promotion/rollback. | **blocked: live scheduled qualification and external metric grants. Motivo:** protocol v3 estimates article/job carousel baseline variance from exact same-slot metric rows across rotating objectives, while preserving 25 observations over 25 distinct days, the 45-day recency span, power/MDE, 5% family error, A/A calibration, and exact metric coverage. Weekly border content stays descriptive because its current cadence cannot meet the fixed sample within 365 days. Pack-refresh crossing is supported by the stable angle fingerprint and tests; winner selection is angle-level, not a frozen hook/CTA test. Remote Config v4 carries registration deadlines, stops new assignments after 365 days, closes a fixed sample with no winner, and keeps a qualified winner only while guardrails remain healthy. Promotion now also requires a fresh qualified non-negative 30-day audience trend; this account-level signal is not attributed to an individual post. No merged live run has qualified a baseline or fixed sample; Reels and LinkedIn also need exact metrics, grants, and policy clearance. **Prossimo passo:** after merge, verify scheduled registration/deadline reconciliation, then qualify each cohort from private exact-ID reports; do not increase cadence or promote a winner until its fixed sample and audience safety gate pass.** |
 | 8 | Add a branded social landing hub with stable redirect keys and UTMs for actual clickable destinations. | **in questa PR. Motivo:** `/social/`, the stable `/social/r/<hash>/` redirect registry, and sitemap discovery are implemented; Instagram's supported publishing API does not expose a bio-edit operation, so profile URL changes cannot be completed through this Graph integration. **Prossimo passo:** set the hub URL once in each account's profile editor, then preserve channel/placement UTMs; do not claim per-post attribution unless a clickable destination carries a post-specific tag. |
 | 9 | Compare X, WhatsApp Channels, YouTube Shorts, and Threads as next channels after a real account, audience, analytics, and posting-grant probe. | **blocked: account and platform grants unavailable. Motivo:** the repository has no verified account, audience history, publisher/analytics connector, or confirmed API scopes for these networks; the weekly scorecard now shows X and WhatsApp explicitly as unconfigured, alongside Shorts and Threads. **Prossimo passo:** verify accounts and official API use cases, access and cost, exact post/message IDs, supported metrics, freshness, attribution, and production caps before any four-week organic pilot with preregistered stop criteria and no paid spend.** |

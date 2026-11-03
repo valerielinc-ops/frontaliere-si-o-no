@@ -5,7 +5,7 @@ import {
   SOCIAL_COPY_CODEX_INVOCATION_LIMIT,
   SOCIAL_COPY_CODEX_INVOCATION_WINDOW_MS,
 } from '../scripts/lib/social-copy-invocation-limit.mjs';
-import { socialCopyInvocationId } from '../scripts/social-copy/reserve-codex-invocation.mjs';
+import { run, socialCopyInvocationId } from '../scripts/social-copy/reserve-codex-invocation.mjs';
 
 function fakeFirestore(initialState: Record<string, unknown> | null = null) {
   const reference = {};
@@ -136,5 +136,14 @@ describe('social-copy Codex invocation budget', () => {
     })).toBe('valerielinc-ops/frontaliere-si-o-no/123456/2');
     expect(() => socialCopyInvocationId({ GITHUB_REPOSITORY: 'repo', GITHUB_RUN_ID: 'bad', GITHUB_RUN_ATTEMPT: '1' }))
       .toThrow('GitHub run identity is malformed');
+  });
+
+  it('rejects a non-main ref before reserving production Codex budget', async () => {
+    const db = { collection() { throw new Error('non-main dispatch must not read the reservation'); } };
+    await expect(run({
+      env: { GITHUB_REF: 'refs/heads/feature/social-copy' },
+      db,
+      stdout: { write() {} },
+    })).rejects.toThrow('restricted to refs/heads/main');
   });
 });

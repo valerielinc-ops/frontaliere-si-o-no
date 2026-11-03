@@ -42,6 +42,22 @@ describe('social native insights workflow contract', () => {
     expect(promote).toContain("needs.generate.outputs.codex_invocation_allowed == 'true'");
   });
 
+  it('restricts production generation and Codex-budget reservations to main', () => {
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
+    const generateStart = workflow.indexOf('\n  generate:\n');
+    const promoteStart = workflow.indexOf('\n  promote:\n');
+    const generate = workflow.slice(generateStart, promoteStart);
+    const budgetStart = generate.indexOf('      - name: Reserve a rolling seven-day Codex invocation');
+    const attributionStart = generate.indexOf('      - name: Build sanitized GA4 social-copy attribution brief');
+    const budget = generate.slice(budgetStart, attributionStart);
+
+    expect(generateStart).toBeGreaterThanOrEqual(0);
+    expect(promoteStart).toBeGreaterThan(generateStart);
+    expect(generate).toContain("if: github.ref == 'refs/heads/main'");
+    expect(budget).toContain('GITHUB_REF: ${{ github.ref }}');
+    expect(budget).toContain('node scripts/social-copy/reserve-codex-invocation.mjs');
+  });
+
   it('persists Firebase credentials between workflow steps before loading Remote Config', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-native-insights.yml'), 'utf8');
     const prepareStart = workflow.indexOf('      - name: Prepare Firebase credentials');

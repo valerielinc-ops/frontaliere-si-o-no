@@ -161,6 +161,25 @@ function linkedinMetrics(row) {
   return metrics;
 }
 
+function facebookMetrics(row) {
+  if (row.measurementWindow !== 'first-72h-after-facebook-created-time'
+    || row.publicationTimeBasis !== 'facebook-created-time'
+    || Number(row.windowHours) !== 72) return null;
+  const age = ageHours(row);
+  if (age === null || age < 0 || Math.abs(age - 72) > WINDOW_TOLERANCE_HOURS) return null;
+  const metrics = {};
+  for (const name of ['mediaViews', 'uniqueViewers', 'reactions', 'clicks']) metrics[name] = valueFor(row, name);
+  if (metrics.uniqueViewers !== null && metrics.uniqueViewers > 0) {
+    if (metrics.reactions !== null) {
+      metrics.reactionsPerThousandUniqueViewers = (metrics.reactions / metrics.uniqueViewers) * 1000;
+    }
+    if (metrics.clicks !== null) {
+      metrics.clicksPerThousandUniqueViewers = (metrics.clicks / metrics.uniqueViewers) * 1000;
+    }
+  }
+  return metrics;
+}
+
 function addRows(groups, rows, channel, asOfMs, metricReader) {
   for (const row of Array.isArray(rows) ? rows : []) {
     if (!record(row) || !withinBaseline(row, asOfMs)) continue;
@@ -196,6 +215,7 @@ export function buildNativeSocialPerformanceBrief({
     addRows(groups, nativePosts.filter((row) => row.channel === 'tiktok'), 'tiktok', asOfMs, tiktokMetrics);
   }
   addRows(groups, nativePosts.filter((row) => row.channel === 'linkedin-member'), 'linkedinMember', asOfMs, linkedinMetrics);
+  addRows(groups, nativePosts.filter((row) => row.channel === 'facebook'), 'facebook', asOfMs, facebookMetrics);
 
   const variants = [...groups.values()]
     .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)))
