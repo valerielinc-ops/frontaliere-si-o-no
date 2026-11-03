@@ -111,6 +111,7 @@ function careerLinksFromPage(body, baseUrl) {
  *   Reviewed exact Umantis listing postcode/locality pairs used only to
  *   disambiguate the canton; the shared Swiss geography resolver still validates them.
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
+ * @property {boolean} [rescueOnPartialListing] Retry a source-specific partial seed through the browser rescue when it is below the learned sample population
  * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
