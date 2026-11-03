@@ -5,15 +5,13 @@
  */
 import { describe, expect, it, vi, afterEach, beforeEach } from 'vitest';
 
-vi.mock('../scripts/create-article.mjs', () => ({
+vi.mock('../scripts/lib/journalist-article-identity.mjs', () => ({
   checkArticleIdExists: vi.fn(() => false),
-}));
-vi.mock('../scripts/publish-journalist-article.mjs', () => ({
   slugify: (input: string) => input,
 }));
 
 import { checkAllLocalesLive, processDoc } from '../scripts/notify-journalist-article-live.mjs';
-import { checkArticleIdExists } from '../scripts/create-article.mjs';
+import { checkArticleIdExists } from '../scripts/lib/journalist-article-identity.mjs';
 
 const PUBLISHED_URLS = {
   it: 'https://frontaliereticino.ch/articoli-frontaliere/test/',

@@ -203,6 +203,12 @@ import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
 // le voci gia' scritte.
 import { newsUrlKey, legacyNewsUrlKey, makeLedgerEntry, ledgerViewsForLookup } from './lib/news-url-key.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import {
+  checkArticleIdExists,
+  extractRegistryObject,
+  getAllArticleIds,
+  invalidateArticleIdCache,
+} from './lib/journalist-article-identity.mjs';
 
 // Resolve the repository root through the filesystem URL conversion. Reading
 // `.pathname` leaves percent-encoded paths encoded (and is not portable to
@@ -2038,22 +2044,6 @@ function readSectionSlugData() {
   return read(SECTION_SLUG_DATA_FILE);
 }
 
-/** Extract one registry object without importing a site-only helper. */
-function extractRegistryObject(src, constName) {
-  const declaration = new RegExp(`\\bconst\\s+${constName}\\b[^=]*=\\s*\\{`).exec(src);
-  if (!declaration) return '';
-  const open = declaration.index + declaration[0].length - 1;
-  let depth = 0;
-  for (let i = open; i < src.length; i += 1) {
-    if (src[i] === '{') depth += 1;
-    else if (src[i] === '}') {
-      depth -= 1;
-      if (depth === 0) return src.slice(open, i + 1);
-    }
-  }
-  return '';
-}
-
 /**
  * Extract existing article IDs from the ACTIVE section's slugs map (`'id': {
  * it: ... }`). Used for the append-anchor (last id of THIS section) and for
@@ -2069,40 +2059,6 @@ function getSectionExistingIds(slugDataSrc) {
   // rejects mixed quotes. Key is m[2] (group 1 is the quote char).
   // Entry-key-only match: ID discovery must not depend on locale-property order inside the entry.
   return [...block.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{/gm)].map((m) => m[2]);
-}
-
-/**
- * Extract article IDs across ALL article sections (frontaliere + svizzera).
- *
- * The SEO (`blog-{id}`) and i18n (`blog.article.{id}.*`) namespaces are SHARED
- * across sections, so a new id colliding with one from the sibling section
- * would silently override that page's canonical / structured-data. Dedup must
- * therefore be GLOBAL — this is what makes the "ids never collide across
- * sections" invariant true.
- *
- * Cache per-processo (issue #5849 item 2 — stesso antipattern di
- * `loadAllSectionSourceUrls`, sibling nella stessa hot loop di
- * `isSourceUrlAlreadyUsed`): questa funzione rilegge+ri-regexa ENTRAMBI
- * `services/routerBlogData.ts` e `services/routerSwissData.ts` (~1,2MB
- * insieme) a OGNI chiamata — non solo una volta per headline nel pre-filtro,
- * ma anche una volta per `selectArticle`/`callGemini`/registrazione slug.
- * Misurato sui file reali: ~4ms/chiamata, quindi ~2s anche a un pool di 500
- * headline. Sibling files invalidati da `modifyRouterTs()`, l'unico
- * scrittore, cosi' una lettura successiva alla registrazione di un nuovo id
- * in questo stesso processo vede comunque dati freschi.
- */
-let _allArticleIdsCache = null;
-function getAllArticleIds() {
-  if (_allArticleIdsCache) return _allArticleIdsCache;
-  const ids = new Set();
-  for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
-    let src = '';
-    try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
-    const block = extractRegistryObject(src, cfg.slugsConstName);
-    for (const m of block.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{/gm)) ids.add(m[2]);
-  }
-  _allArticleIdsCache = [...ids];
-  return _allArticleIdsCache;
 }
 
 /** Read the active section's IT meta source (blog-meta-it | blog-meta-ch-it). */
@@ -8728,7 +8684,7 @@ function modifyRouterTs(data) {
   // Invalidate getAllArticleIds()'s per-process cache: this section just
   // gained a new id on disk, a subsequent read in this same process must not
   // serve the stale pre-write snapshot.
-  _allArticleIdsCache = null;
+  invalidateArticleIdCache();
   console.error(`  ✅ ${blogDataFile}`);
 }
 
@@ -11690,14 +11646,10 @@ export async function registerArticleFiles(data, opts = {}) {
   return { slugs, publishedUrls };
 }
 
-/** True when an article id is already registered in any section. */
-export function checkArticleIdExists(id) {
-  return getAllArticleIds().includes(id);
-}
-
 // Re-exported so the evergreen refresh path produces byte-identical body files
 // to the registration path (no copy-paste of the locale-file format — §6).
 export { buildBodyFile };
+export { checkArticleIdExists };
 
 // Re-exported so the journalist-publish pipeline (scripts/publish-journalist-article.mjs)
 // reuses the SAME translation, internal-link-enrichment, image-fallback and
