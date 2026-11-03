@@ -148,7 +148,17 @@ jobs:
           fi
 
       - name: Verify crawler contract provenance
-        run: node scripts/ci/verify-crawler-contract-provenance.mjs --strict
+        run: |
+          set -euo pipefail
+          verification_contract="$RUNNER_TEMP/crawler-contract-for-$SOURCE_COMMIT.json"
+          cp "$CONTRACT_PATH" "$verification_contract"
+          node scripts/ci/reattest-crawler-contract.mjs \
+            --path "$verification_contract" \
+            --source-commit "$SOURCE_COMMIT" \
+            --write
+          node scripts/ci/verify-crawler-contract-provenance.mjs \
+            --contract "$verification_contract" \
+            --strict
 
       - name: Open or update the reattestation PR
         run: |
