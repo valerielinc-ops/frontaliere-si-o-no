@@ -2,24 +2,28 @@ import { useEffect, useRef } from 'react';
 
 import {
   ADS_CONSENT_GRANTED,
+  getAdsConsent,
+  getAdsConsentDecisionAt,
   isAdsConsentGranted,
   onAdsConsentChange,
   type AdsConsentValue,
 } from '@/services/adsConsent';
+import {
+  syncApplicationConciergeMetaConsent,
+  type ApplicationConciergeAuthUser,
+} from '@/services/applicationConciergeCheckout';
+import {
+  clearMetaAttributionCookies,
+  isMetaPixelTargetPage,
+  META_PIXEL_ID,
+  trackMetaPixelEvent,
+  type MetaPixelFunction,
+} from '@/services/metaPixel';
 import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
 import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
 import { SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT } from './useSeoPageTracking';
 
-const META_PIXEL_ID = '1090503593451766';
 const ROUTE_EVENTS = ['popstate', SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT] as const;
-
-type MetaPixelFunction = ((...args: string[]) => void) & {
-  callMethod?: (...args: string[]) => void;
-  queue: string[][];
-  push: (...args: string[]) => void;
-  loaded: boolean;
-  version: string;
-};
 
 type MetaPixelWindow = Window & {
   fbq?: MetaPixelFunction;
@@ -40,7 +44,7 @@ function initializeAndTrackPageView(): void {
   if (!fbq) {
     // A static noscript beacon cannot read adsConsent and would bypass the
     // site's fail-closed advertising-consent gate.
-    const stub = ((...args: string[]) => {
+    const stub = ((...args: unknown[]) => {
       if (stub.callMethod) stub.callMethod.apply(stub, args);
       else stub.queue.push(args);
     }) as MetaPixelFunction;
@@ -67,14 +71,27 @@ function initializeAndTrackPageView(): void {
   }
   fbq('consent', 'grant');
   fbq('track', 'PageView');
+  if (isMetaPixelTargetPage()) {
+    trackMetaPixelEvent('ViewContent', {
+      content_type: 'product',
+      content_ids: ['application-concierge-30d-10'],
+      content_name: 'Servizio candidature assistite',
+      value: 39.99,
+      currency: 'EUR',
+    });
+  }
 }
 
 function revokeMetaPixelConsent(): void {
   const pixelWindow = window as MetaPixelWindow;
   pixelWindow.__ftMetaPixelLastTrackedPath = null;
   if (pixelWindow.__ftMetaPixelInitialized && pixelWindow.fbq) {
+    if (Array.isArray(pixelWindow.fbq.queue)) {
+      pixelWindow.fbq.queue = pixelWindow.fbq.queue.filter((call) => call[0] !== 'track');
+    }
     pixelWindow.fbq('consent', 'revoke');
   }
+  clearMetaAttributionCookies();
 }
 
 function canTrackCurrentDocument(): boolean {
@@ -94,9 +111,26 @@ function canTrackCurrentDocument(): boolean {
 }
 
 /** Load Meta Pixel across the canonical site after explicit advertising
- * consent, then send one PageView for each page reached through SPA routing. */
-export function useMetaPixelPageView(): void {
+ * consent, track service funnel views on the concierge landing routes, and sync
+ * consent for verified purchases when an authenticated user is present. */
+export function useMetaPixelPageView(
+  authUser?: ApplicationConciergeAuthUser | null,
+): void {
   const lastTrackedPath = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!authUser?.uid || typeof authUser.getIdToken !== 'function') return undefined;
+    const syncServerConsent = (decision: AdsConsentValue | null): void => {
+      if (!decision) return;
+      const decisionAtMs = getAdsConsentDecisionAt();
+      if (!decisionAtMs) return;
+      void syncApplicationConciergeMetaConsent(authUser, decision, decisionAtMs).catch(() => {
+        // Browser consent stays authoritative locally; retry on the next decision or sign-in.
+      });
+    };
+    syncServerConsent(getAdsConsent());
+    return onAdsConsentChange(syncServerConsent);
+  }, [authUser]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;

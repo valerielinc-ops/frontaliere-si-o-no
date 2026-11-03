@@ -45,7 +45,7 @@ import {
 // path githubProxy/adminEmployerInsights use; the admin app is initialized by
 // `ensureAdminApp()` (via getAdminDb below) before it is reached.
 import { getAuth } from 'firebase-admin/auth';
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 // The out-of-URL transport for address + credential (#5746). Every endpoint that
 // used to read `req.method === 'GET' ? req.query : { ...req.query, ...req.body }`
 // goes through resolveRequestParams instead — see that module for why the
@@ -97,7 +97,12 @@ import {
   SUMUP_PAYMENT_TEST_ORIGINS,
 } from './src/sumupPaymentTest.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
-import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
+import {
+  handleCreateApplicationConciergeCheckout,
+  handleSyncApplicationConciergeMetaConsent,
+  META_ADS_CONSENTS_COLLECTION,
+} from './src/applicationConciergeCheckout.js';
+import { hasCurrentMetaAdsConsent, sendMetaCapiPurchase } from './src/metaConversionsApi.js';
 import {
   handleApplicationConciergePaymentReminderUnsubscribe,
   runApplicationConciergePaymentReminderSweep,
@@ -2363,6 +2368,31 @@ export const createApplicationConciergeCheckout = onRequest(
   },
 );
 
+// Keep the authoritative user choice current and clear attribution after withdrawal.
+export const syncApplicationConciergeMetaConsent = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleSyncApplicationConciergeMetaConsent(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[syncApplicationConciergeMetaConsent]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
 // Candidate portal API: all state changes remain server-side.
 export const applicationConcierge = onRequest(
   {
@@ -2949,6 +2979,153 @@ export const notifyApplicationConciergeService = onDocumentWritten(
       event.data.after.data(), event.params.serviceId, { db: getAdminDb() },
     );
     await inheritConciergeRenewalMaterials({ db: getAdminDb(), serviceId: event.params.serviceId });
+  },
+);
+
+// Meta receives Purchase only after the payment ledger moves to verified paid.
+// SumUp notifications are re-fetched and validated before that transition; the
+// same path also covers verified Stripe payments and the SumUp reconciliation.
+export const sendApplicationConciergeMetaPurchase = onDocumentWritten(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    retry: true,
+    document: 'application_concierge_services/{serviceId}',
+  },
+  async (event) => {
+    const afterSnapshot = event.data?.after;
+    if (!afterSnapshot?.exists) return;
+    const before = event.data?.before?.exists ? event.data.before.data() || {} : null;
+    const eventAfter = afterSnapshot.data() || {};
+    const attributionCleanup = {
+      metaEventSourceUrl: FieldValue.delete(),
+      metaFbp: FieldValue.delete(),
+      metaFbc: FieldValue.delete(),
+      metaAttributionExpiresAt: FieldValue.delete(),
+    };
+    if (eventAfter.paymentStatus === 'paid' && before?.paymentStatus !== 'paid') {
+      const claim = await afterSnapshot.ref.firestore.runTransaction(async (transaction) => {
+        const userId = String(eventAfter.userId || '');
+        if (!userId || userId.includes('/')) return null;
+        const [currentSnapshot, consentSnapshot] = await Promise.all([
+          transaction.get(afterSnapshot.ref),
+          transaction.get(afterSnapshot.ref.firestore.collection(META_ADS_CONSENTS_COLLECTION).doc(userId)),
+        ]);
+        if (!currentSnapshot.exists) return null;
+        const service = currentSnapshot.data() || {};
+        const consent = consentSnapshot.exists ? consentSnapshot.data() || {} : {};
+        if (service.paymentStatus !== 'paid'
+          || !hasCurrentMetaAdsConsent(service, consent)) return null;
+        if (service.metaCapiPurchaseStatus && service.metaCapiPurchaseStatus !== 'sending') return null;
+        const claimAtMs = service.metaCapiPurchaseClaimedAt?.toMillis?.() || 0;
+        if (service.metaCapiPurchaseStatus === 'sending' && claimAtMs && Date.now() - claimAtMs < 5 * 60 * 1000) {
+          return { claimInProgress: true };
+        }
+        transaction.set(afterSnapshot.ref, {
+          metaCapiPurchaseStatus: 'sending',
+          metaCapiPurchaseClaimedAt: Timestamp.now(),
+        }, { merge: true });
+        return { service };
+      });
+      if (claim?.claimInProgress) throw new Error('meta_capi_purchase_claim_active');
+      const current = claim?.service;
+      if (!current) return;
+      try {
+        const result = await sendMetaCapiPurchase(event.params.serviceId, current, {
+          beforeSend: async () => afterSnapshot.ref.firestore.runTransaction(async (transaction) => {
+            const userId = String(current.userId || '');
+            if (!userId || userId.includes('/')) return false;
+            const [latestServiceSnapshot, latestConsentSnapshot] = await Promise.all([
+              transaction.get(afterSnapshot.ref),
+              transaction.get(afterSnapshot.ref.firestore.collection(META_ADS_CONSENTS_COLLECTION).doc(userId)),
+            ]);
+            if (!latestServiceSnapshot.exists) return false;
+            const latestService = latestServiceSnapshot.data() || {};
+            const latestConsent = latestConsentSnapshot.exists ? latestConsentSnapshot.data() || {} : {};
+            const claimAtMs = latestService.metaCapiPurchaseClaimedAt?.toMillis?.() || 0;
+            return latestService.paymentStatus === 'paid'
+              && hasCurrentMetaAdsConsent(latestService, latestConsent)
+              && latestService.metaCapiPurchaseStatus === 'sending'
+              && claimAtMs > 0
+              && Date.now() - claimAtMs < 5 * 60 * 1000;
+          }),
+        });
+        await afterSnapshot.ref.set(result.sent
+          ? {
+            ...attributionCleanup,
+            metaCapiPurchaseStatus: 'sent',
+            metaCapiPurchaseEventId: result.eventId,
+            metaCapiPurchaseSentAt: FieldValue.serverTimestamp(),
+            metaCapiPurchaseClaimedAt: FieldValue.delete(),
+          }
+          : {
+            ...attributionCleanup,
+            metaCapiPurchaseStatus: `skipped_${result.reason}`,
+            metaCapiPurchaseClaimedAt: FieldValue.delete(),
+          }, { merge: true });
+      } catch (error) {
+        await afterSnapshot.ref.set({
+          metaCapiPurchaseStatus: FieldValue.delete(),
+          metaCapiPurchaseClaimedAt: FieldValue.delete(),
+        }, { merge: true }).catch(() => {});
+        throw error;
+      }
+      return;
+    }
+
+    const terminalCheckout = ['failed', 'expired'].includes(String(eventAfter.checkoutSessionStatus || '').toLowerCase())
+      || eventAfter.paymentStatus === 'failed';
+    if (!terminalCheckout) return;
+    const currentSnapshot = await afterSnapshot.ref.get();
+    if (!currentSnapshot.exists) return;
+    const current = currentSnapshot.data() || {};
+    if (eventAfter.checkoutAttempt != null && Number(current.checkoutAttempt) !== Number(eventAfter.checkoutAttempt)
+      || !(['failed', 'expired'].includes(String(current.checkoutSessionStatus || '').toLowerCase())
+        || current.paymentStatus === 'failed')
+      || (!current.metaFbp && !current.metaFbc && !current.metaAttributionExpiresAt)) return;
+    await afterSnapshot.ref.set(attributionCleanup, { merge: true });
+  },
+);
+
+export const purgeExpiredApplicationConciergeMetaAttribution = onSchedule(
+  {
+    schedule: 'every 60 minutes',
+    timeZone: 'Europe/Zurich',
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+  },
+  async () => {
+    const firestore = getAdminDb();
+    let deleted = 0;
+    const nowMs = Date.now();
+    for (let pass = 0; pass < 10; pass += 1) {
+      const snapshot = await firestore.collection('application_concierge_services')
+        .where('metaAttributionExpiresAt', '<=', new Date(nowMs))
+        .limit(450)
+        .get();
+      if (!snapshot.size) break;
+      for (const serviceSnapshot of snapshot.docs) {
+        const wasDeleted = await firestore.runTransaction(async (transaction) => {
+          const currentSnapshot = await transaction.get(serviceSnapshot.ref);
+          if (!currentSnapshot.exists) return false;
+          const service = currentSnapshot.data() || {};
+          const currentExpiresAt = service.metaAttributionExpiresAt?.toMillis?.();
+          if (!currentExpiresAt || currentExpiresAt > nowMs) return false;
+          transaction.set(serviceSnapshot.ref, {
+            metaFbp: FieldValue.delete(),
+            metaFbc: FieldValue.delete(),
+            metaEventSourceUrl: FieldValue.delete(),
+            metaAttributionExpiresAt: FieldValue.delete(),
+          }, { merge: true });
+          return true;
+        });
+        if (wasDeleted) deleted += 1;
+      }
+      if (snapshot.size < 450) break;
+    }
+    if (deleted) console.info('[purgeExpiredApplicationConciergeMetaAttribution] cleared records:', deleted);
   },
 );
 

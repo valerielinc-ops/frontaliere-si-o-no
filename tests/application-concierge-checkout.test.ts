@@ -28,6 +28,14 @@ const mocks = vi.hoisted(() => {
         doc(id?: string) {
           return makeRef(collection, id || collection + '-' + (++sequence));
         },
+        where(field: string, operator: string, value: unknown) {
+          return { get: async () => ({ docs: operator === '==' ? [...store.entries()]
+            .filter(([documentKey, data]) => documentKey.startsWith(`${collection}/`) && data[field] === value)
+            .map(([documentKey, data]) => {
+              const id = documentKey.slice(collection.length + 1);
+              return { id, ref: makeRef(collection, id), data: () => data };
+            }) : [] }) };
+        },
       };
     },
     async runTransaction(callback: (transaction: any) => Promise<unknown>) {
@@ -113,6 +121,7 @@ vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
 const {
   handleApplicationConciergeWebhookEvent,
   handleCreateApplicationConciergeCheckout,
+  handleSyncApplicationConciergeMetaConsent,
 } = await import('../functions/src/applicationConciergeCheckout.js');
 
 function request(overrides: Record<string, unknown> = {}) {
@@ -229,6 +238,49 @@ describe('application concierge checkout', () => {
       acceptedPositionsCount: 0,
       paymentStatus: 'pending',
       serviceStatus: 'awaiting_payment',
+    }));
+  });
+
+  it('persists Meta attribution only when the browser reports explicit advertising consent', async () => {
+    const base = request();
+    const metaAdsConsentAtMs = Date.now() - 100;
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: {
+      ...base.body,
+      metaAdsConsent: true,
+      metaAdsConsentAtMs,
+      metaEventSourceUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/?application_concierge=1',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaFbc: 'fb.1.1700000000000.ABC_def-123',
+    } }));
+
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)).toEqual(expect.objectContaining({
+      metaAdsConsent: true,
+      metaAdsConsentAt: expect.objectContaining({ toMillis: expect.any(Function) }),
+      metaEventSourceUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/?application_concierge=1',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaFbc: 'fb.1.1700000000000.ABC_def-123',
+    }));
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: true,
+      metaAdsConsentDecisionAtMs: metaAdsConsentAtMs,
+    }));
+  });
+
+  it('discards Meta cookies when explicit advertising consent is absent', async () => {
+    const base = request();
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: {
+      ...base.body,
+      metaAdsConsent: false,
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaFbc: 'fb.1.1700000000000.ABC_def-123',
+    } }));
+
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaFbp: null,
+      metaFbc: null,
     }));
   });
 
@@ -589,6 +641,54 @@ describe('application concierge checkout', () => {
       serviceStatus: 'active',
       paymentFailureReason: null,
     }));
+  });
+
+  it('keeps server consent ordered when grant and withdrawal requests race', async () => {
+    const grantAt = Date.now() - 10_000;
+    const deniedAt = grantAt + 100;
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt,
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: true } });
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: deniedAt,
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: true } });
+
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt + 50,
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: false } });
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaAdsConsentDecisionAtMs: deniedAt,
+    }));
+  });
+
+  it('retains the last revocation across a later grant and clears pre-revocation attribution', async () => {
+    const grantAt = Date.now() - 30_000;
+    const deniedAt = grantAt + 10_000;
+    const regrantedAt = grantAt + 20_000;
+    mocks.store.set('application_concierge_services/old-meta-attribution', {
+      userId: 'candidate-42',
+      metaAdsConsent: true,
+      metaAdsConsentAt: { toMillis: () => grantAt },
+      metaEventSourceUrl: 'https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaAttributionExpiresAt: { toMillis: () => Date.now() + 60_000 },
+    });
+    await handleSyncApplicationConciergeMetaConsent(request({ body: { decision: 'granted', decisionAtMs: grantAt } }));
+    await handleSyncApplicationConciergeMetaConsent(request({ body: { decision: 'denied', decisionAtMs: deniedAt } }));
+    await handleSyncApplicationConciergeMetaConsent(request({ body: { decision: 'granted', decisionAtMs: regrantedAt } }));
+
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: true,
+      metaAdsConsentDecisionAtMs: regrantedAt,
+      metaAdsConsentLastDeniedAtMs: deniedAt,
+    }));
+    expect(mocks.store.get('application_concierge_services/old-meta-attribution')).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaAdsConsentRevokedAt: expect.objectContaining({ toMillis: expect.any(Function) }),
+    }));
+    expect(mocks.store.get('application_concierge_services/old-meta-attribution')).not.toHaveProperty('metaEventSourceUrl');
+    expect(mocks.store.get('application_concierge_services/old-meta-attribution')).not.toHaveProperty('metaFbp');
   });
 });
 

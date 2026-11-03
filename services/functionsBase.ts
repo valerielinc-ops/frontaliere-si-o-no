@@ -24,6 +24,9 @@ export const MY_ASSISTED_APPLICATIONS_URL = `${FUNCTIONS_BASE}/myAssistedApplica
 /** Stripe/SumUp Checkout for the €39.99, 30-day application concierge. */
 export const CREATE_APPLICATION_CONCIERGE_CHECKOUT_URL = `${FUNCTIONS_BASE}/createApplicationConciergeCheckout`;
 
+/** Authenticated synchronization of the user's current Meta advertising-consent decision. */
+export const SYNC_APPLICATION_CONCIERGE_META_CONSENT_URL = `${FUNCTIONS_BASE}/syncApplicationConciergeMetaConsent`;
+
 /** Candidate portal API for the application concierge parent service. */
 export const APPLICATION_CONCIERGE_URL = `${FUNCTIONS_BASE}/applicationConcierge`;
 

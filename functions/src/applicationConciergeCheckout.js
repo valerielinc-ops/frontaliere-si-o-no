@@ -9,6 +9,7 @@
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
 import { sanitizeHouseAdAttribution } from './houseAdAttribution.js';
+import { validMetaEventSourceUrl } from './metaConversionsApi.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
 import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
@@ -30,10 +31,13 @@ import {
 } from './sumupAssistedApplicationCore.js';
 
 export const APPLICATION_CONCIERGE_CHECKOUT_REQUESTS_COLLECTION = 'application_concierge_checkout_requests';
+export const META_ADS_CONSENTS_COLLECTION = 'meta_ads_consents';
 
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
 const VALID_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const CHECKOUT_CLAIM_TTL_MS = 10 * 60 * 1000;
+const META_ATTRIBUTION_RETENTION_MS = (7 * 24 * 60 * 60 - 60 * 60) * 1000;
+const META_CONSENT_FUTURE_SKEW_MS = 60 * 1000;
 
 class ApplicationConciergeCheckoutConflictError extends Error {
   constructor() {
@@ -50,6 +54,51 @@ function boundedString(value, max) {
 function normalizedEmail(value) {
   const result = boundedString(value, 320).toLowerCase();
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result) ? result : '';
+}
+
+function validMetaCookie(value) {
+  const result = boundedString(value, 250);
+  return /^fb\.[0-9]{1,4}\.[0-9]{1,16}\.[A-Za-z0-9_-]{1,200}$/.test(result) ? result : '';
+}
+
+function validMetaConsentDecisionAt(value, nowMs = Date.now()) {
+  const decisionAtMs = Number(value);
+  if (!Number.isFinite(decisionAtMs) || decisionAtMs <= 0 || decisionAtMs > nowMs + META_CONSENT_FUTURE_SKEW_MS) return 0;
+  return Math.floor(decisionAtMs);
+}
+
+function applyMetaConsentDecision(transaction, consentRef, consentSnapshot, requestedConsent, decisionAtMs) {
+  const stored = consentSnapshot.exists ? consentSnapshot.data() || {} : {};
+  const storedDecisionAtMs = Number(stored.metaAdsConsentDecisionAtMs) || 0;
+  const storedLastDeniedAtMs = Math.max(
+    Number(stored.metaAdsConsentLastDeniedAtMs) || 0,
+    stored.metaAdsConsent === false ? storedDecisionAtMs : 0,
+  );
+  const lastDeniedAtMs = Math.max(
+    storedLastDeniedAtMs,
+    requestedConsent === false ? decisionAtMs : 0,
+  );
+  const hasNewerDecision = decisionAtMs > 0 && decisionAtMs > storedDecisionAtMs;
+
+  if (hasNewerDecision || lastDeniedAtMs > storedLastDeniedAtMs) {
+    const update = { updatedAt: FieldValue.serverTimestamp() };
+    if (hasNewerDecision) {
+      update.metaAdsConsent = requestedConsent === true;
+      update.metaAdsConsentDecisionAtMs = decisionAtMs;
+    }
+    if (lastDeniedAtMs > storedLastDeniedAtMs) update.metaAdsConsentLastDeniedAtMs = lastDeniedAtMs;
+    transaction.set(consentRef, {
+      ...update,
+    }, { merge: true });
+  }
+
+  const metaAdsConsent = requestedConsent === true
+    && decisionAtMs > 0
+    && decisionAtMs > lastDeniedAtMs;
+  return {
+    metaAdsConsent,
+    metaAdsConsentAt: metaAdsConsent ? Timestamp.fromMillis(decisionAtMs) : null,
+  };
 }
 
 function sha256(value) {
@@ -119,7 +168,8 @@ function expectedPriceOf(service) {
   return [2999, APPLICATION_CONCIERGE_PRICE_EUR_CENTS].includes(value) ? value : APPLICATION_CONCIERGE_PRICE_EUR_CENTS;
 }
 
-function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail, houseAdAttribution = null, renewalOfServiceId = null, amountTotal = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, discountExpiresAt = null }) {
+function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail, houseAdAttribution = null, metaAdsConsent = false, metaAdsConsentAt = null, metaEventSourceUrl = '', metaFbp = '', metaFbc = '', renewalOfServiceId = null, amountTotal = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, discountExpiresAt = null }) {
+  const hasMetaAttribution = metaAdsConsent && Boolean(metaFbp || metaFbc);
   return {
     serviceId,
     serviceType: APPLICATION_CONCIERGE_PRODUCT,
@@ -146,6 +196,12 @@ function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, c
     locale,
     servicePageUrl: appendServiceId(successUrl, serviceId),
     customerEmail: customerEmail || null,
+    metaAdsConsent,
+    metaAdsConsentAt,
+    metaEventSourceUrl: metaAdsConsent ? validMetaEventSourceUrl(metaEventSourceUrl) || null : null,
+    metaFbp: metaAdsConsent ? metaFbp || null : null,
+    metaFbc: metaAdsConsent ? metaFbc || null : null,
+    ...(hasMetaAttribution ? { metaAttributionExpiresAt: Timestamp.fromMillis(Date.now() + META_ATTRIBUTION_RETENTION_MS) } : {}),
     applicantName: null,
     applicantEmail: null,
     applicantPhone: null,
@@ -189,6 +245,13 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   const requestKey = validRequestKey(body.requestKey);
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);
+  const requestedMetaAdsConsent = body.metaAdsConsent === true;
+  const requestedMetaAdsConsentAtMs = validMetaConsentDecisionAt(body.metaAdsConsentAtMs);
+  const requestedMetaEventSourceUrl = requestedMetaAdsConsent
+    ? validMetaEventSourceUrl(body.metaEventSourceUrl)
+    : '';
+  const requestedMetaFbp = requestedMetaAdsConsent ? validMetaCookie(body.metaFbp) : '';
+  const requestedMetaFbc = requestedMetaAdsConsent ? validMetaCookie(body.metaFbc) : '';
   let resumeServiceId = boundedString(body.serviceId, 200);
   // The account's confirmed address is the only recipient a new checkout can
   // name: anything typed in the browser would bypass the possession proof.
@@ -233,6 +296,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   // One checkout per source service prevents duplicate renewal purchases from repeated clicks.
   const requestKeyHash = sha256(renewalOfServiceId ? `${userId}:renewal:${renewalOfServiceId}` : `${userId}:${requestKey}`);
   const requestRef = firestore.collection(APPLICATION_CONCIERGE_CHECKOUT_REQUESTS_COLLECTION).doc(requestKeyHash);
+  const metaConsentRef = firestore.collection(META_ADS_CONSENTS_COLLECTION).doc(userId);
   const serviceCollection = firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION);
   // A cached landing-page request must receive the same provider verification
   // as an explicit payment-reminder service link.
@@ -381,6 +445,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     await firestore.runTransaction(async (transaction) => {
       renewalPriceChanged = false;
       const existing = await transaction.get(requestRef);
+      const consentSnapshot = await transaction.get(metaConsentRef);
       if (resumeServiceId) {
         const existingRecord = existing.exists ? existing.data() || {} : {};
         if (existing.exists && (existingRecord.userId !== userId || existingRecord.serviceId !== resumeServiceId)) {
@@ -423,6 +488,16 @@ export async function handleCreateApplicationConciergeCheckout(req) {
             return;
           }
         }
+        const metaConsent = applyMetaConsentDecision(
+          transaction,
+          metaConsentRef,
+          consentSnapshot,
+          requestedMetaAdsConsent,
+          requestedMetaAdsConsentAtMs,
+        );
+        const metaEventSourceUrl = metaConsent.metaAdsConsent ? requestedMetaEventSourceUrl : '';
+        const metaFbp = metaConsent.metaAdsConsent ? requestedMetaFbp : '';
+        const metaFbc = metaConsent.metaAdsConsent ? requestedMetaFbc : '';
         checkoutAttempt = Math.max(
           Number(existingService.checkoutAttempt) || 0,
           Number(existingRecord.checkoutAttempt) || 0,
@@ -452,6 +527,14 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           serviceStatus: 'awaiting_payment',
           ...(renewalPrice ? { amountTotal: renewalPrice, expectedAmountTotal: renewalPrice, nextAmountTotal: FieldValue.delete() } : {}),
           customerEmail,
+          metaAdsConsent: metaConsent.metaAdsConsent,
+          metaAdsConsentAt: metaConsent.metaAdsConsentAt,
+          metaEventSourceUrl: metaEventSourceUrl || FieldValue.delete(),
+          metaFbp: metaFbp || FieldValue.delete(),
+          metaFbc: metaFbc || FieldValue.delete(),
+          metaAttributionExpiresAt: metaConsent.metaAdsConsent && (metaFbp || metaFbc)
+            ? Timestamp.fromMillis(Date.now() + META_ATTRIBUTION_RETENTION_MS)
+            : FieldValue.delete(),
           paymentFailureReason: null,
           checkoutSessionStatus: 'creating',
           checkoutAttempt,
@@ -474,6 +557,14 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         if (Number(body.expectedAmountTotal) !== currentOffer.amountTotal) { renewalPriceChanged = true; return; }
         renewalOffer = currentOffer;
       }
+      const metaConsent = applyMetaConsentDecision(
+        transaction,
+        metaConsentRef,
+        consentSnapshot,
+        requestedMetaAdsConsent,
+        requestedMetaAdsConsentAtMs,
+      );
+      const metaEventSourceUrl = metaConsent.metaAdsConsent ? requestedMetaEventSourceUrl : '';
       serviceRef = serviceCollection.doc();
       requestRecord = {
         requestKeyHash,
@@ -496,6 +587,11 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           successUrl,
           customerEmail,
           houseAdAttribution: sanitizeHouseAdAttribution(body.houseAdAttribution),
+          metaAdsConsent: metaConsent.metaAdsConsent,
+          metaAdsConsentAt: metaConsent.metaAdsConsentAt,
+          metaEventSourceUrl,
+          metaFbp: metaConsent.metaAdsConsent ? requestedMetaFbp : '',
+          metaFbc: metaConsent.metaAdsConsent ? requestedMetaFbc : '',
           renewalOfServiceId: renewalOfServiceId || null,
           amountTotal: renewalOffer?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
           discountExpiresAt: renewalOffer?.discountExpiresAt || null,
@@ -587,6 +683,86 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   }
 
   return { status: 200, body: { ok: true, url: checkoutUrl, serviceId, amountTotal: checkoutPrice } };
+}
+
+/** Persist the newest authenticated ad-consent choice and clear stale attribution after withdrawal. */
+export async function handleSyncApplicationConciergeMetaConsent(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+  const decoded = await verifyCaller(req, { checkRevoked: true });
+  const userId = boundedString(decoded?.uid, 200);
+  if (!userId) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
+
+  const body = req.body || {};
+  const decision = body.decision === 'granted' || body.decision === 'denied' ? body.decision : '';
+  const decisionAtMs = validMetaConsentDecisionAt(body.decisionAtMs);
+  if (!decision || !decisionAtMs) return { status: 400, body: { ok: false, error: 'invalid_consent_decision' } };
+
+  const firestore = db();
+  const consentRef = firestore.collection(META_ADS_CONSENTS_COLLECTION).doc(userId);
+  const consentState = await firestore.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(consentRef);
+    const stored = snapshot.exists ? snapshot.data() || {} : {};
+    const storedDecisionAtMs = Number(stored.metaAdsConsentDecisionAtMs) || 0;
+    const storedLastDeniedAtMs = Math.max(
+      Number(stored.metaAdsConsentLastDeniedAtMs) || 0,
+      stored.metaAdsConsent === false ? storedDecisionAtMs : 0,
+    );
+    const lastDeniedAtMs = Math.max(
+      storedLastDeniedAtMs,
+      decision === 'denied' ? decisionAtMs : 0,
+    );
+    const hasNewerDecision = decisionAtMs > storedDecisionAtMs;
+    if (hasNewerDecision || lastDeniedAtMs > storedLastDeniedAtMs) {
+      const update = { updatedAt: FieldValue.serverTimestamp() };
+      if (hasNewerDecision) {
+        update.metaAdsConsent = decision === 'granted';
+        update.metaAdsConsentDecisionAtMs = decisionAtMs;
+      }
+      if (lastDeniedAtMs > storedLastDeniedAtMs) update.metaAdsConsentLastDeniedAtMs = lastDeniedAtMs;
+      transaction.set(consentRef, update, { merge: true });
+    }
+    return {
+      applied: hasNewerDecision,
+      metaAdsConsent: hasNewerDecision ? decision === 'granted' : stored.metaAdsConsent === true,
+      decisionAtMs: hasNewerDecision ? decisionAtMs : storedDecisionAtMs,
+      lastDeniedAtMs,
+    };
+  });
+
+  if (consentState.lastDeniedAtMs > 0) {
+    const snapshot = await firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION)
+      .where('userId', '==', userId)
+      .get();
+    for (const serviceSnapshot of snapshot.docs || []) {
+      await firestore.runTransaction(async (transaction) => {
+        const [currentSnapshot, currentConsentSnapshot] = await Promise.all([
+          transaction.get(serviceSnapshot.ref),
+          transaction.get(consentRef),
+        ]);
+        if (!currentSnapshot.exists) return;
+        const service = currentSnapshot.data() || {};
+        const currentConsent = currentConsentSnapshot.exists ? currentConsentSnapshot.data() || {} : {};
+        const currentDecisionAtMs = Number(currentConsent.metaAdsConsentDecisionAtMs) || 0;
+        const currentLastDeniedAtMs = Math.max(
+          Number(currentConsent.metaAdsConsentLastDeniedAtMs) || 0,
+          currentConsent.metaAdsConsent === false ? currentDecisionAtMs : 0,
+        );
+        const serviceConsentAtMs = timestampMillis(service.metaAdsConsentAt);
+        if (currentLastDeniedAtMs <= 0
+          || serviceConsentAtMs > currentLastDeniedAtMs
+          || (service.metaAdsConsent !== true && !service.metaFbp && !service.metaFbc && !service.metaAttributionExpiresAt)) return;
+        transaction.set(serviceSnapshot.ref, {
+          metaAdsConsent: false,
+          metaAdsConsentRevokedAt: Timestamp.fromMillis(currentLastDeniedAtMs),
+          metaEventSourceUrl: FieldValue.delete(),
+          metaFbp: FieldValue.delete(),
+          metaFbc: FieldValue.delete(),
+          metaAttributionExpiresAt: FieldValue.delete(),
+        }, { merge: true });
+      });
+    }
+  }
+  return { status: 200, body: { ok: true, applied: consentState.applied } };
 }
 
 function isFullChargeRefund(charge) {
