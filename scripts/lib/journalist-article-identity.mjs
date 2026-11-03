@@ -15,13 +15,8 @@ export function getAllArticleIds() {
   if (articleIdsCache) return articleIdsCache;
   const ids = new Set();
   for (const { file, constName } of Object.values(ARTICLE_REGISTRY_FILES)) {
-    try {
-      const registry = readSlugRegistry(new URL(`../../${file}`, import.meta.url), constName);
-      for (const id of Object.keys(registry)) ids.add(id);
-    } catch {
-      // Keep the same fail-closed behavior as the generation pipeline: a
-      // missing registry cannot make an id appear to be already registered.
-    }
+    const registry = readSlugRegistry(new URL(`../../${file}`, import.meta.url), constName);
+    for (const id of Object.keys(registry)) ids.add(id);
   }
   articleIdsCache = [...ids];
   return articleIdsCache;
