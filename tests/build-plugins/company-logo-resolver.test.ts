@@ -53,4 +53,13 @@ describe('companyLogoResolver', () => {
     expect(src).not.toContain('google.com/s2/favicons');
     expect(src).toBe('/images/brands/duferco.png');
   });
+
+  it('resolves the legacy Prada Group key through the verified official source context', () => {
+    expect(resolveJobLogoSrc({
+      company: 'Prada Group',
+      companyKey: 'prada-group',
+      companyDomain: 'pradagroup.com',
+      url: 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/',
+    })).toBe('/images/logos/prada-group.svg');
+  });
 });

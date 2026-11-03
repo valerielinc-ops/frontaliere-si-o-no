@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-03T09:21:37.939Z",
-  "runId": "41608279260",
+  "assembledAt": "2026-11-03T21:26:06.763Z",
+  "runId": "41718826144",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:32.326Z",
+      "crawledAt": "2026-11-03T21:25:54.936Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:32.326Z",
+      "validThrough": "2026-12-03T21:25:54.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slug": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
-        "en": "lab-technician-ad-siegfried-evionnaz",
+        "en": "nb-t-a-siegfried-evionnaz",
         "de": "lab-techniker-ad-siegfried-evionnaz",
         "fr": "lab-technician-ad-siegfried-ch"
       },
@@ -118,7 +118,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:31.629Z",
+      "crawledAt": "2026-11-03T21:25:54.196Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,14 +163,14 @@
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
         "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "nb-t-a-siegfried-evionnaz"
+        "lab-technician-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-ad-siegfried-ch"
         ],
         "en": [
-          "nb-t-a-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -197,7 +197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:31.629Z",
+      "validThrough": "2026-12-03T21:25:54.196Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:30.923Z",
+      "crawledAt": "2026-11-03T21:25:53.389Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:30.923Z",
+      "validThrough": "2026-12-03T21:25:53.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:21:30.223Z",
+      "crawledAt": "2026-11-03T21:25:52.659Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,7 +369,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:30.223Z",
+      "validThrough": "2026-12-03T21:25:52.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:29.570Z",
+      "crawledAt": "2026-11-03T21:25:51.955Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,7 +451,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:29.570Z",
+      "validThrough": "2026-12-03T21:25:51.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -485,7 +485,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:28.903Z",
+      "crawledAt": "2026-11-03T21:25:51.251Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,7 +544,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:28.903Z",
+      "validThrough": "2026-12-03T21:25:51.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -578,7 +578,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:28.211Z",
+      "crawledAt": "2026-11-03T21:25:50.530Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -629,7 +629,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:28.211Z",
+      "validThrough": "2026-12-03T21:25:50.530Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -663,7 +663,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:27.510Z",
+      "crawledAt": "2026-11-03T21:25:49.806Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,7 +714,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:27.510Z",
+      "validThrough": "2026-12-03T21:25:49.806Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -748,7 +748,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:26.809Z",
+      "crawledAt": "2026-11-03T21:25:49.068Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,7 +797,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:21:26.809Z",
+      "validThrough": "2026-12-03T21:25:49.068Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -807,7 +807,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -831,7 +831,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:26.185Z",
+      "crawledAt": "2026-11-03T21:25:48.330Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -860,14 +860,14 @@
         "fr": [
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
           "production-maintenance-manager-siegfried-zofingen",
-          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+          "entretien-de-la-tete-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
         "production-maintenance-manager-siegfried-zofingen",
-        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+        "entretien-de-la-tete-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-09-09T14:06:01.758Z",
       "salaryMin": 85500,
@@ -887,7 +887,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:21:26.185Z",
+      "validThrough": "2026-12-08T21:25:48.330Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -921,7 +921,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:25.224Z",
+      "crawledAt": "2026-11-03T21:25:47.555Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -971,7 +971,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:21:25.224Z",
+      "validThrough": "2026-12-13T21:25:47.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1005,7 +1005,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:24.233Z",
+      "crawledAt": "2026-11-03T21:25:46.817Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1056,7 +1056,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:21:24.233Z",
+      "validThrough": "2027-01-18T21:25:46.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1090,7 +1090,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:23.392Z",
+      "crawledAt": "2026-11-03T21:25:46.006Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1141,7 +1141,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:21:23.392Z",
+      "validThrough": "2027-01-24T21:25:46.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1175,7 +1175,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:22.510Z",
+      "crawledAt": "2026-11-03T21:25:45.298Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1226,7 +1226,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:21:22.510Z",
+      "validThrough": "2027-01-26T21:25:45.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1234,7 +1234,7 @@
       "slug": "lab-supervisore-stability-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-stability-siegfried-evionnaz",
-        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
+        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
         "de": "lab-vorgesetzter-stability-siegfried-evionnaz",
         "fr": "lab-supervisor-stability-siegfried-ch"
       },
@@ -1260,7 +1260,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:21:21.823Z",
+      "crawledAt": "2026-11-03T21:25:44.631Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1281,14 +1281,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "lab-supervisor-stability-siegfried-ch",
-        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-stability-siegfried-ch"
         ],
         "en": [
-          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
         ],
         "de": [
           "lab-supervisor-stability-siegfried-ch"
@@ -1312,7 +1312,92 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:21:21.823Z",
+      "validThrough": "2027-01-27T21:25:44.631Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siegfried-f65f46a41b76",
+      "slug": "responsabile-engineering-maintenance-siegfried-evionnaz",
+      "slugByLocale": {
+        "it": "responsabile-engineering-maintenance-siegfried-evionnaz",
+        "en": "head-of-engineering-maintenance-siegfried-ch",
+        "de": "leiter-engineering-maintenance-siegfried-evionnaz",
+        "fr": "responsable-engineering-maintenance-siegfried-evionnaz"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Head of Engineering & Maintenance",
+      "titleByLocale": {
+        "it": "Responsabile Engineering & Maintenance",
+        "en": "Head of Engineering & Maintenance",
+        "de": "Leiter Engineering & Maintenance",
+        "fr": "Responsable Engineering & Maintenance"
+      },
+      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAs a member of the Site Leadership Team, reporting to the Site Head and with a functional reporting line to the Global Cluster Engineering & Maintenance Head, you will lead the site’s engineering, maintenance and utilities activities.\n\nYou will define and implement the medium- and long-term roadmap in line with the site strategy. Together with your teams, you will ensure reliable, efficient operations that meet quality, safety and environmental requirements.\n\nYour responsibilities\n•\tDefine and manage budgets within your scope and the five-year capital investment plan.\n•\tOversee capital investment projects, from requirements definition through commissioning and qualification, ensuring delivery within budget, on schedule and in line with technical requirements.\n•\tEnsure sufficient availability and capacity of facilities, equipment and utilities to meet operational needs.\n•\tDevelop the maintenance strategy to improve equipment reliability and reduce downtime.\n•\tOptimize asset lifecycle costs and anticipate replacement needs.\n•\tDefine and implement the site’s automation strategy.\n•\tEstablish performance indicators and drive continuous improvement initiatives.\n•\tLead and develop teams, anticipate skills requirements and coordinate external service providers.\n•\tEnsure compliance with quality standards, GMP requirements, and health, safety and environmental standards across all activities within your scope.\n•\tWork closely with site functions and global teams to align priorities and support the site’s industrial development.\n Your Profile:\n\n• Master’s degree in engineering in a relevant technical discipline.\n\n• Significant experience leading engineering and maintenance activities in the chemical or pharmaceutical industry.\n\n• Proven people management experience and the ability to inspire and unite teams.\n\n• Ability to collaborate effectively across functions in an international environment.\n\n• Fluency in French and English.\n\n• Strong knowledge of regulatory and compliance requirements, asset reliability, and health, safety and environmental standards (GMP, ISO etc..)\n\nYour Benefits:\n\n• Flexible working hours to balance family life, leisure and work\n\n• Free parking\n\n• Health insurance: up to 10% off supplementary insurance with our partners\n\n• Generous, customisable employee share purchase plan\n\n• Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month\n\n• Individual continuing education and development opportunities\n\n• Reka Checks: Siegfried AG offers employees a 20% discount\n\n• Attractive company pension plan\n\n• On-site fitness classes and numerous company events\n\n• Access to the Swibeco employee benefits platform\n\n• Five weeks of annual leave, with the option to purchase up to two additional weeks\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui, troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nSegnalando al Site Head, con una linea di report funzionale al Global Cluster Engineering & Maintenance Head, guiderai le attività di ingegneria, manutenzione e utilità del sito.\nDefinirai e implementerai la roadmap a medio e lungo termine in linea con la strategia del sito. Insieme ai vostri team, vi assicurerete operazioni affidabili ed efficienti che soddisfino i requisiti di qualità, sicurezza e ambiente.\n\nLe tue responsabilità\n• Definire e gestire i budget all'interno del vostro ambito e il piano di investimento di capitale di cinque anni.\n• Superare i progetti di investimento di capitale, dalla definizione dei requisiti attraverso la messa in servizio e la qualificazione, garantire la consegna all'interno del bilancio, in programma e in linea con i requisiti tecnici.\n• Assicurare la disponibilità e la capacità sufficienti di strutture, attrezzature e servizi per soddisfare le esigenze operative.\n• Sviluppare la strategia di manutenzione per migliorare l'affidabilità delle attrezzature e ridurre i tempi di fermo.\n• Ottimizzare i costi del ciclo di vita degli asset e anticipare le esigenze di sostituzione.\n• Definire e implementare la strategia di automazione del sito.\n• Stabilire indicatori di performance e guidare iniziative di miglioramento continuo.\n• Guidare e sviluppare team, anticipare i requisiti di competenze e coordinare i fornitori di servizi esterni.\n• Assicurare la conformità agli standard di qualità, ai requisiti GMP e agli standard sanitari, di sicurezza e ambientali in tutte le attività all'interno del vostro campo di applicazione.\n• Lavorare a stretto contatto con le funzioni del sito e i team globali per allineare le priorità e sostenere lo sviluppo industriale del sito.\nIl tuo profilo:\n\n• Laurea magistrale in ingegneria in una disciplina tecnica rilevante.\n\n• Esperienza significativa che conduce attività di ingegneria e manutenzione nell'industria chimica o farmaceutica.\n\n• Provata esperienza di gestione delle persone e la capacità di ispirare e unire i team.\n\n• Capacità di collaborare efficacemente attraverso funzioni in un ambiente internazionale.\n\n• Fluency in francese e inglese.\n\n• Forte conoscenza dei requisiti GMP, dell'affidabilità degli asset e degli standard sanitari, di sicurezza e ambientali.\n\nI vostri vantaggi:\n\n• Ore lavorative flessibili per bilanciare la vita familiare, il tempo libero e il lavoro\n\n• Parcheggio gratuito\n\n• Assicurazione sanitaria: fino al 10% di assicurazione integrativa con i nostri partner\n\n• Piano d'acquisto azionario dei dipendenti generoso e personalizzabile\n\n• Indennità d'infanzia: Siegfried AG aumenta l'indennità cantonale legale del 10% e paga un supplemento di CHF 100 al mese\n\n• Opportunità di istruzione e sviluppo\n\n• Reka Checks: Siegfried AG offre ai dipendenti uno sconto del 20%\n\n• Piano pensionistico aziendale attraente\n\n• Corsi di fitness in loco e numerosi eventi aziendali\n\n• Accesso alla piattaforma di benefici per i dipendenti Swibeco\n\n• Cinque settimane di congedo annuale, con la possibilità di acquistare fino a due settimane aggiuntive\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce siti di produzione a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAs a member of the Site Leadership Team, reporting to the Site Head and with a functional reporting line to the Global Cluster Engineering & Maintenance Head, you will lead the site’s engineering, maintenance and utilities activities.\n\nYou will define and implement the medium- and long-term roadmap in line with the site strategy. Together with your teams, you will ensure reliable, efficient operations that meet quality, safety and environmental requirements.\n\nYour responsibilities\n• Define and manage budgets within your scope and the five-year capital investment plan.\n• Oversee capital investment projects, from requirements definition through commissioning and qualification, ensuring delivery within budget, on schedule and in line with technical requirements.\n• Ensure sufficient availability and capacity of facilities, equipment and utilities to meet operational needs.\n• Develop the maintenance strategy to improve equipment reliability and reduce downtime.\n• Optimize asset lifecycle costs and anticipate replacement needs.\n• Define and implement the site’s automation strategy.\n• Establish performance indicators and drive continuous improvement initiatives.\n• Lead and develop teams, anticipate skills requirements and coordinate external service providers.\n• Ensure compliance with quality standards, GMP requirements, and health, safety and environmental standards across all activities within your scope.\n• Work closely with site functions and global teams to align priorities and support the site’s industrial development.\nYour Profile:\n\n• Master’s degree in engineering in a relevant technical discipline.\n\n• Significant experience leading engineering and maintenance activities in the chemical or pharmaceutical industry.\n\n• Proven people management experience and the ability to inspire and unite teams.\n\n• Ability to collaborate effectively across functions in an international environment.\n\n• Fluency in French and English.\n\n• Strong knowledge of regulatory and compliance requirements, asset reliability, and health, safety and environmental standards (GMP, ISO etc..)\n\nYour Benefits:\n\n• Flexible working hours to balance family life, leisure and work\n\n• Free parking\n\n• Health insurance: up to 10% off supplementary insurance with our partners\n\n• Generous, customisable employee share purchase plan\n\n• Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month\n\n• Individual continuing education and development opportunities\n\n• Reka Checks: Siegfried AG offers employees a 20% discount\n\n• Attractive company pension plan\n\n• On-site fitness classes and numerous company events\n\n• Access to the Swibeco employee benefits platform\n\n• Five weeks of annual leave, with the option to purchase up to two additional weeks\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumschancen bietet.\n\nIhre Rolle:\nBerichterstattung an den Site Head, mit einer funktionalen Berichtslinie an den Global Cluster Engineering & Maintenance Head, werden Sie die Engineering-, Wartungs- und Versorgungsaktivitäten der Site leiten.\nSie definieren und implementieren die mittel- und langfristige Roadmap im Einklang mit der Standortstrategie. Gemeinsam mit Ihren Teams gewährleisten Sie einen zuverlässigen und effizienten Betrieb, der die Qualitäts-, Sicherheits- und Umweltanforderungen erfüllt.\n\nIhre Verantwortung\n• Definieren und verwalten Sie Budgets in Ihrem Bereich und den Fünf-Jahres-Investitionsplan.\n• Beaufsichtigen Sie Investitionsprojekte von der Anforderungsdefinition über die Inbetriebnahme und Qualifizierung, um die Lieferung innerhalb des Budgets, termingerecht und gemäß den technischen Anforderungen sicherzustellen.\n• Gewährleistung einer ausreichenden Verfügbarkeit und Kapazität der Einrichtungen, Ausrüstungen und Versorgungseinrichtungen, um den betrieblichen Anforderungen gerecht zu werden.\n• Entwickeln Sie die Wartungsstrategie, um die Zuverlässigkeit der Ausrüstung zu verbessern und Ausfallzeiten zu reduzieren.\n• Optimieren Sie die Lebenszykluskosten von Anlagen und antizipieren Sie den Ersatzbedarf.\n• Definieren und implementieren Sie die Automatisierungsstrategie der Website.\n• Festlegung von Leistungsindikatoren und Förderung kontinuierlicher Verbesserungsinitiativen.\n• Führen und entwickeln Sie Teams, antizipieren Sie Qualifikationsanforderungen und koordinieren Sie externe Dienstleister.\n• Gewährleistung der Einhaltung von Qualitätsstandards, GMP-Anforderungen sowie Gesundheits-, Sicherheits- und Umweltstandards bei allen Aktivitäten in Ihrem Bereich.\n• Arbeiten Sie eng mit Standortfunktionen und globalen Teams zusammen, um Prioritäten auszurichten und die industrielle Entwicklung des Standorts zu unterstützen.\nIhr Profil:\n\n• Master-Abschluss in Ingenieurwissenschaften in einer relevanten technischen Disziplin.\n\n• Bedeutende Erfahrung in der Leitung von Engineering- und Wartungsaktivitäten in der chemischen oder pharmazeutischen Industrie.\n\n• Bewährte Erfahrung im Personalmanagement und die Fähigkeit, Teams zu inspirieren und zu vereinen.\n\n• Fähigkeit, effektiv über Funktionen in einem internationalen Umfeld zusammenzuarbeiten.\n\n• Fließend in Französisch und Englisch.\n\n• Ein fundiertes Wissen über GMP-Anforderungen, Zuverlässigkeit von Anlagen sowie Gesundheits-, Sicherheits- und Umweltstandards.\n\nIhre Vorteile:\n\n• Flexible Arbeitszeiten zur Vereinbarkeit von Familienleben, Freizeit und Arbeit\n\n• Freie Parkplätze\n\n• Krankenversicherung: bis zu 10% Rabatt auf die Zusatzversicherung bei unseren Partnern\n\n• Großzügiger, anpassbarer Mitarbeiteraktienkaufplan\n\n• Kindergeld: Siegfried AG erhöht die gesetzliche Kantonszulage um 10% und zahlt zusätzlich CHF 100 pro Monat\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Reka Checks: Siegfried AG bietet Mitarbeitern 20% Rabatt\n\n• Attraktive betriebliche Altersvorsorge\n\n• Fitnesskurse vor Ort und zahlreiche Firmenevents\n\n• Zugang zur Swibeco Employee Benefits Plattform\n\n• Fünf Wochen Jahresurlaub, mit der Option, bis zu zwei zusätzliche Wochen zu kaufen\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
+        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diversifiées se rencontrent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et votre contribution individuelle, offrant des occasions à long terme de grandir et d'avoir un impact.\n\nVotre rôle :\nRendre compte au responsable du site, avec une ligne de rapport fonctionnelle au responsable de l'ingénierie et de la maintenance des grappes mondiales, vous dirigerez les activités d'ingénierie, de maintenance et de services publics du site.\nVous définirez et mettrez en œuvre la feuille de route à moyen et à long terme conformément à la stratégie du site. Avec vos équipes, vous assurerez des opérations fiables et efficaces qui répondent aux exigences de qualité, de sécurité et d'environnement.\n\nVos responsabilités\n• Définir et gérer les budgets à l'intérieur de votre portée et du plan quinquennal d'investissement en capital.\n• Superviser les projets d'investissement, depuis la définition des exigences jusqu'à la mise en service et la qualification, en passant par l'exécution dans les limites du budget, dans les délais et conformément aux exigences techniques.\n• Assurer la disponibilité et la capacité suffisantes des installations, du matériel et des services publics pour répondre aux besoins opérationnels.\n• Élaborer une stratégie de maintenance pour améliorer la fiabilité de l'équipement et réduire les temps d'arrêt.\n• Optimiser les coûts du cycle de vie des actifs et prévoir les besoins de remplacement.\n• Définir et mettre en œuvre la stratégie d'automatisation du site.\n• Établir des indicateurs de rendement et lancer des initiatives d'amélioration continue.\n• Diriger et former des équipes, prévoir les besoins en compétences et coordonner les fournisseurs de services externes.\n• Assurer la conformité aux normes de qualité, aux exigences des BPF et aux normes en matière de santé, de sécurité et d'environnement pour toutes les activités de votre portée.\n• Travailler en étroite collaboration avec les fonctions du site et les équipes mondiales pour aligner les priorités et soutenir le développement industriel du site.\nVotre profil:\n\n• Maîtrise en ingénierie dans une discipline technique pertinente.\n\n• Expérience importante menant des activités d'ingénierie et de maintenance dans l'industrie chimique ou pharmaceutique.\n\n• Expérience éprouvée en gestion des personnes et capacité d'inspirer et d'unir les équipes.\n\n• Capacité à collaborer efficacement entre les fonctions dans un environnement international.\n\n• Connaissance du français et de l'anglais.\n\n• Bonne connaissance des exigences des BPF, de la fiabilité des actifs et des normes en matière de santé, de sécurité et d'environnement.\n\nVos avantages :\n\n• Heures de travail flexibles pour concilier vie familiale, loisirs et travail\n\n• Parking gratuit\n\n• Assurance maladie : jusqu'à 10 % de rabais sur l'assurance complémentaire avec nos partenaires\n\n• Régime d'actionnariat salarié généreux et personnalisable\n\n• Allocation pour enfant: Siegfried AG augmente l'allocation cantonale statutaire de 10 % et verse 100 francs supplémentaires par mois\n\n• Possibilités individuelles de formation continue et de développement\n\n• Reka Checks: Siegfried AG offre aux employés une réduction de 20%\n\n• Régime de retraite attrayant de l'entreprise\n\n• Cours de fitness sur place et de nombreux événements d'entreprise\n\n• Accès à la plateforme d'avantages sociaux des employés de Swibeco\n\n• Cinq semaines de congé annuel, avec possibilité d'acheter jusqu'à deux semaines supplémentaires\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+      },
+      "location": "Evionnaz",
+      "canton": "VS",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-03T21:25:43.832Z",
+      "addressLocality": "Evionnaz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02",
+      "postedDate": "2026-11-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R26_818",
+      "hiringOrganization": "Siegfried Evionnaz SA",
+      "previousSlugs": [
+        "head-of-engineering-maintenance-siegfried-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-engineering-maintenance-siegfried-ch"
+        ],
+        "de": [
+          "head-of-engineering-maintenance-siegfried-ch"
+        ],
+        "fr": [
+          "head-of-engineering-maintenance-siegfried-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-02T21:30:00.642Z",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1902",
+      "addressRegion": "VS",
+      "streetAddress": "Evionnaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-31T21:25:43.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1398,92 +1483,8 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:21:21.167Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "siegfried-f65f46a41b76",
-      "slug": "responsabile-engineering-maintenance-siegfried-evionnaz",
-      "slugByLocale": {
-        "it": "responsabile-engineering-maintenance-siegfried-evionnaz",
-        "en": "head-of-engineering-maintenance-siegfried-ch",
-        "de": "leiter-engineering-maintenance-siegfried-evionnaz",
-        "fr": "responsable-engineering-maintenance-siegfried-evionnaz"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Head of Engineering & Maintenance",
-      "titleByLocale": {
-        "it": "Responsabile Engineering & Maintenance",
-        "en": "Head of Engineering & Maintenance",
-        "de": "Leiter Engineering & Maintenance",
-        "fr": "Responsable Engineering & Maintenance"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nReporting to the Site Head, with a functional reporting line to the Global Cluster Engineering & Maintenance Head, you will lead the site’s engineering, maintenance and utilities activities.\nYou will define and implement the medium- and long-term roadmap in line with the site strategy. Together with your teams, you will ensure reliable, efficient operations that meet quality, safety and environmental requirements.\n\nYour responsibilities\n•\tDefine and manage budgets within your scope and the five-year capital investment plan.\n•\tOversee capital investment projects, from requirements definition through commissioning and qualification, ensuring delivery within budget, on schedule and in line with technical requirements.\n•\tEnsure sufficient availability and capacity of facilities, equipment and utilities to meet operational needs.\n•\tDevelop the maintenance strategy to improve equipment reliability and reduce downtime.\n•\tOptimize asset lifecycle costs and anticipate replacement needs.\n•\tDefine and implement the site’s automation strategy.\n•\tEstablish performance indicators and drive continuous improvement initiatives.\n•\tLead and develop teams, anticipate skills requirements and coordinate external service providers.\n•\tEnsure compliance with quality standards, GMP requirements, and health, safety and environmental standards across all activities within your scope.\n•\tWork closely with site functions and global teams to align priorities and support the site’s industrial development.\n Your Profile:\n\n• Master’s degree in engineering in a relevant technical discipline.\n\n• Significant experience leading engineering and maintenance activities in the chemical or pharmaceutical industry.\n\n• Proven people management experience and the ability to inspire and unite teams.\n\n• Ability to collaborate effectively across functions in an international environment.\n\n• Fluency in French and English.\n\n• Strong knowledge of GMP requirements, asset reliability, and health, safety and environmental standards.\n\nYour Benefits:\n\n• Flexible working hours to balance family life, leisure and work\n\n• Free parking\n\n• Health insurance: up to 10% off supplementary insurance with our partners\n\n• Generous, customisable employee share purchase plan\n\n• Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month\n\n• Individual continuing education and development opportunities\n\n• Reka Checks: Siegfried AG offers employees a 20% discount\n\n• Attractive company pension plan\n\n• On-site fitness classes and numerous company events\n\n• Access to the Swibeco employee benefits platform\n\n• Five weeks of annual leave, with the option to purchase up to two additional weeks\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui, troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nSegnalando al Site Head, con una linea di report funzionale al Global Cluster Engineering & Maintenance Head, guiderai le attività di ingegneria, manutenzione e utilità del sito.\nDefinirai e implementerai la roadmap a medio e lungo termine in linea con la strategia del sito. Insieme ai vostri team, vi assicurerete operazioni affidabili ed efficienti che soddisfino i requisiti di qualità, sicurezza e ambiente.\n\nLe tue responsabilità\n• Definire e gestire i budget all'interno del vostro ambito e il piano di investimento di capitale di cinque anni.\n• Superare i progetti di investimento di capitale, dalla definizione dei requisiti attraverso la messa in servizio e la qualificazione, garantire la consegna all'interno del bilancio, in programma e in linea con i requisiti tecnici.\n• Assicurare la disponibilità e la capacità sufficienti di strutture, attrezzature e servizi per soddisfare le esigenze operative.\n• Sviluppare la strategia di manutenzione per migliorare l'affidabilità delle attrezzature e ridurre i tempi di fermo.\n• Ottimizzare i costi del ciclo di vita degli asset e anticipare le esigenze di sostituzione.\n• Definire e implementare la strategia di automazione del sito.\n• Stabilire indicatori di performance e guidare iniziative di miglioramento continuo.\n• Guidare e sviluppare team, anticipare i requisiti di competenze e coordinare i fornitori di servizi esterni.\n• Assicurare la conformità agli standard di qualità, ai requisiti GMP e agli standard sanitari, di sicurezza e ambientali in tutte le attività all'interno del vostro campo di applicazione.\n• Lavorare a stretto contatto con le funzioni del sito e i team globali per allineare le priorità e sostenere lo sviluppo industriale del sito.\nIl tuo profilo:\n\n• Laurea magistrale in ingegneria in una disciplina tecnica rilevante.\n\n• Esperienza significativa che conduce attività di ingegneria e manutenzione nell'industria chimica o farmaceutica.\n\n• Provata esperienza di gestione delle persone e la capacità di ispirare e unire i team.\n\n• Capacità di collaborare efficacemente attraverso funzioni in un ambiente internazionale.\n\n• Fluency in francese e inglese.\n\n• Forte conoscenza dei requisiti GMP, dell'affidabilità degli asset e degli standard sanitari, di sicurezza e ambientali.\n\nI vostri vantaggi:\n\n• Ore lavorative flessibili per bilanciare la vita familiare, il tempo libero e il lavoro\n\n• Parcheggio gratuito\n\n• Assicurazione sanitaria: fino al 10% di assicurazione integrativa con i nostri partner\n\n• Piano d'acquisto azionario dei dipendenti generoso e personalizzabile\n\n• Indennità d'infanzia: Siegfried AG aumenta l'indennità cantonale legale del 10% e paga un supplemento di CHF 100 al mese\n\n• Opportunità di istruzione e sviluppo\n\n• Reka Checks: Siegfried AG offre ai dipendenti uno sconto del 20%\n\n• Piano pensionistico aziendale attraente\n\n• Corsi di fitness in loco e numerosi eventi aziendali\n\n• Accesso alla piattaforma di benefici per i dipendenti Swibeco\n\n• Cinque settimane di congedo annuale, con la possibilità di acquistare fino a due settimane aggiuntive\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce siti di produzione a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nReporting to the Site Head, with a functional reporting line to the Global Cluster Engineering & Maintenance Head, you will lead the site’s engineering, maintenance and utilities activities.\nYou will define and implement the medium- and long-term roadmap in line with the site strategy. Together with your teams, you will ensure reliable, efficient operations that meet quality, safety and environmental requirements.\n\nYour responsibilities\n• Define and manage budgets within your scope and the five-year capital investment plan.\n• Oversee capital investment projects, from requirements definition through commissioning and qualification, ensuring delivery within budget, on schedule and in line with technical requirements.\n• Ensure sufficient availability and capacity of facilities, equipment and utilities to meet operational needs.\n• Develop the maintenance strategy to improve equipment reliability and reduce downtime.\n• Optimize asset lifecycle costs and anticipate replacement needs.\n• Define and implement the site’s automation strategy.\n• Establish performance indicators and drive continuous improvement initiatives.\n• Lead and develop teams, anticipate skills requirements and coordinate external service providers.\n• Ensure compliance with quality standards, GMP requirements, and health, safety and environmental standards across all activities within your scope.\n• Work closely with site functions and global teams to align priorities and support the site’s industrial development.\nYour Profile:\n\n• Master’s degree in engineering in a relevant technical discipline.\n\n• Significant experience leading engineering and maintenance activities in the chemical or pharmaceutical industry.\n\n• Proven people management experience and the ability to inspire and unite teams.\n\n• Ability to collaborate effectively across functions in an international environment.\n\n• Fluency in French and English.\n\n• Strong knowledge of GMP requirements, asset reliability, and health, safety and environmental standards.\n\nYour Benefits:\n\n• Flexible working hours to balance family life, leisure and work\n\n• Free parking\n\n• Health insurance: up to 10% off supplementary insurance with our partners\n\n• Generous, customisable employee share purchase plan\n\n• Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month\n\n• Individual continuing education and development opportunities\n\n• Reka Checks: Siegfried AG offers employees a 20% discount\n\n• Attractive company pension plan\n\n• On-site fitness classes and numerous company events\n\n• Access to the Swibeco employee benefits platform\n\n• Five weeks of annual leave, with the option to purchase up to two additional weeks\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumschancen bietet.\n\nIhre Rolle:\nBerichterstattung an den Site Head, mit einer funktionalen Berichtslinie an den Global Cluster Engineering & Maintenance Head, werden Sie die Engineering-, Wartungs- und Versorgungsaktivitäten der Site leiten.\nSie definieren und implementieren die mittel- und langfristige Roadmap im Einklang mit der Standortstrategie. Gemeinsam mit Ihren Teams gewährleisten Sie einen zuverlässigen und effizienten Betrieb, der die Qualitäts-, Sicherheits- und Umweltanforderungen erfüllt.\n\nIhre Verantwortung\n• Definieren und verwalten Sie Budgets in Ihrem Bereich und den Fünf-Jahres-Investitionsplan.\n• Beaufsichtigen Sie Investitionsprojekte von der Anforderungsdefinition über die Inbetriebnahme und Qualifizierung, um die Lieferung innerhalb des Budgets, termingerecht und gemäß den technischen Anforderungen sicherzustellen.\n• Gewährleistung einer ausreichenden Verfügbarkeit und Kapazität der Einrichtungen, Ausrüstungen und Versorgungseinrichtungen, um den betrieblichen Anforderungen gerecht zu werden.\n• Entwickeln Sie die Wartungsstrategie, um die Zuverlässigkeit der Ausrüstung zu verbessern und Ausfallzeiten zu reduzieren.\n• Optimieren Sie die Lebenszykluskosten von Anlagen und antizipieren Sie den Ersatzbedarf.\n• Definieren und implementieren Sie die Automatisierungsstrategie der Website.\n• Festlegung von Leistungsindikatoren und Förderung kontinuierlicher Verbesserungsinitiativen.\n• Führen und entwickeln Sie Teams, antizipieren Sie Qualifikationsanforderungen und koordinieren Sie externe Dienstleister.\n• Gewährleistung der Einhaltung von Qualitätsstandards, GMP-Anforderungen sowie Gesundheits-, Sicherheits- und Umweltstandards bei allen Aktivitäten in Ihrem Bereich.\n• Arbeiten Sie eng mit Standortfunktionen und globalen Teams zusammen, um Prioritäten auszurichten und die industrielle Entwicklung des Standorts zu unterstützen.\nIhr Profil:\n\n• Master-Abschluss in Ingenieurwissenschaften in einer relevanten technischen Disziplin.\n\n• Bedeutende Erfahrung in der Leitung von Engineering- und Wartungsaktivitäten in der chemischen oder pharmazeutischen Industrie.\n\n• Bewährte Erfahrung im Personalmanagement und die Fähigkeit, Teams zu inspirieren und zu vereinen.\n\n• Fähigkeit, effektiv über Funktionen in einem internationalen Umfeld zusammenzuarbeiten.\n\n• Fließend in Französisch und Englisch.\n\n• Ein fundiertes Wissen über GMP-Anforderungen, Zuverlässigkeit von Anlagen sowie Gesundheits-, Sicherheits- und Umweltstandards.\n\nIhre Vorteile:\n\n• Flexible Arbeitszeiten zur Vereinbarkeit von Familienleben, Freizeit und Arbeit\n\n• Freie Parkplätze\n\n• Krankenversicherung: bis zu 10% Rabatt auf die Zusatzversicherung bei unseren Partnern\n\n• Großzügiger, anpassbarer Mitarbeiteraktienkaufplan\n\n• Kindergeld: Siegfried AG erhöht die gesetzliche Kantonszulage um 10% und zahlt zusätzlich CHF 100 pro Monat\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Reka Checks: Siegfried AG bietet Mitarbeitern 20% Rabatt\n\n• Attraktive betriebliche Altersvorsorge\n\n• Fitnesskurse vor Ort und zahlreiche Firmenevents\n\n• Zugang zur Swibeco Employee Benefits Plattform\n\n• Fünf Wochen Jahresurlaub, mit der Option, bis zu zwei zusätzliche Wochen zu kaufen\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diversifiées se rencontrent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et votre contribution individuelle, offrant des occasions à long terme de grandir et d'avoir un impact.\n\nVotre rôle :\nRendre compte au responsable du site, avec une ligne de rapport fonctionnelle au responsable de l'ingénierie et de la maintenance des grappes mondiales, vous dirigerez les activités d'ingénierie, de maintenance et de services publics du site.\nVous définirez et mettrez en œuvre la feuille de route à moyen et à long terme conformément à la stratégie du site. Avec vos équipes, vous assurerez des opérations fiables et efficaces qui répondent aux exigences de qualité, de sécurité et d'environnement.\n\nVos responsabilités\n• Définir et gérer les budgets à l'intérieur de votre portée et du plan quinquennal d'investissement en capital.\n• Superviser les projets d'investissement, depuis la définition des exigences jusqu'à la mise en service et la qualification, en passant par l'exécution dans les limites du budget, dans les délais et conformément aux exigences techniques.\n• Assurer la disponibilité et la capacité suffisantes des installations, du matériel et des services publics pour répondre aux besoins opérationnels.\n• Élaborer une stratégie de maintenance pour améliorer la fiabilité de l'équipement et réduire les temps d'arrêt.\n• Optimiser les coûts du cycle de vie des actifs et prévoir les besoins de remplacement.\n• Définir et mettre en œuvre la stratégie d'automatisation du site.\n• Établir des indicateurs de rendement et lancer des initiatives d'amélioration continue.\n• Diriger et former des équipes, prévoir les besoins en compétences et coordonner les fournisseurs de services externes.\n• Assurer la conformité aux normes de qualité, aux exigences des BPF et aux normes en matière de santé, de sécurité et d'environnement pour toutes les activités de votre portée.\n• Travailler en étroite collaboration avec les fonctions du site et les équipes mondiales pour aligner les priorités et soutenir le développement industriel du site.\nVotre profil:\n\n• Maîtrise en ingénierie dans une discipline technique pertinente.\n\n• Expérience importante menant des activités d'ingénierie et de maintenance dans l'industrie chimique ou pharmaceutique.\n\n• Expérience éprouvée en gestion des personnes et capacité d'inspirer et d'unir les équipes.\n\n• Capacité à collaborer efficacement entre les fonctions dans un environnement international.\n\n• Connaissance du français et de l'anglais.\n\n• Bonne connaissance des exigences des BPF, de la fiabilité des actifs et des normes en matière de santé, de sécurité et d'environnement.\n\nVos avantages :\n\n• Heures de travail flexibles pour concilier vie familiale, loisirs et travail\n\n• Parking gratuit\n\n• Assurance maladie : jusqu'à 10 % de rabais sur l'assurance complémentaire avec nos partenaires\n\n• Régime d'actionnariat salarié généreux et personnalisable\n\n• Allocation pour enfant: Siegfried AG augmente l'allocation cantonale statutaire de 10 % et verse 100 francs supplémentaires par mois\n\n• Possibilités individuelles de formation continue et de développement\n\n• Reka Checks: Siegfried AG offre aux employés une réduction de 20%\n\n• Régime de retraite attrayant de l'entreprise\n\n• Cours de fitness sur place et de nombreux événements d'entreprise\n\n• Accès à la plateforme d'avantages sociaux des employés de Swibeco\n\n• Cinq semaines de congé annuel, avec possibilité d'acheter jusqu'à deux semaines supplémentaires\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Evionnaz",
-      "canton": "VS",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:21:20.530Z",
-      "addressLocality": "Evionnaz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-02",
-      "postedDate": "2026-11-02",
-      "postingDateSource": "reported",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_818",
-      "hiringOrganization": "Siegfried Evionnaz SA",
-      "firstSeenAt": "2026-11-02T21:30:00.642Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-engineering-maintenance-siegfried-ch"
-        ],
-        "de": [
-          "head-of-engineering-maintenance-siegfried-ch"
-        ],
-        "fr": [
-          "head-of-engineering-maintenance-siegfried-ch"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-engineering-maintenance-siegfried-ch"
-      ],
-      "salaryMin": 97500,
-      "salaryMax": 148000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 148000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1902",
-      "addressRegion": "VS",
-      "streetAddress": "Evionnaz",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:21:20.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "siegfried-b44d43ec6bdb",
@@ -1565,204 +1566,6 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T21:30:05.167Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "siegfried-8161ac66c732",
-      "slug": "tecnico-di-laboratorio-qc-siegfried-evionnaz",
-      "slugByLocale": {
-        "it": "tecnico-di-laboratorio-qc-siegfried-evionnaz",
-        "en": "lab-technician-qc-siegfried-evionnaz",
-        "de": "lab-techniker-qc-siegfried-evionnaz",
-        "fr": "lab-technician-qc-siegfried-ch"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Lab technician QC",
-      "titleByLocale": {
-        "it": "Tecnico di laboratorio QC",
-        "en": "Lab technical QC",
-        "de": "Lab Techniker QC",
-        "fr": "Lab technician QC"
-      },
-      "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nEn tant que laborantin(e), vous participez à la réalisation des analyses instrumentales (GC, HPLC, GC-HS).\nVous contrôlez les analyses dans Empower et remontez les résultats dans le LIMS.\nEn plus de la gestion analytique et du contrôle des documents, vous participez aux actions liées aux OOS, déviations analytiques, formulaires de relance et CAPA.\nVous réalisez les analyses hors flux de production (transfert analytique, analyses de stabilité, substances de références). Vous participez activement à la gestion et à l'entretien des appareils/colonnes ainsi qu'aux activités liées aux GMP.\n Your Profile:\n\n• Vous possédez une formation de laborantin(e) en chimie (CFC) ave cune expérience de plusieurs années en chromatographie\n\n• Vous maîtrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook\n\n• Vous êtes capable de fournir un travail rigoureux et méthodique\n\n• Vous êtes à l'aise pour collaborer avec des collègues au sein d'une équipe\n\nYour Benefits:\n\n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a una crescente azienda globale in cui diverse prospettive ed esperienze si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto.\n\nIl tuo ruolo:\nCome laboratorio, sei coinvolto nella conduzione di analisi strumentali (GC, HPLC, GC-HS).\nControllate le analisi di Empower e seguite i risultati in LIMS.\nOltre alla gestione analitica e al controllo dei documenti, partecipi alle azioni relative a OSO, deviazioni analitiche, moduli di recupero e CAPA.\nSi eseguono analisi a valle (trasferimento analitico, analisi di stabilità, sostanze di riferimento). Sei attivamente coinvolto nella gestione e manutenzione di aeromobili/colonne e in attività relative a MPG.\nIl tuo profilo:\n\n• Si dispone di un laboratorio chimico (CFC) formazione dopo diversi anni in cromatografia\n\n• È master strumenti di computer tradizionali come Word, Excel, Labware e Outlook\n\n• Siete in grado di fornire lavoro rigoroso e metodico\n\n• Sei a tuo agio a lavorare con colleghi in una squadra\n\nI tuoi vantaggi:\n\n• Parcheggio gratuito\n\n• Assicurazione sanitaria: fino al 10% di sconto sull'assicurazione complementare con i nostri partner\n\n• Piano di acquisto di azioni generose e personalizzabili\n\n• Indennità d'infanzia: Siegfried AG aumenta la franchigia cantonale del 10% e paga in aggiunta CHF 100 al mese\n\n• Possibilità di formazione continua\n\n• Reka Cheques: Siegfried AG concede ai propri dipendenti uno sconto del 20%\n\n• Fondo pensionistico aziendale attraente\n\n• Corsi di sport in loco e numerosi eventi aziendali\n\n• Accesso alla piattaforma di benefici per i dipendenti di Swibeco\n\n• 5 settimane di vacanza e possibilità di redenzione fino a 2 settimane\n\nFondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 16 siti sparsi su tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a livello industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact.\n\nYour Role:\nAs a laboratory, you are involved in the conduct of instrumental analyses (GC, HPLC, GC-HS).\nYou control the analyses in Empower and track the results in LIMS.\nIn addition to analytical management and document control, you participate in actions related to OSO, analytical deviations, recovery forms and CAPA.\nYou perform off-stream analyses (analytical transfer, stability analyses, reference substances). You are actively involved in the management and maintenance of aircraft/columns and in activities related to MPGs.\nYour Profile:\n\n• You have a chemical laboratory (CFC) training after several years in chromatography\n\n• You master traditional computer tools such as Word, Excel, Labware and Outlook\n\n• You are able to provide rigorous and methodical work\n\n• You are comfortable working with colleagues on a team\n\nYour Benefits:\n\n• Free parking\n\n• Health insurance: up to 10% discount on supplementary insurance with our partners\n\n• Plan to purchase generous and customizable shares\n\n• Child allowance: Siegfried AG increases the cantonal legal allowance by 10% and pays in addition CHF 100 per month\n\n• Individual continuing training opportunities\n\n• Reka Cheques: Siegfried AG grants its employees a 20% discount\n\n• Attractive enterprise pension fund\n\n• On-site sports courses and numerous corporate events\n\n• Access to the Swibeco employee benefits platform\n\n• 5 weeks of vacation and possibility of redemption up to 2 weeks\n\nFounded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 16 sites spread over three continents. With a team of more than 4,200 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner in der Pharmaindustrie erfüllen wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit und pflegen eine Kultur, die es Ihnen ermöglicht, zu gedeihen. Treten Sie einem wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der den gemeinsamen Erfolg ebenso schätzt wie Ihre individuellen Beiträge - und langfristige Möglichkeiten bietet, sich zu entwickeln und Einfluss zu nehmen.\n\nIhre Rolle:\nAls Labor sind Sie an der Durchführung instrumenteller Analysen (GC, HPLC, GC-HS) beteiligt.\nSie steuern die Analysen in Empower und verfolgen die Ergebnisse in LIMS.\nNeben dem analytischen Management und der Dokumentenkontrolle nehmen Sie an Aktionen im Zusammenhang mit OSO, analytischen Abweichungen, Wiederherstellungsformularen und CAPA teil.\nSie führen Offstream-Analysen (analytischer Transfer, Stabilitätsanalysen, Referenzsubstanzen) durch. Sie sind aktiv an der Verwaltung und Wartung von Flugzeugen/Säulen und an Aktivitäten im Zusammenhang mit MPGs beteiligt.\nIhr Profil:\n\n• Sie haben ein chemisches Labor (CFC) Ausbildung nach mehreren Jahren in der Chromatographie\n\n• Sie beherrschen traditionelle Computertools wie Word, Excel, Labware und Outlook\n\n• Sie können strenge und methodische Arbeit leisten\n\n• Sie fühlen sich wohl, wenn Sie mit Kollegen im Team arbeiten\n\nIhre Vorteile:\n\n• Freie Parkplätze\n\n• Krankenversicherung: bis zu 10% Rabatt auf Zusatzversicherungen bei unseren Partnern\n\n• Planen Sie den Kauf großzügiger und anpassbarer Aktien\n\n• Kindergeld: Siegfried AG erhöht die kantonale gesetzliche Zulage um 10% und zahlt zusätzlich CHF 100 pro Monat\n\n• Einzelne Weiterbildungsmöglichkeiten\n\n• Reka Cheques: Siegfried AG gewährt seinen Mitarbeitern 20% Rabatt\n\n• Attraktive betriebliche Pensionskasse\n\n• Vor-Ort-Sportkurse und zahlreiche Firmenveranstaltungen\n\n• Zugang zur Swibeco Employee Benefits Plattform\n\n• 5 Wochen Urlaub und Rücknahmemöglichkeit bis zu 2 Wochen\n\n1873 in Zofingue, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten auf der ganzen Welt her. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen Galenikformen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nEn tant que laborantin(e), vous participez à la réalisation des analyses instrumentales (GC, HPLC, GC-HS).\nVous contrôlez les analyses dans Empower et remontez les résultats dans le LIMS.\nEn plus de la gestion analytique et du contrôle des documents, vous participez aux actions liées aux OOS, déviations analytiques, formulaires de relance et CAPA.\nVous réalisez les analyses hors flux de production (transfert analytique, analyses de stabilité, substances de références). Vous participez activement à la gestion et à l'entretien des appareils/colonnes ainsi qu'aux activités liées aux GMP.\nYour Profile:\n\n• Vous possédez une formation de laborantin(e) en chimie (CFC) ave cune expérience de plusieurs années en chromatographie\n\n• Vous maîtrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook\n\n• Vous êtes capable de fournir un travail rigoureux et méthodique\n\n• Vous êtes à l'aise pour collaborer avec des collègues au sein d'une équipe\n\nYour Benefits:\n\n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
-      },
-      "location": "Evionnaz",
-      "canton": "VS",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-02T09:24:33.709Z",
-      "addressLocality": "Evionnaz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-03",
-      "postedDate": "2026-08-03",
-      "postingDateSource": "reported",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_657",
-      "hiringOrganization": "Siegfried Evionnaz SA",
-      "previousSlugs": [
-        "lab-technician-qc-siegfried-ch",
-        "controllo-del-laboratorio-qc-siegfried-evionnaz",
-        "quality-control-laboratory-supervisor-siegfried-evionnaz",
-        "laborleiter-qc-siegfried-evionnaz",
-        "lab-supervisor-qc-siegfried-ch",
-        "lab-supervisore-qc-siegfried-evionnaz",
-        "lab-vorgesetzter-qc-siegfried-evionnaz",
-        "lab-supervisor-qc-siegfried-evionnaz",
-        "laboratorio-tecnico-r-d-siegfried-evionnaz",
-        "lab-technician-r-d-siegfried-evionnaz",
-        "lab-techniker-r-d-siegfried-evionnaz",
-        "lab-technician-r-d-siegfried-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lab-technician-qc-siegfried-ch",
-          "controllo-del-laboratorio-qc-siegfried-evionnaz",
-          "quality-control-laboratory-supervisor-siegfried-evionnaz",
-          "laborleiter-qc-siegfried-evionnaz",
-          "lab-supervisor-qc-siegfried-ch",
-          "lab-supervisore-qc-siegfried-evionnaz",
-          "lab-vorgesetzter-qc-siegfried-evionnaz",
-          "lab-supervisor-qc-siegfried-evionnaz",
-          "laboratorio-tecnico-r-d-siegfried-evionnaz",
-          "lab-technician-r-d-siegfried-evionnaz",
-          "lab-techniker-r-d-siegfried-evionnaz",
-          "lab-technician-r-d-siegfried-ch"
-        ],
-        "en": [
-          "quality-control-laboratory-supervisor-siegfried-evionnaz",
-          "lab-technician-r-d-siegfried-evionnaz"
-        ],
-        "de": [
-          "lab-technician-qc-siegfried-ch",
-          "laborleiter-qc-siegfried-evionnaz",
-          "lab-techniker-r-d-siegfried-evionnaz"
-        ],
-        "fr": [
-          "lab-supervisor-qc-siegfried-ch",
-          "lab-technician-r-d-siegfried-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:33:49.045Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1902",
-      "addressRegion": "VS",
-      "streetAddress": "Evionnaz",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:24:33.709Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "siegfried-04d30dd0f7f3",
-      "slug": "guida-opex-del-sito-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "guida-opex-del-sito-siegfried-zofingen",
-        "en": "site-opex-lead-siegfried-ch",
-        "de": "opex-leiter-siegfried-zofingen",
-        "fr": "site-opex-lead-siegfried-ch"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Site OPEX Lead",
-      "titleByLocale": {
-        "it": "Guida OPEX del sito",
-        "en": "Site OPEX Lead",
-        "de": "OPEX-Leiter",
-        "fr": "Site OPEX Responsable"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried we are currently looking for a Site OPEX Lead to join our team in our site based in Zofingen.\n\nReporting to the Site Head of Siegfried Zofingen and functionally reporting to the Global Head of Operations Management and Operational Excellence, the Site OPEX Lead will lead and deploy the site Operational Excellence strategy and management system to sustainably improve performance, ensuring alignment with safety, quality, and regulatory requirements as well as global OPEX standards.\n\nKey Responsibilities:\n\n1. Strategy & Deployment:\n\n· Define and deploy the site OPEX strategy aligned with site and global priorities\n\n· Lead the local, cross-functional translation of strategic objectives into structured improvement programs and roadmaps.\n\n2. Project Portfolio & Governance:\n\n· Manage the full lifecycle of the OPEX project portfolio (idea to sustainability)\n\n· Ensure structured prioritization, governance, and tracking of initiatives, including global projects and initiatives\n\n3. Performance Management & KPIs:\n\n· Define and monitor relevant KPIs linked to value drivers (safety, quality, delivery, cost)\n\n· Drive KPI-based steering and performance review routines\n\n4. Capability Building & Coaching:\n\n· Train and coach employees and leaders in Lean, Six Sigma, and problem-solving methods\n\n· Lead cross-functional and sustainable site capability-building and ownership of improvement practices\n\n5. Culture & Cross-functional Enablement:\n\n· Foster a continuous improvement mindset across all functions\n\n· Guarantee a functional tier meeting/reporting system that allows cross functional interfaces optimization\n\n· Ensure an ideation process\n\n· Enable cross-functional collaboration and alignment on improvement priorities\n\nMain Tasks:\n\n· Define and align the site improvement program with the leadership team\n\n· Identify, assess, and prioritize improvement opportunities\n\n· Lead strategic cross-functional improvement projects\n\n· Deploy standard improvement methods and governance routines\n\n· Ensure sustainability and ownership of implemented improvements\n\n· Provide fact-based analysis and recommendations to site leadership\n Your Profile:\n\nWhat are we looking for?\n\n• Degree in engineering, science, or related field\n\n• At least 5 years of previous experience in chemical GMP manufacturing/operations and continuous improvement\n\n• Track record with state-of-the-art lean production systems (TPS, IWS, WCM, etc.)\n\n• Strong Lean/Six Sigma expertise with certification would be a plus (Black Belt preferred)\n\n• Strong project and program management skills\n\n• Analytical thinking and data-driven decision-making capability\n\n• Strong leadership, coaching, and change management skills\n\n• Ability to influence in a matrix organization\n\n• Fluent in German and English\n\n• Willingness to travel once a quarter\n\nYour Benefits:\n\nWhat do we offer?\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nIf you’re excited by the idea of joining our group , we’d love to hear from you.\n Apply today and be part of building something extraordinary!\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nA Siegfried siamo attualmente alla ricerca di un sito OPEX piombo per unirsi al nostro team nel nostro sito con sede a Zofingen.\n\nSegnalando al Responsabile del Sito di Siegfried Zofingen e segnalando in modo funzionale al Global Head of Operations Management and Operational Excellence, il Sito OPEX Lead porterà e distribuirà il sistema operativo di strategia e gestione del sito per migliorare in modo sostenibile le prestazioni, garantendo l'allineamento con sicurezza, qualità e requisiti normativi e standard globali OPEX.\n\nResponsabilità chiave:\n\n1. Strategia e distribuzione:\n\n· Definire e distribuire la strategia OPEX del sito allineata alle priorità del sito e del mondo\n\n· Guidare la traduzione locale, interfunzionale di obiettivi strategici in programmi di miglioramento strutturato e roadmap.\n\n2. Progetto Portfolio & Governance:\n\n· Gestire il ciclo di vita completo del portafoglio di progetti OPEX (idea di sostenibilità)\n\n· Assicurare priorità strutturata, governance e monitoraggio delle iniziative, inclusi progetti e iniziative globali\n\n3. Gestione delle prestazioni e KPI:\n\n· Definire e monitorare i KPI rilevanti collegati ai driver di valore (sicurezza, qualità, consegna, costo)\n\n· Guidare le routine di sterzo e di revisione delle prestazioni basate su KPI\n\n4. Capability Building & Coaching:\n\n· Allenatore e coach dipendenti e leader a Lean, Six Sigma e metodi di problem solving\n\n· Lead cross-funzionale e sostenibile funzionalità del sito e la proprietà delle pratiche di miglioramento\n\n5. Cultura & Cross-functional Enablement:\n\n· Promuovere una mentalità di miglioramento continuo in tutte le funzioni\n\n· Garantire un sistema di meeting/reporting di livello funzionale che consente l'ottimizzazione delle interfacce funzionali\n\n· Assicurare un processo di ideazione\n\n· Abilitare la collaborazione interfunzionale e l'allineamento sulle priorità di miglioramento\n\nCompiti principali:\n\n· Definire e allineare il programma di miglioramento del sito con il team di leadership\n\n· Identificare, valutare e priorità opportunità di miglioramento\n\n· Lead strategici progetti di miglioramento interfunzionale\n\n· Distribuire metodi di miglioramento standard e routine di governance\n\n· Assicurare la sostenibilità e la proprietà dei miglioramenti implementati\n\n· Fornire analisi e raccomandazioni basate sul fatto alla leadership del sito\nIl tuo profilo:\n\nCosa stiamo cercando?\n\n• Laurea in ingegneria, scienza o campo relativo\n\n• Almeno 5 anni di esperienza precedente nella produzione/operazioni di GMP chimico e miglioramento continuo\n\n• Registrazione con sistemi di produzione magra all'avanguardia (TPS, IWS, WCM, ecc.)\n\n• Forte competenza Lean/Six Sigma con certificazione sarebbe un plus (preferito dalla cintura nera)\n\n• Forte capacità di project e gestione dei programmi\n\n• Il pensiero analitico e la capacità decisionale basata sui dati\n\n• Forte leadership, coaching e capacità di gestione dei cambiamenti\n\n• Capacità di influenzare in un'organizzazione matrice\n\n• Fluente in tedesco e inglese\n\n• Volontà di viaggiare una volta al quarto\n\nI tuoi vantaggi:\n\nCosa offriamo?\n\n• Ore lavorative flessibili permettono di combinare famiglia, tempo libero e carriera\n\n• È possibile parcheggiare a un prezzo scontato\n\n• Assicurazione sanitaria: sconti fino al 10% su assicurazioni aggiuntive con i nostri partner per te e la tua partner/famiglia\n\n• Il nostro piano di acquisto azionario è generoso e personalizzato\n\n• Indennità di famiglia: tutti i dipendenti che beneficiano di un'indennità per l'infanzia e/o l'istruzione ricevono un'indennità mensile aggiuntiva\n\n• Indennità d'invalidità: Siegfried AG aumenta l'indennitaÁ del 10% rispetto al tasso di legge cantonale\n\n• Opportunità di formazione aggiuntive individuali\n\n• Fondo pensione: Il nostro fondo pensione aziendale è attraente e i contributi possono essere organizzati individualmente\n\n• Staff ristorante / caffetteria: pasti a condizioni preferenziali\n\n• Posizione centrale: Vicino alla stazione ferroviaria con ottimi collegamenti pubblici\n\n• Vantaggi aziendali esclusivi e sconti per i nostri dipendenti\n\nSe siete entusiasti dell'idea di unire il nostro gruppo, ci piacerebbe sentire da voi.\nApplicare oggi e far parte di costruire qualcosa di straordinario!\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce siti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried we are currently looking for a Site OPEX Lead to join our team in our site based in Zofingen.\n\nReporting to the Site Head of Siegfried Zofingen and functionally reporting to the Global Head of Operations Management and Operational Excellence, the Site OPEX Lead will lead and deploy the site Operational Excellence strategy and management system to sustainably improve performance, ensuring alignment with safety, quality, and regulatory requirements as well as global OPEX standards.\n\nKey Responsibilities:\n\n1. Strategy & Deployment:\n\n· Define and deploy the site OPEX strategy aligned with site and global priorities\n\n· Lead the local, cross-functional translation of strategic objectives into structured improvement programs and roadmaps.\n\n2. Project Portfolio & Governance:\n\n· Manage the full lifecycle of the OPEX project portfolio (idea to sustainability)\n\n· Ensure structured prioritization, governance, and tracking of initiatives, including global projects and initiatives\n\n3. Performance Management & KPIs:\n\n· Define and monitor relevant KPIs linked to value drivers (safety, quality, delivery, cost)\n\n· Drive KPI-based steering and performance review routines\n\n4. Capability Building & Coaching:\n\n· Train and coach employees and leaders in Lean, Six Sigma, and problem-solving methods\n\n· Lead cross-functional and sustainable site capability-building and ownership of improvement practices\n\n5. Culture & Cross-functional Enablement:\n\n· Foster a continuous improvement mindset across all functions\n\n· Guarantee a functional tier meeting/reporting system that allows cross functional interfaces optimization\n\n· Ensure an ideation process\n\n· Enable cross-functional collaboration and alignment on improvement priorities\n\nMain Tasks:\n\n· Define and align the site improvement program with the leadership team\n\n· Identify, assess, and prioritize improvement opportunities\n\n· Lead strategic cross-functional improvement projects\n\n· Deploy standard improvement methods and governance routines\n\n· Ensure sustainability and ownership of implemented improvements\n\n· Provide fact-based analysis and recommendations to site leadership\nYour Profile:\n\nWhat are we looking for?\n\n• Degree in engineering, science, or related field\n\n• At least 5 years of previous experience in chemical GMP manufacturing/operations and continuous improvement\n\n• Track record with state-of-the-art lean production systems (TPS, IWS, WCM, etc.)\n\n• Strong Lean/Six Sigma expertise with certification would be a plus (Black Belt preferred)\n\n• Strong project and program management skills\n\n• Analytical thinking and data-driven decision-making capability\n\n• Strong leadership, coaching, and change management skills\n\n• Ability to influence in a matrix organization\n\n• Fluent in German and English\n\n• Willingness to travel once a quarter\n\nYour Benefits:\n\nWhat do we offer?\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• You can park at a discounted rate\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nIf you’re excited by the idea of joining our group , we’d love to hear from you.\nApply today and be part of building something extraordinary!\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nBei Siegfried suchen wir derzeit einen Site OPEX Lead, der sich unserem Team an unserem Standort in Zofingen anschließt.\n\nBerichterstattung an den Standortleiter von Siegfried Zofingen und funktionell Berichterstattung an den Global Head of Operations Management und Operational Excellence, wird der Standort OPEX Lead das Strategie- und Managementsystem Operational Excellence leiten und einsetzen, um die Leistung nachhaltig zu verbessern und die Übereinstimmung mit Sicherheits-, Qualitäts- und Regulierungsanforderungen sowie globalen OPEX-Standards zu gewährleisten.\n\nHauptzuständigkeiten:\n\n1. Strategie & Deployment:\n\n· Definieren und implementieren Sie die OPEX-Strategie der Website, die auf die Website und die globalen Prioritäten ausgerichtet ist\n\n· Führen Sie die lokale, funktionsübergreifende Übersetzung strategischer Ziele in strukturierte Verbesserungsprogramme und Roadmaps.\n\n2. Projektportfolio & Governance:\n\n· Verwalten des gesamten Lebenszyklus des OPEX-Projektportfolios (Idee zur Nachhaltigkeit)\n\n· Strukturierte Priorisierung, Governance und Nachverfolgung von Initiativen, einschließlich globaler Projekte und Initiativen\n\n3. Performance Management & KPIs:\n\n· Definition und Überwachung relevanter KPIs in Verbindung mit Werttreibern (Sicherheit, Qualität, Lieferung, Kosten)\n\n· Drive KPI-basierte Lenk- und Leistungsüberprüfungsroutinen\n\n4. Capability Building & Coaching:\n\nTrainieren und coachen Mitarbeiter und Führungskräfte in Lean, Six Sigma und Problemlösungsmethoden\n\n· Führung des funktionsübergreifenden und nachhaltigen Aufbaus von Standortfähigkeiten und Eigenverantwortung für Verbesserungspraktiken\n\n5. Culture & Cross-functional Enablement:\n\n· Förderung einer kontinuierlichen Verbesserung der Denkweise in allen Funktionen\n\n· Garantieren eines funktionalen Tier-Meeting-/Reporting-Systems, das die Optimierung funktionsübergreifender Schnittstellen ermöglicht\n\n· Sicherstellen eines Ideenfindungsprozesses\n\n· Ermöglichung funktionsübergreifender Zusammenarbeit und Ausrichtung auf Verbesserungsprioritäten\n\nHauptaufgaben:\n\n· Definieren und Ausrichten des Site Improvement Programms mit dem Führungsteam\n\n· Identifizierung, Bewertung und Priorisierung von Verbesserungsmöglichkeiten\n\n· Führen Sie strategische funktionsübergreifende Verbesserungsprojekte\n\n· Bereitstellung von Standard-Verbesserungsmethoden und Governance-Routinen\n\n· Gewährleistung der Nachhaltigkeit und der Eigenverantwortung für implementierte Verbesserungen\n\n· Bereitstellung faktenbasierter Analysen und Empfehlungen für die Standortleitung\nIhr Profil:\n\nWorauf warten wir?\n\n• Abschluss in Ingenieurwissenschaften, Naturwissenschaften oder verwandten Bereichen\n\n• Mindestens 5 Jahre Erfahrung in der chemischen GMP-Herstellung / -Betrieb und kontinuierliche Verbesserung\n\n• Erfolgsbilanz mit modernsten Lean-Produktionssystemen (TPS, IWS, WCM usw.)\n\n• Starke Lean / Six Sigma-Expertise mit Zertifizierung wäre ein Plus (Black Belt bevorzugt)\n\n• Starke Projekt- und Programmmanagementfähigkeiten\n\n• Analytisches Denken und datengesteuerte Entscheidungsfähigkeit\n\n• Starke Führungs-, Coaching- und Change Management-Fähigkeiten\n\n• Fähigkeit zur Einflussnahme in einer Matrixorganisation\n\n• Fließend in Deutsch und Englisch\n\n• Bereitschaft, einmal im Quartal zu reisen\n\nIhre Vorteile:\n\nWas bieten wir an?\n\n• Flexible Arbeitszeiten ermöglichen die Verbindung von Familie, Freizeit und Beruf\n\n• Sie können zu einem ermäßigten Preis parken\n\n• Krankenversicherung: Rabatte von bis zu 10% auf Zusatzversicherungen mit unseren Partnern für Sie und Ihre Partnerin/Familie\n\n• Unser Aktienkaufplan ist großzügig und individuell zugeschnitten\n\n• Familienzulage: Alle Arbeitnehmer, die Anspruch auf Kinder- und/oder Bildungszulage haben, erhalten eine zusätzliche monatliche Familienzulage\n\n• Kindergeld: Siegfried AG erhöht Kindergeld um 10% gegenüber dem kantonalen gesetzlichen Satz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Vereinbarung\n\n• Pensionskasse: Unsere Betriebsrente ist attraktiv und Beiträge können individuell gestaltet werden\n\n• Personalrestaurant / Cafeteria: Mahlzeiten zu Vorzugsbedingungen\n\n• Zentrale Lage: Nahe dem Bahnhof mit sehr guter Anbindung an den öffentlichen Nahverkehr\n\n• Exklusive Unternehmensvorteile und Rabatte für unsere Mitarbeiter\n\nWenn Sie von der Idee begeistert sind, unserer Gruppe beizutreten, würden wir gerne von Ihnen hören.\nBewerben Sie sich noch heute und seien Sie Teil davon, etwas Außergewöhnliches zu bauen!\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nChez Siegfried, nous cherchons actuellement un site OPEX Lead pour rejoindre notre équipe dans notre site basé à Zofingen.\n\nRelevant du chef du site de Siegfried Zofingen et relevant fonctionnellement du chef mondial de la gestion des opérations et de l'excellence opérationnelle, le chef du site OPEX dirigera et déploiera la stratégie d'excellence opérationnelle et le système de gestion du site afin d'améliorer durablement les performances, d'assurer l'alignement sur les exigences en matière de sécurité, de qualité et de réglementation ainsi que les normes mondiales OPEX.\n\nPrincipales responsabilités :\n\n1. Stratégie et déploiement :\n\n· Définir et déployer la stratégie OPEX du site conformément aux priorités du site et du monde\n\n· Diriger la traduction locale et interfonctionnelle des objectifs stratégiques en programmes d'amélioration structurés et en feuilles de route.\n\n2. Portefeuille de projets et gouvernance :\n\n· Gérer le cycle de vie complet du portefeuille de projets OPEX (idée de durabilité)\n\n· Assurer l'établissement de priorités structurées, la gouvernance et le suivi des initiatives, y compris les projets et initiatives mondiaux\n\n3. Gestion du rendement et ICR :\n\n· Définir et surveiller les ICR pertinents liés aux facteurs de valeur (sécurité, qualité, livraison, coûts)\n\n· Conduire des routines de pilotage et d'examen du rendement fondées sur l'ICK\n\n4. Renforcement des capacités et encadrement :\n\n· Former et coacher les employés et les leaders à Lean, Six Sigma et les méthodes de résolution de problèmes\n\n· Diriger le renforcement des capacités interfonctionnelles et durables des sites et l'appropriation des pratiques d'amélioration\n\n5. Culture et activation interfonctionnelle :\n\n· Favoriser une amélioration continue de l'état d'esprit dans toutes les fonctions\n\n· Garantir un système fonctionnel de réunion/rapport permettant l'optimisation des interfaces interfonctionnelles\n\n· Assurer un processus d'idées\n\n· Permettre la collaboration et l'alignement sur les priorités d'amélioration\n\nPrincipales tâches:\n\n· Définir et aligner le programme d'amélioration du site avec l'équipe de direction\n\n· Identifier, évaluer et prioriser les possibilités d'amélioration\n\n· Diriger des projets stratégiques d'amélioration interfonctionnelle\n\n· Déployer des méthodes d'amélioration standard et des routines de gouvernance\n\n· Assurer la durabilité et l'appropriation des améliorations mises en oeuvre\n\n· Fournir une analyse fondée sur les faits et des recommandations à la direction du site\nVotre profil:\n\nQu'est-ce qu'on cherche ?\n\n• Diplôme en génie, sciences ou domaine connexe\n\n• Au moins 5 années d'expérience dans la fabrication/les opérations de fabrication de BPF chimiques et l'amélioration continue\n\n• Track record avec des systèmes de production maigre de pointe (TPS, IWS, WCM, etc.)\n\n• Forte expertise Lean/Six Sigma avec la certification serait un plus (Black Belt préféré)\n\n• Fortes compétences en gestion de projet et de programme\n\n• Réflexion analytique et capacité de prise de décision axée sur les données\n\n• Forte capacité de leadership, d'encadrement et de gestion du changement\n\n• Capacité d'influencer une organisation matricielle\n\n• Fluent en allemand et en anglais\n\n• Volonté de voyager une fois par trimestre\n\nVos avantages :\n\nQu'est-ce qu'on offre ?\n\n• Des horaires flexibles permettent de combiner la famille, les loisirs et la carrière\n\n• Vous pouvez vous garer à un tarif réduit\n\n• Assurance maladie: Réductions jusqu'à 10% sur les assurances supplémentaires avec nos partenaires pour vous et votre partenaire/famille\n\n• Notre plan d'achat d'actions est généreux et personnalisé\n\n• Allocation familiale: tous les salariés ayant droit à des allocations familiales et/ou d'éducation reçoivent une allocation familiale mensuelle supplémentaire\n\n• Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10 % par rapport au taux légal cantonal\n\n• Possibilités individuelles de formation continue par arrangement\n\n• Fonds de pension: Notre fonds de pension d'entreprise est attrayant et les cotisations peuvent être organisées individuellement\n\n• Restaurant du personnel / cafétéria: repas à des conditions préférentielles\n\n• Situation centrale: Près de la gare avec de très bonnes liaisons de transport public\n\n• Avantages et rabais exclusifs pour nos employés\n\nSi vous êtes excités par l'idée de rejoindre notre groupe, nous aimerions avoir des nouvelles de vous.\nAppliquer aujourd'hui et faire partie de la construction quelque chose d'extraordinaire!\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Site-OPEX-Lead_R26_732",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:24:28.468Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-22",
-      "postedDate": "2026-09-22",
-      "postingDateSource": "reported",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Site-OPEX-Lead_R26_732",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_732",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "site-opex-lead-siegfried-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "site-opex-lead-siegfried-ch"
-        ],
-        "de": [
-          "site-opex-lead-siegfried-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T14:06:01.152Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4800",
-      "addressRegion": "AG",
-      "streetAddress": "Zofingen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:24:28.468Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }

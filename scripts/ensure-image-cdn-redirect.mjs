@@ -40,7 +40,7 @@ const CDN_BASE = CDN_ASSET_ORIGIN;
 // pushes to the CDN and then removes from the artifact 404s on the apex for
 // external referrers / Google-Images cache — exactly the class this rule
 // recovers. That is a SUPERSET of CDN_OFFLOADED_IMAGE_PREFIXES in
-// services/cdnImageBase.ts (the 7 image prefixes rewritten at SPA/HTML render
+// services/cdnImageBase.ts (the image prefixes rewritten at SPA/HTML render
 // time): it also includes `/og/` (per-job OG cards) and `/images/blog/thumbnails/`
 // (blog 480w thumbnails, offloaded via getResponsiveImageSet, not cdnImageUrl).
 // MUST stay in sync with that TARGETS list. `/images/places/` is deliberately
@@ -54,6 +54,7 @@ const OFFLOADED_PREFIXES = [
   '/images/logos/',
   '/images/authors/',
   '/images/publisher/',
+  '/images/job-search-campaign/',
   '/images/events/',
 ];
 

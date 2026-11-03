@@ -162,6 +162,7 @@ export async function collectLinkedInMemberFollowerGains({
       }, 2, 30_000);
       payload = await response.json().catch(() => null);
     } catch (error) {
+      // fetch-failure-status: terminalFailure is returned or marks the partial result below; this is not an empty listing.
       terminalFailure = {
         status: 'network-error',
         reasonCode: String(error?.name || 'request-failed').replace(/[^a-z0-9_-]/giu, '_').slice(0, 60),

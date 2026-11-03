@@ -13490,6 +13490,10 @@
       "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-585ccbc5",
       "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-3a8a3449",
       "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-bf36e3e4",
+      "maestro-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-fb83dc48",
+      "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-681378f9",
+      "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-3a725c99",
+      "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-b80bbdc9",
       "maestro-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel",
       "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794",
       "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794",
@@ -13589,6 +13593,7 @@
         "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-7f690567",
         "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-4ad9fb98",
         "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-3a8a3449",
+        "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-3a725c99",
         "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794"
       ],
       "it": [
@@ -13960,6 +13965,10 @@
         "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-585ccbc5",
         "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-3a8a3449",
         "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-bf36e3e4",
+        "maestro-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-fb83dc48",
+        "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-681378f9",
+        "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794-3a725c99",
+        "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-b80bbdc9",
         "maestro-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel",
         "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794",
         "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794",
@@ -14057,6 +14066,7 @@
         "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-39276eac",
         "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-0e002cdd",
         "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-585ccbc5",
+        "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-681378f9",
         "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794"
       ],
       "fr": [
@@ -14151,6 +14161,7 @@
         "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-0cd929c2",
         "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-ac72f287",
         "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-bf36e3e4",
+        "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794-b80bbdc9",
         "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794"
       ]
     },
@@ -30445,5 +30456,199 @@
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "3-grado-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+    "title": "Teilpensum 3.Klasse, 6 Lektionen",
+    "titleByLocale": {
+      "it": "3° grado, 6 lezioni",
+      "en": "3rd grade, 6 lessons",
+      "de": "Teilpensum 3.Klasse, 6 Lektionen",
+      "fr": "3e année, 6 leçons"
+    },
+    "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+    "companyKey": "ksml",
+    "location": "Burgdorf",
+    "addressLocality": "Burgdorf",
+    "descriptionByLocale": {
+      "it": "Ritratto\nIl centro scolastico Pestalozzi-Gotthelf comprende 5 asili, 1 classe di iscrizione, 13 classi primarie e 12 classi secondarie. Il nostro livello primario è una delle 5 scuole primarie a Burgdorf.\n\nCompiti\nCreano un insegnamento vivo e apprezzativo, promuovono i punti di forza individuali e creano un'atmosfera di apprendimento in cui la curiosità, la fiducia e la gioia possono crescere.\nCollaborazione con l'insegnante di classe e il team di classe\n\nDipartimenti: 3L NMG, 1L tedesco, Franz e Matematica nell'insegnamento di squadra con l'insegnante di classe\nAttualmente, il carico di lavoro include anche una lezione di SOS\n\nGiorni di lezione: Mercoledì e Venerdì mattina dalle 7.30\n\nRequisiti\n- Gioia di lavorare con bambini e giovani\n- Apertura, spirito di squadra e iniziativa\n- Formazione primaria o in servizio riconosciuta\n\nOffriamo\n- Una squadra solida e calda\n- Buona accessibilità ai trasporti pubblici",
+      "en": "Portrait\nThe Pestalozzi-Gotthelf school centre includes 5 kindergartens, 1 enrolment class, 13 primary and 12 secondary classes. Our primary level is one of 5 primary schools in Burgdorf.\n\nTasks\nThey create lively and appreciative teaching, promote individual strengths and create a learning atmosphere where curiosity, trust and joy can grow.\nCollaboration with the class teacher and the class team\n\nDepartments: 3L NMG, 1L German, Franz and Mathematics in team teaching with the class teacher\nCurrently, the workload also includes an SOS lesson\n\nLesson days: Wednesday and Friday morning from 7.30 a.m.\n\nRequirements\n- Joy of working with children and young people\n- Openness, team spirit and initiative\n- Recognised primary or in-service training\n\nWe offer\n- A supportive, warm team\n- Good accessibility with public transport",
+      "de": "Porträt\nZum Schulzentrum Pestalozzi-Gotthelf gehören 5 Kindergärten, 1 Einschulungsklasse, 13 Primar- und 12 Sekundarstufenklassen. Unsere Primarstufe ist eine von 5 Primarschulen in Burgdorf.\n\nAufgaben\nSie gestalten einen lebendigen und wertschätzenden Unterricht, fördern individuelle Stärken und schaffen eine Lernatmosphäre, in der Neugier, Vertrauen und Freude wachsen können.\nZusammenarbeit mit der Klassenlehrperson und dem Klassenteam\n\nFachbereiche: 3L NMG, je 1L Deutsch, Franz und Mathematik im Teamteaching mit der Klassenlehrperson\nAktuell gehört zum Pensum auch noch eine SOS Lektion dazu\n\nUnterrichtstage: Mittwoch- und Freitagmorgen ab 7.30 Uhr\n\nAnforderungen\n- Freude an der Arbeit mit Kindern und Jugendlichen\n- Offenheit, Teamgeist und Eigeninitiative\n- Eine anerkannte Ausbildung für die Primarstufe oder in Ausbildung\n\nWir bieten\n- Ein unterstützendes, herzliches Team\n- gute Erreichbarkeit mit dem ÖV",
+      "fr": "Portrait\nLe centre scolaire Pestalozzi-Gotthelf comprend 5 jardins d'enfants, 1 classe d'inscription, 13 classes primaires et 12 classes secondaires. Notre niveau primaire est l'une des 5 écoles primaires de Burgdorf.\n\nTâche\nIls créent un enseignement vivant et agréable, favorisent les forces individuelles et créent une atmosphère d'apprentissage où la curiosité, la confiance et la joie peuvent grandir.\nCollaboration avec le professeur et l'équipe de classe\n\nDépartements: 3L NMG, 1L Allemand, Franz et Mathématiques dans l'enseignement en équipe avec l'enseignant de classe\nActuellement, la charge de travail comprend également une leçon SOS\n\nJours de leçon : Mercredi et vendredi matin à partir de 7 h 30\n\nExigences\n- Joy de travailler avec les enfants et les jeunes\n- Ouverture, esprit d'équipe et initiative\n- Formation primaire ou continue reconnue\n\nNous offrons\n- Une équipe chaleureuse et solidaire\n- Bonne accessibilité avec les transports en commun"
+    },
+    "slugByLocale": {
+      "it": "3-grado-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+      "en": "3rd-grade-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+      "de": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
+      "fr": "3e-annee-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625"
+    },
+    "sector": "Istruzione / Scuola pubblica",
+    "expiredAt": "2026-11-03T22:04:48.463Z",
+    "previousSlugs": [
+      "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+      ],
+      "en": [
+        "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+      ],
+      "fr": [
+        "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+      ]
+    },
+    "postalCode": "3400",
+    "streetAddress": "Sägegasse 15",
+    "salaryMin": 59000,
+    "salaryMax": 108500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.ksml.apps.be.ch/ksml?q=stellen/ad/40625",
+    "firstSeenAt": "2026-10-30T09:40:04.965Z"
+  },
+  {
+    "slug": "789r-cerca-una-rappresentanza-motivata-dal-25-gennaio-11-aprile-2027-venerdi-ksml-kantonaler-stellenmarkt-fur-40512",
+    "title": "789R sucht motivierte Vertretung vom 25. Januar - 11. April 2027 am Freitag",
+    "titleByLocale": {
+      "it": "789R cerca una rappresentanza motivata dal 25 gennaio - 11. Aprile 2027 Venerdì",
+      "en": "789R seeks motivated representation from 25 January - 11. April 2027 on Friday",
+      "de": "789R sucht motivierte Vertretung vom 25. Januar - 11. April 2027 am Freitag",
+      "fr": "789R cherche une représentation motivée du 25 janvier au 11. Avril 2027 le vendredi"
+    },
+    "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+    "companyKey": "ksml",
+    "location": "Ersigen",
+    "addressLocality": "Ersigen",
+    "descriptionByLocale": {
+      "it": "Ritratto\nLa scuola Ersigen-Oesch, una scuola rurale gestibile con due sedi: Ersigen e Niederösch\nNella posizione di Ersigen, dove la posizione è pubblicizzata, circa 160 bambini vengono insegnati in 8 classi da 20 insegnanti.\nLavorano in un grande team e beneficiano di un'eccellente infrastruttura.\nErsigen è raggiungibile da Berna in 20 minuti di auto ma anche con i mezzi pubblici.\n\nCompiti\nA causa del tirocinio di un insegnante e di una perdita legata alla malattia, la posizione è pubblicizzata.\n\nLe lezioni sono 9- 17 lezioni e le lezioni si svolgono martedì e venerdì.\n\nSoggetti dell'insegnamento:\nmartedì 11 gennaio - 19 marzo 2027\n07:25 - 08:10: Media e informatica scienza\n08:15 - 09:50: Visual design\n10:10 - 11:45: Natura e tecnologia\n\n13:30 - 15:05: disegni tessili\n15:20 - 17:05: Movimento e sport\n\nvenerdì (25 gennaio - 11 gennaio) aprile 2027\n07:25 - 09:00: Matematica\n09:05 - 10:55: Musica\n11:45: IVE\n\n13:30 - 14:15: ERG\n14:20 - 16:05: Movimento e sport\n\nRequisiti\nSei motivato a impegnarsi al 789R?\n\nHai completato la tua formazione come insegnante con Focus Z3 o lo stai completando l'anno prossimo?\nSei impegnato, aperto e proattivo?\n\nÈ possibile richiedere solo martedì o solo venerdì.\n\nConosci i media digitali (smartboard, visualizer, iPad, ecc.) e ti piace usarli in classe?\n\nSe fossi in grado di rispondere a queste domande con \"Sì\", sarei molto felice per la tua applicazione!\n\nOffriamo\n- Una grande classe motivata\n- Istituito, squadra utile\n- Occupazione\n- Ottima infrastruttura\n- Modern concept media e informatica (lavoro con ufficio, escola, smartboard, ipad, visualizer)\n- Integratori scolastici come il lavoro sociale scolastico e la scuola diurna\n- Buon collegamento con i mezzi pubblici o parcheggio gratuito disponibile",
+      "en": "Portrait\nThe school Ersigen-Oesch, a rural, manageable school with two locations: Ersigen and Niederösch\nAt the Ersigen location, where the position is advertised, approximately 160 children are taught in 8 classes by 20 teachers.\nThey work in a great team and benefit from an excellent infrastructure.\nErsigen can be reached from Bern in 20 minutes by car but also well by public transport.\n\nTasks\nDue to the traineeship of a teacher and an illness-related loss, the position is advertised.\n\nThe lessons are 9- 17 lessons and the lessons take place on Tuesday and Friday.\n\nSubjects of teaching:\nTuesday (from January 11 - 19) March 2027\n07:25 - 08:10: Media and computer science\n08:15 - 09:50: Visual design\n10:10 - 11:45: Nature and technology\n\n13:30 - 15:05: Textile designs\n15:20 - 17:05: Movement and sport\n\nFriday (25 January - 11 January) April 2027\n07:25 - 09:00: Mathematics\n09:05 - 10:55: Music\n11:00 - 11:45: IVE\n\n13:30 - 14:15: ERG\n14:20 - 16:05: Movement and sport\n\nRequirements\nAre you motivated to commit to the 789R?\n\nHave you completed your training as a teacher with Focus Z3 or are you completing it next year?\nAre you committed, open and proactive?\n\nIt is possible to take only Tuesday or only Friday.\n\nAre you familiar with the digital media (smartboard, visualizer, iPad, etc.) and like to use it in class?\n\nIf you were able to answer these questions with \"Yes\", I would be very happy about your application!\n\nWe offer\n- A great, motivated class\n- Established, helpful team\n- Own workplace\n- Very good infrastructure\n- Modern concept media and computer science (work with office, escola, smartboards, ipads, visualizer)\n- School supplements such as school social work and day school\n- Good public transport connection or free parking available",
+      "de": "Porträt\nDie Schule Ersigen-Oesch, eine ländliche, überschaubare Schule mit zwei Standorten: Ersigen und Niederösch\nAm Standort Ersigen, wo die Stelle ausgeschrieben ist, werden ca. 160 Kinder in 8 Klassen von 20 Lehrpersonen unterrichtet.\nSie arbeiten in einem tollen Team und profitieren von einer hervorragenden Infrastruktur.\nErsigen ist von Bern aus in 20 Minuten mit dem Auto aber auch gut mit dem ÖV erreichbar.\n\nAufgaben\nAufgrund des Praktikums einer Lehrperson und einem krankheitsbedingten Ausfall wird die Stelle ausgeschrieben.\n\nDas Unterrichtspensum beträgt 9- 17 Lektionen und der Unterricht findet am Dienstag und Freitag statt.\n\nUnterrichtsfächer:\nDienstag (vom 11. Januar - 19. März 2027)\n07:25 - 08:10 Uhr: Medien und Informatik\n08:15 - 09:50 Uhr: Bildnerisches Gestalten\n10:10 - 11:45 Uhr: Natur und Technik\n\n13:30 - 15:05 Uhr: Textiles Gestalten\n15:20 - 17:05 Uhr: Bewegung und Sport\n\nFreitag (25. Januar - 11. April 2027)\n07:25 - 09:00 Uhr: Mathematik\n09:05 - 10:55 Uhr: Musik\n11:00 - 11:45 Uhr: IVE\n\n13:30 - 14:15: ERG\n14:20 - 16:05 Uhr: Bewegung und Sport\n\nAnforderungen\nSind Sie motiviert, sich für die 789R zu engagieren?\n\nHaben Sie die Ausbildung zur Lehrperson mit Fokus Z3 abgeschlossen oder schliessen Sie diese nächstes Jahr ab?\nSind Sie engagiert, offen und initiativ?\n\nEs besteht die Möglichkeit, auch nur den Dienstag oder nur den Freitag zu übernehmen.\n\nSind sie vertraut mit den digitalen Medien (Smartboard, Visualizer, Ipad usw.) und setzen diese gerne im Unterricht ein?\n\nWenn Sie diese Fragen mit \"Ja\" beantworten konnten, würde ich mich sehr über Ihre Bewerbung freuen!\n\nWir bieten\n- Eine tolle, motivierte Klasse\n- Aufgestelltes, hilfsbereites Team\n- Eigenen Arbeitsplatz\n- Sehr gute Infrastruktur\n- Modernes Konzept Medien und Informatik (Arbeit mit Office, Escola, Smartboards, Ipads, Visualizer)\n- Schulergänzende Angebote wie Schulsozialarbeit und Tagesschule\n- Gute ÖV-Anbindung oder Gratisparkplätze vorhanden",
+      "fr": "Portrait\nL'école Ersigen-Oesch, une école rurale et gérable avec deux emplacements: Ersigen et Niederösch\nÀ l'emplacement Ersigen, où le poste est annoncé, environ 160 enfants sont enseignés en 8 classes par 20 enseignants.\nIls travaillent dans une excellente équipe et bénéficient d'une excellente infrastructure.\nErsigen peut être atteint de Berne en 20 minutes en voiture mais aussi bien en transports en commun.\n\nTâche\nEn raison du stage d'un enseignant et d'une perte liée à la maladie, le poste est annoncé.\n\nLes leçons sont de 9 à 17 leçons et les leçons ont lieu le mardi et le vendredi.\n\nSujets d'enseignement:\nMardi (du 11 au 19 janvier) mars 2027\n07:25 - 08:10: Médias et informatique\n08:15 - 09:50: Conception visuelle\n10 h 10 - 11 h 45: Nature et technologie\n\n13:30 - 15:05: Dessins et modèles textiles\n15:20 - 17:05: Mouvement et sport\n\nVendredi (25 janvier - 11 janvier) avril 2027\n07:25 - 09:00: Mathématiques\n09:05 - 10:55: Musique\n11 heures - 11 h 45: IVE\n\n13 h 30 - 14 h 15: ERG\n14:20 - 16:05: Mouvement et sport\n\nExigences\nÊtes-vous motivé à vous engager dans le 789R?\n\nAvez-vous terminé votre formation d'enseignant avec Focus Z3 ou l'avez-vous terminé l'année prochaine?\nÊtes-vous engagé, ouvert et proactif?\n\nIl est possible de prendre seulement mardi ou seulement vendredi.\n\nConnaissez-vous les médias numériques (smartboard, visualiser, iPad, etc.) et aimez-vous les utiliser en classe ?\n\nSi vous pouviez répondre à ces questions avec \"Oui\", je serais très heureux de votre candidature!\n\nNous offrons\n- Un grand cours motivé\n- Équipe établie et utile\n- Travailleur\n- Très bonne infrastructure\n- Concept moderne médias et informatique (travail avec bureau, escola, smartboards, ipads, visualisateur)\n- Suppléments scolaires tels que le travail social scolaire et l'école de jour\n- Bon accès aux transports en commun ou parking gratuit"
+    },
+    "slugByLocale": {
+      "it": "789r-cerca-una-rappresentanza-motivata-dal-25-gennaio-11-aprile-2027-venerdi-ksml-kantonaler-stellenmarkt-fur-40512",
+      "en": "789r-seeks-motivated-representation-from-25-january-11-april-2027-on-friday-ksml-kantonaler-stellenmarkt-fur-40512",
+      "de": "789r-sucht-motivierte-vertretung-vom-25-januar-11-april-2027-am-freitag-schule-ersigen-40512",
+      "fr": "789r-cherche-une-representation-motivee-du-25-janvier-au-11-avril-2027-le-vendredi-ksml-kantonaler-stellenmarkt-40512"
+    },
+    "sector": "Istruzione / Scuola pubblica",
+    "expiredAt": "2026-11-03T22:04:48.463Z",
+    "previousSlugs": [
+      "789r-sucht-motivierte-vertretung-vom-25-januar-11-april-2027-am-freitag-schule-ersigen-40512"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "789r-sucht-motivierte-vertretung-vom-25-januar-11-april-2027-am-freitag-schule-ersigen-40512"
+      ],
+      "en": [
+        "789r-sucht-motivierte-vertretung-vom-25-januar-11-april-2027-am-freitag-schule-ersigen-40512"
+      ],
+      "fr": [
+        "789r-sucht-motivierte-vertretung-vom-25-januar-11-april-2027-am-freitag-schule-ersigen-40512"
+      ]
+    },
+    "postalCode": "3423",
+    "streetAddress": "Ersigen",
+    "salaryMin": 59000,
+    "salaryMax": 108500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.ksml.apps.be.ch/ksml?q=stellen/ad/40512",
+    "firstSeenAt": "2026-10-20T09:31:24.815Z"
+  },
+  {
+    "slug": "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-e-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
+    "title": "789R sucht motivierte Vertretung vom 11. Januar - 11. April 2027 am Dienstag und Freitag",
+    "titleByLocale": {
+      "it": "789R cerca una persona motivata per una sostituzione dall'11 gennaio all'11 aprile 2027 il martedì e il venerdì",
+      "en": "789R seeks motivated representation from January 11 - 11. April 2027 on Tuesday and Friday",
+      "de": "789R sucht motivierte Vertretung vom 11. Januar - 11. April 2027 am Dienstag und Freitag",
+      "fr": "789R cherche une représentation motivée du 11 au 11 janvier. Avril 2027 les mardi et vendredi"
+    },
+    "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+    "companyKey": "ksml",
+    "location": "Ersigen",
+    "addressLocality": "Ersigen",
+    "descriptionByLocale": {
+      "it": "Ritratto\nLa scuola Ersigen-Oesch, una scuola rurale gestibile con due sedi: Ersigen e Niederösch\nNella posizione di Ersigen, dove la posizione è pubblicizzata, circa 160 bambini vengono insegnati in 8 classi da 20 insegnanti.\nLavorano in un grande team e beneficiano di un'eccellente infrastruttura.\nErsigen è raggiungibile da Berna in 20 minuti di auto ma anche con i mezzi pubblici.\n\nCompiti\nA causa del tirocinio di un insegnante e di una perdita legata alla malattia, la posizione è pubblicizzata.\n\nLe lezioni sono 9- 17 lezioni e le lezioni si svolgono martedì e venerdì.\n\nSoggetti dell'insegnamento:\nmartedì 11 gennaio - 19 marzo 2027\n07:25 - 08:10: Media e informatica scienza\n08:15 - 09:50: Visual design\n10:10 - 11:45: Natura e tecnologia\n\n13:30 - 15:05: disegni tessili\n15:20 - 17:05: Movimento e sport\n\nvenerdì (25 gennaio - 11 gennaio) aprile 2027\n07:25 - 09:00: Matematica\n09:05 - 10:55: Musica\n11:45: IVE\n\n13:30 - 14:15: ERG\n14:20 - 16:05: Movimento e sport\n\nRequisiti\nSei motivato a impegnarsi al 789R?\n\nHai completato la tua formazione come insegnante con Focus Z3 o lo stai completando l'anno prossimo?\nSei impegnato, aperto e proattivo?\n\nÈ possibile richiedere solo martedì o solo venerdì.\n\nConosci i media digitali (smartboard, visualizer, iPad, ecc.) e ti piace usarli in classe?\n\nSe fossi in grado di rispondere a queste domande con \"Sì\", sarei molto felice per la tua applicazione!\n\nOffriamo\n- Una grande classe motivata\n- Istituito, squadra utile\n- Occupazione\n- Ottima infrastruttura\n- Modern concept media e informatica (lavoro con ufficio, escola, smartboard, ipad, visualizer)\n- Integratori scolastici come il lavoro sociale scolastico e la scuola diurna\n- Buon collegamento con i mezzi pubblici o parcheggio gratuito disponibile",
+      "en": "Portrait\nThe school Ersigen-Oesch, a rural, manageable school with two locations: Ersigen and Niederösch\nAt the Ersigen location, where the position is advertised, approximately 160 children are taught in 8 classes by 20 teachers.\nThey work in a great team and benefit from an excellent infrastructure.\nErsigen can be reached from Bern in 20 minutes by car but also well by public transport.\n\nTasks\nDue to the traineeship of a teacher and an illness-related loss, the position is advertised.\n\nThe lessons are 9- 17 lessons and the lessons take place on Tuesday and Friday.\n\nSubjects of teaching:\nTuesday (from January 11 - 19) March 2027\n07:25 - 08:10: Media and computer science\n08:15 - 09:50: Visual design\n10:10 - 11:45: Nature and technology\n\n13:30 - 15:05: Textile designs\n15:20 - 17:05: Movement and sport\n\nFriday (25 January - 11 January) April 2027\n07:25 - 09:00: Mathematics\n09:05 - 10:55: Music\n11:00 - 11:45: IVE\n\n13:30 - 14:15: ERG\n14:20 - 16:05: Movement and sport\n\nRequirements\nAre you motivated to commit to the 789R?\n\nHave you completed your training as a teacher with Focus Z3 or are you completing it next year?\nAre you committed, open and proactive?\n\nIt is possible to take only Tuesday or only Friday.\n\nAre you familiar with the digital media (smartboard, visualizer, iPad, etc.) and like to use it in class?\n\nIf you were able to answer these questions with \"Yes\", I would be very happy about your application!\n\nWe offer\n- A great, motivated class\n- Established, helpful team\n- Own workplace\n- Very good infrastructure\n- Modern concept media and computer science (work with office, escola, smartboards, ipads, visualizer)\n- School supplements such as school social work and day school\n- Good public transport connection or free parking available",
+      "de": "Porträt\nDie Schule Ersigen-Oesch, eine ländliche, überschaubare Schule mit zwei Standorten: Ersigen und Niederösch\nAm Standort Ersigen, wo die Stelle ausgeschrieben ist, werden ca. 160 Kinder in 8 Klassen von 20 Lehrpersonen unterrichtet.\nSie arbeiten in einem tollen Team und profitieren von einer hervorragenden Infrastruktur.\nErsigen ist von Bern aus in 20 Minuten mit dem Auto aber auch gut mit dem ÖV erreichbar.\n\nAufgaben\nAufgrund des Praktikums einer Lehrperson und einem krankheitsbedingten Ausfall wird die Stelle ausgeschrieben.\n\nDas Unterrichtspensum beträgt 9- 17 Lektionen und der Unterricht findet am Dienstag und Freitag statt.\n\nUnterrichtsfächer:\nDienstag (vom 11. Januar - 19. März 2027)\n07:25 - 08:10 Uhr: Medien und Informatik\n08:15 - 09:50 Uhr: Bildnerisches Gestalten\n10:10 - 11:45 Uhr: Natur und Technik\n\n13:30 - 15:05 Uhr: Textiles Gestalten\n15:20 - 17:05 Uhr: Bewegung und Sport\n\nFreitag (25. Januar - 11. April 2027)\n07:25 - 09:00 Uhr: Mathematik\n09:05 - 10:55 Uhr: Musik\n11:00 - 11:45 Uhr: IVE\n\n13:30 - 14:15: ERG\n14:20 - 16:05 Uhr: Bewegung und Sport\n\nAnforderungen\nSind Sie motiviert, sich für die 789R zu engagieren?\n\nHaben Sie die Ausbildung zur Lehrperson mit Fokus Z3 abgeschlossen oder schliessen Sie diese nächstes Jahr ab?\nSind Sie engagiert, offen und initiativ?\n\nEs besteht die Möglichkeit, auch nur den Dienstag oder nur den Freitag zu übernehmen.\n\nSind sie vertraut mit den digitalen Medien (Smartboard, Visualizer, Ipad usw.) und setzen diese gerne im Unterricht ein?\n\nWenn Sie diese Fragen mit \"Ja\" beantworten konnten, würde ich mich sehr über Ihre Bewerbung freuen!\n\nWir bieten\n- Eine tolle, motivierte Klasse\n- Aufgestelltes, hilfsbereites Team\n- Eigenen Arbeitsplatz\n- Sehr gute Infrastruktur\n- Modernes Konzept Medien und Informatik (Arbeit mit Office, Escola, Smartboards, Ipads, Visualizer)\n- Schulergänzende Angebote wie Schulsozialarbeit und Tagesschule\n- Gute ÖV-Anbindung oder Gratisparkplätze vorhanden",
+      "fr": "Portrait\nL'école Ersigen-Oesch, une école rurale et gérable avec deux emplacements: Ersigen et Niederösch\nÀ l'emplacement Ersigen, où le poste est annoncé, environ 160 enfants sont enseignés en 8 classes par 20 enseignants.\nIls travaillent dans une excellente équipe et bénéficient d'une excellente infrastructure.\nErsigen peut être atteint de Berne en 20 minutes en voiture mais aussi bien en transports en commun.\n\nTâche\nEn raison du stage d'un enseignant et d'une perte liée à la maladie, le poste est annoncé.\n\nLes leçons sont de 9 à 17 leçons et les leçons ont lieu le mardi et le vendredi.\n\nSujets d'enseignement:\nMardi (du 11 au 19 janvier) mars 2027\n07:25 - 08:10: Médias et informatique\n08:15 - 09:50: Conception visuelle\n10 h 10 - 11 h 45: Nature et technologie\n\n13:30 - 15:05: Dessins et modèles textiles\n15:20 - 17:05: Mouvement et sport\n\nVendredi (25 janvier - 11 janvier) avril 2027\n07:25 - 09:00: Mathématiques\n09:05 - 10:55: Musique\n11 heures - 11 h 45: IVE\n\n13 h 30 - 14 h 15: ERG\n14:20 - 16:05: Mouvement et sport\n\nExigences\nÊtes-vous motivé à vous engager dans le 789R?\n\nAvez-vous terminé votre formation d'enseignant avec Focus Z3 ou l'avez-vous terminé l'année prochaine?\nÊtes-vous engagé, ouvert et proactif?\n\nIl est possible de prendre seulement mardi ou seulement vendredi.\n\nConnaissez-vous les médias numériques (smartboard, visualiser, iPad, etc.) et aimez-vous les utiliser en classe ?\n\nSi vous pouviez répondre à ces questions avec \"Oui\", je serais très heureux de votre candidature!\n\nNous offrons\n- Un grand cours motivé\n- Équipe établie et utile\n- Travailleur\n- Très bonne infrastructure\n- Concept moderne médias et informatique (travail avec bureau, escola, smartboards, ipads, visualisateur)\n- Suppléments scolaires tels que le travail social scolaire et l'école de jour\n- Bon accès aux transports en commun ou parking gratuit"
+    },
+    "slugByLocale": {
+      "it": "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-e-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
+      "en": "789r-seeks-motivated-representation-from-january-11-11-april-2027-on-tuesday-and-friday-ksml-kantonaler-40513",
+      "de": "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-und-freitag-40513",
+      "fr": "789r-cherche-une-representation-motivee-du-11-au-11-janvier-avril-2027-les-mardi-et-vendredi-ksml-kantonaler-40513"
+    },
+    "sector": "Istruzione / Scuola pubblica",
+    "expiredAt": "2026-11-03T22:04:48.463Z",
+    "previousSlugs": [
+      "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-und-freitag-40513"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-und-freitag-40513"
+      ],
+      "en": [
+        "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-und-freitag-40513"
+      ],
+      "fr": [
+        "789r-sucht-motivierte-vertretung-vom-11-januar-11-april-2027-am-dienstag-und-freitag-40513"
+      ]
+    },
+    "postalCode": "3423",
+    "streetAddress": "Ersigen",
+    "salaryMin": 59000,
+    "salaryMax": 108500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.ksml.apps.be.ch/ksml?q=stellen/ad/40513",
+    "firstSeenAt": "2026-10-20T09:31:24.815Z"
+  },
+  {
+    "slug": "schwimmlehrperson-2-jahreslektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+    "title": "Schwimmlehrperson 2 Jahreslektionen",
+    "titleByLocale": {
+      "it": "Istruttore di nuoto 2 lezioni annuali",
+      "en": "Swimming instructor 2 annual lessons",
+      "de": "Schwimmlehrperson 2 Jahreslektionen",
+      "fr": "instructeur de natation 2 leçons annuelles"
+    },
+    "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+    "companyKey": "ksml",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Ritratto\nLa scuola Manuel è una scuola di quartiere gestita (Schulkreis Kirchenfeld-Schosshalde) della città di Berna. Dall'estate del 2026, la scuola guiderà 46 classi dall'asilo a 9. Anno scolastico con circa 900 bambini e adolescenti e 130 dipendenti. La posizione della scuola Manuel comprende il complesso scolastico Manuel, la Wittigkofen School House, la Elfenau Quarter School House, il Kirchenfeld livello base e la cura del giorno.\n\nCompiti\nTi piace essere in acqua, lavorare con i bambini e vuole fornire il nuoto in modo competente e sicuro? Attendiamo con ansia la vostra applicazione!\n\nPer le nostre lezioni di nuoto stiamo cercando un istruttore di nuoto dedicato per tre ore alla settimana. Le lezioni si svolgono tra le vacanze autunnali e la fine di maggio, il martedì pomeriggio.\n\nEssi accompagnano una quarta classe (mezza classe) sulla strada avanti e indietro per la piscina e insegnano agli studenti in gruppi trasversali, performanti-omogenei. Con la vostra competenza ed entusiasmo, presenterete i bambini in modo specifico e con piacere al passaggio del corso WSC. Nel corso del tempo, sarete assistiti da un aiuto di classe.\n\nLo scambio nel team di istruttori di nuoto è desiderato e offre spazio per la cooperazione e ulteriore sviluppo.\nPrerequisito è un brevetto di nuoto valido.\n\nVi offriamo un compito significativo, un team di supporto e l'opportunità di accompagnare in modo sostenibile i bambini sulla loro strada per una maggiore sicurezza e gioia in acqua.\n\nRequisiti\n• Formazione completa o continua come istruttore di sport o nuoto o come istruttore primario (seminario di insegnante o laurea)\n• Valido brevetto galleggiante\n• Godetevi l'insegnamento, la promozione e l'accompagnamento dei bambini nelle lezioni di nuoto\n• Capacità di rispondere a diversi livelli di prestazioni e motivare i bambini a imparare\n• Competenze di squadra e disponibilità per lo scambio professionale nel team di istruttori di nuoto\n• Flessibilità, affidabilità e resilienza nella vita quotidiana della scuola\n• Personalità con cuore, umorismo e un approccio apprezzativo agli studenti\n\nOffriamo\n• Un'attività significativa con un impatto diretto: accompagni i bambini sulla strada per una maggiore sicurezza e gioia nell'acqua\n• Carico di lavoro gestibile e ben progettato\n• Buone condizioni quadro attraverso il supporto continuo di un aiuto di classe durante l'intera lezione di nuoto\n• Collaborazione in un team di istruttori di nuoto dedicato e di supporto con spazio per lo scambio e il reciproco sostegno\n• Cooperazione apprezzata con gli insegnanti e il team scolastico\n• Un ambiente scolastico vivace dove il cuore, l'umorismo e la gioia nel lavorare con i bambini\n• Possibilità di contribuire alle proprie idee e sviluppare ulteriormente le lezioni di nuoto",
+      "en": "Portrait\nThe school Manuel is a managed quarter school (Schulkreis Kirchenfeld-Schosshalde) of the city of Bern. From the summer of 2026, the school will lead 46 classes from kindergarten to 9. School year with about 900 children and adolescents and 130 employees. The school location Manuel includes the school complex Manuel, the Wittigkofen School House, the Elfenau Quarter School House, the Kirchenfeld full-day base level and day care.\n\nTasks\nDo you like to be in the water, work with children and want to provide swimming competently and safely? We look forward to your application!\n\nFor our swimming lessons we are looking for a dedicated swimming instructor for three hours a week. Classes take place between the autumn holidays and the end of May, on Tuesday afternoons.\n\nThey accompany a 4th class (half class) on the way back and forth to the swimming pool and teach the students in cross-class, performance-homogeneous groups. With your expertise and enthusiasm, you will introduce the children specifically and with pleasure to the passing of the WSC course. Throughout the time, you will be assisted by a class help.\n\nThe exchange in the swimming instructor team is desired and offers space for cooperation and further development.\nPrerequisite is a valid swimming brevet.\n\nWe offer you a meaningful task, a supportive team and the opportunity to sustainably accompany children on their way to greater safety and joy in the water.\n\nRequirements\n• Completed or ongoing training as a sports or swimming instructor or as a primary instructor (teacher seminar or bachelor degree)\n• Valid floating brevet\n• Enjoy teaching, promoting and accompanying children in swimming lessons\n• Ability to respond to different levels of performance and motivate children to learn\n• Team skills and willingness for professional exchange in the swimming instructor team\n• Flexibility, reliability and resilience in everyday school life\n• Personality with heart, humor and an appreciative approach to students\n\nWe offer\n• A meaningful activity with a direct impact: you accompany children on the way to more safety and joy in the water\n• Manageable and well-planned workload\n• Good framework conditions through the continuous support of a class help during the entire swimming lesson\n• Collaboration in a dedicated and supportive swimming instructor team with space for exchange and mutual support\n• Appreciative cooperation with teachers and school team\n• A lively school environment where heart, humor and joy in working with children count\n• Possibility to contribute your own ideas and further develop swimming lessons",
+      "de": "Porträt\nDie Schule Manuel ist eine geleitete Quartierschule (Schulkreis Kirchenfeld-Schosshalde) der Stadt Bern. Die Schule führt ab Sommer 2026 46 Klassen vom Kindergarten bis zum 9. Schuljahr mit ca. 900 Kindern und Jugendlichen und 130 Mitarbeitenden. Zum Schulstandort Manuel gehört die Schulanlage Manuel, das Schulhaus Wittigkofen, das Quartierschulhaus Elfenau, die Ganztagesbasisstufe Kirchenfeld sowie die Tagesbetreuung.\n\nAufgaben\nSind Sie gerne im Wasser, arbeiten mit Freude mit Kindern und möchten Schwimmen kompetent und sicher vermitteln? Dann freuen wir uns auf Ihre Bewerbung!\n\nFür unseren Schwimmunterricht suchen wir eine engagierte Schwimmlehrperson für drei Stunden pro Woche. Der Unterricht findet zwischen den Herbstferien und Ende Mai, jeweils am Dienstagnachmittag statt.\n\nSie begleiten eine 4. Klasse (Halbklasse) auf dem Hin- und Rückweg ins Schwimmbad und unterrichten die Schülerinnen und Schüler in klassenübergreifenden, leistungshomogenen Gruppen. Mit Ihrem Fachwissen und Ihrer Begeisterung führen Sie die Kinder gezielt und mit Freude an das Bestehen des WSC-Kurses heran. Während der gesamten Zeit werden Sie von einer Klassenhilfe unterstützt.\n\nDer Austausch im Schwimmlehrpersonenteam ist erwünscht und bietet Raum für Zusammenarbeit und Weiterentwicklung.\nVoraussetzung ist ein gültiges Schwimmbrevet.\n\nWir bieten Ihnen eine sinnstiftende Aufgabe, ein unterstützendes Team und die Möglichkeit, Kinder auf ihrem Weg zu mehr Sicherheit und Freude im Wasser nachhaltig zu begleiten.\n\nAnforderungen\n• Abgeschlossene oder laufende Ausbildung als Sport- oder Schwimmlehrperson oder als Primarlehrperson (Lehrerseminar oder Bachelorabschluss)\n• Gültiges Schwimmbrevet\n• Freude am Unterrichten, Fördern und Begleiten von Kindern im Schwimmunterricht\n• Fähigkeit, auf unterschiedliche Leistungsniveaus einzugehen und Kinder motivierend zum Lernen zu führen\n• Teamfähigkeit sowie Bereitschaft zum fachlichen Austausch im Schwimmlehrpersonenteam\n• Flexibilität, Zuverlässigkeit und Belastbarkeit im schulischen Alltag\n• Persönlichkeit mit Herz, Humor und einem wertschätzenden Umgang mit Schülerinnen und Schülern\n\nWir bieten\n• Eine sinnstiftende Tätigkeit mit direktem Wirkungserlebnis: Sie begleiten Kinder auf dem Weg zu mehr Sicherheit und Freude im Wasser\n• Überschaubares und gut planbares Pensum\n• Gute Rahmenbedingungen durch die kontinuierliche Unterstützung einer Klassenhilfe während des gesamten Schwimmunterrichts\n• Zusammenarbeit in einem engagierten und unterstützenden Schwimmlehrpersonenteam mit Raum für Austausch und gegenseitige Unterstützung\n• Wertschätzende Zusammenarbeit mit Lehrpersonen und Schulteam\n• Ein lebendiges schulisches Umfeld, in dem Herz, Humor und Freude an der Arbeit mit Kindern zählen\n• Möglichkeit eigene Ideen einzubringen und den Schwimmunterricht weiterzuentwickln",
+      "fr": "Portrait\nL'école Manuel est une école de quartier gérée (Schulkreis Kirchenfeld-Schosshalde) de la ville de Berne. À partir de l'été 2026, l'école dirigera 46 classes de la maternelle à 9. Année scolaire avec environ 900 enfants et adolescents et 130 employés. L'emplacement de l'école Manuel comprend le complexe scolaire Manuel, la maison scolaire Wittikkofen, la maison scolaire du quartier d'Elfenau, le niveau de base de Kirchenfeld et la garderie.\n\nTâche\nAimez-vous être dans l'eau, travailler avec les enfants et voulez-vous nager avec compétence et sécurité? Nous nous réjouissons de votre candidature!\n\nPour nos cours de natation, nous recherchons un moniteur de natation dédié pendant trois heures par semaine. Les cours ont lieu entre les vacances d'automne et fin mai, le mardi après-midi.\n\nIls accompagnent une 4ème classe (demi-classe) sur le chemin aller-retour à la piscine et enseignent aux élèves en groupes cross-classe, performance-homogénéité. Avec votre expertise et votre enthousiasme, vous présenterez les enfants spécifiquement et avec plaisir au passage du cours WSC. Pendant tout le temps, vous serez assisté par une aide de classe.\n\nL'échange dans l'équipe d'instructeur de natation est souhaité et offre un espace de coopération et de développement.\nPrérequis est un brevet de natation valide.\n\nNous vous offrons une tâche significative, une équipe de soutien et l'occasion d'accompagner durablement les enfants sur leur chemin vers une plus grande sécurité et joie dans l'eau.\n\nExigences\n• Formation complète ou continue à titre d'instructeur de sports ou de natation ou d'instructeur principal (séminaire d'enseignant ou baccalauréat)\n• Brevet flottant valide\n• Appréciez l'enseignement, la promotion et l'accompagnement des enfants dans les cours de natation\n• Capacité de répondre à différents niveaux de performance et de motiver les enfants à apprendre\n• Compétences de l'équipe et volonté d'échange professionnel dans l'équipe d'instructeur de natation\n• Flexibilité, fiabilité et résilience dans la vie scolaire quotidienne\n• Personnalité avec cœur, humour et une approche appréciée des étudiants\n\nNous offrons\n• Une activité significative avec un impact direct: vous accompagnez les enfants sur le chemin vers plus de sécurité et de joie dans l'eau\n• Charge de travail raisonnable et bien planifiée\n• Bonnes conditions de cadre grâce au soutien continu d'une aide de classe pendant toute la leçon de natation\n• Collaboration dans une équipe d'instructeurs de natation dévouée et solidaire avec espace d'échange et de soutien mutuel\n• Coopération appréciée avec les enseignants et l'équipe scolaire\n• Un environnement scolaire animé où le cœur, l'humour et la joie de travailler avec les enfants comptent\n• Possibilité d'apporter vos propres idées et de développer davantage les leçons de natation"
+    },
+    "slugByLocale": {
+      "it": "schwimmlehrperson-2-jahreslektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+      "en": "schwimmlehrperson-2-jahreslektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-38957",
+      "de": "schwimmlehrperson-2-jahreslektionen-schule-manuel-bern-38957",
+      "fr": "schwimmlehrperson-2-jahreslektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-38957"
+    },
+    "sector": "Istruzione / Scuola pubblica",
+    "expiredAt": "2026-11-03T22:04:48.463Z",
+    "previousSlugs": [
+      "schwimmlehrperson-2-jahreslektionen-schule-manuel-bern-38957"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schwimmlehrperson-2-jahreslektionen-schule-manuel-bern-38957"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Bern",
+    "salaryMin": 59000,
+    "salaryMax": 108500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.ksml.apps.be.ch/ksml?q=stellen/ad/38957",
+    "firstSeenAt": "2026-10-19T09:33:48.017Z"
   }
 ]

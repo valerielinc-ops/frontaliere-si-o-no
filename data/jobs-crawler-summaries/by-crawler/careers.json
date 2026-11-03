@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-11-03T09:47:49.105Z",
+  "generatedAt": "2026-11-03T21:56:12.953Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4072,
-  "avgDurationMs": 4072,
+  "durationMs": 3301,
+  "avgDurationMs": 3301,
   "durationHistory": [
-    4072
+    3301
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:47:31.503Z",
+      "crawledAt": "2026-11-03T21:55:55.822Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:47:31.503Z",
+      "validThrough": "2026-12-07T21:55:55.822Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Management-&-QMQS%2C-40-100-BL/1447904133/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:47:31.502Z",
+      "crawledAt": "2026-11-03T21:55:55.821Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:47:31.502Z",
+      "validThrough": "2027-01-13T21:55:55.821Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:47:31.497Z",
+      "crawledAt": "2026-11-03T21:55:55.820Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:47:31.497Z",
+      "validThrough": "2026-12-03T21:55:55.820Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -161,5 +161,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

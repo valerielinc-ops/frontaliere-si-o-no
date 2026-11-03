@@ -19,6 +19,36 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
+        with:
+          # The collector and its reconciliation steps use the same bounded
+          # social runtime as social-copy-experiment-config. Do not pull the
+          # 6.8 GB generated corpus just to read Firebase and social ledgers.
+          sparse-checkout: |
+            /package.json
+            /package-lock.json
+            /packages/*/package.json
+            /scripts/
+            /build-plugins/
+            /docs/
+            /data/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+            /data/jobs/
+            /public/data/
+          sparse-checkout-cone-mode: false
 
       - uses: actions/setup-node@v7
         with:

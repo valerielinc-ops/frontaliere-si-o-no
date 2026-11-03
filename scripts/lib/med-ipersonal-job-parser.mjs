@@ -25,6 +25,7 @@ import {
   getVerifiedIpersonalGeography,
   runIpersonalSpecInProduction,
 } from './ipersonal-spec-runtime.mjs';
+import { fetchHtmlViaBrowser } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -127,7 +128,10 @@ function detectEmploymentType(text = '') {
 async function fetchJobListings({ existingJobs = [] } = {}) {
   const spec = loadSpec(MED_IPERSONAL_KEY);
   return /** @type {Promise<Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }>} */ (
-    runIpersonalSpecInProduction(spec, { previousJobs: existingJobs })
+    runIpersonalSpecInProduction(spec, {
+      previousJobs: existingJobs,
+      browserFetchImpl: fetchHtmlViaBrowser,
+    })
   );
 }
 

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-11-03T09:27:12.375Z",
-  "runId": "41608567313",
+  "assembledAt": "2026-11-03T21:31:32.541Z",
+  "runId": "41719156389",
   "jobs": [
     {
       "id": "chopard-5dded0f8e2fc",
@@ -34,7 +34,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.953Z",
+      "crawledAt": "2026-11-03T21:31:26.176Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -70,77 +70,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:27:04.953Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "chopard-158c37bc1fa3",
-      "slug": "agent-qualite-production-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "agent-qualite-production-h-f-d-chopard-fleurier",
-        "en": "production-quality-officer-m-f-d-chopard-fleurier",
-        "de": "produktionsqualitatsbeauftragter-m-w-d-chopard-fleurier",
-        "fr": "agent-qualite-production-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Agent Qualité Production (H/F/D)",
-      "titleByLocale": {
-        "it": "Agent Qualité Production (f/m/d)",
-        "en": "Production Quality Officer (M/F/D)",
-        "de": "Produktionsqualitätsbeauftragter (M/W/D)",
-        "fr": "Agent Qualité Production (H/F/D)"
-      },
-      "description": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
-      "descriptionByLocale": {
-        "it": "La tua missione Essere il garante della garanzia di qualità nella produzione in conformità con le scadenze e le istruzioni di sicurezza.\n• Analizzare e gestire la non conformità del settore. Definire e rendere disponibili standard di controllo in collaborazione con le funzioni di supporto. Progetti di piombo. Impostazione e supporto autocontrollo. Gestione e monitoraggio degli indicatori di qualità. Assicurarsi che le attrezzature metrologiche siano soddisfatte. Incoraggiare e allenare sessioni di problem solving. Rimontare e gestire le opportunità di miglioramento. Crea intervalli di controllo in base a intervalli generici.",
-        "en": "Your Mission To be the guarantor of quality assurance in production in accordance with deadlines and safety instructions.\n• Your major responsibilities Analyze and manage industry non-compliance. Define and make available control standards in collaboration with support functions. Lead projects. Set up and support self-control. Manage and monitor quality indicators. Ensure that metrological equipment needs are met. Encourage and coach problem-solving sessions. Remount and manage opportunities for improvement. Create control ranges according to generic ranges.",
-        "de": "Deine Mission Gewährleistung der Qualitätssicherung in der Produktion gemäß den Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Analysieren und verwalten Sie die Nichtkonformität der Branche. Definieren und Bereitstellen von Steuerungsstandards in Zusammenarbeit mit Supportfunktionen. Leitprojekte. Aufbau und Unterstützung der Selbstkontrolle. Verwalten und überwachen Sie Qualitätsindikatoren. Gewährleistung, dass der Bedarf an messtechnischer Ausrüstung gedeckt wird. Ermutigen und coachen Sie Problemlösungssitzungen. Remount und Verwaltung von Verbesserungsmöglichkeiten. Erstellen Sie Kontrollbereiche nach generischen Bereichen.",
-        "fr": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.950Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "Fleurier",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione / Manifattura",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-13",
-      "postedDate": "2026-08-13",
-      "postingDateSource": "reported",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
-      "jobReqId": "2570",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:57:03.838Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:27:04.950Z",
+      "validThrough": "2026-12-03T21:31:26.176Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -174,7 +104,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.947Z",
+      "crawledAt": "2026-11-03T21:31:26.173Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -218,7 +148,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:27:04.947Z",
+      "validThrough": "2026-12-03T21:31:26.173Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -252,7 +182,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.944Z",
+      "crawledAt": "2026-11-03T21:31:26.170Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -296,7 +226,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:27:04.944Z",
+      "validThrough": "2026-12-03T21:31:26.170Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -330,7 +260,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:27:04.939Z",
+      "crawledAt": "2026-11-03T21:31:26.166Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -374,7 +304,77 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T09:27:04.939Z",
+      "validThrough": "2026-12-13T21:31:26.166Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "chopard-cc64eb02f9cf",
+      "slug": "constructeur-mouvements-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "constructeur-mouvements-h-f-d-chopard-fleurier",
+        "en": "manufacturer-movements-m-f-d-chopard-fleurier",
+        "de": "hersteller-uhrwerke-m-w-d-chopard-fleurier",
+        "fr": "constructeur-mouvements-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Constructeur Mouvements (H/F/D)",
+      "titleByLocale": {
+        "it": "Constructeur Mouvements (f/m/d)",
+        "en": "Manufacturer Movements (M/F/D)",
+        "de": "Hersteller Uhrwerke (M/W/D)",
+        "fr": "Constructeur Mouvements (H/F/D)"
+      },
+      "description": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
+      "descriptionByLocale": {
+        "it": "La tua missione Sviluppare movimenti di orologi al fine di tradurli in documentazione e piani per consentire loro di essere realizzati, in conformità con i processi SQS in vigore.\n• Costruire e sviluppare calibri di orologi meccanici e moduli aggiuntivi. Eseguire calcoli operativi e simulazioni. Stabilire, monitorare e gestire i file di piano. Partecipate allo sviluppo dei prodotti fino alla loro produzione. Miglioramento tecnico dei nostri calibri esistenti. Partecipa a varie fasi di sviluppo e collabora con i vari dipartimenti interessati. Scrivi report e report di stato.",
+        "en": "Your mission To develop watch movements in order to translate them into documentation and plans to enable them to be realized, in accordance with the SQS processes in force.\n• Your major responsibilities Build and develop mechanical watch calibres and additional modules. Perform operating calculations and simulations. Establish, track and manage plan files. Participate in the development of products until they are put into production. Make technical improvements on our existing calibres. Participate in various stages of development and collaborate with the various departments concerned. Write reports and status reports.",
+        "de": "Deine Mission Entwicklung von Uhrwerken, um sie in Dokumentationen und Pläne zu übersetzen, damit sie gemäß den geltenden SQS-Prozessen realisiert werden können.\n• Ihre Hauptaufgaben Bauen und entwickeln mechanische Uhrenkaliber und zusätzliche Module. Durchführung von Betriebsberechnungen und Simulationen. Erstellen, verfolgen und verwalten Sie Plandateien. Beteiligen Sie sich an der Entwicklung von Produkten, bis sie in Produktion gehen. Führen Sie technische Verbesserungen an unseren vorhandenen Kalibern durch. Beteiligen Sie sich an verschiedenen Entwicklungsphasen und arbeiten Sie mit den verschiedenen betroffenen Abteilungen zusammen. Schreiben Sie Berichte und Statusberichte.",
+        "fr": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-03T21:31:26.165Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "Fleurier",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06",
+      "postedDate": "2026-10-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
+      "jobReqId": "2644",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-07T09:23:31.807Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T21:31:26.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -408,7 +408,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.937Z",
+      "crawledAt": "2026-11-03T21:31:26.165Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -457,161 +457,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:27:04.937Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "chopard-cc64eb02f9cf",
-      "slug": "constructeur-mouvements-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "constructeur-mouvements-h-f-d-chopard-fleurier",
-        "en": "manufacturer-movements-m-f-d-chopard-fleurier",
-        "de": "hersteller-uhrwerke-m-w-d-chopard-fleurier",
-        "fr": "constructeur-mouvements-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Constructeur Mouvements (H/F/D)",
-      "titleByLocale": {
-        "it": "Constructeur Mouvements (f/m/d)",
-        "en": "Manufacturer Movements (M/F/D)",
-        "de": "Hersteller Uhrwerke (M/W/D)",
-        "fr": "Constructeur Mouvements (H/F/D)"
-      },
-      "description": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
-      "descriptionByLocale": {
-        "it": "La tua missione Sviluppare movimenti di orologi al fine di tradurli in documentazione e piani per consentire loro di essere realizzati, in conformità con i processi SQS in vigore.\n• Costruire e sviluppare calibri di orologi meccanici e moduli aggiuntivi. Eseguire calcoli operativi e simulazioni. Stabilire, monitorare e gestire i file di piano. Partecipate allo sviluppo dei prodotti fino alla loro produzione. Miglioramento tecnico dei nostri calibri esistenti. Partecipa a varie fasi di sviluppo e collabora con i vari dipartimenti interessati. Scrivi report e report di stato.",
-        "en": "Your mission To develop watch movements in order to translate them into documentation and plans to enable them to be realized, in accordance with the SQS processes in force.\n• Your major responsibilities Build and develop mechanical watch calibres and additional modules. Perform operating calculations and simulations. Establish, track and manage plan files. Participate in the development of products until they are put into production. Make technical improvements on our existing calibres. Participate in various stages of development and collaborate with the various departments concerned. Write reports and status reports.",
-        "de": "Deine Mission Entwicklung von Uhrwerken, um sie in Dokumentationen und Pläne zu übersetzen, damit sie gemäß den geltenden SQS-Prozessen realisiert werden können.\n• Ihre Hauptaufgaben Bauen und entwickeln mechanische Uhrenkaliber und zusätzliche Module. Durchführung von Betriebsberechnungen und Simulationen. Erstellen, verfolgen und verwalten Sie Plandateien. Beteiligen Sie sich an der Entwicklung von Produkten, bis sie in Produktion gehen. Führen Sie technische Verbesserungen an unseren vorhandenen Kalibern durch. Beteiligen Sie sich an verschiedenen Entwicklungsphasen und arbeiten Sie mit den verschiedenen betroffenen Abteilungen zusammen. Schreiben Sie Berichte und Statusberichte.",
-        "fr": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.936Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "Fleurier",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06",
-      "postedDate": "2026-10-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
-      "jobReqId": "2644",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:31.807Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:27:04.936Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "chopard-80b28dd23a0d",
-      "slug": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
-      "slugByLocale": {
-        "it": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
-        "en": "apprentice-clothes-machine-cfc-watchmaker-polishing-machines-chopard-meyrin",
-        "de": "auszubildende-bekleidungsmaschine-cfc-uhrmacher-poliermaschinen-chopard-meyrin",
-        "fr": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Apprenti(e) Termineur(euse) en Habillage Horloger CFC (Métiers du polissage)",
-      "titleByLocale": {
-        "it": "Apprentice Clothes machine CFC Watchmaker (macchine di lucidatura)",
-        "en": "Apprentice Clothes machine CFC Watchmaker (polishing machines)",
-        "de": "Auszubildende Bekleidungsmaschine CFC Uhrmacher (Poliermaschinen)",
-        "fr": "Apprenti(e) Termineur(euse) en Habillage Horloger CFC (Métiers du polissage)"
-      },
-      "description": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Vous êtes habile, patient(e) et avez un très bon sens esthétique. Vous êtes amené(e) à effectuer des opérations de terminaison telles que polissage et avivage sur les différentes pièces d'une montre ou d'un bijou pour leur donner leur aspect esthétique final. \n• Vos responsabilités majeures Réaliser des opérations manuelles de préparation et de finition de surface telles que bouchonnage/perlage, satinage, polissage, avivage, etc. Réaliser des opérations simples de préparation de surface à l'aide de machines CNC de terminaison et sur différents matériaux : or jaune, or rouge, or gris, platine, acier, titane, laiton, etc. Effectuer le contrôle esthétique de ses réalisations Participer à la réalisation et l'évaluation des processus, ce qui permet d'être innovant et de se développer continuellement Concevoir et réaliser des outillages et des posages Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
-      "descriptionByLocale": {
-        "it": "Informazioni importanti in anticipo Le comunicazioni relative al follow-up del file sono essenzialmente via e-mail. Pertanto, vi chiediamo di controllare regolarmente la vostra casella di posta e qualsiasi posta indesiderata. Le domande saranno ricevute fino al 15.03.2027 e il processo di reclutamento terminerà alla fine del maggio 2027. Stai cercando un allenamento? Sei esperto, paziente e hai un buon senso estetico. È necessario eseguire operazioni di finitura come lucidatura e avivage sulle diverse parti di un orologio o gioiello per dare loro il loro aspetto estetico finale.\n• Le vostre principali responsabilità Eseguire la preparazione manuale della superficie e le operazioni di finitura come tappatura / guida, raso, lucidatura, vibrante, ecc. Eseguire semplici operazioni di preparazione della superficie utilizzando macchine di terminazione CNC e materiali diversi: oro giallo, oro rosso, oro grigio, platino, acciaio, titanio, ottone, ecc. Eseguire il controllo estetico delle sue realizzazioni Partecipare alla realizzazione e alla valutazione dei processi, che permette di essere innovativi e di sviluppare continuamente strumenti di progettazione e realizzazione e positing Una presentazione video del mestiere è disponibile cliccando sul seguente link: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
-        "en": "Important information in advance Communications regarding the follow-up of your file are essentially via email. Therefore, we ask you to check your inbox and any unwanted mail regularly. Applications will be received until 15.03.2027 and the recruitment process will end at the end of May 2027. Are you looking for training? You are skilled, patient and have a very good aesthetic sense. You are required to perform finishing operations such as polishing and avivage on the different parts of a watch or jewel to give them their final aesthetic appearance.\n• Your major responsibilities Carry out manual surface preparation and finishing operations such as capping/drilling, satining, polishing, vibrating, etc. Perform simple surface preparation operations using CNC termination machines and different materials: yellow gold, red gold, grey gold, platinum, steel, titanium, brass, etc. Performing aesthetic control of its achievements Participate in the realization and evaluation of processes, which allows to be innovative and to continually develop Design and realize tools and positing A video presentation of the trade is available by clicking on the following link: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
-        "de": "Wichtige Informationen im Voraus Kommunikationen über die Nachverfolgung Ihrer Datei sind im Wesentlichen per E-Mail. Daher bitten wir Sie, Ihren Posteingang und unerwünschte Post regelmäßig zu überprüfen. Bewerbungen gehen bis zum 15.03.2027 ein und das Rekrutierungsverfahren endet Ende Mai 2027. Suchen Sie eine Ausbildung? Sie sind geschickt, geduldig und haben einen sehr guten ästhetischen Sinn. Sie müssen Finishing-Operationen wie Polieren und Avivage an den verschiedenen Teilen einer Uhr oder eines Juwels durchführen, um ihnen ihr endgültiges ästhetisches Aussehen zu verleihen.\n• Ihre Hauptaufgaben Führen Sie manuelle Oberflächenvorbereitungs- und Endbearbeitungsoperationen wie Kappen / Bohren, Satinieren, Polieren, Vibrieren usw. durch. Führen Sie einfache Oberflächenvorbereitungsoperationen mit CNC-Terminierungsmaschinen und verschiedenen Materialien durch: Gelbgold, Rotgold, Graugold, Platin, Stahl, Titan, Messing usw. Ästhetische Kontrolle seiner Leistungen Beteiligen Sie sich an der Realisierung und Bewertung von Prozessen, die es ermöglichen, innovativ zu sein und das Design und die Realisierung von Werkzeugen kontinuierlich zu entwickeln und zu postulieren Eine Videopräsentation des Handels ist verfügbar, indem Sie auf den folgenden Link klicken: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
-        "fr": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Vous êtes habile, patient(e) et avez un très bon sens esthétique. Vous êtes amené(e) à effectuer des opérations de terminaison telles que polissage et avivage sur les différentes pièces d'une montre ou d'un bijou pour leur donner leur aspect esthétique final. \n• Vos responsabilités majeures Réaliser des opérations manuelles de préparation et de finition de surface telles que bouchonnage/perlage, satinage, polissage, avivage, etc. Réaliser des opérations simples de préparation de surface à l'aide de machines CNC de terminaison et sur différents matériaux : or jaune, or rouge, or gris, platine, acier, titane, laiton, etc. Effectuer le contrôle esthétique de ses réalisations Participer à la réalisation et l'évaluation des processus, ce qui permet d'être innovant et de se développer continuellement Concevoir et réaliser des outillages et des posages Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : http://www.lemanbleu.ch/replay/video.html?VideoID=44242"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.913Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "Genève",
-      "streetAddress": "Route de Veyrot 8",
-      "postalCode": "1217",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione / Manifattura",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-13",
-      "postedDate": "2026-10-13",
-      "postingDateSource": "reported",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
-      "jobReqId": "2584",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
-        ],
-        "en": [
-          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
-        ],
-        "de": [
-          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T21:17:23.966Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:27:04.913Z",
+      "validThrough": "2026-12-28T21:31:26.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -645,7 +491,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2583?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.913Z",
+      "crawledAt": "2026-11-03T21:31:26.142Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -695,7 +541,91 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:27:04.913Z",
+      "validThrough": "2027-01-11T21:31:26.142Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "chopard-80b28dd23a0d",
+      "slug": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
+      "slugByLocale": {
+        "it": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
+        "en": "apprentice-clothes-machine-cfc-watchmaker-polishing-machines-chopard-meyrin",
+        "de": "auszubildende-bekleidungsmaschine-cfc-uhrmacher-poliermaschinen-chopard-meyrin",
+        "fr": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Apprenti(e) Termineur(euse) en Habillage Horloger CFC (Métiers du polissage)",
+      "titleByLocale": {
+        "it": "Apprentice Clothes machine CFC Watchmaker (macchine di lucidatura)",
+        "en": "Apprentice Clothes machine CFC Watchmaker (polishing machines)",
+        "de": "Auszubildende Bekleidungsmaschine CFC Uhrmacher (Poliermaschinen)",
+        "fr": "Apprenti(e) Termineur(euse) en Habillage Horloger CFC (Métiers du polissage)"
+      },
+      "description": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Vous êtes habile, patient(e) et avez un très bon sens esthétique. Vous êtes amené(e) à effectuer des opérations de terminaison telles que polissage et avivage sur les différentes pièces d'une montre ou d'un bijou pour leur donner leur aspect esthétique final. \n• Vos responsabilités majeures Réaliser des opérations manuelles de préparation et de finition de surface telles que bouchonnage/perlage, satinage, polissage, avivage, etc. Réaliser des opérations simples de préparation de surface à l'aide de machines CNC de terminaison et sur différents matériaux : or jaune, or rouge, or gris, platine, acier, titane, laiton, etc. Effectuer le contrôle esthétique de ses réalisations Participer à la réalisation et l'évaluation des processus, ce qui permet d'être innovant et de se développer continuellement Concevoir et réaliser des outillages et des posages Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+      "descriptionByLocale": {
+        "it": "Informazioni importanti in anticipo Le comunicazioni relative al follow-up del file sono essenzialmente via e-mail. Pertanto, vi chiediamo di controllare regolarmente la vostra casella di posta e qualsiasi posta indesiderata. Le domande saranno ricevute fino al 15.03.2027 e il processo di reclutamento terminerà alla fine del maggio 2027. Stai cercando un allenamento? Sei esperto, paziente e hai un buon senso estetico. È necessario eseguire operazioni di finitura come lucidatura e avivage sulle diverse parti di un orologio o gioiello per dare loro il loro aspetto estetico finale.\n• Le vostre principali responsabilità Eseguire la preparazione manuale della superficie e le operazioni di finitura come tappatura / guida, raso, lucidatura, vibrante, ecc. Eseguire semplici operazioni di preparazione della superficie utilizzando macchine di terminazione CNC e materiali diversi: oro giallo, oro rosso, oro grigio, platino, acciaio, titanio, ottone, ecc. Eseguire il controllo estetico delle sue realizzazioni Partecipare alla realizzazione e alla valutazione dei processi, che permette di essere innovativi e di sviluppare continuamente strumenti di progettazione e realizzazione e positing Una presentazione video del mestiere è disponibile cliccando sul seguente link: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+        "en": "Important information in advance Communications regarding the follow-up of your file are essentially via email. Therefore, we ask you to check your inbox and any unwanted mail regularly. Applications will be received until 15.03.2027 and the recruitment process will end at the end of May 2027. Are you looking for training? You are skilled, patient and have a very good aesthetic sense. You are required to perform finishing operations such as polishing and avivage on the different parts of a watch or jewel to give them their final aesthetic appearance.\n• Your major responsibilities Carry out manual surface preparation and finishing operations such as capping/drilling, satining, polishing, vibrating, etc. Perform simple surface preparation operations using CNC termination machines and different materials: yellow gold, red gold, grey gold, platinum, steel, titanium, brass, etc. Performing aesthetic control of its achievements Participate in the realization and evaluation of processes, which allows to be innovative and to continually develop Design and realize tools and positing A video presentation of the trade is available by clicking on the following link: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+        "de": "Wichtige Informationen im Voraus Kommunikationen über die Nachverfolgung Ihrer Datei sind im Wesentlichen per E-Mail. Daher bitten wir Sie, Ihren Posteingang und unerwünschte Post regelmäßig zu überprüfen. Bewerbungen gehen bis zum 15.03.2027 ein und das Rekrutierungsverfahren endet Ende Mai 2027. Suchen Sie eine Ausbildung? Sie sind geschickt, geduldig und haben einen sehr guten ästhetischen Sinn. Sie müssen Finishing-Operationen wie Polieren und Avivage an den verschiedenen Teilen einer Uhr oder eines Juwels durchführen, um ihnen ihr endgültiges ästhetisches Aussehen zu verleihen.\n• Ihre Hauptaufgaben Führen Sie manuelle Oberflächenvorbereitungs- und Endbearbeitungsoperationen wie Kappen / Bohren, Satinieren, Polieren, Vibrieren usw. durch. Führen Sie einfache Oberflächenvorbereitungsoperationen mit CNC-Terminierungsmaschinen und verschiedenen Materialien durch: Gelbgold, Rotgold, Graugold, Platin, Stahl, Titan, Messing usw. Ästhetische Kontrolle seiner Leistungen Beteiligen Sie sich an der Realisierung und Bewertung von Prozessen, die es ermöglichen, innovativ zu sein und das Design und die Realisierung von Werkzeugen kontinuierlich zu entwickeln und zu postulieren Eine Videopräsentation des Handels ist verfügbar, indem Sie auf den folgenden Link klicken: http://www.lemanbleu.ch/replay/video.html?VideoID=44242",
+        "fr": "Information importante au préalable Les communications quant au suivi de votre dossier se font essentiellement par courriel. Dès lors, nous vous demandons de régulièrement contrôler votre boîte de réception ainsi que les courriers indésirables. Les candidatures seront reçues jusqu'au 15.03.2027 et le processus de recrutement se terminera à la fin du mois de mai 2027. Vous êtes à la recherche d'une formation ? Vous êtes habile, patient(e) et avez un très bon sens esthétique. Vous êtes amené(e) à effectuer des opérations de terminaison telles que polissage et avivage sur les différentes pièces d'une montre ou d'un bijou pour leur donner leur aspect esthétique final. \n• Vos responsabilités majeures Réaliser des opérations manuelles de préparation et de finition de surface telles que bouchonnage/perlage, satinage, polissage, avivage, etc. Réaliser des opérations simples de préparation de surface à l'aide de machines CNC de terminaison et sur différents matériaux : or jaune, or rouge, or gris, platine, acier, titane, laiton, etc. Effectuer le contrôle esthétique de ses réalisations Participer à la réalisation et l'évaluation des processus, ce qui permet d'être innovant et de se développer continuellement Concevoir et réaliser des outillages et des posages Une vidéo de présentation du métier est disponible en cliquant sur le lien suivant : http://www.lemanbleu.ch/replay/video.html?VideoID=44242"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-03T21:31:26.141Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13",
+      "postedDate": "2026-10-13",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
+      "jobReqId": "2584",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ],
+        "en": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ],
+        "de": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-13T21:17:23.966Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T21:31:26.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -729,7 +659,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2640?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.910Z",
+      "crawledAt": "2026-11-03T21:31:26.139Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -779,7 +709,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:27:04.910Z",
+      "validThrough": "2027-01-11T21:31:26.139Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -813,7 +743,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.909Z",
+      "crawledAt": "2026-11-03T21:31:26.137Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -863,7 +793,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:27:04.909Z",
+      "validThrough": "2027-01-12T21:31:26.137Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +827,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.907Z",
+      "crawledAt": "2026-11-03T21:31:26.135Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -933,7 +863,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:27:04.907Z",
+      "validThrough": "2027-01-17T21:31:26.135Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -967,7 +897,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2676?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.906Z",
+      "crawledAt": "2026-11-03T21:31:26.134Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -1017,7 +947,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:27:04.906Z",
+      "validThrough": "2027-01-19T21:31:26.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1051,7 +981,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2687?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:27:04.875Z",
+      "crawledAt": "2026-11-03T21:31:26.091Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -1095,8 +1025,79 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:27:04.875Z",
+      "validThrough": "2027-01-25T21:31:26.091Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "chopard-158c37bc1fa3",
+      "slug": "agent-qualite-production-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "agent-qualite-production-h-f-d-chopard-fleurier",
+        "en": "production-quality-officer-m-f-d-chopard-fleurier",
+        "de": "produktionsqualitatsbeauftragter-m-w-d-chopard-fleurier",
+        "fr": "agent-qualite-production-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Agent Qualité Production (H/F/D)",
+      "titleByLocale": {
+        "it": "Agent Qualité Production (f/m/d)",
+        "en": "Production Quality Officer (M/F/D)",
+        "de": "Produktionsqualitätsbeauftragter (M/W/D)",
+        "fr": "Agent Qualité Production (H/F/D)"
+      },
+      "description": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité.\n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
+      "descriptionByLocale": {
+        "it": "La tua missione Essere il garante della garanzia di qualità nella produzione in conformità con le scadenze e le istruzioni di sicurezza.\n• Analizzare e gestire la non conformità del settore. Definire e rendere disponibili standard di controllo in collaborazione con le funzioni di supporto. Progetti di piombo. Impostazione e supporto autocontrollo. Gestione e monitoraggio degli indicatori di qualità. Assicurarsi che le attrezzature metrologiche siano soddisfatte. Incoraggiare e allenare sessioni di problem solving. Rimontare e gestire le opportunità di miglioramento. Crea intervalli di controllo in base a intervalli generici.",
+        "en": "Your Mission To be the guarantor of quality assurance in production in accordance with deadlines and safety instructions.\n• Your major responsibilities Analyze and manage industry non-compliance. Define and make available control standards in collaboration with support functions. Lead projects. Set up and support self-control. Manage and monitor quality indicators. Ensure that metrological equipment needs are met. Encourage and coach problem-solving sessions. Remount and manage opportunities for improvement. Create control ranges according to generic ranges.",
+        "de": "Deine Mission Gewährleistung der Qualitätssicherung in der Produktion gemäß den Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Analysieren und verwalten Sie die Nichtkonformität der Branche. Definieren und Bereitstellen von Steuerungsstandards in Zusammenarbeit mit Supportfunktionen. Leitprojekte. Aufbau und Unterstützung der Selbstkontrolle. Verwalten und überwachen Sie Qualitätsindikatoren. Gewährleistung, dass der Bedarf an messtechnischer Ausrüstung gedeckt wird. Ermutigen und coachen Sie Problemlösungssitzungen. Remount und Verwaltung von Verbesserungsmöglichkeiten. Erstellen Sie Kontrollbereiche nach generischen Bereichen.",
+        "fr": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité.\n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-03T09:27:04.950Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "Fleurier",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-13",
+      "postedDate": "2026-08-13",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
+      "jobReqId": "2570",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-26T13:57:03.838Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:27:04.950Z",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

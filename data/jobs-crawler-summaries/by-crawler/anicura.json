@@ -1,7 +1,7 @@
 {
   "key": "anicura",
   "label": "anicura",
-  "generatedAt": "2026-11-03T09:51:52.371Z",
+  "generatedAt": "2026-11-03T22:00:23.402Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7945,
-  "avgDurationMs": 7945,
+  "unchangedCount": 4,
+  "durationMs": 7724,
+  "avgDurationMs": 7724,
   "durationHistory": [
-    7945
+    7724
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "anicura-e2d5759f8115",
       "slug": "cardiologo-veterinario-dipl-acvim-ecvim-ca-cardiologia-m-f-d-thun-anicura-thun",
@@ -35,7 +37,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851150-veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:51:41.555Z",
+      "crawledAt": "2026-11-03T22:00:10.325Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -58,7 +60,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.555Z",
+      "validThrough": "2026-12-03T22:00:10.325Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -80,7 +82,7 @@
       "url": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:51:41.554Z",
+      "crawledAt": "2026-11-03T22:00:10.324Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -98,13 +100,12 @@
       "postedDate": "2025-12-17T07:59:08+01:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-02T21:39:39.911Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.554Z",
+      "validThrough": "2026-12-03T22:00:10.324Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -126,7 +127,7 @@
       "url": "https://jobs.anicura.ch/jobs/6944000-tieraerzt-in-40-100-m-w-d-buttikon",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:51:41.553Z",
+      "crawledAt": "2026-11-03T22:00:10.323Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -150,7 +151,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.553Z",
+      "validThrough": "2026-12-03T22:00:10.323Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -159,10 +160,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "anicura-8cd5c9f07b0e",
       "slug": "veterinario-80-100-m-f-d-thun-anicura-thun",
@@ -175,7 +173,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:51:41.552Z",
+      "crawledAt": "2026-11-03T22:00:10.322Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +196,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:51:41.552Z",
+      "validThrough": "2026-12-03T22:00:10.322Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -209,5 +207,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

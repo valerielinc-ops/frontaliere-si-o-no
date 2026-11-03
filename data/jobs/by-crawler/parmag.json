@@ -1,7 +1,7 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-11-03T09:21:07.234Z",
-  "runId": "41607997387",
+  "assembledAt": "2026-11-03T21:32:41.064Z",
+  "runId": "41718485933",
   "jobs": [
     {
       "id": "parmag-e93388ebfc05",
@@ -34,7 +34,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.110Z",
+      "crawledAt": "2026-11-03T21:32:34.090Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.110Z",
+      "validThrough": "2026-12-25T21:32:34.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.110Z",
+      "crawledAt": "2026-11-03T21:32:34.090Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:21:00.110Z",
+      "validThrough": "2026-12-20T21:32:34.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -199,7 +199,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.109Z",
+      "crawledAt": "2026-11-03T21:32:34.089Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "postalCode": "8001",
       "streetAddress": "Bern oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.109Z",
+      "validThrough": "2026-12-25T21:32:34.089Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -279,7 +279,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.108Z",
+      "crawledAt": "2026-11-03T21:32:34.088Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -322,7 +322,7 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.108Z",
+      "validThrough": "2026-12-25T21:32:34.088Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -356,7 +356,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.108Z",
+      "crawledAt": "2026-11-03T21:32:34.088Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -410,84 +410,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:21:00.108Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "parmag-afb4b7b3e641",
-      "slug": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
-      "slugByLocale": {
-        "it": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
-        "en": "java-architect-all-gender-parmag-ag-bern-ittigen",
-        "de": "java-architekt-all-gender-bern-ittigen-parmag-ch",
-        "fr": "java-architekt-tous-les-sexes-parmag-ag-bern-ittigen"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "JAVA ARCHITEKT (all gender)",
-      "titleByLocale": {
-        "it": "JAVA ARCHITEKT (tutti i sessi)",
-        "en": "JAVA ARCHITECT (all gender)",
-        "de": "JAVA ARCHITEKT (all gender)",
-        "fr": "JAVA ARCHITEKT (tous les sexes)"
-      },
-      "description": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
-      "descriptionByLocale": {
-        "it": "Distribuito, in rete, disponibile!\nIl nostro cliente è Kontron Transportation Schweiz AG, i cui prodotti portano connettività mobile a gallerie, treni ed edifici. Con la nostra piattaforma software di controllo e funzionamento basata su cloud, permettiamo ai clienti di gestire da remoto tramite clic del mouse.\nLa tua sfida:\n- Progettazione e architettura di applicazioni software web-based per il monitoraggio, la configurazione e la manutenzione di sistemi di telecomunicazione\n- Responsabilità e responsabilità Requisiti tecnici nei progetti di sviluppo software\n- Collaborazione interdisciplinare con diversi team\n- Interazione con scommettitore di clienti interno ed esterno. Requisiti e analisi degli errori\nLa vostra competenza:\n- Buon analista, metodo, comprensione rapida e responsabile\n- Giocatore di squadra indipendente, impegnato, cooperativo, orientato alla soluzione e flessibile\n- Studi informatici completi (HF/FH/Uni) o formazione comparabile\n- Diversi anni di esperienza nello sviluppo del software e nell'architettura con Java ev. con Spring & REST\n- L'esperienza frontend (angolare, JavaScript, HTML, CSS, Typescript) è un vantaggio\n- Se hai anche competenze di sicurezza Linux e informatica, questo è l'ideale\n- tedesco, mündl. e schriftl. molto buono; inglese, orale e scritto. Bene.\nLa nostra offerta:\nAvrete un lavoro emozionante in una società orientata al futuro con\ncondizioni di lavoro interessanti e orari di lavoro flessibili. Le strutture piatte e il buon spirito di squadra danno spazio alle proprie idee, responsabilità personale e portata d'azione.\nInviami i tuoi documenti (CV, diplomi, certificati) oggi a patrick.brayenovitch@parmag.ch",
-        "en": "Distributed, networked, available!\nOur client is Kontron Transportation Schweiz AG, whose products bring mobile connectivity to tunnels, trains and buildings. With our cloud-based control and operating software platform, we enable customers to remotely manage by mouse click.\nYour challenge:\n- Design and architecture of web-based software applications for monitoring, configuration and maintenance of telecom systems\n- Responsibility and Responsibility Technical requirements in software development projects\n- Interdisciplinary collaboration with different teams\n- Interaction with internal and external customers betr. Requirements and error analysis\nYour competence:\n- Good analyst, methodical, quick comprehension and responsible\n- Independent, committed, cooperative, solution-oriented and flexible team player\n- Completed computer science studies (HF/FH/Uni) or comparable training\n- Several years of experience in software development and architecture with Java and ev. with Spring & REST\n- Frontend experience (Angular, JavaScript, HTML, CSS, Typescript) is an advantage\n- If you also have Linux and cyber security skills, this is ideal\n- German, mündl. and schriftl. very good; English, oral and written. Good\nOur offer:\nYou will have an exciting job in a future-oriented company with\nattractive employment conditions and flexible working hours. The flat structures and the good team spirit give space for your own ideas, personal responsibility and scope for action.\nSend me your documents (CV, diplomas, certificates) today to patrick.brayenovitch@parmag.ch",
-        "de": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
-        "fr": "Distribué, réseauté, disponible!\nNotre client est Kontron Transportation Schweiz AG, dont les produits apportent la connectivité mobile aux tunnels, trains et bâtiments. Avec notre plate-forme logicielle de contrôle et d'exploitation basée sur le cloud, nous permettons aux clients de gérer à distance par clic de souris.\nVotre défi :\n- Conception et architecture d'applications logicielles en ligne pour la surveillance, la configuration et la maintenance des systèmes de télécommunications\n- Responsabilité et responsabilité Exigences techniques dans les projets de développement de logiciels\n- Collaboration interdisciplinaire avec différentes équipes\n- Interaction avec les clients internes et externes Exigences et analyse des erreurs\nVotre compétence :\n- Bon analyste, méthodique, compréhension rapide et responsable\n- Joueur d'équipe indépendant, engagé, coopératif, orienté vers la solution et flexible\n- Études informatiques terminées (HF/FH/Uni) ou formation comparable\n- Plusieurs années d'expérience dans le développement logiciel et l'architecture avec Java et ev. avec Spring & REST\n- Expérience Frontend (Angulaire, JavaScript, HTML, CSS, Typescript) est un avantage\n- Si vous avez aussi des compétences Linux et cybersécurité, c'est idéal\n- Allemand, mündl. et schriftl. très bien; anglais, oral et écrit. Bonne\nNotre offre :\nVous aurez un travail passionnant dans une entreprise orientée vers l'avenir avec\ndes conditions d'emploi attrayantes et des horaires de travail flexibles. Les structures plates et le bon esprit d'équipe laissent place à vos propres idées, à vos responsabilités personnelles et à vos possibilités d'action.\nEnvoyez-moi vos documents (CV, diplômes, certificats) aujourd'hui à patrick.brayenovitch@parmag.ch"
-      },
-      "location": "Bern / Ittigen",
-      "canton": "BE",
-      "url": "https://parmag.ch/stellen/353?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.106Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/353?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "java-architekt-all-gender-bern-ittigen-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "java-architekt-all-gender-bern-ittigen-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:57.673Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.106Z",
+      "validThrough": "2026-12-20T21:32:34.088Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -521,7 +444,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.106Z",
+      "crawledAt": "2026-11-03T21:32:34.087Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -564,7 +487,84 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.106Z",
+      "validThrough": "2026-12-25T21:32:34.087Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "parmag-afb4b7b3e641",
+      "slug": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
+      "slugByLocale": {
+        "it": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
+        "en": "java-architect-all-gender-parmag-ag-bern-ittigen",
+        "de": "java-architekt-all-gender-bern-ittigen-parmag-ch",
+        "fr": "java-architekt-tous-les-sexes-parmag-ag-bern-ittigen"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "JAVA ARCHITEKT (all gender)",
+      "titleByLocale": {
+        "it": "JAVA ARCHITEKT (tutti i sessi)",
+        "en": "JAVA ARCHITECT (all gender)",
+        "de": "JAVA ARCHITEKT (all gender)",
+        "fr": "JAVA ARCHITEKT (tous les sexes)"
+      },
+      "description": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
+      "descriptionByLocale": {
+        "it": "Distribuito, in rete, disponibile!\nIl nostro cliente è Kontron Transportation Schweiz AG, i cui prodotti portano connettività mobile a gallerie, treni ed edifici. Con la nostra piattaforma software di controllo e funzionamento basata su cloud, permettiamo ai clienti di gestire da remoto tramite clic del mouse.\nLa tua sfida:\n- Progettazione e architettura di applicazioni software web-based per il monitoraggio, la configurazione e la manutenzione di sistemi di telecomunicazione\n- Responsabilità e responsabilità Requisiti tecnici nei progetti di sviluppo software\n- Collaborazione interdisciplinare con diversi team\n- Interazione con scommettitore di clienti interno ed esterno. Requisiti e analisi degli errori\nLa vostra competenza:\n- Buon analista, metodo, comprensione rapida e responsabile\n- Giocatore di squadra indipendente, impegnato, cooperativo, orientato alla soluzione e flessibile\n- Studi informatici completi (HF/FH/Uni) o formazione comparabile\n- Diversi anni di esperienza nello sviluppo del software e nell'architettura con Java ev. con Spring & REST\n- L'esperienza frontend (angolare, JavaScript, HTML, CSS, Typescript) è un vantaggio\n- Se hai anche competenze di sicurezza Linux e informatica, questo è l'ideale\n- tedesco, mündl. e schriftl. molto buono; inglese, orale e scritto. Bene.\nLa nostra offerta:\nAvrete un lavoro emozionante in una società orientata al futuro con\ncondizioni di lavoro interessanti e orari di lavoro flessibili. Le strutture piatte e il buon spirito di squadra danno spazio alle proprie idee, responsabilità personale e portata d'azione.\nInviami i tuoi documenti (CV, diplomi, certificati) oggi a patrick.brayenovitch@parmag.ch",
+        "en": "Distributed, networked, available!\nOur client is Kontron Transportation Schweiz AG, whose products bring mobile connectivity to tunnels, trains and buildings. With our cloud-based control and operating software platform, we enable customers to remotely manage by mouse click.\nYour challenge:\n- Design and architecture of web-based software applications for monitoring, configuration and maintenance of telecom systems\n- Responsibility and Responsibility Technical requirements in software development projects\n- Interdisciplinary collaboration with different teams\n- Interaction with internal and external customers betr. Requirements and error analysis\nYour competence:\n- Good analyst, methodical, quick comprehension and responsible\n- Independent, committed, cooperative, solution-oriented and flexible team player\n- Completed computer science studies (HF/FH/Uni) or comparable training\n- Several years of experience in software development and architecture with Java and ev. with Spring & REST\n- Frontend experience (Angular, JavaScript, HTML, CSS, Typescript) is an advantage\n- If you also have Linux and cyber security skills, this is ideal\n- German, mündl. and schriftl. very good; English, oral and written. Good\nOur offer:\nYou will have an exciting job in a future-oriented company with\nattractive employment conditions and flexible working hours. The flat structures and the good team spirit give space for your own ideas, personal responsibility and scope for action.\nSend me your documents (CV, diplomas, certificates) today to patrick.brayenovitch@parmag.ch",
+        "de": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
+        "fr": "Distribué, réseauté, disponible!\nNotre client est Kontron Transportation Schweiz AG, dont les produits apportent la connectivité mobile aux tunnels, trains et bâtiments. Avec notre plate-forme logicielle de contrôle et d'exploitation basée sur le cloud, nous permettons aux clients de gérer à distance par clic de souris.\nVotre défi :\n- Conception et architecture d'applications logicielles en ligne pour la surveillance, la configuration et la maintenance des systèmes de télécommunications\n- Responsabilité et responsabilité Exigences techniques dans les projets de développement de logiciels\n- Collaboration interdisciplinaire avec différentes équipes\n- Interaction avec les clients internes et externes Exigences et analyse des erreurs\nVotre compétence :\n- Bon analyste, méthodique, compréhension rapide et responsable\n- Joueur d'équipe indépendant, engagé, coopératif, orienté vers la solution et flexible\n- Études informatiques terminées (HF/FH/Uni) ou formation comparable\n- Plusieurs années d'expérience dans le développement logiciel et l'architecture avec Java et ev. avec Spring & REST\n- Expérience Frontend (Angulaire, JavaScript, HTML, CSS, Typescript) est un avantage\n- Si vous avez aussi des compétences Linux et cybersécurité, c'est idéal\n- Allemand, mündl. et schriftl. très bien; anglais, oral et écrit. Bonne\nNotre offre :\nVous aurez un travail passionnant dans une entreprise orientée vers l'avenir avec\ndes conditions d'emploi attrayantes et des horaires de travail flexibles. Les structures plates et le bon esprit d'équipe laissent place à vos propres idées, à vos responsabilités personnelles et à vos possibilités d'action.\nEnvoyez-moi vos documents (CV, diplômes, certificats) aujourd'hui à patrick.brayenovitch@parmag.ch"
+      },
+      "location": "Bern / Ittigen",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/353?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-03T21:32:34.086Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/353?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "java-architekt-all-gender-bern-ittigen-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "java-architekt-all-gender-bern-ittigen-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:53:57.673Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:32:34.086Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -598,7 +598,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.105Z",
+      "crawledAt": "2026-11-03T21:32:34.085Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -644,7 +644,84 @@
       "postalCode": "8001",
       "streetAddress": "Bern oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.105Z",
+      "validThrough": "2026-12-25T21:32:34.085Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "parmag-0d892d16c31e",
+      "slug": "solution-architetto-m-w-d-ref-1283-parmag-ag-region-zurich",
+      "slugByLocale": {
+        "it": "solution-architetto-m-w-d-ref-1283-parmag-ag-region-zurich",
+        "en": "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch",
+        "de": "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch",
+        "fr": "solution-architecte-m-w-d-ref-1283-parmag-ag-region-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Solution Architect (m/w/d), Ref. 1283",
+      "titleByLocale": {
+        "it": "Solution Architetto (m/w/d), Ref. 1283",
+        "en": "Solution Architect (m/f/d), Ref. 1283",
+        "de": "Solution Architect (m/w/d), Ref. 1283",
+        "fr": "Solution Architecte (m/w/d), Ref. 1283"
+      },
+      "description": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig.\nUnsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied\nIhre Herausforderung:\nDu begleitest, berätst, coachst und unterstützt die Teams in ihren Architekturentscheidungen, dabei behältst du die Kunden- sowie die IT-\n• Anforderungen im Blick. Zu deiner Hauptaufgabe gehört die Gestaltung des Produktes und legst damit den architektonischen Grundstein für die Software Lösungen. Mit dem Team erarbeitest du Vorgaben und Qualitätsstandards für das gesamte agile Entwicklungsteam und pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden. Weiter stellst du den Status Quo in Frage und erweiterst die IT-Architektur.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik (Hochschule oder Fachhochschule) kannst du über einige Jahre Berufserfahrung blicken. Du besitzt sehr gute Kenntnisse in den Technolgien Java, Kafka, REST, Angular oder anderen Frontendframeworks und bist erfahren als Architekt beim Design und Betrieb einer komplexen Microservice Architektur. Weiter liegen deine Stärken im Leadership und in der Kommunikation, du bist ein Teamplayer und entwickelst dich immer gerne weiter. Wenn du auch noch etwas Erfahrung im Bereich DevOps mitbringst wäre dies super aber kein Muss.\nUnser Angebot:\nFreust du dich auf tolles Team mit viel Gestaltungsfreiraum? Dann nichts wie los, ich freue mich auf deine Bewerbung.\nSende mir noch heute deine gesamten Unterlagen inkl. CV, Zeugnisse und Diplome an patrick.brayenovitch@parmag.ch .",
+      "descriptionByLocale": {
+        "it": "Sei un produttore e vuoi spingere una nuova soluzione software? Allora sei qui. Il nostro cliente, una società di servizi IT con una sezione di amministrazione pubblica, è impaziente di un nuovo membro del team La vostra sfida: Accompagnate, consigliate, allenate e sostenete le squadre nelle loro decisioni architettoniche, mantenendo al contempo il cliente e l'IT\n• Requisiti in vista. Uno dei vostri compiti principali è quello di progettare il prodotto e quindi porre la base architettonica per le soluzioni software. Con il team, sviluppi linee guida e standard di qualità per l'intero team di sviluppo agile e mantieni una stretta collaborazione con i tuoi colleghi nell'analisi aziendale, nello sviluppo e nei clienti. Inoltre, si mette in discussione lo status quo e si espande l'architettura IT. La vostra competenza: Dopo la laurea in informatica (università o università di scienze applicate), si può guardare indietro nel corso di diversi anni di esperienza professionale. Hai una conoscenza molto buona nelle tecnologie Java, Kafka, REST, Angular o altri framework front-end e sono esperti come architetto nella progettazione e nel funzionamento di una complessa architettura microservice. Inoltre, i tuoi punti di forza si trovano nella leadership e nella comunicazione, sei un giocatore di squadra e sempre piace sviluppare ulteriormente. Se avete anche qualche esperienza nel campo di DevOps, questo sarebbe grande ma non un must. La nostra offerta: Sei impaziente di un grande team con un sacco di libertà di progettazione? Allora niente come andare avanti, non vedo l'ora della sua applicazione. Mandami tutti i documenti oggi. CV, certificati e diplomi a patrick.brayenovitch@parmag.ch .",
+        "en": "You are a maker and want to push a new software solution? Then you're right here. Our customer, an IT service company with a section of public administration, is looking forward to a new team member Your challenge: You accompany, advise, coach and support the teams in their architectural decisions, while keeping the customer and the IT\n• Requirements in view. One of your main tasks is to design the product and thus lay the architectural foundation for the software solutions. With the team, you develop guidelines and quality standards for the entire agile development team and maintain close cooperation with your colleagues in business analysis, development and customers. Furthermore, you question the status quo and expand the IT architecture. Your competence: After graduating in computer science (university or university of applied sciences), you can look back over several years of professional experience. You have very good knowledge in the technologies Java, Kafka, REST, Angular or other front-end frameworks and are experienced as an architect in the design and operation of a complex microservice architecture. Furthermore, your strengths lie in leadership and communication, you are a team player and always like to develop further. If you also have some experience in the field of DevOps, this would be great but not a must. Our offer: Are you looking forward to a great team with a lot of design freedom? Then nothing like going on, I look forward to your application. Send me all your documents today. CV, certificates and diplomas to patrick.brayenovitch@parmag.ch .",
+        "de": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig.\nUnsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied\nIhre Herausforderung:\nDu begleitest, berätst, coachst und unterstützt die Teams in ihren Architekturentscheidungen, dabei behältst du die Kunden- sowie die IT-\n• Anforderungen im Blick. Zu deiner Hauptaufgabe gehört die Gestaltung des Produktes und legst damit den architektonischen Grundstein für die Software Lösungen. Mit dem Team erarbeitest du Vorgaben und Qualitätsstandards für das gesamte agile Entwicklungsteam und pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden. Weiter stellst du den Status Quo in Frage und erweiterst die IT-Architektur.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik (Hochschule oder Fachhochschule) kannst du über einige Jahre Berufserfahrung blicken. Du besitzt sehr gute Kenntnisse in den Technolgien Java, Kafka, REST, Angular oder anderen Frontendframeworks und bist erfahren als Architekt beim Design und Betrieb einer komplexen Microservice Architektur. Weiter liegen deine Stärken im Leadership und in der Kommunikation, du bist ein Teamplayer und entwickelst dich immer gerne weiter. Wenn du auch noch etwas Erfahrung im Bereich DevOps mitbringst wäre dies super aber kein Muss.\nUnser Angebot:\nFreust du dich auf tolles Team mit viel Gestaltungsfreiraum? Dann nichts wie los, ich freue mich auf deine Bewerbung.\nSende mir noch heute deine gesamten Unterlagen inkl. CV, Zeugnisse und Diplome an patrick.brayenovitch@parmag.ch .",
+        "fr": "Vous êtes un fabricant et voulez pousser une nouvelle solution logicielle? Alors vous êtes là. Notre client, une entreprise de services informatiques avec une section de l'administration publique, attend avec impatience un nouveau membre de l'équipe Votre défi : Vous accompagnez, conseillez, coachez et soutenez les équipes dans leurs décisions architecturales, tout en gardant le client et l'informatique\n• Exigences en vue. L'une de vos tâches principales est de concevoir le produit et ainsi de jeter les bases architecturales des solutions logicielles. Avec l'équipe, vous développez des lignes directrices et des normes de qualité pour toute l'équipe de développement agile et maintenez une coopération étroite avec vos collègues dans l'analyse d'affaires, le développement et les clients. De plus, vous remettez en question le statu quo et élargissez l'architecture informatique. Votre compétence : Après avoir obtenu votre diplôme en informatique (université ou université des sciences appliquées), vous pouvez revenir sur plusieurs années d'expérience professionnelle. Vous avez de très bonnes connaissances dans les technologies Java, Kafka, REST, Angular ou d'autres cadres frontaux et sont expérimentés en tant qu'architecte dans la conception et le fonctionnement d'une architecture complexe de microservice. De plus, vos forces résident dans le leadership et la communication, vous êtes un joueur d'équipe et aimez toujours se développer davantage. Si vous avez également une certaine expérience dans le domaine de DevOps, ce serait génial mais pas un must. Notre offre: Êtes-vous impatient d'une grande équipe avec beaucoup de liberté de conception? Alors rien de tel, j'attends avec impatience votre candidature. Envoyez-moi tous vos documents aujourd'hui. CV, certificats et diplômes à patrick.brayenovitch@parmag.ch ."
+      },
+      "location": "Region Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/365?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-03T21:32:34.084Z",
+      "addressLocality": "Region Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/365?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:53:57.669Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Region Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:32:34.084Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -678,7 +755,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.104Z",
+      "crawledAt": "2026-11-03T21:32:34.083Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -725,164 +802,7 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.104Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "parmag-0d892d16c31e",
-      "slug": "solution-architetto-m-w-d-ref-1283-parmag-ag-region-zurich",
-      "slugByLocale": {
-        "it": "solution-architetto-m-w-d-ref-1283-parmag-ag-region-zurich",
-        "en": "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch",
-        "de": "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch",
-        "fr": "solution-architecte-m-w-d-ref-1283-parmag-ag-region-zurich"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Solution Architect (m/w/d), Ref. 1283",
-      "titleByLocale": {
-        "it": "Solution Architetto (m/w/d), Ref. 1283",
-        "en": "Solution Architect (m/f/d), Ref. 1283",
-        "de": "Solution Architect (m/w/d), Ref. 1283",
-        "fr": "Solution Architecte (m/w/d), Ref. 1283"
-      },
-      "description": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig.\nUnsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied\nIhre Herausforderung:\nDu begleitest, berätst, coachst und unterstützt die Teams in ihren Architekturentscheidungen, dabei behältst du die Kunden- sowie die IT-\n• Anforderungen im Blick. Zu deiner Hauptaufgabe gehört die Gestaltung des Produktes und legst damit den architektonischen Grundstein für die Software Lösungen. Mit dem Team erarbeitest du Vorgaben und Qualitätsstandards für das gesamte agile Entwicklungsteam und pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden. Weiter stellst du den Status Quo in Frage und erweiterst die IT-Architektur.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik (Hochschule oder Fachhochschule) kannst du über einige Jahre Berufserfahrung blicken. Du besitzt sehr gute Kenntnisse in den Technolgien Java, Kafka, REST, Angular oder anderen Frontendframeworks und bist erfahren als Architekt beim Design und Betrieb einer komplexen Microservice Architektur. Weiter liegen deine Stärken im Leadership und in der Kommunikation, du bist ein Teamplayer und entwickelst dich immer gerne weiter. Wenn du auch noch etwas Erfahrung im Bereich DevOps mitbringst wäre dies super aber kein Muss.\nUnser Angebot:\nFreust du dich auf tolles Team mit viel Gestaltungsfreiraum? Dann nichts wie los, ich freue mich auf deine Bewerbung.\nSende mir noch heute deine gesamten Unterlagen inkl. CV, Zeugnisse und Diplome an patrick.brayenovitch@parmag.ch .",
-      "descriptionByLocale": {
-        "it": "Sei un produttore e vuoi spingere una nuova soluzione software? Allora sei qui. Il nostro cliente, una società di servizi IT con una sezione di amministrazione pubblica, è impaziente di un nuovo membro del team La vostra sfida: Accompagnate, consigliate, allenate e sostenete le squadre nelle loro decisioni architettoniche, mantenendo al contempo il cliente e l'IT\n• Requisiti in vista. Uno dei vostri compiti principali è quello di progettare il prodotto e quindi porre la base architettonica per le soluzioni software. Con il team, sviluppi linee guida e standard di qualità per l'intero team di sviluppo agile e mantieni una stretta collaborazione con i tuoi colleghi nell'analisi aziendale, nello sviluppo e nei clienti. Inoltre, si mette in discussione lo status quo e si espande l'architettura IT. La vostra competenza: Dopo la laurea in informatica (università o università di scienze applicate), si può guardare indietro nel corso di diversi anni di esperienza professionale. Hai una conoscenza molto buona nelle tecnologie Java, Kafka, REST, Angular o altri framework front-end e sono esperti come architetto nella progettazione e nel funzionamento di una complessa architettura microservice. Inoltre, i tuoi punti di forza si trovano nella leadership e nella comunicazione, sei un giocatore di squadra e sempre piace sviluppare ulteriormente. Se avete anche qualche esperienza nel campo di DevOps, questo sarebbe grande ma non un must. La nostra offerta: Sei impaziente di un grande team con un sacco di libertà di progettazione? Allora niente come andare avanti, non vedo l'ora della sua applicazione. Mandami tutti i documenti oggi. CV, certificati e diplomi a patrick.brayenovitch@parmag.ch .",
-        "en": "You are a maker and want to push a new software solution? Then you're right here. Our customer, an IT service company with a section of public administration, is looking forward to a new team member Your challenge: You accompany, advise, coach and support the teams in their architectural decisions, while keeping the customer and the IT\n• Requirements in view. One of your main tasks is to design the product and thus lay the architectural foundation for the software solutions. With the team, you develop guidelines and quality standards for the entire agile development team and maintain close cooperation with your colleagues in business analysis, development and customers. Furthermore, you question the status quo and expand the IT architecture. Your competence: After graduating in computer science (university or university of applied sciences), you can look back over several years of professional experience. You have very good knowledge in the technologies Java, Kafka, REST, Angular or other front-end frameworks and are experienced as an architect in the design and operation of a complex microservice architecture. Furthermore, your strengths lie in leadership and communication, you are a team player and always like to develop further. If you also have some experience in the field of DevOps, this would be great but not a must. Our offer: Are you looking forward to a great team with a lot of design freedom? Then nothing like going on, I look forward to your application. Send me all your documents today. CV, certificates and diplomas to patrick.brayenovitch@parmag.ch .",
-        "de": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig.\nUnsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied\nIhre Herausforderung:\nDu begleitest, berätst, coachst und unterstützt die Teams in ihren Architekturentscheidungen, dabei behältst du die Kunden- sowie die IT-\n• Anforderungen im Blick. Zu deiner Hauptaufgabe gehört die Gestaltung des Produktes und legst damit den architektonischen Grundstein für die Software Lösungen. Mit dem Team erarbeitest du Vorgaben und Qualitätsstandards für das gesamte agile Entwicklungsteam und pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden. Weiter stellst du den Status Quo in Frage und erweiterst die IT-Architektur.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik (Hochschule oder Fachhochschule) kannst du über einige Jahre Berufserfahrung blicken. Du besitzt sehr gute Kenntnisse in den Technolgien Java, Kafka, REST, Angular oder anderen Frontendframeworks und bist erfahren als Architekt beim Design und Betrieb einer komplexen Microservice Architektur. Weiter liegen deine Stärken im Leadership und in der Kommunikation, du bist ein Teamplayer und entwickelst dich immer gerne weiter. Wenn du auch noch etwas Erfahrung im Bereich DevOps mitbringst wäre dies super aber kein Muss.\nUnser Angebot:\nFreust du dich auf tolles Team mit viel Gestaltungsfreiraum? Dann nichts wie los, ich freue mich auf deine Bewerbung.\nSende mir noch heute deine gesamten Unterlagen inkl. CV, Zeugnisse und Diplome an patrick.brayenovitch@parmag.ch .",
-        "fr": "Vous êtes un fabricant et voulez pousser une nouvelle solution logicielle? Alors vous êtes là. Notre client, une entreprise de services informatiques avec une section de l'administration publique, attend avec impatience un nouveau membre de l'équipe Votre défi : Vous accompagnez, conseillez, coachez et soutenez les équipes dans leurs décisions architecturales, tout en gardant le client et l'informatique\n• Exigences en vue. L'une de vos tâches principales est de concevoir le produit et ainsi de jeter les bases architecturales des solutions logicielles. Avec l'équipe, vous développez des lignes directrices et des normes de qualité pour toute l'équipe de développement agile et maintenez une coopération étroite avec vos collègues dans l'analyse d'affaires, le développement et les clients. De plus, vous remettez en question le statu quo et élargissez l'architecture informatique. Votre compétence : Après avoir obtenu votre diplôme en informatique (université ou université des sciences appliquées), vous pouvez revenir sur plusieurs années d'expérience professionnelle. Vous avez de très bonnes connaissances dans les technologies Java, Kafka, REST, Angular ou d'autres cadres frontaux et sont expérimentés en tant qu'architecte dans la conception et le fonctionnement d'une architecture complexe de microservice. De plus, vos forces résident dans le leadership et la communication, vous êtes un joueur d'équipe et aimez toujours se développer davantage. Si vous avez également une certaine expérience dans le domaine de DevOps, ce serait génial mais pas un must. Notre offre: Êtes-vous impatient d'une grande équipe avec beaucoup de liberté de conception? Alors rien de tel, j'attends avec impatience votre candidature. Envoyez-moi tous vos documents aujourd'hui. CV, certificats et diplômes à patrick.brayenovitch@parmag.ch ."
-      },
-      "location": "Region Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/365?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.104Z",
-      "addressLocality": "Region Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/365?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:57.669Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Region Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.104Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "parmag-e8ca7aeee784",
-      "slug": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
-      "slugByLocale": {
-        "it": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
-        "en": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
-        "de": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
-        "fr": "software-ingenieur-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Software Engineer Java (m/w/d), Ref. 1289",
-      "titleByLocale": {
-        "it": "Software Ingegnere Java (m/w/d), Ref. 1289",
-        "en": "Software Engineer Java (m/f/d), Ref. 1289",
-        "de": "Software Engineer Java (m/w/d), Ref. 1289",
-        "fr": "Software Ingénieur Java (m/w/d), Ref. 1289"
-      },
-      "description": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
-      "descriptionByLocale": {
-        "it": "• Sei una personalità Java esperta? Stai cercando un lavoro con un sacco di libertà di progettazione? Allora continua a leggere.\n• Il nostro cliente, una società di consulenza in costante crescita, sta cercando nuovi talenti\n• La tua sfida:\nPotrai aiutare a progettare e definire soluzioni e sviluppare software stabile, affidabile e potente. Si garantisce lo sviluppo del prodotto in termini di tecnologia e qualità e sono in stretta collaborazione con un team multidisciplinare di analisti, architetti e ingegneri software. Parteciperai anche all'intero ciclo di progetto, dall'analisi delle esigenze alla consegna finale di una soluzione individuale per i clienti.\nLa vostra competenza:\nDopo aver completato la tua laurea tecnica in UNI/ETH/FH, puoi già mostrare alcuni anni di analisi, sviluppo e progettazione nell'ambiente Java. Sei forte con le domande di Spring, Springboot, JPA e Angular e con esperienza con database relazionali (ad esempio Oracle o MSSQL) e SQL, oltre a strumenti di programmazione come Maven, Git, Intellji o Eclipse. Oltre alla tua lingua madre, parli inglese fluente.\nLa nostra offerta:\n• Interessante? Allora non vedo l'ora che i vostri documenti, che potete inviare immediatamente a patrick.brayenovitch@parmag.ch.\n• A presto!",
-        "en": "• Are you an experienced Java personality? Are you looking for a job with a lot of design freedom? Then read on.\n• Our customer, a consulting company that is constantly growing, is looking for new talent\n• Your challenge:\nYou will help design and define solutions and develop stable, reliable and powerful software. You ensure the development of the product in terms of technology and quality and are in close cooperation with a multidisciplinary team of business analysts, architects and software engineers. You will also participate in the entire project cycle, from needs analysis to the final delivery of an individual solution for customers.\nYour competence:\nAfter completing your technical degree at a UNI/ETH/FH, you can already show some years in analysis, development and design in the Java environment. You are strong with Spring, Springboot, JPA and Angular and experienced with relational databases (e.g. Oracle or MSSQL) and SQL queries, in addition with programming tools such as Maven, Git, Intellji or Eclipse. In addition to your native German language, you speak fluent English.\nOur offer:\n• Interested? Then I look forward to your documents, which you can send immediately to patrick.brayenovitch@parmag.ch.\n• See you soon!",
-        "de": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
-        "fr": "• Êtes-vous une personnalité Java expérimentée ? Vous cherchez un emploi avec beaucoup de liberté de conception ? Alors lisez.\n• Notre client, une société de conseil en constante croissance, cherche de nouveaux talents\n• Votre défi :\nVous aiderez à concevoir et définir des solutions et développerez des logiciels stables, fiables et puissants. Vous assurez le développement du produit en termes de technologie et de qualité et êtes en étroite collaboration avec une équipe multidisciplinaire d'analystes, d'architectes et d'ingénieurs logiciels. Vous participerez également à l'ensemble du cycle du projet, de l'analyse des besoins à la livraison finale d'une solution individuelle pour les clients.\nVotre compétence :\nAprès avoir terminé votre diplôme technique à un UNI/ETH/FH, vous pouvez déjà montrer quelques années en analyse, développement et conception dans l'environnement Java. Vous êtes fort avec Springboot, JPA et Angular et expérimenté avec les bases de données relationnelles (p. ex. Oracle ou MSSQL) et les requêtes SQL, en plus des outils de programmation tels que Maven, Git, Intellji ou Eclipse. En plus de votre langue maternelle allemande, vous parlez couramment anglais.\nNotre offre :\n• Intéressé ? Puis j'attends avec impatience vos documents, que vous pouvez envoyer immédiatement à patrick.brayenovitch@parmag.ch.\n• A bientôt !"
-      },
-      "location": "Zürich oder Bern",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/371?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.102Z",
-      "addressLocality": "Zürich oder Bern",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/371?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
-        ],
-        "fr": [
-          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:57.667Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich oder Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.102Z",
+      "validThrough": "2026-12-25T21:32:34.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -916,7 +836,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.101Z",
+      "crawledAt": "2026-11-03T21:32:34.082Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -962,7 +882,87 @@
       "postalCode": "8001",
       "streetAddress": "Zürich oder Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:00.101Z",
+      "validThrough": "2026-12-25T21:32:34.082Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "parmag-e8ca7aeee784",
+      "slug": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
+      "slugByLocale": {
+        "it": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
+        "en": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
+        "de": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
+        "fr": "software-ingenieur-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Software Engineer Java (m/w/d), Ref. 1289",
+      "titleByLocale": {
+        "it": "Software Ingegnere Java (m/w/d), Ref. 1289",
+        "en": "Software Engineer Java (m/f/d), Ref. 1289",
+        "de": "Software Engineer Java (m/w/d), Ref. 1289",
+        "fr": "Software Ingénieur Java (m/w/d), Ref. 1289"
+      },
+      "description": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
+      "descriptionByLocale": {
+        "it": "• Sei una personalità Java esperta? Stai cercando un lavoro con un sacco di libertà di progettazione? Allora continua a leggere.\n• Il nostro cliente, una società di consulenza in costante crescita, sta cercando nuovi talenti\n• La tua sfida:\nPotrai aiutare a progettare e definire soluzioni e sviluppare software stabile, affidabile e potente. Si garantisce lo sviluppo del prodotto in termini di tecnologia e qualità e sono in stretta collaborazione con un team multidisciplinare di analisti, architetti e ingegneri software. Parteciperai anche all'intero ciclo di progetto, dall'analisi delle esigenze alla consegna finale di una soluzione individuale per i clienti.\nLa vostra competenza:\nDopo aver completato la tua laurea tecnica in UNI/ETH/FH, puoi già mostrare alcuni anni di analisi, sviluppo e progettazione nell'ambiente Java. Sei forte con le domande di Spring, Springboot, JPA e Angular e con esperienza con database relazionali (ad esempio Oracle o MSSQL) e SQL, oltre a strumenti di programmazione come Maven, Git, Intellji o Eclipse. Oltre alla tua lingua madre, parli inglese fluente.\nLa nostra offerta:\n• Interessante? Allora non vedo l'ora che i vostri documenti, che potete inviare immediatamente a patrick.brayenovitch@parmag.ch.\n• A presto!",
+        "en": "• Are you an experienced Java personality? Are you looking for a job with a lot of design freedom? Then read on.\n• Our customer, a consulting company that is constantly growing, is looking for new talent\n• Your challenge:\nYou will help design and define solutions and develop stable, reliable and powerful software. You ensure the development of the product in terms of technology and quality and are in close cooperation with a multidisciplinary team of business analysts, architects and software engineers. You will also participate in the entire project cycle, from needs analysis to the final delivery of an individual solution for customers.\nYour competence:\nAfter completing your technical degree at a UNI/ETH/FH, you can already show some years in analysis, development and design in the Java environment. You are strong with Spring, Springboot, JPA and Angular and experienced with relational databases (e.g. Oracle or MSSQL) and SQL queries, in addition with programming tools such as Maven, Git, Intellji or Eclipse. In addition to your native German language, you speak fluent English.\nOur offer:\n• Interested? Then I look forward to your documents, which you can send immediately to patrick.brayenovitch@parmag.ch.\n• See you soon!",
+        "de": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
+        "fr": "• Êtes-vous une personnalité Java expérimentée ? Vous cherchez un emploi avec beaucoup de liberté de conception ? Alors lisez.\n• Notre client, une société de conseil en constante croissance, cherche de nouveaux talents\n• Votre défi :\nVous aiderez à concevoir et définir des solutions et développerez des logiciels stables, fiables et puissants. Vous assurez le développement du produit en termes de technologie et de qualité et êtes en étroite collaboration avec une équipe multidisciplinaire d'analystes, d'architectes et d'ingénieurs logiciels. Vous participerez également à l'ensemble du cycle du projet, de l'analyse des besoins à la livraison finale d'une solution individuelle pour les clients.\nVotre compétence :\nAprès avoir terminé votre diplôme technique à un UNI/ETH/FH, vous pouvez déjà montrer quelques années en analyse, développement et conception dans l'environnement Java. Vous êtes fort avec Springboot, JPA et Angular et expérimenté avec les bases de données relationnelles (p. ex. Oracle ou MSSQL) et les requêtes SQL, en plus des outils de programmation tels que Maven, Git, Intellji ou Eclipse. En plus de votre langue maternelle allemande, vous parlez couramment anglais.\nNotre offre :\n• Intéressé ? Puis j'attends avec impatience vos documents, que vous pouvez envoyer immédiatement à patrick.brayenovitch@parmag.ch.\n• A bientôt !"
+      },
+      "location": "Zürich oder Bern",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/371?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-03T21:32:34.082Z",
+      "addressLocality": "Zürich oder Bern",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/371?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
+        ],
+        "fr": [
+          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:53:57.667Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Zürich oder Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:32:34.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -996,7 +996,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.100Z",
+      "crawledAt": "2026-11-03T21:32:34.081Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1050,7 +1050,7 @@
       "postalCode": "8001",
       "streetAddress": "Stadt Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:21:00.100Z",
+      "validThrough": "2026-12-20T21:32:34.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1084,7 +1084,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.099Z",
+      "crawledAt": "2026-11-03T21:32:34.080Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1127,7 +1127,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:21:00.099Z",
+      "validThrough": "2026-12-23T21:32:34.080Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1161,7 +1161,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.098Z",
+      "crawledAt": "2026-11-03T21:32:34.079Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1204,7 +1204,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:21:00.098Z",
+      "validThrough": "2026-12-23T21:32:34.079Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1238,7 +1238,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.097Z",
+      "crawledAt": "2026-11-03T21:32:34.078Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1291,7 +1291,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:21:00.097Z",
+      "validThrough": "2026-12-20T21:32:34.078Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1325,7 +1325,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:21:00.095Z",
+      "crawledAt": "2026-11-03T21:32:34.076Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1379,7 +1379,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:21:00.095Z",
+      "validThrough": "2026-12-20T21:32:34.076Z",
       "validThroughSource": "last-observed-window"
     }
   ]

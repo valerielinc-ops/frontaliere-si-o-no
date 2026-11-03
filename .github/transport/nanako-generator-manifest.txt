@@ -145,6 +145,12 @@ scripts/lib/first-names.json
 # corpus-side generator from failing before main().
 scripts/lib/resolve-output-path.mjs
 scripts/lib/int-from-env.mjs
+# Added 2026-11-03: the journalist identity helper is imported by the
+# transported create/publish entry points as well as the live notifier. Its
+# registry reader is part of the same static closure; leaving either file out
+# makes the transported generator fail before main() with ERR_MODULE_NOT_FOUND.
+scripts/lib/article-slug-registry.mjs
+scripts/lib/journalist-article-identity.mjs
 # Added 2026-09-14: create-article.mjs imports this top-level sanitizer; the
 # corpus already carries its generator-side twin, so the transport must carry
 # the site source at the same relative path.
@@ -202,6 +208,7 @@ scripts/lib/single-flight-lock.mjs
 # !rewired scripts/lib/generated-image-engine.mjs -- E' il wrapper di compatibilita' del sito per `packages/articles/engine/`; nanako non deve riceverne una copia sotto `generator/scripts/lib/`, perche' il suo engine arriva come `engine/` dal mirror dedicato e il rewire del generatore deve importare quel percorso. La correzione del gemello adattato vive nel follow-up del corpus, non in questo manifest di trasporto strutturale.
 # !rewired packages/articles/engine/shared/generatedImageRegistry.mjs -- Il registro appartiene all'engine condiviso e non va duplicato sotto `generator/packages/articles/`; il mirror dedicato lo consegna come `engine/shared/generatedImageRegistry.mjs`. Il generatore nanako deve riallineare l'import nel follow-up del corpus dopo il mirror dell'engine.
 # !rewired packages/articles/engine/shared/articleStaticSource.mjs -- Il parser AST appartiene all'engine condiviso e arriva sul corpus come `engine/shared/articleStaticSource.mjs`; il gemello adattato di `generator/scripts/lib/meta-field-regex.mjs` riscrive il percorso topologico, quindi non va copiato sotto `generator/packages/articles/`.
+# !rewired packages/articles/engine/shared/articleReaderSource.mjs -- `article-slug-registry.mjs` uses the AST reader from the articles engine; `.github/workflows/mirror-articles-engine.yml` mirrors the complete engine under `engine/shared/`, and the generator rewire points this import there instead of creating a second copy under `generator/packages/`.
 
 # --- discovery/** — topic discovery pipeline (fully reachable, safe to glob) --
 scripts/lib/discovery/**

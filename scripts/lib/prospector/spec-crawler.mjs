@@ -1909,6 +1909,50 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     let { links, candidates } = seedExtraction;
     candidates = filterListingCandidates(spec, candidates);
 
+    // Some source pages serve a small structured subset to direct HTTP
+    // clients while a browser receives the full vacancy board. A non-empty
+    // subset must not enter the normal detail pipeline as if it were the
+    // complete population: it is exactly the shape that can shrink a healthy
+    // slice without triggering the zero-result rescue. This is opt-in per
+    // source because the browser fetch is bounded but materially more
+    // expensive than the ordinary transport, and the learned sample count is
+    // source evidence rather than a generic population threshold.
+    if (spec.rescueOnPartialListing === true
+      && candidates.length > 0
+      && Number(spec.sampleVacancyCount) > candidates.length
+      && runtime.disableWafProxy !== true
+      && typeof runtime.browserFetchImpl === 'function') {
+      const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
+      if (browserBody) {
+        const rescuedRaw = await extractListingCandidates(
+          browserBody,
+          effectiveSeedUrl,
+          templateRx,
+          spec,
+          runtime,
+        );
+        recordSourceFetchMetadata(rescuedRaw);
+        const rescued = {
+          ...rescuedRaw,
+          candidates: filterListingCandidates(spec, rescuedRaw.candidates),
+        };
+        if (rescued.candidates.length > candidates.length) {
+          console.warn(
+            `[prospector:${spec.companyKey}] direct seed yielded a partial listing `
+              + `(${candidates.length}/${spec.sampleVacancyCount}); using browser rescue `
+              + `(${rescued.candidates.length} candidates)`,
+          );
+          html = browserBody;
+          ({ links, candidates } = rescued);
+          umantisListingEvidence = spec.platform === 'umantis.com'
+            ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+              cantonOverrides: spec.umantisListingCantonOverrides,
+            })
+            : new Map();
+        }
+      }
+    }
+
     // Some protected boards answer the direct request with a 200 interstitial
     // that has no stable challenge marker. That page is indistinguishable from
     // a legitimate empty employer page until the same seed is viewed through

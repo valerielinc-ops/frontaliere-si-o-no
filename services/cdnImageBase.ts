@@ -65,6 +65,7 @@ export const CDN_OFFLOADED_IMAGE_PREFIXES = [
   '/images/logos/',
   '/images/authors/',
   '/images/publisher/',
+  '/images/job-search-campaign/',
   // Event bytes are published additively by the crawler/library uploaders.
   // The image-policy gate, not this transport prefix, decides which source
   // paths may enter the public dataset; this preserves admitted OpenAgenda

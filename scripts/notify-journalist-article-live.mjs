@@ -33,10 +33,9 @@ import { realpathSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { FieldValue } from 'firebase-admin/firestore';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
-import { checkArticleIdExists } from './create-article.mjs';
-import { slugify } from './publish-journalist-article.mjs';
 import { sendEmailCascade } from './lib/email-cascade.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { checkArticleIdExists, slugify } from './lib/journalist-article-identity.mjs';
 
 const LIVE_CHECK_TIMEOUT_MS = 15_000;
 const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];

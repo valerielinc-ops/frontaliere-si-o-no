@@ -195,6 +195,7 @@ const TARGETS = [
   { dir: ['images', 'logos'], url: '/images/logos/' },
   { dir: ['images', 'authors'], url: '/images/authors/' },
   { dir: ['images', 'publisher'], url: '/images/publisher/' },
+  { dir: ['images', 'job-search-campaign'], url: '/images/job-search-campaign/' },
   // Nationwide events feature (issue #3125): no-hotlink mirrored source images
   // (scripts/lib/events-utils.mjs mirrorEventImage -> public/images/events/).
   // MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in

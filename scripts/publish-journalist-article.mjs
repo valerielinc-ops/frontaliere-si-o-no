@@ -73,6 +73,7 @@ import {
 import { assertNoFabricatedNormAcronyms } from './lib/article-factuality-gates.mjs';
 import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
+import { slugify } from './lib/journalist-article-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
@@ -89,17 +90,6 @@ const CATEGORIES = ['fiscale', 'pratico', 'novita', 'pensione'];
 const STATIC_FALLBACK_IMAGE = 'lugano-view.webp';
 
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024; // matches create-article.mjs's BLOG_IMAGE_HARD_MAX_BYTES
-
-function slugify(input) {
-  return String(input || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    .slice(0, 80);
-}
 
 async function initDb() {
   if (!getApps().length) {

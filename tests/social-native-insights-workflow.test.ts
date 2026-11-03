@@ -3,10 +3,39 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 describe('social native insights workflow contract', () => {
+  it('bounds social experiment checkouts to runtime inputs instead of the generated corpus', () => {
+    for (const name of ['social-copy-experiment-config.yml', 'social-native-insights.yml']) {
+      const workflow = readFileSync(resolve(ROOT, '.github/workflows', name), 'utf8');
+      const checkout = YAML.parse(workflow, { logLevel: 'silent' }).jobs
+        [name === 'social-copy-experiment-config.yml' ? 'publish' : 'collect']
+        .steps.find((step: any) => step.uses?.startsWith('actions/checkout@'));
+      const patterns = String(checkout?.with?.['sparse-checkout'] || '')
+        .split('\n').map((entry: string) => entry.trim()).filter(Boolean);
+
+      expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+      expect(patterns).toEqual(expect.arrayContaining([
+        '/package.json',
+        '/package-lock.json',
+        '/packages/*/package.json',
+        '/scripts/',
+        '/build-plugins/',
+        '/docs/',
+        '/data/',
+        '/data/jobs/',
+        '/public/data/',
+        '!/data/translation-cache/',
+        '!/data/jobs-snapshots-history/',
+      ]));
+      expect(patterns).not.toContain('/*');
+      expect(patterns).not.toContain('/public/');
+    }
+  });
+
   it('refreshes the validated Codex pack weekly after Monday insights collection', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
     expect(workflow).toContain("- cron: '40 4 * * 1'");

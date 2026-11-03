@@ -1,16 +1,16 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-11-03T09:18:27.602Z",
+  "generatedAt": "2026-11-03T21:31:08.971Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 14189,
-  "avgDurationMs": 14189,
+  "durationMs": 12440,
+  "avgDurationMs": 12440,
   "durationHistory": [
-    14189
+    12440
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,7 +45,7 @@
       "jobReqId": "REQ-17649",
       "id": "fnz-b3397fe08d1c",
       "firstSeenAt": "2026-10-16T21:17:20.610Z",
-      "crawledAt": "2026-11-03T09:18:10.889Z",
+      "crawledAt": "2026-11-03T21:30:53.293Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -53,7 +53,7 @@
       "postalCode": "6830",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:18:10.889Z",
+      "validThrough": "2027-01-14T21:30:53.293Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -92,7 +92,7 @@
       "jobReqId": "REQ-17625",
       "id": "fnz-4ac7c8eee969",
       "firstSeenAt": "2026-10-08T21:16:03.321Z",
-      "crawledAt": "2026-11-03T09:18:10.889Z",
+      "crawledAt": "2026-11-03T21:30:53.293Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -100,7 +100,7 @@
       "postalCode": "6830",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:10.889Z",
+      "validThrough": "2027-01-06T21:30:53.293Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -139,7 +139,7 @@
       "jobReqId": "REQ-16005",
       "id": "fnz-addd1ea2604e",
       "firstSeenAt": "2026-09-04T13:28:24.249Z",
-      "crawledAt": "2026-11-03T09:18:10.889Z",
+      "crawledAt": "2026-11-03T21:30:53.293Z",
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -147,7 +147,7 @@
       "postalCode": "6830",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:18:10.889Z",
+      "validThrough": "2026-12-31T21:30:53.293Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -158,5 +158,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

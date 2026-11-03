@@ -1,7 +1,7 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-11-03T09:52:31.784Z",
+  "generatedAt": "2026-11-03T21:57:21.584Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9033,
-  "avgDurationMs": 9033,
+  "durationMs": 7216,
+  "avgDurationMs": 7216,
   "durationHistory": [
-    9033
+    7216
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fhgr-beb700b7a16f",
-      "slug": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
+      "slug": "collaboratore-trice-scientifico-a-di-progetto-fachhochschule-graubunden-chur",
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
       "companyDomain": "fhgr.ch",
@@ -34,7 +35,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/812/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:52:13.871Z",
+      "crawledAt": "2026-11-03T21:57:07.503Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -52,7 +53,7 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/812/Application/CheckLogin/1",
       "department": "Institut für Multimedia Production (IMP)",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -70,19 +71,19 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:52:13.871Z",
+      "validThrough": "2027-02-01T21:57:07.503Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
     {
       "id": "fhgr-4fcfbe6092ab",
-      "slug": "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur",
+      "slug": "responsabile-scientifico-a-di-progetto-tecnica-e-pratica-dei-media-fachhochschule-graubunden-chur",
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
       "companyDomain": "fhgr.ch",
@@ -92,7 +93,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/805/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:52:12.722Z",
+      "crawledAt": "2026-11-03T21:57:06.302Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -110,9 +111,10 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/805/Application/CheckLogin/1",
       "department": "Institut für Multimedia Production (IMP)",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
-      "salaryMin": 48500,
-      "salaryMax": 89500,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-03T09:52:12.722Z",
+      "salaryMin": 73000,
+      "salaryMax": 135000,
       "salarySource": "estimated",
       "addressRegion": "GR",
       "companyRegisteredAddress": {
@@ -128,19 +130,17 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:52:12.722Z",
+      "validThrough": "2027-02-01T21:57:06.302Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:52:12.722Z",
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -155,7 +155,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:52:14.643Z",
+      "crawledAt": "2026-11-03T21:57:08.260Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-03T09:52:14.643Z",
+      "validThrough": "2026-12-03T21:57:08.260Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -202,5 +202,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

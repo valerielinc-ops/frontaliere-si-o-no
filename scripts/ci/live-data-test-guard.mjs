@@ -689,6 +689,18 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'the path is a synthetic assemble-input argument to a pure predicate; the test reads CI/workflow source files only and opens nothing under data/jobs/',
   },
   {
+    file: 'tests/social-robot.test.ts',
+    roots: [
+      'data/instagram-posted.json',
+      'data/instagram-queue.json',
+      'data/jobs/',
+      'data/tiktok-posted.json',
+      'data/tiktok-queue.json',
+      'packages/articles/content/',
+    ],
+    reason: 'the sparse-checkout contract passes these paths as synthetic inputs to pathsOutsideSparseRules(), which invokes git sparse-checkout check-rules and never opens them; the test reads only workflow YAML and source text',
+  },
+  {
     file: 'tests/crawler-generation-barrier-workflows.test.ts',
     roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
     reason: 'job slice paths are synthetic receipt payload fields; filesystem reads target workflow SSOT files',

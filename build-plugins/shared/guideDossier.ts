@@ -429,7 +429,7 @@ export function renderGuideDossierHero(options: {
 }): string {
   const { title, description, visual, locale, action } = options;
   const actionHtml = action
-    ? `<a class="guide-dossier-action" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`
+    ? `<a class="guide-dossier-action !text-on-accent" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`
     : '';
 
   return `<header class="guide-dossier-hero">

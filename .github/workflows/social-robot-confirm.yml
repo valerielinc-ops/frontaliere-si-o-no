@@ -52,6 +52,26 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          # This job only moves a confirmed entry between the social queue and
+          # ledger. Keep the checkout bounded: the repository tree is ~6.8 GB,
+          # while the confirmation runtime needs the shared Node helpers, the
+          # canton tables loaded at import time, and the four channel files.
+          # The explicit allow-list also keeps data/jobs and public/images out
+          # of the checkout instead of letting a full tree consume the job cap.
+          sparse-checkout: |
+            /scripts/
+            /build-plugins/shared/
+            /data/canton-url-slugs.json
+            /data/canton-municipalities.json
+            /data/instagram-queue.json
+            /data/instagram-posted.json
+            /data/tiktok-queue.json
+            /data/tiktok-posted.json
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 7
 
       - uses: actions/setup-node@v7
         with: { node-version: 22 }

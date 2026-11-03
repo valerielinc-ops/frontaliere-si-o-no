@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { execFileSync, spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterAll, describe, expect, it } from 'vitest';
@@ -405,6 +405,17 @@ function hasRealTimeout(): boolean {
 const md5 = (s: string) => createHash('md5').update(s).digest('hex');
 
 /** Runs `_publish_cdn_r2` alone (the script is sourced, so `main` does not run). */
+function stageCampaignImages(stage: string, mode = 'valid') {
+  if (mode === 'missing') return;
+  const images = JSON.parse(read('docs/house-ad-creatives.json')).images as { path: string }[];
+  const selected = mode === 'partial' ? images.slice(1) : images;
+  for (const image of selected) {
+    const file = join(stage, image.path.slice(1));
+    mkdirSync(resolve(file, '..'), { recursive: true });
+    copyFileSync(resolve(ROOT, 'public', image.path.slice(1)), file);
+  }
+}
+
 function runPublish(name: string, env: Record<string, string>) {
   const dir = join(SCRATCH, name);
   const bin = join(dir, 'bin');
@@ -436,6 +447,7 @@ esac
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
   writeFileSync(join(stage, 'data', 'x.json'), '{}');
+  stageCampaignImages(stage, env.STUB_CAMPAIGN_IMAGES);
   if (env.STUB_BLOG_IMAGES === '1') {
     mkdirSync(join(stage, 'images', 'blog'), { recursive: true });
     writeFileSync(join(stage, 'images', 'blog', 'cover.webp'), 'fixture bytes');
@@ -505,6 +517,7 @@ async function runPublishInterrupted(name: string, env: Record<string, string>) 
   const bin = join(dir, 'bin');
   const stage = join(dir, 'stage');
   writeStubs(bin);
+  stageCampaignImages(stage);
   mkdirSync(join(stage, 'assets'), { recursive: true });
   writeFileSync(join(stage, 'assets', 'a.js'), 'export const a = 2;\n');
   writeFileSync(join(stage, 'assets', 'b.js'), 'export const b = 1;\n');
@@ -944,6 +957,45 @@ describe('behaviour: the R2 images batch holds every present namespace lease', (
     expect(r.leaseCalls).toEqual([`verify:blog:${callerContext}`]);
     expect(r.calls.some((call) => /^rclone copy \S+ :s3:bkt\/images /.test(call))).toBe(false);
     expect(completionMarkerPuts(r.calls)).toEqual([]);
+  });
+});
+
+describe('behaviour: campaign photographs precede executable assets', () => {
+  for (const mode of ['missing', 'partial']) {
+    it(`rejects a ${mode} campaign stage before any R2 write or executable copy`, () => {
+      const r = runPublish(`campaign-stage-${mode}`, { STUB_CAMPAIGN_IMAGES: mode });
+      expect(r.code).toBe(1);
+      expect(r.stdout).toContain('campaign image stage is incomplete');
+      expect(r.calls).toEqual([]);
+      expect(completionMarkerPuts(r.calls)).toEqual([]);
+    });
+  }
+  it('copies the campaign prefix before code, then closes the publication normally', () => {
+    const r = runPublish('campaign-before-code', {
+      STUB_CAMPAIGN_IMAGES: '1', CF_API_TOKEN: 'test-token', STUB_PURGE_STATUS: '0',
+    });
+    expect(r.code).toBe(0);
+    const campaignAt = r.calls.findIndex(c => /^rclone copy \S+ :s3:bkt\/images\/job-search-campaign(?:\s|$)/.test(c));
+    const codeAt = r.calls.findIndex(c => /^rclone copy \S+ :s3:bkt\/assets(?:\s|$)/.test(c));
+    expect(campaignAt).toBeGreaterThan(-1);
+    expect(codeAt).toBeGreaterThan(campaignAt);
+    expect(r.calls[campaignAt]).toContain('Content-Type: image/webp');
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
+  it('withholds executable copies and completion markers when both campaign attempts fail', () => {
+    const r = runPublish('campaign-copy-fails', {
+      STUB_CAMPAIGN_IMAGES: '1', STUB_FAIL_PREFIX: 'images/job-search-campaign',
+      CF_API_TOKEN: 'test-token', STUB_PURGE_STATUS: '0',
+    });
+    expect(r.code).toBe(1);
+    expect(r.calls.filter(c => /^rclone copy \S+ :s3:bkt\/images\/job-search-campaign(?:\s|$)/.test(c))).toHaveLength(2);
+    for (const call of r.calls.filter(c => /^rclone copy \S+ :s3:bkt\/images\/job-search-campaign(?:\s|$)/.test(c))) {
+      expect(call).toContain('Content-Type: image/webp');
+    }
+    expect(r.calls.some(c => /^rclone copy \S+ :s3:bkt\/assets(?:\s|\/|$)/.test(c))).toBe(false);
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
+    expect(r.stdout).toContain('campaign images not published — withholding executable assets');
   });
 });
 

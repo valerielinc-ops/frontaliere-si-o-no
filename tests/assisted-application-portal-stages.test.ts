@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { applicationReceipt, applicationStage, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
-import { pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
 const applyUrl = `${origin}/Careers/ApplicationMethods?jobId=42`;
@@ -47,9 +47,15 @@ describe('application stage ownership', () => {
       fields: [],
       buttons: [{ text: 'Akzeptieren' }, { text: 'Schließen' }],
     };
-    const context = { applyUrl: helsanaApplyUrl, postingEntry: true, job: { title: 'Group Controller (a) 80-100%' } };
-    expect(applicationReceipt(helsanaRoot, context)).toBe(true);
-    expect(applicationStage(helsanaRoot, context)).toMatchObject({ kind: 'receipt' });
+    const context = {
+      applyUrl: helsanaApplyUrl,
+      postingUrl: 'https://careers.helsana.ch/Helsana/job/Group-Controller-a-80-100/970403401/',
+      job: { title: 'Group Controller (a) 80-100%' },
+    };
+    const postingEntry = isVerifiedPostingEntry(context);
+    expect(postingEntry).toBe(true);
+    expect(applicationReceipt(helsanaRoot, { ...context, postingEntry })).toBe(true);
+    expect(applicationStage(helsanaRoot, { ...context, postingEntry })).toMatchObject({ kind: 'receipt' });
   });
 
   it('limits a verified SuccessFactors receipt to the same-origin employer root', () => {

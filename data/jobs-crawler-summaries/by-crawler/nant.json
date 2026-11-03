@@ -1,7 +1,7 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-11-03T09:15:25.385Z",
+  "generatedAt": "2026-11-03T21:25:58.285Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4311,
-  "avgDurationMs": 4311,
+  "durationMs": 4376,
+  "avgDurationMs": 4376,
   "durationHistory": [
-    4311
+    4376
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:15:05.473Z",
+      "crawledAt": "2026-11-03T21:25:38.590Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:15:05.473Z",
+      "validThrough": "2026-12-19T21:25:38.590Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -71,54 +71,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "nant-5bed28d501c2",
-      "slug": "frequenza-variabile-fondation-de-nant-corsier-sur-vevey",
-      "company": "Fondation de Nant",
-      "companyKey": "nant",
-      "companyDomain": "nant.ch",
-      "title": "Aide-soignant-e à taux variable",
-      "location": "Corsier-sur-Vevey",
-      "canton": "VD",
-      "url": "https://app.beehire.com/invite/PdTkBFu_5",
-      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T21:20:46.136Z",
-      "addressLocality": "Corsier-sur-Vevey",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1804",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Santé mentale / Psychiatrie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://app.beehire.com/invite/PdTkBFu_5",
-      "careerSiteUrl": "https://nant.ch/carrieres/",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "streetAddress": "Corsier-sur-Vevey",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T21:20:46.136Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "nant-a5ce73bd8694",
@@ -133,7 +86,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:15:05.479Z",
+      "crawledAt": "2026-11-03T21:25:38.591Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -157,7 +110,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:15:05.479Z",
+      "validThrough": "2026-12-03T21:25:38.591Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -179,7 +132,7 @@
       "url": "https://app.beehire.com/invite/GhP4UCz1f",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:15:05.472Z",
+      "crawledAt": "2026-11-03T21:25:38.588Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -203,7 +156,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:15:05.472Z",
+      "validThrough": "2027-01-06T21:25:38.588Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -226,7 +179,7 @@
       "url": "https://app.beehire.com/invite/vOH7Zsw7M",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:15:05.471Z",
+      "crawledAt": "2026-11-03T21:25:38.587Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -250,7 +203,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:15:05.471Z",
+      "validThrough": "2027-01-10T21:25:38.587Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -272,7 +225,7 @@
       "url": "https://app.beehire.com/invite/PzPmrtqqv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T09:15:05.468Z",
+      "crawledAt": "2026-11-03T21:25:38.585Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -296,7 +249,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:15:05.468Z",
+      "validThrough": "2027-01-25T21:25:38.585Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -307,5 +260,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }

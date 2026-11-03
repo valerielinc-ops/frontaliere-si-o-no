@@ -240,7 +240,8 @@ const sourceTreeLintTests = new Map([
   // Il guard dei limiti/lifecycle R2 legge da disco gli script del percorso
   // deploy e il loro helper condiviso, senza importarli. Senza questa voce una
   // modifica all'helper potrebbe saltare il guard fino a una PR non correlata.
-  ['tests/r2-calls-bounded.test.ts', /^scripts\/lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh$/],
+  ['tests/r2-calls-bounded.test.ts', /^scripts\/(?:lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh|ci\/check-house-ad-images\.mjs)$/],
+  ['tests/house-ad-image-publish.test.ts', /^(?:services\/(?:cdnImageBase|houseAdCreative)\.ts|scripts\/(?:lib\/deploy-it-pages-prep\.sh|ci\/check-house-ad-images\.mjs|offload-generated-images-cdn\.mjs|ensure-image-cdn-redirect\.mjs)|docs\/house-ad-creatives\.json|public\/images\/job-search-campaign\/.*)$/],
   // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
   // estensioni; costano pochi secondi.
   ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],

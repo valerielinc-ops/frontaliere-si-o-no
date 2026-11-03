@@ -13,26 +13,17 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-11-03T09:48:37.965Z",
+  "updatedAt": "2026-11-03T21:57:40.789Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_5045",
     "https://www.supsi.ch/bando26_1016",
     "https://www.supsi.ch/bando26_5040",
     "https://www.supsi.ch/bando26_5044",
     "https://www.supsi.ch/bando26_4001",
     "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
-    "https://www.supsi.ch/bando26_5046"
+    "https://www.supsi.ch/bando26_5046",
+    "https://www.supsi.ch/bando26_5047"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_5045": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-11-03"
-    },
     "https://www.supsi.ch/bando26_1016": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -85,6 +76,15 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2027-02-01"
+    },
+    "https://www.supsi.ch/bando26_5047": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2027-02-15"
     }
   }
 }
