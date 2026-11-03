@@ -53,12 +53,12 @@ describe('crawler contract provenance verifier', () => {
   });
 
   it('verifyCrawlerContractProvenance proves translate-pending against the remote source commit', async () => {
-    const requests = [];
+    const requests: Array<{ url: string; init: RequestInit }> = [];
     const result = await verifyCrawlerContractProvenance({
       rootDir: ROOT,
       file: 'translate-pending.yml',
       expectedRepository: CONTRACT.sourceRepository,
-      fetchImpl: async (url, init) => {
+      fetchImpl: async (url: string, init: RequestInit) => {
         requests.push({ url, init });
         return new Response(LOCAL_BYTES, { status: 200 });
       },
