@@ -4,7 +4,7 @@ import { persistMailgunEvent } from '../functions/src/newsletterMailgunWebhookCo
 /**
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events').where('event_type', 'in', ['open', 'click'])`
+ * `.collection('events')`
  * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
@@ -41,6 +41,14 @@ function createFakeDb(
         },
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
+          const query = {
+            orderBy: () => query,
+            limit: () => query,
+            get: async () => {
+              const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+              return { docs: seeded.map((d) => ({ data: () => d })) };
+            },
+          };
           return {
             doc: (subDocId: string) => ({
               set: async (data: Record<string, unknown>, _opts?: unknown) => {
@@ -52,16 +60,7 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            where: () => ({
-              orderBy: () => ({
-                limit: () => ({
-                  get: async () => {
-                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                    return { docs: seeded.map((d) => ({ data: () => d })) };
-                  },
-                }),
-              }),
-            }),
+            ...query,
           };
         },
       };

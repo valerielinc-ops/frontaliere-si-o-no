@@ -6,7 +6,7 @@ import { persistMailjetEvent, handleMailjetWebhookRequest } from '../functions/s
  *
  * `existingEvents` seeds the `events` subcollection per doc (keyed by
  * `${collection}/${docId}`) so refreshPreferredSendHour's
- * `.collection('events').where('event_type', 'in', ['open', 'click'])`
+ * `.collection('events')`
  * `.orderBy('occurred_at', 'desc').limit(300).get()`
  * query (FRO — #3798) has something to read. Real Firestore query semantics
  * (actual ordering/limiting) aren't reproduced — these tests only need the
@@ -42,6 +42,14 @@ function createFakeDb(
         },
         collection: (subName: string) => {
           const subPath = `${name}/${docId}/${subName}`;
+          const query = {
+            orderBy: () => query,
+            limit: () => query,
+            get: async () => {
+              const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
+              return { docs: seeded.map((d) => ({ data: () => d })) };
+            },
+          };
           return {
             doc: (subDocId: string) => ({
               set: async (data: Record<string, unknown>, _opts?: unknown) => {
@@ -53,16 +61,7 @@ function createFakeDb(
             },
             // Minimal query shim: only `events` collections are queried
             // (refreshPreferredSendHour), keyed on `${name}/${docId}`.
-            where: () => ({
-              orderBy: () => ({
-                limit: () => ({
-                  get: async () => {
-                    const seeded = subName === 'events' ? (existingEvents[`${name}/${docId}`] || []) : [];
-                    return { docs: seeded.map((d) => ({ data: () => d })) };
-                  },
-                }),
-              }),
-            }),
+            ...query,
           };
         },
       };
@@ -236,7 +235,7 @@ describe('newsletterMailjetWebhookCore', () => {
       expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
     });
 
-    it('does NOT refresh preferred_send_hour on a "sent" event (no time-of-day signal)', async () => {
+    it('updates the all-event preferred-send-hour buffer on a "sent" event', async () => {
       const db = createFakeDb();
 
       await persistMailjetEvent(db as any, {
@@ -250,7 +249,8 @@ describe('newsletterMailjetWebhookCore', () => {
       const preferredSet = db.__sets.find(
         (s) => s.collection === 'newsletter_subscribers' && 'preferred_send_sample_count' in s.data,
       );
-      expect(preferredSet).toBeUndefined();
+      expect(preferredSet).toBeTruthy();
+      expect(preferredSet!.data.preferred_send_sample_count).toBe(0);
     });
 
     it('processes "bounce" event and marks subscriber as bounced', async () => {

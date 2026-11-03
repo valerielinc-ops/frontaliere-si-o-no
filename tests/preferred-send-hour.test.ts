@@ -3,6 +3,7 @@ import {
   circularMeanToHour,
   computePreferredSendHour,
   PREFERRED_SEND_MIN_EVENTS,
+  PREFERRED_SEND_HOUR_BUFFER_SIZE,
   PREFERRED_SEND_REFRESH_INTERVAL_MS,
   PREFERRED_SEND_WINDOW_DAYS,
   refreshPreferredSendHour,
@@ -34,37 +35,58 @@ function createFakeSubscriberRef({
   events = [] as Array<Record<string, unknown>>,
 } = {}) {
   const sets: Array<{ data: Record<string, unknown>; opts?: unknown }> = [];
-  let eventsQueried = false;
+  let currentDocData = docData ? { ...docData } : null;
+  let eventsQueryCount = 0;
   let eventsWhere: { field: string; operator: string; value: unknown } | null = null;
-  const ref = {
-    get: async () => ({ exists: !!docData, data: () => docData }),
+  let eventsOrderBy: { field: string; direction: string } | null = null;
+  let eventsLimit: number | null = null;
+  const snapshot = () => ({ exists: !!currentDocData, data: () => currentDocData });
+  const ref: any = {
+    get: async () => snapshot(),
     set: async (data: Record<string, unknown>, opts?: unknown) => {
       sets.push({ data, opts });
+      currentDocData = opts && typeof opts === 'object' && (opts as { merge?: boolean }).merge
+        ? { ...(currentDocData || {}), ...data }
+        : { ...data };
     },
     collection: (name: string) => {
       if (name !== 'events') throw new Error(`unexpected subcollection: ${name}`);
-      return {
+      const query = {
         where: (field: string, operator: string, value: unknown) => {
           eventsWhere = { field, operator, value };
-          return {
-            orderBy: () => ({
-              limit: () => ({
-                get: async () => {
-                  eventsQueried = true;
-                  return { docs: events.map((d) => ({ data: () => d })) };
-                },
-              }),
-            }),
-          };
+          return query;
+        },
+        orderBy: (field: string, direction: string) => {
+          eventsOrderBy = { field, direction };
+          return query;
+        },
+        limit: (limit: number) => {
+          eventsLimit = limit;
+          return query;
+        },
+        get: async () => {
+          eventsQueryCount += 1;
+          return { docs: events.map((d) => ({ data: () => d })) };
         },
       };
+      return query;
     },
+  };
+  ref.firestore = {
+    runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => updateFunction({
+      get: async (target: any) => (target === ref ? snapshot() : target.get()),
+      set: (target: any, data: Record<string, unknown>, opts?: unknown) => target.set(data, opts),
+    }),
   };
   return {
     ref,
     sets,
-    wasEventsQueried: () => eventsQueried,
+    wasEventsQueried: () => eventsQueryCount > 0,
+    eventsQueryCount: () => eventsQueryCount,
     eventsWhere: () => eventsWhere,
+    eventsOrderBy: () => eventsOrderBy,
+    eventsLimit: () => eventsLimit,
+    docData: () => currentDocData,
   };
 }
 
@@ -76,6 +98,14 @@ function firestoreEventAt(daysAgo: number, hourUtc: number) {
   const d = new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000);
   d.setUTCHours(hourUtc, 0, 0, 0);
   return { event_type: 'open', occurred_at: d.toISOString() };
+}
+
+function bufferEntry(type: string, occurredAt: Date) {
+  return {
+    event_type: type,
+    hour_utc: occurredAt.getUTCHours(),
+    occurred_at: occurredAt.toISOString(),
+  };
 }
 
 describe('preferredSendHour (functions/src/lib)', () => {
@@ -295,22 +325,152 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     expect(PREFERRED_SEND_REFRESH_INTERVAL_MS).toBe(6 * 60 * 60 * 1000);
   });
 
-  it('filters the events query to open/click before applying the 300-row limit', async () => {
-    const { ref, eventsWhere } = createFakeSubscriberRef();
+  it('uses the legacy all-event order/limit query without a server-side type filter', async () => {
+    const { ref, eventsWhere, eventsOrderBy, eventsLimit } = createFakeSubscriberRef();
 
     await refreshPreferredSendHour(ref as never, fakeFieldValue());
 
-    expect(eventsWhere()).toEqual({
-      field: 'event_type',
-      operator: 'in',
-      value: ['open', 'click'],
+    expect(eventsWhere()).toBeNull();
+    expect(eventsOrderBy()).toEqual({ field: 'occurred_at', direction: 'desc' });
+    expect(eventsLimit()).toBe(PREFERRED_SEND_HOUR_BUFFER_SIZE);
+  });
+
+  it('backfills all event types with exactly one legacy query and never queries it again', async () => {
+    const events = [
+      { event_type: 'send', occurred_at: new Date(Date.now() - 1 * 86400000).toISOString() },
+      { event_type: 'delivered', occurred_at: new Date(Date.now() - 2 * 86400000).toISOString() },
+      { event_type: 'open', occurred_at: new Date(Date.now() - 3 * 86400000).toISOString() },
+    ];
+    const fake = createFakeSubscriberRef({ events });
+
+    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+
+    expect(fake.eventsQueryCount()).toBe(1);
+    const buffer = fake.docData()?.preferred_send_hour_buffer as Array<Record<string, unknown>>;
+    expect(buffer).toHaveLength(3);
+    expect(buffer.map((entry) => entry.event_type)).toEqual(['open', 'delivered', 'send']);
+    expect(buffer.every((entry) => Number.isInteger(entry.hour_utc)
+      && (entry.hour_utc as number) >= 0 && (entry.hour_utc as number) <= 23)).toBe(true);
+    expect(fake.docData()?.preferred_send_hour_buffer_last_timestamp).toBe(events[0].occurred_at);
+
+    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+    expect(fake.eventsQueryCount()).toBe(1);
+  });
+
+  it('keeps send/delivered in the buffer but estimates from open/click only', async () => {
+    const occurredAt = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const events = [
+      { type: 'send', occurredAt },
+      { type: 'delivered', occurredAt },
+      { type: 'open', occurredAt },
+      { type: 'click', occurredAt },
+    ];
+    const fake = createFakeSubscriberRef({
+      docData: {
+        preferred_send_hour_buffer: events.map((event) => bufferEntry(event.type, event.occurredAt)),
+        preferred_send_hour_buffer_last_timestamp: occurredAt.toISOString(),
+        preferred_send_sample_count: 3,
+        preferred_send_updated_at: new Date(Date.now() - PREFERRED_SEND_REFRESH_INTERVAL_MS - 1000),
+      },
     });
+
+    const result = await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+
+    expect(fake.eventsQueryCount()).toBe(0);
+    expect(result).toMatchObject(computePreferredSendHour(
+      events.filter((event) => event.type === 'open' || event.type === 'click'),
+    ));
+    expect((fake.docData()?.preferred_send_hour_buffer as Array<Record<string, unknown>>)
+      .map((entry) => entry.event_type)).toEqual(['send', 'delivered', 'open', 'click']);
+    expect(result.sampleCount).toBe(2);
+    expect(result.updated).toBe(true);
+  });
+
+  it('matches the legacy calculation on a mixed 300-event window', async () => {
+    const occurredAt = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const events = Array.from({ length: PREFERRED_SEND_HOUR_BUFFER_SIZE }, (_, index) => ({
+      type: ['send', 'delivered', 'open', 'click', 'bounce'][index % 5],
+      occurredAt,
+    }));
+    const expected = computePreferredSendHour(
+      events.filter((event) => event.type === 'open' || event.type === 'click'),
+    );
+    const fake = createFakeSubscriberRef({
+      docData: {
+        preferred_send_hour_buffer: events.map((event) => bufferEntry(event.type, event.occurredAt)),
+        preferred_send_hour_buffer_last_timestamp: occurredAt.toISOString(),
+        preferred_send_updated_at: new Date(Date.now() - PREFERRED_SEND_REFRESH_INTERVAL_MS - 1000),
+      },
+    });
+
+    const result = await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+
+    expect(fake.eventsQueryCount()).toBe(0);
+    expect(result).toMatchObject(expected);
+    expect(result.sampleCount).toBe(expected.sampleCount);
+    expect(result.strength).toBe(expected.strength);
+  });
+
+  it('truncates a mixed circular buffer to the 300 newest events', async () => {
+    const hour = 60 * 60 * 1000;
+    const currentAt = new Date(Date.now() - 30 * 60 * 1000);
+    const firstAt = new Date(currentAt.getTime() - 300 * hour);
+    const initialBuffer = Array.from({ length: PREFERRED_SEND_HOUR_BUFFER_SIZE }, (_, index) => (
+      bufferEntry(['send', 'delivered', 'open', 'click'][index % 4], new Date(firstAt.getTime() + index * hour))
+    ));
+    const fake = createFakeSubscriberRef({
+      docData: {
+        preferred_send_hour_buffer: initialBuffer,
+        preferred_send_hour_buffer_last_timestamp: initialBuffer.at(-1)!.occurred_at,
+        preferred_send_sample_count: 300,
+        preferred_send_updated_at: new Date(Date.now() - PREFERRED_SEND_REFRESH_INTERVAL_MS - 1000),
+      },
+    });
+
+    await refreshPreferredSendHour(fake.ref as never, fakeFieldValue(), {
+      type: 'send',
+      occurredAt: currentAt,
+    });
+
+    const buffer = fake.docData()?.preferred_send_hour_buffer as Array<Record<string, unknown>>;
+    expect(fake.eventsQueryCount()).toBe(0);
+    expect(buffer).toHaveLength(PREFERRED_SEND_HOUR_BUFFER_SIZE);
+    expect(buffer[0].occurred_at).toBe(initialBuffer[1].occurred_at);
+    expect(buffer.at(-1)).toMatchObject({
+      event_type: 'send',
+      hour_utc: currentAt.getUTCHours(),
+      occurred_at: currentAt.toISOString(),
+    });
+  });
+
+  it('uses a present buffer without querying the events subcollection', async () => {
+    const occurredAt = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const events = [
+      { type: 'send', occurredAt },
+      { type: 'delivered', occurredAt },
+      { type: 'open', occurredAt },
+      { type: 'click', occurredAt },
+    ];
+    const fake = createFakeSubscriberRef({
+      docData: {
+        preferred_send_hour_buffer: events.map((event) => bufferEntry(event.type, event.occurredAt)),
+        preferred_send_hour_buffer_last_timestamp: occurredAt.toISOString(),
+        preferred_send_updated_at: new Date(Date.now() - PREFERRED_SEND_REFRESH_INTERVAL_MS - 1000),
+      },
+    });
+
+    const result = await refreshPreferredSendHour(fake.ref as never, fakeFieldValue());
+
+    expect(fake.eventsQueryCount()).toBe(0);
+    expect(result.updated).toBe(true);
   });
 
   it('skips the events query and write when sample_count >= threshold and updated_at is fresh (<6h)', async () => {
     const freshDate = new Date(Date.now() - 60 * 60 * 1000); // 1h ago
     const { ref, sets, wasEventsQueried } = createFakeSubscriberRef({
       docData: {
+        preferred_send_hour_buffer: [],
+        preferred_send_hour_buffer_last_timestamp: null,
         preferred_send_sample_count: 5,
         preferred_send_hour_utc: 9,
         preferred_send_strength: 0.8,
@@ -372,6 +532,8 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     const freshDate = new Date(Date.now() - 60 * 60 * 1000);
     const { ref, wasEventsQueried } = createFakeSubscriberRef({
       docData: {
+        preferred_send_hour_buffer: [],
+        preferred_send_hour_buffer_last_timestamp: null,
         preferred_send_sample_count: 4,
         preferred_send_hour_utc: 10,
         preferred_send_strength: 0.5,
@@ -467,12 +629,12 @@ describe('refreshPreferredSendHour — churn instrumentation (#3798 Fix MEDIO-BA
 
 // Gap flagged by #3798 code review: the catch block (mirrors refreshEngagementScore's
 // swallow-and-console.warn idiom) had no direct test forcing it to actually execute.
-// Both possible throw sites inside the try are exercised separately: the initial
-// subscriberRef.get() (staleness-gate read) and the events subcollection query.
+// Both possible throw sites inside the try are exercised separately: the
+// transaction's subscriber read and the events subcollection query.
 describe('refreshPreferredSendHour — error handling (catch path, #3798 code review)', () => {
-  it('swallows a thrown error from subscriberRef.get() and returns { updated: false } without writing', async () => {
+  it('swallows a thrown error from the subscriber transaction read and returns { updated: false } without writing', async () => {
     const sets: Array<{ data: unknown; opts?: unknown }> = [];
-    const ref = {
+    const ref: any = {
       get: async () => {
         throw new Error('boom-get');
       },
@@ -483,6 +645,12 @@ describe('refreshPreferredSendHour — error handling (catch path, #3798 code re
         throw new Error('should not reach the events collection when get() already threw');
       },
     };
+    ref.firestore = {
+      runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => updateFunction({
+        get: async (target: any) => target.get(),
+        set: (target: any, data: unknown, opts?: unknown) => target.set(data, opts),
+      }),
+    };
 
     const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
 
@@ -492,7 +660,7 @@ describe('refreshPreferredSendHour — error handling (catch path, #3798 code re
 
   it('swallows a thrown error from the events subcollection query and returns { updated: false } without writing', async () => {
     const sets: Array<{ data: unknown; opts?: unknown }> = [];
-    const ref = {
+    const ref: any = {
       get: async () => ({ exists: false, data: () => null }),
       set: async (data: unknown, opts?: unknown) => {
         sets.push({ data, opts });
@@ -509,6 +677,12 @@ describe('refreshPreferredSendHour — error handling (catch path, #3798 code re
           }),
         };
       },
+    };
+    ref.firestore = {
+      runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => updateFunction({
+        get: async (target: any) => target === ref ? target.get() : target.get(),
+        set: (target: any, data: unknown, opts?: unknown) => target.set(data, opts),
+      }),
     };
 
     const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());

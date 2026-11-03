@@ -425,17 +425,12 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  occurred_at: occurredAt,
  });
 
- // Refresh preferred send hour (#3798) — only open/click carry a time-of-day
- // signal. Runs AFTER the events.add() above so the just-arrived event is
- // itself part of the sample the recompute reads back (otherwise the
- // computation always lags one event behind, and the cold-start threshold
- // would only ever be cleared on the event *after* the 3rd one).
- if (type === 'open' || type === 'click') {
+ // Refresh the all-event preferred-send-hour buffer after the event log write.
  await refreshPreferredSendHour(
  db.collection('newsletter_subscribers').doc(email),
  FieldValue,
+ { type, occurredAt },
  );
- }
 
  return { handled: true, email, type, campaignId };
 }
@@ -561,13 +556,8 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  });
 
  // ── Preferred send hour (#3798) ──────────────────────────────
- // job_alert_subscribers/{email} has the same events subcollection shape as
- // newsletter_subscribers. Only open/click carry a time-of-day signal. Runs
- // AFTER the events.add() above so the current event is part of the sample
- // it reads.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue);
- }
+ // Refresh the all-event preferred-send-hour buffer after the event log write.
+ await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
 }
 
 export async function handleResendWebhookRequest({ payload, headers, webhookSecret }) {
