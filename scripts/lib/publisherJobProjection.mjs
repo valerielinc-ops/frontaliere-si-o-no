@@ -1,5 +1,5 @@
 /**
- * Project a paid PublisherJob (Firestore) into by-crawler job records.
+ * Project a live PublisherJob (Firestore) into by-crawler job records.
  *
  * The assemble pipeline (scripts/assemble-jobs-dataset.mjs) is source-agnostic:
  * a publisher ad becomes ONE record PER LOCATION in
@@ -13,6 +13,8 @@
  * the assemble pipeline (deriveLocalizedSlug); here we emit a deterministic
  * starting slug + a stable id so dedup/merge identity is preserved across runs.
  */
+
+import { normalizeEmployerOrigin } from '../../services/employerChannelOrigin.mjs';
 
 export const PUBLISHER_SOURCE_KEY = 'publisher-submitted';
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
@@ -143,6 +145,7 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   }
 
   const company = pubJob.company || {};
+  const origin = normalizeEmployerOrigin(pubJob.origin);
   const companyName = String(company.name || '').trim();
   const companyKey = company.companyKey || slugifyPublisher(companyName);
   // Publisher-provided logo URL (form field company.logoUrl). https-only (the
@@ -211,6 +214,7 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       company: companyName,
       companyKey,
       companyDomain: company.domain || null,
+      ...(origin ? { origin } : {}),
       ...(companyLogo ? { companyLogo } : {}),
       ...(descriptionMd ? { descriptionMd } : {}),
       location: locationLabel,

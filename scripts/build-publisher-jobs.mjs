@@ -2,7 +2,8 @@
 /**
  * build-publisher-jobs.mjs
  *
- * Reads paid publisher ads from Firestore (`publisher_jobs` where status == 'paid')
+ * Reads live publisher ads from Firestore (`publisher_jobs` where status is
+ * `paid` or `published`)
  * and projects them into the source-agnostic by-crawler slice
  * `data/jobs/by-crawler/publisher-submitted.json` via the canonical
  * writeJobsCrawlerSlice() funnel (same write-time normalization as every crawler).
@@ -42,11 +43,11 @@ async function main() {
   const records = publisherJobsToSlice(pubJobs, { nowIso });
 
   // writeJobsCrawlerSlice always writes the file (empty array clears the slice
-  // when the last paid ad expires — keeps the slice authoritative, not stale).
+  // when the last live ad expires — keeps the slice authoritative, not stale).
   writeJobsCrawlerSlice(PUBLISHER_SOURCE_KEY, records);
 
   // Stamp each projected ad with its public URL + projection timestamp so the
-  // publisher dashboard can distinguish "In revisione" (paid but not yet picked
+  // publisher dashboard can distinguish "In revisione" (live but not yet picked
   // up by this sync) from "Online" (projected into the slice + deploy triggered)
   // and link to the live page. Best-effort — never fail the slice write over it.
   try {

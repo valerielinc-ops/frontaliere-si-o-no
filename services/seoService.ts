@@ -97,7 +97,7 @@ let seoUpdateEpoch = 0;
 async function isDirectEmployerRuntimeEnabled(): Promise<boolean> {
  try {
   const { fetchAndActivate, getConfigValue } = await import('./firebase');
-  await fetchAndActivate();
+  if (!(await fetchAndActivate())) return false;
   return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
  } catch {
   return false;

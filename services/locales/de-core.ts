@@ -3106,9 +3106,9 @@ Regeln:
  // Publisher portal — Stelleninserat aufgeben
  'publisher.title': 'Stelleninserat aufgeben',
  'seo.directEmployer.title': 'Kostenloses Stellenangebot veröffentlichen | Frontaliere Ticino',
- 'seo.directEmployer.description': 'Kleine Betriebe und lokale Geschäfte können ohne Konto kostenlos eine Tessiner Stelle veröffentlichen: Arbeitgeberbestätigung, menschliche Moderation und automatische Löschung nach 30 Tagen.',
+ 'seo.directEmployer.description': 'Kleine Betriebe und lokale Geschäfte können über den Publisher-Ablauf kostenlos eine Stelle im Tessin veröffentlichen: sicherer Zugang, reCAPTCHA-Prüfung, Moderation und automatische Löschung.',
  'seo.permanentEmployer.title': 'Arbeitgeber für Spontanbewerbungen | Frontaliere Ticino',
- 'seo.permanentEmployer.description': 'Öffentliche Liste von Arbeitgebern, die Spontanbewerbungen prüfen können, von Bewerbenden gemeldet und vom Team geprüft. Dies sind keine offenen Stellen.',
+ 'seo.permanentEmployer.description': 'Öffentliche Liste von Arbeitgebern, die der Prospector gefunden hat, weil sie Spontanbewerbungen sammeln. Meldungen von Bewerbenden sind zweitrangig; dies sind keine offenen Stellen.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

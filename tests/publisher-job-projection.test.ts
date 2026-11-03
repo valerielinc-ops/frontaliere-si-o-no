@@ -38,7 +38,7 @@ describe('publisherJobToRecords', () => {
     expect(recs.map((r: any) => r.location).sort()).toEqual(['Locarno', 'Lugano']);
   });
 
-  it('only projects paid jobs', () => {
+  it('only projects live jobs', () => {
     expect(publisherJobToRecords(paidJob({ status: 'pending_payment' }), { nowIso: NOW })).toEqual([]);
     expect(publisherJobToRecords(paidJob({ status: 'draft' }), { nowIso: NOW })).toEqual([]);
     expect(publisherJobToRecords(paidJob({ status: 'archived' }), { nowIso: NOW })).toEqual([]);
@@ -272,6 +272,22 @@ describe('slug helpers', () => {
     const long = 'a'.repeat(60) + '-' + 'b'.repeat(80);
     expect(truncatePublisherSlug(long, 120).endsWith('-')).toBe(false);
     expect(truncatePublisherSlug(long, 120).length).toBeLessThanOrEqual(120);
+  });
+});
+
+describe('employer origin attribution', () => {
+  it('keeps the free-entry source on the projected record but not on standard ads', () => {
+    const nowIso = new Date().toISOString();
+    const [freeRecord] = publisherJobToRecords(
+      paidJob({ tier: 'free', status: 'published', origin: ' Comune Ticino / QR #1 ', locations: [{ label: 'Lugano' }] }),
+      { nowIso },
+    );
+    const [standardRecord] = publisherJobToRecords(
+      paidJob({ locations: [{ label: 'Lugano' }] }),
+      { nowIso },
+    );
+    expect(freeRecord.origin).toBe('ComuneTicinoQR1');
+    expect(standardRecord.origin).toBeUndefined();
   });
 });
 

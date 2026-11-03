@@ -283,7 +283,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'plate-auctions' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'direct-employers' | 'permanent-employers' | 'employer-qr' | 'direct-employer-verify' | 'direct-employer-apply' | 'direct-employer-renew' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'plate-auctions' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'direct-employers' | 'permanent-employers' | 'employer-qr' | 'employer-insights' | 'journalist-dashboard' | 'subscribe' | 'followed-companies' | 'petition';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -1917,9 +1917,6 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.directEmployers]: { tab: 'direct-employers' },
  [table.permanentEmployers]: { tab: 'permanent-employers' },
  [table.employerQr]: { tab: 'employer-qr' },
- [table.directEmployerVerify]: { tab: 'direct-employer-verify' },
- [table.directEmployerApply]: { tab: 'direct-employer-apply' },
- [table.directEmployerRenew]: { tab: 'direct-employer-renew' },
  [table.partners]: { tab: 'partners' },
  [table.consulting]: { tab: 'consulting' },
  [table.pressKit]: { tab: 'press-kit' as const },
@@ -3912,12 +3909,6 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.permanentEmployers}${hashSuffix}`);
  case 'employer-qr':
  return finish(`${prefix}/${table.employerQr}${hashSuffix}`);
- case 'direct-employer-verify':
- return finish(`${prefix}/${table.directEmployerVerify}${hashSuffix}`);
- case 'direct-employer-apply':
- return finish(`${prefix}/${table.directEmployerApply}${hashSuffix}`);
- case 'direct-employer-renew':
- return finish(`${prefix}/${table.directEmployerRenew}${hashSuffix}`);
  case 'employer-insights':
  // Per-company stats page; the real per-company link (with ?t=token) is
  // generated server-side (scripts/lib/employer-insights-token.mjs). The

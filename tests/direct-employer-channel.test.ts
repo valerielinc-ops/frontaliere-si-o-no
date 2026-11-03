@@ -1,191 +1,73 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
-  DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS,
-  DIRECT_EMPLOYER_SOURCE_KEY,
+  DIRECT_EMPLOYER_FLAG,
+  PERMANENT_EMPLOYER_COLLECTION,
   PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS,
-  buildDirectEmployerJob,
-  listDirectEmployerSubmissions,
+  listPermanentEmployerSignals,
+  listPermanentEmployers,
   markPermanentEmployer,
-  normalizeDirectEmployerSubmission,
-  purgeDirectEmployerPii,
-  renewDirectEmployerListing,
-} from '../functions/src/directEmployerCore.js';
-import { directEmployerSubmissionToRecords } from '../scripts/lib/directEmployerJobProjection.mjs';
+  moderatePermanentEmployerSignal,
+  readDirectEmployerChannelEnabled,
+} from '../functions/src/permanentEmployerCore.js';
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 import { buildPermanentEmployerFeed } from '../build-plugins/adminDataPlugin';
+import { fetchAndActivate, getConfigValue } from '../services/firebase';
 import {
   filterDirectEmployerSitemapXml,
   isDirectEmployerBuildEnabled,
   isDirectEmployerSeoPath,
 } from '../services/directEmployerFeature';
+import { loadPermanentEmployers } from '../services/directEmployerChannel';
+import { normalizeEmployerOrigin } from '../services/employerChannelOrigin.mjs';
 
-function daysFrom(reference: Date, days: number): Date {
-  return new Date(reference.getTime() + days * 24 * 60 * 60 * 1000);
+function jsonResponse(body: unknown, status = 200) {
+  return { ok: status >= 200 && status < 300, status, json: async () => body };
 }
 
-function description(wordCount = DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS): string {
-  return Array.from({ length: wordCount }, (_, index) => `informazione-${index + 1}`).join(' ');
-}
-
-function submission(over: Record<string, unknown> = {}) {
-  return {
-    id: 'submission-direct-1',
-    status: 'approved',
-    companyName: 'Salumeria del Borgo SA',
-    companyWebsite: 'https://salumeria.example.ch',
-    title: 'Addetto banco gastronomia',
-    locationLabel: 'Mendrisio',
-    streetAddress: 'Via del Borgo 4',
-    postalCode: '6850',
-    canton: 'TI',
-    employmentType: 'FULL_TIME',
-    description: description(),
-    contactEmail: 'datore@example.ch',
-    approvedAt: daysFrom(new Date(), -1),
-    expiresAt: daysFrom(new Date(), 29),
-    ...over,
-  };
-}
-
-function moderationDb(records: Array<{ id: string; data: Record<string, unknown> }>) {
-  const docs = new Map(records.map(({ id, data }) => {
-    const state = { ...data };
-    const snapshot = { id, exists: true, data: () => state } as { id: string; exists: boolean; data: () => Record<string, unknown>; ref: { get: () => Promise<unknown>; update: (patch: Record<string, unknown>) => Promise<void> } };
-    const ref = {
-      get: async () => snapshot,
-      update: async (patch: Record<string, unknown>) => Object.assign(state, patch),
-    };
-    snapshot.ref = ref;
-    return [id, snapshot];
-  }));
-  const missing = (id: string) => ({ id, exists: false, data: () => undefined, get: async () => ({ id, exists: false, data: () => undefined }), update: async () => undefined });
-  const collection = {
-    doc(id: string) { return docs.get(id)?.ref || missing(id); },
-    where(field: string, operator: string, value: unknown) {
-      let cursor = '';
-      let limit = 50;
-      const query = {
-        orderBy() { return query; },
-        limit(value: number) { limit = value; return query; },
-        startAfter(doc: { id: string }) { cursor = doc.id; return query; },
-        async get() {
-          const matching = [...docs.values()]
-            .filter((doc) => {
-              const candidate = doc.data()[field];
-              if (operator === '==' && field === 'status') return candidate === value;
-              if (operator === '<=') return candidate instanceof Date && candidate.getTime() <= new Date(String(value)).getTime();
-              return true;
-            })
-            .sort((left, right) => left.id.localeCompare(right.id));
-          const start = cursor ? matching.findIndex((doc) => doc.id === cursor) + 1 : 0;
-          const page = matching.slice(Math.max(start, 0), Math.max(start, 0) + limit);
-          return { docs: page, size: page.length, empty: page.length === 0 };
-        },
-      };
-      return query;
-    },
-  };
-  const updates: Array<{ ref: unknown; patch: Record<string, unknown> }> = [];
-  return {
-    collection: () => collection,
-    batch: () => ({
-      update(ref: unknown, patch: Record<string, unknown>) { updates.push({ ref, patch }); },
-      commit: async () => updates.forEach(({ ref, patch }) => (ref as { update: (value: Record<string, unknown>) => Promise<void> }).update(patch)),
-    }),
-  };
+function daysAgo(days: number): Date {
+  return new Date(Date.now() - days * 24 * 60 * 60 * 1000);
 }
 
 function permanentEmployerDb(initial: Record<string, unknown> = {}) {
   const state = { ...initial };
-  const ref = { get: async () => ({ exists: Object.keys(state).length > 0, data: () => state }) };
-  type Transaction = {
-    get: () => Promise<{ exists: boolean; data: () => Record<string, unknown> }>;
-    set: (_ref: unknown, patch: Record<string, unknown>) => void;
+  const ref = {
+    id: 'signal-1',
+    get: async () => ({ exists: Object.keys(state).length > 0, data: () => state }),
+    update: async (patch: Record<string, unknown>) => Object.assign(state, patch),
+  };
+  const snapshot = {
+    id: ref.id,
+    get exists() { return Object.keys(state).length > 0; },
+    data: () => state,
+    ref,
+  };
+  const docs = [snapshot];
+  const collection = {
+    doc: () => ref,
+    where: () => ({
+      orderBy: () => ({
+        limit: () => ({
+          get: async () => ({ docs }),
+        }),
+      }),
+      limit: () => ({
+        get: async () => ({ docs }),
+      }),
+    }),
   };
   return {
-    collection: () => ({ doc: () => ref }),
-    runTransaction: async (callback: (transaction: Transaction) => Promise<void>) => callback({
+    collection: () => collection,
+    runTransaction: async (callback: (transaction: { get: () => Promise<{ exists: boolean; data: () => Record<string, unknown> }>; set: (_ref: unknown, patch: Record<string, unknown>) => void }) => Promise<void>) => callback({
       get: async () => ({ exists: Object.keys(state).length > 0, data: () => state }),
       set: (_ref, patch) => Object.assign(state, patch),
     }),
     state,
   };
 }
-
-describe('direct employer submission validation', () => {
-  it('accepts a named employer and rejects a thin or risky submission', () => {
-    const valid = normalizeDirectEmployerSubmission({
-      companyName: 'Salumeria del Borgo SA',
-      companyWebsite: 'https://salumeria.example.ch',
-      title: 'Addetto banco gastronomia',
-      locationLabel: 'Mendrisio',
-      employmentType: 'FULL_TIME',
-      description: description(),
-      contactEmail: 'datore@example.ch',
-    });
-    expect(valid.ok).toBe(true);
-    expect(valid.input.descriptionWordCount).toBe(DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS);
-
-    const thin = normalizeDirectEmployerSubmission({ ...valid.input, description: description(DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS - 1) });
-    expect(thin.ok).toBe(false);
-    expect(thin.errors).toContain('description_too_short');
-
-    const risky = normalizeDirectEmployerSubmission({ ...valid.input, companyName: 'Anonimo', description: `${description()} lavoro multilevel` });
-    expect(risky.ok).toBe(false);
-    expect(risky.errors).toEqual(expect.arrayContaining(['company_not_identifiable', 'prohibited_recruitment_copy']));
-  });
-
-  it('keeps a honeypot submission out of moderation', () => {
-    const result = normalizeDirectEmployerSubmission({
-      companyName: 'Officina del Lago',
-      title: 'Meccanico',
-      locationLabel: 'Chiasso',
-      employmentType: 'FULL_TIME',
-      description: description(),
-      contactEmail: 'datore@example.ch',
-      websiteConfirm: 'https://bot.example',
-    });
-    expect(result.ok).toBe(false);
-    expect(result.errors).toContain('honeypot');
-  });
-});
-
-describe('direct employer job projection', () => {
-  it('emits the mandatory structured-data source fields and no contact data', () => {
-    const now = new Date();
-    const [record] = directEmployerSubmissionToRecords(submission(), { now });
-    expect(record.source).toBe(DIRECT_EMPLOYER_SOURCE_KEY);
-    expect(record.description.split(/\s+/u)).toHaveLength(DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS);
-    expect(record.datePosted).toBeTruthy();
-    expect(record.validThrough).toBeTruthy();
-    expect(record.company).toBeTruthy();
-    expect(record.location).toBeTruthy();
-    expect(record.employmentType).toBe('FULL_TIME');
-    expect(record.applyUrl).toMatch(/\/\?job=/u);
-    expect(record).not.toHaveProperty('contactEmail');
-    expect(record).not.toHaveProperty('contactPhone');
-  });
-
-  it('excludes expired and thin approved submissions from the index', () => {
-    const now = new Date();
-    expect(directEmployerSubmissionToRecords(submission({ expiresAt: daysFrom(now, -1) }), { now })).toEqual([]);
-    expect(directEmployerSubmissionToRecords(submission({ description: description(DIRECT_EMPLOYER_MIN_DESCRIPTION_WORDS - 1) }), { now })).toEqual([]);
-  });
-
-  it('excludes an approved listing after contact retention purges its contact', () => {
-    const now = new Date();
-    expect(directEmployerSubmissionToRecords(submission({ contactEmail: undefined, contactPhone: undefined }), { now })).toEqual([]);
-  });
-
-  it('fills safe address and salary defaults for structured data consumers', () => {
-    const job = buildDirectEmployerJob(submission({ streetAddress: '', postalCode: '', salaryMin: null, salaryMax: null }), new Date());
-    expect(job.addressRegion).toBe('TI');
-    expect(job.addressCountry).toBe('CH');
-    expect(job.currency).toBe('CHF');
-    expect(job.employmentType).toBeTruthy();
-  });
-});
 
 describe('direct employer SEO flag', () => {
   it('fails closed and filters both public feature routes until explicitly enabled', () => {
@@ -205,46 +87,62 @@ describe('direct employer SEO flag', () => {
   });
 
   it('bridges the owner flag into the static deploy environment', () => {
-    expect(RC_TO_ENV.DIRECT_EMPLOYER_CHANNEL_ENABLED).toEqual(['DIRECT_EMPLOYER_CHANNEL_ENABLED']);
-  });
-});
-
-describe('direct employer moderation retention', () => {
-  it('paginates moderation results with a stable cursor', async () => {
-    const db = moderationDb([
-      { id: 'a', data: { status: 'pending_moderation' } },
-      { id: 'b', data: { status: 'pending_moderation' } },
-    ]);
-    const first = await listDirectEmployerSubmissions({ db, limit: 1 });
-    const second = await listDirectEmployerSubmissions({ db, limit: 1, cursor: first.nextPageToken });
-    expect(first.items.map((item) => item.id)).toEqual(['a']);
-    expect(second.items.map((item) => item.id)).toEqual(['b']);
-    expect(second.nextPageToken).toBeNull();
+    expect(RC_TO_ENV.DIRECT_EMPLOYER_CHANNEL_ENABLED).toEqual([DIRECT_EMPLOYER_FLAG]);
   });
 
-  it('revokes an approved listing before removing retained contact data', async () => {
-    const db = moderationDb([{ id: 'approved-1', data: { status: 'approved', contactEmail: 'datore@example.ch', piiRetentionUntil: new Date(Date.now() - 86400000) } }]);
-    expect(await purgeDirectEmployerPii({ db, now: new Date() })).toBe(1);
-    const page = await listDirectEmployerSubmissions({ db, status: 'expired' });
-    expect(page.items[0]).toMatchObject({ id: 'approved-1', status: 'expired', publicEligible: false });
+  it('emits the prospector feed when the owner flag is enabled', () => {
+    const root = mkdtempSync(join(tmpdir(), 'frontaliere-permanent-feed-'));
+    const candidatesPath = join(root, 'data/prospector/candidates.json');
+    try {
+      mkdirSync(`${root}/data/prospector`, { recursive: true });
+      writeFileSync(candidatesPath, JSON.stringify({ candidates: {
+        'prospector.example': {
+          name: 'Prospector Example SA',
+          domain: 'prospector.example',
+          permanentApplicationOnly: true,
+          city: 'Lugano',
+        },
+      } }));
+      const feed = JSON.parse(buildPermanentEmployerFeed(root, true)) as { employers: unknown[] };
+      expect(feed.employers).toHaveLength(1);
+      expect(feed.employers[0]).toMatchObject({ companyName: 'Prospector Example SA', locationLabel: 'Lugano' });
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
-  it('rejects renewal after contact retention has been purged', async () => {
-    const db = moderationDb([{ id: 'approved-1', data: { status: 'approved', manageTokenHash: 'kept-capability-only' } }]);
-    const result = await renewDirectEmployerListing({
-      submissionId: 'approved-1',
-      auth: { token: { phone_number: '+41791234567' } },
-      db,
-      now: new Date(),
-    });
-    expect(result).toEqual({ ok: false, error: 'contact_retention_expired' });
+  it('keeps the enabled prospector feed visible when the runtime list is unavailable', async () => {
+    vi.mocked(fetchAndActivate).mockResolvedValueOnce(true);
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes('getPermanentEmployers')) return jsonResponse({ enabled: true, employers: [] }, 503);
+      if (url.includes('permanent-employers.json')) {
+        return jsonResponse({ employers: [{ id: 'prospector-1', companyName: 'Prospector Example SA', website: 'https://prospector.example/' }] });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    }));
+    try {
+      vi.mocked(getConfigValue).mockResolvedValueOnce('true');
+      await expect(loadPermanentEmployers()).resolves.toEqual({
+        enabled: true,
+        employers: [{ id: 'prospector-1', companyName: 'Prospector Example SA', website: 'https://prospector.example/' }],
+      });
+      expect(fetchAndActivate).toHaveBeenCalled();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('reads the flag fail-closed when Remote Config is unavailable', async () => {
+    expect(await readDirectEmployerChannelEnabled(async () => 'true')).toBe(true);
+    expect(await readDirectEmployerChannelEnabled(async () => { throw new Error('rc unavailable'); })).toBe(false);
   });
 });
 
 describe('prospector permanent-employer projection', () => {
   it('publishes only explicit permanent signals and strips operational fields', () => {
     const feed = projectPermanentEmployerFeed({
-      updatedAt: daysFrom(new Date(), -1).toISOString(),
+      updatedAt: daysAgo(1).toISOString(),
       candidates: {
         'salumeria.example': {
           name: 'Salumeria del Borgo SA',
@@ -280,7 +178,7 @@ describe('prospector permanent-employer projection', () => {
   });
 });
 
-describe('permanent-employer candidate signals', () => {
+describe('permanent-employer signals', () => {
   it('caps repeated marks and preserves an already approved signal', async () => {
     const db = permanentEmployerDb({ status: 'approved', candidateMarks: PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS });
     const result = await markPermanentEmployer({
@@ -290,5 +188,28 @@ describe('permanent-employer candidate signals', () => {
     });
     expect(result).toEqual({ ok: true, status: 'approved' });
     expect(db.state.candidateMarks).toBe(PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS);
+  });
+
+  it('lists approved employers through the no-argument production call shape', async () => {
+    const db = permanentEmployerDb({ status: 'approved', companyName: 'Prospector Employer SA', website: 'https://prospector.example.ch' });
+    const employers = await listPermanentEmployers({ db });
+    expect(employers).toEqual([{ id: 'signal-1', companyName: 'Prospector Employer SA', website: 'https://prospector.example.ch/', locationLabel: '' }]);
+  });
+
+  it('keeps moderation pages scoped to the permanent-employer collection', async () => {
+    const db = permanentEmployerDb({ status: 'pending_moderation', companyName: 'Candidate Signal SA', website: 'https://candidate-signal.example.ch' });
+    const page = await listPermanentEmployerSignals({ db });
+    expect(page.items[0]).toMatchObject({ id: 'signal-1', companyName: 'Candidate Signal SA' });
+    expect(PERMANENT_EMPLOYER_COLLECTION).toBe('permanent_employer_signals');
+    const moderated = await moderatePermanentEmployerSignal({ id: 'signal-1', action: 'approve', db });
+    expect(moderated).toEqual({ ok: true, status: 'approved' });
+  });
+});
+
+describe('employer origin attribution', () => {
+  it('keeps only bounded technical QR/source labels', () => {
+    expect(normalizeEmployerOrigin(' Comune Ticino / QR #1 ')).toBe('ComuneTicinoQR1');
+    expect(normalizeEmployerOrigin('')).toBe('');
+    expect(normalizeEmployerOrigin('a'.repeat(80))).toHaveLength(48);
   });
 });

@@ -3081,9 +3081,9 @@ Règles :
  // Publisher portal — publier une offre d'emploi
  'publisher.title': 'Publier une offre d\'emploi',
  'seo.directEmployer.title': 'Publier gratuitement une offre | Frontaliere Ticino',
- 'seo.directEmployer.description': 'Les petites entreprises et commerces locaux peuvent publier gratuitement une offre au Tessin sans compte : vérification de l’employeur, modération humaine et expiration automatique après 30 jours.',
+ 'seo.directEmployer.description': 'Les petites entreprises et commerces locaux peuvent publier gratuitement une offre au Tessin via le flux publisher : accès sécurisé, vérification reCAPTCHA, modération et expiration automatique.',
  'seo.permanentEmployer.title': 'Employeurs ouverts aux candidatures spontanées | Frontaliere Ticino',
- 'seo.permanentEmployer.description': 'Liste publique d’employeurs susceptibles d’étudier des candidatures spontanées, signalés par des candidats et vérifiés par l’équipe. Ce ne sont pas des postes ouverts.',
+ 'seo.permanentEmployer.description': 'Liste publique d’employeurs trouvés par le prospector parce qu’ils recueillent des candidatures spontanées. Les signalements des candidats sont secondaires et ce ne sont pas des postes ouverts.',
 
  // ── Pay-first flow: plan+units payment before ad creation ──
 

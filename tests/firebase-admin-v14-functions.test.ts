@@ -47,4 +47,11 @@ describe('firebase-admin v14 Cloud Functions imports', () => {
     expect(runtimeMajor, 'firebase.json must declare a concrete Node runtime').toBeDefined();
     expect(runtimeMajor).toBe(packageMajor);
   });
+
+  it('pins the shared Firestore client to the initialized Admin app', () => {
+    const source = readFileSync(resolve('functions/src/newsletterResendWebhookCore.js'), 'utf8');
+    expect(source).toContain('const app = ensureAdminApp();');
+    expect(source).toContain('return getFirestore(app);');
+    expect(source).not.toContain('return getFirestore();');
+  });
 });

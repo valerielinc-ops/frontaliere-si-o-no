@@ -56,6 +56,7 @@ import { loadPublisherCredits, type PublisherCredits } from '@/services/publishe
 import { listCantonOptions } from '@/services/cantonList';
 import Autocomplete from '@/components/shared/Autocomplete';
 import { getCantonCities, isKnownCityInCanton } from '@/build-plugins/shared/cantonCities';
+import { normalizeEmployerOrigin } from '@/services/employerChannelOrigin.mjs';
 import type {
  ApplyMode,
  PublisherLegalForm,
@@ -288,6 +289,7 @@ function buildAdFields(
  tier: PublisherTier,
  status: PublisherJobStatus,
  company: { name: string; legalForm: PublisherLegalForm; domain?: string; logoUrl?: string },
+ origin = '',
 ): Record<string, unknown> {
  const jobLocations = buildJobLocations(ad.locations);
  const parsedSalaryMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
@@ -307,6 +309,7 @@ function buildAdFields(
  ...(mdDesc ? { descriptionMd: mdDesc } : {}),
  sourceLang: 'it',
  company,
+ ...(origin ? { origin } : {}),
  locations: jobLocations,
  employmentType: ad.employmentType,
  ...(ad.category.trim() ? { category: ad.category.trim() } : {}),
@@ -326,9 +329,17 @@ function buildAdFields(
  };
 }
 
-const PublisherPublishPage: React.FC = () => {
+type PublisherEntry = 'standard' | 'free';
+
+interface PublisherPublishPageProps {
+ entry?: PublisherEntry;
+ origin?: string;
+}
+
+const PublisherPublishPage: React.FC<PublisherPublishPageProps> = ({ entry = 'standard', origin = '' }) => {
  const { t, locale } = useTranslation();
  const { user, loading } = useAuth();
+ const isFreeEntry = entry === 'free';
 
  // ── Auth gate: email path state ─────────────────────────────
  // The gate offers Google + LinkedIn (SocialSignInButtons) and an email path.
@@ -349,7 +360,7 @@ const PublisherPublishPage: React.FC = () => {
  // ── Tier ────────────────────────────────────────────────────
  // free      → plain crawler-style listing (no featured/blast, external apply only), no payment.
  // sponsored → paid subscription (featured/blast/all apply modes), Stripe checkout.
- const [tier, setTier] = useState<PublisherTier>('sponsored');
+ const [tier, setTier] = useState<PublisherTier>(isFreeEntry ? 'free' : 'sponsored');
  const isFree = Boolean(String(tier) === 'free');
 
  // ── Pay-first prepaid credits ────────────────────────────────
@@ -500,8 +511,11 @@ const PublisherPublishPage: React.FC = () => {
  };
 
  useEffect(() => {
- Analytics.trackPageView('/pubblica-offerta/', 'Publisher Publish Page');
- Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
+ Analytics.trackPageView(
+  isFreeEntry ? buildPath({ activeTab: 'direct-employers' }, locale) : '/pubblica-offerta/',
+  isFreeEntry ? 'Free Publisher Publish Page' : 'Publisher Publish Page',
+ );
+ Analytics.trackUIInteraction('publisher', 'page', isFreeEntry ? 'free_publish_page' : 'publish_page', 'view');
  // Publisher funnel step 2 (issue #4448): for new publishers this page opens
  // on the plan-phase pricing selector. Surface + locale only — no PII.
  Analytics.trackEvent('pricing_view', { surface: 'publish_page', locale });
@@ -552,15 +566,15 @@ const PublisherPublishPage: React.FC = () => {
  // ── SEO meta (title + description) ──────────────────────────
  useEffect(() => {
  const prevTitle = document.title;
- document.title = t('publisher.metaTitle');
+ document.title = t(isFreeEntry ? 'seo.directEmployer.title' : 'publisher.metaTitle');
  const meta = document.querySelector('meta[name="description"]');
  const prevDesc = meta?.getAttribute('content') ?? null;
- if (meta) meta.setAttribute('content', t('publisher.metaDescription'));
+ if (meta) meta.setAttribute('content', t(isFreeEntry ? 'seo.directEmployer.description' : 'publisher.metaDescription'));
  return () => {
  document.title = prevTitle;
  if (meta && prevDesc != null) meta.setAttribute('content', prevDesc);
  };
- }, [t]);
+ }, [isFreeEntry, t]);
 
  // Free tier is external-apply only — force the mode when switching to free.
  useEffect(() => {
@@ -570,7 +584,7 @@ const PublisherPublishPage: React.FC = () => {
  // ── Prepaid credits (pay-first funnel) ───────────────────────
  // Skipped in edit mode: an existing ad's payment state is already fixed.
  useEffect(() => {
- if (!user || isEdit) return;
+ if (!user || isEdit || isFreeEntry) return;
  let cancelled = false;
  (async () => {
  try {
@@ -582,23 +596,26 @@ const PublisherPublishPage: React.FC = () => {
  }
  })();
  return () => { cancelled = true; };
- }, [user, isEdit]);
+ }, [user, isEdit, isFreeEntry]);
 
  // Once prepaid credits are active, lock the authoring form to the purchased
  // tier (its price/perks were already paid for) — mirrors the `?tier=`
  // prefill guard above: only nudges away from a paid default, never
  // overrides an explicit 'free' choice (the reachability escape hatch).
  useEffect(() => {
- if (!credits || !credits.tier) return;
+ if (isFreeEntry || !credits || !credits.tier) return;
  setTier((v) => (v === 'free' ? v : (credits.tier as PublisherTier)));
- }, [credits]);
+ }, [credits, isFreeEntry]);
 
  // ── Edit-mode load ──────────────────────────────────────────
  // Read `?edit=<id>` once the user is known. If the doc exists AND belongs to
  // the user, prefill every field from it and enter edit mode. The router
  // preserves window.location.search, so this query param survives navigation.
  useEffect(() => {
- if (!user) return;
+ // The public free entry is create-only: an `edit` query belongs to the
+ // standard publisher dashboard flow and must never reinterpret a paid ad as
+ // a free-entry form.
+ if (!user || isFreeEntry) return;
  const wantEditId = new URLSearchParams(window.location.search).get('edit');
  if (!wantEditId) return;
  let cancelled = false;
@@ -612,7 +629,7 @@ const PublisherPublishPage: React.FC = () => {
 
  setEditId(wantEditId);
  setEditStatus((d.status as PublisherJobStatus) ?? null);
- setTier((d.tier as PublisherTier) || 'sponsored');
+ setTier(isFreeEntry ? 'free' : ((d.tier as PublisherTier) || 'sponsored'));
 
  const c = (d.company as Record<string, unknown>) || {};
  setCompanyName(c.name ? String(c.name) : '');
@@ -651,7 +668,7 @@ const PublisherPublishPage: React.FC = () => {
  }
  })();
  return () => { cancelled = true; };
- }, [user]);
+ }, [user, isFreeEntry]);
 
  // ── Claim / pre-fill from a crawled listing ─────────────────
  // The "Sei l'azienda?" link on a crawled job stashes its fields in
@@ -689,18 +706,18 @@ const PublisherPublishPage: React.FC = () => {
  // Preselect a tier from `?tier=` (e.g. the "Piano Azienda" CTA on /per-le-aziende/
  // links here with ?tier=azienda). Only on a fresh ad, only the untouched default.
  useEffect(() => {
- if (isEdit) return;
+ if (isEdit || isFreeEntry) return;
  const want = new URLSearchParams(window.location.search).get('tier');
  if (want === 'azienda' || want === 'sponsored' || want === 'free') {
  setTier((v) => (v === 'sponsored' ? (want as PublisherTier) : v));
  }
- }, [isEdit]);
+ }, [isEdit, isFreeEntry]);
 
  // Prefill the company section from a saved publisher profile (repeat posters
  // shouldn't re-type their company on every ad). Skipped in edit mode — the
  // edited ad's own company snapshot is the source of truth there.
  useEffect(() => {
- if (!user || isEdit) return;
+ if (!user || isEdit || isFreeEntry) return;
  let cancelled = false;
  (async () => {
  try {
@@ -723,7 +740,7 @@ const PublisherPublishPage: React.FC = () => {
  }
  })();
  return () => { cancelled = true; };
- }, [user, isEdit]);
+ }, [user, isEdit, isFreeEntry]);
 
  // ── Live price preview ──────────────────────────────────────
  // Distinct non-empty location labels: needed for validation (≥1 sede) and
@@ -763,13 +780,16 @@ const PublisherPublishPage: React.FC = () => {
 
  // Tier-picker card grid — shared by the authoring form's selector and the
  // Plan-phase (pay-first) screen so both stay in lockstep.
- const renderTierCards = (disabled: boolean) => (
- <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
- {([
+ const tierOptions = isFreeEntry
+ ? [{ value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' }] as const
+ : ([
  { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
  { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: `${PRICING_CURRENCY} ${PRICE_PER_UNIT_CHF}`, priceNote: t('publisherLanding.plan.sponsored.priceNote') },
  { value: 'azienda', titleKey: 'publisher.tier.azienda.title', price: `${PRICING_CURRENCY} ${AZIENDA_PLAN_CHF}`, priceNote: t('publisher.tier.azienda.priceNote') },
- ] as const).map(opt => {
+ ] as const);
+ const renderTierCards = (disabled: boolean) => (
+ <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+ {tierOptions.map(opt => {
  const selected = tier === opt.value;
  const isSponsoredCard = opt.value === 'sponsored';
  const isAziendaCard = opt.value === 'azienda';
@@ -1101,7 +1121,7 @@ const PublisherPublishPage: React.FC = () => {
  const jobIds: string[] = [];
  for (const ad of ads) {
  const docRef = await addDoc(collection(db, 'publisher_jobs'), {
- ...buildAdFields(ad, user.uid, tier, 'published', company),
+ ...buildAdFields(ad, user.uid, tier, 'published', company, isFreeEntry ? normalizeEmployerOrigin(origin) : ''),
  createdAt: serverTimestamp(),
  updatedAt: serverTimestamp(),
  });
@@ -2227,5 +2247,43 @@ const PublisherPublishPageWithStrings: React.FC = () => (
  <PublisherPublishPage />
  </TranslationNamespaceGate>
 );
+
+function readEmployerOrigin(): string {
+ if (typeof window === 'undefined') return '';
+ return normalizeEmployerOrigin(new URLSearchParams(window.location.search).get('origin'));
+}
+
+function PublisherFreePublishContent() {
+ const { t } = useTranslation();
+ const [enabled, setEnabled] = useState<boolean | null>(null);
+
+ useEffect(() => {
+ let mounted = true;
+ void import('@/services/directEmployerChannel')
+  .then(({ isDirectEmployerChannelEnabled }) => isDirectEmployerChannelEnabled())
+  .then((value) => { if (mounted) setEnabled(value); })
+  .catch(() => { if (mounted) setEnabled(false); });
+ return () => { mounted = false; };
+ }, []);
+
+ if (enabled === false) {
+ return (
+ <div className="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6 sm:py-10">
+ <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{t('directEmployer.eyebrow')}</p>
+ <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-heading sm:text-4xl">{t('directEmployer.title')}</h1>
+ <p className="mt-4 max-w-2xl text-base leading-7 text-body">{t('directEmployer.intro')}</p>
+ <div role="status" className="mt-8 rounded-xl border border-warning-border bg-warning-subtle px-4 py-3 text-sm leading-6 text-warning">{t('directEmployer.disabled')}</div>
+ </div>
+ );
+ }
+ if (enabled === null) {
+ return <div className="mx-auto w-full max-w-2xl px-4 py-24 text-center text-sm text-subtle" role="status">{t('directEmployer.loading')}</div>;
+ }
+ return <PublisherPublishPage entry="free" origin={readEmployerOrigin()} />;
+}
+
+export function PublisherFreePublishPage() {
+ return <TranslationNamespaceGate namespace="publisher"><PublisherFreePublishContent /></TranslationNamespaceGate>;
+}
 
 export default PublisherPublishPageWithStrings;
