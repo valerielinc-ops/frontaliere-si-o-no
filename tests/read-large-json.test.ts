@@ -31,6 +31,22 @@ describe('large JSON reader', () => {
     }
   });
 
+  it('streams the supported jobs wrapper when it crosses the inline threshold', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-wrapper-'));
+    const target = path.join(dir, 'jobs.json');
+    const payload = {
+      generatedAt: '2026-11-03T00:00:00.000Z',
+      jobs: [{ id: 'x', title: 'café', description: 'a'.repeat(64) }],
+    };
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(payload), 'utf8');
+      expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(payload);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('rejects a large root object instead of silently returning partial data', () => {
     expect(() => parseLargeJsonArray(['{"jobs":[]}'])).toThrow(/top-level array/);
   });
