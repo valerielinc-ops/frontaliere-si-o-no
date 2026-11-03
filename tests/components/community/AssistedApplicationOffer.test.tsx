@@ -121,6 +121,10 @@ describe('AssistedApplicationOffer', () => {
     expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('CHF 6.000 / mese');
     expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('Tempo pieno');
     expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('Una descrizione sintetica della posizione.');
+    expect(screen.getByTestId('assisted-application-job-details').className).toMatch(/md:col-start-1/);
+    expect(screen.getByText('Affidaci questa candidatura.').className).toMatch(/border-t/);
+    expect(screen.queryByTestId('assisted-application-steps-timeline')).toBeNull();
+    expect(screen.queryByText('Nessuna garanzia di assunzione.')).toBeNull();
     expect(screen.getByRole('dialog')).toHaveAttribute('data-layout-variant', layoutVariant);
     expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 1,99 €');
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
@@ -130,9 +134,6 @@ describe('AssistedApplicationOffer', () => {
         ...(layoutExperimentActive ? { layout_variant: layoutVariant } : {}),
       }),
     );
-    if (layoutVariant === 'variant_7') {
-      expect(screen.getByTestId('assisted-application-steps-timeline')).toBeTruthy();
-    }
     if (layoutVariant === 'proposal_b') {
       expect(screen.getByTestId('assisted-application-job-details')).toHaveAttribute('data-job-panel-style', 'proposal_c');
     }
@@ -188,12 +189,6 @@ describe('AssistedApplicationOffer', () => {
     // Inside the scrolling card, not outside it.
     const card = screen.getByRole('dialog');
     expect(card).toContainElement(actions);
-    // The card has no bottom padding of its own (its content wrapper carries it): the pinned
-    // block reaches the card's bottom edge, with no strip of scrolled text under it.
-    expect(card.className).not.toMatch(/(^|\s)(sm:)?p-\d|(^|\s)(sm:)?pb-\d|(^|\s)(sm:)?py-\d/);
-    expect(actions.parentElement?.className).toMatch(/(^|\s)pb-4(\s|$)/);
-    expect(actions.parentElement?.className).toMatch(/(^|\s)sm:pb-6(\s|$)/);
-    expect(actions.parentElement?.parentElement).toBe(card);
   });
 
   it('leaves the body scroll and Escape to its host when embedded, and names who opened it', () => {

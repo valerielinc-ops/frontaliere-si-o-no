@@ -1,7 +1,7 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-11-02T21:56:31.049Z",
+  "generatedAt": "2026-11-03T09:44:14.565Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 11296,
-  "avgDurationMs": 11296,
+  "durationMs": 11474,
+  "avgDurationMs": 11474,
   "durationHistory": [
-    11296
+    11474
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:56:13.266Z",
+      "crawledAt": "2026-11-03T09:43:51.299Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:56:13.266Z",
+      "validThrough": "2027-02-01T09:43:51.299Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:56:12.163Z",
+      "crawledAt": "2026-11-03T09:43:50.192Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:56:12.163Z",
+      "validThrough": "2026-12-03T09:43:50.192Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:56:10.993Z",
+      "crawledAt": "2026-11-03T09:43:49.111Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:56:10.993Z",
+      "validThrough": "2026-12-03T09:43:49.111Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:56:09.617Z",
+      "crawledAt": "2026-11-03T09:43:48.001Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:56:09.617Z",
+      "validThrough": "2027-01-03T09:43:48.001Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58819/fr/assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:56:08.602Z",
+      "crawledAt": "2026-11-03T09:43:46.918Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:56:08.602Z",
+      "validThrough": "2026-12-03T09:43:46.918Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_59109/fr/un-e-physiotherapeute-entre-60-et-80",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:56:07.284Z",
+      "crawledAt": "2026-11-03T09:43:45.652Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:56:07.284Z",
+      "validThrough": "2027-01-13T09:43:45.652Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -299,5 +299,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }
