@@ -1711,6 +1711,31 @@
       "queueId": "border-2026-10-26",
       "via": "playwright-robot",
       "robotEvidence": "redirected to /tiktokstudio/content; video-creative=motion-graphic-v1; native-sound=control"
+    },
+    {
+      "id": "richiesta-permesso-g-step-by-step",
+      "kind": "article",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/richiesta-permesso-g-step-by-step/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_article&utm_content=answer-voice-v1--richiesta-permesso-g-step-by-step--cp9147b54fb0eb5b76-video.video-clarity-point.b.4070b964",
+      "day": "2026-11-02",
+      "views": 10,
+      "copyMode": "codex",
+      "copySlot": "video",
+      "copyPromptVersion": "frontaliere-social-copy-v1",
+      "copyPackId": "9147b54fb0eb5b76",
+      "copyTemplateId": "video-clarity-point",
+      "copyAssignmentMode": "firebase-balanced",
+      "copyExperimentId": "social-copy-balanced-v1",
+      "copyHook": "Il passaggio da rivedere quando serve chiarezza",
+      "copyCta": "Approfondisci il tema dal link in bio.",
+      "creativeBaseId": "tiktok-video",
+      "creativeVariant": "answer-voice-v1",
+      "creativeLabel": "Risposta a voce",
+      "creativeFormat": "video",
+      "creativeObjective": "attention-retention",
+      "ts": "2026-11-03T17:38:45.183Z",
+      "queueId": "article-2026-11-02",
+      "via": "playwright-robot",
+      "robotEvidence": "redirected to /tiktokstudio/content; video-creative=answer-voice-v1; native-sound=control"
     }
   ]
 }
