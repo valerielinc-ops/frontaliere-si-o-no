@@ -295,6 +295,25 @@ describe('company-logo-audit', () => {
     })).toEqual(expect.objectContaining({ status: 'good' }));
   });
 
+  it('keeps the canonical ZAUGG mark above the raster quality floor', () => {
+    const dimensions = readImageDimensions(readFileSync(
+      path.join(REPO_ROOT, 'public/images/brands/zaugg.png'),
+    ));
+
+    expect(dimensions).toEqual(expect.objectContaining({
+      vector: false,
+      width: expect.any(Number),
+      height: expect.any(Number),
+    }));
+    expect(Math.max(dimensions.width || 0, dimensions.height || 0))
+      .toBeGreaterThanOrEqual(96);
+    expect(assessLogoQuality({
+      format: 'png',
+      width: dimensions.width,
+      height: dimensions.height,
+    })).toEqual(expect.objectContaining({ status: 'good' }));
+  });
+
   it('rejects an HTML error page even when the server lies about its MIME type', async () => {
     const report = await auditCompanyLogos([
       { companyKey: 'mislabeled', company: 'Mislabeled AG', url: 'https://html.test/1' },
