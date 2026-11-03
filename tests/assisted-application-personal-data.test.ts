@@ -20,6 +20,7 @@ const { handleAutomationAdminAction } = await import('../functions/src/assistedA
 const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
 
 const SECRET = 's'.repeat(40);
 const T0 = Date.UTC(2026, 9, 4, 10, 0, 0);
@@ -160,9 +161,11 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     ]);
 
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const submissionStore = createMemoryFirestore({ [BASE]: store.read(BASE) });
     const event = await submitApplication({
       order: store.read(BASE), orderId: ORDER, flow: flowNow(), draft: draftNow(), cvBuffer: Buffer.from('the uploaded CV'), cvType: 'pdf',
-      bucket, runKey: RUN_KEY, sendCascade, resolve: async () => [{ address: '93.184.216.34', family: 4 }], fetchImpl: vi.fn(), nowMs: T0, log: () => {},
+      bucket, runKey: RUN_KEY, sendCascade, submissionGuard: submissionGuard(submissionStore.db, ORDER, 1),
+      resolve: async () => [{ address: '93.184.216.34', family: 4 }], fetchImpl: vi.fn(), nowMs: T0, log: () => {},
     });
     expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     const [[items]] = sendCascade.mock.calls as any;

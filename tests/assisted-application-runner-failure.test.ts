@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reportRunnerFailure } from '../scripts/assisted-application/report-runner-failure.mjs';
+import { createSubmissionReceipt } from '../functions/src/lib/submissionReceiptContract.js';
+import { handleRunnerEvent } from '../functions/src/assistedApplicationAutomation.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 
@@ -56,11 +58,34 @@ describe('failed executor reconciliation', () => {
 
   it('treats a durable sent record as success instead of retrying', async () => {
     const store = fixture();
-    store.docs.set(`${base}/automation/submission`, { r1: { state: 'sent', channel: 'portal', sentAt: now, clickedAt: now - 1 } });
+    const sent = { files: [] };
+    const attemptId = 'portal-attempt-123';
+    const receipt = createSubmissionReceipt({ orderId, round: 1, attemptId, channel: 'portal',
+      proofKind: 'portal_success_page', evidence: { finalUrl: 'https://ats.example/confirmation' }, sentRecord: sent, observedAt: now });
+    expect(receipt).not.toBeNull();
+    store.docs.set(`${base}/automation/submission`, { r1: {
+      state: 'sent', channel: 'portal', sentAt: now, clickedAt: now - 1, attemptId, sent, receipt,
+    } });
 
     await reportRunnerFailure({ db: store.db, ...context });
 
-    expect(store.read(eventPath)).toMatchObject({ type: 'submit_succeeded', channel: 'portal' });
+    const event = store.read(eventPath);
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'portal', receiptId: receipt?.receiptId });
+    expect(await handleRunnerEvent({ db: store.db, orderId, eventRef: store.db.collection('assisted_applications').doc(orderId)
+      .collection('automation_events').doc('runner-1234567-failure'), data: event, nowMs: now + 2_000 }))
+      .toMatchObject({ ok: true, flow: { state: 'submitted' } });
+  });
+
+  it('hands a legacy sent record without a valid receipt to the owner instead of dispatching another send', async () => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/submission`, { r1: { state: 'sent', channel: 'portal', sentAt: now } });
+
+    await reportRunnerFailure({ db: store.db, ...context });
+
+    expect(store.read(eventPath)).toMatchObject({ type: 'submit_failed', error: 'submission_receipt_missing' });
+    const result = transition(store.read(`${base}/automation/flow`), store.read(eventPath), { nowMs: now + 2_000 });
+    expect(result.flow.state).toBe('owner_takeover');
+    expect(result.effects.some(effect => effect.type === 'dispatch')).toBe(false);
   });
 
   it('does not let a runner reclaim a failed portal attempt after its click', async () => {

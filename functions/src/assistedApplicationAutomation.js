@@ -33,7 +33,9 @@ import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
-import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { reconcileSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
+import { verifySubmissionReceipt } from './lib/submissionReceiptContract.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -250,12 +252,15 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  * @param {string} [args.actor] 'runner' | 'candidate' | 'owner:<email>' | 'clock'
  * @param {(ctx:object)=>Promise<object>} args.runEffect executes one side effect
  * @param {number} [args.nowMs]
+ * @param {number} [args.expectedRound] rejects a request whose round changed after its precheck
  * @param {(flow:object)=>object} [args.patchFlow] extra fields merged into the next flow
+ * @param {(ctx:object)=>Promise<object>} [args.writeSubmissionReceipt] writes a validated submission
+ *   receipt only after the live transition succeeds, in the same Firestore transaction
  * @param {FirebaseFirestore.DocumentReference} [args.claimRef] a runner event document: marked
  *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
-export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), patchFlow = null, claimRef = null }) {
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -286,6 +291,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const order = orderSnapshot.data() || {};
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    if (Number(expectedRound) && Number(expectedRound) !== Number(flow.round || 1)) {
+      claim('ignored:stale_round');
+      outcome = { ok: false, ignored: 'stale_round', state: flow.state };
+      return;
+    }
     const candidateAnswerContext = await candidateQuestionAnswerContext({
       db, transaction, orderId, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
     });
@@ -355,10 +365,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
       questionAnswerConfirmationHashes: candidateAnswerContext.orderAnswerConfirmationHashes,
       questionAnswerSources: candidateAnswerContext.orderAnswerSources };
+    const receiptResult = writeSubmissionReceipt ? await writeSubmissionReceipt({ transaction, flow, order, draft, event, nextFlow: persistedFlow }) : null;
     const accountFailure = getAccountFailure(event);
     claim('applied');
     transaction.set(flowRef, persistedFlow);
-    transaction.set(orderRef, mirrorFields(persistedFlow), { merge: true });
+    transaction.set(orderRef, { ...mirrorFields(persistedFlow), ...(receiptResult?.orderPatch || {}) }, { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
       eventType: event.type,
@@ -593,11 +604,20 @@ export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fe
  * `postingLookMs`: how long one look may take (POSTING_LOOK_MS).
  */
 export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null, postingLookMs = POSTING_LOOK_MS } = {}) {
-  const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
-    .where('automationDueAt', '<=', nowMs)
-    .limit(SWEEP_BATCH)
-    .get();
-  const summary = { ticks: 0, redispatched: 0, portalRetries: 0, factRepairs: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0 };
+  const [automationSnapshot, receiptSnapshot] = await Promise.all([
+    db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('automationDueAt', '<=', nowMs).limit(SWEEP_BATCH).get(),
+    db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('submissionReceiptDueAt', '<=', nowMs).limit(SWEEP_BATCH).get(),
+  ]);
+  const docs = [];
+  const seen = new Set();
+  const sources = [receiptSnapshot.docs || [], automationSnapshot.docs || []];
+  for (let index = 0; index < SWEEP_BATCH && docs.length < SWEEP_BATCH; index += 1) {
+    for (const source of sources) {
+      const doc = source[index];
+      if (doc && !seen.has(doc.id)) { seen.add(doc.id); docs.push(doc); }
+    }
+  }
+  const summary = { ticks: 0, redispatched: 0, portalRetries: 0, factRepairs: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0, receiptsReconciled: 0 };
   // Automatic refunds that failed (closed ad): retried until they go through
   // or the effect gives up and alerts the owner.
   const refunds = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
@@ -617,17 +637,54 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
   }
   // The ads of the orders about to be reminded, looked at together before any tick (closedPostingsAmong).
   const closedPostings = postingClosed
-    ? await closedPostingsAmong({ db, docs: snapshot.docs || [], nowMs, postingClosed, postingLookMs })
+    ? await closedPostingsAmong({ db, docs: automationSnapshot.docs || [], nowMs, postingClosed, postingLookMs })
     : new Set();
-  for (const doc of snapshot.docs || []) {
+  for (const doc of docs) {
     try {
       const flowSnapshot = await flowRefFor(db, doc.id).get();
       const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
       if (!flow) {
+        const order = doc.data() || {};
+        const submissionHistory = (await submissionRefFor(db, doc.id).get()).data() || {};
+        const latestSubmissionKey = Object.keys(submissionHistory).filter(key => /^r\d+$/.test(key))
+          .sort((a, b) => Number(b.slice(1)) - Number(a.slice(1)))[0];
+        const submission = latestSubmissionKey ? submissionHistory[latestSubmissionKey] : null;
+        const receiptDueAt = Number(order.submissionReceiptDueAt) || 0;
+        const legacyReceiptNeedsUpgrade = submission?.state === 'sent'
+          && !submission.receipt && !submission.attemptId && !order.submissionReceiptStatus;
+        if ((receiptDueAt > 0 && receiptDueAt <= nowMs) || legacyReceiptNeedsUpgrade) {
+          const receiptResult = await reconcileSubmissionReceipt({
+            db, orderId: doc.id, nowMs, runEffect,
+            applyEvent: args => applyAutomationEvent(args),
+          });
+          if (receiptResult.reconciled) summary.receiptsReconciled += 1;
+        }
         await orderRefFor(db, doc.id).set({ automationDueAt: null }, { merge: true });
         summary.ignored += 1;
         continue;
       }
+      const order = doc.data() || {};
+      const round = Number(flow.round) || 1;
+      const submission = (await submissionRefFor(db, doc.id).get()).data()?.[`r${round}`] || null;
+      const receiptDueAt = Number(order.submissionReceiptDueAt) || 0;
+      const projectionMissing = flow.state === 'submitted' && order.submissionStatus !== 'submitted';
+      const legacyReceiptNeedsUpgrade = submission?.state === 'sent'
+        && !submission.receipt && !submission.attemptId && !order.submissionReceiptStatus;
+      let receiptResult = null;
+      if ((receiptDueAt > 0 && receiptDueAt <= nowMs) || projectionMissing || legacyReceiptNeedsUpgrade) {
+        receiptResult = await reconcileSubmissionReceipt({
+          db, orderId: doc.id, nowMs, runEffect,
+          applyEvent: args => applyAutomationEvent(args),
+        });
+        if (receiptResult.reconciled) summary.receiptsReconciled += 1;
+      }
+      // A positive send record, even one awaiting its next retry or bounded
+      // review, is never dispatched again.
+      if (submission?.state === 'sent') {
+        if (order.automationDueAt != null) await orderRefFor(db, doc.id).set({ automationDueAt: null }, { merge: true });
+        continue;
+      }
+      if (receiptResult?.receiptVerified) continue;
       if (flow.state === 'owner_takeover') {
         const result = await applyAutomationEvent({
           db,
@@ -697,10 +754,29 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     await eventRef.set({ appliedAt: nowMs, result: 'unknown_type' }, { merge: true });
     return { ok: false, ignored: 'unknown_type' };
   }
+  let round = Number(data?.round) || null;
+  let submission = null;
+  if (type === 'submit_succeeded') {
+    round = round || 1;
+    submission = (await submissionRefFor(db, orderId).get()).data()?.[`r${round}`] || null;
+    const receiptId = String(data.receiptId || '');
+    const validReceipt = /^[a-f0-9]{40}$/.test(receiptId)
+      && submission?.state === 'sent'
+      && data.channel === submission.channel
+      && verifySubmissionReceipt(submission.receipt, {
+        orderId, round, attemptId: submission.attemptId, channel: data.channel,
+        sentRecord: submission.sent && typeof submission.sent === 'object' ? submission.sent : {},
+        receiptId,
+      });
+    if (!validReceipt) {
+      await eventRef.set({ appliedAt: nowMs, result: 'ignored:submission_receipt_missing' }, { merge: true });
+      return { ok: false, ignored: 'submission_receipt_missing' };
+    }
+  }
   const accountFailure = getAccountFailure(data);
   const event = {
     type,
-    round: Number(data.round) || null,
+    round,
     error: data.error ? String(data.error).slice(0, 120) : undefined,
     reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
     ...(accountFailure ? { accountFailure } : {}),
@@ -709,6 +785,7 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     documents: Array.isArray(data.documents) ? data.documents.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     ...(candidateRequestTelemetryOf(data.candidateRequestTelemetry)
       ? { candidateRequestTelemetry: candidateRequestTelemetryOf(data.candidateRequestTelemetry) } : {}),
+    ...(type === 'submit_succeeded' ? { receiptId: String(data.receiptId) } : {}),
   };
   const result = await applyAutomationEvent({
     db,
@@ -717,6 +794,7 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     actor: 'runner',
     runEffect,
     nowMs,
+    expectedRound: round,
     patchFlow: type === 'submit_succeeded' && data.channel ? () => ({ submittedVia: String(data.channel).slice(0, 40) }) : null,
     claimRef: eventRef,
   });
@@ -771,11 +849,23 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
   const record = await guard.read();
   const leftAt = submissionLeftAt(record);
   // Confirmed by an earlier message whose flow event did not land: applied now.
+  const existingReceipt = verifySubmissionReceipt(record?.receipt, {
+    orderId, round: flow.round, attemptId: record?.attemptId, channel: record?.channel,
+    sentRecord: record?.sent && typeof record.sent === 'object' ? record.sent : {},
+  });
   const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
-  if (!confirmedBefore) {
-    if (!isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
+  let writeSubmissionReceipt = null;
+  if (!existingReceipt) {
+    if (!confirmedBefore && !isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
     if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
-    await guard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
+    const attemptId = record.attemptId || `ack-${Math.floor(Number(receivedAt))}`;
+    writeSubmissionReceipt = async ({ transaction, draft }) => guard.markSent({
+      channel: record.channel, sentAt: leftAt, confirmedBy: 'acknowledgement', confirmedAt: nowMs,
+      sent: draft?.sentAttempt || draft?.sent || record.sent || {},
+    }, leftAt || nowMs, {
+      kind: 'employer_acknowledgement', attemptId,
+      observedAt: Number(receivedAt), evidence: { receivedAt: Number(receivedAt) },
+    }, { transaction });
   }
   const result = await applyAutomationEvent({
     db,
@@ -784,7 +874,9 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
     actor: 'employer_email',
     runEffect,
     nowMs,
+    expectedRound: Number(flow.round) || 1,
     patchFlow: () => ({ submittedVia: record.channel }),
+    writeSubmissionReceipt,
   });
   // What the runner was sending is what arrived: its record follows the send (best effort, the flow is settled).
   if (result.ok) {

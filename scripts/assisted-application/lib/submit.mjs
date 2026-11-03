@@ -336,6 +336,8 @@ export async function submitApplication(ctx) {
   const channel = draft.channel || {};
   const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
   if (channel.type === 'email' && isPlausibleEmail(to) && to !== OWNER_MAILBOX) {
+    const guard = ctx.submissionGuard || null;
+    if (!ctx.dryRun && !guard) return { type: 'submit_failed', error: 'submission_guard_missing' };
     const { identity } = edited;
     const letter = await letterForSubmission({ bucket, order, orderId, draft, flow: submitFlow, nowMs });
     const stem = safeFileStem(identity.name);
@@ -391,7 +393,6 @@ export async function submitApplication(ctx) {
     }
     // Durable idempotency per order and round (submission guard): a run the
     // watchdog re-dispatched never sends the application a second time.
-    const guard = ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('email', nowMs);
       if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
@@ -399,9 +400,10 @@ export async function submitApplication(ctx) {
       if (claim.status === 'already_sent') {
         // Sent by an earlier run of this round: its follow-ups and its record come from the guard.
         const record = claim.record || {};
-        return { type: 'submit_succeeded', channel: 'email', replayed: true, ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}), ...(record.sent ? { sent: record.sent } : {}) };
+        return { type: 'submit_succeeded', channel: 'email', replayed: true, ...(record.receipt?.receiptId ? { receiptId: record.receipt.receiptId } : {}), ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}), ...(record.sent ? { sent: record.sent } : {}) };
       }
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'email_ambiguous' };
+      if (claim.status !== 'claimed') return { type: 'submit_failed', error: 'submission_superseded' };
     }
     // Claimed: from here the outcome may stay unknown, so the record goes on the draft before the send.
     // After the claim, never before: a re-dispatched run that finds the round in flight keeps this one's.
@@ -431,7 +433,15 @@ export async function submitApplication(ctx) {
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failed[0]) ? 'email_provider_unavailable' : 'email_failed' };
     }
     const threadMessageId = replyThreadMessageId(sent[0], messageId);
-    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider: sent[0]?.provider || null, sent: sentRecord }, nowMs);
+    let receiptId = null;
+    if (guard) {
+      const provider = String(sent[0]?.provider || '');
+      const receipt = await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider: provider || null, sent: sentRecord }, nowMs, {
+        kind: 'email_provider_accepted', observedAt: nowMs,
+        evidence: { provider, messageId: threadMessageId },
+      });
+      receiptId = receipt?.receiptId || null;
+    }
     await storeEvidence({
       bucket,
       orderId,
@@ -453,7 +463,7 @@ export async function submitApplication(ctx) {
     });
     // What the follow-ups (7 and 14 days) need and the record of what left; agent.mjs
     // stores them, they never reach the automation event.
-    return { type: 'submit_succeeded', channel: 'email', followup: { to, subject: payload.subject, messageId: threadMessageId, sentAt: nowMs }, sent: sentRecord };
+    return { type: 'submit_succeeded', channel: 'email', ...(receiptId ? { receiptId } : {}), followup: { to, subject: payload.subject, messageId: threadMessageId, sentAt: nowMs }, sent: sentRecord };
   }
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
@@ -475,12 +485,14 @@ export async function submitApplication(ctx) {
     // twice. A run may restart only after a confirmed pre-click failure
     // released the claim; an unreconciled `sending` claim may still be live.
     const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
+    if (!ctx.dryRun && !guard) return { type: 'submit_failed', error: 'submission_guard_missing' };
     if (guard) {
       const claim = await guard.claim('portal', nowMs);
       if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'answer_source_changed') return { type: 'submit_failed', error: 'answer_source_changed' };
-      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.receipt?.receiptId ? { receiptId: claim.record.receipt.receiptId } : {}), ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
+      if (claim.status !== 'claimed') return { type: 'submit_failed', error: 'submission_superseded' };
     }
     // With the candidate's corrections from the review page and any portal facts
     // resolved from the CV before the required-question gate.
@@ -492,6 +504,7 @@ export async function submitApplication(ctx) {
     let armedSentRecord = null;
     let receiptPersisted = false;
     let receiptFinalUrl = null;
+    let receiptId = null;
     // The attempt on the draft at the final click: kept, or not durable (then no click).
     let attemptKept = false;
     let attemptNotStored = false;
@@ -587,7 +600,11 @@ export async function submitApplication(ctx) {
           for (let attempt = 0; attempt < 3; attempt += 1) {
             try {
               if (!armedSentRecord) throw new Error('portal_receipt_without_attempt');
-              await guard.markSent({ channel: channelType, finalUrl: receiptFinalUrl, sent: armedSentRecord });
+              const observedAt = Date.now();
+              const receipt = await guard.markSent({ channel: channelType, finalUrl: receiptFinalUrl, sent: armedSentRecord }, observedAt, {
+                kind: 'portal_success_page', observedAt, evidence: { finalUrl: receiptFinalUrl },
+              });
+              receiptId = receipt?.receiptId || null;
               receiptPersisted = true;
               return;
             } catch (error) {
@@ -618,7 +635,11 @@ export async function submitApplication(ctx) {
         // 2026-10-03) sent nothing either.
         const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
         if (event.type === 'submit_succeeded' && !receiptPersisted) {
-          await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
+          const observedAt = Date.now();
+          const receipt = await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord }, observedAt, {
+            kind: 'portal_success_page', observedAt, evidence: { finalUrl: evidence.finalUrl },
+          });
+          receiptId = receipt?.receiptId || null;
           receiptPersisted = true;
           receiptFinalUrl = evidence.finalUrl || null;
         }
@@ -636,12 +657,13 @@ export async function submitApplication(ctx) {
       const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
       const pass = portalPass ? { portalPass } : {};
       return succeeded
-        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...pass }
+        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...pass }
         : { ...event, portalAnswers, ...stopReport, ...pass };
     } catch (error) {
       if (receiptPersisted) {
         return {
           type: 'submit_succeeded', channel: channelType,
+          ...(receiptId ? { receiptId } : {}),
           ...(receiptFinalUrl ? { finalUrl: receiptFinalUrl } : {}),
           ...(armedSentRecord ? { sent: armedSentRecord } : {}),
         };
@@ -672,10 +694,19 @@ export async function submitApplication(ctx) {
   // No browser runs and nobody presses anything in the candidate's name.
   if (channelType === 'pastahr' && WHATSAPP_APPLICATION_RE.test(applyUrl)) {
     if (ctx.dryRun) return { type: 'dry_run_ready', channel: 'whatsapp' };
+    const guard = ctx.submissionGuard || null;
+    if (!guard) return { type: 'submit_failed', error: 'submission_guard_missing' };
+    const claim = await guard.claim('whatsapp', nowMs, { resumable: true });
+    if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: 'whatsapp', replayed: true,
+      ...(claim.record?.receipt?.receiptId ? { receiptId: claim.record.receipt.receiptId } : {}), ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
+    if (claim.status !== 'claimed') return { type: 'submit_failed', error: claim.status === 'withdrawn' ? 'candidate_withdrawn' : 'whatsapp_handoff_ambiguous' };
     // No file leaves from us: the candidate sends from their phone.
     const sentRecord = recordOfSend({ at: nowMs, channel: 'whatsapp', packaging: 'whatsapp' });
     await storeEvidence({ bucket, orderId, name: 'submit-whatsapp', payload: { channel, applyUrl, sent: sentRecord }, key: runKey, nowMs });
-    return { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: applyUrl, sent: sentRecord };
+    const receipt = await guard.markSent({ channel: 'whatsapp', sent: sentRecord }, nowMs, {
+      kind: 'candidate_handoff_link', observedAt: nowMs, evidence: { url: applyUrl },
+    });
+    return { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: applyUrl, sent: sentRecord, ...(receipt?.receiptId ? { receiptId: receipt.receiptId } : {}) };
   }
 
   // LinkedIn, a WhatsApp channel without its link and any channel without a
