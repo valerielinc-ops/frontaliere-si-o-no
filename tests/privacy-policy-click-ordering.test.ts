@@ -14,6 +14,23 @@ describe('PrivacyPolicy: uso dei clic sugli annunci dichiarato', () => {
     expect(source).toContain('cancellato automaticamente 180 giorni dopo l\'ultimo clic');
   });
 
+  it('dichiara gli eventi funnel Meta solo sulla pagina italiana del servizio in tutte le lingue', () => {
+    const pageLabels = {
+      it: /pagina italiana del servizio/,
+      en: /Italian-language service page/,
+      de: /italienischsprachigen Serviceseite/,
+      fr: /page du service en italien/,
+    } as const;
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const section = getPrivacyLegalDocument(locale).sections.find(item => item.title === 'Meta Pixel');
+      expect(section).toBeDefined();
+      const html = section!.blocks.map(block => 'html' in block ? block.html : '').join(' ');
+      expect(html).toContain('href="/automatizza-ricerca-lavoro-svizzera/"');
+      expect(html).toMatch(pageLabels[locale]);
+    }
+  });
+
   it('non nega piu\' la profilazione dei clic', () => {
     expect(source).not.toContain('Non profiliamo il contenuto dei clic');
   });
