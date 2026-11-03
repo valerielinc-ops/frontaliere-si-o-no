@@ -37,6 +37,8 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
+    outputs:
+      codex_invocation_allowed: ${{ steps.codex_budget.outputs.allowed }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -74,8 +76,18 @@ jobs:
       - name: Install dependencies for the read-only GA4 report
         run: npm ci
 
+      - name: Reserve a rolling seven-day Codex invocation
+        id: codex_budget
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: node scripts/social-copy/reserve-codex-invocation.mjs >> "$GITHUB_OUTPUT"
+
       - name: Build sanitized GA4 social-copy attribution brief
         id: attribution
+        if: steps.codex_budget.outputs.allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         shell: bash
@@ -91,6 +103,7 @@ jobs:
 
       - name: Build minimized native social brief and growth scorecard
         id: native
+        if: steps.codex_budget.outputs.allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
@@ -104,6 +117,7 @@ jobs:
 
       - name: Build sanitized published-topic inventory
         id: editorial_sources
+        if: steps.codex_budget.outputs.allowed == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -112,6 +126,7 @@ jobs:
 
       - name: Generate social copy with Codex
         id: codex
+        if: steps.codex_budget.outputs.allowed == 'true'
         uses: ./.github/actions/claude-codex-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
@@ -171,7 +186,7 @@ jobs:
             Ticino editorial and platform guidance in this checkout.
 
       - name: Upload generated response
-        if: steps.codex.outputs.primary_success == 'true'
+        if: steps.codex_budget.outputs.allowed == 'true' && steps.codex.outputs.primary_success == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: social-copy-response
@@ -183,6 +198,7 @@ jobs:
     needs: generate
     if: >-
       needs.generate.result == 'success' &&
+      needs.generate.outputs.codex_invocation_allowed == 'true' &&
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'schedule' || github.event_name == 'push' || inputs.promote == true)
     runs-on: ubuntu-latest

@@ -13,6 +13,35 @@ describe('social native insights workflow contract', () => {
     expect(workflow).not.toContain("- cron: '40 4 1 * *'");
   });
 
+  it('reserves a durable rolling seven-day Codex budget before building briefs or calling the model', () => {
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
+    const budgetStart = workflow.indexOf('      - name: Reserve a rolling seven-day Codex invocation');
+    const attributionStart = workflow.indexOf('      - name: Build sanitized GA4 social-copy attribution brief');
+    const nativeStart = workflow.indexOf('      - name: Build minimized native social brief and growth scorecard');
+    const editorialStart = workflow.indexOf('      - name: Build sanitized published-topic inventory');
+    const codexStart = workflow.indexOf('      - name: Generate social copy with Codex');
+    const promoteStart = workflow.indexOf('\n  promote:\n');
+    const budget = workflow.slice(budgetStart, attributionStart);
+    const attribution = workflow.slice(attributionStart, nativeStart);
+    const native = workflow.slice(nativeStart, editorialStart);
+    const editorial = workflow.slice(editorialStart, codexStart);
+    const codex = workflow.slice(codexStart, promoteStart);
+    const promote = workflow.slice(promoteStart);
+
+    expect(budgetStart).toBeGreaterThanOrEqual(0);
+    expect(attributionStart).toBeGreaterThan(budgetStart);
+    expect(nativeStart).toBeGreaterThan(attributionStart);
+    expect(editorialStart).toBeGreaterThan(nativeStart);
+    expect(codexStart).toBeGreaterThan(editorialStart);
+    expect(budget).toContain('FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}');
+    expect(budget).toContain('node scripts/social-copy/reserve-codex-invocation.mjs');
+    expect(attribution).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(native).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(editorial).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(codex).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(promote).toContain("needs.generate.outputs.codex_invocation_allowed == 'true'");
+  });
+
   it('persists Firebase credentials between workflow steps before loading Remote Config', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-native-insights.yml'), 'utf8');
     const prepareStart = workflow.indexOf('      - name: Prepare Firebase credentials');

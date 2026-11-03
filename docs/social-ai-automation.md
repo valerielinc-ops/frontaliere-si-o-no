@@ -3,8 +3,12 @@
 The social publishers use Codex for a scheduled weekly copy pack and a
 structured editorial plan with three pillars and three angle IDs per active
 channel/format. A push to `main` that changes scoped social inputs or an explicit
-`workflow_dispatch` can also run a complete pack; workflow concurrency serializes
-those runs but does not impose a weekly invocation quota. The pack workflow also sends Codex a sanitized 30-day inventory
+`workflow_dispatch` can also request a complete pack. An atomic Firestore
+reservation caps Codex generation at two invocations per rolling seven days
+across scheduled runs, pushes, manual dispatches, and reruns. The reservation
+fails closed when Firestore is unavailable; an exhausted run skips brief
+collection, Codex, and promotion. Workflow concurrency serializes overlapping
+runs, while the reservation enforces the durable quota. The pack workflow also sends Codex a sanitized 30-day inventory
 of published article topics and cluster counts when available, plus up to 12
 historical topics from the prior 365 days with their publication dates, age,
 and separate cluster counts. Historical topics are dated ideation candidates only, not current trends
@@ -22,11 +26,12 @@ and deliver through the existing platform API or browser robot.
 ## Automated flow
 
 1. A push to `main` that changes the social-content skill, copy prompt/schema,
-   or source brief automatically generates and promotes the first pack; the
-   Monday schedule refreshes it after the weekly insights snapshot. The scheduled and scoped-push paths each invoke Codex once for the complete
-   channel matrix; an explicit `workflow_dispatch` can also generate and promote
-   a pack. Concurrency serializes run starts but does not cap invocations per week.
-   No bootstrap dispatch is required. Publishers
+   or source brief requests a pack; the Monday schedule refreshes it after the
+   weekly insights snapshot. Each request first atomically reserves one of two
+   Codex invocations allowed in the rolling seven-day window. The same cap
+   applies to `workflow_dispatch` and workflow reruns. A denied reservation
+   skips brief collection, generation, and promotion; missing Firestore state
+   fails closed. No bootstrap dispatch is required. Publishers
    retain their deterministic copy until a validated pack reaches `main`.
 2. The Codex job receives editorial instructions, minimized Instagram and
    native TikTok/LinkedIn performance briefs, angle-level outcomes when exact
