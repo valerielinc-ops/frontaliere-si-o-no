@@ -16,6 +16,7 @@ import {
   shouldAcquireTarget,
 } from '../scripts/download-missing-company-logos.mjs';
 import { loadLogoRegistry } from '../scripts/lib/company-logo-registry.mjs';
+import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 const workflowPath = path.join(ROOT, '.github/workflows/audit-missing-company-logos.yml');
@@ -54,6 +55,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   'hugo-boss': ['hugoboss.com'],
   'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   'rh-expert-ch': ['rh-expert.ch'],
+  'global-sana': ['globalsana.ch'],
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
@@ -71,6 +73,29 @@ const SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES = {
 };
 
 describe('missing company-logo acquisition', () => {
+  it('maps the legacy ch key only for the verified Global Sana source context', () => {
+    const sourceJob = {
+      company: 'Global Sana',
+      companyKey: 'ch',
+      companyDomain: 'ch.talent.com',
+      url: 'https://ch.talent.com/view?id=554547064889945322',
+    };
+
+    expect(companyLogoKeyForJob(sourceJob)).toBe('global-sana');
+    expect(companyLogoKeyForJob({
+      ...sourceJob,
+      company: 'Global Sana Services',
+    })).toBe('ch');
+    expect(companyLogoKeyForJob({
+      ...sourceJob,
+      url: 'https://other-employer.example/jobs/1',
+    })).toBe('ch');
+    expect(domainCandidates('global-sana', {
+      companyDomains: new Set(['ch.talent.com']),
+      urlHosts: new Set(['ch.talent.com']),
+    }, { fromAudit: true })).toEqual(['globalsana.ch']);
+  });
+
   it('does not probe a guessed domain for a future audit key', async () => {
     const auditInput = { companyKey: 'acme', status: 'missing' };
     const [candidate] = selectAuditCandidates([auditInput]);

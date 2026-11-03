@@ -268,6 +268,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'giorgio-armani': cLogo('armani.com'),
  'givaudan': cLogo('givaudan.com'),
  'gkb': '/images/brands/gkb.png',
+ 'global-sana': '/images/brands/global-sana.svg',
  'globus': cLogo('globus.ch'),
  'goline': gFavicon('goline.ch'),
  'grace-la-margna': '/images/brands/grace-la-margna.png',
@@ -630,6 +631,7 @@ export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
  'farmacia-internazionale-dr-merloni',
  'mediamarkt',
  'mpa-praxisstellen-ch',
+ 'global-sana',
 ]);
 
 /**
