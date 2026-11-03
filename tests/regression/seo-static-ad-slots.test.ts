@@ -62,11 +62,12 @@ interface FileSpec {
   file: string;
   expectedCount: number;
   expectedSlot: 'JOBLIST_END_MULTIPLEX' | 'ARTICLE_END_MULTIPLEX';
+  additionalSlots?: Record<string, number>;
 }
 
 const FILE_SPECS: FileSpec[] = [
   // F8 border-wait — 3 page templates (per-crossing detail / global hub / today archive)
-  { file: 'build-plugins/borderWaitPagesPlugin.ts', expectedCount: 3, expectedSlot: 'ARTICLE_END_MULTIPLEX' },
+  { file: 'build-plugins/borderWaitPagesPlugin.ts', expectedCount: 3, expectedSlot: 'ARTICLE_END_MULTIPLEX', additionalSlots: { ARTICLE_INLINE_MOBILE: 1 } },
   // F3b orphan-query landing — 1 page template
   { file: 'build-plugins/orphanQueryLandingPlugin.ts', expectedCount: 1, expectedSlot: 'JOBLIST_END_MULTIPLEX' },
   // F4 job-market snapshot — 3 page templates (current / archive / per-sector)
@@ -96,7 +97,23 @@ function extractFunctionBody(source: string, fnName: string): string {
   return nextFnIdx === -1 ? rest : rest.slice(0, nextFnIdx);
 }
 
+// Count the slot argument rather than requiring the call to end there:
+// owned-frame/disclosure options do not remove a Google placement.
+function slotCalls(source: string): string[] {
+  return [...source.matchAll(/\badSlotHtml\(\s*(['"])([A-Z_]+)\1\s*(?=[,)])/g)].map(match => match[2]);
+}
+
 describe('SEO static-page ad slots — regression guard', () => {
+  it('counts the same slot with or without options and preserves exact slot identity', () => {
+    const calls = slotCalls(`
+      adSlotHtml('ARTICLE_END_MULTIPLEX');
+      adSlotHtml("ARTICLE_END_MULTIPLEX", { frame: { className: 'disclosure', label: 'Ad' } });
+      adSlotHtml('ARTICLE_END_MULTIPLEX_OTHER');
+      otherAdSlotHtml('ARTICLE_END_MULTIPLEX');
+    `);
+    expect(calls).toEqual(['ARTICLE_END_MULTIPLEX', 'ARTICLE_END_MULTIPLEX', 'ARTICLE_END_MULTIPLEX_OTHER']);
+  });
+
   for (const spec of SPECS) {
     it(`${spec.file} :: ${spec.fn} contains exactly one adSlotHtml('${spec.expectedSlot}') call`, () => {
       const filePath = path.join(ROOT, spec.file);
@@ -104,9 +121,9 @@ describe('SEO static-page ad slots — regression guard', () => {
       const body = extractFunctionBody(src, spec.fn);
       expect(body, `Could not locate function ${spec.fn} in ${spec.file}`).not.toBe('');
 
-      const calls = body.match(/adSlotHtml\(\s*['"][A-Z_]+['"]\s*\)/g) ?? [];
+      const calls = slotCalls(body);
       expect(calls).toHaveLength(1);
-      expect(calls[0]).toContain(spec.expectedSlot);
+      expect(calls[0]).toBe(spec.expectedSlot);
     });
   }
 
@@ -125,11 +142,11 @@ describe('SEO static-page ad slots — regression guard', () => {
   for (const fs_ of FILE_SPECS) {
     it(`${fs_.file} contains exactly ${fs_.expectedCount} adSlotHtml('${fs_.expectedSlot}') call(s)`, () => {
       const src = fs.readFileSync(path.join(ROOT, fs_.file), 'utf8');
-      const calls = src.match(/adSlotHtml\(\s*['"][A-Z_]+['"]\s*\)/g) ?? [];
-      expect(calls).toHaveLength(fs_.expectedCount);
-      for (const c of calls) {
-        expect(c).toContain(fs_.expectedSlot);
-      }
+      const counts: Record<string, number> = {};
+      for (const slot of slotCalls(src)) counts[slot] = (counts[slot] || 0) + 1;
+      // Preserve all three end units and the pre-existing webcam inline unit;
+      // extra or renamed slots fail this exact inventory as well.
+      expect(counts).toEqual({ [fs_.expectedSlot]: fs_.expectedCount, ...fs_.additionalSlots });
     });
   }
 
