@@ -153,6 +153,7 @@ step_spa_fallback() {
 # R2 — never an edge-cached stale value.
 _publish_cdn_r2() {
   local stage="$1"
+  local og_copy_option="${2:-}"
   if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
      || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
     echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
@@ -170,11 +171,16 @@ _publish_cdn_r2() {
   # reason: it compares size+mtime, and every deploy rebuilds the files with a
   # newer mtime → it re-uploaded the WHOLE payload (~35k PutObject/deploy,
   # measured), which would exhaust the R2 free-tier Class-A budget (1M/mo) in
-  # ~2 days. With copy --checksum the stable assets/og and unchanged data are
-  # skipped (0 PUT); only genuinely changed files upload → a few LIST ops + N
-  # changed PUTs per deploy. (First rclone run may re-PUT files aws had stored
-  # multipart — composite ETag ≠ plain MD5 — once; thereafter single-part.)
+  # ~2 days. With copy --checksum stable assets and unchanged data are skipped.
+  # For og/, a local SHA-256 manifest stages only files changed since the last
+  # successful OG copy; small deltas also use --no-traverse to avoid
+  # listing the accumulated prefix. Broad OG changes keep --fast-list, which
+  # is cheaper than a per-object destination lookup for every card. (First
+  # rclone run may re-PUT files aws had stored multipart — composite ETag ≠
+  # plain MD5 — once; thereafter single-part.)
   local rtmp="${RUNNER_TEMP:-/tmp}"
+  local og_manifest_candidate="$rtmp/r2-og-published-manifest.next.json"
+  local og_manifest_synced_hash="$rtmp/r2-og-published-manifest.synced.sha256"
   if ! command -v rclone >/dev/null 2>&1; then
     echo "[r2] rclone not found — installing static binary…"
     # --retry: a bare Recv-failure/Connection-reset on this single-shot download
@@ -295,9 +301,15 @@ _publish_cdn_r2() {
     fi
     exit "$exit_status"
   }
-  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
+  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
     local attempts=2 attempt=1 sync_status=0 attempt_log=""
+    local -a copy_flags=()
+    case "${6:-}" in
+      no-traverse) copy_flags+=(--no-traverse) ;;
+      "") ;;
+      *) echo "::error::[r2] unsupported copy option for $3/: ${6}"; return 1 ;;
+    esac
     # `copy` is additive and checksum-diffed, so repeating a prefix resumes
     # objects left behind by a timed-out attempt without deleting live keys.
     # Keep each attempt's upload log separately and append it to the aggregate:
@@ -311,7 +323,7 @@ _publish_cdn_r2() {
       if [ -n "${5:-}" ]; then
         attempt_log="$5.attempt-$attempt"
         rm -f "$attempt_log"
-        if _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
+        if _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" "${copy_flags[@]}" --header-upload "Cache-Control: $4" --stats=0 \
           -v --use-json-log --log-file="$attempt_log"; then
           sync_status=0
         else
@@ -324,7 +336,7 @@ _publish_cdn_r2() {
           cat "$attempt_log"
         fi
         rm -f "$attempt_log"
-      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
+      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" "${copy_flags[@]}" --header-upload "Cache-Control: $4" --stats=0; then
         sync_status=0
       else
         sync_status=$?
@@ -629,7 +641,24 @@ _publish_cdn_r2() {
   if [ "$assets_sync_status" -eq 0 ]; then
     assets_sync_ok=1
   fi
-  _r2_sync "$_t_og" "$stage/og"   og        "public,max-age=86400"
+  if _r2_sync "$_t_og" "$stage/og" og "public,max-age=86400" "" "$og_copy_option"; then
+    # This manifest covers only og/. Its copy is complete even if a later R2
+    # prefix fails and withholds the global build marker. Bind the completion
+    # record to these exact candidate bytes so a retry cannot promote a
+    # different/unpublished manifest from the same runner temp directory.
+    if [ -s "$og_manifest_candidate" ]; then
+      local og_manifest_hash=""
+      if og_manifest_hash="$(sha256sum "$og_manifest_candidate" | awk '{print $1}')" \
+        && [[ "$og_manifest_hash" =~ ^[a-f0-9]{64}$ ]]; then
+        printf '%s\n' "$og_manifest_hash" > "$og_manifest_synced_hash.tmp" \
+          && mv "$og_manifest_synced_hash.tmp" "$og_manifest_synced_hash"
+      else
+        echo "::warning::[r2-og-manifest] could not fingerprint the successfully copied OG manifest"
+      fi
+    fi
+  else
+    ok=0
+  fi
   local _image_namespaces=''
   if [ -d "$stage/images/blog" ]; then
     _image_namespaces=blog
@@ -880,10 +909,10 @@ _publish_cdn_r2() {
 # list snapshot, exactly the same "verify nothing moved since we looked"
 # principle assertFreshRemote applies before the git janitor's force-push.
 #
-# Scope: only the `assets/` prefix — content-hashed bundle files are the only
-# ones that actually accumulate orphans; og/data/images/job-canon are
-# same-key overwrites every deploy (see _r2_sync above) and never grow
-# unbounded, so they are out of scope for this janitor.
+# Scope: only the `assets/` prefix — content-hashed bundle files are tracked by
+# the existing grace-safe inventory. OG paths can include a job slug that
+# changes over time, so historical keys may accumulate; automatic deletion
+# remains disabled for those objects and is not part of this janitor.
 _janitor_cdn_r2() {
   local stage="$1"
   local mode="${2:-dry-run}"  # 'dry-run' (only value the automatic call site ever passes) | 'apply'
@@ -1041,7 +1070,52 @@ step_push_cdn() {
   # them; generate-article.yml commits each new one), so the public/images/blog
   # copy below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
   # script then deletes the dist copy of dist/images/blog/thumbnails.
-  [ -d dist/og ]           && cp -r dist/og           "$stage/og"
+  local r2_og_copy_option=""
+  local r2_og_candidate="${RUNNER_TEMP:-/tmp}/r2-og-published-manifest.next.json"
+  if [ "$cdn_target" = "r2" ] && [ -d dist/og ]; then
+    rm -f "$r2_og_candidate"
+    local r2_og_summary=""
+    if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$stage/og" "$r2_og_candidate")"; then
+      echo "[r2-og] $r2_og_summary"
+      case "$r2_og_summary" in
+        mode=full\ *)
+          cp -r dist/og "$stage/og" || {
+            echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
+            return 1
+          }
+          ;;
+        mode=delta\ *)
+          case "$r2_og_summary" in
+            *" no_traverse=true") r2_og_copy_option="no-traverse" ;;
+          esac
+          ;;
+        *)
+          echo "::warning::[r2-og-manifest] unexpected helper output; falling back to full OG stage"
+          rm -f "$r2_og_candidate"
+          rm -rf "$stage/og"
+          cp -r dist/og "$stage/og" || {
+            echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
+            return 1
+          }
+          ;;
+      esac
+    else
+      echo "::warning::[r2-og-manifest] delta preparation failed; falling back to full OG stage"
+      rm -f "$r2_og_candidate"
+      rm -rf "$stage/og"
+      cp -r dist/og "$stage/og" || {
+        echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
+        return 1
+      }
+    fi
+  else
+    if [ -d dist/og ]; then
+      cp -r dist/og "$stage/og" || {
+        echo "::error::[r2-og-manifest] could not stage the OG directory" >&2
+        return 1
+      }
+    fi
+  fi
   [ -d dist/data ]         && cp -r dist/data         "$stage/data"
   [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
   # The GA4 static page_view producer is identity-bearing. New HTML points at
@@ -1167,7 +1241,7 @@ step_push_cdn() {
   # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
   # (default) is the legacy git force-push, byte-identical to before.
   if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
-    _publish_cdn_r2 "$stage"
+    _publish_cdn_r2 "$stage" "$r2_og_copy_option"
     if [ "$cdn_target" = "r2" ]; then
       cd "$PREP_CWD"
       return 0
@@ -1193,8 +1267,8 @@ step_push_cdn() {
   # whole repo each deploy used to DELETE those still-referenced files
   # while the ~13 GB Pages site kept serving the previous build for the
   # 10-20 min a publish takes to propagate → live HTML 404'd on its own
-  # JS → SPA dead (prod outage 2026-06-04). og/data/images are same-path
-  # and fully refreshed above (overwrite is correct for them).
+  # JS → SPA dead (prod outage 2026-06-04). og/data/images are refreshed from
+  # the current build above (overwrite is correct for them).
   # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
   # Sparse + blob:none keeps the clone to the small assets/ tree only.
   if [ -d "$stage/assets" ]; then
@@ -1214,8 +1288,8 @@ step_push_cdn() {
   echo "CDN payload: $(du -sh "$stage" | cut -f1)"
   # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
   # With additive assets/ the payload grows slowly across deploys (only NEW
-  # hashes accumulate; data/og/images are refreshed, not stacked). The inline
-  # "Prune superseded CDN asset hashes" step below GCs superseded hashes past
+  # hashes accumulate; data/og/images are refreshed in this Pages stage).
+  # The inline "Prune superseded CDN asset hashes" step below GCs superseded hashes past
   # a grace window (runs post-push in this same job — no concurrent-deploy race).
   payload_bytes="$(du -sb "$stage" | cut -f1)"
   if [ "$payload_bytes" -gt 950000000 ]; then
