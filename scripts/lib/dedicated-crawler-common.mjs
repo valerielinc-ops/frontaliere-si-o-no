@@ -73,10 +73,10 @@ import {
 } from './translation-quality.mjs';
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
+import { readJsonFile } from './read-large-json.mjs';
 import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
-import { hasTopLevelJsonArray, readJsonArrayFile } from './streaming-json-array.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
@@ -1500,20 +1500,14 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   if (_hardenResultCache.has(resolvedPath)) {
     const cached = _hardenResultCache.get(resolvedPath);
     if (!includeJobs || Array.isArray(cached.jobs)) return cached;
-    const jobs = hasTopLevelJsonArray(dataJobsPath)
-      ? readJsonArrayFile(dataJobsPath)
-      : (() => {
-        const parsed = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
-        return Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
-      })();
+    const parsed = readJsonFile(dataJobsPath);
+    const jobs = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
     const withJobs = { ...cached, ...(Array.isArray(jobs) ? { jobs } : {}) };
     _hardenResultCache.set(resolvedPath, withJobs);
     return withJobs;
   }
 
-  const parsed = hasTopLevelJsonArray(dataJobsPath)
-    ? readJsonArrayFile(dataJobsPath)
-    : JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  const parsed = readJsonFile(dataJobsPath);
   // Support both flat array format and { jobs: [...] } wrapper format
   const raw = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
   if (!raw) {
@@ -3659,7 +3653,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
     return { changed: false, translated: 0, total: 0, details: [] };
   }
   hardenJobLocaleFields({ dataJobsPath });
-  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  const raw = readJsonFile(dataJobsPath);
   if (!Array.isArray(raw)) {
     return { changed: false, translated: 0, total: 0, details: [] };
   }
@@ -4539,7 +4533,7 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, updated: 0, total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  const raw = readJsonFile(dataJobsPath);
   if (!Array.isArray(raw)) {
     return { changed: false, updated: 0, total: 0 };
   }
@@ -4833,7 +4827,7 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
     if (keySet.size === 0) return;
     const resolvedDataJobsPath = dataJobsPath || path.join(root, 'data', 'jobs.json');
     if (!fs.existsSync(resolvedDataJobsPath)) return;
-    const all = JSON.parse(fs.readFileSync(resolvedDataJobsPath, 'utf-8'));
+    const all = readJsonFile(resolvedDataJobsPath);
     if (!Array.isArray(all)) return;
     const sliceDir = path.join(root, 'data', 'jobs', 'by-crawler');
     fs.mkdirSync(sliceDir, { recursive: true });
@@ -5004,7 +4998,7 @@ export function validateDedicatedLocaleCoverage({
   // `let` (not `const`): the per-item non-translation quarantine below (#3789)
   // rewrites the dataset mid-validation and must keep the in-memory copies in
   // sync so later paths (thin-source quarantine) don't resurrect removed jobs.
-  let raw = JSON.parse(fs.readFileSync(resolvedDataJobsPath, 'utf-8'));
+  let raw = readJsonFile(resolvedDataJobsPath);
   let jobs = Array.isArray(raw) ? raw.filter(isTargetJob) : [];
   if (jobs.length === 0) {
     const message = noJobsMessage || `No ${label} jobs found after crawl.`;

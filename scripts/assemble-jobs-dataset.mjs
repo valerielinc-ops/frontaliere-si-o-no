@@ -113,6 +113,7 @@ import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawle
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
 import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
@@ -1056,11 +1057,14 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
 
 function readJson(filePath, fallback) {
   try {
-    const text = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(text);
+    return readJsonFile(filePath);
   } catch {
     return fallback;
   }
+}
+
+function jobsFromJson(value) {
+  return Array.isArray(value) ? value : (Array.isArray(value?.jobs) ? value.jobs : []);
 }
 
 // Excludes cleanup-jobs.mjs's own scratch file (`<slice>.cleanup-tmp.json`,
@@ -1198,8 +1202,7 @@ export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   }
   // Fallback: data/jobs.json (gitignored, only available locally)
   if (dataJobsPath && fs.existsSync(dataJobsPath)) {
-    const all = readJson(dataJobsPath);
-    return Array.isArray(all) ? all : [];
+    return jobsFromJson(readJson(dataJobsPath));
   }
   return [];
 }
@@ -3600,13 +3603,11 @@ async function assembleJobs() {
   const migratedKeys = new Set(slices.map((s) => s.crawlerKey).filter(Boolean));
 
   // Baseline: existing monolithic jobs.json, minus jobs from migrated crawlers
-  const existing = readJson(DATA_JOBS, []);
-  const baseline = Array.isArray(existing)
-    ? existing.filter((job) => {
-        const key = String(job.companyKey || '').toLowerCase();
-        return !migratedKeys.has(key);
-      })
-    : [];
+  const existing = jobsFromJson(readJson(DATA_JOBS, []));
+  const baseline = existing.filter((job) => {
+    const key = String(job.companyKey || '').toLowerCase();
+    return !migratedKeys.has(key);
+  });
 
   if (migratedKeys.size < (existing.length > 0 ? 1 : 0)) {
     console.log(`  🔄 Hybrid mode: keeping ${baseline.length} jobs from non-migrated crawlers`);
@@ -4864,7 +4865,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // by trackSlugHistoryDrift() to detect translation/hash drift on
   // re-crawl and auto-populate previousSlugs[ByLocale] so the slug-bridge
   // pipeline keeps every historical URL resolving on next deploy.
-  const priorJobsSnapshot = readJson(DATA_JOBS, []);
+  const priorJobsSnapshot = jobsFromJson(readJson(DATA_JOBS, []));
 
   // --- Jobs ---
   const finishActiveAssemblyTiming = startPipelinePhase('jobs-dataset', 'assemble active dataset');

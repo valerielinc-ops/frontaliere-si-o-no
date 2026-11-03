@@ -49,11 +49,11 @@ import { realpathSync } from 'node:fs';
  * (`formatCompleteRatio`), so they can never print as "100%" unless exact.
  * Same reason, opposite direction — do not merge the two helpers.
  */
-import fs from 'node:fs';
 import path from 'node:path';
 
 import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 export { MIN_TITLE_CHARS };
 
@@ -244,7 +244,7 @@ async function main() {
 
   let jobs;
   try {
-    jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    jobs = readJsonFile(DATA_JOBS);
   } catch (err) {
     console.error(`❌ Failed to parse jobs.json: ${err.message}`);
     process.exit(1);

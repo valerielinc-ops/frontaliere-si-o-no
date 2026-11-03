@@ -1,0 +1,100 @@
+// @vitest-environment jsdom
+// @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
+
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { act, cleanup, renderHook } from '@testing-library/react';
+
+import { SEO_TRACKING_PUSH_EVENT } from '@/hooks/useSeoPageTracking';
+import { useMetaPixelPageView } from '@/hooks/useMetaPixelPageView';
+import { setAdsConsent } from '@/services/adsConsent';
+
+const TARGET_PATH = '/automatizza-ricerca-lavoro-svizzera/';
+const META_PIXEL_SRC = 'https://connect.facebook.net/en_US/fbevents.js';
+const META_PIXEL_ID = '1090503593451766';
+
+type PixelFunction = ((...args: string[]) => void) & { queue: string[][] };
+type PixelWindow = Window & {
+  fbq?: PixelFunction;
+  _fbq?: PixelFunction;
+  __ftMetaPixelInitialized?: boolean;
+  __ftAdsConsentDecision?: string;
+};
+
+function pixelQueue(): string[][] {
+  return (window as PixelWindow).fbq?.queue ?? [];
+}
+
+beforeEach(() => {
+  localStorage.clear();
+  window.history.replaceState({}, '', '/');
+  document.querySelectorAll('script[data-ft-meta-pixel]').forEach((script) => script.remove());
+  const pixelWindow = window as PixelWindow;
+  delete pixelWindow.fbq;
+  delete pixelWindow._fbq;
+  delete pixelWindow.__ftMetaPixelInitialized;
+  delete pixelWindow.__ftAdsConsentDecision;
+});
+
+afterEach(() => {
+  cleanup();
+  localStorage.clear();
+  const pixelWindow = window as PixelWindow;
+  delete pixelWindow.fbq;
+  delete pixelWindow._fbq;
+  delete pixelWindow.__ftMetaPixelInitialized;
+  delete pixelWindow.__ftAdsConsentDecision;
+});
+
+describe('useMetaPixelPageView', () => {
+  it('waits for advertising consent before loading Meta Pixel and sending PageView', () => {
+    window.history.replaceState({}, '', TARGET_PATH);
+    renderHook(() => useMetaPixelPageView());
+
+    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).toBeNull();
+    expect((window as PixelWindow).fbq).toBeUndefined();
+
+    act(() => setAdsConsent('granted'));
+
+    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).not.toBeNull();
+    expect(pixelQueue()).toContainEqual(['init', META_PIXEL_ID]);
+    expect(pixelQueue()).toContainEqual(['track', 'PageView']);
+
+    act(() => setAdsConsent('granted'));
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
+  });
+
+  it('loads only on the requested route and detects SPA navigation into it', () => {
+    act(() => setAdsConsent('granted'));
+    renderHook(() => useMetaPixelPageView());
+    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).toBeNull();
+
+    act(() => {
+      window.history.pushState({}, '', TARGET_PATH);
+      window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
+    });
+
+    expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).not.toBeNull();
+
+    act(() => {
+      window.history.pushState({}, '', '/privacy/');
+      window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
+      window.history.pushState({}, '', '/en/automate-job-search-switzerland/');
+      window.dispatchEvent(new Event(SEO_TRACKING_PUSH_EVENT));
+    });
+
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(1);
+  });
+
+  it('revokes Pixel consent and waits for a new grant before tracking again', () => {
+    window.history.replaceState({}, '', TARGET_PATH);
+    act(() => setAdsConsent('granted'));
+    renderHook(() => useMetaPixelPageView());
+
+    act(() => setAdsConsent('denied'));
+    expect(pixelQueue()).toContainEqual(['consent', 'revoke']);
+
+    act(() => setAdsConsent('granted'));
+    expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(2);
+    expect(document.querySelectorAll(`script[src="${META_PIXEL_SRC}"]`)).toHaveLength(1);
+  });
+});

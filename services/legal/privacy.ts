@@ -1,13 +1,20 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 import { legalLinks, type LegalDocument, type LegalLocale } from './types';
 
+const APPLICATION_CONCIERGE_PRIVACY_PATHS: Record<LegalLocale, string> = {
+  it: '/automatizza-ricerca-lavoro-svizzera/',
+  en: '/en/automate-job-search-switzerland/',
+  de: '/de/arbeitssuche-schweiz-automatisieren/',
+  fr: '/fr/automatiser-recherche-emploi-suisse/',
+};
+
 // Trusted editorial HTML only; no visitor or remote input enters these documents.
 // Preserve the full policy in each locale; the interactive CMP remains a separate block.
 const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLinks>) => LegalDocument> = {
   it: links => ({
     title: "Informativa sulla privacy",
     description: "Informativa sul trattamento dei dati personali di Frontaliere Ticino.",
-    updated: "2 novembre 2026",
+    updated: "3 novembre 2026",
     introHtml: `<p>La tua privacy è importante per noi. Questa informativa descrive in modo trasparente quali dati trattiamo, per quali finalità e su quali basi giuridiche quando utilizzi <strong> Frontaliere Ticino</strong> (frontaliereticino.ch), e quali diritti puoi esercitare.</p><p>L'informativa è redatta per essere conforme ai principali quadri normativi applicabili a livello internazionale: il <strong>Regolamento (UE) 2016/679 (GDPR)</strong> e il D.Lgs. 196/2003 (Codice Privacy italiano), la <strong>nuova Legge federale svizzera sulla protezione dei dati (nLPD/revLPD)</strong>, la <strong>UK GDPR</strong>, il <strong>California Consumer Privacy Act (CCPA/CPRA)</strong> e altre normative locali (LGPD brasiliana, PIPEDA canadese, Legge 25 del Québec). Ove più normative siano applicabili, riconosciamo all'utente il livello di tutela più favorevole tra quelli previsti.</p>`,
     sections: [
       {
@@ -52,6 +59,12 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
           { html: `<p> Il sito utilizza cookie e tecnologie di storage locale per funzionare e per migliorare la tua esperienza. I cookie tecnici sono sempre attivi perché indispensabili al funzionamento del sito. Le due categorie non essenziali seguono regimi diversi: i cookie <strong>Analytics</strong> si attivano automaticamente dalla tua prima visita (vedi «Analisi Anonima del Traffico» per la base giuridica e come opporti), mentre i cookie <strong>Pubblicitari</strong> richiedono il tuo consenso esplicito e restano inattivi finché non lo concedi. </p> <h3>Cookie Tecnici</h3> <p> Cookie essenziali per il funzionamento del sito (es. preferenze tema, stato del consenso, sessione di autenticazione). Non richiedono consenso. </p> <h3>Cookie Analytics</h3> <p> Cookie di Google Analytics, PostHog e Microsoft Clarity per statistiche anonime (vedi sezione «Analisi Anonima del Traffico»). Attivi dalla prima visita, non soggetti a consenso preventivo. </p> <h3>Cookie Pubblicitari</h3> <p> Cookie di Google AdSense e Google Ad Manager per la visualizzazione di annunci, anche personalizzati (vedi sezione «Pubblicità»). Sono <strong>subordinati al tuo consenso esplicito</strong>: finché non rispondi non viene caricato alcuno script pubblicitario. Se rifiuti, Google AdSense mostra solo annunci limitati, che non usano cookie pubblicitari: Google può usare cookie e storage locale solo per rilevare traffico non valido e frodi. Il consenso ti viene chiesto una volta con un banner dedicato ed è <strong>revocabile in qualsiasi momento</strong> dal riquadro qui sotto. </p>` },
           { kind: 'ads-controls' },
           { html: `<h3>LocalStorage</h3><p>Utilizziamo il LocalStorage del browser per salvare preferenze, come il tema scuro o chiaro, e mantenere i parametri dell’ultima simulazione. Il salvataggio locale non significa che tutte le preferenze rimangano esclusivamente sul dispositivo: gli strumenti di analisi possono ricevere proprietà come tema, area di interesse e valuta selezionata. I parametri della simulazione sono distinti da queste proprietà di utilizzo.</p>` },
+        ],
+      },
+      {
+        title: "Meta Pixel",
+        blocks: [
+          { html: `<p>Il Meta Pixel viene caricato solo sulla pagina <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.it}">Automatizza la ricerca di lavoro in Svizzera</a> e soltanto dopo che concedi il consenso pubblicitario. Invia a Meta l'evento standard PageView per registrare la visita. Puoi revocare il consenso nella sezione «Cookie e Storage Locale» qui sopra. Consulta l'<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Meta</a>.</p>` },
         ],
       },
       {
@@ -123,7 +136,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Modifiche alla Privacy Policy",
         blocks: [
-          { html: `<p> Potremmo aggiornare questa Privacy Policy occasionalmente. Ti consigliamo di rivedere periodicamente questa pagina per eventuali modifiche. Le modifiche saranno effettive immediatamente dopo la pubblicazione su questa pagina; in caso di modifiche sostanziali ne daremo evidenza aggiornando la data sottostante. </p> <p> Data ultimo aggiornamento: <strong>3 ottobre 2026</strong> </p>` },
+          { html: `<p> Potremmo aggiornare questa Privacy Policy occasionalmente. Ti consigliamo di rivedere periodicamente questa pagina per eventuali modifiche. Le modifiche saranno effettive immediatamente dopo la pubblicazione su questa pagina; in caso di modifiche sostanziali ne daremo evidenza aggiornando la data sottostante. </p> <p> Data ultimo aggiornamento: <strong>3 novembre 2026</strong> </p>` },
         ],
       },
       {
@@ -137,7 +150,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
   en: links => ({
     title: "Privacy Policy",
     description: "How Frontaliere Ticino processes personal data, the purposes and legal bases of processing, and your privacy rights.",
-    updated: "2 November 2026",
+    updated: "3 November 2026",
     introHtml: `<p>Your privacy is important to us. This notice transparently describes which data we process, for what purposes and on which legal bases when you use <strong>Frontaliere Ticino</strong> (frontaliereticino.ch), and which rights you can exercise.</p><p>This notice is drafted to comply with the main internationally applicable regulatory frameworks: <strong>Regulation (EU) 2016/679 (GDPR)</strong> and Legislative Decree 196/2003 (the Italian Privacy Code), the <strong>new Swiss Federal Act on Data Protection (nLPD/revLPD)</strong>, the <strong>UK GDPR</strong>, the <strong>California Consumer Privacy Act (CCPA/CPRA)</strong> and other local laws (Brazil's LGPD, Canada's PIPEDA, Québec's Law 25). Where multiple laws apply, we grant users the most favourable level of protection provided by those laws.</p>`,
     sections: [
       {
@@ -195,6 +208,12 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
           { html: `<h3>Advertising Cookies</h3><p>Google AdSense and Google Ad Manager cookies for displaying ads, including personalised ads (see “Advertising”). They are <strong>subject to your explicit consent</strong>: no advertising script is loaded until you respond. If you refuse, Google AdSense displays only limited ads, which do not use advertising cookies: Google may use cookies and local storage only to detect invalid traffic and fraud. Consent is requested once through a dedicated banner and <strong>can be withdrawn at any time</strong> using the panel below.</p>` },
           { kind: 'ads-controls' },
           { html: `<h3>LocalStorage</h3><p>We use browser LocalStorage to save preferences, such as dark or light theme, and retain the parameters of your last simulation. Local storage does not mean that all preferences remain exclusively on your device: analytics tools may receive properties such as theme, area of interest and selected currency. Simulation parameters are distinct from these usage properties.</p>` },
+        ],
+      },
+      {
+        title: "Meta Pixel",
+        blocks: [
+          { html: `<p>Meta Pixel is loaded only on the <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.en}">Automate your job search in Switzerland</a> page and only after you grant advertising consent. It sends Meta the standard PageView event to record the visit. You can withdraw consent in the “Cookies and Local Storage” section above. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta’s Privacy Policy</a>.</p>` },
         ],
       },
       {
@@ -269,7 +288,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Changes to the Privacy Policy",
         blocks: [
-          { html: `<p>We may update this Privacy Policy occasionally. We recommend that you review this page periodically for any changes. Changes take effect immediately upon publication on this page; in the event of substantial changes, we will highlight them by updating the date below.</p><p>Last updated: <strong>3 October 2026</strong></p>` },
+          { html: `<p>We may update this Privacy Policy occasionally. We recommend that you review this page periodically for any changes. Changes take effect immediately upon publication on this page; in the event of substantial changes, we will highlight them by updating the date below.</p><p>Last updated: <strong>3 November 2026</strong></p>` },
         ],
       },
       {
@@ -283,7 +302,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
   de: links => ({
     title: "Datenschutzerklärung",
     description: "Informationen zur Verarbeitung personenbezogener Daten, zu Cookies und zu deinen Datenschutzrechten bei Frontaliere Ticino.",
-    updated: "2. November 2026",
+    updated: "3. November 2026",
     introHtml: `<p>Deine Privatsphäre ist uns wichtig. Diese Erklärung beschreibt transparent, welche Daten wir verarbeiten, zu welchen Zwecken und auf welchen Rechtsgrundlagen, wenn du <strong>Frontaliere Ticino</strong> (frontaliereticino.ch) nutzt, und welche Rechte du ausüben kannst.</p><p>Diese Erklärung wurde im Hinblick auf die Einhaltung der wichtigsten international anwendbaren Rechtsrahmen erstellt: die <strong>Verordnung (EU) 2016/679 (DSGVO)</strong> und das italienische gesetzesvertretende Dekret 196/2003 (Datenschutzgesetzbuch), das <strong>neue Schweizer Bundesgesetz über den Datenschutz (nDSG/revDSG)</strong>, die <strong>UK GDPR</strong>, den <strong>California Consumer Privacy Act (CCPA/CPRA)</strong> sowie weitere lokale Vorschriften (brasilianische LGPD, kanadisches PIPEDA, Gesetz 25 von Québec). Sind mehrere Regelungen anwendbar, gewähren wir den Nutzern das jeweils günstigste vorgesehene Schutzniveau.</p>`,
     sections: [
       {
@@ -328,6 +347,12 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
           { html: `<p>Die Website verwendet Cookies und lokale Speichertechnologien, um zu funktionieren und dein Nutzungserlebnis zu verbessern. Technische Cookies sind stets aktiv, da sie für den Betrieb der Website unerlässlich sind. Für die beiden nicht notwendigen Kategorien gelten unterschiedliche Regelungen: <strong>Analyse-Cookies</strong> werden ab deinem ersten Besuch automatisch aktiviert (siehe «Anonyme Verkehrsanalyse» zur Rechtsgrundlage und zur Widerspruchsmöglichkeit), während <strong>Werbe-Cookies</strong> deine ausdrückliche Einwilligung erfordern und bis zu deren Erteilung inaktiv bleiben.</p><h3>Technische Cookies</h3><p>Für den Betrieb der Website notwendige Cookies (z. B. Darstellungspräferenzen, Einwilligungsstatus, Authentifizierungssitzung). Sie erfordern keine Einwilligung.</p><h3>Analyse-Cookies</h3><p>Cookies von Google Analytics, PostHog und Microsoft Clarity für anonyme Statistiken (siehe Abschnitt «Anonyme Verkehrsanalyse»). Ab dem ersten Besuch aktiv, ohne vorherige Einwilligung.</p><h3>Werbe-Cookies</h3><p>Cookies von Google AdSense und Google Ad Manager zur Anzeige von Werbung, auch personalisierter Werbung (siehe Abschnitt «Werbung»). Sie <strong>setzen deine ausdrückliche Einwilligung voraus</strong>: Solange du nicht antwortest, wird kein Werbeskript geladen. Wenn du ablehnst, zeigt Google AdSense nur eingeschränkte Anzeigen, die keine Werbe-Cookies verwenden: Google darf Cookies und lokalen Speicher ausschliesslich zur Erkennung ungültigen Traffics und von Betrug verwenden. Deine Einwilligung wird einmalig über ein eigenes Banner abgefragt und kann <strong>jederzeit widerrufen werden</strong>, über das nachstehende Feld.</p>` },
           { kind: 'ads-controls' },
           { html: `<h3>LocalStorage</h3><p>Wir verwenden den LocalStorage des Browsers, um Einstellungen wie das dunkle oder helle Design und die Parameter der letzten Simulation zu speichern. Die lokale Speicherung bedeutet nicht, dass alle Einstellungen ausschließlich auf Ihrem Gerät verbleiben: Analysewerkzeuge können Eigenschaften wie Design, Interessengebiet und gewählte Währung erhalten. Die Simulationsparameter sind von diesen Nutzungseigenschaften zu unterscheiden.</p>` },
+        ],
+      },
+      {
+        title: "Meta Pixel",
+        blocks: [
+          { html: `<p>Meta Pixel wird nur auf der Seite <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.de}">Automatisiere deine Jobsuche in der Schweiz</a> und erst nach deiner Werbeeinwilligung geladen. Dabei wird das Standardereignis PageView an Meta gesendet, um den Seitenaufruf zu erfassen. Du kannst deine Einwilligung im obigen Abschnitt «Cookies und lokaler Speicher» widerrufen. Weitere Informationen findest du in Metas <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.</p>` },
         ],
       },
       {
@@ -399,7 +424,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Änderungen der Datenschutzerklärung",
         blocks: [
-          { html: `<p>Wir können diese Datenschutzerklärung gelegentlich aktualisieren. Wir empfehlen dir, diese Seite regelmässig auf Änderungen zu prüfen. Änderungen treten unmittelbar nach ihrer Veröffentlichung auf dieser Seite in Kraft; auf wesentliche Änderungen weisen wir durch Aktualisierung des nachstehenden Datums hin.</p><p>Letzte Aktualisierung: <strong>3. Oktober 2026</strong></p>` },
+          { html: `<p>Wir können diese Datenschutzerklärung gelegentlich aktualisieren. Wir empfehlen dir, diese Seite regelmässig auf Änderungen zu prüfen. Änderungen treten unmittelbar nach ihrer Veröffentlichung auf dieser Seite in Kraft; auf wesentliche Änderungen weisen wir durch Aktualisierung des nachstehenden Datums hin.</p><p>Letzte Aktualisierung: <strong>3. November 2026</strong></p>` },
         ],
       },
       {
@@ -413,7 +438,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
   fr: links => ({
     title: "Politique de confidentialité",
     description: "Découvrez comment Frontaliere Ticino traite vos données personnelles, utilise les cookies et protège vos droits.",
-    updated: "2 novembre 2026",
+    updated: "3 novembre 2026",
     introHtml: `<p>Votre vie privée est importante pour nous. Cette politique décrit de manière transparente les données que nous traitons, à quelles fins et sur quelles bases juridiques lorsque vous utilisez <strong>Frontaliere Ticino</strong> (frontaliereticino.ch), ainsi que les droits que vous pouvez exercer.</p><p>Cette politique est rédigée pour être conforme aux principaux cadres réglementaires applicables à l’échelle internationale : le <strong>Règlement (UE) 2016/679 (RGPD)</strong> et le décret législatif italien 196/2003 (Code italien de la protection des données), la <strong>nouvelle loi fédérale suisse sur la protection des données (nLPD/LPD révisée)</strong>, le <strong>UK GDPR</strong>, le <strong>California Consumer Privacy Act (CCPA/CPRA)</strong> et d’autres législations locales (LGPD brésilienne, PIPEDA canadienne, Loi 25 du Québec). Lorsque plusieurs réglementations s’appliquent, nous accordons à l’utilisateur le niveau de protection le plus favorable parmi ceux prévus.</p>`,
     sections: [
       {
@@ -458,6 +483,12 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
           { html: `<p>Le site utilise des cookies et des technologies de stockage local pour fonctionner et améliorer votre expérience. Les cookies techniques sont toujours actifs car ils sont indispensables au fonctionnement du site. Les deux catégories non essentielles suivent des régimes différents : les cookies <strong>analytiques</strong> s’activent automatiquement dès votre première visite (voir « Analyse anonyme du trafic » pour la base juridique et les modalités d’opposition), tandis que les cookies <strong>publicitaires</strong> nécessitent votre consentement explicite et restent inactifs tant que vous ne l’avez pas accordé.</p><h3>Cookies techniques</h3><p>Cookies essentiels au fonctionnement du site (par exemple préférences de thème, état du consentement, session d’authentification). Ils ne nécessitent pas de consentement.</p><h3>Cookies analytiques</h3><p>Cookies de Google Analytics, PostHog et Microsoft Clarity pour des statistiques anonymes (voir la section « Analyse anonyme du trafic »). Actifs dès la première visite, ils ne sont pas soumis à un consentement préalable.</p><h3>Cookies publicitaires</h3><p>Cookies de Google AdSense et Google Ad Manager pour l’affichage d’annonces, y compris personnalisées (voir la section « Publicité »). Ils sont <strong>soumis à votre consentement explicite</strong> : tant que vous ne répondez pas, aucun script publicitaire n’est chargé. Si vous refusez, Google AdSense affiche uniquement des annonces limitées, qui n’utilisent pas de cookies publicitaires : Google peut utiliser des cookies et du stockage local uniquement pour détecter le trafic incorrect et les fraudes. Votre consentement est demandé une seule fois au moyen d’un bandeau dédié et peut être <strong>retiré à tout moment</strong> depuis l’encadré ci-dessous.</p>` },
           { kind: 'ads-controls' },
           { html: `<h3>LocalStorage</h3><p>Nous utilisons le LocalStorage du navigateur pour enregistrer des préférences, comme le thème sombre ou clair, et conserver les paramètres de votre dernière simulation. Le stockage local ne signifie pas que toutes les préférences restent exclusivement sur votre appareil : les outils d’analyse peuvent recevoir des propriétés telles que le thème, le domaine d’intérêt et la devise sélectionnée. Les paramètres de simulation sont distincts de ces propriétés d’utilisation.</p>` },
+        ],
+      },
+      {
+        title: "Meta Pixel",
+        blocks: [
+          { html: `<p>Meta Pixel est chargé uniquement sur la page <a href="${APPLICATION_CONCIERGE_PRIVACY_PATHS.fr}">Automatiser votre recherche d’emploi en Suisse</a> et seulement après que vous avez accordé votre consentement publicitaire. Il envoie à Meta l’événement standard PageView pour enregistrer la visite. Vous pouvez retirer votre consentement dans la section « Cookies et stockage local » ci-dessus. Consultez la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">politique de confidentialité de Meta</a>.</p>` },
         ],
       },
       {
@@ -529,7 +560,7 @@ const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLink
       {
         title: "Modifications de la politique de confidentialité",
         blocks: [
-          { html: `<p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Nous vous conseillons de consulter régulièrement cette page pour prendre connaissance d’éventuelles modifications. Les modifications prennent effet immédiatement après leur publication sur cette page ; en cas de modifications substantielles, nous les signalerons en actualisant la date ci-dessous.</p><p>Date de dernière mise à jour : <strong>3 octobre 2026</strong></p>` },
+          { html: `<p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Nous vous conseillons de consulter régulièrement cette page pour prendre connaissance d’éventuelles modifications. Les modifications prennent effet immédiatement après leur publication sur cette page ; en cas de modifications substantielles, nous les signalerons en actualisant la date ci-dessous.</p><p>Date de dernière mise à jour : <strong>3 novembre 2026</strong></p>` },
         ],
       },
       {

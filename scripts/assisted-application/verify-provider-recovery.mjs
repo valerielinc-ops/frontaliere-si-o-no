@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @manual-tool: one-shot proof for the CAPTCHA recovery regression; run manually when portal retry transitions change because it does not exercise a live provider or deployment artifact.
 /** Deterministic proof for CAPTCHA recovery before a final application click. */
 import assert from 'node:assert/strict';
 import { portalHandoffReason } from './lib/portal/diagnostics.mjs';

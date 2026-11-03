@@ -30,13 +30,13 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import {
   isProvenCrossCrawlerDedupRemoval,
   loadCrossCrawlerDedupProofFile,
 } from './lib/crawler-slice-integrity.mjs';
-import { readJsonArrayFile } from './lib/streaming-json-array.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -89,10 +89,12 @@ export function pruneDedupFromSlices(root = ROOT) {
   const slicesDir = path.join(root, 'data', 'jobs', 'by-crawler');
   let assembled = null;
   try {
-    assembled = readJsonArrayFile(dataJobs);
+    assembled = readJsonFile(dataJobs);
+    assembled = Array.isArray(assembled) ? assembled : (Array.isArray(assembled?.jobs) ? assembled.jobs : null);
   } catch {
     // Preserve the existing fail-closed behavior when the aggregate is absent,
     // malformed, or not a top-level job array.
+    assembled = null;
   }
   if (!Array.isArray(assembled)) {
     console.log('ℹ️  data/jobs.json not found or not an array — nothing to prune. Run assemble-jobs-dataset.mjs first.');

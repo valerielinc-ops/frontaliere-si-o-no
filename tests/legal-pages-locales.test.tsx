@@ -17,7 +17,7 @@ describe('complete legal copy shared by static and hydrated pages', () => {
       const document = getLegalDocument(page, locale);
       const staticDom = parse(renderLegalEditorial(page, locale).join(''));
       const spaDom = parse(renderToStaticMarkup(<LegalDocumentPage document={document} locale={locale} adsControls={<button>consent test control</button>}/>));
-      const expectedCount = page === 'privacy' ? 20 : page === 'terms' ? 8 : 5;
+      const expectedCount = page === 'privacy' ? 21 : page === 'terms' ? 8 : 5;
       expect(staticDom.querySelectorAll('section')).toHaveLength(expectedCount);
       expect(spaDom.querySelectorAll('section')).toHaveLength(expectedCount);
       expect(staticDom.querySelector('h1')).toBeNull();
