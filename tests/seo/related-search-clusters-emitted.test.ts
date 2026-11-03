@@ -42,6 +42,7 @@ import {
 import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { expectIndexableWithLargePreview, robotsDirectiveOf } from '../helpers/robotsAssertions';
 import { isArchivedStubHtml, isBridgePageHtml, isNoindexHtml } from './_bridgeMarker';
 import { buildJunkRetirementHtml, renderHubPage } from '../../build-plugins/relatedSearchClustersPlugin';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
@@ -373,11 +374,11 @@ describe('related-search hub pagination noindex contract', () => {
   it('declares only deep noindex pages to the crawler', () => {
     const shallow = render(10);
     expect(shallow.html).not.toContain(PAGINATION_NOINDEX_TARGET_MARKER);
-    expect(shallow.html).toContain('content=index,follow');
+    expectIndexableWithLargePreview(shallow.html, shallow.urlPath);
 
     const deep = render(11);
     expect(deep.urlPath).toBe('/cerca-lavoro-ticino/ricerca/page-11/');
-    expect(deep.html).toContain('content=noindex,follow');
+    expect(robotsDirectiveOf(deep.html)).toBe('noindex,follow');
     expect(deep.html.split(PAGINATION_NOINDEX_TARGET_MARKER).length - 1).toBe(1);
   });
 });
