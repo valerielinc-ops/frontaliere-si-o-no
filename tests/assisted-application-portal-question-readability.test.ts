@@ -491,7 +491,7 @@ it('batches mounted later-step ATS questions in one read-only pre-read', async (
   };
   const mounted = {
     ...visible,
-    fields: [...visible.fields, { id: 'later', kind: 'text', label: 'What is your notice period?', required: true }],
+    fields: [...visible.fields, { id: 'later', kind: 'text', label: 'Describe a professional achievement relevant to this role?', required: true }],
   };
   const frame = {
     evaluate: vi.fn(async (_fn: unknown, options: { includeHidden?: boolean } = {}) => options.includeHidden ? mounted : visible),
@@ -521,7 +521,7 @@ it('batches mounted later-step ATS questions in one read-only pre-read', async (
       actions: [],
       missingRequired: [
         { fieldId: 'first', question: 'Why do you want this role?', type: 'text', options: [] },
-        { fieldId: 'later', question: 'What is your notice period?', type: 'text', options: [] },
+        { fieldId: 'later', question: 'Describe a professional achievement relevant to this role?', type: 'text', options: [] },
       ],
     };
   });
@@ -531,7 +531,7 @@ it('batches mounted later-step ATS questions in one read-only pre-read', async (
   });
 
   expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-    'Why do you want this role?', 'What is your notice period?',
+    'Why do you want this role?', 'Describe a professional achievement relevant to this role?',
   ]);
   expect(frame.evaluate.mock.calls.some(([, options]) => options?.includeHidden === true)).toBe(true);
   expect(next).not.toHaveBeenCalled();

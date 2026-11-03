@@ -4169,10 +4169,11 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
+  const verifiedPostingEntry = verifiedJobs2WebEntry || isVerifiedPostingEntry(ctx);
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
-    verifiedPostingEntry: verifiedJobs2WebEntry,
+    verifiedPostingEntry,
   });
   if (!readAhead
     || !ctx.applyUrl || !ctx.codex) {
@@ -4215,8 +4216,8 @@ export async function readPortalRequirements(ctx) {
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     if (hasJobContract) {
       const formMatch = formPostingMatch(`${snapshot.text || ''}\n${page.url()}`, ctx.job, {
-        postingMatched: verifiedJobs2WebEntry,
-        postingEntry: isVerifiedPostingEntry(ctx),
+        postingMatched: verifiedPostingEntry,
+        postingEntry: verifiedPostingEntry,
         pageUrl: page.url(),
       });
       if (formMatch === 'mismatch') return { questions: [], documents: [], handoff: 'posting_mismatch' };
@@ -4376,7 +4377,11 @@ export async function submitViaPortal(ctx) {
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
     registerPortalChannelType(context, channelType);
     await registerCookieSessionRecovery(context, { log: ctx.log });
-    await context.addInitScript(installFinalFormGuardCaptureInPage);
+    // Playwright contexts always expose addInitScript. Keep the adapter
+    // boundary tolerant for the deterministic portal harness, whose minimal
+    // context cannot execute page init scripts but still exercises the
+    // read/plan/answer contract without a final submit.
+    if (typeof context.addInitScript === 'function') await context.addInitScript(installFinalFormGuardCaptureInPage);
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
     evidence.diagnostics = diagnostics.data;
     await diagnostics.installFetchObserver().catch(() => { evidence.diagnostics.fetchObserverUnavailable = true; });
