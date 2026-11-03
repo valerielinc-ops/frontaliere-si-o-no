@@ -417,6 +417,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ? `${bodyWithChrome}\n${localeVariantNav}`
     : bodyWithChrome;
   const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithLocaleNav);
+  const suppliedExtraHeadHtml = String(extraHeadHtml || '');
 
   // Pagination producers intentionally use noindex from the shared policy
   // floor onward. Emit a producer-owned marker so the deploy validator can
@@ -424,6 +425,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   // as an exemption.
   const paginationNoindexMarker = /(?:^|[, ])noindex(?:[, ]|$)/i.test(robots)
     && paginationPageFromPath(canonicalUrl) >= 11
+    && !suppliedExtraHeadHtml.includes(PAGINATION_NOINDEX_TARGET_MARKER)
     ? `\n${PAGINATION_NOINDEX_TARGET_MARKER}`
     : '';
 
@@ -452,7 +454,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${heroPreload}${twitterCardHead}${paginationNoindexMarker}${extraHeadHtml ? `\n${extraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
+    extraHeadHtml: `${heroPreload}${twitterCardHead}${paginationNoindexMarker}${suppliedExtraHeadHtml ? `\n${suppliedExtraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
     jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds, locale }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,

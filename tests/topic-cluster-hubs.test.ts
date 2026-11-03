@@ -47,6 +47,7 @@ import {
   TOPIC_HUB_SECTIONS,
   TOPIC_INDEX_CANONICAL_PATHS,
 } from '../build-plugins/topicClusterHubsData';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const SEEDS = TOPIC_CLUSTERS.map((t) => ({ key: t.key, seedText: t.seedText }));
@@ -926,6 +927,36 @@ describe('topic sitemap coverage audit', () => {
  */
 describe('thin pagination bridges land on their own URL', () => {
   const eligible = new Set(TOPIC_CLUSTERS.map((t) => t.key));
+
+  it('declares deep noindex pages for Bing at the topic producer boundary', async () => {
+    const {
+      __renderTopicBridgeForTest,
+      __renderTopicHubPageForTest,
+    } = await import('../build-plugins/topicClusterHubsPlugin');
+    const page = __renderTopicHubPageForTest({
+      locale: 'it',
+      section: 'frontaliere',
+      topicKey: 'pensioni',
+      members: [],
+      page: 11,
+      totalPages: 11,
+      eligible,
+      dateStamp: '2026-11-03',
+    });
+    const bridge = __renderTopicBridgeForTest({
+      locale: 'it',
+      section: 'frontaliere',
+      topicKey: 'pensioni',
+      memberCount: 1,
+      eligible,
+      page: 11,
+    });
+
+    for (const html of [page.html, bridge.html]) {
+      expect(html).toMatch(/name=robots content=noindex,follow/);
+      expect(html.match(/PAGINATION_NOINDEX_TARGET/g)).toHaveLength(1);
+    }
+  });
 
   it('bridges page 5 at page 5, not at page 1', async () => {
     const { __renderTopicBridgeForTest } = await import(
