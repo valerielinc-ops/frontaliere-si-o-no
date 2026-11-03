@@ -75,11 +75,11 @@ export function installHouseAds(
   };
   const chooseSize = (width: number, height: number): { format: HouseAdFormat; height: number } => {
     if (height >= 500 && width <= 360) return { format: 'skyscraper', height: 600 };
-    if (width >= 700 && height >= 200) return { format: 'billboard', height: Math.max(250, Math.min(600, height)) };
+    if (width >= 700 && height >= 200) return { format: 'billboard', height };
     if (width >= 700) return { format: 'leaderboard', height: 90 };
     if (height < 80) return { format: 'mobile_banner', height: 50 };
     if (height < 180) return { format: 'mobile_large', height: 100 };
-    return { format: 'rectangle', height: Math.max(220, Math.min(280, height || 250)) };
+    return { format: 'rectangle', height: height >= 200 ? height : 250 };
   };
   function refresh() {
     if (!document.body) return;
@@ -87,9 +87,10 @@ export function installHouseAds(
     for (const frame of entries.keys()) if (!frame.isConnected || !permitted()) remove(frame);
     if (!ready || !permitted()) return;
     for (const frame of document.querySelectorAll<HTMLElement>('[data-ft-house-slot]')) {
-      const google = frame.querySelector<HTMLElement>('[data-ft-house-google]');
-      const host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
-      if (!google || !host) continue;
+      const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
+      if (!google) continue;
+      let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
+      if (!host) { host = document.createElement('span'); host.setAttribute('data-ft-house-host', ''); frame.append(host); }
       if (!started.has(frame)) { started.set(frame, Date.now()); setTimeout(schedule, 12050); }
       const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
       const isFilled = state === 'filled' || google.matches('ins[data-ad-status="filled"]') || !!google.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
@@ -105,17 +106,18 @@ export function installHouseAds(
       if (Date.now() - started.get(frame)! < 12000) continue;
       const width = frame.getBoundingClientRect().width;
       if (width < 160 || !visible(frame)) continue;
-      const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || google.getBoundingClientRect().height);
+      const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || parseFloat(google.style.minHeight) || google.getBoundingClientRect().height);
+      const portraitArtwork = format === 'billboard' && height >= 500;
       const locale = (['it', 'en', 'de', 'fr'].includes(document.documentElement.lang.slice(0, 2)) ? document.documentElement.lang.slice(0, 2) : 'it') as HouseAdLocale;
       const existing = entries.get(frame);
-      if (existing?.creative.dataset.houseFormat === format && existing.creative.lang === locale) {
+      if (existing?.creative.dataset.houseFormat === format && existing.creative.lang === locale && (format !== 'billboard' || existing.creative.dataset.houseArtwork === (portraitArtwork ? 'portrait' : 'wide'))) {
         if (frame.style.getPropertyValue('--ft-house-height') !== `${height}px`) frame.style.setProperty('--ft-house-height', `${height}px`);
         continue;
       }
       remove(frame);
-      const placement = (frame.dataset.ftHouseSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
+      const placement = (frame.dataset.ftHouseSlot || google.dataset.adPlacement || google.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
       const data = { campaign: 'job_search_automation', experiment_id: 'house_creatives_v1', experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), creative_id: `${assignment.variant}_v1`, component: `${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
-      const creative = render({ variant: assignment.variant, format, locale, placement, onClick: () => {
+      const creative = render({ variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
         if (!permitted()) return;
         report('house_ad_click', { ...data, action: 'click' });
         if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, clickedAt: Date.now() })); } catch { /* navigation still works */ }

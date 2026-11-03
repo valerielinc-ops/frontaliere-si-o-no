@@ -10,6 +10,7 @@ export function createHouseAdCreative(options: {
   locale: HouseAdLocale;
   placement: string;
   destinationPath?: string;
+  portraitArtwork?: boolean;
   assetBase?: string;
   onClick?: () => void;
 }): HTMLAnchorElement {
@@ -28,7 +29,7 @@ export function createHouseAdCreative(options: {
       titles: { control: 'Un emploi en Suisse ? Nous cherchons pour vous.', time_saved: 'Vous voulez travailler en Suisse ? Nous nous chargeons de la recherche.', profile_match: 'Votre métier. Un emploi en Suisse. Nous cherchons pour vous.', in_control: 'Travailler en Suisse : par où commencer ? Nous vous aidons.', swiss_work: 'Travailler en Suisse ? Nous partons de votre métier.', next_chapter: 'Chercher un emploi en Suisse prend du temps. Nous vous aidons.' },
       short: { control: 'La Suisse ? Nous cherchons pour vous.', time_saved: 'Emploi en Suisse ? On s’en charge.', profile_match: 'Des offres suisses pour votre métier.', in_control: 'Travailler en Suisse ? Nous vous aidons.', swiss_work: 'Votre métier, en Suisse.', next_chapter: 'Nous cherchons votre emploi en Suisse.' } },
   }[locale];
-  const narrow = format === 'rectangle' || format === 'mobile_banner' || format === 'mobile_large' || format === 'skyscraper';
+  const narrow = options.portraitArtwork || format === 'rectangle' || format === 'mobile_banner' || format === 'mobile_large' || format === 'skyscraper';
   const artwork = {
     control: narrow ? 'construction-portrait-v1' : 'construction-wide-v1',
     time_saved: narrow ? 'logistics-portrait-v1' : 'logistics-wide-v1',
@@ -50,6 +51,7 @@ export function createHouseAdCreative(options: {
   anchor.className = 'ft-house-creative';
   anchor.dataset.houseFormat = format;
   anchor.dataset.houseCreative = `${variant}_v1`;
+  anchor.dataset.houseArtwork = narrow ? 'portrait' : 'wide';
   const query = new URLSearchParams({ utm_source: 'house_ads', utm_medium: 'display', utm_campaign: 'job_search_automation', utm_content: `${variant}_v1`, utm_term: `${format}.${placement}` });
   const destination = options.destinationPath || ({ it: '/automatizza-ricerca-lavoro-svizzera/', en: '/en/automate-job-search-switzerland/', de: '/de/arbeitssuche-schweiz-automatisieren/', fr: '/fr/automatiser-recherche-emploi-suisse/' })[locale];
   anchor.href = `${destination}?${query}`;

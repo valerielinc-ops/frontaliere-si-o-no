@@ -25,12 +25,33 @@ beforeEach(() => {
   w = dom.window; w.Date = Date; w.setTimeout = setTimeout; w.clearTimeout = clearTimeout;
   w.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ HOUSE_AD_CREATIVE_VARIANT: 'auto' }) });
   w.matchMedia = () => ({ matches: true });
-  w.HTMLElement.prototype.getBoundingClientRect = function () { return { top: 0, left: 0, width: 300, height: 250, right: 300, bottom: 250 }; };
+  w.HTMLElement.prototype.getBoundingClientRect = function () { const width = Number(this.dataset.width) || 300; return { top: 0, left: 0, width, height: 250, right: width, bottom: 250 }; };
   Object.defineProperty(w.document.documentElement, 'clientWidth', { value: 390 });
 });
 afterEach(() => { dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
 
 describe('per-slot first-party creative delivery', () => {
+  it('upgrades compact static markup without duplicating reserve/placement metadata in every page', async () => {
+    const el = w.document.createElement('section'); el.setAttribute('data-ft-house-slot', '');
+    const ins = w.document.createElement('ins'); ins.dataset.adSlot = '1234567890'; ins.dataset.adStatus = 'unfilled'; ins.style.minHeight = '220px';
+    el.append(ins); w.document.body.append(el);
+    await start();
+    expect(el.querySelector('[data-ft-house-host] a')).not.toBeNull();
+    expect(el.querySelector('ins')).toBe(ins);
+    expect(el.style.getPropertyValue('--ft-house-height')).toBe('220px');
+    expect(el.querySelector('a').href).toContain('1234567890');
+  });
+  it('fills the actual 220px article reserve without increasing it to a standard 250px banner', async () => {
+    const empty = frame('unfilled'); empty.el.dataset.width = '918'; empty.el.dataset.ftHouseHeight = '220';
+    await start();
+    expect(empty.host.querySelector('a')?.dataset.houseFormat).toBe('billboard');
+    expect(empty.el.style.getPropertyValue('--ft-house-height')).toBe('220px');
+    expect(empty.host.querySelector('img').src).toContain('-wide-v1.webp');
+    empty.el.dataset.ftHouseHeight = '1100'; await vi.advanceTimersByTimeAsync(200);
+    expect(empty.host.querySelector('img').src).toContain('-portrait-v1.webp');
+    empty.el.dataset.ftHouseHeight = '220'; await vi.advanceTimersByTimeAsync(200);
+    expect(empty.host.querySelector('img').src).toContain('-wide-v1.webp');
+  });
   it('leaves the independent recovery bootstrap usable without MutationObserver', async () => {
     w.MutationObserver = undefined; const empty = frame('unfilled');
     await expect(start()).resolves.toBeUndefined();

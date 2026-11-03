@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { JSDOM } from 'jsdom';
 import { COPY, renderWebcamSection } from '@/build-plugins/borderWaitPagesPlugin';
 import { STATIC_AD_COLLAPSE_CSS } from '@/build-plugins/shared/criticalCss';
 import { AD_SLOTS } from '@/services/adsenseSlots';
@@ -42,10 +43,13 @@ describe('annuncio tra le webcam del valico', () => {
 
   it('riserva lo spazio e resta collassabile quando non viene servito', () => {
     const html = render([cam('a'), cam('b')]);
-    const wrapper = html.match(/<section class="ft-webcam-ad"[^>]*>(.*?)<\/section>/s);
-    expect(wrapper?.[1]).toMatch(/^<ins [^>]*><\/ins>$/);
-    expect(wrapper?.[1]).toContain('data-ft-static-ad="true"');
-    expect(wrapper?.[1]).toContain(`min-height:${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px`);
+    const dom = new JSDOM(html);
+    const wrapper = dom.window.document.querySelector('.ft-webcam-ad [data-ft-house-slot]');
+    expect(wrapper?.querySelectorAll('ins')).toHaveLength(1);
+    expect(wrapper?.querySelector('ins')?.childElementCount).toBe(0);
+    expect(wrapper?.innerHTML).toContain('data-ft-static-ad="true"');
+    expect(wrapper?.innerHTML).toContain(`min-height:${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px`);
+    dom.window.close();
     expect(STATIC_AD_COLLAPSE_CSS).toContain(':only-child');
   });
 });
