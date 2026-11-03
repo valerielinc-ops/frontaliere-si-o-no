@@ -165,6 +165,7 @@ describe('useMetaPixelPageView', () => {
     expect(document.querySelector(`script[src="${META_PIXEL_SRC}"]`)).toBeNull();
     expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(0);
     expect((window as PixelWindow).__FT_META_PIXEL_DISABLED__).toBe(true);
+    expect(captureMetaAdsAttribution()).toEqual({ metaAdsConsent: false });
 
     act(() => {
       window.history.pushState({}, '', LANDING_PATH);
@@ -172,6 +173,7 @@ describe('useMetaPixelPageView', () => {
     });
 
     expect(pixelQueue().filter((call) => call[0] === 'track' && call[1] === 'PageView')).toHaveLength(0);
+    expect(captureMetaAdsAttribution()).toEqual({ metaAdsConsent: false });
   });
 
   it('captures Meta attribution cookies only after explicit advertising consent', () => {

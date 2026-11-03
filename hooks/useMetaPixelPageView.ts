@@ -15,13 +15,12 @@ import {
 } from '@/services/applicationConciergeCheckout';
 import {
   clearMetaAttributionCookies,
+  canTrackMetaPixelForCurrentDocument,
   isMetaPixelTargetPage,
   META_PIXEL_ID,
   trackMetaPixelEvent,
   type MetaPixelFunction,
 } from '@/services/metaPixel';
-import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
-import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
 import { SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT } from './useSeoPageTracking';
 
 const ROUTE_EVENTS = ['popstate', SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT] as const;
@@ -95,22 +94,6 @@ function revokeMetaPixelConsent(): void {
   clearMetaAttributionCookies();
 }
 
-function canTrackCurrentDocument(): boolean {
-  const pixelWindow = window as MetaPixelWindow;
-  if (pixelWindow.__FT_META_PIXEL_DISABLED__) return false;
-  try {
-    if (isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, pixelWindow, document, false)) {
-      pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
-      return false;
-    }
-  } catch {
-    // Keep the advertising SDK blocked when the page privacy context is unreadable.
-    pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
-    return false;
-  }
-  return true;
-}
-
 /** Load Meta Pixel across the canonical site after explicit advertising
  * consent, track service funnel views on the concierge landing routes, and sync
  * consent for verified purchases when an authenticated user is present. */
@@ -151,7 +134,7 @@ export function useMetaPixelPageView(
 
     const syncRoute = (): void => {
       if (!isMetaPixelSite() || !isAdsConsentGranted()) return;
-      if (!canTrackCurrentDocument()) return;
+      if (!canTrackMetaPixelForCurrentDocument()) return;
 
       const pixelWindow = window as MetaPixelWindow;
       const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';

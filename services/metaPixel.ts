@@ -5,6 +5,8 @@ import {
   getAdsConsentDecisionAt,
   isAdsConsentGranted,
 } from './adsConsent';
+import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
+import { isSensitiveThirdPartyDocument } from './thirdPartyDocumentPrivacy.js';
 
 export const META_PIXEL_ID = '1090503593451766';
 export const META_PIXEL_CANONICAL_PATH = '/automatizza-ricerca-lavoro-svizzera';
@@ -23,6 +25,7 @@ export type MetaPixelFunction = ((...args: unknown[]) => void) & {
 type MetaPixelWindow = Window & {
   fbq?: MetaPixelFunction;
   __ftMetaPixelInitialized?: boolean;
+  __FT_META_PIXEL_DISABLED__?: boolean;
 };
 
 export type MetaAdsAttribution = {
@@ -50,6 +53,23 @@ export function isMetaPixelTargetPage(): boolean {
 
   return path === META_PIXEL_AD_FALLBACK_PATH
     && new URLSearchParams(window.location.search).get('application_concierge') === '1';
+}
+
+/** Keep browser and server-side Meta events off the same sensitive contexts as the page-view hook. */
+export function canTrackMetaPixelForCurrentDocument(): boolean {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return false;
+  const pixelWindow = window as MetaPixelWindow;
+  if (pixelWindow.__FT_META_PIXEL_DISABLED__) return false;
+  try {
+    if (isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, pixelWindow, document, false)) {
+      pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
+      return false;
+    }
+  } catch {
+    pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
+    return false;
+  }
+  return true;
 }
 
 function readMetaCookie(name: '_fbp' | '_fbc'): string | undefined {
@@ -82,7 +102,7 @@ export function clearMetaAttributionCookies(): void {
 
 /** Capture only consented Meta attribution cookies for the verified checkout request. */
 export function captureMetaAdsAttribution(): MetaAdsAttribution {
-  if (!isMetaPixelTargetPage()) return { metaAdsConsent: false };
+  if (!isMetaPixelTargetPage() || !canTrackMetaPixelForCurrentDocument()) return { metaAdsConsent: false };
 
   const consent = getAdsConsent();
   const storedDecisionAtMs = getAdsConsentDecisionAt();
@@ -111,7 +131,7 @@ export function trackMetaPixelEvent(
   parameters: Record<string, unknown>,
   eventId?: string,
 ): boolean {
-  if (!isMetaPixelTargetPage() || !isAdsConsentGranted()) return false;
+  if (!isMetaPixelTargetPage() || !isAdsConsentGranted() || !canTrackMetaPixelForCurrentDocument()) return false;
   const pixelWindow = window as MetaPixelWindow;
   if (!pixelWindow.__ftMetaPixelInitialized || !pixelWindow.fbq) return false;
   pixelWindow.fbq('track', eventName, parameters, ...(eventId ? [{ eventID: eventId }] : []));
