@@ -93,6 +93,9 @@ non stampa dati personali e separa CTR osservato da ordini/pagamenti del ledger.
 I blocchi della telemetria possono ridurre i denominatori GA4: non dividere
 acquisti completi del ledger per clic parziali per dichiarare un CVR o un
 vincitore. Il report non promuove automaticamente varianti sulla base del CTR.
+Il workflow settimanale `house-creative-readout.yml` pubblica lo stesso
+readout come artifact `house-ad-readout`, con un job separato attivato solo
+quando il parametro pubblico della campagna esiste ed è riconosciuto.
 
 ## Pubblicazione coordinata
 

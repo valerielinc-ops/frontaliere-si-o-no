@@ -1,0 +1,86 @@
+name: House creative readout
+
+on:
+  schedule:
+    - cron: '15 7 * * 1'
+  workflow_dispatch: {}
+
+concurrency:
+  group: house-creative-readout
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  house-creatives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Read public Firebase campaign activation
+        id: campaign
+        run: |
+          node --input-type=module <<'JS'
+          import { appendFileSync } from 'node:fs';
+          const response = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig', { signal: AbortSignal.timeout(10000) });
+          if (!response.ok) throw new Error(`Public config HTTP ${response.status}`);
+          const config = await response.json();
+          const active = ['auto','control','time_saved','profile_match','in_control','swiss_work','next_chapter'].includes(config.HOUSE_AD_CREATIVE_VARIANT);
+          appendFileSync(process.env.GITHUB_OUTPUT, `active=${active}\n`);
+          JS
+      - uses: actions/checkout@v7
+        if: steps.campaign.outputs.active == 'true'
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        if: steps.campaign.outputs.active == 'true'
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install reporting dependencies
+        if: steps.campaign.outputs.active == 'true'
+        run: npm ci --ignore-scripts
+      - name: Read aggregate creative performance and confirmed purchases
+        if: steps.campaign.outputs.active == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GA4_PROPERTY_ID: '524485296'
+        run: |
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/house-report-sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/house-report-sa.json"
+          node scripts/analytics/house-ad-readout.mjs --days=28 > "$RUNNER_TEMP/house-ad-readout.json"
+      - name: Upload aggregate house creative report
+        if: steps.campaign.outputs.active == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: house-ad-readout
+          path: ${{ runner.temp }}/house-ad-readout.json
+          retention-days: 90
+          if-no-files-found: error
+
