@@ -76,7 +76,7 @@ describe('Meta Conversions API Purchase events', () => {
       metaAdsConsentAt: { toMillis: () => deniedAt - 1 },
     }), currentConsent)).toBe(false);
     expect(hasCurrentMetaAdsConsent(paidService({
-      metaAdsConsentAt: { toMillis: () => latestGrantAt + 1 },
+      metaAdsConsentAt: { toMillis: () => latestGrantAt },
     }), currentConsent)).toBe(true);
   });
 

@@ -55,6 +55,7 @@ const mocks = vi.hoisted(() => {
   const stripeCheckoutSessionsCreate = vi.fn();
   const stripeCheckoutSessionsRetrieve = vi.fn();
   const createSumUpApplicationConciergeCheckout = vi.fn();
+  const verifyAppCheck = vi.fn(async () => ({ appId: 'test-app' }));
   const stripe = { checkout: { sessions: { create: stripeCheckoutSessionsCreate, retrieve: stripeCheckoutSessionsRetrieve } } };
   return {
     store,
@@ -64,7 +65,7 @@ const mocks = vi.hoisted(() => {
     verifyCaller: vi.fn(async (): Promise<{ uid: string; email: string; email_verified: boolean } | null> => ({
       uid: 'candidate-42', email: 'candidate@example.test', email_verified: true,
     })),
-    verifyAppCheck: vi.fn(async () => ({ appId: 'test-app' })),
+    verifyAppCheck,
     applySumUpCheckout: vi.fn(async (checkout: { checkout_reference: string }) => {
       const key = 'application_concierge_services/' + checkout.checkout_reference;
       store.set(key, { ...store.get(key), paymentStatus: 'paid' });
