@@ -2,7 +2,8 @@
  * adsConsent — opt-in gate for ADVERTISING scripts only.
  *
  * Scope, decided by the owner in #5842 and deliberately narrow:
- *   - IN  scope: Auto Ads / AdSense (`adsbygoogle.js`) and GPT (`gpt.js`).
+ *   - IN  scope: Auto Ads / AdSense (`adsbygoogle.js`), GPT (`gpt.js`), and
+ *     Meta Pixel on `/automatizza-ricerca-lavoro-svizzera/`.
  *   - OUT of scope: GA4, PostHog, Clarity. Those stay covered by the honest
  *     disclosure shipped in #5832 and are NOT gated here. Do not widen this
  *     module to analytics without a new owner decision.
@@ -80,7 +81,8 @@ export function getAdsConsent(): AdsConsentValue | null {
 /**
  * THE gate. Every advertising script injection in the codebase is guarded by
  * this returning `true` — see AdSenseBanner.loadAdSenseScript(),
- * GptAdSlot.ensureGptScript(), and the inline ADSENSE_LOADER_CONTENT twin.
+ * GptAdSlot.ensureGptScript(), `useMetaPixelPageView()`, and the inline
+ * ADSENSE_LOADER_CONTENT twin.
  */
 export function isAdsConsentGranted(): boolean {
   return getAdsConsent() === ADS_CONSENT_GRANTED;

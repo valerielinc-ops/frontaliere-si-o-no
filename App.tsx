@@ -199,6 +199,7 @@ import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
 import { getAutoAdOverlayClearance, subscribeToAutoAdOverlay } from '@/services/autoAdOverlay';
 import { installNavOverlayGuard } from '@/services/navOverlayGuard';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
+import { useMetaPixelPageView } from '@/hooks/useMetaPixelPageView';
 import { useAdPageDiag } from '@/hooks/useAdPageDiag';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
@@ -495,6 +496,7 @@ const App: React.FC = () => {
  const mainNavRef = useRef<HTMLElement>(null);
  useEffect(() => (mainNavRef.current ? installNavOverlayGuard(mainNavRef.current) : undefined), []);
  useSeoPageTracking();
+ useMetaPixelPageView();
  // One GA4 `ad_page_diag` per page view (services/adPageDiag.ts); on static
  // pages the AdSense loader owns the first one and this takes over on navigation.
  useAdPageDiag();
