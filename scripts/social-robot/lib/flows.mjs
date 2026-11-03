@@ -49,6 +49,7 @@ export const DEFAULT_TIMEOUTS = Object.freeze({
 
 /** Bound the wait for TikTok to upgrade its cookie banner and attach its action. */
 export const TIKTOK_COOKIE_BANNER_ACTION_TIMEOUT_MS = 1_000;
+const DIALOG_ACTION_LOOKUP_TIMEOUT_MS = 750;
 
 const ANY_OF = (...words) => new RegExp(`^\\s*(?:${words.join('|')})\\s*$`, 'i');
 const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join('|')})(?:\\s*\\1)?\\s*$`, 'i');
@@ -927,8 +928,15 @@ async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.opt
   }
 
   if (entry.surface === 'dialog') {
+    const deadline = Date.now() + timeout;
     const dialog = await findVisible([page.getByRole(entry.role).filter({ hasText: entry.title })], { timeout });
-    return dialog ? { root: dialog } : null;
+    if (!dialog) return null;
+    if (!entry.name) return { root: dialog };
+    const action = await findVisible([
+      dialog.getByRole('button', { name: entry.name }),
+      dialog.locator('button').filter({ hasText: entry.name }),
+    ], { timeout: Math.max(DIALOG_ACTION_LOOKUP_TIMEOUT_MS, deadline - Date.now()) });
+    return { root: dialog, action };
   }
 
   if (entry.surface === 'banner') {
@@ -999,38 +1007,26 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
   }
 
   if (entry.safeAction === 'click-dialog-acknowledge') {
-    const acknowledge = await findVisible([
-      target.root.getByRole('button', { name: entry.name }),
-      target.root.locator('button').filter({ hasText: entry.name }),
-    ], { timeout: 0 });
-    if (!acknowledge) {
+    if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe acknowledgement`, { step: step.get() });
     }
-    await clickChecked(page, acknowledge, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
     return;
   }
 
   if (entry.safeAction === 'keep-editing') {
-    const keepEditing = await findVisible([
-      target.root.getByRole('button', { name: entry.name }),
-      target.root.locator('button').filter({ hasText: entry.name }),
-    ], { timeout: 0 });
-    if (!keepEditing) {
+    if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe keep-editing action`, { step: step.get() });
     }
-    await clickChecked(page, keepEditing, { step, snap, platform, allowInterstitialRecovery: false, label: `keep editing action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `keep editing action for ${entry.id}` });
     return;
   }
 
   if (entry.safeAction === 'discard-unsaved-draft') {
-    const discard = await findVisible([
-      target.root.getByRole('button', { name: entry.name }),
-      target.root.locator('button').filter({ hasText: entry.name }),
-    ], { timeout: 0 });
-    if (!discard) {
+    if (!await visible(target.action)) {
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe discard action`, { step: step.get() });
     }
-    await clickChecked(page, discard, { step, snap, platform, allowInterstitialRecovery: false, label: `discard action for ${entry.id}` });
+    await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `discard action for ${entry.id}` });
     return;
   }
 
