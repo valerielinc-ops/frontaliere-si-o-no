@@ -4,6 +4,8 @@ import {
   generateArticleHtml,
   type ScenarioDataMap,
 } from '../../build-plugins/salaryHubArticles';
+import { buildFullPath, type SalaryHubScenario } from '../../build-plugins/salaryHubScenarios';
+import type { SimulationResult } from '../../types';
 import { META_DESCRIPTION_MAX_CHARS } from '../../build-plugins/shared/titleSuffix';
 
 // generateArticleHtml resolves SPA entry assets from `distDir`, but
@@ -124,5 +126,63 @@ describe('salary-hub evergreen guides — WebPage JSON-LD', () => {
     const html = generateArticleHtml(longDescArticle, 'it', EMPTY_DATA, NO_DIST);
     const schema = pageSchemaOf(html)!;
     expect((schema.description as string).length).toBe(5000);
+  });
+});
+
+describe('20 km salary guide comparison', () => {
+  const distanceGuide = EVERGREEN_ARTICLES.find((article) => article.id === 'distanza-confine-20km-frontaliere')!;
+  const within: SalaryHubScenario = {
+    salary: 80_000,
+    frontierType: 'NEW',
+    maritalStatus: 'SINGLE',
+    children: 0,
+    distanceZone: 'WITHIN_20KM',
+  };
+  const over: SalaryHubScenario = { ...within, distanceZone: 'OVER_20KM' };
+  const results = new Map<SalaryHubScenario, SimulationResult>([
+    [within, { itResident: { netIncomeAnnual: 48_123 } } as unknown as SimulationResult],
+    [over, { itResident: { netIncomeAnnual: 47_456 } } as unknown as SimulationResult],
+  ]);
+  const comparisonData: ScenarioDataMap = { scenarios: [within, over], results };
+
+  it('puts the localized comparison after the hero and before the contents index', () => {
+    const expected = {
+      it: ['Confronto diretto: cosa cambia con i 20 km', 'Comune nella fascia dei 20 km', 'l’elenco ufficiale dei Comuni'],
+      en: ['Direct comparison: what changes at 20 km', 'Municipality in the 20 km zone', 'official municipality list'],
+      de: ['Direkter Vergleich: Was sich bei 20 km ändert', 'Gemeinde innerhalb der 20-km-Zone', 'offizielle Gemeindeliste'],
+      fr: ['Comparaison directe : ce qui change à 20 km', 'Commune dans la zone des 20 km', 'liste officielle des communes'],
+    };
+
+    for (const locale of LOCALES) {
+      const html = generateArticleHtml(distanceGuide, locale, comparisonData, NO_DIST);
+      const heroAt = html.indexOf('class=guide-dossier-hero>');
+      const comparisonAt = html.indexOf('id=distance-comparison-title');
+      const contentsAt = html.indexOf('class=guide-dossier-index');
+
+      expect(html).toContain(expected[locale][0]);
+      expect(html).toContain(expected[locale][1]);
+      expect(html).toContain(expected[locale][2]);
+      expect(heroAt).toBeGreaterThanOrEqual(0);
+      expect(comparisonAt).toBeGreaterThan(heroAt);
+      expect(contentsAt).toBeGreaterThan(comparisonAt);
+    }
+  });
+
+  it('uses the matching zone result and links to each exact salary scenario', () => {
+    const html = generateArticleHtml(distanceGuide, 'it', comparisonData, NO_DIST);
+    const withinNet = (48_123).toLocaleString('de-CH');
+    const overNet = (47_456).toLocaleString('de-CH');
+
+    expect(html).toContain(`CHF ${withinNet}`);
+    expect(html).toContain(`CHF ${overNet}`);
+    expect(html).toContain(`href="${buildFullPath(within, 'it')}"`);
+    expect(html).toContain(`href="${buildFullPath(over, 'it')}"`);
+    expect(html).toContain(`<a class=!text-on-accent href="${buildFullPath(within, 'it')}">Apri la simulazione entro 20 km</a>`);
+    expect(html).toContain(`<a class=!text-on-accent href="${buildFullPath(over, 'it')}">Apri la simulazione oltre 20 km</a>`);
+    expect(html).toContain('Apri la simulazione entro 20 km');
+    expect(html).toContain('Apri la simulazione oltre 20 km');
+    expect(html).toContain('l’elenco ufficiale dei Comuni');
+    expect(html).toContain('Non dipende dalla fascia dei 20 km');
+    expect(html).toContain('https://documenti.camera.it/leg19/dossier/testi/FI0093.htm');
   });
 });
