@@ -74,7 +74,7 @@ export async function validationDiagnostics(page) {
           label: node.getAttribute('aria-label') || node.labels?.[0]?.textContent || node.name || '',
           type: node.type || node.getAttribute('role') || node.tagName.toLowerCase(),
           message: node.validationMessage || '',
-          required: Boolean(node.required) || node.getAttribute('aria-required') === 'true',
+          required: Boolean(node.required) || String(node.getAttribute('aria-required') || '').trim().toLowerCase() === 'true',
           filled: Boolean(String(node.value || '').trim()),
         }));
       return { messages: [...new Set(messages)], invalid };

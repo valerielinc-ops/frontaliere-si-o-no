@@ -1000,6 +1000,12 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('keeps an ARIA-required application select in site chrome when the token is uppercase', () => {
+    const page = extract('<header><form><select aria-label="Lingua" aria-required="TRUE"></select></form></header>');
+
+    expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Lingua', required: true })]);
+  });
+
   // «Select One» was offered to the candidate as a marital status (dry run of 2026-10-07).
   it('knows a list’s prompt from its options', () => {
     for (const prompt of ['Select One', 'Select one', 'Please select', 'Bitte auswählen', 'Bitte wählen', 'Seleziona', 'Sélectionnez', 'Choisir']) expect(LIST_PROMPT_RE.test(prompt)).toBe(true);
