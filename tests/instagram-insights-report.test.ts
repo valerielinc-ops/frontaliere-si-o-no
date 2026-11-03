@@ -55,6 +55,7 @@ describe('Instagram Insights creative scorecard', () => {
       creativeId: 'proof',
       reach: '100',
       shares: '8',
+      availableMetrics: ['reach', 'shares'],
     }]);
   });
 
@@ -116,7 +117,29 @@ describe('Instagram Insights creative scorecard', () => {
     });
   });
 
-  it('uses browser Views as the declared audience base when Reach is not visible', () => {
+  it('preserves an explicitly returned zero from a nested Meta API metric', () => {
+    const result = normalizeInsightRows([{
+      id: 'media-api-zero-comments',
+      creativeId: 'question-choice',
+      kind: 'article',
+      insights: {
+        data: [
+          { name: 'reach', values: [{ value: 240 }] },
+          { name: 'comments', values: [{ value: 0 }] },
+        ],
+      },
+    }]);
+
+    expect(result.rejected).toEqual([]);
+    expect(result.rows[0]).toMatchObject({
+      primaryMetric: 'comments',
+      reach: 240,
+      comments: 0,
+      availableMetrics: ['reach', 'comments'],
+    });
+  });
+
+  it('uses browser Views as a separately labeled audience base when Reach is not visible', () => {
     const result = normalizeInsightRows([{
       id: 'browser-media-1',
       creativeId: 'question-choice',
@@ -126,13 +149,83 @@ describe('Instagram Insights creative scorecard', () => {
     }]);
 
     expect(result.rejected).toEqual([]);
-    expect(result.rows[0]).toMatchObject({ views: 13, reach: 13, reachSource: 'views' });
+    expect(result.rows[0]).toMatchObject({ views: 13, reach: null, audienceBase: 13, audienceMetric: 'views', reachSource: 'views' });
     expect(aggregateCreativePerformance(result.rows, { minimumObservations: 1 }).treatments[0]).toMatchObject({
       views: 13,
+      reach: null,
+      audienceBase: 13,
       audienceMetric: 'views',
       reachSource: 'views',
       primaryRate: 2 / 13,
     });
+  });
+
+  it('rejects timestamp-matched media before attributing creative performance', () => {
+    const result = normalizeInsightRows([{
+      id: 'media-timestamp-match',
+      matchMethod: 'confirmation-timestamp',
+      creativeId: 'question-choice',
+      kind: 'article',
+      reach: 100,
+      comments: 5,
+    }]);
+
+    expect(result.rows).toEqual([]);
+    expect(result.rejected).toEqual([{
+      row: 1,
+      reason: 'timestamp-matched media cannot attribute creative performance',
+    }]);
+  });
+
+  it('does not turn legacy missing zero metrics into observed zeros and rejects late snapshots', () => {
+    const legacyZero = normalizeInsightRows([{
+      id: 'legacy-zero',
+      creativeId: 'question-choice',
+      kind: 'article',
+      views: 100,
+      reach: 100,
+      reachSource: 'views',
+      comments: 0,
+      windowHours: 72,
+      snapshotAgeHours: 72,
+    }]);
+    expect(legacyZero.rows).toEqual([]);
+    expect(legacyZero.rejected[0].reason).toBe('primary metric comments is unavailable');
+
+    const declaredZero = normalizeInsightRows([{
+      id: 'declared-zero',
+      creativeId: 'question-choice',
+      kind: 'article',
+      views: 100,
+      comments: 0,
+      availableMetrics: ['views', 'comments'],
+      windowHours: 72,
+      snapshotAgeHours: 72,
+    }]);
+    expect(declaredZero.rejected).toEqual([]);
+    expect(declaredZero.rows[0]).toMatchObject({ comments: 0, audienceMetric: 'views' });
+
+    const late = normalizeInsightRows([{
+      id: 'late-snapshot',
+      creativeId: 'question-choice',
+      kind: 'article',
+      views: 100,
+      comments: 2,
+      windowHours: 72,
+      snapshotAgeHours: 473,
+    }]);
+    expect(late.rows).toEqual([]);
+    expect(late.rejected[0].reason).toBe('snapshot age is outside the declared measurement window');
+  });
+
+  it('keeps view-based and reach-based rates in separate comparison cohorts', () => {
+    const result = aggregateCreativePerformance([
+      { creativeId: 'proof-a', objective: 'share', primaryMetric: 'shares', kind: 'article', windowHours: 72, audienceMetric: 'reach', audienceBase: 100, reach: 100, shares: 10, saves: 1, comments: 1 },
+      { creativeId: 'proof-b', objective: 'share', primaryMetric: 'shares', kind: 'article', windowHours: 72, audienceMetric: 'views', audienceBase: 100, reach: null, shares: 10, saves: 1, comments: 1 },
+    ], { minimumObservations: 1 });
+
+    expect(result.exploratoryWinners).toHaveLength(2);
+    expect(result.treatments.map((row) => row.audienceMetric)).toEqual(['reach', 'views']);
   });
 
   it('joins a media id to creative metadata in the posted ledger', () => {
@@ -151,12 +244,16 @@ describe('Instagram Insights creative scorecard', () => {
         engagementLoop: 'share-with-utility',
         followUpFormat: 'story-poll',
         copyMode: 'codex',
+        copySlot: 'article',
         copyAssignmentMode: 'firebase-balanced',
         copyExperimentId: 'social-copy-balanced-v1',
         copyPromptVersion: 'frontaliere-social-copy-v1',
         copyPackId: 'pack-1',
         copyTemplateId: 'ig-article-uno',
         copyObjective: 'share',
+        copyAngleId: 'article-practical-question',
+        copyPillarId: 'strumenti-utili',
+        copyAngleIntent: 'both',
         copyHook: 'Un dettaglio utile per chi lavora oltre confine',
         copyCta: 'Approfondisci dal link in bio',
       }] },
@@ -170,11 +267,15 @@ describe('Instagram Insights creative scorecard', () => {
       hookType: 'data-proof',
       engagementLoop: 'share-with-utility',
       copyMode: 'codex',
+      copySlot: 'article',
       copyAssignmentMode: 'firebase-balanced',
       copyExperimentId: 'social-copy-balanced-v1',
       copyPackId: 'pack-1',
       copyTemplateId: 'ig-article-uno',
       copyObjective: 'share',
+      copyAngleId: 'article-practical-question',
+      copyPillarId: 'strumenti-utili',
+      copyAngleIntent: 'both',
       copyHook: 'Un dettaglio utile per chi lavora oltre confine',
     });
 
@@ -191,6 +292,9 @@ describe('Instagram Insights creative scorecard', () => {
         copyPackId: 'pack-1',
         copyTemplateId: 'ig-article-uno',
         copyObjective: 'share',
+        copyAngleId: 'article-practical-question',
+        copyPillarId: 'strumenti-utili',
+        copyAngleIntent: 'both',
         observations: 1,
       }],
     });

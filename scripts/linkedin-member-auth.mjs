@@ -51,7 +51,7 @@ const CLIENT_ID = process.env.LINKEDIN_MEMBER_CLIENT_ID || '78ikswckn74d2t';
 const CLIENT_SECRET = process.env.LINKEDIN_MEMBER_CLIENT_SECRET || '';
 const REDIRECT_URI =
   process.env.LINKEDIN_MEMBER_REDIRECT_URI || 'http://localhost:8080/callback';
-const SCOPE = process.env.LINKEDIN_MEMBER_SCOPE || 'w_member_social';
+const SCOPE = process.env.LINKEDIN_MEMBER_SCOPE || 'w_member_social r_member_postAnalytics r_member_profileAnalytics';
 const PORT = Number(new URL(REDIRECT_URI).port || 8080);
 
 const urlOnly = process.argv.includes('--url-only');

@@ -63,6 +63,7 @@ import {
   pickFirstUnposted,
 } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
+import { getLinkedInMemberAccessToken } from './lib/linkedin-member-access-token.mjs';
 import {
   buildArticleContent,
   buildMemberCommentary,
@@ -74,7 +75,15 @@ import {
   resolveOrganizationUrn,
 } from './lib/linkedin-member-copy.mjs';
 import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import {
+  markSocialPublishReservationPublished,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishContentFingerprint,
+  socialPublishReservationKey,
+} from './lib/social-publish-reservations.mjs';
+import { classifyLinkedInMemberPostResponse } from './lib/linkedin-member-publish.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -98,37 +107,6 @@ const LINKEDIN_API = 'https://api.linkedin.com/rest/posts';
 const LINKEDIN_VERSION = LINKEDIN_REST_VERSION;
 
 // ─────────────────────────── credentials ───────────────────────────
-
-async function getAccessToken() {
-  const refreshToken = process.env.LINKEDIN_MEMBER_REFRESH_TOKEN;
-  const clientId = process.env.LINKEDIN_MEMBER_CLIENT_ID;
-  const clientSecret = process.env.LINKEDIN_MEMBER_CLIENT_SECRET;
-  const staticToken = process.env.LINKEDIN_MEMBER_ACCESS_TOKEN;
-
-  if (refreshToken && clientId && clientSecret) {
-    try {
-      const res = await fetch('https://www.linkedin.com/oauth/v2/accessToken', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          grant_type: 'refresh_token',
-          refresh_token: refreshToken,
-          client_id: clientId,
-          client_secret: clientSecret,
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (data.access_token) {
-        console.log(`🔄 member token refreshed (expires in ${data.expires_in}s)`);
-        return data.access_token;
-      }
-      console.warn('⚠️  member token refresh failed — falling back to the static token');
-    } catch (err) {
-      console.warn(`⚠️  member token refresh threw: ${err.message}`);
-    }
-  }
-  return staticToken || null;
-}
 
 /**
  * The author URN, which this app CANNOT discover on its own.
@@ -165,9 +143,7 @@ function getAuthorUrn() {
 
 // ─────────────────────────── posting ───────────────────────────
 
-async function publish({ accessToken, authorUrn, commentary, article }) {
-  const payload = buildMemberPostPayload({ author: authorUrn, commentary, article });
-
+async function publish({ accessToken, payload }) {
   const res = await fetch(LINKEDIN_API, {
     method: 'POST',
     headers: {
@@ -179,17 +155,19 @@ async function publish({ accessToken, authorUrn, commentary, article }) {
     body: JSON.stringify(payload),
   });
 
-  if (res.status === 201) {
-    return { ok: true, postId: res.headers.get('x-restli-id') || 'unknown' };
-  }
-  const text = await res.text().catch(() => '');
+  const successfulHttpResponse = res.status >= 200 && res.status < 300;
+  const text = successfulHttpResponse ? '' : await res.text().catch(() => '');
   if (res.status === 401) {
     console.error('💡 401 — the member token expired; re-run scripts/linkedin-member-auth.mjs');
   }
   if (res.status === 403) {
     console.error('💡 403 — the token is missing w_member_social, or the URN is not its owner');
   }
-  return { ok: false, status: res.status, body: text.slice(0, 300) };
+  return classifyLinkedInMemberPostResponse({
+    status: res.status,
+    postId: res.headers.get('x-restli-id'),
+    body: text,
+  });
 }
 
 // ─────────────────────────── main ───────────────────────────
@@ -249,7 +227,9 @@ async function main() {
   let accessToken = null;
   let authorUrn = null;
   if (!dryRun) {
-    accessToken = await getAccessToken();
+    accessToken = await getLinkedInMemberAccessToken({
+      log: (message) => console.log(`🔄 ${message}`),
+    });
     authorUrn = getAuthorUrn();
     if (!accessToken) {
       console.log('⚠️  no LINKEDIN_MEMBER_ACCESS_TOKEN / refresh trio — skipping (soft)');
@@ -299,6 +279,8 @@ async function main() {
       channel: 'linkedin',
       kind: slot.kind,
       assignmentKey: pick.slug,
+      blockContext: buildSocialCopyBlockContext({ sourceClass: slot.kind, scheduledDate: day }),
+      allowExperimentExposure: !dryRun,
       dryRun,
     });
     let reservedCopy = socialCopy;
@@ -348,38 +330,104 @@ async function main() {
 
     if (dryRun) continue;
 
+    const publishAt = new Date();
+    const postPayload = buildMemberPostPayload({ author: authorUrn, commentary, article });
+    const reservationKey = socialPublishReservationKey(
+      'linkedinMember',
+      'member-post',
+      `${slot.kind}:${pick.slug}`,
+    );
+    const reservation = await reserveSocialPublishBatch({
+      platform: 'linkedinMember',
+      accountId: authorUrn,
+      repoRoot: ROOT,
+      reservations: [{
+        key: reservationKey,
+        publishAt,
+        nativeContentFingerprint: socialPublishContentFingerprint('linkedinMember', {
+          commentary: postPayload.commentary,
+          content: postPayload.content,
+        }),
+      }],
+      now: publishAt,
+    });
+    if (!reservation[0]?.allowed) {
+      console.warn(`🛑 LinkedIn member post held by the shared daily cap (${reservation[0]?.reason || 'reservation-denied'})`);
+      continue;
+    }
+
     deliveryAttempted = true;
-    const res = await publish({ accessToken, authorUrn, commentary, article });
+    const res = await publish({ accessToken, payload: postPayload });
     if (res.ok) {
       reservedCopy = null;
       console.log(`✅ posted — ${res.postId}`);
-      // Append per successful post, never batched: a throw on the next slot
-      // must not cost us this slot's dedup record.
-      appendLedger(
-        LEDGER_PATH,
-        [
-          {
-            id: pick.slug,
-            kind: slot.kind,
-            url: canonical,
-            day,
-            views: pick.views,
-            ts: new Date().toISOString(),
-            linkedinPostId: res.postId,
-            ...socialCopyLedgerFields(socialCopy),
-          },
-        ],
-        POSTED_TRIM_LIMIT,
-      );
+      const publishedAt = new Date().toISOString();
+      // Append before closing the shared reservation. If this write fails,
+      // the held reservation blocks replay and remains visible for recovery.
+      try {
+        appendLedger(
+          LEDGER_PATH,
+          [
+            {
+              id: pick.slug,
+              kind: slot.kind,
+              url: canonical,
+              day,
+              views: pick.views,
+              ts: publishedAt,
+              linkedinPostId: res.postId,
+              socialReservationType: 'member-post',
+              socialReservationId: `${slot.kind}:${pick.slug}`,
+              ...socialCopyLedgerFields(socialCopy),
+            },
+          ],
+          POSTED_TRIM_LIMIT,
+        );
+      } catch (error) {
+        console.error(`❌ LinkedIn accepted the post, but its canonical ledger write failed: ${error.message}`);
+        process.exitCode = 1;
+        throw error;
+      }
+      try {
+        await markSocialPublishReservationPublished({
+          platform: 'linkedinMember',
+          accountId: authorUrn,
+          key: reservationKey,
+          publishAt,
+          publishedAt,
+        });
+      } catch (error) {
+        console.error(`⚠️  LinkedIn accepted the post; its shared reservation remains held: ${error.message}`);
+      }
+      try {
+        await markSocialCopyAssignmentPublished(socialCopy, { postId: res.postId, publishedAt });
+      } catch (error) {
+        console.error(`⚠️  accepted LinkedIn post could not close its copy assignment: ${error.message}`);
+      }
       recent.add(pick.slug);
     } else {
       console.error(`⚠️  LinkedIn ${res.status}: ${res.body}`);
-      const rejectedCopy = reservedCopy;
-      reservedCopy = null;
-      await releaseUnpublishedSocialCopyAssignmentBestEffort(rejectedCopy, {
-        reason: 'LinkedIn explicitly rejected the member post',
-        onFailure: (err) => console.error(`⚠️  Could not release LinkedIn ${slot.kind} copy reservation for ${pick.slug}: ${err.message}`),
-      });
+      if (res.deliveryUncertain) {
+        console.error('⚠️  LinkedIn publication outcome is ambiguous; shared reservation remains held to prevent replay');
+        reservedCopy = null;
+      } else {
+        try {
+          await releaseSocialPublishReservation({
+            platform: 'linkedinMember',
+            accountId: authorUrn,
+            key: reservationKey,
+            publishAt,
+          });
+        } catch (error) {
+          console.warn(`⚠️  LinkedIn reservation remains held after explicit API rejection: ${error.message}`);
+        }
+        const rejectedCopy = reservedCopy;
+        reservedCopy = null;
+        await releaseUnpublishedSocialCopyAssignmentBestEffort(rejectedCopy, {
+          reason: 'LinkedIn explicitly rejected the member post',
+          onFailure: (err) => console.error(`⚠️  Could not release LinkedIn ${slot.kind} copy reservation for ${pick.slug}: ${err.message}`),
+        });
+      }
     }
     } catch (err) {
       // A transport exception after the POST starts can mean LinkedIn accepted
@@ -397,7 +445,7 @@ async function main() {
 
 main()
   .catch((err) => {
-    // Fail-soft: log and exit 0. See the header.
+    // General failures stay fail-soft; accepted posts missing a ledger set exitCode above.
     console.error(`⚠️  post-to-linkedin-member failed: ${err.message}`);
   })
-  .finally(() => process.exit(0));
+  .finally(() => process.exit(process.exitCode ?? 0));

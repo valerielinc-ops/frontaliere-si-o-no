@@ -36,6 +36,14 @@ import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-
 import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
+import {
+  markSocialPublishReservationPublished,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishContentFingerprint,
+  socialPublishReservationKey,
+} from './lib/social-publish-reservations.mjs';
+import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -245,7 +253,7 @@ export async function selectWeekendDigests(events, todayIso, postedSet, maxCanto
     })
     .slice(0, Math.max(0, maxCantons | 0));
 
-  return Promise.all(cantons.map(async (canton) => {
+  const results = await Promise.allSettled(cantons.map(async (canton) => {
     const cantonEvents = byCanton.get(canton);
     const id = canton === 'TI' ? `weekend-digest-${start}` : `weekend-digest-${canton}-${start}`;
     const socialCopy = typeof socialCopyFor === 'function' ? await socialCopyFor({ id, canton, events: cantonEvents }) : null;
@@ -262,6 +270,9 @@ export async function selectWeekendDigests(events, todayIso, postedSet, maxCanto
       coveredIds: cantonEvents.map((e) => e?.id).filter(Boolean),
     };
   }));
+  const failure = results.find((result) => result.status === 'rejected');
+  if (failure) throw failure.reason;
+  return results.map((result) => result.value);
 }
 
 /**
@@ -274,6 +285,7 @@ export async function selectWeekendDigests(events, todayIso, postedSet, maxCanto
  * @param {string} [opts.todayIso]
  * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
  * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
+ * @param {{ reserveBatch: Function, markPublished: Function, release: Function }} [opts.socialPublishReservations]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -286,6 +298,11 @@ export async function run(opts = {}) {
   });
   const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
   const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
+  const socialPublishReservations = opts.socialPublishReservations || {
+    reserveBatch: reserveSocialPublishBatch,
+    markPublished: markSocialPublishReservationPublished,
+    release: releaseSocialPublishReservation,
+  };
   const copyReservations = new Map();
   const releaseReservation = async (id, reason) => {
     const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
@@ -301,6 +318,7 @@ export async function run(opts = {}) {
   };
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
+  const now = opts.now || new Date();
   const volume = Math.min(MAX_VOLUME, Math.max(1, Number(env.FB_EVENT_VOLUME) || DEFAULT_VOLUME));
   const pageId = env.FB_PAGE_ID;
   const token = env.FB_PAGE_ACCESS_TOKEN;
@@ -350,19 +368,24 @@ export async function run(opts = {}) {
   if (isDigestDay) {
     const weekend = weekendEvents(dataset.events, todayIso);
     if (weekend.length > 0) {
-      digestsThisRun = await selectWeekendDigests(dataset.events, todayIso, postedSet, volume, {
-        socialCopyFor: async ({ id }) => {
-          const socialCopy = await selectSocialCopy({
-            pack: socialCopyPack,
-            channel: 'facebook',
-            kind: 'digest',
-            assignmentKey: id,
-            dryRun,
-          });
-          copyReservations.set(id, socialCopy);
-          return socialCopy;
-        },
-      });
+      try {
+        digestsThisRun = await selectWeekendDigests(dataset.events, todayIso, postedSet, volume, {
+          socialCopyFor: async ({ id }) => {
+            const socialCopy = await selectSocialCopy({
+              pack: socialCopyPack,
+              channel: 'facebook',
+              kind: 'digest',
+              assignmentKey: id,
+              dryRun,
+            });
+            copyReservations.set(id, socialCopy);
+            return socialCopy;
+          },
+        });
+      } catch (error) {
+        await releaseAllReservations('Facebook weekend-digest payload compilation failed before delivery');
+        throw error;
+      }
       if (digestsThisRun.length === 0) {
         log('ℹ️', `weekend digest(s) already posted for weekend-${weekendStart} — staying silent`);
         return { ok: true, posted: 0, dryRun, payloads: [] };
@@ -377,7 +400,7 @@ export async function run(opts = {}) {
     payloads = digestsThisRun;
   } else {
     const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
-    payloads = await Promise.all(candidates.map(async (event) => {
+    const built = await Promise.allSettled(candidates.map(async (event) => {
       const socialCopy = await selectSocialCopy({
         pack: socialCopyPack,
         channel: 'facebook',
@@ -395,6 +418,12 @@ export async function run(opts = {}) {
         copyFields: socialCopyLedgerFields(socialCopy),
       };
     }));
+    const buildFailure = built.find((result) => result.status === 'rejected');
+    if (buildFailure) {
+      await releaseAllReservations('Facebook event payload compilation failed before delivery');
+      throw buildFailure.reason;
+    }
+    payloads = built.map((result) => result.value);
   }
   if (payloads.length === 0) {
     log('ℹ️', 'nothing to post, exiting');
@@ -421,6 +450,58 @@ export async function run(opts = {}) {
     return { ok: false, posted: 0, dryRun, payloads };
   }
 
+  const publishReservationKeys = new Map(payloads.map((p) => [
+    p.id,
+    socialPublishReservationKey('facebook', 'event', p.id),
+  ]));
+  let reservationBatch;
+  try {
+    reservationBatch = await socialPublishReservations.reserveBatch({
+      db: opts.socialPublishDb,
+      platform: 'facebook',
+      accountId: pageId,
+      repoRoot,
+      now,
+      reservations: payloads.map((p) => ({
+        key: publishReservationKeys.get(p.id),
+        publishAt: now,
+        nativeContentFingerprint: socialPublishContentFingerprint('facebook', {
+          message: p.message,
+          link: facebookUrl(p.url, FACEBOOK_CAMPAIGN_EVENT, socialCopyTrackingContent(p.id, p.copyFields)),
+        }),
+      })),
+    });
+  } catch (error) {
+    const fatal = new Error(`Facebook shared publication gate failed: ${error.message}`, { cause: error });
+    fatal.code = 'SOCIAL_PUBLISH_RESERVATION_REQUIRED';
+    throw fatal;
+  }
+  const allowedKeys = new Set(reservationBatch.filter((result) => result.allowed).map((result) => result.key));
+  const releasePublishReservation = async (p, reason) => {
+    try {
+      await socialPublishReservations.release({
+        db: opts.socialPublishDb,
+        platform: 'facebook',
+        accountId: pageId,
+        key: publishReservationKeys.get(p.id),
+        publishAt: now,
+      });
+    } catch (error) {
+      warn('⚠️', `Facebook reservation remains held for ${p.id} after ${reason}: ${error.message}`);
+    }
+  };
+  for (const p of payloads) {
+    if (allowedKeys.has(publishReservationKeys.get(p.id))) continue;
+    const reason = reservationBatch.find((result) => result.key === publishReservationKeys.get(p.id))?.reason || 'daily-cap';
+    warn('🛑', `Facebook Page publication held for ${p.id}: ${reason}`);
+    await releaseReservation(p.id, `Facebook Page shared publication gate: ${reason}`);
+  }
+  payloads = payloads.filter((p) => allowedKeys.has(publishReservationKeys.get(p.id)));
+  if (payloads.length === 0) {
+    log('🛑', 'Facebook Page shared daily publication cap is exhausted; no posts sent');
+    return { ok: true, posted: 0, dryRun, payloads: [] };
+  }
+
   // Pre-flight: confirm each landing page is actually live before posting a
   // link to it (see `isLandingPageLive` doc — deploy can lag the events crawl
   // by more than the gap to this cron). Runs concurrently so a single slow
@@ -442,6 +523,8 @@ export async function run(opts = {}) {
   });
   for (const id of notLiveIds) {
     await releaseReservation(id, 'Facebook event landing-page preflight failed');
+    const failedPayload = payloads.find((p) => p.id === id);
+    if (failedPayload) await releasePublishReservation(failedPayload, 'landing-page preflight failure');
   }
   payloads = payloads.filter((p) => liveSet.has(p));
   if (payloads.length === 0) {
@@ -453,6 +536,7 @@ export async function run(opts = {}) {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   let posted = 0;
+  let uncertain = 0;
   for (const p of payloads) {
     // OG rescrape + verify og_object.image resolved (issue #3382) — shared
     // with the jobs scheduler so the retry/backoff logic isn't duplicated.
@@ -467,6 +551,7 @@ export async function run(opts = {}) {
       await rescrapeOgAndVerify(fetchImpl, link, token, warn);
     } catch (err) {
       await releaseReservation(p.id, 'Facebook event OG preflight failed before delivery');
+      await releasePublishReservation(p, 'OG preflight failure');
       warn('⚠️', `OG preflight failed for ${p.id}: ${err.message}`);
       continue;
     }
@@ -482,16 +567,19 @@ export async function run(opts = {}) {
     let res = null;
     let deliveryUncertain = false;
     for (let attempt = 1; attempt <= 2; attempt += 1) {
+      res = null;
+      data = null;
       try {
         res = await fetchImpl(apiUrl, { method: 'POST', body: body() });
         data = await res.json();
       } catch (err) {
-        deliveryUncertain = true;
+        deliveryUncertain = !res || res.ok === true || isAmbiguousSocialPublishResponse(res);
         warn('⚠️', `POST failed for ${p.id} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
+      if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
       if (res?.ok && data?.id) break;
-      if (attempt < 2 && TRANSIENT.has(data?.error?.code)) {
+      if (!deliveryUncertain && attempt < 2 && TRANSIENT.has(data?.error?.code)) {
         warn('⏳', `FB transient error ${data?.error?.code} for ${p.id}, retrying in 2s`);
         await sleep(2000);
         continue;
@@ -502,32 +590,46 @@ export async function run(opts = {}) {
     if (res?.ok && data?.id) {
       copyReservations.delete(p.id);
       posted += 1;
-      const now = new Date().toISOString();
-      const entries = [{ id: p.id, url: p.url, postId: data.id, postedAt: now, ...p.copyFields }];
+      const publishedAt = new Date().toISOString();
+      const entries = [{ id: p.id, url: p.url, postId: data.id, postedAt: publishedAt, ...p.copyFields }];
       // A weekend roundup also ledgers the events it covers, so the Sat/Sun
       // per-event poster won't re-post them individually.
       for (const coveredId of p.coveredIds || []) {
-        if (coveredId !== p.id) entries.push({ id: coveredId, viaDigest: p.id, postedAt: now });
+        if (coveredId !== p.id) entries.push({ id: coveredId, viaDigest: p.id, postedAt: publishedAt });
       }
       appendLedger(ledgerPath, entries);
+      try {
+        await socialPublishReservations.markPublished({
+          db: opts.socialPublishDb,
+          platform: 'facebook',
+          accountId: pageId,
+          key: publishReservationKeys.get(p.id),
+          publishAt: now,
+          publishedAt,
+        });
+      } catch (error) {
+        warn('⚠️', `Facebook event reservation remains held after accepted post ${p.id}: ${error.message}`);
+      }
       log('✅', `posted ${p.id} → ${data.id}${p.coveredIds?.length ? ` (covers ${p.coveredIds.length} events)` : ''}`);
     } else {
       warn('⚠️', `FB API error for ${p.id}: ${JSON.stringify(data).slice(0, 200)}`);
       if (!deliveryUncertain && res && !res.ok) {
         await releaseReservation(p.id, 'Facebook explicitly rejected the event post');
+        await releasePublishReservation(p, 'explicit API rejection');
       }
     }
+    if (deliveryUncertain) uncertain += 1;
   }
 
   log('🏁', `posted ${posted}/${payloads.length} events`);
-  return { ok: true, posted, dryRun, payloads };
+  return { ok: true, posted, uncertain, dryRun, payloads };
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   run()
-    .then((r) => process.exit(r.ok ? 0 : 0))
+    .then((r) => process.exit(r.uncertain > 0 ? 1 : 0))
     .catch((err) => {
       console.error(`[fb-events] failed: ${err?.message || err}`);
-      process.exit(0);
+      process.exit(err?.code === 'SOCIAL_PUBLISH_RESERVATION_REQUIRED' ? 1 : 0);
     });
 }

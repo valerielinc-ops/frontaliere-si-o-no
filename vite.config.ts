@@ -121,6 +121,7 @@ import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPl
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
 import { frontalierePillarPlugin } from './build-plugins/frontalierePillarPlugin';
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
+import { socialHubPlugin } from './build-plugins/socialHubPlugin';
 import { publisherAdPagesPlugin } from './build-plugins/publisherAdPagesPlugin';
 import { publisherAdLinksPlugin } from './build-plugins/publisherAdLinksPlugin';
 import { employerProfilePagesPlugin } from './build-plugins/employerProfilePagesPlugin';
@@ -290,6 +291,8 @@ export default defineConfig(({ mode }) => {
  // 100 mainEntity). Pure content plugin: no data dependency, so it can
  // run in any order after the other landing plugins.
  faqHubPlugin(__dirname),
+ // Social profile landing pages (4 locales + sitemap-social-hub.xml).
+ socialHubPlugin(__dirname),
  publisherAdPagesPlugin(__dirname),
  // employerProfilePagesPlugin used to sit here. It moved up next to
  // ogPagesPlugin because jobsSeoPagesPlugin awaits its flush signal — see

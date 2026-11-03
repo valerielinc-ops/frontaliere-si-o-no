@@ -67,9 +67,27 @@ import {
   fetchPageOg,
   uploadLinkedInImage,
 } from '../scripts/lib/linkedin-member-media.mjs';
+import { classifyLinkedInMemberPostResponse } from '../scripts/lib/linkedin-member-publish.mjs';
 import sharp from 'sharp';
 
 const JOB_SECTIONS = new Set(['cerca-lavoro-ticino', 'cerca-lavoro-argovia', 'cerca-lavoro-svizzera']);
+
+describe('LinkedIn member publish response identity', () => {
+  it('accepts a 2xx response only when LinkedIn returns an exact native post ID', () => {
+    expect(classifyLinkedInMemberPostResponse({ status: 201, postId: 'urn:li:share:123' }))
+      .toEqual({ ok: true, postId: 'urn:li:share:123' });
+    expect(classifyLinkedInMemberPostResponse({ status: 201, postId: '' })).toMatchObject({
+      ok: false,
+      status: 201,
+      deliveryUncertain: true,
+    });
+  });
+
+  it('keeps transport-like statuses ambiguous and explicit 4xx responses releasable', () => {
+    expect(classifyLinkedInMemberPostResponse({ status: 503, body: 'temporary' }).deliveryUncertain).toBe(true);
+    expect(classifyLinkedInMemberPostResponse({ status: 403, body: 'forbidden' }).deliveryUncertain).toBe(false);
+  });
+});
 
 describe('previousReportDay — the GA4 window is the PROPERTY timezone', () => {
   it('reports in Europe/Zurich, the property timezone measured via the Admin API', () => {
@@ -431,9 +449,25 @@ describe('the two LinkedIn surfaces stay separate', () => {
     expect(memberCode).not.toContain('LINKEDIN_POST_ACCESS_TOKEN');
   });
 
-  it('the member script is fail-soft: it never exits non-zero', () => {
-    expect(memberCode).toContain('process.exit(0)');
-    expect(memberCode).not.toMatch(/process\.exit\([1-9]/);
+  it('holds the copy assignment when LinkedIn delivery is ambiguous', () => {
+    const branch = memberCode.match(/if \(res\.deliveryUncertain\) \{([\s\S]*?)\} else \{/u)?.[1] || '';
+    expect(branch).toContain('reservedCopy = null');
+    expect(branch).not.toContain('releaseUnpublishedSocialCopyAssignmentBestEffort');
+    expect(memberCode).toContain("reason: 'LinkedIn explicitly rejected the member post'");
+  });
+
+  it('writes the canonical member ledger before closing the shared reservation', () => {
+    const acceptedPost = memberCode.slice(memberCode.indexOf('if (res.ok) {'));
+    const ledgerWrite = acceptedPost.indexOf('appendLedger(');
+    const reservationClose = acceptedPost.indexOf('markSocialPublishReservationPublished(');
+
+    expect(ledgerWrite).toBeGreaterThanOrEqual(0);
+    expect(reservationClose).toBeGreaterThan(ledgerWrite);
+  });
+
+  it('keeps general failures fail-soft but fails when an accepted post cannot be ledgered', () => {
+    expect(memberCode).toContain('process.exit(process.exitCode ?? 0)');
+    expect(memberCode).toContain('process.exitCode = 1');
   });
 
   it('the member poster delegates copy and the article card to the shared builders', () => {

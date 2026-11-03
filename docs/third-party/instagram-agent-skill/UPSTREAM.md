@@ -4,8 +4,11 @@
 - Pinned revision: d03c56bb598be770c60b201f94237e5d1a4268a6
 - License: MIT; see LICENSE.
 - All thirteen skills at the pinned revision were inspected with the Codex
-  skill-installer. Relevant writing and measurement patterns were adapted into
-  `.agents/skills/social-content/SKILL.md` and the scheduled copy workflow.
+  skill-installer. The six relevant source skills (`ig-plan`, `ig-caption`,
+  `ig-carousel`, `ig-reel`, `ig-audit`, and `ig-human`) are versioned in this
+  repository and loaded by the scheduled copy workflow. Their useful writing
+  patterns are adapted into `.agents/skills/social-content/SKILL.md` and the
+  prompt; the English-oriented scripts are not used as Italian pass/fail gates.
 
 Adapted ideas are platform-specific hooks, one primary action, save/share
 utility, and learning from the account's own insights. The source's humanizer,
@@ -15,12 +18,13 @@ The upstream README says the skill itself only drafts content and warns about
 browser-based posting; the project keeps publishing in its existing gated
 publisher/robot processes and does not pass their credentials to Codex.
 
-The Python humanizer was not imported because text mutation can damage copy.
-Platform-length assertions and trend claims were not adopted without current
-official evidence. The upstream manual-publishing directions are adapted to
-the project's existing scheduled publishers; this integration does not enable
-or change `SOCIAL_ROBOT_MODE`. Credentials remain in publisher processes;
-Codex generates copy only.
+The Python humanizer is retained as upstream reference only; text mutation can
+damage Italian copy and verified facts. Hook-score and caption heuristics are
+not performance predictors or hard gates. Platform-length assertions and
+trend claims were not adopted without current official evidence. The upstream
+manual-publishing directions are adapted to the project's existing scheduled
+publishers; this integration does not enable or change `SOCIAL_ROBOT_MODE`.
+Credentials remain in publisher processes; Codex generates copy only.
 
 The supported Instagram publishing surface remains Meta's Content Publishing
 API for Professional accounts, with account permissions and format limits

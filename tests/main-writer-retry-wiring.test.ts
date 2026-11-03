@@ -36,7 +36,6 @@ describe('main data writers use the shared retry contract', () => {
   it('routes the direct main writers through the anti-collapse guard', () => {
     const retryWriter = read('scripts/lib/git-push-with-retry.sh');
     const dataWriter = read('scripts/lib/git-commit-data.sh');
-    const browserWriter = read('scripts/social-robot/persist-browser-insights.mjs');
     const corpusMirror = read('.github/workflows/mirror-articles-corpus.yml');
 
     expect(retryWriter).toContain('main-push-guard.mjs');
@@ -52,10 +51,15 @@ describe('main data writers use the shared retry contract', () => {
     expect(dataWriter).toContain('--force-with-lease=refs/heads/main:');
     expect(dataWriter).not.toContain('origin HEAD:main');
     expect(dataWriter).not.toContain('date +%s');
-    expect(browserWriter).toContain("import { pushMainWithGuard } from '../lib/main-push-guard.mjs'");
-    expect(browserWriter).not.toContain("'--check-only'");
     expect(corpusMirror).toContain('main-push-guard.mjs');
     expect(corpusMirror).toContain('--push');
+  });
+
+  it('keeps browser Insights in private Firestore instead of publishing them to main', () => {
+    const browserWriter = read('scripts/social-robot/persist-browser-insights.mjs');
+    expect(browserWriter).toContain('updatePrivateSocialNativeInsights');
+    expect(browserWriter).not.toContain('pushMainWithGuard');
+    expect(browserWriter).not.toContain('HEAD:main');
   });
 
   it('bounds the mirror job, publication step, clone, fetch and retry loop', () => {

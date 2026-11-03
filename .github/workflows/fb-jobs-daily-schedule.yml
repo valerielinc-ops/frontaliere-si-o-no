@@ -15,7 +15,7 @@ on:
       volume:
         description: 'Posts to schedule (1=smoke-test, 24/72/144 = 1/h, 1/20m, 1/10m)'
         required: false
-        default: '144'
+        default: '24'
         type: choice
         options: ['1', '24', '72', '144']
       dry_run:
@@ -62,7 +62,9 @@ jobs:
 
       - name: Load secrets from RC
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,SOCIAL_COPY_EXPERIMENT_CONFIG
 
       - name: Assemble jobs dataset
         run: node scripts/assemble-jobs-dataset.mjs --stats
@@ -87,6 +89,8 @@ jobs:
             echo "no changes"; exit 0
           fi
           git commit -m "chore(fb): track posted jobs [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # In-place resolver merges by job-id when another commit lands
           # on main mid-run (e.g. a concurrent article workflow or a
           # parallel orchestrator's ledger reset). Without this the

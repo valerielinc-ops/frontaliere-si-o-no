@@ -13,9 +13,10 @@
  */
 
 import { withUtm } from './social-post-utils.mjs';
+import { SOCIAL_UTM_MEDIUM, SOCIAL_UTM_SOURCE_BY_CHANNEL } from './social-channel-attribution.mjs';
 
-export const TIKTOK_UTM_SOURCE = 'tiktok';
-export const TIKTOK_UTM_MEDIUM = 'social';
+export const TIKTOK_UTM_SOURCE = SOCIAL_UTM_SOURCE_BY_CHANNEL.tiktok;
+export const TIKTOK_UTM_MEDIUM = SOCIAL_UTM_MEDIUM;
 
 /** Daily "most read articles" carousel. */
 export const TIKTOK_CAMPAIGN_ARTICLE = 'tiktok_daily_article';

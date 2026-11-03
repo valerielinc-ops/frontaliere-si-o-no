@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { AUTONOMOUS_PROMOTION_PROTOCOL_READY } from './instagram-insights-decision.mjs';
 
 export const INSTAGRAM_CAROUSEL_BACKGROUND_EXPERIMENT_ID = 'instagram-carousel-background-v1';
 export const INSTAGRAM_CAROUSEL_SAFE_AREA_VERSION = 'safe-area-v2';
@@ -159,8 +160,10 @@ export function assignInstagramCarouselBackground({ kind, day, creativeId, objec
   const legacyWinnerKey = firstText(kind) && firstText(creativeId)
     ? `${firstText(kind)}:${firstText(creativeId)}`
     : firstText(kind);
-  const configuredWinner = firstText(resolved.winners?.[winnerKey])
-    || (winnerKey === legacyWinnerKey ? null : firstText(resolved.winners?.[legacyWinnerKey]));
+  const configuredWinner = AUTONOMOUS_PROMOTION_PROTOCOL_READY
+    ? firstText(resolved.winners?.[winnerKey])
+      || (winnerKey === legacyWinnerKey ? null : firstText(resolved.winners?.[legacyWinnerKey]))
+    : null;
   const winner = configuredIds.includes(configuredWinner) ? configuredWinner : null;
   if (winner && bucket.rollout >= Math.round(parsePercent(resolved.explorationPercent) * 100)) {
     return instagramCarouselBackgroundForId(winner);

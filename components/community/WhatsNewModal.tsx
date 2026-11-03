@@ -35,9 +35,21 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
-  { version: '3.99.16', date: '2026-11-03', titleKey: 'whatsNew.v39916.title', items: [
-    { type: 'improvement', titleKey: 'whatsNew.v39916.creatives.title', descKey: 'whatsNew.v39916.creatives.desc', href: '/automatizza-ricerca-lavoro-svizzera/' },
-  ],
+  {
+    version: '3.99.17',
+    date: '2026-11-03',
+    titleKey: 'whatsNew.v39917.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v39917.socialHub.title', descKey: 'whatsNew.v39917.socialHub.desc', link: { tab: 'social-hub' } },
+    ],
+  },
+  {
+    version: '3.99.16',
+    date: '2026-11-03',
+    titleKey: 'whatsNew.v39916.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v39916.creatives.title', descKey: 'whatsNew.v39916.creatives.desc', href: '/automatizza-ricerca-lavoro-svizzera/' },
+    ],
   },
   {
     version: '3.99.15',
@@ -2838,6 +2850,8 @@ export function getReleases(): Release[] {
 
 export function releaseLinkToRoute(link: NonNullable<ReleaseItem['link']>): AppRoute {
  switch (link.tab) {
+ case 'social-hub':
+ return { activeTab: 'social-hub' };
  case 'calculator':
  return { activeTab: 'calculator', calcolatoreSubTab: (link.subTab as AppRoute['calcolatoreSubTab']) || 'calculator' };
  case 'confronti':
@@ -3002,6 +3016,13 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
 
  const handleLinkClick = useCallback((e: MouseEvent<HTMLAnchorElement>, item: ReleaseItem) => {
  onClose();
+ if (item.link?.tab === 'social-hub') {
+ e.preventDefault();
+ // The content is emitted as static HTML outside #root, so it must be loaded
+ // with a document navigation instead of rendering an SPA-only empty shell.
+ window.location.href = e.currentTarget.getAttribute('href') || '/social/';
+ return;
+ }
  if (item.href) {
  // Standalone static page outside the SPA tab system (e.g. /moduli/...) —
  // let the browser follow the href with a normal navigation.

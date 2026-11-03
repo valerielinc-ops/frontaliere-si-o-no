@@ -16,9 +16,10 @@
  */
 
 import { withUtm } from './social-post-utils.mjs';
+import { SOCIAL_UTM_MEDIUM, SOCIAL_UTM_SOURCE_BY_CHANNEL } from './social-channel-attribution.mjs';
 
-export const INSTAGRAM_UTM_SOURCE = 'instagram';
-export const INSTAGRAM_UTM_MEDIUM = 'social';
+export const INSTAGRAM_UTM_SOURCE = SOCIAL_UTM_SOURCE_BY_CHANNEL.instagram;
+export const INSTAGRAM_UTM_MEDIUM = SOCIAL_UTM_MEDIUM;
 
 /** Daily "most read articles" carousel. */
 export const INSTAGRAM_CAMPAIGN_ARTICLE = 'instagram_daily_article';

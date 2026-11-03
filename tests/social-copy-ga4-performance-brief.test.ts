@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildSocialCopyGa4Brief,
+  buildSocialCopyGa4ActionBrief,
+  buildSocialCopyGa4ActionRateRequest,
+  buildSocialCopyGa4ActionRequest,
   buildSocialCopyGa4Request,
   collectSocialCopyGa4Brief,
   SOCIAL_COPY_GA4_MINIMUM_SESSIONS,
@@ -173,6 +176,162 @@ describe('GA4 social-copy performance brief', () => {
       reason: 'incomplete-report',
       variants: [],
     });
+  });
+
+  it('keeps editorial angle IDs in exact GA4 session and site-action cohorts', () => {
+    const content = 'story--cp0123456789abcdef-article.facebook-article-one.aarticle-practical-question.d';
+    const brief = buildSocialCopyGa4Brief({ complete: true, rows: [row('facebook', 'facebook_article', content, 12, 6)] });
+    expect(brief.variants[0]).toMatchObject({
+      angleId: 'article-practical-question',
+      assignmentMode: 'deterministic',
+      sessions: 12,
+    });
+
+    const actions = buildSocialCopyGa4ActionBrief({
+      complete: true,
+      rows: [{
+        dimensionValues: [
+          { value: 'facebook' },
+          { value: 'facebook_article' },
+          { value: content },
+          { value: 'job_apply_handoff' },
+        ],
+        metricValues: [{ value: '12' }],
+      }],
+    });
+    expect(actions.events[0]).toMatchObject({ angleId: 'article-practical-question', eventCount: 12 });
+  });
+
+  it('keeps absent GA4 metric cells unavailable instead of turning them into zero', () => {
+    const brief = buildSocialCopyGa4Brief({
+      complete: true,
+      rows: [{
+        dimensionValues: [
+          { value: 'facebook' },
+          { value: 'facebook_article' },
+          { value: 'story--cp0123456789abcdef-article.facebook-article-one' },
+        ],
+        metricValues: [{ value: '12' }, {}],
+      }],
+    });
+    expect(brief.variants[0]).toMatchObject({
+      sessions: 12,
+      engagedSessions: null,
+      eligibleForDescription: false,
+      siteEngagedSessionRate: null,
+    });
+  });
+
+  it('reports allowlisted site actions as event counts, not unique people or completed applications', () => {
+    const actions = buildSocialCopyGa4ActionBrief({
+      complete: true,
+      rows: [{
+        dimensionValues: [
+          { value: 'facebook' },
+          { value: 'facebook_article' },
+          { value: 'story--cp0123456789abcdef-article.facebook-article-one' },
+          { value: 'job_apply_handoff' },
+        ],
+        metricValues: [{ value: '12' }],
+      }],
+    });
+    expect(actions.events[0]).toMatchObject({
+      eventName: 'job_apply_handoff',
+      eventCount: 12,
+      eligibleForDescription: true,
+      eventMeaning: expect.stringContaining('not a completed application'),
+    });
+
+    const request = buildSocialCopyGa4ActionRequest({ now: new Date('2026-11-02T12:00:00.000Z') });
+    expect(request.dimensions.map(({ name }) => name)).toContain('eventName');
+    expect(request.metrics.map(({ name }) => name)).toEqual(['eventCount']);
+    expect(JSON.stringify(request.dimensionFilter)).toContain('checkout_completed');
+  });
+
+  it('measures qualified job-detail sessions as a descriptive tagged event with bounded claims', () => {
+    const actions = buildSocialCopyGa4ActionBrief({
+      complete: true,
+      rows: [{
+        dimensionValues: [
+          { value: 'facebook' },
+          { value: 'facebook_job' },
+          { value: 'job--cp0123456789abcdef-job.facebook-job-one' },
+          { value: 'job_qualified_session' },
+        ],
+        metricValues: [{ value: '9' }],
+      }],
+    });
+    expect(actions.events[0]).toMatchObject({
+      eventName: 'job_qualified_session',
+      eventCount: 9,
+      keyEventStatus: 'not-listed-in-repository-key-event-contract; live-property-state-not-queried',
+      strongestClaim: expect.stringContaining('not a unique person'),
+      eligibleForDescription: false,
+    });
+    expect(JSON.stringify(buildSocialCopyGa4ActionRequest({ now: new Date('2026-11-02T12:00:00.000Z') }).dimensionFilter))
+      .toContain('job_qualified_session');
+    expect(buildSocialCopyGa4ActionRateRequest({ eventNames: ['job_qualified_session'] })).toBeNull();
+    expect(buildSocialCopyGa4ActionRateRequest({ eventNames: ['job_qualified_session', 'job_apply_handoff'] })?.metrics)
+      .toEqual([{ name: 'sessions' }, { name: 'sessionKeyEventRate:job_apply_handoff' }]);
+  });
+
+  it('keeps qualified job-detail event counts but excludes the event from registered key-event rates', async () => {
+    let rateMetricNames: string[] = [];
+    const brief = await collectSocialCopyGa4Brief({
+      now: new Date('2026-11-02T12:00:00.000Z'),
+      propertyId: '123456',
+      getTokenImpl: async () => 'opaque-token',
+      listKeyEventMetricsImpl: async () => new Set([
+        'sessionKeyEventRate:job_qualified_session',
+        'sessionKeyEventRate:job_apply_handoff',
+      ]),
+      runReportImpl: async ({ body }) => {
+        if (body.dimensions.some(({ name }: { name: string }) => name === 'eventName')) {
+          return {
+            complete: true,
+            rows: [{
+              dimensionValues: [
+                { value: 'facebook' },
+                { value: 'facebook_job' },
+                { value: 'job--cp0123456789abcdef-job.facebook-job-one' },
+                { value: 'job_qualified_session' },
+              ],
+              metricValues: [{ value: '12' }],
+            }],
+          };
+        }
+        if (body.metrics.some(({ name }: { name: string }) => name.startsWith('sessionKeyEventRate:'))) {
+          rateMetricNames = body.metrics.map(({ name }: { name: string }) => name);
+        }
+        return { complete: true, rows: [] };
+      },
+    });
+
+    expect(rateMetricNames).toEqual(['sessions', 'sessionKeyEventRate:job_apply_handoff']);
+    expect(brief.siteActions).toEqual([expect.objectContaining({
+      eventName: 'job_qualified_session',
+      eventCount: 12,
+      liveKeyEventRegistration: 'registered',
+      sessionKeyEventRate: null,
+      eligibleForSessionKeyEventRateDescription: false,
+      sessionKeyEventRateStatus: 'excluded-by-event-contract',
+    })]);
+  });
+
+  it('does not treat a missing GA4 event count as no actions', () => {
+    const actions = buildSocialCopyGa4ActionBrief({
+      complete: true,
+      rows: [{
+        dimensionValues: [
+          { value: 'facebook' },
+          { value: 'facebook_article' },
+          { value: 'story--cp0123456789abcdef-article.facebook-article-one' },
+          { value: 'checklist_completed' },
+        ],
+        metricValues: [{}],
+      }],
+    });
+    expect(actions.events[0]).toMatchObject({ eventCount: null, eligibleForDescription: false });
   });
 
   it('queries only social UTM copy content and settled session metrics', () => {

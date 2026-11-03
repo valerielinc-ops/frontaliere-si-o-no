@@ -13,15 +13,14 @@ import {
 
 const DEFAULT_LEDGER = 'data/instagram-posted.json';
 const DEFAULT_QUEUE = 'data/instagram-queue.json';
-const DEFAULT_INSIGHTS = 'data/instagram-insights.json';
 
 function usage() {
   return [
     'instagram-experiment-status.mjs — show the Instagram creative test status',
     '',
     'Usage:',
-    '  node scripts/instagram-experiment-status.mjs',
-    '  node scripts/instagram-experiment-status.mjs --json',
+    '  node scripts/instagram-experiment-status.mjs --insights "$RUNNER_TEMP/instagram-insights.json"',
+    '  node scripts/instagram-experiment-status.mjs --insights insights.json --json',
     '',
     'The report counts one observation per published Instagram post/media,',
     'not one observation per carousel card. It never calls Meta and never prints credentials.',
@@ -29,7 +28,7 @@ function usage() {
     'Options:',
     `  --ledger PATH              Posted ledger (default: ${DEFAULT_LEDGER})`,
     `  --queue PATH               Instagram queue (default: ${DEFAULT_QUEUE})`,
-    `  --insights PATH            Insights snapshot (default: ${DEFAULT_INSIGHTS})`,
+    '  --insights PATH            Private Insights export (required)',
     `  --window-hours N           Target measurement window (default: ${DEFAULT_WINDOW_HOURS})`,
     `  --min-observations N       Minimum comparable posts (default: ${DEFAULT_MINIMUM_OBSERVATIONS})`,
     '  --as-of ISO                Evaluate age and 72h windows at a fixed time',
@@ -55,7 +54,7 @@ export function parseArgs(argv = []) {
   const options = {
     ledger: DEFAULT_LEDGER,
     queue: DEFAULT_QUEUE,
-    insights: DEFAULT_INSIGHTS,
+    insights: '',
     windowHours: DEFAULT_WINDOW_HOURS,
     minimumObservations: DEFAULT_MINIMUM_OBSERVATIONS,
     json: false,
@@ -81,6 +80,7 @@ export function parseArgs(argv = []) {
   if (options.asOf !== undefined && !Number.isFinite(Date.parse(options.asOf))) {
     throw new Error('--as-of must be an ISO timestamp');
   }
+  if (!options.help && !String(options.insights).trim()) throw new Error('--insights is required');
   return options;
 }
 

@@ -2175,6 +2175,8 @@ const translations: Record<string, string> = {
 
  // ── Glossary ──
  'faq.title': 'Domande Frequenti',
+ 'socialHub.title': 'Risorse per chi lavora oltreconfine',
+ 'socialHub.description': 'Offerte di lavoro in Ticino, strumenti per il netto, traffico ai valichi, guide e riepilogo settimanale.',
 
  // ── RistorniTracker ──
  'bonus.types.13th': 'Tredicesima',

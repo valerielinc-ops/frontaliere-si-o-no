@@ -493,6 +493,88 @@ function unsubProxyOrigin(pathname) {
   return null;
 }
 
+const SOCIAL_REDIRECT_ORIGIN = 'https://frontaliereticino.ch';
+const SOCIAL_REDIRECT_PATH_RE = /^\/social\/r\/([a-f0-9]{20})\/$/u;
+const SOCIAL_REDIRECT_QUERY_FIELDS = Object.freeze([
+  'to', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content',
+]);
+const SOCIAL_REDIRECT_SOURCES = new Set([
+  'facebook', 'instagram', 'linkedin', 'reddit', 'telegram', 'tiktok', 'threads', 'youtube',
+]);
+const SOCIAL_REDIRECT_CAMPAIGN_RE = /^[a-z][a-z0-9_]{1,63}$/u;
+
+function socialRedirectFailure(status = 404) {
+  return new Response(status === 405 ? 'Method not allowed' : 'Not found', {
+    status,
+    headers: {
+      'Cache-Control': 'no-store',
+      'X-Robots-Tag': 'noindex, nofollow',
+      ...(status === 405 ? { Allow: 'GET, HEAD' } : {}),
+    },
+  });
+}
+
+/** Resolve a stable first-party social link without permitting external redirects. */
+export async function socialRedirectResponse(request, url = new URL(request.url)) {
+  if (!url.pathname.startsWith('/social/r/')) return null;
+  const match = SOCIAL_REDIRECT_PATH_RE.exec(url.pathname);
+  if (!match || url.origin !== SOCIAL_REDIRECT_ORIGIN) return socialRedirectFailure();
+  if (request.method !== 'GET' && request.method !== 'HEAD') return socialRedirectFailure(405);
+  if (url.searchParams.size !== SOCIAL_REDIRECT_QUERY_FIELDS.length
+    || SOCIAL_REDIRECT_QUERY_FIELDS.some((field) => url.searchParams.getAll(field).length !== 1)) {
+    return socialRedirectFailure();
+  }
+
+  const target = url.searchParams.get('to') || '';
+  const source = url.searchParams.get('utm_source') || '';
+  const medium = url.searchParams.get('utm_medium') || '';
+  const campaign = url.searchParams.get('utm_campaign') || '';
+  const content = url.searchParams.get('utm_content') || '';
+  if (!target || target.length > 3072 || !target.startsWith('/') || target.startsWith('//')
+    || /[\\\u0000-\u001f\u007f]/u.test(target)
+    || !SOCIAL_REDIRECT_SOURCES.has(source) || medium !== 'social'
+    || !SOCIAL_REDIRECT_CAMPAIGN_RE.test(campaign) || content.length > 256
+    || /[\u0000-\u001f\u007f]/u.test(content)) {
+    return socialRedirectFailure();
+  }
+
+  let destination;
+  try {
+    destination = new URL(target, SOCIAL_REDIRECT_ORIGIN);
+  } catch {
+    return socialRedirectFailure();
+  }
+  if (destination.origin !== SOCIAL_REDIRECT_ORIGIN || destination.username || destination.password
+    || (destination.pathname !== '/' && !destination.pathname.endsWith('/'))
+    || destination.pathname.startsWith('/social/r/')
+    || [...destination.searchParams.keys()].some((key) => key.toLowerCase().startsWith('utm_'))) {
+    return socialRedirectFailure();
+  }
+
+  const identity = JSON.stringify({ version: 1, target, source, medium, campaign, content });
+  try {
+    const digest = await globalThis.crypto.subtle.digest('SHA-256', new TextEncoder().encode(identity));
+    const key = [...new Uint8Array(digest)].map((value) => value.toString(16).padStart(2, '0')).join('').slice(0, 20);
+    if (key !== match[1]) return socialRedirectFailure();
+  } catch {
+    return socialRedirectFailure();
+  }
+
+  destination.searchParams.set('utm_source', source);
+  destination.searchParams.set('utm_medium', medium);
+  destination.searchParams.set('utm_campaign', campaign);
+  destination.searchParams.set('utm_content', content);
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: destination.toString(),
+      'Cache-Control': 'no-store',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
+  });
+}
+
 // ── Keeping the credential out of Cloud Run's request log (#5746) ───────────
 //
 // Cloud Run writes `httpRequest.requestUrl` — the whole URL, query string
@@ -3403,6 +3485,9 @@ export function stripStaleAssetIntegrity(request, response) {
 const router = {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
+
+    const socialRedirect = await socialRedirectResponse(request, url);
+    if (socialRedirect) return socialRedirect;
 
     // Apex legacy aliases (localized roots, the old malformed nav token and
     // the retired 5x1000 calculator) must be answered before the default

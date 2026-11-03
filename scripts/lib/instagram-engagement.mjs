@@ -8,12 +8,14 @@ const ENGAGEMENT_MECHANIC_BY_METRIC = Object.freeze({
   comments: 'keyword-comment',
   shares: 'direct-share',
   saves: 'save-reminder',
+  follows: 'profile-follow',
 });
 
 const RESPONSE_ACTION_BY_METRIC = Object.freeze({
   comments: 'Il worker risponde automaticamente ai commenti entro 24h; Insights misura commenti e reach.',
   shares: 'Insights misura condivisioni e reach; il worker gestisce automaticamente le eventuali domande.',
   saves: 'Insights misura salvataggi e reach; il worker gestisce automaticamente le eventuali domande.',
+  follows: 'Insights misura i follow attribuiti al contenuto e la reach; il worker gestisce le domande ricevute.',
 });
 
 const FOLLOW_UP_ACTION_BY_FORMAT = Object.freeze({

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { parse } from 'yaml';
 
@@ -24,6 +25,11 @@ const OTHER_CAPABILITY = /env\.APP_TOKEN_(?:ACTIONS|WORKFLOWS)\s*==\s*'true'\s*&
 const BRIDGE_ACTION = './.github/actions/claude-codex-fallback';
 const APP_TOKEN_REF = /env\.APP_TOKEN(?![A-Za-z0-9_])/;
 const SHELL_APP_TOKEN = /\$\{?APP_TOKEN(?![A-Za-z0-9_])/;
+// A narrowly recognized shell equivalent for publisher steps whose token
+// values are populated through GITHUB_ENV and therefore are unavailable to
+// the workflow-expression `env` context. Require both the capability proof and
+// a non-empty App token before selecting it; otherwise select the loaded PAT.
+const DATA_REFRESH_SHELL_TOKEN_SELECTION = /if\s+\[\s*"\$\{APP_TOKEN_DATA_REFRESH:-\}"\s*=\s*"true"\s*\]\s*&&\s*\[\s*-n\s*"\$\{APP_TOKEN:-\}"\s*\]\s*;\s*then\s*export\s+GH_TOKEN="\$APP_TOKEN"(?:\s*;\s*|\s+)else\s*export\s+GH_TOKEN="\$\{GITHUB_PAT:-\}"(?:\s*;\s*|\s+)fi/s;
 // Uno script lanciato dallo step che legge APP_TOKEN dall'ambiente (per
 // esempio `restorePromotionAppRemote()` di prospect-promote.mjs).
 const SCRIPT_APP_TOKEN = /process\.env\.APP_TOKEN(?![A-Za-z0-9_])|\$\{?APP_TOKEN(?![A-Za-z0-9_])/;
@@ -90,6 +96,16 @@ function readScript(root: string, rel: string): string {
   return scriptCache.get(rel) ?? '';
 }
 
+function hasDataRefreshShellTokenSelection(body: string): boolean {
+  const selection = body.match(DATA_REFRESH_SHELL_TOKEN_SELECTION);
+  if (!selection) return false;
+  const remainder = body.replace(selection[0], '');
+  // The recognized block must be the only GH_TOKEN assignment and the only
+  // APP_TOKEN read in this step; otherwise a later assignment or separate
+  // consumer could bypass the capability guard.
+  return !/\bGH_TOKEN\s*=/.test(remainder) && !SHELL_APP_TOKEN.test(remainder);
+}
+
 export function scanWorkflow(file: string, source: string, root = ROOT): StepFinding[] {
   const doc = parse(source) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> } | null;
   const findings: StepFinding[] = [];
@@ -118,11 +134,18 @@ export function scanWorkflow(file: string, source: string, root = ROOT): StepFin
 
       const envMap = (step.env ?? {}) as Record<string, unknown>;
       const scripts = [...new Set(body.match(/scripts\/[\w./-]+\.(?:mjs|cjs|js|sh|ts)/g) ?? [])];
-      const readsAppToken =
-        SHELL_APP_TOKEN.test(body) || scripts.some((rel) => SCRIPT_APP_TOKEN.test(readScript(root, rel)));
+      const shellReadsAppToken = SHELL_APP_TOKEN.test(body);
+      const scriptReadsAppToken = scripts.some((rel) => SCRIPT_APP_TOKEN.test(readScript(root, rel)));
+      const readsAppToken = shellReadsAppToken || scriptReadsAppToken;
+      const guardedShellTokenRead =
+        shellReadsAppToken && !scriptReadsAppToken && hasDataRefreshShellTokenSelection(body);
       // APP_TOKEN arriva nell'ambiente solo dal conio (GITHUB_ENV) di uno step
       // precedente dello stesso job: prima, o senza conio, la lettura e' vuota.
-      const shellReadsUnmapped = readsAppToken && minted && !('APP_TOKEN' in envMap);
+      const shellReadsUnmapped =
+        readsAppToken &&
+        minted &&
+        !('APP_TOKEN' in envMap) &&
+        !guardedShellTokenRead;
 
       const publishes = PUBLISH_IN_STEP.filter((re) => re.test(body) || re.test(uses)).map(String);
       for (const rel of scripts) {
@@ -319,6 +342,60 @@ describe('scanWorkflow (rilevatore)', () => {
     expect(f.publishes.length).toBeGreaterThan(0);
   });
 
+  it('accetta solo la selezione shell con prova di capacita e fallback PAT', () => {
+    const findings = scanWorkflow(
+      'x.yml',
+      wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          git push origin HEAD:refs/heads/b\n`),
+    );
+    expect(findings).toEqual([]);
+  });
+
+  it('rifiuta una selezione shell che non verifica la presenza del token capace', () => {
+    const [f] = scanWorkflow(
+      'x.yml',
+      wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          git push origin HEAD:refs/heads/b\n`),
+    );
+    expect(f.publishes.length).toBeGreaterThan(0);
+    expect(f.shellReadsUnmapped).toBe(true);
+  });
+
+  it('rifiuta la selezione shell se il token non viene esportato al processo publisher', () => {
+    const [f] = scanWorkflow(
+      'x.yml',
+      wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            GH_TOKEN="$APP_TOKEN"\n          else\n            GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          git push origin HEAD:refs/heads/b\n`),
+    );
+    expect(f.publishes.length).toBeGreaterThan(0);
+    expect(f.shellReadsUnmapped).toBe(true);
+  });
+
+  it('rifiuta letture APP_TOKEN fuori dal blocco di selezione protetto', () => {
+    const [f] = scanWorkflow(
+      'x.yml',
+      wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          printf '%s' "$APP_TOKEN"\n          git push origin HEAD:refs/heads/b\n`),
+    );
+    expect(f.publishes.length).toBeGreaterThan(0);
+    expect(f.shellReadsUnmapped).toBe(true);
+  });
+
+  it('non lascia che la selezione protetta nasconda una lettura APP_TOKEN nello script publisher', () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'app-token-publisher-'));
+    const scriptName = `scripts/token-guard-bypass-${process.pid}-${Date.now()}.mjs`;
+    const scriptPath = path.join(tmpRoot, scriptName);
+    fs.mkdirSync(path.dirname(scriptPath), { recursive: true });
+    fs.writeFileSync(scriptPath, 'const token = process.env.APP_TOKEN;\ngit push origin HEAD:refs/heads/b;\n');
+    try {
+      const [f] = scanWorkflow(
+        'x.yml',
+        wf(`${mint}      - name: Persist\n        run: |\n          if [ "\${APP_TOKEN_DATA_REFRESH:-}" = "true" ] && [ -n "\${APP_TOKEN:-}" ]; then\n            export GH_TOKEN="$APP_TOKEN"\n          else\n            export GH_TOKEN="\${GITHUB_PAT:-}"\n          fi\n          node ${scriptName}\n`),
+        tmpRoot,
+      );
+      expect(f.publishes.length).toBeGreaterThan(0);
+      expect(f.shellReadsUnmapped).toBe(true);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
   it('non conta la lettura di $APP_TOKEN in un job senza conio', () => {
     const found = scanWorkflow(
       'x.yml',
@@ -372,6 +449,23 @@ function selectWriteCapableToken(
 ): string {
   return appTokenDataRefresh === 'true' && appToken ? appToken : githubPat;
 }
+
+describe('Telegram ledger PR token selection', () => {
+  const telegramWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'telegram-channel-broadcast.yml'), 'utf8');
+
+  it('reads runner-populated values in the publishing shell and requires a capable App token', () => {
+    const loadSecrets = namedStep(telegramWorkflow, 'broadcast', 'Load secrets from RC');
+    const openLedgerPr = namedStep(telegramWorkflow, 'broadcast', 'Open PR with posted ledgers');
+    expect(loadSecrets.run).toContain('GITHUB_PAT');
+    expect(openLedgerPr.env?.GH_TOKEN).toBeUndefined();
+    expect(openLedgerPr.run).toContain('APP_TOKEN_DATA_REFRESH');
+    expect(openLedgerPr.run).toContain('GITHUB_PAT:-');
+    expect(hasDataRefreshShellTokenSelection(openLedgerPr.run ?? '')).toBe(true);
+    expect(scanWorkflow('telegram-channel-broadcast.yml', telegramWorkflow).some(
+      (finding) => finding.key === 'telegram-channel-broadcast.yml :: broadcast :: Open PR with posted ledgers',
+    )).toBe(false);
+  });
+});
 
 describe('PR loop: capacità write verificata prima delle mutation', () => {
   const testsWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'tests.yml'), 'utf8');

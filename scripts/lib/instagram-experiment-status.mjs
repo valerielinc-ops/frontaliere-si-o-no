@@ -186,6 +186,14 @@ function insightWindow(row, fallback) {
   return raw === null ? fallback : finiteNumber(raw);
 }
 
+function exactCopyAttribution(row) {
+  if (row.copyAttributionStatus === 'exact') return true;
+  if (row.copyAttributionStatus) return false;
+  return ['ledger-media-id', 'browser-cover-fingerprint'].includes(
+    firstText(row.matchMethod, row.match_method),
+  );
+}
+
 function cohortKey(group, windowHours) {
   return [group.creativeId, group.backgroundVariant || 'legacy', group.kind, windowHours].join('\u0000');
 }
@@ -401,6 +409,10 @@ export function buildExperimentStatus({
     }
     if (rowWindow !== windowHours) {
       rejectedRows.push({ row: index + 1, reason: `measurement window is ${rowWindow}h, target is ${windowHours}h` });
+      return;
+    }
+    if (!exactCopyAttribution(row)) {
+      rejectedRows.push({ row: index + 1, reason: 'copy attribution is not an exact media-to-ledger join' });
       return;
     }
     const groupMatch = findGroupForRow(row, groupLookup);

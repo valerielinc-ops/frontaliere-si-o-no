@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Launch agent of the social robot on the agents' Mac host: two windows a day
-# in which the robot publishes (or, in a dry run, prepares) the queued
-# Instagram and TikTok carousels from the owner's Chrome profile. The same
+# in which the robot publishes (or, in a dry run, prepares) queued Instagram
+# content from the owner's Chrome profile. TikTok delivery is held. The same
 # pass reads Instagram Insights and Business Suite through that profile.
 #
 #   bash scripts/social-robot/launchd.sh install    write and load the plist (this Mac, this checkout)
@@ -44,7 +44,7 @@ max_log_lines=4000
 # for every run. The installed copy can be one run behind while it refreshes.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/ci/guard-main-tree-shrink.mjs scripts/lib/is-invoked-directly.mjs scripts/lib/git-fetch-target.mjs scripts/lib/main-push-guard.mjs scripts/lib/single-flight-lock.mjs scripts/lib/stale-fetch-pack-sweep.mjs scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+snapshot_paths="scripts/social-robot scripts/ci/guard-main-tree-shrink.mjs scripts/lib/is-invoked-directly.mjs scripts/lib/git-fetch-target.mjs scripts/lib/main-push-guard.mjs scripts/lib/single-flight-lock.mjs scripts/lib/stale-fetch-pack-sweep.mjs scripts/lib/social-publish-queue.mjs scripts/lib/social-publish-reservations.mjs scripts/lib/social-publish-outcome.mjs scripts/lib/social-automation-policy.mjs scripts/lib/social-robot-delivery-health.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-community-outcomes.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs scripts/lib/firestore-admin.mjs scripts/lib/social-native-insights-store.mjs scripts/lib/social-native-insights-schema.mjs scripts/lib/social-ga4-contract.mjs scripts/lib/social-channel-attribution.mjs"
 social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
@@ -255,12 +255,12 @@ cmd_run() {
   mode=${SOCIAL_ROBOT_MODE:-}
   log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
   run_status=0
-  SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
+  GOOGLE_APPLICATION_CREDENTIALS="$sa_file" SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
     node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1 || run_status=$?
   insights_status=0
   if [ "$mode" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'graph' ] && [ -f "$state_dir/instagram-insights.json" ]; then
-    node "$runner/scripts/social-robot/persist-browser-insights.mjs" \
-      --repo "$site" --snapshot "$state_dir/instagram-insights.json" >>"$log_file" 2>&1 || insights_status=$?
+    GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/social-robot/persist-browser-insights.mjs" \
+      --snapshot "$state_dir/instagram-insights.json" >>"$log_file" 2>&1 || insights_status=$?
     [ "$insights_status" -eq 0 ] || log "browser Insights persistence failed (exit $insights_status)"
   fi
   log "exit $run_status"

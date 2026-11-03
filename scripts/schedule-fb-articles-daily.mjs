@@ -58,6 +58,14 @@ import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
 import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
+import {
+  markSocialPublishReservationPublished,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishContentFingerprint,
+  socialPublishReservationKey,
+} from './lib/social-publish-reservations.mjs';
+import { isAmbiguousSocialPublishResponse } from './lib/social-publish-outcome.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
 
@@ -273,6 +281,7 @@ export function appendPosted(repoRoot, entries) {
  * @param {(...a: unknown[]) => void} [opts.warn]
  * @param {(options: object) => Promise<object|null>} [opts.selectSocialCopyForPublishImpl]
  * @param {(copy: object) => Promise<boolean>} [opts.releaseSocialCopyAssignmentImpl]
+ * @param {{ reserveBatch: Function, markPublished: Function, release: Function }} [opts.socialPublishReservations]
  */
 export async function run(opts = {}) {
   const env = opts.env || process.env;
@@ -286,6 +295,11 @@ export async function run(opts = {}) {
   });
   const selectSocialCopy = opts.selectSocialCopyForPublishImpl || selectSocialCopyForPublish;
   const releaseSocialCopy = opts.releaseSocialCopyAssignmentImpl || undefined;
+  const socialPublishReservations = opts.socialPublishReservations || {
+    reserveBatch: reserveSocialPublishBatch,
+    markPublished: markSocialPublishReservationPublished,
+    release: releaseSocialPublishReservation,
+  };
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
   const limit = Number(env.FB_ARTICLE_VOLUME || DEFAULT_VOLUME);
@@ -314,7 +328,19 @@ export async function run(opts = {}) {
 
   // 3. Build payloads
   const copyReservations = new Map();
-  const payloads = await Promise.all(candidates.map(async (a) => {
+  const releaseReservation = async (id, reason) => {
+    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
+      releaseBalancedImpl: releaseSocialCopy,
+      reason,
+      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
+    });
+    if (released) copyReservations.delete(id);
+    return released;
+  };
+  const releaseAllReservations = async (reason) => {
+    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
+  };
+  const built = await Promise.allSettled(candidates.map(async (a) => {
     const socialCopy = await selectSocialCopy({
       pack: socialCopyPack,
       channel: 'facebook',
@@ -331,18 +357,12 @@ export async function run(opts = {}) {
       copyFields: socialCopyLedgerFields(socialCopy),
     };
   }));
-  const releaseReservation = async (id, reason) => {
-    const released = await releaseUnpublishedSocialCopyAssignmentBestEffort(copyReservations.get(id), {
-      releaseBalancedImpl: releaseSocialCopy,
-      reason,
-      onFailure: (err) => warn('⚠️', `could not release social-copy reservation for ${id}: ${err.message}`),
-    });
-    if (released) copyReservations.delete(id);
-    return released;
-  };
-  const releaseAllReservations = async (reason) => {
-    for (const id of [...copyReservations.keys()]) await releaseReservation(id, reason);
-  };
+  const buildFailure = built.find((result) => result.status === 'rejected');
+  if (buildFailure) {
+    await releaseAllReservations('Facebook article payload compilation failed before delivery');
+    throw buildFailure.reason;
+  }
+  const payloads = built.map((result) => result.value);
 
   // 4. Dry-run vs real POST
   if (dryRun) {
@@ -360,6 +380,59 @@ export async function run(opts = {}) {
     warn('⚠️', 'no fetch impl available — skipping');
     await releaseAllReservations('Facebook fetch implementation missing');
     return { ok: false, posted: 0, dryRun, payloads };
+  }
+
+  const publishAt = now;
+  const publishReservationKeys = new Map(payloads.map((p) => [
+    p.articleId,
+    socialPublishReservationKey('facebook', 'article', p.articleId),
+  ]));
+  let reservationBatch;
+  try {
+    reservationBatch = await socialPublishReservations.reserveBatch({
+      db: opts.socialPublishDb,
+      platform: 'facebook',
+      accountId: pageId,
+      repoRoot,
+      now,
+      reservations: payloads.map((p) => ({
+        key: publishReservationKeys.get(p.articleId),
+        publishAt,
+        nativeContentFingerprint: socialPublishContentFingerprint('facebook', {
+          message: p.message,
+          link: facebookUrl(p.url, FACEBOOK_CAMPAIGN_ARTICLE, socialCopyTrackingContent(p.articleId, p.copyFields)),
+        }),
+      })),
+    });
+  } catch (error) {
+    const fatal = new Error(`Facebook shared publication gate failed: ${error.message}`, { cause: error });
+    fatal.code = 'SOCIAL_PUBLISH_RESERVATION_REQUIRED';
+    throw fatal;
+  }
+  const allowedKeys = new Set(reservationBatch.filter((result) => result.allowed).map((result) => result.key));
+  const deliveryPayloads = payloads.filter((p) => allowedKeys.has(publishReservationKeys.get(p.articleId)));
+  const releasePublishReservation = async (p, reason) => {
+    try {
+      await socialPublishReservations.release({
+        db: opts.socialPublishDb,
+        platform: 'facebook',
+        accountId: pageId,
+        key: publishReservationKeys.get(p.articleId),
+        publishAt,
+      });
+    } catch (error) {
+      warn('⚠️', `Facebook reservation remains held for ${p.articleId} after ${reason}: ${error.message}`);
+    }
+  };
+  for (const p of payloads) {
+    if (allowedKeys.has(publishReservationKeys.get(p.articleId))) continue;
+    const reason = reservationBatch.find((result) => result.key === publishReservationKeys.get(p.articleId))?.reason || 'daily-cap';
+    warn('🛑', `Facebook Page publication held for ${p.articleId}: ${reason}`);
+    await releaseReservation(p.articleId, `Facebook Page shared publication gate: ${reason}`);
+  }
+  if (deliveryPayloads.length === 0) {
+    log('🛑', 'Facebook Page shared daily publication cap is exhausted; no posts sent');
+    return { ok: true, posted: 0, dryRun, payloads: [] };
   }
 
   // 5. POST one per article. Append to the ledger after each success so a
@@ -382,7 +455,8 @@ export async function run(opts = {}) {
 
   let posted = 0;
   let skipped = 0;
-  for (const p of payloads) {
+  let uncertain = 0;
+  for (const p of deliveryPayloads) {
     // Pre-flight: this immediate poster links to a freshly-built article page;
     // a slow build/deploy can leave it not-yet-live, so skip on a confirmed
     // 4xx rather than post a link that 404s (see isLandingPageLive doc).
@@ -395,6 +469,7 @@ export async function run(opts = {}) {
     if (!pageIsLive) {
       warn('🚧', `landing page not live yet for "${p.articleId}" (${p.url}) — skipping post`);
       await releaseReservation(p.articleId, 'Facebook article landing-page preflight failed');
+      await releasePublishReservation(p, 'landing-page preflight failure');
       skipped += 1;
       continue;
     }
@@ -421,17 +496,20 @@ export async function run(opts = {}) {
     let deliveryUncertain = false;
     while (attempt < 2) {
       attempt += 1;
+      res = null;
+      data = null;
       try {
         res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
         data = await res.json();
       } catch (err) {
-        deliveryUncertain = true;
+        deliveryUncertain = !res || res.ok === true || isAmbiguousSocialPublishResponse(res);
         warn('⚠️', `POST failed for ${p.articleId} (attempt ${attempt}): ${err.message}`);
         data = null;
       }
+      if (isAmbiguousSocialPublishResponse(res) || (res?.ok && !data?.id)) deliveryUncertain = true;
       if (res?.ok && data?.id) break;
       const code = data?.error?.code;
-      if (attempt < 2 && TRANSIENT_FB_ERROR_CODES.has(code)) {
+      if (!deliveryUncertain && attempt < 2 && TRANSIENT_FB_ERROR_CODES.has(code)) {
         warn('⏳', `FB transient error ${code} for ${p.articleId}, retrying in 2s`);
         await sleepMs(2000);
         continue;
@@ -442,24 +520,39 @@ export async function run(opts = {}) {
     if (res?.ok && data?.id) {
       copyReservations.delete(p.articleId);
       posted += 1;
+      const publishedAt = new Date().toISOString();
       appendPosted(repoRoot, [{
         id: p.articleId,
         url: p.url,
-        ts: new Date().toISOString(),
+        ts: publishedAt,
         fbPostId: data.id,
         ...p.copyFields,
       }]);
+      try {
+        await socialPublishReservations.markPublished({
+          db: opts.socialPublishDb,
+          platform: 'facebook',
+          accountId: pageId,
+          key: publishReservationKeys.get(p.articleId),
+          publishAt,
+          publishedAt,
+        });
+      } catch (error) {
+        warn('⚠️', `Facebook article reservation remains held after accepted post ${p.articleId}: ${error.message}`);
+      }
       log('✅', `${p.articleId} → ${data.id}`);
     } else {
       warn('⚠️', `FB API error for ${p.articleId}: ${JSON.stringify(data).slice(0, 300)}`);
       if (!deliveryUncertain && res && !res.ok) {
         await releaseReservation(p.articleId, 'Facebook explicitly rejected the article post');
+        await releasePublishReservation(p, 'explicit API rejection');
       }
     }
+    if (deliveryUncertain) uncertain += 1;
   }
 
-  log('🏁', `posted ${posted}/${payloads.length} article(s)${skipped ? ` (${skipped} skipped — landing not live yet)` : ''}`);
-  return { ok: posted > 0, posted, skipped, dryRun, payloads };
+  log('🏁', `posted ${posted}/${deliveryPayloads.length} article(s); cap held ${payloads.length - deliveryPayloads.length}${skipped ? ` (${skipped} skipped — landing not live yet)` : ''}`);
+  return { ok: posted > 0, posted, skipped, uncertain, dryRun, payloads: deliveryPayloads };
 }
 
 // ── CLI ─────────────────────────────────────────────────────
@@ -467,10 +560,10 @@ export async function run(opts = {}) {
 const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   run().then(
-    () => process.exit(0),
+    (result) => process.exit(result?.uncertain > 0 ? 1 : 0),
     (err) => {
       console.error('⚠️ scheduler crashed:', err?.message || err);
-      process.exit(0); // soft-fail
+      process.exit(err?.code === 'SOCIAL_PUBLISH_RESERVATION_REQUIRED' ? 1 : 0); // quota gate fails closed; other legacy errors remain soft
     },
   );
 }

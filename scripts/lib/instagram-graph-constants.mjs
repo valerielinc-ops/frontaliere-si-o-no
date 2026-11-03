@@ -5,5 +5,5 @@
  * social-robot snapshot. Consumers that need the larger social helpers may
  * still import and re-export these constants from social-post-utils.mjs.
  */
-export const GRAPH_API_VERSION = 'v21.0';
+export const GRAPH_API_VERSION = 'v26.0';
 export const GRAPH_API = `https://graph.facebook.com/${GRAPH_API_VERSION}`;

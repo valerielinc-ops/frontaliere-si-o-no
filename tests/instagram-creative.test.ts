@@ -111,13 +111,13 @@ describe('Instagram creative system', () => {
     expect(article.id).not.toBe(job.id);
   });
 
-  it('uses an eligible Remote Config winner but keeps exploration opt-in', () => {
+  it('quarantines legacy Remote Config winners until the promotion protocol is qualified', () => {
     const env = {
       INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: 'true',
       INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{"article":{"proof":{"share":"proof-surprise"}}}',
       INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT: '0',
     };
-    expect(chooseInstagramCreative({ kind: 'article', day: '2026-10-11', env }).id).toBe('proof-surprise');
+    expect(chooseInstagramCreative({ kind: 'article', day: '2026-10-11', env }).id).toBe('proof');
   });
 
   it('ignores malformed or cross-family winner maps', () => {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * post-to-tiktok.mjs — TikTok Business account carousel posts:
+ * post-to-tiktok.mjs — TikTok content preview; automated delivery is held:
  *   • yesterday's top-5 most-clicked JOBS   (--only=job,   daily)
  *   • yesterday's top-5 most-read ARTICLES  (--only=article, daily)
  *   • this week's top-5 fastest DOGANE      (--only=border, weekly)
@@ -24,31 +24,22 @@
  * 3. Publishing is a two-call async flow: `content/init/` returns a
  *    `publish_id` immediately, then `status/fetch/` is polled until the
  *    post is PUBLISH_COMPLETE (or FAILED) — see waitForPublishComplete.
- * 4. An "unaudited" app (the only kind that exists before TikTok completes
- *    app review) can only post with `privacy_level: SELF_ONLY` — PUBLIC
- *    posting 400s until the audit is granted. TIKTOK_PRIVACY_LEVEL below
- *    defaults to the safe pre-audit value; the owner can override once
- *    audited.
- * 5. Access tokens last 24h (vs LinkedIn member's ~60 days) — this is a
- *    daily/weekly cron, so getAccessToken() below refreshes via
- *    TIKTOK_REFRESH_TOKEN before falling back to the static
- *    TIKTOK_ACCESS_TOKEN, same shape as post-to-linkedin-member.mjs. TikTok
- *    may rotate the refresh token on use (per its own docs, "the returned
- *    refresh_token may [be a new] one"); this script does not persist a
- *    rotated token back to Remote Config — same known limitation as the
- *    LinkedIn member poster. Re-run scripts/tiktok-auth.mjs if refresh
- *    starts failing near the 365-day refresh-token expiry.
+ * 4. The current TikTok guidelines reject an internal uploader for accounts
+ *    managed by the developer or team. The scheduled API route and browser
+ *    queue are held regardless of token or audit status; the legacy request
+ *    implementation below is not an authorization to publish.
+ * 5. TikTok user-token rotation remains implemented for the separate
+ *    read-only insights collector. This publisher does not load or refresh
+ *    TikTok credentials while automated delivery is held.
  *
  * The exact request/response shape below is written from TikTok's published
  * Content Posting API docs, cross-checked field-by-field against the docs a
  * second time when scripts/tiktok-auth.mjs was added (including the
  * `publicaly_available_post_id` misspelling in TikTok's own response, which
  * is intentional here, not a bug) — but still never exercised against a live
- * call, because TIKTOK_ACCESS_TOKEN is not minted until the owner runs
- * scripts/tiktok-auth.mjs and TikTok's app review is still pending (see
- * CLAUDE.md). Re-check developers.tiktok.com/doc/content-posting-api-reference-direct-post
- * against this code the first time a real token is available, before
- * trusting the first non-dry-run post.
+ * call. The route remains held until TikTok confirms an eligible use case and
+ * the creator-facing client meets current requirements. A token or API audit
+ * does not clear this internal team workflow.
  *
  * Usage:
  *   npx tsx scripts/post-to-tiktok.mjs                     # article + job
@@ -58,13 +49,8 @@
  *   npx tsx scripts/post-to-tiktok.mjs --date=2026-08-23
  *
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
- *   TIKTOK_ACCESS_TOKEN    required unless the refresh trio below is set —
- *                           mint both via `node scripts/tiktok-auth.mjs`.
- *                           ABSENT until the owner runs that helper, so the
- *                           poster soft-skips until then.
- *   TIKTOK_REFRESH_TOKEN   + TIKTOK_CLIENT_KEY + TIKTOK_CLIENT_SECRET →
- *                           auto-refresh before each run (see point 5 above)
- *   TIKTOK_PRIVACY_LEVEL   optional, defaults to SELF_ONLY (see point 4 above)
+ *   TikTok tokens are not read by this scheduled publisher while the policy
+ *   hold is active. Read-only insights use their separate collector/workflow.
  *   SOCIAL_ROBOT_MODE      off | dry (default) | live — API or the
  *                          Playwright robot's queue (data/tiktok-queue.json);
  *                          see scripts/lib/social-publish-queue.mjs
@@ -138,7 +124,8 @@ import {
   socialPublishRoute,
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
-import { TIKTOK_API, publishCarousel } from './lib/tiktok-publish.mjs';
+import { publishCarousel } from './lib/tiktok-publish.mjs';
+import { shouldHoldAutomatedSocialDelivery, socialAutomatedDeliveryPolicy } from './lib/social-automation-policy.mjs';
 import {
   loadSocialCopyPack,
   releaseSocialCopyAssignment,
@@ -161,46 +148,6 @@ const CAROUSEL_SIZE = 5;
 const ANSWER_CANDIDATE_POOL = 30;
 
 // ─────────────────────────── credentials ───────────────────────────
-
-/**
- * Resolve the TikTok user access token, refreshing first when possible.
- *
- * Mirrors post-to-linkedin-member.mjs's getAccessToken(): try the
- * refresh_token grant when the trio is present, fall back to the static
- * token. Necessary here in a way it barely is for LinkedIn — TikTok access
- * tokens last 24h (see header point 5), so a purely-static token would work
- * on the first cron run after `tiktok-auth.mjs` and fail every run after.
- */
-async function getAccessToken() {
-  const refreshToken = String(process.env.TIKTOK_REFRESH_TOKEN || '').trim();
-  const clientKey = String(process.env.TIKTOK_CLIENT_KEY || '').trim();
-  const clientSecret = String(process.env.TIKTOK_CLIENT_SECRET || '').trim();
-  const staticToken = String(process.env.TIKTOK_ACCESS_TOKEN || '').trim() || null;
-
-  if (refreshToken && clientKey && clientSecret) {
-    try {
-      const res = await fetch(`${TIKTOK_API}/oauth/token/`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          grant_type: 'refresh_token',
-          refresh_token: refreshToken,
-          client_key: clientKey,
-          client_secret: clientSecret,
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (data.access_token) {
-        console.log(`🔄 access token refreshed (expires in ${data.expires_in}s)`);
-        return data.access_token;
-      }
-      console.warn(`⚠️  token refresh failed (${res.status}) — falling back to the static token`);
-    } catch (err) {
-      console.warn(`⚠️  token refresh threw: ${err.message}`);
-    }
-  }
-  return staticToken;
-}
 
 // ─────────────────────────── Content Posting API ───────────────────────────
 //
@@ -225,12 +172,22 @@ async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, 
     label: 'TikTok',
     publish,
     recordPublished: (res) => {
+      const postId = typeof res?.postId === 'string' && res.postId.trim() ? res.postId.trim() : null;
+      const publishId = typeof res?.publishId === 'string' && res.publishId.trim() ? res.publishId.trim() : null;
+      if (!postId && !publishId) {
+        throw new Error('TikTok publisher returned success without a publish or native post ID');
+      }
       onAccepted?.();
-      console.log(`✅ posted — ${res.postId}`);
+      console.log(`✅ TikTok publish accepted${postId ? ` — ${postId}` : ` — operation ${publishId} (native post ID unavailable)`}`);
       const ts = new Date().toISOString();
       appendLedger(
         LEDGER_PATH,
-        creativeLedgerEntries.map((e) => ({ ...e, ts, tiktokPostId: res.postId })),
+        creativeLedgerEntries.map((e) => ({
+          ...e,
+          ts,
+          ...(postId ? { tiktokPostId: postId } : {}),
+          ...(publishId ? { tiktokPublishId: publishId } : {}),
+        })),
         POSTED_TRIM_LIMIT,
       );
     },
@@ -400,16 +357,16 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     assignmentKey: kind + '-' + day,
     dryRun,
   });
-  let caption = buildTikTokCaption({ kind, dayLabel, picks: captionPicks, socialCopy });
-
-  console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
-  console.log(caption);
-  console.log('───');
-
-  if (dryRun) return;
-
   let reservedCopy = socialCopy;
   try {
+    let caption = buildTikTokCaption({ kind, dayLabel, picks: captionPicks, socialCopy });
+
+    console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
+    console.log(caption);
+    console.log('───');
+
+    if (dryRun) return;
+
     let slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems, socialCopy }));
     if (!slides) {
       console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
@@ -540,21 +497,21 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     assignmentKey: 'border-' + weekStart,
     dryRun,
   });
-  let caption = buildTikTokCaption({
-    kind: 'border',
-    dayLabel,
-    picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
-    socialCopy,
-  });
-
-  console.log(`\n─── border carousel (${fastest.length} slides) ───`);
-  console.log(caption);
-  console.log('───');
-
-  if (dryRun) return;
-
   let reservedCopy = socialCopy;
   try {
+    let caption = buildTikTokCaption({
+      kind: 'border',
+      dayLabel,
+      picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+      socialCopy,
+    });
+
+    console.log(`\n─── border carousel (${fastest.length} slides) ───`);
+    console.log(caption);
+    console.log('───');
+
+    if (dryRun) return;
+
     let slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems, socialCopy }));
     if (!slides) {
       console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
@@ -647,10 +604,16 @@ async function main() {
 
   console.log(`─── TikTok daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
+  const deliveryPolicy = socialAutomatedDeliveryPolicy('tiktok');
+  if (shouldHoldAutomatedSocialDelivery('tiktok', { dryRun })) {
+    console.warn(`⏸️  ${deliveryPolicy.reason} Use --dry-run for content preview; native insights remain on their separate read-only workflow.`);
+    return;
+  }
+
   const robotMode = resolveSocialRobotMode();
   console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
 
-  const accessToken = dryRun ? null : await getAccessToken();
+  const accessToken = null;
 
   // border is weekly and never runs implicitly — only when explicitly asked
   // for (the dedicated weekly cron passes --only=border).

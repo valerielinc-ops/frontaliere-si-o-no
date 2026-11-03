@@ -64,6 +64,7 @@ export const ROBOT_LEDGER_VIA = 'playwright-robot';
 const REEL_PRIMARY_METRIC_BY_CREATIVE = new Map([
   ['reel-question', 'comments'],
   ['reel-number', 'shares'],
+  ['reel-follow', 'follows'],
   ['reel-save', 'saves'],
 ]);
 
@@ -93,14 +94,18 @@ export function resolveSocialRobotMode(env = process.env) {
  *   enqueue  put the post in the robot's queue when the API did not publish it
  *   render   whether rendering + uploading the slides is worth doing at all
  *
- * @param {{ mode: string, apiReady: boolean }} opts
+ * @param {{ mode: string, apiReady: boolean, apiOnly?: boolean }} opts
  */
-export function socialPublishRoute({ mode, apiReady }) {
+export function socialPublishRoute({ mode, apiReady, apiOnly = false }) {
   const ready = Boolean(apiReady);
+  if (apiOnly) return { api: ready, enqueue: false, render: ready };
   if (mode === 'off') return { api: ready, enqueue: false, render: ready };
   if (mode === 'live') return { api: false, enqueue: true, render: true };
   return { api: ready, enqueue: true, render: true };
 }
+
+/** @typedef {{ ok: true, mediaId: string, postId?: never, publishId?: never, uncertain?: false } | { ok: true, postId: string, mediaId?: never, publishId?: string, uncertain?: false } | { ok: true, publishId: string, mediaId?: never, postId?: never, uncertain?: false }} AcceptedSocialPublishResult */
+/** @typedef {AcceptedSocialPublishResult | { ok: false, reason?: string, uncertain?: boolean }} SocialPublishResult */
 
 /**
  * The last step of a poster, shared by both channels and every carousel kind:
@@ -112,10 +117,10 @@ export function socialPublishRoute({ mode, apiReady }) {
  * press after the API already covered the slot.
  *
  * @param {{ route: { api: boolean, enqueue: boolean }, label: string,
- *   publish: () => Promise<{ ok: boolean, reason?: string }>,
- *   recordPublished: (res: object) => void, enqueue: () => void,
+ *   publish: () => Promise<SocialPublishResult>,
+ *   recordPublished: (res: AcceptedSocialPublishResult) => void|Promise<void>, enqueue: () => void,
  *   dequeue: () => void, log?: Pick<Console, 'log'|'error'> }} opts
- * @returns {Promise<'api'|'queued'|'api-failed'|'skipped'>}
+ * @returns {Promise<'api'|'api-uncertain'|'queued'|'api-failed'|'skipped'>}
  */
 export async function deliverSocialPost({ route, label, publish, recordPublished, enqueue, dequeue, log = console }) {
   if (typeof dequeue !== 'function') {
@@ -124,11 +129,15 @@ export async function deliverSocialPost({ route, label, publish, recordPublished
   if (route.api) {
     const res = await publish();
     if (res?.ok) {
-      recordPublished(res);
+      await recordPublished(res);
       dequeue();
       return 'api';
     }
     log.error(`⚠️  ${label} publish failed: ${res?.reason || 'unknown reason'}`);
+    if (res?.uncertain === true) {
+      log.error(`✋ ${label}: delivery outcome is uncertain; do not enqueue a second transport automatically`);
+      return 'api-uncertain';
+    }
   }
   if (route.enqueue) {
     enqueue();

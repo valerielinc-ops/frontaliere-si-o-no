@@ -17,9 +17,9 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
     objective: 'conversation',
     primaryMetric: 'comments',
     hookType: 'question',
-    attentionMechanic: 'specific-keyword',
-    engagementLoop: 'keyword-comment-reply',
-    followUpFormat: 'comment-reply-reel',
+    attentionMechanic: 'specific-question',
+    engagementLoop: 'open-question-comment',
+    followUpFormat: 'none',
     hook: Object.freeze({
       job: Object.freeze({ kicker: 'UNA DOMANDA', title: 'Stai cercando lavoro in Svizzera?' }),
       article: Object.freeze({ kicker: 'UNA DOMANDA', title: 'Questa regola ti crea dubbi?' }),
@@ -29,8 +29,8 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
       article: 'In 10 secondi partiamo da un dato reale e arriviamo alla domanda che conta.',
     }),
     cta: Object.freeze({
-      job: 'Scrivi “LAVORO” e indica il settore che stai cercando.',
-      article: 'Scrivi “GUIDA” e indica il tema che vuoi vedere spiegato.',
+      job: 'Quale settore stai cercando? Raccontalo nei commenti.',
+      article: 'Quale tema vuoi vedere spiegato? Raccontalo nei commenti.',
     }),
   }),
   Object.freeze({
@@ -53,6 +53,28 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
     cta: Object.freeze({
       job: 'Mandalo a chi sta valutando il prossimo passo professionale.',
       article: 'Mandalo a chi vuole restare aggiornato tra Italia e Svizzera.',
+    }),
+  }),
+  Object.freeze({
+    id: 'reel-follow',
+    label: 'Aggiornamento da seguire',
+    objective: 'follow',
+    primaryMetric: 'follows',
+    hookType: 'useful-update',
+    attentionMechanic: 'verified-update',
+    engagementLoop: 'follow-for-reliable-updates',
+    followUpFormat: 'none',
+    hook: Object.freeze({
+      job: Object.freeze({ kicker: 'LAVORO IN TICINO', title: 'Un aggiornamento utile per orientare la ricerca' }),
+      article: Object.freeze({ kicker: 'ITALIA E SVIZZERA', title: 'Un aggiornamento da seguire con fonti alla mano' }),
+    }),
+    lead: Object.freeze({
+      job: 'Una posizione aggiornata e il riferimento verificato per valutare il prossimo passo.',
+      article: 'Un fatto verificato, con il contesto utile per seguirne gli sviluppi.',
+    }),
+    cta: Object.freeze({
+      job: 'Segui il profilo per aggiornamenti verificati sul lavoro in Ticino.',
+      article: 'Segui il profilo per aggiornamenti verificati tra Italia e Svizzera.',
     }),
   }),
   Object.freeze({
@@ -80,34 +102,10 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
 ]);
 
 const VARIANT_BY_ID = new Map(INSTAGRAM_REEL_VARIANTS.map((variant) => [variant.id, variant]));
-const KIND_OFFSETS = Object.freeze({ article: 0, job: 1 });
-const ISO_DAY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
-
-function dayIndex(day) {
-  const match = ISO_DAY_RE.exec(String(day || ''));
-  if (!match) return null;
-  const timestamp = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-  const date = new Date(timestamp);
-  if (
-    !Number.isFinite(timestamp)
-    || date.getUTCFullYear() !== Number(match[1])
-    || date.getUTCMonth() !== Number(match[2]) - 1
-    || date.getUTCDate() !== Number(match[3])
-  ) return null;
-  return Math.floor((timestamp - Date.UTC(2020, 0, 1)) / 86400000);
-}
-
-function fallbackVariant(kind) {
-  return VARIANT_BY_ID.get(kind === 'job' ? 'reel-number' : 'reel-question');
-}
-
-/** Pick a reproducible Reel treatment; no random assignment is used. */
-export function chooseInstagramReelCreative({ kind, day } = {}) {
-  const safeKind = KIND_OFFSETS[kind] === undefined ? 'article' : kind;
-  const index = dayIndex(day);
-  const variant = index === null || index < 0
-    ? fallbackVariant(safeKind)
-    : INSTAGRAM_REEL_VARIANTS[(index + KIND_OFFSETS[safeKind]) % INSTAGRAM_REEL_VARIANTS.length];
+/** Optimize Reels for post-attributed follows when Meta returns that exact metric. */
+export function chooseInstagramReelCreative({ kind } = {}) {
+  const safeKind = kind === 'job' ? 'job' : 'article';
+  const variant = VARIANT_BY_ID.get('reel-follow');
   return {
     id: variant.id,
     label: variant.label,
@@ -128,10 +126,37 @@ function safeText(value, fallback = '') {
   return String(value ?? fallback).replace(/\s+/g, ' ').trim();
 }
 
+function boundedText(value, maxLength) {
+  const text = safeText(value).replace(/[\u0000-\u001f\u007f]/gu, ' ').replace(/\s+/gu, ' ').trim();
+  if (text.length <= maxLength) return text;
+  const cut = text.slice(0, maxLength);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > maxLength * 0.6 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
+
+function sourceIdText(value) {
+  const sourceId = String(value ?? '').trim();
+  return sourceId.length <= 120 && !/[\u0000-\u001f\u007f]/u.test(sourceId) ? sourceId || null : null;
+}
+
+function validViews(item) {
+  const raw = item?.views;
+  if (typeof raw !== 'number' && typeof raw !== 'string') return null;
+  if (typeof raw === 'string' && !raw.trim()) return null;
+  const views = Number(typeof raw === 'string' ? raw.trim() : raw);
+  return Number.isFinite(views) && views >= 0 ? views : null;
+}
+
 function shortStat(item) {
-  const views = Number(item?.views);
-  if (Number.isFinite(views) && views >= 0) return `${views} visualizzazioni ieri`;
+  const views = validViews(item);
+  if (views !== null) return `${views} visualizzazioni ieri`;
   return 'dati disponibili sul sito';
+}
+
+function narratedSentence(value) {
+  const text = safeText(value);
+  if (!text) return '';
+  return /[.!?…]$/u.test(text) ? text : `${text}.`;
 }
 
 /**
@@ -141,56 +166,118 @@ function shortStat(item) {
 export function buildInstagramReelContent({ kind, dayLabel, item, creative, socialCopy } = {}) {
   const selected = creative && creative.hook && creative.kind
     ? creative
-    : chooseInstagramReelCreative({ kind, day: dayLabel });
-  const title = safeText(item?.title, 'Un aggiornamento per frontalieri');
+    : chooseInstagramReelCreative({ kind });
+  const title = safeText(item?.title)
+    .replace(/[\u0000-\u001f\u007f]/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
   const stat = shortStat(item);
+  const displayTitle = boundedText(title, 90);
+  const views = validViews(item);
+  const hasViews = views !== null;
+  const hasSourceTitle = typeof item?.title === 'string' && Boolean(title);
+  const sourceId = sourceIdText(item?.slug);
   const generatedCopy = socialCopy?.copyMode === 'codex' && socialCopy.objective === selected.objective
     ? socialCopy
     : null;
-  const actionEmoji = generatedCopy ? '' : selected.primaryMetric === 'comments' ? '💬' : selected.primaryMetric === 'saves' ? '💾' : '📤';
+  const actionEmoji = generatedCopy ? '' : selected.primaryMetric === 'comments'
+    ? '💬'
+    : selected.primaryMetric === 'saves' ? '💾' : selected.primaryMetric === 'follows' ? '➕' : '📤';
   const closingTitle = {
     conversation: 'La prossima idea parte da te',
     save: 'Tieni questo aggiornamento a portata di mano',
     share: 'Un passaparola utile',
+    follow: 'Aggiornamenti verificati, senza perderli',
   }[selected.objective];
   const caption = [
     generatedCopy?.hook || selected.lead,
     '',
-    `📌 ${title} — ${stat}.`,
+    `📌 ${displayTitle} — ${stat}.`,
     '',
     `${actionEmoji} ${generatedCopy?.cta || selected.cta}`.trim(),
-    generatedCopy && /link in bio/i.test(generatedCopy.cta) ? '' : '👉 Per dettagli e fonti: link in bio.',
+    selected.objective === 'follow'
+      ? 'Fonte e dettagli sono nel link in bio.'
+      : generatedCopy && /link in bio/i.test(generatedCopy.cta) ? '' : '👉 Per dettagli e fonti: link in bio.',
+    'Voce sintetica; la narrazione ripete il testo verificato mostrato nel video.',
     '',
     '#frontalieri #ticino #svizzera #italia #lavoro',
   ].join('\n');
 
+  const slides = [
+    {
+      type: 'hook',
+      kicker: boundedText(selected.hook.kicker, 60),
+      title: boundedText(generatedCopy?.hook || selected.hook.title, 90),
+      body: boundedText(selected.lead, 190),
+    },
+    {
+      type: 'proof',
+      kicker: 'UN DATO REALE',
+      title: displayTitle,
+      body: boundedText(stat, 190),
+    },
+    {
+      type: 'cta',
+      kicker: 'TOCCA A TE',
+      title: boundedText(generatedCopy ? closingTitle : selected.cta, 130),
+      body: boundedText(generatedCopy ? '' : 'Una risposta breve ci aiuta a scegliere il prossimo contenuto.', 190),
+      cta: boundedText(generatedCopy?.cta || (selected.primaryMetric === 'comments'
+        ? 'Rispondi nei commenti'
+        : selected.primaryMetric === 'saves'
+        ? 'Salva il Reel'
+        : selected.primaryMetric === 'follows' ? 'Segui il profilo' : 'Condividi il Reel'), 80),
+    },
+  ];
+  const storyboard = slides.map((slide, index) => ({
+    position: index + 1,
+    beat: slide.type === 'proof' ? 'verified-source-fact' : slide.type,
+    ...(slide.type === 'proof' ? { sourceId } : {}),
+    kicker: boundedText(slide.kicker, 60),
+    title: boundedText(slide.title, slide.type === 'cta' ? 130 : 90),
+    body: boundedText(slide.body, 190),
+    cta: boundedText(slide.cta, 80),
+  }));
+  const sourceTitle = title;
+  const sourceFacts = [{
+    sourceId,
+    title: sourceTitle,
+    metricLabel: hasViews ? 'Visualizzazioni sul sito' : '',
+    metricValue: hasViews ? String(views) : '',
+    context: hasViews ? 'Ieri' : '',
+  }];
+  const subtitleSegments = slides.map((slide) => [slide.title, slide.body, slide.cta]
+    .filter(Boolean)
+    .map(narratedSentence)
+    .join(' '));
+  const voiceScript = subtitleSegments.join(' ');
+  const productionKit = {
+    schemaVersion: 2,
+    valid: Boolean(sourceId && hasSourceTitle && title.length <= 90 && hasViews),
+    invalidReason: sourceId && hasSourceTitle && title.length <= 90 && hasViews
+      ? null
+      : 'verified-source-fact-exceeds-renderer-contract-or-is-missing',
+    channel: 'instagram',
+    format: 'reel',
+    kind: selected.kind,
+    sourceFacts,
+    script: subtitleSegments,
+    voiceScript,
+    storyboard,
+    subtitles: subtitleSegments,
+    subtitleMode: 'exact-card-transcript',
+    coverGuidance: {
+      treatment: boundedText(selected.id, 40),
+      canvas: 'vertical-1080x1920',
+      focus: 'hook-before-source-proof',
+    },
+    caption: caption.slice(0, 2200),
+    renderInput: { slides },
+  };
+
   return {
-    caption,
-    slides: [
-      {
-        type: 'hook',
-        kicker: selected.hook.kicker,
-        title: generatedCopy?.hook || selected.hook.title,
-        body: selected.lead,
-      },
-      {
-        type: 'proof',
-        kicker: 'UN DATO REALE',
-        title,
-        body: stat,
-      },
-      {
-        type: 'cta',
-        kicker: 'TOCCA A TE',
-        title: generatedCopy ? closingTitle : selected.cta,
-        body: generatedCopy ? '' : 'Una risposta breve ci aiuta a scegliere il prossimo contenuto.',
-        cta: generatedCopy?.cta || (selected.primaryMetric === 'comments'
-          ? 'Rispondi nei commenti'
-          : selected.primaryMetric === 'saves'
-          ? 'Salva il Reel'
-          : 'Condividi il Reel'),
-      },
-    ],
+    caption: productionKit.caption,
+    slides: productionKit.renderInput.slides,
+    productionKit,
   };
 }
 
@@ -203,7 +290,9 @@ export function instagramReelLedgerFields(creative) {
     creativeLabel: creative?.label || 'Domanda immediata',
     creativeObjective: creative?.objective || 'conversation',
     primaryMetric,
-    engagementMechanic: instagramEngagementMechanic(primaryMetric),
+    engagementMechanic: creative?.id === 'reel-question'
+      ? 'open-question-comment'
+      : instagramEngagementMechanic(primaryMetric),
     hookType: creative?.hookType || 'unknown',
     attentionMechanic: creative?.attentionMechanic || 'unknown',
     engagementLoop: creative?.engagementLoop || 'none',

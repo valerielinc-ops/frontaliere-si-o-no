@@ -53,6 +53,18 @@ const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 describe('Router — buildPath', () => {
   it.each([
+    ['it', '/social/'],
+    ['en', '/en/social/'],
+    ['de', '/de/social/'],
+    ['fr', '/fr/social/'],
+  ] as const)('builds the canonical %s social hub path', (locale, expected) => {
+    expect(buildPath({ activeTab: 'social-hub' }, locale)).toBe(expected);
+    const parsed = parsePath(expected);
+    expect(parsed.locale).toBe(locale);
+    expect(parsed.route).toMatchObject({ activeTab: 'social-hub', staticOverlay: true });
+  });
+
+  it.each([
     ['it', '/traffico-dogane/'],
     ['en', '/en/border-wait/'],
     ['de', '/de/wartezeit-grenze/'],

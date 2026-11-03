@@ -56,6 +56,7 @@ export interface SlugTable {
  partners: string;
  consulting: string;
  pressKit: string;
+ socialHub: string;
  jobBoard: string;
  profile: string;
  dashboard: string;
@@ -205,6 +206,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'servizi-partner',
  consulting: 'consulenza',
  pressKit: 'stampa',
+ socialHub: 'social',
  jobBoard: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy router slug
  profile: 'profilo',
  dashboard: 'dashboard',
@@ -317,6 +319,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'partner-services',
  consulting: 'consulting',
  pressKit: 'press-kit',
+ socialHub: 'social',
  jobBoard: 'find-jobs-ticino', // cathedral-allow: TI legacy router slug
  profile: 'profile',
  dashboard: 'dashboard',
@@ -429,6 +432,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'partner-dienste',
  consulting: 'beratung',
  pressKit: 'pressekit',
+ socialHub: 'social',
  jobBoard: 'jobs-im-tessin', // cathedral-allow: TI legacy router slug
  profile: 'profil',
  dashboard: 'dashboard',
@@ -541,6 +545,7 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'services-partenaires',
  consulting: 'consultation',
  pressKit: 'kit-presse',
+ socialHub: 'social',
  jobBoard: 'trouver-emploi-tessin', // cathedral-allow: TI legacy router slug
  profile: 'profil',
  dashboard: 'tableau-de-bord',

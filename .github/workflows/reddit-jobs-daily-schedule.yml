@@ -58,7 +58,9 @@ jobs:
 
       - name: Load secrets from RC
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET,REDDIT_USERNAME,REDDIT_PASSWORD,REDDIT_USER_AGENT,REDDIT_DATA_API_APPROVED,SOCIAL_COPY_EXPERIMENT_CONFIG
 
       - name: Assemble jobs dataset
         run: node scripts/assemble-jobs-dataset.mjs --stats
@@ -83,6 +85,8 @@ jobs:
             echo "no changes"; exit 0
           fi
           git commit -m "chore(reddit): track posted jobs [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # In-place resolver merges by job-id when another commit lands
           # on main mid-run (e.g. a concurrent article workflow or a
           # parallel orchestrator's ledger reset). Without this the

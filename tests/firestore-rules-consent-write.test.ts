@@ -5,7 +5,7 @@ import {
   initializeTestEnvironment,
   type RulesTestEnvironment,
 } from '@firebase/rules-unit-testing';
-import { doc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
 // #6378 (phase 4 of #5928): both subscriber roots split `create` (unchanged,
@@ -655,6 +655,29 @@ describe('firestore.rules — consent field guards', () => {
       doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
       withoutText,
     ));
+  });
+
+  it('keeps private social metrics and publish reservations inaccessible to clients', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    const signedIn = testEnv.authenticatedContext('social-reader');
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'social_native_insights', 'current'), {
+        schemaVersion: 1,
+        posts: [{ postId: 'private-post', metrics: { impressions: 123 } }],
+      });
+      await setDoc(doc(context.firestore(), 'social_publish_reservations', 'private-page'), {
+        schemaVersion: 1,
+        platform: 'facebook',
+        days: {},
+      });
+    });
+
+    await assertFails(getDoc(doc(unauthed.firestore(), 'social_native_insights', 'current')));
+    await assertFails(getDoc(doc(signedIn.firestore(), 'social_native_insights', 'current')));
+    await assertFails(getDoc(doc(unauthed.firestore(), 'social_publish_reservations', 'private-page')));
+    await assertFails(getDoc(doc(signedIn.firestore(), 'social_publish_reservations', 'private-page')));
+    await assertFails(setDoc(doc(unauthed.firestore(), 'social_publish_reservations', 'forged'), { days: {} }));
+    await assertFails(setDoc(doc(signedIn.firestore(), 'social_publish_reservations', 'forged'), { days: {} }));
   });
 });
 

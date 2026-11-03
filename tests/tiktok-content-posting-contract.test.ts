@@ -124,25 +124,25 @@ describe('tiktokPost — the error envelope, not the HTTP status, is the verdict
 describe('waitForPublishComplete — the async second half', () => {
   const sleepImpl = async () => {};
 
-  it('polls status/fetch until PUBLISH_COMPLETE and returns the live post id', async () => {
+  it('polls status/fetch until PUBLISH_COMPLETE and keeps the operation and native post ids distinct', async () => {
     const { impl, calls } = fakeFetch([
       { body: { ...OK, data: { status: 'PROCESSING_UPLOAD' } } },
       { body: { ...OK, data: { status: 'PUBLISH_COMPLETE', publicaly_available_post_id: ['7300000000000000000'] } } },
     ]);
     const res = await waitForPublishComplete('pub-1', 't', { fetchImpl: impl, sleepImpl });
-    expect(res).toEqual({ ok: true, postId: '7300000000000000000' });
+    expect(res).toEqual({ ok: true, publishId: 'pub-1', postId: '7300000000000000000' });
     expect(calls).toHaveLength(2);
     expect(calls[0].url).toBe(`${TIKTOK_API}/post/publish/status/fetch/`);
     expect(JSON.parse(calls[0].options.body)).toEqual({ publish_id: 'pub-1' });
   });
 
-  it('reads TikTok’s own misspelling of publicaly_available_post_id', async () => {
+  it('does not treat publish_id as a native post id when no public post id is returned', async () => {
     // Correcting the spelling here would silently drop every post id in prod.
     const { impl } = fakeFetch([
       { body: { ...OK, data: { status: 'PUBLISH_COMPLETE', publicly_available_post_id: ['correctly-spelled'] } } },
     ]);
     const res = await waitForPublishComplete('pub-2', 't', { fetchImpl: impl, sleepImpl });
-    expect(res.postId).toBe('pub-2'); // falls back to publish_id — the correct spelling is NOT what TikTok sends
+    expect(res).toEqual({ ok: true, publishId: 'pub-2' });
   });
 
   it('surfaces fail_reason on FAILED instead of polling to exhaustion', async () => {
@@ -157,10 +157,12 @@ describe('waitForPublishComplete — the async second half', () => {
   it('gives up with a readable reason when the status never settles', async () => {
     const responses = Array.from({ length: 10 }, () => ({ body: { ...OK, data: { status: 'PROCESSING_UPLOAD' } } }));
     const { impl, calls } = fakeFetch(responses);
-    const res = await waitForPublishComplete('pub-4', 't', { fetchImpl: impl, sleepImpl, maxAttempts: 3, delayMs: 0 });
+    const boundedSleep = vi.fn(sleepImpl);
+    const res = await waitForPublishComplete('pub-4', 't', { fetchImpl: impl, sleepImpl: boundedSleep, maxAttempts: 3, delayMs: 0 });
     expect(res.ok).toBe(false);
     expect(res.reason).toMatch(/never reached PUBLISH_COMPLETE/);
     expect(calls).toHaveLength(3);
+    expect(boundedSleep).toHaveBeenCalledTimes(2);
   });
 });
 
@@ -180,7 +182,7 @@ describe('publishCarousel — the whole two-call flow', () => {
       fetchImpl: impl,
       sleepImpl,
     });
-    expect(res).toEqual({ ok: true, postId: '7311' });
+    expect(res).toEqual({ ok: true, publishId: 'pub-9', postId: '7311' });
     expect(calls[0].url).toMatch(/content\/init\/$/);
     expect(calls[1].url).toMatch(/status\/fetch\/$/);
     expect(JSON.parse(calls[1].options.body)).toEqual({ publish_id: 'pub-9' });

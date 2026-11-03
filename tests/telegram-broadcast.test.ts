@@ -16,7 +16,7 @@
  * broadcast link is invisible, not absent — these tests fail if one comes back.
  */
 import { describe, it, expect } from 'vitest';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -24,6 +24,7 @@ import {
   escapeHtml,
   resolveTelegramCredentials,
   hasTelegramCredentials,
+  getCanonicalTelegramChatId,
   sendMessage,
   getChatMemberCount,
   TELEGRAM_MESSAGE_MAX,
@@ -43,6 +44,7 @@ import {
   TELEGRAM_CAMPAIGN_BORDER,
   TELEGRAM_CAMPAIGN_PREFERRED_SOURCE,
 } from '../scripts/lib/telegram-links.mjs';
+import { buildForMode } from '../scripts/post-to-telegram.mjs';
 
 // ── telegram-client ──────────────────────────────────────────
 
@@ -95,6 +97,26 @@ describe('sendMessage', () => {
     expect(res.deliveryUncertain).toBe(false);
   });
 
+  it('keeps a 5xx Telegram error ambiguous even when the response envelope says ok=false', async () => {
+    const fetchImpl = (async () => ({
+      ok: false,
+      status: 503,
+      json: async () => ({ ok: false, description: 'temporary failure' }),
+    })) as unknown as typeof fetch;
+    const res = await sendMessage({ token: 'T', chatId: '@c', text: 'x', fetchImpl });
+    expect(res.deliveryUncertain).toBe(true);
+  });
+
+  it('keeps a success envelope without a valid native message id ambiguous', async () => {
+    const fetchImpl = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ ok: true, result: {} }),
+    })) as unknown as typeof fetch;
+    const res = await sendMessage({ token: 'T', chatId: '@c', text: 'x', fetchImpl });
+    expect(res).toMatchObject({ ok: false, messageId: null, deliveryUncertain: true });
+  });
+
   it('never throws on a network error', async () => {
     const fetchImpl = (async () => {
       throw new Error('boom');
@@ -129,6 +151,19 @@ describe('sendMessage', () => {
     }) as unknown as typeof fetch;
     await sendMessage({ token: 'T', chatId: '@c', text: 'a'.repeat(TELEGRAM_MESSAGE_MAX + 500), fetchImpl });
     expect(sentLen).toBe(TELEGRAM_MESSAGE_MAX);
+  });
+});
+
+describe('canonical Telegram account identity', () => {
+  it('resolves public username aliases to the numeric chat ID used by the cap', async () => {
+    let requestedUrl = '';
+    const fetchImpl = (async (url: string) => {
+      requestedUrl = url;
+      return { ok: true, status: 200, json: async () => ({ ok: true, result: { id: -1001234567890 } }) };
+    }) as unknown as typeof fetch;
+    await expect(getCanonicalTelegramChatId({ token: 'TKN', chatId: '@frontaliere', fetchImpl }))
+      .resolves.toEqual({ ok: true, chatId: '-1001234567890', error: null });
+    expect(requestedUrl).toContain('getChat?chat_id=%40frontaliere');
   });
 });
 
@@ -221,18 +256,19 @@ describe('buildDailyJobsDigest', () => {
     const { text, jobIds, count } = buildDailyJobsDigest([JOB_A], { dateLabel: '19 luglio 2026' });
     expect(count).toBe(1);
     expect(jobIds).toEqual(['a']);
-    // canonical trailing-slash path, now UTM-tagged (attribution, #GA4-zero)
-    expect(text).toContain(
-      'href="https://frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-frontend-lugano/' +
-        '?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=jobs_digest' +
-        '&amp;utm_content=sviluppatore-frontend-lugano"',
-    );
+    // A stable first-party redirect carries post-specific attribution and the
+    // canonical destination in its validated `to` parameter.
+    expect(text).toContain('href="https://frontaliereticino.ch/social/r/');
+    expect(text).toContain('to=%2Fcerca-lavoro-ticino%2Fsviluppatore-frontend-lugano%2F');
+    expect(text).toContain('utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=jobs_digest');
+    expect(text).toContain('utm_content=sviluppatore-frontend-lugano');
     // company name is HTML-escaped
     expect(text).toContain('Acme &amp; Co &lt;SA&gt;');
     // salary with Swiss separator
     expect(text).toContain("CHF 90'000–110'000");
     // CTA to the canonical job hub (trailing slash preserved before the query)
-    expect(text).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/?utm_source=telegram');
+    expect(text).toContain('to=%2Fcerca-lavoro-ticino%2F');
+    expect(text).toContain('utm_source=telegram');
     expect(text).toContain('utm_content=hub');
   });
 
@@ -246,7 +282,8 @@ describe('buildDailyJobsDigest', () => {
     });
     expect(text).toContain('Un dettaglio utile &amp; concreto');
     expect(text).toContain('>Apri tutte le offerte</a>');
-    expect(text).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/?utm_source=telegram');
+    expect(text).toContain('to=%2Fcerca-lavoro-ticino%2F');
+    expect(text).toContain('utm_source=telegram');
   });
 
   it('drops jobs with no resolvable URL and caps at the limit', () => {
@@ -263,6 +300,40 @@ describe('buildDailyJobsDigest', () => {
   it('respects the limit cap', () => {
     const many = Array.from({ length: 8 }, (_, i) => ({ ...JOB_A, id: `j${i}`, slug: `s${i}` }));
     expect(buildDailyJobsDigest(many, { limit: 3 }).count).toBe(3);
+  });
+});
+
+describe('Telegram publication ledger', () => {
+  it('records one API message id and timestamp for all jobs in a daily digest', async () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'telegram-ledger-'));
+    try {
+      const dataDir = path.join(root, 'data');
+      const jobs = [{ ...JOB_A, id: 'job-a' }, { ...JOB_A, id: 'job-b', slug: 'magazziniere-lugano' }];
+      mkdirSync(dataDir, { recursive: true });
+      writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify(jobs));
+      const { text, onSent, reservation } = await buildForMode('jobs', {
+        env: { TELEGRAM_JOBS_LIMIT: '5' },
+        repoRoot: root,
+        now: new Date('2026-11-02T12:00:00.000Z'),
+        log: () => {},
+        dryRun: true,
+      });
+      expect(reservation).toMatchObject({ type: 'jobs-digest', id: '2026-11-02', pendingGroup: 'telegram-jobs-digest' });
+      expect(text).toContain('Sviluppatore Frontend');
+      onSent!({ messageId: 42 });
+
+      const ledger = JSON.parse(readFileSync(path.join(dataDir, 'telegram-posted-jobs.json'), 'utf8'));
+      expect(ledger.posted).toHaveLength(2);
+      expect(ledger.posted.map((row: any) => row.id)).toEqual(['job-a', 'job-b']);
+      expect(ledger.posted.map((row: any) => row.telegramMessageId)).toEqual([42, 42]);
+      expect(new Set(ledger.posted.map((row: any) => row.telegramDeliveryId)).size).toBe(1);
+      expect(ledger.posted[0].telegramDeliveryId).toMatch(/^[a-f0-9-]{36}$/iu);
+      expect(new Set(ledger.posted.map((row: any) => row.socialReservationType))).toEqual(new Set(['jobs-digest']));
+      expect(new Set(ledger.posted.map((row: any) => row.socialReservationId)).size).toBe(1);
+      expect(new Set(ledger.posted.map((row: any) => row.ts)).size).toBe(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });
 
@@ -332,11 +403,13 @@ describe('telegram-links identity', () => {
   });
 
   it('telegramUrl applies that identity', () => {
-    const out = telegramUrl('https://frontaliereticino.ch/a/', TELEGRAM_CAMPAIGN_JOBS, 'slug-x');
-    expect(out).toBe(
-      'https://frontaliereticino.ch/a/?utm_source=telegram&utm_medium=social' +
-        '&utm_campaign=jobs_digest&utm_content=slug-x',
-    );
+    const out = new URL(telegramUrl('https://frontaliereticino.ch/a/', TELEGRAM_CAMPAIGN_JOBS, 'slug-x'));
+    expect(out.pathname).toMatch(/^\/social\/r\/[a-f0-9]{20}\/$/u);
+    expect(out.searchParams.get('to')).toBe('/a/');
+    expect(out.searchParams.get('utm_source')).toBe('telegram');
+    expect(out.searchParams.get('utm_medium')).toBe('social');
+    expect(out.searchParams.get('utm_campaign')).toBe('jobs_digest');
+    expect(out.searchParams.get('utm_content')).toBe('slug-x');
   });
 });
 
@@ -409,14 +482,13 @@ describe('buildWeeklyBorderDigest', () => {
     expect(fastIdx).toBeGreaterThan(-1);
     expect(slowIdx).toBeGreaterThan(-1);
     // canonical trailing-slash "oggi" links, UTM-tagged per crossing
-    expect(text).toContain(
-      'href="https://frontaliereticino.ch/traffico-dogane/chiasso-centro/oggi/' +
-        '?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=border_ranking' +
-        '&amp;utm_content=chiasso-centro"',
-    );
+    expect(text).toContain('href="https://frontaliereticino.ch/social/r/');
+    expect(text).toContain('to=%2Ftraffico-dogane%2Fchiasso-centro%2Foggi%2F');
+    expect(text).toContain('utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=border_ranking');
+    expect(text).toContain('utm_content=chiasso-centro');
     // CTA links to the canonical hub + ranking article (trailing slash)
-    expect(text).toContain('https://frontaliereticino.ch/traffico-dogane/');
-    expect(text).toContain('https://frontaliereticino.ch/articoli-frontaliere/classifica-dogane-ticino/');
+    expect(text).toContain('to=%2Ftraffico-dogane%2F');
+    expect(text).toContain('to=%2Farticoli-frontaliere%2Fclassifica-dogane-ticino%2F');
 
     const generated = buildWeeklyBorderDigest({
       historyDir: dir,

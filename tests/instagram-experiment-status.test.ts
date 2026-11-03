@@ -140,10 +140,10 @@ describe('Instagram experiment status', () => {
     ];
     const insights = {
       posts: [
-        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72 },
-        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72 },
-        { id: 'media-2', queueId: 'article-2', creativeId: 'proof-local', kind: 'article', windowHours: 72 },
-        { id: 'media-3', queueId: 'article-3', creativeId: 'proof-local', kind: 'article', windowHours: 72 },
+        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
+        { id: 'media-1', queueId: 'article-1', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
+        { id: 'media-2', queueId: 'article-2', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
+        { id: 'media-3', queueId: 'article-3', creativeId: 'proof-local', kind: 'article', windowHours: 72, copyAttributionStatus: 'exact' },
       ],
     };
 
@@ -186,6 +186,26 @@ describe('Instagram experiment status', () => {
     expect(status.insights.rejectedRows[0].reason).toContain('target is 72h');
   });
 
+  it('does not count a timestamp-inferred ledger match as a measured creative observation', () => {
+    const status = buildExperimentStatus({
+      ledger: { posted: carouselLedger() },
+      insights: {
+        posts: [{
+          id: 'media-timestamp-inferred',
+          queueId: 'article-1',
+          windowHours: 72,
+          matchMethod: 'confirmation-timestamp',
+          copyAttributionStatus: 'inferred',
+        }],
+      },
+      asOf: AS_OF,
+      hasCredentials: true,
+    });
+
+    expect(status.cohorts[0]).toMatchObject({ observedPosts: 0, eligible: false });
+    expect(status.insights.rejectedRows[0].reason).toBe('copy attribution is not an exact media-to-ledger join');
+  });
+
   it('keeps background arms in separate cohorts for the same creative', () => {
     const navy = carouselLedger('article-navy').map((entry) => ({
       ...entry,
@@ -203,8 +223,8 @@ describe('Instagram experiment status', () => {
       ledger: { posted: [...navy, ...paper] },
       insights: {
         posts: [
-          { id: 'media-navy', queueId: 'article-navy', windowHours: 72 },
-          { id: 'media-paper', queueId: 'article-paper', windowHours: 72 },
+          { id: 'media-navy', queueId: 'article-navy', windowHours: 72, matchMethod: 'ledger-media-id' },
+          { id: 'media-paper', queueId: 'article-paper', windowHours: 72, matchMethod: 'browser-cover-fingerprint' },
         ],
       },
       asOf: AS_OF,
@@ -240,7 +260,7 @@ describe('Instagram experiment status', () => {
   });
 
   it('parses safe CLI defaults and explicit status options', () => {
-    expect(parseArgs(['--json', '--window-hours=24', '--min-observations', '2', '--queue', 'queue.json'])).toMatchObject({
+    expect(parseArgs(['--json', '--window-hours=24', '--min-observations', '2', '--queue', 'queue.json', '--insights', 'insights.json'])).toMatchObject({
       json: true,
       windowHours: 24,
       minimumObservations: 2,

@@ -6,12 +6,15 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
- "whatsNew.v39916.title": "Practical help finding work in Switzerland",
- "whatsNew.v39916.creatives.title": "We do the searching for you",
- "whatsNew.v39916.creatives.desc": "Empty advertising spaces now show our service: we find offers suited to your profession and prepare your applications.",
- "whatsNew.v39915.title": "More gradual job proposals",
- "whatsNew.v39915.concierge.title": "Interest, checks, and declared languages",
- "whatsNew.v39915.concierge.desc": "Review up to three job proposals at a time. Declare the languages you speak or request another eligibility check without starting an application.",
+  "whatsNew.v39917.title": "A starting point from social media",
+  "whatsNew.v39917.socialHub.title": "Key resources on one page",
+  "whatsNew.v39917.socialHub.desc": "The page brings together jobs, salary tools, border updates, practical guides and the weekly digest.",
+  "whatsNew.v39916.title": "Practical help finding work in Switzerland",
+  "whatsNew.v39916.creatives.title": "We do the searching for you",
+  "whatsNew.v39916.creatives.desc": "Empty advertising spaces now show our service: we find offers suited to your profession and prepare your applications.",
+  "whatsNew.v39915.title": "More gradual job proposals",
+  "whatsNew.v39915.concierge.title": "Interest, checks, and declared languages",
+  "whatsNew.v39915.concierge.desc": "Review up to three job proposals at a time. Declare the languages you speak or request another eligibility check without starting an application.",
  "whatsNew.v39914.title": "A first selection to get started",
  "whatsNew.v39914.discovery.title": "Popular jobs, then your interests",
  "whatsNew.v39914.discovery.desc": "If you have not set up a search yet, the first email starts with the most-viewed jobs and available geographic hints. Clicks and searches help make later suggestions more relevant.",

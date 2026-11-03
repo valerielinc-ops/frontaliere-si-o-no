@@ -6,12 +6,15 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
- "whatsNew.v39916.title": "Un coup de main pour travailler en Suisse",
- "whatsNew.v39916.creatives.title": "Nous cherchons pour vous",
- "whatsNew.v39916.creatives.desc": "Dans les espaces sans annonces, découvrez notre service : nous cherchons les offres adaptées à votre métier et préparons vos candidatures.",
- "whatsNew.v39915.title": "Des propositions d’emploi progressives",
- "whatsNew.v39915.concierge.title": "Intérêt, vérifications et langues déclarées",
- "whatsNew.v39915.concierge.desc": "Examinez jusqu’à trois propositions à la fois. Déclarez les langues que vous parlez ou demandez une nouvelle vérification sans lancer de candidature.",
+  "whatsNew.v39917.title": "Un point de départ depuis les réseaux sociaux",
+  "whatsNew.v39917.socialHub.title": "Les ressources essentielles sur une page",
+  "whatsNew.v39917.socialHub.desc": "La page réunit les offres, les outils de salaire, les informations sur le trafic, les guides et le récapitulatif hebdomadaire.",
+  "whatsNew.v39916.title": "Un coup de main pour travailler en Suisse",
+  "whatsNew.v39916.creatives.title": "Nous cherchons pour vous",
+  "whatsNew.v39916.creatives.desc": "Dans les espaces sans annonces, découvrez notre service : nous cherchons les offres adaptées à votre métier et préparons vos candidatures.",
+  "whatsNew.v39915.title": "Des propositions d’emploi progressives",
+  "whatsNew.v39915.concierge.title": "Intérêt, vérifications et langues déclarées",
+  "whatsNew.v39915.concierge.desc": "Examinez jusqu’à trois propositions à la fois. Déclarez les langues que vous parlez ou demandez une nouvelle vérification sans lancer de candidature.",
  "whatsNew.v39914.title": "Une première sélection pour commencer",
  "whatsNew.v39914.discovery.title": "Les offres populaires, puis vos intérêts",
  "whatsNew.v39914.discovery.desc": "Sans recherche enregistrée, le premier email présente les offres les plus consultées et utilise les indices géographiques disponibles. Les clics et recherches aident à rendre les suggestions suivantes plus pertinentes.",

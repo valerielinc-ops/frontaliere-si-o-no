@@ -610,6 +610,13 @@ async function main() {
     const dispatched = [];
     const robot = (cliMode, rcMode, startUrl) => runRobot({
       cliMode, rcMode, platforms: ['instagram'], sleep: async () => {},
+      socialPublishAccountId: 'instagram-e2e-account',
+      socialPublishRepoRoot: work,
+      socialPublishReservations: {
+        reserveBatch: async ({ reservations }) => reservations.map(({ key }) => ({ key, allowed: true })),
+        markPublished: async () => true,
+        release: async () => true,
+      },
       reader: {
         readQueue: () => ({ pending: [entry] }),
         readLedger: () => parseLedger('{"schemaVersion":1,"posted":[]}'),

@@ -31,6 +31,7 @@ import { loadLedger, appendLedger } from './lib/social-post-utils.mjs';
 import {
   loadSocialCopyPack,
   releaseSocialCopyAssignment,
+  releaseUnpublishedSocialCopyAssignment,
   selectSocialCopyForPublish,
   socialCopyLedgerFields,
   socialCopyTrackingContent,
@@ -147,6 +148,7 @@ async function main() {
     filePath: resolve(repoRoot, 'data', 'social-copy-packs', 'current.json'),
     onWarning: (message) => console.warn('⚠️', message),
   });
+  const ua = userAgent(process.env);
   const socialCopy = await selectSocialCopyForPublish({
     pack: socialCopyPack,
     channel: 'reddit',
@@ -154,14 +156,22 @@ async function main() {
     assignmentKey: String(articleId),
     dryRun,
   });
-  const post = buildArticlePost({
-    id: articleId,
-    url: articleUrl,
-    ogTitle,
-    ogDescription,
-    category,
-    socialCopy,
-  });
+  let post;
+  try {
+    post = buildArticlePost({
+      id: articleId,
+      url: articleUrl,
+      ogTitle,
+      ogDescription,
+      category,
+      socialCopy,
+    });
+  } catch (error) {
+    await releaseUnpublishedSocialCopyAssignment(socialCopy, {
+      reason: 'Reddit article payload failed before submission',
+    });
+    throw error;
+  }
 
   console.log('─── Reddit Article Post ───');
   console.log(`Article: ${articleId}`);
@@ -180,13 +190,13 @@ async function main() {
     process.exit(0);
   }
 
-  const ua = userAgent(process.env);
   let successfulSubmissions = 0;
   let uncertainSubmissions = 0;
 
   for (let i = 0; i < pendingTargets.length; i++) {
     const name = pendingTargets[i];
     const sub = config.subreddits[name] || {};
+    let submissionAttempted = false;
     try {
       // Tagged per-subreddit: one article goes to several subreddits in the
       // same run, so a single utm_content would collapse them into one GA4 row
@@ -207,6 +217,7 @@ async function main() {
           destinationUrl: submitUrl,
         })
         : { ...post, url: submitUrl };
+      submissionAttempted = true;
       const res = await submitPost({
         token,
         subreddit: name,
@@ -236,7 +247,7 @@ async function main() {
         console.error(`⚠️  Reddit submit error for r/${name}: ${res?.error || 'unknown error'}`);
       }
     } catch (err) {
-      uncertainSubmissions += 1;
+      if (submissionAttempted) uncertainSubmissions += 1;
       console.error(`⚠️  Failed to post to r/${name}: ${err.message}`);
     }
     // Self-pace between subs (skip after the last one).

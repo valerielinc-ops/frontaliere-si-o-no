@@ -77,7 +77,9 @@ jobs:
 
       - name: Load secrets from RC
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,SOCIAL_ROBOT_MODE,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS,INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
       # Make the soft-skip visible: without INSTAGRAM_ACCESS_TOKEN (RC key
       # SERVER_INSTAGRAM_ACCESS_TOKEN, pending Meta App Review) every run was
@@ -94,19 +96,32 @@ jobs:
             echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set — the post is only queued for the Playwright robot, which publishes only with SOCIAL_ROBOT_MODE=live (now: ${SOCIAL_ROBOT_MODE:-absent, read as dry}). Nothing reaches Instagram this run."
           fi
 
+      # Monday reserves the two-post cadence for the weekly border carousel
+      # and the scheduled Reel; Friday reserves it for one article carousel
+      # and the Reel. Both schedules are UTC and run before this daily job.
+      - name: Reserve daily cadence for scheduled Reel slots
+        if: github.event_name == 'schedule' && github.event.schedule == '20 8 * * *'
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$(date -u +%u)" in
+            1) echo 'INSTAGRAM_DAILY_SLOT_OVERRIDE=skip' >> "$GITHUB_ENV" ;;
+            5) echo 'ONLY=article' >> "$GITHUB_ENV" ;;
+          esac
+
       # Only needed for the job slot — same reasoning as linkedin-member-daily.yml:
       # without it the poster skips the job slot rather than guessing. Needed
       # without a token too unless SOCIAL_ROBOT_MODE=off: the post then goes to
       # the Playwright robot's queue (scripts/lib/social-publish-queue.mjs).
       - name: Assemble jobs dataset
-        if: env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
         run: node scripts/assemble-jobs-dataset.mjs --stats
         continue-on-error: true
 
       # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`
       # — see linkedin-member-daily.yml's identical comment for why.
       - name: Post to Instagram
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'
         env:
           DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
           ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
@@ -120,7 +135,7 @@ jobs:
           npx --no-install tsx scripts/post-to-instagram.mjs ${ARGS[@]+"${ARGS[@]}"}
 
       - name: Commit posted ledger
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           # Same fix as linkedin-member-daily.yml (#6424): `git diff --quiet

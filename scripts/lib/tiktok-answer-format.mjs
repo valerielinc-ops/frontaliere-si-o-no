@@ -20,7 +20,7 @@ const CARD_MAX_CHARS = 130;
 const MIN_SHARED_QUESTION_STEMS = 2;
 const MIN_SHARED_QUESTION_RATIO = 0.5;
 const MIN_CARD_SECONDS = 1.4;
-const GEMINI_TTS_MODEL = 'gemini-2.5-flash-preview-tts';
+const GEMINI_TTS_MODEL = 'gemini-3.8-flash-tts';
 const GEMINI_TTS_VOICE = 'Kore';
 const GEMINI_PCM_SAMPLE_RATE = 24_000;
 const TTS_TIMEOUT_MS = 60_000;
@@ -182,7 +182,7 @@ export function buildAnswerCaption({ question, answer }, socialCopy) {
   ].join('\n');
 }
 
-/** Wrap Gemini's raw 16-bit mono PCM so ffmpeg can read it without flags. */
+/** Wrap raw 16-bit mono PCM so ffmpeg can read it without flags. */
 export function pcmToWav(pcm, sampleRate = GEMINI_PCM_SAMPLE_RATE) {
   const header = Buffer.alloc(44);
   header.write('RIFF', 0);
@@ -200,27 +200,63 @@ export function pcmToWav(pcm, sampleRate = GEMINI_PCM_SAMPLE_RATE) {
   return Buffer.concat([header, pcm]);
 }
 
+function audioDataFromResponse(payload) {
+  if (typeof payload?.output_audio?.data === 'string' && payload.output_audio.data) {
+    return payload.output_audio.data;
+  }
+  const steps = Array.isArray(payload?.steps) ? [...payload.steps].reverse() : [];
+  for (const step of steps) {
+    if (step?.type !== 'model_output' || !Array.isArray(step.content)) continue;
+    const audio = [...step.content].reverse().find((part) => part?.type === 'audio' && typeof part.data === 'string');
+    if (audio?.data) return audio.data;
+  }
+  return payload?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data || '';
+}
+
+function wavDurationSeconds(wav) {
+  if (wav.length < 44 || wav.toString('ascii', 0, 4) !== 'RIFF' || wav.toString('ascii', 8, 12) !== 'WAVE') return null;
+  const byteRate = wav.readUInt32LE(28);
+  const dataLength = wav.readUInt32LE(40);
+  if (!byteRate || dataLength <= 0 || dataLength > wav.length - 44) return null;
+  const seconds = dataLength / byteRate;
+  return Number.isFinite(seconds) && seconds > 0 ? seconds : null;
+}
+
 /**
  * @returns {Promise<{ wav: Buffer, seconds: number }>}
  */
 export async function synthesizeAnswerVoice(text, { apiKey = process.env.GEMINI_API_KEY, fetchImpl = fetch } = {}) {
   if (!apiKey) throw new Error('GEMINI_API_KEY is missing');
-  const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TTS_MODEL}:generateContent`, {
+  const transcript = String(text || '').trim();
+  if (!transcript) throw new Error('Gemini TTS transcript is empty');
+  const response = await fetchImpl('https://generativelanguage.googleapis.com/v1beta/interactions', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
     signal: AbortSignal.timeout(TTS_TIMEOUT_MS),
     body: JSON.stringify({
-      contents: [{ parts: [{ text }] }],
-      generationConfig: {
-        responseModalities: ['AUDIO'],
-        speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: GEMINI_TTS_VOICE } } },
-      },
+      model: GEMINI_TTS_MODEL,
+      input: [{
+        type: 'user_input',
+        content: [{
+          type: 'text',
+          text: transcript,
+          annotations: [{
+            type: 'speech_metadata',
+            style: 'Italian, clear and natural, warm informational narration at a measured pace.',
+          }],
+        }],
+      }],
+      response_format: { type: 'audio' },
+      generation_config: { speech_config: [{ voice: GEMINI_TTS_VOICE }] },
     }),
   });
   if (!response.ok) throw new Error(`Gemini TTS answered ${response.status}`);
   const payload = await response.json();
-  const data = payload?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+  const data = audioDataFromResponse(payload);
   if (!data) throw new Error('Gemini TTS returned no audio');
-  const pcm = Buffer.from(data, 'base64');
-  return { wav: pcmToWav(pcm), seconds: pcm.length / (GEMINI_PCM_SAMPLE_RATE * 2) };
+  const audio = Buffer.from(data, 'base64');
+  const wavSeconds = wavDurationSeconds(audio);
+  if (wavSeconds !== null) return { wav: audio, seconds: wavSeconds };
+  if (!audio.length || audio.length % 2 !== 0) throw new Error('Gemini TTS returned an invalid WAV or PCM payload');
+  return { wav: pcmToWav(audio), seconds: audio.length / (GEMINI_PCM_SAMPLE_RATE * 2) };
 }

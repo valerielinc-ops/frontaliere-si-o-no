@@ -35,11 +35,19 @@ import {
 } from '../../lib/social-publish-queue.mjs';
 import { buildInstagramEngagementBrief, formatInstagramEngagementBrief } from '../../lib/instagram-engagement.mjs';
 import {
+  markSocialPublishReservationPublished,
+  releaseSocialPublishReservation,
+  reserveSocialPublishBatch,
+  socialPublishContentFingerprint,
+  socialPublishReservationKey,
+} from '../../lib/social-publish-reservations.mjs';
+import {
   BETWEEN_PLATFORMS_MS,
   BLOCKING_ERROR_CLASSES,
   HUMAN_DELAY_MS,
   MAX_POSTS_PER_DAY_PER_PLATFORM,
   MAX_POSTS_PER_RUN_PER_PLATFORM,
+  ROBOT_TIME_ZONE,
   TYPING_DELAY_MS,
   blockedQueueIds,
   openUnconfirmed,
@@ -198,15 +206,6 @@ export function gitMainReader({ repoDir, exec = execFileSync, log = console }) {
       if (raw === null) throw new Error(`Cannot read required posted ledger from origin/main: ${rel}`);
       return parseLedger(raw);
     },
-    readInsights: () => {
-      const raw = show('data/instagram-insights.json');
-      if (!raw) return null;
-      try {
-        return JSON.parse(raw);
-      } catch {
-        return null;
-      }
-    },
   };
 }
 
@@ -254,12 +253,16 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {(channel: string, entry: object|null, at: number) => string} deps.diagnosticsFor
  * @param {boolean} [deps.repeatDryRun]  false for an unattended run: one dry run per queue entry
  * @param {Pick<Console, 'log'|'warn'|'error'>} [deps.log]
+ * @param {string} [deps.socialPublishAccountId] Instagram professional account ID used by the shared account-wide cap
+ * @param {string} [deps.socialPublishRepoRoot] checkout whose current Instagram ledger is used to seed that cap
+ * @param {{ reserveBatch: Function, markPublished: Function, release: Function }} [deps.socialPublishReservations]
  */
 export async function runRobot(deps) {
   const {
     cliMode,
     rcMode,
     platforms = [...SOCIAL_CHANNELS],
+    confirmationPlatforms = platforms,
     now = () => Date.now(),
     rng = Math.random,
     sleep = (ms) => new Promise((r) => setTimeout(r, ms)),
@@ -275,12 +278,20 @@ export async function runRobot(deps) {
     diagnosticsFor,
     repeatDryRun = true,
     log = console,
+    socialPublishAccountId,
+    socialPublishRepoRoot,
+    socialPublishReservations = {
+      reserveBatch: reserveSocialPublishBatch,
+      markPublished: markSocialPublishReservationPublished,
+      release: releaseSocialPublishReservation,
+    },
   } = deps;
 
   const results = [];
+  const confirmationRetries = [];
   if (rcMode === 'off') {
     log.log('ℹ️  SOCIAL_ROBOT_MODE=off: the API pipeline publishes, the robot does nothing');
-    return { dryRun: true, results };
+    return { dryRun: true, results, confirmationRetries };
   }
   const dryRun = !(cliMode === 'publish' && rcMode === 'live');
   if (cliMode === 'publish' && dryRun) {
@@ -303,7 +314,8 @@ export async function runRobot(deps) {
   // the ledger (dispatch failed, or dispatched but dropped/failed on the
   // GitHub side): dispatch again first, so the ledger catches up before
   // anything new. confirmQueueEntry is idempotent.
-  for (const attempt of pendingConfirmations(journal, { now: now(), isConfirmed: (channel, queueId) => confirmedOn(channel)(queueId) })) {
+  for (const attempt of pendingConfirmations(journal, { now: now(), isConfirmed: (channel, queueId) => confirmedOn(channel)(queueId) })
+    .filter((pending) => confirmationPlatforms.includes(pending.channel))) {
     const res = await dispatchConfirm({
       channel: attempt.channel,
       queueId: attempt.queueId,
@@ -313,6 +325,11 @@ export async function runRobot(deps) {
     });
     attempt.confirmDispatched = res.ok;
     if (res.ok) attempt.confirmDispatchedAt = new Date(now()).toISOString();
+    confirmationRetries.push({
+      channel: attempt.channel,
+      queueId: attempt.queueId,
+      confirmDispatched: res.ok,
+    });
     log.log(`${res.ok ? '✅' : '⚠️ '} confirm re-dispatch ${attempt.channel}/${attempt.queueId}${res.ok ? '' : `: ${res.reason}`}`);
   }
   journalStore.save(journal);
@@ -389,7 +406,7 @@ export async function runRobot(deps) {
       results.push({ channel, outcome: 'held', queueId: unsettled[0].queueId });
       continue;
     }
-    if (!dryRun && pressedToday(journal, channel, at) >= MAX_POSTS_PER_DAY_PER_PLATFORM) {
+    if (!dryRun && pressedToday(journal, channel, at, ROBOT_TIME_ZONE, ledgerOf(channel)) >= MAX_POSTS_PER_DAY_PER_PLATFORM) {
       log.log(`🛑 ${channel}: daily cap of ${MAX_POSTS_PER_DAY_PER_PLATFORM} reached`);
       results.push({ channel, outcome: 'cap' });
       continue;
@@ -419,6 +436,12 @@ export async function runRobot(deps) {
         results.push({ channel, outcome: 'skipped', reason: 'no-video', queueId: entry.id });
         continue;
       }
+      if (channel === 'instagram' && entry.kind === 'reel') {
+        skippedIds.add(entry.id);
+        log.log(`⏭️  instagram: ${entry.id} skipped (Reels require the official Graph API transport)`);
+        results.push({ channel, outcome: 'policy-held', reason: 'instagram-reels-require-graph-api', queueId: entry.id });
+        continue;
+      }
       if (acted) await sleep(randomBetween(rng, BETWEEN_PLATFORMS_MS));
       acted = true;
 
@@ -428,10 +451,37 @@ export async function runRobot(deps) {
         const engagementBrief = buildInstagramEngagementBrief(entry);
         if (engagementBrief) log.log(formatInstagramEngagementBrief(engagementBrief));
       }
+      let reservationHeld = false;
+      let deliveryConfirmed = false;
+      const publishAt = new Date(now());
       try {
+        if (!dryRun && channel === 'instagram') {
+          const reservationKey = socialPublishReservationKey('instagram', 'post', entry.id);
+          const reservations = await socialPublishReservations.reserveBatch({
+            platform: 'instagram',
+            accountId: socialPublishAccountId,
+            repoRoot: socialPublishRepoRoot,
+            ledgerData: { 'data/instagram-posted.json': ledgerOf(channel) },
+            reservations: [{
+              key: reservationKey,
+              publishAt,
+              nativeContentFingerprint: socialPublishContentFingerprint('instagram', { caption: entry.caption }),
+            }],
+            now: publishAt,
+          });
+          const reservation = reservations?.[0];
+          if (!reservation?.allowed) {
+            skippedIds.add(entry.id);
+            log.log(`🛑 instagram: ${entry.id} held by shared daily cap (${reservation?.reason || 'reservation-denied'})`);
+            results.push({ channel, outcome: 'cap', reason: reservation?.reason || 'reservation-denied', queueId: entry.id });
+            continue;
+          }
+          reservationHeld = true;
+        }
         const files = await fetchImages(entry);
         const res = await publishWith(channel, entry, files, { dryRun, human, diagnosticsDir: diagnostics, video: entry.video });
         if (res.status === 'published') {
+          deliveryConfirmed = true;
           postsThisRun += 1;
           const attempt = {
             channel,
@@ -446,6 +496,22 @@ export async function runRobot(deps) {
           };
           journal.attempts.push(attempt);
           journalStore.save(journal);
+          // Persist the UI confirmation before closing the shared reservation.
+          // If the local write fails, the reservation continues to block replay.
+          if (reservationHeld) {
+            try {
+              await socialPublishReservations.markPublished({
+                platform: 'instagram',
+                accountId: socialPublishAccountId,
+                key: socialPublishReservationKey('instagram', 'post', entry.id),
+                publishAt,
+                publishedAt: attempt.at,
+              });
+            } catch (reservationError) {
+              log.warn(`⚠️  instagram: accepted post ${entry.id} remains reserved after shared-ledger update failed: ${reservationError.message}`);
+            }
+            reservationHeld = false;
+          }
           const dispatched = await dispatchConfirm({
             channel,
             queueId: entry.id,
@@ -501,6 +567,19 @@ export async function runRobot(deps) {
         // confirmation step is a press; the publish step is still before the
         // click marker and must stay retryable when that click was blocked.
         if (PRESSED_STEPS.includes(error.step)) error.pressed = true;
+        if (reservationHeld && !deliveryConfirmed && !error.pressed) {
+          try {
+            await socialPublishReservations.release({
+              platform: 'instagram',
+              accountId: socialPublishAccountId,
+              key: socialPublishReservationKey('instagram', 'post', entry.id),
+              publishAt,
+            });
+            reservationHeld = false;
+          } catch (reservationError) {
+            log.warn(`⚠️  instagram: reservation for ${entry.id} stays held after pre-publish failure: ${reservationError.message}`);
+          }
+        }
         const outcome = error.pressed ? 'unconfirmed' : 'error';
         journal.attempts.push({
           channel,
@@ -536,5 +615,5 @@ export async function runRobot(deps) {
       }
     }
   }
-  return { dryRun, results };
+  return { dryRun, results, confirmationRetries };
 }

@@ -95,7 +95,9 @@ jobs:
 
       - name: Load secrets from Remote Config
         continue-on-error: true
-        run: node scripts/load-rc-env.mjs
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=TELEGRAM_BOT_TOKEN,TELEGRAM_CHANNEL_ID,GITHUB_PAT
 
       # The App identity re-triggers pull-request checks. If the installation
       # is unavailable, the long-lived PAT loaded above remains the fallback.

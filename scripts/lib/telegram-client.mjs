@@ -12,6 +12,8 @@
  * cleanly (exit 0) rather than fail CI.
  */
 
+import { isAmbiguousSocialPublishResponse } from './social-publish-outcome.mjs';
+
 // Telegram hard limit on a single sendMessage `text` (UTF-16 code units).
 export const TELEGRAM_MESSAGE_MAX = 4096;
 
@@ -40,6 +42,26 @@ export function resolveTelegramCredentials(env = process.env) {
 export function hasTelegramCredentials(env = process.env) {
   const { token, chatId } = resolveTelegramCredentials(env);
   return Boolean(token && chatId);
+}
+
+/** Resolve @username and numeric aliases to Telegram's canonical chat ID. */
+export async function getCanonicalTelegramChatId({ token, chatId, fetchImpl = globalThis.fetch } = {}) {
+  const fail = (error) => ({ ok: false, chatId: null, error });
+  if (typeof fetchImpl !== 'function') return fail('no fetch impl available');
+  if (!token) return fail('missing bot token');
+  if (!chatId) return fail('missing chat id');
+  try {
+    const endpoint = `${TELEGRAM_API_BASE}/bot${token}/getChat?chat_id=${encodeURIComponent(chatId)}`;
+    const response = await fetchImpl(endpoint);
+    const data = await response.json().catch(() => null);
+    const canonicalId = data?.result?.id;
+    if (response.ok && data?.ok === true && Number.isSafeInteger(canonicalId)) {
+      return { ok: true, chatId: String(canonicalId), error: null };
+    }
+    return fail(data?.description || `Telegram getChat failed (HTTP ${response.status ?? '?'})`);
+  } catch (error) {
+    return fail(error?.message || String(error));
+  }
 }
 
 /**
@@ -99,10 +121,16 @@ export async function sendMessage({
     });
     const data = await res.json().catch(() => null);
     if (data?.ok && data.result) {
-      return { ok: true, messageId: data.result.message_id ?? null, error: null, deliveryUncertain: false };
+      if (!Number.isSafeInteger(data.result.message_id) || data.result.message_id <= 0) {
+        return fail('Telegram accepted the send but did not return a valid message_id', true);
+      }
+      return { ok: true, messageId: data.result.message_id, error: null, deliveryUncertain: false };
     }
     const desc = data?.description || `HTTP ${res?.status ?? '?'}`;
-    const explicitlyRejected = data?.ok === false;
+    const explicitlyRejected = data?.ok === false
+      && Number(res?.status) >= 400
+      && Number(res?.status) < 500
+      && !isAmbiguousSocialPublishResponse(res);
     return fail(`telegram error: ${desc}`, !explicitlyRejected);
   } catch (err) {
     return fail(err?.message || String(err), true);

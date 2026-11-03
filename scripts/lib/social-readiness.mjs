@@ -4,20 +4,19 @@
  *
  * ── The distinction this file exists to make ────────────────────────────────
  *
- * Three channels (Instagram, TikTok, Reddit) each have a complete, merged,
- * fail-soft poster that publishes nothing, and all three were filed as "waiting
- * on the owner". Two of the three were not: they were waiting on a REVIEW QUEUE
- * at Meta / TikTok that the owner had already entered. One was not waiting at
- * all — Reddit REFUSED the Data Access Request on 2026-08-24, so the classic
- * OAuth path is dead, not pending, and no amount of waiting resolves it.
+ * Three channels (Instagram, TikTok, Reddit) have distinct readiness states.
+ * Instagram can become available through Meta grants; TikTok's current policy
+ * holds this internal team uploader regardless of credentials or API audit;
+ * Reddit REFUSED the Data Access Request on 2026-08-24, so the classic OAuth
+ * path is dead and needs a replacement.
  *
  * Those three states need different handling and had none of them: they were
- * all "parked". So this module gives each channel one of four verdicts:
+ * all "parked". So this module gives each channel one of five verdicts:
  *
- *   ready                       credentials present — the poster can publish
- *   awaiting-external-approval  the app/account EXISTS on the platform and a
- *                               platform-side review decides when it can post.
- *                               Nothing to implement; something to OBSERVE.
+ *   ready                       Page link, publisher identity, and publish
+ *                               permission are verified for the target account.
+ *   awaiting-external-approval  a platform grant or confirmation of an
+ *                               eligible use case is required before delivery.
  *   path-refused                the platform said no. Waiting is not a plan —
  *                               a replacement path is.
  *   credential-missing          nothing has been submitted; no external clock
@@ -36,6 +35,7 @@
  */
 
 export const READY = 'ready';
+export const ACTION_REQUIRED = 'action-required';
 export const AWAITING_EXTERNAL_APPROVAL = 'awaiting-external-approval';
 export const PATH_REFUSED = 'path-refused';
 export const CREDENTIAL_MISSING = 'credential-missing';
@@ -47,100 +47,146 @@ export function isExternalWait(state) {
   return state === AWAITING_EXTERNAL_APPROVAL;
 }
 
-/** A state that means the poster could publish today and probably isn't. */
+/** A state that needs owner action now instead of passive external waiting. */
 export function isActionable(state) {
-  return state === READY || state === PATH_REFUSED;
+  return state === READY
+    || state === ACTION_REQUIRED
+    || state === CREDENTIAL_MISSING
+    || state === PATH_REFUSED;
 }
 
 function present(env, name) {
   return String(env?.[name] ?? '').trim().length > 0;
 }
 
-/**
- * Instagram — Meta App Review for `instagram_content_publish`.
- *
- * The observable that flips: with the Page token, asking the Page for its
- * `instagram_business_account` returns the linked IG account id once the
- * review grants `instagram_basic`, and returns nothing (or errors) before.
- * That is why `probe.pageLinked` is the discriminator and not the mere
- * presence of INSTAGRAM_BUSINESS_ACCOUNT_ID — that id is a public identifier
- * the owner can paste into Remote Config at any time, review or no review, so
- * on its own it proves nothing.
- */
+/** Instagram — require the Page link, publisher token identity, and publish grant to be verified. */
 export function classifyInstagram({ env = {}, probe = {} } = {}) {
-  if (present(env, 'INSTAGRAM_ACCESS_TOKEN')) {
+  const hasInstagramAccountId = present(env, 'INSTAGRAM_BUSINESS_ACCOUNT_ID');
+  const hasInstagramToken = present(env, 'INSTAGRAM_ACCESS_TOKEN');
+  const pageLinkStatus = String(probe?.pageLinkStatus || 'unavailable');
+  const publisherTokenStatus = String(probe?.publisherTokenStatus || 'unavailable');
+  const publisherTokenSourceStatus = String(probe?.publisherTokenSourceStatus || 'unavailable');
+  const pageTaskStatus = String(probe?.pageTaskStatus || 'unavailable');
+  const publishPermissionStatus = String(probe?.publishPermissionStatus || 'unavailable');
+
+  if (pageLinkStatus === 'mismatch') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'Meta returned an Instagram account that does not match INSTAGRAM_BUSINESS_ACCOUNT_ID. Correct the Page link or publisher token before publishing.',
+    };
+  }
+  if (publisherTokenStatus === 'mismatch') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'The configured publisher token resolves to a different Instagram account than the configured target.',
+    };
+  }
+  if (publisherTokenSourceStatus === 'mismatch') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'INSTAGRAM_ACCESS_TOKEN does not match the Page access token returned for the same Page and user token; refresh the publisher token from that authorized Page before enabling delivery.',
+    };
+  }
+  if (hasInstagramToken && !hasInstagramAccountId) {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'INSTAGRAM_ACCESS_TOKEN is present but INSTAGRAM_BUSINESS_ACCOUNT_ID is missing; configure the target professional account before publishing.',
+    };
+  }
+  if (hasInstagramToken && hasInstagramAccountId
+    && pageLinkStatus === 'matched'
+    && publisherTokenStatus === 'matched'
+    && publisherTokenSourceStatus === 'matched'
+    && pageTaskStatus === 'granted'
+    && publishPermissionStatus === 'granted') {
     return {
       channel: 'instagram',
       state: READY,
-      reason: 'INSTAGRAM_ACCESS_TOKEN is present — the poster can publish; verify the daily cron is no longer soft-skipping.',
+      reason: 'The Page link, content-creation task, publisher token source and identity, and instagram_content_publish grant are verified; confirm the next scheduled delivery and native post ID.',
     };
   }
-  if (probe.pageLinked) {
+
+  if (!hasInstagramAccountId) {
     return {
       channel: 'instagram',
-      state: READY,
-      reason: 'The Page now exposes instagram_business_account: App Review has granted the Instagram scopes. Mint INSTAGRAM_ACCESS_TOKEN and put it in Remote Config as SERVER_INSTAGRAM_ACCESS_TOKEN.',
+      state: CREDENTIAL_MISSING,
+      reason: 'INSTAGRAM_BUSINESS_ACCOUNT_ID is missing; configure the intended professional account and its publishing credential before delivery.',
     };
   }
-  if (present(env, 'INSTAGRAM_BUSINESS_ACCOUNT_ID') && present(env, 'FB_PAGE_ID')) {
+
+  if (pageLinkStatus !== 'matched') {
     return {
       channel: 'instagram',
-      state: AWAITING_EXTERNAL_APPROVAL,
-      reason: 'Business account created and linked to the Facebook Page, but the Page token still carries no Instagram scope — Meta App Review for instagram_content_publish has not landed.',
-      waitingOn: 'Meta App Review (instagram_content_publish)',
+      state: ACTION_REQUIRED,
+      reason: 'The configured Instagram account cannot be verified against the Facebook Page; configure FB_USER_ACCESS_TOKEN with the required Page tasks and confirm the exact Page link.',
     };
   }
+
+  if (publishPermissionStatus === 'missing') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'Meta does not report the instagram_content_publish permission as granted; submit or complete App Review, then refresh the user token before enabling publishing.',
+    };
+  }
+
+  if (publishPermissionStatus !== 'granted') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'The publishing permission could not be verified from the Facebook user token; refresh the token with granted permissions and rerun the read-only readiness check.',
+    };
+  }
+
+  if (pageTaskStatus === 'missing') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'The Facebook user lacks a Page content-creation task (CREATE_CONTENT or PROFILE_PLUS_CREATE_CONTENT); grant the required Page role before enabling delivery.',
+    };
+  }
+  if (pageTaskStatus !== 'granted') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'The Page content-creation task could not be verified; refresh the user token and confirm the Page role before enabling delivery.',
+    };
+  }
+
+  if (!hasInstagramToken) {
+    return {
+      channel: 'instagram',
+      state: CREDENTIAL_MISSING,
+      reason: 'Meta grants instagram_content_publish, but INSTAGRAM_ACCESS_TOKEN is missing; configure the Page publisher token in Remote Config.',
+    };
+  }
+
+  if (publisherTokenSourceStatus !== 'matched') {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'The publisher token could not be tied to the Page token returned for the same Page and user token; refresh the publisher token from that authorized Page before enabling delivery.',
+    };
+  }
+
   return {
     channel: 'instagram',
-    state: CREDENTIAL_MISSING,
-    reason: 'No Instagram Business account id / Page id in the environment — nothing has been submitted to Meta.',
+    state: ACTION_REQUIRED,
+    reason: 'The configured publisher token could not be verified against the intended Instagram account; check token validity, Page tasks, and the configured account ID before enabling delivery.',
   };
 }
 
-/**
- * TikTok — Content Posting API audit.
- *
- * `probe.appLive` comes from a client_credentials token mint, which only
- * succeeds for an app that actually exists and is enabled. It separates
- * "the developer app has not been created" from "the app exists and its audit
- * is queued", which the issue body conflated into one blocked bullet.
- *
- * An unaudited app is not useless: it can post SELF_ONLY. So a channel that
- * has a user token but no audit is `ready` — restricted, but publishing — and
- * the restriction rides in the reason rather than in the state.
- */
-export function classifyTikTok({ env = {}, probe = {} } = {}) {
-  const hasUserToken = present(env, 'TIKTOK_ACCESS_TOKEN') || (present(env, 'TIKTOK_REFRESH_TOKEN') && present(env, 'TIKTOK_CLIENT_KEY') && present(env, 'TIKTOK_CLIENT_SECRET'));
-  if (hasUserToken) {
-    const audited = String(env.TIKTOK_PRIVACY_LEVEL ?? '').trim() && String(env.TIKTOK_PRIVACY_LEVEL).trim() !== 'SELF_ONLY';
-    return {
-      channel: 'tiktok',
-      state: READY,
-      reason: audited
-        ? 'A user token is available and TIKTOK_PRIVACY_LEVEL is set past SELF_ONLY — the app is audited and can post publicly.'
-        : 'A user token is available; the app is still unaudited so posts are SELF_ONLY. That is publishing, not blocking.',
-    };
-  }
-  if (probe.appLive) {
-    return {
-      channel: 'tiktok',
-      state: AWAITING_EXTERNAL_APPROVAL,
-      reason: 'The developer app exists and mints client-credential tokens, but no user token has been granted yet — run scripts/tiktok-auth.mjs once the audit clears (sandbox posting is available before that).',
-      waitingOn: 'TikTok app audit / Content Posting API (2-6 weeks per TikTok docs)',
-    };
-  }
-  if (present(env, 'TIKTOK_CLIENT_KEY')) {
-    return {
-      channel: 'tiktok',
-      state: AWAITING_EXTERNAL_APPROVAL,
-      reason: 'A client key is configured but the client-credentials mint did not succeed — the app exists on paper; treat the platform as the blocker until the probe recovers.',
-      waitingOn: 'TikTok app audit / Content Posting API',
-    };
-  }
+/** The internal team uploader remains held regardless of token or audit status. */
+export function classifyTikTok() {
   return {
     channel: 'tiktok',
-    state: CREDENTIAL_MISSING,
-    reason: 'No TIKTOK_CLIENT_KEY — no developer app has been created.',
+    state: AWAITING_EXTERNAL_APPROVAL,
+    reason: 'TikTok currently rejects internal utilities for posting to team-managed accounts. Credentials or a Direct Post API audit do not clear this use case; the automated publisher remains held.',
+    waitingOn: 'TikTok confirmation of an eligible creator-facing use case and compliant publishing product',
   };
 }
 
@@ -196,6 +242,12 @@ export function classifyAll({ env = {}, probes = {} } = {}) {
 /** Channels that need a human or a follow-up PR now, as opposed to patience. */
 export function actionableChannels(verdicts) {
   return verdicts.filter((v) => isActionable(v.state));
+}
+
+/** Instagram setup states that should open or keep its owner-action issue open. */
+export function instagramSetupActionChannels(verdicts) {
+  return verdicts.filter((v) => v.channel === 'instagram'
+    && (v.state === ACTION_REQUIRED || v.state === CREDENTIAL_MISSING));
 }
 
 export function formatVerdictTable(verdicts) {

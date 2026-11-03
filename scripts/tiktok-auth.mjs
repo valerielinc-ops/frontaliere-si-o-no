@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * tiktok-auth.mjs — one-time OAuth helper that mints the tokens
- * scripts/post-to-tiktok.mjs needs (TIKTOK_ACCESS_TOKEN / TIKTOK_REFRESH_TOKEN).
+ * tiktok-auth.mjs — one-time OAuth helper for the read-only TikTok Display API
+ * Insights collector (TIKTOK_ACCESS_TOKEN / TIKTOK_REFRESH_TOKEN).
  *
  * Modeled on scripts/linkedin-member-auth.mjs, adapted for TikTok's specifics:
  *
@@ -30,8 +30,9 @@
  * restriction anyway. Defaulting here to TIKTOK_SANDBOX_CLIENT_KEY/_SECRET
  * means the ordinary happy path never risks touching whatever state the
  * production app is in. Pass --prod to target the production app instead —
- * needed once TikTok's audit has passed and public posting should start
- * working for real.
+ * used only for read-only creator video metrics. This repository's internal
+ * team uploader is not an eligible automated publishing client under current
+ * TikTok guidelines, regardless of audit status.
  *
  * ── Sandbox target users ───────────────────────────────────────────────────
  * A sandbox app only accepts consent from TikTok accounts explicitly added
@@ -43,7 +44,7 @@
  *   node scripts/tiktok-auth.mjs                 # sandbox app, full flow
  *   node scripts/tiktok-auth.mjs --prod           # production app
  *   node scripts/tiktok-auth.mjs --url-only        # just print the consent URL
- *   node scripts/tiktok-auth.mjs --scope=user.info.basic,video.publish
+ *   node scripts/tiktok-auth.mjs --scope=user.info.basic,video.list
  *
  * Required env (from Remote Config via `source bin/rc-env.sh` at the
  * workspace root, or `node scripts/load-rc-env.mjs` from this repo):
@@ -79,10 +80,13 @@ const CLIENT_SECRET = isProd
   ? process.env.TIKTOK_CLIENT_SECRET || ''
   : process.env.TIKTOK_SANDBOX_CLIENT_SECRET || '';
 
-// video.publish covers both the video and the photo/carousel Content Posting
-// API (see scripts/post-to-tiktok.mjs) — user.info.basic is added so
-// creator_info/query (called before every post) has a scope to run under.
-const SCOPE = scopeArg ? scopeArg.split('=')[1] : 'user.info.basic,video.publish';
+// This helper grants only the read scopes used by the native Insights
+// collector. Explicitly reject video.publish and unknown scopes so the auth
+// helper cannot silently restore a publishing token to Remote Config.
+const READ_ONLY_SCOPES = new Set(['user.info.basic', 'video.list']);
+const SCOPE = scopeArg ? scopeArg.split('=')[1] : 'user.info.basic,video.list';
+const REQUESTED_SCOPES = SCOPE.split(',').map((scope) => scope.trim()).filter(Boolean);
+const INVALID_SCOPES = REQUESTED_SCOPES.filter((scope) => !READ_ONLY_SCOPES.has(scope));
 
 // Trailing-slash path REQUIRED: TikTok's own Login Kit Desktop doc
 // (developers.tiktok.com/docs/en/login-kit-desktop) lists valid examples as
@@ -151,6 +155,12 @@ async function exchangeCode(code, codeVerifier) {
 }
 
 async function main() {
+  if (INVALID_SCOPES.length || REQUESTED_SCOPES.length === 0) {
+    console.error(`Unsupported TikTok auth scope(s): ${INVALID_SCOPES.join(', ') || '(empty)'}`);
+    console.error(`Allowed read-only scopes: ${[...READ_ONLY_SCOPES].join(', ')}`);
+    process.exit(1);
+  }
+
   if (!CLIENT_KEY) {
     console.error(
       `⚠️  ${isProd ? 'TIKTOK_CLIENT_KEY' : 'TIKTOK_SANDBOX_CLIENT_KEY'} is not set.`,
@@ -231,21 +241,21 @@ async function main() {
 
   console.log('');
   if (isProd) {
-    console.log('✅ Store these in Firebase Remote Config:');
+    console.log('✅ Store these read-only Insights credentials in Firebase Remote Config:');
     console.log(`SERVER_TIKTOK_ACCESS_TOKEN=${tokens.access_token}`);
     console.log(`SERVER_TIKTOK_REFRESH_TOKEN=${tokens.refresh_token || '(none returned)'}`);
   } else {
-    console.log('✅ Sandbox tokens (for the app-review demo video / local testing):');
+    console.log('✅ Sandbox read-only Insights tokens (for local testing):');
     console.log(`TIKTOK_ACCESS_TOKEN=${tokens.access_token}`);
     console.log(`TIKTOK_REFRESH_TOKEN=${tokens.refresh_token || '(none returned)'}`);
     console.log('');
     console.log('Do NOT store these under the SERVER_TIKTOK_* RC params — those feed the');
-    console.log('production daily cron. Export them in your shell instead, e.g.:');
+    console.log('production Insights collector. Export them in your shell instead, e.g.:');
     console.log('');
     console.log(`  TIKTOK_ACCESS_TOKEN='${tokens.access_token}' \\`);
     console.log(`  TIKTOK_CLIENT_KEY='${CLIENT_KEY}' TIKTOK_CLIENT_SECRET='${CLIENT_SECRET}' \\`);
     console.log(`  TIKTOK_REFRESH_TOKEN='${tokens.refresh_token || ''}' \\`);
-    console.log('  node scripts/post-to-tiktok.mjs --only=job');
+    console.log('  node scripts/social-native-insights.mjs --channel=tiktok --dry-run');
   }
   console.log('');
   console.log(`expires_in: ${tokens.expires_in}s (~${Math.round(tokens.expires_in / 3600)}h)`);

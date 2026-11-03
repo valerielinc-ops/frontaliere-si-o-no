@@ -16,9 +16,21 @@ import {
   buildWeekendDigestUrl,
   WEEKEND_DIGEST_URL,
   isLandingPageLive,
-  run,
+  run as runImpl,
 } from '../scripts/schedule-fb-events-daily.mjs';
 import { UNRESOLVED_CANTON_KEY } from '../scripts/lib/events-utils.mjs';
+
+const allowAllSocialPublishReservations = {
+  reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+    reservations.map(({ key }) => ({ key, allowed: true, reason: null }))
+  ),
+  markPublished: async () => true,
+  release: async () => true,
+};
+const run = (opts: Parameters<typeof runImpl>[0]) => runImpl({
+  ...opts,
+  socialPublishReservations: allowAllSocialPublishReservations,
+});
 
 const EVENT = {
   id: 'tio-agenda:1',
@@ -178,6 +190,41 @@ describe('run() dry-run', () => {
       'tio-agenda:2',
     ]);
     expect(warnings.join('\n')).toContain('temporary Firestore error');
+  });
+
+  it('releases balanced copy assignments when the shared Page cap denies events', async () => {
+    const root = fixtureRepo();
+    const release = vi.fn(async () => true);
+    const socialPublishReservations = {
+      reserveBatch: async ({ reservations }: { reservations: Array<{ key: string }> }) => (
+        reservations.map(({ key }) => ({ key, allowed: false, reason: 'daily-cap' }))
+      ),
+      markPublished: async () => true,
+      release: async () => true,
+    };
+    const fetchImpl = vi.fn(async () => ({ ok: true, json: async () => ({}) }));
+
+    const result = await runImpl({
+      env: { FB_EVENT_VOLUME: '2', FB_PAGE_ID: 'page-id', FB_PAGE_ACCESS_TOKEN: 'page-token' },
+      repoRoot: root,
+      todayIso: '2099-01-01',
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      selectSocialCopyForPublishImpl: async ({ assignmentKey }: { assignmentKey: string }) => ({
+        copyAssignmentMode: 'firebase-balanced',
+        copyAssignment: { assignmentKey },
+      }),
+      releaseSocialCopyAssignmentImpl: release,
+      socialPublishReservations,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.posted).toBe(0);
+    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(release.mock.calls.map(([assignment]) => assignment.assignmentKey)).toEqual([
+      EVENT.id,
+      'tio-agenda:2',
+    ]);
   });
 });
 

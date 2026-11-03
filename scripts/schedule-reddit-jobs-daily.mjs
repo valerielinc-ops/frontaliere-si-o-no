@@ -301,6 +301,7 @@ export async function run(opts = {}) {
       }
     }
 
+    const ua = userAgent(env);
     const socialCopy = await selectSocialCopy({
       pack: socialCopyPack,
       channel: 'reddit',
@@ -308,27 +309,38 @@ export async function run(opts = {}) {
       assignmentKey: String(job.id || ''),
       dryRun,
     });
-    const post = buildJobPost(job, { socialCopy });
-    const payload = {
-      jobId: job.id,
-      url,
-      subreddit: target.name,
-      title: post.title,
-      kind: post.kind || 'self',
-      text: post.text,
-    };
+    let payload;
+    try {
+      const post = buildJobPost(job, { socialCopy });
+      payload = {
+        jobId: job.id,
+        url,
+        subreddit: target.name,
+        title: post.title,
+        kind: post.kind || 'self',
+        text: post.text,
+      };
+    } catch (error) {
+      if (socialCopy?.copyAssignmentMode === 'firebase-balanced'
+        && !await releaseSocialCopy(socialCopy)) {
+        throw new Error(`Reddit copy assignment could not be released after ${job.id} payload failed`, { cause: error });
+      }
+      throw error;
+    }
     payloads.push(payload);
 
     if (dryRun) {
-      log('  •', `[dry] ${job.id} → r/${target.name} → "${post.title}"`);
+      log('  •', `[dry] ${job.id} → r/${target.name} → "${payload.title}"`);
       // Mark in-run so dry-run planning also respects per-sub spacing.
       lastPostMs.set(target.name, now.getTime());
       continue;
     }
 
-    const ua = userAgent(env);
     let res = null;
+    let deliveryUncertain = false;
+    let submissionAttempted = false;
     try {
+      submissionAttempted = true;
       res = await submitPost({
         env,
         token: acquiredToken,
@@ -343,6 +355,7 @@ export async function run(opts = {}) {
         ua,
       });
     } catch (err) {
+      deliveryUncertain = submissionAttempted;
       warn('⚠️', `submit failed for ${job.id} → r/${target.name}: ${err.message}`);
       res = null;
     }
@@ -366,7 +379,7 @@ export async function run(opts = {}) {
       log('✅', `${job.id} → r/${target.name} → ${res.url || res.name || res.id || ''}`.trim());
     } else {
       warn('⚠️', `Reddit submit error for ${job.id} → r/${target.name}: ${res?.error || 'unknown error'}`);
-      if (!res?.deliveryUncertain && socialCopy?.copyAssignmentMode === 'firebase-balanced'
+      if (!deliveryUncertain && !res?.deliveryUncertain && socialCopy?.copyAssignmentMode === 'firebase-balanced'
         && !await releaseSocialCopy(socialCopy)) {
         throw new Error(`Reddit copy assignment could not be released after ${job.id} submission failed`);
       }

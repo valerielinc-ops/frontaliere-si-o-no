@@ -67,8 +67,11 @@ export function applyConfirmation({ root = ROOT, channel, queueId, confirmedAt, 
   const ledgerEntries = channel === 'instagram'
     ? result.ledgerEntries.map(enrichInstagramCreativeLedgerEntry)
     : result.ledgerEntries;
-  saveQueue(queuePath, result.queue);
+  // Persist the confirmed-post ledger first. If that write fails, the item
+  // remains in the queue and can be confirmed again. If queue cleanup then
+  // fails, a retry sees the ledger entry and removes the stale queue item.
   appendLedger(ledgerPath, ledgerEntries, POSTED_TRIM_LIMIT);
+  saveQueue(queuePath, result.queue);
   return { ...result, ledgerEntries };
 }
 
