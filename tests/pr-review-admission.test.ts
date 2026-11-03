@@ -441,6 +441,10 @@ describe('review gate uses the first HEAD verdict', () => {
           blocking: false,
         };
       },
+      // The synthetic old/current SHAs above are not present in the local
+      // checkout. Avoid letting the real git diff lazily fetch the old SHA;
+      // changed-line scope is irrelevant to this commit-forwarding assertion.
+      changedLinesFn: () => null,
       mutate: false,
     });
 
