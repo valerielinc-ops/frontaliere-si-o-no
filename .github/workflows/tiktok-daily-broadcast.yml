@@ -69,7 +69,6 @@ jobs:
         id: assemble
         if: env.ONLY != 'article' && env.ONLY != 'border'
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
-        continue-on-error: true
 
       - name: Save assemble-jobs cache
         if: env.ONLY != 'article' && env.ONLY != 'border' && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'

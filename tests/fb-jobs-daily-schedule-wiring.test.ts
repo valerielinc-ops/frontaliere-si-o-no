@@ -30,6 +30,7 @@ describe('jobs dataset assembly wiring', () => {
       expect(restore?.with?.path, file).toBe('.cache/assemble-jobs');
       expect(restore?.with?.key, file).toBe('assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}');
       expect(assemble?.run, file).toBe('node scripts/assemble-jobs-dataset.mjs --no-summaries');
+      expect(assemble?.['continue-on-error'], file).toBeUndefined();
       expect(save?.with?.path, file).toBe('.cache/assemble-jobs');
       expect(save?.with?.key, file).toBe('assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}');
 

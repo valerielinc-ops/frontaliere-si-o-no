@@ -109,7 +109,6 @@ jobs:
       - name: Assemble jobs dataset
         id: assemble
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
-        continue-on-error: true
 
       - name: Save assemble-jobs cache
         if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
