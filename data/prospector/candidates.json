@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-03T14:11:47.803Z",
+  "updatedAt": "2026-11-03T14:13:36.338Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -118572,12 +118572,12 @@
     },
     "avantgarten.ch": {
       "key": "avantgarten.ch",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-10-20T05:20:15.820Z",
-      "updatedAt": "2026-11-02T14:17:29.031Z",
+      "updatedAt": "2026-11-03T14:13:36.216Z",
       "name": "avantgarten",
       "domain": "avantgarten.ch",
       "careersUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12402210-gaertner-in-efz-garten-und-landschaftsbau-riehen-bs-avantgarten-ag",
@@ -118799,11 +118799,11 @@
       "promotionPr": "16426",
       "promotionBranch": "prospector/promote-2026-11-01",
       "promotedAt": "2026-11-01T15:38:26Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-03T09:43:44.159Z",
+      "firstCrawlerJobCount": 1
     },
     "avanti-reinigung-zepackic@st-gallen": {
       "key": "avanti-reinigung-zepackic@st-gallen",
@@ -203304,12 +203304,12 @@
     },
     "bodmerfischer.ch": {
       "key": "bodmerfischer.ch",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-10-20T05:20:15.846Z",
-      "updatedAt": "2026-11-02T14:17:29.032Z",
+      "updatedAt": "2026-11-03T14:13:36.216Z",
       "name": "bodmerfischer",
       "domain": "bodmerfischer.ch",
       "careersUrl": "https://weblaw.ch/produkte/lawjobs?lawjobParam=db76ba73-4928-4f0c-9116-fb8802df27e2",
@@ -203531,11 +203531,11 @@
       "promotionPr": "16426",
       "promotionBranch": "prospector/promote-2026-11-01",
       "promotedAt": "2026-11-01T15:38:26Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-03T09:43:58.749Z",
+      "firstCrawlerJobCount": 1
     },
     "bodmering.ch": {
       "key": "bodmering.ch",
@@ -409736,7 +409736,7 @@
         "web"
       ],
       "firstSeenAt": "2026-09-20T08:57:48.192Z",
-      "updatedAt": "2026-11-02T14:17:29.032Z",
+      "updatedAt": "2026-11-03T14:13:36.216Z",
       "name": "elektriker-elektromonteur-jobs",
       "domain": "elektriker-elektromonteur-jobs.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -409992,7 +409992,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-02T11:32:20.589Z",
+      "firstCrawlerOutputAt": "2026-11-03T09:53:31.154Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-01T13:57:59.589Z"
     },
@@ -1249655,7 +1249655,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-02T14:17:29.032Z",
+      "updatedAt": "2026-11-03T14:13:36.216Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1249873,10 +1249873,10 @@
       "promotionPr": "16426",
       "promotionBranch": "prospector/promote-2026-11-01",
       "promotedAt": "2026-11-01T15:38:26Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
+      "firstCrawlerOutputAt": "2026-11-03T09:44:15.678Z",
       "firstCrawlerJobCount": 0
     },
     "sintratec.com": {
