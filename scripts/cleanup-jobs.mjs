@@ -88,7 +88,7 @@ function readJson(filePath) {
 
 async function assertJsonArrayFile(filePath) {
   const input = fs.createReadStream(filePath);
-  const tokens = input.pipe(parser());
+  const tokens = input.pipe(parser.asStream());
   let rootToken = null;
   try {
     for await (const token of tokens) {
