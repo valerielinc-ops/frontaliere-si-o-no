@@ -310,6 +310,7 @@ jobs:
             /packages/articles/engine/shared/paginationNoindexMarker.mjs
             /build-plugins/shared/relatedSearchMirrorMarker.mjs
             /build-plugins/shared/plateAuctionNoindexTargetMarker.mjs
+            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -325,7 +326,6 @@ jobs:
             /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
             /scripts/lib/pharmacySections.mjs
-            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/borderWaitSections.mjs
             /scripts/lib/healthPremiumSections.mjs
             /scripts/lib/weeklyJobMarketSections.mjs
@@ -392,6 +392,7 @@ jobs:
             /packages/articles/engine/shared/paginationNoindexMarker.mjs
             /build-plugins/shared/relatedSearchMirrorMarker.mjs
             /build-plugins/shared/plateAuctionNoindexTargetMarker.mjs
+            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -407,7 +408,6 @@ jobs:
             /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
             /scripts/lib/pharmacySections.mjs
-            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/borderWaitSections.mjs
             /scripts/lib/healthPremiumSections.mjs
             /scripts/lib/weeklyJobMarketSections.mjs
@@ -484,6 +484,7 @@ jobs:
             /packages/articles/engine/shared/paginationNoindexMarker.mjs
             /build-plugins/shared/relatedSearchMirrorMarker.mjs
             /build-plugins/shared/plateAuctionNoindexTargetMarker.mjs
+            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -499,7 +500,6 @@ jobs:
             /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
             /scripts/lib/pharmacySections.mjs
-            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/borderWaitSections.mjs
             /scripts/lib/healthPremiumSections.mjs
             /scripts/lib/weeklyJobMarketSections.mjs
@@ -577,6 +577,7 @@ jobs:
             /packages/articles/engine/shared/paginationNoindexMarker.mjs
             /build-plugins/shared/relatedSearchMirrorMarker.mjs
             /build-plugins/shared/plateAuctionNoindexTargetMarker.mjs
+            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -592,7 +593,6 @@ jobs:
             /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
             /scripts/lib/pharmacySections.mjs
-            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/borderWaitSections.mjs
             /scripts/lib/healthPremiumSections.mjs
             /scripts/lib/weeklyJobMarketSections.mjs
@@ -665,6 +665,7 @@ jobs:
             /packages/articles/engine/shared/paginationNoindexMarker.mjs
             /build-plugins/shared/relatedSearchMirrorMarker.mjs
             /build-plugins/shared/plateAuctionNoindexTargetMarker.mjs
+            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -681,7 +682,6 @@ jobs:
             /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
             /scripts/lib/pharmacySections.mjs
-            /scripts/lib/plateAuctionSections.mjs
             /scripts/lib/borderWaitSections.mjs
             /scripts/lib/healthPremiumSections.mjs
             /scripts/lib/weeklyJobMarketSections.mjs

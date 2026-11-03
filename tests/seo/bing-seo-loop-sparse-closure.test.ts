@@ -132,6 +132,18 @@ describe('bing-seo-loop sparse checkout covers the crawler import closure', () =
     }
   });
 
+  it('keeps the plate-auction marker import in all five full-tree sparse checkouts', () => {
+    const marker = '/build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
+    const dependency = '/scripts/lib/plateAuctionSections.mjs';
+    const markerJobs = jobs.filter((job) => job.lines.includes(marker));
+
+    expect(markerJobs.map((job) => job.jobId)).toEqual(expect.arrayContaining(TREE_JOBS));
+    expect(markerJobs).toHaveLength(TREE_JOBS.length);
+    for (const job of markerJobs) {
+      expect(job.lines.filter((line) => line === dependency), job.jobId).toHaveLength(1);
+    }
+  });
+
   it.each(jobs.map((job) => [job.jobId, job] as const))(
     '%s: the allow-list materializes every module the job loads',
     (_jobId, job) => {
