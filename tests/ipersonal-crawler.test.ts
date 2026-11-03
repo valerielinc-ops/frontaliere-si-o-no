@@ -167,6 +167,20 @@ describe('MediPersonal crawler parser', () => {
       expect(extractIpersonalDescription(html)).toBe('');
     });
 
+    it('does not combine workplace and candidature evidence from sibling LI listing cards', () => {
+      const workplaceCardBody = Array.from({ length: 28 }, (_, index) => `Arbeitsinhalt${index + 1}`).join(' ');
+      const candidatureCardBody = Array.from({ length: 28 }, (_, index) => `Bewerbungsinhalt${index + 1}`).join(' ');
+      const html = `
+        <main>
+          <ul>
+            <li><p>Einsatzort: Zürich</p><p>${workplaceCardBody}</p></li>
+            <li><p>Wir freuen uns auf Ihre Bewerbung.</p><p>${candidatureCardBody}</p></li>
+          </ul>
+        </main>`;
+
+      expect(extractIpersonalDescription(html)).toBe('');
+    });
+
     it('recovers the current semantic detail shell without the application tail', () => {
       const html = `
         <header><nav>Navigation noise</nav></header>

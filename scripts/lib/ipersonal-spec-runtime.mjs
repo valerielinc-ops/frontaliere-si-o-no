@@ -207,6 +207,8 @@ function preferIpersonalRenderedWorkplace(detail = {}) {
 
 const IPERSONAL_DETAIL_CONTAINER_MARKER_RE = /\b(?:job|stelle|inserat|vacan(?:cy)?|position|karriere)\b/iu;
 const IPERSONAL_CANDIDATURE_RE = /\b(?:bewerb\w*|online\s+bewerben|kontakt\s+und\s+bewerbung)\b/iu;
+const IPERSONAL_SIBLING_PARENT_SELECTOR = 'div, section, ul, ol';
+const IPERSONAL_SIBLING_BOUNDARY_TAGS = new Set(['DIV', 'SECTION', 'LI']);
 
 function isIpersonalDetailContainer(element) {
   if (!element) return false;
@@ -258,8 +260,11 @@ function isLikelyIpersonalDetailMain(source) {
   // intermediate semantic container, so its own <main> remains the candidate.
   const candidatureNodes = [...source.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, button, li, dt, dd, span')]
     .filter((node) => IPERSONAL_CANDIDATURE_RE.test(String(node.textContent || '')));
-  const siblingGroups = [source, ...source.querySelectorAll('div, section')].flatMap((parent) => {
-    const blocks = [...parent.children].filter((child) => ['DIV', 'SECTION'].includes(child.tagName));
+  const siblingGroups = [source, ...source.querySelectorAll(IPERSONAL_SIBLING_PARENT_SELECTOR)].flatMap((parent) => {
+    // Listing cards can be list items as well as unmarked div/section blocks.
+    // Keep the boundary at the repeated card element, not at the list shell,
+    // so workplace and candidature evidence cannot cross between LI cards.
+    const blocks = [...parent.children].filter((child) => IPERSONAL_SIBLING_BOUNDARY_TAGS.has(child.tagName));
     if (blocks.length < 2) return [];
     const candidatureBlocks = blocks.filter((block) => candidatureNodes.some((node) => block.contains(node)));
     const workplaceBlocks = blocks.filter((block) => IPERSONAL_SOURCE_LOCATION_RE.test(stripHtml(String(block.innerHTML || ''))));
