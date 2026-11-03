@@ -145,6 +145,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /UnknownError.*IDBDatabase/i,
   /Database deleted by request of the user/i,
   /^(?:TypeError: )?Load failed$/i,
+  /^(?:TypeError: )?cancelled$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
   /^(?:TypeError: )?cancelled$/i,
