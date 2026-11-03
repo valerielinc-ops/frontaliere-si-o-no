@@ -34,4 +34,8 @@ describe('large JSON reader', () => {
   it('rejects a large root object instead of silently returning partial data', () => {
     expect(() => parseLargeJsonArray(['{"jobs":[]}'])).toThrow(/top-level array/);
   });
+
+  it.each(['[,{}]', '[{},]', '[{},,{}]', '[{}{}]'])('rejects invalid separators: %s', (input) => {
+    expect(() => parseLargeJsonArray([input])).toThrow();
+  });
 });

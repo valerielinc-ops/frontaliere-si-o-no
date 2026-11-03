@@ -924,7 +924,7 @@ async function main() {
   writeCrossCrawlerDedupProofFile(
     dedupProofEntries,
     dedupProofEntries.length > 0
-      ? { candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8') }
+      ? { candidatePath: DATA_JOBS_PATH }
       : undefined,
   );
 

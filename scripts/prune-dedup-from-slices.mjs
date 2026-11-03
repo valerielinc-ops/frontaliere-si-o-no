@@ -30,6 +30,7 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import {
@@ -45,14 +46,6 @@ function readJson(filePath, fallback) {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
   } catch {
     return fallback;
-  }
-}
-
-function readRaw(filePath) {
-  try {
-    return fs.readFileSync(filePath, 'utf8');
-  } catch {
-    return null;
   }
 }
 
@@ -94,8 +87,12 @@ export function filterSliceJobs(original, assembled) {
 export function pruneDedupFromSlices(root = ROOT) {
   const dataJobs = path.join(root, 'data', 'jobs.json');
   const slicesDir = path.join(root, 'data', 'jobs', 'by-crawler');
-  const assembledRaw = readRaw(dataJobs);
-  const assembled = readJson(dataJobs, null);
+  let assembled = null;
+  try {
+    assembled = readJsonFile(dataJobs);
+  } catch {
+    assembled = readJson(dataJobs, null);
+  }
   if (!Array.isArray(assembled)) {
     console.log('ℹ️  data/jobs.json not found or not an array — nothing to prune. Run assemble-jobs-dataset.mjs first.');
     return { totalPruned: 0, modifiedSlices: 0 };
@@ -103,7 +100,7 @@ export function pruneDedupFromSlices(root = ROOT) {
 
   let dedupProof = null;
   try {
-    dedupProof = loadCrossCrawlerDedupProofFile({ candidateRaw: assembledRaw });
+    dedupProof = loadCrossCrawlerDedupProofFile({ candidatePath: dataJobs });
     if (dedupProof) {
       console.log(`🔐 Loaded ${dedupProof.entries.length} monolithic dedup proof decision(s)`);
     }

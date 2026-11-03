@@ -24,6 +24,7 @@ export function parseLargeJsonArray(chunks) {
   let itemDepth = 0;
   let inString = false;
   let escaped = false;
+  let rootState = 'value';
 
   const finishItem = () => {
     if (itemParts.length === 0 || itemDepth !== 0 || inString) {
@@ -32,6 +33,7 @@ export function parseLargeJsonArray(chunks) {
     items.push(JSON.parse(itemParts.join('')));
     itemParts = [];
     escaped = false;
+    rootState = 'separator';
   };
 
   for (const chunk of chunks) {
@@ -49,8 +51,20 @@ export function parseLargeJsonArray(chunks) {
       }
 
       if (itemParts.length === 0) {
-        if (isWhitespace(char) || char === ',') continue;
+        if (isWhitespace(char)) continue;
+        if (rootState === 'separator') {
+          if (char === ',') {
+            rootState = 'value';
+            continue;
+          }
+          if (char === ']') {
+            rootEnded = true;
+            continue;
+          }
+          throw new SyntaxError('expected a comma or closing JSON array bracket');
+        }
         if (char === ']') {
+          if (items.length !== 0) throw new SyntaxError('expected a JSON array item after comma');
           rootEnded = true;
           continue;
         }
