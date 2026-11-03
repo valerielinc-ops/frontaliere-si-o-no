@@ -113,7 +113,7 @@ const NAVIGATION = { listboxOptions: false };
 async function runRegistration(fixture: ReturnType<typeof fakePage>, { account = null as any } = {}) {
   const { page } = fixture;
   const accounts: string[] = [];
-  const context: any = { on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page, close: async () => {}, waitForEvent: async () => null };
+  const context: any = { on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page, close: async () => {}, waitForEvent: async () => null, addInitScript: async () => {} };
   page.context = () => context;
   const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
   const result = await submitViaPortal({
@@ -633,7 +633,9 @@ describe('the registration, through the real handleAuth', () => {
     expect(reason).toBe('privacy_not_accepted');
     expect(auth).toMatchObject({ outcome: 'privacy_not_accepted', privacy: 'unavailable' });
     expect(seen).toMatchObject({ ctaClicks: 0, requests: 0 });
-    expect(accounts).toEqual(['save', 'discard:privacy_not_accepted']);
+    // The notice blocked the CTA before the credential was persisted: a
+    // privacy handoff leaves no account residue to clean up.
+    expect(accounts).toEqual([]);
     // The rest of the form was valid: only the notice stood in the way.
     expect(fixture.element('p1').value).not.toBe('');
     expect(fixture.element('p2').value).toBe(fixture.element('p1').value);
