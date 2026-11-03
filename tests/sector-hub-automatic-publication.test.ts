@@ -31,6 +31,7 @@ import {
   listIndexableAutoSectorHubLinks,
   readAutoSectorHubInventory,
 } from '../build-plugins/shared/autoSectorHubPublicationData';
+import { emitSeoHubs } from '../build-plugins/seoHubsPlugin';
 import { AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/autoSectorHubNoindexTargetMarker.mjs';
 import { SECTOR_HUB_SECTION } from '../build-plugins/shared/jobSectorPaths';
 import { BASE_URL } from '../build-plugins/constants';
@@ -426,6 +427,132 @@ describe('automatic sector hub publication', () => {
         expect(sitemap).toContain(`hreflang="${locale}"`);
       }
     } finally {
+      log.mockRestore();
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps every active indexable hub in the generated directory and shared sitemap across locale legs', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'auto-sector-hub-full-flow-'));
+    const distDir = path.join(rootDir, 'dist');
+    const dataDir = path.join(rootDir, 'data');
+    fs.mkdirSync(distDir, { recursive: true });
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.mkdirSync(path.join(rootDir, 'services'), { recursive: true });
+    fs.writeFileSync(path.join(rootDir, 'services', 'jobDataNormalization.ts'), 'export const CRAWLED_COMPANY_LOGOS = {\n};\n');
+    const now = new Date();
+    const publications = [
+      {
+        slug: 'tecnica', routeKind: 'dynamic', label: 'Tecnica',
+        labelByLocale: { it: 'Tecnica', en: 'Technical', de: 'Technik', fr: 'Technique' },
+        matchLabel: 'Tecnica',
+      },
+      {
+        slug: 'public-admin', routeKind: 'dynamic', label: 'Amministrazione pubblica',
+        labelByLocale: { it: 'Amministrazione pubblica', en: 'Public administration', de: 'Öffentliche Verwaltung', fr: 'Administration publique' },
+        matchLabel: 'Amministrazione pubblica',
+      },
+      {
+        slug: 'admin', routeKind: 'dynamic', label: 'Amministrazione',
+        labelByLocale: { it: 'Amministrazione', en: 'Administration', de: 'Verwaltung', fr: 'Administration' },
+        matchLabel: 'Amministrazione',
+      },
+      {
+        slug: 'sotto-soglia', routeKind: 'dynamic', label: 'Sotto soglia',
+        labelByLocale: { it: 'Sotto soglia', en: 'Below threshold', de: 'Unter dem Schwellenwert', fr: 'Sous le seuil' },
+        matchLabel: 'Sotto soglia',
+      },
+    ].map(({ matchLabel, ...publication }) => ({
+      ...publication,
+      sourceFields: ['category'],
+      matchLabels: [matchLabel],
+      firstPublishedAt: new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+      status: 'active',
+    }));
+    const publishableJobs = [
+      ...jobsForCategory('Tecnica', 'tecnica', 6, 3, now),
+      ...jobsForCategory('Amministrazione pubblica', 'public-admin', 6, 3, now),
+      ...jobsForCategory('Amministrazione', 'admin', 6, 3, now),
+      ...jobsForCategory('Sotto soglia', 'sotto-soglia', 4, 2, now),
+    ];
+    const registryFile = path.join(dataDir, 'sector-hub-publications.json');
+    const jobsFile = path.join(dataDir, 'jobs.json');
+    fs.writeFileSync(registryFile, JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: now.toISOString(),
+      sourceWeek: 'fixture',
+      hubs: publications,
+    }));
+    fs.writeFileSync(jobsFile, JSON.stringify(publishableJobs));
+
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      // Generate the actual sector directory HTML from the same registry and
+      // inventory that the automatic page/sitemap plugin reads.
+      emitSeoHubs({
+        rootDir,
+        distDir,
+        fs,
+        np: path,
+        entryJs: '',
+        entryCss: '',
+        hasSpaBundle: false,
+        qw(filePath, html) {
+          fs.mkdirSync(path.dirname(filePath), { recursive: true });
+          fs.writeFileSync(filePath, html);
+        },
+      });
+      const inventory = readAutoSectorHubInventory(rootDir);
+      const directoryPaths = {
+        it: 'cerca-lavoro-ticino/settori/index.html',
+        en: 'en/find-jobs-ticino/sectors/index.html',
+        de: 'de/jobs-im-tessin/branchen/index.html',
+        fr: 'fr/trouver-emploi-tessin/secteurs/index.html',
+      } as const;
+
+      vi.stubEnv('BUILD_LOCALE', 'it');
+      vi.resetModules();
+      const { autoSectorHubPagesPlugin: makeItPlugin } = await import('../build-plugins/autoSectorHubPagesPlugin');
+      const { reconcileRemainingSitemapsWithDist } = await import('../build-plugins/sitemapAliasPlugin');
+      const itPlugin = makeItPlugin(rootDir);
+      if (typeof itPlugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
+      await (itPlugin.closeBundle as () => Promise<void>)();
+      await reconcileRemainingSitemapsWithDist(distDir, { ignoreShardOwnership: true });
+
+      const sitemapFile = path.join(distDir, 'sitemap-auto-sector-hubs.xml');
+      const sitemap = fs.readFileSync(sitemapFile, 'utf-8');
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const links = listIndexableAutoSectorHubLinks(inventory, locale);
+        expect(links.map((link) => link.slug).sort()).toEqual(['admin', 'public-admin', 'tecnica']);
+        const directoryHtml = fs.readFileSync(path.join(distDir, directoryPaths[locale]), 'utf-8');
+        for (const link of links) {
+          expect(directoryHtml).toContain(`href="${link.href}"`);
+          expect(sitemap).toContain(`<loc>${BASE_URL}${link.href}</loc>`);
+        }
+        expect(directoryHtml).not.toContain(buildAutoSectorHubPath(locale, 'sotto-soglia'));
+        expect(sitemap).not.toContain(buildAutoSectorHubPath(locale, 'sotto-soglia'));
+      }
+
+      // A later non-IT leg sees an active but below-floor inventory snapshot.
+      // It emits its locale pages, but must leave the IT-owned root sitemap
+      // intact rather than replacing it with an empty view of that snapshot.
+      const belowFloorJobs = [
+        ...jobsForCategory('Tecnica', 'tecnica-small', 4, 2, now),
+        ...jobsForCategory('Amministrazione pubblica', 'public-admin-small', 4, 2, now),
+        ...jobsForCategory('Amministrazione', 'admin-small', 4, 2, now),
+        ...jobsForCategory('Sotto soglia', 'sotto-soglia-small', 4, 2, now),
+      ];
+      fs.writeFileSync(jobsFile, JSON.stringify(belowFloorJobs));
+      vi.stubEnv('BUILD_LOCALE', 'en');
+      vi.resetModules();
+      const { autoSectorHubPagesPlugin: makeEnPlugin } = await import('../build-plugins/autoSectorHubPagesPlugin');
+      const enPlugin = makeEnPlugin(rootDir);
+      if (typeof enPlugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
+      await (enPlugin.closeBundle as () => Promise<void>)();
+      expect(fs.readFileSync(sitemapFile, 'utf-8')).toBe(sitemap);
+    } finally {
+      vi.unstubAllEnvs();
+      vi.resetModules();
       log.mockRestore();
       fs.rmSync(rootDir, { recursive: true, force: true });
     }

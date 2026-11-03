@@ -5,6 +5,7 @@ import type { JobBoardLocale } from './jobBoardSeoPure';
 import type { SectorHubPublication } from '../data/sector-hub-publications';
 import {
   countAutoSectorHubEmployers,
+  listIndexableAutoSectorHubLinks,
   readAutoSectorHubInventory,
   type AutoSectorJob,
 } from './shared/autoSectorHubPublicationData';
@@ -19,10 +20,7 @@ import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, countHtmlBodyWords } f
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { SECTOR_HUB_LOCALE_PREFIX, SECTOR_HUB_SECTION } from './shared/jobSectorPaths';
-import {
-  isIndexableSectorHubPublication,
-  type SectorPublicationLocale,
-} from '../data/sector-hub-publications';
+import { isIndexableSectorHubPublication } from '../data/sector-hub-publications';
 import { clampMetaDescription, TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 
 const LOCALES: readonly JobBoardLocale[] = ['it', 'en', 'de', 'fr'];
@@ -339,12 +337,30 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
       const { registry, jobsBySlug } = readAutoSectorHubInventory(rootDir);
-      if (registry.hubs.length === 0) return;
+      const sitemapFile = np.join(distDir, 'sitemap-auto-sector-hubs.xml');
+      // Root-level files are shared outputs owned by the IT leg. Other locale
+      // legs can see a different inventory snapshot, so they must never
+      // replace or remove this sitemap.
+      const ownsSharedSitemap = shouldEmitLocale('it');
+      if (registry.hubs.length === 0) {
+        if (ownsSharedSitemap) fs.rmSync(sitemapFile, { force: true });
+        return;
+      }
       const dateStamp = BUILD_DATE_STAMP;
       const collector = new WriteCollector({ distDir, pluginName: 'autoSectorHubPagesPlugin' });
       const sitemapEntries: string[] = [];
       let emitted = 0;
       let indexable = 0;
+      const autoOwnedSlugs = new Set(registry.hubs
+        .filter((publication) => autoSectorHubPathOwner(publication.routeKind) === 'autoSectorHubPagesPlugin')
+        .map((publication) => publication.slug));
+      const indexableSlugsByLocale = ownsSharedSitemap
+        ? new Map(LOCALES.map((locale) => [locale, new Set(
+          listIndexableAutoSectorHubLinks({ registry, jobsBySlug }, locale)
+            .filter((link) => autoOwnedSlugs.has(link.slug))
+            .map((link) => link.slug),
+        )] as const))
+        : null;
 
       for (const publication of registry.hubs) {
         // Existing static category pages already own these canonical URLs.
@@ -363,9 +379,9 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
           if (locale === 'it' && page.indexable) indexable += 1;
         }
 
-        const allIndexedLocales = LOCALES.filter((locale) => isIndexableSectorHubPublication(
-          publication, jobs.length, employers, locale,
-        ));
+        const allIndexedLocales = indexableSlugsByLocale
+          ? LOCALES.filter((locale) => indexableSlugsByLocale.get(locale)?.has(publication.slug))
+          : [];
         if (!allIndexedLocales.length) continue;
         const alternates = allIndexedLocales.map((locale) =>
           `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${buildAutoSectorHubPath(locale, publication.slug, publication.routeKind)}" />`,
@@ -378,7 +394,10 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       }
 
       await collector.flush();
-      const sitemapFile = np.join(distDir, 'sitemap-auto-sector-hubs.xml');
+      if (!ownsSharedSitemap) {
+        console.log(`[auto-sector-hubs] emitted ${emitted} locale pages for ${registry.hubs.length} publications; shared sitemap belongs to the IT leg.`);
+        return;
+      }
       if (sitemapEntries.length === 0) {
         fs.rmSync(sitemapFile, { force: true });
         console.log(`[auto-sector-hubs] emitted ${emitted} locale pages for ${registry.hubs.length} publications; ${indexable} currently indexable; no separate sitemap needed.`);
