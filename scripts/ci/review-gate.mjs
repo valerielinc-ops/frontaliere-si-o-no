@@ -1376,6 +1376,7 @@ function findingConfirmed(
   {
     repositoryPaths = null,
     repositoryPathsFromFallback = false,
+    isIgnoredPath = () => false,
     settledCitations = null,
     // Le conferme vengono da una review approvante (`## LGTM` e
     // `Important: 0`). Solo il cammino storico lo sa e lo passa.
@@ -1437,6 +1438,7 @@ function findingConfirmed(
       // those checks remain fail-closed below when the API tree is absent.
       if (!Array.isArray(changedFiles) || !Array.isArray(repositoryPaths)) return false;
       if (finding.citations.some((citation) => citation.path === path && citation.line !== null)) return false;
+      if (!changedContains(changedFiles, path) && isIgnoredPath(path)) return true;
       const resolved = resolveCitedPath({ path }, repositoryPaths);
       return resolved.status === 'resolved' && !changedContains(changedFiles, resolved.path);
     };
@@ -1511,6 +1513,17 @@ function findingConfirmed(
       && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
       && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
     if (isUnresolvableBareContext) return true;
+    // Generated inputs can be intentionally absent from both the API tree and
+    // the PR diff. A trusted git-ignore proof is stronger than a missing tree
+    // entry, but only after the approving review confirmed every precise
+    // anchor and the complete PR file list proves the path was not force-added.
+    const isIgnoredBareContext = isBareCompanion
+      && preciseAnchorsConfirmed
+      && approvingReview
+      && Array.isArray(changedFiles)
+      && !changedContains(changedFiles, citation.path)
+      && isIgnoredPath(citation.path);
+    if (isIgnoredBareContext) return true;
     if (isBareCompanion
         && preciseConfirmedByApprovingReview
         && resolveCitedPath(citation, repositoryPaths).status === 'resolved'
@@ -1566,6 +1579,7 @@ export function partitionHistoricalImportantFindings(
     citationExtractor = extractFileCitations,
     repositoryPaths = null,
     repositoryPathsFromFallback = false,
+    isIgnoredPath = () => false,
     // File che la PR modifica, quando l'elenco e' completo: vedi il ramo
     // dell'id stabile in `findingConfirmed`.
     changedFiles = null,
@@ -1611,6 +1625,7 @@ export function partitionHistoricalImportantFindings(
       if (findingConfirmed(entry.finding, confirmations, openFindings, {
         repositoryPaths,
         repositoryPathsFromFallback,
+        isIgnoredPath,
         settledCitations,
         approvingReview,
         pairedByThisReview,
@@ -2723,6 +2738,7 @@ export async function runReviewGate({
   const historicalOptions = {
     repositoryPaths: repositoryPaths ?? null,
     repositoryPathsFromFallback,
+    isIgnoredPath: gitPathIsIgnored,
   };
   let historical = historicalImportantFindings(reviewHistory, historicalOptions);
   // L'elenco dei file della PR serve in un caso solo: una review approvante
@@ -2768,6 +2784,7 @@ export async function runReviewGate({
       mutate,
       bodyContractPassed,
       headSha,
+      reviewCommit,
     };
     if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
     const priorReview = priorManagedReview(reviewHistory, latest);
@@ -2777,6 +2794,7 @@ export async function runReviewGate({
           includeLatest: false,
           repositoryPaths: repositoryPaths ?? null,
           repositoryPathsFromFallback,
+          isIgnoredPath: gitPathIsIgnored,
         }).map(stableFindingId),
       );
       classificationOptions.changedLinesSince = changedLinesFn(
