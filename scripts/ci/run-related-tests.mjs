@@ -139,6 +139,7 @@ const sourceTreeLintTests = new Map([
     'tests/prune-merged-worktrees-proofs-e2e.test.ts',
     'tests/prune-merged-worktrees-corpus-e2e.test.ts',
     'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+    'tests/prune-merged-worktrees-reclaim-e2e.test.ts',
   ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
