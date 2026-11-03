@@ -26,7 +26,7 @@ describe('PrivacyPolicy: uso dei clic sugli annunci dichiarato', () => {
       const section = getPrivacyLegalDocument(locale).sections.find(item => item.title === 'Meta Pixel');
       expect(section).toBeDefined();
       const html = section!.blocks.map(block => 'html' in block ? block.html : '').join(' ');
-      expect(html).toContain('href="/automatizza-ricerca-lavoro-svizzera/"');
+      expect(html).toContain('href="https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/"');
       expect(html).toMatch(pageLabels[locale]);
     }
   });
