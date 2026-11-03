@@ -782,6 +782,19 @@ jobs:
           restore-keys: |
             og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-
 
+      # This compact manifest records the OG bytes from the last successful
+      # R2 copy of that prefix. A failure in a later, unrelated prefix does not
+      # undo the OG copy, so only the OG-specific completion record is needed.
+      # A cache miss deliberately falls back to one full additive copy.
+      - name: Restore last published R2 OG manifest
+        if: ${{ matrix.locale == 'it' && vars.CDN_TARGET == 'r2' }}
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}
+          restore-keys: |
+            r2-og-published-
+
       # Incremental manifest carry (#8878 1b): each locale owns one JSONL
       # snapshot, restored from the newest previous run and saved under a
       # unique run key after all build steps have finished. It remains
@@ -2186,6 +2199,41 @@ jobs:
           # run 40074671144: 2.3x, byte-identical tree).
           OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
+
+      - name: Promote successfully published R2 OG manifest
+        id: promote-r2-og-manifest
+        if: ${{ always() && matrix.locale == 'it' && vars.CDN_TARGET == 'r2' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          candidate="$RUNNER_TEMP/r2-og-published-manifest.next.json"
+          synced_hash="$RUNNER_TEMP/r2-og-published-manifest.synced.sha256"
+          if [ ! -s "$candidate" ]; then
+            echo "::warning::[r2-og-manifest] no candidate manifest was produced; keeping the last published manifest"
+            exit 0
+          fi
+          if [ ! -s "$synced_hash" ]; then
+            echo "::warning::[r2-og-manifest] OG copy did not complete; keeping the last published manifest"
+            exit 0
+          fi
+          expected="$(cat "$synced_hash")"
+          actual="$(sha256sum "$candidate" | awk '{print $1}')"
+          if [[ ! "$expected" =~ ^[a-f0-9]{64}$ || "$actual" != "$expected" ]]; then
+            echo "::warning::[r2-og-manifest] candidate differs from the successfully copied OG manifest"
+            exit 0
+          fi
+          mkdir -p .cache
+          cp "$candidate" .cache/r2-og-published-manifest.json.tmp
+          mv .cache/r2-og-published-manifest.json.tmp .cache/r2-og-published-manifest.json
+          echo "promoted=true" >> "$GITHUB_OUTPUT"
+
+      - name: Save successfully published R2 OG manifest
+        if: ${{ always() && steps.promote-r2-og-manifest.outputs.promoted == 'true' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}
 
       # Refresh the R2 copies the Worker serves for EDGE_PUSHED_FILES.
       #
