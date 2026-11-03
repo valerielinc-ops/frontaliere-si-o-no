@@ -17,6 +17,7 @@ import {
 } from '../scripts/download-missing-company-logos.mjs';
 import { loadLogoRegistry } from '../scripts/lib/company-logo-registry.mjs';
 import { companyLogoKeyForJob } from '../scripts/lib/company-logo-key.mjs';
+import { resolveCompanyLogoUrl } from '../services/jobDataNormalization.ts';
 
 const ROOT = path.resolve(__dirname, '..');
 const workflowPath = path.join(ROOT, '.github/workflows/audit-missing-company-logos.yml');
@@ -56,6 +57,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   'rh-expert-ch': ['rh-expert.ch'],
   'global-sana': ['globalsana.ch'],
+  conservatorio: ['conservatorio.ch'],
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
@@ -254,6 +256,21 @@ describe('missing company-logo acquisition', () => {
         urlHosts: new Set(['app.ncoreplat.com']),
       }, { fromAudit: true })).toEqual(domains);
     }
+  });
+
+  it('uses the official Conservatorio domain and the stable local logo at runtime', () => {
+    const job = {
+      company: 'Conservatorio della Svizzera italiana',
+      companyKey: 'conservatorio',
+      companyDomain: 'conservatorio.ch',
+      url: 'https://www.conservatorio.ch/media/844577/bando-direttore-sum_2026.pdf',
+    };
+
+    expect(resolveCompanyLogoUrl(job)).toBe('/images/brands/conservatorio.png');
+    expect(domainCandidates('conservatorio', {
+      companyDomains: new Set(['conservatorio.ch']),
+      urlHosts: new Set(['conservatorio.ch']),
+    }, { fromAudit: true })).toEqual(['conservatorio.ch']);
   });
 
   it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {

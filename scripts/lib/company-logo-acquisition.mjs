@@ -46,6 +46,9 @@ export const DOMAIN_OVERRIDES = {
   // The dedicated employer crawler identifies csc-sa.ch as CSC's official site;
   // NCore is only the linked publishing platform for the vacancies.
   'csc-costruzioni-sa': ['csc-sa.ch'],
+  // Conservatorio della Svizzera italiana publishes its institutional identity
+  // on conservatorio.ch; never fall back to a crawler favicon or Clearbit.
+  conservatorio: ['conservatorio.ch'],
   'ferrovia-retica': ['rhb.ch'],
   'fisiocare-sagl': ['fisiocare.ch', 'fisiocare.com'],
   gmo: ['gmo.ch'],
