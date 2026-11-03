@@ -54,7 +54,9 @@ export function accountResponseText(snapshot = {}) {
   return [snapshot.text, ...(Array.isArray(snapshot.errors) ? snapshot.errors : [])]
     .map((value) => String(value ?? '').trim())
     .filter(Boolean)
-    .join(' ');
+    // Page copy and each form error are independent messages. Keep a sentence
+    // boundary so a discriminator cannot assemble a phrase across them.
+    .join('. ');
 }
 
 const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;

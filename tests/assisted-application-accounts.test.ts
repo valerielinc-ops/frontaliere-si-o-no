@@ -7,6 +7,7 @@ import {
   asksExistingPassword,
   codeField,
   hostKey,
+  isAccountVerificationResponse,
   isExplicitSignInNavigationLabel,
   inlineAccountForm,
   loginFields,
@@ -178,6 +179,17 @@ describe('portal account pages', () => {
 
 describe('what the portal answers', () => {
   const page = (text: string, fields: any[] = [], errors: string[] = []) => ({ text, fields, errors, buttons: [] });
+
+  it('does not build an account-verification phrase across separate response messages', () => {
+    const after = {
+      fields: [field('password', 'password', 'Password')],
+      text: 'Please verify',
+      errors: ['Account could not be found'],
+      buttons: [],
+    };
+    expect(isAccountVerificationResponse(after)).toBe(false);
+    expect(isAccountVerificationResponse({ ...after, text: 'Please verify your account' })).toBe(true);
+  });
 
   it('reads the page after the registration click: refused, verify, or created', () => {
     const createForm = [field('e', 'email', 'E-Mail'), field('p1', 'password', 'Kennwort'), field('p2', 'password', 'Kennwort bestätigen')];
