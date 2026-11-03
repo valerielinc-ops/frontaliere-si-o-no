@@ -23,8 +23,10 @@ export const MAX_PHASE_ROWS = 25;
 // minima gia' usata per aprirlo.
 export const PHASE_TIMING_RECOVERY_RUNS = 3;
 export const PHASE_TIMING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
+export const JOB_OG_IMAGES_PHASE = 'job-og-images:closeBundle';
 
 const PHASE_RE = /^\[phase-timing\]\s+(\S+)\s+(\d+(?:\.\d+)?)ms\s+calls=\d+\s*$/u;
+const JOB_OG_STATS_RE = /^\[job-og-images\]\s+rendered=(\d+)\s+cached=(\d+)\s+skipped=(\d+)\s+errors=(\d+)\s+pruned-stale=(\d+)\s+\(~\d+MB\)\s+in\s+\d+(?:\.\d+)?s$/u;
 
 export function parsePhaseMarkers(log) {
   const phases = [];
@@ -37,6 +39,48 @@ export function parsePhaseMarkers(log) {
     .filter((phase) => Number.isFinite(phase.ms) && phase.ms >= 0)
     .sort((a, b) => b.ms - a.ms || a.marker.localeCompare(b.marker))
     .slice(0, MAX_PHASE_ROWS);
+}
+
+/**
+ * Read the job-OG renderer's final accounting line without guessing when the
+ * line is absent or ambiguous. The phase observer must not turn an unknown
+ * cache state into a suppression, because that would hide a real regression
+ * caused by a broken restore or a renderer-side cache-key drift.
+ *
+ * @param {string} log
+ * @returns {{rendered:number, cached:number, skipped:number, errors:number, pruned:number}|null}
+ */
+export function parseJobOgImageStats(log) {
+  const matches = [];
+  for (const line of String(log).split(/\r?\n/u)) {
+    const match = JOB_OG_STATS_RE.exec(line.trim());
+    if (!match) continue;
+    matches.push({
+      rendered: Number(match[1]),
+      cached: Number(match[2]),
+      skipped: Number(match[3]),
+      errors: Number(match[4]),
+      pruned: Number(match[5]),
+    });
+  }
+  if (matches.length === 0) return null;
+  const first = matches[0];
+  if (matches.some((candidate) => JSON.stringify(candidate) !== JSON.stringify(first))) return null;
+  return first;
+}
+
+/**
+ * A missing versioned Actions cache is an expected, measurable warm-up after
+ * a raster-version migration or cache eviction. It is not evidence that the
+ * renderer itself regressed. Suppress only with BOTH independent signals:
+ * the restore action reports no matched key, and the renderer reports a
+ * successful all-cold pass. A matched key, missing stats, or any render error
+ * remains alertable.
+ */
+export function isExpectedColdJobOgCache(log, cacheMatchedKey) {
+  if (typeof cacheMatchedKey !== 'string' || cacheMatchedKey.trim() !== '') return false;
+  const stats = parseJobOgImageStats(log);
+  return stats !== null && stats.rendered > 0 && stats.cached === 0 && stats.errors === 0;
 }
 
 function parseBuildProfileRows(jsonl) {
@@ -178,17 +222,27 @@ export function observePhaseTimings({
   locale,
   threshold = PHASE_TIMING_THRESHOLD,
   minSamples = MIN_HISTORY_SAMPLES,
+  jobOgCacheMatchedKey,
 }) {
   const current = parsePhaseMarkers(log);
   const historyRows = parseBuildProfileHistory(history, locale);
   const previous = historyRows.at(-1);
   const previousPhases = phaseMap(previous);
+  const expectedColdJobOgCache = isExpectedColdJobOgCache(log, jobOgCacheMatchedKey);
   const rows = evaluatePhaseTimings({
     currentPhases: current,
     previousPhases,
     baselineRows: baselineRowsBeforePrevious(historyRows, PHASE_TIMING_BASELINE_WINDOW),
     threshold,
     minSamples,
+  }).map((row) => {
+    if (!expectedColdJobOgCache || row.marker !== JOB_OG_IMAGES_PHASE || !row.regression) return row;
+    return {
+      ...row,
+      regression: false,
+      expectedColdCache: true,
+      status: 'cache cold — warm-up atteso',
+    };
   });
 
   return {
@@ -421,7 +475,12 @@ function main() {
   const locale = process.env.PHASE_TIMING_LOCALE || 'unknown';
   const log = fs.existsSync(logPath) ? fs.readFileSync(logPath, 'utf8') : '';
   const history = fs.existsSync(historyPath) ? fs.readFileSync(historyPath, 'utf8') : '';
-  const observation = observePhaseTimings({ log, history, locale });
+  const observation = observePhaseTimings({
+    log,
+    history,
+    locale,
+    jobOgCacheMatchedKey: process.env.PHASE_TIMING_JOB_OG_CACHE_MATCHED_KEY,
+  });
   const summary = formatPhaseTimingSummary(observation);
   process.stdout.write(`${summary}\n`);
 
