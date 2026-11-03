@@ -89,6 +89,7 @@ export async function persistBrowserInsights({
   if (dryRun) return { status: changed ? 'ready' : 'unchanged', imported: additions.length, posts: posts.length };
   if (changed) {
     await updatePrivateSocialNativeInsights(firestore, (current) => ({
+      ...current,
       schemaVersion: 1,
       generatedAt: nowIso,
       sources: {

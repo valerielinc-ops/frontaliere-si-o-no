@@ -82,6 +82,70 @@ function tiktokPost() {
   };
 }
 
+function crossChannelGrowthHistory() {
+  const audienceBaseline = {
+    schemaVersion: 1,
+    channel: 'instagram',
+    metric: 'followers',
+    startAt: '2026-10-01T12:00:00.000Z',
+    endAt: '2026-10-31T12:00:00.000Z',
+    startValue: 1000,
+    endValue: 1020,
+    netChange: 20,
+    coverageDays: 30,
+    observations: 31,
+    frozenAt: '2026-11-02T12:00:00.000Z',
+  };
+  return {
+    audienceBaselines: { instagram: audienceBaseline },
+    audienceGrowthCycles: {
+      instagram: {
+        schemaVersion: 1,
+        channel: 'instagram',
+        cycleNumber: 1,
+        status: 'active',
+        currentBaseline: audienceBaseline,
+        lastCompleted: null,
+      },
+    },
+    followerGainSnapshots: [{
+      channel: 'linkedin-member',
+      metric: 'followers-gained',
+      date: '2026-11-01',
+      value: 2,
+      snapshotAt: '2026-11-01T12:00:00.000Z',
+      status: 'available',
+      source: 'linkedin-member-follower-gains',
+    }],
+    siteOutcomeSnapshots: [{
+      channel: 'facebook',
+      eventName: 'job_apply_handoff',
+      eventContractVersion: 1,
+      date: '2026-11-01',
+      timeZone: 'UTC',
+      sessions: 50,
+      sessionKeyEventRate: 0.04,
+      status: 'available',
+      source: 'ga4-session-key-event-rate',
+    }],
+    siteOutcomeBaselines: [{
+      schemaVersion: 1,
+      channel: 'facebook',
+      eventName: 'job_apply_handoff',
+      eventContractVersion: 1,
+      metric: 'session-key-event-rate',
+      startDate: '2026-06-01',
+      endDate: '2026-06-30',
+      timeZone: 'UTC',
+      sessions: 1000,
+      sessionKeyEventRate: 0.04,
+      coverageDays: 30,
+      observations: 30,
+      frozenAt: '2026-07-01T12:00:00.000Z',
+    }],
+  };
+}
+
 afterEach(() => {
   while (dirs.length) fs.rmSync(dirs.pop()!, { recursive: true, force: true });
 });
@@ -133,6 +197,23 @@ describe('persistBrowserInsights', () => {
     expect(posts).toHaveLength(2);
     expect(posts.find((row: any) => row.channel === 'tiktok')?.postId).toBe('video-1');
     expect(posts.find((row: any) => row.channel === 'instagram')?.snapshotAt).toBe('2026-10-13T13:00:00.000Z');
+  });
+
+  it('preserves all existing cross-channel growth and site-outcome history', async () => {
+    const root = tempDir();
+    const history = crossChannelGrowthHistory();
+    const storage = fakeDb({
+      schemaVersion: 1,
+      sources: { tiktok: { status: 'available' } },
+      posts: [tiktokPost()],
+      audienceSnapshots: [],
+      ...history,
+    });
+    const snapshot = writeSnapshot(root, { schemaVersion: 2, windowHours: 72, posts: [instagramRow()] });
+
+    await persistBrowserInsights({ snapshot, db: storage.db, now: AS_OF });
+
+    expect(storage.read()).toMatchObject(history);
   });
 
   it('keeps a dry-run snapshot and does not write to Firestore', async () => {
