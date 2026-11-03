@@ -179,6 +179,33 @@ describe('portal field extraction', () => {
     expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
   });
 
+  it('dismisses Helsana’s generic consent controls before reading the root receipt', async () => {
+    const url = 'https://careers.helsana.ch/';
+    let dismissed = false;
+    const banner = {
+      url,
+      text: 'Mit der weiteren Nutzung dieser Website und der Navigation auf dieser Website stimmen Sie der Verwendung von Cookies zu. Vielen Dank. Wir haben deine Unterlagen erhalten.',
+      fields: [],
+      buttons: [{ id: 'accept', text: 'Akzeptieren', disabled: false }, { id: 'close', text: 'Schließen', disabled: false }],
+      dialogs: [],
+    };
+    const receipt = { ...banner, buttons: [], text: 'Vielen Dank. Wir haben deine Unterlagen erhalten.' };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => dismissed ? receipt : banner),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => { expect(selector).toBe('[data-aa-id="accept"]'); dismissed = true; }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, banner as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(dismissed).toBe(true);
+    expect(result.snapshot).toMatchObject({ text: receipt.text, buttons: [] });
+  });
+
   it('opens an active preference center, then applies only its explicit cookie choice', async () => {
     const url = 'https://careers.example/apply';
     let stage = 0;
