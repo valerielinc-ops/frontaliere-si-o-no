@@ -15,6 +15,14 @@ import {
 
 export const EMPLOYER_SCOPED_LOGO_SOURCE_KEYS = Object.freeze(['seco-jobroom']);
 
+// These source keys are tenant identities, not employer identities. The
+// employer domain was verified from the tenant's public employer source, so
+// historical rows without companyLogoKey need the same stable logo key as new
+// parser output.
+export const VERIFIED_EMPLOYER_LOGO_KEY_OVERRIDES = Object.freeze({
+  'recruitingapp-2563': 'switch',
+});
+
 export function companyLogoKeyFromEmployer(employer = '') {
   return slugify(employer);
 }
@@ -37,6 +45,8 @@ export function companyLogoKeyForJob(job = {}) {
   if (explicit && (!sharedSource || !EMPLOYER_SCOPED_LOGO_SOURCE_KEYS.includes(explicit))) {
     return explicit;
   }
+  const verifiedEmployerLogoKey = VERIFIED_EMPLOYER_LOGO_KEY_OVERRIDES[normalizedCompanyKey];
+  if (verifiedEmployerLogoKey) return verifiedEmployerLogoKey;
   if (!sharedSource) return companyKey;
   return companyLogoKeyFromEmployer(job?.company || job?.employer || '');
 }
