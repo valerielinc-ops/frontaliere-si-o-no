@@ -59,6 +59,10 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   'zaugg-ag': ['zaugg.swiss'],
 };
 
+const SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES = {
+  'csc-costruzioni-sa': ['csc-sa.ch'],
+};
+
 describe('missing company-logo acquisition', () => {
   it('does not probe a guessed domain for a future audit key', async () => {
     const auditInput = { companyKey: 'acme', status: 'missing' };
@@ -176,6 +180,16 @@ describe('missing company-logo acquisition', () => {
       expect(domainCandidates(key, {
         companyDomains: new Set(['jobs.ch']),
         urlHosts: new Set(['jobalino.ch']),
+      }, { fromAudit: true })).toEqual(domains);
+    }
+  });
+
+  it('uses the source-backed CSC employer domain instead of its NCore ATS in audit mode', () => {
+    for (const [key, domains] of Object.entries(SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES)) {
+      expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
+      expect(domainCandidates(key, {
+        companyDomains: new Set(['ncoreplat.com']),
+        urlHosts: new Set(['app.ncoreplat.com']),
       }, { fromAudit: true })).toEqual(domains);
     }
   });
