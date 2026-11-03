@@ -100,6 +100,12 @@ function sha256File(filePath) {
   return hash.digest('hex');
 }
 
+function snapshotDigest({ candidateRaw, candidatePath }) {
+  if (typeof candidateRaw === 'string') return sha256(candidateRaw);
+  if (typeof candidatePath === 'string' && candidatePath) return sha256File(candidatePath);
+  return null;
+}
+
 function housekeepingProofTarget(slicePath, { proofDir, cwd = process.cwd() } = {}) {
   const absoluteSlicePath = path.resolve(cwd, slicePath);
   const relativePath = path.relative(cwd, absoluteSlicePath);
@@ -181,6 +187,10 @@ export function writeCrossCrawlerDedupProofFile(
   if (hasCandidateRaw === hasCandidatePath) {
     throw new Error('provide exactly one of candidateRaw or candidatePath for the cross-crawler dedup proof');
   }
+  const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
+  if (!candidateDigest) {
+    throw new Error('cannot write cross-crawler dedup proof without the final jobs.json snapshot');
+  }
 
   const resolvedBaseSha = String(baseSha || env.GITHUB_SHA || checkoutHeadSha(cwd) || '').trim();
   const runId = String(env.GITHUB_RUN_ID || '').trim();
@@ -197,7 +207,7 @@ export function writeCrossCrawlerDedupProofFile(
   try {
     fs.writeFileSync(temporaryPath, `${JSON.stringify({
       schemaVersion: 1,
-      candidateDigest: hasCandidateRaw ? sha256(candidateRaw) : sha256File(candidatePath),
+      candidateDigest,
       baseSha: resolvedBaseSha,
       runId,
       runAttempt,
@@ -212,7 +222,7 @@ export function writeCrossCrawlerDedupProofFile(
 }
 
 export function loadCrossCrawlerDedupProofFile(
-  { proofPath, proofDir, candidateRaw, env = process.env, cwd = process.cwd() } = {},
+  { proofPath, proofDir, candidateRaw, candidatePath, env = process.env, cwd = process.cwd() } = {},
 ) {
   const resolvedProofPath = proofPath || crossCrawlerDedupProofPath({ proofDir, env });
   if (!resolvedProofPath || !fs.existsSync(resolvedProofPath)) return null;
@@ -233,7 +243,8 @@ export function loadCrossCrawlerDedupProofFile(
   ) {
     throw new Error('invalid cross-crawler dedup proof');
   }
-  if (typeof candidateRaw !== 'string' || proof.candidateDigest !== sha256(candidateRaw)) {
+  const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
+  if (!candidateDigest || proof.candidateDigest !== candidateDigest) {
     throw new Error('stale cross-crawler dedup proof: candidate digest mismatch');
   }
 

@@ -47,7 +47,7 @@ import {
 } from './lib/crawler-slice-integrity.mjs';
 import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
-import { parser } from 'stream-json';
+import { readJsonArrayFile } from './lib/streaming-json-array.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -80,27 +80,11 @@ const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
 const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
+let localeReportJobs = null;
 
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
-}
-
-async function assertJsonArrayFile(filePath) {
-  const input = fs.createReadStream(filePath);
-  const tokens = input.pipe(parser.asStream());
-  let rootToken = null;
-  try {
-    for await (const token of tokens) {
-      if (rootToken === null) rootToken = token.name;
-    }
-  } catch (error) {
-    input.destroy();
-    throw new Error(`${path.basename(filePath)} is not valid JSON: ${error?.message ?? error}`, { cause: error });
-  }
-  if (rootToken !== 'startArray') {
-    throw new Error(`${path.basename(filePath)} must be a JSON array`);
-  }
 }
 
 function dedupProofJob(job) {
@@ -726,7 +710,7 @@ async function main() {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
   }
-  await assertJsonArrayFile(PUBLIC_JOBS_PATH);
+  readJsonArrayFile(PUBLIC_JOBS_PATH, { collect: false });
 
   // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
   const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH, includeJobs: true });
@@ -748,24 +732,21 @@ async function main() {
   // blocking predicate of validate:translation-completeness.
   {
     const { jobs: repairedJobs, enriched } = repairShortDescriptions(dataJobs);
+    dataJobs = repairedJobs;
     if (enriched > 0) {
-      dataJobs = repairedJobs;
       writeJson(DATA_JOBS_PATH, dataJobs);
       // Keep public copy in sync without reading either large file back into a string.
       writeJson(PUBLIC_JOBS_PATH, dataJobs);
       console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
     }
   }
+  localeReportJobs = dataJobs;
 
   // Housekeeping must stay fast and deterministic: missing-locale translation
   // belongs to dedicated crawler localization or the explicit relocalize job,
   // not to the final cleanup pass that runs after every crawler.
   if (String(process.env.JOBS_HOUSEKEEPING_TRANSLATE_MISSING || '0') === '1') {
     console.log('ℹ️  Housekeeping locale translation explicitly enabled via JOBS_HOUSEKEEPING_TRANSLATE_MISSING=1');
-  }
-
-  if (!Array.isArray(dataJobs)) {
-    throw new Error('jobs.json must be an array');
   }
 
   // Use data/ as source of truth, but ensure public/ stays in sync.
@@ -930,6 +911,7 @@ async function main() {
   }
 
   const finalJobs = HOUSEKEEPING_SCOPE ? [...untouchedJobs, ...kept] : kept;
+  localeReportJobs = finalJobs;
 
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
@@ -962,20 +944,22 @@ main()
   .then(() => {
     // Dataset mode only, and after main() on EVERY exit path — including the
     // early return when nothing was removed, which skips the final writes.
-    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
-    // build) and name, per crawler, the records the dist gate
+    // Reuse the prepared in-memory dataset (the exact data/jobs.json content
+    // written by cleanup) and name, per crawler, the records the dist gate
     // validate:translation-completeness would block. Report only: no record
     // is removed and the exit code does not change (see the module header).
     if (!SLICE_FILE) {
       // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
-      const reparseStartedAt = performance.now();
+      const reportStartedAt = performance.now();
       try {
-        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, jobs: localeReportJobs, slicesDir: ACTIVE_SLICES_DIR });
       } finally {
         try {
           // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
           const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
-          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          const seconds = ((performance.now() - reportStartedAt) / 1000).toFixed(1);
+          // Keep the "reparse" telemetry token stable for the existing CI contract.
+          // This now measures the in-memory report path without rereading jobs.json.
           console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
         } catch {
           /* the probe must never change the outcome or the exit code */
