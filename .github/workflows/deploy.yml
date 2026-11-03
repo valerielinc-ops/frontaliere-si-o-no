@@ -1051,7 +1051,7 @@ jobs:
         continue-on-error: true
         with:
           path: .cache/og-jobs
-          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
+          key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
 
       - name: Build profile summary
         if: always()
