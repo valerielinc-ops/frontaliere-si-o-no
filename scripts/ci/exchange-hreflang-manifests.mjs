@@ -39,7 +39,9 @@
  *     as an unknown member, or one shard would publish a different graph.
  *
  * Usage (env: GH_TOKEN, GH_REPO, HREFlANG_RUN_ID, HREFlANG_RUN_ATTEMPT,
- * HREFlANG_BUILD_LOCALE, HREFlANG_JOB_START_EPOCH):
+ * HREFlANG_BUILD_LOCALE, HREFlANG_JOB_START_EPOCH, optional
+ * HREFLANG_QUOTA_REVERT_THRESHOLD, HREFLANG_QUOTA_REVERT_POLL_MS,
+ * HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT):
  *   node scripts/ci/exchange-hreflang-manifests.mjs
  *     [--manifest-dir .cache/hreflang-index-manifest]
  */
@@ -62,6 +64,13 @@ export const BARRIER_JOB_ELAPSED_MS = 260 * 60_000;
 export const DEFAULT_POLL_MS = 30_000;
 // Shared by the three downloads, so the step has one known upper bound.
 export const DEFAULT_DOWNLOAD_BUDGET_MS = 20 * 60_000;
+// Three explicit rate-limit poll failures are enough evidence to stop spending
+// the fast polling budget. The fallback is deliberately slower and bounded by
+// the same job deadline; it protects the shared GitHub API token without
+// turning a transient response into a successful exchange.
+export const HREFLANG_QUOTA_REVERT_THRESHOLD = 3;
+export const HREFLANG_QUOTA_REVERT_POLL_MS = 2 * 60_000;
+export const HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT = 10;
 
 const BACKOFF_BASE_MS = 5_000;
 const BACKOFF_MAX_MS = 60_000;
@@ -84,15 +93,91 @@ function describeError(error) {
   return detail.split('\n').map((line) => line.trim()).filter(Boolean).at(-1) || 'unknown error';
 }
 
-async function isPublished({ gh, repo, runId, name }) {
+function isRateLimitSnapshot(value) {
+  return Number.isSafeInteger(value?.remaining)
+    && value.remaining >= 0
+    && Number.isSafeInteger(value?.limit)
+    && value.limit > 0;
+}
+
+/** Parse `gh api --include` without treating response headers as JSON. */
+export function parseGhApiResponse(output) {
+  const text = String(output ?? '');
+  const statuses = [...text.matchAll(/^HTTP\/\S+[^\r\n]*$/gm)];
+  if (statuses.length === 0) return { body: text, rateLimit: null };
+
+  const start = statuses.at(-1).index ?? 0;
+  const response = text.slice(start);
+  const separator = response.match(/\r?\n\r?\n/);
+  if (!separator || separator.index === undefined) return { body: text, rateLimit: null };
+
+  const headerText = response.slice(0, separator.index);
+  const headers = new Map();
+  for (const line of headerText.split(/\r?\n/).slice(1)) {
+    const colon = line.indexOf(':');
+    if (colon <= 0) continue;
+    headers.set(line.slice(0, colon).trim().toLowerCase(), line.slice(colon + 1).trim());
+  }
+  const remaining = Number(headers.get('x-ratelimit-remaining'));
+  const limit = Number(headers.get('x-ratelimit-limit'));
+  const rateLimit = isRateLimitSnapshot({ remaining, limit }) ? { remaining, limit } : null;
+  return {
+    body: response.slice(separator.index + separator[0].length),
+    rateLimit,
+  };
+}
+
+function normalizeGhResponse(response) {
+  if (typeof response === 'string') return { body: response, rateLimit: null };
+  if (response && typeof response.body === 'string') return response;
+  return { body: String(response ?? ''), rateLimit: null };
+}
+
+function rateLimitFromError(error) {
+  if (isRateLimitSnapshot(error?.rateLimit)) return error.rateLimit;
+  const stdout = parseGhApiResponse(error?.stdout).rateLimit;
+  if (stdout) return stdout;
+  return parseGhApiResponse(error?.stderr).rateLimit;
+}
+
+export function isRateLimitError(error) {
+  const detail = [error?.message, error?.stderr, error?.stdout]
+    .filter(Boolean)
+    .join('\n')
+    .toLowerCase();
+  return /\b(?:api\s+)?rate[- ]limit(?:ed|ing)?\b|\bsecondary\s+rate[- ]limit\b|\babuse[- ]detection\b|\bhttp\s+429\b/.test(detail);
+}
+
+async function readGhJson({ gh, args, timeoutMs, onRateLimit }) {
+  try {
+    const response = normalizeGhResponse(await gh(args, timeoutMs));
+    onRateLimit?.(response.rateLimit);
+    return JSON.parse(response.body);
+  } catch (error) {
+    onRateLimit?.(rateLimitFromError(error));
+    throw error;
+  }
+}
+
+async function isPublished({ gh, repo, runId, name, onRateLimit }) {
   const url = `repos/${repo}/actions/runs/${runId}/artifacts?name=${encodeURIComponent(name)}`;
-  const { artifacts = [] } = JSON.parse(await gh(['api', '-X', 'GET', url], API_TIMEOUT_MS));
+  const { artifacts = [] } = await readGhJson({
+    gh,
+    args: ['api', '-X', 'GET', url],
+    timeoutMs: API_TIMEOUT_MS,
+    onRateLimit,
+  });
   return artifacts.some((artifact) => artifact?.name === name && artifact?.expired === false);
 }
 
-async function readJobs({ gh, repo, runId }) {
+async function readJobs({ gh, repo, runId, onRateLimit }) {
   const url = `repos/${repo}/actions/runs/${runId}/jobs?filter=latest&per_page=100`;
-  const { jobs = [] } = JSON.parse(await gh(['api', '-X', 'GET', url], API_TIMEOUT_MS));
+  const { jobs = [] } = await readGhJson({
+    gh,
+    args: ['api', '-X', 'GET', url],
+    timeoutMs: API_TIMEOUT_MS,
+    onRateLimit,
+  });
   return jobs;
 }
 
@@ -113,17 +198,110 @@ function manifestAttemptOf(locale, jobs, runAttempt) {
     : String(runAttempt);
 }
 
-async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published }) {
+async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published, onRateLimit }) {
   for (const locale of MANIFEST_LOCALES) {
     // Decided on every poll: a job list can show a rerun only after the first read.
     const attempt = manifestAttemptOf(locale, jobs, runAttempt);
     if (published.get(locale) === attempt) continue;
     published.delete(locale);
     const name = manifestArtifactName(locale, runId, attempt);
-    if (!(await isPublished({ gh, repo, runId, name }))) return locale;
+    if (!(await isPublished({ gh, repo, runId, name, onRateLimit }))) return locale;
     published.set(locale, attempt);
   }
   return null;
+}
+
+function createQuotaGuard({
+  pollMs,
+  revertPollMs,
+  revertThreshold,
+  remainingFloorPercent,
+  log,
+}) {
+  if (!Number.isSafeInteger(pollMs) || pollMs <= 0) {
+    throw new ManifestExchangeError(`invalid hreflang poll interval: ${pollMs}`);
+  }
+  if (!Number.isSafeInteger(revertPollMs) || revertPollMs <= pollMs) {
+    throw new ManifestExchangeError(`invalid hreflang quota revert poll interval: ${revertPollMs}`);
+  }
+  if (!Number.isSafeInteger(revertThreshold) || revertThreshold < 3) {
+    throw new ManifestExchangeError(`invalid hreflang quota revert threshold: ${revertThreshold}`);
+  }
+  if (!Number.isSafeInteger(remainingFloorPercent) || remainingFloorPercent <= 0 || remainingFloorPercent >= 100) {
+    throw new ManifestExchangeError(`invalid hreflang quota remaining floor: ${remainingFloorPercent}`);
+  }
+
+  let currentPollMs = pollMs;
+  let polls = 0;
+  let rateLimitWarnings = 0;
+  let latestRateLimit = null;
+  let reverted = false;
+  let revertReason = null;
+
+  const revertPolling = (reason) => {
+    if (reverted) return;
+    reverted = true;
+    revertReason = reason;
+    currentPollMs = revertPollMs;
+    log(`::warning::same-run hreflang quota guard activated: ${reason}; polling ${pollMs}ms -> ${currentPollMs}ms`);
+  };
+
+  return {
+    recordPoll() {
+      polls += 1;
+    },
+    observeRateLimit(snapshot) {
+      if (!isRateLimitSnapshot(snapshot)) return;
+      latestRateLimit = snapshot;
+      const percent = (snapshot.remaining / snapshot.limit) * 100;
+      if (percent < remainingFloorPercent) {
+        revertPolling(
+          `x-ratelimit-remaining=${snapshot.remaining}/${snapshot.limit} (${percent.toFixed(2)}%) < ${remainingFloorPercent}%`,
+        );
+      }
+    },
+    recordRateLimitWarning(detail) {
+      rateLimitWarnings += 1;
+      if (rateLimitWarnings >= revertThreshold) {
+        revertPolling(`${rateLimitWarnings} rate-limit barrier poll warnings (threshold ${revertThreshold})`);
+      }
+      return detail;
+    },
+    pollInterval() {
+      return currentPollMs;
+    },
+    summary() {
+      const remainingPercent = latestRateLimit
+        ? (latestRateLimit.remaining / latestRateLimit.limit) * 100
+        : null;
+      return {
+        polls,
+        rateLimitWarnings,
+        revertThreshold,
+        remainingFloorPercent,
+        latestRateLimitRemaining: latestRateLimit?.remaining ?? null,
+        latestRateLimitLimit: latestRateLimit?.limit ?? null,
+        latestRateLimitPercent: remainingPercent === null ? null : Number(remainingPercent.toFixed(2)),
+        pollingReverted: reverted,
+        revertReason,
+        pollMs,
+        activePollMs: currentPollMs,
+        revertPollMs,
+      };
+    },
+  };
+}
+
+function emitQuotaTelemetry({ quota, log, summaryFile }) {
+  const summary = quota.summary();
+  const serialized = JSON.stringify(summary);
+  log(`::notice::same-run hreflang quota telemetry: ${serialized}`);
+  if (!summaryFile) return;
+  try {
+    fs.appendFileSync(summaryFile, `### Same-run hreflang quota telemetry\n\n\`\`\`json\n${serialized}\n\`\`\`\n`);
+  } catch (error) {
+    log(`::warning::same-run hreflang quota telemetry summary unavailable: ${describeError(error)}`);
+  }
 }
 
 // Only this attempt counts: on a rerun an older failed entry can still be the
@@ -151,38 +329,69 @@ export async function waitForManifestSet({
   runAttempt,
   deadline,
   pollMs = DEFAULT_POLL_MS,
+  quotaRevertThreshold = HREFLANG_QUOTA_REVERT_THRESHOLD,
+  quotaRevertPollMs = HREFLANG_QUOTA_REVERT_POLL_MS,
+  quotaRemainingFloorPercent = HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT,
   now = Date.now,
   sleep,
   log = console.log,
+  quotaSummaryFile,
 }) {
+  const quota = createQuotaGuard({
+    pollMs,
+    revertPollMs: quotaRevertPollMs,
+    revertThreshold: quotaRevertThreshold,
+    remainingFloorPercent: quotaRemainingFloorPercent,
+    log,
+  });
   const published = new Map();
   let waitingFor = 'the first poll';
-  for (;;) {
-    try {
-      const jobs = await readJobs({ gh, repo, runId });
-      const missing = await firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published });
-      if (missing === null) {
-        log('✓ complete same-run hreflang manifest set is available');
-        return published;
+  try {
+    for (;;) {
+      quota.recordPoll();
+      try {
+        const jobs = await readJobs({
+          gh,
+          repo,
+          runId,
+          onRateLimit: (snapshot) => quota.observeRateLimit(snapshot),
+        });
+        const missing = await firstMissingLocale({
+          gh,
+          repo,
+          runId,
+          runAttempt,
+          jobs,
+          published,
+          onRateLimit: (snapshot) => quota.observeRateLimit(snapshot),
+        });
+        if (missing === null) {
+          log('✓ complete same-run hreflang manifest set is available');
+          return published;
+        }
+        waitingFor = missing;
+        // A sibling that has terminated cannot publish its manifest. Stop now, so
+        // the rearm job classifies the failed leg itself instead of three
+        // misleading barrier timeouts after the readiness budget expires.
+        const failed = terminatedLocaleJob(jobs, runAttempt);
+        if (failed) {
+          throw new ManifestExchangeError(
+            `same-run hreflang manifest barrier aborted: ${failed} terminated before publishing its manifest`,
+          );
+        }
+      } catch (error) {
+        if (error instanceof ManifestExchangeError) throw error;
+        const detail = describeError(error);
+        if (isRateLimitError(error)) quota.recordRateLimitWarning(detail);
+        log(`::warning::same-run hreflang manifest barrier poll failed: ${detail}`);
       }
-      waitingFor = missing;
-      // A sibling that has terminated cannot publish its manifest. Stop now, so
-      // the rearm job classifies the failed leg itself instead of three
-      // misleading barrier timeouts after the readiness budget expires.
-      const failed = terminatedLocaleJob(jobs, runAttempt);
-      if (failed) {
-        throw new ManifestExchangeError(
-          `same-run hreflang manifest barrier aborted: ${failed} terminated before publishing its manifest`,
-        );
+      if (now() >= deadline) {
+        throw new ManifestExchangeError(`same-run hreflang manifest barrier timed out waiting for ${waitingFor}`);
       }
-    } catch (error) {
-      if (error instanceof ManifestExchangeError) throw error;
-      log(`::warning::same-run hreflang manifest barrier poll failed: ${describeError(error)}`);
+      await sleep(quota.pollInterval());
     }
-    if (now() >= deadline) {
-      throw new ManifestExchangeError(`same-run hreflang manifest barrier timed out waiting for ${waitingFor}`);
-    }
-    await sleep(pollMs);
+  } finally {
+    emitQuotaTelemetry({ quota, log, summaryFile: quotaSummaryFile });
   }
 }
 
@@ -264,10 +473,14 @@ export async function exchangeHreflangManifests({
   jobStartEpoch,
   barrierJobElapsedMs = BARRIER_JOB_ELAPSED_MS,
   pollMs = DEFAULT_POLL_MS,
+  quotaRevertThreshold = HREFLANG_QUOTA_REVERT_THRESHOLD,
+  quotaRevertPollMs = HREFLANG_QUOTA_REVERT_POLL_MS,
+  quotaRemainingFloorPercent = HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT,
   downloadBudgetMs = DEFAULT_DOWNLOAD_BUDGET_MS,
   now = Date.now,
   sleep = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); }),
   log = console.log,
+  quotaSummaryFile,
 }) {
   if (!MANIFEST_LOCALES.includes(buildLocale)) {
     throw new ManifestExchangeError(`unknown hreflang build locale: ${buildLocale || '<missing>'}`);
@@ -286,9 +499,13 @@ export async function exchangeHreflangManifests({
     runAttempt,
     deadline: jobStartMs + barrierJobElapsedMs,
     pollMs,
+    quotaRevertThreshold,
+    quotaRevertPollMs,
+    quotaRemainingFloorPercent,
     now,
     sleep,
     log,
+    quotaSummaryFile,
   });
 
   fs.mkdirSync(manifestDir, { recursive: true });
@@ -302,12 +519,32 @@ export async function exchangeHreflangManifests({
 }
 
 async function runGh(args, timeoutMs) {
-  const { stdout } = await execFileAsync('gh', args, {
-    encoding: 'utf8',
-    timeout: timeoutMs,
-    maxBuffer: GH_MAX_BUFFER_BYTES,
-  });
-  return stdout;
+  const api = args[0] === 'api';
+  const command = api ? ['api', '--include', ...args.slice(1)] : args;
+  try {
+    const { stdout } = await execFileAsync('gh', command, {
+      encoding: 'utf8',
+      timeout: timeoutMs,
+      maxBuffer: GH_MAX_BUFFER_BYTES,
+    });
+    return api ? parseGhApiResponse(stdout) : stdout;
+  } catch (error) {
+    if (api) {
+      const rateLimit = rateLimitFromError(error);
+      if (rateLimit) error.rateLimit = rateLimit;
+    }
+    throw error;
+  }
+}
+
+function parseIntegerEnv(name, fallback, { min, max }) {
+  const raw = process.env[name];
+  if (raw === undefined || raw === '') return fallback;
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value) || value < min || value > max) {
+    throw new ManifestExchangeError(`invalid ${name}: ${raw}`);
+  }
+  return value;
 }
 
 function parseArgs(argv) {
@@ -330,6 +567,22 @@ if (isInvokedDirectly(import.meta.url)) {
       buildLocale: process.env.HREFlANG_BUILD_LOCALE,
       jobStartEpoch: process.env.HREFlANG_JOB_START_EPOCH,
       manifestDir: path.resolve(manifestDir),
+      quotaRevertThreshold: parseIntegerEnv(
+        'HREFLANG_QUOTA_REVERT_THRESHOLD',
+        HREFLANG_QUOTA_REVERT_THRESHOLD,
+        { min: 3, max: 100 },
+      ),
+      quotaRevertPollMs: parseIntegerEnv(
+        'HREFLANG_QUOTA_REVERT_POLL_MS',
+        HREFLANG_QUOTA_REVERT_POLL_MS,
+        { min: DEFAULT_POLL_MS + 1, max: 15 * 60_000 },
+      ),
+      quotaRemainingFloorPercent: parseIntegerEnv(
+        'HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT',
+        HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT,
+        { min: 1, max: 99 },
+      ),
+      quotaSummaryFile: process.env.GITHUB_STEP_SUMMARY,
     });
   } catch (error) {
     if (!(error instanceof ManifestExchangeError)) throw error;

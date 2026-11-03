@@ -1311,6 +1311,15 @@ jobs:
           HREFlANG_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
           HREFlANG_RUN_ID: ${{ github.run_id }}
           HREFlANG_RUN_ATTEMPT: ${{ github.run_attempt }}
+          # Keep the normal 30s barrier cheap, but automatically move to a
+          # bounded 2m interval after three explicit API rate-limit warnings or
+          # when the observed x-ratelimit-remaining headroom falls below 10%.
+          # The exchange script records both the trigger and final snapshot in
+          # the step summary; this is a reversible quota guard, not a relaxed
+          # manifest correctness check.
+          HREFLANG_QUOTA_REVERT_THRESHOLD: '3'
+          HREFLANG_QUOTA_REVERT_POLL_MS: '120000'
+          HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT: '10'
         run: node scripts/ci/exchange-hreflang-manifests.mjs --manifest-dir .cache/hreflang-index-manifest
 
       # Every decision is taken before the first rename. A read, write or

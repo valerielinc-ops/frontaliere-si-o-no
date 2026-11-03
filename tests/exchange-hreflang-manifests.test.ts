@@ -11,6 +11,7 @@ import {
   ManifestExchangeError,
   exchangeHreflangManifests,
   manifestArtifactName,
+  parseGhApiResponse,
 } from '../scripts/ci/exchange-hreflang-manifests.mjs';
 
 /**
@@ -37,6 +38,9 @@ function fakeGh({
   jobs = [] as Array<{ name: string; conclusion: string | null; run_attempt?: number }>,
   download = {} as Record<string, Array<Error | string>>,
   list = undefined as undefined | ((url: string) => unknown),
+  rateLimit = undefined as undefined
+    | { remaining: number; limit: number }
+    | ((url: string) => { remaining: number; limit: number } | undefined),
 } = {}) {
   const calls: string[][] = [];
   const gh = async (args: string[], timeoutMs: number) => {
@@ -45,13 +49,19 @@ function fakeGh({
     if (args[0] === 'api') {
       const url = args.at(-1) as string;
       const override = list?.(url);
-      if (override !== undefined) return JSON.stringify(override);
-      if (url.includes('/jobs?')) return JSON.stringify({ jobs });
-      const name = decodeURIComponent(url.split('name=')[1]);
-      const locale = name.split('-')[3];
-      return JSON.stringify({
-        artifacts: published.includes(locale) ? [{ name, expired: false }] : [],
-      });
+      const body = override !== undefined
+        ? JSON.stringify(override)
+        : url.includes('/jobs?')
+          ? JSON.stringify({ jobs })
+          : (() => {
+            const name = decodeURIComponent(url.split('name=')[1]);
+            const locale = name.split('-')[3];
+            return JSON.stringify({
+              artifacts: published.includes(locale) ? [{ name, expired: false }] : [],
+            });
+          })();
+      const snapshot = typeof rateLimit === 'function' ? rateLimit(url) : rateLimit;
+      return snapshot ? { body, rateLimit: snapshot } : body;
     }
     const name = args[args.indexOf('--name') + 1];
     const dir = args[args.indexOf('--dir') + 1];
@@ -359,6 +369,69 @@ describe('exchangeHreflangManifests', () => {
     expect(written()).toHaveLength(3);
   });
 
+  it('switches to the bounded fallback interval after three rate-limit poll warnings', async () => {
+    let failures = 3;
+    const delays: number[] = [];
+    const { gh } = fakeGh({
+      list: () => {
+        if (failures > 0) {
+          failures -= 1;
+          throw Object.assign(new Error('API rate limit exceeded'), {
+            stderr: 'HTTP 403: API rate limit exceeded',
+          });
+        }
+        return undefined;
+      },
+    });
+    await exchangeHreflangManifests({
+      ...base(),
+      gh,
+      pollMs: 10,
+      quotaRevertThreshold: 3,
+      quotaRevertPollMs: 40,
+      sleep: async (ms: number) => { delays.push(ms); clock += ms; },
+    });
+    expect(delays).toEqual([10, 10, 40]);
+    expect(logs.some((line) => line.includes('3 rate-limit barrier poll warnings'))).toBe(true);
+    expect(logs.some((line) => line.includes('"rateLimitWarnings":3') && line.includes('"pollingReverted":true'))).toBe(true);
+  });
+
+  it('switches immediately when an API response leaves less than ten percent of quota', async () => {
+    const published = ['it', 'en', 'fr'];
+    const delays: number[] = [];
+    const { gh } = fakeGh({
+      published,
+      rateLimit: { remaining: 9, limit: 100 },
+    });
+    await exchangeHreflangManifests({
+      ...base(),
+      gh,
+      pollMs: 10,
+      quotaRevertPollMs: 40,
+      sleep: async (ms: number) => {
+        delays.push(ms);
+        clock += ms;
+        published.push('de');
+      },
+    });
+    expect(delays).toEqual([40]);
+    expect(logs.some((line) => line.includes('x-ratelimit-remaining=9/100'))).toBe(true);
+    expect(logs.some((line) => line.includes('"latestRateLimitRemaining":9') && line.includes('"latestRateLimitLimit":100'))).toBe(true);
+  });
+
+  it('extracts x-ratelimit headers while leaving the JSON body parseable', () => {
+    expect(parseGhApiResponse([
+      'HTTP/2.0 200 OK',
+      'x-ratelimit-limit: 5000',
+      'x-ratelimit-remaining: 499',
+      '',
+      '{"jobs":[]}',
+    ].join('\r\n'))).toEqual({
+      body: '{"jobs":[]}',
+      rateLimit: { limit: 5000, remaining: 499 },
+    });
+  });
+
   it('waits for the healthy locale skew observed in run 41119148516', async () => {
     const start = clock;
     // The first and last manifests were published 62m04s apart. All producer
@@ -531,6 +604,9 @@ describe('deploy.yml hreflang manifest exchange', () => {
     expect(Object.keys(exchange.env ?? {})).toEqual(expect.arrayContaining([
       'GH_TOKEN', 'GH_REPO', 'HREFlANG_BUILD_LOCALE', 'HREFlANG_JOB_START_EPOCH', 'HREFlANG_RUN_ID', 'HREFlANG_RUN_ATTEMPT',
     ]));
+    expect(exchange.env?.HREFLANG_QUOTA_REVERT_THRESHOLD).toBe('3');
+    expect(exchange.env?.HREFLANG_QUOTA_REVERT_POLL_MS).toBe('120000');
+    expect(exchange.env?.HREFLANG_QUOTA_REMAINING_FLOOR_PERCENT).toBe('10');
     expect(exchange['continue-on-error']).toBeUndefined();
     expect((exchange['timeout-minutes'] ?? 0) * MINUTE).toBeGreaterThan(BARRIER_JOB_ELAPSED_MS + DEFAULT_DOWNLOAD_BUDGET_MS);
     expect(exchange['timeout-minutes']).toBeLessThan(YAML.parse(raw).jobs['build-locale']['timeout-minutes']);
