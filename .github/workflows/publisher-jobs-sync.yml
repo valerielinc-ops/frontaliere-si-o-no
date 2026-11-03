@@ -34,9 +34,15 @@ jobs:
     # assemble+push workflow on a 30-min schedule, i.e. the highest exposure
     # to main-write contention of any caller. Run 32240349433 (issue #5620):
     # Checkout 3m07s + Validate 4m29s + push retry still unconverged at
-    # 7m10s when the 15-min cap cancelled it. 25min matches the same-shape
-    # sibling refresh-employer-profiles.yml.
-    timeout-minutes: 25
+    # 7m10s when the 15-min cap cancelled it. The current full checkout is
+    # intentional: the assembly gate reads every committed job slice, and the
+    # measured sparse profile is slower above its crossover. Run 41701160354
+    # (2026-11-03) spent 12m19s in Checkout plus 6m54s in validation, then was
+    # cancelled 4m50s into the push-retry step at the 25-minute cap. 35min
+    # preserves the full validation gate and leaves roughly 15min for the
+    # bounded main-writer retry loop after that observed pre-push cost; a
+    # timeout here otherwise drops a valid paid-ad delta.
+    timeout-minutes: 35
 
     steps:
       - name: Checkout
