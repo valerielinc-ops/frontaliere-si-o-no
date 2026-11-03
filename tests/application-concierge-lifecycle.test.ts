@@ -433,12 +433,22 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(deliveries).toEqual(['renewal_day_0', 'renewal_day_1', 'renewal_day_2']);
     expect(match).not.toHaveBeenCalled();
   });
-  it.each(['it', 'en', 'de', 'fr'])('renders the fixed deadline, branded layout and opt-out in %s', locale => {
+  it.each([
+    ['it', 'circa il 25%', '72 ore'],
+    ['en', 'about 25%', '72 hours'],
+    ['de', 'rund 25 %', '72 Stunden'],
+    ['fr', 'environ 25 %', '72 heures'],
+  ])('renders the fixed deadline, 25% savings hook, branded layout and opt-out in %s', (locale, savingsHook, offerWindow) => {
     const email = buildConciergeRenewalEmail(active({ expiresAt: now, locale }), 'service', { nowMs: now, unsubscribeUrl: 'https://example.test/unsubscribe/' });
     expect(email.html).toContain('https://example.test/unsubscribe/');
     expect(email.text).toMatch(/29[,.]99/);
+    expect(email.text).toContain(savingsHook);
+    expect(email.text).toContain(offerWindow);
+    expect(email.html).toContain(savingsHook);
     expect(email.html).toContain('application_concierge_renewal=1');
     expect(email.headers['List-Unsubscribe-Post']).toBe('List-Unsubscribe=One-Click');
+    const finalReminder = buildConciergeRenewalEmail(active({ expiresAt: now, locale }), 'service', { nowMs: now + 2 * DAY, unsubscribeUrl: 'https://example.test/unsubscribe/' });
+    expect(finalReminder.subject).toMatch(/25\s?%/);
     expect(() => buildConciergeRenewalEmail(active({ expiresAt: now - 3 * DAY }), 'service', { nowMs: now, unsubscribeUrl: 'https://example.test/unsubscribe/' })).toThrow('concierge_renewal_offer_expired');
   });
 });
