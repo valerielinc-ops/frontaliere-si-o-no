@@ -159,6 +159,7 @@ async function submitApplication(context: Record<string, any>) {
       claim: async () => ({ status: 'claimed', attemptId: 'test-attempt' }),
       markClicked: async () => {},
       markSent: async () => null,
+      validateAnswerSources: async () => true,
       release: async () => {},
     },
   });
@@ -811,10 +812,19 @@ describe('submit mode', () => {
       codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(db, ORDER_ID, 1),
     });
     const sent = createMemoryFirestore();
-    const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) }); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
+    const clicksAndSends = vi.fn(async (ctx: any) => {
+      const finalUrl = 'https://jobs.lever.co/ospedale/1/confirmation';
+      await ctx.onBeforeSubmit({ formBinding: 'a'.repeat(64) });
+      await ctx.onReceipt({ finalUrl });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], finalUrl } };
+    });
     expect(await submit(sent.db, clicksAndSends)).toMatchObject({ type: 'submit_succeeded', channel: 'lever' });
     // The replay hands over the record of the first send, as the e-mail's does.
-    expect(await submit(sent.db, clicksAndSends)).toEqual({ type: 'submit_succeeded', channel: 'lever', replayed: true, sent: expect.objectContaining({ packaging: 'portal', channel: 'lever', files: [] }) });
+    expect(await submit(sent.db, clicksAndSends)).toEqual({
+      type: 'submit_succeeded', channel: 'lever', replayed: true,
+      receiptId: expect.stringMatching(/^[a-f0-9]{40}$/),
+      sent: expect.objectContaining({ packaging: 'portal', channel: 'lever', files: [] }),
+    });
     expect(clicksAndSends).toHaveBeenCalledTimes(1);
 
     // Died after pressing submit: the outcome is unknown, the retry does not press it again.

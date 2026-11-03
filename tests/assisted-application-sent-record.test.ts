@@ -259,7 +259,9 @@ describe('what leaves by e-mail, and the record of it', () => {
     await keepSentRecord(event, { draftRef, dryRun: false });
     expect(store.read(`${BASE}/ai_drafts/current`)).toMatchObject({ sent, sentAttempt: null });
     // Nothing of the candidate in the event the runner reports, nor in its log.
-    expect(event).toEqual({ type: 'submit_succeeded', channel: 'email' });
+    expect(event).toEqual({
+      type: 'submit_succeeded', channel: 'email', receiptId: expect.stringMatching(/^[a-f0-9]{40}$/),
+    });
     expect(lines.length).toBeGreaterThan(0);
     for (const text of [...lines, JSON.stringify(event)]) expect(text).not.toMatch(/Maria|Rossi/);
   }, 60_000);
@@ -398,7 +400,12 @@ describe('what a portal and WhatsApp received', () => {
   it('records the files the form’s fields received, keeps the letter, and hands the record over on a replay', async () => {
     const store = createMemoryFirestore();
     const bucket = fakeBucket();
-    const runner = vi.fn(async () => ({ event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED } }));
+    const runner = vi.fn(async (ctx: any) => {
+      const finalUrl = 'https://jobs.lever.co/spital/1/confirmation';
+      await ctx.onBeforeSubmit({ uploads: UPLOADED, formBinding: 'f'.repeat(64) });
+      await ctx.onReceipt({ finalUrl });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED, finalUrl } };
+    });
     const run = () => submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner, submissionGuard: submissionGuard(store.db, ORDER, 1) });
     const event: any = await run();
     expect(event.sent).toMatchObject({ at: NOW, channel: 'lever', packaging: 'portal', letterRenderer: 'typst', letterKey: SENT_KEY('letter') });
@@ -437,7 +444,10 @@ describe('what a portal and WhatsApp received', () => {
       bucket, codex: vi.fn(), portalRunner: vi.fn(),
     });
     const sent = { at: NOW, channel: 'whatsapp', packaging: 'whatsapp', reason: 'default', ad: '', adCue: '', documentsGrouped: false, documentsReason: null, pages: null, bytes: null, letterRenderer: null, letterKey: null, files: [] };
-    expect(event).toEqual({ type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: PASTA, sent });
+    expect(event).toEqual({
+      type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: PASTA,
+      receiptId: expect.stringMatching(/^[a-f0-9]{40}$/), sent,
+    });
     expect(evidence(bucket, 'submit-whatsapp').sent).toEqual(sent);
   }, 60_000);
 });
