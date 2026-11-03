@@ -109,3 +109,16 @@ trasportare snapshot del supporto e markup host nel corpus. Confermare gli URL
 delle immagini e gli hash dei componenti pubblicati prima di attivare `auto`.
 Il rollback del test è `control`; loader e richieste Google restano attivi.
 Il template Remote Config conserva tutte le chiavi estranee alla campagna.
+
+Le foto appartengono all’offload `images/job-search-campaign/`: staging, offload,
+helper CDN e regola Cloudflare `Offloaded images -> CDN` condividono il prefisso.
+Il publish R2 copia questo insieme prima degli asset eseguibili; un errore
+interrompe la pubblicazione del codice e dei marker. La regola mantiene
+raggiungibili anche gli URL apex emessi da runtime già live.
+Prima del publish, il preflight verifica presenza, dimensione e SHA-256 di ogni
+file del manifest: directory assenti, copie parziali e byte errati sono errori.
+Per recuperare una pubblicazione parziale, caricare le foto del manifest con
+`scripts/lib/upload-cdn-file.sh`, verificare SHA-256 e Content-Type via GET sul
+CDN, applicare la regola esistente con `scripts/ensure-image-cdn-redirect.mjs`
+dopo il dry-run e verificare gli stessi byte agli URL apex. Non pubblicare nuovo
+HTML e non attivare il test se una fotografia manca.
