@@ -586,7 +586,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'weisse-arena': '/images/brands/weisse-arena.png',
  'wuerth-international': gFavicon('wurth.com'),
  'zambon': cLogo('zambon.com'),
- 'zaugg': cLogo('zaugg.swiss'),
+ 'zaugg': '/images/brands/zaugg.png',
  'zucchetti-switzerland': gFavicon('zucchetti.com'),
  'zuger-kantonsspital': cLogo('zgks.ch'),
  'zurich-insurance': cLogo('zurichinsurance.ch'),

@@ -136,8 +136,24 @@ export const DOMAIN_OVERRIDES = {
   'proman-fleurier': ['proman-group.ch'],
   switch: ['switch.ch'],
   wokin: ['wokin.ch'],
+  // Keep both the canonical and legacy keys source-backed while the audit
+  // reconciles historical records to the canonical `zaugg` identity.
+  zaugg: ['zaugg.swiss'],
   'zaugg-ag': ['zaugg.swiss'],
 };
+
+// The public homepage exposes a 32px site mark and its lazy-loaded markup can
+// end without a usable icon in strict audit mode. The media page publishes the
+// verified ZAUGG Group logo on the employer's own domain; use it as an
+// explicit acquisition source, never as a runtime URL.
+export const VERIFIED_LOGO_SOURCE_URLS = Object.freeze({
+  zaugg: Object.freeze([
+    'https://www.zaugg.swiss/cache/files/4ec575c09db3768f7a95e732a05217ce8a2c2956.png',
+  ]),
+  'zaugg-ag': Object.freeze([
+    'https://www.zaugg.swiss/cache/files/4ec575c09db3768f7a95e732a05217ce8a2c2956.png',
+  ]),
+});
 
 export function normalizeDomain(value) {
   let raw = String(value || '').trim().toLowerCase();
