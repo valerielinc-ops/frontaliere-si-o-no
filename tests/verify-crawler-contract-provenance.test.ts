@@ -70,7 +70,8 @@ describe('crawler contract provenance verifier', () => {
     assert.equal(result.artifacts[0].remoteSha256, digest(LOCAL_BYTES));
     assert.equal(requests.length, 1);
     assert.match(requests[0].url, new RegExp(`ref=${CONTRACT.sourceCommit}$`));
-    assert.equal(requests[0].init.headers.Accept, 'application/vnd.github.raw');
+    const requestHeaders = requests[0].init.headers as Record<string, string>;
+    assert.equal(requestHeaders.Accept, 'application/vnd.github.raw');
   });
 
   it('verifyCrawlerContractProvenance reports a remote digest drift', async () => {
