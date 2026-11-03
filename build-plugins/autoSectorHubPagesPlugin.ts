@@ -2,7 +2,10 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import type { JobBoardLocale } from './jobBoardSeoPure';
-import type { SectorHubPublication } from '../data/sector-hub-publications';
+import type {
+  SectorHubPublication,
+  SectorPublicationLocale,
+} from '../data/sector-hub-publications';
 import {
   countAutoSectorHubEmployers,
   listIndexableAutoSectorHubLinks,
