@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { eligibilityRetryRef } from '../functions/src/applicationConciergeEligibilityRetry.js';
 
 vi.mock('firebase-admin/firestore', () => ({
@@ -25,7 +25,7 @@ vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   prepareConciergeEligibility: vi.fn(),
 }));
 
-const { approvedRolePreference, eligibilityRetryContext, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
+const { approvedRolePreference, eligibilityRetryContext, rankingFeaturesForJob, rankingFeedbackContext, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
 
 const SERVICE_ID = 'service-1';
 const SERVICE_PATH = `application_concierge_services/${SERVICE_ID}`;
@@ -70,6 +70,16 @@ function stubJobIndex(jobs: unknown[]) {
 }
 
 const matchingJob = { id: 'job-1', url: JOB_URL, title: 'IT Manager SAP', company: 'Example AG' };
+
+function serializeTransactions(store: ReturnType<typeof createMemoryFirestore>) {
+  const run = store.db.runTransaction.bind(store.db);
+  let queue = Promise.resolve();
+  store.db.runTransaction = (callback: (transaction: any) => Promise<unknown>) => {
+    const result = queue.then(() => run(callback));
+    queue = result.then(() => undefined, () => undefined);
+    return result;
+  };
+}
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -141,7 +151,7 @@ describe('application concierge proposal retention', () => {
     stubJobIndex([matchingJob]);
     const profile = store.read('user_cv_profiles/candidate-1')?.profile;
     const scanContext = createHash('sha256').update(JSON.stringify([
-      APPLICATION_CONCIERGE_MATCHING_VERSION, CV_KEY, profile,
+      'test-eligibility-v1', CV_KEY, profile,
     ])).digest('hex');
     const jobContext = eligibilityRetryContext(scanContext, { ...matchingJob, location: '' });
     const originalFingerprint = 'a'.repeat(64);
@@ -395,5 +405,72 @@ describe('application concierge proposal retention', () => {
     expect(approvedRolePreference(job, [{ status: 'accepted', jobTitle: 'IT Application Specialist' }])).toBe(8);
     expect(approvedRolePreference(job, [{ status: 'accepted', withdrawnAt: new Date(), jobTitle: 'IT Application Specialist' }])).toBe(0);
     expect(approvedRolePreference(job, [{ status: 'proposed', jobTitle: 'IT Application Specialist' }])).toBe(0);
+  });
+
+  it('keeps decline feedback local to its reason and makes reasonless declines weak', () => {
+    const sameRole = { title: 'IT Application Manager', location: 'Lugano', sector: 'technology' };
+    const roleDecline = [{ status: 'declined', jobTitle: 'IT Application Specialist', declineReason: 'role' }];
+    const reasonlessDecline = [{ status: 'declined', jobTitle: 'IT Application Specialist' }];
+    const otherRole = { title: 'Financial Controller', location: 'Lugano', sector: 'technology' };
+
+    expect(approvedRolePreference(sameRole, roleDecline)).toBe(-6);
+    expect(approvedRolePreference(sameRole, reasonlessDecline)).toBe(-1);
+    expect(approvedRolePreference(otherRole, roleDecline)).toBe(0);
+  });
+
+  it('persists ranking features as Firestore-safe arrays and only uses the three latest acceptances', () => {
+    const features = rankingFeaturesForJob({ title: 'IT Application Manager', location: 'Lugano' });
+    expect(features.role).toContain('application');
+    expect(Object.values(features).every(value => Array.isArray(value))).toBe(true);
+    const history = [
+      { status: 'accepted', jobTitle: 'IT Application Specialist', acceptedAt: new Date(1) },
+      { status: 'accepted', jobTitle: 'Financial Controller', acceptedAt: new Date(2) },
+      { status: 'accepted', jobTitle: 'Finance Analyst', acceptedAt: new Date(3) },
+      { status: 'accepted', jobTitle: 'Accountant', acceptedAt: new Date(4) },
+    ];
+    expect(approvedRolePreference({ title: 'IT Application Manager' }, history)).toBe(0);
+    expect(rankingFeedbackContext(history).accepted).toHaveLength(3);
+  });
+
+  it('keeps the open-proposal cap atomic across concurrent triggers and deduplicates a repeated listing', async () => {
+    const store = matchingFixture();
+    const secondOpenPath = `${SERVICE_PATH}/proposals/proposal-open-2`;
+    store.docs.set(secondOpenPath, { status: 'proposed', jobId: 'existing-2', jobUrl: 'https://jobs.example.test/existing-2' });
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, matchingOpenProposalCount: 2 });
+    serializeTransactions(store);
+    const firstJob = { id: 'job-new-1', url: 'https://jobs.example.test/new-1', title: 'IT Manager SAP', company: 'Example AG' };
+    const secondJob = { id: 'job-new-2', url: 'https://jobs.example.test/new-2', title: 'IT Manager SAP', company: 'Example AG' };
+    vi.stubGlobal('fetch', vi.fn(async (input: string) => ({
+      ok: true,
+      json: async () => String(input).endsWith('/first') ? [firstJob] : [secondJob],
+    })));
+    const eligibility = vi.fn(async () => ({ status: 'compatible' }));
+
+    await Promise.all([
+      runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/first', eligibility }),
+      runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/second', eligibility }),
+    ]);
+
+    const proposals = store.list(`${SERVICE_PATH}/proposals/`).map(path => store.read(path)!).filter(row => row.status === 'proposed');
+    expect(proposals).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(new Set(proposals.map(row => row.jobUrl)).size).toBe(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(store.read(SERVICE_PATH)?.matchingOpenProposalCount).toBe(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(proposals.filter(row => row.jobId.startsWith('job-new-'))).toHaveLength(1);
+
+    const duplicate = matchingFixture();
+    duplicate.docs.delete(PROPOSAL_PATH);
+    duplicate.docs.set(SERVICE_PATH, { ...duplicate.read(SERVICE_PATH)!, matchingOpenProposalCount: 0 });
+    serializeTransactions(duplicate);
+    vi.stubGlobal('fetch', vi.fn(async (input: string) => ({
+      ok: true,
+      json: async () => [{ ...matchingJob, id: String(input).endsWith('/first') ? 'provider-id-a' : 'provider-id-b' }],
+    })));
+    await Promise.all([
+      runApplicationConciergeMatching({ db: duplicate.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/first', eligibility }),
+      runApplicationConciergeMatching({ db: duplicate.db, serviceId: SERVICE_ID, jobIndexUrl: 'https://jobs.example.test/second', eligibility }),
+    ]);
+    const repeated = duplicate.list(`${SERVICE_PATH}/proposals/`).map(path => duplicate.read(path)!).filter(row => row.status === 'proposed');
+    expect(repeated).toHaveLength(1);
+    expect(duplicate.read(SERVICE_PATH)?.matchingOpenProposalCount).toBe(1);
   });
 });

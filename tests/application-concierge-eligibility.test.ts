@@ -6,7 +6,8 @@ vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({
   MAX_CV_SOURCE_BYTES: 12 * 1024 * 1024,
   extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems, 2020–2025\nLanguages: English B2, French B2\nInfrastructure management and operations experience.'),
 }));
-const { CONCIERGE_ELIGIBILITY_VERSION, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { CONCIERGE_ELIGIBILITY_VERSION, candidateAnswersDocumentId, eligibilityHash, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION } = await import('../functions/src/applicationConciergeConstants.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 const { hasUncoveredHardEligibilityStatements, hasUnverifiedCurrentStudentEligibility, sanitizeRequirements, verifyQuotes } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
@@ -36,7 +37,7 @@ describe('qualification before proposal publication', () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
 
-    expect(CONCIERGE_ELIGIBILITY_VERSION).toMatch(/requirements-v6-/);
+    expect(CONCIERGE_ELIGIBILITY_VERSION).toMatch(/requirements-v7-/);
     expect(await check({ id: 'stage-title', title: 'Stagiste/i ... maturità professionale (52 settimane)', employmentType: 'internship' }))
       .toMatchObject({ status: 'unverified', reason: 'hard_requirement_uncovered' });
     expect(f.generate.mock.calls[1][1]).toContain('Stagiste/i ... maturità professionale (52 settimane)');
@@ -431,10 +432,10 @@ describe('qualification before proposal publication', () => {
     expect(f.generate.mock.calls[1][1].length).toBeGreaterThan(8000);
     expect(f.readPosting).toHaveBeenCalledWith(expect.anything(), { maxPostingChars: 30_000 });
   });
-  it('does not accept evidence for another language even if the model says met', () => {
+  it('asks about a language omitted from the CV rather than treating another language as proof', () => {
     const result = conciergeProposalEligibility(requirements, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'good' }, { profile: rawProfile });
-    expect(result.status).toBe('incompatible');
-    expect(result.gaps).toContainEqual(expect.objectContaining({ status: 'missing' }));
+    expect(result.status).toBe('clarification_required');
+    expect(result.gaps).toContainEqual(expect.objectContaining({ status: 'unknown', knownMissing: false }));
   });
   it('keeps a proven language shortfall incompatible even when the model already marked it partial', () => {
     const b2 = { requirements: [{ requirement: 'German B2', importance: 'critical', basis: 'stated', quote: 'Good German knowledge B2' }] };
@@ -492,6 +493,151 @@ describe('qualification before proposal publication', () => {
       languageRequirements: [{ language: 'German', level: 'fluent', quote }, { language: 'French', level: 'fluent', quote }] };
     const profile = { languagesExplicitList: true, languages: [{ language: 'French', level: 'C1' }] };
     expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'French C1' }], verdict: 'good' }, { profile }).status).toBe('compatible');
+  });
+  it('treats language absence as negative only for a complete candidate-confirmed list', () => {
+    const quote = 'German C1 required';
+    const rows = { requirements: [{ requirement: quote, importance: 'critical', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'German', level: 'C1', quote }] };
+    const partial = { verdict: 'good', questions: [{ id: 'language-german', question: 'What is your German level?', required: true }],
+      matches: [{ index: 0, status: 'partial', evidence: '' }] };
+    const cvOnly = { languagesExplicitList: true, languages: [{ language: 'French', level: 'C2' }] };
+    const incomplete = { ...cvOnly, candidateLanguagesConfirmed: true, languagesExplicitList: false };
+    const completeMissing = { candidateLanguagesConfirmed: true, languagesExplicitList: true, languages: [{ language: 'French', level: 'C2' }] };
+    const completeUnknownLevel = { candidateLanguagesConfirmed: true, languagesExplicitList: true,
+      languages: [{ language: 'German', level: '' }] };
+    const completeEmpty = { candidateLanguagesConfirmed: true, languagesExplicitList: true, languages: [] };
+
+    expect(conciergeProposalEligibility(rows, partial, { profile: cvOnly }).status).toBe('clarification_required');
+    expect(conciergeProposalEligibility(rows, partial, { profile: incomplete }).status).toBe('clarification_required');
+    expect(conciergeProposalEligibility(rows, partial, { profile: completeMissing }).status).toBe('incompatible');
+    expect(conciergeProposalEligibility(rows, partial, { profile: completeUnknownLevel }).status).toBe('clarification_required');
+    expect(conciergeProposalEligibility(rows, partial, { profile: completeEmpty }).status).toBe('incompatible');
+  });
+  it('reruns only eligibility checks whose cached requirements depend on changed language facts', async () => {
+    const f = fixture(null);
+    const germanPosting = `German C1 required. ${'The position supports IT operations. '.repeat(20)}`;
+    const sapPosting = `SAP experience preferred. ${'The position supports enterprise systems. '.repeat(20)}`;
+    f.readPosting.mockImplementation(async ({ jobId }: any) => ({
+      text: jobId === 'job-language' ? germanPosting : sapPosting,
+      source: 'job_detail', textTruncated: false,
+    }));
+    f.generate.mockImplementation(async (system, user: string) => {
+      if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) {
+        return user.includes('German C1 required')
+          ? { requirements: [{ requirement: 'German C1', sourceRequirement: 'German C1 required', importance: 'critical', basis: 'stated', quote: 'German C1 required' }] }
+          : { requirements: [{ requirement: 'SAP experience', sourceRequirement: 'SAP experience preferred', importance: 'preferred', basis: 'stated', quote: 'SAP experience preferred' }] };
+      }
+      const languageQuestion = user.includes('German C1 required');
+      return languageQuestion
+        ? { matches: [{ index: 0, status: 'partial', evidence: '' }], verdict: 'good', questions: [{ id: 'german-level', question: 'What is your German level?', required: true }] }
+        : { matches: [{ index: 0, status: 'met', evidence: 'SAP' }], verdict: 'good', questions: [] };
+    });
+
+    const firstCheck = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const languageBefore = await firstCheck({ id: 'job-language', title: 'Language role' });
+    const otherBefore = await firstCheck({ id: 'job-sap', title: 'SAP role' });
+    expect(languageBefore.status).toBe('clarification_required');
+    expect(otherBefore.status).toBe('compatible');
+    f.generate.mockClear();
+    f.records.set('application_concierge_services/service/eligibility/candidate-language-facts', {
+      schemaVersion: APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
+      provenance: 'candidate_confirmed',
+      confirmedAt: new Date(),
+      listComplete: true,
+      languages: [{ languageCode: 'fr', level: 'B2' }],
+    });
+
+    const secondCheck = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const languageAfter = await secondCheck({ id: 'job-language', title: 'Language role' });
+    const otherAfter = await secondCheck({ id: 'job-sap', title: 'SAP role' });
+
+    expect(languageAfter.status).toBe('incompatible');
+    expect(languageAfter.fingerprint).not.toBe(languageBefore.fingerprint);
+    expect(otherAfter.fingerprint).toBe(otherBefore.fingerprint);
+    expect(f.generate.mock.calls).toHaveLength(1);
+    expect(f.generate.mock.calls[0][0]).not.toBe(REQUIREMENTS_SYSTEM_PROMPT);
+  });
+  it('does not reuse candidate answers after the required clarification questions change', async () => {
+    const previousQuestion = { id: 'availability', question: 'Can you start next month?', required: true };
+    const currentQuestion = { id: 'weekend', question: 'Can you work weekends?', required: true };
+    const clarification = question => ({
+      matches: [{ index: 0, status: 'partial', evidence: '' }],
+      verdict: 'good',
+      questions: [question],
+    });
+    const f = fixture(clarification(previousQuestion));
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'changed-questions', title: 'IT Support Specialist' };
+
+    expect(await check(job)).toMatchObject({ status: 'clarification_required' });
+    const cachePath = [...f.records.keys()].find(key => key.includes('/eligibility/job-'))!;
+    const cacheId = cachePath.split('/').at(-1)!;
+    f.records.set(`application_concierge_services/service/eligibility/${candidateAnswersDocumentId(cacheId)}`, {
+      provenance: 'candidate_confirmed',
+      schemaVersion: 'application-concierge-candidate-answers-v1',
+      confirmedAt: new Date(),
+      cacheId,
+      questionSetHash: eligibilityHash(JSON.stringify([[previousQuestion.id, previousQuestion.question]])),
+      answers: [{ questionId: previousQuestion.id, question: previousQuestion.question, answer: 'Yes, next month.' }],
+    });
+
+    f.readPosting.mockResolvedValue({
+      text: `Fluent German required. Updated posting with changed clarification questions. ${'The position supports customer operations. '.repeat(30)}`,
+      source: 'job_detail',
+      textTruncated: false,
+    });
+    f.generate.mockImplementation(async (system: string) => system === PROFILE_SYSTEM_PROMPT
+      ? rawProfile
+      : system === REQUIREMENTS_SYSTEM_PROMPT
+        ? requirements
+        : clarification(currentQuestion));
+    expect(await check(job)).toMatchObject({ status: 'clarification_required' });
+
+    f.generate.mockClear();
+    const refreshed = await check(job);
+
+    expect(refreshed).toMatchObject({ status: 'clarification_required' });
+    expect(refreshed.questions?.[0]).toMatchObject(currentQuestion);
+    expect(f.generate).not.toHaveBeenCalled();
+  });
+  it('keeps the verified answer set attached to a compatible cache result', async () => {
+    const question = { id: 'language_de_any_proficiency', question: 'What is your German level?', required: true };
+    const f = fixture({
+      matches: [{ index: 0, status: 'partial', evidence: '' }],
+      verdict: 'good',
+      questions: [question],
+    });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'answered-language', title: 'IT Support Specialist' };
+    expect(await check(job)).toMatchObject({ status: 'clarification_required' });
+    const cachePath = [...f.records.keys()].find(key => key.includes('/eligibility/job-'))!;
+    const cacheId = cachePath.split('/').at(-1)!;
+    f.records.set(`application_concierge_services/service/eligibility/${candidateAnswersDocumentId(cacheId)}`, {
+      provenance: 'candidate_confirmed',
+      schemaVersion: 'application-concierge-candidate-answers-v1',
+      confirmedAt: new Date(),
+      cacheId,
+      questionSetHash: eligibilityHash(JSON.stringify([[question.id, question.question]])),
+      answers: [{ questionId: question.id, question: question.question, answer: 'C1' }],
+    });
+    f.generate.mockImplementation(async (system: string, user: string) => {
+      if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) return requirements;
+      const payload = JSON.parse(user.split('\n\n<<<POSTING EXCERPT', 1)[0]);
+      expect(payload.previousAnswers).toEqual({ [question.id]: 'C1' });
+      const answerExcerpt = payload.candidateSourceExcerpts.find((item: any) => item.text.includes('Candidate response: C1'));
+      return {
+        matches: [{ index: 0, status: 'met', evidence: answerExcerpt.id }],
+        verdict: 'strong',
+        questions: [],
+      };
+    });
+
+    expect(await check(job)).toMatchObject({ status: 'compatible' });
+    f.generate.mockClear();
+    expect(await check(job)).toMatchObject({ status: 'compatible' });
+    expect(f.generate).not.toHaveBeenCalled();
   });
   it.each(['Strong German & English communication', 'German C1 and English B2 required', 'Native German and fluent English required', 'Fluent German and English B2 required', 'German C1 and working knowledge of English required', 'German C1 and basic English required', 'Fluent German and basic English required', 'Fluent German / English required', 'Fluent German and English or French required'])('keeps ambiguous language clause %s a technical failure without inventing a gap', quote => {
     const rows = { requirements: [{ requirement: quote, importance: 'high', basis: 'stated', quote }],

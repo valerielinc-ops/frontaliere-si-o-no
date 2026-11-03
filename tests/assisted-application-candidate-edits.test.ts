@@ -60,7 +60,7 @@ describe('candidate edits', () => {
     expect(fields).toMatchObject({ salutation: 'Signora', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese', salary: 'CHF 80k', motivationShort: 'Mi motiva il reparto.' });
   });
 
-  it('recovers complete legacy language lists from the CV section without trusting capped lists', () => {
+  it('does not treat a complete-looking CV language section as candidate confirmation', () => {
     const languages = [
       { language: 'English', level: 'C1' },
       { language: 'Italian', level: 'C2' },
@@ -76,8 +76,8 @@ describe('candidate edits', () => {
     const recovered = candidateWithEdits({ order, draft: legacy, flow: { answers: {} } }).profile;
     const germanQuestion = 'Do you speak German? If so, how would you describe your proficiency level?';
     expect(recovered).toMatchObject({ languagesListTruncated: false, languagesExplicitList: true });
-    expect(languageExplicitlyAbsent(recovered, germanQuestion)).toBe(true);
-    expect(questionNeedsCandidateAnswer({ question: germanQuestion }, recovered)).toBe(false);
+    expect(languageExplicitlyAbsent(recovered, germanQuestion)).toBe(false);
+    expect(questionNeedsCandidateAnswer({ question: germanQuestion }, recovered)).toBe(true);
 
     const cappedProfile = sanitizeProfile({ ...draft().profile, languages: Array.from({ length: 12 }, () => ({ language: 'English', level: 'C1' })) }, { legacy: true });
     expect(cappedProfile.languagesListTruncated).toBe(true);

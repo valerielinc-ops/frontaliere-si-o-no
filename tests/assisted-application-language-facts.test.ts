@@ -47,7 +47,7 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(languageExplicitlyAbsent(partlyUnknown, englishField.label)).toBe(false);
     expect(candidateAnswerForField({ profile: partlyUnknown }, englishField)).toBeNull();
 
-    const coded = { languagesExplicitList: true, languages: [{ language: 'de-CH', level: 'C1' }] };
+    const coded = { candidateLanguagesConfirmed: true, languagesExplicitList: true, languages: [{ language: 'de-CH', level: 'C1' }] };
     expect(languageCodeOf('de-CH')).toBe('de');
     expect(languageExplicitlyAbsent(coded, englishField.label)).toBe(true);
 
@@ -55,9 +55,13 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(languageExplicitlyAbsent(truncated, englishField.label)).toBe(false);
   });
 
-  it('infers absence for a single, explicit current-ability question', () => {
-    const profile = { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] };
+  it('requires a candidate-confirmed complete list before inferring absence', () => {
+    const cvOnly = { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] };
     const question = 'Do you speak German?';
+    expect(languageExplicitlyAbsent(cvOnly, question)).toBe(false);
+    expect(candidateAnswerForField({ profile: cvOnly }, { kind: 'select', label: question, options: ['Yes', 'No'] })).toBeNull();
+
+    const profile = { candidateLanguagesConfirmed: true, languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] };
 
     expect(isLanguageAbilityQuestion(question)).toBe(true);
     expect(languageExplicitlyAbsent(profile, question)).toBe(true);

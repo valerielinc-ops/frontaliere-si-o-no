@@ -5,15 +5,45 @@ const DELAYS = [60 * 60_000, 3 * 60 * 60_000, 12 * 60 * 60_000, 3 * 86400_000];
 const DEFERRED_RETRY_DELAY_MS = 15 * 60_000;
 const FAILURE_CAUSES = new Set(['not_configured', 'rate_limited', 'timeout', 'auth', 'network', 'provider_http', 'provider_error']);
 const RETRY_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required', 'unverified']);
-const RETRY_REASONS = new Set([
-  'analysis_deferred', 'analysis_unavailable', 'answer_source_conflict', 'current_education_unverified',
-  'eligibility_metadata_incomplete', 'evidence_entailment_unverified', 'evidence_incomplete', 'evidence_source_changed',
-  'hard_requirement_uncovered', 'incompatibility_not_proven', 'job_language_evidence_unverified',
-  'language_clause_unverified', 'language_evidence_conflict', 'language_requirement_uncovered', 'match_below_threshold',
-  'match_response_incomplete', 'posting_incomplete', 'posting_unavailable', 'profile_incomplete', 'profile_not_ready',
-  'profile_unavailable', 'provider_invalid_json', 'provider_unavailable', 'requirements_incomplete',
-  'requirements_missing', 'requirements_over_limit', 'requirements_response_invalid', 'retry_backoff',
-]);
+/**
+ * Persisted retry reasons are a versioned contract. Reasons marked `current`
+ * have a producer in this source tree. `legacy` keeps old rows readable after
+ * their producer was removed; `internal` is a transient state, not an
+ * eligibility conclusion. In particular, requirements_incomplete was emitted
+ * by the v5 eligibility worker and was split into specific v6 reasons.
+ */
+export const ELIGIBILITY_RETRY_REASON_PROVENANCE = Object.freeze({
+  analysis_deferred: 'current:applicationConciergeMatching',
+  analysis_unavailable: 'current:applicationConciergeMatching',
+  answer_source_conflict: 'legacy',
+  clarification_questions_missing: 'current:applicationConciergeEligibility',
+  current_education_unverified: 'current:applicationConciergeEligibility',
+  eligibility_metadata_incomplete: 'current:applicationConciergeEligibility',
+  evidence_entailment_unverified: 'legacy',
+  evidence_incomplete: 'current:assistedApplicationFitNotice',
+  evidence_source_changed: 'legacy',
+  hard_requirement_uncovered: 'current:applicationConciergeEligibility',
+  incompatibility_not_proven: 'current:applicationConciergeMatching',
+  job_language_evidence_unverified: 'legacy',
+  language_clause_unverified: 'current:assistedApplicationFitNotice',
+  language_evidence_conflict: 'legacy',
+  language_requirement_uncovered: 'current:assistedApplicationFitNotice',
+  match_below_threshold: 'current:applicationConciergeMatching',
+  match_response_incomplete: 'current:assistedApplicationFitNotice',
+  posting_incomplete: 'current:applicationConciergeEligibility',
+  posting_unavailable: 'current:applicationConciergeEligibility',
+  profile_incomplete: 'current:applicationConciergeMatching',
+  profile_not_ready: 'current:applicationConciergeEligibility',
+  profile_unavailable: 'current:applicationConciergeEligibility',
+  provider_invalid_json: 'current:applicationConciergeMatching',
+  provider_unavailable: 'current:applicationConciergeMatching',
+  requirements_incomplete: 'legacy:v5 eligibility worker; split in v6',
+  requirements_missing: 'current:applicationConciergeEligibility',
+  requirements_over_limit: 'current:applicationConciergeEligibility',
+  requirements_response_invalid: 'current:applicationConciergeEligibility',
+  retry_backoff: 'internal:transient retry state',
+});
+const RETRY_REASONS = new Set(Object.keys(ELIGIBILITY_RETRY_REASON_PROVENANCE));
 const TERMINAL_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required']);
 export const MAX_ELIGIBILITY_RETRIES_PER_RUN = 8;
 export const MAX_ELIGIBILITY_RETRY_ATTEMPTS = DELAYS.length + 1;

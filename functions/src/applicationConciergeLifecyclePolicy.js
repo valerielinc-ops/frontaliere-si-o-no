@@ -25,6 +25,9 @@ export function conciergeMatchingRecoveryContext(service) {
     String(service?.cvStorageKey || ''),
     timestampMillis(service?.cvUploadedAt),
     String(service?.applicantLocation || '').trim(),
+    Number(service?.eligibilityFactsRevision) || 0,
+    Number(service?.matchingFeedbackRevision) || 0,
+    acceptedPositionsCount(service),
     APPLICATION_CONCIERGE_MATCHING_VERSION,
   ])).digest('hex');
 }

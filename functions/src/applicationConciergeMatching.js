@@ -22,15 +22,18 @@ import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
   APPLICATION_CONCIERGE_MAX_POSITIONS,
+  APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
   APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount,
+  openProposalsCount,
   serviceIsActive,
+  timestampMillis,
 } from './applicationConciergeConstants.js';
 
 const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-index.json';
 const FETCH_TIMEOUT_MS = 90_000;
-const MAX_PROPOSALS_PER_RUN = 10;
+const MAX_PROPOSALS_PER_RUN = APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS;
 const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
 const MIN_MATCH_SCORE = 28;
 export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
@@ -105,6 +108,16 @@ export function tokenize(value) {
   return new Set(normalize(value).split(/\s+/)
     .filter((token) => !/^\d+$/.test(token) && (token.length >= 3 || SHORT_TECH_TOKENS.has(token)) && !STOP_WORDS.has(token))
     .map((token) => token === 'ict' ? 'it' : token));
+}
+
+function rankingTokens(value, signals) {
+  const text = normalize(value);
+  return [...new Set([...tokenize(value), ...signals.filter(([, pattern]) => pattern.test(text)).map(([signal]) => signal)])];
+}
+
+function rankingSignals(value, signals) {
+  const text = normalize(value);
+  return signals.filter(([, pattern]) => pattern.test(text)).map(([signal]) => signal);
 }
 
 function stripEmployerSuffix(value) {
@@ -351,7 +364,9 @@ async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL |
 }
 
 function stableJobIdentity(job, url) {
-  const value = [job?.id, job?.jobId, job?.slug, job?.canonicalUrl, job?.url, url]
+  // The listing URL is the atomic de-duplication key across index snapshots;
+  // provider IDs can change while the same public listing remains live.
+  const value = [jobUrl(job), url, job?.id, job?.jobId, job?.slug, job?.canonicalUrl]
     .find((candidate) => String(candidate || '').trim());
   return String(value || url || `${job?.company || ''}|${job?.title || ''}|${job?.location || ''}`).trim();
 }
@@ -393,16 +408,124 @@ export function proposalDocumentId(serviceId, job, url = jobUrl(job)) {
 export function shouldRunApplicationConciergeMatchingForServiceUpdate(before, after) {
   if (!after?.cvStorageKey) return false;
   return before?.cvStorageKey !== after.cvStorageKey
-    || String(before?.applicantLocation || '').trim() !== String(after.applicantLocation || '').trim();
+    || String(before?.applicantLocation || '').trim() !== String(after.applicantLocation || '').trim()
+    || Number(before?.matchingFeedbackRevision || 0) !== Number(after.matchingFeedbackRevision || 0)
+    || Number(before?.eligibilityFactsRevision || 0) !== Number(after.eligibilityFactsRevision || 0)
+    || Number(before?.acceptedPositionsCount || 0) !== Number(after.acceptedPositionsCount || 0);
 }
 
-/** Preference affects ordering only, after the CV relevance gate has passed. */
+const FEATURE_WEIGHTS = Object.freeze({ role: 8, location: 2, contract: 2, schedule: 2, sector: 2, seniority: 2 });
+const DECLINE_WEIGHTS = Object.freeze({ role: 6, location: 4, contract: 4, schedule: 4, sector: 4, seniority: 4 });
+const DECLINE_REASONS = new Set(Object.keys(DECLINE_WEIGHTS));
+
+export function rankingFeaturesForJob(job = {}) {
+  const jobType = [job.employmentType, job.jobType, job.contractType].filter(Boolean).join(' ');
+  const schedule = [job.workSchedule, job.schedule, job.workingTime, job.employmentPercentage, job.workload]
+    .filter(Boolean).join(' ');
+  const seniority = [job.seniority, job.experienceLevel, job.experience, job.title || job.jobTitle].filter(Boolean).join(' ');
+  return {
+    // Persist only Firestore-supported primitives; Set instances are used only
+    // transiently while calculating overlap.
+    role: [...tokenize(job.title || job.jobTitle)],
+    roleSignals: [...roleSignals(job.title || job.jobTitle || '')],
+    location: [...tokenize([job.location, job.canton, job.workplace].filter(Boolean).join(' '))],
+    contract: rankingTokens(jobType, [
+      ['full_time', /\b(?:full time|fulltime|vollzeit|tempo pieno|temps plein)\b/],
+      ['part_time', /\b(?:part time|parttime|teilzeit|tempo parziale|temps partiel)\b/],
+      ['temporary', /\b(?:temporary|temporar|temporaneo|temporanea|temporaire|befristet)\b/],
+      ['permanent', /\b(?:permanent|unbefristet|indeterminato|indeterminata|indetermine)\b/],
+      ['internship', /\b(?:internship|stage|praktikum|tirocinio|stagiaire)\b/],
+    ]),
+    schedule: rankingTokens(schedule, [
+      ['weekend', /\b(?:weekends?|fine settimana|week-end)\b/],
+      ['night_shift', /\b(?:night|night shift|notturno|notturna|nacht|nuits?)\b/],
+      ['day_shift', /\b(?:day shift|daytime|diurno|diurna|tagschicht|journee)\b/],
+      ['rotating_shift', /\b(?:rotating shifts?|turni|schichtarbeit|horaires alternants)\b/],
+      ['remote', /\b(?:remote|remoto|remota|telelavoro|telerilavoro|home office|homeoffice)\b/],
+    ]),
+    sector: [...tokenize([job.sector, job.category].filter(Boolean).join(' '))],
+    seniority: rankingSignals(seniority, [
+      ['entry_level', /\b(?:entry level|graduate|trainee|apprentice|junior|neolaureat[oa]|tirocinante|praktikant)\b/],
+      ['mid_level', /\b(?:mid level|intermediate|intermedio|intermedia|mittlere erfahrung)\b/],
+      ['senior_level', /\b(?:senior|experienced|esperto|esperta|experimente)\b/],
+      ['executive_level', /\b(?:executive|director|direttore|direttrice|directeur|directrice|vorstand)\b/],
+      ['experience_3plus', /\b(?:[3-9]|[1-9]\d+)\s*(?:years?|ans?|anni|jahre)\b/],
+      ['experience_5plus', /\b(?:[5-9]|[1-9]\d+)\s*(?:years?|ans?|anni|jahre)\b/],
+      ['experience_10plus', /\b(?:1\d|[2-9]\d+)\s*(?:years?|ans?|anni|jahre)\b/],
+    ]),
+  };
+}
+
+function proposalFeatureSignals(proposal) {
+  const stored = proposal?.rankingFeatures;
+  if (stored && typeof stored === 'object') return stored;
+  return rankingFeaturesForJob(proposal || {});
+}
+
+function acceptedSignals(proposals) {
+  return (Array.isArray(proposals) ? proposals : [])
+    .filter(proposal => proposal?.status === 'accepted' && !proposal.withdrawnAt)
+    .sort((left, right) => timestampMillis(right.acceptedAt) - timestampMillis(left.acceptedAt))
+    .slice(0, 3)
+    .map(proposalFeatureSignals);
+}
+
+function declinedSignals(proposals) {
+  return (Array.isArray(proposals) ? proposals : [])
+    .filter(proposal => proposal?.status === 'declined' && !proposal.withdrawnAt)
+    .sort((left, right) => timestampMillis(right.declinedAt) - timestampMillis(left.declinedAt))
+    .slice(0, 8)
+    .map(proposal => ({ reason: DECLINE_REASONS.has(proposal.declineReason) ? proposal.declineReason : '', features: proposalFeatureSignals(proposal) }));
+}
+
+export function rankingFeedbackContext(proposals) {
+  return {
+    accepted: acceptedSignals(proposals),
+    declined: declinedSignals(proposals),
+  };
+}
+
+/** Feedback affects ordering only and never changes the eligibility decision. */
 export function approvedRolePreference(job, proposals) {
-  const tokens = tokenize(job?.title);
-  const roles = roleSignals(job?.title || '');
-  return proposals.some(proposal => proposal.status === 'accepted' && !proposal.withdrawnAt
-    && (overlap(tokens, tokenize(proposal.jobTitle)).length >= 2
-      || overlap(roles, roleSignals(proposal.jobTitle || '')).length > 0)) ? 8 : 0;
+  const candidate = rankingFeaturesForJob(job);
+  const accepted = acceptedSignals(proposals);
+  const declined = declinedSignals(proposals);
+  const sameFeature = (left, right, key) => overlap(new Set(left?.[key] || []), new Set(right?.[key] || [])).length > 0;
+  const sameRole = (left, right) => overlap(new Set(left?.role || []), new Set(right?.role || [])).length >= 2
+    || overlap(new Set(left?.roleSignals || []), new Set(right?.roleSignals || [])).length > 0;
+  let positive = 0;
+  for (const [feature, weight] of Object.entries(FEATURE_WEIGHTS)) {
+    const matched = accepted.some(signal => feature === 'role'
+      ? sameRole(candidate, signal)
+      : sameFeature(candidate, signal, feature));
+    if (matched) positive += weight;
+  }
+  let negative = 0;
+  for (const decline of declined) {
+    if (decline.reason) {
+      const matchesReason = decline.reason === 'role'
+        ? sameRole(candidate, decline.features)
+        : sameFeature(candidate, decline.features, decline.reason);
+      if (matchesReason) negative += DECLINE_WEIGHTS[decline.reason];
+    } else if (sameRole(candidate, decline.features)) {
+      // A reasonless decline is only a very weak, local ranking signal.
+      negative += 1;
+    }
+  }
+  return Math.max(-12, Math.min(18, positive - negative));
+}
+
+async function ensureOpenProposalCounter(db, serviceRef, fallbackCount) {
+  return db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(serviceRef);
+    if (!snapshot.exists) return 0;
+    const service = snapshot.data() || {};
+    if (Number.isSafeInteger(Number(service.matchingOpenProposalCount))
+      && Number(service.matchingOpenProposalCount) >= 0) return Number(service.matchingOpenProposalCount);
+    const count = openProposalsCount({}, fallbackCount);
+    transaction.set(serviceRef, { matchingOpenProposalCount: count }, { merge: true });
+    return count;
+  });
 }
 
 /** A bounded, durable frontier replaces the static top-40 window. */
@@ -423,12 +546,23 @@ export function conciergeMatchingWork(candidates, proposedUrls = new Set(), curs
     frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
 }
 
-async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null) {
+async function updateExistingProposal(db, serviceRef, ref, update, expectedStatus, nextStatus = null, fallbackOpenCount = 0) {
   return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
+    const [serviceSnapshot, snapshot] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
     if (!snapshot.exists) return false;
+    const service = serviceSnapshot.data() || {};
     const current = snapshot.data() || {};
     if (current.status !== expectedStatus) return false;
+    if (nextStatus === 'proposed' && current.status !== 'proposed') {
+      const openCount = openProposalsCount(service, fallbackOpenCount);
+      const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
+      if (!serviceIsActive(service) || acceptedPositionsCount(service) >= cap
+        || openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
+      transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
+    } else if (nextStatus && current.status === 'proposed' && nextStatus !== 'proposed') {
+      const openCount = openProposalsCount(service, fallbackOpenCount);
+      transaction.set(serviceRef, { matchingOpenProposalCount: Math.max(0, openCount - 1) }, { merge: true });
+    }
     transaction.set(ref, {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
@@ -446,7 +580,7 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
   });
 }
 
-async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expectedCvStorageKey) {
+async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expectedCvStorageKey, fallbackOpenCount = 0) {
   let appliedUpdate = null;
   const changed = await db.runTransaction(async (transaction) => {
     const [serviceSnapshot, snapshot] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
@@ -457,6 +591,13 @@ async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expecte
     appliedUpdate = typeof update === 'function' ? update(current) : update;
     const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
     if (appliedUpdate.status === 'proposed' && acceptedPositionsCount(service) >= cap) return false;
+    const openCount = openProposalsCount(service, fallbackOpenCount);
+    if (appliedUpdate.status === 'proposed' && current.status !== 'proposed') {
+      if (openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
+      transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
+    } else if (current.status === 'proposed' && appliedUpdate.status && appliedUpdate.status !== 'proposed') {
+      transaction.set(serviceRef, { matchingOpenProposalCount: Math.max(0, openCount - 1) }, { merge: true });
+    }
     transaction.set(ref, appliedUpdate, { merge: true });
     return true;
   });
@@ -498,6 +639,12 @@ function decisiveIncompatibility(result) {
   return result?.status === 'incompatible'
     && Array.isArray(result.gaps)
     && result.gaps.some(gap => gap?.knownMissing === true);
+}
+
+function canOfferClarification(result) {
+  return result?.status === 'clarification_required'
+    && Array.isArray(result.questions)
+    && result.questions.some(question => question?.required === true && String(question.question || '').trim());
 }
 
 function safeEligibilityFailureReason(error) {
@@ -548,6 +695,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const candidateLocation = String(service.applicantLocation || '').trim();
     const matchingNowMs = Date.now();
     const existingData = existing.map(doc => doc.data() || {});
+    const fallbackOpenCount = existingData.filter(data => data.status === 'proposed').length;
+    await ensureOpenProposalCounter(db, serviceRef, fallbackOpenCount);
     const existingUrls = new Set(existingData.map(data => data.jobUrl).filter(Boolean));
     const excludedUrls = new Set(existingData.filter(data => !['proposed', 'retracted'].includes(data.status)).map(data => data.jobUrl));
     const rankedWork = jobs.map((job) => {
@@ -565,8 +714,17 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
-    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile])).digest('hex');
-    const retryJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(scanContext, job)]));
+    const eligibilityContext = createHash('sha256').update(JSON.stringify([
+      CONCIERGE_ELIGIBILITY_VERSION, service.cvStorageKey, profile,
+    ])).digest('hex');
+    const rankingContext = createHash('sha256').update(JSON.stringify([
+      APPLICATION_CONCIERGE_MATCHING_VERSION,
+      service.cvStorageKey,
+      profile,
+      candidateLocation,
+      rankingFeedbackContext(existingData),
+    ])).digest('hex');
+    const retryJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(eligibilityContext, job)]));
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const recoveryRows = existing.map(doc => ({ id: doc.id, ref: doc.ref || doc, data: doc.data() || {} }));
     const retractionOwners = new Map();
@@ -576,8 +734,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (url && !proposedUrls.has(url) && !excludedUrls.has(url) && !retractionOwners.has(url)) retractionOwners.set(url, row.id);
     }
     const legacyRecovery = selectLegacyProposalRecovery(recoveryRows, {
-      cursor: service.matchingLegacyRecoveryContext === scanContext ? service.matchingLegacyRecoveryCursor || '' : '',
-      context: scanContext,
+      cursor: service.matchingLegacyRecoveryContext === rankingContext ? service.matchingLegacyRecoveryCursor || '' : '',
+      context: rankingContext,
       nowMs: Date.now(),
     });
     const allLegacyRecoveryUrls = new Set(legacyRecovery.queued
@@ -658,7 +816,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         try { fingerprint = await evaluate.fingerprintFor(entry.job); }
         catch { fingerprint = null; }
         if (typeof fingerprint !== 'string' || !/^[a-f0-9]{64}$/i.test(fingerprint)) continue;
-        const context = eligibilityRetryContext(scanContext, entry.job, fingerprint);
+        const context = eligibilityRetryContext(eligibilityContext, entry.job, fingerprint);
         const changed = row.data()?.context !== context;
         retrySourceFingerprints.set(url, { fingerprint: fingerprint.toLowerCase(), context, changed });
         if (changed) selectedRetryCandidates.push([url, row]);
@@ -666,16 +824,16 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }
     const retryUrls = new Set(selectedRetryCandidates.map(([url]) => url));
     const { work, frontier, cursorUrls } = conciergeMatchingWork(rankedWork, proposedUrls,
-      service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls,
+      service.matchingScanContext === rankingContext ? service.matchingScanCursor : '', retryUrls,
       recoveryUrls, allLegacyRecoveryUrls, allRetryUrls);
-    let scannedCursor = service.matchingScanContext === scanContext ? service.matchingScanCursor || '' : '';
+    let scannedCursor = service.matchingScanContext === rankingContext ? service.matchingScanCursor || '' : '';
     for (let offset = 0; offset < work.length; offset += 4) {
       // Stop starting batches early; the shared signal also bounds the last batch.
       if (Date.now() - runStartedAt > 280_000) break;
       const batch = work.slice(offset, offset + 4);
       await Promise.all(batch.map(async ({ job, url }) => {
         const retry = (await eligibilityRetryRef(serviceRef, url).get()).data();
-        const retryJobContext = retryJobContexts.get(url) || scanContext;
+        const retryJobContext = retryJobContexts.get(url) || eligibilityContext;
         const sourceFingerprint = retrySourceFingerprints.get(url);
         const sameJobContext = retry?.jobContext === retryJobContext;
         const retryInputsChanged = !sameJobContext || sourceFingerprint?.changed === true;
@@ -710,7 +868,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (shouldRecordRetry) {
           const retainedFingerprint = result?.fingerprint || sourceFingerprint?.fingerprint
             || (result?.reason === 'analysis_deferred' ? retry?.fingerprint : null);
-          const retryContext = eligibilityRetryContext(scanContext, job, retainedFingerprint);
+          const retryContext = eligibilityRetryContext(eligibilityContext, job, retainedFingerprint);
           const retryResult = retainedFingerprint && !result?.fingerprint
             ? { ...result, fingerprint: retainedFingerprint }
             : result;
@@ -727,17 +885,23 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (result?.reason === 'analysis_deferred') break;
         if (cursorUrls.has(entry.url)) scannedCursor = entry.url;
       }
-      await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: scanContext }, { merge: true });
+      await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: rankingContext }, { merge: true });
       if (batch.some(entry => {
         const result = checks.get(entry.url);
         return result?.reason === 'analysis_deferred';
       })) break;
     }
-    const candidates = rankedCandidates.filter(candidate => checks.get(candidate.url)?.status === 'compatible')
+    const candidates = rankedCandidates.filter(candidate => candidate.score >= MIN_MATCH_SCORE
+      && (checks.get(candidate.url)?.status === 'compatible'
+        || (checks.get(candidate.url)?.status === 'clarification_required'
+          && Array.isArray(checks.get(candidate.url)?.questions)
+          && checks.get(candidate.url).questions.some(question => question?.required === true))))
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
     const eligibilityFields = (result = { status: 'unverified' }) => ({
       eligibilityStatus: result.status,
       eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      eligibilityFactsRevision: Number.isSafeInteger(Number(service.eligibilityFactsRevision))
+        && Number(service.eligibilityFactsRevision) >= 0 ? Number(service.eligibilityFactsRevision) : 0,
       eligibilityFingerprint: result.fingerprint || null,
       eligibilityCacheId: result.cacheId || null,
       eligibilityCvStorageKey: service.cvStorageKey || null,
@@ -758,39 +922,52 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const proposalRef = doc.ref || doc;
       const jobClosed = Boolean(job && explicitlyClosedJob(job, matchingNowMs));
       const isDecisivelyIncompatible = decisiveIncompatibility(result);
-      if (!jobClosed && rescored.score >= MIN_MATCH_SCORE && result.status === 'compatible') {
+      // An omitted listing cannot be rescored; preserve it as unverified
+      // instead of treating the missing index row as a zero relevance score.
+      const belowThreshold = Boolean(job) && rescored.score < MIN_MATCH_SCORE;
+      if (!jobClosed && rescored.score >= MIN_MATCH_SCORE
+        && (result.status === 'compatible' || canOfferClarification(result))) {
         const changed = await updateExistingProposal(
           db,
+          serviceRef,
           proposalRef,
           {
             ...eligibilityFields(result),
             matchScore: rescored.score,
             matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
+            rankingFeatures: rankingFeaturesForJob(job),
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
             matchedAt: Timestamp.now(),
             updatedAt: FieldValue.serverTimestamp(),
           },
           data.status,
           data.status === 'retracted' ? 'proposed' : null,
+          fallbackOpenCount,
         );
         if (changed) refreshedProposals += 1;
       } else if (data.status === 'proposed') {
-        if (jobClosed || isDecisivelyIncompatible) {
+        if (jobClosed || belowThreshold || isDecisivelyIncompatible) {
+          const retractionReason = jobClosed ? 'job_closed' : belowThreshold
+            ? 'match_below_threshold'
+            : 'decisive_requirement_missing';
           const changed = await updateExistingProposal(
             db,
+            serviceRef,
             proposalRef,
             {
               matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
               ...eligibilityFields(result),
-              retractionReason: jobClosed ? 'job_closed' : 'decisive_requirement_missing',
+              retractionReason,
               matchScore: rescored.score,
               matchRankingScore: rescored.rankScore ?? rescored.score,
               matchReasons: rescored.reasons,
+              rankingFeatures: rankingFeaturesForJob(job),
               updatedAt: FieldValue.serverTimestamp(),
             },
             'proposed',
             'retracted',
+            fallbackOpenCount,
           );
           if (changed) retractedProposals += 1;
         } else {
@@ -801,6 +978,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           // result is durably recorded.
           await updateExistingProposal(
             db,
+            serviceRef,
             proposalRef,
             {
               matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -810,6 +988,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
               updatedAt: FieldValue.serverTimestamp(),
             },
             'proposed',
+            null,
+            fallbackOpenCount,
           );
         }
       }
@@ -821,42 +1001,43 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (preflight.kind === 'terminal') {
         const retractionReason = preflight.reason === 'job_closed' ? 'job_closed' : 'duplicate_proposal';
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
-          ...legacyProposalRecoveryTerminalFields({ context: scanContext, nowMs: Date.now(), reason: preflight.reason }),
+          ...legacyProposalRecoveryTerminalFields({ context: rankingContext, nowMs: Date.now(), reason: preflight.reason }),
           retractionReason,
           updatedAt: FieldValue.serverTimestamp(),
-        }, service.cvStorageKey);
+        }, service.cvStorageKey, fallbackOpenCount);
         if (changed) recoveryOutcomes.set(row.id, { ...changed, eligibilityStatus: 'unverified', retractionReason });
         continue;
       }
 
       if (preflight.kind === 'retry') {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
-          ...legacyProposalRecoveryRetryFields(current, { context: scanContext, nowMs: Date.now(), reason: preflight.reason }),
+          ...legacyProposalRecoveryRetryFields(current, { context: rankingContext, nowMs: Date.now(), reason: preflight.reason }),
           updatedAt: FieldValue.serverTimestamp(),
-        }), service.cvStorageKey);
+        }), service.cvStorageKey, fallbackOpenCount);
         if (changed) recoveryOutcomes.set(row.id, changed);
         continue;
       }
 
       const result = checks.get(row.data.jobUrl) || { status: 'unverified', reason: 'analysis_deferred' };
-      if (result.status === 'compatible') {
+      if (result.status === 'compatible' || canOfferClarification(result)) {
         const rescored = preflight.rescored;
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
           ...eligibilityFields(result),
           matchScore: rescored.score,
           matchRankingScore: rescored.rankScore ?? rescored.score,
           matchReasons: rescored.reasons,
+          rankingFeatures: rankingFeaturesForJob(preflight.job),
           matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
           matchedAt: Timestamp.now(),
           updatedAt: FieldValue.serverTimestamp(),
           status: 'proposed',
           reactivatedAt: FieldValue.serverTimestamp(),
           legacyRecoveryStatus: 'recovered',
-          legacyRecoveryContext: scanContext,
+          legacyRecoveryContext: rankingContext,
           legacyRecoveryResolvedAt: Date.now(),
           legacyRecoveryNextAt: null,
           legacyRecoveryLastReason: 'verified_compatible',
-        }, service.cvStorageKey);
+        }, service.cvStorageKey, fallbackOpenCount);
         if (changed) {
           refreshedProposals += 1;
           recoveryOutcomes.set(row.id, { ...changed, status: 'proposed' });
@@ -864,14 +1045,14 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       } else if (decisiveIncompatibility(result)) {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
           ...eligibilityFields(result),
-          ...legacyProposalRecoveryTerminalFields({ context: scanContext, nowMs: Date.now(), reason: 'decisive_requirement_missing' }),
+          ...legacyProposalRecoveryTerminalFields({ context: rankingContext, nowMs: Date.now(), reason: 'decisive_requirement_missing' }),
           retractionReason: 'decisive_requirement_missing',
           matchScore: preflight.rescored.score,
           matchRankingScore: preflight.rescored.rankScore ?? preflight.rescored.score,
           matchReasons: preflight.rescored.reasons,
           matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
           updatedAt: FieldValue.serverTimestamp(),
-        }, service.cvStorageKey);
+        }, service.cvStorageKey, fallbackOpenCount);
         if (changed) recoveryOutcomes.set(row.id, { ...changed, retractionReason: 'decisive_requirement_missing', eligibilityStatus: result.status });
       } else {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
@@ -879,12 +1060,12 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             ? eligibilityFields({ ...result, status: 'unverified' })
             : {}),
           ...legacyProposalRecoveryRetryFields(current, {
-            context: scanContext,
+            context: rankingContext,
             nowMs: Date.now(),
             reason: result.reason || result.status || 'eligibility_unverified',
           }),
           updatedAt: FieldValue.serverTimestamp(),
-        }), service.cvStorageKey);
+        }), service.cvStorageKey, fallbackOpenCount);
         if (changed) recoveryOutcomes.set(row.id, changed);
       }
     }
@@ -905,6 +1086,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         matchScore: candidate.score,
         matchRankingScore: candidate.rankScore,
         matchReasons: candidate.reasons,
+        rankingFeatures: rankingFeaturesForJob(candidate.job),
         source: 'cv_match_workflow',
         createdBy: 'cv_match_workflow',
         matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -917,7 +1099,10 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         const [currentServiceDoc, currentProposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
         const currentService = currentServiceDoc.data();
         if (currentProposalDoc.exists || !serviceIsActive(currentService) || currentService.cvStorageKey !== service.cvStorageKey
-          || acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) return false;
+          || acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)
+          || openProposalsCount(currentService, fallbackOpenCount) >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
+        const openCount = openProposalsCount(currentService, fallbackOpenCount);
+        transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
         transaction.set(ref, proposal);
         return true;
       });
@@ -925,7 +1110,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }
     const retrySummary = await eligibilityRetrySummary(serviceRef);
     const legacyRecoverySummary = summarizeLegacyProposalRecovery(legacyRecovery.queued, recoveryOutcomes, {
-      context: scanContext,
+      context: rankingContext,
       nowMs: Date.now(),
     });
     const scannedIndex = frontier.findIndex(entry => entry.url === scannedCursor);
@@ -947,7 +1132,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       matchingEligibilityLastRecoveryStatus: retrySummary.recovery.lastStatus,
       matchingEligibilityLastRecoveryAt: retrySummary.recovery.lastAt,
       matchingLegacyRecoveryCursor: legacyRecovery.nextCursor,
-      matchingLegacyRecoveryContext: scanContext,
+      matchingLegacyRecoveryContext: rankingContext,
       matchingLegacyRecoveryPendingCount: legacyRecoverySummary.count,
       matchingLegacyRecoveryRetryAt: legacyRecoverySummary.retryAt,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,

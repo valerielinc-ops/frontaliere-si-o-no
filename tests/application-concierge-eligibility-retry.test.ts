@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { dueEligibilityRetries, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary,
-  MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
+  ELIGIBILITY_RETRY_REASON_PROVENANCE, MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
 import { conciergeMatchingWork, eligibilityRetryContext } from '../functions/src/applicationConciergeMatching.js';
 
 const now = Date.now();
@@ -27,6 +29,19 @@ function aggregateOnlyEligibilityServiceRef(serviceRef: any) {
 }
 
 describe('independent qualification retry queue', () => {
+  it('classifies every persisted retry reason and keeps the removed requirements emitter explicitly legacy', () => {
+    for (const [reason, provenance] of Object.entries(ELIGIBILITY_RETRY_REASON_PROVENANCE)) {
+      expect(provenance).toMatch(/^(?:current:[A-Za-z][A-Za-z0-9]+|legacy(?::.*)?|internal:.*)$/);
+      if (provenance.startsWith('current:')) {
+        const producer = provenance.slice('current:'.length);
+        expect(readFileSync(new URL(`../functions/src/${producer}.js`, import.meta.url), 'utf8')).toContain(reason);
+      }
+    }
+    expect(ELIGIBILITY_RETRY_REASON_PROVENANCE.requirements_incomplete).toMatch(/^legacy:/);
+    expect(ELIGIBILITY_RETRY_REASON_PROVENANCE.clarification_questions_missing).toBe('current:applicationConciergeEligibility');
+    expect(Object.keys(ELIGIBILITY_RETRY_REASON_PROVENANCE)).toContain('retry_backoff');
+  });
+
   it('retains unknown jobs, backs off, then removes only a verified outcome', async () => {
     const store = createMemoryFirestore();
     const serviceRef = store.db.collection('application_concierge_services').doc('service_test');
@@ -201,7 +216,7 @@ describe('independent qualification retry queue', () => {
     const retry = new Set(candidates.slice(30, 70).map(row => row.url));
     const result = conciergeMatchingWork(candidates, proposed, '', retry);
     expect(result.work).toHaveLength(40);
-    expect(result.work.filter((row: any) => proposed.has(row.url))).toHaveLength(10);
+    expect(result.work.filter((row: any) => proposed.has(row.url))).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
     expect(result.work.filter((row: any) => retry.has(row.url))).toHaveLength(8);
     expect(result.work.some((row: any) => row.url === 'job-70')).toBe(true);
   });
