@@ -147,6 +147,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /^(?:TypeError: )?Load failed$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
+  /^(?:TypeError: )?cancelled$/i,
   /AbortError: (?:The user aborted a request|The operation was aborted|signal is aborted|AbortError)/i,
   /SecurityError.*Blocked a frame.*cross-origin/i,
   /window\.ethereum|MetaMask/i,

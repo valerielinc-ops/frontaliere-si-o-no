@@ -124,6 +124,10 @@ export const ISSUE_DENY_PATTERNS = [
   /^(?:TypeError: )?Load failed$/i,
   /^(?:TypeError: )?Failed to fetch$/i,
   /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
+  // WebKit/iOS emits this bare cancellation wording for an in-flight fetch
+  // abandoned during navigation (#16806). Keep contextualized variants
+  // issue-able by anchoring the same pattern as the client deny-list.
+  /^(?:TypeError: )?cancelled$/i,
   // Firebase Auth network-request-failed — transient client connectivity (#4174).
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").

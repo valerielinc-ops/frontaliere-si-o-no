@@ -680,6 +680,15 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     }
   });
 
+  it('mirrors the anchored WebKit cancellation pattern from services/benignErrorPatterns.ts byte-for-byte (#16806)', () => {
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test('TypeError: cancelled'));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied('TypeError: cancelled')).toBe(true);
+    expect(isIssueDenied('cancelled')).toBe(true);
+    expect(isIssueDenied('[articleBody] TypeError: cancelled')).toBe(false);
+  });
+
   it('mirrors the Firebase auth/network-request-failed pattern from services/benignErrorPatterns.ts byte-for-byte (#4174)', () => {
     const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
       p.test('Firebase: Error (auth/network-request-failed).'),
@@ -763,6 +772,9 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('TypeError: Load failed')).toBe(true);
     expect(isIssueDenied('Load failed')).toBe(true);
     expect(isIssueDenied('NetworkError when attempting to fetch resource.')).toBe(true);
+    // WebKit/iOS's bare fetch-cancellation wording (#16806).
+    expect(isIssueDenied('TypeError: cancelled')).toBe(true);
+    expect(isIssueDenied('cancelled')).toBe(true);
     // But "Failed to fetch" WITH a URL/context is NOT denied — CDN/chunk-load bugs.
     expect(isIssueDenied('[exchangeRate] Failed to fetch')).toBe(false);
     // AbortError class (#4147): user-cancelled navigation/fetch — benign, no code fix possible.

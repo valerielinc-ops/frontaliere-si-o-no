@@ -27,6 +27,8 @@ describe('isBenignErrorMessage()', () => {
       'Failed to fetch',
       'TypeError: NetworkError when attempting to fetch resource.',
       'NetworkError when attempting to fetch resource.',
+      'TypeError: cancelled',
+      'cancelled',
       'AbortError: The user aborted a request.',
       'AbortError: The operation was aborted.',
       'AbortError: AbortError',
@@ -66,6 +68,8 @@ describe('isBenignErrorMessage()', () => {
       '[exchangeRate.cfFetch] Failed to fetch',
       '[jobBoard.loadJobs.shards] Load failed',
       '[firebase.initRemoteConfig] NetworkError when attempting to fetch resource.',
+      '[articleBody] TypeError: cancelled',
+      'TypeError: cancelled while loading article body',
       // Genuine app bugs
       "TypeError: Cannot read properties of undefined (reading 'trackCalculation')",
       'TypeError: Ze is not a constructor',
