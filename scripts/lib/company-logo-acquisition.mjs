@@ -115,6 +115,9 @@ export const DOMAIN_OVERRIDES = {
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  // The crawler's official employer domain is pks-personal.ch; never derive
+  // an audit source from the pks-bewerbung key or its ATS/job URL.
+  'pks-bewerbung-ch': ['pks-personal.ch'],
   'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
