@@ -109,6 +109,7 @@ describe('run-related-tests selection contract', () => {
       'tests/prune-merged-worktrees-proofs-e2e.test.ts',
       'tests/prune-merged-worktrees-corpus-e2e.test.ts',
       'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+      'tests/prune-merged-worktrees-reclaim-e2e.test.ts',
     ];
     const root = fixture({
       'scripts/prune-merged-worktrees.mjs': 'throw new Error("fixture pruner must never execute");\n',

@@ -10,7 +10,7 @@ import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererS
 import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
-import { portalRetryDueAt } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { isCaptchaPortalHold, portalRetryDueAt } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -83,7 +83,8 @@ function formatMs(ms: number | null | undefined): string {
 }
 
 const PORTAL_STOP_LABELS: Record<string, string> = {
-  captcha: 'CAPTCHA sul portale: completa tu l’invio',
+  captcha: 'CAPTCHA sul portale: risolvilo tu nella scheda',
+  captcha_provider_unavailable: 'CAPTCHA sul portale: risolvilo tu nella scheda',
   account: 'account sul portale da creare o verificare',
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'una pagina del portale non completata dal robot',
@@ -366,6 +367,35 @@ export default function AssistedApplicationAutomationPanel({
         </dl>
       )}
 
+      {flow?.state === 'owner_takeover' && isCaptchaPortalHold(flow) && draft?.round === flow.round && (
+        <section className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-sm text-body">
+          <h3 className="font-semibold text-strong">Completa la verifica e invia tu</h3>
+          <p className="mt-1">Apri il portale con l’estensione e risolvi il CAPTCHA nella scheda. L’estensione compila il modulo, ma non risolve la verifica né preme il pulsante d’invio.</p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            {portalUrl && extensionVersion ? (
+              <button type="button" className={`${primary} min-h-[44px]`} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
+                {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
+              </button>
+            ) : portalUrl ? (
+              <a className={`${secondary} min-h-[44px]`} href={portalUrl} target="_blank" rel="noreferrer">Apri il portale</a>
+            ) : (
+              <p className="text-xs text-subtle">Il link del portale non è disponibile: apri la pagina di candidatura dell’annuncio.</p>
+            )}
+            <button type="button" className={`${secondary} min-h-[44px]`} disabled={Boolean(busy)} onClick={() => { void markSubmitted(); }}>
+              {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
+            </button>
+          </div>
+          {!extensionVersion && (
+            <p className="mt-2 text-xs text-subtle">Estensione non rilevata. Puoi completare il modulo dal portale aperto oppure installare «Compila candidatura» seguendo <code>scripts/assisted-application/extension/README.md</code>.</p>
+          )}
+          <p className="mt-2 text-xs text-subtle">
+            {portalUrl && extensionVersion
+              ? 'Dopo la conferma del portale l’estensione aggiorna lo stato. Se non la rileva, verifica l’esito sul portale prima di «Segna come inviata».'
+              : 'Dopo l’invio, verifica la conferma sul portale e torna qui per «Segna come inviata».'}
+          </p>
+        </section>
+      )}
+
       {(automation?.followup || automation?.interviewPrep || draft?.sent) && (
         <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
           <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
@@ -606,26 +636,28 @@ export default function AssistedApplicationAutomationPanel({
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && !flow.roundSent && (
             <p className="w-full text-xs text-subtle">Il candidato non ha ancora approvato la bozza di questo giro: l’invio automatico non è disponibile. «Riprendi automazione» la rimette in revisione.</p>
           )}
-          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && flow.roundSent && !repairingFacts && (
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '')
+            && draft?.round === flow.round && flow.roundSent
+            && !repairingFacts && !isCaptchaPortalHold(flow) && (
             <>
               <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void retrySubmit(); }}>
                 {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
               </button>
             </>
           )}
-          {flow.state === 'owner_takeover' && draft?.round === flow.round && !repairingFacts && portalUrl && (extensionVersion ? (
+          {flow.state === 'owner_takeover' && draft?.round === flow.round && !repairingFacts && portalUrl && !isCaptchaPortalHold(flow) && (extensionVersion ? (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
               {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
             </button>
           ) : (
             <p className="w-full text-xs text-subtle">Per compilare il portale con un clic installa l’estensione «Compila candidatura» (cartella <code>scripts/assisted-application/extension</code>, istruzioni nel README).</p>
           ))}
-          {flow.state === 'owner_takeover' && draft?.round === flow.round && (
+          {flow.state === 'owner_takeover' && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
             <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void markSubmitted(); }}>
               {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
             </button>
           )}
-          {flow.state === 'owner_takeover' && draft?.round === flow.round && (
+          {flow.state === 'owner_takeover' && !isCaptchaPortalHold(flow) && draft?.round === flow.round && (
             <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void handoffToCandidate(); }}>
               {spinner('automationHandoff') || <UserCheck size={14} aria-hidden="true" />} Affida al candidato
             </button>

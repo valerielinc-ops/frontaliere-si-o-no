@@ -15,6 +15,7 @@ import {
   metadataFromJobs,
   shouldAcquireTarget,
 } from '../scripts/download-missing-company-logos.mjs';
+import { loadLogoRegistry } from '../scripts/lib/company-logo-registry.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 const workflowPath = path.join(ROOT, '.github/workflows/audit-missing-company-logos.yml');
@@ -44,19 +45,29 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   physioswiss: ['physioswiss.ch'],
   'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
   'swiss-timing-swatch-group': ['swisstiming.com'],
+  'sympajobs-reinach-bl': ['sympajobs.ch'],
   'deillon-delley-architectes': ['deillondelley.ch'],
   'project-interim': ['projectinterim.ch'],
   'technic-emplois': ['technic-emplois.ch'],
   'fondation-domus': ['fondation-domus.ch'],
   gipo: ['gipo.ch'],
   'hugo-boss': ['hugoboss.com'],
+  'seniorenzentrum-engelhof': ['seniorenzentrum-engelhof.ch'],
   'rh-expert-ch': ['rh-expert.ch'],
   my: ['teojakob.ch'],
   okjob: ['okjob.ch'],
   pianorm: ['pianorm.ch'],
+  'pks-bewerbung-ch': ['pks-personal.ch'],
+  'mpa-praxisstellen-ch': ['pks-personal.ch'],
   'proman-fleurier': ['proman-group.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
+};
+
+const MPA_OFFICIAL_LOGO_URL = 'https://partner.jobbzz.ch/jobbzzFramework/minisites/img/pks-logo-new.png';
+
+const SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES = {
+  'csc-costruzioni-sa': ['csc-sa.ch'],
 };
 
 describe('missing company-logo acquisition', () => {
@@ -170,12 +181,52 @@ describe('missing company-logo acquisition', () => {
     expect(domainCandidates('adecco-sa', unmarkedSecoMetadata, { fromAudit: true })).toEqual([]);
   });
 
-  it('declares an official domain for every company in the current #6504 residual', () => {
+  it('declares an official domain for every company in the current audit residual', () => {
     for (const [key, domains] of Object.entries(CURRENT_RESIDUAL_DOMAIN_OVERRIDES)) {
       expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
       expect(domainCandidates(key, {
         companyDomains: new Set(['jobs.ch']),
         urlHosts: new Set(['jobalino.ch']),
+      }, { fromAudit: true })).toEqual(domains);
+    }
+  });
+
+  it('uses the source-backed PKS logo instead of the low-quality favicon', async () => {
+    const registryEntry = (await loadLogoRegistry(ROOT))
+      .find((entry) => entry.slug === 'mpa-praxisstellen-ch');
+    expect(registryEntry?.url).toBe(MPA_OFFICIAL_LOGO_URL);
+    expect(registryEntry?.url).not.toMatch(/favicon/i);
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (url) => {
+      if (url === MPA_OFFICIAL_LOGO_URL) {
+        return new Response(pngBytes(512, 128), { headers: { 'content-type': 'image/png' } });
+      }
+      throw new Error(`unexpected fetch ${url}`);
+    };
+
+    try {
+      const result = await downloadForKey('mpa-praxisstellen-ch', {
+        declaredLogoUrls: new Set([MPA_OFFICIAL_LOGO_URL]),
+      }, { fromAudit: true });
+      expect(result).toEqual(expect.objectContaining({
+        accepted: true,
+        source: 'declared-logo-source',
+        sourceDomain: 'partner.jobbzz.ch',
+        width: 512,
+        height: 128,
+      }));
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it('uses the source-backed CSC employer domain instead of its NCore ATS in audit mode', () => {
+    for (const [key, domains] of Object.entries(SOURCE_BACKED_EMPLOYER_DOMAIN_OVERRIDES)) {
+      expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
+      expect(domainCandidates(key, {
+        companyDomains: new Set(['ncoreplat.com']),
+        urlHosts: new Set(['app.ncoreplat.com']),
       }, { fromAudit: true })).toEqual(domains);
     }
   });

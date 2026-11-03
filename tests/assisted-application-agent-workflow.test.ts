@@ -14,6 +14,10 @@ const workflowSource = readFileSync(
   new URL('../.github/workflows/assisted-application-agent.yml', import.meta.url),
   'utf8',
 );
+const portalSource = readFileSync(
+  new URL('../scripts/assisted-application/lib/portal/portal.mjs', import.meta.url),
+  'utf8',
+);
 const workflow = YAML.parse(workflowSource) as { jobs?: { agent?: { steps?: Step[]; 'timeout-minutes'?: number } } };
 const agentJob = workflow.jobs?.agent;
 const steps = agentJob?.steps ?? [];
@@ -38,5 +42,15 @@ describe('assisted application agent workflow dependencies', () => {
     expect(steps[chromiumInstall]?.['timeout-minutes']).toBeLessThan(agentJob?.['timeout-minutes'] ?? 0);
     expect(reconcileFailure).toBeGreaterThan(chromiumInstall);
     expect(steps[reconcileFailure]?.if).toMatch(/failure\(\)/u);
+  });
+
+  it('reports real CAPTCHA challenges for Valerie without loading a solver', () => {
+    expect(workflowSource).not.toContain('NOPECHA_EXTENSION_PATH');
+    expect(steps.some(step => /NopeCHA|install-nopecha/iu.test(`${step.name || ''} ${step.run || ''}`))).toBe(false);
+    expect(portalSource).not.toContain('process.env.NOPECHA_EXTENSION_PATH');
+    expect(portalSource).not.toContain('launchNopechaContext');
+    expect(portalSource).not.toContain('awaitCaptcha');
+    expect(portalSource).toContain("if (snapshot.captcha) return await handoff('captcha');");
+    expect(portalSource).toContain("if (outcome === 'captcha') return await handoff('captcha');");
   });
 });

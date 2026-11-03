@@ -276,6 +276,29 @@ jobs:
       - name: Load RC secrets (PageSpeed API key)
         run: node scripts/load-rc-env.mjs
 
+      # GitHub Pages does not invalidate Cloudflare's apex HTML entry when it
+      # publishes. The old zone-wide purge was removed to preserve the R2 CDN
+      # cache, but no exact replacement covered `/`; the 300s TTL is not a
+      # freshness guarantee while stale-while-revalidate can keep an old page
+      # available. Clear only the Pages home key after origin propagation is
+      # confirmed. The runtime watchdog separately checks all four locale homes.
+      - name: Purge exact cache entry for the Pages home
+        if: steps.propagation.outcome == 'success'
+        env:
+          PAGES_HOME_PURGE_URL: https://frontaliereticino.ch/
+        run: |
+          set -euo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::error::CF_API_TOKEN missing after Remote Config load — the Pages home cache could not be purged"
+            exit 1
+          fi
+          purge_urls="${PAGES_HOME_PURGE_URL:-}"
+          if [ -z "$purge_urls" ]; then
+            echo "::error::the exact Pages home purge URL list is empty"
+            exit 1
+          fi
+          node scripts/cf-purge-cache.mjs "--files=$purge_urls"
+
       - name: Verify CDN-offloaded bundle serves live
         id: cdn-gate
         env:

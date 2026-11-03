@@ -1,0 +1,27 @@
+{
+  "companyKey": "digital-solutions-io",
+  "companyName": "Digital Solutions SA",
+  "companyHost": "digital-solutions.io",
+  "verifiedEmployerDomain": "digital-solutions.io",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.digital-solutions.io/rejoignez-nous/"
+  ],
+  "detailTemplate": "/postes-a-pourvoir/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "PMO / Project Management Officer (H/F)",
+    "Ingénieur DevOps (H/F)",
+    "Chef de Projet Infrastructure Senior (H/F)",
+    "Responsable Applicatif / Application Manager (H/F)",
+    "Développeur Mendix (H/F)"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-03T13:30:22.155Z",
+  "candidateKey": "digital-solutions@porrentruy"
+}

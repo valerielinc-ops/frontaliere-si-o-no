@@ -3,6 +3,8 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => {
   const documents = new Map<string, Record<string, unknown>>();
   const files = new Set<string>();
+  const fileMetadata = new Map<string, Record<string, unknown>>();
+  let storageGeneration = 0;
   let childSequence = 0;
   let copyHook: (() => void) | null = null;
 
@@ -37,6 +39,7 @@ const mocks = vi.hoisted(() => {
       set(data: Record<string, unknown>, options?: { merge?: boolean }) {
         mergeData(normalized, data, options?.merge === true);
       },
+      async delete() { documents.delete(normalized); },
       collection(name: string) {
         return makeCollection(normalized + '/' + name);
       },
@@ -66,6 +69,7 @@ const mocks = vi.hoisted(() => {
       return callback({
         get: (ref: any) => ref.get(),
         set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
+        delete: (ref: any) => ref.delete(),
       });
     },
     batch() {
@@ -89,7 +93,19 @@ const mocks = vi.hoisted(() => {
           return [files.has(path)];
         },
         async getMetadata() {
-          return [{ size: 100, contentType: 'application/pdf' }];
+          if (!files.has(path)) throw Object.assign(new Error('not found'), { code: 404 });
+          return [fileMetadata.get(path) || { size: 100, contentType: 'application/pdf', generation: '1', metadata: {} }];
+        },
+        async download() {
+          if (!files.has(path)) throw Object.assign(new Error('not found'), { code: 404 });
+          return [Buffer.alloc(Number(fileMetadata.get(path)?.size) || 100)];
+        },
+        async save(buffer: Buffer, options: any = {}) {
+          if (files.has(path)) throw Object.assign(new Error('precondition failed'), { code: 412 });
+          files.add(path);
+          fileMetadata.set(path, { size: buffer.length, contentType: options.contentType || 'application/pdf',
+            generation: String(++storageGeneration), metadata: options.metadata?.metadata || {} });
+          copyHook?.();
         },
         async copy(target: { path: string }) {
           files.add(target.path);
@@ -97,6 +113,7 @@ const mocks = vi.hoisted(() => {
         },
         async delete() {
           files.delete(path);
+          fileMetadata.delete(path);
         },
       };
     },
@@ -117,6 +134,8 @@ const mocks = vi.hoisted(() => {
     reset() {
       documents.clear();
       files.clear();
+      fileMetadata.clear();
+      storageGeneration = 0;
       childSequence = 0;
       copyHook = null;
     },
@@ -134,6 +153,7 @@ vi.mock('firebase-admin/firestore', () => ({
   },
   Timestamp: {
     now: () => new Date(),
+    fromMillis: (value: number) => new Date(value),
   },
 }));
 
@@ -342,6 +362,40 @@ describe('application concierge candidate API', () => {
       jobId: 'job-1',
     }));
     expect([...mocks.files].some((path) => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
+  });
+
+  it('keeps the existing cv_not_found API error when the source disappears before copying', async () => {
+    mocks.files.delete('application-concierge-uploads/service-1/cv.pdf');
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { ok: false, error: 'cv_not_found' } });
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
+  it('reuses the accepted child when the acceptance response is retried after an ACK loss', async () => {
+    const request = {
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    };
+    const first = await handleApplicationConcierge(request);
+    const childId = (first.body as any).childApplicationId;
+    const child = mocks.documents.get(`assisted_applications/${childId}`)!;
+    const childKey = child.cvStorageKey;
+    const filesAfterFirst = [...mocks.files].sort();
+
+    const retry = await handleApplicationConcierge(request);
+
+    expect(retry).toMatchObject({ status: 200, body: { childApplicationId: childId } });
+    expect(mocks.documents.get('application_concierge_services/service-1')).toEqual(expect.objectContaining({ acceptedPositionsCount: 1 }));
+    expect(mocks.documents.get(`assisted_applications/${childId}`)).toEqual(expect.objectContaining({ cvStorageKey: childKey }));
+    expect([...mocks.files].sort()).toEqual(filesAfterFirst);
+    expect([...mocks.documents.keys()].filter(path => path.startsWith('assisted_applications/'))).toEqual([`assisted_applications/${childId}`]);
   });
 
   it('copies the current validated service locale into the accepted child inside the transaction', async () => {

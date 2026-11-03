@@ -16,6 +16,14 @@ import {
   rotationFromEnv,
   runtimeFailureFingerprint,
 } from '../scripts/runtime-reliability-watch.mjs';
+import {
+  HOME_PAGE_LOCALES,
+  HOME_PAGE_PATH_BY_LOCALE,
+  SITE_ORIGIN,
+  evaluateHomePageFreshness,
+  extractBuildIdFromHtml,
+  homePagePurgeUrls,
+} from '../scripts/lib/home-page-freshness.mjs';
 import { uncoveredAllowListCode } from '../scripts/ci/verify-checkout-profiles.mjs';
 
 function response(body: string, status = 200) {
@@ -26,10 +34,86 @@ function response(body: string, status = 200) {
   };
 }
 
+function homePageResponse(url: string, buildId: string) {
+  const pathname = new URL(url).pathname;
+  const locale = Object.entries(HOME_PAGE_PATH_BY_LOCALE)
+    .find(([, path]) => path === pathname)?.[0];
+  if (!locale) return null;
+  return response(`<html><head><meta name="ft-build-id" content="${buildId}"></head></html>`);
+}
+
 const PUBLIC_KEY_FIXTURE = `AIza${'x'.repeat(35)}`;
 const publicConfigBody = JSON.stringify({ FIREBASE_API_KEY: PUBLIC_KEY_FIXTURE });
 
 describe('runtime reliability watchdog', () => {
+  it('extracts one valid build-id marker and leaves missing or ambiguous HTML unknown', () => {
+    expect(extractBuildIdFromHtml('<html><head><meta name="ft-build-id" content="1793621650112"></head></html>')).toBe('1793621650112');
+    expect(extractBuildIdFromHtml("<html><head><META content='1793621650112' NAME='ft-build-id'></head></html>")).toBe('1793621650112');
+    expect(extractBuildIdFromHtml('<html><head><meta name="ft-build-id" content="old"></head></html>')).toBeNull();
+    expect(extractBuildIdFromHtml('<html><head><!-- <meta name="ft-build-id" content="1793621650112"> --></head></html>')).toBeNull();
+    expect(extractBuildIdFromHtml('<html><head><script>"<meta name=ft-build-id content=1793621650112>"</script></head></html>')).toBeNull();
+    expect(extractBuildIdFromHtml('<html><head><meta name="ft-build-id" content="1793621650112"><meta name="ft-build-id" content="1793621650113"></head></html>')).toBeNull();
+    expect(extractBuildIdFromHtml('<html><head><meta name="robots" content="index"></head></html>')).toBeNull();
+  });
+
+  it('purges only home pages whose HTML build-id differs from the fresh site marker', () => {
+    const expected = '1793621650112';
+    const observations = HOME_PAGE_LOCALES.map((locale) => ({
+      locale,
+      url: new URL(HOME_PAGE_PATH_BY_LOCALE[locale], SITE_ORIGIN).href,
+      status: 200,
+      ok: true,
+      body: `<html><head><meta name="ft-build-id" content="${locale === 'it' ? '1793363671250' : expected}"></head></html>`,
+    }));
+    const result = evaluateHomePageFreshness(expected, observations);
+    expect(result.ok).toBe(false);
+    expect(result.pages.map(({ locale, state }) => [locale, state])).toEqual([
+      ['it', 'stale'], ['en', 'healthy'], ['de', 'healthy'], ['fr', 'healthy'],
+    ]);
+    expect(result.purgeUrls).toEqual(homePagePurgeUrls(['it']));
+
+    const probe = evaluateProbe({
+      siteCached: { body: expected, status: 200, ok: true },
+      siteFresh: { body: expected, status: 200, ok: true },
+      cdnMarker: { body: expected, status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'same' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'same' },
+      }],
+      homePageObservations: observations,
+      publicConfig: { ok: true },
+    });
+    expect(probe.purgeUrls).toEqual(homePagePurgeUrls(['it']));
+    expect(evaluateRepairPolicy({ probe }).action).toBe('purge');
+
+    const unknown = evaluateHomePageFreshness(expected, observations.map((page) => ({ ...page, body: '<html><head></head></html>' })));
+    expect(unknown.ok).toBe(false);
+    expect(unknown.purgeUrls).toEqual([]);
+    const wrongOrigin = evaluateHomePageFreshness(expected, observations.map((page) => ({ ...page, url: 'https://example.com/' })));
+    expect(wrongOrigin.pages.every((page) => page.state === 'unavailable')).toBe(true);
+    expect(wrongOrigin.purgeUrls).toEqual([]);
+  });
+
+  it('names only exact home cache URLs, including locale paths with and without trailing slash', () => {
+    expect(homePagePurgeUrls()).toEqual([
+      'https://frontaliereticino.ch/',
+      'https://frontaliereticino.ch/en',
+      'https://origin-en.frontaliereticino.ch/en',
+      'https://frontaliereticino.ch/en/',
+      'https://origin-en.frontaliereticino.ch/en/',
+      'https://frontaliereticino.ch/de',
+      'https://origin-de.frontaliereticino.ch/de',
+      'https://frontaliereticino.ch/de/',
+      'https://origin-de.frontaliereticino.ch/de/',
+      'https://frontaliereticino.ch/fr',
+      'https://origin-fr.frontaliereticino.ch/fr',
+      'https://frontaliereticino.ch/fr/',
+      'https://origin-fr.frontaliereticino.ch/fr/',
+    ]);
+    expect(homePagePurgeUrls(['it'])).toEqual(['https://frontaliereticino.ch/']);
+  });
+
   it('defers while the CDN origin is being mutated and fails closed when the window stalls', () => {
     const now = Date.parse('2026-10-18T20:10:00Z');
     const start = String(now - 10 * 60_000);
@@ -105,6 +189,8 @@ describe('runtime reliability watchdog', () => {
       if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
       if (path === CDN_PUBLISH_START_ID_PATH) return response(String(now - 10 * 60_000));
       if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(String(now - 60 * 60_000));
+      const page = homePageResponse(url, '1792310390925');
+      if (page) return page;
       return response(path === '/build-id.txt' ? '1792310390925' : '1792326278647');
     });
     const result = await probeRuntime({
@@ -131,6 +217,8 @@ describe('runtime reliability watchdog', () => {
       }
       if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
       if (path === '/assets/App.js') return response(url.includes('ft_reliability=') ? 'new' : 'old');
+      const page = homePageResponse(url, '1792310390925');
+      if (page) return page;
       return response(path === '/build-id.txt' ? '1792310390925' : '1792326278647');
     });
     const result = await probeRuntime({
@@ -286,7 +374,7 @@ describe('runtime reliability watchdog', () => {
     expect(probe.markerState).toBe('rollout_in_progress');
     expect(evaluateRepairPolicy({ probe })).toMatchObject({
       action: 'none',
-      reason: 'no_targeted_assets',
+      reason: 'no_targeted_urls',
     });
   });
 
@@ -477,16 +565,30 @@ describe('runtime reliability watchdog', () => {
 
   it('compares cache-busted and stable URLs through the same fetch contract', async () => {
     const calls: string[] = [];
-    const fetchImpl = vi.fn(async (url: string) => {
+    const homeRequests: Array<{ url: string; headers: Record<string, string> }> = [];
+    const fetchImpl = vi.fn(async (url: string, init: any) => {
       calls.push(url);
       if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
       const isAsset = url.includes('/assets/');
+      const page = homePageResponse(url, '1789306155656');
+      if (page) {
+        homeRequests.push({ url, headers: init.headers });
+        return page;
+      }
       return response(isAsset ? 'asset' : '1789306155656');
     });
     const result = await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date('2026-09-13T00:00:00Z'), assetPaths: ['/assets/App.js'], chunkGraph: false });
     expect(result.ok).toBe(true);
-    expect(calls).toHaveLength(12); // five initial reads + public config, asset pair, three closing marker reads
+    expect(calls).toHaveLength(16); // five markers + public config pair + four homes + asset pair + three closing markers
     expect(calls.some((url) => url.includes('ft_reliability='))).toBe(true);
+    expect(calls.filter((url) => HOME_PAGE_LOCALES.some((locale) => new URL(url).pathname === HOME_PAGE_PATH_BY_LOCALE[locale])))
+      .toEqual(HOME_PAGE_LOCALES.map((locale) => new URL(HOME_PAGE_PATH_BY_LOCALE[locale], SITE_ORIGIN).href));
+    expect(homeRequests.every(({ url, headers }) =>
+      new URL(url).search === ''
+      && headers.Accept.startsWith('text/html,')
+      && !headers['Cache-Control']
+      && !headers.Pragma,
+    )).toBe(true);
   });
 
   describe('public Firebase config', () => {
@@ -548,6 +650,24 @@ describe('runtime reliability watchdog', () => {
     expect(job).toContain('actions: write  # workflow_dispatch is the explicit chained trigger');
     expect(job).toContain('gh workflow run runtime-reliability-watch.yml');
     expect(job).toContain('--ref main');
+  });
+
+  it('replaces the removed zone-wide deploy purge with the exact Pages home key', () => {
+    const workflow = readFileSync(
+      new URL('../.github/workflows/post-deploy-validate-live.yml', import.meta.url),
+      'utf8',
+    );
+    const start = workflow.indexOf('- name: Purge exact cache entry for the Pages home');
+    const end = workflow.indexOf('\n      - name:', start + 1);
+    const step = workflow.slice(start, end);
+    expect(start).toBeGreaterThan(-1);
+    expect(workflow.indexOf('run: node scripts/load-rc-env.mjs')).toBeLessThan(start);
+    expect(step).toContain("if: steps.propagation.outcome == 'success'");
+    expect(step).toContain('PAGES_HOME_PURGE_URL: https://frontaliereticino.ch/');
+    expect(step).toContain('purge_urls="${PAGES_HOME_PURGE_URL:-}"');
+    expect(step).toContain('node scripts/cf-purge-cache.mjs "--files=$purge_urls"');
+    expect(step).toContain('CF_API_TOKEN missing');
+    expect(step).not.toContain('purge_everything');
   });
 
   describe('runtime-reliability-watch.yml wiring', () => {

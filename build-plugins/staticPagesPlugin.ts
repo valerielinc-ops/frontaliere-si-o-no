@@ -53,6 +53,7 @@ import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 import { compareArticleSourceDates } from '../services/articleSourceDates';
 import { EDITORIAL_TEAM_ID } from '../services/seo/organizationLd';
 import { localizeOfficialSourceRootLinks } from './shared/officialSourceRootLinks';
+import { countItalianFrontaliereArticleDetails, formatArticleCountEvidence } from './shared/publishedMeasurements.mjs';
 
 // SPA pages initialize PostHog from the consent-gated idle path in App.tsx.
 // Keeping the standalone snippet here would initialize it before React and
@@ -2119,7 +2120,10 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  ogPagesPaths.add(p);
  sectionItPaths.push(p);
  }
- sectionArticleCounts[sec.seoFiles.some((f) => f.includes('-ch')) ? 'svizzera' : 'frontaliere'] = sectionItPaths.length;
+ const sectionKey = sec.seoFiles.some((f) => f.includes('-ch')) ? 'svizzera' : 'frontaliere';
+ sectionArticleCounts[sectionKey] = sectionKey === 'frontaliere'
+   ? countItalianFrontaliereArticleDetails(sectionItPaths)
+   : sectionItPaths.length;
  // Also derive EN/DE/FR locale paths for the same articles so we can skip
  // them deterministically without racing on fs.existsSync. Parse the
  // section's slug registry (BLOG_SLUGS / SWISS_SLUGS) — the same source
@@ -5402,8 +5406,13 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  } else if (isArticlesIndex) {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
+ const articleCountEvidence = formatArticleCountEvidence(
+   sectionArticleCounts.frontaliere ?? 0,
+   new Date().toISOString().slice(0, 10),
+   'it',
+ );
  editorialBlocks.push(
- `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica del Protocollo sul telelavoro fino al 25%, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano gli strumenti pertinenti della piattaforma e, quando ci sono fonti esterne, le linkano nel testo: possono essere documenti ufficiali o notizie giornalistiche attribuite. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino. Il corpus comprende ${articleCountEvidence}. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica del Protocollo sul telelavoro fino al 25%, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano gli strumenti pertinenti della piattaforma e, quando ci sono fonti esterne, le linkano nel testo: possono essere documenti ufficiali o notizie giornalistiche attribuite. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/

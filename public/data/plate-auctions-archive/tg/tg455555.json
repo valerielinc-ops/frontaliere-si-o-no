@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "tg-109686",
+      "id": "tg-109874",
       "sourceKey": "TG",
-      "sourceRecordId": "109686",
+      "sourceRecordId": "109874",
       "canton": "Turgovia",
       "platePrefix": "TG",
       "plateNumber": "455555",
@@ -12,18 +12,18 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 1560,
+      "currentBidChf": 1320,
       "bidCount": 19,
-      "endsAt": "2026-10-21T17:00:00.000Z",
-      "closedAt": "2026-10-21T17:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
-      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109686",
-      "sourceFetchedAt": "2026-10-21T04:46:43.306Z",
-      "lastVerifiedAt": "2026-10-21T04:46:43.306Z",
-      "firstSeenAt": "2026-10-07T06:06:06.221Z",
-      "lastSeenAt": "2026-10-21T04:46:43.306Z",
+      "endsAt": "2026-11-04T18:00:00.000Z",
+      "closedAt": "2026-10-31T05:40:06.931Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109874",
+      "sourceFetchedAt": "2026-10-31T05:40:06.931Z",
+      "lastVerifiedAt": "2026-10-31T05:40:06.931Z",
+      "firstSeenAt": "2026-10-22T17:12:02.218Z",
+      "lastSeenAt": "2026-10-31T05:40:06.931Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "6c00db869e39"
+      "rawSnapshotHash": "c8299ec8d472"
     }
   ]
 }

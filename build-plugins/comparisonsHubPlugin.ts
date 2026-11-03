@@ -34,6 +34,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
+import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '../constants';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
@@ -59,6 +60,7 @@ import { COMPARISONS_HUB_COPY, type ComparisonsHubCopy } from './comparisonsHubC
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
+import { formatExchangeRateEvidence } from './shared/publishedMeasurements.mjs';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -360,7 +362,14 @@ function renderPage(opts: {
 }): RenderResult {
   const { locale, salaryRows, lamalRows, dateStamp, distDir } = opts;
   const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
-  const copy = COMPARISONS_HUB_COPY[locale];
+  const sourceCopy = COMPARISONS_HUB_COPY[locale];
+  const copy: ComparisonsHubCopy = {
+    ...sourceCopy,
+    tCostFooter: sourceCopy.tCostFooter.replace(
+      '{{CHF_EUR_EVIDENCE}}',
+      formatExchangeRateEvidence(DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE, locale),
+    ),
+  };
   const urlPath = buildComparisonsHubPath(locale);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 

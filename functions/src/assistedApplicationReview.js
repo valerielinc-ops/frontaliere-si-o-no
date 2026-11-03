@@ -24,9 +24,9 @@ import {
   loadEmployerResponseTimeline,
 } from './assistedApplicationEmployerResponse.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
-import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
+import { MAX_REVIEW_ROUNDS, roundsShown, transition } from './assistedApplicationFlow.js';
 import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
-import { submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
@@ -950,9 +950,28 @@ export async function handleAssistedApplicationReview(req, deps) {
       answers: { type: 'candidate_answers' },
       confirm_submitted: { type: 'candidate_confirmed_submitted' },
     }[action];
+    let writeSubmissionReceipt = null;
+    if (action === 'confirm_submitted') {
+      const allowed = transition(flow, event, { nowMs });
+      if (allowed.ignored) throw new ReviewError(allowed.ignored, 409);
+      const guard = submissionGuard(deps.db, orderId, round);
+      const existing = await guard.read();
+      const actor = String(order.userId || order.applicantEmail || 'candidate').slice(0, 320);
+      const attemptId = existing?.confirmationReceipts?.candidate?.attemptId || `candidate-${randomUUID()}`;
+      writeSubmissionReceipt = ({ transaction }) => guard.markSent({
+        channel: 'candidate', confirmedBy: 'candidate', confirmedAt: nowMs,
+        sent: draft?.sentAttempt || draft?.sent || existing?.sent || {},
+      }, nowMs, {
+        kind: 'candidate_confirmation',
+        attemptId,
+        submissionAttemptId: existing?.attemptId || null,
+        observedAt: nowMs, evidence: { actor, confirmedAt: nowMs },
+      }, { transaction });
+    }
     if (action === 'reject' && event.feedback.length < MIN_FEEDBACK_CHARS) throw new ReviewError('feedback_required');
     const result = await applyAutomationEvent({
       db: deps.db, orderId, event, actor: 'candidate', runEffect: deps.runEffect, nowMs,
+      expectedRound: action === 'confirm_submitted' ? round : null, writeSubmissionReceipt,
     });
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };

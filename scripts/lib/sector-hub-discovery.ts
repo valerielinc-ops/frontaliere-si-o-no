@@ -7,7 +7,7 @@ import {
   SECTOR_HUB_SLUG,
   type SectorHubKey,
 } from '../../build-plugins/jobSectorLanding';
-import { isKnownExistingCategorySlug } from '../../build-plugins/shared/autoSectorHubPaths';
+import { normalizeJobCategoryKey } from '../../build-plugins/shared/autoSectorHubPaths';
 import {
   CATEGORY_LISTING_PAGE_SIZE,
   compareCategoryListingJobs,
@@ -466,7 +466,7 @@ export function buildSectorHubDiscoveryReport({
   const categoryListingEntries = jobs.flatMap((job, index) => {
     if (isFixtureJob(job) || !isListingInventoryJob(job)) return [];
     const listing = normalizeListingIdentity(job);
-    if (!listing.slug || !isKnownExistingCategorySlug(String(listing.category || '').toLowerCase())) return [];
+    if (!listing.slug || !normalizeJobCategoryKey(listing.category)) return [];
     return [{ job: listing as DiscoveryJob, id: jobIdentity(listing, index) }];
   });
   const jobsSeoSample = resolveJobsSeoSample();
@@ -480,7 +480,8 @@ export function buildSectorHubDiscoveryReport({
     .filter(({ job }) => sampledCategoryJobs === null || sampledCategoryJobs.has(job as unknown as Record<string, unknown>))
     .sort((a, b) => compareCategoryListingJobs(a.job, b.job));
   for (const { job, id } of sortedCategoryListingEntries) {
-    const categorySlug = String(job.category || '').toLowerCase();
+    const categorySlug = normalizeJobCategoryKey(job.category);
+    if (!categorySlug) continue;
     const count = (existingCategoryJobCounts.get(categorySlug) || 0) + 1;
     existingCategoryJobCounts.set(categorySlug, count);
     const ids = existingCategoryJobIds.get(categorySlug) || new Set<string>();
@@ -922,7 +923,7 @@ export function buildAutomaticSectorHubPublicationRegistry({
       ? old?.routeKind || 'dynamic'
       : candidate.existingCategoryInventoryMatches === true
         && candidate.existingCategoryJobCount >= 3
-        && isKnownExistingCategorySlug(candidate.suggestedSlug)
+        && normalizeJobCategoryKey(candidate.suggestedSlug)
         ? 'static-category'
         : 'dynamic';
     hubs.push({

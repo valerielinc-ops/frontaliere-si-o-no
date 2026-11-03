@@ -112,6 +112,8 @@ jobs:
             infra/cloudflare-worker/**
             build-plugins/shared/cantonResolvers.mjs
             build-plugins/shared/articleSectionCore.mjs
+            build-plugins/shared/redirectStubMarker.mjs
+            build-plugins/shared/fuelRouteSlugs.mjs
             packages/articles/engine/shared/articleSectionCore.mjs
             packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
           sparse-checkout-cone-mode: false
@@ -172,13 +174,13 @@ jobs:
       # `--files=` (which clears the variant with and without `Origin`); the
       # list can be long now that the whole graph is compared, so it travels
       # in the report file, not in a step output.
-      - name: Purge divergent CDN assets
+      - name: Purge divergent runtime URLs
         id: purge
         if: steps.probe.outputs.repair_action == 'purge'
         continue-on-error: true
         run: |
           if [ -z "${CF_API_TOKEN:-}" ]; then
-            echo "::error::runtime reliability found ${{ steps.probe.outputs.purge_count }} stale CDN asset(s) but CF_API_TOKEN is unavailable; no automatic repair was attempted"
+            echo "::error::runtime reliability found ${{ steps.probe.outputs.purge_count }} stale cache URL(s) but CF_API_TOKEN is unavailable; no automatic repair was attempted"
             exit 1
           fi
           node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json

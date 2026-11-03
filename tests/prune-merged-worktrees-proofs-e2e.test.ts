@@ -71,12 +71,22 @@ function setTimes(p: string, when: Date): void {
   if (fs.existsSync(p)) fs.utimesSync(p, when, when);
 }
 
-// Invecchia i segnali di attività che lo script legge: HEAD, index e reflog
-// del worktree, più la sua radice.
+// Invecchia i segnali di attività e i file realmente modificati. L'index è
+// toccato solo per mantenere la fixture realistica: non è un segnale affidabile.
 function age(worktreePath: string, when: Date = at(5 * DAY), indexWhen: Date = when): void {
   const admin = git(worktreePath, ['rev-parse', '--absolute-git-dir']);
   for (const p of [path.join(admin, 'HEAD'), path.join(admin, 'logs', 'HEAD'), worktreePath]) setTimes(p, when);
   setTimes(path.join(admin, 'index'), indexWhen);
+  // `stale-recent` è intenzionalmente fresco su disco mentre differisce solo
+  // per il segnale dell'index: questa è la regressione che vogliamo coprire.
+  if (indexWhen.getTime() === when.getTime()) {
+    for (const entry of fs.readdirSync(worktreePath, { withFileTypes: true })) {
+      if (entry.name === '.git') continue;
+      const full = path.join(worktreePath, entry.name);
+      if (entry.isSymbolicLink()) fs.lutimesSync(full, when, when);
+      else fs.utimesSync(full, when, when);
+    }
+  }
 }
 
 function ageTree(dir: string, when: Date): void {

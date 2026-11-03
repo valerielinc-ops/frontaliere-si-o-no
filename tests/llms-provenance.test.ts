@@ -20,6 +20,8 @@ function fixture() {
   const distDir = path.join(rootDir, 'dist');
   fs.mkdirSync(publicDir);
   fs.mkdirSync(distDir);
+  fs.mkdirSync(path.join(rootDir, 'data'));
+  fs.writeFileSync(path.join(rootDir, 'data', 'exchange-rate-snapshot.json'), JSON.stringify({ currentRate: 1.0874, rateDate: '2026-10-30' }));
   const sourceDate = new Date(Date.now() - 400 * 86400000);
   const date = sourceDate.toISOString().slice(0, 10);
   const month = sourceDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
@@ -51,13 +53,41 @@ describe('AI reference source provenance', () => {
   it('keeps the curated locale seed and only a summary of its URLs', async () => {
     const f = fixture();
     fs.mkdirSync(path.join(f.publicDir, 'en'), { recursive: true });
-    fs.writeFileSync(path.join(f.publicDir, 'en/llms.txt'), '# Seed\n\n## Key Facts — Citation-Ready\n');
+    fs.writeFileSync(path.join(f.publicDir, 'en/llms.txt'), '# Seed\n\nCurrent CHF/EUR snapshot: {{CHF_EUR_SNAPSHOT}}.\n\n## Key Facts — Citation-Ready\n');
     await generateLlmsTxtFamily(f);
     const locale = fs.readFileSync(path.join(f.distDir, 'en/llms.txt'), 'utf8');
     expect(locale).toContain('## Key Facts — Citation-Ready');
+    expect(locale).toContain('1 CHF = 1.0874 EUR · TwelveData source, Firestore snapshot · observed 2026-10-30');
+    expect(locale).not.toContain('{{CHF_EUR_SNAPSHOT}}');
     expect(locale).toContain('Pages in this language');
     expect(locale).toContain('/llms-index.txt');
     expect(locale).not.toMatch(/^- \[.*\]\(https:\/\/frontaliereticino\.ch\/en\//m);
+  });
+
+  it('localizes the dated exchange-rate snapshot in each generated locale seed', async () => {
+    const f = fixture();
+    const alternates = ['en', 'de', 'fr'].map((locale) =>
+      `<xhtml:link hreflang="${locale}" href="https://frontaliereticino.ch/${locale}/guide/" />`,
+    ).join('');
+    fs.writeFileSync(path.join(f.publicDir, 'sitemap-pages.xml'), `<urlset><url><loc>https://frontaliereticino.ch/guida/</loc>${alternates}</url></urlset>`);
+    for (const locale of ['en', 'de', 'fr']) {
+      fs.mkdirSync(path.join(f.publicDir, locale), { recursive: true });
+      fs.writeFileSync(path.join(f.publicDir, locale, 'llms.txt'), `# ${locale}\n{{CHF_EUR_SNAPSHOT}}\n`);
+    }
+
+    await generateLlmsTxtFamily(f);
+
+    const expected = {
+      en: ['1 CHF = 1.0874 EUR', 'TwelveData source, Firestore snapshot · observed 2026-10-30'],
+      de: ['1 CHF = 1,0874 EUR', 'Quelle TwelveData, Firestore-Snapshot · Stand 2026-10-30'],
+      fr: ['1 CHF = 1,0874 EUR', 'source TwelveData, instantané Firestore · relevé le 2026-10-30'],
+    };
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const output = fs.readFileSync(path.join(f.distDir, locale, 'llms.txt'), 'utf8');
+      expect(output).toContain(expected[locale][0]);
+      expect(output).toContain(expected[locale][1]);
+      expect(output).not.toContain('{{CHF_EUR_SNAPSHOT}}');
+    }
   });
 
   it('does not renew verification dates when the same content is built in a later month', async () => {
@@ -77,12 +107,12 @@ describe('llms family derived from the sitemaps', () => {
 
   function seeded() {
     const f = fixture();
-    fs.writeFileSync(path.join(f.distDir, 'llms.txt'), '# Reference\n- **3000+ Blog Articles** — hub\n');
-    fs.writeFileSync(path.join(f.distDir, 'llms-full.txt'), '# Reference\nWe publish **3,000+ in-depth articles**.\n');
+    fs.writeFileSync(path.join(f.distDir, 'llms.txt'), '# Reference\n- **3000+ Blog Articles** — hub\n- Currency snapshot: {{CHF_EUR_SNAPSHOT}}\n');
+    fs.writeFileSync(path.join(f.distDir, 'llms-full.txt'), '# Reference\nWe publish **3,000+ in-depth articles**.\nCurrent snapshot: {{CHF_EUR_SNAPSHOT}}.\n');
     fs.writeFileSync(path.join(f.publicDir, 'sitemap-pages.xml'), '<urlset></urlset>');
-    fs.writeFileSync(path.join(f.publicDir, 'sitemap-blog.xml'), urls('/articoli-frontaliere/a/', '/articoli-frontaliere/b/'));
+    fs.writeFileSync(path.join(f.publicDir, 'sitemap-blog.xml'), urls('/articoli-frontaliere/', '/articoli-frontaliere/a/', '/articoli-frontaliere/b/'));
     // The dist copy is the final one, and it has more URLs than the seed.
-    fs.writeFileSync(path.join(f.distDir, 'sitemap-blog.xml'), urls('/articoli-frontaliere/a/', '/articoli-frontaliere/b/', '/en/cross-border-articles/a/'));
+    fs.writeFileSync(path.join(f.distDir, 'sitemap-blog.xml'), urls('/articoli-frontaliere/', '/articoli-frontaliere/a/', '/articoli-frontaliere/b/', '/en/cross-border-articles/a/'));
     return f;
   }
 
@@ -91,11 +121,15 @@ describe('llms family derived from the sitemaps', () => {
     await generateLlmsTxtFamily(f);
     const llms = fs.readFileSync(path.join(f.distDir, 'llms.txt'), 'utf8');
     const full = fs.readFileSync(path.join(f.distDir, 'llms-full.txt'), 'utf8');
-    expect(llms).toContain('**2 Blog Articles**');
-    expect(llms).toContain('- **Blog Articles**: 2 pages');
-    expect(llms).toContain('3 URLs in the sitemaps across all languages');
-    expect(full).toContain('**2 in-depth articles**');
+    expect(llms).toContain('2 — canonical Italian-language article detail URLs in the Frontaliere section; hub excluded; counted on');
+    expect(llms).toContain('- **Blog pages, hubs and archives**: 3 pages');
+    expect(llms).toContain('4 URLs in the sitemaps across all languages');
+    expect(full).toContain('**2 — canonical Italian-language article detail URLs in the Frontaliere section; hub excluded; counted on');
+    expect(llms).toContain('1 CHF = 1.0874 EUR');
+    expect(llms).toContain('TwelveData source, Firestore snapshot · observed 2026-10-30');
+    expect(full).toContain('1 CHF = 1.0874 EUR');
     expect(`${llms}${full}`).not.toContain('3,000+');
+    expect(`${llms}${full}`).not.toContain('{{CHF_EUR_SNAPSHOT}}');
   });
 
   it('derives English Blog Articles counts from the English sitemap alternates', async () => {
@@ -115,8 +149,8 @@ describe('llms family derived from the sitemaps', () => {
 
     await generateLlmsTxtFamily(f);
 
-    expect(fs.readFileSync(path.join(f.distDir, 'en/llms.txt'), 'utf8')).toContain('- **2 Blog Articles**');
-    expect(fs.readFileSync(path.join(f.distDir, 'en/llms-full.txt'), 'utf8')).toContain('- **2 Blog Articles**');
+    expect(fs.readFileSync(path.join(f.distDir, 'en/llms.txt'), 'utf8')).toContain('2 — canonical Italian-language article detail URLs');
+    expect(fs.readFileSync(path.join(f.distDir, 'en/llms-full.txt'), 'utf8')).toContain('2 — canonical Italian-language article detail URLs');
   });
 
   it('counts a translation declared only as an hreflang alternate, once', async () => {

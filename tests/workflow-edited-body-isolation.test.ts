@@ -227,6 +227,10 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(first.with.script).toContain('currentPr.body');
     expect(job.steps.findIndex((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@'))).toBeGreaterThan(0);
     for (const step of job.steps.slice(1)) {
+      if (step.id === 'trusted_policy_downloader') {
+        expect(step.if).toContain("steps.policy_ref.outcome == 'success'");
+        continue;
+      }
       // This collector is deliberately unconditional: it must publish the
       // verdict of detached gates even when the body preflight failed.
       if (step.id === 'collect-independent-gates') {
@@ -276,6 +280,18 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       .toContain('steps.review_policy_final.outputs.final_root');
     expect((job.steps.find((step: { id?: string }) => step.id === 'review_gate') as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
       .toContain('steps.review_policy_final.outputs.final_root');
+    for (const [consumerId, modulePath] of [
+      ['review_marker_repair', 'scripts/ci/review-marker-recovery.mjs'],
+      ['review_marker', 'scripts/ci/review-marker-recovery.mjs'],
+      ['review_gate', 'scripts/ci/review-gate.mjs'],
+    ]) {
+      const consumer = job.steps.find((step: { id?: string }) => step.id === consumerId) as { run?: string } | undefined;
+      expect(consumer?.run).toContain('source "$RUNNER_TEMP/trusted-policy-downloader.sh"');
+      expect(consumer?.run).toContain(`require_trusted_policy_module "$REVIEW_POLICY_ROOT" ${modulePath}`);
+    }
+    const downloaderIndex = job.steps.findIndex((step: { id?: string }) => step.id === 'trusted_policy_downloader');
+    expect(downloaderIndex).toBeGreaterThan(job.steps.findIndex((step: { id?: string }) => step.id === 'policy_ref'));
+    expect(downloaderIndex).toBeLessThan(bootstrapIndex);
     const publisherRefresh = job.steps.find((step: { id?: string }) => step.id === 'review_policy_publishers') as { run?: string } | undefined;
     expect(publisherRefresh?.run).toContain('review-policy-publish-${GITHUB_RUN_ID}');
     expect((job.steps.find((step: { id?: string }) => step.id === 'trusted_gh') as { run?: string } | undefined)?.run)

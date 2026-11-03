@@ -1,0 +1,25 @@
+{
+  "companyKey": "improveit",
+  "companyName": "Improveit Home Remodeling",
+  "companyHost": "improveit.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://improveit.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 33,
+  "sampleTitles": [
+    "Acrylic Tub/Shower Installation Subcontractor",
+    "Acrylic Tub/Shower Installation Subcontractor",
+    "Acrylic Tub/Shower Installation Subcontractor",
+    "Acrylic Tub/Shower Installation Subcontractor",
+    "Entry Level Sales Representative - Base Salary + Commission*"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:21:05.570Z",
+  "candidateKey": "improveit@applytojob.com"
+}

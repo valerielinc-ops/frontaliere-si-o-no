@@ -84,6 +84,7 @@ import {
   type TopicHubLocale,
   type TopicHubSection,
 } from './topicClusterHubsData';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import {
   H1_STYLE,
   H2_STYLE,
@@ -480,6 +481,16 @@ function renderPagination(
   return `${compactNav}${flatNav}`;
 }
 
+/**
+ * Declare deep topic pages at their producer boundary. The shared shell also
+ * protects generic pagination callers, but this emitter is reached by the
+ * fast-publish path and must carry the same explicit contract as its sibling
+ * pagination producers.
+ */
+function topicPaginationNoindexMarker(page: number): string {
+  return isPaginationNoindex(page) ? PAGINATION_NOINDEX_TARGET_MARKER : '';
+}
+
 interface RenderedPage {
   urlPath: string;
   html: string;
@@ -576,6 +587,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   };
 
   const prevNext = [
+    topicPaginationNoindexMarker(page),
     page > 1
       ? `<link rel="prev" href="${BASE_URL}${buildTopicHubPath(locale, section, topicKey, page - 1)}">`
       : '',
@@ -653,6 +665,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
     canonicalUrl: `${BASE_URL}${urlPath}`,
     ogLocale: LOCALE_OG[locale],
     robots: 'noindex,follow',
+    extraHeadHtml: topicPaginationNoindexMarker(page),
     bodyHtml,
     distDir,
   });

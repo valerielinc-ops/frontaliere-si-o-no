@@ -243,6 +243,49 @@ directory allow-lists.
   push on this repo (see the section above), and a blobless clone re-fetches
   blobs lazily during `pack-objects`, reintroducing the same stall.
 
+## Recovering stale worktrees and snapshots
+
+When the checkout is under pressure, the existing SessionStart/SessionEnd
+hooks make `scripts/prune-merged-worktrees.mjs --apply` enter the reclaim path
+automatically below **10 GiB** free (override with
+`PRUNE_RECLAIM_MIN_FREE_BYTES`). The path is fail-closed: it never removes
+`hooks-main`, the current worktree, a worktree with a live process cwd, or a
+worktree whose PR is open. It also never deletes a branch.
+The SessionEnd hook hands an emergency reclaim to a detached child, so the
+short hook timeout is not used as the reclaim's work budget.
+
+Run it manually first as a dry-run, then add `--apply` only after inspecting
+the plan:
+
+```bash
+node scripts/prune-merged-worktrees.mjs --reclaim
+node scripts/prune-merged-worktrees.mjs --reclaim --apply
+```
+
+The emergency inactivity threshold is 60 minutes. A routine sweep can use a
+longer value, for example 24 hours:
+
+```bash
+PRUNE_RECLAIM_IDLE_MINUTES=1440 node scripts/prune-merged-worktrees.mjs --reclaim --apply
+```
+
+The reclaim classifier hashes files on disk against `HEAD`, so staged
+deletions caused by a damaged sparse-worktree index do not by themselves count
+as real changes. Real changes are committed with a temporary index, canonical
+identity, and a local `snapshot/<worktree>-<YYYYMMDD>` tag before removal.
+Detached HEADs use `snapshot/<worktree>-head-<YYYYMMDD>`.
+
+To recover one of those snapshots, create a new worktree from the tag (replace
+`<nome>` with the tag suffix shown by `git tag --list 'snapshot/*'`):
+
+```bash
+git worktree add <path> snapshot/<nome>
+```
+
+Inspect the recovered files, then commit them on a deliberate branch if they
+are still needed. Snapshot tags are local; removing a worktree does not remove
+the branch that owned it.
+
 ## `git maintenance` can be registered against a path that no longer exists
 
 Symptom: packs pile up, `count-objects -vH` grows a `garbage:` line, and every
