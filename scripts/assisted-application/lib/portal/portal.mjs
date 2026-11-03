@@ -1775,6 +1775,26 @@ async function clickFirst(page, snapshot, patterns) {
         }
       }
     }
+    // A SuccessFactors account link can be drawn after the snapshot, or be
+    // filtered from it as site chrome while the login fields remain in an
+    // embedded form frame. Page.getByRole only searches the main frame; keep
+    // this lookup explicit and frame-scoped so a generic header control is
+    // never promoted to an auth action.
+    const frames = page.frames();
+    const preferredFrameNumbers = [...new Set([
+      ...(snapshot.fields || []), ...(snapshot.buttons || []),
+    ].map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
+    const preferredFrames = preferredFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
+    const frameCandidates = [...preferredFrames, ...frames.filter((frame) => !preferredFrames.includes(frame))];
+    for (const frame of frameCandidates) {
+      if (typeof frame?.getByRole !== 'function') continue;
+      const frameLink = frame.getByRole('link', { name: pattern }).first();
+      const frameLinkVisible = await frameLink.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+      if (frameLinkVisible) {
+        await clickPortalLink(page, frameLink);
+        return 'link';
+      }
+    }
     const link = page.getByRole('link', { name: pattern }).first();
     const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
     if (linkVisible) {
