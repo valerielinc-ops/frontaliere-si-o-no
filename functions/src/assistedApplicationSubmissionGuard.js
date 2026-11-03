@@ -149,7 +149,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       return outcome;
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
-    async markClicked(nowMs = Date.now()) {
+    async markClicked(nowMs = Date.now(), { formBinding = null } = {}) {
       await db.runTransaction(async transaction => {
         const [submissionDoc, orderDoc, flowDoc, draftDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
@@ -158,18 +158,31 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         if (submissionDoc.data()?.withdrawnAt || order.withdrawnAt || flow.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
+        const current = submissionDoc.data()?.[key];
+        if (current?.state !== 'sending') throw new Error('submission_claim_missing');
+        if (current.channel === 'portal' && !/^[a-f0-9]{64}$/.test(formBinding || '')) {
+          throw new Error('submission_form_unbound');
+        }
+        if (current.channel === 'portal' && Number(current.clickedAt) > 0) {
+          if (current.formBinding === formBinding) return;
+          throw new Error('submission_already_clicked');
+        }
         if (!await answerSourceGuardMatches({ db, transaction, guard: answerSourceGuard, orderId, order, flow, draft, nowMs })) {
           throw new Error('answer_source_changed');
         }
-        transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
+        transaction.set(ref, { [key]: { clickedAt: nowMs, ...(current.channel === 'portal' ? { formBinding } : {}) } }, { merge: true });
       });
     },
     async markSent(record = {}, nowMs = Date.now()) {
       await db.runTransaction(async transaction => {
-        // A proven send is monotonic: it clears an earlier confirmed failure,
-        // and the transaction serializes against a late release() for this round.
-        await transaction.get(ref);
-        transaction.set(ref, { [key]: { ...record, state: 'sent', sentAt: nowMs, confirmedNotSent: false } }, { merge: true });
+        // The first durable receipt is immutable. A replay must return the
+        // original proof, not replace its timestamp, channel or send record.
+        const snapshot = await transaction.get(ref);
+        const current = snapshot.data()?.[key] || {};
+        if (current.state === 'sent') return;
+        transaction.set(ref, {
+          [key]: { ...current, ...record, state: 'sent', sentAt: nowMs, confirmedNotSent: false },
+        }, { merge: true });
       });
     },
     async release(reason, nowMs = Date.now(), metadata = {}) {

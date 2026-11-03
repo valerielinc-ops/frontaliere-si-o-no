@@ -50,7 +50,7 @@ describe('candidate withdrawal and slot release', () => {
     if (kind === 'email_started' || kind === 'portal_clicked') {
       const guard = submissionGuard(store.db, orderId, 1);
       await guard.claim(kind === 'email_started' ? 'email' : 'portal', now);
-      if (kind === 'portal_clicked') await guard.markClicked(now);
+      if (kind === 'portal_clicked') await guard.markClicked(now, { formBinding: 'a'.repeat(64) });
     }
     if (kind === 'prior_round_sent') store.docs.set(`${path}/automation/submission`, { r2: { state: 'sent' } });
     if (kind === 'draft_sent') store.docs.set(`${path}/ai_drafts/current`, { sent: { at: now } });

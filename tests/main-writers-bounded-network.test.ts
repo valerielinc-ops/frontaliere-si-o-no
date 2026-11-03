@@ -564,7 +564,7 @@ describe('main writer network bounds', () => {
       const result = runCommitData(scenario);
 
       expect(result.status, result.output).toBe(1);
-      expect(pushAttempts(scenario)).toBe(2);
+      expect(pushAttempts(scenario), result.output).toBe(2);
       expect(result.output).toMatch(
         /git push --no-thin origin <commit>:refs\/heads\/main timed out after 1 second|main push deadline exceeded/u,
       );

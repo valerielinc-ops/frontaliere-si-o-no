@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
@@ -49,6 +49,7 @@ import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
+import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
 
 export const WAVE1_CHANNELS = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
@@ -4223,8 +4224,10 @@ export async function readPortalQuestions(ctx) {
  * @param {Function} ctx.codex broker call
  * @param {Function} [ctx.launch] browser launcher (tests)
  * @param {boolean} [ctx.dryRun] fill every page but never press submit (nor create an account)
- * @param {Function} [ctx.onBeforeSubmit] called right before the final submit click (submission guard),
- *   with what went into the form's file fields so far (`{ uploads }`)
+ * @param {Function} [ctx.onBeforeSubmit] called after the native form has been bound and immediately before
+ *   the final submit click (`{ uploads, formBinding }`); the binding is a SHA-256 of the captured form contract
+ * @param {Function} [ctx.onConfirmedNotSent] releases a portal validation that permits one safe retry
+ * @param {Function} [ctx.onReceipt] durably records a positive portal receipt before later diagnostics run
  * @param {ReturnType<import('./account.mjs').portalAccountStore>} [ctx.accounts] the order's portal accounts; without it a login page is handed over
  * @returns {Promise<{event:object, evidence:object}>}
  */
@@ -4243,6 +4246,16 @@ export async function submitViaPortal(ctx) {
   let sourceProtocol = null;
   let diagnostics = null;
   let finalClickAttempted = false;
+  let activeFinalFormGuard = null;
+  const clearActiveFinalFormGuard = async () => {
+    if (!activeFinalFormGuard?.token) return;
+    if (activeFinalFormGuard.frame?.evaluate) {
+      await activeFinalFormGuard.frame.evaluate(clearFinalFormGuardInPage, activeFinalFormGuard.token).catch(() => {});
+    } else if (activeFinalFormGuard.locator?.evaluate) {
+      await activeFinalFormGuard.locator.evaluate(clearFinalFormGuardInPage, activeFinalFormGuard.token).catch(() => {});
+    }
+    activeFinalFormGuard = null;
+  };
   // Some ATSes replace the file input with a non-file token after accepting
   // the upload. Keep that proof bound to the page URL so the stage guard can
   // still prove the same form owns the final Apply button.
@@ -4311,6 +4324,7 @@ export async function submitViaPortal(ctx) {
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
     registerPortalChannelType(context, channelType);
     await registerCookieSessionRecovery(context, { log: ctx.log });
+    await context.addInitScript(installFinalFormGuardCaptureInPage);
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
     evidence.diagnostics = diagnostics.data;
     await diagnostics.installFetchObserver().catch(() => { evidence.diagnostics.fetchObserverUnavailable = true; });
@@ -5055,9 +5069,31 @@ export async function submitViaPortal(ctx) {
         continue;
       }
       // The final button: a usual or learned name (the runner's), or the one the agent named.
+      const runnerFinalTarget = button => {
+        const frame = page.frames()[button.frame || 0] || page.mainFrame();
+        const id = String(button.id || '');
+        return {
+          label: button.text,
+          by: 'runner',
+          buttonId: id,
+          formId: String(button.formId || ''),
+          frame,
+          locator: frame.locator(`[data-aa-id="${id}"]`).first(),
+          click: () => clickButton(page, button),
+        };
+      };
+      const agentFinalTarget = button => ({
+        label: button.name,
+        by: 'agent',
+        buttonId: String(button.buttonId || ''),
+        formId: String(button.formId || ''),
+        frame: button.frame || page.mainFrame(),
+        locator: button.locator,
+        click: () => clickSubmitButton(page, button),
+      });
       let final = submit
-        ? { label: submit.text, by: 'runner', click: () => clickButton(page, submit) }
-        : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => clickSubmitButton(page, finalByAgent) };
+        ? runnerFinalTarget(submit)
+        : finalByAgent && agentFinalTarget(finalByAgent);
       if (!final) {
         if (findButton(after.buttons, SUBMIT_RE, { includeDisabled: true }) && validationRetries < 1) {
           validationRetries += 1;
@@ -5097,11 +5133,11 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         if (repairedControls.submit) {
-          final = { label: repairedControls.submit.text, by: 'runner', click: () => clickButton(page, repairedControls.submit) };
+          final = runnerFinalTarget(repairedControls.submit);
         } else if (repair.submitRef) {
           const repairedSubmit = await submitLocator(page, repair.submitRef);
           if (!repairedSubmit) return await handoff('portal_required_fields_unfilled');
-          final = { label: repairedSubmit.name || String(repair.submitRef), by: 'agent', click: () => clickSubmitButton(page, repairedSubmit) };
+          final = agentFinalTarget(repairedSubmit);
         } else {
           return await handoff('portal_required_fields_unfilled');
         }
@@ -5115,14 +5151,44 @@ export async function submitViaPortal(ctx) {
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       await diagnostics.beforeSubmit(page);
-      // From here the outcome may be unknown: the submission guard records the click, and
-      // submit.mjs what the form holds (the record of an attempt whose outcome may stay unknown).
-      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads });
+      const guardToken = randomUUID();
+      const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
+        token: guardToken,
+        expectedButtonId: final.buttonId,
+        expectedFormId: final.formId,
+        expectedButtonName: final.label,
+      }).catch(() => ({ ok: false, reason: 'final_control_unavailable' }));
+      if (!armed?.ok) {
+        evidence.finalFormGuardFailure = {
+          reason: armed?.reason || 'final_control_unavailable',
+          expectedButtonId: final.buttonId,
+          expectedFormId: final.formId,
+          ...(armed?.buttonId ? { buttonId: armed.buttonId } : {}),
+          ...(armed?.formId ? { formId: armed.formId } : {}),
+        };
+        return await handoff('portal_final_form_unbound');
+      }
+      const formBinding = createHash('sha256').update(armed.contractJson).digest('hex');
+      activeFinalFormGuard = { frame: final.frame, locator: final.locator, token: guardToken };
+      // The native form is bound before the durable send arm. The installed
+      // capture listener compares it again synchronously before portal click
+      // handlers can act.
+      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
       finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
+      const clickGuardStatus = final.frame?.evaluate
+        ? await final.frame.evaluate(readFinalFormGuardStatusInPage, guardToken).catch(() => 'missing')
+        : await final.locator.evaluate(readFinalFormGuardStatusInPage, guardToken).catch(() => 'missing');
+      if (clickGuardStatus === 'blocked_before_click') {
+        finalClickAttempted = false;
+        evidence.finalOutcomes = ['form_changed_before_click'];
+        return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
+      }
+      await clearActiveFinalFormGuard();
       const outcome = await waitForOutcome(page, Boolean(extensionPath), { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
       (evidence.finalOutcomes ||= []).push(outcome);
+      if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
@@ -5139,6 +5205,7 @@ export async function submitViaPortal(ctx) {
       }
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
+        if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_validation' });
         validationRetries += 1;
         // A server-side validation response can clear a required agreement
         // that was accepted in the same URL (SIX resets its data privacy
@@ -5176,6 +5243,7 @@ export async function submitViaPortal(ctx) {
     }
     return await handoff('portal_needs_candidate');
   } finally {
+    await clearActiveFinalFormGuard();
     await diagnostics?.finish();
     await context?.close().catch(() => {});
     await browser?.close().catch(() => {});
