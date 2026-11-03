@@ -82,6 +82,7 @@ import {
 import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import {
   generateFuelIndexPages,
+  isFuelLeafEmitted,
   renderFuelIndexHubLinks,
   type SwissStationLeaf,
   type ItalianStationLeaf,
@@ -204,18 +205,26 @@ const FUEL_BRIDGE_COPY: Record<FuelDailyLocale, { title: string; description: st
   },
 };
 
-export function renderFuelBelowFloorBridge(path: string): string {
+export function renderFuelBelowFloorBridge(
+  path: string,
+  options: { readonly selfCanonical?: boolean } = {},
+): string {
   const locale = localeOfFuelPath(path);
   const targetPath = FUEL_STATS_HUB_PATH[locale];
   const targetUrl = `${BASE_URL}${targetPath}`;
-  const hreflangEntries: Array<{ hreflang: string; href: string }> = FUEL_DAILY_LOCALES.map((loc) => ({
-    hreflang: loc,
-    href: `${BASE_URL}${FUEL_STATS_HUB_PATH[loc]}`,
-  }));
-  hreflangEntries.push({ hreflang: 'x-default', href: `${BASE_URL}${FUEL_STATS_HUB_PATH.it}` });
+  const canonicalUrl = options.selfCanonical ? `${BASE_URL}${path}` : targetUrl;
+  const hreflangEntries = options.selfCanonical
+    ? undefined
+    : [
+        ...FUEL_DAILY_LOCALES.map((loc) => ({
+          hreflang: loc,
+          href: `${BASE_URL}${FUEL_STATS_HUB_PATH[loc]}`,
+        })),
+        { hreflang: 'x-default', href: `${BASE_URL}${FUEL_STATS_HUB_PATH.it}` },
+      ];
   const copy = FUEL_BRIDGE_COPY[locale];
   const html = buildCanonicalBridgePage({
-    canonicalUrl: targetUrl,
+    canonicalUrl,
     pathLabel: targetPath,
     title: copy.title,
     description: copy.description,
@@ -1029,6 +1038,8 @@ interface PageInputs {
   rootDir?: string;
   /** The exact Swiss detail contexts emitted for this build. */
   stationContexts?: readonly StationContext[];
+  /** Exact indexable station-leaf paths that survived the post-gate emitter. */
+  emittedStationPaths?: ReadonlySet<string>;
 }
 
 const LOCALE_OG: Record<FuelDailyLocale, string> = {
@@ -1675,7 +1686,7 @@ function renderRecentMonthsArchiveNav(args: {
 }
 
 function renderPage(inp: PageInputs): string {
-  const { locale, fuel, zone, dataset, history, archivePaths, canonicalPath, today, alternates, distDir, rootDir, stationContexts } = inp;
+  const { locale, fuel, zone, dataset, history, archivePaths, canonicalPath, today, alternates, distDir, rootDir, stationContexts, emittedStationPaths } = inp;
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = zone ? FUEL_ZONE_DISPLAY[zone] : copy.regionalLabel;
@@ -1844,8 +1855,11 @@ function renderPage(inp: PageInputs): string {
           // On the regional (no-zone) hub, resolve the station's zone from
           // its address so each card still links to its dedicated page.
           const stationZone = zone ?? zoneForAddress(s.address);
-          const stationHref = stationZone && s.slug
+          const candidateStationHref = stationZone && s.slug
             ? buildFuelStationPath(locale, fuel, stationZone, s.slug)
+            : undefined;
+          const stationHref = candidateStationHref && isFuelLeafEmitted(candidateStationHref, emittedStationPaths)
+            ? candidateStationHref
             : undefined;
           const logoUrl = resolveStationBrandLogoUrl(rootDir, s.brand);
           const card = renderEntityCard({
@@ -3201,7 +3215,7 @@ function renderStationPage(opts: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const price = ctx.prices[fuel];
-  if (price === null) return renderFuelBelowFloorBridge(canonicalPath);
+  if (price === null) return renderFuelBelowFloorBridge(canonicalPath, { selfCanonical: true });
   const priceFmt = formatPrice(price, locale);
   const zoneAvgFmt = formatPrice(zoneAvg, locale);
 
@@ -5462,6 +5476,8 @@ export function generateFuelDailyPages(opts: {
   distDir?: string;
   /** Optional pre-collected detail contexts; closeBundle passes its shared list. */
   contexts?: readonly StationContext[];
+  /** Exact indexable station-leaf paths that survived the post-gate emitter. */
+  emittedStationPaths?: ReadonlySet<string>;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
@@ -5470,6 +5486,7 @@ export function generateFuelDailyPages(opts: {
   const distDir = opts.distDir;
   const rootDir = opts.rootDir;
   const stationContexts = opts.contexts ?? collectSwissStationContexts(dataset);
+  const emittedStationPaths = opts.emittedStationPaths;
 
   const pages: Record<string, string> = {};
 
@@ -5499,6 +5516,7 @@ export function generateFuelDailyPages(opts: {
         distDir,
         rootDir,
         stationContexts,
+        emittedStationPaths,
       });
 
       // Per-zone pages
@@ -5517,6 +5535,7 @@ export function generateFuelDailyPages(opts: {
           distDir,
           rootDir,
           stationContexts,
+          emittedStationPaths,
         });
       }
     }
@@ -5639,6 +5658,31 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianContextsByFuel[fuel] = collectItalianStationContexts(dataset, fuel);
       }
 
+      const lastmodByPath = new Map<string, string>();
+      const stationPages = generateFuelStationPages({
+        dataset,
+        today,
+        distDir,
+        contexts: swissContexts,
+        history,
+        rootDir,
+        lastmodByPath,
+      });
+      const STATION_MIN_WORDS = 250;
+      const unavailableStationPaths = new Set(swissContexts.flatMap((ctx) =>
+        FUEL_TYPES.filter((fuel) => ctx.prices[fuel] === null).flatMap((fuel) =>
+          FUEL_DAILY_LOCALES.map((locale) => buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug)))));
+      // This is the authoritative post-gate inventory shared with daily-page
+      // anchors and browseable indexes. Availability bridges are written to
+      // preserve the URL, but they are not indexable leaves and must not be
+      // linked as if they were full station pages.
+      const emittedStationPaths = new Set<string>();
+      for (const [path, html] of Object.entries(stationPages)) {
+        if (!unavailableStationPaths.has(path) && countHtmlBodyWords(html) >= STATION_MIN_WORDS) {
+          emittedStationPaths.add(path);
+        }
+      }
+
       const archivedHistory = readFuelArchive(
         np.join(rootDir, 'data', 'fuel-prices-archive'),
         np.join(rootDir, 'data', 'fuel-prices-recovery-archive.json'),
@@ -5662,16 +5706,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         today,
         distDir,
         contexts: swissContexts,
-      });
-      const lastmodByPath = new Map<string, string>();
-      const stationPages = generateFuelStationPages({
-        dataset,
-        today,
-        distDir,
-        contexts: swissContexts,
-        history,
-        rootDir,
-        lastmodByPath,
+        emittedStationPaths,
       });
       const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir, rootDir, lastmodByPath });
       const italianStationPages = generateFuelItalianStationPages({
@@ -5805,12 +5840,8 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       // ── D-2A: Per-station + Italian-city emission ───────────────
       // Separate sitemap files so they can be refreshed independently and
       // the master index (sitemapAliasPlugin) picks them up automatically.
-      const STATION_MIN_WORDS = 250;
       const stationSitemapPaths: string[] = [];
       let stationPagesWritten = 0;
-      const unavailableStationPaths = new Set(swissContexts.flatMap((ctx) =>
-        FUEL_TYPES.filter((fuel) => ctx.prices[fuel] === null).flatMap((fuel) =>
-          FUEL_DAILY_LOCALES.map((locale) => buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug)))));
       for (const [path, html] of Object.entries(stationPages)) {
         // Preserve previously published URLs without listing a fabricated fuel price.
         if (unavailableStationPaths.has(path)) {
@@ -5823,7 +5854,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           skipped++;
           console.warn(`[fuel-daily-pages] station thin content (${words} words) for ${path} — skipping`);
           const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path, { selfCanonical: true }));
           bridgesWritten++;
           continue;
         }
@@ -5859,7 +5890,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           skipped++;
           console.warn(`[fuel-daily-pages] IT-station thin content (${words} words) for ${path} — skipping`);
           const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path, { selfCanonical: true }));
           bridgesWritten++;
           continue;
         }

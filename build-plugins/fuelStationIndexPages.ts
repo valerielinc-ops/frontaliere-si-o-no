@@ -250,6 +250,20 @@ export const ITALIAN_STATIONS_INDEX_PAGE_SIZE = 100;
 export const SWISS_STATIONS_INDEX_PAGE_SIZE = 100;
 
 /**
+ * Shared post-gate inventory check for every fuel-leaf anchor emitter.
+ *
+ * Standalone generator callers omit the set and retain the historical
+ * by-construction behaviour; the build passes the exact paths that survived
+ * leaf emission so daily pages and browseable indexes cannot drift apart.
+ */
+export function isFuelLeafEmitted(
+  href: string,
+  emittedPaths?: ReadonlySet<string>,
+): boolean {
+  return !emittedPaths || emittedPaths.has(href);
+}
+
+/**
  * Build the canonical path for a fuel-station / fuel-cities index page.
  *
  *   buildFuelIndexPath('it', 'benzina', 'swissStations')
@@ -1555,7 +1569,7 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
   const { swissStations, italianStations, italianStationsByFuel, today, distDir, rootDir } = inp;
   const italianCities = inp.italianCities ?? FUEL_ITALIAN_CITIES;
   // Anchor gate: link only pages the build actually emitted (post word-gate).
-  const isEmitted = (href: string): boolean => !inp.emittedPaths || inp.emittedPaths.has(href);
+  const isEmitted = (href: string): boolean => isFuelLeafEmitted(href, inp.emittedPaths);
   const out: Record<string, string> = {};
 
   const swissByZone = groupSwissByZone(swissStations);
