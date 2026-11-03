@@ -1526,12 +1526,14 @@ jobs:
           # che collassano un flap rosso→verde→rosso dentro UN ciclo di deploy.
 
       - name: Surface a stale-locale shard push failure (#2658)
-        # The gate passed and the push itself failed — THIS is the shard-repo /
-        # deploy-key / transient-network case. A push failure leaves the live
-        # ${{ matrix.locale }} shard serving STALE content while the deploy
-        # still goes green. Don't fail the deploy (the continue-on-error
-        # resilience is deliberate) — but make it LOUD: annotation + a deduped
-        # tracking issue so the stale locale is never shipped silently.
+        # The gate passed and the push itself failed. A push failure leaves the
+        # live ${{ matrix.locale }} shard serving STALE content while the
+        # deploy still goes green. The push script records permanent preflight
+        # causes in shard-fail-reason-<locale>; surface that marker before the
+        # fallback diagnosis so a known remote rejection is not called transient.
+        # Don't fail the deploy (the continue-on-error resilience is deliberate)
+        # — but make it LOUD: annotation + a deduped tracking issue so the stale
+        # locale is never shipped silently.
         # Self-resolves on the next green push (reopen-within).
         if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.push-shard.outcome == 'failure'
         continue-on-error: true
@@ -1546,19 +1548,30 @@ jobs:
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           BRANCH: ${{ github.ref_name }}
           WORKFLOW: ${{ github.workflow }}
+          FAIL_REASON_FILE: ${{ runner.temp }}/shard-fail-reason-${{ matrix.locale }}
         run: |
-          echo "::error title=Stale locale shard::Push of the ${LOCALE} shard FAILED (the #2569 CDN ordering gate passed — this is a shard-repo/deploy-key/network failure) — the live ${LOCALE} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant)."
+          PUSH_CAUSE=''
+          if [ -s "$FAIL_REASON_FILE" ]; then
+            PUSH_CAUSE="$(sed -n '1p' "$FAIL_REASON_FILE" | tr -d '\r')"
+          fi
+          if [ -n "$PUSH_CAUSE" ]; then
+            CAUSE_LINE="Causa rilevata dallo step di push: $PUSH_CAUSE"
+          else
+            CAUSE_LINE='Causa non classificata dallo step di push'
+          fi
+          echo "::error title=Stale locale shard::Push of the ${LOCALE} shard FAILED (the #2569 CDN ordering gate passed) — ${CAUSE_LINE} — the live ${LOCALE} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant)."
           {
-            echo "🛑 **${LOCALE} shard push FAILED** — the #2569 ordering gate passed, so this is a shard-repo / deploy-key / network failure. Live \`${LOCALE}\` pages stay STALE."
+            echo "🛑 **${LOCALE} shard push FAILED** — the #2569 ordering gate passed. ${CAUSE_LINE}. Live \`${LOCALE}\` pages stay STALE."
           } >> "$GITHUB_STEP_SUMMARY"
           node scripts/lib/github-issue-creator.mjs \
             --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
             --description "## Push locale shard fallito — locale live STALE
           Il push dello shard \`${LOCALE}\` è fallito: le pagine live di quel locale servono contenuto **stale** finché un deploy successivo non ripush con successo. Il deploy resta verde per design (resilienza a errori transienti dello shard-repo), ma la mancata propagazione è ora segnalata.
+          **Causa rilevata dallo step di push:** ${CAUSE_LINE}
           **Run:** ${RUN_URL}
           **Locale:** ${LOCALE}
           **Branch:** ${BRANCH}
-          Il guard di ordinamento CDN (#2569) è PASSATO in questo run — la causa non è la CDN. Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
+          Il guard di ordinamento CDN (#2569) è PASSATO in questo run — la causa non è la CDN. Se la causa non è classificata, usare il log dello step di push per la diagnosi successiva." \
             --priority 1 \
             --label Bug \
             --workflow "${WORKFLOW}"
