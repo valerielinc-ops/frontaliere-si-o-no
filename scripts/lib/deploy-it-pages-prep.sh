@@ -607,7 +607,11 @@ _publish_cdn_r2() {
   _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"
   assets_sync_status=$?
   if [ -n "$(ls -A "$_hashed_assets_stage" 2>/dev/null)" ]; then
-    if ! _r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log"; then
+    # These few loaders share assets/ with every historical release. Do not
+    # recursively list that archive to compare a handful of exact keys: run
+    # 41628599322 exhausted 120s on this small copy. Keep checksum comparison
+    # and additive retries, looking up only the staged destination objects.
+    if ! _r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log" no-traverse; then
       assets_sync_status=1
     fi
     mkdir -p "$stage/assets"
@@ -629,7 +633,7 @@ _publish_cdn_r2() {
     # stage recursively, while treating a nested rclone log as root assets
     # would produce the wrong `assets/<file>` key instead of
     # `assets/releases/<build>/<file>`.
-    if ! _r2_sync 120 "$_bootstrap_asset_stage" assets "public,max-age=600,must-revalidate" "$_bootstrap_asset_log"; then
+    if ! _r2_sync 120 "$_bootstrap_asset_stage" assets "public,max-age=600,must-revalidate" "$_bootstrap_asset_log" no-traverse; then
       assets_sync_status=1
     fi
   fi

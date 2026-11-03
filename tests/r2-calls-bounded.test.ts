@@ -265,6 +265,10 @@ args=()
 for a in "$@"; do case "$a" in --*) ;; *) args+=("$a") ;; esac; done
 logf=""
 for a in "$@"; do case "$a" in --log-file=*) logf="\${a#--log-file=}" ;; esac; done
+if [ -n "\${STUB_RAW_CALLS:-}" ]; then
+  printf '%s\\0' "$@" >> "$STUB_RAW_CALLS"
+  printf '\\n' >> "$STUB_RAW_CALLS"
+fi
 echo "rclone \${args[*]}" >> "$STUB_CALLS"
 case "\${args[0]}" in
   version) exit 0 ;;
@@ -320,6 +324,12 @@ case "\${args[0]}" in
     exit 0 ;;
   copy)
     dst="\${args[2]}"
+    if [ -n "\${STUB_FAIL_ONCE_SOURCE_SUFFIX:-}" ] \
+      && [[ "\${args[1]}" == */"$STUB_FAIL_ONCE_SOURCE_SUFFIX" ]] \
+      && [ ! -e "$STUB_DIR/fail-once-source" ]; then
+      : > "$STUB_DIR/fail-once-source"
+      exit 124
+    fi
     case "$dst" in
       */images)
         printf 'copy:images:%s\\n' "\${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-<missing>}" >> "$STUB_LEASE_CALLS"
@@ -418,6 +428,10 @@ esac
     mkdirSync(join(stage, 'assets'), { recursive: true });
     writeFileSync(join(stage, 'assets', 'a.js'), 'export const a = 2;\n');
     writeFileSync(join(stage, 'assets', 'b.js'), 'export const b = 1;\n');
+    if (env.STUB_SMALL_ASSETS === '1') {
+      writeFileSync(join(stage, 'assets', 'site-support-0123456789ab.js'), 'export const support = true;\n');
+      writeFileSync(join(stage, 'assets', 'index-entry.js'), 'import "./a.js";\n');
+    }
   }
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
@@ -432,6 +446,8 @@ esac
   }
   const calls = join(dir, 'calls.log');
   writeFileSync(calls, '');
+  const rawCalls = join(dir, 'raw-calls.log');
+  writeFileSync(rawCalls, '');
   const leaseCalls = join(dir, 'lease-calls.log');
   writeFileSync(leaseCalls, '');
   const started = Date.now();
@@ -456,6 +472,7 @@ esac
         R2_TIMEOUT_OBJECT_S: '2',
         R2_TIMEOUT_PURGE_S: '30',
         STUB_CALLS: calls,
+        STUB_RAW_CALLS: rawCalls,
         STUB_LEASE_CALLS: leaseCalls,
         STUB_REAL_NODE: process.execPath,
         STUB_DIR: dir,
@@ -473,6 +490,8 @@ esac
     stdout,
     seconds: (Date.now() - started) / 1000,
     calls: readFileSync(calls, 'utf8').split('\n').filter(Boolean),
+    rawCalls: readFileSync(rawCalls, 'utf8').split('\n').filter(Boolean)
+      .map((line) => line.split('\0').slice(0, -1)),
     leaseCalls: readFileSync(leaseCalls, 'utf8').split('\n').filter(Boolean),
     ledger: existsSync(ledgerWritten) ? JSON.parse(readFileSync(ledgerWritten, 'utf8')) : null,
     publishStart: existsSync(join(dir, 'publish-start-written.txt'))
@@ -956,6 +975,39 @@ describe('behaviour: an R2 call that never answers does not hang the CDN push', 
 });
 
 describe('behaviour: the ledger path end to end (stubbed R2, no network)', () => {
+  it('small loader and bootstrap copies compare exact keys on every retry and close only after the purge', () => {
+    const r = runPublish('small-assets-no-traverse', {
+      STUB_SMALL_ASSETS: '1',
+      STUB_FAIL_ONCE_SOURCE_SUFFIX: '.assets-content-addressed',
+      CF_API_TOKEN: 'test-token',
+      STUB_PURGE_STATUS: '0',
+    });
+    expect(r.code).toBe(0);
+    const copies = r.rawCalls.filter((args) => args.includes('copy'));
+    const loaderCopies = copies.filter((args) => args.some((arg) => arg.endsWith('/.assets-content-addressed')));
+    const bootstrapCopies = copies.filter((args) => args.some((arg) => arg.endsWith('/.asset-bootstrap')));
+    expect(loaderCopies).toHaveLength(2);
+    expect(bootstrapCopies).toHaveLength(1);
+    for (const args of [...loaderCopies, ...bootstrapCopies]) {
+      expect(args).toContain('--checksum');
+      expect(args).toContain('--no-traverse');
+      expect(args).toContain(':s3:bkt/assets');
+    }
+    const rootCopy = copies.find((args) => args.some((arg) => arg.endsWith('/stage/assets')));
+    expect(rootCopy).toBeDefined();
+    expect(rootCopy).not.toContain('--no-traverse');
+    expect(r.rawCalls.indexOf(rootCopy!)).toBeLessThan(r.rawCalls.indexOf(loaderCopies[0]));
+    expect(r.rawCalls.indexOf(loaderCopies[1])).toBeLessThan(r.rawCalls.indexOf(bootstrapCopies[0]));
+    const completePut = r.rawCalls.findIndex((args) => args.includes('copyto')
+      && args.includes(':s3:bkt/cdn-publish-complete-id.txt') && !args[args.indexOf('copyto') + 1].startsWith(':s3:'));
+    expect(completePut).toBeGreaterThan(r.rawCalls.indexOf(bootstrapCopies[0]));
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+    expect(r.stdout).toContain('✅ synced CDN payload to R2');
+    expect(Object.keys(r.ledger.keys).sort()).toEqual([
+      'assets/a.js', 'assets/b.js', 'assets/index-entry.js', 'assets/site-support-0123456789ab.js',
+    ]);
+  });
+
   it('first publish with no prior markers: the owned bootstrap window can close', () => {
     const r = runPublish('first-publish-bootstrap', {
       STUB_LEDGER: 'absent',
