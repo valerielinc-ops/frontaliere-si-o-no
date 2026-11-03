@@ -1,9 +1,9 @@
 {
   "schemaVersion": 4,
   "promptVersion": "frontaliere-social-copy-v4",
-  "packId": "27d7e35f8b311304",
-  "generatedAt": "2026-11-03T17:52:25.653Z",
-  "validUntil": "2026-12-18T17:52:25.653Z",
+  "packId": "1fb417e247af2a71",
+  "generatedAt": "2026-11-03T20:05:17.772Z",
+  "validUntil": "2026-12-18T20:05:17.772Z",
   "editorialPlan": {
     "pillars": [
       {
@@ -509,96 +509,96 @@
     "instagram": {
       "article": [
         {
-          "id": "ig-article-share-step",
+          "id": "ig-article-share-practical",
           "objective": "share",
           "angleId": "passo-pratico",
-          "hook": "Hai trovato un passaggio utile da passare a chi lavora oltreconfine?",
+          "hook": "Hai un dubbio sui redditi esteri? Condividi una guida utile.",
           "cta": "Condividi la guida con chi ne ha bisogno."
         },
         {
           "id": "ig-article-share-context",
           "objective": "share",
           "angleId": "contesto-chiaro",
-          "hook": "Un contesto chiaro da condividere con chi vive tra Italia e Svizzera",
-          "cta": "Condividi questo approfondimento con il tuo collega."
+          "hook": "Un contesto chiaro per chi lavora oltreconfine",
+          "cta": "Condividi l'approfondimento con il tuo collega."
         },
         {
           "id": "ig-article-share-question",
           "objective": "share",
           "angleId": "domanda-comune",
-          "hook": "Una risposta da far arrivare a chi si pone la stessa domanda",
+          "hook": "Una risposta da condividere sulla mobilità oltreconfine",
           "cta": "Condividi la risposta nella tua cerchia."
         },
         {
-          "id": "ig-article-save-step",
+          "id": "ig-article-save-practical",
           "objective": "save",
           "angleId": "passo-pratico",
-          "hook": "Un passaggio pratico da ritrovare quando ti servirà",
+          "hook": "Un passaggio sui redditi esteri da ritrovare quando serve",
           "cta": "Salva questa guida per ritrovarla."
         },
         {
           "id": "ig-article-save-context",
           "objective": "save",
           "angleId": "contesto-chiaro",
-          "hook": "Il contesto da tenere a portata di mano",
+          "hook": "Il contesto fiscale da tenere a portata di mano",
           "cta": "Conserva questo approfondimento per dopo."
         },
         {
           "id": "ig-article-save-question",
           "objective": "save",
           "angleId": "domanda-comune",
-          "hook": "Una risposta utile da rileggere con calma",
-          "cta": "Metti da parte questa risposta per quando ti servirà."
+          "hook": "Una domanda sulla mobilità da rileggere con calma",
+          "cta": "Metti da parte questa risposta per dopo."
         },
         {
-          "id": "ig-article-talk-step",
+          "id": "ig-article-talk-practical",
           "objective": "conversation",
           "angleId": "passo-pratico",
-          "hook": "Quale passaggio vuoi rendere più semplice?",
-          "cta": "Quale passaggio vuoi rendere più semplice? Scrivilo nei commenti."
+          "hook": "Quale passaggio sui redditi esteri vuoi capire meglio?",
+          "cta": "Quale passaggio vuoi capire meglio? Scrivilo nei commenti."
         },
         {
           "id": "ig-article-talk-context",
           "objective": "conversation",
           "angleId": "contesto-chiaro",
-          "hook": "Che cosa vorresti capire meglio del contesto?",
-          "cta": "Che cosa vorresti capire meglio? Raccontalo nei commenti."
+          "hook": "Che cosa ti manca per orientarti tra Italia e Svizzera?",
+          "cta": "Che cosa ti manca per orientarti? Raccontalo nei commenti."
         },
         {
           "id": "ig-article-talk-question",
           "objective": "conversation",
           "angleId": "domanda-comune",
-          "hook": "Quale dubbio ti accompagna su questo tema?",
-          "cta": "Quale dubbio ti accompagna? Lascia un commento."
+          "hook": "Quale dubbio sulla doppia tassazione vuoi mettere a fuoco?",
+          "cta": "Quale dubbio vuoi mettere a fuoco? Lascia un commento."
         }
       ],
       "job": [
         {
-          "id": "ig-job-share-step",
+          "id": "ig-job-share-practical",
           "objective": "share",
           "angleId": "passo-pratico",
-          "hook": "Conosci chi sta valutando un nuovo passo professionale?",
+          "hook": "Conosci chi cerca un ruolo oltreconfine?",
           "cta": "Condividi l'offerta con chi la cerca."
         },
         {
           "id": "ig-job-share-context",
           "objective": "share",
           "angleId": "contesto-chiaro",
-          "hook": "Un ruolo da far conoscere a chi guarda oltreconfine",
+          "hook": "Un'opportunità da far conoscere a chi valuta il Ticino",
           "cta": "Condividi il ruolo con una persona interessata."
         },
         {
           "id": "ig-job-share-question",
           "objective": "share",
           "angleId": "domanda-comune",
-          "hook": "Questa posizione può rispondere a una ricerca concreta?",
+          "hook": "Una posizione da passare a chi sceglie il prossimo passo",
           "cta": "Condividi l'annuncio nella tua rete."
         },
         {
-          "id": "ig-job-save-step",
+          "id": "ig-job-save-practical",
           "objective": "save",
           "angleId": "passo-pratico",
-          "hook": "Un ruolo da ritrovare quando cerchi con calma",
+          "hook": "Un ruolo da ritrovare quando confronti i requisiti",
           "cta": "Salva questa offerta per rivederla."
         },
         {
@@ -616,11 +616,11 @@
           "cta": "Metti da parte l'annuncio per dopo."
         },
         {
-          "id": "ig-job-talk-step",
+          "id": "ig-job-talk-practical",
           "objective": "conversation",
           "angleId": "passo-pratico",
-          "hook": "Quale dettaglio verifichi per primo in un'offerta?",
-          "cta": "Quale dettaglio verifichi? Scrivilo nei commenti."
+          "hook": "Quale requisito verifichi per primo in un'offerta?",
+          "cta": "Quale requisito verifichi? Scrivilo nei commenti."
         },
         {
           "id": "ig-job-talk-context",
@@ -639,28 +639,28 @@
       ],
       "border": [
         {
-          "id": "ig-border-share-step",
+          "id": "ig-border-share-practical",
           "objective": "share",
           "angleId": "passo-pratico",
-          "hook": "Un passaggio utile per chi attraversa il confine",
+          "hook": "Un passaggio da condividere prima di attraversare il confine",
           "cta": "Condividi questa guida con chi si sposta."
         },
         {
           "id": "ig-border-share-context",
           "objective": "share",
           "angleId": "contesto-chiaro",
-          "hook": "Un contesto da far arrivare a chi vive oltreconfine",
+          "hook": "Il contesto utile per organizzare uno spostamento oltreconfine",
           "cta": "Condividi l'informazione con chi ne ha bisogno."
         },
         {
           "id": "ig-border-share-question",
           "objective": "share",
           "angleId": "domanda-comune",
-          "hook": "Una risposta da condividere prima di organizzarsi",
+          "hook": "Una risposta da far arrivare a chi parte",
           "cta": "Condividi questo approfondimento nella tua cerchia."
         },
         {
-          "id": "ig-border-save-step",
+          "id": "ig-border-save-practical",
           "objective": "save",
           "angleId": "passo-pratico",
           "hook": "Un passaggio da ritrovare prima di muoverti",
@@ -681,7 +681,7 @@
           "cta": "Metti da parte questo riferimento per dopo."
         },
         {
-          "id": "ig-border-talk-step",
+          "id": "ig-border-talk-practical",
           "objective": "conversation",
           "angleId": "passo-pratico",
           "hook": "Quale passaggio vuoi chiarire prima di muoverti?",
@@ -704,17 +704,17 @@
       ],
       "reel": [
         {
-          "id": "ig-reel-follow-step",
+          "id": "ig-reel-follow-practical",
           "objective": "follow",
           "angleId": "passo-pratico",
-          "hook": "Il passaggio pratico da capire prima di muoverti",
+          "hook": "Il passaggio pratico da capire prima di candidarti",
           "cta": "Segui Frontaliere per orientarti meglio."
         },
         {
           "id": "ig-reel-follow-context",
           "objective": "follow",
           "angleId": "contesto-chiaro",
-          "hook": "Il contesto oltreconfine spiegato senza giri",
+          "hook": "Il contesto oltreconfine spiegato con chiarezza",
           "cta": "Segui Frontaliere per capire il contesto."
         },
         {
@@ -729,27 +729,27 @@
     "tiktok": {
       "article": [
         {
-          "id": "tt-article-step",
+          "id": "tt-article-practical",
           "angleId": "passo-pratico",
-          "hook": "Il passaggio pratico da capire prima di leggere",
+          "hook": "Il passaggio pratico per capire la guida",
           "cta": "Leggi la guida dal link in bio."
         },
         {
           "id": "tt-article-context",
           "angleId": "contesto-chiaro",
-          "hook": "Il contesto utile per orientarti tra Italia e Svizzera",
+          "hook": "Il contesto utile tra Italia e Svizzera",
           "cta": "Approfondisci il tema dal link in bio."
         },
         {
           "id": "tt-article-question",
           "angleId": "domanda-comune",
-          "hook": "La domanda da portare dentro l'approfondimento",
+          "hook": "La domanda da portare nell'approfondimento",
           "cta": "Consulta la guida dal link in bio."
         }
       ],
       "job": [
         {
-          "id": "tt-job-step",
+          "id": "tt-job-practical",
           "angleId": "passo-pratico",
           "hook": "Il passo professionale parte dai dettagli del ruolo",
           "cta": "Scopri l'offerta dal link in bio."
@@ -769,7 +769,7 @@
       ],
       "border": [
         {
-          "id": "tt-border-step",
+          "id": "tt-border-practical",
           "angleId": "passo-pratico",
           "hook": "Il passaggio da chiarire prima di attraversare il confine",
           "cta": "Leggi le indicazioni dal link in bio."
@@ -789,7 +789,7 @@
       ],
       "video": [
         {
-          "id": "tt-video-step",
+          "id": "tt-video-practical",
           "angleId": "passo-pratico",
           "hook": "Un passaggio breve per capire meglio il tema",
           "cta": "Guarda il video dal link in bio."
@@ -811,48 +811,48 @@
     "facebook": {
       "article": [
         {
-          "id": "fb-article-step",
+          "id": "fb-article-practical",
           "angleId": "passo-pratico",
-          "hook": "Un passaggio pratico per leggere con più chiarezza un tema oltreconfine.",
+          "hook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
           "cta": "Leggi l'approfondimento."
         },
         {
           "id": "fb-article-context",
           "angleId": "contesto-chiaro",
-          "hook": "Il contesto utile per chi lavora o vive tra Italia e Svizzera.",
+          "hook": "Il contesto utile prima di valutare una scelta oltreconfine.",
           "cta": "Approfondisci il tema."
         },
         {
           "id": "fb-article-question",
           "angleId": "domanda-comune",
-          "hook": "Una domanda concreta può aprire una lettura più attenta del tema.",
+          "hook": "Una domanda circoscritta può rendere più utile la lettura.",
           "cta": "Consulta la guida."
         }
       ],
       "job": [
         {
-          "id": "fb-job-step-read",
+          "id": "fb-job-practical-open",
           "angleId": "passo-pratico",
           "hook": "Un ruolo da valutare partendo dai dettagli che contano per te.",
-          "cta": "Apri l'annuncio di lavoro."
+          "cta": "Apri l'annuncio completo."
         },
         {
-          "id": "fb-job-step-check",
+          "id": "fb-job-practical-check",
           "angleId": "passo-pratico",
           "hook": "Il prossimo passo professionale comincia da una verifica concreta.",
-          "cta": "Verifica i requisiti indicati."
+          "cta": "Verifica i requisiti del ruolo."
         },
         {
-          "id": "fb-job-step-explore",
+          "id": "fb-job-practical-explore",
           "angleId": "passo-pratico",
-          "hook": "Una posizione da esplorare con attenzione, senza saltare i passaggi.",
-          "cta": "Esplora la posizione."
+          "hook": "Una posizione da esplorare senza saltare i passaggi.",
+          "cta": "Esplora la posizione proposta."
         },
         {
-          "id": "fb-job-step-review",
+          "id": "fb-job-practical-review",
           "angleId": "passo-pratico",
           "hook": "Un'offerta da confrontare con ciò che stai cercando.",
-          "cta": "Controlla il ruolo proposto."
+          "cta": "Controlla i dettagli della candidatura."
         },
         {
           "id": "fb-job-context-discover",
@@ -861,40 +861,40 @@
           "cta": "Scopri l'offerta completa."
         },
         {
-          "id": "fb-job-context-details",
+          "id": "fb-job-context-info",
           "angleId": "contesto-chiaro",
           "hook": "Il contesto del ruolo può aiutarti a leggere meglio la posizione.",
-          "cta": "Consulta i dettagli del ruolo."
+          "cta": "Consulta le informazioni del ruolo."
         },
         {
           "id": "fb-job-context-path",
           "angleId": "contesto-chiaro",
           "hook": "Una posizione da considerare nel tuo percorso professionale.",
-          "cta": "Approfondisci il ruolo."
+          "cta": "Approfondisci il percorso richiesto."
         },
         {
           "id": "fb-job-context-read",
           "angleId": "contesto-chiaro",
           "hook": "Un nuovo ruolo da leggere con calma prima di scegliere.",
-          "cta": "Leggi la posizione disponibile."
+          "cta": "Leggi la descrizione completa."
         },
         {
           "id": "fb-job-question-fit",
           "angleId": "domanda-comune",
-          "hook": "Stai cercando un ruolo che corrisponda davvero alle tue competenze?",
-          "cta": "Trova i dettagli utili nell'annuncio."
+          "hook": "Stai cercando un ruolo che corrisponda alle tue competenze?",
+          "cta": "Trova la risposta nell'annuncio."
         },
         {
           "id": "fb-job-question-info",
           "angleId": "domanda-comune",
-          "hook": "Quale informazione ti serve per valutare una nuova posizione?",
-          "cta": "Consulta l'annuncio completo."
+          "hook": "Quale informazione ti serve per valutare una posizione?",
+          "cta": "Consulta i dettagli disponibili."
         },
         {
           "id": "fb-job-question-border",
           "angleId": "domanda-comune",
           "hook": "Cerchi un'opportunità oltreconfine da esaminare con cura?",
-          "cta": "Candidati seguendo le indicazioni."
+          "cta": "Candidati seguendo le istruzioni."
         },
         {
           "id": "fb-job-question-care",
@@ -905,29 +905,29 @@
       ],
       "event": [
         {
-          "id": "fb-event-step",
+          "id": "fb-event-music",
           "angleId": "passo-pratico",
-          "hook": "Un appuntamento del territorio da verificare prima di organizzarti.",
+          "hook": "Un appuntamento di musica da verificare prima di organizzarti.",
           "cta": "Consulta il programma."
         },
         {
-          "id": "fb-event-context",
+          "id": "fb-event-theatre",
           "angleId": "contesto-chiaro",
-          "hook": "Una proposta locale da inserire nella tua agenda.",
+          "hook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
           "cta": "Scopri l'evento."
         },
         {
-          "id": "fb-event-question",
+          "id": "fb-event-conference",
           "angleId": "domanda-comune",
-          "hook": "Un'occasione per scegliere cosa seguire in zona.",
+          "hook": "Una conferenza locale da valutare con le informazioni aggiornate.",
           "cta": "Apri le informazioni."
         }
       ],
       "digest": [
         {
-          "id": "fb-digest-step",
+          "id": "fb-digest-practical",
           "angleId": "passo-pratico",
-          "hook": "Un riepilogo pratico per ritrovare i temi utili della settimana.",
+          "hook": "Un riepilogo pratico per ritrovare i temi utili.",
           "cta": "Leggi il riepilogo."
         },
         {
@@ -947,7 +947,7 @@
     "linkedin": {
       "article": [
         {
-          "id": "li-article-step",
+          "id": "li-article-practical",
           "angleId": "passo-pratico",
           "hook": "Un passaggio pratico per chi lavora tra Italia e Svizzera.",
           "cta": "Leggi l'approfondimento."
@@ -967,7 +967,7 @@
       ],
       "job": [
         {
-          "id": "li-job-step",
+          "id": "li-job-practical",
           "angleId": "passo-pratico",
           "hook": "Una posizione da valutare partendo dalle competenze richieste.",
           "cta": "Esplora la posizione."
@@ -982,14 +982,14 @@
           "id": "li-job-question",
           "angleId": "domanda-comune",
           "hook": "Un'offerta da esaminare prima di scegliere il prossimo passo.",
-          "cta": "Candidati seguendo l'offerta."
+          "cta": "Candidati seguendo le indicazioni."
         }
       ]
     },
     "telegram": {
       "job": [
         {
-          "id": "tg-job-step",
+          "id": "tg-job-practical",
           "angleId": "passo-pratico",
           "hook": "Un passaggio pratico per valutare una posizione.",
           "cta": "Apri l'offerta."
@@ -1009,7 +1009,7 @@
       ],
       "border": [
         {
-          "id": "tg-border-step",
+          "id": "tg-border-practical",
           "angleId": "passo-pratico",
           "hook": "Un passaggio utile per chi attraversa il confine.",
           "cta": "Leggi le indicazioni."
@@ -1031,7 +1031,7 @@
     "reddit": {
       "article": [
         {
-          "id": "rd-article-step",
+          "id": "rd-article-practical",
           "angleId": "passo-pratico",
           "hook": "Un passaggio pratico per leggere un tema oltreconfine senza semplificarlo.",
           "cta": "Leggi il contesto completo."
@@ -1051,7 +1051,7 @@
       ],
       "job": [
         {
-          "id": "rd-job-step",
+          "id": "rd-job-practical",
           "angleId": "passo-pratico",
           "hook": "Un ruolo da valutare partendo dai requisiti verificabili.",
           "cta": "Consulta i requisiti."
