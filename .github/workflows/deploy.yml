@@ -1023,8 +1023,8 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       # Save immediately after the successful build, before any deploy/publish
-      # step can fail the job. The cache action's default post-job save is
-      # skipped when a later step fails, forcing the next retry to render every
+      # step can fail the job. The old combined cache action's post-job save was
+      # skipped when a later step failed, forcing the next retry to render every
       # job OG image again. Gate on the Build step so a partial build never
       # replaces the last usable cache.
       - name: Save per-job OG images after successful build
