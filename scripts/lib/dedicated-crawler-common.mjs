@@ -76,6 +76,7 @@ import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
+import { hasTopLevelJsonArray, readJsonArrayFile } from './streaming-json-array.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
@@ -1484,8 +1485,10 @@ export function resetHardenCache() {
  *   the crawlers is lost and the description audit counts the copy as a
  *   stale translation (issue 6109: housekeeping commit of 2026-10-04 turned
  *   161 empty Coop jobs into source copies).
+ * @param {boolean} [opts.includeJobs=false] — include the parsed jobs array in
+ *   the result so a caller can continue processing without rereading a large file.
  */
-export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true }) {
+export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true, includeJobs = false }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
@@ -1495,13 +1498,24 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   // re-deriving slugs and generating spurious previousSlugs.
   const resolvedPath = path.resolve(dataJobsPath);
   if (_hardenResultCache.has(resolvedPath)) {
-    return _hardenResultCache.get(resolvedPath);
+    const cached = _hardenResultCache.get(resolvedPath);
+    if (!includeJobs || Array.isArray(cached.jobs)) return cached;
+    const jobs = hasTopLevelJsonArray(dataJobsPath)
+      ? readJsonArrayFile(dataJobsPath)
+      : (() => {
+        const parsed = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+        return Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
+      })();
+    const withJobs = { ...cached, ...(Array.isArray(jobs) ? { jobs } : {}) };
+    _hardenResultCache.set(resolvedPath, withJobs);
+    return withJobs;
   }
 
-  const parsed = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  const parsed = hasTopLevelJsonArray(dataJobsPath)
+    ? readJsonArrayFile(dataJobsPath)
+    : JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
   // Support both flat array format and { jobs: [...] } wrapper format
   const raw = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
-  const isWrapped = !Array.isArray(parsed) && Array.isArray(parsed?.jobs);
   if (!raw) {
     return { changed: false, repaired: 0, total: 0 };
   }
@@ -2121,7 +2135,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   }
 
   if (!changed) {
-    const result = { changed: false, repaired: 0, total: raw.length };
+    const result = { changed: false, repaired: 0, total: raw.length, ...(includeJobs ? { jobs: raw } : {}) };
     _hardenResultCache.set(resolvedPath, result);
     return result;
   }
@@ -2138,7 +2152,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   if (fs.existsSync(publicJobsPath)) {
     writeJson(publicJobsPath, raw);
   }
-  const result = { changed: true, repaired, total: raw.length };
+  const result = { changed: true, repaired, total: raw.length, ...(includeJobs ? { jobs: raw } : {}) };
   _hardenResultCache.set(resolvedPath, result);
   return result;
 }

@@ -85,6 +85,27 @@ function sha256(raw) {
   return createHash('sha256').update(String(raw), 'utf8').digest('hex');
 }
 
+function sha256File(filePath) {
+  const hash = createHash('sha256');
+  const fd = fs.openSync(filePath, 'r');
+  const buffer = Buffer.allocUnsafe(1024 * 1024);
+  try {
+    let bytesRead;
+    while ((bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0) {
+      hash.update(buffer.subarray(0, bytesRead));
+    }
+    return hash.digest('hex');
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+function snapshotDigest({ candidateRaw, candidatePath }) {
+  if (typeof candidateRaw === 'string') return sha256(candidateRaw);
+  if (typeof candidatePath === 'string' && candidatePath) return sha256File(candidatePath);
+  return null;
+}
+
 function housekeepingProofTarget(slicePath, { proofDir, cwd = process.cwd() } = {}) {
   const absoluteSlicePath = path.resolve(cwd, slicePath);
   const relativePath = path.relative(cwd, absoluteSlicePath);
@@ -156,12 +177,13 @@ export function clearCrossCrawlerDedupProofFile({ proofDir, env = process.env } 
  */
 export function writeCrossCrawlerDedupProofFile(
   entries,
-  { candidateRaw, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
+  { candidateRaw, candidatePath, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
 ) {
   if (!Array.isArray(entries) || entries.length === 0) {
     return clearCrossCrawlerDedupProofFile({ proofDir, env });
   }
-  if (typeof candidateRaw !== 'string') {
+  const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
+  if (!candidateDigest) {
     throw new Error('cannot write cross-crawler dedup proof without the final jobs.json snapshot');
   }
 
@@ -180,7 +202,7 @@ export function writeCrossCrawlerDedupProofFile(
   try {
     fs.writeFileSync(temporaryPath, `${JSON.stringify({
       schemaVersion: 1,
-      candidateDigest: sha256(candidateRaw),
+      candidateDigest,
       baseSha: resolvedBaseSha,
       runId,
       runAttempt,
@@ -195,7 +217,7 @@ export function writeCrossCrawlerDedupProofFile(
 }
 
 export function loadCrossCrawlerDedupProofFile(
-  { proofPath, proofDir, candidateRaw, env = process.env, cwd = process.cwd() } = {},
+  { proofPath, proofDir, candidateRaw, candidatePath, env = process.env, cwd = process.cwd() } = {},
 ) {
   const resolvedProofPath = proofPath || crossCrawlerDedupProofPath({ proofDir, env });
   if (!resolvedProofPath || !fs.existsSync(resolvedProofPath)) return null;
@@ -216,7 +238,8 @@ export function loadCrossCrawlerDedupProofFile(
   ) {
     throw new Error('invalid cross-crawler dedup proof');
   }
-  if (typeof candidateRaw !== 'string' || proof.candidateDigest !== sha256(candidateRaw)) {
+  const candidateDigest = snapshotDigest({ candidateRaw, candidatePath });
+  if (!candidateDigest || proof.candidateDigest !== candidateDigest) {
     throw new Error('stale cross-crawler dedup proof: candidate digest mismatch');
   }
 

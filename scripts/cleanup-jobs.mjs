@@ -47,6 +47,7 @@ import {
 } from './lib/crawler-slice-integrity.mjs';
 import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
+import { readJsonArrayFile } from './lib/streaming-json-array.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -79,6 +80,7 @@ const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
 const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
+let localeReportJobs = null;
 
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
@@ -710,10 +712,12 @@ async function main() {
   }
 
   // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
-  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH });
+  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH, includeJobs: true });
   if (localeHardening.changed) {
     console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs.`);
   }
+  let dataJobs = localeHardening.jobs;
+  if (!Array.isArray(dataJobs)) throw new Error('jobs.json must be an array');
 
   // ── 0b. Enrich short descriptions (deploy-blocking safety net) ──────────
   // If any job's description in any locale is too short or contains garbage
@@ -723,23 +727,18 @@ async function main() {
   // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
   // blocking predicate of validate:translation-completeness.
   {
-    const raw = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
-    const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
-    const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
-
-    if (jobsArr) {
-      const { jobs: repairedJobs, enriched } = repairShortDescriptions(jobsArr);
-      if (enriched > 0) {
-        const out = isWrapped ? { ...raw, jobs: repairedJobs } : repairedJobs;
-        writeJson(DATA_JOBS_PATH, out);
-        // Keep public copy in sync
-        if (fs.existsSync(PUBLIC_JOBS_PATH)) {
-          writeJson(PUBLIC_JOBS_PATH, out);
-        }
-        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
+    const { jobs: repairedJobs, enriched } = repairShortDescriptions(dataJobs);
+    dataJobs = repairedJobs;
+    if (enriched > 0) {
+      writeJson(DATA_JOBS_PATH, dataJobs);
+      // Keep public copy in sync
+      if (fs.existsSync(PUBLIC_JOBS_PATH)) {
+        writeJson(PUBLIC_JOBS_PATH, dataJobs);
       }
+      console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
     }
   }
+  localeReportJobs = dataJobs;
 
   // Housekeeping must stay fast and deterministic: missing-locale translation
   // belongs to dedicated crawler localization or the explicit relocalize job,
@@ -748,12 +747,10 @@ async function main() {
     console.log('ℹ️  Housekeeping locale translation explicitly enabled via JOBS_HOUSEKEEPING_TRANSLATE_MISSING=1');
   }
 
-  const dataJobs = readJson(DATA_JOBS_PATH);
-  const publicJobs = readJson(PUBLIC_JOBS_PATH);
-
-  if (!Array.isArray(dataJobs) || !Array.isArray(publicJobs)) {
-    throw new Error('jobs.json must be an array');
-  }
+  if (!Array.isArray(dataJobs)) throw new Error('jobs.json must be an array');
+  // Validate the public copy without constructing a second 500+ MB string or
+  // retaining a second copy of the entire job dataset in memory.
+  readJsonArrayFile(PUBLIC_JOBS_PATH, { collect: false });
 
   // Use data/ as source of truth, but ensure public/ stays in sync.
   const jobs = dataJobs;
@@ -917,12 +914,13 @@ async function main() {
   }
 
   const finalJobs = HOUSEKEEPING_SCOPE ? [...untouchedJobs, ...kept] : kept;
+  localeReportJobs = finalJobs;
 
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
   writeCrossCrawlerDedupProofFile(dedupProofEntries, {
-    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
+    candidatePath: DATA_JOBS_PATH,
   });
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
@@ -949,21 +947,21 @@ main()
   .then(() => {
     // Dataset mode only, and after main() on EVERY exit path — including the
     // early return when nothing was removed, which skips the final writes.
-    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
-    // build) and name, per crawler, the records the dist gate
+    // Reuse the prepared in-memory dataset (the exact data/jobs.json content
+    // written by cleanup) and name, per crawler, the records the dist gate
     // validate:translation-completeness would block. Report only: no record
     // is removed and the exit code does not change (see the module header).
     if (!SLICE_FILE) {
       // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
-      const reparseStartedAt = performance.now();
+      const reportStartedAt = performance.now();
       try {
-        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, jobs: localeReportJobs, slicesDir: ACTIVE_SLICES_DIR });
       } finally {
         try {
           // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
           const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
-          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
-          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+          const seconds = ((performance.now() - reportStartedAt) / 1000).toFixed(1);
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (report ${seconds} s)`);
         } catch {
           /* the probe must never change the outcome or the exit code */
         }
