@@ -50,7 +50,7 @@ import {
   waitForDialogControl,
   findTikTokPublishedPost,
 } from '../scripts/social-robot/lib/flows.mjs';
-import { isExcludedBy } from '../scripts/ci/verify-checkout-profiles.mjs';
+import { pathsOutsideSparseRules } from '../scripts/ci/verify-checkout-profiles.mjs';
 import {
   DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE,
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
@@ -1669,14 +1669,14 @@ describe('workflows', () => {
       'data/tiktok-queue.json',
       'data/tiktok-posted.json',
     ]) {
-      expect(isExcludedBy(sparse, required), required).toBe(false);
+      expect(pathsOutsideSparseRules(sparse, [required], { cone: false }), required).toEqual([]);
     }
     for (const heavy of [
       'data/jobs/by-crawler/example.json',
       'public/images/example.jpg',
       'packages/articles/content/example.ts',
     ]) {
-      expect(isExcludedBy(sparse, heavy), heavy).toBe(true);
+      expect(pathsOutsideSparseRules(sparse, [heavy], { cone: false }), heavy).toEqual([heavy]);
     }
   });
 
