@@ -1,69 +1,19 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-11-03T09:17:54.469Z",
+  "generatedAt": "2026-11-03T21:30:05.009Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 3669,
-  "avgDurationMs": 3669,
+  "unchangedCount": 10,
+  "durationMs": 4226,
+  "avgDurationMs": 4226,
   "durationHistory": [
-    3669
+    4226
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Design Office Assistant Intern",
-      "slug": "design-office-assistant-tirocinante-guess-europe-sagl-stabio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/9AB5DFE4AC/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/9AB5DFE4AC/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Stabio",
-      "addressLocality": "Stabio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-11-02T00:00:00.000Z",
-      "postedDate": "2026-11-02T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "validThrough": "2027-01-31T21:24:03.463Z",
-      "benefits": [
-        "An International, fresh and dynamic working environment",
-        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Community",
-        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
-        "Training & Development platform and paths",
-        "Discount on our products both online and in stores"
-      ],
-      "id": "guess-europe-2c515c134ec8",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6855",
-      "streetAddress": "Stabio",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:24:03.463Z",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -117,6 +67,55 @@
       "streetAddress": "Strada Regina 44",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Design Office Assistant Intern",
+      "slug": "design-office-assistant-tirocinante-guess-europe-sagl-stabio",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/9AB5DFE4AC/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/9AB5DFE4AC/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Stabio",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-11-02T00:00:00.000Z",
+      "postedDate": "2026-11-02T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "2027-01-31T21:24:03.463Z",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Community",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-2c515c134ec8",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6855",
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-02T21:24:03.463Z",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -567,5 +566,5 @@
       }
     }
   ],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
 }
