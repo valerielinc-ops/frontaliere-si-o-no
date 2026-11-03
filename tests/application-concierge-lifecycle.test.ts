@@ -83,6 +83,26 @@ beforeEach(() => {
 });
 
 describe('concierge refresh and notification lifecycle', () => {
+  it('coalesces repeated matcher-version invalidations before queueing a full refresh', async () => {
+    records.set('application_concierge_services/service', active({ matchingStatus: 'complete', matchingVersion: 'legacy-version', matchingCompletedAt: now }));
+
+    const first = await sweep({ enqueueOnly: true });
+    expect(first.queuedRefreshes).toBe(0);
+    expect(records.get('application_concierge_services/service')).toMatchObject({
+      matchingVersionRefreshVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+      matchingVersionRefreshObservedAt: new Date(now),
+    });
+    expect(match).not.toHaveBeenCalled();
+
+    const later = now + 60 * 60 * 1000;
+    const beforeSettle = await sweep({ enqueueOnly: true, nowMs: later - 1 });
+    expect(beforeSettle.queuedRefreshes).toBe(0);
+    const ready = await sweep({ enqueueOnly: true, nowMs: later });
+    expect(ready.queuedRefreshes).toBe(1);
+    expect(match).not.toHaveBeenCalled();
+    expect(records.get('application_concierge_services/service').matchingVersionRefreshObservedAt).toBeUndefined();
+  });
+
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 3600000,
       matchingPendingCount: 0, matchingUnverifiedCount: 2, matchingRetryAt: now + 12 * 3600000 });

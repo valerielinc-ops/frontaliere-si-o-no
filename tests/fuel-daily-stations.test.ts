@@ -702,11 +702,20 @@ describe('Swiss station diesel coverage', () => {
   });
 
   it('preserves the formerly synthetic diesel URL with a noindex bridge to the stats hub', () => {
+    const statsPath = {
+      it: '/statistiche/prezzi-benzina-confine/',
+      en: '/en/statistics/border-fuel-prices/',
+      de: '/de/statistiken/spritpreise-grenze/',
+      fr: '/fr/statistiques/prix-essence-frontiere/',
+    } as const;
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const html = pages[buildFuelStationPath(locale, 'diesel', 'chiasso', buildStationSlug(stations[0]))];
       expect(html).toContain('noindex,follow');
+      expect(html).toContain(
+        `<link rel="canonical" href="https://frontaliereticino.ch${buildFuelStationPath(locale, 'diesel', 'chiasso', buildStationSlug(stations[0]))}">`,
+      );
       expect(html).not.toContain('http-equiv="refresh"');
-      expect(html).toContain('/statistiche/prezzi-benzina-confine/');
+      expect(html).toContain(statsPath[locale]);
       expect(html).not.toContain('1,780');
       expect(html).not.toContain('GasStation');
     }

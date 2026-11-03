@@ -19,6 +19,7 @@ const { claimedByPortalAccount, classifyByRules, correctedCategory, handleAssist
 const { parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
+const { confirmSubmissionByEmployer } = await import('../functions/src/assistedApplicationAutomation.js');
 const { DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decryptJson } = await import('../functions/src/lib/evidenceCrypto.js');
 
@@ -479,6 +480,50 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(effects).toHaveLength(1);
   });
 
+  it('does not write an employer receipt when the live flow no longer accepts the acknowledgement', async () => {
+    const { store } = await ambiguousOrder();
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      store.docs.set(FLOW_PATH, { ...store.read(FLOW_PATH), state: 'candidate_review' });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(confirmSubmissionByEmployer({
+        db: store.db, orderId: ORDER, receivedAt: 700, nowMs: 1000, runEffect: async () => ({ ok: true }),
+      })).resolves.toMatchObject({ ok: false, ignored: 'not_ambiguous_submit' });
+      expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', clickedAt: 600 });
+      expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
+      expect(store.read(FLOW_PATH)!.state).toBe('candidate_review');
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
+  it('rejects an employer receipt when a concurrent claim supersedes the confirmed attempt', async () => {
+    const { store } = await ambiguousOrder({
+      guard: { state: 'sending', channel: 'portal', attemptId: 'attempt-old', startedAt: 500, clickedAt: 600 },
+    });
+    const originalTransaction = store.db.runTransaction.bind(store.db);
+    const transaction = vi.spyOn(store.db, 'runTransaction').mockImplementation(async (callback: any) => {
+      const submission = store.read(GUARD_PATH)!;
+      store.docs.set(GUARD_PATH, { ...submission, r1: { ...submission.r1, attemptId: 'attempt-new' } });
+      return originalTransaction(callback);
+    });
+
+    try {
+      await expect(confirmSubmissionByEmployer({
+        db: store.db, orderId: ORDER, receivedAt: 700, nowMs: 1000, runEffect: async () => ({ ok: true }),
+      })).rejects.toThrow('submission_attempt_superseded');
+      expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', attemptId: 'attempt-new' });
+      expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
+      expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
+      expect(store.read(ORDER_PATH)!.submissionStatus).toBe('ready_for_manual_submission');
+    } finally {
+      transaction.mockRestore();
+    }
+  });
+
   it('confirms an ambiguous e-mail application on the employer’s reply and schedules its follow-ups', async () => {
     const { store, effects, receive } = await ambiguousOrder({
       flow: { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
@@ -568,13 +613,22 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       })),
     };
     expect(await receive('auto_acknowledgement', { db: flaky })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
-    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement', confirmedAt: 1000 });
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', clickedAt: 600 });
+    expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
     expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
     expect(effects).toEqual([]);
 
     expect((await receive('rejection', { nowMs: 2000 })).submissionConfirmed).toBe(true);
     expect(store.read(FLOW_PATH)!.state).toBe('submitted');
-    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ sentAt: 600, confirmedAt: 1000 });
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', sentAt: 600, confirmedAt: 2000 });
+    expect(store.read(GUARD_PATH)!.r1.receipt).toMatchObject({
+      orderId: ORDER,
+      round: 1,
+      attemptId: 'ack-2000',
+      channel: 'portal',
+      proofKind: 'employer_acknowledgement',
+      observedAt: 2000,
+    });
     expect(effects).toEqual([{ type: 'mark_submitted' }]);
     expect(sendCascade).toHaveBeenCalledTimes(2);
   });
