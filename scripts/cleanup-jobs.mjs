@@ -47,6 +47,7 @@ import {
 } from './lib/crawler-slice-integrity.mjs';
 import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { readJsonArrayFile } from './lib/streaming-json-array.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -83,8 +84,7 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 let localeReportJobs = null;
 
 function readJson(filePath) {
-  const raw = fs.readFileSync(filePath, 'utf-8');
-  return JSON.parse(raw);
+  return readJsonFile(filePath);
 }
 
 function dedupProofJob(job) {

@@ -693,6 +693,38 @@ describe('crawler slice integrity guard', () => {
     }
   });
 
+  it('binds the monolithic dedup sidecar through a candidate path', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-dedup-proof-path-'));
+    const proofDir = join(root, 'proofs');
+    const candidatePath = join(root, 'jobs.json');
+    const candidateRaw = json([{ url: 'https://example.test/kept', title: 'Kept' }]);
+    writeFileSync(candidatePath, candidateRaw, 'utf8');
+    const entries = [{
+      job: dedupJob('https://example.test/removed', 'Engineer', 'removed'),
+      retainedJob: dedupJob('https://example.test/winner', 'Engineer', 'winner'),
+      reason: 'duplicate title+company',
+      duplicateKey: 'engineer|bühler group|uzwil, sg',
+    }];
+    const env = {
+      GITHUB_SHA: 'base-sha',
+      GITHUB_RUN_ID: 'run-42',
+      GITHUB_RUN_ATTEMPT: '1',
+    };
+
+    try {
+      const proofPath = writeCrossCrawlerDedupProofFile(entries, {
+        candidatePath,
+        proofDir,
+        cwd: root,
+        env,
+      });
+      expect(loadCrossCrawlerDedupProofFile({ proofPath, candidatePath, env })).toMatchObject({ entries });
+    } finally {
+      clearCrossCrawlerDedupProofFile({ proofDir, cwd: root });
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('accepts a monolithic duplicate-slug decision only with a matching winner', () => {
     const duplicate = {
       ...dedupJob('https://buehler.example/duplicate', 'First title', 'x'.repeat(1_400_000)),

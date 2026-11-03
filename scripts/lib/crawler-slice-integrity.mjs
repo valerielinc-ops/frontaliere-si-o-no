@@ -105,7 +105,6 @@ function snapshotDigest({ candidateRaw, candidatePath }) {
   if (typeof candidatePath === 'string' && candidatePath) return sha256File(candidatePath);
   return null;
 }
-
 function housekeepingProofTarget(slicePath, { proofDir, cwd = process.cwd() } = {}) {
   const absoluteSlicePath = path.resolve(cwd, slicePath);
   const relativePath = path.relative(cwd, absoluteSlicePath);
