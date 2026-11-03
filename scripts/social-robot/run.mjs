@@ -61,6 +61,7 @@ import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-q
 import { partitionAutomatedDeliveryChannels } from '../lib/social-automation-policy.mjs';
 import {
   loadPrivateSocialNativeInsights,
+  mergePrivateInstagramStoryPublications,
   toInstagramBrowserSnapshotDocument,
   updatePrivateSocialNativeInsights,
 } from '../lib/social-native-insights-store.mjs';
@@ -408,21 +409,35 @@ async function main() {
             log: console,
           });
         }
-        if (community?.outcomes) {
+        const publishedStories = Array.isArray(community?.publishedStories) ? community.publishedStories : [];
+        if (community?.outcomes || publishedStories.length > 0) {
           try {
             const db = await getFirestoreDb();
             await updatePrivateSocialNativeInsights(db, (current) => ({
               ...current,
-              communityOutcomes: mergeInstagramCommunityOutcomeSnapshots(current.communityOutcomes, community.outcomes),
+              ...(community?.outcomes ? {
+                communityOutcomes: mergeInstagramCommunityOutcomeSnapshots(current.communityOutcomes, community.outcomes),
+              } : {}),
+              instagramStoryPublications: mergePrivateInstagramStoryPublications(
+                current.instagramStoryPublications,
+                publishedStories,
+                { asOf: new Date() },
+              ),
             }), { updatedAt: new Date() });
             community.outcomesPersisted = true;
+            community.storyPublicationsPersisted = true;
           } catch (error) {
             community.outcomesPersisted = false;
+            community.storyPublicationsPersisted = false;
             community.errors = [...(Array.isArray(community.errors) ? community.errors : []), `private outcome persistence failed: ${String(error?.message || error).replace(/access_token[=:][^\s&]+/giu, 'access_token=[REDACTED]').slice(0, 180)}`];
             if (!['api-error', 'partial', 'credentials-missing', 'login-required', 'browser-unavailable'].includes(community.status)) {
               community.status = 'partial';
             }
           }
+        }
+        if (community) {
+          community.storyPublicationCount = publishedStories.length;
+          delete community.publishedStories;
         }
         insights = await runBrowserInsights({ context, reader, stateDir, mode: rcMode, log: console });
       }

@@ -57,6 +57,7 @@ permissions:
 
 jobs:
   post:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     # Full checkout + assemble-jobs-dataset, same shape and same budget as
     # telegram-channel-broadcast.yml (20 min) — data/jobs/by-crawler alone is

@@ -6,6 +6,11 @@ import {
   SOCIAL_GA4_SITE_OUTCOME_MINIMUM_DAYS,
   SOCIAL_GA4_SITE_OUTCOME_MINIMUM_SESSIONS,
 } from './social-ga4-contract.mjs';
+import {
+  INSTAGRAM_STORY_MAX_ROWS,
+  INSTAGRAM_STORY_MEASUREMENT_WINDOWS,
+  INSTAGRAM_STORY_METRICS,
+} from './instagram-story-contract.mjs';
 
 const CHANNELS = new Set(['instagram', 'tiktok', 'linkedin-member', 'facebook']);
 const FACEBOOK_METRICS = new Set(['mediaViews', 'uniqueViewers', 'reactions', 'clicks']);
@@ -17,10 +22,11 @@ const SOURCE_NAMES = new Set([
   'instagramAudience', 'tiktokAudience', 'facebookAudience', 'linkedinAudience',
   'telegramAudience', 'youtubeShortsAudience', 'threadsAudience', 'socialRobotDelivery',
   'socialSiteOutcomes', 'linkedinFollowerGains',
-  'instagramPostInsights',
+  'instagramPostInsights', 'instagramStoryInsights',
 ]);
 const HEALTH_SIGNAL_SOURCES = new Set([
   'instagramPostInsights', 'tiktokPostInsights', 'facebookPostInsights', 'linkedinMemberPostInsights',
+  'instagramStoryInsights',
   'instagramAudience', 'tiktokAudience', 'facebookAudience', 'telegramAudience',
   'linkedinAudience',
   'linkedinFollowerGains', 'socialSiteOutcomes', 'socialRobotDelivery',
@@ -359,6 +365,91 @@ function validateSocialRobotDelivery(snapshot, nowMs) {
   }
 }
 
+function validateInstagramStoryRows(document, nowMs) {
+  const publications = document.instagramStoryPublications ?? [];
+  const snapshots = document.instagramStorySnapshots ?? [];
+  if (!Array.isArray(publications) || publications.length > INSTAGRAM_STORY_MAX_ROWS) {
+    throw new Error('invalid Instagram Story publication collection');
+  }
+  if (!Array.isArray(snapshots) || snapshots.length > INSTAGRAM_STORY_MAX_ROWS) {
+    throw new Error('invalid Instagram Story snapshot collection');
+  }
+  const publicationById = new Map();
+  for (const [index, row] of publications.entries()) {
+    if (!hasExactKeys(row, [
+      'storyId', 'publishedAt', 'sourceMediaId', 'followUpFormat', 'copyPackId',
+      'copyTemplateId', 'copyAngleId', 'copyPillarId', 'copyRevisionId',
+    ]) || !/^[A-Za-z0-9_.:-]{1,128}$/u.test(String(row.storyId || ''))
+      || !validTimestamp(row.publishedAt)
+      || row.sourceMediaId !== null && !/^[A-Za-z0-9_.:-]{1,128}$/u.test(String(row.sourceMediaId || ''))
+      || row.followUpFormat !== null && !/^[a-z0-9][a-z0-9-]{0,39}$/u.test(String(row.followUpFormat || ''))
+      || row.copyPackId !== null && !/^[a-f0-9]{16}$/u.test(String(row.copyPackId || ''))
+      || row.copyTemplateId !== null && !/^[a-z0-9][a-z0-9-]{0,31}$/u.test(String(row.copyTemplateId || ''))
+      || row.copyAngleId !== null && !/^[a-z0-9][a-z0-9-]{0,31}$/u.test(String(row.copyAngleId || ''))
+      || row.copyPillarId !== null && !/^[a-z0-9][a-z0-9-]{0,31}$/u.test(String(row.copyPillarId || ''))
+      || row.copyRevisionId !== null && !/^[a-f0-9]{16}$/u.test(String(row.copyRevisionId || ''))) {
+      throw new Error(`invalid Instagram Story publication at instagramStoryPublications[${index}]`);
+    }
+    const publishedMs = Date.parse(row.publishedAt);
+    if (publishedMs > nowMs) throw new Error(`Instagram Story publication is in the future at instagramStoryPublications[${index}]`);
+    if (publicationById.has(row.storyId)) throw new Error(`duplicate Instagram Story publication at instagramStoryPublications[${index}]`);
+    publicationById.set(row.storyId, row);
+  }
+  const seen = new Set();
+  for (const [index, row] of snapshots.entries()) {
+    if (!hasExactKeys(row, [
+      'storyId', 'publishedAt', 'snapshotAt', 'snapshotAgeHours', 'measurementWindow',
+      'metrics', 'availableMetrics', 'metricStatus', 'sourceMediaId', 'followUpFormat',
+      'copyPackId', 'copyTemplateId', 'copyAngleId', 'copyPillarId', 'copyRevisionId',
+    ]) || !/^[A-Za-z0-9_.:-]{1,128}$/u.test(String(row.storyId || ''))
+      || !validTimestamp(row.publishedAt) || !validTimestamp(row.snapshotAt)
+      || !Number.isFinite(row.snapshotAgeHours) || row.snapshotAgeHours < 0 || row.snapshotAgeHours > 24
+      || !INSTAGRAM_STORY_MEASUREMENT_WINDOWS.some(({ id }) => id === row.measurementWindow)
+      || !hasExactKeys(row.metrics, INSTAGRAM_STORY_METRICS)
+      || !Array.isArray(row.availableMetrics) || !record(row.metricStatus)
+      || !hasExactKeys(row.metricStatus, INSTAGRAM_STORY_METRICS)) {
+      throw new Error(`invalid Instagram Story snapshot at instagramStorySnapshots[${index}]`);
+    }
+    const publication = publicationById.get(row.storyId);
+    if (!publication || publication.publishedAt !== row.publishedAt) {
+      throw new Error(`Instagram Story snapshot has no matching publication at instagramStorySnapshots[${index}]`);
+    }
+    const publishedMs = Date.parse(row.publishedAt);
+    const snapshotMs = Date.parse(row.snapshotAt);
+    const actualAgeHours = (snapshotMs - publishedMs) / 3_600_000;
+    const measurementWindow = INSTAGRAM_STORY_MEASUREMENT_WINDOWS.find(({ id }) => id === row.measurementWindow);
+    if (snapshotMs > nowMs || snapshotMs < publishedMs || Math.abs(actualAgeHours - row.snapshotAgeHours) > 0.01
+      || !measurementWindow || row.snapshotAgeHours < measurementWindow.minHours
+      || row.snapshotAgeHours >= measurementWindow.maxHours) {
+      throw new Error(`Instagram Story snapshot window is invalid at instagramStorySnapshots[${index}]`);
+    }
+    for (const field of [
+      'sourceMediaId', 'followUpFormat', 'copyPackId', 'copyTemplateId', 'copyAngleId', 'copyPillarId', 'copyRevisionId',
+    ]) {
+      if (row[field] !== publication[field]) {
+        throw new Error(`Instagram Story metadata mismatch for ${field} at instagramStorySnapshots[${index}]`);
+      }
+    }
+    if (row.availableMetrics.some((name) => !INSTAGRAM_STORY_METRICS.includes(name))
+      || new Set(row.availableMetrics).size !== row.availableMetrics.length) {
+      throw new Error(`invalid Instagram Story metric list at instagramStorySnapshots[${index}]`);
+    }
+    for (const name of INSTAGRAM_STORY_METRICS) {
+      const value = row.metrics[name];
+      const status = row.metricStatus[name];
+      const available = row.availableMetrics.includes(name);
+      if (value !== null && (!Number.isSafeInteger(value) || value < 0)
+        || available !== (value !== null)
+        || (available ? status !== 'available' : !['unavailable', 'metric-unavailable'].includes(status))) {
+        throw new Error(`invalid Instagram Story metric ${name} at instagramStorySnapshots[${index}]`);
+      }
+    }
+    const key = `${row.storyId}\u0000${row.measurementWindow}`;
+    if (seen.has(key)) throw new Error(`duplicate Instagram Story snapshot at instagramStorySnapshots[${index}]`);
+    seen.add(key);
+  }
+}
+
 function isUtcMonday(value) {
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(String(value || ''))) return false;
   const date = new Date(`${value}T00:00:00.000Z`);
@@ -491,6 +582,7 @@ export function validateSocialNativeInsightsDocument(document, { asOf = new Date
   validateWeeklyHealth(document.weeklyHealth, nowMs);
   validateCommunityOutcomes(document.communityOutcomes, nowMs);
   validateSocialRobotDelivery(document.robotDelivery, nowMs);
+  validateInstagramStoryRows(document, nowMs);
   const audienceRows = document.audienceSnapshots === undefined ? [] : document.audienceSnapshots;
   if (!Array.isArray(audienceRows)) throw new Error('social audience snapshots must be an array');
   const audienceSeen = new Set();
@@ -530,6 +622,9 @@ export function validateSocialNativeInsightsDocument(document, { asOf = new Date
     if (post.copyAttributionStatus !== undefined
       && !['exact', 'inferred'].includes(post.copyAttributionStatus)) {
       throw new Error(`invalid copy attribution status at posts[${index}]`);
+    }
+    if (post.copyRevisionId !== undefined && !/^[a-f0-9]{16}$/u.test(String(post.copyRevisionId || ''))) {
+      throw new Error(`invalid exact-copy revision fingerprint at posts[${index}]`);
     }
     const copyMetadata = record(post.copy) ? post.copy : post;
     const copyBlockId = String(copyMetadata.copyBlockId || '').trim();

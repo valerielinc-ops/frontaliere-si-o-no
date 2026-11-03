@@ -45,7 +45,10 @@ docs/third-party/instagram-agent-skill/UPSTREAM.md.
 
 The weekly Codex workflow generates a validated JSON copy pack plus a
 structured editorial plan with three pillars and three measured angle IDs for
-each active channel/format. Every template references an angle. Publishers
+each configured channel/format. This is editorial coverage, not proof that
+every channel has a live publisher: TikTok and Reddit are draft-preparation
+only while held, and LinkedIn means the member profile rather than the held
+Company Page. Every template references an angle. Publishers
 consume a fresh pack automatically and record its pack/template IDs, angle IDs,
 and copy objective metadata in their ledgers. Instagram article, job, and
 border posts keep three copy variants for each engagement objective. Reels use

@@ -144,6 +144,7 @@ const AUDIENCE_STORAGE_CHANNEL_BY_SCORECARD_KEY = Object.freeze({
 });
 const SOURCE_FRESHNESS_CONTRACTS = Object.freeze([
   { key: 'instagramPostInsights', source: 'instagram', channel: 'instagram', intervalHours: 24 },
+  { key: 'instagramStoryInsights', source: 'instagramStoryInsights', channel: 'instagram', storyInsights: true, intervalHours: 1, staleAfterHours: 3 },
   { key: 'tiktokPostInsights', source: 'tiktok', channel: 'tiktok', intervalHours: 6 },
   { key: 'facebookPostInsights', source: 'facebook', channel: 'facebook', intervalHours: 6 },
   { key: 'linkedinMemberPostInsights', source: 'linkedinMember', channel: 'linkedin-member', intervalHours: 24 },
@@ -1440,6 +1441,7 @@ function latestSnapshotAt(rows, predicate, asOfMs) {
 
 function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }) {
   const posts = Array.isArray(nativeInsights?.posts) ? nativeInsights.posts : [];
+  const storySnapshots = Array.isArray(nativeInsights?.instagramStorySnapshots) ? nativeInsights.instagramStorySnapshots : [];
   const audience = Array.isArray(nativeInsights?.audienceSnapshots) ? nativeInsights.audienceSnapshots : [];
   const siteOutcomes = Array.isArray(nativeInsights?.siteOutcomeSnapshots) ? nativeInsights.siteOutcomeSnapshots : [];
   const followerGains = Array.isArray(nativeInsights?.followerGainSnapshots) ? nativeInsights.followerGainSnapshots : [];
@@ -1456,7 +1458,9 @@ function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }
         ageHours: null,
       }];
     }
-    const fallbackSnapshotAt = contract.metric
+    const fallbackSnapshotAt = contract.storyInsights
+      ? latestSnapshotAt(storySnapshots, (row) => Array.isArray(row.availableMetrics) && row.availableMetrics.length > 0, asOfMs)
+      : contract.metric
       ? latestSnapshotAt(audience, (row) => row.channel === contract.channel && row.metric === contract.metric && row.status === 'available', asOfMs)
       : contract.siteOutcome
         ? latestSnapshotAt(siteOutcomes, (row) => ['available', 'zero-sessions'].includes(row.status), asOfMs)
@@ -1473,10 +1477,24 @@ function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }
       ? declaredLastSuccessAt
       : fallbackSnapshotAt;
     const lastSuccessMs = Date.parse(String(lastSuccessAt || ''));
-    const ageHours = Number.isFinite(lastSuccessMs) ? Math.max(0, (asOfMs - lastSuccessMs) / 3_600_000) : null;
+    const declaredLastAttemptAt = contract.storyInsights && typeof state === 'object' ? state?.lastAttemptAt : null;
+    const declaredLastAttemptMs = Date.parse(String(declaredLastAttemptAt || ''));
+    const lastAttemptAt = Number.isFinite(declaredLastAttemptMs) && declaredLastAttemptMs <= asOfMs
+      ? new Date(declaredLastAttemptMs).toISOString()
+      : null;
+    const attemptAgeHours = lastAttemptAt
+      ? Math.max(0, (asOfMs - Date.parse(lastAttemptAt)) / 3_600_000)
+      : null;
+    const ageHours = contract.storyInsights && status === 'no-ready-stories'
+      ? attemptAgeHours
+      : Number.isFinite(lastSuccessMs) ? Math.max(0, (asOfMs - lastSuccessMs) / 3_600_000) : null;
     const notConfigured = /account|credential|policy-review|required|scope|external|not-configured|not-collected-yet|history-unavailable/iu.test(status);
     const staleAfterHours = contract.staleAfterHours || contract.intervalHours * 2;
     const freshnessStatus = contract.delivery && status === 'partial' ? 'partial'
+      : contract.storyInsights && status === 'no-ready-stories'
+        ? ageHours === null ? 'no-successful-collection' : ageHours > staleAfterHours ? 'stale' : 'fresh-no-ready-stories'
+      : contract.storyInsights && /^(?:partial-metrics|metrics-unavailable|credentials-missing)$/u.test(status)
+        ? ageHours === null ? 'no-successful-collection' : ageHours > staleAfterHours ? 'stale' : 'partial'
       : ageHours === null
       ? contract.delivery ? 'no-successful-collection'
         : notConfigured ? 'not-configured-or-unavailable' : 'no-successful-collection'
@@ -1488,6 +1506,10 @@ function buildSourceFreshness({ nativeInsights, sources, asOfMs, tiktokEnabled }
       staleAfterHours,
       lastSuccessAt: Number.isFinite(lastSuccessMs) ? new Date(lastSuccessMs).toISOString() : null,
       ageHours: ageHours === null ? null : Math.round(ageHours * 100) / 100,
+      ...(contract.storyInsights ? {
+        lastAttemptAt,
+        attemptAgeHours: attemptAgeHours === null ? null : Math.round(attemptAgeHours * 100) / 100,
+      } : {}),
     }];
   }));
 }
@@ -1514,7 +1536,7 @@ export function createWeeklySocialHealthSnapshot(scorecard, previous = null, asO
     let status = null;
     if (freshness.status === 'stale') status = 'stale';
     else if (freshness.status === 'no-successful-collection') status = 'no-successful-collection';
-    else if (/partial|permission-unavailable|metric-unavailable|api-error|rate-limited|mapping-unavailable|exact-post-ids-missing|incomplete-report|data-loss|threshold|sampled|truncated|metric-restricted|time-zone-unavailable|no-(?:rate-eligible-|registered-)key-events|metadata-unavailable/iu.test(String(freshness.sourceStatus || ''))) {
+    else if (/partial|metrics-unavailable|credentials-missing|permission-unavailable|metric-unavailable|api-error|rate-limited|mapping-unavailable|exact-post-ids-missing|incomplete-report|data-loss|threshold|sampled|truncated|metric-restricted|time-zone-unavailable|no-(?:rate-eligible-|registered-)key-events|metadata-unavailable/iu.test(String(freshness.sourceStatus || ''))) {
       status = 'partial';
     }
     if (!status) continue;
@@ -1771,6 +1793,7 @@ export function buildSocialGrowthScorecard({
     interpretation: 'Dated rolling descriptive benchmarks; per-channel stretch goals appear only after a frozen baseline. No combined target, forecast, or causal claim. Rates stay separate by channel and event; missing metrics are not imputed as zero.',
     sourceCoverage: {
       instagram: instagramStatus,
+      instagramStoryInsights: statusFor(sources, 'instagramStoryInsights', 'not-collected-yet'),
       tiktok: tiktokStatus,
       linkedinMember: linkedinStatus,
       linkedinFollowerGains: statusFor(sources, 'linkedinFollowerGains', 'not-collected-yet'),

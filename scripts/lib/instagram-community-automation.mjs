@@ -23,6 +23,7 @@ import { GRAPH_API } from './instagram-graph-constants.mjs';
 import { buildInstagramCommunityOutcomeSnapshot } from './instagram-community-outcomes.mjs';
 import { matchInstagramMedia } from './instagram-media-matching.mjs';
 import { isAmbiguousSocialPublishResponse } from './social-publish-outcome.mjs';
+import { socialCopyRevisionId } from './social-copy-revision.mjs';
 import {
   markSocialPublishReservationPublished,
   releaseSocialPublishReservation,
@@ -276,11 +277,17 @@ export function groupPostedLedgerForAutomation(ledger) {
       creativeBaseId: firstText(row.creativeBaseId, row.creative_base_id),
       creativeVariant: firstText(row.creativeVariant, row.creative_variant),
       primaryMetric: firstText(row.primaryMetric, row.primary_metric),
+      copyPackId: firstText(row.copyPackId, row.copy_pack_id),
+      copyTemplateId: firstText(row.copyTemplateId, row.copy_template_id),
+      copyAngleId: firstText(row.copyAngleId, row.copy_angle_id),
+      copyPillarId: firstText(row.copyPillarId, row.copy_pillar_id),
+      copyRevisionId: socialCopyRevisionId({ copyHook: row.copyHook || row.copy_hook, copyCta: row.copyCta || row.copy_cta }),
       followUpFormat: firstText(row.followUpFormat, row.follow_up_format),
       permalink: firstText(row.permalink),
       storyImageUrl: firstText(row.instagramStoryImageUrl, row.storyImageUrl, row.story_image_url),
       publishedAtMs: rowTs,
       entries: 0,
+      conflictingCopyMetadata: false,
     };
     group.mediaId ||= mediaId;
     group.queueId ||= queueId;
@@ -288,6 +295,17 @@ export function groupPostedLedgerForAutomation(ledger) {
     group.creativeBaseId ||= firstText(row.creativeBaseId, row.creative_base_id);
     group.creativeVariant ||= firstText(row.creativeVariant, row.creative_variant);
     group.primaryMetric ||= firstText(row.primaryMetric, row.primary_metric);
+    const copyMetadata = {
+      copyPackId: firstText(row.copyPackId, row.copy_pack_id),
+      copyTemplateId: firstText(row.copyTemplateId, row.copy_template_id),
+      copyAngleId: firstText(row.copyAngleId, row.copy_angle_id),
+      copyPillarId: firstText(row.copyPillarId, row.copy_pillar_id),
+      copyRevisionId: socialCopyRevisionId({ copyHook: row.copyHook || row.copy_hook, copyCta: row.copyCta || row.copy_cta }),
+    };
+    if (group.entries > 0 && Object.entries(copyMetadata).some(([field, value]) => (
+      Boolean(group[field]) !== Boolean(value) || Boolean(value && group[field] !== value)
+    ))) group.conflictingCopyMetadata = true;
+    for (const [field, value] of Object.entries(copyMetadata)) group[field] ||= value;
     group.followUpFormat ||= firstText(row.followUpFormat, row.follow_up_format);
     group.permalink ||= firstText(row.permalink);
     group.storyImageUrl ||= firstText(row.instagramStoryImageUrl, row.storyImageUrl, row.story_image_url);
@@ -612,6 +630,7 @@ function resultTemplate(mode) {
     storiesAttempted: 0,
     storiesPublished: 0,
     storiesSkipped: 0,
+    publishedStories: [],
     errors: [],
   };
 }
@@ -641,6 +660,7 @@ export async function runInstagramCommunityAutomation({
   statePath = null,
   mode = resolveInstagramCommunityMode(),
   now = new Date(),
+  clock = () => new Date(),
   fetchImpl = fetch,
   sleepImpl,
   log = console,
@@ -662,7 +682,7 @@ export async function runInstagramCommunityAutomation({
   const nowMs = timestamp(now) || Date.now();
   const state = loadCommunityState(statePath);
   state.trackingStartedAt ||= new Date(nowMs).toISOString();
-  const persist = (key, kind, status = 'sent') => recordAction(state, statePath, { key, kind, at: nowMs, status });
+  const persist = (key, kind, status = 'sent', at = nowMs) => recordAction(state, statePath, { key, kind, at, status });
   let media = [];
   try {
     media = await listAccountMedia(accountId, graphAccessToken, { fetchImpl });
@@ -1088,11 +1108,26 @@ export async function runInstagramCommunityAutomation({
       continue;
     }
     if (story.ok) {
-      persist(storyKey, 'story-follow-up');
+      const publishedAtMs = timestamp(clock()) ?? Date.now();
+      const publishedAt = new Date(publishedAtMs).toISOString();
+      persist(storyKey, 'story-follow-up', 'sent', publishedAtMs);
       result.storiesPublished += 1;
+      result.publishedStories.push({
+        storyId: String(story.mediaId),
+        sourceMediaId: group.mediaId ? String(group.mediaId) : null,
+        publishedAt,
+        followUpFormat: String(group.followUpFormat || 'story-follow-up'),
+        ...(!group.conflictingCopyMetadata ? {
+          copyPackId: group.copyPackId || null,
+          copyTemplateId: group.copyTemplateId || null,
+          copyAngleId: group.copyAngleId || null,
+          copyPillarId: group.copyPillarId || null,
+          copyRevisionId: group.copyRevisionId || null,
+        } : {}),
+      });
       try {
         await socialPublishReservations.markPublished({
-          platform: 'instagram', capGroup: 'story', accountId, key: reservationKey, publishAt, publishedAt: new Date().toISOString(),
+          platform: 'instagram', capGroup: 'story', accountId, key: reservationKey, publishAt, publishedAt,
         });
       } catch (error) {
         safeLog(log, 'warn', `⚠️ Instagram Story reservation remains held after accepted post: ${error.message}`);

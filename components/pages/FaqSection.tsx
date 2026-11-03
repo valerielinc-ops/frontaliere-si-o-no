@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
 import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { HelpCircle, ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import { classifyFaqSearchCategory } from '@/services/privacy/faqSearchCategory';
 
 interface FaqCategory {
  key: string;
@@ -26,6 +27,7 @@ const FaqSection: React.FC = () => {
  const [searchTerm, setSearchTerm] = useState('');
  const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+ const lastTrackedSearchRef = useRef('');
 
  const allQuestions = useMemo(() => FAQ_CATEGORIES.flatMap(cat =>
  Array.from({ length: QUESTIONS_PER_CATEGORY }, (_, i) => ({
@@ -75,14 +77,28 @@ const FaqSection: React.FC = () => {
  return () => { document.getElementById('faq-jsonld')?.remove(); };
  }, [allQuestions]);
 
- const filteredQuestions = allQuestions.filter(q => {
- if (selectedCategory !== 'all' && q.category !== selectedCategory) return false;
- if (searchTerm) {
- const term = searchTerm.toLowerCase();
- if (!q.question.toLowerCase().includes(term) && !q.answer.toLowerCase().includes(term)) return false;
+ const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+ const matchesSearch = (question: typeof allQuestions[number]) => (
+  !normalizedSearchTerm
+  || question.question.toLowerCase().includes(normalizedSearchTerm)
+  || question.answer.toLowerCase().includes(normalizedSearchTerm)
+ );
+ const matchingQuestions = allQuestions.filter(matchesSearch);
+ const filteredQuestions = matchingQuestions.filter(question => (
+  selectedCategory === 'all' || question.category === selectedCategory
+ ));
+
+ const trackSafeSearchCategory = () => {
+ const query = searchTerm.trim();
+ if (query.length < 3 || query === lastTrackedSearchRef.current) return;
+ lastTrackedSearchRef.current = query;
+ const category = classifyFaqSearchCategory(query);
+ // Keep the search text local; Firebase receives only a closed category and outcome event.
+ Analytics.trackExperimentEvent('faq_search_category', { faq_category: category });
+ if (matchingQuestions.length === 0) {
+  Analytics.trackExperimentEvent('faq_search_no_results', { faq_category: category });
  }
- return true;
- });
+ };
 
  return (
  <div className="space-y-6">
@@ -103,11 +119,12 @@ const FaqSection: React.FC = () => {
  value={searchTerm}
  onChange={e => {
  const value = e.target.value;
+ if (value.trim() !== lastTrackedSearchRef.current) lastTrackedSearchRef.current = '';
  setSearchTerm(value);
- if (value.trim().length >= 3) {
- Analytics.trackSearch(value.trim());
- Analytics.trackUIInteraction('faq', 'search', 'faq_search', 'input', value.trim().slice(0, 64));
- }
+ }}
+ onBlur={trackSafeSearchCategory}
+ onKeyDown={e => {
+ if (e.key === 'Enter') trackSafeSearchCategory();
  }}
  placeholder={t('faq.searchPlaceholder')}
  className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-edge bg-surface-alt text-base text-strong"
@@ -173,6 +190,11 @@ const FaqSection: React.FC = () => {
  onClick={() => {
  const nextExpanded = isExpanded ? null : q.id;
  setExpandedQuestion(nextExpanded);
+         if (!isExpanded && searchTerm.trim().length >= 3) {
+          Analytics.trackExperimentEvent('faq_search_answer_opened', {
+           faq_category: classifyFaqSearchCategory(searchTerm.trim()),
+          });
+         }
  Analytics.trackGuideSection(`faq_${q.category}`, isExpanded ? 'link_click' : 'expand');
  Analytics.trackUIInteraction('faq', 'question', q.id, isExpanded ? 'collapse' : 'expand');
  }}

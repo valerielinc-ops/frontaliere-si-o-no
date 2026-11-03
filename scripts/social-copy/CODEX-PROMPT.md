@@ -34,9 +34,13 @@ The publisher remains the source of facts and the renderer remains the source
 of final media.
 
 Return one JSON object with exactly two top-level keys: `editorialPlan` and
-`channels`. The plan contains three to five durable pillars. Each active
+`channels`. The plan contains three to five durable pillars. Each configured
 channel/format gets exactly three distinct angles; each template points to one
-of those angle IDs. Use `qualified-aggregate-performance` only when the
+of those angle IDs. The pack is editorial coverage, not proof that every
+channel has a live publisher. TikTok and Reddit remain draft-preparation only
+while their delivery paths are held; LinkedIn means the member profile, not
+the held Company Page. Do not imply those held paths published or reached an
+audience. Use `qualified-aggregate-performance` only when the
 provided report marks the relevant metric eligible. Otherwise label the idea
 `publisher-source-inventory` when it follows from the formats/data the site
 actually publishes, or `editorial-hypothesis` when it is a testable idea with
@@ -198,12 +202,35 @@ clusters as older published-topic candidates for ideation only. `ageDays`
 marks how old each topic is: do not present historical topics as current
 trends, audience demand, or performance evidence, and never reuse their facts
 without checking the current publisher source.
+If `topicDiscovery.searchDemand.available` is true, use only its closed
+categories and thresholded keyword-count bands to help prioritize reusable
+angles. The report contains no raw GSC/Suggest query, and its keyword counts
+are not people, search volume, or market size. If
+`topicDiscovery.recentPublisherNews.available` is true, use its categories only
+as a dated ideation hint: the local adapter accepts source items no older than
+14 days from at least two HTTPS publisher domains, and emits no headline, URL,
+publisher name, or raw item text. Neither signal proves a current social trend
+or supplies a factual claim; verify every claim against a current authoritative
+publisher source before publication. An unavailable or suppressed category is
+unknown, not zero interest.
 The inventory may also contain `upcomingTicinoEvents`, an aggregate count by
 category from fresh public event sources in Ticino. Use those categories only
 to suggest a local programming angle for `facebook.event`; never include an
 event title, URL, organizer, person, or invented date, and never treat event
 counts as article claims, audience evidence, or performance evidence. The
 publisher must verify every event and its date against the live source.
+If `faqSearchDemand` is supplied, use only categories whose status is
+`available` to prioritize answer-oriented topics. The report is a 30-day
+aggregate of closed categories with small groups suppressed. Categories below
+the search threshold share the same status whether they had zero or a few
+events, and each search, no-result, and answer-open count below ten is omitted.
+These are event counts, not unique people, satisfaction, or proof an answer
+resolved a need.
+Treat repeated no-result counts as candidates to verify against current site
+sources; answer-open counts show interaction only. Do not derive success rates
+or claim that a category causes social engagement.
+The report contains no search text. Suppressed, empty, or unavailable
+categories are unknown, not zero.
 The scorecard marks account-level net follower growth as incomplete until a
 dated channel baseline qualifies. Private daily follower snapshots are enabled
 for Instagram and Facebook, but a missing or insufficient baseline is not
@@ -234,10 +261,25 @@ least ten sessions for the exact tagged copy cohort. They describe an
 attributed session rate, not causal lift, unique people, or a completed outcome
 beyond the event contract. An absent or unverified rate stays unavailable;
 never substitute `eventCount` for its denominator.
+The native brief may contain `instagramStories`. Its exact-ID observations are
+already reduced to category/format aggregates from the recent 30-day baseline;
+the first-hour and near-24h windows are separate, and metrics below the
+three-observation floor are hidden. Interaction/follow/profile rates are
+medians per 1,000 Story reach and are unavailable without a positive reach
+denominator. `sourceFeedAngleId` and `sourceFeedCopyRevisionId` are linked-feed-
+post proxies; they describe the post that seeded the Story follow-up, not text
+rendered into the Story image. Treat these as descriptive Story diagnostics
+only. Do not interpret them as Story-copy or angle cohorts. Missing Story metrics are
+not zero, and Story rows cannot qualify winners or prove that a format caused
+follower growth. Do not treat Story metrics as website traffic:
+the current static Story format has no verified tagged destination or live
+v26 link-click observation.
 Use exact `angleId` cohorts from the native and GA4 briefs as descriptive
-signals. Keep channel, kind, format, pack, objective, assignment mode, and
+signals. `copyRevisionId` is a one-way fingerprint of the exact hook/CTA pair;
+it does not reveal the copy and is not a randomized arm or winner signal. Keep
+channel, kind, format, pack, objective, assignment mode, angle, revision, and
 experiment hash separate; do not map a channel-wide result to a specific angle
-or copy template.
+or copy revision.
 Do not declare a winner, infer causality, change objective balance, increase
 posting volume, or optimize a rate from insufficient observations. An
 unavailable source, missing metric, or empty variant list means there is no

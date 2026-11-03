@@ -221,4 +221,113 @@ describe('native social copy performance brief', () => {
 
     expect(brief.variants).toEqual([]);
   });
+
+  it('limits Story feedback to recent exact windows and reports engagement per reach', () => {
+    const stories = [
+      { storyId: 'story-a', publishedAt: '2026-10-29T12:00:00.000Z', reach: 100, views: 120, totalInteractions: 10, follows: 2 },
+      { storyId: 'story-b', publishedAt: '2026-10-30T12:00:00.000Z', reach: 200, views: 240, totalInteractions: 20, follows: 4 },
+      { storyId: 'story-c', publishedAt: '2026-10-31T12:00:00.000Z', reach: 400, views: 480, totalInteractions: 40, follows: 8 },
+      { storyId: 'story-old', publishedAt: '2026-09-20T12:00:00.000Z', reach: 10, views: 1000, totalInteractions: 500, follows: 100 },
+    ].map((row) => ({
+      ...row,
+      snapshotAt: new Date(Date.parse(row.publishedAt) + 23.5 * 60 * 60 * 1000).toISOString(),
+      snapshotAgeHours: 23.5,
+      measurementWindow: 'near-24h',
+      followUpFormat: 'story-result',
+      copyAngleId: 'practical-question',
+      copyRevisionId: 'abcdef0123456789',
+      metrics: {
+        views: row.views,
+        reach: row.reach,
+        totalInteractions: row.totalInteractions,
+        follows: row.follows,
+      },
+      availableMetrics: ['views', 'reach', 'totalInteractions', 'follows'],
+    }));
+
+    const brief = buildNativeSocialPerformanceBrief({
+      asOf: AS_OF,
+      nativeInsights: { instagramStorySnapshots: stories },
+    });
+
+    expect(brief.instagramStories).toMatchObject({ baselineDays: 30, available: true });
+    expect(brief.instagramStories.variants).toHaveLength(1);
+    expect(brief.instagramStories.variants[0]).toMatchObject({
+      observations: 3,
+      medianSnapshotAgeHours: 23.5,
+      storyFollowUpFormat: 'story-result',
+      sourceFeedAngleId: 'practical-question',
+      sourceFeedCopyRevisionId: 'abcdef0123456789',
+      copyAttributionBasis: 'linked-source-feed-post-proxy',
+    });
+    expect(brief.instagramStories.variants[0]?.metrics.views).toMatchObject({
+      status: 'descriptive-sample', observations: 3, median: 240,
+    });
+    expect(brief.instagramStories.variants[0]?.metrics.totalInteractionsPerThousandReach).toMatchObject({
+      status: 'descriptive-sample', observations: 3, median: 100,
+    });
+    expect(brief.instagramStories.variants[0]?.metrics.followsPerThousandReach).toMatchObject({
+      status: 'descriptive-sample', observations: 3, median: 20,
+    });
+    expect(brief.instagramStories.interpretation).toContain('linked-feed-post proxies');
+    expect(JSON.stringify(brief.instagramStories)).not.toContain('"angleId"');
+    expect(JSON.stringify(brief.instagramStories)).not.toContain('"copyRevisionId"');
+    const serialized = JSON.stringify(brief.instagramStories);
+    expect(serialized).not.toContain('story-a');
+    expect(serialized).not.toContain('story-old');
+  });
+
+  it('keeps Story rates unavailable when no positive reach denominator exists', () => {
+    const stories = [1, 2, 3].map((index) => ({
+      storyId: `story-no-reach-${index}`,
+      publishedAt: `2026-10-${20 + index}T12:00:00.000Z`,
+      snapshotAt: `2026-10-${21 + index}T11:30:00.000Z`,
+      snapshotAgeHours: 23.5,
+      measurementWindow: 'near-24h',
+      followUpFormat: 'story-result',
+      metrics: { reach: null, follows: index },
+      availableMetrics: ['follows'],
+    }));
+    const brief = buildNativeSocialPerformanceBrief({ asOf: AS_OF, nativeInsights: { instagramStorySnapshots: stories } });
+
+    expect(brief.instagramStories.variants[0]?.metrics.followsPerThousandReach).toMatchObject({
+      status: 'denominator-unavailable', observations: 0, median: null,
+    });
+  });
+
+  it('keeps exact hook/CTA revisions diagnostic and does not expose their text', () => {
+    const rows = [
+      { postId: 'copy-a', copyHook: 'Traffico al valico', copyCta: 'Controlla ora' },
+      { postId: 'copy-b', copyHook: 'Traffico al valico', copyCta: 'Controlla ora' },
+      { postId: 'copy-c', copyHook: 'Traffico al valico', copyCta: 'Apri la mappa' },
+    ].map((row) => ({
+      ...row,
+      kind: 'article',
+      publishedAt: '2026-10-30T12:00:00.000Z',
+      snapshotAt: AS_OF.toISOString(),
+      snapshotAgeHours: 72,
+      windowHours: 72,
+      reachSource: 'reach',
+      reach: 100,
+      saves: 10,
+      availableMetrics: ['reach', 'saves'],
+      copyAttributionStatus: 'exact',
+      ...CODEX_COPY,
+    }));
+
+    const brief = buildNativeSocialPerformanceBrief({
+      asOf: AS_OF,
+      minimumObservations: 1,
+      instagramInsights: { posts: rows },
+    });
+
+    expect(brief.variants).toHaveLength(2);
+    expect(brief.variants.map((variant) => variant.copyRevisionId)).toEqual(expect.arrayContaining([
+      expect.stringMatching(/^[a-f0-9]{16}$/u),
+      expect.stringMatching(/^[a-f0-9]{16}$/u),
+    ]));
+    expect(JSON.stringify(brief)).not.toContain('Traffico al valico');
+    expect(JSON.stringify(brief)).not.toContain('Controlla ora');
+    expect(brief.interpretation).toContain('Revision fingerprints are diagnostic');
+  });
 });

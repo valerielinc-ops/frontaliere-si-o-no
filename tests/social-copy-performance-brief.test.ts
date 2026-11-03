@@ -46,6 +46,32 @@ describe('social copy performance brief', () => {
     ]);
     expect(JSON.stringify(brief)).not.toContain('Private post text');
     expect(JSON.stringify(brief)).not.toContain('post-one');
-    expect(brief.interpretation).toContain('no winner');
+    expect(brief.interpretation).toContain('do not qualify winners');
+  });
+
+  it('adds an exact-copy fingerprint without returning hook or CTA text', () => {
+    const copy = [1, 2, 3].map((index) => ({
+      id: `copy-post-${index}`,
+      creativeId: 'proof',
+      kind: 'article',
+      reach: 100,
+      shares: 10,
+      copyMode: 'codex',
+      copyAssignmentMode: 'firebase-balanced',
+      copyExperimentId: 'social-copy-balanced-v1',
+      copyPackId: '0123456789abcdef',
+      copyTemplateId: 'ig-article-share-a',
+      copyAngleId: 'article-practical-question',
+      copyPillarId: 'strumenti-utili',
+      copyAngleIntent: 'both',
+      copyHook: 'Private social hook',
+      copyCta: 'Private social CTA',
+    }));
+    const brief = buildSocialCopyPerformanceBrief(copy, null);
+
+    expect(brief.variants).toHaveLength(1);
+    expect(brief.variants[0]?.copyRevisionId).toMatch(/^[a-f0-9]{16}$/u);
+    expect(JSON.stringify(brief)).not.toContain('Private social hook');
+    expect(JSON.stringify(brief)).not.toContain('Private social CTA');
   });
 });

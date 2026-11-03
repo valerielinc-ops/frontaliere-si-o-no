@@ -3,6 +3,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { buildCreativeReport, DEFAULT_MINIMUM_OBSERVATIONS } from '../lib/instagram-insights-report.mjs';
+import { socialCopyRevisionId } from '../lib/social-copy-revision.mjs';
 
 export function buildSocialCopyPerformanceBrief(insights, ledger, {
   minimumObservations = DEFAULT_MINIMUM_OBSERVATIONS,
@@ -27,12 +28,14 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
       ) continue;
       const assignmentMode = copy.copyAssignmentMode || 'unknown';
       const experimentId = copy.copyExperimentId || 'unknown';
-      const key = [treatment.kind, treatment.objective, copy.copyPackId, copy.copyTemplateId, angleId || 'unknown-angle', pillarId || 'unknown-pillar', assignmentMode, experimentId].join('|');
+      const copyRevisionId = socialCopyRevisionId({ copyHook: copy.copyHook, copyCta: copy.copyCta });
+      const key = [treatment.kind, treatment.objective, copy.copyPackId, copy.copyTemplateId, angleId || 'unknown-angle', pillarId || 'unknown-pillar', copyRevisionId || 'unknown-revision', assignmentMode, experimentId].join('|');
       const group = groups.get(key) || {
         kind: treatment.kind,
         objective: treatment.objective,
         packId: copy.copyPackId,
         templateId: copy.copyTemplateId,
+        copyRevisionId,
         ...(angleId ? { angleId, pillarId, angleIntent: copy.copyAngleIntent || null } : {}),
         assignmentMode,
         experimentId,
@@ -69,6 +72,7 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
         objective: group.objective,
         packId: group.packId,
         templateId: group.templateId,
+        ...(group.copyRevisionId ? { copyRevisionId: group.copyRevisionId } : {}),
         ...(group.angleId ? { angleId: group.angleId, pillarId: group.pillarId, angleIntent: group.angleIntent } : {}),
         assignmentMode: group.assignmentMode,
         experimentId: group.experimentId,
@@ -86,7 +90,7 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
     minimumObservations,
     acceptedRows: report.acceptedRows,
     variants,
-    interpretation: 'Descriptive only; no winner, eligibility, or publishing decision is inferred.',
+    interpretation: 'Descriptive only; angle IDs group editorial intent and copyRevisionId fingerprints the exact hook/CTA wording. Revision fingerprints do not qualify winners or publishing decisions.',
   };
 }
 

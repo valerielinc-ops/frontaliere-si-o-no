@@ -15,8 +15,10 @@ import {
   runInstagramCommunityAutomation,
   shouldSendPrivateReply,
 } from '../scripts/lib/instagram-community-automation.mjs';
+import { socialCopyRevisionId } from '../scripts/lib/social-copy-revision.mjs';
 
 const NOW = new Date('2026-10-10T12:00:00.000Z');
+const STORY_PUBLISHED_AT = new Date('2026-10-10T12:15:00.000Z');
 
 function response(body: unknown, status = 200) {
   return {
@@ -89,6 +91,12 @@ function ledger() {
       creativeId: 'question-choice',
       primaryMetric: 'comments',
       followUpFormat: 'story-result',
+      copyPackId: '0123456789abcdef',
+      copyTemplateId: 'clear-question',
+      copyAngleId: 'practical-question',
+      copyPillarId: 'useful-tools',
+      copyHook: 'Traffico al valico',
+      copyCta: 'Controlla ora',
     }],
   };
 }
@@ -164,6 +172,7 @@ describe('Instagram community automation', () => {
       statePath,
       mode: 'live',
       now: NOW,
+      clock: () => STORY_PUBLISHED_AT,
       fetchImpl: first.fetchImpl,
       sleepImpl: async () => {},
       log: { log: () => {}, warn: () => {} },
@@ -179,6 +188,17 @@ describe('Instagram community automation', () => {
       directMessagesSent: 1,
       storiesPublished: 1,
     });
+    expect(firstResult.publishedStories).toEqual([{
+      storyId: 'story-1',
+      sourceMediaId: 'media-1',
+      publishedAt: STORY_PUBLISHED_AT.toISOString(),
+      followUpFormat: 'story-result',
+      copyPackId: '0123456789abcdef',
+      copyTemplateId: 'clear-question',
+      copyAngleId: 'practical-question',
+      copyPillarId: 'useful-tools',
+      copyRevisionId: socialCopyRevisionId({ copyHook: 'Traffico al valico', copyCta: 'Controlla ora' }),
+    }]);
     expect(first.calls.every(({ url }) => !url.includes('token-never-printed'))).toBe(true);
     expect(reservations.calls.map(({ action }) => action)).toEqual(['reserve', 'published']);
     expect(reservations.calls[0].args).toMatchObject({

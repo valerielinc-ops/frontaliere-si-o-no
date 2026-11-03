@@ -146,7 +146,11 @@ jobs:
             keyEventStatus does not verify live GA4 property configuration. job_apply_handoff
             means an outbound click, not a completed application. An empty
             action list means no matching evidence, not zero actions. Neither brief establishes
-            causality or a winning template:
+            causality or a winning template. The brief includes faqSearchDemand when the Firebase-only
+            closed-category search signal has enough observations. Use it only
+            to prioritize future explainers; suppressed categories are unknown,
+            not zero, and these counts are not unique users or market demand.
+            The category report contains no search text:
             ${{ steps.attribution.outputs.brief }}
             Recent native social performance brief, sanitized and descriptive only.
             It includes private Instagram, Facebook, and LinkedIn metrics when
@@ -157,7 +161,12 @@ jobs:
             by exact published IDs, use channel-specific windows, and require at
             least three observations per metric before a median is exposed. Missing metrics are not zero;
             assignment mode and experiment hash are separate cohorts. It does not establish
-            causality or a winning copy arm:
+            causality or a winning copy arm. copyAngleId is editorial intent;
+            copyRevisionId is an exact hook/CTA fingerprint for descriptive
+            diagnosis only and is not a winner signal. Instagram Story metrics
+            use a recent 30-day baseline, separate early and near-24h windows,
+            and per-1,000-reach rates only when reach is positive; no Story IDs
+            enter this brief:
             ${{ steps.native.outputs.brief }}
             Current dated rolling 30-day descriptive scorecard with source coverage.
             Its default objective is net audience growth per channel, with qualified
@@ -177,12 +186,17 @@ jobs:
             the post appeared to publish.
             It cannot establish lift or permission to promote a winner:
             ${{ steps.native.outputs.scorecard }}
-            Current published-article topic inventory and upcoming Ticino event-category
-            inventory, sanitized and dated. It supplies editorial topic context only,
-            never claims, audience evidence, search demand, or performance evidence.
+            Current published-article inventory, privacy-screened topic-discovery
+            categories, and upcoming Ticino event-category inventory, sanitized and
+            dated. Topic-discovery counts are thresholded category signals, not raw
+            searches, search volume, audience evidence, or performance evidence;
+            recent publisher-news categories are hints only, with no headlines, URLs,
+            domains, Reddit text, or user-generated content in this brief.
             Event categories may guide local Facebook event programming; titles, URLs,
             organizers, people, and dates are intentionally absent. The publisher must
-            verify each fact and event against the current source before posting:
+            verify each fact and event against the current source before posting.
+            Topic-discovery categories can suggest what to investigate, never facts or
+            trend claims. Use the full dated brief as context:
             ${{ steps.editorial_sources.outputs.brief }}
             Return a complete JSON pack by writing only
             /tmp/social-copy-response.json. Use the existing Frontaliere
