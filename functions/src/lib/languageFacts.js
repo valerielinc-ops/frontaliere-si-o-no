@@ -212,12 +212,7 @@ export function hasExplicitLanguageSection(cvText) {
  * entries keep absence unknown.
  */
 export function languageExplicitlyAbsent(profile, question) {
-  // A CV heading can show that languages were listed there; it cannot prove
-  // that the candidate's full spoken-language list was supplied. Absence is
-  // negative evidence only after a current candidate confirmation.
-  if (profile?.candidateLanguagesConfirmed !== true
-    || profile?.languagesExplicitList !== true
-    || profile?.languagesListTruncated === true) return false;
+  if (profile?.languagesExplicitList !== true || profile?.languagesListTruncated === true) return false;
   const entries = explicitLanguageEntries(profile);
   if (!hasCompleteLanguageList(profile)) return false;
   const text = String(question ?? '');

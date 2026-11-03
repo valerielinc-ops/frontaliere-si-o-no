@@ -1250,7 +1250,23 @@ export default function ApplicationConciergePortal({
               </section>
 
               <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
-                <div className="flex items-start justify-between gap-3"><div><SectionTitle id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</SectionTitle><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p></div><div className="shrink-0 space-y-1 text-right"><p className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">{t('jobBoard.concierge.openProposalCount')}: {service.openProposalsCount ?? visibleProposals.filter(proposal => proposal.status === 'proposed').length}/{service.maxOpenProposals ?? 3}</p><p className="text-xs font-medium text-subtle">{t('jobBoard.concierge.acceptedProposalCount')}: {service.acceptedPositionsCount}/{service.maxPositions}</p></div></div>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <SectionTitle id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</SectionTitle>
+                    <p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p>
+                  </div>
+                  <div className="shrink-0 space-y-1 text-right">
+                    <p className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">
+                      {t('jobBoard.concierge.openProposalCount')}: {service.openProposalsCount ?? visibleProposals.filter(proposal => proposal.status === 'proposed').length}/{service.maxOpenProposals ?? 3}
+                    </p>
+                    <div>
+                      <p className="text-xs font-medium text-subtle">{t('jobBoard.concierge.acceptedProposalCount')}</p>
+                      <p aria-label={`${t('jobBoard.concierge.acceptedProposalCount')}: ${service.acceptedPositionsCount}/${service.maxPositions}`} className="text-xs font-semibold text-heading">
+                        {service.acceptedPositionsCount}/{service.maxPositions}
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 {matchingActive && <div className="mt-5 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status"><div className="flex items-center gap-2 text-sm font-semibold text-info"><Loader2 size={16} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.matchingRunning')}</div><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.matchingRunningHint')}</p><div className="mt-4 space-y-2" aria-hidden="true"><div className="h-16 animate-pulse rounded-lg bg-surface" /><div className="h-16 animate-pulse rounded-lg bg-surface" /></div></div>}
                 {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}

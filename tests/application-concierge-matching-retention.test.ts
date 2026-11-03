@@ -25,7 +25,7 @@ vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   prepareConciergeEligibility: vi.fn(),
 }));
 
-const { approvedRolePreference, eligibilityRetryContext, rankingFeaturesForJob, rankingFeedbackContext, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
+const { approvedRolePreference, eligibilityRetryContext, rankingFeaturesForJob, rankingFeedbackContext, rankingFeedbackPreference, runApplicationConciergeMatching } = await import('../functions/src/applicationConciergeMatching.js');
 
 const SERVICE_ID = 'service-1';
 const SERVICE_PATH = `application_concierge_services/${SERVICE_ID}`;
@@ -413,9 +413,9 @@ describe('application concierge proposal retention', () => {
     const reasonlessDecline = [{ status: 'declined', jobTitle: 'IT Application Specialist' }];
     const otherRole = { title: 'Financial Controller', location: 'Lugano', sector: 'technology' };
 
-    expect(approvedRolePreference(sameRole, roleDecline)).toBe(-6);
-    expect(approvedRolePreference(sameRole, reasonlessDecline)).toBe(-1);
-    expect(approvedRolePreference(otherRole, roleDecline)).toBe(0);
+    expect(rankingFeedbackPreference(sameRole, roleDecline)).toBe(-6);
+    expect(rankingFeedbackPreference(sameRole, reasonlessDecline)).toBe(-1);
+    expect(rankingFeedbackPreference(otherRole, roleDecline)).toBe(0);
   });
 
   it('persists ranking features as Firestore-safe arrays and only uses the three latest acceptances', () => {

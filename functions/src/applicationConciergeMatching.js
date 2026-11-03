@@ -485,14 +485,19 @@ export function rankingFeedbackContext(proposals) {
   };
 }
 
-/** Feedback affects ordering only and never changes the eligibility decision. */
+function sameFeature(left, right, key) {
+  return overlap(new Set(left?.[key] || []), new Set(right?.[key] || [])).length > 0;
+}
+
+function sameRole(left, right) {
+  return overlap(new Set(left?.role || []), new Set(right?.role || [])).length >= 2
+    || overlap(new Set(left?.roleSignals || []), new Set(right?.roleSignals || [])).length > 0;
+}
+
+/** Accepted roles provide a positive ranking signal only. */
 export function approvedRolePreference(job, proposals) {
   const candidate = rankingFeaturesForJob(job);
   const accepted = acceptedSignals(proposals);
-  const declined = declinedSignals(proposals);
-  const sameFeature = (left, right, key) => overlap(new Set(left?.[key] || []), new Set(right?.[key] || [])).length > 0;
-  const sameRole = (left, right) => overlap(new Set(left?.role || []), new Set(right?.role || [])).length >= 2
-    || overlap(new Set(left?.roleSignals || []), new Set(right?.roleSignals || [])).length > 0;
   let positive = 0;
   for (const [feature, weight] of Object.entries(FEATURE_WEIGHTS)) {
     const matched = accepted.some(signal => feature === 'role'
@@ -500,6 +505,13 @@ export function approvedRolePreference(job, proposals) {
       : sameFeature(candidate, signal, feature));
     if (matched) positive += weight;
   }
+  return Math.min(18, positive);
+}
+
+/** Candidate feedback affects ordering only and never changes eligibility. */
+export function rankingFeedbackPreference(job, proposals) {
+  const candidate = rankingFeaturesForJob(job);
+  const declined = declinedSignals(proposals);
   let negative = 0;
   for (const decline of declined) {
     if (decline.reason) {
@@ -512,7 +524,7 @@ export function approvedRolePreference(job, proposals) {
       negative += 1;
     }
   }
-  return Math.max(-12, Math.min(18, positive - negative));
+  return Math.max(-12, approvedRolePreference(job, proposals) - negative);
 }
 
 async function ensureOpenProposalCounter(db, serviceRef, fallbackCount) {
@@ -702,7 +714,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const rankedWork = jobs.map((job) => {
       const url = jobUrl(job);
       const scored = scoreJobForProfile(job, profile, candidateLocation);
-      const preference = scored.score > 0 ? approvedRolePreference(job, existingData) : 0;
+      const preference = scored.score > 0 ? rankingFeedbackPreference(job, existingData) : 0;
       return { job, url, ...scored, rankScore: (scored.rankScore || 0) + preference };
     }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !excludedUrls.has(entry.url)
       && !explicitlyClosedJob(entry.job, matchingNowMs))
@@ -947,10 +959,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         );
         if (changed) refreshedProposals += 1;
       } else if (data.status === 'proposed') {
-        if (jobClosed || belowThreshold || isDecisivelyIncompatible) {
-          const retractionReason = jobClosed ? 'job_closed' : belowThreshold
-            ? 'match_below_threshold'
-            : 'decisive_requirement_missing';
+        if (jobClosed || isDecisivelyIncompatible) {
+          const retractionReason = jobClosed ? 'job_closed' : 'decisive_requirement_missing';
           const changed = await updateExistingProposal(
             db,
             serviceRef,
@@ -976,15 +986,22 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           // serializes non-compatible eligibility as needs_verification, and
           // acceptProposal independently rejects it until a fresh compatible
           // result is durably recorded.
+          const retainedResult = belowThreshold && (result.status === 'compatible' || result.status === 'incompatible')
+            ? { ...result, status: 'unverified', reason: 'match_below_threshold' }
+            : result;
           await updateExistingProposal(
             db,
             serviceRef,
             proposalRef,
             {
               matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
-              ...eligibilityFields(result.status === 'compatible' || result.status === 'incompatible'
-                ? { ...result, status: 'unverified', reason: result.status === 'compatible' ? 'match_below_threshold' : 'incompatibility_not_proven' }
-                : result),
+              ...eligibilityFields(retainedResult),
+              ...(job && rescored.score >= MIN_MATCH_SCORE ? {
+                matchScore: rescored.score,
+                matchRankingScore: rescored.rankScore ?? rescored.score,
+                matchReasons: rescored.reasons,
+                rankingFeatures: rankingFeaturesForJob(job),
+              } : {}),
               updatedAt: FieldValue.serverTimestamp(),
             },
             'proposed',
