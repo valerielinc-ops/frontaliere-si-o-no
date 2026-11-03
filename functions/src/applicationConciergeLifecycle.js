@@ -45,11 +45,9 @@ export async function queueConciergeMatchingRefresh({ db, serviceId, nowMs = Dat
     const snapshot = await tx.get(ref);
     const service = snapshot.data();
     if (!snapshot.exists || !serviceIsActive(service, nowMs) || !service?.cvStorageKey
-      || timestampMillis(service.consentedAt) <= 0) return false;
+      || timestampMillis(service.consentedAt) <= 0 || !underCap(service)) return false;
     tx.set(ref, {
       matchingEventRefreshRequestedAt: new Date(nowMs),
-      matchingStatus: 'queued',
-      matchingError: null,
       updatedAt: new Date(nowMs),
     }, { merge: true });
     return true;

@@ -108,7 +108,7 @@ describe('concierge refresh and notification lifecycle', () => {
 
     expect(await queueConciergeMatchingRefresh({ db, serviceId: 'service', nowMs: now })).toBe(true);
     expect(records.get('application_concierge_services/service')).toMatchObject({
-      matchingStatus: 'queued', matchingEventRefreshRequestedAt: new Date(now),
+      matchingStatus: 'complete', matchingEventRefreshRequestedAt: new Date(now),
     });
 
     const queued = await sweep({ enqueueOnly: true });
@@ -116,6 +116,10 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(match).not.toHaveBeenCalled();
     expect(records.get('application_concierge_services/service').matchingEventRefreshRequestedAt).toBeUndefined();
     expect(records.get('application_concierge_services/service').proposalRefreshRequestId).toEqual(expect.any(String));
+
+    records.set('application_concierge_services/running', active({ matchingStatus: 'running' }));
+    expect(await queueConciergeMatchingRefresh({ db, serviceId: 'running', nowMs: now })).toBe(true);
+    expect(records.get('application_concierge_services/running').matchingStatus).toBe('running');
   });
 
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
