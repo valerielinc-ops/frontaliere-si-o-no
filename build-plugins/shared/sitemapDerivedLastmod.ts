@@ -30,7 +30,9 @@ interface SitemapDocument {
 const JOB_LISTING_SITEMAP_RX =
   /^sitemap-(?:jobs(?:-[a-z-]+)?|search-clusters-\d+|orphan-landings|professions|profession-cantons|profession-cities|sector|auto-sector-hubs|seo-hubs|recency|employer-profiles|weekly-employers|career-landings|nursing)\.xml$/;
 
-/** Sitemaps of pages that state their own `dateModified` (sampled live 2026-10-31). */
+/** Sitemaps of pages that state their own `dateModified` (sampled live 2026-10-31).
+ * Article detail pages expose the editor's update date in JSON-LD; the separate
+ * `sitemap-articles-archive.xml` pager has no such date source and stays out. */
 const DECLARED_DATE_SITEMAPS: ReadonlySet<string> = new Set([
   'sitemap-bfs-salary.xml',
   'sitemap-border-wait-map.xml',
@@ -38,6 +40,8 @@ const DECLARED_DATE_SITEMAPS: ReadonlySet<string> = new Set([
   'sitemap-health-premiums.xml',
   'sitemap-market-report.xml',
   'sitemap-plate-auctions.xml',
+  'sitemap-blog.xml',
+  'sitemap-blog-ch.xml',
 ]);
 
 /** Files whose dated entries are job details: the expired family is not a listing target. */

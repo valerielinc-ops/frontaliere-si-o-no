@@ -16,10 +16,12 @@ import { SimulationResult } from '../types';
 import { SalaryHubScenario, buildFullPath, getRelatedScenarios, LOCALE_CALC_PREFIX } from './salaryHubScenarios';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { BASE_URL } from './constants';
+import { DEFAULT_EXCHANGE_RATE_DATE } from '../constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { buildNearestExchangeAmountPath } from '../services/exchangeSsgPaths';
+import { formatExchangeRateAttribution } from './shared/publishedMeasurements.mjs';
 import { renderScenarioLeverComparison } from './shared/scenarioLeverComparison';
 import {
   renderSalaryLandingShell,
@@ -139,6 +141,46 @@ function verdictText(r: SimulationResult, copy: VerdictCopy): string {
   return copy[c.winner](fmtCHF(c.gapCHF), fmtEUR(c.gapEUR));
 }
 
+/** Same CHF source-withholding amount rendered in the comparison table. */
+export function getSwissWithholdingAmountCHF(result: SimulationResult): number {
+  return result.itResident.taxes - (result.itResident.details.irpefDetails?.finalNetTaxEUR ?? 0) / result.exchangeRate;
+}
+
+function fmtPercentForLocale(value: number, locale: Locale): string {
+  const localeTag: Record<Locale, string> = { it: 'it-IT', en: 'en-GB', de: 'de-DE', fr: 'fr-FR' };
+  return new Intl.NumberFormat(localeTag[locale], { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+}
+
+function taxTableFaqAnswer(s: SalaryHubScenario, r: SimulationResult, locale: Locale): string {
+  const table = taxTableCode(r.chResident.details.source);
+  const ordinaryCHF = Math.round(r.chResident.taxes);
+  const actualCHF = Math.round(getSwissWithholdingAmountCHF(r));
+  const ordinaryRate = fmtPercentForLocale((ordinaryCHF / s.salary) * 100, locale);
+  const actualRate = fmtPercentForLocale((actualCHF / s.salary) * 100, locale);
+  const ordinary = `CHF ${fmtCHF(ordinaryCHF)} (${ordinaryRate}%)`;
+  const actual = `CHF ${fmtCHF(actualCHF)} (${actualRate}%)`;
+  const isNewFrontierWithin20 = s.frontierType === 'NEW' && s.distanceZone === 'WITHIN_20KM';
+
+  if (locale === 'en') {
+    return isNewFrontierWithin20
+      ? `Table ${table} is the ordinary Ticino withholding tax for a Swiss resident: ${ordinary} of gross pay. In this qualifying new cross-border worker scenario within 20 km, Swiss withholding is 80% of that ordinary amount: ${actual} of gross pay.`
+      : `Table ${table} is the ordinary Ticino withholding tax for a Swiss resident: ${ordinary} of gross pay. Swiss source withholding in this ${s.frontierType === 'OLD' ? 'old cross-border worker' : 'over-20-km'} scenario is ${actual} of gross pay.`;
+  }
+  if (locale === 'de') {
+    return isNewFrontierWithin20
+      ? `Tabelle ${table} bezeichnet die ordentliche Tessiner Quellensteuer für Einwohner der Schweiz: ${ordinary} des Bruttolohns. In diesem qualifizierten Szenario für neue Grenzgänger innerhalb von 20 km beträgt die Schweizer Quellensteuer 80 % dieses ordentlichen Betrags: ${actual} des Bruttolohns.`
+      : `Tabelle ${table} bezeichnet die ordentliche Tessiner Quellensteuer für Einwohner der Schweiz: ${ordinary} des Bruttolohns. Die Schweizer Quellensteuer in diesem Szenario (${s.frontierType === 'OLD' ? 'alter Grenzgänger' : 'über 20 km'}) beträgt ${actual} des Bruttolohns.`;
+  }
+  if (locale === 'fr') {
+    return isNewFrontierWithin20
+      ? `Le barème ${table} désigne l'impôt ordinaire à la source tessinois pour un résident suisse : ${ordinary} du salaire brut. Dans ce scénario admissible de nouveau frontalier à moins de 20 km, le prélèvement suisse représente 80 % de ce montant ordinaire : ${actual} du salaire brut.`
+      : `Le barème ${table} désigne l'impôt ordinaire à la source tessinois pour un résident suisse : ${ordinary} du salaire brut. Le prélèvement suisse dans ce scénario (${s.frontierType === 'OLD' ? 'ancien frontalier' : 'au-delà de 20 km'}) est de ${actual} du salaire brut.`;
+  }
+  return isNewFrontierWithin20
+    ? `La tabella ${table} indica l'imposta ordinaria alla fonte ticinese per un residente in Svizzera: ${ordinary} del lordo. In questo scenario qualificato di nuovo frontaliere entro 20 km, il prelievo svizzero è l'80% dell'importo ordinario: ${actual} del lordo.`
+    : `La tabella ${table} indica l'imposta ordinaria alla fonte ticinese per un residente in Svizzera: ${ordinary} del lordo. Il prelievo svizzero in questo scenario (${s.frontierType === 'OLD' ? 'vecchio frontaliere' : 'oltre 20 km'}) è ${actual} del lordo.`;
+}
+
 const IT: Labels = {
   siteName: 'Frontaliere Ticino',
   home: 'Home',
@@ -202,7 +244,7 @@ const IT: Labels = {
     const monthCH = r.chResident.netIncomeMonthly;
     const monthIT = r.itResident.netIncomeMonthly;
     const rate = r.exchangeRate;
-    return `Su base mensile, un residente in Svizzera con questo reddito netta circa CHF ${fmtCHF(monthCH)}, mentre un frontaliere italiano riceve uno stipendio netto svizzero che convertito corrisponde a circa EUR ${fmtEUR(monthIT * rate)}/mese (al cambio CHF/EUR ${rate.toFixed(3)}). ${verdictText(r, {
+    return `Su base mensile, un residente in Svizzera con questo reddito netta circa CHF ${fmtCHF(monthCH)}, mentre un frontaliere italiano riceve uno stipendio netto svizzero che convertito corrisponde a circa EUR ${fmtEUR(monthIT * rate)}/mese (al cambio CHF/EUR ${rate.toFixed(4)}; ${formatExchangeRateAttribution(DEFAULT_EXCHANGE_RATE_DATE, 'it')}). ${verdictText(r, {
       frontier: () => `La differenza mensile è di circa CHF ${fmtCHF(compareNet(r).gapCHF / 12)} a favore del frontaliere.`,
       resident: () => `La differenza mensile è di circa CHF ${fmtCHF(compareNet(r).gapCHF / 12)} a favore del residente.`,
       tie: () => 'Il netto mensile è praticamente lo stesso.',
@@ -249,7 +291,7 @@ const IT: Labels = {
     },
     {
       q: `Quale tabella fiscale si applica con ${fmtCHF(s.salary)} CHF ${s.maritalStatus === 'MARRIED' ? 'da sposato' : 'da single'}?`,
-      a: `Si applica la tabella ${taxTableCode(r.chResident.details.source)} dell'imposta alla fonte ticinese, con un'aliquota effettiva del ${fmtPct(r.chResident.details.effectiveRate / 100)}% sul reddito lordo.`,
+      a: taxTableFaqAnswer(s, r, 'it'),
     },
     {
       q: `Conviene vivere in Svizzera o fare il frontaliere con ${fmtCHF(s.salary)} CHF?`,
@@ -320,7 +362,7 @@ const EN: Labels = {
     return `If all the agreement's requirements are met (municipality on the official list, work in Ticino, Graubünden or Valais, return home in principle daily), Swiss withholding is 80% of the ordinary amount. The remaining 20% is not levied. The Italian credit covers the Swiss tax actually due.`;
   },
   budgetExplain: (s, r) =>
-    `Monthly, a Swiss resident nets approximately CHF ${fmtCHF(r.chResident.netIncomeMonthly)}, while an Italian cross-border worker receives about EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month (at CHF/EUR ${r.exchangeRate.toFixed(3)}). ${verdictText(r, {
+    `Monthly, a Swiss resident nets approximately CHF ${fmtCHF(r.chResident.netIncomeMonthly)}, while an Italian cross-border worker receives about EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month (at CHF/EUR ${r.exchangeRate.toFixed(4)}; ${formatExchangeRateAttribution(DEFAULT_EXCHANGE_RATE_DATE, 'en')}). ${verdictText(r, {
       frontier: () => `The monthly gap is about CHF ${fmtCHF(compareNet(r).gapCHF / 12)} in favour of the cross-border worker.`,
       resident: () => `The monthly gap is about CHF ${fmtCHF(compareNet(r).gapCHF / 12)} in favour of the Swiss resident.`,
       tie: () => 'Monthly net pay is practically the same.',
@@ -354,7 +396,7 @@ const EN: Labels = {
     },
     {
       q: `Which tax table applies to CHF ${fmtCHF(s.salary)} ${s.maritalStatus === 'MARRIED' ? 'married' : 'single'}?`,
-      a: `Tax table ${taxTableCode(r.chResident.details.source)} applies with an effective rate of ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+      a: taxTableFaqAnswer(s, r, 'en'),
     },
     {
       q: `Is it better to live in Switzerland or commute with CHF ${fmtCHF(s.salary)}?`,
@@ -394,7 +436,7 @@ const DE: Labels = {
     return `Sind alle Voraussetzungen des Abkommens erfüllt (Gemeinde der offiziellen Liste, Arbeit im Tessin, in Graubünden oder im Wallis, grundsätzlich tägliche Rückkehr), beträgt die Schweizer Quellensteuer 80% der ordentlichen. Die restlichen 20% werden nicht erhoben. Die italienische Anrechnung betrifft die tatsächlich geschuldete Schweizer Steuer.`;
   },
   budgetExplain: (s, r) =>
-    `Monatlich erzielt ein Einwohner der Schweiz rund CHF ${fmtCHF(r.chResident.netIncomeMonthly)} netto, ein italienischer Grenzgänger rund EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)} (Kurs CHF/EUR ${r.exchangeRate.toFixed(3)}). ${verdictText(r, {
+    `Monatlich erzielt ein Einwohner der Schweiz rund CHF ${fmtCHF(r.chResident.netIncomeMonthly)} netto, ein italienischer Grenzgänger rund EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)} (Kurs CHF/EUR ${r.exchangeRate.toFixed(4)}; ${formatExchangeRateAttribution(DEFAULT_EXCHANGE_RATE_DATE, 'de')}). ${verdictText(r, {
       frontier: () => `Die monatliche Differenz beträgt rund CHF ${fmtCHF(compareNet(r).gapCHF / 12)} zugunsten des Grenzgängers.`,
       resident: () => `Die monatliche Differenz beträgt rund CHF ${fmtCHF(compareNet(r).gapCHF / 12)} zugunsten des Einwohners.`,
       tie: () => 'Der monatliche Nettolohn ist praktisch gleich.',
@@ -459,7 +501,7 @@ const DE: Labels = {
     },
     {
       q: `Welche Steuertabelle gilt für CHF ${fmtCHF(s.salary)} ${s.maritalStatus === 'MARRIED' ? 'verheiratet' : 'ledig'}?`,
-      a: `Es gilt Tabelle ${taxTableCode(r.chResident.details.source)} mit einem effektiven Satz von ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+      a: taxTableFaqAnswer(s, r, 'de'),
     },
     {
       q: `Lohnt sich bei CHF ${fmtCHF(s.salary)} der Wohnsitz in der Schweiz oder das Grenzgängerdasein?`,
@@ -499,7 +541,7 @@ const FR: Labels = {
     return `Si toutes les conditions de l'accord sont remplies (commune de la liste officielle, travail au Tessin, aux Grisons ou en Valais, retour en principe quotidien), la retenue suisse correspond à 80 % de la retenue ordinaire. Les 20 % restants ne sont pas prélevés. Le crédit italien porte sur l'impôt suisse effectivement dû.`;
   },
   budgetExplain: (s, r) =>
-    `Par mois, un résident suisse perçoit environ CHF ${fmtCHF(r.chResident.netIncomeMonthly)} nets, un frontalier italien environ EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)} (taux CHF/EUR ${r.exchangeRate.toFixed(3)}). ${verdictText(r, {
+    `Par mois, un résident suisse perçoit environ CHF ${fmtCHF(r.chResident.netIncomeMonthly)} nets, un frontalier italien environ EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)} (taux CHF/EUR ${r.exchangeRate.toFixed(4)} ; ${formatExchangeRateAttribution(DEFAULT_EXCHANGE_RATE_DATE, 'fr')}). ${verdictText(r, {
       frontier: () => `L'écart mensuel est d'environ CHF ${fmtCHF(compareNet(r).gapCHF / 12)} en faveur du frontalier.`,
       resident: () => `L'écart mensuel est d'environ CHF ${fmtCHF(compareNet(r).gapCHF / 12)} en faveur du résident.`,
       tie: () => 'Le net mensuel est pratiquement identique.',
@@ -564,7 +606,7 @@ const FR: Labels = {
     },
     {
       q: `Quel barème fiscal s'applique pour CHF ${fmtCHF(s.salary)} ${s.maritalStatus === 'MARRIED' ? 'marié' : 'célibataire'}?`,
-      a: `Le barème ${taxTableCode(r.chResident.details.source)} s'applique avec un taux effectif de ${fmtPct(r.chResident.details.effectiveRate / 100)}%.`,
+      a: taxTableFaqAnswer(s, r, 'fr'),
     },
     {
       q: `Vaut-il mieux résider en Suisse ou être frontalier avec CHF ${fmtCHF(s.salary)} ?`,
@@ -597,7 +639,7 @@ function resultsTableHtml(result: SimulationResult, l: Labels): string {
           ${row(l.grossIncome, ch.grossIncome, it.grossIncome)}
           ${row(l.familyAllowance, ch.familyAllowance, it.familyAllowance)}
           ${row(l.socialDeductions, -ch.socialContributions, -it.socialContributions)}
-          ${row(l.withholdingTax, -ch.taxes, -(it.taxes - (it.details.irpefDetails?.finalNetTaxEUR ?? 0) / result.exchangeRate))}
+          ${row(l.withholdingTax, -ch.taxes, -getSwissWithholdingAmountCHF(result))}
           ${it.details.irpefDetails ? row(l.irpefItaly, 0, -(it.details.irpefDetails.finalNetTaxEUR / result.exchangeRate)) : ''}
           ${row(l.healthInsurance, -ch.healthInsurance, 0)}
           <tr class="net-row"><td><strong>${l.netAnnual}</strong></td><td class="num highlight"><strong>CHF ${fmtCHF(ch.netIncomeAnnual)}</strong></td><td class="num highlight"><strong>CHF ${fmtCHF(it.netIncomeAnnual)}</strong></td></tr>
@@ -737,7 +779,11 @@ function buildHubSalaryLandingData(
           : `${pack.tileWinner[comparison.winner]} +CHF ${fmtCHF(comparison.gapCHF)}${pack.perYear}`,
         tone: ({ frontier: 'success', resident: 'warning', tie: 'neutral' } as const)[comparison.winner],
       },
-      { label: pack.tileExchange, value: result.exchangeRate.toFixed(4), tone: 'neutral' },
+      {
+        label: `${pack.tileExchange} · ${formatExchangeRateAttribution(DEFAULT_EXCHANGE_RATE_DATE, locale)}`,
+        value: result.exchangeRate.toLocaleString(locale === 'it' ? 'it-IT' : locale === 'en' ? 'en-GB' : locale === 'de' ? 'de-DE' : 'fr-FR', { minimumFractionDigits: 4, maximumFractionDigits: 4 }),
+        tone: 'neutral',
+      },
     ],
     advice: pack.advice[comparison.winner](fmtCHF(comparison.gapCHF)),
     ctaPrimary: {

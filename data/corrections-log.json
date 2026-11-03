@@ -5,5 +5,48 @@
     "types": ["factual", "typo", "clarification"],
     "contactEmail": "redazione@frontaliereticino.ch"
   },
-  "entries": []
+  "entries": [
+    {
+      "date": "2026-10-31T08:16:20Z",
+      "articleId": "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-80000-chf/",
+      "type": "factual",
+      "description": "Prima: il box indicava il Permesso G come vincitore mentre il netto Permesso B era superiore di CHF 8.651 nello scenario da CHF 80.000. Corretto: il verdetto indica il Permesso B come netto più alto nello stesso scenario; rimossa la motivazione sul minor costo della vita, non incluso nel calcolo. Riferimento normativo: non applicabile, rettifica del segno del confronto aritmetico tra i netti simulati (PR #16171)."
+    },
+    {
+      "date": "2026-10-31T12:26:24Z",
+      "articleId": "https://frontaliereticino.ch/domande-frequenti-frontalieri/fisco-imposta-fonte-ticino-2026/",
+      "type": "factual",
+      "description": "Prima: la FAQ affermava che i nuovi frontalieri pagavano l'imposta svizzera ad aliquota piena, con credito italiano fino all'80%, citava un inesistente art. 66 della L. 83/2023 e indicava una deduzione sanitaria di 3.000 €. Corretto: la Svizzera preleva al massimo l'80% dell'imposta ordinaria; il credito italiano è limitato alla quota IRPEF proporzionale al reddito estero; la L. 83/2023 ha 15 articoli e non contiene l'art. 66; la deduzione sanitaria non risulta prevista. Riferimenti: Accordo CH-IT artt. 3 e 9; Convenzione CH-IT art. 24; L. 83/2023; L. 213/2023 cc. 237-239 (PR #16187)."
+    },
+    {
+      "date": "2026-10-31T12:26:24Z",
+      "articleId": "https://frontaliereticino.ch/domande-frequenti-frontalieri/fisco-deduzione-sanitaria-3000/",
+      "type": "factual",
+      "description": "Prima: la risposta presupponeva una deduzione forfetaria sanitaria di 3.000 € per i frontalieri. Corretto: la deduzione non risulta nelle norme citate; l'art. 5 della L. 83/2023 riguarda i contributi documentati per il prepensionamento di categoria e la quota SSN dei cc. 237-239 della L. 213/2023 è un versamento alla Regione, non una deduzione. Riferimenti: L. 83/2023 art. 5; L. 213/2023 cc. 237-239; DM Salute 14/11/2025 (PR #16187)."
+    },
+    {
+      "date": "2026-10-31T12:26:24Z",
+      "articleId": "https://frontaliereticino.ch/tasse-e-pensione/ristorni-fiscali/",
+      "type": "factual",
+      "description": "Prima: la pagina descriveva i ristorni come il 38,8% dell'imposta alla fonte e prometteva importi annui o per Comune non verificati. Corretto: ciascuno dei Cantoni Ticino, Grigioni e Vallese versa il 40% dell'imposta lorda dei frontalieri ex art. 9 fino all'anno fiscale 2033; l'Accordo fissa la percentuale, non un importo per Comune. I nuovi frontalieri non ricevono né generano questa compensazione. Riferimenti: Accordo CH-IT art. 9; L. 83/2023 artt. 9-10 (PR #16187)."
+    },
+    {
+      "date": "2026-10-31T12:26:24Z",
+      "articleId": "https://frontaliereticino.ch/en/calcola-stipendio/",
+      "type": "factual",
+      "description": "Prima: la FAQ dell'alias del calcolatore descriveva un riparto 80/20 e diceva che il 20% dell'imposta andava al Comune italiano. Corretto: la Svizzera può prelevare al massimo l'80% dell'imposta alla fonte ordinaria; il restante 20% non è prelevato né trasferito. La stessa rettifica è stata pubblicata negli alias /de/calcola-stipendio/ e /fr/calcola-stipendio/. Riferimento: Accordo CH-IT art. 3 par. 1 (PR #16187)."
+    },
+    {
+      "date": "2026-10-31T12:26:24Z",
+      "articleId": "https://frontaliereticino.ch/de/calcola-stipendio/",
+      "type": "factual",
+      "description": "Prima: la FAQ dell'alias del calcolatore descriveva una ripartizione 80/20 e attribuiva il 20% al Comune italiano. Corretto: il prelievo svizzero è limitato all'80% dell'imposta ordinaria e il restante 20% non viene prelevato né trasferito. Riferimento: Accordo CH-IT art. 3 par. 1 (PR #16187)."
+    },
+    {
+      "date": "2026-10-31T12:26:24Z",
+      "articleId": "https://frontaliereticino.ch/fr/calcola-stipendio/",
+      "type": "factual",
+      "description": "Prima: la FAQ dell'alias del calcolatore descriveva una ripartizione 80/20 e attribuiva il 20% al Comune italiano. Corretto: il prelievo svizzero è limitato all'80% dell'imposta ordinaria e il restante 20% non viene prelevato né trasferito. Riferimento: Accordo CH-IT art. 3 par. 1 (PR #16187)."
+    }
+  ]
 }

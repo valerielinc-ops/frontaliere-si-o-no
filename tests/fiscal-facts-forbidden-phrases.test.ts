@@ -68,6 +68,7 @@ const FORBIDDEN: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     why: 'il Protocollo non prevede questa conseguenza',
   },
   { pattern: /\b52 (?:giorni|working days|Arbeitstage|jours)\b/, why: 'non presente nel Protocollo' },
+  { pattern: /ratifica definitiva del telelavoro[^.\n]{0,60}45 giorni/i, why: 'il Protocollo riguarda il 25% di telelavoro; 45 giorni sono mancati rientri' },
   {
     pattern: /Accordo integrativo|Supplementary Agreement|Zusatzabkommen|Accord additionnel/,
     why: 'e\' il Protocollo di modifica, in vigore dal 9/2/2026',
