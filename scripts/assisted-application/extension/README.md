@@ -44,8 +44,10 @@ ricaricare la pagina.
    CAPTCHA visibile, risolvilo tu. Se poi chiede di verificare l'indirizzo
    email (JOIN), non serve fare nulla: la coda prende il link arrivato
    sull'alias dell'ordine e l'estensione lo apre in una nuova scheda.
-4. Alla conferma del portale l'ordine passa a «inviata» da solo. Se qualcosa
-   non torna, in coda c'è sempre **Segna come inviata**.
+4. Alla conferma del portale l'ordine passa a «inviata» da solo, anche se la
+   versione dell'estensione non aveva riconosciuto il pulsante finale. Se
+   la coda non conferma l'aggiornamento, l'estensione riprova; in coda c'è
+   sempre **Segna come inviata** come recupero manuale.
 
 Se l'annuncio apre il modulo in una nuova scheda (Coop: «Jetzt bewerben» porta
 a SAP SuccessFactors), l'estensione segue quella scheda e continua lì; ignora
@@ -62,7 +64,12 @@ einblenden») e il CV («Lebenslauf hochladen») restano a te.
 
 - Non preme mai il pulsante d'invio e non risolve CAPTCHA.
 - Non inventa risposte: usa solo il «kit di compilazione» dell'ordine
-  (`functions/src/assistedApplicationFillKit.js`). Se manca una risposta si
-  ferma e la elenca nel riquadro.
+  (`functions/src/assistedApplicationFillKit.js`), compresi i livelli di lingua,
+  il titolo di studio e l'ultima posizione solo quando i dati del CV li
+  confermano. Una posizione senza date confrontabili e un inquadramento che la
+  candidata deve scegliere restano da compilare a mano.
+- Gestisce le date di nascita divise in giorno, mese e anno e gli editor di
+  testo ricco same-origin, come CKEditor. Se una risposta obbligatoria manca,
+  si ferma in qualunque passaggio e la elenca nel riquadro.
 - Non salva nulla su disco: il kit resta nella memoria della sessione del
   browser e sparisce alla chiusura.

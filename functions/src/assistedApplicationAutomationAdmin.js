@@ -490,6 +490,14 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
  */
 export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'owner', runEffect, nowMs = Date.now() }) {
   const flow = (await flowRefFor(db, orderId).get()).data() || {};
+  // The extension retries until the owner queue acknowledges the write. If
+  // the first response was lost after commit, acknowledge the same fact
+  // without emitting a second submission effect or customer email.
+  if (flow.state === 'submitted') {
+    await confirmSentAttempt({ db, orderId, round: flow.round || 1, confirmedBy: 'owner', nowMs })
+      .catch((error) => console.warn('[assisted-application] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
+    return { ok: true, state: 'submitted', duplicate: true };
+  }
   const allowed = transition(flow, { type: 'owner_submitted' }, { nowMs });
   if (allowed.ignored) return { ok: false, ignored: allowed.ignored };
   const guard = submissionGuard(db, orderId, flow.round || 1);

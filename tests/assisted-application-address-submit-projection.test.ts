@@ -63,6 +63,15 @@ describe('submit preserves raw candidate provenance through automatic projection
           candidate = ctx.candidate;
           return { event: { type: 'submit_handoff', reason: 'synthetic_no_submission' }, evidence: { steps: [] } };
         },
+        // Production submits require the durable guard; this synthetic runner
+        // never clicks or sends, so use a local guard stub for this projection test.
+        submissionGuard: {
+          claim: async () => ({ status: 'claimed', attemptId: 'projection-test' }),
+          markClicked: async () => {},
+          markSent: async () => null,
+          validateAnswerSources: async () => true,
+          release: async () => {},
+        },
       });
       assert.ok(candidate, JSON.stringify(event));
       assert.equal(JSON.stringify(flow), raw);
