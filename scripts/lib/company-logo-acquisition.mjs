@@ -43,6 +43,9 @@ export const DOMAIN_OVERRIDES = {
   'apleona-schweiz-ag': ['apleona.com'],
   'badrutts-palace': ['badruttspalace.com'],
   cippatrasporti: ['cippatrasporti.ch', 'cippa.ch'],
+  // The dedicated employer crawler identifies csc-sa.ch as CSC's official site;
+  // NCore is only the linked publishing platform for the vacancies.
+  'csc-costruzioni-sa': ['csc-sa.ch'],
   'ferrovia-retica': ['rhb.ch'],
   'fisiocare-sagl': ['fisiocare.ch', 'fisiocare.com'],
   gmo: ['gmo.ch'],
