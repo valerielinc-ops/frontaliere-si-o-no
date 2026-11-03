@@ -264,6 +264,7 @@ export function onAdsConsentChange(listener: (value: AdsConsentValue | null) => 
       const decision = getAdsConsent();
       if (decision) {
         const decidedAt = getAdsConsentDecisionAt() || Date.now();
+        memory.__ftAdsConsentDecision = decision;
         memory.__ftAdsConsentDecisionAt = decidedAt;
       }
       listener(getAdsConsent());
