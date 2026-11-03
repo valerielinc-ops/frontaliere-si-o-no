@@ -80,10 +80,17 @@ function isRittmeyerListingHref(rawHref = '') {
 }
 
 function distinctListingCounts(text, pattern) {
-  return [...String(text || '').matchAll(pattern)]
-    .map((match) => Number(match[1]))
-    .filter((count) => Number.isSafeInteger(count) && count >= 0)
-    .filter((count, index, values) => values.indexOf(count) === index);
+  const counts = [];
+  let hasUnsafeNumericTotal = false;
+  for (const match of String(text || '').matchAll(pattern)) {
+    const count = Number(match[1]);
+    if (!Number.isSafeInteger(count)) {
+      hasUnsafeNumericTotal = true;
+      continue;
+    }
+    if (count >= 0 && !counts.includes(count)) counts.push(count);
+  }
+  return { counts, hasUnsafeNumericTotal };
 }
 
 function readRittmeyerListingCount(listingText, rowCount) {
@@ -92,14 +99,24 @@ function readRittmeyerListingCount(listingText, rowCount) {
   // already read are usable. Equal structural/pager totals are one signal;
   // genuinely different usable totals must fail closed instead of becoming a
   // guessed count.
-  const explicitTotals = distinctListingCounts(
+  const {
+    counts: explicitTotals,
+    hasUnsafeNumericTotal: explicitHasUnsafeNumericTotal,
+  } = distinctListingCounts(
     listingText,
     /\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/giu,
   );
-  const rangeTotals = distinctListingCounts(
+  const {
+    counts: rangeTotals,
+    hasUnsafeNumericTotal: rangeHasUnsafeNumericTotal,
+  } = distinctListingCounts(
     listingText,
     /\b\d+\s*(?:[-–—‑]|to|bis|a|à)\s*\d+\s+(?:out\s+of|of|von|de|di|sur)\s+(\d+)\b/giu,
   );
+
+  if (explicitHasUnsafeNumericTotal || rangeHasUnsafeNumericTotal) {
+    return { count: null, conflict: true };
+  }
 
   const usableTotals = [...new Set([
     ...explicitTotals.filter((count) => count >= rowCount),

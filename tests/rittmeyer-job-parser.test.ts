@@ -192,6 +192,25 @@ describe('rittmeyer-job-parser', () => {
     )).rejects.toThrow(/conflicting usable advertised counts/);
   });
 
+  it('fails closed when the advertised total is not a safe integer', async () => {
+    const page = `<p>9007199254740993 jobs found</p>
+      <div class="results">
+        <a data-testid="job-card" aria-label="Rittmeyer role 1"
+           href="/en/job/rittmeyer-role-1/">
+          <h3 data-testid="job-title">Rittmeyer role 1</h3>
+          <div data-testid="job-more-info">Baar | Full-time employee</div>
+        </a>
+      </div>`;
+
+    const listings = parseRittmeyerListingsPage(page);
+    expect(listings.rittmeyerListingCountConflict).toBe(true);
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: 'https://brugg.onlyfy.jobs/en/', label: 'Onlyfy employer board' },
+      async () => page,
+    )).rejects.toThrow(/conflicting usable advertised counts/);
+  });
+
   it('fails closed when the Onlyfy page parameter does not advance the listing', async () => {
     const page = `<p>16 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => `
       <a data-testid="job-card" aria-label="Role ${i}" href="/en/job/role-${i}">
