@@ -221,6 +221,23 @@ describe('swatchgroup-brand-filter', () => {
       expect(selectSharedPoolBrandJobs('swatch-group-assembly', REAL_POOL_SAMPLE)).toEqual([]);
     });
 
+    it('keeps Nivarox fail-closed when the shared pool does not prove its employer identity', () => {
+      const unprovenNivaroxJobs = [
+        {
+          companyKey: 'nivarox-swatch-group',
+          url: 'https://www.swatchgroup.com/en/job/1',
+          company: 'The Swatch Group Ltd',
+        },
+        {
+          companyKey: 'nivarox-swatch-group',
+          url: 'https://www.swatchgroup.com/en/job/2',
+        },
+      ];
+
+      expect(selectSharedPoolBrandJobs('nivarox-swatch-group', unprovenNivaroxJobs)).toEqual([]);
+      expect(hasAuthoritativeSharedPoolEmpty('nivarox-swatch-group', unprovenNivaroxJobs)).toBe(false);
+    });
+
     it('never lets a shared-pool brand claim the whole pool', () => {
       for (const key of [...SHARED_POOL_BRAND_PATTERNS.keys()]) {
         expect(selectSharedPoolBrandJobs(key, REAL_POOL_SAMPLE).length).toBeLessThan(
