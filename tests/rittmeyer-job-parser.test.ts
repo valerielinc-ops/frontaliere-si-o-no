@@ -152,8 +152,12 @@ describe('rittmeyer-job-parser', () => {
     const firstUrl = 'https://brugg.onlyfy.jobs/en/';
     const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
     const pages = new Map([
-      [firstUrl, `<p>16 jobs found</p><p>1-10 out of 1 jobs</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
-      [secondUrl, `<p>16 jobs found</p><p>11-16 out of 16 jobs</p><div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11)).join('')}</div>`],
+      [firstUrl, `<p>16 jobs found</p>
+        <p>1-10 out of 1 jobs</p>
+        <div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1)).join('')}</div>`],
+      [secondUrl, `<p>16 jobs found</p>
+        <p>11-16 out of 16 jobs</p>
+        <div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11)).join('')}</div>`],
     ]);
     const requested = [];
     const rows = await fetchRittmeyerOnlyfyListingSource(
