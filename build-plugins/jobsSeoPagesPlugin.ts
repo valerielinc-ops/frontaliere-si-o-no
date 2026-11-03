@@ -352,7 +352,7 @@ import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import {
   JOB_CATEGORY_KEYS,
   buildJobCategoryPath,
-  isKnownExistingCategorySlug,
+  normalizeJobCategoryKey,
   type JobCategoryKey,
 } from './shared/autoSectorHubPaths';
 
@@ -380,8 +380,7 @@ function buildSeoPageHtml(opts: Parameters<typeof buildSeoPageHtmlBase>[0]): str
 type CategoryListingJob = { category?: unknown };
 
 export function normalizeCategoryListingKey(job: CategoryListingJob): JobCategoryKey | null {
- const rawCategory = String(job.category ?? '').trim().toLowerCase();
- return isKnownExistingCategorySlug(rawCategory) ? rawCategory : null;
+ return normalizeJobCategoryKey(job.category);
 }
 
 export function groupCategoryListingJobs<T extends CategoryListingJob>(jobs: readonly T[]): Map<JobCategoryKey, T[]> {
@@ -9163,7 +9162,7 @@ ${staticAnalyticsHtml}
   * Additive: for every (canton, category) bucket with >= 3 jobs (excluding TI),
   * emit /cerca-lavoro-{cantonSlug}/categoria-{slug}/ pages.
   * TI is NOT iterated here — the legacy TI emit above is byte-identical.
- */
+  */
  {
  const cantonDisplayLocalCat = (canton: string, locale: typeof localeList[number]): string => {
  return getCantonDisplayLabel(canton, locale);

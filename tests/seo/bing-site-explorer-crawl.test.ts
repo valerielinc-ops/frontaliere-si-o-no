@@ -1245,7 +1245,7 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(jobsSeoSource).toContain('const catJobs = legacyCategoryJobs.get(catKey) ?? [];');
     expect(jobsSeoSource).toContain('emittedCategoryListingPaths.has(buildJobCategoryPath(locale, sectionByLocale[locale], k))');
     expect(jobsSeoSource).toContain('if (!catLabel || !emittedCategoryListingPaths.has(href)) return [];');
-    expect(jobsSeoSource).toContain('const rawCategory = String(job.category ?? \'\').trim().toLowerCase();');
+    expect(jobsSeoSource).toContain('return normalizeJobCategoryKey(job.category);');
 
     const canonicalCategory = `${BASE}/cerca-lavoro-zurigo/categoria-sanita/`;
     const links = extractInternalLinks(
