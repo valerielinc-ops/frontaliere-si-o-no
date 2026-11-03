@@ -710,9 +710,13 @@ async function main() {
   }
 
   // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
-  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH });
+  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH, includeJobs: true });
   if (localeHardening.changed) {
     console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs.`);
+  }
+  let dataJobs = localeHardening.jobs;
+  if (!Array.isArray(dataJobs)) {
+    throw new Error('jobs.json must be an array');
   }
 
   // ── 0b. Enrich short descriptions (deploy-blocking safety net) ──────────
@@ -723,21 +727,13 @@ async function main() {
   // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
   // blocking predicate of validate:translation-completeness.
   {
-    const raw = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
-    const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
-    const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
-
-    if (jobsArr) {
-      const { jobs: repairedJobs, enriched } = repairShortDescriptions(jobsArr);
-      if (enriched > 0) {
-        const out = isWrapped ? { ...raw, jobs: repairedJobs } : repairedJobs;
-        writeJson(DATA_JOBS_PATH, out);
-        // Keep public copy in sync
-        if (fs.existsSync(PUBLIC_JOBS_PATH)) {
-          writeJson(PUBLIC_JOBS_PATH, out);
-        }
-        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
-      }
+    const { jobs: repairedJobs, enriched } = repairShortDescriptions(dataJobs);
+    if (enriched > 0) {
+      dataJobs = repairedJobs;
+      writeJson(DATA_JOBS_PATH, dataJobs);
+      // Keep public copy in sync without reading either large file back into a string.
+      writeJson(PUBLIC_JOBS_PATH, dataJobs);
+      console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
     }
   }
 
@@ -748,10 +744,7 @@ async function main() {
     console.log('ℹ️  Housekeeping locale translation explicitly enabled via JOBS_HOUSEKEEPING_TRANSLATE_MISSING=1');
   }
 
-  const dataJobs = readJson(DATA_JOBS_PATH);
-  const publicJobs = readJson(PUBLIC_JOBS_PATH);
-
-  if (!Array.isArray(dataJobs) || !Array.isArray(publicJobs)) {
+  if (!Array.isArray(dataJobs)) {
     throw new Error('jobs.json must be an array');
   }
 
@@ -922,7 +915,7 @@ async function main() {
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
   writeCrossCrawlerDedupProofFile(dedupProofEntries, {
-    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
+    candidatePath: DATA_JOBS_PATH,
   });
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)

@@ -85,6 +85,21 @@ function sha256(raw) {
   return createHash('sha256').update(String(raw), 'utf8').digest('hex');
 }
 
+function sha256File(filePath) {
+  const hash = createHash('sha256');
+  const fd = fs.openSync(filePath, 'r');
+  const buffer = Buffer.allocUnsafe(1024 * 1024);
+  try {
+    let bytesRead;
+    while ((bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0) {
+      hash.update(buffer.subarray(0, bytesRead));
+    }
+  } finally {
+    fs.closeSync(fd);
+  }
+  return hash.digest('hex');
+}
+
 function housekeepingProofTarget(slicePath, { proofDir, cwd = process.cwd() } = {}) {
   const absoluteSlicePath = path.resolve(cwd, slicePath);
   const relativePath = path.relative(cwd, absoluteSlicePath);
@@ -156,12 +171,14 @@ export function clearCrossCrawlerDedupProofFile({ proofDir, env = process.env } 
  */
 export function writeCrossCrawlerDedupProofFile(
   entries,
-  { candidateRaw, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
+  { candidateRaw, candidatePath, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
 ) {
   if (!Array.isArray(entries) || entries.length === 0) {
     return clearCrossCrawlerDedupProofFile({ proofDir, env });
   }
-  if (typeof candidateRaw !== 'string') {
+  const hasCandidateRaw = typeof candidateRaw === 'string';
+  const hasCandidatePath = typeof candidatePath === 'string' && candidatePath.length > 0;
+  if (!hasCandidateRaw && !hasCandidatePath) {
     throw new Error('cannot write cross-crawler dedup proof without the final jobs.json snapshot');
   }
 
@@ -180,7 +197,7 @@ export function writeCrossCrawlerDedupProofFile(
   try {
     fs.writeFileSync(temporaryPath, `${JSON.stringify({
       schemaVersion: 1,
-      candidateDigest: sha256(candidateRaw),
+      candidateDigest: hasCandidateRaw ? sha256(candidateRaw) : sha256File(candidatePath),
       baseSha: resolvedBaseSha,
       runId,
       runAttempt,
