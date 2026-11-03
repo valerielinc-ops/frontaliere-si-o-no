@@ -232,18 +232,23 @@ shard_count_files() {
   find "$dir" -type f -print0 | perl -0ne '$count += 1; END { print $count + 0 }'
 }
 
-# shard_assert_source_paths_indexed <stage> <source_root> <target_prefix> <label>
+# shard_assert_source_paths_indexed <stage> <source_root> <target_prefix> <label> [layout]
 # Every regular file emitted under <source_root> must be present at the same
 # relative path under <target_prefix> in the staged Git index. A file-count
 # floor cannot catch a route being replaced by a different file, so it can
 # report a healthy copy while the sitemap's exact URL is absent. Compare the
 # NUL-safe, byte-sorted path streams instead of materializing the whole source
 # or index inventory in a shell array; locale shards can contain ~1M files.
+# `layout=ticino-hash-v1` maps the canonical source paths through the same
+# runtime-neutral fan-out helper used to stage the physical Ticino tree. The
+# index deliberately stores those paths under `_tree/<bucket>/<entry>`, so
+# comparing the canonical list directly would reject every valid Ticino push.
 # Extra indexed paths are allowed here: Ticino's physical _tree fan-out and
 # service metadata deliberately add paths that are not in the source subtree.
 shard_assert_source_paths_indexed() {
   local stage="$1" source_root="$2" target_prefix="$3" label="${4:-shard}"
-  local work source_records source_paths index_records indexed_paths missing_file
+  local layout="${5:-canonical}"
+  local work source_records source_paths expected_paths mapped_paths index_records indexed_paths missing_file
   local missing_count shown path reason limit
 
   source_root="${source_root%/}"
@@ -286,6 +291,26 @@ shard_assert_source_paths_indexed() {
     rm -rf "$work"
     return 1
   fi
+  expected_paths="$source_paths"
+  case "$layout" in
+    canonical) ;;
+    ticino-hash-v1)
+      mapped_paths="$work/expected-physical-paths"
+      if ! node "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/ticino-tree-fanout.mjs" \
+          map-paths < "$source_paths" > "$mapped_paths" \
+        || ! LC_ALL=C sort -z -o "$mapped_paths" "$mapped_paths"; then
+        echo "::error::$label source path integrity check could not map Ticino fan-out paths" >&2
+        rm -rf "$work"
+        return 1
+      fi
+      expected_paths="$mapped_paths"
+      ;;
+    *)
+      echo "::error::$label source path integrity check received unsupported layout '$layout'" >&2
+      rm -rf "$work"
+      return 1
+      ;;
+  esac
 
   if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target_prefix/" > "$index_records"; then
     echo "::error::$label source path integrity check could not read the staged index" >&2
@@ -349,7 +374,7 @@ shard_assert_source_paths_indexed() {
         $expected = <$expected_fh>;
       }
       close $missing_fh or die "close $missing_file: $!";
-    ' "$source_paths" "$indexed_paths" "$target_prefix" "$missing_file"; then
+    ' "$expected_paths" "$indexed_paths" "$target_prefix" "$missing_file"; then
     echo "::error::$label source path integrity comparison failed" >&2
     rm -rf "$work"
     return 1

@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
 import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { ticinoTreePhysicalPath } from '../scripts/lib/ticino-tree-fanout.mjs';
 
 const HELPER = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh');
 const PUSH_SCRIPT = join(process.cwd(), 'scripts/lib/push-section-shard.sh');
@@ -48,6 +49,16 @@ describe('Ticino shard tree fan-out', () => {
     } finally {
       rmSync(temp, { recursive: true, force: true });
     }
+  });
+
+  it('maps source paths to the same physical layout used by the fan-out', () => {
+    expect(ticinoTreePhysicalPath('index.html')).toBe('index.html');
+    expect(ticinoTreePhysicalPath('Ir-Job-123/index.html')).toBe(
+      `_tree/${ticinoTreeBucket('Ir-Job-123')}/Ir-Job-123/index.html`,
+    );
+    expect(ticinoTreePhysicalPath('zz-flat.html')).toBe(
+      `_tree/${ticinoTreeBucket('zz-flat.html')}/zz-flat.html`,
+    );
   });
 
   it('spreads adversarial same-prefix slugs far below GitHub’s per-tree limit', () => {

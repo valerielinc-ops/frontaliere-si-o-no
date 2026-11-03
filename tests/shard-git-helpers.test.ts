@@ -12,6 +12,9 @@ import { execSync } from 'node:child_process';
 import { chmodSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const HELPERS =
   process.env.SHARD_GIT_HELPERS_PATH || join(process.cwd(), 'scripts/lib/shard-git-helpers.sh');
@@ -305,6 +308,25 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
 
       const output = runHelperScript(
         `SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" en test-shard; `
+          + 'echo "RC=$? REASON=$SHARD_DELTA_REASON"',
+      );
+      expect(output).toBe('RC=0 REASON=');
+    });
+
+    it('accetta i path canonici quando l’indice usa il fan-out fisico di Ticino', () => {
+      const prefix = 'cerca-lavoro-ticino';
+      const entry = 'Ir-Job-123';
+      const stage = stageWithFiles('ticino-source-path-stage', {
+        [`${prefix}/index.html`]: '<html>section</html>',
+        [`${prefix}/_tree/${ticinoTreeBucket(entry)}/${entry}/index.html`]: '<html>job</html>',
+      });
+      const source = join(root, 'ticino-source-path-source');
+      sh(`mkdir -p "${join(source, entry)}"`);
+      writeFileSync(join(source, 'index.html'), '<html>section</html>');
+      writeFileSync(join(source, entry, 'index.html'), '<html>job</html>');
+
+      const output = runHelperScript(
+        `SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" "${prefix}" test-shard ticino-hash-v1; `
           + 'echo "RC=$? REASON=$SHARD_DELTA_REASON"',
       );
       expect(output).toBe('RC=0 REASON=');

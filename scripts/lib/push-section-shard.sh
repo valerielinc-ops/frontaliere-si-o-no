@@ -216,7 +216,9 @@ shard_phase() {
 }
 
 push_section_shard() {
-  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token
+  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token source_path_layout
+  source_path_layout=canonical
+  if [ "$section" = ticino ]; then source_path_layout=ticino-hash-v1; fi
   _shard_phase_t="$SECONDS"
   SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$loc"
   : > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
@@ -628,7 +630,7 @@ push_section_shard() {
       git config user.name "Valerie Linc"
       git add -A
       if ! shard_assert_source_paths_indexed \
-          "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard"; then
+          "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard" "$source_path_layout"; then
         exit 1
       fi
       shard_phase git-add
