@@ -763,6 +763,38 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
   });
 });
 
+describe('deploy.yml — job OG cache version isolation (#12380)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const resolveVersion = steps.find((step) => step.name === 'Resolve job OG image cache version');
+  const restore = steps.find((step) => step.name === 'Restore per-job OG images');
+  const save = steps.find((step) => step.name === 'Save per-job OG images after successful build');
+
+  it('uses the raster version for both restore and save namespaces', () => {
+    expect(resolveVersion?.if).toBe("matrix.locale == 'it'");
+    expect(resolveVersion?.id).toBe('job_og_image_version');
+    expect(resolveVersion?.run).toContain("./build-plugins/shared/jobOgImageVersion.mjs");
+    expect(resolveVersion?.run).toContain('GITHUB_OUTPUT');
+    expect(restore?.uses).toBe('actions/cache/restore@v6');
+    expect(restore?.with?.path).toBe('.cache/og-jobs');
+    expect(String(restore?.with?.key)).toContain(
+      'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+    );
+    expect(String(restore?.with?.['restore-keys']).trim().split('\n')).toEqual([
+      'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+    ]);
+    expect(save?.uses).toBe('actions/cache/save@v6');
+    expect(save?.with?.path).toBe('.cache/og-jobs');
+    expect(String(save?.with?.key)).toContain(
+      'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
+    );
+    expect(String(save?.with?.key)).toContain('${{ github.run_id }}');
+    expect(String(save?.if)).toContain("steps.build_step.outcome == 'success'");
+    expect(steps.indexOf(resolveVersion!)).toBeLessThan(steps.indexOf(restore!));
+    expect(steps.indexOf(restore!)).toBeLessThan(steps.indexOf(save!));
+  });
+});
+
 describe('deploy.yml — shard push mode and advisory delta verification', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const publishWorkflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-la-plaine",
-  "assembledAt": "2026-11-02T21:53:45.835Z",
-  "runId": "41527616068",
+  "assembledAt": "2026-11-03T09:47:09.941Z",
+  "runId": "41610304525",
   "jobs": [
     {
       "id": "clinique-de-la-plaine-9f68d5dc6b73",
@@ -35,7 +35,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:53:37.322Z",
+      "crawledAt": "2026-11-03T09:47:02.680Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:53:37.322Z",
+      "validThrough": "2026-12-03T09:47:02.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:53:36.747Z",
+      "crawledAt": "2026-11-03T09:46:59.624Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:53:36.747Z",
+      "validThrough": "2026-12-13T09:46:59.624Z",
       "validThroughSource": "last-observed-window"
     }
   ]

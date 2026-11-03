@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comuni-ticino",
-  "assembledAt": "2026-11-02T22:03:25.854Z",
-  "runId": "41528259322",
+  "assembledAt": "2026-11-03T09:50:36.735Z",
+  "runId": "41610882546",
   "jobs": [
     {
       "id": "comune-di-monteceneri-cf7d4d00b4",
@@ -57,7 +57,7 @@
       "source": "Comune di Monteceneri Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -129,7 +129,7 @@
       "source": "Comune di Morbio Inferiore Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -201,7 +201,7 @@
       "source": "Comune di Losone Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -273,7 +273,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -320,9 +320,7 @@
         "fr": "La Commune Adresse CH Téléphone E-mail Internet Via Lucomagno 14 6710 Biasca 091 874 39 00 info@biasca.ch La Commune Adresse CH Téléphone E-mail Internet Via Lucomagno 14 6710 Biasca 091 874 39 00 info@biasca.ch Téléphone Officiel E-mail Biasca 15 octobre 2026 Réf RM 770 // 22.09.2026 AVIS DE CONCOURS POUR LE RECRUTEMENT DU PERSONNEL La Commune de Biasca ouvre le concours général 2026/2027 pour l'embauche d'assistants de cuisine suppléants à l'école communale dans les conditions fixées dans le cahier des charges téléchargeable sur le site internet. Les candidatures doivent être envoyées sous enveloppe fermée avec la mention « Cuisine du concours général » ou par email à info@biasca.ch ; les autres formes de candidature ne seront pas considérées comme valables. La direction de l'école communale reste disponible pour tout renseignement complémentaire relatif au concours (091 862 17 37). La Commune se réserve le droit d'annuler le concours si les candidatures déposées ne satisfont pas pleinement aux conditions établies. LA MAIRIE"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Biasca",
       "canton": "TI",
       "addressLocality": "Biasca",
@@ -346,7 +344,8 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
+      "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -361,9 +360,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:56:11.530Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T22:00:21.787Z"
+      "validThrough": "2027-01-13T09:43:17.813Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "comune-di-biasca-96e3633ce9",
@@ -394,9 +392,7 @@
         "fr": "La Commune Adresse CH Téléphone E-mail Internet Via Lucomagno 14 6710 Biasca 091 874 39 00 info@biasca.ch La Commune Adresse CH Téléphone E-mail Internet Via Lucomagno 14 6710 Biasca 091 874 39 00 info@biasca.ch Téléphone Officiel E-mail Biasca 15 octobre 2026 Réf RM 770 // 22.09.2026 AVIS DE CONCOURS POUR LE RECRUTEMENT DU PERSONNEL La Commune de Biasca ouvre le concours général 2026/2027 pour l'embauche d'agents de nettoyage suppléants à l'administration communale dans les conditions fixées dans le cahier des charges téléchargeable sur le site Internet. Les candidatures doivent être envoyées sous enveloppe fermée avec la mention « Concours général de nettoyage » ou par e-mail à info@biasca.ch ; les autres formes de candidature ne seront pas considérées comme valables. La direction de l'école communale reste disponible pour tout renseignement complémentaire relatif au concours (091 862 17 37). La Commune se réserve le droit d'annuler le concours si les candidatures déposées ne satisfont pas pleinement aux conditions établies. LA MAIRIE"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Biasca",
       "canton": "TI",
       "addressLocality": "Biasca",
@@ -420,7 +416,8 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
+      "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -435,9 +432,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:56:11.530Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T22:00:21.787Z"
+      "validThrough": "2027-01-13T09:43:17.813Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "comune-di-terre-di-pedemonte-804ca4cc6a",
@@ -493,7 +489,7 @@
       "source": "Comune di Terre di Pedemonte Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -565,7 +561,7 @@
       "source": "Comune di Serravalle Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -637,7 +633,7 @@
       "source": "Comune di Terre di Pedemonte Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -709,7 +705,7 @@
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -781,7 +777,7 @@
       "source": "Comune di Chiasso Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -853,7 +849,7 @@
       "source": "Comune di Collina d'Oro Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-02T21:56:11.530Z",
+      "crawledAt": "2026-11-03T09:43:17.813Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,

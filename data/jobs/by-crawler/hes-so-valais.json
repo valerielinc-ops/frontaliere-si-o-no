@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-11-02T21:28:11.898Z",
-  "runId": "41525635541",
+  "assembledAt": "2026-11-03T09:32:59.111Z",
+  "runId": "41608567313",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
@@ -67,7 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-10-29T21:38:55.675Z",
-      "crawledAt": "2026-11-02T21:28:07.690Z",
+      "crawledAt": "2026-11-03T09:32:55.652Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -86,7 +86,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:28:07.690Z",
+      "validThrough": "2027-01-28T09:32:55.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -155,7 +155,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "crawledAt": "2026-11-02T21:28:07.690Z",
+      "crawledAt": "2026-11-03T09:32:55.652Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -174,7 +174,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:28:07.690Z",
+      "validThrough": "2026-12-29T09:32:55.652Z",
       "validThroughSource": "last-observed-window"
     }
   ]

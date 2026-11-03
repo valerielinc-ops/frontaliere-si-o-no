@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-11-02T21:23:18.729Z",
-  "runId": "41525468615",
+  "assembledAt": "2026-11-03T09:17:08.882Z",
+  "runId": "41608420606",
   "jobs": [
     {
       "id": "swisslog-34572dec2de5",
@@ -34,7 +34,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:10.212Z",
+      "crawledAt": "2026-11-03T09:17:00.143Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:23:10.212Z",
+      "validThrough": "2026-12-03T09:17:00.143Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:10.211Z",
+      "crawledAt": "2026-11-03T09:17:00.142Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -167,7 +167,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T21:23:10.211Z",
+      "validThrough": "2027-01-03T09:17:00.142Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "key": "bodmerfischer-ch",
   "label": "BodmerFischer AG – Rechtsanwälte",
-  "generatedAt": "2026-11-02T21:56:58.264Z",
+  "generatedAt": "2026-11-03T09:44:10.111Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6976,
-  "avgDurationMs": 6976,
+  "durationMs": 7326,
+  "avgDurationMs": 7326,
   "durationHistory": [
-    6976
+    7326
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bodmerfischer-ch-8a1e27b647b5",
-      "slug": "rechtsanwaltin-rechtsanwalt-100-zurich-zh-bodmerfischer-ch-ch",
+      "slug": "avvocato-avvocato-100-bodmerfischer-ag-rechtsanwalte-zurich-zh",
       "company": "BodmerFischer AG – Rechtsanwälte",
       "companyKey": "bodmerfischer-ch",
       "companyDomain": "weblaw.ch",
@@ -34,7 +35,7 @@
       "url": "https://weblaw.ch/produkte/lawjobs?lawjobParam=db76ba73-4928-4f0c-9116-fb8802df27e2",
       "source": "BodmerFischer AG – Rechtsanwälte Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:56:42.285Z",
+      "crawledAt": "2026-11-03T09:43:51.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,25 +53,23 @@
       "postedDate": "2026-02-10",
       "postingDateSource": "reported",
       "applyUrl": "https://weblaw.ch/produkte/lawjobs?lawjobParam=db76ba73-4928-4f0c-9116-fb8802df27e2",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-02T21:56:42.285Z",
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-02T21:56:42.285Z",
+      "validThrough": "2026-12-03T09:43:51.779Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:56:42.285Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }
