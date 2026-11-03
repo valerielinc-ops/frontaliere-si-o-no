@@ -18,7 +18,12 @@ const mocks = vi.hoisted(() => {
       },
       async set(data: Record<string, unknown>, options?: { merge?: boolean }) {
         const current = store.get(key(collection, id)) || {};
-        store.set(key(collection, id), options?.merge ? { ...current, ...data } : data);
+        const updated: Record<string, unknown> = options?.merge ? { ...current } : {};
+        for (const [field, value] of Object.entries(data)) {
+          if (value === '__delete_field__') delete updated[field];
+          else updated[field] = value;
+        }
+        store.set(key(collection, id), updated);
       },
       async delete() {
         store.delete(key(collection, id));
