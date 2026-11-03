@@ -422,8 +422,10 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   // Pagination producers intentionally use noindex from the shared policy
   // floor onward. Emit a producer-owned marker so the deploy validator can
   // enforce that this is deliberate rather than treating every noindex page
-  // as an exemption.
+  // as an exemption. Producers that own a narrower route contract may provide
+  // the same marker explicitly; do not duplicate it in the shared shell.
   const paginationNoindexMarker = /(?:^|[, ])noindex(?:[, ]|$)/i.test(robots)
+    && !(extraHeadHtml ?? '').includes(PAGINATION_NOINDEX_TARGET_MARKER)
     && paginationPageFromPath(canonicalUrl) >= 11
     && !suppliedExtraHeadHtml.includes(PAGINATION_NOINDEX_TARGET_MARKER)
     ? `\n${PAGINATION_NOINDEX_TARGET_MARKER}`
