@@ -401,6 +401,14 @@ const CROSS_REPO_SAFE_EXCLUDED_BUCKETS = new Set([
   'data/health-premiums/',
 ]);
 
+// The crawler-generation ledger is an append-only baseline read after the
+// finalizer. Keep it explicit in every sparse profile, after the exclusions:
+// a blobless checkout can retain the HEAD tree entry while leaving its blob
+// unavailable, making the validator fail before the first ledger write.
+const CROSS_REPO_REQUIRED_BASELINE_PATHS = Object.freeze([
+  'data/crawler-generation-ledger.jsonl',
+]);
+
 export const GROUP_COUNT = GROUP_IDS.length;
 // Coop's ~160min run is a wall-clock outlier ~2.75x the next-longest crawler,
 // far above the corpus. Bundling it into an otherwise-balanced group would
@@ -2962,7 +2970,11 @@ export function crossRepoCrawlerSparsePatterns({ bucketsPath = CHECKOUT_BUCKETS_
   const excluded = table.buckets
     .map((bucket) => bucket.id)
     .filter((id) => CROSS_REPO_SAFE_EXCLUDED_BUCKETS.has(id));
-  return ['/*', ...excluded.map((id) => `!/${id}`)];
+  return [
+    '/*',
+    ...excluded.map((id) => `!/${id}`),
+    ...CROSS_REPO_REQUIRED_BASELINE_PATHS.map((id) => `/${id}`),
+  ];
 }
 
 const SITE_RUNTIME_PATH_RE = /\b(?:scripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)|functions\/src\/githubApiHeaders\.js)\b/g;
