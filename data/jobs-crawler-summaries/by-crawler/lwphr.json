@@ -1,20 +1,21 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-11-02T21:27:24.196Z",
+  "generatedAt": "2026-11-03T09:20:11.607Z",
   "total": 20,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 15,
-  "durationMs": 5378,
-  "avgDurationMs": 5378,
+  "unchangedCount": 16,
+  "durationMs": 6654,
+  "avgDurationMs": 6654,
   "durationHistory": [
-    5378
+    6654
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Mansioni principali:",
       "slug": "mansioni-principali-lwp-ledermann-wieting-partners-switzerland",
@@ -36,6 +37,7 @@
       "contractType": "full-time",
       "validThrough": "2027-01-17T21:15:35.245Z",
       "id": "lwphr-9832df55509c",
+      "firstSeenAt": "2026-10-19T21:15:35.245Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -43,7 +45,6 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-19T21:15:35.245Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -51,9 +52,7 @@
         "translation": 25,
         "completeness": 16
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
       "slug": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-ticino",
@@ -178,48 +177,6 @@
       "streetAddress": "Via Vegezzi 4",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "title": "Mansioni principali:",
-      "slug": "mansioni-principali-lwp-ledermann-wieting-partners-switzerland",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_shift_leader.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-01-17T21:15:35.245Z",
-      "id": "lwphr-1e0e2eaa71b7",
-      "firstSeenAt": "2026-10-19T21:15:35.245Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Ticino",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "canton": "TI",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -803,7 +760,49 @@
         "translation": 25,
         "completeness": 16
       }
+    },
+    {
+      "title": "Mansioni principali:",
+      "slug": "mansioni-principali-lwp-ledermann-wieting-partners-manno-7488d65d47",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_shift_leader.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-01-17T21:15:35.245Z",
+      "id": "lwphr-1e0e2eaa71b7",
+      "firstSeenAt": "2026-10-19T21:15:35.245Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 2,
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "canton": "TI",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
 }
