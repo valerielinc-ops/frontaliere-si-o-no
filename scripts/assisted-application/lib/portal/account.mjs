@@ -57,6 +57,16 @@ export function accountResponseText(snapshot = {}) {
     .join(' ');
 }
 
+const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;
+const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|code)|\b(?:verification|confirmation) code\b/i;
+
+/** A response that asks to verify the account, not merely to complete an OTP/MFA challenge. */
+export function isAccountVerificationResponse(snapshot = {}) {
+  const text = accountResponseText(snapshot);
+  if (!text || (GENERIC_OTP_RESPONSE_RE.test(text) && !/(?:\baccount\b|\bkonto\b|\bcompte\b)/iu.test(text))) return false;
+  return ACCOUNT_VERIFICATION_RE.test(text);
+}
+
 function verifiedLanding(after) {
   const text = String(after?.text || '').trim();
   // A verification/instructions page may expose a generic sign-in control as
