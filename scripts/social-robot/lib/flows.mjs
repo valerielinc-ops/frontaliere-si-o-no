@@ -1139,8 +1139,16 @@ export async function dismissKnownInterstitials({ page, platform, step, snap = a
           { step: step.get() },
         );
       }
-      await snap(`interstitial-${entry.id}`);
-      await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
+      const safeDialogActionReady = entry.surface === 'dialog'
+        && ['click-dialog-acknowledge', 'keep-editing', 'discard-unsaved-draft'].includes(entry.safeAction)
+        && await visible(target.action);
+      if (safeDialogActionReady) {
+        await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
+        await snap(`interstitial-${entry.id}-dismissed`);
+      } else {
+        await snap(`interstitial-${entry.id}`);
+        await dismissKnownInterstitial({ page, platform, target, entry, step, snap });
+      }
       dismissed = true;
     }
     if (!dismissed) {
