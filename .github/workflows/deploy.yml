@@ -742,9 +742,9 @@ jobs:
             exit 1
           fi
 
-      - name: Cache per-job OG images
+      - name: Restore per-job OG images
         if: matrix.locale == 'it'
-        uses: actions/cache@v6
+        uses: actions/cache/restore@v6
         with:
           path: .cache/og-jobs
           # Run 34956104680 rendered 16726 cards with 10434/27160 hits (38%),
@@ -1021,6 +1021,19 @@ jobs:
             echo "min_host_headroom_mb=$headroom"
             echo "min_swap_free_mb=$swap_free"
           } >> "$GITHUB_OUTPUT"
+
+      # Save immediately after the successful build, before any deploy/publish
+      # step can fail the job. The cache action's default post-job save is
+      # skipped when a later step fails, forcing the next retry to render every
+      # job OG image again. Gate on the Build step so a partial build never
+      # replaces the last usable cache.
+      - name: Save per-job OG images after successful build
+        if: ${{ always() && matrix.locale == 'it' && steps.build_step.outcome == 'success' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
 
       - name: Build profile summary
         if: always()
