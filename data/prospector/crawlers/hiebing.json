@@ -1,0 +1,25 @@
+{
+  "companyKey": "hiebing",
+  "companyName": "Hiebing",
+  "companyHost": "hiebing.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://hiebing.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "AI Agent Developer Intern",
+    "Art Director",
+    "Art Director",
+    "Art Director / Graphic Design Intern",
+    "Art Director / Graphic Designer Intern"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-03T13:20:58.157Z",
+  "candidateKey": "hiebing@applytojob.com"
+}

@@ -1,0 +1,26 @@
+{
+  "companyKey": "ospena-group-ag-ospena-ch",
+  "companyName": "Ospena Group AG",
+  "companyHost": "jobs.migros.ch",
+  "verifiedEmployerDomain": "ospena.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/ospena-group-ag/offene-stellen"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/*/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Pizzeria Ristorante Molino, Ospena Group AG Sous-Chef (m/​w/​d) 100%, Molino Winterthur ‧ 100% 8400 Winterthur Festanstellung (unbefristet)",
+    "Pizzeria Ristorante Molino, Ospena Group AG Sous-Chef (m/​w/​d) 100% unbefristet, Molino Thurm, Bern ‧ 100% 3011 Bern Festanstellung (unbefristet)",
+    "Genossenschaft Migros Aare Fachverkäufer*​in Metzgerei ‧ 80 – 100% 5610 Wohlen Festanstellung (unbefristet)",
+    "Genossenschaft Migros Aare Magaziner*​in /​ Mitarbeiter*​in Food ‧ 80 – 100% 5610 Wohlen Festanstellung (unbefristet)"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-03T13:29:37.230Z",
+  "candidateKey": "ospena@montreux"
+}
