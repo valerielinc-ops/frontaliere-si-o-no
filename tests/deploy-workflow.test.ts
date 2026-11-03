@@ -781,7 +781,6 @@ describe('deploy.yml — job OG cache version isolation (#12380)', () => {
     );
     expect(String(cache?.with?.['restore-keys']).trim().split('\n')).toEqual([
       'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
-      'og-jobs-${{ runner.os }}-',
     ]);
     expect(steps.indexOf(resolveVersion!)).toBeLessThan(steps.indexOf(cache!));
   });

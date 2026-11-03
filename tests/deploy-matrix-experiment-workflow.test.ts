@@ -138,7 +138,6 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       );
       expect(String(cache?.with?.['restore-keys']).trim().split('\n')).toEqual([
         'og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-',
-        'og-jobs-${{ runner.os }}-',
       ]);
       expect(steps.indexOf(resolveVersion!)).toBeLessThan(steps.indexOf(cache!));
     }

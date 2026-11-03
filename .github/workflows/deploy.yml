@@ -772,14 +772,15 @@ jobs:
           # into this workflow. It must be part of the restore prefix: a plain
           # `og-jobs-${runner.os}-` restore can select the newest cache from a
           # different raster version and turn a version rollback into a cold
-          # render of every card (run 41521068653). The legacy prefix remains a
-          # one-release migration path; cache filenames also contain the
-          # version, and the plugin only consumes files for the current one.
+          # render of every card (run 41521068653). There is deliberately no
+          # fallback to that legacy prefix: a missing versioned cache may cause
+          # one cold render, but it must never restore incompatible pixels.
+          # Cache filenames also contain the version, and the plugin only
+          # consumes files for the current one.
           # The run-specific suffix makes each IT run save an updated snapshot.
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
           restore-keys: |
             og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-
-            og-jobs-${{ runner.os }}-
 
       # Incremental manifest carry (#8878 1b): each locale owns one JSONL
       # snapshot, restored from the newest previous run and saved under a

@@ -576,7 +576,6 @@ jobs:
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
           restore-keys: |
             og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-
-            og-jobs-${{ runner.os }}-
 
       - name: Configure locale emit mode
         env:
@@ -1262,7 +1261,6 @@ jobs:
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
           restore-keys: |
             og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-
-            og-jobs-${{ runner.os }}-
 
       - name: Build monolith (all 4 locales, no BUILD_LOCALE)
         run: npm run build:ci
