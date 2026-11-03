@@ -114,6 +114,7 @@ import {
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
+import { cleanupConciergeMaterialCopies } from './src/applicationConciergeMaterialCopy.js';
 import { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
@@ -2434,7 +2435,26 @@ export const sweepApplicationConciergeLifecycle = onSchedule(
   // phase drift cannot postpone a due refresh by another full hour. claimRefresh
   // keeps the Firestore lease/idempotency boundary unchanged.
   { region: 'europe-west6', schedule: 'every 15 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
-  async () => { await runConciergeLifecycleSweep({ db: getAdminDb() }); },
+  async () => {
+    const db = getAdminDb();
+    const failures = [];
+    try {
+      await runConciergeLifecycleSweep({ db });
+    } catch (error) {
+      failures.push(error);
+      console.error('[sweepApplicationConciergeLifecycle]', error instanceof Error ? error.message : String(error));
+    }
+    try {
+      const summary = await cleanupConciergeMaterialCopies({ db,
+        getBucket: () => getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET) });
+      if (summary.scanned || summary.failed) console.log('[sweepApplicationConciergeLifecycle] material copy cleanup', summary);
+    } catch (error) {
+      failures.push(error);
+      console.error('[sweepApplicationConciergeLifecycle] material copy cleanup failed', error instanceof Error ? error.message : String(error));
+    }
+    if (failures.length === 1) throw failures[0];
+    if (failures.length > 1) throw new AggregateError(failures, 'Concierge lifecycle maintenance failed');
+  },
 );
 
 export const sweepApplicationConciergeServices = onSchedule(
