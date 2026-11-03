@@ -5,9 +5,10 @@ import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeR
 import { paymentReminderUrl } from './applicationConciergePaymentReminders.js';
 import { createHash, randomUUID } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
-import { APPLICATION_CONCIERGE_SERVICES_COLLECTION, APPLICATION_CONCIERGE_MAX_POSITIONS, acceptedPositionsCount, serviceIsActive, timestampMillis } from './applicationConciergeConstants.js';
+import { APPLICATION_CONCIERGE_SERVICES_COLLECTION, APPLICATION_CONCIERGE_MAX_POSITIONS, APPLICATION_CONCIERGE_MATCHING_VERSION, acceptedPositionsCount, serviceIsActive, timestampMillis } from './applicationConciergeConstants.js';
 import {
   conciergeMatchingRecoveryContext,
+  conciergeMatchingVersionRefreshReady,
   conciergeRefreshDue,
   conciergeRenewalOffer,
   conciergeStaleRecoveryExhausted,
@@ -43,10 +44,25 @@ async function claimRefresh(db, ref, nowMs) {
     const snapshot = await tx.get(ref);
     const service = snapshot.data();
     if (!snapshot.exists || service?.pendingProposalNotice || !conciergeRefreshDue(service, nowMs)) return false;
+    const versionMismatch = service.matchingStatus === 'complete'
+      && service.matchingVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION;
+    if (versionMismatch && !conciergeMatchingVersionRefreshReady(service, nowMs)) {
+      const observedVersion = String(service.matchingVersionRefreshVersion || '');
+      const observedAt = timestampMillis(service.matchingVersionRefreshObservedAt);
+      if (observedVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION || observedAt <= 0) {
+        tx.set(ref, {
+          matchingVersionRefreshVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+          matchingVersionRefreshObservedAt: new Date(nowMs),
+        }, { merge: true });
+      }
+      return false;
+    }
     const claimed = timestampMillis(service.proposalRefreshClaimedAt);
     if (claimed && nowMs - claimed < REFRESH_LEASE_MS) return false;
     tx.set(ref, { proposalRefreshClaimedAt: new Date(nowMs), proposalRefreshClaimId: requestId,
       proposalRefreshRequestId: requestId, proposalRefreshRequestedBy: 'lifecycle',
+      matchingVersionRefreshVersion: FieldValue.delete(),
+      matchingVersionRefreshObservedAt: FieldValue.delete(),
       proposalRefreshRerunAfterWorker: FieldValue.delete(),
       proposalRefreshRerunAfterWorkerContext: FieldValue.delete(),
       proposalRefreshRerunRequestedAt: FieldValue.delete() }, { merge: true });

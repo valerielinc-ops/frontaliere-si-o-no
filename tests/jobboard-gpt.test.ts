@@ -9,6 +9,7 @@ import {
   JOB_BOARD_HEAD_TAGS,
   JOB_BOARD_FC_LOADER_FILENAME,
   JOB_BOARD_FC_LOADER_TAG,
+  JOB_BOARD_FC_PRELOAD_TAG,
   jobBoardHeadTags,
   isJobBoardPageUrl,
 } from '@/build-plugins/jobBoardGpt';
@@ -88,6 +89,22 @@ describe('job-board GPT bootstrap', () => {
     expect(tags).not.toContain(OFFERWALL_FC_SNIPPET);
     expect(OFFERWALL_FC_SCRIPT_CONTENT).toContain('data-fc-loader');
     expect(jobBoardHeadTags('/')).toBe('');
+  });
+
+  it('preloads the CMP only on the main Italian listing without changing JobPosting heads', () => {
+    const listingTags = jobBoardHeadTags('/cerca-lavoro-ticino/');
+    expect(listingTags).toContain(JOB_BOARD_FC_PRELOAD_TAG);
+    expect(listingTags.indexOf(JOB_BOARD_FC_PRELOAD_TAG)).toBeLessThan(listingTags.indexOf(GPT_BOOTSTRAP_TAG));
+    expect(JOB_BOARD_FC_PRELOAD_TAG).toContain('rel="preload" as="script"');
+    expect(JOB_BOARD_FC_PRELOAD_TAG).not.toContain('crossorigin');
+    const preloadedUrl = JOB_BOARD_FC_PRELOAD_TAG.match(/href="([^"]+)"/)?.[1];
+    expect(preloadedUrl).toBeDefined();
+    expect(OFFERWALL_FC_SCRIPT_CONTENT).toContain(`s.src='${preloadedUrl}'`);
+
+    expect(jobBoardHeadTags('/cerca-lavoro-ticino/dettaglio-offerta/')).toBe(JOB_BOARD_HEAD_TAGS);
+    expect(jobBoardHeadTags('https://www.frontaliereticino.ch/cerca-lavoro-ticino/')).toBe(JOB_BOARD_HEAD_TAGS);
+    expect(jobBoardHeadTags('https://other.example/cerca-lavoro-ticino/')).toBe(JOB_BOARD_HEAD_TAGS);
+    expect(JOB_BOARD_HEAD_TAGS).not.toContain(JOB_BOARD_FC_PRELOAD_TAG);
   });
 
   it('defers analytics and job-board carriers while preserving early-boot timing', () => {

@@ -4,6 +4,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
+import { verifySubmissionReceipt } from '../../functions/src/lib/submissionReceiptContract.js';
 import { isUnconfirmedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { runKeyFrom, storeEvidence } from './lib/secure-run.mjs';
 
@@ -39,10 +40,21 @@ export async function reportRunnerFailure({ db, orderId, mode, round, runId, sta
         },
       }, { merge: true });
     }
-    const event = mode === 'submit' && send?.state === 'sent'
-      ? { type: 'submit_succeeded', channel: send.channel }
-      : { type: mode === 'draft' ? 'draft_failed' : 'submit_failed', error: mode === 'submit' && isUnconfirmedSubmission(send)
+    const receiptId = String(send?.receipt?.receiptId || '');
+    const hasSentReceipt = send?.state === 'sent' && /^[a-f0-9]{40}$/.test(receiptId)
+      && verifySubmissionReceipt(send.receipt, {
+        orderId, round, attemptId: send.attemptId, channel: send.channel,
+        sentRecord: send.sent && typeof send.sent === 'object' ? send.sent : {}, receiptId,
+      });
+    let event;
+    if (mode === 'submit' && hasSentReceipt) {
+      event = { type: 'submit_succeeded', channel: send.channel, receiptId };
+    } else if (mode === 'submit' && send?.state === 'sent') {
+      event = { type: 'submit_failed', error: 'submission_receipt_missing' };
+    } else {
+      event = { type: mode === 'draft' ? 'draft_failed' : 'submit_failed', error: mode === 'submit' && isUnconfirmedSubmission(send)
         ? send.channel === 'email' ? 'email_ambiguous' : 'portal_ambiguous' : 'runner_infrastructure_unavailable' };
+    }
     transaction.set(eventRef, { ...event, round, mode, runId: String(runId), createdAt: nowMs });
     return { reported: true, event: event.type };
   });
