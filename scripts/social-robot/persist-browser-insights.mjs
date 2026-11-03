@@ -109,6 +109,11 @@ export async function persistBrowserInsights({
       audienceBaselines: current.audienceBaselines && typeof current.audienceBaselines === 'object'
         ? current.audienceBaselines
         : {},
+      // Keep the scorecard's cross-channel histories explicit in this writer.
+      ...(current.followerGainSnapshots ? { followerGainSnapshots: current.followerGainSnapshots } : {}),
+      ...(current.audienceGrowthCycles ? { audienceGrowthCycles: current.audienceGrowthCycles } : {}),
+      ...(current.siteOutcomeSnapshots ? { siteOutcomeSnapshots: current.siteOutcomeSnapshots } : {}),
+      ...(current.siteOutcomeBaselines ? { siteOutcomeBaselines: current.siteOutcomeBaselines } : {}),
       ...(current.weeklyHealth ? { weeklyHealth: current.weeklyHealth } : {}),
       ...(current.communityOutcomes ? { communityOutcomes: current.communityOutcomes } : {}),
       ...(current.robotDelivery ? { robotDelivery: current.robotDelivery } : {}),
