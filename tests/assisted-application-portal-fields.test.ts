@@ -983,6 +983,23 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (listbox)']);
   });
 
+  // Cippà Trasporti (Altamira, 2026-11-03): the header's native language
+  // selector was the only reported field, so the portal was stopped as if it
+  // needed a candidate answer. A header form must not change its ownership.
+  it('leaves a native language selector in a site header out of the fields, and keeps the form’s own select', () => {
+    const page = extract(`
+      <header><form>
+        <label for="site-language">Lingua</label>
+        <select id="site-language" name="language"><option value="it">Italiano</option><option value="de">Deutsch</option></select>
+      </form></header>
+      <main><form>
+        <label for="country">Country*</label>
+        <select id="country" required><option value="">Choose one</option><option value="CH">Switzerland</option></select>
+      </form></main>`);
+    expect(page.buttons).toEqual([]);
+    expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
+  });
+
   // «Select One» was offered to the candidate as a marital status (dry run of 2026-10-07).
   it('knows a list’s prompt from its options', () => {
     for (const prompt of ['Select One', 'Select one', 'Please select', 'Bitte auswählen', 'Bitte wählen', 'Seleziona', 'Sélectionnez', 'Choisir']) expect(LIST_PROMPT_RE.test(prompt)).toBe(true);

@@ -496,6 +496,16 @@ function nativeQuestionText(value, counter = null) {
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
   };
   const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
+  const SITE_LANGUAGE_LABEL_RE = /^(?:language|lingua|langue|sprache|idioma|sprachauswahl)(?:\s+(?:selector|menu|select))?\s*[:*]?$/i;
+  const isSiteLanguageControl = (element) => {
+    // Native language selectors are sometimes wrapped in a header form. That
+    // form makes isApplicationOwnedControl true, although the select remains
+    // site chrome rather than an application question. Required controls keep
+    // the application-owned precedence even when placed in a header/footer.
+    if (element.tagName.toLowerCase() !== 'select' || !inSiteChrome(element)
+      || element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return false;
+    return SITE_LANGUAGE_LABEL_RE.test(clean(labelFor(element)));
+  };
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
     const inSearchLandmark = Boolean(element.closest('[role="search"]'));
@@ -910,6 +920,7 @@ function nativeQuestionText(value, counter = null) {
     // Only omit a search control identified as site-global. An application
     // can place required fields inside the employer's header or footer.
     if (isSiteGlobalSearchField(element)) continue;
+    if (isSiteLanguageControl(element)) continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !readable(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
