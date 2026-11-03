@@ -14,6 +14,7 @@
  * divergent value fail closed for CI.
  */
 import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -117,25 +118,57 @@ function githubToken(env = process.env) {
   return String(env.GITHUB_TOKEN || env.GH_TOKEN || env.GITHUB_PAT || '').trim();
 }
 
+function fetchRemoteBytesViaGh({ url, token, timeoutMs }) {
+  const env = { ...process.env };
+  if (token && !env.GH_TOKEN) env.GH_TOKEN = token;
+  return Buffer.from(execFileSync(
+    'gh',
+    ['api', '-H', 'Accept: application/vnd.github.raw', url],
+    {
+      env,
+      encoding: 'buffer',
+      maxBuffer: 2 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      timeout: timeoutMs,
+    },
+  ));
+}
+
 /** Fetch exact remote bytes from the GitHub Contents API. */
 export async function fetchRemoteBytes({
   repository,
   filePath,
   ref,
   apiBase = process.env.GITHUB_API_URL || DEFAULT_GITHUB_API_URL,
-  token = githubToken(),
-  fetchImpl = globalThis.fetch,
+  token,
+  fetchImpl,
+  transport = 'auto',
   timeoutMs = DEFAULT_FETCH_TIMEOUT_MS,
 } = {}) {
-  if (typeof fetchImpl !== 'function') throw new Error('global fetch is unavailable');
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0) throw new Error(`invalid fetch timeout: ${timeoutMs}`);
   const url = buildRawContentsUrl({ apiBase, repository, filePath, ref });
+  const authToken = token ?? githubToken();
+  const canUseGh = transport === 'gh'
+    || (transport === 'auto' && fetchImpl === undefined && normalizeApiBase(apiBase) === DEFAULT_GITHUB_API_URL);
+  if (canUseGh) {
+    try {
+      const bytes = fetchRemoteBytesViaGh({ url, token: authToken, timeoutMs });
+      if (bytes.length === 0) throw new Error(`gh returned an empty artifact for ${filePath}@${ref}`);
+      return bytes;
+    } catch (error) {
+      if (transport === 'gh') {
+        throw new Error(`gh api could not read ${filePath}@${ref}: ${error.message}`);
+      }
+    }
+  }
+  const effectiveFetch = fetchImpl ?? globalThis.fetch;
+  if (typeof effectiveFetch !== 'function') throw new Error('global fetch is unavailable');
   const headers = {
     Accept: 'application/vnd.github.raw',
     'User-Agent': 'frontaliere-crawler-contract-provenance',
   };
-  if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetchImpl(url, {
+  if (authToken) headers.Authorization = `Bearer ${authToken}`;
+  const response = await effectiveFetch(url, {
     headers,
     signal: AbortSignal.timeout(timeoutMs),
   });
@@ -227,8 +260,9 @@ export async function verifyCrawlerContractProvenance({
   file = '',
   expectedRepository = process.env.GITHUB_REPOSITORY || DEFAULT_SOURCE_REPOSITORY,
   apiBase = process.env.GITHUB_API_URL || DEFAULT_GITHUB_API_URL,
-  token = githubToken(),
-  fetchImpl = globalThis.fetch,
+  token,
+  fetchImpl,
+  transport = 'auto',
   timeoutMs = DEFAULT_FETCH_TIMEOUT_MS,
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
@@ -254,6 +288,7 @@ export async function verifyCrawlerContractProvenance({
         apiBase,
         token,
         fetchImpl,
+        transport,
         timeoutMs,
       });
       results.push(compareArtifactProvenance({ artifact, localBytes, remoteBytes }));
