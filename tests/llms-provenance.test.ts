@@ -121,10 +121,10 @@ describe('llms family derived from the sitemaps', () => {
     await generateLlmsTxtFamily(f);
     const llms = fs.readFileSync(path.join(f.distDir, 'llms.txt'), 'utf8');
     const full = fs.readFileSync(path.join(f.distDir, 'llms-full.txt'), 'utf8');
-    expect(llms).toContain('2 — canonical Italian-language article detail URLs in the Frontaliere section; hub excluded; counted on');
+    expect(llms).toContain('2 — URL italiane canoniche di dettaglio nella sezione Frontaliere; hub escluso; conteggio al');
     expect(llms).toContain('- **Blog pages, hubs and archives**: 3 pages');
     expect(llms).toContain('4 URLs in the sitemaps across all languages');
-    expect(full).toContain('**2 — canonical Italian-language article detail URLs in the Frontaliere section; hub excluded; counted on');
+    expect(full).toContain('**2 — URL italiane canoniche di dettaglio nella sezione Frontaliere; hub escluso; conteggio al');
     expect(llms).toContain('1 CHF = 1.0874 EUR');
     expect(llms).toContain('TwelveData source, Firestore snapshot · observed 2026-10-30');
     expect(full).toContain('1 CHF = 1.0874 EUR');
@@ -151,6 +151,43 @@ describe('llms family derived from the sitemaps', () => {
 
     expect(fs.readFileSync(path.join(f.distDir, 'en/llms.txt'), 'utf8')).toContain('2 — canonical Italian-language article detail URLs');
     expect(fs.readFileSync(path.join(f.distDir, 'en/llms-full.txt'), 'utf8')).toContain('2 — canonical Italian-language article detail URLs');
+  });
+
+  it('uses each output locale for article-count evidence', async () => {
+    const f = seeded();
+    const translatedRows = [
+      ['/articoli-frontaliere/a/', '/en/cross-border-articles/a/', '/de/grenzgaenger-artikel/a/', '/fr/articles-frontalier/a/'],
+      ['/articoli-frontaliere/b/', '/en/cross-border-articles/b/', '/de/grenzgaenger-artikel/b/', '/fr/articles-frontalier/b/'],
+    ].map(([it, en, de, fr]) => `<url><loc>https://frontaliereticino.ch${it}</loc>${[
+      ['en', en], ['de', de], ['fr', fr],
+    ].map(([locale, url]) => `<xhtml:link hreflang="${locale}" href="https://frontaliereticino.ch${url}" />`).join('')}</url>`).join('');
+    const sitemap = `<urlset>${translatedRows}</urlset>`;
+    fs.writeFileSync(path.join(f.publicDir, 'sitemap-blog.xml'), sitemap);
+    fs.writeFileSync(path.join(f.distDir, 'sitemap-blog.xml'), sitemap);
+    const localeSeeds = {
+      en: 'English seed',
+      de: 'Deutscher Seed',
+      fr: 'Amorce française',
+    };
+    for (const [locale, seed] of Object.entries(localeSeeds)) {
+      fs.mkdirSync(path.join(f.publicDir, locale), { recursive: true });
+      fs.writeFileSync(path.join(f.publicDir, locale, 'llms.txt'), `${seed}\n{{FRONTALIERE_ARTICLE_COUNT_EVIDENCE}}\n`);
+    }
+
+    await generateLlmsTxtFamily(f);
+
+    const expected = {
+      it: 'URL italiane canoniche di dettaglio nella sezione Frontaliere; hub escluso',
+      en: 'canonical Italian-language article detail URLs in the Frontaliere section; hub excluded',
+      de: 'kanonische italienischsprachige Artikeldetail-URLs im Bereich Frontaliere; Hub ausgeschlossen',
+      fr: 'URL canoniques des pages d’articles italiennes de la section Frontaliere ; hub exclu',
+    };
+    expect(fs.readFileSync(path.join(f.distDir, 'llms.txt'), 'utf8')).toContain(expected.it);
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const output = fs.readFileSync(path.join(f.distDir, locale, 'llms.txt'), 'utf8');
+      expect(output).toContain(localeSeeds[locale]);
+      expect(output).toContain(expected[locale]);
+    }
   });
 
   it('counts a translation declared only as an hreflang alternate, once', async () => {

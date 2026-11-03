@@ -292,8 +292,8 @@ function readExchangeRateSnapshot(rootDir, fs) {
   }
 }
 
-function replaceArticleCountEvidence(content, measurement) {
-  const evidence = formatArticleCountEvidence(measurement.count, measurement.date, 'en');
+function replaceArticleCountEvidence(content, measurement, locale) {
+  const evidence = formatArticleCountEvidence(measurement.count, measurement.date, locale);
   const detailLabel = `**${evidence}**`;
   return content
     .replaceAll('{{FRONTALIERE_ARTICLE_COUNT_EVIDENCE}}', evidence)
@@ -465,7 +465,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const llmsPath = path.join(distDir, 'llms.txt');
   if (fs.existsSync(llmsPath)) {
     let content = fs.readFileSync(llmsPath, 'utf-8');
-      content = replaceArticleCountEvidence(content, articleMeasurement);
+      content = replaceArticleCountEvidence(content, articleMeasurement, 'it');
       content = replaceExchangeRateEvidence(content, exchangeRateSnapshot, 'en');
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
@@ -493,7 +493,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     // Editorial/source dates belong to the seed. Building an index is not a source verification.
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
-    content = replaceArticleCountEvidence(content, articleMeasurement);
+    content = replaceArticleCountEvidence(content, articleMeasurement, 'it');
     content = replaceExchangeRateEvidence(content, exchangeRateSnapshot, 'en');
     // The index moved to llms-index.txt: replace a pointer or a legacy index.
     const markerIdx = [content.indexOf('## Page Index'), content.indexOf('## Complete Page Index (Auto-Generated)')]
@@ -544,7 +544,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     const localeFullPath = path.join(localeDir, 'llms-full.txt');
     if (fs.existsSync(localeFullPath)) {
       const localeFull = fs.readFileSync(localeFullPath, 'utf8');
-      fs.writeFileSync(localeFullPath, replaceExchangeRateEvidence(replaceArticleCountEvidence(localeFull, articleMeasurement), exchangeRateSnapshot, locale));
+      fs.writeFileSync(localeFullPath, replaceExchangeRateEvidence(replaceArticleCountEvidence(localeFull, articleMeasurement, locale), exchangeRateSnapshot, locale));
     }
     if (localeUrls.length === 0) continue;
 
@@ -560,7 +560,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     // conservato. L'elenco per URL ne faceva un file da 7 MB senza Key Facts.
     const localeSeedPath = path.join(publicDir, locale, 'llms.txt');
     const localeSeed = fs.existsSync(localeSeedPath)
-      ? replaceExchangeRateEvidence(replaceArticleCountEvidence(fs.readFileSync(localeSeedPath, 'utf8').trimEnd(), articleMeasurement), exchangeRateSnapshot, locale)
+      ? replaceExchangeRateEvidence(replaceArticleCountEvidence(fs.readFileSync(localeSeedPath, 'utf8').trimEnd(), articleMeasurement, locale), exchangeRateSnapshot, locale)
       : '';
     const content = localeSeed ? `${localeSeed}\n${localeIndex}` : `# Frontaliere Ticino (${header.lang})
 
