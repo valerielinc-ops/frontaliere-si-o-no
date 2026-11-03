@@ -117,6 +117,13 @@ describe('validate-workflow-data', () => {
     const root = path.resolve(import.meta.dirname, '..');
     const missing = `data/__missing-workflow-baseline-${process.pid}.json`;
     expect(readHeadFile(root, missing)).toBeNull();
+    const onDisk = path.join(root, `data/__missing-workflow-baseline-${process.pid}-on-disk.json`);
+    fs.writeFileSync(onDisk, '{"firstWrite":true}\n');
+    try {
+      expect(readHeadFile(root, path.relative(root, onDisk))).toBeNull();
+    } finally {
+      fs.rmSync(onDisk, { force: true });
+    }
     expect(() => readHeadFile(os.tmpdir(), 'data/missing.json')).toThrow(/Impossibile leggere il baseline HEAD/);
   });
 
