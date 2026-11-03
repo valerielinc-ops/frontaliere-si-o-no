@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import {
   DOMAIN_OVERRIDES,
+  VERIFIED_LOGO_SOURCE_URLS,
   auditIssueReason,
   buildResidualReport,
   domainCandidates,
@@ -68,6 +69,7 @@ const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
   switch: ['switch.ch'],
   wokin: ['wokin.ch'],
   'zaugg-ag': ['zaugg.swiss'],
+  zaugg: ['zaugg.swiss'],
 };
 
 const MPA_OFFICIAL_LOGO_URL = 'https://partner.jobbzz.ch/jobbzzFramework/minisites/img/pks-logo-new.png';
@@ -123,6 +125,73 @@ describe('missing company-logo acquisition', () => {
       ...sourceJob,
       url: 'https://pradagroup.com.evil.example/jobs/1',
     })).toBe('prada-group');
+  });
+
+  it('reconciles only verified ZAUGG legacy records to the canonical logo identity', () => {
+    const officialLegacyJob = {
+      company: 'ZAUGG AG',
+      companyKey: 'zaugg-ag',
+      companyDomain: 'www.zaugg.swiss',
+      companyLogoKey: 'zaugg-ag',
+      url: 'https://www.zaugg.swiss/?section=2250&detail1541=1',
+    };
+
+    expect(companyLogoKeyForJob(officialLegacyJob)).toBe('zaugg');
+    expect(resolveCompanyLogoUrl(officialLegacyJob)).toBe('/images/brands/zaugg.png');
+
+    expect(companyLogoKeyForJob({
+      ...officialLegacyJob,
+      companyDomain: 'zaugg-bau.example',
+      url: 'https://zaugg-bau.example/jobs/1',
+    })).toBe('zaugg-ag');
+    expect(companyLogoKeyForJob({
+      ...officialLegacyJob,
+      company: 'Zaugg Bau AG',
+    })).toBe('zaugg-ag');
+    expect(companyLogoKeyForJob({
+      ...officialLegacyJob,
+      url: 'https://zaugg.swiss.evil.example/jobs/1',
+    })).toBe('zaugg-ag');
+
+    const untrustedMetadata = {
+      companyDomains: new Set(['zaugg-bau.example']),
+      urlHosts: new Set(['zaugg-bau.example']),
+    };
+    expect(domainCandidates('zaugg', untrustedMetadata, { fromAudit: true }))
+      .toEqual(['zaugg.swiss']);
+    expect(domainCandidates('zaugg-ag', untrustedMetadata, { fromAudit: true }))
+      .toEqual(['zaugg.swiss']);
+  });
+
+  it('tries the verified ZAUGG media asset before the homepage icon in audit mode', async () => {
+    const sourceUrl = VERIFIED_LOGO_SOURCE_URLS.zaugg[0];
+    const originalFetch = globalThis.fetch;
+    const seen = [];
+    globalThis.fetch = async (url) => {
+      seen.push(url);
+      if (url === sourceUrl) {
+        return new Response(pngBytes(256, 128), {
+          headers: { 'content-type': 'image/png' },
+        });
+      }
+      throw new Error(`unexpected fetch ${url}`);
+    };
+    try {
+      const result = await downloadForKey('zaugg', {
+        companyDomains: new Set(['zaugg.swiss']),
+        urlHosts: new Set(['zaugg.swiss']),
+      }, { fromAudit: true });
+      expect(result).toEqual(expect.objectContaining({
+        accepted: true,
+        source: 'verified-logo-source',
+        sourceDomain: 'zaugg.swiss',
+        width: 256,
+        height: 128,
+      }));
+      expect(seen[0]).toBe(sourceUrl);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
   });
 
   it('does not probe a guessed domain for a future audit key', async () => {
