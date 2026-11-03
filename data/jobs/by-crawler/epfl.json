@@ -6430,12 +6430,12 @@
     },
     {
       "id": "epfl-c829309c5e7e",
-      "slug": "ai-engineer-for-academic-services-and-program-support-epfl-lausanne",
+      "slug": "ingegnere-di-ia-per-i-servizi-accademici-e-il-supporto-ai-programmi-epfl-lausanne",
       "slugByLocale": {
         "en": "ai-engineer-for-academic-services-and-program-support-epfl-lausanne",
-        "it": "ai-engineer-for-academic-services-and-program-support-epfl-lausanne",
-        "de": "ai-engineer-for-academic-services-and-program-support-epfl-lausanne",
-        "fr": "ai-engineer-for-academic-services-and-program-support-epfl-lausanne"
+        "it": "ingegnere-di-ia-per-i-servizi-accademici-e-il-supporto-ai-programmi-epfl-lausanne",
+        "de": "ki-ingenieur-fur-akademische-dienstleistungen-und-programmunterstutzung-epfl-lausanne",
+        "fr": "ingenieur-en-intelligence-artificielle-pour-les-services-academiques-et-le-soutien-aux-programmes-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6501,16 +6501,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:20:32.902Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:20:32.902Z"
+      "firstSeenAt": "2026-11-03T09:20:32.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-for-academic-services-and-program-support-epfl-lausanne"
+        ],
+        "de": [
+          "ai-engineer-for-academic-services-and-program-support-epfl-lausanne"
+        ],
+        "fr": [
+          "ai-engineer-for-academic-services-and-program-support-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-for-academic-services-and-program-support-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-8aca12617bd3",
-      "slug": "administrative-assistant-epfl-lausanne",
+      "slug": "assistente-amministrativo-epfl-lausanne-c39c7d",
       "slugByLocale": {
         "en": "administrative-assistant-epfl-lausanne",
-        "it": "administrative-assistant-epfl-lausanne",
-        "de": "administrative-assistant-epfl-lausanne",
-        "fr": "administrative-assistant-epfl-lausanne"
+        "it": "assistente-amministrativo-epfl-lausanne-c39c7d",
+        "de": "administrative-assistent-epfl-lausanne",
+        "fr": "assistant-administratif-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6575,7 +6589,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:20:32.237Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:20:32.237Z"
+      "firstSeenAt": "2026-11-03T09:20:32.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-epfl-lausanne"
+        ],
+        "de": [
+          "administrative-assistant-epfl-lausanne"
+        ],
+        "fr": [
+          "administrative-assistant-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-ed412469e7dd",

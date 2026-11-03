@@ -1389,12 +1389,12 @@
     },
     {
       "id": "msc-cargo-7c6b74d245d9",
-      "slug": "hr-admin-intern-msc-geneva",
+      "slug": "risorse-umane-admin-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-admin-intern-msc-geneva",
-        "it": "hr-admin-intern-msc-geneva",
-        "de": "hr-admin-intern-msc-geneva",
-        "fr": "hr-admin-intern-msc-geneva"
+        "it": "risorse-umane-admin-tirocinante-msc-group-geneva",
+        "de": "personalwesen-admin-praktikant-msc-group-geneva",
+        "fr": "ressources-humaines-admin-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1460,19 +1460,17 @@
       "firstSeenAt": "2026-10-27T21:26:32.978Z",
       "previousSlugsByLocale": {
         "it": [
-          "risorse-umane-admin-tirocinante-msc-group-geneva"
+          "hr-admin-intern-msc-geneva"
         ],
         "de": [
-          "personalwesen-admin-praktikant-msc-group-geneva"
+          "hr-admin-intern-msc-geneva"
         ],
         "fr": [
-          "ressources-humaines-admin-stagiaire-msc-group-geneva"
+          "hr-admin-intern-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-admin-tirocinante-msc-group-geneva",
-        "personalwesen-admin-praktikant-msc-group-geneva",
-        "ressources-humaines-admin-stagiaire-msc-group-geneva"
+        "hr-admin-intern-msc-geneva"
       ]
     },
     {
@@ -1580,12 +1578,12 @@
     },
     {
       "id": "msc-cargo-bf32d3dcad46",
-      "slug": "destinations-experience-senior-manager-msc-geneva",
+      "slug": "destinazioni-esperienza-senior-manager-msc-group-geneva",
       "slugByLocale": {
         "en": "destinations-experience-senior-manager-msc-geneva",
-        "it": "destinations-experience-senior-manager-msc-geneva",
-        "de": "destinations-experience-senior-manager-msc-geneva",
-        "fr": "destinations-experience-senior-manager-msc-geneva"
+        "it": "destinazioni-esperienza-senior-manager-msc-group-geneva",
+        "de": "destinationen-erfahrung-senior-manager-msc-group-geneva",
+        "fr": "destinations-experience-gestionnaire-principal-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1651,29 +1649,27 @@
       "firstSeenAt": "2026-10-06T21:17:29.732Z",
       "previousSlugsByLocale": {
         "it": [
-          "destinazioni-esperienza-senior-manager-msc-group-geneva",
           "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
           "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
           "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
-          "destinations-experience-senior-manager-river-msc-geneva"
+          "destinations-experience-senior-manager-river-msc-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ],
         "de": [
-          "destinationen-erfahrung-senior-manager-msc-group-geneva",
-          "destinationen-erfahrung-senior-manager-river-msc-group-geneva"
+          "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ],
         "fr": [
-          "destinations-experience-gestionnaire-principal-msc-group-geneva",
-          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva"
+          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "destinazioni-esperienza-senior-manager-msc-group-geneva",
-        "destinationen-erfahrung-senior-manager-msc-group-geneva",
-        "destinations-experience-gestionnaire-principal-msc-group-geneva",
         "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
         "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
         "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
-        "destinations-experience-senior-manager-river-msc-geneva"
+        "destinations-experience-senior-manager-river-msc-geneva",
+        "destinations-experience-senior-manager-msc-geneva"
       ]
     },
     {

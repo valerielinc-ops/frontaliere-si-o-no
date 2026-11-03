@@ -3587,10 +3587,10 @@
     },
     {
       "id": "hug-9a4aeaa6b5c3",
-      "slug": "gestionnaire-rh-100-hug-geneve",
+      "slug": "hr-manager-100-hug-geneve",
       "slugByLocale": {
         "fr": "gestionnaire-rh-100-hug-geneve",
-        "it": "gestionnaire-rh-100-hug-geneve",
+        "it": "hr-manager-100-hug-geneve",
         "en": "gestionnaire-rh-100-hug-geneve",
         "de": "gestionnaire-rh-100-hug-geneve"
       },
@@ -3656,16 +3656,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:18:45.070Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:18:45.070Z"
+      "firstSeenAt": "2026-11-03T09:18:45.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-rh-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-rh-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-be7a15b9528a",
-      "slug": "medecin-interne-en-maladies-infectieuses-100-hug-geneve",
+      "slug": "medico-interno-per-malattie-infettive-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-en-maladies-infectieuses-100-hug-geneve",
-        "it": "medecin-interne-en-maladies-infectieuses-100-hug-geneve",
-        "en": "medecin-interne-en-maladies-infectieuses-100-hug-geneve",
-        "de": "medecin-interne-en-maladies-infectieuses-100-hug-geneve"
+        "it": "medico-interno-per-malattie-infettive-100-hug-geneve",
+        "en": "internal-physician-for-infectious-diseases-100-hug-geneve",
+        "de": "interner-arzt-fur-infektionskrankheiten-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3728,16 +3736,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:18:45.068Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:18:45.068Z"
+      "firstSeenAt": "2026-11-03T09:18:45.068Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-en-maladies-infectieuses-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-en-maladies-infectieuses-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-en-maladies-infectieuses-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-en-maladies-infectieuses-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-680e964116c9",
-      "slug": "correspondant-ou-correspondante-informatique-80-hug-geneve",
+      "slug": "corrispondente-al-computer-80-hug-geneve",
       "slugByLocale": {
         "fr": "correspondant-ou-correspondante-informatique-80-hug-geneve",
-        "it": "correspondant-ou-correspondante-informatique-80-hug-geneve",
-        "en": "correspondant-ou-correspondante-informatique-80-hug-geneve",
-        "de": "correspondant-ou-correspondante-informatique-80-hug-geneve"
+        "it": "corrispondente-al-computer-80-hug-geneve",
+        "en": "computer-correspondent-80-hug-geneve",
+        "de": "computerkorrespondent-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3800,7 +3822,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:18:45.066Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:18:45.066Z"
+      "firstSeenAt": "2026-11-03T09:18:45.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "correspondant-ou-correspondante-informatique-80-hug-geneve"
+        ],
+        "en": [
+          "correspondant-ou-correspondante-informatique-80-hug-geneve"
+        ],
+        "de": [
+          "correspondant-ou-correspondante-informatique-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "correspondant-ou-correspondante-informatique-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-b6935b091d0d",
@@ -3888,12 +3924,12 @@
     },
     {
       "id": "hug-aefa373d9eed",
-      "slug": "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve",
+      "slug": "responsabile-della-clinica-malattia-infettiva-50-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve",
-        "it": "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve",
-        "de": "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve"
+        "it": "responsabile-della-clinica-malattia-infettiva-50-al-100-hug-geneve",
+        "en": "head-of-infectious-disease-clinic-50-to-100-hug-geneve",
+        "de": "leiterin-der-klinik-fur-infektionskrankheiten-50-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3956,7 +3992,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:18:45.059Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:18:45.059Z"
+      "firstSeenAt": "2026-11-03T09:18:45.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-en-maladies-infectieuses-50-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-ae05046d3eac",

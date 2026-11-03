@@ -5401,12 +5401,12 @@
     },
     {
       "id": "kanton-zuerich-4899c2144efb",
-      "slug": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
+      "slug": "assistente-sociale-scolastico-a-presso-la-scuola-primaria-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
       "slugByLocale": {
         "de": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis",
-        "it": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
-        "en": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
-        "fr": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
+        "it": "assistente-sociale-scolastico-a-presso-la-scuola-primaria-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
+        "en": "school-social-worker-hausen-am-albis-primary-school-kantonale-verwaltung-zurich-hausen-am-albis",
+        "fr": "travailleur-euse-social-e-scolaire-ecole-primaire-de-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5458,11 +5458,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis"
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis",
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
         ]
       },
       "previousSlugs": [
-        "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis"
+        "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis",
+        "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6475,12 +6483,12 @@
     },
     {
       "id": "kanton-zuerich-3eb953e77ad0",
-      "slug": "reinigungsmitarbeiter-in-per-den-spatdienst-kantonale-verwaltung-zurich",
+      "slug": "addetto-a-alle-pulizie-per-il-turno-serale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-in-fur-den-spatdienst-kanton-zuerich-zurich",
-        "it": "reinigungsmitarbeiter-in-per-den-spatdienst-kantonale-verwaltung-zurich",
-        "en": "reinigungsmitarbeiter-in-fur-den-spatdienst-kantonale-verwaltung-zurich-zurich",
-        "fr": "reinigungsmitarbeiter-in-fur-den-spatdienst-kantonale-verwaltung-zurich-zurich"
+        "it": "addetto-a-alle-pulizie-per-il-turno-serale-kantonale-verwaltung-zurich-zurich",
+        "en": "cleaning-staff-member-for-the-late-shift-kantonale-verwaltung-zurich-zurich",
+        "fr": "employe-e-de-nettoyage-pour-le-service-du-soir-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6532,11 +6540,20 @@
       "pensum": "80 - 90%",
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsmitarbeiter-in-fur-den-spatdienst-kanton-zuerich-zurich"
+          "reinigungsmitarbeiter-in-fur-den-spatdienst-kanton-zuerich-zurich",
+          "reinigungsmitarbeiter-in-per-den-spatdienst-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "reinigungsmitarbeiter-in-fur-den-spatdienst-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "reinigungsmitarbeiter-in-fur-den-spatdienst-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsmitarbeiter-in-fur-den-spatdienst-kanton-zuerich-zurich"
+        "reinigungsmitarbeiter-in-fur-den-spatdienst-kanton-zuerich-zurich",
+        "reinigungsmitarbeiter-in-per-den-spatdienst-kantonale-verwaltung-zurich",
+        "reinigungsmitarbeiter-in-fur-den-spatdienst-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13980,12 +13997,12 @@
     },
     {
       "id": "kanton-zuerich-25e8e359c1a3",
-      "slug": "bsa-fachberater-in-kanton-zuerich-urdorf",
+      "slug": "consulente-specializzato-a-bsa-kantonale-verwaltung-zurich-urdorf",
       "slugByLocale": {
         "de": "bsa-fachberater-in-kanton-zuerich-urdorf",
-        "it": "bsa-fachberater-in-kanton-zuerich-urdorf",
-        "en": "bsa-fachberater-in-kanton-zuerich-urdorf",
-        "fr": "bsa-fachberater-in-kanton-zuerich-urdorf"
+        "it": "consulente-specializzato-a-bsa-kantonale-verwaltung-zurich-urdorf",
+        "en": "bsa-specialist-advisor-kantonale-verwaltung-zurich-urdorf",
+        "fr": "conseiller-ere-specialise-e-bsa-kantonale-verwaltung-zurich-urdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14052,7 +14069,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:36:14.596Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:36:14.596Z"
+      "firstSeenAt": "2026-11-03T09:36:14.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bsa-fachberater-in-kanton-zuerich-urdorf"
+        ],
+        "en": [
+          "bsa-fachberater-in-kanton-zuerich-urdorf"
+        ],
+        "fr": [
+          "bsa-fachberater-in-kanton-zuerich-urdorf"
+        ]
+      },
+      "previousSlugs": [
+        "bsa-fachberater-in-kanton-zuerich-urdorf"
+      ]
     },
     {
       "id": "kanton-zuerich-d1e710d543f2",

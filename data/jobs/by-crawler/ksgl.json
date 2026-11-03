@@ -1550,12 +1550,12 @@
     },
     {
       "id": "ksgl-0d4db7b996f7",
-      "slug": "praktikant-in-pflege-medizin-ksgl-glarus",
+      "slug": "tirocinante-cure-infermieristiche-medicina-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "de": "praktikant-in-pflege-medizin-ksgl-glarus",
-        "it": "praktikant-in-pflege-medizin-ksgl-glarus",
-        "en": "praktikant-in-pflege-medizin-ksgl-glarus",
-        "fr": "praktikant-in-pflege-medizin-ksgl-glarus"
+        "it": "tirocinante-cure-infermieristiche-medicina-kantonsspital-glarus-ksgl-glarus",
+        "en": "nursing-intern-medicine-kantonsspital-glarus-ksgl-glarus",
+        "fr": "stagiaire-en-soins-medicaux-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1618,16 +1618,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:16:10.439Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:16:10.439Z"
+      "firstSeenAt": "2026-11-03T09:16:10.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-medizin-ksgl-glarus"
+        ],
+        "en": [
+          "praktikant-in-pflege-medizin-ksgl-glarus"
+        ],
+        "fr": [
+          "praktikant-in-pflege-medizin-ksgl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-medizin-ksgl-glarus"
+      ]
     },
     {
       "id": "ksgl-51cbe286a843",
-      "slug": "oberarztin-oberarzt-padiatrie-ksgl-glarus",
+      "slug": "medico-senior-medico-senior-pediatrics-kantonsspital-glarus-ksgl-glarus-4286df",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-padiatrie-ksgl-glarus",
-        "it": "oberarztin-oberarzt-padiatrie-ksgl-glarus",
-        "en": "oberarztin-oberarzt-padiatrie-ksgl-glarus",
-        "fr": "oberarztin-oberarzt-padiatrie-ksgl-glarus"
+        "it": "medico-senior-medico-senior-pediatrics-kantonsspital-glarus-ksgl-glarus-4286df",
+        "en": "senior-physician-senior-physician-pediatrics-kantonsspital-glarus-ksgl-glarus-4286df",
+        "fr": "medecin-superieur-medecin-superieur-pediatre-kantonsspital-glarus-ksgl-glarus-4286df"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1689,7 +1703,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:16:07.039Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-07T01:18:12.270Z"
+      "firstSeenAt": "2026-08-07T01:18:12.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-padiatrie-ksgl-glarus"
+        ],
+        "en": [
+          "oberarztin-oberarzt-padiatrie-ksgl-glarus"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-padiatrie-ksgl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-padiatrie-ksgl-glarus"
+      ]
     }
   ]
 }

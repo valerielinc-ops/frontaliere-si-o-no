@@ -19650,8 +19650,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-80-hirslanden-klinik-beau-site",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site"
+        "en": "employee-housekeeping-a-80-hirslanden-klinik-hirslanden-klinik-beau-site",
+        "fr": "employe-menage-a-80-hirslanden-klinik-hirslanden-klinik-beau-site"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -19699,6 +19699,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-beau-site"
         ]
       },
@@ -28560,12 +28566,12 @@
     {
       "id": "hirslanden-c7215b0a1cf4",
       "externalId": "1453697633",
-      "slug": "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik",
+      "slug": "infermiera-generale-medicina-interna-a-60-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik",
-        "it": "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik",
-        "en": "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik",
-        "fr": "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik"
+        "it": "infermiera-generale-medicina-interna-a-60-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "dipl-nurse-general-internal-medicine-a-60-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "infirmiere-generale-en-medecine-interne-a-60-100-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28627,7 +28633,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:19:35.404Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:19:35.404Z"
+      "firstSeenAt": "2026-11-03T09:19:35.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik"
+        ],
+        "en": [
+          "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-allgemeine-innere-medizin-a-60-100-hirslanden-hirslanden-klinik"
+      ]
     },
     {
       "id": "hirslanden-becdbc294036",

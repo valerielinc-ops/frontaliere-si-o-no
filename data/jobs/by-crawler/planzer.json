@@ -751,12 +751,12 @@
     },
     {
       "id": "planzer-37b58f505fda",
-      "slug": "junior-disponent-m-w-d-planzer-villmergen",
+      "slug": "junior-dispone-di-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "junior-disponent-m-w-d-planzer-villmergen",
-        "it": "junior-disponent-m-w-d-planzer-villmergen",
+        "it": "junior-dispone-di-m-f-d-planzer-villmergen",
         "en": "junior-disponent-m-w-d-planzer-villmergen",
-        "fr": "junior-disponent-m-w-d-planzer-villmergen"
+        "fr": "detenteur-junior-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -819,7 +819,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:18:05.535Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:18:05.535Z"
+      "firstSeenAt": "2026-11-03T09:18:05.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-disponent-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "junior-disponent-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "junior-disponent-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-9f4e51bc5b5d",

@@ -7395,7 +7395,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -7442,7 +7442,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7451,7 +7451,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -13977,10 +13977,10 @@
       "id": "lonza-f22b92697afe",
       "slug": "associate-direttore-treasury-lonza-basel",
       "slugByLocale": {
-        "it": "associate-direttore-treasury-lonza-basel",
+        "it": "tesoriere-aggiunto-lonza-basel",
         "en": "deputy-treasurer-lonza-ch",
-        "de": "associate-direktor-treasury-lonza-basel",
-        "fr": "associate-directeur-treasury-lonza-basel"
+        "de": "stellvertretender-schatzmeister-lonza-basel",
+        "fr": "tresorier-adjoint-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14025,16 +14025,15 @@
       "previousSlugsByLocale": {
         "it": [
           "deputy-treasurer-lonza-ch",
-          "associate-director-treasury-lonza-ch",
-          "tesoriere-aggiunto-lonza-basel"
+          "associate-director-treasury-lonza-ch"
         ],
         "de": [
           "deputy-treasurer-lonza-ch",
-          "stellvertretender-schatzmeister-lonza-basel"
+          "associate-direktor-treasury-lonza-basel"
         ],
         "fr": [
           "deputy-treasurer-lonza-ch",
-          "tresorier-adjoint-lonza-basel"
+          "associate-directeur-treasury-lonza-basel"
         ],
         "en": [
           "associate-director-treasury-lonza-ch"
@@ -14043,9 +14042,8 @@
       "previousSlugs": [
         "deputy-treasurer-lonza-ch",
         "associate-director-treasury-lonza-ch",
-        "tesoriere-aggiunto-lonza-basel",
-        "stellvertretender-schatzmeister-lonza-basel",
-        "tresorier-adjoint-lonza-basel"
+        "associate-direktor-treasury-lonza-basel",
+        "associate-directeur-treasury-lonza-basel"
       ],
       "firstSeenAt": "2026-10-07T21:18:41.409Z",
       "salaryMin": 85500,
@@ -16760,12 +16758,12 @@
     },
     {
       "id": "lonza-9456b047c5b6",
-      "slug": "fahrer-in-per-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-visp",
+      "slug": "autista-per-trasporti-sicuri-e-sostenibili-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch",
-        "it": "fahrer-in-per-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-visp",
-        "en": "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch",
-        "fr": "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch"
+        "it": "autista-per-trasporti-sicuri-e-sostenibili-80-100-m-f-d-lonza-visp",
+        "en": "driver-for-safe-sustainable-transportation-80-100-m-f-d-lonza-visp",
+        "fr": "conducteur-trice-pour-des-transports-surs-durables-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -16812,11 +16810,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch",
+          "fahrer-in-per-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-visp"
+        ],
+        "en": [
+          "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch"
+        "fahrer-in-fur-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-ch",
+        "fahrer-in-per-sichere-nachhaltige-transporte-80-100-m-w-d-lonza-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -17387,7 +17393,7 @@
         "it": "scienziato-senior-qc-lonza-visp",
         "en": "senior-scientist-qc-lonza-visp",
         "de": "senior-scientist-qc-lonza-ch",
-        "fr": "scientifique-senior-controle-qualite-lonza-visp"
+        "fr": "chercheur-principal-qc-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17431,7 +17437,7 @@
       "jobReqId": "R79913",
       "previousSlugs": [
         "senior-scientist-qc-lonza-ch",
-        "chercheur-principal-qc-lonza-visp"
+        "scientifique-senior-controle-qualite-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17439,7 +17445,7 @@
         ],
         "fr": [
           "senior-scientist-qc-lonza-ch",
-          "chercheur-principal-qc-lonza-visp"
+          "scientifique-senior-controle-qualite-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-09-01T14:27:30.004Z",

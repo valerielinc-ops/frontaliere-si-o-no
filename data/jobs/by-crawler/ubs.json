@@ -9785,7 +9785,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9838,11 +9838,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -12432,12 +12436,12 @@
     },
     {
       "id": "ubs-1dd17ea236cb",
-      "slug": "collaboratore-trice-hypotheken-e-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich",
+      "slug": "collaboratore-trice-per-ipoteche-e-registro-fondiario-a-tempo-determinato-fino-a-luglio-2027-ubs-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich",
-        "it": "collaboratore-trice-hypotheken-e-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich",
-        "en": "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich",
-        "fr": "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich"
+        "it": "collaboratore-trice-per-ipoteche-e-registro-fondiario-a-tempo-determinato-fino-a-luglio-2027-ubs-zurich",
+        "en": "mortgage-and-land-registry-employee-fixed-term-until-july-2027-ubs-zurich",
+        "fr": "collaborateur-trice-en-hypotheques-et-registre-foncier-poste-a-duree-determinee-jusqu-en-juillet-2027-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12493,11 +12497,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich",
+          "collaboratore-trice-hypotheken-e-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich"
+        "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich",
+        "collaboratore-trice-hypotheken-e-grundbuchwesen-befristet-bis-juli-2027-ubs-zurich"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,

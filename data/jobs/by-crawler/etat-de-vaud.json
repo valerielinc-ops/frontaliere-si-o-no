@@ -3181,12 +3181,12 @@
     },
     {
       "id": "etat-de-vaud-6096",
-      "slug": "chef-fe-de-chancellerie-etat-de-vaud-lausanne",
+      "slug": "capo-della-cancelleria-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-chancellerie-etat-de-vaud-lausanne",
-        "it": "chef-fe-de-chancellerie-etat-de-vaud-lausanne",
-        "en": "chef-fe-de-chancellerie-etat-de-vaud-lausanne",
-        "de": "chef-fe-de-chancellerie-etat-de-vaud-lausanne"
+        "it": "capo-della-cancelleria-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "head-of-chancery-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "leiterin-von-chancery-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3248,16 +3248,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:33:13.427Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:33:13.427Z"
+      "firstSeenAt": "2026-11-03T09:33:13.427Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-chancellerie-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-chancellerie-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-chancellerie-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-chancellerie-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6063",
-      "slug": "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne",
+      "slug": "rete-stradale-leader-del-progetto-e-spazi-pubblici-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne",
-        "it": "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne",
-        "en": "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne",
-        "de": "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne"
+        "it": "rete-stradale-leader-del-progetto-e-spazi-pubblici-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "project-leader-road-network-and-public-spaces-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "projektleiter-stra-ennetz-und-offentliche-raume-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3319,7 +3333,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:33:12.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T09:33:12.969Z"
+      "firstSeenAt": "2026-11-03T09:33:12.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-reseau-routier-et-espaces-publics-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6025",

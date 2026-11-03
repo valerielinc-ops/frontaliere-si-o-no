@@ -1545,12 +1545,12 @@
     },
     {
       "id": "hopital-du-valais-0cdc30c0c48d",
-      "slug": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
+      "slug": "medico-senior-80-100-medicina-di-emergenza-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
-        "it": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
-        "en": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
-        "fr": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        "it": "medico-senior-80-100-medicina-di-emergenza-hopital-du-valais-visp",
+        "en": "senior-physician-80-100-emergency-medicine-hopital-du-valais-visp",
+        "fr": "medecin-senior-80-100-medecine-d-urgence-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1614,7 +1614,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:17:13.140Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T21:17:23.847Z"
+      "firstSeenAt": "2026-10-09T21:17:23.847Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        ],
+        "en": [
+          "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-71de31933ca3",
@@ -3515,7 +3529,7 @@
       "slugByLocale": {
         "de": "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
         "en": "emergency-medicine-physician-or-vice-chief-physician-hopital-du-valais-visp",
-        "fr": "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
+        "fr": "medecin-en-medecine-d-urgence-ou-medecin-chef-adjoint-hopital-du-valais-visp",
         "it": "medico-di-emergenza-o-vice-capo-medico-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
@@ -3567,12 +3581,11 @@
           "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
         ],
         "fr": [
-          "medecin-en-medecine-d-urgence-ou-medecin-chef-adjoint-hopital-du-valais-visp"
+          "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
         ]
       },
       "previousSlugs": [
-        "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
-        "medecin-en-medecine-d-urgence-ou-medecin-chef-adjoint-hopital-du-valais-visp"
+        "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
       ],
       "salaryMin": 43300,
       "salaryMax": 60300,
