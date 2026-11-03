@@ -158,7 +158,7 @@ async function submitApplication(context: Record<string, any>) {
     submissionGuard: {
       claim: async () => ({ status: 'claimed', attemptId: 'test-attempt' }),
       markClicked: async () => {},
-      markSent: async () => ({ receiptId: 'a'.repeat(40) }),
+      markSent: async () => null,
       release: async () => {},
     },
   });
