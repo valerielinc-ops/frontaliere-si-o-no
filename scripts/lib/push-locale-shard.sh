@@ -75,6 +75,14 @@ case "$loc" in
   en|de|fr) ;;
   *) echo "::error::unsupported locale '$loc' (expected en|de|fr)" >&2; exit 1 ;;
 esac
+if [ ! -d "$dist_dir" ]; then
+  echo "::error::locale shard source directory '$dist_dir' does not exist" >&2
+  exit 1
+fi
+if ! dist_dir="$(cd -- "$dist_dir" && pwd)"; then
+  echo "::error::could not resolve locale shard source directory '$dist_dir'" >&2
+  exit 1
+fi
 SHARD_REPO="${SHARD_REPO_OVERRIDE:-git@github.com:valerielinc-ops/frontaliere-$loc.git}"
 
 # RUNNER_TEMP is set in GitHub Actions; outside it (local runs) fall back to a

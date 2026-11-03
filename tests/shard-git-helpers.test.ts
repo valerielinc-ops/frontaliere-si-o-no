@@ -157,6 +157,16 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
     }
   });
 
+  it('anchors the locale build directory before changing into the staging repo', () => {
+    const source = readFileSync(join(process.cwd(), 'scripts/lib/push-locale-shard.sh'), 'utf8');
+    const resolvedDist = source.indexOf('dist_dir="$(cd -- "$dist_dir" && pwd)"');
+    const firstPush = source.indexOf('push_shard "$loc"');
+
+    expect(resolvedDist).toBeGreaterThan(-1);
+    expect(firstPush).toBeGreaterThan(resolvedDist);
+    expect(source).toContain('locale shard source directory');
+  });
+
   describe('shard_orphan_init', () => {
     it('creates a fresh repo on branch main with zero commits', () => {
       const dir = join(root, 'orphan-init-target');
