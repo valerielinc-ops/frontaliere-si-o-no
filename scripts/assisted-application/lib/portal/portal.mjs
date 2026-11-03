@@ -193,7 +193,11 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
     const applyId = /^\/talentcommunity\/apply\/([^/]+)\/?$/i.exec(apply.pathname)?.[1];
-    const postingId = /^\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
+    // SuccessFactors CSB tenants may prefix the canonical job route with one
+    // tenant/locale segment (the shared crawler emits both `/job/...` and
+    // `/<tenant>/job/...`). Keep the same single-segment boundary here so the
+    // verified posting provenance survives on those tenants too.
+    const postingId = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
     return apply.origin === posting.origin && Boolean(applyId) && postingId === applyId;
   } catch {
     return false;
