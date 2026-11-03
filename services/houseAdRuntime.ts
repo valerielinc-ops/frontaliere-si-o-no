@@ -141,7 +141,7 @@ export function installHouseAds(
   }
   function schedule() { if (scheduled) return; scheduled = setTimeout(() => { scheduled = undefined; refresh(); }, 100); }
   const style = document.createElement('style'); style.id = 'ft-house-creative-style';
-  style.textContent = css + '\n[data-house]{position:relative;min-width:0}[data-ft-house-host]{display:none}[data-house][data-ft-house-active]{min-height:var(--ft-house-height)}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:var(--ft-house-height);z-index:1}:where([data-house]):has(>ins[data-ft-static-ad-collapsed]):not([data-ft-house-active]),:where(div,li,section):has(>[data-house]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
+  style.textContent = css + '\n[data-house]{position:relative;min-width:0}[data-ft-house-host]{display:none}:where([data-house][data-ft-house-active]){min-height:var(--ft-house-height)}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:100%;container-type:size;z-index:1}:where([data-house]):has(>ins[data-ft-static-ad-collapsed]):not([data-ft-house-active]),:where(div,li,section):has(>[data-house]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
   document.head.append(style);
   // Public allowlist only. A missing/failed config renders the safe control
   // without enrolling; no late variant switch after the first creative appears.

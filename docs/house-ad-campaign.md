@@ -27,10 +27,13 @@ Dodici fotografie originali GPT Image, una verticale e una panoramica per
 famiglia, pesano complessivamente 727.580 byte in WebP. Il manifest
 `docs/house-ad-creatives.json` conserva prompt, provenienza, dimensioni e SHA-256.
 I sei layout coprono mobile banner, mobile large, rectangle, leaderboard,
-billboard e skyscraper. Le dodici dimensioni di verifica sono 320×50, 320×100,
+billboard e skyscraper. Le tredici dimensioni di verifica sono 320×50, 320×100,
 300×250, 336×280, 728×90, 970×90, 970×250, 160×600, 300×600, 253×220,
-918×220 e 970×1100. Le riserve effettive dello slot vengono conservate, senza
+918×220, 970×1100 e 970×1790. Le riserve effettive dello slot vengono conservate, senza
 forzare 220 px a 250 px; gli spazi estesi usano una fotografia verticale.
+Sopra 1400 px di altezza il billboard usa una composizione verticale, con foto
+sopra il messaggio. L’host riempie la riserva CSS effettiva: la sua regola
+`min-height` a specificità zero conserva il reserve desktop da 1790 px.
 Le quattro lingue sono italiano, inglese, tedesco e francese.
 
 Inter, Space Grotesk e i token semantici del sito restano la sorgente visiva,
