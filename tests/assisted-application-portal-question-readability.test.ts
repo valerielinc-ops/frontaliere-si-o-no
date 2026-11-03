@@ -480,6 +480,64 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
+it('batches mounted later-step ATS questions in one read-only pre-read', async () => {
+  const url = 'https://jobs.lever.co/example/1/apply';
+  const visible = {
+    url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
+    fields: [
+      { id: 'cv', kind: 'file', label: 'CV', required: true },
+      { id: 'first', kind: 'text', label: 'Why do you want this role?', required: true },
+    ],
+  };
+  const mounted = {
+    ...visible,
+    fields: [...visible.fields, { id: 'later', kind: 'text', label: 'Describe a professional achievement relevant to this role?', required: true }],
+  };
+  const frame = {
+    evaluate: vi.fn(async (_fn: unknown, options: { includeHidden?: boolean } = {}) => options.includeHidden ? mounted : visible),
+  };
+  const next = vi.fn();
+  const page = {
+    frames: () => [frame], url: () => url, goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false),
+    waitForLoadState: vi.fn(async () => {}), waitForTimeout: vi.fn(async () => {}), click: next,
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async ({ prompt }: { prompt: string }) => {
+    if (prompt.includes('You localize questions from an online job application')) {
+      const start = prompt.lastIndexOf('\n\n{');
+      const end = prompt.indexOf('\n\nReturn exactly one JSON object', start);
+      const input = JSON.parse(prompt.slice(start + 2, end));
+      return { questions: (input.questions || []).map((question: any) => ({
+        id: question.id,
+        sourceLocale: 'en',
+        question: question.applicationQuestion,
+        why: 'The portal requires this information.',
+        options: question.options || [],
+        optionMap: question.optionMap || [],
+        validationMessage: 'Enter a valid answer.',
+      })) };
+    }
+    return {
+      actions: [],
+      missingRequired: [
+        { fieldId: 'first', question: 'Why do you want this role?', type: 'text', options: [] },
+        { fieldId: 'later', question: 'Describe a professional achievement relevant to this role?', type: 'text', options: [] },
+      ],
+    };
+  });
+  const result = await readPortalRequirements({
+    channelType: 'lever', applyUrl: url, language: 'en', candidateLocale: 'en',
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+    'Why do you want this role?', 'Describe a professional achievement relevant to this role?',
+  ]);
+  expect(frame.evaluate.mock.calls.some(([, options]) => options?.includeHidden === true)).toBe(true);
+  expect(next).not.toHaveBeenCalled();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('does not expose fallback-language questions from a pre-read when localization is unavailable', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const snapshot = {

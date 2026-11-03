@@ -29,7 +29,7 @@ import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition } from './assistedApplicationFlow.js';
+import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
@@ -366,6 +366,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       toState: persistedFlow.state,
       round: persistedFlow.round,
       ...(accountFailure ? { accountFailure } : {}),
+      ...(candidateRequestTelemetryOf(event.candidateRequestTelemetry)
+        ? { candidateRequestTelemetry: candidateRequestTelemetryOf(event.candidateRequestTelemetry) } : {}),
     }));
     outcome = { ok: true, fromState: flow.state, flow: nextFlow, effects: result.effects };
   });
@@ -705,6 +707,8 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     questions: Array.isArray(data.questions) ? data.questions.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     documents: Array.isArray(data.documents) ? data.documents.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
+    ...(candidateRequestTelemetryOf(data.candidateRequestTelemetry)
+      ? { candidateRequestTelemetry: candidateRequestTelemetryOf(data.candidateRequestTelemetry) } : {}),
   };
   const result = await applyAutomationEvent({
     db,

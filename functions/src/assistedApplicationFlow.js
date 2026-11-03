@@ -238,6 +238,9 @@ function base(flow) {
     questionAnswers: flow?.questionAnswers && typeof flow.questionAnswers === 'object' && !Array.isArray(flow.questionAnswers)
       ? { ...flow.questionAnswers }
       : {},
+    ...(candidateRequestTelemetryState(flow?.candidateRequestTelemetry)
+      ? { candidateRequestTelemetry: candidateRequestTelemetryState(flow.candidateRequestTelemetry) }
+      : {}),
     answerSuggestionDismissals: flow?.answerSuggestionDismissals
       && Number.isInteger(Number(flow.answerSuggestionDismissals.round))
       && Number(flow.answerSuggestionDismissals.round) > 0
@@ -406,6 +409,58 @@ function questionDescriptor(question) {
   const id = typeof question.id === 'string' || typeof question.id === 'number' ? String(question.id).trim() : '';
   if (!id) return null;
   return { ...question, id };
+}
+
+const MAX_CANDIDATE_REQUEST_ROUND = 1000;
+const MAX_CANDIDATE_REQUEST_QUESTIONS = 20;
+
+/** Safe, answer-free metadata emitted with a portal candidate-request round. */
+export function candidateRequestTelemetryOf(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const round = Number(value.round);
+  const questionCount = Number(value.questionCount);
+  if (!Number.isInteger(round) || round < 1 || round > MAX_CANDIDATE_REQUEST_ROUND
+    || !Number.isInteger(questionCount) || questionCount < 0 || questionCount > MAX_CANDIDATE_REQUEST_QUESTIONS
+    || typeof value.afterNewlyRevealedPortalFields !== 'boolean') return null;
+  return { round, questionCount, afterNewlyRevealedPortalFields: value.afterNewlyRevealedPortalFields };
+}
+
+function candidateRequestTelemetryState(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const rounds = Number(value.rounds);
+  const newlyRevealedRounds = Number(value.newlyRevealedRounds);
+  const lastRound = Number(value.lastRound);
+  const lastQuestionCount = Number(value.lastQuestionCount);
+  if (!Number.isInteger(rounds) || rounds < 0 || rounds > MAX_CANDIDATE_REQUEST_ROUND
+    || !Number.isInteger(newlyRevealedRounds) || newlyRevealedRounds < 0 || newlyRevealedRounds > rounds
+    || !Number.isInteger(lastRound) || lastRound < 0 || lastRound > MAX_CANDIDATE_REQUEST_ROUND
+    || !Number.isInteger(lastQuestionCount) || lastQuestionCount < 0 || lastQuestionCount > MAX_CANDIDATE_REQUEST_QUESTIONS
+    || (lastRound > 0 && typeof value.lastAfterNewlyRevealedPortalFields !== 'boolean')) return null;
+  return {
+    rounds,
+    newlyRevealedRounds,
+    lastRound,
+    lastQuestionCount,
+    ...(lastRound > 0 ? { lastAfterNewlyRevealedPortalFields: value.lastAfterNewlyRevealedPortalFields } : {}),
+  };
+}
+
+function recordCandidateRequestTelemetry(next, value) {
+  const report = candidateRequestTelemetryOf(value);
+  if (!report) return;
+  const previous = candidateRequestTelemetryState(next.candidateRequestTelemetry) || {
+    rounds: 0, newlyRevealedRounds: 0, lastRound: 0, lastQuestionCount: 0,
+  };
+  const isNewRound = report.round > previous.rounds;
+  next.candidateRequestTelemetry = {
+    rounds: Math.max(previous.rounds, report.round),
+    newlyRevealedRounds: Math.min(MAX_CANDIDATE_REQUEST_ROUND,
+      previous.newlyRevealedRounds + (isNewRound && report.afterNewlyRevealedPortalFields ? 1 : 0)),
+    lastRound: isNewRound || report.round >= previous.lastRound ? report.round : previous.lastRound,
+    lastQuestionCount: isNewRound || report.round >= previous.lastRound ? report.questionCount : previous.lastQuestionCount,
+    lastAfterNewlyRevealedPortalFields: isNewRound || report.round >= previous.lastRound
+      ? report.afterNewlyRevealedPortalFields : previous.lastAfterNewlyRevealedPortalFields,
+  };
 }
 
 function normalizedQuestionPart(value) {
@@ -818,6 +873,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
       }).filter(Boolean))];
       const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      recordCandidateRequestTelemetry(next, event.candidateRequestTelemetry);
       const attempts = Number(flow?.dispatch?.attempts) || 1;
       // An unidentifiable question gives the candidate nothing they can act
       // on. Treat it as an unsupported portal stop so the owner can retry

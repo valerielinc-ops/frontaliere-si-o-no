@@ -780,6 +780,18 @@ describe('portal field extraction', () => {
     expect(extract(html).fields.map((field: any) => field.label)).toEqual(['First question *']);
     expect(extract(html, 'https://live.solique.ch/apply', { includeHidden: true }).fields.map((field: any) => field.label))
       .toEqual(['First question *', 'Later question *']);
+    const conditional = `<form>
+      <label for="first">First question *</label><input id="first" required>
+      <div aria-hidden="true"><label for="conditional">Conditional question *</label><input id="conditional" required></div>
+    </form>`;
+    expect(extract(conditional, 'https://live.solique.ch/apply', { includeHidden: true }).fields.map((field: any) => field.label))
+      .toEqual(['First question *']);
+    const cssConditional = `<form>
+      <label for="first">First question *</label><input id="first" required>
+      <div style="display:none"><label for="css-conditional">CSS-hidden question *</label><input id="css-conditional" required></div>
+    </form>`;
+    expect(extract(cssConditional, 'https://live.solique.ch/apply', { includeHidden: true }).fields.map((field: any) => field.label))
+      .toEqual(['First question *']);
   });
 
   it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {
