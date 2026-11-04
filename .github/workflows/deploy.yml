@@ -1235,8 +1235,14 @@ jobs:
       # URL set before pruning the other locales, then hand the exact set to
       # deploy-publish.yml so an incomplete artifact cannot reach a shard push.
       - name: Reject generated HTML under dotfile paths
-        if: matrix.locale == 'it'
         run: npm run audit:no-dotfile-html
+
+      # The Pages payload is published by the IT leg. Non-IT locale artifacts
+      # run the same blocking schema check in deploy-publish after finalization,
+      # before any shard push.
+      - name: Validate IT JobPosting schema before artifact upload
+        if: matrix.locale == 'it'
+        run: npm run validate:jobposting-schema
 
       - name: Validate owned sitemap pages before locale prune
         id: validate-owned-sitemap-pages

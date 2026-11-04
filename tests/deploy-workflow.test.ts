@@ -215,6 +215,39 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
   it('source sitemap page validation remains attached to build output', () => {
     expect(DEPLOY_YML).toContain('node scripts/validate-sitemap-links.mjs');
     expect(DEPLOY_YML).toContain('npm run audit:no-dotfile-html');
+
+    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const steps = workflow.jobs['build-locale']?.steps ?? [];
+    const dotfileGate = steps.find((step: any) => step.name === 'Reject generated HTML under dotfile paths');
+    const dotfileIndex = steps.findIndex((step: any) => step.name === 'Reject generated HTML under dotfile paths');
+    const localeArtifactIndex = steps.findIndex((step: any) => step.name === 'Upload non-IT locale shard source artifact');
+    const pagesArtifactIndex = steps.findIndex((step: any) => step.name === 'Upload Pages artifact (compression-level 9)');
+    expect(dotfileGate).toBeDefined();
+    expect(dotfileGate.if).toBeUndefined();
+    expect(dotfileIndex).toBeLessThan(localeArtifactIndex);
+    expect(dotfileIndex).toBeLessThan(pagesArtifactIndex);
+
+    const itSchemaGate = steps.find((step: any) => step.name === 'Validate IT JobPosting schema before artifact upload');
+    const itSchemaIndex = steps.findIndex((step: any) => step.name === 'Validate IT JobPosting schema before artifact upload');
+    expect(itSchemaGate?.if).toContain("matrix.locale == 'it'");
+    expect(itSchemaGate?.run).toContain('npm run validate:jobposting-schema');
+    expect(itSchemaIndex).toBeLessThan(pagesArtifactIndex);
+  });
+
+  it('blocks non-IT shard publication on the complete locale JobPosting schema', () => {
+    const job = DEPLOY_PUBLISH_WORKFLOW.jobs['publish-nonit-shards'];
+    const steps = job.steps ?? [];
+    const schemaIndex = steps.findIndex((step: any) => step.name === 'Validate non-IT JobPosting schema before shard publication');
+    const sectionPushIndex = steps.findIndex((step: any) => step.name === 'Push section shards (non-IT → frontaliere-<section>-<loc>)');
+    const localePushIndex = steps.findIndex((step: any) => step.name === 'Push locale shard');
+    const schemaStep = steps[schemaIndex];
+
+    expect(schemaIndex).toBeGreaterThan(-1);
+    expect(schemaIndex).toBeLessThan(sectionPushIndex);
+    expect(schemaIndex).toBeLessThan(localePushIndex);
+    expect(schemaStep.if).toContain("env.DURABLE_LOCALE_PUBLISHED != 'true'");
+    expect(schemaStep.run).toContain('npm run validate:jobposting-schema');
+    expect(schemaStep['continue-on-error']).not.toBe(true);
   });
 });
 

@@ -584,6 +584,13 @@ jobs:
         id: validate-finalized-locale
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
+      # The historical full-dist schema walker is too expensive after shard
+      # publication. Each locale is already materialized here, so validate its
+      # complete JobPosting set before any external shard side effect.
+      - name: Validate non-IT JobPosting schema before shard publication
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
+        run: npm run validate:jobposting-schema
+
       - name: Wait for IT CDN push (cross-shard ordering guard)
         id: cdn-gate
         if: always() && env.DURABLE_LOCALE_PUBLISHED != 'true'
