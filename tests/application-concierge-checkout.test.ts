@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { createHash } from 'node:crypto';
 
 const mocks = vi.hoisted(() => {
   const store = new Map<string, Record<string, unknown>>();
@@ -17,7 +18,15 @@ const mocks = vi.hoisted(() => {
       },
       async set(data: Record<string, unknown>, options?: { merge?: boolean }) {
         const current = store.get(key(collection, id)) || {};
-        store.set(key(collection, id), options?.merge ? { ...current, ...data } : data);
+        const updated: Record<string, unknown> = options?.merge ? { ...current } : {};
+        for (const [field, value] of Object.entries(data)) {
+          if (value === '__delete_field__') delete updated[field];
+          else updated[field] = value;
+        }
+        store.set(key(collection, id), updated);
+      },
+      async delete() {
+        store.delete(key(collection, id));
       },
     };
   }
@@ -28,6 +37,14 @@ const mocks = vi.hoisted(() => {
         doc(id?: string) {
           return makeRef(collection, id || collection + '-' + (++sequence));
         },
+        where(field: string, operator: string, value: unknown) {
+          return { get: async () => ({ docs: operator === '==' ? [...store.entries()]
+            .filter(([documentKey, data]) => documentKey.startsWith(`${collection}/`) && data[field] === value)
+            .map(([documentKey, data]) => {
+              const id = documentKey.slice(collection.length + 1);
+              return { id, ref: makeRef(collection, id), data: () => data };
+            }) : [] }) };
+        },
       };
     },
     async runTransaction(callback: (transaction: any) => Promise<unknown>) {
@@ -35,6 +52,7 @@ const mocks = vi.hoisted(() => {
         get: (ref: any) => ref.get(),
         set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
         update: (ref: any, data: Record<string, unknown>) => ref.set(data, { merge: true }),
+        delete: (ref: any) => ref.delete(),
       });
     },
   };
@@ -42,13 +60,17 @@ const mocks = vi.hoisted(() => {
   const stripeCheckoutSessionsCreate = vi.fn();
   const stripeCheckoutSessionsRetrieve = vi.fn();
   const createSumUpApplicationConciergeCheckout = vi.fn();
+  const verifyAppCheck = vi.fn(async () => ({ appId: 'test-app' }));
   const stripe = { checkout: { sessions: { create: stripeCheckoutSessionsCreate, retrieve: stripeCheckoutSessionsRetrieve } } };
   return {
     store,
     firestore,
     db: vi.fn(() => firestore),
     getStripe: vi.fn(async () => stripe),
-    verifyCaller: vi.fn(async () => ({ uid: 'candidate-42', email: 'candidate@example.test', email_verified: true })),
+    verifyCaller: vi.fn(async (): Promise<{ uid: string; email: string; email_verified: boolean } | null> => ({
+      uid: 'candidate-42', email: 'candidate@example.test', email_verified: true,
+    })),
+    verifyAppCheck,
     applySumUpCheckout: vi.fn(async (checkout: { checkout_reference: string }) => {
       const key = 'application_concierge_services/' + checkout.checkout_reference;
       store.set(key, { ...store.get(key), paymentStatus: 'paid' });
@@ -65,6 +87,8 @@ const mocks = vi.hoisted(() => {
       stripeCheckoutSessionsCreate.mockReset();
       stripeCheckoutSessionsRetrieve.mockReset();
       createSumUpApplicationConciergeCheckout.mockReset();
+      verifyAppCheck.mockReset();
+      verifyAppCheck.mockResolvedValue({ appId: 'test-app' });
     },
   };
 });
@@ -86,6 +110,10 @@ vi.mock('firebase-admin/firestore', () => ({
       toDate: () => new Date(),
     }),
   },
+}));
+
+vi.mock('firebase-admin/app-check', () => ({
+  getAppCheck: () => ({ verifyToken: mocks.verifyAppCheck }),
 }));
 
 vi.mock('../functions/src/stripePublisherCore.js', () => ({
@@ -113,6 +141,7 @@ vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
 const {
   handleApplicationConciergeWebhookEvent,
   handleCreateApplicationConciergeCheckout,
+  handleSyncApplicationConciergeMetaConsent,
 } = await import('../functions/src/applicationConciergeCheckout.js');
 
 function request(overrides: Record<string, unknown> = {}) {
@@ -124,7 +153,11 @@ function request(overrides: Record<string, unknown> = {}) {
       successUrl: 'https://frontaliereticino.ch/lavoro',
       cancelUrl: 'https://frontaliereticino.ch/lavoro',
     },
-    get: (name: string) => (name.toLowerCase() === 'authorization' ? 'Bearer good-token' : ''),
+    get: (name: string) => {
+      if (name.toLowerCase() === 'authorization') return 'Bearer good-token';
+      if (name.toLowerCase() === 'x-firebase-appcheck') return 'valid-app-check';
+      return '';
+    },
     ...overrides,
   };
 }
@@ -185,6 +218,14 @@ describe('application concierge checkout', () => {
     expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
   });
 
+  it('refuses checkout creation after the account-deletion tombstone is written', async () => {
+    mocks.store.set('application_intent_account_tombstones/candidate-42', { status: 'account_deleted' });
+    const result = await handleCreateApplicationConciergeCheckout(request());
+
+    expect(result).toEqual({ status: 403, body: { ok: false, error: 'account_deleted' } });
+    expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
   it('lets a legacy anonymous owner finish its pending order with the stored address', async () => {
     mocks.verifyCaller.mockResolvedValue({ uid: 'candidate-42' });
     const pending = pendingService('stripe', { checkoutSessionStatus: 'expired', paymentStatus: 'failed', serviceStatus: 'payment_failed', customerEmail: 'stored@example.test' });
@@ -229,6 +270,53 @@ describe('application concierge checkout', () => {
       acceptedPositionsCount: 0,
       paymentStatus: 'pending',
       serviceStatus: 'awaiting_payment',
+    }));
+  });
+
+  it('persists Meta attribution only when the browser reports explicit advertising consent', async () => {
+    const base = request();
+    const metaAdsConsentAtMs = Date.now() - 100;
+    const revocationToken = 'c'.repeat(64);
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: {
+      ...base.body,
+      metaConsentRevocationToken: revocationToken,
+      metaAdsConsent: true,
+      metaAdsConsentAtMs,
+      metaEventSourceUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/?application_concierge=1',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaFbc: 'fb.1.1700000000000.ABC_def-123',
+    } }));
+
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)).toEqual(expect.objectContaining({
+      metaAdsConsent: true,
+      metaAdsConsentAt: expect.objectContaining({ toMillis: expect.any(Function) }),
+      metaEventSourceUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/?application_concierge=1',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaFbc: 'fb.1.1700000000000.ABC_def-123',
+    }));
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: true,
+      metaAdsConsentDecisionAtMs: metaAdsConsentAtMs,
+    }));
+    expect(mocks.store.get(`meta_ads_consent_devices/${createHash('sha256').update(revocationToken).digest('hex')}`))
+      .toEqual(expect.objectContaining({ userIds: ['candidate-42'] }));
+  });
+
+  it('discards Meta cookies when explicit advertising consent is absent', async () => {
+    const base = request();
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: {
+      ...base.body,
+      metaAdsConsent: false,
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaFbc: 'fb.1.1700000000000.ABC_def-123',
+    } }));
+
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaFbp: null,
+      metaFbc: null,
     }));
   });
 
@@ -589,6 +677,190 @@ describe('application concierge checkout', () => {
       serviceStatus: 'active',
       paymentFailureReason: null,
     }));
+  });
+
+  it('keeps server consent ordered when grant and withdrawal requests race', async () => {
+    const grantAt = Date.now() - 10_000;
+    const deniedAt = grantAt + 100;
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt,
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: true } });
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: deniedAt,
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: true } });
+
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt + 50,
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: false } });
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaAdsConsentDecisionAtMs: deniedAt,
+    }));
+  });
+
+  it('retains the last revocation across a later grant and clears pre-revocation attribution', async () => {
+    const grantAt = Date.now() - 30_000;
+    const deniedAt = grantAt + 10_000;
+    const regrantedAt = grantAt + 20_000;
+    mocks.store.set('application_concierge_services/old-meta-attribution', {
+      userId: 'candidate-42',
+      metaAdsConsent: true,
+      metaAdsConsentAt: { toMillis: () => grantAt },
+      metaEventSourceUrl: 'https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+      metaAttributionExpiresAt: { toMillis: () => Date.now() + 60_000 },
+    });
+    await handleSyncApplicationConciergeMetaConsent(request({ body: { decision: 'granted', decisionAtMs: grantAt } }));
+    await handleSyncApplicationConciergeMetaConsent(request({ body: { decision: 'denied', decisionAtMs: deniedAt } }));
+    await handleSyncApplicationConciergeMetaConsent(request({ body: { decision: 'granted', decisionAtMs: regrantedAt } }));
+
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: true,
+      metaAdsConsentDecisionAtMs: regrantedAt,
+      metaAdsConsentLastDeniedAtMs: deniedAt,
+    }));
+    expect(mocks.store.get('application_concierge_services/old-meta-attribution')).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaAdsConsentRevokedAt: expect.objectContaining({ toMillis: expect.any(Function) }),
+    }));
+    expect(mocks.store.get('application_concierge_services/old-meta-attribution')).not.toHaveProperty('metaEventSourceUrl');
+    expect(mocks.store.get('application_concierge_services/old-meta-attribution')).not.toHaveProperty('metaFbp');
+  });
+
+  it('allows a previously registered browser token to revoke consent after sign-out', async () => {
+    const revocationToken = 'a'.repeat(64);
+    const grantAt = Date.now() - 10_000;
+    const deviceId = createHash('sha256').update(revocationToken).digest('hex');
+    const grant = await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt, revocationToken,
+    } }));
+    expect(grant).toEqual({ status: 200, body: { ok: true, applied: true } });
+    expect(mocks.store.get(`meta_ads_consent_devices/${deviceId}`)).toEqual(expect.objectContaining({
+      userIds: ['candidate-42'],
+    }));
+
+    mocks.verifyCaller.mockResolvedValueOnce(null);
+    const denial = await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: Date.now(), revocationToken,
+    } }));
+
+    expect(denial).toEqual({ status: 200, body: { ok: true, applied: true } });
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaAdsConsentLastDeniedAtMs: expect.any(Number),
+    }));
+    expect(mocks.store.get(`meta_ads_consent_devices/${deviceId}`)).toEqual(expect.objectContaining({
+      userIds: [],
+      lastDeniedAtMs: expect.any(Number),
+    }));
+  });
+
+  it('rejects an unauthenticated grant and records a revocation marker without an account link', async () => {
+    mocks.verifyCaller.mockResolvedValue(null);
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: Date.now(), revocationToken: 'b'.repeat(64),
+    } }))).resolves.toMatchObject({ status: 401 });
+    const decisionAtMs = Date.now();
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs, revocationToken: 'b'.repeat(64),
+    } }))).resolves.toEqual({ status: 200, body: { ok: true, applied: false } });
+    expect(mocks.store.get(`meta_ads_consent_devices/${createHash('sha256').update('b'.repeat(64)).digest('hex')}`))
+      .toEqual(expect.objectContaining({ userIds: [], lastDeniedAtMs: decisionAtMs }));
+  });
+
+  it('does not restore Meta consent for a deleted account', async () => {
+    const decisionAtMs = Date.now();
+    mocks.store.set('application_intent_account_tombstones/candidate-42', { status: 'account_deleted' });
+
+    await expect(handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs, revocationToken: 'd'.repeat(64),
+    } }))).resolves.toEqual({ status: 403, body: { ok: false, error: 'account_deleted' } });
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toBeUndefined();
+  });
+
+  it('requires App Check before accepting an anonymous revocation marker', async () => {
+    mocks.verifyCaller.mockResolvedValue(null);
+    mocks.verifyAppCheck.mockRejectedValueOnce(new Error('invalid app check token'));
+    const revocationToken = 'c'.repeat(64);
+    const result = await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: Date.now(), revocationToken,
+    } }));
+
+    expect(result).toEqual({ status: 401, body: { ok: false, error: 'app_check_required' } });
+    expect(mocks.store.has(`meta_ads_consent_devices/${createHash('sha256').update(revocationToken).digest('hex')}`)).toBe(false);
+  });
+
+  it('links a browser token to multiple signed-in accounts and revokes each on anonymous withdrawal', async () => {
+    const revocationToken = 'd'.repeat(64);
+    const deviceId = createHash('sha256').update(revocationToken).digest('hex');
+    const grantAt = Date.now() - 1_000;
+    await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt, revocationToken,
+    } }));
+    mocks.verifyCaller.mockResolvedValueOnce({ uid: 'candidate-43', email: 'second@example.test', email_verified: true });
+    await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: grantAt + 1, revocationToken,
+    } }));
+    expect(mocks.store.get(`meta_ads_consent_devices/${deviceId}`)).toEqual(expect.objectContaining({
+      userIds: ['candidate-42', 'candidate-43'],
+    }));
+
+    mocks.verifyCaller.mockResolvedValueOnce(null);
+    const denial = await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: grantAt + 2, revocationToken,
+    } }));
+
+    expect(denial).toEqual({ status: 200, body: { ok: true, applied: true } });
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toMatchObject({ metaAdsConsent: false });
+    expect(mocks.store.get('meta_ads_consents/candidate-43')).toMatchObject({ metaAdsConsent: false });
+    expect(mocks.store.get(`meta_ads_consent_devices/${deviceId}`)).toEqual(expect.objectContaining({ userIds: [] }));
+  });
+
+  it('keeps an anonymous revocation marker so a delayed older grant cannot reactivate consent', async () => {
+    const revocationToken = 'e'.repeat(64);
+    const deniedAt = Date.now() - 100;
+    mocks.verifyCaller.mockResolvedValueOnce(null);
+    await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: deniedAt, revocationToken,
+    } }));
+
+    const grant = await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'granted', decisionAtMs: deniedAt - 1, revocationToken,
+    } }));
+
+    expect(grant).toEqual({ status: 200, body: { ok: true, applied: true } });
+    expect(mocks.store.get('meta_ads_consents/candidate-42')).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+      metaAdsConsentLastDeniedAtMs: deniedAt,
+    }));
+    expect(mocks.store.get(`meta_ads_consent_devices/${createHash('sha256').update(revocationToken).digest('hex')}`))
+      .toEqual(expect.objectContaining({ userIds: [], lastDeniedAtMs: deniedAt }));
+  });
+
+  it('rejects stale checkout consent against the browser revocation marker', async () => {
+    const revocationToken = 'f'.repeat(64);
+    const deniedAt = Date.now() - 100;
+    mocks.verifyCaller.mockResolvedValueOnce(null);
+    await handleSyncApplicationConciergeMetaConsent(request({ body: {
+      decision: 'denied', decisionAtMs: deniedAt, revocationToken,
+    } }));
+
+    const base = request();
+    const checkout = await handleCreateApplicationConciergeCheckout(request({ body: {
+      ...base.body,
+      metaConsentRevocationToken: revocationToken,
+      metaAdsConsent: true,
+      metaAdsConsentAtMs: deniedAt - 1,
+      metaEventSourceUrl: 'https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/',
+      metaFbp: 'fb.1.1700000000000.1234567890',
+    } }));
+
+    expect(checkout.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${checkout.body.serviceId}`)).toEqual(expect.objectContaining({
+      metaAdsConsent: false,
+    }));
+    expect(mocks.store.get(`meta_ads_consent_devices/${createHash('sha256').update(revocationToken).digest('hex')}`))
+      .toEqual(expect.objectContaining({ userIds: [], lastDeniedAtMs: deniedAt }));
   });
 });
 

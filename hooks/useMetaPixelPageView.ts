@@ -2,35 +2,55 @@ import { useEffect, useRef } from 'react';
 
 import {
   ADS_CONSENT_GRANTED,
+  getAdsConsent,
+  getAdsConsentDecisionAt,
   isAdsConsentGranted,
   onAdsConsentChange,
   type AdsConsentValue,
 } from '@/services/adsConsent';
-import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
-import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
+import {
+  retryPendingApplicationConciergeMetaConsent,
+  syncApplicationConciergeMetaConsent,
+  type ApplicationConciergeAuthUser,
+} from '@/services/applicationConciergeCheckout';
+import {
+  clearMetaAttributionCookies,
+  canTrackMetaPixelForCurrentDocument,
+  isMetaPixelTargetPage,
+  META_PIXEL_ID,
+  trackMetaPixelEvent,
+  type MetaPixelFunction,
+} from '@/services/metaPixel';
 import { SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT } from './useSeoPageTracking';
 
-const META_PIXEL_ID = '1090503593451766';
 const ROUTE_EVENTS = ['popstate', SEO_TRACKING_PUSH_EVENT, SEO_TRACKING_REPLACE_EVENT] as const;
-
-type MetaPixelFunction = ((...args: string[]) => void) & {
-  callMethod?: (...args: string[]) => void;
-  queue: string[][];
-  push: (...args: string[]) => void;
-  loaded: boolean;
-  version: string;
-};
 
 type MetaPixelWindow = Window & {
   fbq?: MetaPixelFunction;
   _fbq?: MetaPixelFunction;
   __ftMetaPixelInitialized?: boolean;
   __ftMetaPixelLastTrackedPath?: string | null;
+  __ftMetaPixelLastViewContentPath?: string | null;
   __FT_META_PIXEL_DISABLED__?: boolean;
 };
 
 function isMetaPixelSite(): boolean {
   return window.location.hostname === 'frontaliereticino.ch';
+}
+
+function trackTargetViewContent(): void {
+  const pixelWindow = window as MetaPixelWindow;
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (pixelWindow.__ftMetaPixelLastViewContentPath === currentPath) return;
+  if (trackMetaPixelEvent('ViewContent', {
+    content_type: 'product',
+    content_ids: ['application-concierge-30d-10'],
+    content_name: 'Servizio candidature assistite',
+    value: 39.99,
+    currency: 'EUR',
+  })) {
+    pixelWindow.__ftMetaPixelLastViewContentPath = currentPath;
+  }
 }
 
 function initializeAndTrackPageView(): void {
@@ -40,7 +60,7 @@ function initializeAndTrackPageView(): void {
   if (!fbq) {
     // A static noscript beacon cannot read adsConsent and would bypass the
     // site's fail-closed advertising-consent gate.
-    const stub = ((...args: string[]) => {
+    const stub = ((...args: unknown[]) => {
       if (stub.callMethod) stub.callMethod.apply(stub, args);
       else stub.queue.push(args);
     }) as MetaPixelFunction;
@@ -67,49 +87,78 @@ function initializeAndTrackPageView(): void {
   }
   fbq('consent', 'grant');
   fbq('track', 'PageView');
+  if (isMetaPixelTargetPage()) {
+    trackTargetViewContent();
+  }
 }
 
 function revokeMetaPixelConsent(): void {
   const pixelWindow = window as MetaPixelWindow;
   pixelWindow.__ftMetaPixelLastTrackedPath = null;
+  pixelWindow.__ftMetaPixelLastViewContentPath = null;
   if (pixelWindow.__ftMetaPixelInitialized && pixelWindow.fbq) {
+    if (Array.isArray(pixelWindow.fbq.queue)) {
+      pixelWindow.fbq.queue = pixelWindow.fbq.queue.filter((call) => call[0] !== 'track');
+    }
     pixelWindow.fbq('consent', 'revoke');
   }
-}
-
-function canTrackCurrentDocument(): boolean {
-  const pixelWindow = window as MetaPixelWindow;
-  if (pixelWindow.__FT_META_PIXEL_DISABLED__) return false;
-  try {
-    if (isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, pixelWindow, document, false)) {
-      pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
-      return false;
-    }
-  } catch {
-    // Keep the advertising SDK blocked when the page privacy context is unreadable.
-    pixelWindow.__FT_META_PIXEL_DISABLED__ = true;
-    return false;
-  }
-  return true;
+  clearMetaAttributionCookies();
 }
 
 /** Load Meta Pixel across the canonical site after explicit advertising
- * consent, then send one PageView for each page reached through SPA routing. */
-export function useMetaPixelPageView(): void {
+ * consent, track service funnel views on the concierge landing routes, and sync
+ * consent for verified purchases when an authenticated user is present. */
+export function useMetaPixelPageView(
+  authUser?: ApplicationConciergeAuthUser | null,
+): void {
   const lastTrackedPath = useRef<string | null>(null);
+
+  useEffect(() => {
+    const syncServerConsent = (decision: AdsConsentValue | null): void => {
+      if (!decision) {
+        void retryPendingApplicationConciergeMetaConsent(authUser).catch(() => {});
+        return;
+      }
+      const decisionAtMs = getAdsConsentDecisionAt();
+      if (!decisionAtMs) return;
+      void syncApplicationConciergeMetaConsent(authUser, decision, decisionAtMs).catch(() => {
+        // The pending decision stays in local storage for retry on focus, reconnect or sign-in.
+      });
+    };
+    const syncCurrentConsent = (): void => syncServerConsent(getAdsConsent());
+    const retryPendingConsent = (): void => {
+      void retryPendingApplicationConciergeMetaConsent(authUser).catch(() => {});
+    };
+    const unsubscribe = onAdsConsentChange(syncServerConsent);
+    window.addEventListener('online', retryPendingConsent);
+    window.addEventListener('focus', retryPendingConsent);
+    syncCurrentConsent();
+    return () => {
+      unsubscribe();
+      window.removeEventListener('online', retryPendingConsent);
+      window.removeEventListener('focus', retryPendingConsent);
+    };
+  }, [authUser]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
 
     const syncRoute = (): void => {
       if (!isMetaPixelSite() || !isAdsConsentGranted()) return;
-      if (!canTrackCurrentDocument()) return;
+      if (!canTrackMetaPixelForCurrentDocument()) return;
 
       const pixelWindow = window as MetaPixelWindow;
       const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
-      if (lastTrackedPath.current === currentPath) return;
+      const isTargetPage = isMetaPixelTargetPage();
+      if (!isTargetPage) pixelWindow.__ftMetaPixelLastViewContentPath = null;
+
+      if (lastTrackedPath.current === currentPath) {
+        if (isTargetPage) trackTargetViewContent();
+        return;
+      }
       if (pixelWindow.__ftMetaPixelLastTrackedPath === currentPath) {
         lastTrackedPath.current = currentPath;
+        if (isTargetPage) trackTargetViewContent();
         return;
       }
 

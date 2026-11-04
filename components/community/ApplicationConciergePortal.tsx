@@ -11,6 +11,7 @@ import { getAuthEmail, signInWithCustomAuthToken } from '@/services/authService'
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { residenceApplicationFields, residenceLocationForEditor, residenceProfilePrefill } from '@/services/residenceLocalities';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
+import { captureMetaAdsAttribution, trackMetaPixelEvent } from '@/services/metaPixel';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import SignupPromptModal, { requestConciergeAccessLink } from '@/components/community/SignupPromptModal';
 import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
@@ -597,12 +598,22 @@ export default function ApplicationConciergePortal({
         requestKey: requestKeyForUser(String(user.uid)),
         houseAdAttribution: getHouseAdAttribution(),
         ...(useSumUpForPaymentReminder ? { useSumUpForPaymentReminder: true } : {}),
+        metaAttribution: captureMetaAdsAttribution(),
         ...(effectiveServiceId ? { serviceId: effectiveServiceId, expectedAmountTotal: service?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS } : {}),
         ...(renewal ? { renewalOfServiceId: serviceId!, acceptRenewalTerms: true, expectedAmountTotal: service!.renewalOffer!.amountTotal } : {}),
       }, user);
       if (!isCurrentOwner()) return;
       if (renewal && !result.paymentComplete && result.amountTotal !== service?.renewalOffer?.amountTotal) {
         throw new Error('application_concierge_renewal_price_changed');
+      }
+      if (!result.paymentComplete) {
+        trackMetaPixelEvent('InitiateCheckout', {
+          content_type: 'product',
+          content_ids: ['application-concierge-30d-10'],
+          content_name: 'Servizio candidature assistite',
+          value: (result.amountTotal || service?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS) / 100,
+          currency: 'EUR',
+        }, `initiate-checkout-${result.serviceId}`);
       }
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());

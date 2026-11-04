@@ -112,13 +112,15 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
     },
     where: (field: string, operator: string, value: unknown) => ({
       get: async () => {
-        if (operator !== '==') throw new Error(`unsupported fake query operator: ${operator}`);
+        if (operator !== '==' && operator !== 'array-contains') throw new Error(`unsupported fake query operator: ${operator}`);
         const prefix = `${colPath}/`;
         const depth = colPath.split('/').length + 1;
         const ids = Object.keys(store).filter(
           (key) => key.startsWith(prefix)
             && key.split('/').length === depth
-            && store[key]?.[field] === value,
+            && (operator === '=='
+              ? store[key]?.[field] === value
+              : Array.isArray(store[key]?.[field]) && store[key][field].includes(value)),
         );
         return {
           empty: ids.length === 0,
@@ -225,6 +227,7 @@ function seedDeletedUser(extra: Record<string, Record<string, unknown>> = {}) {
     [`users/${UID}/savedJobs/job-a`]: { jobId: 'job-a' },
     [`users/${UID}/savedJobs/job-b`]: { jobId: 'job-b' },
     [`newsletter_subscribers/${EMAIL}`]: { status: 'pending', isActive: false, email: EMAIL },
+      [`meta_ads_consent_devices/device-hash`]: { userIds: [UID, 'uid-other-account'], revision: 2 },
     [`newsletter_subscribers/${EMAIL}/private/personalization`]: {
       applicationIntentAuthUid: UID,
       applicationIntent: { intents: [{ jobKey: 'acme:old-role' }] },
@@ -293,6 +296,10 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(result.tombstonedApplicationIntentAccount).toBe(true);
     expect(db.store[`petition_signatures/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}`]).toBeUndefined();
+    expect(db.store['meta_ads_consent_devices/device-hash']).toEqual(expect.objectContaining({
+      userIds: ['uid-other-account'],
+      revision: 3,
+    }));
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-b`]).toBeUndefined();
     expect(db.store[`newsletter_subscribers/${EMAIL}/private/personalization`]).toBeUndefined();
@@ -685,6 +692,13 @@ describe('profile delete path no longer pretends client newsletter delete is the
 
   it('onDelete passes the Auth user email into the shared cleanup', () => {
     expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\s*\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}/);
+  });
+
+  it('writes the account-deletion barrier before loading Remote Config secrets', () => {
+    const cleanup = indexSrc.slice(indexSrc.indexOf('export const cleanupUserDataOnAccountDelete'));
+    expect(cleanup.indexOf('writeApplicationIntentAccountDeletionBarrier')).toBeGreaterThanOrEqual(0);
+    expect(cleanup.indexOf('writeApplicationIntentAccountDeletionBarrier'))
+      .toBeLessThan(cleanup.indexOf('getNewsletterSecrets'));
   });
 
   it('configures retries for both tombstone triggers before rethrowing failures', () => {
