@@ -68,6 +68,7 @@ function renderButton({
   onSubscribed = vi.fn(),
   onErrored = vi.fn(),
   subscribe = vi.fn<SubscribeFn>(async () => baseAlert()),
+  jobId = 'job-1',
   keyword = 'Sanità',
   cantonCode = 'TI',
 }: {
@@ -76,12 +77,13 @@ function renderButton({
   onSubscribed?: () => void;
   onErrored?: (error: unknown) => void;
   subscribe?: SubscribeFn;
+  jobId?: string | null;
   keyword?: string;
   cantonCode?: string;
 } = {}) {
   render(
     <JobDetailJobAlertButton
-      jobId="job-1"
+      jobId={jobId}
       keyword={keyword}
       cantonCode={cantonCode}
       userId="user-1"
@@ -156,6 +158,24 @@ describe('JobDetailJobAlertButton', () => {
         source: 'job_alert_detail_button',
         sourceComponent: 'JobDetailJobAlertButton',
       }),
+    );
+  });
+
+  it('creates the ordinary post-apply detail intent without a job pin', async () => {
+    const subscribe = vi.fn<SubscribeFn>(async () => baseAlert());
+    renderButton({ subscribe, jobId: null });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questo annuncio' }));
+    });
+
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      { jobId: null, keyword: 'Sanità', cantonCode: 'TI' },
+      'it',
+      expect.anything(),
+      expect.anything(),
     );
   });
 
