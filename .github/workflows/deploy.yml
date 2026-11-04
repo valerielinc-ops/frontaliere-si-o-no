@@ -659,6 +659,11 @@ jobs:
       - name: Run SEO source tests once per build
         if: matrix.locale == 'it'
         timeout-minutes: 25
+        env:
+          # Source tests inspect all locale outputs, unlike this matrix build.
+          BUILD_LOCALE: ''
+          # The shard checkout intentionally omits the live jobs dataset.
+          VITEST_SKIP_LIVE_DATA: 'true'
         run: npm run gate:seo-source
 
       - name: Audit no merge conflict markers
