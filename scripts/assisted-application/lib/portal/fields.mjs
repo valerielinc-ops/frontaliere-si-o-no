@@ -145,7 +145,8 @@ function nativeQuestionText(value, counter = null) {
   // visibility-scoped so stale steps and hidden traps are ignored.
   const mountedForReadAhead = (element) => {
     for (let node = element; node; node = node.parentElement) {
-      if (node.hasAttribute('hidden') || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return false;
+      if (node.hasAttribute('hidden') || node.hasAttribute('inert')
+        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return false;
       const style = window.getComputedStyle(node);
       if (style.display === 'none' || style.visibility === 'hidden') return false;
     }

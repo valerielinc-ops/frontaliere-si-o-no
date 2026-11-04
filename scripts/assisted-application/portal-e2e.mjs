@@ -1216,6 +1216,13 @@ async function hiddenFutureStepFileCheck({ executablePath, check }) {
       fileFields.length === 1 && fileFields[0].domId === 'active-cv'
       && fileFields[0].label === 'Upload CV' && fileFields[0].required === false,
       { visibleFileCount: fileFields.length, visibleFileDomId: fileFields[0]?.domId || '', visibleFileLabel: fileFields[0]?.label || '' });
+    await page.locator('#active-cv').evaluate((element) => { element.style.display = ''; });
+    const readAheadFileFields = (await extractFields(page, { includeHidden: true, listboxOptions: false })).fields
+      .filter((field) => field.kind === 'file');
+    check('Portal read-ahead omits file inputs in hidden, aria-hidden, inert, and display:none future steps',
+      readAheadFileFields.length === 1 && readAheadFileFields[0].domId === 'active-cv'
+      && readAheadFileFields[0].label === 'Upload CV' && readAheadFileFields[0].required === false,
+      { visibleFileCount: readAheadFileFields.length, visibleFileDomId: readAheadFileFields[0]?.domId || '' });
   } finally {
     await browser.close();
   }
