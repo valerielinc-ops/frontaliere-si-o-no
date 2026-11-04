@@ -93,6 +93,11 @@ import {
   readAutoSectorHubInventory,
 } from './shared/autoSectorHubPublicationData';
 
+// Full builds inspect every locale's real output. Locale-shard builds preserve
+// links to foreign-locale pages because their files are emitted by another
+// shard and are intentionally absent from this dist.
+const INSPECT_FOREIGN_JOB_LOCALES = HUB_LOCALES.every(shouldEmitLocale);
+
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
   en: 'en_US',
@@ -916,7 +921,7 @@ function emittedJobArchiveItems(
   jobSlugs: readonly string[],
   jobPerLocale: Record<HubLocale, Record<string, string>>,
   locale: HubLocale,
-  inspectForeignLocales = false,
+  inspectForeignLocales = INSPECT_FOREIGN_JOB_LOCALES,
 ): Array<{ slug: string; href: string }> {
   const localeMap = jobPerLocale[locale];
   const itMap = jobPerLocale.it;
@@ -943,7 +948,7 @@ export function countEmittedJobArchivePages(
   locale: HubLocale = 'it',
 ): number {
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
-  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, true);
+  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, INSPECT_FOREIGN_JOB_LOCALES);
 }
 
 /** Count the rendered archive pages from one shared registry read, per locale. */
@@ -956,7 +961,7 @@ export function countEmittedJobArchivePagesByLocale(
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
   const counts = {} as Record<HubLocale, number>;
   for (const locale of HUB_LOCALES) {
-    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, true);
+    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, INSPECT_FOREIGN_JOB_LOCALES);
   }
   return counts;
 }
@@ -968,7 +973,7 @@ function countEmittedJobArchivePagesForLocale(
   slugs: readonly string[],
   perLocale: Record<HubLocale, Record<string, string>>,
   locale: HubLocale,
-  inspectForeignLocales = false,
+  inspectForeignLocales = INSPECT_FOREIGN_JOB_LOCALES,
 ): number {
   const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale, inspectForeignLocales).length;
   return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
@@ -2918,7 +2923,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       // is identical per locale — keeps hreflang alternates consistent. When a
       // locale-specific translated path is missing, fall back to the IT canonical
       // path (item is still browseable; user lands on the IT detail).
-      for (const { slug, href } of emittedJobArchiveItems(fs, np, distDir, jobSlugs, jobPerLocale, locale)) {
+      for (const { slug, href } of emittedJobArchiveItems(
+        fs, np, distDir, jobSlugs, jobPerLocale, locale, INSPECT_FOREIGN_JOB_LOCALES,
+      )) {
         items.push({ href, label: humanizeSlug(slug) });
       }
     } else if (hubKey === 'sectors') {
