@@ -400,6 +400,14 @@ jobs:
       DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
       SOURCE_RUN_ID: ${{ inputs.source_run_id }}
       SOURCE_SHA: ${{ inputs.source_sha }}
+      # The artifact and its validators stay on SOURCE_SHA, but shard-push
+      # code must come from the current publisher contract. A deferred tail
+      # can process an old successful build after a publisher fix has landed;
+      # using the historical checkout for the push would silently reintroduce
+      # the fixed failure (run 41776299073: full fallback looked for
+      # dist/en after changing into its staging clone).
+      PUBLISHER_ROOT: ${{ github.workspace }}/publisher-resolver
+      PUBLISHER_DIST: ${{ github.workspace }}/dist
       DURABLE_LOCALE_PUBLISHED: ${{ contains(needs.resolve-publish-receipts.outputs.published_locales, matrix.locale) && 'true' || 'false' }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
@@ -430,6 +438,23 @@ jobs:
           path: receipt-resolver
           sparse-checkout: |
             /scripts/ci/publish-receipts.mjs
+          sparse-checkout-cone-mode: false
+
+      # The source checkout above is intentionally pinned to the build SHA so
+      # its artifact-facing validators match the payload. Shard publishers are
+      # different: their fixes must also reach a queued/replayed tail whose
+      # source build predates the fix. Keep this closure sparse and isolated so
+      # only the path-sensitive publisher code follows current main.
+      - name: Checkout current shard publisher
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          path: publisher-resolver
+          sparse-checkout: |
+            /scripts/ci/
+            /scripts/lib/
+            /scripts/offload-generated-images-cdn.mjs
+            /build-plugins/shared/
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -782,7 +807,7 @@ jobs:
           # on IN-FLIGHT pushes, so peak `stage` usage is what it was.
           # Sliding window + longest-first ordering (issue #5130) — see the
           # IT-leg push step above and scripts/lib/bounded-parallel.sh.
-          source scripts/lib/bounded-parallel.sh
+          source "$PUBLISHER_ROOT/scripts/lib/bounded-parallel.sh"
 
           # bounded-parallel.sh invokes the worker by name.
           # shellcheck disable=SC2329
@@ -796,7 +821,7 @@ jobs:
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
             fi
-            if bash scripts/lib/push-section-shard.sh "$section" "$loc" dist; then
+            if bash "$PUBLISHER_ROOT/scripts/lib/push-section-shard.sh" "$section" "$loc" "$PUBLISHER_DIST"; then
               return 0
             fi
             echo "::warning::$section-$loc shard push step failed — continuing to the next section"
@@ -804,7 +829,7 @@ jobs:
           }
 
           # Fatal on an ordering failure — see the IT-leg push step above.
-          order="$(bp_section_order dist "$loc")" || {
+          order="$(bp_section_order "$PUBLISHER_DIST" "$loc" "$PUBLISHER_ROOT")" || {
             echo "::error::could not order the section list — refusing to push a partial set of shards"
             exit 1
           }
@@ -816,7 +841,7 @@ jobs:
           bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
           # Same visibility contract as the IT leg above — see that comment.
           if [ -s "$BP_FAILED_FILE" ]; then
-            node scripts/ci/report-shard-push-failure.mjs \
+            node "$PUBLISHER_ROOT/scripts/ci/report-shard-push-failure.mjs" \
               --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
           fi
           exit "$fail"
@@ -904,7 +929,7 @@ jobs:
           # dist" step above for the full rationale. Same shared
           # sliding-window driver and same longest-first order (memoised by
           # the push step, so no second walk of dist).
-          source scripts/lib/bounded-parallel.sh
+          source "$PUBLISHER_ROOT/scripts/lib/bounded-parallel.sh"
           # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
           # read and completes each staged copy in background. Barrier FIRST,
           # before any live gate — the staged files are hardlinked to
@@ -913,7 +938,7 @@ jobs:
           # section still failing is not packed (see shard-cdn-rewrite.sh for
           # why its dist/<sub> stays safe). With the variable off there is no
           # partial marker: both calls are no-ops.
-          source scripts/lib/shard-cdn-rewrite.sh
+          source "$PUBLISHER_ROOT/scripts/lib/shard-cdn-rewrite.sh"
           shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
           pack_section() {
             local section="$1"
@@ -932,7 +957,7 @@ jobs:
             # Never pack a staged copy the deferred CDN rewrite did not complete.
             shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" "$loc" || return 0
             local slug sub src packed_n persisted_src_n live_src_n
-            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
+            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' "$PUBLISHER_ROOT/scripts/lib/section-shard-slugs.json")"
             sub="$loc/$slug"
             src="$RUNNER_TEMP/${section}-src-$loc/dist"
             if [ ! -d "$src/$sub" ]; then
@@ -974,9 +999,9 @@ jobs:
           }
           # Degrade to the plain list rather than pack nothing — see the IT
           # leg's "Pack section shard dist" step above.
-          order="$(bp_section_order dist "$loc")" || {
+          order="$(bp_section_order "$PUBLISHER_DIST" "$loc" "$PUBLISHER_ROOT")" || {
             echo "::warning::could not order the section list — packing in list order"
-            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+            order="$(bash "$PUBLISHER_ROOT/scripts/lib/deploy-shard-sections.sh")"
           }
           mapfile -t ordered_sections <<< "$order"
           bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
@@ -1107,7 +1132,7 @@ jobs:
           # Bounded-parallel, identical to the IT-leg strip step above — see that
           # step's comment for why concurrent strips are output-identical and why
           # they raise no ceiling the push step's cap protects.
-          source scripts/lib/bounded-parallel.sh
+          source "$PUBLISHER_ROOT/scripts/lib/bounded-parallel.sh"
 
           LOC='${{ matrix.locale }}'
           strip_one() {
@@ -1117,12 +1142,12 @@ jobs:
               echo "$section-$LOC: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
               return 0
             fi
-            bash scripts/lib/strip-section-subtree.sh "$section" "$LOC" dist
+            bash "$PUBLISHER_ROOT/scripts/lib/strip-section-subtree.sh" "$section" "$LOC" "$PUBLISHER_DIST"
           }
 
-          order="$(bp_section_order dist "$LOC")" || {
+          order="$(bp_section_order "$PUBLISHER_DIST" "$LOC" "$PUBLISHER_ROOT")" || {
             echo "::warning::could not order the section list — stripping in list order"
-            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+            order="$(bash "$PUBLISHER_ROOT/scripts/lib/deploy-shard-sections.sh")"
           }
           # Same exit-status contract as the IT-leg step: unchanged, visibility only.
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-$LOC.txt"
@@ -1131,7 +1156,7 @@ jobs:
           if [ -s "$BP_FAILED_FILE" ]; then
             echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the $LOC shard (artifact may exceed the 10 GB Pages cap)"
           fi
-          echo "[strip] stripped $(bash scripts/lib/tally-stripped-sections.sh "$LOC") file(s) across the $LOC section shards"
+          echo "[strip] stripped $(bash "$PUBLISHER_ROOT/scripts/lib/tally-stripped-sections.sh" "$LOC") file(s) across the $LOC section shards"
 
       - name: Offload shard refs to CDN
         id: offload-locale-cdn
@@ -1152,7 +1177,7 @@ jobs:
           # Same per-file rewrite on 4 worker threads (bench run 40074671144:
           # 2.3x, byte-identical tree); ignored by a source SHA without it.
           OFFLOAD_CDN_WORKERS: '4'
-        run: node scripts/offload-generated-images-cdn.mjs
+        run: node "$PUBLISHER_ROOT/scripts/offload-generated-images-cdn.mjs"
 
       # Same-run shard-dist artifact for post-deploy-validate-dist rehydrate.
       # validate-dist previously rehydrated each en/de/fr subtree by
@@ -1294,7 +1319,7 @@ jobs:
           # per il perche' del trap EXIT. Il trap non altera l'exit code dello
           # script, che resta quello dello step.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+          GITHUB_SHA="$DEPLOY_HEAD_SHA" bash "$PUBLISHER_ROOT/scripts/lib/push-locale-shard.sh" ${{ matrix.locale }} "$PUBLISHER_DIST"
 
       # This is written immediately after the locale push, not after the
       # aggregate publish workflow. A later retry can therefore skip this
