@@ -501,6 +501,19 @@ describe('job posting fetch', () => {
     expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1' });
   });
 
+  it('reconstructs a SuccessFactors posting route from the published locale slug and apply URL', async () => {
+    const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const posting = await fetchJobPosting({ jobId: 'helsana-872317162e36', jobUrl: applyUrl }, {
+      fetchImpl: async () => new Response(JSON.stringify({
+        description: 'Published posting description',
+        applyUrl,
+        slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
+      }), { status: 200 }),
+    });
+    const canonicalUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: canonicalUrl, publishedPostingUrl: canonicalUrl });
+  });
+
   it('falls back to the employer page but never follows a redirect to a private host', async () => {
     const page = `<html><body><script>x()</script><h1>Job</h1><p>${'Descrizione del ruolo. '.repeat(20)}</p></body></html>`;
     const resolve = async (host: string) => [{ address: host === 'internal.example' ? '10.0.0.5' : '93.184.216.34', family: 4 }];

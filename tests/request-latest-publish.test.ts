@@ -344,4 +344,36 @@ describe('Pages publish queue wiring', () => {
 
     expect(publisher?.if).toBe("(github.event_name == 'workflow_dispatch' || github.event_name == 'push') && needs.build-locale.result == 'success'");
   });
+
+  it('runs path-sensitive shard publishers from current main for historical tails', () => {
+    const workflow = YAML.parse(publish) as any;
+    const job = workflow.jobs?.['publish-nonit-shards'];
+    const steps = job?.steps ?? [];
+    const checkout = steps.find((step: any) => step.name === 'Checkout current shard publisher');
+    const sparse = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    const sectionPush = steps.find((step: any) => step.name === 'Push section shards (non-IT → frontaliere-<section>-<loc>)');
+    const localePush = steps.find((step: any) => step.name === 'Push locale shard');
+    const offload = steps.find((step: any) => step.name === 'Offload shard refs to CDN');
+
+    expect(checkout?.with?.ref).toBe('refs/heads/main');
+    expect(checkout?.with?.path).toBe('publisher-resolver');
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(sparse).toEqual([
+      '/scripts/ci/',
+      '/scripts/lib/',
+      '/scripts/offload-generated-images-cdn.mjs',
+      '/build-plugins/shared/',
+      '/infra/cloudflare-worker/',
+    ]);
+    expect(String(job?.env?.PUBLISHER_ROOT)).toBe('${{ github.workspace }}/publisher-resolver');
+    expect(String(job?.env?.PUBLISHER_DIST)).toBe('${{ github.workspace }}/dist');
+    expect(sectionPush?.run).toContain('$PUBLISHER_ROOT/scripts/lib/push-section-shard.sh');
+    expect(sectionPush?.run).toContain('"$PUBLISHER_DIST"');
+    expect(localePush?.run).toContain('$PUBLISHER_ROOT/scripts/lib/push-locale-shard.sh');
+    expect(localePush?.run).toContain('"$PUBLISHER_DIST"');
+    expect(offload?.run).toContain('$PUBLISHER_ROOT/scripts/offload-generated-images-cdn.mjs');
+  });
 });

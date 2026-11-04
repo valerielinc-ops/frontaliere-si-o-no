@@ -18,7 +18,7 @@ import {
 import { POSTING_LOOKS_AT_ONCE, applyAutomationEvent, postingClosedForOrder, runAutomationSweep, startAutomation } from '../functions/src/assistedApplicationAutomation.js';
 import { automationEmailKey } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail, describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
-import { fetchWorkdayPosting } from '../functions/src/assistedApplicationAiJob.js';
+import { JOB_DETAIL_BASE, JOB_ACTIVE_IDS_URL, fetchWorkdayPosting } from '../functions/src/assistedApplicationAiJob.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from '../functions/src/assistedApplicationLiveness.js';
 import { buildCustomerEmail } from '../functions/src/assistedApplicationNotifications.js';
 import { getTermsLegalDocument } from '../services/legal/terms';
@@ -278,6 +278,30 @@ describe('the ad\'s own word that it is closed', () => {
     // …unless the refund's own gate already closed it (our dataset agrees).
     expect(said('expired', 'listing_page', true)).toBe(true);
     expect(postingSaysClosed(null)).toBe(false);
+  });
+
+  it('checks the published posting for a legacy reminder when both saved URLs are stale', async () => {
+    const jobId = 'helsana-872317162e36';
+    const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === detailUrl) return json({ description: 'Published role description', url: postingUrl, applyUrl: staleApplyUrl });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === postingUrl && init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === postingUrl) return new Response(`<main><p>${'Open position at Helsana. '.repeat(20)}</p><a href="/apply">Jetzt bewerben</a></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === staleApplyUrl) return new Response(null, { status: 404 });
+      return new Response('', { status: 404 });
+    });
+    const store = createMemoryFirestore({
+      'assisted_applications/legacy/ai_drafts/current': { channel: { type: 'employer_site', postingUrl: staleApplyUrl, applyUrl: staleApplyUrl } },
+    });
+
+    expect(await postingClosedForOrder({ db: store.db, orderId: 'legacy', order: { jobId, jobUrl: staleApplyUrl }, fetchImpl, resolve })).toBe(false);
+    expect(calls).toContain(`GET ${postingUrl}`);
+    expect(calls.some((call) => call.endsWith(staleApplyUrl))).toBe(false);
   });
 
   it('is read for an order at the address the runner reads before it submits', async () => {

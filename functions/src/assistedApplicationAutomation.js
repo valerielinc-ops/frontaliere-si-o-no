@@ -31,7 +31,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
-import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
+import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { reconcileSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
@@ -594,7 +594,8 @@ async function closedPostingsAmong({ db, docs, nowMs, postingClosed, postingLook
 export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fetch, resolve }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
-  return postingSaysClosed(await checkPostingLiveness({ order, posting: { applyUrl: postingAddressOf(draft, order) }, fetchImpl, resolve }));
+  const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve });
+  return postingSaysClosed(await checkPostingLiveness({ order, posting: { postingUrl }, fetchImpl, resolve }));
 }
 
 /**

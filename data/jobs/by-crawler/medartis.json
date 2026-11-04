@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-11-03T21:37:28.463Z",
-  "runId": "41720973312",
+  "assembledAt": "2026-11-04T09:37:11.494Z",
+  "runId": "41806684140",
   "jobs": [
     {
       "id": "medartis-97cc50a9d8d3",
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:37:10.505Z",
+      "crawledAt": "2026-11-04T09:37:04.472Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:37:10.505Z",
+      "validThrough": "2026-12-31T09:37:04.472Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:37:09.584Z",
+      "crawledAt": "2026-11-04T09:37:03.894Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:37:09.584Z",
+      "validThrough": "2026-12-18T09:37:03.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:37:07.287Z",
+      "crawledAt": "2026-11-04T09:37:01.210Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -236,7 +236,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:37:07.287Z",
+      "validThrough": "2026-12-30T09:37:01.210Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -308,7 +308,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:45:26.405Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
