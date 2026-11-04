@@ -1954,20 +1954,25 @@ async function clickFirst(page, snapshot, patterns) {
         && (!authForm.formId || String(control.formId || '').trim() === authForm.formId);
     }).map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
     const formFrames = formFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
+    const lateRoles = pattern === CREATE_ACCOUNT_RE ? ['link', 'button'] : ['link'];
     for (const frame of formFrames) {
       if (typeof frame?.getByRole !== 'function') continue;
-      const frameLink = frame.getByRole('link', { name: pattern }).first();
-      const frameLinkVisible = await frameLink.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-      if (frameLinkVisible) {
-        await clickPortalLink(page, frameLink);
-        return 'link';
+      for (const role of lateRoles) {
+        const frameControl = frame.getByRole(role, { name: pattern }).first();
+        const frameControlVisible = await frameControl.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+        if (frameControlVisible) {
+          await clickPortalLink(page, frameControl);
+          return role;
+        }
       }
     }
-    const link = page.getByRole('link', { name: pattern }).first();
-    const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-    if (linkVisible) {
-      await clickPortalLink(page, link);
-      return 'link';
+    for (const role of lateRoles) {
+      const control = page.getByRole(role, { name: pattern }).first();
+      const controlVisible = await control.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+      if (controlVisible) {
+        await clickPortalLink(page, control);
+        return role;
+      }
     }
   }
   return false;
