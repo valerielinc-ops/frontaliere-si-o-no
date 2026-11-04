@@ -13,6 +13,7 @@ import {
  renderJobPostingDescription,
 } from './shared/jobDescriptionContent';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
+import { pruneSelfHealTracking } from './shared/pruneSelfHealTracking';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -15358,6 +15359,28 @@ ${staticAnalyticsHtml}
   expiredHtmlCacheReleasedEntries,
   expiredSitemapEntries: expiredSitemapEntries.length,
   sitemapEntries: expiredSitemapEntries.length,
+ }));
+
+ // This is the last point before the previous-slug peak where `tracking` is
+ // read before self-heal. The expired and cross-locale phases above have
+ // already consumed it. This only prunes the closeBundle working set; the
+ // persisted job registry is not modified here.
+ // Retain only rows with an unclaimed path in a locale this shard emits. A
+ // pending row keeps all its locale paths so self-heal can still build the
+ // original hreflang cluster; covered rows would only be scanned and skipped.
+ const selfHealLocales = localeList.filter(shouldEmitLocale);
+ const selfHealTrackingRetention = pruneSelfHealTracking(
+  tracking,
+  selfHealLocales,
+  (relativePath) => pathWasClaimed(
+   np.join(distDir, relativePath.replace(/^\//, ''), 'index.html'),
+  ),
+ );
+ forceGc();
+ logBuildMem('jobsSeoPages: after-self-heal-tracking-prune', collector, jobsSeoMemDetails({
+  selfHealLocales: selfHealLocales.join(','),
+  trackingSlugsPruned: selfHealTrackingRetention.pruned,
+  trackingSlugsRetained: selfHealTrackingRetention.retained,
  }));
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
