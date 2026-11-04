@@ -70,11 +70,13 @@ describe('JobAlertForm — contextual one-tap creation', () => {
 
     await waitFor(() => expect(onRequireAuth).toHaveBeenCalledTimes(1));
     expect(JSON.parse(localStorage.getItem('pending_job_alert') || 'null')).toMatchObject({
-      config: expect.objectContaining({
-        keywords: ['infermiere'],
-        cantonFilter: ['TI'],
-      }),
-      origin: 'inline_card',
+      value: {
+        config: expect.objectContaining({
+          keywords: ['infermiere'],
+          cantonFilter: ['TI'],
+        }),
+        origin: 'inline_card',
+      },
     });
     expect(ctaClickMock).toHaveBeenCalledWith('inline_card', 'accept', 'infermiere');
 
