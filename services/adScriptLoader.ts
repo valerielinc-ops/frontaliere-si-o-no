@@ -6,6 +6,9 @@ export function createAdScriptLoader(
   canLoad: () => boolean,
   emit: (event: string, props: Record<string, string | number>) => void,
 ) {
+  // Let genuinely slow Google downloads complete, but do not leave a script
+  // without load/error events latched in waiting_response for the whole page.
+  const SCRIPT_HARD_TIMEOUT_MS = 30_000;
   type State = 'idle' | 'loading' | 'waiting_response' | 'loaded' | 'failed' | 'retry_wait';
   type Listener = (state: State) => void;
   type Loader = { load: () => void; subscribe: (listener: Listener) => () => void; state: () => State; attempts: () => number; dispose: () => void };
@@ -81,7 +84,14 @@ export function createAdScriptLoader(
     timer = setTimeout(() => {
       if (disposed || element !== script || state === 'loaded') return;
       if (ready()) succeed(element);
-      else publish('waiting_response', 'load_timeout');
+      else {
+        publish('waiting_response', 'load_timeout');
+        timer = setTimeout(() => {
+          if (disposed || element !== script || state !== 'waiting_response') return;
+          if (ready()) succeed(element);
+          else fail(element, 'load_timeout');
+        }, SCRIPT_HARD_TIMEOUT_MS);
+      }
     }, 12000);
     if (!existing) {
       element.src = src;
