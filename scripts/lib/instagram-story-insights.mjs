@@ -12,6 +12,16 @@ const METRIC_FIELDS_BY_NAME = Object.freeze(Object.fromEntries(METRIC_NAMES.map(
     .filter(([, apiMetric]) => apiMetric === metric)
     .map(([field]) => field)),
 ])));
+const NAVIGATION_FIELDS = Object.freeze({
+  tapforward: 'tapsForward',
+  tapsforward: 'tapsForward',
+  tapback: 'tapsBack',
+  tapsback: 'tapsBack',
+  tapexit: 'exits',
+  exit: 'exits',
+  swipeforward: 'swipesForward',
+  swipesforward: 'swipesForward',
+});
 export const INSTAGRAM_STORY_INSIGHTS_REQUEST_TIMEOUT_MS = 5_000;
 export const INSTAGRAM_STORY_INSIGHTS_MAX_RETRIES = 1;
 export const INSTAGRAM_STORY_INSIGHTS_MAX_CONCURRENT_METRICS = 3;
@@ -58,6 +68,7 @@ function navigationCounts(value) {
       : [];
   let unmappedTotal = 0;
   let unmappedValid = rows.length > 0;
+  const invalidFields = new Set();
   for (const row of rows) {
     if (!record(row)) {
       unmappedValid = false;
@@ -66,28 +77,44 @@ function navigationCounts(value) {
     const dimensionValue = Array.isArray(row.dimension_values) ? row.dimension_values[0]
       : Array.isArray(row.dimensionValues) ? row.dimensionValues[0]
         : null;
-    const key = String(row.key || row.action_type || row.name || dimensionValue || '').trim().toLowerCase().replace(/[^a-z]/gu, '');
+    const rawKeys = [row.key, row.action_type, row.name, dimensionValue]
+      .filter((candidate) => candidate !== null && candidate !== undefined && candidate !== '');
+    const normalizedKeys = rawKeys.map((candidate) => (typeof candidate === 'string'
+      ? candidate.trim().toLowerCase().replace(/[\s_-]/gu, '')
+      : null));
+    const uniqueKeys = new Set(normalizedKeys);
+    const key = normalizedKeys.length > 0
+      && normalizedKeys.every((candidate) => typeof candidate === 'string' && candidate.length > 0)
+      && uniqueKeys.size === 1
+      ? normalizedKeys[0]
+      : '';
     const metricValues = Array.isArray(row.metric_values) ? row.metric_values[0]
       : Array.isArray(row.metricValues) ? row.metricValues[0]
         : null;
     const count = finiteCount(row.value ?? row.count ?? (record(metricValues) ? metricValues.value : metricValues));
-    const field = ({
-      tapforward: 'tapsForward',
-      tapsforward: 'tapsForward',
-      tapback: 'tapsBack',
-      tapsback: 'tapsBack',
-      tapexit: 'exits',
-      exit: 'exits',
-      swipeforward: 'swipesForward',
-      swipesforward: 'swipesForward',
-    })[key];
+    const field = Object.hasOwn(NAVIGATION_FIELDS, key) ? NAVIGATION_FIELDS[key] : undefined;
     if (!key || count === null) {
       unmappedValid = false;
-    } else if (field) {
-      counts[field] = count;
+      const affectedFields = new Set(normalizedKeys.map((candidate) => (
+        typeof candidate === 'string' && Object.hasOwn(NAVIGATION_FIELDS, candidate)
+          ? NAVIGATION_FIELDS[candidate]
+          : undefined
+      )).filter(Boolean));
+      for (const affectedField of affectedFields) {
+        invalidFields.add(affectedField);
+        delete counts[affectedField];
+      }
+    } else if (field && !invalidFields.has(field)) {
+      const combined = (counts[field] ?? 0) + count;
+      if (!Number.isSafeInteger(combined)) {
+        invalidFields.add(field);
+        delete counts[field];
+      } else {
+        counts[field] = combined;
+      }
     } else if (!Number.isSafeInteger(unmappedTotal + count)) {
-      unmappedValid = false;
-    } else {
+      if (!field) unmappedValid = false;
+    } else if (!field) {
       unmappedTotal += count;
     }
   }

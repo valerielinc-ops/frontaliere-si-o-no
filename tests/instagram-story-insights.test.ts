@@ -280,9 +280,10 @@ describe('Instagram Story insights collector', () => {
     });
 
     expect(result.additions[0]).toMatchObject({
-      metrics: { tapsForward: 12, unmappedNavigationActions: null },
-      metricStatus: { tapsForward: 'available', unmappedNavigationActions: 'metric-unavailable' },
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
     });
+    expect(result.additions[0]?.availableMetrics).not.toContain('tapsForward');
     expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
   });
 
@@ -359,6 +360,68 @@ describe('Instagram Story insights collector', () => {
     expect(JSON.stringify(result.additions[0])).not.toContain('action_count');
   });
 
+  it('does not count a non-string action key as an unmapped navigation action', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-non-string-action-key', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [{ key: {}, value: 3 }],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+    expect(JSON.stringify(result.additions[0])).not.toContain('objectobject');
+  });
+
+  it('marks navigation rows unavailable when their action labels conflict', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-conflicting-action-labels', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [{ key: 'TAP_FORWARD', dimension_values: ['TAP_REPLY'], value: 3 }],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('tapsForward');
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
   it('treats empty Meta breakdown results with wrapper metadata as unavailable', async () => {
     const result = await collectInstagramStoryInsights({
       publications: [{ storyId: 'story-navigation-empty-results', publishedAt: PUBLISHED_AT }],
@@ -389,6 +452,158 @@ describe('Instagram Story insights collector', () => {
       metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
     });
     expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
+  it('treats empty results beside a malformed breakdown as unavailable, not zero', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-empty-plus-malformed-breakdown', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [
+                { dimension_keys: ['story_navigation_action_type'], results: [] },
+                null,
+              ],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
+  it('sums duplicate normalized navigation action keys', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-duplicate-key', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [
+                  { dimension_values: ['TAP_FORWARD'], value: 5 },
+                  { dimension_values: ['tapsForward'], count: 7 },
+                ],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: 12 },
+      metricStatus: { tapsForward: 'available' },
+    });
+  });
+
+  it('treats inherited object property names as unknown string action labels', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-inherited-label', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [{ dimension_values: ['constructor'], value: 3 }],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { unmappedNavigationActions: 3 },
+      metricStatus: { unmappedNavigationActions: 'available' },
+    });
+  });
+
+  it('does not normalize digits out of an unknown navigation action label', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-unknown-digit-label', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [{ dimension_values: ['TAP_FORWARD2'], value: 4 }],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: 4 },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'available' },
+    });
+  });
+
+  it('accepts the supported nested metric value shape for navigation rows', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-nested-metric-value', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [{
+                  dimension_values: ['TAP_BACK'],
+                  metric_values: [{ value: 4 }],
+                }],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsBack: 4 },
+      metricStatus: { tapsBack: 'available' },
+    });
   });
 
   it('fails the scheduled job when credentials or due Story measurements are unavailable', () => {
