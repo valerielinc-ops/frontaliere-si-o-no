@@ -1196,6 +1196,25 @@ describe('crawler generation state cleanup', () => {
     expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
+  it('gives group 24 enough bounded slots for its worker-watchdog worst case', () => {
+    expect(crawlerGroupMaxParallel(24)).toBe(5);
+    const group24Body = buildCrawlerLaunchShellBody({
+      slug: 'group-24-member',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 24);
+    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-5}"`);
+
+    const workflow = fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/crawler-group-24.yml'), 'utf8');
+    const watchdogDurations = [...workflow.matchAll(
+      /worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-([0-9]+)}"/g,
+    )].map(([, minutes]) => Number(minutes) * 60 * 1000);
+    const timeoutMs = 340 * 60 * 1000;
+    expect(watchdogDurations).toHaveLength(18);
+    expect(projectedLaneDurationMs(watchdogDurations, CRAWLER_GROUP_MAX_PARALLEL)).toBeGreaterThan(timeoutMs);
+    expect(projectedLaneDurationMs(watchdogDurations, crawlerGroupMaxParallel(24))).toBeLessThanOrEqual(timeoutMs);
+  });
+
   it('benchmarks the committed group 15/16 rosters below the 340-minute job budget', () => {
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
@@ -2513,7 +2532,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const armaniStep = Object.values(armaniLogicDoc.jobs)[0].steps
       .find((step: any) => step.id === 'crawler-launch-giorgio-armani');
     expect(armaniStep.env.JOBS_GIORGIO_ARMANI_STRICT).toBe("${{ inputs.strict_localization || '0' }}");
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta drift nel setup non-background, non soltanto nel roster', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
@@ -2527,7 +2546,7 @@ describe('cross-repo crawler execution artifacts', () => {
     checkoutJob.steps.find((step: any) => step.uses === 'actions/checkout@v7').if = 'always()';
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(checkoutDoc), path.basename(logicPath)))
       .toThrow(/full job mismatch/);
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta campi futuri non normalizzati sui crawler launch step', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
@@ -2537,7 +2556,7 @@ describe('cross-repo crawler execution artifacts', () => {
     job.steps.find((step: any) => step.id?.startsWith('crawler-launch-')).if = 'always()';
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(doc), path.basename(logicPath)))
       .toThrow(/full job mismatch/);
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta campi futuri non dichiarati a livello job e workflow', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
@@ -2552,7 +2571,7 @@ describe('cross-repo crawler execution artifacts', () => {
     workflowDoc.defaults = { run: { shell: 'bash' } };
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(workflowDoc), path.basename(logicPath)))
       .toThrow(/undeclared top-level workflow metadata/);
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta righe extra nei bootstrap RC/PAT e metadata trigger annidati', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
@@ -2575,7 +2594,7 @@ describe('cross-repo crawler execution artifacts', () => {
     triggerDoc.on.workflow_call.unexpected = true;
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(triggerDoc), path.basename(logicPath)))
       .toThrow(/workflow_call inputs\/secrets/);
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('ignora l’ordine delle chiavi nei mapping YAML del contratto', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
@@ -2588,7 +2607,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(logicDoc), path.basename(logicPath)))
       .not.toThrow();
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('include by default ogni nuovo bucket non dichiarato sicuro da escludere', () => {
     const bucketsPath = path.join(tmp, 'checkout-buckets.json');
