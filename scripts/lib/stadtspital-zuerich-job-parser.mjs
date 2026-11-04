@@ -33,9 +33,11 @@
  *
  * Listing tiles expose title / Departement / Dienstabteilung / Referenz-Nr.
  * only; detail pages hydrate their body client-side (same portal behaviour
- * documented in the sibling parser). The vacancy text is the city's official
- * ad page with the same Referenz-Nr. ("Arbeiten für Zürich", read with the
- * sibling's `fetchOfficialAdTexts`); a tile without one is not published
+ * documented in the sibling parser). The vacancy text normally comes from
+ * the city's official ad page with the same Referenz-Nr. ("Arbeiten für
+ * Zürich", read with the sibling's `fetchOfficialAdTexts`). If that legacy
+ * index is unavailable, the sibling parser reads the hydrated current detail
+ * page instead. A tile without a source-backed body is not published
  * (issue 5253: the synthetic tile summary that stood in for it made 146/147
  * descriptions the same boilerplate). Structured-data safe defaults (Non-Negotiable #3):
  * every job carries the Stadtspital Triemli main-site civic address
@@ -201,7 +203,7 @@ async function fetchPage(url) {
  * Fetch all Stadtspital Zürich jobs from the facet-filtered city portal.
  * Returns an array of ParsedJob objects (source-locale only, German).
  */
-export async function fetchAllStadtspitalZuerichJobs() {
+export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage } = {}) {
   console.log('🔍 Fetching Stadtspital Zürich jobs');
   console.log(`   Source: ${SEARCH_BASE}?${FACET_QUERY}\n`);
 
@@ -254,7 +256,12 @@ export async function fetchAllStadtspitalZuerichJobs() {
   const officialTexts = await fetchOfficialAdTexts(
     new Set(rows.map((r) => r.ref).filter(Boolean)),
     Math.min(delayMs, 300),
-    { unit: /stadtspital/i, publicationByRef },
+    {
+      unit: /stadtspital/i,
+      publicationByRef,
+      detailRows: rows,
+      fetchCurrentDetailPage,
+    },
   );
   let withoutText = 0;
 
