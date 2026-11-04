@@ -89,7 +89,7 @@ review:     factual and editorial check complete
 caption:    run /ig-caption next
 
 For a one-off draft, offer a revision. Scheduled posts are produced through the
-validated monthly copy pack and publisher; do not wait for a per-post approval
+validated weekly copy pack and publisher; do not wait for a per-post approval
 or call a second Codex run for every scheduled Reel.
 ```
 

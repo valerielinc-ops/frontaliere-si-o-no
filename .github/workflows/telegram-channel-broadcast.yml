@@ -44,6 +44,7 @@ permissions:
 
 jobs:
   broadcast:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same dataset-growth pattern as
     # fb-jobs-daily-schedule.yml (#4764) and reddit-jobs-daily-schedule.yml —

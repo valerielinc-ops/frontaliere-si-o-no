@@ -44,6 +44,7 @@ import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
 import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
+import { FAQ_SEARCH_CATEGORY_GA4_DIMENSION } from './lib/social-ga4-contract.mjs';
 import { sleep, fetchRetry as rawFetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { withAutomationFleetExclusionForFetch, AUTOMATION_FLEET_EXCLUSION_NOTE } from './lib/ga4-automation-fleet.mjs';
 // Every GA4 Data API runReport/batchRunReport this report sends excludes the
@@ -1788,6 +1789,7 @@ async function reportGA4(token) {
     { parameterName: 'page', displayName: 'UI Interaction Page', description: 'Top-level page/feature for generic ui_interaction events (e.g. adblock_gate, reader_subscription)' },
     { parameterName: 'section', displayName: 'UI Interaction Section', description: 'Section within the page for ui_interaction events (e.g. ab_test, modal, subscribe_page)' },
     { parameterName: 'component', displayName: 'UI Interaction Component', description: 'Component within the section for ui_interaction events (e.g. bucket_assigned, outcome, checkout)' },
+    FAQ_SEARCH_CATEGORY_GA4_DIMENSION,
     { parameterName: 'cta_id', displayName: 'UI Interaction CTA ID', description: 'Stable CTA id for funnel joins, defaults to page.section.component.action' },
     // Web Vitals RUM dimensions (services/webVitals.ts). The Data API rejects
     // customEvent dimensions until the corresponding event parameters are

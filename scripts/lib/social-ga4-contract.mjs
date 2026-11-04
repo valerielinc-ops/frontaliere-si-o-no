@@ -54,6 +54,13 @@ export const SOCIAL_GA4_EVENT_CONTRACT_VERSION = 1;
 export const SOCIAL_GA4_ATTRIBUTION_WINDOW_DAYS = 30;
 export const SOCIAL_GA4_DATA_LAG_DAYS = 2;
 
+/** Shared event-scoped dimension contract used by the pack and weekly analytics bootstrap. */
+export const FAQ_SEARCH_CATEGORY_GA4_DIMENSION = Object.freeze({
+  parameterName: 'faq_category',
+  displayName: 'FAQ Search Category',
+  description: 'Closed FAQ search category; values are allowlisted and contain no free text',
+});
+
 /** Exact lowercase UTM source tokens emitted for social channel attribution. */
 export const SOCIAL_GA4_CHANNEL_BY_UTM_SOURCE = Object.freeze({
   [SOCIAL_UTM_SOURCE_BY_CHANNEL.facebook]: 'facebook',

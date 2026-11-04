@@ -30,6 +30,7 @@ permissions:
 
 jobs:
   schedule:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#4764, recurring x4 + #4244 earlier occurrence).
     # Observed run durations grew steadily as the jobs dataset grew: ~3.3-3.7min

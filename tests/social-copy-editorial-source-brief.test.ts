@@ -134,4 +134,168 @@ describe('sanitized editorial source brief', () => {
     expect(JSON.stringify(brief)).not.toContain('private');
     expect(JSON.stringify(brief)).not.toContain('event/one');
   });
+
+  it('passes only thresholded search categories and fresh multi-publisher news categories', () => {
+    const articles = fixtureDirectory();
+    const events = fixtureDirectory();
+    const demandVocabularyPath = path.join(fixtureDirectory(), 'demand-vocabulary.json');
+    const experimentalCandidatesPath = path.join(fixtureDirectory(), 'experimental-candidates.json');
+    const searchTerms = Array.from({ length: 10 }, (_, index) => ({
+      kw: `private-search-query-${index}`,
+      normalizedKeyword: `private-search-query-${index}`,
+      weight: 0.5,
+      source: 'gsc+suggest',
+      cluster: 'fiscale',
+    }));
+    searchTerms.push(...Array.from({ length: 9 }, (_, index) => ({
+      kw: `suppressed-health-query-${index}`,
+      normalizedKeyword: `suppressed-health-query-${index}`,
+      weight: 0.4,
+      source: 'gsc',
+      cluster: 'salute',
+    })));
+    searchTerms.push({
+      kw: 'private-performance-keyword',
+      normalizedKeyword: 'private-performance-keyword',
+      weight: 0.8,
+      source: 'fingerprint',
+      cluster: 'generic',
+    });
+    writeFileSync(demandVocabularyPath, JSON.stringify({
+      generatedAt: '2026-11-02T12:00:00.000Z',
+      stableKeywords: searchTerms,
+    }));
+
+    const newsCandidates = [
+      ['RSI confidential LAMal headline A', 'https://www.rsi.ch/news/item-a', 'https://www.rsi.ch'],
+      ['Swissinfo confidential LAMal headline B', 'https://www.swissinfo.ch/news/item-b', 'https://www.swissinfo.ch'],
+      ['TVS confidential LAMal headline C', 'https://www.tvsvizzera.it/news/item-c', 'https://www.tvsvizzera.it'],
+    ].map(([keyword, link, sourceUrl]) => ({
+      keyword,
+      sources: ['googleNewsRss'],
+      demandSignals: {
+        googleNewsRssLink: link,
+        googleNewsRssPubDate: 'Sun, 01 Nov 2026 12:00:00 GMT',
+        googleNewsRssSourceUrl: sourceUrl,
+      },
+    }));
+    newsCandidates.push(
+      {
+        keyword: 'stale 2017 fiscal headline must be excluded',
+        sources: ['googleNewsRss'],
+        demandSignals: {
+          googleNewsRssPubDate: 'Sun, 01 Jan 2017 12:00:00 GMT',
+          googleNewsRssSourceUrl: 'https://www.rsi.ch',
+        },
+      },
+      {
+        keyword: 'reddit user text must be excluded',
+        sources: ['reddit'],
+        demandSignals: {
+          googleNewsRssPubDate: 'Sun, 01 Nov 2026 12:00:00 GMT',
+          googleNewsRssSourceUrl: 'https://www.rsi.ch',
+        },
+      },
+    );
+    writeFileSync(experimentalCandidatesPath, JSON.stringify({
+      generatedAt: '2026-11-02T12:00:00.000Z',
+      candidates: newsCandidates,
+    }));
+
+    const brief = buildEditorialSourceBrief({
+      articleDirectory: articles,
+      eventDirectory: events,
+      demandVocabularyPath,
+      experimentalCandidatesPath,
+      asOf: '2026-11-03T12:00:00.000Z',
+    });
+
+    expect(brief.topicDiscovery).toMatchObject({
+      available: true,
+      searchDemand: {
+        available: true,
+        status: 'available',
+        minimumKeywordCount: 10,
+        categories: [{
+          category: 'fiscale',
+          keywordCountBand: '10-24',
+          sources: ['query-suggestions', 'search-console'],
+        }],
+      },
+      recentPublisherNews: {
+        available: true,
+        status: 'available',
+        itemMaxAgeDays: 14,
+        minimumItemsPerCategory: 3,
+        minimumPublisherDomainsPerCategory: 2,
+        categories: [{
+          category: 'salute',
+        }],
+      },
+    });
+    expect(brief.topicDiscovery.recentPublisherNews.categories).toEqual([
+      { category: 'salute', itemCountBand: '3-5', publisherDomainCountBand: '3-5' },
+    ]);
+    const serialized = JSON.stringify(brief.topicDiscovery);
+    for (const privateTerm of [
+      'private-search-query',
+      'suppressed-health-query',
+      'private-performance-keyword',
+      'confidential headline',
+      'stale 2017 fiscal headline',
+      'reddit user text',
+      'rsi.ch',
+      'item-a',
+    ]) {
+      expect(serialized).not.toContain(privateTerm);
+    }
+  });
+
+  it('rejects stale demand snapshots and current news with fewer than three distinct publishers', () => {
+    const demandVocabularyPath = path.join(fixtureDirectory(), 'demand-vocabulary.json');
+    const experimentalCandidatesPath = path.join(fixtureDirectory(), 'experimental-candidates.json');
+    writeFileSync(demandVocabularyPath, JSON.stringify({
+      generatedAt: '2026-10-01T12:00:00.000Z',
+      stableKeywords: Array.from({ length: 12 }, (_, index) => ({
+        normalizedKeyword: `stale-search-${index}`,
+        source: 'gsc',
+        cluster: 'fiscale',
+      })),
+    }));
+    writeFileSync(experimentalCandidatesPath, JSON.stringify({
+      generatedAt: '2026-11-02T12:00:00.000Z',
+      candidates: [
+        {
+          keyword: 'fiscal headline one',
+          sources: ['googleNewsRss'],
+          demandSignals: {
+            googleNewsRssPubDate: 'Sun, 01 Nov 2026 12:00:00 GMT',
+            googleNewsRssSourceUrl: 'https://www.rsi.ch',
+          },
+        },
+        {
+          keyword: 'fiscal headline two',
+          sources: ['googleNewsRss'],
+          demandSignals: {
+            googleNewsRssPubDate: 'Sun, 01 Nov 2026 12:00:00 GMT',
+            googleNewsRssSourceUrl: 'https://www.rsi.ch',
+          },
+        },
+      ],
+    }));
+
+    const brief = buildEditorialSourceBrief({
+      articleDirectory: fixtureDirectory(),
+      eventDirectory: fixtureDirectory(),
+      demandVocabularyPath,
+      experimentalCandidatesPath,
+      asOf: '2026-11-03T12:00:00.000Z',
+    });
+
+    expect(brief.topicDiscovery).toMatchObject({
+      available: false,
+      searchDemand: { available: false, status: 'stale', categories: [] },
+      recentPublisherNews: { available: false, status: 'no-qualified-categories', categories: [] },
+    });
+  });
 });

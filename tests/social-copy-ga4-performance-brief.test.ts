@@ -6,6 +6,8 @@ import {
   buildSocialCopyGa4ActionRateRequest,
   buildSocialCopyGa4ActionRequest,
   buildSocialCopyGa4Request,
+  buildSocialFaqSearchDemandBrief,
+  buildSocialFaqSearchDemandRequest,
   collectSocialCopyGa4Brief,
   SOCIAL_COPY_GA4_MINIMUM_SESSIONS,
 } from '../scripts/social-copy/ga4-performance-brief.mjs';
@@ -18,6 +20,124 @@ function row(source: string, campaign: string, content: string, sessions: number
 }
 
 describe('GA4 social-copy performance brief', () => {
+  it('reports only thresholded closed FAQ categories and never includes raw search text', () => {
+    const demand = buildSocialFaqSearchDemandBrief({
+      complete: true,
+      rows: [
+        { dimensionValues: [{ value: 'faq_search_category' }, { value: 'taxes' }], metricValues: [{ value: '10' }] },
+        { dimensionValues: [{ value: 'faq_search_no_results' }, { value: 'taxes' }], metricValues: [{ value: '2' }] },
+        { dimensionValues: [{ value: 'faq_search_answer_opened' }, { value: 'taxes' }], metricValues: [{ value: '4' }] },
+        { dimensionValues: [{ value: 'faq_search_category' }, { value: 'permits' }], metricValues: [{ value: '9' }] },
+        { dimensionValues: [{ value: 'faq_search_no_results' }, { value: 'permits' }], metricValues: [{ value: '1' }] },
+        { dimensionValues: [{ value: 'faq_search_category' }, { value: 'family' }], metricValues: [{ value: '12' }] },
+        { dimensionValues: [{ value: 'faq_search_no_results' }, { value: 'family' }], metricValues: [{ value: '11' }] },
+        { dimensionValues: [{ value: 'faq_search_answer_opened' }, { value: 'family' }], metricValues: [{ value: '9' }] },
+        { dimensionValues: [{ value: 'faq_search_category' }, { value: 'mario rossi codice fiscale' }], metricValues: [{ value: '500' }] },
+      ],
+    }, { startDate: '2026-10-01', endDate: '2026-10-30' });
+
+    expect(demand).toMatchObject({
+      available: true,
+      windowDays: 30,
+      minimumEvents: 10,
+      categories: expect.arrayContaining([
+        { category: 'taxes', eventCount: 10, noResultEventCount: null, answerOpenedEventCount: null, status: 'available' },
+        { category: 'permits', eventCount: null, noResultEventCount: null, answerOpenedEventCount: null, status: 'suppressed' },
+        { category: 'health', eventCount: null, noResultEventCount: null, answerOpenedEventCount: null, status: 'suppressed' },
+        { category: 'family', eventCount: 12, noResultEventCount: 11, answerOpenedEventCount: null, status: 'available' },
+      ]),
+    });
+    expect(demand.categories).toHaveLength(7);
+    const suppressedShapes = demand.categories
+      .filter(({ status }) => status === 'suppressed')
+      .map(({ status, eventCount, noResultEventCount, answerOpenedEventCount }) => (
+        JSON.stringify({ status, eventCount, noResultEventCount, answerOpenedEventCount })
+      ));
+    expect(new Set(suppressedShapes).size).toBe(1);
+    expect(JSON.stringify(demand)).not.toContain('mario rossi codice fiscale');
+  });
+
+  it('queries only the Firebase FAQ category event parameter with a closed allowlist', () => {
+    const request = buildSocialFaqSearchDemandRequest({ now: new Date('2026-11-02T12:00:00.000Z') });
+    const serialized = JSON.stringify(request);
+    expect(request.dimensions).toEqual([{ name: 'eventName' }, { name: 'customEvent:faq_category' }]);
+    expect(serialized).toContain('faq_search_category');
+    expect(serialized).toContain('faq_search_no_results');
+    expect(serialized).toContain('faq_search_answer_opened');
+    expect(serialized).toContain('customEvent:faq_category');
+    expect(serialized).not.toContain('customEvent:details');
+    expect(serialized).not.toContain('search_term');
+    expect(serialized).not.toContain('posthog');
+  });
+
+  it('registers the FAQ dimension before querying the first pack report', async () => {
+    const order: string[] = [];
+    const brief = await collectSocialCopyGa4Brief({
+      now: new Date('2026-11-02T12:00:00.000Z'),
+      propertyId: '123456',
+      getTokenImpl: async () => 'readonly-token',
+      getAdminTokenImpl: async () => 'admin-token',
+      ensureCustomDimensionsImpl: async ({ propertyId, token, dimensions }: any) => {
+        order.push('register');
+        expect(propertyId).toBe('properties/123456');
+        expect(token).toBe('admin-token');
+        expect(dimensions).toEqual([expect.objectContaining({ parameterName: 'faq_category' })]);
+        return { registered: [], alreadyPresent: ['faq_category'], raced: [], failures: [] };
+      },
+      listKeyEventMetricsImpl: async () => new Set(),
+      runReportImpl: async ({ body }: any) => {
+        if (body.dimensions.some(({ name }: any) => name === 'customEvent:faq_category')) {
+          order.push('faq-report');
+          return {
+            complete: true,
+            rows: [{ dimensionValues: [{ value: 'faq_search_category' }, { value: 'taxes' }], metricValues: [{ value: '12' }] }],
+          };
+        }
+        order.push('social-report');
+        return { complete: true, rows: [] };
+      },
+    });
+
+    expect(order.indexOf('register')).toBeGreaterThanOrEqual(0);
+    expect(order.indexOf('register')).toBeLessThan(order.indexOf('faq-report'));
+    expect(brief.faqSearchDemand).toMatchObject({
+      available: true,
+      categories: expect.arrayContaining([{
+        category: 'taxes',
+        eventCount: 12,
+        noResultEventCount: null,
+        answerOpenedEventCount: null,
+        status: 'available',
+      }]),
+    });
+  });
+
+  it('reports dimension registration as warming up without failing the social brief', async () => {
+    let faqReportRequested = false;
+    const brief = await collectSocialCopyGa4Brief({
+      now: new Date('2026-11-02T12:00:00.000Z'),
+      propertyId: '123456',
+      getTokenImpl: async () => 'readonly-token',
+      getAdminTokenImpl: async () => 'admin-token',
+      ensureCustomDimensionsImpl: async () => ({
+        registered: ['faq_category'],
+        alreadyPresent: [],
+        raced: [],
+        failures: [],
+      }),
+      listKeyEventMetricsImpl: async () => new Set(),
+      runReportImpl: async ({ body }: any) => {
+        if (body.dimensions.some(({ name }: any) => name === 'customEvent:faq_category')) {
+          faqReportRequested = true;
+        }
+        return { complete: true, rows: [] };
+      },
+    });
+
+    expect(faqReportRequested).toBe(false);
+    expect(brief).toMatchObject({ available: true, faqSearchDemand: { available: false, reason: 'dimension-registered' } });
+  });
+
   it('aggregates only valid attributed variants and suppresses low-volume rates', () => {
     const report = {
       complete: true,

@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { FAQ_SEARCH_CATEGORIES } from '../../services/privacy/faqSearchCategories.mjs';
 import {
+  FAQ_SEARCH_CATEGORY_GA4_DIMENSION,
   SOCIAL_GA4_ACTION_EVENTS,
   SOCIAL_GA4_ACTION_EVENT_CONTRACTS,
   SOCIAL_GA4_ATTRIBUTION_WINDOW_DAYS,
@@ -16,6 +18,7 @@ import {
   getServiceAccountToken,
   runGa4ReportPaged,
 } from '../lib/ga4-service-account.mjs';
+import { ensureGa4CustomDimensions } from '../lib/ga4-custom-dimensions.mjs';
 
 const CHANNEL_CAMPAIGNS = Object.freeze({
   facebook: Object.freeze({
@@ -63,6 +66,15 @@ export const SOCIAL_COPY_GA4_MINIMUM_ACTION_EVENTS = 10;
 export const SOCIAL_COPY_GA4_EVENT_CONTRACT_VERSION = SOCIAL_GA4_EVENT_CONTRACT_VERSION;
 export const SOCIAL_COPY_GA4_ACTION_EVENTS = SOCIAL_GA4_ACTION_EVENTS;
 export const SOCIAL_COPY_GA4_ACTION_EVENT_CONTRACTS = SOCIAL_GA4_ACTION_EVENT_CONTRACTS;
+export const SOCIAL_FAQ_DEMAND_WINDOW_DAYS = 30;
+export const SOCIAL_FAQ_DEMAND_MINIMUM_EVENTS = 10;
+export const SOCIAL_FAQ_SEARCH_CATEGORIES = FAQ_SEARCH_CATEGORIES;
+export const SOCIAL_FAQ_SEARCH_EVENT_NAMES = Object.freeze([
+  'faq_search_category',
+  'faq_search_no_results',
+  'faq_search_answer_opened',
+]);
+const GA4_ADMIN_SCOPE = 'https://www.googleapis.com/auth/analytics.edit';
 
 function dim(row, index) {
   return String(row?.dimensionValues?.[index]?.value || '').trim();
@@ -105,7 +117,72 @@ function unavailableBrief(reason, { startDate = '', endDate = '' } = {}) {
     siteActionRates: [],
     keyEventMetadataStatus: 'unavailable',
     actionRateReportStatus: 'unavailable',
+    faqSearchDemand: unavailableFaqSearchDemand(reason),
     interpretation: 'Descriptive only; sessions are not impressions and do not establish causality or a winning template.',
+  };
+}
+
+function unavailableFaqSearchDemand(reason = 'report-unavailable') {
+  return {
+    available: false,
+    reason,
+    windowDays: SOCIAL_FAQ_DEMAND_WINDOW_DAYS,
+    minimumEvents: SOCIAL_FAQ_DEMAND_MINIMUM_EVENTS,
+    categories: [],
+    interpretation: 'Closed-category search and FAQ-answer interaction event counts only; raw search text is never included.',
+  };
+}
+
+/** Reduce Firebase-only FAQ telemetry to a small, thresholded closed-category report. */
+export function buildSocialFaqSearchDemandBrief(report, {
+  minimumEvents = SOCIAL_FAQ_DEMAND_MINIMUM_EVENTS,
+  startDate = '',
+  endDate = '',
+} = {}) {
+  const reportIssue = socialCopyGa4ReportIssue(report);
+  if (reportIssue) return { ...unavailableFaqSearchDemand(reportIssue), startDate, endDate };
+  if (!Number.isSafeInteger(minimumEvents) || minimumEvents < 1) {
+    throw new Error('minimumEvents must be a positive safe integer');
+  }
+  const counts = new Map();
+  for (const row of report.rows) {
+    const eventName = dim(row, 0);
+    const category = dim(row, 1);
+    const count = metric(row, 0);
+    if (!SOCIAL_FAQ_SEARCH_EVENT_NAMES.includes(eventName)
+      || !SOCIAL_FAQ_SEARCH_CATEGORIES.includes(category) || count === null) continue;
+    const categoryCounts = counts.get(category) || Object.fromEntries(SOCIAL_FAQ_SEARCH_EVENT_NAMES.map((name) => [name, 0]));
+    categoryCounts[eventName] += count;
+    counts.set(category, categoryCounts);
+  }
+  const categories = SOCIAL_FAQ_SEARCH_CATEGORIES.map((category) => {
+    const values = counts.get(category) || Object.fromEntries(SOCIAL_FAQ_SEARCH_EVENT_NAMES.map((name) => [name, 0]));
+    const searchEventCount = values.faq_search_category;
+    const thresholdedCount = (value) => value >= minimumEvents ? value : null;
+    return searchEventCount >= minimumEvents
+      ? {
+        category,
+        eventCount: searchEventCount,
+        noResultEventCount: thresholdedCount(values.faq_search_no_results),
+        answerOpenedEventCount: thresholdedCount(values.faq_search_answer_opened),
+        status: 'available',
+      }
+      : {
+        category,
+        eventCount: null,
+        noResultEventCount: null,
+        answerOpenedEventCount: null,
+        status: 'suppressed',
+      };
+  });
+  return {
+    available: categories.some((category) => category.status === 'available'),
+    startDate,
+    endDate,
+    windowDays: SOCIAL_FAQ_DEMAND_WINDOW_DAYS,
+    minimumEvents,
+    categories,
+    interpretation: 'Aggregated closed-category FAQ search and answer-interaction event counts only; raw search text is never included. Categories below the search threshold share one status whether there were zero or sub-threshold events, and each event count below the minimum is suppressed. These counts do not identify unique people, satisfaction, or market demand.',
   };
 }
 
@@ -114,6 +191,47 @@ function normalizePropertyId(value) {
   const property = raw.startsWith('properties/') ? raw : `properties/${raw}`;
   if (!/^properties\/\d+$/u.test(property)) throw new Error('invalid GA4 property id');
   return property;
+}
+
+/** Register the closed FAQ dimension before its first query; a newly created dimension warms up next run. */
+export async function prepareSocialFaqCategoryDimension({
+  propertyId,
+  getAdminTokenImpl = () => getServiceAccountToken([GA4_ADMIN_SCOPE], {
+    logInfo: () => {},
+    logError: () => {},
+  }),
+  ensureCustomDimensionsImpl = ensureGa4CustomDimensions,
+} = {}) {
+  let token;
+  try {
+    token = await getAdminTokenImpl();
+  } catch {
+    return { ready: false, reason: 'admin-credentials-unavailable' };
+  }
+  if (!token) return { ready: false, reason: 'admin-credentials-unavailable' };
+
+  try {
+    const result = await ensureCustomDimensionsImpl({
+      propertyId: normalizePropertyId(propertyId || process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID),
+      token,
+      dimensions: [FAQ_SEARCH_CATEGORY_GA4_DIMENSION],
+    });
+    if (Array.isArray(result?.failures) && result.failures.length > 0) {
+      return { ready: false, reason: 'dimension-not-ready' };
+    }
+    if (Array.isArray(result?.registered) && result.registered.includes(FAQ_SEARCH_CATEGORY_GA4_DIMENSION.parameterName)) {
+      return { ready: false, reason: 'dimension-registered' };
+    }
+    const present = [
+      ...(Array.isArray(result?.alreadyPresent) ? result.alreadyPresent : []),
+      ...(Array.isArray(result?.raced) ? result.raced : []),
+    ].includes(FAQ_SEARCH_CATEGORY_GA4_DIMENSION.parameterName);
+    return present
+      ? { ready: true, reason: null }
+      : { ready: false, reason: 'dimension-not-ready' };
+  } catch {
+    return { ready: false, reason: 'dimension-not-ready' };
+  }
 }
 
 /** Read the property's registered per-event session-rate metrics, if available. */
@@ -147,6 +265,7 @@ export function buildSocialCopyGa4Brief(report, {
   actionEventReportStatus = null,
   actionRateReportStatus = 'unavailable',
   minimumActionEvents = SOCIAL_COPY_GA4_MINIMUM_ACTION_EVENTS,
+  faqSearchDemand = unavailableFaqSearchDemand(),
 } = {}) {
   const reportIssue = socialCopyGa4ReportIssue(report);
   if (reportIssue) {
@@ -155,6 +274,7 @@ export function buildSocialCopyGa4Brief(report, {
       actionReportStatus: actionEventReportStatus || 'unavailable',
       keyEventMetadataStatus,
       actionRateReportStatus,
+      faqSearchDemand,
     };
   }
 
@@ -281,6 +401,7 @@ export function buildSocialCopyGa4Brief(report, {
     siteActionRates,
     keyEventMetadataStatus,
     actionRateReportStatus,
+    faqSearchDemand,
     interpretation: acceptedRows === 0
       ? 'No copy-attributed rows were available; this is missing evidence, not zero traffic or evidence of poor performance.'
       : 'Descriptive only; sessions are not impressions and do not establish causality or a winning template.',
@@ -563,6 +684,22 @@ export function buildSocialCopyGa4ActionRateRequest({ eventNames = [], now = new
   };
 }
 
+export function buildSocialFaqSearchDemandRequest({ now = new Date() } = {}) {
+  return {
+    dateRanges: [ga4DateRange(SOCIAL_FAQ_DEMAND_WINDOW_DAYS, SOCIAL_COPY_GA4_LAG_DAYS, now)],
+    dimensions: [{ name: 'eventName' }, { name: 'customEvent:faq_category' }],
+    metrics: [{ name: 'eventCount' }],
+    dimensionFilter: {
+      andGroup: {
+        expressions: [
+          { filter: { fieldName: 'eventName', inListFilter: { values: SOCIAL_FAQ_SEARCH_EVENT_NAMES, caseSensitive: true } } },
+          { filter: { fieldName: 'customEvent:faq_category', inListFilter: { values: SOCIAL_FAQ_SEARCH_CATEGORIES, caseSensitive: true } } },
+        ],
+      },
+    },
+  };
+}
+
 export async function collectSocialCopyGa4Brief({
   now = new Date(),
   propertyId,
@@ -572,11 +709,21 @@ export async function collectSocialCopyGa4Brief({
   }),
   runReportImpl = runGa4ReportPaged,
   listKeyEventMetricsImpl = listSocialCopySessionKeyEventMetrics,
+  getAdminTokenImpl = () => getServiceAccountToken([GA4_ADMIN_SCOPE], {
+    logInfo: () => {},
+    logError: () => {},
+  }),
+  ensureCustomDimensionsImpl = ensureGa4CustomDimensions,
 } = {}) {
   const dateRange = ga4DateRange(SOCIAL_COPY_GA4_WINDOW_DAYS, SOCIAL_COPY_GA4_LAG_DAYS, now);
   const dates = { startDate: dateRange.startDate, endDate: dateRange.endDate };
   const token = await getTokenImpl();
   if (!token) return unavailableBrief('credentials-unavailable', dates);
+  const faqDimension = await prepareSocialFaqCategoryDimension({
+    propertyId,
+    getAdminTokenImpl,
+    ensureCustomDimensionsImpl,
+  });
 
   try {
     const reportRequest = {
@@ -586,6 +733,30 @@ export async function collectSocialCopyGa4Brief({
       maxRows: 250_000,
     };
     const report = await runReportImpl({ ...reportRequest, body: buildSocialCopyGa4Request({ now }) });
+    let faqSearchDemand = {
+      ...unavailableFaqSearchDemand(faqDimension.reason),
+      startDate: dateRange.startDate,
+      endDate: dateRange.endDate,
+    };
+    if (faqDimension.ready) {
+      try {
+        const faqReport = await runReportImpl({
+          ...reportRequest,
+          body: buildSocialFaqSearchDemandRequest({ now }),
+        });
+        faqSearchDemand = buildSocialFaqSearchDemandBrief(faqReport, {
+          startDate: dateRange.startDate,
+          endDate: dateRange.endDate,
+        });
+      } catch {
+        // The FAQ report has an independent status; it must not hide working social attribution data.
+        faqSearchDemand = {
+          ...unavailableFaqSearchDemand('report-unavailable'),
+          startDate: dateRange.startDate,
+          endDate: dateRange.endDate,
+        };
+      }
+    }
     let actionReport = null;
     let actionEventReportStatus = 'report-unavailable';
     try {
@@ -631,6 +802,7 @@ export async function collectSocialCopyGa4Brief({
       registeredKeyEventNames,
       keyEventMetadataStatus,
       actionRateReportStatus,
+      faqSearchDemand,
     });
   } catch {
     return unavailableBrief('report-unavailable', dates);

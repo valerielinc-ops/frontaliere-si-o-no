@@ -102,6 +102,6 @@ WHAT THE DATA SAYS
 NEXT: collect more comparable observations under the existing protocol.
 ```
 
-Use findings as descriptive input to `ig-plan` and the existing monthly Codex
+Use findings as descriptive input to `ig-plan` and the existing weekly Codex
 copy-pack prompt. Do not silently change publishing cadence, copy assignment,
 or experiment thresholds from an audit.

@@ -1,4 +1,12 @@
 import { validateSocialNativeInsightsDocument } from './social-native-insights-schema.mjs';
+import { socialCopyRevisionId } from './social-copy-revision.mjs';
+import {
+  INSTAGRAM_STORY_MAX_ROWS,
+  INSTAGRAM_STORY_MEASUREMENT_WINDOW_IDS,
+  INSTAGRAM_STORY_RETENTION_DAYS,
+} from './instagram-story-contract.mjs';
+
+export { INSTAGRAM_STORY_MAX_ROWS, INSTAGRAM_STORY_RETENTION_DAYS };
 
 export const SOCIAL_NATIVE_INSIGHTS_COLLECTION = 'social_native_insights';
 export const SOCIAL_NATIVE_INSIGHTS_DOCUMENT = 'current';
@@ -9,6 +17,8 @@ export const SOCIAL_FOLLOWER_GAIN_RETENTION_DAYS = 130;
 const EMPTY_DOCUMENT = Object.freeze({
   schemaVersion: 1,
   posts: [],
+  instagramStoryPublications: [],
+  instagramStorySnapshots: [],
   audienceSnapshots: [],
   audienceBaselines: {},
   audienceGrowthCycles: {},
@@ -97,13 +107,15 @@ export function normalizeInstagramPrivateSnapshots(snapshot) {
       'engagementLoop', 'followUpFormat', 'copyMode', 'copySlot', 'copyAssignmentMode',
       'copyExperimentId', 'copyBlockId', 'copyBlockCycle', 'copyRegistrationHash',
       'copyPromptVersion', 'copyPackId', 'copyTemplateId', 'copyObjective',
-      'copyAngleId', 'copyPillarId', 'copyAngleIntent', 'copyHook', 'copyCta',
+      'copyAngleId', 'copyPillarId', 'copyAngleIntent', 'copyHook', 'copyCta', 'copyRevisionId',
       'reachSource', 'audienceMetric', 'matchMethod', 'visualMatchDistance',
       'copyAttributionStatus', 'mediaType',
     ];
     const metadata = Object.fromEntries(metadataFields
       .filter((field) => row[field] !== undefined && row[field] !== null && row[field] !== '')
       .map((field) => [field, row[field]]));
+    const revisionId = socialCopyRevisionId({ copyHook: row.copyHook, copyCta: row.copyCta });
+    if (revisionId) metadata.copyRevisionId ||= revisionId;
     return [{
       channel: 'instagram',
       postId,
@@ -117,6 +129,99 @@ export function normalizeInstagramPrivateSnapshots(snapshot) {
       ...metadata,
     }];
   });
+}
+
+function storyMetadata(row) {
+  const value = (input) => {
+    const text = String(input ?? '').trim();
+    return text || null;
+  };
+  return {
+    sourceMediaId: value(row.sourceMediaId),
+    followUpFormat: value(row.followUpFormat),
+    copyPackId: value(row.copyPackId),
+    copyTemplateId: value(row.copyTemplateId),
+    copyAngleId: value(row.copyAngleId),
+    copyPillarId: value(row.copyPillarId),
+    copyRevisionId: value(row.copyRevisionId),
+  };
+}
+
+/** Keep exact Instagram Story identities private and bounded for live insights collection. */
+export function mergePrivateInstagramStoryPublications(existing, additions, {
+  asOf = new Date(),
+  retentionDays = INSTAGRAM_STORY_RETENTION_DAYS,
+} = {}) {
+  const asOfMs = new Date(asOf).getTime();
+  if (!Number.isFinite(asOfMs) || !Number.isSafeInteger(retentionDays) || retentionDays < 1) {
+    throw new TypeError('Instagram Story retention and asOf must be valid');
+  }
+  const cutoff = asOfMs - retentionDays * 24 * 60 * 60 * 1000;
+  const byStoryId = new Map();
+  for (const row of [
+    ...(Array.isArray(existing) ? existing : []),
+    ...(Array.isArray(additions) ? additions : []),
+  ]) {
+    if (!record(row)) continue;
+    const storyId = String(row.storyId || '').trim();
+    const publishedAt = asIso(row.publishedAt);
+    const publishedMs = publishedAt ? Date.parse(publishedAt) : NaN;
+    if (!storyId || storyId.length > 128 || !publishedAt || publishedMs < cutoff || publishedMs > asOfMs) continue;
+    const metadata = storyMetadata(row);
+    const publication = { storyId, publishedAt, ...metadata };
+    const current = byStoryId.get(storyId);
+    if (!current || Date.parse(publication.publishedAt) >= Date.parse(current.publishedAt)) {
+      byStoryId.set(storyId, publication);
+    }
+  }
+  return [...byStoryId.values()]
+    .sort((left, right) => left.publishedAt.localeCompare(right.publishedAt))
+    .slice(-INSTAGRAM_STORY_MAX_ROWS);
+}
+
+/** Merge one early and one near-expiry snapshot per Story, without treating missing metrics as zero. */
+export function mergePrivateInstagramStorySnapshots(existing, additions, {
+  asOf = new Date(),
+  retentionDays = INSTAGRAM_STORY_RETENTION_DAYS,
+} = {}) {
+  const asOfMs = new Date(asOf).getTime();
+  if (!Number.isFinite(asOfMs) || !Number.isSafeInteger(retentionDays) || retentionDays < 1) {
+    throw new TypeError('Instagram Story snapshot retention and asOf must be valid');
+  }
+  const cutoff = asOfMs - retentionDays * 24 * 60 * 60 * 1000;
+  const byWindow = new Map();
+  for (const row of [
+    ...(Array.isArray(existing) ? existing : []),
+    ...(Array.isArray(additions) ? additions : []),
+  ]) {
+    if (!record(row)) continue;
+    const storyId = String(row.storyId || '').trim();
+    const publishedAt = asIso(row.publishedAt);
+    const snapshotAt = asIso(row.snapshotAt);
+    const publishedMs = publishedAt ? Date.parse(publishedAt) : NaN;
+    const snapshotMs = snapshotAt ? Date.parse(snapshotAt) : NaN;
+    if (!storyId || storyId.length > 128 || !publishedAt || !snapshotAt
+      || publishedMs < cutoff || snapshotMs > asOfMs || snapshotMs < publishedMs
+      || !INSTAGRAM_STORY_MEASUREMENT_WINDOW_IDS.includes(row.measurementWindow)) continue;
+    const key = `${storyId}\u0000${row.measurementWindow}`;
+    const current = byWindow.get(key);
+    if (!current || snapshotMs >= Date.parse(current.snapshotAt)) {
+      byWindow.set(key, {
+        storyId,
+        publishedAt,
+        snapshotAt,
+        snapshotAgeHours: Number(row.snapshotAgeHours),
+        measurementWindow: row.measurementWindow,
+        metrics: record(row.metrics) ? row.metrics : {},
+        availableMetrics: Array.isArray(row.availableMetrics) ? row.availableMetrics : [],
+        metricStatus: record(row.metricStatus) ? row.metricStatus : {},
+        ...storyMetadata(row),
+      });
+    }
+  }
+  return [...byWindow.values()]
+    .sort((left, right) => left.snapshotAt.localeCompare(right.snapshotAt) || left.storyId.localeCompare(right.storyId))
+    .slice(-INSTAGRAM_STORY_MAX_ROWS);
 }
 
 /** Merge one channel's new observations without replacing other private channels. */

@@ -4,18 +4,27 @@ import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { classifyByRegex, CLUSTER_TAXONOMY } from '../lib/cluster-classifier-prompt.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_ARTICLE_DIRECTORY = path.join(ROOT, 'data', 'swiss-articles');
 const DEFAULT_BLOG_ARTICLE_DIRECTORY = path.join(ROOT, 'data', 'blog-articles');
 const DEFAULT_ARTICLE_DIRECTORIES = Object.freeze([DEFAULT_ARTICLE_DIRECTORY, DEFAULT_BLOG_ARTICLE_DIRECTORY]);
 const DEFAULT_EVENT_DIRECTORY = path.join(ROOT, 'data', 'events', 'by-source');
+const DEFAULT_DEMAND_VOCABULARY_PATH = path.join(ROOT, 'data', 'demand-vocabulary.json');
+const DEFAULT_EXPERIMENTAL_CANDIDATES_PATH = path.join(ROOT, 'data', 'experimental-candidates.json');
 const INVENTORY_DAYS = 30;
 const EDITORIAL_HISTORY_DAYS = 365;
 const EVENT_SOURCE_MAX_AGE_DAYS = 7;
+const TOPIC_SOURCE_MAX_AGE_DAYS = 7;
+const NEWS_ITEM_MAX_AGE_DAYS = 14;
+const MIN_SEARCH_KEYWORDS_PER_CLUSTER = 10;
+const MIN_NEWS_ITEMS_PER_CLUSTER = 3;
+const MIN_NEWS_DOMAINS_PER_CLUSTER = 2;
 const MAX_RECENT_TOPICS = 12;
 const MAX_EVENT_CATEGORIES = 8;
 const EVENT_CANTON = 'TI';
+const DEMAND_CLUSTERS = new Set(CLUSTER_TAXONOMY);
 const ALLOWED_CLUSTERS = new Set([
   'pratico', 'mobilita', 'generic', 'lavoro', 'salute', 'fiscale', 'novita', 'pensioni',
 ]);
@@ -42,6 +51,186 @@ function strictDate(value) {
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) return null;
   const parsed = new Date(`${date}T00:00:00.000Z`);
   return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === date ? date : null;
+}
+
+function sourceTimestamp(value) {
+  if (typeof value !== 'string') return null;
+  const normalized = value.trim();
+  if (!normalized) return null;
+  const parsed = Date.parse(normalized);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function ageWithinDays(timestamp, asOfMs, maxAgeDays) {
+  return timestamp !== null
+    && timestamp <= asOfMs
+    && asOfMs - timestamp <= maxAgeDays * 24 * 60 * 60 * 1000;
+}
+
+function safeReadJson(filePath) {
+  try {
+    return JSON.parse(readFileSync(filePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function countBand(count) {
+  if (count >= 50) return '50+';
+  if (count >= 25) return '25-49';
+  if (count >= 10) return '10-24';
+  if (count >= 6) return '6-9';
+  if (count >= 3) return '3-5';
+  return String(count);
+}
+
+function buildSearchDemandCategories({ demandVocabularyPath, asOfMs }) {
+  const empty = {
+    available: false,
+    status: 'missing',
+    generatedAt: null,
+    minimumKeywordCount: MIN_SEARCH_KEYWORDS_PER_CLUSTER,
+    categories: [],
+  };
+  const payload = safeReadJson(demandVocabularyPath);
+  if (!isRecord(payload)) return empty;
+  const generatedAtMs = sourceTimestamp(payload.generatedAt);
+  if (generatedAtMs === null) return { ...empty, status: 'invalid-timestamp' };
+  const generatedAt = new Date(generatedAtMs).toISOString();
+  if (generatedAtMs > asOfMs) return { ...empty, status: 'future-timestamp', generatedAt };
+  if (!ageWithinDays(generatedAtMs, asOfMs, TOPIC_SOURCE_MAX_AGE_DAYS)) {
+    return { ...empty, status: 'stale', generatedAt };
+  }
+
+  const buckets = new Map();
+  for (const row of Array.isArray(payload.stableKeywords) ? payload.stableKeywords : []) {
+    if (!isRecord(row) || !DEMAND_CLUSTERS.has(row.cluster)) continue;
+    const termValue = typeof row.normalizedKeyword === 'string' && row.normalizedKeyword.trim()
+      ? row.normalizedKeyword
+      : typeof row.kw === 'string' ? row.kw : '';
+    const term = termValue.normalize('NFKC').trim().toLowerCase();
+    if (!term) continue;
+    const sourceTypes = new Set(typeof row.source === 'string' ? row.source.split('+') : []);
+    const searchSources = [];
+    if (sourceTypes.has('gsc')) searchSources.push('search-console');
+    if (sourceTypes.has('suggest')) searchSources.push('query-suggestions');
+    if (!searchSources.length) continue;
+
+    let bucket = buckets.get(row.cluster);
+    if (!bucket) {
+      bucket = { terms: new Set(), sources: new Set() };
+      buckets.set(row.cluster, bucket);
+    }
+    bucket.terms.add(term);
+    for (const source of searchSources) bucket.sources.add(source);
+  }
+
+  const categories = [...buckets.entries()]
+    .filter(([, bucket]) => bucket.terms.size >= MIN_SEARCH_KEYWORDS_PER_CLUSTER)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([category, bucket]) => ({
+      category,
+      keywordCountBand: countBand(bucket.terms.size),
+      sources: [...bucket.sources].sort(),
+    }));
+  return {
+    available: categories.length > 0,
+    status: categories.length > 0 ? 'available' : 'no-qualified-categories',
+    generatedAt,
+    minimumKeywordCount: MIN_SEARCH_KEYWORDS_PER_CLUSTER,
+    categories,
+  };
+}
+
+function safePublisherHost(value) {
+  try {
+    if (typeof value !== 'string' || !value.trim()) return null;
+    const url = new URL(value);
+    if (url.protocol !== 'https:' || url.username || url.password) return null;
+    return url.hostname.toLowerCase().replace(/^www\./u, '') || null;
+  } catch {
+    return null;
+  }
+}
+
+function buildRecentPublisherNewsCategories({ experimentalCandidatesPath, asOfMs }) {
+  const empty = {
+    available: false,
+    status: 'missing',
+    generatedAt: null,
+    itemMaxAgeDays: NEWS_ITEM_MAX_AGE_DAYS,
+    minimumItemsPerCategory: MIN_NEWS_ITEMS_PER_CLUSTER,
+    minimumPublisherDomainsPerCategory: MIN_NEWS_DOMAINS_PER_CLUSTER,
+    categories: [],
+  };
+  const payload = safeReadJson(experimentalCandidatesPath);
+  if (!isRecord(payload)) return empty;
+  const generatedAtMs = sourceTimestamp(payload.generatedAt);
+  if (generatedAtMs === null) return { ...empty, status: 'invalid-timestamp' };
+  const generatedAt = new Date(generatedAtMs).toISOString();
+  if (generatedAtMs > asOfMs) return { ...empty, status: 'future-timestamp', generatedAt };
+  if (!ageWithinDays(generatedAtMs, asOfMs, TOPIC_SOURCE_MAX_AGE_DAYS)) {
+    return { ...empty, status: 'stale', generatedAt };
+  }
+
+  const buckets = new Map();
+  const seenItems = new Set();
+  for (const row of Array.isArray(payload.candidates) ? payload.candidates : []) {
+    if (!isRecord(row) || !Array.isArray(row.sources) || !row.sources.includes('googleNewsRss')) continue;
+    const signals = isRecord(row.demandSignals) ? row.demandSignals : {};
+    const publishedAtMs = sourceTimestamp(signals.googleNewsRssPubDate);
+    if (!ageWithinDays(publishedAtMs, asOfMs, NEWS_ITEM_MAX_AGE_DAYS)) continue;
+    const host = safePublisherHost(signals.googleNewsRssSourceUrl);
+    if (!host) continue;
+    const topicText = String(row.keyword || '').normalize('NFKC').replace(/\s+/gu, ' ').trim();
+    if (!topicText) continue;
+    const category = classifyByRegex(topicText);
+    if (!DEMAND_CLUSTERS.has(category) || category === 'generic') continue;
+    const itemKey = createHash('sha256').update(topicText.toLowerCase()).digest('hex');
+    if (seenItems.has(itemKey)) continue;
+    seenItems.add(itemKey);
+    let bucket = buckets.get(category);
+    if (!bucket) {
+      bucket = { items: 0, domains: new Set() };
+      buckets.set(category, bucket);
+    }
+    bucket.items += 1;
+    bucket.domains.add(host);
+  }
+
+  const categories = [...buckets.entries()]
+    .filter(([, bucket]) => bucket.items >= MIN_NEWS_ITEMS_PER_CLUSTER
+      && bucket.domains.size >= MIN_NEWS_DOMAINS_PER_CLUSTER)
+    .sort(([leftName, left], [rightName, right]) => right.items - left.items || leftName.localeCompare(rightName))
+    .slice(0, CLUSTER_TAXONOMY.length)
+    .map(([category, bucket]) => ({
+      category,
+      itemCountBand: countBand(bucket.items),
+      publisherDomainCountBand: countBand(bucket.domains.size),
+    }));
+  return {
+    available: categories.length > 0,
+    status: categories.length > 0 ? 'available' : 'no-qualified-categories',
+    generatedAt,
+    itemMaxAgeDays: NEWS_ITEM_MAX_AGE_DAYS,
+    minimumItemsPerCategory: MIN_NEWS_ITEMS_PER_CLUSTER,
+    minimumPublisherDomainsPerCategory: MIN_NEWS_DOMAINS_PER_CLUSTER,
+    categories,
+  };
+}
+
+function buildTopicDiscoveryBrief({ demandVocabularyPath, experimentalCandidatesPath, asOfDate }) {
+  const asOfMs = asOfDate.getTime();
+  const searchDemand = buildSearchDemandCategories({ demandVocabularyPath, asOfMs });
+  const recentPublisherNews = buildRecentPublisherNewsCategories({ experimentalCandidatesPath, asOfMs });
+  return {
+    schemaVersion: 1,
+    source: 'privacy-screened-topic-discovery',
+    available: searchDemand.available || recentPublisherNews.available,
+    searchDemand,
+    recentPublisherNews,
+    interpretation: 'Only closed editorial categories and thresholded source counts are included. Raw search queries, news headlines, URLs, Reddit text, and identifiers are excluded. Signals are ideation context, not search volume, audience evidence, current facts, or proof of social trends; publishers must verify every claim against current authoritative sources.',
+  };
 }
 
 function eventIdentity(event, date) {
@@ -145,6 +334,8 @@ export function buildEditorialSourceBrief({
   articleDirectory,
   articleDirectories = DEFAULT_ARTICLE_DIRECTORIES,
   eventDirectory = DEFAULT_EVENT_DIRECTORY,
+  demandVocabularyPath = DEFAULT_DEMAND_VOCABULARY_PATH,
+  experimentalCandidatesPath = DEFAULT_EXPERIMENTAL_CANDIDATES_PATH,
   asOf = new Date(),
   inventoryDays = INVENTORY_DAYS,
   maxRecentTopics = MAX_RECENT_TOPICS,
@@ -206,6 +397,11 @@ export function buildEditorialSourceBrief({
     historicalClusterCounts[row.cluster] = (historicalClusterCounts[row.cluster] || 0) + 1;
   }
   const upcomingEvents = upcomingTicinoEventInventory({ eventDirectory, asOfDate, inventoryDays });
+  const topicDiscovery = buildTopicDiscoveryBrief({
+    demandVocabularyPath,
+    experimentalCandidatesPath,
+    asOfDate,
+  });
   return {
     schemaVersion: 1,
     source: 'published-article-topic-inventory',
@@ -229,8 +425,9 @@ export function buildEditorialSourceBrief({
       cluster,
       ageDays: Math.floor((asOfMs - publishedMs) / (24 * 60 * 60 * 1000)),
     })),
+    topicDiscovery,
     upcomingTicinoEvents: upcomingEvents,
-    interpretation: 'Recent article topics and historical topics from the prior year are source-inventory context only; historical topics are ideation candidates, not current trends or performance evidence. The brief contains no article claims, event details, audience data, rankings, or performance evidence; the publishing workflow must verify every fact against its current source.',
+    interpretation: 'Recent article topics and historical topics from the prior year are source-inventory context only; historical topics are ideation candidates, not current trends or performance evidence. Topic-discovery categories are thresholded aggregates, not search volume, audience evidence, or current facts. The brief contains no article claims, event details, audience data, rankings, or performance evidence; the publishing workflow must verify every fact against its current source.',
   };
 }
 

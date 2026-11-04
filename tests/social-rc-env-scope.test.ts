@@ -31,6 +31,8 @@ const SOCIAL_WORKFLOW_RC_SCOPES = {
     ],
   '.github/workflows/social-publish-readiness-watch.yml':
     ['FB_PAGE_ID,FB_USER_ACCESS_TOKEN,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,REDDIT_DATA_API_APPROVED,REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET'],
+  '.github/workflows/instagram-story-insights.yml':
+    ['INSTAGRAM_ACCESS_TOKEN,FB_PAGE_ACCESS_TOKEN'],
   '.github/workflows/social-robot-confirm.yml': ['GITHUB_PAT'],
 } as const;
 

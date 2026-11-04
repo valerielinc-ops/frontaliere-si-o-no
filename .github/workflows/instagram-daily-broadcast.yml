@@ -50,6 +50,7 @@ permissions:
 
 jobs:
   post:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     # Same budget as linkedin-member-daily.yml / telegram-channel-broadcast.yml
     # — full checkout + assemble-jobs-dataset for the job slot.

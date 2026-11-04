@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import {
   advanceAudienceGrowthCycles,
   buildSocialGrowthScorecard,
+  createWeeklySocialHealthSnapshot,
   freezeEligibleSocialSiteOutcomeBaselines,
   renderSocialGrowthScorecard,
 } from '../scripts/lib/social-growth-scorecard.mjs';
@@ -737,6 +738,104 @@ describe('cross-social growth scorecard', () => {
       observedFollowerGains: 15,
     });
     expect(renderSocialGrowthScorecard(partial)).toContain('I giorni mancanti restano sconosciuti');
+  });
+
+  it('includes Instagram Story collection health and distinguishes successful metrics from empty windows', () => {
+    const available = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      nativeInsights: {
+        instagramStorySnapshots: [{
+          snapshotAt: '2026-11-02T11:30:00.000Z',
+          availableMetrics: ['reach', 'views'],
+        }],
+      },
+      sources: {
+        instagramStoryInsights: {
+          status: 'snapshots-added',
+          lastAttemptAt: '2026-11-02T11:30:00.000Z',
+          lastSuccessAt: '2026-11-02T11:30:00.000Z',
+        },
+      },
+    });
+
+    expect(available.sourceCoverage.instagramStoryInsights).toBe('snapshots-added');
+    expect(available.sourceFreshness.instagramStoryInsights).toMatchObject({
+      status: 'fresh',
+      sourceStatus: 'snapshots-added',
+      expectedIntervalHours: 1,
+      staleAfterHours: 3,
+      lastSuccessAt: '2026-11-02T11:30:00.000Z',
+      lastAttemptAt: '2026-11-02T11:30:00.000Z',
+      ageHours: 0.5,
+      attemptAgeHours: 0.5,
+    });
+
+    const noReadyStories = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      nativeInsights: { instagramStorySnapshots: [] },
+      sources: {
+        instagramStoryInsights: {
+          status: 'no-ready-stories',
+          lastAttemptAt: '2026-11-02T11:30:00.000Z',
+        },
+      },
+    });
+    expect(noReadyStories.sourceFreshness.instagramStoryInsights).toMatchObject({
+      status: 'fresh-no-ready-stories',
+      sourceStatus: 'no-ready-stories',
+      lastSuccessAt: null,
+      ageHours: 0.5,
+      attemptAgeHours: 0.5,
+    });
+
+    const staleNoReadyStories = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      nativeInsights: { instagramStorySnapshots: [] },
+      sources: {
+        instagramStoryInsights: {
+          status: 'no-ready-stories',
+          lastAttemptAt: '2026-11-02T08:00:00.000Z',
+        },
+      },
+    });
+    expect(staleNoReadyStories.sourceFreshness.instagramStoryInsights).toMatchObject({
+      status: 'stale',
+      ageHours: 4,
+    });
+
+    const credentialsMissing = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      nativeInsights: { instagramStorySnapshots: [] },
+      sources: {
+        instagramStoryInsights: {
+          status: 'credentials-missing',
+          lastAttemptAt: '2026-11-02T11:30:00.000Z',
+        },
+      },
+    });
+    expect(credentialsMissing.sourceCoverage.instagramStoryInsights).toBe('credentials-missing');
+    expect(credentialsMissing.sourceFreshness.instagramStoryInsights.status).toBe('no-successful-collection');
+  });
+
+  it('surfaces partial Story collection in the weekly health signal', () => {
+    const scorecard = buildSocialGrowthScorecard({
+      asOf: AS_OF,
+      nativeInsights: { instagramStorySnapshots: [] },
+      sources: {
+        instagramStoryInsights: {
+          status: 'partial-metrics',
+          lastAttemptAt: '2026-11-02T11:30:00.000Z',
+          lastSuccessAt: '2026-11-02T11:00:00.000Z',
+        },
+      },
+    });
+    expect(scorecard.sourceFreshness.instagramStoryInsights.status).toBe('partial');
+
+    const { snapshot } = createWeeklySocialHealthSnapshot(scorecard, null, AS_OF);
+    expect(snapshot.signals).toContainEqual(expect.objectContaining({
+      source: 'instagramStoryInsights',
+      status: 'partial',
+    }));
   });
 
   it('excludes private snapshots collected after a historical scorecard date', async () => {

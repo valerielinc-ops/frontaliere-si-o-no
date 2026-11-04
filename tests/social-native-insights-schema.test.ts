@@ -1,8 +1,44 @@
 import { describe, expect, it } from 'vitest';
 
 import { validateSocialNativeInsightsDocument } from '../scripts/lib/social-native-insights-schema.mjs';
+import { INSTAGRAM_STORY_METRICS } from '../scripts/lib/instagram-story-contract.mjs';
 
 const AS_OF = new Date('2026-11-02T12:00:00.000Z');
+
+function storyDocument() {
+  const publication = {
+    storyId: 'story-private-id',
+    publishedAt: '2026-11-02T11:30:00.000Z',
+    sourceMediaId: 'source-media-id',
+    followUpFormat: 'story-result',
+    copyPackId: '0123456789abcdef',
+    copyTemplateId: 'story-follow-up',
+    copyAngleId: 'practical-question',
+    copyPillarId: 'useful-tools',
+    copyRevisionId: 'abcdef0123456789',
+  };
+  const metrics = Object.fromEntries(INSTAGRAM_STORY_METRICS.map((name) => [name, null]));
+  metrics.views = 25;
+  metrics.reach = 20;
+  const metricStatus = Object.fromEntries(INSTAGRAM_STORY_METRICS.map((name) => [name, 'unavailable']));
+  metricStatus.views = 'available';
+  metricStatus.reach = 'available';
+  return {
+    schemaVersion: 1,
+    sources: { instagramStoryInsights: { status: 'available', lastAttemptAt: AS_OF.toISOString() } },
+    posts: [],
+    instagramStoryPublications: [publication],
+    instagramStorySnapshots: [{
+      ...publication,
+      snapshotAt: AS_OF.toISOString(),
+      snapshotAgeHours: 0.5,
+      measurementWindow: 'first-hour',
+      metrics,
+      availableMetrics: ['views', 'reach'],
+      metricStatus,
+    }],
+  };
+}
 
 function documentWith(post: Record<string, unknown> = {}) {
   return {
@@ -28,6 +64,27 @@ describe('social native insights persistence contract', () => {
     expect(validateSocialNativeInsightsDocument(documentWith(), { asOf: AS_OF })).toMatchObject({
       posts: [{ metrics: { views: 0 }, availableMetrics: ['views'] }],
     });
+  });
+
+  it('accepts exact-ID Story snapshots only when their private publication and metric statuses agree', () => {
+    expect(validateSocialNativeInsightsDocument(storyDocument(), { asOf: AS_OF })).toMatchObject({
+      instagramStorySnapshots: [{
+        storyId: 'story-private-id',
+        measurementWindow: 'first-hour',
+        metrics: { views: 25, reach: 20, replies: null },
+        availableMetrics: ['views', 'reach'],
+      }],
+    });
+
+    const orphaned = storyDocument();
+    orphaned.instagramStoryPublications = [];
+    expect(() => validateSocialNativeInsightsDocument(orphaned, { asOf: AS_OF }))
+      .toThrow(/no matching publication/);
+
+    const mislabeled = storyDocument();
+    mislabeled.instagramStorySnapshots[0].metricStatus.views = 'unavailable';
+    expect(() => validateSocialNativeInsightsDocument(mislabeled, { asOf: AS_OF }))
+      .toThrow(/invalid Instagram Story metric views/);
   });
 
   it('accepts a validated recurring audience target cycle without exposing it to public storage', () => {

@@ -4,6 +4,8 @@ import {
   loadPrivateSocialNativeInsights,
   mergePrivateSocialFollowerGainSnapshots,
   mergePrivateSocialInsightPosts,
+  mergePrivateInstagramStoryPublications,
+  mergePrivateInstagramStorySnapshots,
   normalizeInstagramPrivateSnapshots,
   savePrivateSocialNativeInsights,
   updatePrivateSocialNativeInsights,
@@ -28,6 +30,43 @@ describe('private social native insights store', () => {
     const expired = { ...older, date: '2026-06-24', snapshotAt: '2026-06-24T12:00:00.000Z', value: 9 };
 
     expect(mergePrivateSocialFollowerGainSnapshots([older, expired], [updated], { asOf })).toEqual([updated]);
+  });
+
+  it('bounds exact Story publications and replaces only an older matching window snapshot', () => {
+    const asOf = new Date('2026-11-03T12:00:00.000Z');
+    const publication = {
+      storyId: 'story-private-id',
+      publishedAt: '2026-11-02T12:00:00.000Z',
+      sourceMediaId: 'source-media-id',
+      followUpFormat: 'story-result',
+      copyPackId: '0123456789abcdef',
+      copyTemplateId: 'story-follow-up',
+      copyAngleId: 'practical-question',
+      copyPillarId: 'useful-tools',
+      copyRevisionId: 'abcdef0123456789',
+    };
+    const expired = { ...publication, storyId: 'expired-story', publishedAt: '2026-05-01T12:00:00.000Z' };
+    const firstSnapshot = {
+      ...publication,
+      snapshotAt: '2026-11-02T12:30:00.000Z',
+      snapshotAgeHours: 0.5,
+      measurementWindow: 'first-hour',
+      metrics: { views: 10 },
+      availableMetrics: ['views'],
+      metricStatus: { views: 'available' },
+    };
+    const latestSnapshot = {
+      ...firstSnapshot,
+      snapshotAt: '2026-11-02T12:50:00.000Z',
+      snapshotAgeHours: 0.833,
+      metrics: { views: 20 },
+    };
+    const publications = mergePrivateInstagramStoryPublications([expired], [publication], { asOf });
+    const snapshots = mergePrivateInstagramStorySnapshots([firstSnapshot], [latestSnapshot], { asOf });
+
+    expect(publications).toEqual([publication]);
+    expect(snapshots).toHaveLength(1);
+    expect(snapshots[0]).toMatchObject({ storyId: publication.storyId, metrics: { views: 20 } });
   });
 
   it('reads and writes the private Firestore document without exposing per-post data in its result', async () => {

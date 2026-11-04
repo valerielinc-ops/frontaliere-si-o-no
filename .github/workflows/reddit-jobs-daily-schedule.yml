@@ -30,6 +30,7 @@ permissions:
 
 jobs:
   schedule:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same shape as fb-jobs-daily-schedule.yml
     # (#4764) — full checkout (sparse removed for this job in #6133, above

@@ -162,4 +162,81 @@ describe('social native insights workflow contract', () => {
     expect(step).not.toContain('native-post-id');
     expect(step).not.toContain('key-hash');
   });
+
+  it('runs the Story insights collector read-only and loads the token in the same shell step', () => {
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/instagram-story-insights.yml'), 'utf8');
+    const collectStart = workflow.indexOf('      - name: Collect private first-hour and near-24h Story metrics');
+    const collectEnd = workflow.indexOf('\n      - name:', collectStart + 1);
+    const collect = workflow.slice(collectStart, collectEnd < 0 ? undefined : collectEnd);
+    const loadIndex = collect.indexOf('node scripts/load-rc-env.mjs --only-env=INSTAGRAM_ACCESS_TOKEN,FB_PAGE_ACCESS_TOKEN');
+    const runIndex = collect.indexOf('node scripts/instagram-story-insights.mjs');
+    const analyticsDimensions = readFileSync(resolve(ROOT, 'scripts/analytics-report.mjs'), 'utf8');
+
+    expect(workflow).toContain("- cron: '17 * * * *'");
+    expect(workflow).toContain('permissions:\n  contents: read');
+    expect(collectStart).toBeGreaterThanOrEqual(0);
+    expect(loadIndex).toBeGreaterThanOrEqual(0);
+    expect(runIndex).toBeGreaterThan(loadIndex);
+    expect(collect).toContain('FB_PAGE_ACCESS_TOKEN');
+    expect(collect).toContain('eval "$rc_exports"');
+    expect(collect).not.toContain('echo "$rc_exports"');
+    expect(analyticsDimensions).toContain('FAQ_SEARCH_CATEGORY_GA4_DIMENSION');
+    expect(analyticsDimensions).not.toContain("parameterName: 'details'");
+  });
+
+  it('passes the privacy-screened topic discovery brief to the weekly Codex batch', () => {
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
+    const prompt = readFileSync(resolve(ROOT, 'scripts/social-copy/CODEX-PROMPT.md'), 'utf8');
+    const sourceStart = workflow.indexOf('      - name: Build sanitized published-topic inventory');
+    const codexStart = workflow.indexOf('      - name: Generate social copy with Codex');
+    const uploadStart = workflow.indexOf('      - name: Upload generated response', codexStart + 1);
+    const sourceStep = workflow.slice(sourceStart, codexStart);
+    const codexStep = workflow.slice(codexStart, uploadStart);
+
+    expect(sourceStart).toBeGreaterThanOrEqual(0);
+    expect(codexStart).toBeGreaterThan(sourceStart);
+    expect(uploadStart).toBeGreaterThan(codexStart);
+    expect(sourceStep).toContain('node scripts/social-copy/editorial-source-brief.mjs');
+    expect(codexStep).toContain('privacy-screened topic-discovery');
+    expect(codexStep).toContain('no headlines, URLs');
+    expect(prompt).toContain('topicDiscovery.searchDemand.available');
+    expect(prompt).toContain('topicDiscovery.recentPublisherNews.available');
+    expect(prompt).toContain('no raw GSC/Suggest query');
+  });
+
+  it('limits credentialed social workflows with manual dispatch to main', () => {
+    for (const file of [
+      '.github/workflows/instagram-story-insights.yml',
+      '.github/workflows/social-native-insights.yml',
+      '.github/workflows/instagram-insights-snapshot.yml',
+      '.github/workflows/social-publish-readiness-watch.yml',
+      '.github/workflows/social-copy-experiment-config.yml',
+      '.github/workflows/social-copy-assignment-cleanup.yml',
+      '.github/workflows/instagram-daily-broadcast.yml',
+      '.github/workflows/instagram-reel-experiment.yml',
+      '.github/workflows/linkedin-member-daily.yml',
+      '.github/workflows/telegram-channel-broadcast.yml',
+      '.github/workflows/reddit-jobs-daily-schedule.yml',
+      '.github/workflows/tiktok-daily-broadcast.yml',
+      '.github/workflows/fb-events-daily-schedule.yml',
+      '.github/workflows/fb-articles-daily-schedule.yml',
+      '.github/workflows/fb-jobs-daily-schedule.yml',
+      '.github/workflows/monitor-telegram-member-count.yml',
+      '.github/workflows/topic-candidates-mining.yml',
+      '.github/workflows/social-robot-confirm.yml',
+    ]) {
+      const workflow = readFileSync(resolve(ROOT, file), 'utf8');
+      const jobsStart = workflow.indexOf('\njobs:\n');
+      const jobBlocks = jobsStart < 0
+        ? []
+        : workflow.slice(jobsStart + '\njobs:\n'.length)
+          .split(/\n(?=  [a-z][a-z0-9_-]*:\n)/u)
+          .filter((block) => /^  [a-z][a-z0-9_-]*:\n/u.test(block));
+
+      expect(jobBlocks, file).not.toHaveLength(0);
+      for (const jobBlock of jobBlocks) {
+        expect(jobBlock, file).toMatch(/^  [a-z][a-z0-9_-]*:\n    if: github\.ref == 'refs\/heads\/main'\n/mu);
+      }
+    }
+  });
 });
