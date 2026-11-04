@@ -27,7 +27,7 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
-import { acceptPrivacyStatement, readPortalRequirements, submitViaPortal } from './lib/portal/portal.mjs';
+import { acceptPrivacyStatement, portalUploadActionKey, readPortalRequirements, submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
@@ -162,7 +162,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, secondCvFieldOnUpload: false, cvUploadAttempts: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
+  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
@@ -609,7 +609,7 @@ function fakePortal() {
           <div id="letter-status" aria-live="polite"></div>
           <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required>
           <div id="cv-status" aria-live="polite"></div>
-          ${workday.secondCvFieldOnUpload ? '<section id="second-cv-step" hidden><label for="cv-second">Additional CV *</label><input id="cv-second" type="file" name="cv-second" required></section>' : ''}
+          ${workday.additionalCvField ? '<section id="additional-cv-holder" hidden><label for="additional-cv">Additional CV *</label><input id="additional-cv" type="file" name="additionalCv" required><div id="additional-cv-status" aria-live="polite"></div></section>' : ''}
           ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete" style="width:24px;height:24px"></button></div>' : ''}
           <section><h2>Work Experience</h2><div id="experience-rows"></div><button type="button" id="add-experience">Add</button></section>
           <section><h2>Education</h2><div id="education-rows"></div><button type="button" id="add-education">Add</button></section>
@@ -628,20 +628,25 @@ function fakePortal() {
           };
           draw('United States of America');
           if (el('del')) el('del').onclick = () => { fetch('/wd/delete-file', { method: 'POST' }); el('kept').remove(); };
-          const uploadCv = async (input) => {
+          el('cv').addEventListener('change', async () => {
             const body = new FormData();
-            body.append('cv', input.files[0]);
+            body.append('cv', el('cv').files[0]);
             const request = ${workday.uploadFails
-              ? "{ method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: input.files[0].name }) }"
+              ? "{ method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: el('cv').files[0].name }) }"
               : "{ method: 'POST', body }"};
             const response = await fetch('/wd/upload', request);
             if (response.ok) {
-              el('cv-status').textContent = input.files[0].name + ' successfully uploaded';
-              if (${workday.secondCvFieldOnUpload}) el('second-cv-step')?.removeAttribute('hidden');
-            } else el('cv-status').textContent = input.files[0].name;
-          };
-          el('cv').addEventListener('change', () => uploadCv(el('cv')));
-          if (el('cv-second')) el('cv-second').addEventListener('change', () => uploadCv(el('cv-second')));
+              el('cv-status').textContent = el('cv').files[0].name + ' successfully uploaded';
+              if (el('additional-cv-holder')) el('additional-cv-holder').hidden = false;
+            }
+            else el('cv-status').textContent = el('cv').files[0].name;
+          });
+          if (el('additional-cv')) el('additional-cv').addEventListener('change', async () => {
+            const body = new FormData();
+            body.append('cv', el('additional-cv').files[0]);
+            const response = await fetch('/wd/upload-additional-cv', { method: 'POST', body });
+            if (response.ok) el('additional-cv-status').textContent = el('additional-cv').files[0].name + ' successfully uploaded';
+          });
           const uploadLetter = async () => {
             const body = new FormData();
             body.append('letter', el('letter').files[0]);
@@ -706,13 +711,19 @@ function fakePortal() {
       const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
       const many = (name) => [...raw.matchAll(new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`, 'g'))].map((match) => match[1]);
       workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept'), experience: many('experience'), education: many('education') });
-      state.applications.push({ hasCv: /filename="CV_/.test(raw), first: part('first') });
+      state.applications.push({ hasCv: /filename="CV_/.test(raw), cvFiles: (raw.match(/filename="CV_/g) || []).length, first: part('first') });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'POST /wd/upload') {
-      workday.cvUploadAttempts += 1;
+      workday.cvUploads += 1;
       await readBody(req);
       res.writeHead(workday.uploadFails ? 500 : 204);
+      return res.end();
+    }
+    if (route === 'POST /wd/upload-additional-cv') {
+      workday.additionalCvUploads += 1;
+      await readBody(req);
+      res.writeHead(204);
       return res.end();
     }
     if (route === 'POST /wd/upload-letter') {
@@ -1192,6 +1203,20 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
       { section: 'experience', added: 2, skipped: 1 },
       { section: 'education', added: 2, skipped: 0 },
   ])), profileSections);
+  workday.additionalCvField = true;
+  workday.cvUploads = 0;
+  workday.additionalCvUploads = 0;
+  state.sessions.clear();
+  const applicationsBeforeMultipleCvFields = state.applications.length;
+  const multipleCvFields = await run(job);
+  workday.additionalCvField = false;
+  check('Workday: distinct required CV fields both upload the CV after the second field appears on redraw',
+    multipleCvFields.event.type === 'submit_succeeded'
+    && state.applications.length === applicationsBeforeMultipleCvFields + 1
+    && state.applications.at(-1)?.cvFiles === 2
+    && workday.cvUploads === 1
+    && workday.additionalCvUploads === 1,
+    { event: { type: multipleCvFields.event.type, reason: multipleCvFields.event.reason || null }, cvUploads: workday.cvUploads, additionalCvUploads: workday.additionalCvUploads, submittedCvFiles: state.applications.at(-1)?.cvFiles || 0 });
   workday.coverLetterUploadFails = true;
   workday.coverLetterUploads = 0;
   const applicationsBeforeOptionalLetter = state.applications.length;
@@ -1216,22 +1241,6 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     && !uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cover_letter')
     && optionalLetterFailure.evidence.steps.some((step) => (step.failures || []).some((failure) => failure.error === 'upload_not_confirmed')),
     optionalLetterDiagnostics);
-
-  workday.secondCvFieldOnUpload = true;
-  workday.cvUploadAttempts = 0;
-  const applicationsBeforeSecondCvField = state.applications.length;
-  state.sessions.clear();
-  const secondCvField = await run(job);
-  workday.secondCvFieldOnUpload = false;
-  const cvUploadActions = secondCvField.evidence.steps.flatMap((step) => step.actions || [])
-    .filter((action) => action.action === 'upload' && action.document === 'cv');
-  const distinctCvFieldIds = [...new Set(cvUploadActions.map((action) => action.fieldId))];
-  check('Workday: a second required CV field revealed after upload receives the same CV in its own field',
-    secondCvField.event.type === 'submit_succeeded'
-    && state.applications.length === applicationsBeforeSecondCvField + 1
-    && workday.cvUploadAttempts === 2
-    && distinctCvFieldIds.length === 2,
-    { event: secondCvField.event.type, cvUploadAttempts: workday.cvUploadAttempts, distinctCvFieldCount: distinctCvFieldIds.length });
 }
 
 async function hiddenFutureStepFileCheck({ executablePath, check }) {
@@ -1254,7 +1263,7 @@ async function hiddenFutureStepFileCheck({ executablePath, check }) {
     await page.locator('#active-cv').evaluate((element) => { element.style.display = ''; });
     const readAheadFileFields = (await extractFields(page, { includeHidden: true, listboxOptions: false })).fields
       .filter((field) => field.kind === 'file');
-    check('Portal read-ahead omits file inputs in hidden, aria-hidden, inert, display:none, and collapsed future steps',
+    check('Portal read-ahead omits file inputs in hidden, aria-hidden, inert, display:none, and visibility:collapse future steps',
       readAheadFileFields.length === 1 && readAheadFileFields[0].domId === 'active-cv'
       && readAheadFileFields[0].label === 'Upload CV' && readAheadFileFields[0].required === false,
       { visibleFileCount: readAheadFileFields.length, visibleFileDomId: readAheadFileFields[0]?.domId || '' });
@@ -1322,6 +1331,31 @@ async function main() {
     console.log(`${ok ? '✓' : '✗'} ${name}`);
     if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
   };
+  const cvField = { id: 'f1', domId: 'resume', name: 'cv', label: 'CV', section: 'Profile' };
+  const redrawnCvField = { ...cvField, id: 'f9' };
+  const laterCvField = { ...cvField, id: 'f10' };
+  const generatedCvField = { id: 'f20', name: 'cv', label: 'CV', section: 'Profile' };
+  const redrawnGeneratedCvField = { ...generatedCvField, id: 'f21' };
+  const selectedGeneratedCvKey = portalUploadActionKey('/wizard', 1, generatedCvField, [generatedCvField]);
+  const selectedGeneratedCvRecord = { key: selectedGeneratedCvKey, fieldId: generatedCvField.id, domId: '', groupIndex: 0, groupSize: 1 };
+  const newlyVisibleGeneratedCvField = { ...generatedCvField, id: 'f22' };
+  const fieldsAfterSecondGeneratedCvAppears = [generatedCvField, newlyVisibleGeneratedCvField];
+  const fieldsWithNewGeneratedCvBeforeSelected = [newlyVisibleGeneratedCvField, generatedCvField];
+  const ambiguousGeneratedCvRedraw = [redrawnGeneratedCvField, newlyVisibleGeneratedCvField];
+  const initiallyDuplicatedGeneratedFields = [generatedCvField, { ...generatedCvField, id: 'f23' }];
+  const selectedDuplicateGeneratedKey = portalUploadActionKey('/wizard', 1, generatedCvField, initiallyDuplicatedGeneratedFields);
+  const selectedDuplicateGeneratedRecord = { key: selectedDuplicateGeneratedKey, fieldId: generatedCvField.id, domId: '', groupIndex: 0, groupSize: 2 };
+  const singleFieldAfterDuplicateShrinks = [{ ...generatedCvField, id: 'f24' }];
+  check('Portal upload keys survive same-step redraws and distinguish controls and later steps that reuse an id',
+    portalUploadActionKey('/wizard', 1, cvField) === portalUploadActionKey('/wizard', 1, redrawnCvField)
+    && portalUploadActionKey('/wizard', 1, cvField) !== portalUploadActionKey('/wizard', 2, laterCvField)
+    && portalUploadActionKey('/wizard', 1, cvField) !== portalUploadActionKey('/wizard', 1, { ...cvField, id: 'f2', domId: 'resume-two' })
+    && selectedGeneratedCvKey === portalUploadActionKey('/wizard', 1, redrawnGeneratedCvField, [redrawnGeneratedCvField], [selectedGeneratedCvRecord])
+    && selectedGeneratedCvKey === portalUploadActionKey('/wizard', 1, generatedCvField, fieldsAfterSecondGeneratedCvAppears, [selectedGeneratedCvRecord])
+    && selectedGeneratedCvKey === portalUploadActionKey('/wizard', 1, generatedCvField, fieldsWithNewGeneratedCvBeforeSelected, [selectedGeneratedCvRecord])
+    && selectedGeneratedCvKey !== portalUploadActionKey('/wizard', 1, newlyVisibleGeneratedCvField, fieldsAfterSecondGeneratedCvAppears, [selectedGeneratedCvRecord])
+    && portalUploadActionKey('/wizard', 1, redrawnGeneratedCvField, ambiguousGeneratedCvRedraw, [selectedGeneratedCvRecord]) === null
+    && portalUploadActionKey('/wizard', 1, singleFieldAfterDuplicateShrinks[0], singleFieldAfterDuplicateShrinks, [selectedDuplicateGeneratedRecord]) === null);
   const runUmantisChecks = async () => {
     const hotelSaved = new Map();
     const hotelAccounts = {

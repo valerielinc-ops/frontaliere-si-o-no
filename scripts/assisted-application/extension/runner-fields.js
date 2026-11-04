@@ -130,8 +130,8 @@ function nativeQuestionText(value, counter = null) {
   // mounted and only swaps its layout box. The draft reader may inspect those
   // controls without interacting with them. A conditional step that the
   // portal actually hides remains out of the read-ahead contract: hidden,
-  // aria-hidden and display:none/visibility:hidden/collapse ancestors are not proof
-  // that its questions are currently discoverable. Ordinary portal runs stay
+  // aria-hidden, display:none, visibility:hidden, or visibility:collapse
+  // ancestors are not proof that its questions are currently discoverable. Ordinary portal runs stay
   // visibility-scoped so stale steps and hidden traps are ignored.
   const mountedForReadAhead = (element) => {
     for (let node = element; node; node = node.parentElement) {
