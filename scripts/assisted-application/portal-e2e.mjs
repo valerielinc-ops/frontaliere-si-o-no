@@ -1200,6 +1200,25 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     optionalLetterDiagnostics);
 }
 
+async function hiddenFutureStepFileCheck({ executablePath, check }) {
+  const browser = await launchChromium({ headless: true, executablePath });
+  try {
+    const page = await browser.newPage();
+    await page.setContent(`<!doctype html><html><body><form>
+      <section><label for="active-cv">Upload CV</label><input id="active-cv" type="file" style="display:none"></section>
+      <section hidden><label for="hidden-cv">Required CV</label><input id="hidden-cv" type="file" required></section>
+      <section aria-hidden="true"><label for="aria-hidden-cv">Required CV</label><input id="aria-hidden-cv" type="file" required></section>
+      <section inert><label for="inert-cv">Required CV</label><input id="inert-cv" type="file" required></section>
+      <section style="display:none"><label for="display-hidden-cv">Required CV</label><input id="display-hidden-cv" type="file" required></section>
+    </form></body></html>`);
+    const fileFields = (await extractFields(page)).fields.filter((field) => field.kind === 'file');
+    check('Portal snapshots omit file inputs under hidden future steps but keep an active input styled behind its upload control',
+      fileFields.length === 1 && fileFields[0].required === false);
+  } finally {
+    await browser.close();
+  }
+}
+
 async function main() {
   const { server, state, coop, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey } = fakePortal();
   const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
@@ -1355,6 +1374,7 @@ async function main() {
   const focusDiagnostics = workdayFocus === 'diagnostics';
   const focusUmantis = workdayFocus === 'umantis';
   try {
+    await hiddenFutureStepFileCheck({ executablePath, check });
     if (focusWorkday) {
       await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId }, workdayFocus === 'workday-assisted');
     } else if (focusCoop) {
