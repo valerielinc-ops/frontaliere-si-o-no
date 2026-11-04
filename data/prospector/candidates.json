@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-04T13:54:48.327Z",
+  "updatedAt": "2026-11-04T13:55:58.317Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -412692,7 +412692,7 @@
         "web"
       ],
       "firstSeenAt": "2026-09-20T08:57:48.192Z",
-      "updatedAt": "2026-11-03T14:13:36.216Z",
+      "updatedAt": "2026-11-04T13:55:58.201Z",
       "name": "elektriker-elektromonteur-jobs",
       "domain": "elektriker-elektromonteur-jobs.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -412948,7 +412948,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-03T09:53:31.154Z",
+      "firstCrawlerOutputAt": "2026-11-04T09:45:06.685Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-01T13:57:59.589Z"
     },
@@ -428832,12 +428832,12 @@
     },
     "engadin-st-moritz-mountains@st-moritz": {
       "key": "engadin-st-moritz-mountains@st-moritz",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:07:32.170Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "Engadin St. Moritz Mountains AG",
       "city": "St. Moritz",
       "zip": "7500",
@@ -429115,7 +429115,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "engadin.ch": {
       "key": "engadin.ch",
@@ -436121,12 +436127,12 @@
     },
     "eqe@olten": {
       "key": "eqe@olten",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.957Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "eqe AG",
       "city": "Olten",
       "zip": "4600",
@@ -436559,7 +436565,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "eqipe.ch": {
       "key": "eqipe.ch",
@@ -703171,13 +703183,13 @@
     },
     "internezzo@rotkreuz": {
       "key": "internezzo@rotkreuz",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco",
         "osm"
       ],
       "firstSeenAt": "2026-08-30T09:26:02.760Z",
-      "updatedAt": "2026-11-03T14:14:17.391Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "Internezzo AG",
       "city": "Rotkreuz",
       "zip": "6343",
@@ -703437,7 +703449,13 @@
         "office": "company"
       },
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "internursing@paradiso": {
       "key": "internursing@paradiso",
@@ -704330,12 +704348,12 @@
     },
     "invias@maienfeld": {
       "key": "invias@maienfeld",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:07:32.170Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "Invias AG",
       "city": "Maienfeld",
       "zip": "7304",
@@ -704607,7 +704625,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "invicto-advisory.ch": {
       "key": "invicto-advisory.ch",
@@ -720223,12 +720247,12 @@
     },
     "jobdoor@baar": {
       "key": "jobdoor@baar",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:31:22.989Z",
-      "updatedAt": "2026-11-03T14:14:17.391Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "Jobdoor AG",
       "city": "Baar",
       "zip": "6340",
@@ -720466,7 +720490,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "jobgate@aarau": {
       "key": "jobgate@aarau",
@@ -823940,12 +823970,12 @@
     },
     "lemco-precision@vionnaz": {
       "key": "lemco-precision@vionnaz",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-05T07:54:30.884Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "Lemco Précision SA",
       "city": "Vionnaz",
       "zip": "1895",
@@ -824221,7 +824251,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "lemidi.ch": {
       "key": "lemidi.ch",
@@ -846555,12 +846591,12 @@
     },
     "lip@crans-montana": {
       "key": "lip@crans-montana",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-17T08:02:03.267Z",
-      "updatedAt": "2026-11-03T14:14:17.391Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "LIP SUISSE",
       "city": "Crans-Montana",
       "zip": "3963",
@@ -846795,7 +846831,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "lip@geneve": {
       "key": "lip@geneve",
@@ -1259036,7 +1259078,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-03T14:13:36.216Z",
+      "updatedAt": "2026-11-04T13:55:58.202Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1259255,10 +1259297,11 @@
       "promotionBranch": "prospector/promote-2026-11-01",
       "promotedAt": "2026-11-01T15:38:26Z",
       "firstCrawlerOutputStatus": "empty",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": "2026-11-03T09:44:15.678Z",
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
     "sintratec.com": {
       "key": "sintratec.com",
@@ -1261944,12 +1261987,12 @@
     },
     "skan@allschwil": {
       "key": "skan@allschwil",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:06:01.343Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.203Z",
       "name": "SKAN AG",
       "city": "Allschwil",
       "zip": "4123",
@@ -1262446,7 +1262489,13 @@
       },
       "secoEmployerName": "SKAN AG",
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "skan@stein-ag": {
       "key": "skan@stein-ag",
@@ -1774483,12 +1774532,12 @@
     },
     "zindel@maienfeld": {
       "key": "zindel@maienfeld",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-24T08:17:50.048Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.203Z",
       "name": "Zindel + Co. AG",
       "secoEmployerName": "Zindel + Co. AG",
       "city": "Maienfeld",
@@ -1774765,7 +1774814,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "dekra-arbeit@chur": {
       "key": "dekra-arbeit@chur",
@@ -1808815,12 +1808870,12 @@
     },
     "az-systems@landquart": {
       "key": "az-systems@landquart",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-28T09:51:59.078Z",
-      "updatedAt": "2026-11-03T14:14:17.390Z",
+      "updatedAt": "2026-11-04T13:55:58.203Z",
       "name": "AZ systems AG",
       "secoEmployerName": "AZ systems AG",
       "city": "Landquart",
@@ -1809082,7 +1809137,13 @@
         }
       ],
       "promotionPr": "16793",
-      "promotionBranch": "prospector/promote-2026-11-03"
+      "promotionBranch": "prospector/promote-2026-11-03",
+      "promotedAt": "2026-11-03T21:57:58Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "norkom-formation@montfavergier": {
       "key": "norkom-formation@montfavergier",
