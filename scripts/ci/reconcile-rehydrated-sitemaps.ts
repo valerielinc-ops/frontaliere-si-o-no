@@ -28,6 +28,9 @@ async function main(): Promise<void> {
     throw new Error(`reconcile-rehydrated-sitemaps: dist/ not found at ${distDir}`);
   }
 
+  // This pass runs only after every locale/section shard is assembled. It is
+  // also the final edge-membership check: a self-canonical origin fallback
+  // must not restore a URL that the apex Worker answers with 301/410.
   await reconcileFinalSitemapsWithDist(distDir, [], {
     keepMissing: false,
     ignoreShardOwnership: true,

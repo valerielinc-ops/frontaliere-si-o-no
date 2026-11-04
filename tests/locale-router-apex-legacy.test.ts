@@ -7,6 +7,7 @@ import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects
 import { buildOggiPath } from '../build-plugins/borderWaitData';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 import { legacyRedirectsPlugin } from '../build-plugins/legacyRedirectsPlugin';
+import { isApexHttpRedirectPath } from '../build-plugins/shared/edgeRedirectMembership';
 import { readAttr, readTagByAttr } from '../scripts/lib/html-attr.mjs';
 import { loadJobsJson } from '../build-plugins/shared/loadJobsJson';
 
@@ -56,9 +57,7 @@ describe('locale-router apex legacy routes', () => {
     const from = `/nav:${action}/`;
     const root = path.resolve(__dirname, '..');
     expect(readHardcodedRedirects(root)[from]).toBe(target);
-    const source = readFileSync(path.join(root, 'build-plugins/legacyRedirectsPlugin.ts'), 'utf8');
-    const edgePaths = source.match(/const EDGE_HTTP_REDIRECT_PATHS = new Set\(\[([\s\S]*?)\]\)/)?.[1] || '';
-    expect(edgePaths).toContain(`'${from}'`);
+    expect(isApexHttpRedirectPath(from)).toBe(true);
     for (const suffix of ['', '/', '/index.html']) for (const method of ['GET', 'HEAD']) {
       const response = await worker.fetch(new Request(`${APEX}/nav:${action}${suffix}?utm_source=gsc`, { method }), {}, ctx);
       expect(response.status).toBe(301);
@@ -155,14 +154,12 @@ describe('locale-router apex legacy routes', () => {
   it('keeps observed legal/article aliases exact and aligned with static fallback', () => {
     const root = path.resolve(__dirname, '..');
     const staticMap = readHardcodedRedirects(root);
-    const source = readFileSync(path.join(root, 'build-plugins/legacyRedirectsPlugin.ts'), 'utf8');
-    const edgePaths = source.match(/const EDGE_HTTP_REDIRECT_PATHS = new Set\(\[([\s\S]*?)\]\)/)?.[1] || '';
     for (const [from, target] of [
       ['/cookie/', '/privacy/'],
       ['/fr/articles-frontalier/naspi-disoccupazione-frontalieri/', '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/'],
     ]) {
       expect(staticMap[from]).toBe(target);
-      expect(edgePaths).toContain(`'${from}'`);
+      expect(isApexHttpRedirectPath(from)).toBe(true);
       for (const suffix of ['', '/', '/index.html']) {
         const url = `${APEX}${from.slice(0, -1)}${suffix}?utm_source=gsc`;
         expect(apexLegacyResponse(new URL(url))?.headers.get('Location')).toBe(`${target}?utm_source=gsc`);

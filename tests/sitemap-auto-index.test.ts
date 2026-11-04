@@ -138,7 +138,8 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     const names = discovered.map((s) => s.file);
 
     expect(names).not.toContain('sitemap-index.xml');
-    expect(names).toEqual(['sitemap-jobs-ticino.xml', 'sitemap-pages.xml']);
+    expect(names).not.toContain('sitemap-jobs-ticino.xml');
+    expect(names).toEqual(['sitemap-pages.xml']);
   });
 
   it('does not pick up non-sitemap files or files with the wrong prefix', async () => {
@@ -352,6 +353,24 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       else process.env.BUILD_LOCALE = previousBuildLocale;
       vi.resetModules();
     }
+  });
+
+  it('removes an edge 301 URL even when the assembled origin HTML is self-canonical', async () => {
+    const edgeRedirect = `${BASE_URL}/cookie/`;
+    const canonical = `${BASE_URL}/privacy/`;
+    const file = 'sitemap-pages.xml';
+    seedSitemapWithLocs(distDir, file, [edgeRedirect, canonical]);
+    seedHtmlPage(distDir, '/cookie/');
+    seedHtmlPage(distDir, '/privacy/');
+
+    await reconcileFinalSitemapsWithDist(distDir, [], {
+      keepMissing: false,
+      ignoreShardOwnership: true,
+    });
+
+    const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+      .map((match) => match[1]!);
+    expect(finalLocs).toEqual([canonical]);
   });
 });
 
