@@ -363,6 +363,42 @@ function salaryText(baseSalary) {
   return '';
 }
 
+function postingUrlFromDetail(detail) {
+  const explicit = clean(detail?.url, 1000);
+  if (explicit) return explicit;
+
+  // Some SuccessFactors Career Site Builder details publish only the apply
+  // endpoint and localized slug. Its public posting route is /job/{slug}/{id}/.
+  let applyUrl;
+  try {
+    applyUrl = new URL(clean(detail?.applyUrl, 1000));
+  } catch {
+    return '';
+  }
+  if (applyUrl.protocol !== 'https:' || applyUrl.username || applyUrl.password) return '';
+  const jobReqId = applyUrl.pathname.match(/^\/talentcommunity\/apply\/(\d+)\/?$/i)?.[1];
+  if (!jobReqId) return '';
+
+  const slugs = detail?.slugByLocale;
+  if (!slugs || typeof slugs !== 'object' || Array.isArray(slugs)) return '';
+  const localeFrom = (value) => String(value || '').trim().match(/^(de|en|fr|it)(?:[-_][a-z]{2})?$/i)?.[1]?.toLowerCase() || '';
+  const validSlug = (value) => {
+    if (typeof value !== 'string') return '';
+    const slug = value.trim();
+    return /^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug) ? slug : '';
+  };
+  const preferredLocales = [
+    localeFrom(applyUrl.searchParams.get('locale')),
+    localeFrom(detail?.sourceLang),
+    localeFrom(detail?.language),
+  ].filter(Boolean);
+  const slug = preferredLocales.map((locale) => validSlug(slugs[locale])).find(Boolean)
+    || Object.values(slugs).map(validSlug).find(Boolean);
+  if (!slug) return '';
+
+  return new URL(`/job/${encodeURIComponent(slug)}/${jobReqId}/`, applyUrl.origin).toString();
+}
+
 function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
   const description = String(detail?.description || '').trim();
   const requirements = Array.isArray(detail?.requirements) ? detail.requirements.map((item) => clean(item, 400)).filter(Boolean) : [];
@@ -372,7 +408,7 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
   return {
     text: text.slice(0, maxPostingChars),
     textTruncated: text.length > maxPostingChars,
-    postingUrl: clean(detail?.url, 1000),
+    postingUrl: postingUrlFromDetail(detail),
     applyUrl: clean(detail?.applyUrl, 1000),
     titles: detail?.titleByLocale && typeof detail.titleByLocale === 'object' ? detail.titleByLocale : {},
     location: clean([detail?.addressLocality, detail?.addressRegion].filter(Boolean).join(', '), 200),
@@ -392,7 +428,7 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
 }
 
 /**
- * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, applyUrl:string, titles:object,
+ * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, publishedPostingUrl:string, applyUrl:string, titles:object,
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
  *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
  */
@@ -406,7 +442,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
   }
   maxPostingChars = Math.min(60_000, Math.max(MAX_POSTING_CHARS, Number(maxPostingChars) || MAX_POSTING_CHARS));
   const empty = {
-    source: 'none', text: '', postingUrl: clean(order?.jobUrl, 1000), applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
+    source: 'none', text: '', postingUrl: clean(order?.jobUrl, 1000), publishedPostingUrl: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
   };
   const jobId = String(order?.jobId || '');
@@ -419,6 +455,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
           return {
             ...empty,
             ...posting,
+            publishedPostingUrl: posting.postingUrl,
             postingUrl: posting.postingUrl || empty.postingUrl,
             applyUrl: posting.applyUrl || empty.applyUrl,
             source: 'job_detail',
