@@ -66,8 +66,14 @@ jobs:
             [[ "$title" =~ ^Publish\ Pages\ build\ ([0-9]+)\ @\ ([a-f0-9]{40})$ ]] || continue
             source_id="${BASH_REMATCH[1]}"
             source_sha="${BASH_REMATCH[2]}"
-            source_names="$(gh api "repos/$GH_REPO/actions/runs/$source_id/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | .name' 2>/dev/null || true)"
-            publisher_names="$(gh api "repos/$GH_REPO/actions/runs/$publisher_id/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | .name' 2>/dev/null || true)"
+            if ! source_names="$(gh api --paginate "repos/$GH_REPO/actions/runs/$source_id/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | .name')"; then
+              echo '::error::gh api failed while listing artifacts for the source run'
+              exit 1
+            fi
+            if ! publisher_names="$(gh api --paginate "repos/$GH_REPO/actions/runs/$publisher_id/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | .name')"; then
+              echo '::error::gh api failed while listing artifacts for the publisher run'
+              exit 1
+            fi
             has_name() { printf '%s\n' "$1" | grep -Fxq -- "$2"; }
 
             complete=true

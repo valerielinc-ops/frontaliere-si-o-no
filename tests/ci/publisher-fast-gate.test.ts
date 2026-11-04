@@ -38,10 +38,10 @@ function fixture() {
   const sourceArtifacts = [];
   const publisherArtifacts = [];
   const sitemapUrls = routes.map(([locale, route]) => `https://frontaliereticino.ch/${route}`);
-  fs.writeFileSync(
-    path.join(sitemapDir, 'sitemap-jobs.xml'),
-    `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapUrls.map((url) => `<url><loc>${url}</loc></url>`).join('')}</urlset>`,
-  );
+  const currentSitemapSnapshot = { version: 3, perSitemap: { 'sitemap-job-market.xml': sitemapUrls } };
+  const previousSitemapSnapshot = structuredClone(currentSitemapSnapshot);
+  fs.writeFileSync(path.join(sitemapDir, 'new-sitemap-urls.json'), JSON.stringify(currentSitemapSnapshot));
+  fs.writeFileSync(path.join(sitemapDir, 'pre-deploy-sitemap-urls.json'), JSON.stringify(previousSitemapSnapshot));
 
   for (const [locale, route] of routes) {
     const baseArtifact = locale === 'it' ? 'github-pages' : `locale-shard-source-${locale}-${SOURCE_RUN_ID}`;
@@ -137,6 +137,8 @@ function fixture() {
     sourceSha: SOURCE_SHA,
     publisherRunId: PUBLISHER_RUN_ID,
     sitemapDir,
+    previousSitemapSnapshot,
+    sitemapCoverageDeclarations: { version: 1, decreases: [] },
     pageManifests,
     sectionManifests,
     sourceArtifacts: { artifacts: sourceArtifacts },
@@ -146,7 +148,10 @@ function fixture() {
       ...sectionManifests.map((manifest) => manifest.manifestArtifactName),
     ],
   });
-  return { result, pageManifests, sectionPage, sectionManifests, sourceArtifacts, publisherArtifacts, sitemapDir };
+  return {
+    result, pageManifests, sectionPage, sectionManifests, sourceArtifacts, publisherArtifacts,
+    sitemapDir, currentSitemapSnapshot, previousSitemapSnapshot,
+  };
 }
 
 afterEach(() => {
@@ -159,7 +164,10 @@ describe('publisher fast provenance gate', () => {
   });
 
   it('fails closed when a sitemap URL is absent from its required shard manifest', () => {
-    const { sectionManifests, pageManifests, sourceArtifacts, publisherArtifacts, sitemapDir } = fixture();
+    const {
+      sectionManifests, pageManifests, sourceArtifacts, publisherArtifacts, sitemapDir,
+      previousSitemapSnapshot,
+    } = fixture();
     const sectionPage = sectionManifests[0];
     sectionPage.shards[0].pages = [];
     const rerun = validatePublisherFastGate({
@@ -167,6 +175,8 @@ describe('publisher fast provenance gate', () => {
       sourceSha: SOURCE_SHA,
       publisherRunId: PUBLISHER_RUN_ID,
       sitemapDir,
+      previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
       pageManifests,
       sectionManifests,
       sourceArtifacts: { artifacts: sourceArtifacts },
@@ -178,6 +188,34 @@ describe('publisher fast provenance gate', () => {
     });
     expect(rerun.passed).toBe(false);
     expect(rerun.errors.join('\n')).toContain('absent from required shard it/ticino');
+  });
+
+  it('fails closed when the prior live snapshot shows an undeclared family decrease', () => {
+    const base = fixture();
+    base.currentSitemapSnapshot.perSitemap['sitemap-job-market.xml'].pop();
+    fs.writeFileSync(
+      path.join(base.sitemapDir, 'new-sitemap-urls.json'),
+      JSON.stringify(base.currentSitemapSnapshot),
+    );
+    const result = validatePublisherFastGate({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      publisherRunId: PUBLISHER_RUN_ID,
+      sitemapDir: base.sitemapDir,
+      previousSitemapSnapshot: base.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
+      pageManifests: base.pageManifests,
+      sectionManifests: base.sectionManifests,
+      sourceArtifacts: { artifacts: base.sourceArtifacts },
+      publisherArtifacts: { artifacts: base.publisherArtifacts },
+      manifestArtifactNames: [
+        ...base.pageManifests.map((manifest) => manifest.manifestArtifactName),
+        ...base.sectionManifests.map((manifest) => manifest.manifestArtifactName),
+      ],
+    });
+
+    expect(result.passed).toBe(false);
+    expect(result.errors.join('\n')).toContain('sitemap family coverage decreased for job-market: 4 -> 3');
   });
 
   it('fails closed when a shard manifest contains a page absent from every source manifest', () => {
@@ -195,6 +233,8 @@ describe('publisher fast provenance gate', () => {
       sourceSha: SOURCE_SHA,
       publisherRunId: PUBLISHER_RUN_ID,
       sitemapDir: base.sitemapDir,
+      previousSitemapSnapshot: base.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
       pageManifests: base.pageManifests,
       sectionManifests: base.sectionManifests,
       sourceArtifacts: { artifacts: base.sourceArtifacts },
@@ -257,8 +297,12 @@ describe('publisher fast provenance gate', () => {
     page.path = 'en/find-jobs-ticino/good/index.html';
     page.section = 'ticino';
     pageManifest.requiredSections = ['ticino'];
-    const xmlPath = path.join(base.sitemapDir, 'sitemap-jobs.xml');
-    fs.writeFileSync(xmlPath, fs.readFileSync(xmlPath, 'utf8').replace(oldUrl, page.url));
+    base.currentSitemapSnapshot.perSitemap['sitemap-job-market.xml'] =
+      base.currentSitemapSnapshot.perSitemap['sitemap-job-market.xml'].map((url: string) => url === oldUrl ? page.url : url);
+    fs.writeFileSync(
+      path.join(base.sitemapDir, 'new-sitemap-urls.json'),
+      JSON.stringify(base.currentSitemapSnapshot),
+    );
 
     const artifactName = `shard-batch-5-dist-en-${PUBLISHER_RUN_ID}`;
     const artifactDigest = '8'.repeat(64);
@@ -290,6 +334,8 @@ describe('publisher fast provenance gate', () => {
       sourceSha: SOURCE_SHA,
       publisherRunId: PUBLISHER_RUN_ID,
       sitemapDir: base.sitemapDir,
+      previousSitemapSnapshot: base.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
       pageManifests: base.pageManifests,
       sectionManifests: base.sectionManifests,
       sourceArtifacts: { artifacts: base.sourceArtifacts },

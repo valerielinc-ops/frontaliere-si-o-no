@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
-import { spawnSync } from 'node:child_process';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isExternallyServedUrl } from '../lib/externally-served-paths.mjs';
+import { evaluateSitemapFamilyCoverage } from '../lib/sitemap-family-coverage.mjs';
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
@@ -93,40 +93,58 @@ function localeForUrl(url) {
   return 'it';
 }
 
-function parseSitemapBundle(root, errors) {
+function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   const urlSet = new Map();
-  const files = listFiles(root, (file) => path.basename(file).startsWith('sitemap') && file.endsWith('.xml'));
-  if (!files.length) errors.push(`no sitemap XML files found under ${root}`);
-  for (const file of files) {
-    const xml = fs.readFileSync(file, 'utf8');
-    const valid = spawnSync('python3', ['-c', 'import sys, xml.etree.ElementTree as ET; ET.parse(sys.argv[1])', file], { encoding: 'utf8' });
-    if (valid.error || valid.status !== 0) {
-      const detail = valid.error?.message ?? valid.stderr?.trim() ?? 'XML parser failed';
-      errors.push(`${path.relative(root, file)}: invalid XML (${detail})`);
+  const snapshotPath = path.join(root, 'new-sitemap-urls.json');
+  let currentSnapshot;
+  try {
+    currentSnapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+  } catch (error) {
+    errors.push(`current sitemap snapshot is missing or invalid (${error.message})`);
+    return { urlSet, files: [] };
+  }
+  if (currentSnapshot?.version !== 3 || !currentSnapshot?.perSitemap
+    || typeof currentSnapshot.perSitemap !== 'object' || Array.isArray(currentSnapshot.perSitemap)) {
+    errors.push('current sitemap snapshot must use schema version 3 with perSitemap URL sets');
+    return { urlSet, files: [] };
+  }
+
+  const files = Object.keys(currentSnapshot.perSitemap).sort();
+  if (!files.length) errors.push(`current sitemap snapshot has no URL sets under ${root}`);
+  for (const [sitemap, urls] of Object.entries(currentSnapshot.perSitemap)) {
+    if (!Array.isArray(urls)) {
+      errors.push(`${sitemap}: sitemap snapshot URL set is not an array`);
       continue;
     }
-    if (/<sitemapindex\b/iu.test(xml)) continue;
-    const blocks = [...xml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/giu)];
-    if (!blocks.length && /<urlset\b/iu.test(xml)) errors.push(`${path.relative(root, file)}: urlset has no url entries`);
-    for (const block of blocks) {
-      const body = block[1];
-      const locs = [...body.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/giu)].map((match) => match[1].trim());
-      if (locs.length !== 1) {
-        errors.push(`${path.relative(root, file)}: each url must contain exactly one loc (found ${locs.length})`);
+    for (const url of urls) {
+      let parsed;
+      try { parsed = new URL(url); } catch { errors.push(`${sitemap}: malformed URL ${url}`); continue; }
+      if (parsed.origin !== SITE_ORIGIN || isExternallyServedUrl(url)) continue;
+      const locale = localeForUrl(url);
+      if (!ownsSitemapUrl(url, locale)) {
+        errors.push(`${sitemap}: URL is not owned by a published locale: ${url}`);
         continue;
       }
-      const urls = [locs[0], ...[...body.matchAll(/<xhtml:link\b[^>]*\bhref=["']([^"']+)["'][^>]*>/giu)].map((match) => match[1])];
-      for (const url of urls) {
-        let parsed;
-        try { parsed = new URL(url); } catch { errors.push(`${path.relative(root, file)}: malformed URL ${url}`); continue; }
-        if (parsed.origin !== SITE_ORIGIN || isExternallyServedUrl(url)) continue;
-        const locale = localeForUrl(url);
-        if (!ownsSitemapUrl(url, locale)) {
-          errors.push(`${path.relative(root, file)}: URL is not owned by a published locale: ${url}`);
-          continue;
-        }
-        if (!urlSet.has(url)) urlSet.set(url, { locale, sitemap: path.relative(root, file) });
-      }
+      if (!urlSet.has(url)) urlSet.set(url, { locale, sitemap });
+    }
+  }
+
+  if (!previousSnapshot || previousSnapshot.version !== 3
+    || !previousSnapshot.perSitemap || typeof previousSnapshot.perSitemap !== 'object'
+    || Array.isArray(previousSnapshot.perSitemap)) {
+    errors.push('pre-deploy sitemap snapshot is missing or is not schema version 3');
+  } else {
+    const coverage = evaluateSitemapFamilyCoverage(previousSnapshot, currentSnapshot, declarations);
+    for (const invalid of coverage.invalidDeclarations) {
+      errors.push(`sitemap coverage declaration ${invalid.index} is invalid: ${invalid.family}`);
+    }
+    for (const stale of coverage.staleDeclarations) {
+      errors.push(`sitemap coverage declaration is stale for ${stale.family}`);
+    }
+    for (const regression of coverage.regressions) {
+      errors.push(
+        `sitemap family coverage decreased for ${regression.family}: ${regression.previousCount} -> ${regression.currentCount}`,
+      );
     }
   }
   return { urlSet, files };
@@ -145,6 +163,8 @@ export function validatePublisherFastGate({
   sourceSha,
   publisherRunId,
   sitemapDir,
+  previousSitemapSnapshot,
+  sitemapCoverageDeclarations,
   pageManifests,
   sectionManifests,
   sourceArtifacts,
@@ -290,7 +310,12 @@ export function validatePublisherFastGate({
     }
   }
 
-  const { urlSet, files: sitemapFiles } = parseSitemapBundle(sitemapDir, errors);
+  const { urlSet, files: sitemapFiles } = parseSitemapSnapshot(
+    sitemapDir,
+    previousSitemapSnapshot,
+    sitemapCoverageDeclarations,
+    errors,
+  );
   for (const [url, source] of urlSet) {
     const page = pageByUrl.get(url);
     if (!page) { errors.push(`[${source.sitemap}] sitemap URL has no page manifest entry: ${url}`); continue; }
@@ -366,6 +391,10 @@ function main() {
     sourceSha: args['source-sha'],
     publisherRunId: args['publisher-run-id'],
     sitemapDir: args['sitemaps-dir'],
+    previousSitemapSnapshot: fs.existsSync(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json'))
+      ? readJson(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json'))
+      : null,
+    sitemapCoverageDeclarations: readJson('data/sitemap-family-coverage-declarations.json'),
     pageManifests,
     sectionManifests,
     sourceArtifacts: readJson(args['source-artifacts']),
@@ -382,4 +411,4 @@ function main() {
   if (!result.passed) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isInvokedDirectly(import.meta.url)) main();

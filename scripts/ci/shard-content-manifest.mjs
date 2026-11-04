@@ -2,7 +2,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 export const SHARD_MANIFEST_VERSION = 2;
 export const SHARD_VALIDATOR_VERSION = 'publisher-shard-content-v2';
@@ -343,7 +343,7 @@ async function main() {
   throw new Error('usage: shard-content-manifest.mjs create-section|finalize-sections|bind-page ...');
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`[shard-manifest] ${error?.stack || error?.message || error}`);
     process.exitCode = 1;

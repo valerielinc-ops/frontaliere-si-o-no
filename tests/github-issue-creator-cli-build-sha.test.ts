@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 
 // The library path already has unit coverage (github-issue-creator-gate.test.ts,
 // which mocks node:child_process). This file covers the OTHER entry point: the
-// CLI, invoked verbatim by the `else` fallback of post-deploy-validate-dist.yml
+// CLI, invoked by the compatibility fallback of post-deploy-validate-dist.yml
 // when `scripts/ci/report-validate-dist-failure.mjs` does not exist at the
 // build's SHA. That branch reopens the legacy `Validation Failure (dist):
 // post-deploy` issue, and until `--build-sha` existed it could not reach the
@@ -234,7 +234,9 @@ describe('post-deploy-validate-dist.yml legacy fallback wires --build-sha', () =
   const wf = readFileSync(join(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf8');
 
   it('passes the BUILD sha (INPUT_DEPLOY_REF), not the validation run head_sha', () => {
-    const fallback = wf.slice(wf.indexOf('fallback al reporter legacy'));
+    const reportStep = wf.indexOf('if [ -f scripts/ci/report-validate-dist-failure.mjs ]');
+    const fallbackStart = wf.indexOf('\n          else\n', reportStep);
+    const fallback = wf.slice(fallbackStart, wf.indexOf('\n          fi', fallbackStart));
     const invocation = fallback.slice(0, fallback.indexOf('--workflow "Post-deploy Validate Dist"'));
     expect(invocation).toContain('--build-sha "${INPUT_DEPLOY_REF}"');
     expect(invocation).not.toMatch(/--build-sha\s+"?\$\{?GITHUB_SHA/);

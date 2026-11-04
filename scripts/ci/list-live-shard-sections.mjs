@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 export function listLiveShardSections({ root = process.cwd(), env = process.env, excludeBuildSkipped = false } = {}) {
   const slugs = JSON.parse(fs.readFileSync(path.join(root, 'scripts/lib/section-shard-slugs.json'), 'utf8'));
@@ -16,6 +16,6 @@ export function listLiveShardSections({ root = process.cwd(), env = process.env,
   }).sort();
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   console.log(listLiveShardSections({ excludeBuildSkipped: process.argv.includes('--exclude-build-skipped') }).join(','));
 }

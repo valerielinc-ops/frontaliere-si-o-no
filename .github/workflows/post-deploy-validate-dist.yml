@@ -58,7 +58,18 @@ jobs:
             scripts/lib/externally-served-paths.mjs
             scripts/lib/flat-string.mjs
             scripts/lib/is-invoked-directly.mjs
+            scripts/lib/sitemap-family-coverage.mjs
             scripts/lib/section-shard-slugs.json
+            data/sitemap-family-coverage-declarations.json
+            infra/cloudflare-worker/locale-router.js
+            infra/cloudflare-worker/ticino-tree-bucket.js
+            infra/cloudflare-worker/legacy-stub-redirects.generated.mjs
+            scripts/lib/pharmacySections.mjs
+            scripts/lib/weather-border-links.mjs
+            scripts/lib/fuel-station-aliases.mjs
+            scripts/lib/borderWaitSections.mjs
+            build-plugins/shared/redirectStubMarker.mjs
+            build-plugins/shared/fuelRouteSlugs.mjs
           sparse-checkout-cone-mode: false
 
       - name: Prepare deploy-ref skew guard
@@ -302,6 +313,7 @@ jobs:
           else
             node scripts/lib/github-issue-creator.mjs \
               --title "Validation Failure (dist): post-deploy" \
+              --build-sha "${INPUT_DEPLOY_REF}" \
               --description "Publisher fast gate failed for source run ${INPUT_DEPLOY_RUN_ID} @ ${INPUT_DEPLOY_REF}; see ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}." \
               --priority 1 --label Bug --workflow "Post-deploy Validate Dist"
           fi

@@ -99,7 +99,10 @@ describe('sitemap family URL coverage ratchet', () => {
 
   it('runs as a blocking post-deploy validator', () => {
     const workflow = readFileSync(resolve(import.meta.dirname, '../.github/workflows/post-deploy-validate-dist.yml'), 'utf8');
-    expect(workflow).toContain('spawn_capped validate:sitemap-family-coverage');
-    expect(workflow).toContain('node scripts/diff-sitemaps.mjs --gate-family-coverage');
+    const fastGate = readFileSync(resolve(import.meta.dirname, '../scripts/ci/publisher-fast-gate.mjs'), 'utf8');
+    expect(workflow).toContain('node scripts/ci/publisher-fast-gate.mjs');
+    expect(fastGate).toContain('evaluateSitemapFamilyCoverage');
+    expect(fastGate).toContain('pre-deploy-sitemap-urls.json');
+    expect(fastGate).toContain('data/sitemap-family-coverage-declarations.json');
   });
 });
