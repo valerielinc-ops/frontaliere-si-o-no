@@ -55,6 +55,18 @@ describe('privacy-safe Instagram community topic signals', () => {
       .toBeNull();
     expect(classifyInstagramCommunityQuestion('How much traffic to our site?'))
       .toBeNull();
+    expect(classifyInstagramCommunityQuestion('What is traffic on our websites?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('Is web‑traffic increasing?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('What is a website’s traffic?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('Is web site traffic increasing?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is social traffic?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('Was bedeutet Traffic auf unserer Website?'))
+      .toBeNull();
     expect(classifyInstagramCommunityQuestion('How is traffic on the road?'))
       .toBe('mobilita-valichi');
     expect(classifyInstagramCommunityQuestion('How is traffic and tax?'))
