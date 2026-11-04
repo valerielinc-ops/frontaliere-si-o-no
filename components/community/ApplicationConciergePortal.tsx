@@ -575,6 +575,13 @@ export default function ApplicationConciergePortal({
       // the provider session before exposing another payment form.
       const effectiveServiceId = renewal ? null : resumeServiceId
         || (sumUpPayment?.userId === user.uid ? sumUpPayment.serviceId : null);
+      const pageParams = new URLSearchParams(window.location.search);
+      const reminderServiceId = pageParams.get('application_concierge_service_id');
+      const useSumUpForPaymentReminder = Boolean(effectiveServiceId
+        && reminderServiceId === effectiveServiceId
+        && pageParams.get('utm_source') === 'email'
+        && pageParams.get('utm_medium') === 'payment_reminder'
+        && pageParams.get('utm_campaign') === 'application_concierge');
 
       const base = new URL(window.location.href);
       base.searchParams.delete('application_concierge');
@@ -589,6 +596,7 @@ export default function ApplicationConciergePortal({
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
         houseAdAttribution: getHouseAdAttribution(),
+        ...(useSumUpForPaymentReminder ? { useSumUpForPaymentReminder: true } : {}),
         ...(effectiveServiceId ? { serviceId: effectiveServiceId, expectedAmountTotal: service?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS } : {}),
         ...(renewal ? { renewalOfServiceId: serviceId!, acceptRenewalTerms: true, expectedAmountTotal: service!.renewalOffer!.amountTotal } : {}),
       }, user);

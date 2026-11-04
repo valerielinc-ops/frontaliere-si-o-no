@@ -205,7 +205,14 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     return { status: 403, body: { ok: false, error: 'application_concierge_email_not_verified' } };
   }
 
-  const configuredPaymentProvider = await getAssistedApplicationPaymentProvider();
+  // Email recovery links move an owned, terminal Stripe attempt to SumUp.
+  // Live Stripe sessions are verified and reused by the preflight below.
+  const useSumUpForPaymentReminder = Boolean(
+    resumeServiceId && body.useSumUpForPaymentReminder === true,
+  );
+  const configuredPaymentProvider = useSumUpForPaymentReminder
+    ? SUMUP_PAYMENT_PROVIDER
+    : await getAssistedApplicationPaymentProvider();
   const firestore = db();
   const renewalOfServiceId = boundedString(body.renewalOfServiceId, 200);
   let renewalOffer = null;
@@ -255,10 +262,12 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     if (!current || current.userId !== userId) return 'conflict';
     if (current.paymentStatus === 'paid') return 'paid';
     const previousId = observedResumeService ? checkoutIdForService(observedResumeService) : '';
+    const providerChanged = Boolean(observedResumeService)
+      && paymentProviderForOrder(observedResumeService) !== requestRecord.paymentProvider;
     if (current.paymentStatus !== 'pending' || current.checkoutSessionStatus !== 'creating'
       || Number(current.checkoutAttempt) !== checkoutAttempt
       || paymentProviderForOrder(current) !== requestRecord.paymentProvider
-      || checkoutIdForService(current) !== previousId
+      || (!providerChanged && checkoutIdForService(current) !== previousId)
       || !currentRequest || currentRequest.userId !== userId || currentRequest.serviceId !== serviceRef.id
       || currentRequest.checkoutSessionStatus !== 'creating' || Number(currentRequest.checkoutAttempt) !== checkoutAttempt) {
       return 'conflict';
@@ -418,9 +427,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           Number(existingService.checkoutAttempt) || 0,
           Number(existingRecord.checkoutAttempt) || 0,
         ) + 1;
-        const paymentProvider = existingService.paymentProvider === SUMUP_PAYMENT_PROVIDER
+        const paymentProvider = useSumUpForPaymentReminder
           ? SUMUP_PAYMENT_PROVIDER
-          : 'stripe';
+          : paymentProviderForOrder(existingService);
         requestRecord = {
           requestKeyHash,
           userId,
@@ -438,6 +447,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           sumupCheckoutId: FieldValue.delete(),
         }, { merge: true });
         transaction.update(serviceRef, {
+          paymentProvider,
           paymentStatus: 'pending',
           serviceStatus: 'awaiting_payment',
           ...(renewalPrice ? { amountTotal: renewalPrice, expectedAmountTotal: renewalPrice, nextAmountTotal: FieldValue.delete() } : {}),
