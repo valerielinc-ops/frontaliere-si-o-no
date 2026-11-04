@@ -127,6 +127,8 @@ import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { isPaginationSitemapEligible, paginationPageFromPath } from './shared/paginationIndexPolicy';
+import { assertSelfCanonical } from './shared/sitemapCanonicalContract';
+import { resolveFuelDailyPagesFlushed } from './shared/buildSignals';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
@@ -238,6 +240,10 @@ export function renderFuelBelowFloorBridge(
   // canonical/noindex contract and the visible CTA from buildCanonicalBridgePage
   // instead of adding a meta-refresh, which crawlers report as a redirect issue.
   return html;
+}
+
+function assertFuelSitemapCanonical(path: string, html: string, family: string): void {
+  assertSelfCanonical(html, `${BASE_URL}${path}`, `fuel ${family} ${path}`);
 }
 
 function buildFuelDiscoverMoreCtas(
@@ -5597,6 +5603,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_FUEL_DAILY === '1') {
         console.log('\x1b[33m[fuel-daily-pages]\x1b[0m Skipped (SKIP_FUEL_DAILY=1)');
+        resolveFuelDailyPagesFlushed();
         return;
       }
       const distDir = np.resolve(rootDir, 'dist');
@@ -5679,6 +5686,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const emittedStationPaths = new Set<string>();
       for (const [path, html] of Object.entries(stationPages)) {
         if (!unavailableStationPaths.has(path) && countHtmlBodyWords(html) >= STATION_MIN_WORDS) {
+          assertFuelSitemapCanonical(path, html, 'station');
           emittedStationPaths.add(path);
         }
       }
@@ -5691,12 +5699,13 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       // Derive the daily-page archive links and sitemap membership from the
       // same emitted, indexable set. `history` is rolling; the durable archive
       // contains older months that are not present in it.
-      const archiveSitemapPaths = Object.entries(archives)
-        .filter(
-          ([, html]) =>
-            htmlHasIndexableRobots(html) && countHtmlBodyWords(html) >= MIN_INDEXABLE_WORDS,
-        )
-        .map(([path]) => path);
+      const archiveSitemapPaths = Object.entries(archives).flatMap(([path, html]) => {
+        if (!htmlHasIndexableRobots(html) || countHtmlBodyWords(html) < MIN_INDEXABLE_WORDS) {
+          return [];
+        }
+        assertFuelSitemapCanonical(path, html, 'archive');
+        return [path];
+      });
       const archiveSitemapPathSet = new Set(archiveSitemapPaths);
       const pages = generateFuelDailyPages({
         rootDir,
@@ -5814,6 +5823,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        assertFuelSitemapCanonical(path, html, 'daily');
         collector.add(np.join(outDir, 'index.html'), html);
         sitemapPaths.push(path);
         const observedDay = html.match(/"dateModified":"(\d{4}-\d{2}-\d{2})/)?.[1];
@@ -5832,6 +5842,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        if (archiveSitemapPathSet.has(path)) assertFuelSitemapCanonical(path, html, 'archive');
         collector.add(np.join(outDir, 'index.html'), html);
         if (archiveSitemapPathSet.has(path)) sitemapPaths.push(path);
         archivesWritten++;
@@ -5859,6 +5870,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        assertFuelSitemapCanonical(path, html, 'station');
         collector.add(np.join(outDir, 'index.html'), html);
         stationSitemapPaths.push(path);
         stationPagesWritten++;
@@ -5877,6 +5889,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        assertFuelSitemapCanonical(path, html, 'italian-city');
         collector.add(np.join(outDir, 'index.html'), html);
         italianCitySitemapPaths.push(path);
         italianCityPagesWritten++;
@@ -5895,6 +5908,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        assertFuelSitemapCanonical(path, html, 'italian-station');
         collector.add(np.join(outDir, 'index.html'), html);
         italianStationSitemapPaths.push(path);
         italianStationPagesWritten++;
@@ -5976,6 +5990,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        assertFuelSitemapCanonical(path, html, 'index');
         collector.add(np.join(outDir, 'index.html'), html);
         // P1 noindex plan: only page 1 of a paginated index is advertised
         // (paginationIndexPolicy); page 2+ is reached through its pager.
@@ -6026,6 +6041,7 @@ ${urlEntries}
       writeSitemap(italianCitySitemapPaths, fuelItalianCitiesSitemapFile, 'daily');
       writeSitemap(italianStationSitemapPaths, fuelItalianStationsSitemapFile, 'daily');
       writeSitemap(indexSitemapPaths, fuelIndexesSitemapFile, 'daily');
+      resolveFuelDailyPagesFlushed();
 
       const result: PluginResult = {
         pagesWritten,

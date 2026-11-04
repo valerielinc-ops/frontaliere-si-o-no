@@ -28,6 +28,7 @@ import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
 import { BASE_URL } from './constants';
 import {
+  fuelDailyPagesFlushed,
   jobsSeoPagesFlushed,
   shouldAwaitJobsSeoPagesFlushed,
   staticPagesFlushed,
@@ -619,7 +620,7 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
         // lightweight build. Full builds must wait for its sitemap backfill.
         const buildSignals: Promise<void>[] = process.env.FAST_BUILD
           ? []
-          : [staticPagesFlushed];
+          : [staticPagesFlushed, fuelDailyPagesFlushed];
         if (shouldAwaitJobsSeoPagesFlushed()) buildSignals.push(jobsSeoPagesFlushed);
         await Promise.all(buildSignals);
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());

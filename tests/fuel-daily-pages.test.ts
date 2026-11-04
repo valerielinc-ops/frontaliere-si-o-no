@@ -32,6 +32,7 @@ import {
   generateFuelDailyPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
 import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
+import { hasSelfCanonical } from '../build-plugins/shared/sitemapCanonicalContract';
 import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
@@ -366,6 +367,7 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('every page sets self-referencing canonical', () => {
     for (const [path, html] of Object.entries(pages)) {
+      expect(hasSelfCanonical(html, `https://frontaliereticino.ch${path}`), `${path} has no valid head canonical`).toBe(true);
       expect(html).toMatch(htmlTagWithAttrs('link', {
         rel: 'canonical',
         href: `https://frontaliereticino.ch${path}`,
