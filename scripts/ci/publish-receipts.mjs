@@ -22,6 +22,8 @@ export const LOCALE_RECEIPT_PREFIX = 'frontaliere/shard-published';
 const SHA_RE = /^[0-9a-f]{40}$/i;
 const RUN_ID_RE = /^\d+$/;
 const STATUS_SUCCESS = 'success';
+const STATUS_READ_MAX_ATTEMPTS = 4;
+const STATUS_READ_BACKOFF_MS = Object.freeze([1000, 3000, 7000]);
 
 function text(value) {
   return value == null ? '' : String(value).trim();
@@ -104,13 +106,66 @@ function gh(args, { maxBuffer = 2 * 1024 * 1024 } = {}) {
   }).trim();
 }
 
+function errorText(error) {
+  return [error?.message, error?.stderr, error?.stdout]
+    .filter((value) => value != null)
+    .map(String)
+    .join('\n');
+}
+
+/**
+ * GitHub's status endpoint occasionally returns a transient gateway or
+ * transport error. These failures are safe to retry because the operation is
+ * a read and the receipt resolver remains fail-closed if all attempts fail.
+ */
+export function isRetryableGithubReadError(error) {
+  const detail = errorText(error);
+  return /\bHTTP\s+(?:408|425|429|500|502|503|504)\b/i.test(detail)
+    || /\b(?:ECONNRESET|ETIMEDOUT|EAI_AGAIN)\b/i.test(detail)
+    || /\b(?:bad\s+gateway|gateway\s+timeout|temporarily\s+unavailable|timed?\s*out)\b/i.test(detail);
+}
+
+function sleepMs(delayMs) {
+  if (delayMs <= 0) return;
+  execFileSync('sleep', [String(delayMs / 1000)], { stdio: 'ignore' });
+}
+
+/**
+ * Run a read with bounded retry/backoff. The injectable sleep and retry hook
+ * keep the policy directly testable without waiting in unit tests.
+ */
+export function withGithubReadRetry(operation, {
+  maxAttempts = STATUS_READ_MAX_ATTEMPTS,
+  backoffMs = STATUS_READ_BACKOFF_MS,
+  sleep = sleepMs,
+  onRetry = (attempt, delayMs) => {
+    console.warn(`::warning::transient GitHub API read failure on attempt ${attempt}; retrying in ${delayMs}ms`);
+  },
+} = {}) {
+  let lastError;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      return operation(attempt);
+    } catch (error) {
+      lastError = error;
+      if (attempt >= maxAttempts || !isRetryableGithubReadError(error)) throw error;
+      const delayMs = Number(backoffMs[Math.min(attempt - 1, backoffMs.length - 1)] ?? 0);
+      onRetry(attempt, delayMs);
+      sleep(delayMs);
+    }
+  }
+  throw lastError;
+}
+
 function listStatuses(repo, sourceSha) {
   const sha = validateSha(sourceSha);
   if (!sha) throw new Error('source SHA is missing or malformed');
   // A long-lived commit can accumulate more than one page of statuses after
   // the receipt was written. `--paginate --slurp` keeps the durable marker
   // readable instead of silently losing it behind the newest 100 entries.
-  const raw = gh(['api', '--paginate', '--slurp', `repos/${repo}/commits/${sha}/statuses?per_page=100`]);
+  const raw = withGithubReadRetry(() => gh([
+    'api', '--paginate', '--slurp', `repos/${repo}/commits/${sha}/statuses?per_page=100`,
+  ]));
   const pages = JSON.parse(raw || '[]');
   if (!Array.isArray(pages)) throw new Error('commit status response is malformed');
   const statuses = pages.flatMap((page) => {
