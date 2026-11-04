@@ -1585,6 +1585,22 @@ const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
 );
+const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
+  String.raw`inviando la candidatura.{0,100}(?:viene creato|crea).{0,60}profilo utente`,
+  String.raw`submitting (?:the )?application.{0,100}(?:creates?|is created).{0,60}user profile`,
+  String.raw`(?:einreichung|bewerbung).{0,100}(?:benutzerprofil|profil).{0,60}(?:wird erstellt|erstellt)`,
+  String.raw`(?:soumission|envoi) de la candidature.{0,100}(?:crée|créé).{0,60}profil utilisateur`,
+].join('|'), 'iu');
+function isUmantisApplicationRoute(url) {
+  try {
+    const parsed = new URL(String(url || ''));
+    return parsed.protocol === 'https:'
+      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+      && /^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
@@ -1617,7 +1633,12 @@ export function ownAccountForm(snapshot, channelType = '') {
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
-  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
+  const umantisProfileCreatedOnSubmit = channelType === 'umantis'
+    && isUmantisApplicationRoute(snapshot.url)
+    && hasCvFileField
+    && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
+  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot)
+    && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit);
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
