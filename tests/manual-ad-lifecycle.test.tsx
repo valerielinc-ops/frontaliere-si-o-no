@@ -95,6 +95,19 @@ describe('real request evidence', () => {
     lifecycle.fail('script_failed'); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
     lifecycle.stop(); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
   });
+  it('marks a still-pending slot stalled after preserving the late-fill window', async () => {
+    const { box, el, lifecycle, events } = setup();
+    lifecycle.request();
+    vi.advanceTimersByTime(45_000 - 1);
+    expect(el.hasAttribute('data-ft-ad-stalled')).toBe(false);
+    vi.advanceTimersByTime(1);
+    expect(el.getAttribute('data-ft-ad-stalled')).toBe('response_stalled');
+    expect(box.getAttribute('data-ft-ad-request-pending')).toBe('1');
+    expect(events).toHaveBeenCalledWith('ad_waiting', expect.objectContaining({ reason: 'response_stalled' }));
+    await status(el, 'filled');
+    expect(el.hasAttribute('data-ft-ad-stalled')).toBe(false);
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+  });
   it('releases only its own pending request when controllers share a box', async () => {
     const first = setup();
     const secondEl = document.createElement('ins'); secondEl.getBoundingClientRect = first.el.getBoundingClientRect;

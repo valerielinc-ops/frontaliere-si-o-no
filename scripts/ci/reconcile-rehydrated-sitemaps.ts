@@ -22,6 +22,13 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const distDir = path.join(repoRoot, 'dist');
+const REHYDRATED_SITEMAP_OPTIONS = Object.freeze({
+  // Rehydration assembles every locale/section shard into one logical dist;
+  // a missing local HTML file is therefore a broken sitemap loc, not a
+  // legitimate cross-shard hand-off.
+  keepMissing: false,
+  ignoreShardOwnership: true,
+} as const);
 
 async function main(): Promise<void> {
   if (!fs.existsSync(distDir)) {
@@ -31,10 +38,7 @@ async function main(): Promise<void> {
   // This pass runs only after every locale/section shard is assembled. It is
   // also the final edge-membership check: a self-canonical origin fallback
   // must not restore a URL that the apex Worker answers with 301/410.
-  await reconcileFinalSitemapsWithDist(distDir, [], {
-    keepMissing: false,
-    ignoreShardOwnership: true,
-  });
+  await reconcileFinalSitemapsWithDist(distDir, [], REHYDRATED_SITEMAP_OPTIONS);
 
   // The reconciler can remove an emptied shard. Keep sitemap.xml in sync with
   // the files that remain in the assembled dist before any consumer reads it.

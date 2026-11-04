@@ -1,7 +1,7 @@
 {
   "key": "grund-ag-ch",
   "label": "Grund AG Fahrzeuge",
-  "generatedAt": "2026-11-04T09:24:11.493Z",
+  "generatedAt": "2026-11-04T21:26:43.072Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7601,
-  "avgDurationMs": 7601,
+  "durationMs": 6123,
+  "avgDurationMs": 6123,
   "durationHistory": [
-    7601
+    6123
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:23:55.007Z",
+      "crawledAt": "2026-11-04T21:26:26.513Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salaryMax": 89000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:23:55.007Z",
+      "validThrough": "2026-12-04T21:26:26.513Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:23:55.005Z",
+      "crawledAt": "2026-11-04T21:26:26.511Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salaryMax": 89000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:23:55.005Z",
+      "validThrough": "2026-12-04T21:26:26.511Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,5 +116,5 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

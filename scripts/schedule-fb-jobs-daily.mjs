@@ -545,7 +545,8 @@ function expectedJobOgImagePath(url) {
 // their existing best-effort behavior.
 export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}, options = {}) {
   const scrapeUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
-  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&access_token=${encodeURIComponent(token)}`;
+  const checkFields = encodeURIComponent('og_object{image,title}');
+  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&fields=${checkFields}&access_token=${encodeURIComponent(token)}`;
   const backoffMs = [0, 1500, 3000];
   const fallbackTitlePattern = /offerta\s+non\s+(?:verificata|trovata|disponibile)|job\s+not\s+found|position\s+not\s+verified|offre\s+(?:introuvable|non\s+v[ée]rifi[ée]e)|stelle\s+nicht\s+gefunden/i;
   for (let i = 0; i < backoffMs.length; i += 1) {

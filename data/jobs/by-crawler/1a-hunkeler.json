@@ -1,7 +1,7 @@
 {
   "crawlerKey": "1a-hunkeler",
-  "assembledAt": "2026-11-04T09:23:58.444Z",
-  "runId": "41805782176",
+  "assembledAt": "2026-11-04T21:29:18.935Z",
+  "runId": "41914139890",
   "jobs": [
     {
       "id": "1a-hunkeler-7dfb52e69867",
@@ -34,7 +34,7 @@
       "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "source": "1a-hunkeler Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:23:51.539Z",
+      "crawledAt": "2026-11-04T21:29:12.441Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T09:23:51.539Z",
+      "validThrough": "2027-01-02T21:29:12.441Z",
       "validThroughSource": "last-observed-window"
     }
   ]

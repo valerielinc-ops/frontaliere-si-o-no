@@ -63,82 +63,94 @@ describe('isItLocaleConfident', () => {
 });
 
 describe('fetchRedditCandidates — r/Switzerland locale filter', () => {
-  it('drops English r/Switzerland posts but keeps Italian ones', async () => {
-    // Build a fetch mock that returns:
-    // - r/Ticino: empty
-    // - r/italy: empty
-    // - r/Lugano: empty
-    // - r/Switzerland: one EN post (should be dropped) + one IT post (should be kept)
-    const fetchImpl = vi.fn(async (url: string) => {
+  const approvedEnv = {
+    REDDIT_DATA_API_APPROVED: 'true',
+    REDDIT_USER_AGENT: 'web:frontaliereticino:test (by /u/tester)',
+  };
+
+  it('does not access Reddit while explicit Data API approval is absent', async () => {
+    const fetchImpl = vi.fn();
+    const getAccessTokenFn = vi.fn();
+    const r = await fetchRedditCandidates({
+      env: {},
+      fetchImpl,
+      getAccessTokenFn,
+      sleepFn: async () => {},
+    });
+
+    expect(r.ok).toBe(false);
+    expect(r.authMode).toBe('disabled');
+    expect(r.perSubreddit.redditTicino.reason).toBe('reddit_data_api_unapproved');
+    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(getAccessTokenFn).not.toHaveBeenCalled();
+  });
+
+  it('uses OAuth only and retains locale filtering when explicitly approved', async () => {
+    const fetchImpl = vi.fn(async (url: string, _init: any) => {
       if (url.includes('/r/Switzerland/')) {
         return makeListingRes([
-          passingPost(
-            'How much can I save as a cross-border worker from Italy?',
-          ),
-          passingPost(
-            'Qualcuno sa come funziona la busta paga per un frontaliere?',
-          ),
+          passingPost('How much can I save as a cross-border worker from Italy?'),
+          passingPost('Qualcuno sa come funziona la busta paga per un frontaliere?'),
         ]);
       }
-      // All other endpoints: empty listing → 0 candidates from those subs.
       return makeListingRes([]);
     });
 
     const r = await fetchRedditCandidates({
+      env: approvedEnv,
+      getAccessTokenFn: async () => 'test-token',
       fetchImpl: fetchImpl as any,
       sleepFn: async () => {},
-      playwrightFallback: async () => [],
     });
 
     const swissCandidates = r.perSubreddit.redditSwitzerland.candidates;
+    expect(r.authMode).toBe('oauth');
     expect(swissCandidates).toHaveLength(1);
     expect(swissCandidates[0].keyword).toMatch(/Qualcuno sa/);
+    expect(fetchImpl).toHaveBeenCalled();
+    for (const [url, init] of fetchImpl.mock.calls) {
+      expect(url).toMatch(/^https:\/\/oauth\.reddit\.com\//);
+      expect(init.headers.Authorization).toBe('Bearer test-token');
+      expect(init.headers['User-Agent']).toBe(approvedEnv.REDDIT_USER_AGENT);
+    }
   });
 
-  it('does NOT apply the locale filter to r/Ticino (English title kept if it passes other filters)', async () => {
-    // r/Ticino post in English with frontaliere-relevant content. Without the
-    // locale filter being applied to Ticino, the post should pass through the
-    // engagement+relevance gates and produce a candidate.
-    const fetchImpl = vi.fn(async (url: string) => {
-      if (url.includes('/r/Ticino/')) {
-        return makeListingRes([
-          passingPost(
-            'Anyone know how to commute from Como to Lugano with a permesso G?',
-          ),
-        ]);
-      }
-      return makeListingRes([]);
+  it('does not retry authorization rejection or switch to anonymous endpoints', async () => {
+    const unauthorized = Object.assign(new Error('reddit 403'), { status: 403 });
+    const fetchImpl = vi.fn(async () => { throw unauthorized; });
+    const r = await fetchRedditCandidates({
+      env: approvedEnv,
+      getAccessTokenFn: async () => 'test-token',
+      fetchImpl: fetchImpl as any,
+      sleepFn: async () => {},
+    });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(r.perSubreddit.redditTicino.ok).toBe(false);
+    expect(r.perSubreddit.redditItaly.reason).toBe('reddit_oauth_rejected');
+    expect(fetchImpl.mock.calls[0][0]).toMatch(/^https:\/\/oauth\.reddit\.com\//);
+  });
+
+  it('retries a rate-limited OAuth request with bounded retry and no scraping fallback', async () => {
+    let calls = 0;
+    const rateLimited = Object.assign(new Error('reddit 429'), { status: 429 });
+    const fetchImpl = vi.fn(async () => {
+      calls += 1;
+      if (calls === 1) throw rateLimited;
+      return makeListingRes([
+        passingPost('Come funziona la busta paga del frontaliere?'),
+      ]);
     });
 
     const r = await fetchRedditCandidates({
+      env: approvedEnv,
+      getAccessTokenFn: async () => 'test-token',
       fetchImpl: fetchImpl as any,
       sleepFn: async () => {},
-      playwrightFallback: async () => [],
     });
 
-    const ticinoCandidates = r.perSubreddit.redditTicino.candidates;
-    expect(ticinoCandidates).toHaveLength(1);
-    expect(ticinoCandidates[0].keyword).toMatch(/Como to Lugano/);
-  });
-
-  it('keeps a low-confidence (unclassifiable) r/Switzerland title (fail-safe)', async () => {
-    // Title detectLocale falls back to 'it' on (proper-noun-heavy short text).
-    const fetchImpl = vi.fn(async (url: string) => {
-      if (url.includes('/r/Switzerland/')) {
-        return makeListingRes([
-          passingPost('Lugano Mendrisio Chiasso frontaliere?'),
-        ]);
-      }
-      return makeListingRes([]);
-    });
-
-    const r = await fetchRedditCandidates({
-      fetchImpl: fetchImpl as any,
-      sleepFn: async () => {},
-      playwrightFallback: async () => [],
-    });
-
-    const swissCandidates = r.perSubreddit.redditSwitzerland.candidates;
-    expect(swissCandidates).toHaveLength(1);
+    expect(r.candidates.length).toBeGreaterThan(0);
+    expect(fetchImpl).toHaveBeenCalledTimes(5);
+    expect(fetchImpl.mock.calls.every(([url]) => String(url).startsWith('https://oauth.reddit.com/'))).toBe(true);
   });
 });

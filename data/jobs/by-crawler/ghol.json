@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-11-04T09:31:43.381Z",
-  "runId": "41806238925",
+  "assembledAt": "2026-11-04T21:36:36.991Z",
+  "runId": "41914646838",
   "jobs": [
     {
       "id": "ghol-ff11106c27c6",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.579Z",
+      "crawledAt": "2026-11-04T21:36:30.527Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -82,7 +82,7 @@
       },
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:38.579Z",
+      "validThrough": "2026-12-04T21:36:30.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -90,8 +90,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -132,7 +132,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.579Z",
+      "crawledAt": "2026-11-04T21:36:30.527Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -161,8 +161,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -170,10 +170,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -192,88 +192,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:38.579Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-ecf3f8695ba9",
-      "slug": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Gestionnaire en intendance",
-      "titleByLocale": {
-        "it": "Responsabile della gestione",
-        "en": "Stewardship Manager",
-        "de": "Stewardship Manager",
-        "fr": "Gestionnaire en intendance"
-      },
-      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\n Au sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\n Afin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\n Votre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\n Votre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\n Nous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
-      "descriptionByLocale": {
-        "it": "Il Groupement Hospitalier de l'Ouest Lémanique (GHOL) è un istituto sanitario pubblicamente riconosciuto che serve la popolazione della regione. Attraverso le sue strutture a Nyon e Rolle, offre una vasta gamma di cura e garantisce una cura della qualità in un ambiente accogliente, sicuro e reattivo.\nAll'interno del nostro dipartimento di stewardship, contribuite quotidianamente alla qualità della ricezione e del benessere dei pazienti, del personale e dei visitatori. Attraverso il vostro lavoro, siete coinvolti nel mantenere un ambiente pulito e piacevole che rispetta i requisiti igienici dell'ambiente ospedaliero.\nAl fine di garantire un migliore coordinamento delle attività e un attento monitoraggio dei team, il ruolo dei nostri manager nella gestione è rivolto a più sterzo dei settori e ai dipendenti che accompagnano nella loro vita quotidiana.\nLa vostra missione:\n\n• Garantire il funzionamento quotidiano delle attività alberghiere nel campo\n\n• Organizzare e assegnare i compiti dei team\n\n• Gestione delle contingenze e supervisione delle attività del settore\n\n• Garantire controlli di qualità di primo livello\n\n• Partecipazione all'integrazione e formazione dei dipendenti\n\n• Assicurare il rispetto delle norme istituzionali\nIl tuo profilo:\n\n• Direttore di gestione SWC\n\n• Minimo 3 anni di esperienza in un impianto sanitario\n\n• Senso organizzativo, autonomia e spirito di squadra\n\n• Eccellente capacità relazionali e senso di responsabilità\nOffriamo:\n\n• Una varia attività all'interno di un ambiente ospedaliero dinamico\n\n• Cooperazione stretta con i vari dipartimenti dell'istituzione\n\n• Benefici dell'accordo collettivo per il settore della sanità pubblica (CCT-San)\n\n• Collaborare vantaggi e tariffe preferenziali con i marchi locali\n\n• Un ristorante personale con condivisione dei costi dei pasti\n\n• Priorità per l'ammissione dei bambini del personale alla scuola materna Le Carrousel\n\n• Eventi istituzionali\nTi riconosci in questo profilo e vuoi unire un servizio che offre un ambiente di lavoro stimolante? Non vediamo l'ora di ricevere la vostra domanda.",
-        "en": "The Groupement Hospitalier de l'Ouest Lémanique (GHOL) is a publicly recognized health institution serving the population of the region. Through its facilities in Nyon and Rolle, it offers a diverse range of care and ensures quality care in a welcoming, safe and responsive environment.\nWithin our stewardship department, you contribute daily to the quality of reception and well-being of patients, staff and visitors. Through your work, you are involved in maintaining a clean, pleasant environment that respects the hygiene requirements of the hospital environment.\nIn order to ensure better coordination of activities and close monitoring of teams, the role of our managers in stewardship is directed towards more steering of sectors and accompanying employees in their daily lives.\nYour mission:\n\n• Ensuring the daily functioning of hotel activities in the field\n\n• Organize and allocate the tasks of the teams\n\n• Manage contingencies and oversee sector activities\n\n• Ensuring first level quality controls\n\n• Participate in the integration and training of employees\n\n• Ensure compliance with institutional standards\nYour profile:\n\n• Stewardship Manager SWC\n\n• Minimum 3 years of experience in a health facility\n\n• Organizational sense, autonomy and team spirit\n\n• Excellent relational skills and sense of responsibility\nWe offer:\n\n• A varied activity within a dynamic hospital environment\n\n• Close cooperation with the various departments of the institution\n\n• Benefits of the collective agreement for the public health sector (CCT-San)\n\n• Collaborating advantages and preferential rates with local brands\n\n• A staff restaurant with meal cost sharing\n\n• Priority for admission of staff children to the Le Carrousel nursery\n\n• Institutional events\nDo you recognize yourself in this profile and want to join a service offering a stimulating work environment? We look forward to receiving your application.",
-        "de": "Das Groupement Hospitalier de l'Ouest Lémanique (GHOL) ist eine öffentlich anerkannte Gesundheitseinrichtung, die der Bevölkerung der Region dient. Durch seine Einrichtungen in Nyon und Rolle bietet es ein vielfältiges Pflegeangebot und sorgt für eine qualitativ hochwertige Pflege in einer einladenden, sicheren und reaktionsschnellen Umgebung.\nIn unserer Stewardship-Abteilung tragen Sie täglich zur Qualität der Aufnahme und des Wohlbefindens von Patienten, Mitarbeitern und Besuchern bei. Durch Ihre Arbeit sind Sie daran beteiligt, eine saubere, angenehme Umgebung zu erhalten, die die Hygieneanforderungen des Krankenhausumfeldes respektiert.\nUm eine bessere Koordination der Aktivitäten und eine enge Überwachung der Teams zu gewährleisten, ist die Rolle unserer Führungskräfte in der Verwaltung auf eine stärkere Steuerung der Sektoren und die Begleitung der Mitarbeiter in ihrem täglichen Leben ausgerichtet.\nIhre Mission:\n\n• Sicherstellung des täglichen Funktionierens der Hotelaktivitäten vor Ort\n\n• Organisation und Zuweisung der Aufgaben der Teams\n\n• Umgang mit unvorhergesehenen Ereignissen und Überwachung der Tätigkeiten des Sektors\n\n• Gewährleistung von First Level Qualitätskontrollen\n\n• Teilnahme an der Integration und Schulung von Mitarbeitern\n\n• Gewährleistung der Einhaltung institutioneller Standards\nIhr Profil:\n\n• Stewardship Manager SWC\n\n• Mindestens 3 Jahre Erfahrung in einer Gesundheitseinrichtung\n\n• Organisationssinn, Autonomie und Teamgeist\n\n• Exzellente relationale Fähigkeiten und Verantwortungsbewusstsein\nWir bieten:\n\n• Eine abwechslungsreiche Aktivität in einem dynamischen Krankenhausumfeld\n\n• Enge Zusammenarbeit mit den verschiedenen Abteilungen der Institution\n\n• Vorteile des Tarifvertrags für den öffentlichen Gesundheitssektor (CCT-San)\n\n• Zusammenarbeit von Vorteilen und Vorzugstarifen mit lokalen Marken\n\n• Ein Personalrestaurant mit Kostenteilung für Mahlzeiten\n\n• Priorität für die Zulassung von Personalkindern in die Kindertagesstätte Le Carrousel\n\n• Institutionelle Veranstaltungen\nErkennen Sie sich in diesem Profil wieder und möchten sich einem Service anschließen, der ein anregendes Arbeitsumfeld bietet? Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\nAu sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\nAfin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\nVotre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\nVotre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\nNous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\nVous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/jsVFtWAvo",
-      "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.578Z",
-      "previousSlugs": [
-        "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-10-12T09:24:39.247Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:31:38.578Z",
+      "validThrough": "2026-12-04T21:36:30.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -323,7 +242,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.578Z",
+      "crawledAt": "2026-11-04T21:36:30.526Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -348,7 +267,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:31:38.578Z",
+      "validThrough": "2027-01-01T21:36:30.526Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -398,7 +317,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.578Z",
+      "crawledAt": "2026-11-04T21:36:30.526Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -424,7 +343,88 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:31:38.578Z",
+      "validThrough": "2026-12-04T21:36:30.526Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-ecf3f8695ba9",
+      "slug": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Gestionnaire en intendance",
+      "titleByLocale": {
+        "it": "Responsabile della gestione",
+        "en": "Stewardship Manager",
+        "de": "Stewardship Manager",
+        "fr": "Gestionnaire en intendance"
+      },
+      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\n Au sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\n Afin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\n Votre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\n Votre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\n Nous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
+      "descriptionByLocale": {
+        "it": "Il Groupement Hospitalier de l'Ouest Lémanique (GHOL) è un istituto sanitario pubblicamente riconosciuto che serve la popolazione della regione. Attraverso le sue strutture a Nyon e Rolle, offre una vasta gamma di cura e garantisce una cura della qualità in un ambiente accogliente, sicuro e reattivo.\nAll'interno del nostro dipartimento di stewardship, contribuite quotidianamente alla qualità della ricezione e del benessere dei pazienti, del personale e dei visitatori. Attraverso il vostro lavoro, siete coinvolti nel mantenere un ambiente pulito e piacevole che rispetta i requisiti igienici dell'ambiente ospedaliero.\nAl fine di garantire un migliore coordinamento delle attività e un attento monitoraggio dei team, il ruolo dei nostri manager nella gestione è rivolto a più sterzo dei settori e ai dipendenti che accompagnano nella loro vita quotidiana.\nLa vostra missione:\n\n• Garantire il funzionamento quotidiano delle attività alberghiere nel campo\n\n• Organizzare e assegnare i compiti dei team\n\n• Gestione delle contingenze e supervisione delle attività del settore\n\n• Garantire controlli di qualità di primo livello\n\n• Partecipazione all'integrazione e formazione dei dipendenti\n\n• Assicurare il rispetto delle norme istituzionali\nIl tuo profilo:\n\n• Direttore di gestione SWC\n\n• Minimo 3 anni di esperienza in un impianto sanitario\n\n• Senso organizzativo, autonomia e spirito di squadra\n\n• Eccellente capacità relazionali e senso di responsabilità\nOffriamo:\n\n• Una varia attività all'interno di un ambiente ospedaliero dinamico\n\n• Cooperazione stretta con i vari dipartimenti dell'istituzione\n\n• Benefici dell'accordo collettivo per il settore della sanità pubblica (CCT-San)\n\n• Collaborare vantaggi e tariffe preferenziali con i marchi locali\n\n• Un ristorante personale con condivisione dei costi dei pasti\n\n• Priorità per l'ammissione dei bambini del personale alla scuola materna Le Carrousel\n\n• Eventi istituzionali\nTi riconosci in questo profilo e vuoi unire un servizio che offre un ambiente di lavoro stimolante? Non vediamo l'ora di ricevere la vostra domanda.",
+        "en": "The Groupement Hospitalier de l'Ouest Lémanique (GHOL) is a publicly recognized health institution serving the population of the region. Through its facilities in Nyon and Rolle, it offers a diverse range of care and ensures quality care in a welcoming, safe and responsive environment.\nWithin our stewardship department, you contribute daily to the quality of reception and well-being of patients, staff and visitors. Through your work, you are involved in maintaining a clean, pleasant environment that respects the hygiene requirements of the hospital environment.\nIn order to ensure better coordination of activities and close monitoring of teams, the role of our managers in stewardship is directed towards more steering of sectors and accompanying employees in their daily lives.\nYour mission:\n\n• Ensuring the daily functioning of hotel activities in the field\n\n• Organize and allocate the tasks of the teams\n\n• Manage contingencies and oversee sector activities\n\n• Ensuring first level quality controls\n\n• Participate in the integration and training of employees\n\n• Ensure compliance with institutional standards\nYour profile:\n\n• Stewardship Manager SWC\n\n• Minimum 3 years of experience in a health facility\n\n• Organizational sense, autonomy and team spirit\n\n• Excellent relational skills and sense of responsibility\nWe offer:\n\n• A varied activity within a dynamic hospital environment\n\n• Close cooperation with the various departments of the institution\n\n• Benefits of the collective agreement for the public health sector (CCT-San)\n\n• Collaborating advantages and preferential rates with local brands\n\n• A staff restaurant with meal cost sharing\n\n• Priority for admission of staff children to the Le Carrousel nursery\n\n• Institutional events\nDo you recognize yourself in this profile and want to join a service offering a stimulating work environment? We look forward to receiving your application.",
+        "de": "Das Groupement Hospitalier de l'Ouest Lémanique (GHOL) ist eine öffentlich anerkannte Gesundheitseinrichtung, die der Bevölkerung der Region dient. Durch seine Einrichtungen in Nyon und Rolle bietet es ein vielfältiges Pflegeangebot und sorgt für eine qualitativ hochwertige Pflege in einer einladenden, sicheren und reaktionsschnellen Umgebung.\nIn unserer Stewardship-Abteilung tragen Sie täglich zur Qualität der Aufnahme und des Wohlbefindens von Patienten, Mitarbeitern und Besuchern bei. Durch Ihre Arbeit sind Sie daran beteiligt, eine saubere, angenehme Umgebung zu erhalten, die die Hygieneanforderungen des Krankenhausumfeldes respektiert.\nUm eine bessere Koordination der Aktivitäten und eine enge Überwachung der Teams zu gewährleisten, ist die Rolle unserer Führungskräfte in der Verwaltung auf eine stärkere Steuerung der Sektoren und die Begleitung der Mitarbeiter in ihrem täglichen Leben ausgerichtet.\nIhre Mission:\n\n• Sicherstellung des täglichen Funktionierens der Hotelaktivitäten vor Ort\n\n• Organisation und Zuweisung der Aufgaben der Teams\n\n• Umgang mit unvorhergesehenen Ereignissen und Überwachung der Tätigkeiten des Sektors\n\n• Gewährleistung von First Level Qualitätskontrollen\n\n• Teilnahme an der Integration und Schulung von Mitarbeitern\n\n• Gewährleistung der Einhaltung institutioneller Standards\nIhr Profil:\n\n• Stewardship Manager SWC\n\n• Mindestens 3 Jahre Erfahrung in einer Gesundheitseinrichtung\n\n• Organisationssinn, Autonomie und Teamgeist\n\n• Exzellente relationale Fähigkeiten und Verantwortungsbewusstsein\nWir bieten:\n\n• Eine abwechslungsreiche Aktivität in einem dynamischen Krankenhausumfeld\n\n• Enge Zusammenarbeit mit den verschiedenen Abteilungen der Institution\n\n• Vorteile des Tarifvertrags für den öffentlichen Gesundheitssektor (CCT-San)\n\n• Zusammenarbeit von Vorteilen und Vorzugstarifen mit lokalen Marken\n\n• Ein Personalrestaurant mit Kostenteilung für Mahlzeiten\n\n• Priorität für die Zulassung von Personalkindern in die Kindertagesstätte Le Carrousel\n\n• Institutionelle Veranstaltungen\nErkennen Sie sich in diesem Profil wieder und möchten sich einem Service anschließen, der ein anregendes Arbeitsumfeld bietet? Wir freuen uns auf Ihre Bewerbung.",
+        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\nAu sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\nAfin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\nVotre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\nVotre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\nNous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\nVous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/jsVFtWAvo",
+      "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-04T21:36:30.525Z",
+      "previousSlugs": [
+        "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-10-12T09:24:39.247Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T21:36:30.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -474,7 +474,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.577Z",
+      "crawledAt": "2026-11-04T21:36:30.524Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -506,7 +506,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:31:38.577Z",
+      "validThrough": "2027-01-17T21:36:30.524Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -556,7 +556,7 @@
       "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.576Z",
+      "crawledAt": "2026-11-04T21:36:30.523Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -588,7 +588,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:31:38.576Z",
+      "validThrough": "2026-12-22T21:36:30.523Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -638,7 +638,7 @@
       "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.576Z",
+      "crawledAt": "2026-11-04T21:36:30.523Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
@@ -670,83 +670,8 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:31:38.576Z",
+      "validThrough": "2027-01-21T21:36:30.523Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-672a515466e9",
-      "slug": "ambulant-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "fr": "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "ambulant-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Ambulancier.ère ES",
-      "titleByLocale": {
-        "fr": "Ambulancier.ère ES",
-        "it": "Ambulant.ère ES",
-        "en": "Ambulant.ère ES",
-        "de": "Ambulant.ère ES"
-      },
-      "description": "Le Centre de Secours et d’Urgence de Nyon (CSU Nyon) est le service d’ambulances d’urgence du Groupement Hospitalier de l’Ouest Lémanique (GHOL). Ses 28 collaborateurs assurent les interventions préhospitalières sur la région de Nyon, la Côte et l’Ouest lémanique (3400 missions par année). Le CSU Nyon fait partie du dispositif cantonal des urgences préhospitalières.\n Ce poste en CDD d'un an est proposé dans le cadre d’un remplacement pour congé maternité.\n Vos activités principales :\n\n• Assurer les interventions préhospitalières en tant que leader ou équipier.ère\n\n• Agir de manière autonome dans l’application adéquate des techniques de sauvetage et des protocoles en vigueur\n\n• Assurer les tâches administratives liées au poste\n\n• Veiller à l’entretien et à la maintenance des véhicules, des équipements et des locaux\n\n• Former les étudiants.tes ambulanciers.ères et maintenir ses connaissances à jour\n\n• Collaborer à la promotion et au maintien de la démarche qualité du CSU, reconnu IAS et ISO 9001:2015\n Votre profil\n\n• Être titulaire du permis de conduire C1\n\n• Posséder une bonne connaissance des bases médico-légales de l’activité ambulancière cantonale et intercantonale\n\n• Démontrer un intérêt à la transmission du savoir\n\n• Aptitude à travailler en interdisciplinarité (SMUR, urgences, police, pompiers)\n Diplômes / formation :\n Être titulaire du diplôme d’ambulancier.ère ES (Diplôme suisse indispensable )",
-      "descriptionByLocale": {
-        "fr": "Le Centre de Secours et d’Urgence de Nyon (CSU Nyon) est le service d’ambulances d’urgence du Groupement Hospitalier de l’Ouest Lémanique (GHOL). Ses 28 collaborateurs assurent les interventions préhospitalières sur la région de Nyon, la Côte et l’Ouest lémanique (3400 missions par année). Le CSU Nyon fait partie du dispositif cantonal des urgences préhospitalières.\n Ce poste en CDD d'un an est proposé dans le cadre d’un remplacement pour congé maternité.\n Vos activités principales :\n\n• Assurer les interventions préhospitalières en tant que leader ou équipier.ère\n\n• Agir de manière autonome dans l’application adéquate des techniques de sauvetage et des protocoles en vigueur\n\n• Assurer les tâches administratives liées au poste\n\n• Veiller à l’entretien et à la maintenance des véhicules, des équipements et des locaux\n\n• Former les étudiants.tes ambulanciers.ères et maintenir ses connaissances à jour\n\n• Collaborer à la promotion et au maintien de la démarche qualité du CSU, reconnu IAS et ISO 9001:2015\n Votre profil\n\n• Être titulaire du permis de conduire C1\n\n• Posséder une bonne connaissance des bases médico-légales de l’activité ambulancière cantonale et intercantonale\n\n• Démontrer un intérêt à la transmission du savoir\n\n• Aptitude à travailler en interdisciplinarité (SMUR, urgences, police, pompiers)\n Diplômes / formation :\n Être titulaire du diplôme d’ambulancier.ère ES (Diplôme suisse indispensable )",
-        "it": "Il Nyon Relief and Emergency Centre (CSU Nyon) è il servizio di ambulanza di emergenza del Groupement Hospitalier de l'Ouest Lémanique (GHOL). I suoi 28 dipendenti forniscono servizi pre-ospedale nella regione Nyon, Côte et l ́Ouest della Germania (3400 missioni all ́anno). CUI Nyon fa parte del sistema di emergenza cantonale pre-ospedale.\n Questa posizione CSD di un anno viene proposta come sostituzione del congedo di maternità.\n Le vostre attività principali:\n\n• Assicurare interventi pre-ospedale come leader o partner.\n\n• Agire in modo indipendente nella corretta applicazione delle tecniche e dei protocolli di salvataggio esistenti\n\n• Fornire compiti amministrativi relativi al post\n\n• Assicurare la manutenzione e la manutenzione di veicoli, attrezzature e locali\n\n• Allena gli studenti. i lavoratori dell'ambulanza e mantenere la loro conoscenza fino ad oggi\n\n• Collaborare per promuovere e mantenere l'approccio di qualità della CSU, riconosciuta IAS e ISO 9001:2015\n Il tuo profilo\n\n• Titolare della patente di guida C1\n\n• Avere una buona conoscenza delle basi forensi dell'attività ambulatoriale cantonale e intercantoneale\n\n• Dimostrare interesse per il trasferimento di conoscenze\n\n• Capacità di lavorare in interdisciplinarità (SMUR, emergenza, polizia, vigili del fuoco)\n Diploma/formazione:\n Per tenere il diploma di ambulanza. ère ES (Swiss diploma richiesto)",
-        "en": "The Nyon Relief and Emergency Centre (CSU Nyon) is the emergency ambulance service of the Groupement Hospitalier de l'Ouest Lémanique (GHOL). Its 28 employees provide pre-hospital services in the Nyon, Côte et l ́Ouest region of Germany (3400 missions per year). CSU Nyon is part of the cantonal pre-hospital emergency system.\n This one-year CSD position is proposed as a replacement for maternity leave.\n Your main activities:\n\n• Ensure pre-hospital interventions as a leader or partner.\n\n• Acting independently in the proper application of existing rescue techniques and protocols\n\n• Provide administrative tasks related to the post\n\n• Ensure maintenance and maintenance of vehicles, equipment and premises\n\n• Train the students.the ambulance workers and keep their knowledge up to date\n\n• Collaborate in promoting and maintaining the quality approach of the CSU, recognized IAS and ISO 9001:2015\n Your profile\n\n• Holder of driving licence C1\n\n• Have a good knowledge of the forensic bases of cantonal and intercantonal outpatient activity\n\n• Demonstrate interest in knowledge transfer\n\n• Ability to work in interdisciplinarity (SMUR, emergency, police, firefighters)\n Diplomas/training:\n To hold the diploma of ambulance.ère ES (Swiss diploma required )",
-        "de": "Das Hilfs- und Notfallzentrum Nyon (CSU Nyon) ist der Rettungsdienst des Groupement Hospitalier de l'Ouest Lémanique (GHOL). Seine 28 Mitarbeiter bieten vorklinische Dienstleistungen in der Region Nyon, Côte et l ́Ouest in Deutschland (3400 Missionen pro Jahr). CSU Nyon ist Teil des kantonalen vorklinischen Notfallsystems.\n Diese einjährige CSD-Position wird als Ersatz für den Mutterschaftsurlaub vorgeschlagen.\n Ihre Hauptaktivitäten:\n\n• Stellen Sie vorklinische Interventionen als Führungskraft oder Partner sicher.\n\n• Unabhängiges Handeln bei der ordnungsgemäßen Anwendung bestehender Rettungstechniken und -protokolle\n\n• Bereitstellung von Verwaltungsaufgaben im Zusammenhang mit der Stelle\n\n• Instandhaltung und Wartung von Fahrzeugen, Ausrüstung und Räumlichkeiten\n\n• Trainiere die Schüler. die Krankenwagenarbeiter und halten ihr Wissen auf dem neuesten Stand\n\n• Zusammenarbeit bei der Förderung und Aufrechterhaltung des Qualitätsansatzes der CSU, der anerkannten IAS und der ISO 9001:2015\n Dein Profil\n\n• Inhaber des Führerscheins C1\n\n• Gute Kenntnisse der forensischen Grundlagen der kantonalen und interkantonalen ambulanten Aktivität\n\n• Demonstrierendes Interesse am Wissenstransfer\n\n• Fähigkeit, in Interdisziplinarität zu arbeiten (SMUR, Notfall, Polizei, Feuerwehr)\n Diplome/Ausbildung:\n Um das Diplom des Krankenwagens zu halten. ère ES (Schweizerisches Diplom erforderlich)"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/991xXK1-6",
-      "applyUrl": "https://app.beehire.com/invite/991xXK1-6",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.575Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:31:38.575Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:31:38.575Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "previousSlugs": [
-        "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ]
     },
     {
       "id": "ghol-e70e7572db97",
@@ -795,7 +720,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:31:38.575Z",
+      "crawledAt": "2026-11-04T21:36:30.522Z",
       "previousSlugs": [
         "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -826,7 +751,83 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:31:38.575Z",
+      "validThrough": "2026-12-26T21:36:30.522Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-672a515466e9",
+      "slug": "ambulant-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "ambulant-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Ambulancier.ère ES",
+      "titleByLocale": {
+        "it": "Ambulant.ère ES",
+        "en": "Ambulant.ère ES",
+        "de": "Ambulant.ère ES",
+        "fr": "Ambulancier.ère ES"
+      },
+      "description": "Le Centre de Secours et d’Urgence de Nyon (CSU Nyon) est le service d’ambulances d’urgence du Groupement Hospitalier de l’Ouest Lémanique (GHOL). Ses 28 collaborateurs assurent les interventions préhospitalières sur la région de Nyon, la Côte et l’Ouest lémanique (3400 missions par année). Le CSU Nyon fait partie du dispositif cantonal des urgences préhospitalières.\n Ce poste en CDD d'un an est proposé dans le cadre d’un remplacement pour congé maternité.\n Vos activités principales :\n\n• Assurer les interventions préhospitalières en tant que leader ou équipier.ère\n\n• Agir de manière autonome dans l’application adéquate des techniques de sauvetage et des protocoles en vigueur\n\n• Assurer les tâches administratives liées au poste\n\n• Veiller à l’entretien et à la maintenance des véhicules, des équipements et des locaux\n\n• Former les étudiants.tes ambulanciers.ères et maintenir ses connaissances à jour\n\n• Collaborer à la promotion et au maintien de la démarche qualité du CSU, reconnu IAS et ISO 9001:2015\n Votre profil\n\n• Être titulaire du permis de conduire C1\n\n• Posséder une bonne connaissance des bases médico-légales de l’activité ambulancière cantonale et intercantonale\n\n• Démontrer un intérêt à la transmission du savoir\n\n• Aptitude à travailler en interdisciplinarité (SMUR, urgences, police, pompiers)\n Diplômes / formation :\n Être titulaire du diplôme d’ambulancier.ère ES (Diplôme suisse indispensable )",
+      "descriptionByLocale": {
+        "it": "Il Nyon Relief and Emergency Centre (CSU Nyon) è il servizio di ambulanza di emergenza del Groupement Hospitalier de l'Ouest Lémanique (GHOL). I suoi 28 dipendenti forniscono servizi pre-ospedale nella regione Nyon, Côte et l ́Ouest della Germania (3400 missioni all ́anno). CUI Nyon fa parte del sistema di emergenza cantonale pre-ospedale.\nQuesta posizione CSD di un anno viene proposta come sostituzione del congedo di maternità.\nLe vostre attività principali:\n\n• Assicurare interventi pre-ospedale come leader o partner.\n\n• Agire in modo indipendente nella corretta applicazione delle tecniche e dei protocolli di salvataggio esistenti\n\n• Fornire compiti amministrativi relativi al post\n\n• Assicurare la manutenzione e la manutenzione di veicoli, attrezzature e locali\n\n• Allena gli studenti. i lavoratori dell'ambulanza e mantenere la loro conoscenza fino ad oggi\n\n• Collaborare per promuovere e mantenere l'approccio di qualità della CSU, riconosciuta IAS e ISO 9001:2015\nIl tuo profilo\n\n• Titolare della patente di guida C1\n\n• Avere una buona conoscenza delle basi forensi dell'attività ambulatoriale cantonale e intercantoneale\n\n• Dimostrare interesse per il trasferimento di conoscenze\n\n• Capacità di lavorare in interdisciplinarità (SMUR, emergenza, polizia, vigili del fuoco)\nDiploma/formazione:\nPer tenere il diploma di ambulanza. ère ES (Swiss diploma richiesto)",
+        "en": "The Nyon Relief and Emergency Centre (CSU Nyon) is the emergency ambulance service of the Groupement Hospitalier de l'Ouest Lémanique (GHOL). Its 28 employees provide pre-hospital services in the Nyon, Côte et l ́Ouest region of Germany (3400 missions per year). CSU Nyon is part of the cantonal pre-hospital emergency system.\nThis one-year CSD position is proposed as a replacement for maternity leave.\nYour main activities:\n\n• Ensure pre-hospital interventions as a leader or partner.\n\n• Acting independently in the proper application of existing rescue techniques and protocols\n\n• Provide administrative tasks related to the post\n\n• Ensure maintenance and maintenance of vehicles, equipment and premises\n\n• Train the students.the ambulance workers and keep their knowledge up to date\n\n• Collaborate in promoting and maintaining the quality approach of the CSU, recognized IAS and ISO 9001:2015\nYour profile\n\n• Holder of driving licence C1\n\n• Have a good knowledge of the forensic bases of cantonal and intercantonal outpatient activity\n\n• Demonstrate interest in knowledge transfer\n\n• Ability to work in interdisciplinarity (SMUR, emergency, police, firefighters)\nDiplomas/training:\nTo hold the diploma of ambulance.ère ES (Swiss diploma required )",
+        "de": "Das Hilfs- und Notfallzentrum Nyon (CSU Nyon) ist der Rettungsdienst des Groupement Hospitalier de l'Ouest Lémanique (GHOL). Seine 28 Mitarbeiter bieten vorklinische Dienstleistungen in der Region Nyon, Côte et l ́Ouest in Deutschland (3400 Missionen pro Jahr). CSU Nyon ist Teil des kantonalen vorklinischen Notfallsystems.\nDiese einjährige CSD-Position wird als Ersatz für den Mutterschaftsurlaub vorgeschlagen.\nIhre Hauptaktivitäten:\n\n• Stellen Sie vorklinische Interventionen als Führungskraft oder Partner sicher.\n\n• Unabhängiges Handeln bei der ordnungsgemäßen Anwendung bestehender Rettungstechniken und -protokolle\n\n• Bereitstellung von Verwaltungsaufgaben im Zusammenhang mit der Stelle\n\n• Instandhaltung und Wartung von Fahrzeugen, Ausrüstung und Räumlichkeiten\n\n• Trainiere die Schüler. die Krankenwagenarbeiter und halten ihr Wissen auf dem neuesten Stand\n\n• Zusammenarbeit bei der Förderung und Aufrechterhaltung des Qualitätsansatzes der CSU, der anerkannten IAS und der ISO 9001:2015\nDein Profil\n\n• Inhaber des Führerscheins C1\n\n• Gute Kenntnisse der forensischen Grundlagen der kantonalen und interkantonalen ambulanten Aktivität\n\n• Demonstrierendes Interesse am Wissenstransfer\n\n• Fähigkeit, in Interdisziplinarität zu arbeiten (SMUR, Notfall, Polizei, Feuerwehr)\nDiplome/Ausbildung:\nUm das Diplom des Krankenwagens zu halten. ère ES (Schweizerisches Diplom erforderlich)",
+        "fr": "Le Centre de Secours et d’Urgence de Nyon (CSU Nyon) est le service d’ambulances d’urgence du Groupement Hospitalier de l’Ouest Lémanique (GHOL). Ses 28 collaborateurs assurent les interventions préhospitalières sur la région de Nyon, la Côte et l’Ouest lémanique (3400 missions par année). Le CSU Nyon fait partie du dispositif cantonal des urgences préhospitalières.\nCe poste en CDD d'un an est proposé dans le cadre d’un remplacement pour congé maternité.\nVos activités principales :\n\n• Assurer les interventions préhospitalières en tant que leader ou équipier.ère\n\n• Agir de manière autonome dans l’application adéquate des techniques de sauvetage et des protocoles en vigueur\n\n• Assurer les tâches administratives liées au poste\n\n• Veiller à l’entretien et à la maintenance des véhicules, des équipements et des locaux\n\n• Former les étudiants.tes ambulanciers.ères et maintenir ses connaissances à jour\n\n• Collaborer à la promotion et au maintien de la démarche qualité du CSU, reconnu IAS et ISO 9001:2015\nVotre profil\n\n• Être titulaire du permis de conduire C1\n\n• Posséder une bonne connaissance des bases médico-légales de l’activité ambulancière cantonale et intercantonale\n\n• Démontrer un intérêt à la transmission du savoir\n\n• Aptitude à travailler en interdisciplinarité (SMUR, urgences, police, pompiers)\nDiplômes / formation :\nÊtre titulaire du diplôme d’ambulancier.ère ES (Diplôme suisse indispensable )"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/991xXK1-6",
+      "applyUrl": "https://app.beehire.com/invite/991xXK1-6",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-04T21:36:30.521Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-11-04T09:31:38.575Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T21:36:30.521Z",
       "validThroughSource": "last-observed-window"
     }
   ]

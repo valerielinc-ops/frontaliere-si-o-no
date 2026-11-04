@@ -1,105 +1,20 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-11-04T09:27:51.187Z",
+  "generatedAt": "2026-11-04T21:27:15.203Z",
   "total": 38,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 38,
-  "durationMs": 81210,
-  "avgDurationMs": 81210,
+  "durationMs": 82984,
+  "avgDurationMs": 82984,
   "durationHistory": [
-    81210
+    82984
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "company-21et7w",
-      "slug": "store-manager-apprendista-a-80-100-per-la-filiale-herisau-jysk-herisau-21et7w",
-      "company": "JYSK",
-      "title": "Store Manager Trainee (a) 80-100% für die Filiale Herisau",
-      "location": "Herisau",
-      "canton": "AR",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-filiale-herisau",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-09-04T13:34:21.925Z",
-      "firstSeenAt": "2026-08-14T21:39:43.868Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "salarySource": "estimated",
-      "salaryMin": 55000,
-      "salaryMax": 83000,
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-filiale-herisau",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "9100",
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-11-13T13:34:21.925Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "company-9tate8",
-      "slug": "responsabilita-del-magazzino-a-40-60-nel-ramo-baden-dattwil-jysk-baden",
-      "company": "JYSK",
-      "title": "Lagerverantwortung (a) 40 - 60 % in der Filiale Baden Dättwil",
-      "location": "Baden",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lagerverantwortung-40-60-der-filiale-baden-daettwil",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-09-04T13:34:21.925Z",
-      "firstSeenAt": "2026-08-14T10:40:56.694Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "salarySource": "estimated",
-      "salaryMin": 37200,
-      "salaryMax": 56400,
-      "retranslationAttempts": 0,
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lagerverantwortung-40-60-der-filiale-baden-daettwil",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "5400",
-      "streetAddress": "Baden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-11-12T13:34:21.925Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1344,5 +1259,5 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

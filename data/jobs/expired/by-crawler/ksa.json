@@ -690,6 +690,8 @@
       "pharmaassistent-in-ksa-ch-9f267ba4",
       "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-da668a63",
       "pharmaassistent-in-ksa-ch-75fded15",
+      "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-2e76303d",
+      "pharmaassistent-in-ksa-ch-45280799",
       "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
       "pharmaassistent-in-ksa-ch"
     ],
@@ -794,6 +796,8 @@
         "pharmaassistent-in-ksa-ch-9f267ba4",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-da668a63",
         "pharmaassistent-in-ksa-ch-75fded15",
+        "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-2e76303d",
+        "pharmaassistent-in-ksa-ch-45280799",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
         "pharmaassistent-in-ksa-ch"
       ],
@@ -847,6 +851,7 @@
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-09f35164",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-b6eb7f03",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-da668a63",
+        "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-2e76303d",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "de": [
@@ -899,6 +904,7 @@
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-09f35164",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-b6eb7f03",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-da668a63",
+        "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-2e76303d",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "fr": [
@@ -951,6 +957,7 @@
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-09f35164",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-b6eb7f03",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-da668a63",
+        "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-2e76303d",
         "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
       ]
     },
@@ -1709,6 +1716,8 @@
       "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-26fea622",
       "assistenzarztin-assistenzarzt-ksa-ch-26262367",
       "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-622efc27",
+      "assistenzarztin-assistenzarzt-ksa-ch-6c8b4bd5",
+      "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-b02fcc96",
       "assistenzarztin-assistenzarzt-ksa-ch",
       "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
     ],
@@ -1912,6 +1921,8 @@
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-26fea622",
         "assistenzarztin-assistenzarzt-ksa-ch-26262367",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-622efc27",
+        "assistenzarztin-assistenzarzt-ksa-ch-6c8b4bd5",
+        "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-b02fcc96",
         "assistenzarztin-assistenzarzt-ksa-ch",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
       ],
@@ -2013,6 +2024,7 @@
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-105a73c0",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-26fea622",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-622efc27",
+        "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-b02fcc96",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
       ],
       "fr": [
@@ -2113,6 +2125,7 @@
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-105a73c0",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-26fea622",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-622efc27",
+        "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-b02fcc96",
         "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
       ]
     },
@@ -5200,5 +5213,99 @@
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "specialista-in-qualita-e-progetti-centrale-d-emergenza-sanitaria-144-kantonsspital-aarau-ksa-aarau",
+    "title": "Fachspezialist/in Qualität & Projekte Sanitätsnotrufzentrale 144",
+    "titleByLocale": {
+      "it": "Specialista in qualità e progetti Centrale d’emergenza sanitaria 144",
+      "en": "Quality & Projects Specialist, Emergency Medical Dispatch Center 144",
+      "de": "Fachspezialist/in Qualität & Projekte Sanitätsnotrufzentrale 144",
+      "fr": "Spécialiste qualité & projets Centrale d’appels sanitaires urgents 144"
+    },
+    "company": "Kantonsspital Aarau (KSA)",
+    "companyKey": "ksa",
+    "location": "Aarau",
+    "addressLocality": "Aarau",
+    "descriptionByLocale": {
+      "it": "Lavoro: 1 gennaio 2027 o per accordo, indefinitamente\n\nCompiti:\nGestione della qualità\n• Essi ampliano ulteriormente la nostra gestione della qualità e assicurano che sia implementato nella vita quotidiana dei dispacciatori.\n\n• Essi valutano le cifre chiave come l'accettazione e i tempi di allarme o la query medica e derivano miglioramenti concreti da questo.\n\n• Pianificazione e realizzazione di controlli di qualità e audit interni\n\n• Preparazione di intuizioni e raccomandazioni per la leadership\n\n• Partecipazione allo sviluppo e alla manutenzione di standard e requisiti di qualità\n\n• Creano un clima in cui gli errori e gli eventi vicini sono discussi apertamente in modo da poter evolvere.\n\nGestione dei progetti\n• Pianificazione, coordinamento e realizzazione dei progetti – dall’idea alla valutazione\n\n• Cooperazione con partner interni ed esterni\n\n• Preparazione di basi decisionali, documenti di progetto e presentazioni\n\n• Monitoraggio degli obiettivi, delle scadenze e dei risultati del progetto\n\n• Garantire l'attuazione sostenibile e la valutazione dei progetti completati\n\nUlteriori sviluppi della SNZ 144\n• Identificazione del potenziale di sviluppo e innovazione\n\n• Accompagnamento di progetti di cambiamento e sviluppo\n\n• Sostegno alla leadership nelle questioni organizzative e tecniche\n\n• Osservazione degli sviluppi in soccorso, risposta di emergenza e gestione della qualità\n\n• Introdurre nuove idee e soluzioni moderne\n\nRequisiti\n• Formazione superiore completa nella gestione della qualità, gestione del progetto, assistenza sanitaria, salvataggio o qualifica equivalente\n\n• Diversi anni di esperienza nella gestione della qualità e/o del progetto\n\n• Esperienza nella gestione o nel coordinamento dei progetti\n\n• L'esperienza nei servizi di soccorso svizzeri, nell'assistenza sanitaria o in un centro di emergenza è un vantaggio\n\n• Forte capacità analitiche e concettuali\n\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n\n• Gioia di avviare e attuare i cambiamenti\n\n• Resistenza alla comunicazione e presenza sicura a diversi livelli gerarchici\n\n• Capacità di comprendere problemi complessi\n\n• Alta responsabilità personale e competenze organizzative\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Buona conoscenza degli utenti IT e gestione sicura di Microsoft 365\n\n• Affinità per la digitalizzazione e le nuove tecnologie\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+      "en": "Job: 1 January 2027 or by arrangement, indefinitely\n\nTasks:\nQuality management\n• They further expand our quality management and ensure that it is implemented in the everyday life of dispatchers.\n\n• They evaluate key figures such as acceptance and alarm times or the medical query and derive concrete improvements from this.\n\n• Planning and implementation of quality checks and internal audits\n\n• Preparation of insights and recommendations for leadership\n\n• Participation in the development and maintenance of quality standards and requirements\n\n• They create a climate where mistakes and near-events are discussed openly so we can evolve.\n\nProject management\n• Planning, coordination and implementation of projects – from the idea to the evaluation\n\n• Cooperation with internal and external partners\n\n• Preparation of decision-making bases, project documents and presentations\n\n• Monitoring of project objectives, deadlines and results\n\n• Ensuring sustainable implementation and evaluation of completed projects\n\nFurther development of the SNZ 144\n• Identification of development and innovation potential\n\n• Accompanying change and development projects\n\n• Support for leadership in organisational and technical issues\n\n• Observation of developments in rescue, emergency response and quality management\n\n• Introducing new ideas and modern solutions\n\nRequirements\n• Completed higher education in quality management, project management, health care, rescue or equivalent qualification\n\n• Several years of experience in quality and/or project management\n\n• Experience in managing or coordinating projects\n\n• Experience in Swiss rescue services, health care or in an emergency call centre is an advantage\n\n• Strong analytical and conceptual skills\n\n• Independent, structured and solution-oriented working method\n\n• Joy of initiating and implementing changes\n\n• Communication strength and secure presence at different hierarchical levels\n\n• Ability to understand complex issues\n\n• High personal responsibility and organisational skills\n\n• Very good knowledge of German in word and writing\n\n• Good IT user knowledge and secure handling of Microsoft 365\n\n• Affinity for digitalization and new technologies\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+      "de": "Stellenantritt: 1. Januar 2027 oder nach Vereinbarung, unbefristet\n\nAufgaben:\nQualitätsmanagement\n• Sie bauen unser Qualitätsmanagement weiter aus und stellen sicher, dass es im Alltag der Disponierenden umgesetzt wird.\n\n• Sie werten Kennzahlen wie Annahme- und Alarmierungszeiten oder die medizinische Abfrage aus und leiten daraus konkrete Verbesserungen ab.\n\n• Planung und Durchführung von Qualitätsüberprüfungen und internen Audits\n\n• Aufbereitung von Erkenntnissen und Empfehlungen für die Führung\n\n• Mitwirkung bei der Entwicklung und Pflege von Qualitätsstandards und Vorgaben\n\n• Sie schaffen ein Klima, in dem Fehler und Beinaheereignisse offen besprochen werden, damit wir uns weiterentwickeln können\n\nProjektmanagement\n• Planung, Koordination und Umsetzung von Projekten – von der Idee bis zur Evaluation\n\n• Zusammenarbeit mit internen und externen Partnern\n\n• Aufbereitung von Entscheidungsgrundlagen, Projektunterlagen und Präsentationen\n\n• Überwachung von Projektzielen, Terminen und Ergebnissen\n\n• Sicherstellung einer nachhaltigen Umsetzung und Evaluation abgeschlossener Projekte\n\nWeiterentwicklung der SNZ 144\n• Identifikation von Entwicklungs- und Innovationspotenzialen\n\n• Begleitung von Veränderungs- und Entwicklungsprojekten\n\n• Unterstützung der Führung bei organisatorischen und fachlichen Fragestellungen\n\n• Beobachtung von Entwicklungen im Rettungswesen, in der Notrufbearbeitung und im Qualitätsmanagement\n\n• Einbringen neuer Ideen und moderner Lösungsansätze\n\nAnforderungen:\n• Abgeschlossene höhere Ausbildung im Bereich Qualitätsmanagement, Projektmanagement, Gesundheitswesen, Rettungswesen oder eine vergleichbare Qualifikation\n\n• Mehrjährige Erfahrung im Qualitäts- und/oder Projektmanagement\n\n• Erfahrung in der Leitung oder Koordination von Projekten\n\n• Erfahrung im schweizerischen Rettungswesen, Gesundheitswesen oder in einer Notrufzentrale von Vorteil\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Freude daran, Veränderungen anzustossen und umzusetzen\n\n• Kommunikationsstärke und sicheres Auftreten auf unterschiedlichen Hierarchiestufen\n\n• Fähigkeit, komplexe Sachverhalte verständlich aufzubereiten\n\n• Hohe Eigenverantwortung und organisatorisches Geschick\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute IT-Anwenderkenntnisse und sicherer Umgang mit Microsoft 365\n\n• Affinität zu Digitalisierung und neuen Technologien\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
+      "fr": "Emploi: 1er janvier 2027 ou par arrangement, indéfiniment\n\nTâches :\nGestion de la qualité\n• Ils élargissent davantage notre gestion de la qualité et s'assurent qu'elle est mise en œuvre dans la vie quotidienne des répartiteurs.\n\n• Ils évaluent des chiffres clés tels que les temps d'acceptation et d'alarme ou la question médicale et en tirent des améliorations concrètes.\n\n• Planification et mise en œuvre des contrôles de qualité et des audits internes\n\n• Élaboration d ' idées et de recommandations à l ' intention des dirigeants\n\n• Participation à l'élaboration et au maintien de normes et d'exigences de qualité\n\n• Ils créent un climat où les erreurs et les quasi-événements sont discutés ouvertement afin que nous puissions évoluer.\n\nGestion de projet\n• Planification, coordination et mise en œuvre des projets – de l'idée à l'évaluation\n\n• Coopération avec les partenaires internes et externes\n\n• Élaboration de bases de décision, de documents de projet et de présentations\n\n• Suivi des objectifs, des délais et des résultats du projet\n\n• Assurer une mise en œuvre et une évaluation durables des projets achevés\n\nDéveloppement de la SNZ 144\n• Identification du potentiel de développement et d'innovation\n\n• Accompagner les projets de changement et de développement\n\n• Soutien au leadership dans les domaines organisationnel et technique\n\n• Observation des développements en matière de sauvetage, d'intervention d'urgence et de gestion de la qualité\n\n• Introduction de nouvelles idées et de solutions modernes\n\nExigences\n• Études supérieures terminées en gestion de la qualité, gestion de projet, soins de santé, sauvetage ou qualification équivalente\n\n• Plusieurs années d'expérience dans la gestion de la qualité et/ou du projet\n\n• Expérience dans la gestion ou la coordination des projets\n\n• L'expérience des services de secours suisses, des soins de santé ou d'un centre d'appels d'urgence est un avantage\n\n• Fortes compétences analytiques et conceptuelles\n\n• Méthode de travail indépendante, structurée et axée sur les solutions\n\n• Joy de lancer et de mettre en œuvre des changements\n\n• Force de communication et présence sécurisée à différents niveaux hiérarchiques\n\n• Capacité de comprendre les questions complexes\n\n• Haute responsabilité personnelle et compétences organisationnelles\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Bonne connaissance de l'utilisateur informatique et gestion sécurisée de Microsoft 365\n\n• Affinité pour la numérisation et les nouvelles technologies\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
+    },
+    "slugByLocale": {
+      "it": "specialista-in-qualita-e-progetti-centrale-d-emergenza-sanitaria-144-kantonsspital-aarau-ksa-aarau",
+      "en": "quality-projects-specialist-emergency-medical-dispatch-center-144-kantonsspital-aarau-ksa-aarau",
+      "de": "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch",
+      "fr": "specialiste-qualite-projets-centrale-d-appels-sanitaires-urgents-144-kantonsspital-aarau-ksa-aarau"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-04T21:23:05.310Z",
+    "previousSlugs": [
+      "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch"
+      ],
+      "en": [
+        "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch"
+      ],
+      "fr": [
+        "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch"
+      ]
+    },
+    "postalCode": "5000",
+    "streetAddress": "Aarau",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://recruitingapp-122706.umantis.com/vacancies/5786/application/checklogin/1",
+    "firstSeenAt": "2026-10-14T15:35:23.589Z"
+  },
+  {
+    "slug": "capo-squadra-aggiunto-disposizione-centrale-kantonsspital-aarau-ksa-aarau",
+    "title": "Stellvertretende Teamleitung Zentrale Disposition",
+    "titleByLocale": {
+      "it": "Capo squadra aggiunto Disposizione centrale",
+      "en": "Deputy Team Leader Central Disposition",
+      "de": "Stellvertretende Teamleitung Zentrale Disposition",
+      "fr": "Chef d'équipe adjoint Disposition centrale"
+    },
+    "company": "Kantonsspital Aarau (KSA)",
+    "companyKey": "ksa",
+    "location": "Aarau",
+    "addressLocality": "Aarau",
+    "descriptionByLocale": {
+      "it": "Apertura del lavoro: D'ora in poi o per accordo, indefinitamente\n\nCompiti:\n• Assicurare un letto previsionale, conforme, intervento chirurgico e disposizione di posa\n\n• Sostegno e deputato della gestione del team e assunzione della responsabilità di leadership in loro assenza\n\n• Coordinamento delle operazioni giornaliere\n\n• Supporto per la gestione della qualità\n\n• Attività amministrative e organizzative\n\nRequisiti\n• Formazione professionale completa come assistente di pratica medica / assistente di pratica medica (MPA), specialista sanitario / specialista sanitario (FaGe) o dipl. Infermieristica professionale HF come requisito di base\n\n• Grado terziario (HF/FH o equivalente) in campo sanitario o relativo, formazione di leadership o volontà di completarlo\n\n• Diversi anni di esperienza nell'ospedale acuto e comprensione di complesse interfacce cliniche e amministrative\n\n• L'esperienza di leadership e l'esperienza nella guida e il sostegno dei dipendenti è benefico\n\n• Buona conoscenza dei processi clinici, del flusso del paziente, del controllo della capacità e dell'esperienza con i sistemi IT/planning\n\n• Alta comunicazione, coordinamento e competenza sociale, pensiero analitico, assertività e azione orientata alla soluzione\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+      "en": "Job opening: From now on or by agreement, indefinitely\n\nTasks:\n• Ensuring a forward-looking, compliant bed, surgical intervention and laying disposition\n\n• Support and deputy of team management and assumption of leadership responsibility in their absence\n\n• Coordination of day-to-day operations\n\n• Quality management support\n\n• Administrative and organisational tasks\n\nRequirements\n• Completed vocational training as a medical practice assistant / medical practice assistant (MPA), health specialist / health specialist (FaGe) or dipl. Nursing professional HF as a basic requirement\n\n• Tertiary degree (HF/FH or equivalent) in health care or related field, leadership training or willingness to complete it\n\n• Several years of experience in the acute hospital and understanding of complex clinical and administrative interfaces\n\n• Leadership experience as well as experience in the guidance and support of employees is beneficial\n\n• Good knowledge of clinical processes, patient flow, capacity control and experience with IT/planning systems\n\n• High communication, coordination and social competence, analytical thinking, assertiveness and solution-oriented action\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+      "de": "Stellenantritt: Ab sofort oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sicherstellung einer vorausschauenden, regelkonformen Betten-, OP-Interventions- und Verlegungsdisposition\n\n• Unterstützung und Stellvertretung der Teamleitung und Übernahme der Führungsverantwortung bei deren Abwesenheit\n\n• Koordination des Tagesgeschäftes\n\n• Unterstützung im Qualitätsmanagement\n\n• Administrative und organisatorische Aufgaben\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), Fachfrau Gesundheit / Fachmann Gesundheit (FaGe) oder dipl. Pflegefachperson HF als Grundvoraussetzung\n\n• Tertiärabschluss (HF/FH oder gleichwertig) im Gesundheitswesen oder verwandtem Fachgebiet, Führungsausbildung oder Bereitschaft, diese zu absolvieren\n\n• Mehrjährige Erfahrung im Akutspital und Verständnis für komplexe klinische und administrative Schnittstellen\n\n• Führungserfahrung sowie Erfahrung in der Anleitung und Unterstützung von Mitarbeitenden von Vorteil\n\n• Gute Kenntnisse klinischer Abläufe, Patientenfluss, Kapazitätssteuerung sowie Erfahrung mit IT-/Planungssystemen\n\n• Hohe Kommunikations-, Koordinations- und Sozialkompetenz, analytisches Denken, Durchsetzungsfähigkeit und lösungsorientiertes Handeln\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
+      "fr": "Ouverture d'un emploi: dorénavant ou par accord, indéfiniment\n\nTâches :\n• Assurer un lit prospectif et conforme, une intervention chirurgicale et une disposition de ponte\n\n• Appui et adjoint à la gestion de l ' équipe et prise en charge des responsabilités en leur absence\n\n• Coordination des opérations quotidiennes\n\n• Appui à la gestion de la qualité\n\n• Tâches administratives et organisationnelles\n\nExigences\n• Achevé la formation professionnelle en tant qu'assistant de pratique médicale / assistant de pratique médicale (MPA), spécialiste de la santé / spécialiste de la santé (FaGe) ou dipl. La FH professionnelle en tant qu'exigence de base\n\n• Diplôme tertiaire (HF/FH ou équivalent) en soins de santé ou domaine connexe, formation au leadership ou volonté de le compléter\n\n• Plusieurs années d'expérience dans l'hôpital aigu et la compréhension des interfaces cliniques et administratives complexes\n\n• L'expérience en leadership ainsi que l'expérience dans l'orientation et le soutien des employés sont bénéfiques\n\n• Bonne connaissance des processus cliniques, de la circulation des patients, du contrôle de la capacité et de l'expérience des systèmes de TI/planification\n\n• Haute communication, coordination et compétence sociale, réflexion analytique, affirmation et action orientée vers la solution\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
+    },
+    "slugByLocale": {
+      "it": "capo-squadra-aggiunto-disposizione-centrale-kantonsspital-aarau-ksa-aarau",
+      "en": "deputy-team-leader-central-disposition-kantonsspital-aarau-ksa-aarau",
+      "de": "stellvertretende-teamleitung-zentrale-disposition-ksa-ch",
+      "fr": "chef-d-equipe-adjoint-disposition-centrale-kantonsspital-aarau-ksa-aarau"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-04T21:23:05.309Z",
+    "previousSlugs": [
+      "stellvertretende-teamleitung-zentrale-disposition-ksa-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "stellvertretende-teamleitung-zentrale-disposition-ksa-ch"
+      ]
+    },
+    "postalCode": "5000",
+    "streetAddress": "Aarau",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://recruitingapp-122706.umantis.com/vacancies/5545/application/checklogin/1",
+    "firstSeenAt": "2026-09-25T14:42:45.221Z"
   }
 ]

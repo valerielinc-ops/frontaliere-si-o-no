@@ -1,18 +1,63 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-11-04T09:29:21.115Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-11-04T21:35:32.335Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7324,
-  "avgDurationMs": 7324,
+  "durationMs": 9132,
+  "avgDurationMs": 9132,
   "durationHistory": [
-    7324
+    9132
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "CRM Application Engineer",
+      "slug": "crm-application-engineer-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000159689347&jobName=CRM+Application+Engineer",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000159689347-crm-application-engineer?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "datePosted": "2026-11-04T17:18:21.505Z",
+      "postedDate": "2026-11-04T17:18:21.505Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-96c911b218cd",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-02T21:35:18.467Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:35:18.467Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Administrative B2B Specialist",
@@ -280,5 +325,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

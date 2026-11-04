@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-11-04T09:30:26.375Z",
-  "runId": "41805634434",
+  "assembledAt": "2026-11-04T21:30:33.507Z",
+  "runId": "41913970796",
   "jobs": [
     {
       "id": "lindt-spruengli-22b6ca6b4b2c",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -34,7 +34,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:30:20.029Z",
+      "crawledAt": "2026-11-04T21:30:27.658Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "initiativbewerbung-lindt-sprungli-kilchberg"
+        "unerbetene-anwendung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "initiativbewerbung-lindt-sprungli-kilchberg"
+          "unerbetene-anwendung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -111,7 +111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:30:20.029Z",
+      "validThrough": "2026-12-04T21:30:27.658Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:19.337Z",
+      "crawledAt": "2026-11-04T21:30:27.024Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "Altendorf",
@@ -195,7 +195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:30:19.337Z",
+      "validThrough": "2026-12-04T21:30:27.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -229,7 +229,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:18.644Z",
+      "crawledAt": "2026-11-04T21:30:26.385Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -280,7 +280,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:30:18.644Z",
+      "validThrough": "2026-12-04T21:30:26.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:17.972Z",
+      "crawledAt": "2026-11-04T21:30:25.740Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -365,7 +365,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:30:17.972Z",
+      "validThrough": "2026-12-04T21:30:25.740Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -399,7 +399,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:17.281Z",
+      "crawledAt": "2026-11-04T21:30:25.087Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Luzern",
@@ -443,7 +443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:30:17.281Z",
+      "validThrough": "2026-12-04T21:30:25.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:16.570Z",
+      "crawledAt": "2026-11-04T21:30:24.429Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -530,7 +530,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:30:16.570Z",
+      "validThrough": "2026-12-04T21:30:24.429Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -564,7 +564,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:15.897Z",
+      "crawledAt": "2026-11-04T21:30:23.778Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -614,7 +614,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:30:15.897Z",
+      "validThrough": "2026-12-04T21:30:23.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -648,7 +648,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Praktikant-in-Controlling--1-Jahr-befristet-_JR101189-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:15.219Z",
+      "crawledAt": "2026-11-04T21:30:23.134Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -696,7 +696,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:30:15.219Z",
+      "validThrough": "2026-12-06T21:30:23.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:14.522Z",
+      "crawledAt": "2026-11-04T21:30:22.487Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -778,7 +778,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:30:14.522Z",
+      "validThrough": "2026-12-30T21:30:22.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -812,7 +812,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:13.845Z",
+      "crawledAt": "2026-11-04T21:30:21.835Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -863,7 +863,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:30:13.845Z",
+      "validThrough": "2026-12-31T21:30:21.835Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +897,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Betriebsmechaniker-in_JR103724-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:13.164Z",
+      "crawledAt": "2026-11-04T21:30:21.165Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -949,7 +949,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:30:13.164Z",
+      "validThrough": "2027-01-04T21:30:21.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -983,7 +983,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Aubonne-Switzerland/Assistant-Shop-Manager-Aubonne--80--_JR103769-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:12.494Z",
+      "crawledAt": "2026-11-04T21:30:20.528Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -1033,7 +1033,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:30:12.494Z",
+      "validThrough": "2027-01-14T21:30:20.528Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1067,7 +1067,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR103978-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:11.840Z",
+      "crawledAt": "2026-11-04T21:30:19.869Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1135,7 +1135,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:30:11.840Z",
+      "validThrough": "2027-01-11T21:30:19.869Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1169,7 +1169,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Category-Manager-Business-Services_JR103887-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:30:11.170Z",
+      "crawledAt": "2026-11-04T21:30:19.218Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1219,7 +1219,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:30:11.170Z",
+      "validThrough": "2027-01-18T21:30:19.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1253,7 +1253,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-40-60----Saisonaushilfe-_JR104112-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:10.502Z",
+      "crawledAt": "2026-11-04T21:30:18.562Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1303,7 +1303,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:30:10.502Z",
+      "validThrough": "2027-01-31T21:30:18.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1337,7 +1337,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Internship---Finance---Controlling---6-months--100---_JR104255-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:30:09.817Z",
+      "crawledAt": "2026-11-04T21:30:17.908Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1384,7 +1384,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:30:09.817Z",
+      "validThrough": "2027-01-31T21:30:17.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1418,7 +1418,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--40-60--_JR104108-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:09.129Z",
+      "crawledAt": "2026-11-04T21:30:17.254Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1470,7 +1470,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:30:09.129Z",
+      "validThrough": "2027-01-26T21:30:17.254Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1504,7 +1504,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--20-40--_JR104109-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:08.444Z",
+      "crawledAt": "2026-11-04T21:30:16.601Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1556,7 +1556,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:30:08.444Z",
+      "validThrough": "2027-01-26T21:30:16.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1590,7 +1590,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-80-100-_JR104114-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:07.740Z",
+      "crawledAt": "2026-11-04T21:30:15.953Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1638,7 +1638,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:30:07.740Z",
+      "validThrough": "2027-01-31T21:30:15.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1672,7 +1672,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Formanlage_JR104217-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:30:07.039Z",
+      "crawledAt": "2026-11-04T21:30:15.283Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1722,95 +1722,81 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:30:07.039Z",
+      "validThrough": "2027-02-01T21:30:15.283Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "lindt-spruengli-481b4299ca0f",
-      "slug": "elettricista-di-impianti-lindt-sprungli-kilchberg",
+      "id": "lindt-spruengli-cb26f372c283",
+      "slug": "channel-activation-manager-global-travel-retail-available-immediately-lindt-spruengli",
       "slugByLocale": {
-        "it": "elettricista-di-impianti-lindt-sprungli-kilchberg",
-        "en": "business-electrician-lindt-sprungli-kilchberg",
-        "de": "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "fr": "electricien-d-affaires-lindt-sprungli-kilchberg"
+        "en": "channel-activation-manager-global-travel-retail-available-immediately-lindt-spruengli",
+        "it": "channel-activation-manager-global-travel-retail-available-immediately-lindt-spruengli",
+        "de": "channel-activation-manager-global-travel-retail-available-immediately-lindt-spruengli",
+        "fr": "channel-activation-manager-global-travel-retail-available-immediately-lindt-spruengli"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
       "companyDomain": "lindt-spruengli.com",
-      "title": "Betriebselektriker*in",
+      "title": "Channel Activation Manager Global Travel Retail - Available Immediately",
       "titleByLocale": {
-        "it": "Elettricista industriale",
-        "en": "Industrial electrician",
-        "de": "Betriebselektriker*in",
-        "fr": "Électricien industriel"
+        "en": "Channel Activation Manager Global Travel Retail - Available Immediately",
+        "it": "Channel Activation Manager Global Travel Retail - Available Immediately",
+        "de": "Channel Activation Manager Global Travel Retail - Available Immediately",
+        "fr": "Channel Activation Manager Global Travel Retail - Available Immediately"
       },
-      "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Störungssuche an den Anlagen sowie der Infrastruktur\n\n• Durchführen von Unterhalts-, Revisions- und Umbauarbeiten\n\n• Verantwortlich für Arbeiten an der Telefonanlage/-zentrale\n\n• Verantwortlich für die Revision und Störungsbehebung\n\n• Überwachen von Inbetriebsetzungen\n\n• Unterstützen in der Lernendenausbildung\n\nWann du zu uns passt:\n\n• Abgeschlossene Ausbildung als Betriebselektriker*in / Automatiker*in EFZ\n\n• Weiterbildung zur/zum Techniker*in HF von Vorteil\n\n• Mehrjährige Berufserfahrung zwingend\n\n• Grundkenntnisse in der Netzwerktechnik\n\n• Fundierte Automations- (Siemens S7 & TIA Portal) sowie Servotechnik-Erfahrung zwingend\n\n• Bereitschaft für Pikettdienst sowie Schichtarbeit (3-Schicht)\n\n• Sehr gute Deutschkenntnisse\n\n• Selbstständiges, pflichtbewusstes und sorgfältiges Arbeiten\n\n• Kommunikative sowie aufgestellte Persönlichkeit\n\nWir sind alle einzigartig!\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+      "description": "Lindt & Sprüngli Portrait\n\nContribute to Lindt Global Travel Retail growth as part of the global Marketing team. The role is responsible for developing and implementing effective marketing campaigns to achieve set brand and sales targets. The Channel Activation Manager is working closely with all internal and external stakeholders to develop innovative concepts to drive growth.\n\nDuties and Responsibilities:\n\nActivation Concept Development\n- Responsible for the development of effective marketing campaigns for novelties, as well as core assortments based on the approved marketing plans of the Brand teams\n- Responsible for the development of creative concepts that meet set targets with regards to scalability, innovation factor, budget and global relevance\n- Develop customer-exclusive activation concepts to drive in-store visibility and conversion and support exclusive launches\n- Responsible for analyzing consumer and industry trends and actively incorporating them into conceptual development\n\nActivation Concept Execution & Tracking\n- Collaborate with internal stakeholders to define clear budgets, targets and timelines for each activation\n- Management of the end-to-end execution of activation campaigns across all brands\n- Oversee and manage the creation of all campaign assets in close collaboration with Brand Managers\n- Responsible for internal coordination among Brand & Trade Marketing to ensure execution on-time and within budget\n- Responsible for selection and onboarding of local partners in close collaboration with regional teams (agencies and suppliers)\n- Responsible for monitoring and analyzing campaign performance in close collaboration with Sales\n- Responsible for development of clear recommendations for continuous improvement\n\nFull responsibility for organization and execution of promotional activities for Global Account Heinemann\n- Full coordination and responsibility of brand activations in collaboration with Marketing and Sales Teams\n- Adaption of existing guidelines, concepts and brand identities to customized space\n- Stakeholder management (internal and external) incl. briefing and coordination with agencies and customers\n- Coordination of data and print material\n- Tracking of promotional executions\n\nRetail in Travel Retail Project Management Support\n- Responsible for the coordination and oversight of Retail in Travel Retail projects, ensuring timelines, workstreams and deliverables are aligned across internal teams and external partners.\n- Responsible for project communication and reporting, keeping key stakeholders informed on progress, milestones, openings and potential risks.\n\nRegional Support\n- Support regional teams in conceptual development of local adaptation\n- Develop regionally relevant activation concepts where appropriate\n\nMarketing Support\n- Manage internal sales requests related to brand activations\n- Provide support in various other projects (example: meetings, presentations)\n- Management of relevant ad‐hoc requests from internal and external counterparts\n\nMinimum Experience Requirements and Professional Background: Proven track record in trade marketing and/or market activation ideally in a fast-paced FMCG environment; preferably experience in Travel Retail\n\nPreferred Experience Requirements:\nFunctional Capabilities:\n- Personality: Very organized & structured way of working - you know how to handle several tasks simultaneously; solution-oriented with strong problem-solving skills; strong self-drive\n- Collaboration: Team player who thrives in cross-functional teams; works well with internal and external stakeholders (agencies, suppliers etc); can establish priorities and meet deadlines\n- Commercial Mind: Ability to balance commerciality with creativity to achieve set performance targets\n- Independent: Flexible and dynamic, independent working style – comfortably navigating in a fast-paced environment\n\nMinimum Education Requirements : BA degree in Marketing or equivalent required\n\nLanguage Skills: Fluency in English is mandatory, German is preferred\n\nOther Requirements: Advanced Microsoft Office skills (PPT, Word, Excel), Photoshop etc. is beneficial",
       "descriptionByLocale": {
-        "it": "Su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul lago di Zurigo. In Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti di oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• risoluzione dei problemi di installazioni e infrastrutture\n\n• Eseguire lavori di manutenzione, revisione e conversione\n\n• Responsabile del lavoro sul sistema telefonico/centrale\n\n• Responsabile per la revisione e la risoluzione dei problemi\n\n• Monitoraggio delle operazioni di messa in servizio\n\n• Supporto per l'apprendimento\n\nQuando ti trovi con noi:\n\n• Formazione completa come elettricista aziendale / tecnico automatico EFZ\n\n• Ulteriore formazione per / per il tecnico HF è un vantaggio\n\n• Diversi anni di esperienza professionale\n\n• Conoscenza di base della tecnologia di rete\n\n• Automazione approfondita (Siemens S7 & TIA Portal) e esperienza di tecnologia servo\n\n• Prontezza per Picetting Service e lavoro a turni (3-shift)\n\n• Molto buona conoscenza del tedesco\n\n• Lavoro indipendente, dutioso e attento\n\n• Personalità comunicativa ed elevata\n\nSiamo tutti unici!\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
-        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• troubleshooting of installations and infrastructure\n\n• Carrying out maintenance, revision and conversion work\n\n• Responsible for work on the telephone system/central\n\n• Responsible for revision and troubleshooting\n\n• Monitoring of commissioning operations\n\n• Support for learning\n\nWhen you fit in with us:\n\n• Completed training as a company electrician / automatic technician EFZ\n\n• Further training for/to the technician HF is an advantage\n\n• Several years of professional experience\n\n• Basic knowledge of network technology\n\n• In-depth automation (Siemens S7 & TIA Portal) and servo technology experience\n\n• Readiness for Picetting Service and shift work (3-shift)\n\n• Very good knowledge of German\n\n• Independent, dutiful and careful work\n\n• Communicative and elevated personality\n\nWe are all unique!\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
-        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Störungssuche an den Anlagen sowie der Infrastruktur\n\n• Durchführen von Unterhalts-, Revisions- und Umbauarbeiten\n\n• Verantwortlich für Arbeiten an der Telefonanlage/-zentrale\n\n• Verantwortlich für die Revision und Störungsbehebung\n\n• Überwachen von Inbetriebsetzungen\n\n• Unterstützen in der Lernendenausbildung\n\nWann du zu uns passt:\n\n• Abgeschlossene Ausbildung als Betriebselektriker*in / Automatiker*in EFZ\n\n• Weiterbildung zur/zum Techniker*in HF von Vorteil\n\n• Mehrjährige Berufserfahrung zwingend\n\n• Grundkenntnisse in der Netzwerktechnik\n\n• Fundierte Automations- (Siemens S7 & TIA Portal) sowie Servotechnik-Erfahrung zwingend\n\n• Bereitschaft für Pikettdienst sowie Schichtarbeit (3-Schicht)\n\n• Sehr gute Deutschkenntnisse\n\n• Selbstständiges, pflichtbewusstes und sorgfältiges Arbeiten\n\n• Kommunikative sowie aufgestellte Persönlichkeit\n\nWir sind alle einzigartig!\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "À propos de nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous exploitons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, dont des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• dépannage des installations et des infrastructures\n\n• Effectuer des travaux de maintenance, de révision et de conversion\n\n• Responsable des travaux sur le système téléphonique/central\n\n• Responsable de la révision et du dépannage\n\n• Contrôle des opérations de mise en service\n\n• Appui à l'apprentissage\n\nLorsque vous entrez avec nous:\n\n• Formation terminée en tant qu'électricien d'entreprise / technicien automatique EFZ\n\n• La formation continue du technicien HF est un avantage\n\n• Plusieurs années d'expérience professionnelle\n\n• Connaissance de base de la technologie des réseaux\n\n• Automatisation approfondie (Siemens S7 & TIA Portal) et expérience de la technologie servo\n\n• Préparation pour le service de picttage et le travail posté (3 postes)\n\n• Très bonne connaissance de l'allemand\n\n• Travail indépendant, sérieux et soigné\n\n• Personnalité communicative et élevée\n\nNous sommes tous uniques !\nNous recrutons à l'abri des préjugés et considérons les compétences et les qualifications non affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement favorable à la famille - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, le bureau à domicile et le travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours fériés.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
+        "en": "Lindt & Sprüngli Portrait\n\nContribute to Lindt Global Travel Retail growth as part of the global Marketing team. The role is responsible for developing and implementing effective marketing campaigns to achieve set brand and sales targets. The Channel Activation Manager is working closely with all internal and external stakeholders to develop innovative concepts to drive growth.\n\nDuties and Responsibilities:\n\nActivation Concept Development\n- Responsible for the development of effective marketing campaigns for novelties, as well as core assortments based on the approved marketing plans of the Brand teams\n- Responsible for the development of creative concepts that meet set targets with regards to scalability, innovation factor, budget and global relevance\n- Develop customer-exclusive activation concepts to drive in-store visibility and conversion and support exclusive launches\n- Responsible for analyzing consumer and industry trends and actively incorporating them into conceptual development\n\nActivation Concept Execution & Tracking\n- Collaborate with internal stakeholders to define clear budgets, targets and timelines for each activation\n- Management of the end-to-end execution of activation campaigns across all brands\n- Oversee and manage the creation of all campaign assets in close collaboration with Brand Managers\n- Responsible for internal coordination among Brand & Trade Marketing to ensure execution on-time and within budget\n- Responsible for selection and onboarding of local partners in close collaboration with regional teams (agencies and suppliers)\n- Responsible for monitoring and analyzing campaign performance in close collaboration with Sales\n- Responsible for development of clear recommendations for continuous improvement\n\nFull responsibility for organization and execution of promotional activities for Global Account Heinemann\n- Full coordination and responsibility of brand activations in collaboration with Marketing and Sales Teams\n- Adaption of existing guidelines, concepts and brand identities to customized space\n- Stakeholder management (internal and external) incl. briefing and coordination with agencies and customers\n- Coordination of data and print material\n- Tracking of promotional executions\n\nRetail in Travel Retail Project Management Support\n- Responsible for the coordination and oversight of Retail in Travel Retail projects, ensuring timelines, workstreams and deliverables are aligned across internal teams and external partners.\n- Responsible for project communication and reporting, keeping key stakeholders informed on progress, milestones, openings and potential risks.\n\nRegional Support\n- Support regional teams in conceptual development of local adaptation\n- Develop regionally relevant activation concepts where appropriate\n\nMarketing Support\n- Manage internal sales requests related to brand activations\n- Provide support in various other projects (example: meetings, presentations)\n- Management of relevant ad‐hoc requests from internal and external counterparts\n\nMinimum Experience Requirements and Professional Background: Proven track record in trade marketing and/or market activation ideally in a fast-paced FMCG environment; preferably experience in Travel Retail\n\nPreferred Experience Requirements:\nFunctional Capabilities:\n- Personality: Very organized & structured way of working - you know how to handle several tasks simultaneously; solution-oriented with strong problem-solving skills; strong self-drive\n- Collaboration: Team player who thrives in cross-functional teams; works well with internal and external stakeholders (agencies, suppliers etc); can establish priorities and meet deadlines\n- Commercial Mind: Ability to balance commerciality with creativity to achieve set performance targets\n- Independent: Flexible and dynamic, independent working style – comfortably navigating in a fast-paced environment\n\nMinimum Education Requirements : BA degree in Marketing or equivalent required\n\nLanguage Skills: Fluency in English is mandatory, German is preferred\n\nOther Requirements: Advanced Microsoft Office skills (PPT, Word, Excel), Photoshop etc. is beneficial",
+        "it": "Lindt & Sprüngli Portrait\n\nContribute to Lindt Global Travel Retail growth as part of the global Marketing team. The role is responsible for developing and implementing effective marketing campaigns to achieve set brand and sales targets. The Channel Activation Manager is working closely with all internal and external stakeholders to develop innovative concepts to drive growth.\n\nDuties and Responsibilities:\n\nActivation Concept Development\n- Responsible for the development of effective marketing campaigns for novelties, as well as core assortments based on the approved marketing plans of the Brand teams\n- Responsible for the development of creative concepts that meet set targets with regards to scalability, innovation factor, budget and global relevance\n- Develop customer-exclusive activation concepts to drive in-store visibility and conversion and support exclusive launches\n- Responsible for analyzing consumer and industry trends and actively incorporating them into conceptual development\n\nActivation Concept Execution & Tracking\n- Collaborate with internal stakeholders to define clear budgets, targets and timelines for each activation\n- Management of the end-to-end execution of activation campaigns across all brands\n- Oversee and manage the creation of all campaign assets in close collaboration with Brand Managers\n- Responsible for internal coordination among Brand & Trade Marketing to ensure execution on-time and within budget\n- Responsible for selection and onboarding of local partners in close collaboration with regional teams (agencies and suppliers)\n- Responsible for monitoring and analyzing campaign performance in close collaboration with Sales\n- Responsible for development of clear recommendations for continuous improvement\n\nFull responsibility for organization and execution of promotional activities for Global Account Heinemann\n- Full coordination and responsibility of brand activations in collaboration with Marketing and Sales Teams\n- Adaption of existing guidelines, concepts and brand identities to customized space\n- Stakeholder management (internal and external) incl. briefing and coordination with agencies and customers\n- Coordination of data and print material\n- Tracking of promotional executions\n\nRetail in Travel Retail Project Management Support\n- Responsible for the coordination and oversight of Retail in Travel Retail projects, ensuring timelines, workstreams and deliverables are aligned across internal teams and external partners.\n- Responsible for project communication and reporting, keeping key stakeholders informed on progress, milestones, openings and potential risks.\n\nRegional Support\n- Support regional teams in conceptual development of local adaptation\n- Develop regionally relevant activation concepts where appropriate\n\nMarketing Support\n- Manage internal sales requests related to brand activations\n- Provide support in various other projects (example: meetings, presentations)\n- Management of relevant ad‐hoc requests from internal and external counterparts\n\nMinimum Experience Requirements and Professional Background: Proven track record in trade marketing and/or market activation ideally in a fast-paced FMCG environment; preferably experience in Travel Retail\n\nPreferred Experience Requirements:\nFunctional Capabilities:\n- Personality: Very organized & structured way of working - you know how to handle several tasks simultaneously; solution-oriented with strong problem-solving skills; strong self-drive\n- Collaboration: Team player who thrives in cross-functional teams; works well with internal and external stakeholders (agencies, suppliers etc); can establish priorities and meet deadlines\n- Commercial Mind: Ability to balance commerciality with creativity to achieve set performance targets\n- Independent: Flexible and dynamic, independent working style – comfortably navigating in a fast-paced environment\n\nMinimum Education Requirements : BA degree in Marketing or equivalent required\n\nLanguage Skills: Fluency in English is mandatory, German is preferred\n\nOther Requirements: Advanced Microsoft Office skills (PPT, Word, Excel), Photoshop etc. is beneficial",
+        "de": "Lindt & Sprüngli Portrait\n\nContribute to Lindt Global Travel Retail growth as part of the global Marketing team. The role is responsible for developing and implementing effective marketing campaigns to achieve set brand and sales targets. The Channel Activation Manager is working closely with all internal and external stakeholders to develop innovative concepts to drive growth.\n\nDuties and Responsibilities:\n\nActivation Concept Development\n- Responsible for the development of effective marketing campaigns for novelties, as well as core assortments based on the approved marketing plans of the Brand teams\n- Responsible for the development of creative concepts that meet set targets with regards to scalability, innovation factor, budget and global relevance\n- Develop customer-exclusive activation concepts to drive in-store visibility and conversion and support exclusive launches\n- Responsible for analyzing consumer and industry trends and actively incorporating them into conceptual development\n\nActivation Concept Execution & Tracking\n- Collaborate with internal stakeholders to define clear budgets, targets and timelines for each activation\n- Management of the end-to-end execution of activation campaigns across all brands\n- Oversee and manage the creation of all campaign assets in close collaboration with Brand Managers\n- Responsible for internal coordination among Brand & Trade Marketing to ensure execution on-time and within budget\n- Responsible for selection and onboarding of local partners in close collaboration with regional teams (agencies and suppliers)\n- Responsible for monitoring and analyzing campaign performance in close collaboration with Sales\n- Responsible for development of clear recommendations for continuous improvement\n\nFull responsibility for organization and execution of promotional activities for Global Account Heinemann\n- Full coordination and responsibility of brand activations in collaboration with Marketing and Sales Teams\n- Adaption of existing guidelines, concepts and brand identities to customized space\n- Stakeholder management (internal and external) incl. briefing and coordination with agencies and customers\n- Coordination of data and print material\n- Tracking of promotional executions\n\nRetail in Travel Retail Project Management Support\n- Responsible for the coordination and oversight of Retail in Travel Retail projects, ensuring timelines, workstreams and deliverables are aligned across internal teams and external partners.\n- Responsible for project communication and reporting, keeping key stakeholders informed on progress, milestones, openings and potential risks.\n\nRegional Support\n- Support regional teams in conceptual development of local adaptation\n- Develop regionally relevant activation concepts where appropriate\n\nMarketing Support\n- Manage internal sales requests related to brand activations\n- Provide support in various other projects (example: meetings, presentations)\n- Management of relevant ad‐hoc requests from internal and external counterparts\n\nMinimum Experience Requirements and Professional Background: Proven track record in trade marketing and/or market activation ideally in a fast-paced FMCG environment; preferably experience in Travel Retail\n\nPreferred Experience Requirements:\nFunctional Capabilities:\n- Personality: Very organized & structured way of working - you know how to handle several tasks simultaneously; solution-oriented with strong problem-solving skills; strong self-drive\n- Collaboration: Team player who thrives in cross-functional teams; works well with internal and external stakeholders (agencies, suppliers etc); can establish priorities and meet deadlines\n- Commercial Mind: Ability to balance commerciality with creativity to achieve set performance targets\n- Independent: Flexible and dynamic, independent working style – comfortably navigating in a fast-paced environment\n\nMinimum Education Requirements : BA degree in Marketing or equivalent required\n\nLanguage Skills: Fluency in English is mandatory, German is preferred\n\nOther Requirements: Advanced Microsoft Office skills (PPT, Word, Excel), Photoshop etc. is beneficial",
+        "fr": "Lindt & Sprüngli Portrait\n\nContribute to Lindt Global Travel Retail growth as part of the global Marketing team. The role is responsible for developing and implementing effective marketing campaigns to achieve set brand and sales targets. The Channel Activation Manager is working closely with all internal and external stakeholders to develop innovative concepts to drive growth.\n\nDuties and Responsibilities:\n\nActivation Concept Development\n- Responsible for the development of effective marketing campaigns for novelties, as well as core assortments based on the approved marketing plans of the Brand teams\n- Responsible for the development of creative concepts that meet set targets with regards to scalability, innovation factor, budget and global relevance\n- Develop customer-exclusive activation concepts to drive in-store visibility and conversion and support exclusive launches\n- Responsible for analyzing consumer and industry trends and actively incorporating them into conceptual development\n\nActivation Concept Execution & Tracking\n- Collaborate with internal stakeholders to define clear budgets, targets and timelines for each activation\n- Management of the end-to-end execution of activation campaigns across all brands\n- Oversee and manage the creation of all campaign assets in close collaboration with Brand Managers\n- Responsible for internal coordination among Brand & Trade Marketing to ensure execution on-time and within budget\n- Responsible for selection and onboarding of local partners in close collaboration with regional teams (agencies and suppliers)\n- Responsible for monitoring and analyzing campaign performance in close collaboration with Sales\n- Responsible for development of clear recommendations for continuous improvement\n\nFull responsibility for organization and execution of promotional activities for Global Account Heinemann\n- Full coordination and responsibility of brand activations in collaboration with Marketing and Sales Teams\n- Adaption of existing guidelines, concepts and brand identities to customized space\n- Stakeholder management (internal and external) incl. briefing and coordination with agencies and customers\n- Coordination of data and print material\n- Tracking of promotional executions\n\nRetail in Travel Retail Project Management Support\n- Responsible for the coordination and oversight of Retail in Travel Retail projects, ensuring timelines, workstreams and deliverables are aligned across internal teams and external partners.\n- Responsible for project communication and reporting, keeping key stakeholders informed on progress, milestones, openings and potential risks.\n\nRegional Support\n- Support regional teams in conceptual development of local adaptation\n- Develop regionally relevant activation concepts where appropriate\n\nMarketing Support\n- Manage internal sales requests related to brand activations\n- Provide support in various other projects (example: meetings, presentations)\n- Management of relevant ad‐hoc requests from internal and external counterparts\n\nMinimum Experience Requirements and Professional Background: Proven track record in trade marketing and/or market activation ideally in a fast-paced FMCG environment; preferably experience in Travel Retail\n\nPreferred Experience Requirements:\nFunctional Capabilities:\n- Personality: Very organized & structured way of working - you know how to handle several tasks simultaneously; solution-oriented with strong problem-solving skills; strong self-drive\n- Collaboration: Team player who thrives in cross-functional teams; works well with internal and external stakeholders (agencies, suppliers etc); can establish priorities and meet deadlines\n- Commercial Mind: Ability to balance commerciality with creativity to achieve set performance targets\n- Independent: Flexible and dynamic, independent working style – comfortably navigating in a fast-paced environment\n\nMinimum Education Requirements : BA degree in Marketing or equivalent required\n\nLanguage Skills: Fluency in English is mandatory, German is preferred\n\nOther Requirements: Advanced Microsoft Office skills (PPT, Word, Excel), Photoshop etc. is beneficial"
       },
       "location": "Kilchberg",
       "canton": "ZH",
-      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
+      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Channel-Activation-Manager-Global-Travel-Retail---Available-Immediately_JR104264-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:26:43.122Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-04T21:30:14.617Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
       "postalCode": "8802",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Vendita",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Alimentare / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-04-07",
-      "postedDate": "2026-04-07",
+      "datePosted": "2026-11-04",
+      "postedDate": "2026-11-04",
       "postingDateSource": "reported",
-      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
-      "jobReqId": "JR101051",
+      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Channel-Activation-Manager-Global-Travel-Retail---Available-Immediately_JR104264-1",
+      "jobReqId": "JR104264",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "betriebselektriker-in-lindt-sprungli-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebselektriker-in-lindt-spruengli-kilchberg",
-          "betriebselektriker-in-lindt-sprungli-kilchberg"
-        ],
-        "en": [
-          "betriebselektriker-in-lindt-sprungli-kilchberg"
-        ],
-        "fr": [
-          "betriebselektriker-in-lindt-sprungli-kilchberg"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
-      "firstSeenAt": "2026-07-04T11:36:22.956Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "needsRetranslation": true,
+      "salaryMin": 117000,
+      "salaryMax": 180000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 117000,
+          "maxValue": 180000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:26:43.122Z",
+      "validThrough": "2027-02-02T21:30:14.617Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-11-04T21:30:14.617Z"
     }
   ]
 }

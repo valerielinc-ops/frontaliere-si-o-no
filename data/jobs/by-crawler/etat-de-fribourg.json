@@ -1,7 +1,7 @@
 {
   "crawlerKey": "etat-de-fribourg",
-  "assembledAt": "2026-11-04T09:37:46.326Z",
-  "runId": "41806533283",
+  "assembledAt": "2026-11-04T21:55:58.708Z",
+  "runId": "41914985894",
   "jobs": [
     {
       "id": "etat-de-fribourg-45c36211c918",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-assistant-e-en-sciences-de-la-communication-&-des-m%C3%A9dias-et-communication-strat%C3%A9gique-Sari/1374206657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:37.954Z",
+      "crawledAt": "2026-11-04T21:55:43.699Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:37:37.954Z",
+      "validThrough": "2027-01-05T21:55:43.699Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-open-rank-Chair-of-Women's-Health-and-Exposome-Saan/1374210657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:37.247Z",
+      "crawledAt": "2026-11-04T21:55:43.014Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:37:37.247Z",
+      "validThrough": "2027-01-05T21:55:43.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -206,7 +206,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-open-rank-Chair-of-Women's-Health-and-Exposome-Sari/1374210557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:36.551Z",
+      "crawledAt": "2026-11-04T21:55:42.338Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:37:36.551Z",
+      "validThrough": "2027-01-05T21:55:42.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -293,7 +293,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-vor-der-HSW-Saan/1374215957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:35.845Z",
+      "crawledAt": "2026-11-04T21:55:41.668Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -346,7 +346,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:37:35.845Z",
+      "validThrough": "2027-01-05T21:55:41.668Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -380,7 +380,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1374215857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:35.159Z",
+      "crawledAt": "2026-11-04T21:55:40.987Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -433,7 +433,94 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:37:35.159Z",
+      "validThrough": "2027-01-05T21:55:40.987Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "etat-de-fribourg-36177737fadb",
+      "slug": "vice-chimico-cantonale-etat-de-fribourg-givisiez",
+      "slugByLocale": {
+        "it": "vice-chimico-cantonale-etat-de-fribourg-givisiez",
+        "en": "deputy-cantonal-chemist-in-etat-de-fribourg-givisiez",
+        "de": "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch",
+        "fr": "chimiste-cantonal-adjoint-etat-de-fribourg-givisiez"
+      },
+      "company": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "companyDomain": "fr.ch",
+      "title": "Stellvertretende/r Kantonschemiker/in",
+      "titleByLocale": {
+        "it": "Vice chimico cantonale",
+        "en": "Deputy Cantonal Chemist-in",
+        "de": "Stellvertretende/r Kantonschemiker/in",
+        "fr": "Chimiste cantonal adjoint"
+      },
+      "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nhttps://vimeo.com/1224819009\n\nWerden Sie Teil unseres Teams!\n\nMöchten Sie sich für die Freiburger Bevölkerung einsetzen und Teil eines engagierten Teams werden, das sich aus vielfältigen und sich ergänzenden Persönlichkeiten zusammensetzt? Schliessen Sie sich uns an, um in einem überschaubaren Amt einen erfüllenden Beruf auszuüben und profitieren Sie gleichzeitig von der Stabilität und den Ressourcen eines grossen Arbeitgebers wie dem Staat Freiburg.\n\nZusätzlich zu diesem interessanten Umfeld erwarten Sie bei uns attraktive Arbeitsbedingungen: ein angenehmes Arbeitsklima, eine Kantine, ergonomische gestaltete Arbeitsplätze, die Leistungen des Staats als Arbeitgeber und Weiterbildungsmöglichkeiten. Zudem fördern wir die Zweisprachigkeit durch Sprachkurse in der Partnersprache. Für weitere Informationen folgen Sie bitte diesem Link .\n\nIhre Aufgaben\n\n• Als stellvertretende-r Kantonschemiker-in und Mitglied der Direktion des LSVW unterstützen Sie den Kantonschemiker bei der Festlegung und Umsetzung der Strategie des Amtes im Bereich der Kontrolle von Lebensmitteln und Gebrauchsgegenständen und vertreten ihn in seiner Abwesenheit.\n\n• Als Sektionschef-fin leiten Sie die Chemie- und Biologielaboratorien und gewährleisten die Qualität und Konformität der Dienstleistungen und Analyseberichte.\n\n• Sie überwachen die Umsetzung des Qualitätsmanagementsystems des LSVW und verfolgen die Indikatoren und Ziele der Laboratorien.\n\nGewünschtes Profil\n\n• Master- oder Doktoratabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, ergänzt durch ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (oder gewillt, dieses zu erlangen) im Sinne der geltenden Bundesverordnung (SR 817.042).\n\n• Berufserfahrung in einem akkreditierten Untersuchungslabor (Leitung und Entwicklung), mehrjährige anerkannte Ausbildung und/oder Erfahrung im Management, idealerweise mit Erfahrung in der Durchführung von Veränderungen.\n\n• Hohes Interesse am öffentlichen Dienst, gute Kenntnisse seiner Funktionsweise sowie der kantonalen und eidgenössischen Strukturen.\n\n• Gewandtheit in Kommunikation, Planung und Organisation sowie im Umgang mit EDV-Systemen (insbesondere LIMS).\n\n• Belastbarkeit, Durchsetzungsvermögen und Fähigkeit zur Krisenbewältigung.\n\n• Sorgfältig, exakt und organisiert.\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache.\n\nKontaktperson\n\nJulien Ducry, Kantonschemiker, T +41 26 305 80 02 oder Catherine Heimann, Adjunktin des Amtsvorstehers, T +41 26 305 80 04",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / unità amministrativa / istituzione\n\nL'Ufficio per la sicurezza alimentare e gli affari veterinari (LSVW) ha il compito di proteggere i consumatori attraverso ispezioni e analisi contro gli oggetti alimentari e di consumo che sono pericolosi per la salute e contro l'inganno in relazione al cibo, e di garantire il benessere e la salute degli animali, sia per se stessi che per il beneficio dell'uomo.\n\nEntrate nella nostra squadra!\n\nVuoi lavorare per la popolazione di Friburgo e diventare parte di un team dedicato composto da personalità diverse e complementari? Unisciti a noi per perseguire una professione soddisfacente in un ufficio gestibile e allo stesso tempo beneficiare della stabilità e delle risorse di un grande datore di lavoro come lo Stato di Friburgo.\n\nOltre a questo ambiente interessante, ci si può aspettare condizioni di lavoro interessanti: un ambiente di lavoro piacevole, una mensa, posti di lavoro ergonomici, i servizi dello stato come datore di lavoro e ulteriori opportunità di formazione. Promuoviamo anche il bilinguismo attraverso corsi di lingua nella lingua partner. Per ulteriori informazioni, si prega di seguire questo link.\n\nI loro compiti\n\n• In qualità di vice chimico cantonale e membro della direzione LSVW, sostenete il chimico cantonale nella definizione e nell’attuazione della strategia dell’Ufficio nel settore del controllo dei beni alimentari e di consumo e lo rappresenta in sua assenza.\n\n• Come Capo della Sezione Fin, guiderai i laboratori di chimica e biologia e garantirai la qualità e la conformità dei servizi e dei rapporti di analisi.\n\n• Monitorano l'implementazione del sistema di gestione della qualità LSVW e seguono gli indicatori e gli obiettivi dei laboratori.\n\nProfilo desiderato\n\n• Laurea magistrale o di dottorato presso un'università, ETH o FH in chimica, biochimica, alimentare o scienze naturali, completato da un Diploma federale svizzero per il principale controllo alimentare ufficiale (o disposto ad ottenerlo) nel senso dell'ordinanza federale applicabile (SR 817.042).\n\n• Esperienza professionale in un laboratorio di esame accreditato (gestione e sviluppo), diversi anni di formazione riconosciuta e/o esperienza nella gestione, idealmente con esperienza nell'esecuzione dei cambiamenti.\n\n• Alto interesse per il servizio pubblico, buona conoscenza del suo funzionamento e delle strutture cantonali e federali.\n\n• Adaptness nella comunicazione, pianificazione e organizzazione, nonché nel trattare con sistemi informatici (soprattutto LIMS).\n\n• capacità di resistenza, esecuzione e gestione delle crisi.\n\n• Attenzione, preciso e organizzato.\n\n• Padroneggiare la lingua tedesca o francese con una conoscenza molto buona dell'altra lingua.\n\nPersona di contatto\n\nJulien Ducry, chimico cantonale, T +41 26 305 80 02 o Catherine Heimann, congiunzione del capo ufficio, T +41 26 305 80 04",
+        "en": "Appointing authority / administrative unit / institution\n\nThe Office for Food Safety and Veterinary Affairs (LSVW) has the task of protecting consumers by means of inspections and analyses against food and consumer objects which are hazardous to health and against deception in connection with food, and of ensuring the welfare and health of animals, both for themselves and for the benefit of humans.\n\nBecome part of our team!\n\nDo you want to work for the Freiburg population and become part of a dedicated team composed of diverse and complementary personalities? Join us to pursue a fulfilling profession in a manageable office and at the same time benefit from the stability and resources of a large employer such as the State of Freiburg.\n\nIn addition to this interesting environment, you can expect attractive working conditions: a pleasant working environment, a canteen, ergonomic workplaces, the services of the state as an employer and further training opportunities. We also promote bilingualism through language courses in the partner language. For more information, please follow this link.\n\nTheir tasks\n\n• As a deputy cantonal chemist and member of the LSVW management, you support the cantonal chemist in defining and implementing the Office’s strategy in the area of food and consumer goods control and represent him in his absence.\n\n• As Head of Section Fin, you will lead the chemistry and biology laboratories and ensure the quality and conformity of services and analysis reports.\n\n• They monitor the implementation of the LSVW quality management system and follow the indicators and objectives of the laboratories.\n\nDesired profile\n\n• Master’s or doctoral degree from a university, ETH or FH in chemistry, biochemistry, food or natural sciences, supplemented by a Swiss Federal Diploma for the leading official food control (or willing to obtain it) in the sense of the applicable Federal Ordinance (SR 817.042).\n\n• Professional experience in an accredited examination laboratory (management and development), several years of recognised training and/or experience in management, ideally with experience in carrying out changes.\n\n• High interest in the public service, good knowledge of its functioning and of the cantonal and federal structures.\n\n• Adaptness in communication, planning and organization as well as in dealing with computer systems (especially LIMS).\n\n• resilience, enforcement and crisis management capability.\n\n• Careful, accurate and organized.\n\n• Master the German or French language with very good knowledge of the other language.\n\nContact person\n\nJulien Ducry, cantonal chemist, T +41 26 305 80 02 or Catherine Heimann, adjunct of the head of office, T +41 26 305 80 04",
+        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nhttps://vimeo.com/1224819009\n\nWerden Sie Teil unseres Teams!\n\nMöchten Sie sich für die Freiburger Bevölkerung einsetzen und Teil eines engagierten Teams werden, das sich aus vielfältigen und sich ergänzenden Persönlichkeiten zusammensetzt? Schliessen Sie sich uns an, um in einem überschaubaren Amt einen erfüllenden Beruf auszuüben und profitieren Sie gleichzeitig von der Stabilität und den Ressourcen eines grossen Arbeitgebers wie dem Staat Freiburg.\n\nZusätzlich zu diesem interessanten Umfeld erwarten Sie bei uns attraktive Arbeitsbedingungen: ein angenehmes Arbeitsklima, eine Kantine, ergonomische gestaltete Arbeitsplätze, die Leistungen des Staats als Arbeitgeber und Weiterbildungsmöglichkeiten. Zudem fördern wir die Zweisprachigkeit durch Sprachkurse in der Partnersprache. Für weitere Informationen folgen Sie bitte diesem Link .\n\nIhre Aufgaben\n\n• Als stellvertretende-r Kantonschemiker-in und Mitglied der Direktion des LSVW unterstützen Sie den Kantonschemiker bei der Festlegung und Umsetzung der Strategie des Amtes im Bereich der Kontrolle von Lebensmitteln und Gebrauchsgegenständen und vertreten ihn in seiner Abwesenheit.\n\n• Als Sektionschef-fin leiten Sie die Chemie- und Biologielaboratorien und gewährleisten die Qualität und Konformität der Dienstleistungen und Analyseberichte.\n\n• Sie überwachen die Umsetzung des Qualitätsmanagementsystems des LSVW und verfolgen die Indikatoren und Ziele der Laboratorien.\n\nGewünschtes Profil\n\n• Master- oder Doktoratabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, ergänzt durch ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (oder gewillt, dieses zu erlangen) im Sinne der geltenden Bundesverordnung (SR 817.042).\n\n• Berufserfahrung in einem akkreditierten Untersuchungslabor (Leitung und Entwicklung), mehrjährige anerkannte Ausbildung und/oder Erfahrung im Management, idealerweise mit Erfahrung in der Durchführung von Veränderungen.\n\n• Hohes Interesse am öffentlichen Dienst, gute Kenntnisse seiner Funktionsweise sowie der kantonalen und eidgenössischen Strukturen.\n\n• Gewandtheit in Kommunikation, Planung und Organisation sowie im Umgang mit EDV-Systemen (insbesondere LIMS).\n\n• Belastbarkeit, Durchsetzungsvermögen und Fähigkeit zur Krisenbewältigung.\n\n• Sorgfältig, exakt und organisiert.\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache.\n\nKontaktperson\n\nJulien Ducry, Kantonschemiker, T +41 26 305 80 02 oder Catherine Heimann, Adjunktin des Amtsvorstehers, T +41 26 305 80 04",
+        "fr": "Pouvoir de nomination / unité administrative / institution\n\nL'Office de la sécurité alimentaire et des affaires vétérinaires (LSVW) a pour mission de protéger les consommateurs au moyen d'inspections et d'analyses contre les denrées alimentaires et les objets de consommation qui sont dangereux pour la santé et contre la tromperie en rapport avec les denrées alimentaires, et d'assurer le bien-être et la santé des animaux, tant pour eux-mêmes que pour le bénéfice des humains.\n\nFaites partie de notre équipe !\n\nVoulez-vous travailler pour la population de Fribourg et faire partie d'une équipe dédiée composée de personnalités diverses et complémentaires ? Joignez-vous à nous pour exercer une profession accomplie dans un bureau gérable et bénéficier en même temps de la stabilité et des ressources d'un grand employeur comme l'État de Fribourg.\n\nEn plus de cet environnement intéressant, vous pouvez vous attendre à des conditions de travail attrayantes: un environnement de travail agréable, une cantine, des lieux de travail ergonomiques, les services de l'État en tant qu'employeur et des possibilités de formation continue. Nous encourageons également le bilinguisme par des cours de langue dans la langue partenaire. Pour plus d'informations, veuillez suivre ce lien.\n\nLeurs tâches\n\n• En tant que chimiste cantonal adjoint et membre de la direction du LSVW, vous soutenez le chimiste cantonal dans la définition et la mise en œuvre de la stratégie de l'Office dans le domaine du contrôle des denrées alimentaires et des biens de consommation et le représentez en son absence.\n\n• En tant que chef de section Fin, vous dirigerez les laboratoires de chimie et de biologie et assurerez la qualité et la conformité des services et des rapports d'analyse.\n\n• Ils surveillent la mise en œuvre du système de gestion de la qualité du LSVW et suivent les indicateurs et les objectifs des laboratoires.\n\nProfil désiré\n\n• Maîtrise ou doctorat d'une université, de l'ETH ou de la FH en chimie, biochimie, alimentation ou sciences naturelles, complété par un diplôme fédéral suisse pour le principal contrôle officiel des aliments (ou prêt à l'obtenir) au sens de l'ordonnance fédérale applicable (SR 817.042).\n\n• Expérience professionnelle dans un laboratoire d'examen accrédité (gestion et développement), plusieurs années de formation reconnue et/ou d'expérience en gestion, idéalement avec une expérience dans la réalisation de changements.\n\n• Intérêt pour la fonction publique, bonne connaissance de son fonctionnement et des structures cantonales et fédérales.\n\n• Adaptation dans les domaines de la communication, de la planification et de l'organisation, ainsi que dans le traitement des systèmes informatiques (en particulier le SGLI).\n\n• capacité de résilience, d'application et de gestion des crises.\n\n• Attention, précision et organisation.\n\n• Maîtriser l'allemand ou le français avec une très bonne connaissance de l'autre langue.\n\nPersonne à contacter\n\nJulien Ducry, chimiste cantonal, T +41 26 305 80 02 ou Catherine Heimann, adjoint du chef de bureau, T +41 26 305 80 04"
+      },
+      "location": "Givisiez",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stellvertretender-Kantonschemikerin-Saan/1374281057/",
+      "source": "Etat de Fribourg Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T21:55:40.300Z",
+      "addressLocality": "Givisiez",
+      "postalCode": "1762",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T00:00:00Z",
+      "postedDate": "2026-10-08T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374281057/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Amt für Lebensmittelsicherheit und Veterinärwesen",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "previousSlugs": [
+        "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:29:50.441Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "streetAddress": "Givisiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T21:55:40.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -467,7 +554,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Chimiste-cantonal-e-adjoint-e-Sari/1374281157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:34.467Z",
+      "crawledAt": "2026-11-04T21:55:39.607Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -522,94 +609,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:37:34.467Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "etat-de-fribourg-36177737fadb",
-      "slug": "vice-chimico-cantonale-etat-de-fribourg-givisiez",
-      "slugByLocale": {
-        "it": "vice-chimico-cantonale-etat-de-fribourg-givisiez",
-        "en": "deputy-cantonal-chemist-in-etat-de-fribourg-givisiez",
-        "de": "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch",
-        "fr": "chimiste-cantonal-adjoint-etat-de-fribourg-givisiez"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Stellvertretende/r Kantonschemiker/in",
-      "titleByLocale": {
-        "it": "Vice chimico cantonale",
-        "en": "Deputy Cantonal Chemist-in",
-        "de": "Stellvertretende/r Kantonschemiker/in",
-        "fr": "Chimiste cantonal adjoint"
-      },
-      "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nhttps://vimeo.com/1224819009\n\nWerden Sie Teil unseres Teams!\n\nMöchten Sie sich für die Freiburger Bevölkerung einsetzen und Teil eines engagierten Teams werden, das sich aus vielfältigen und sich ergänzenden Persönlichkeiten zusammensetzt? Schliessen Sie sich uns an, um in einem überschaubaren Amt einen erfüllenden Beruf auszuüben und profitieren Sie gleichzeitig von der Stabilität und den Ressourcen eines grossen Arbeitgebers wie dem Staat Freiburg.\n\nZusätzlich zu diesem interessanten Umfeld erwarten Sie bei uns attraktive Arbeitsbedingungen: ein angenehmes Arbeitsklima, eine Kantine, ergonomische gestaltete Arbeitsplätze, die Leistungen des Staats als Arbeitgeber und Weiterbildungsmöglichkeiten. Zudem fördern wir die Zweisprachigkeit durch Sprachkurse in der Partnersprache. Für weitere Informationen folgen Sie bitte diesem Link .\n\nIhre Aufgaben\n\n• Als stellvertretende-r Kantonschemiker-in und Mitglied der Direktion des LSVW unterstützen Sie den Kantonschemiker bei der Festlegung und Umsetzung der Strategie des Amtes im Bereich der Kontrolle von Lebensmitteln und Gebrauchsgegenständen und vertreten ihn in seiner Abwesenheit.\n\n• Als Sektionschef-fin leiten Sie die Chemie- und Biologielaboratorien und gewährleisten die Qualität und Konformität der Dienstleistungen und Analyseberichte.\n\n• Sie überwachen die Umsetzung des Qualitätsmanagementsystems des LSVW und verfolgen die Indikatoren und Ziele der Laboratorien.\n\nGewünschtes Profil\n\n• Master- oder Doktoratabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, ergänzt durch ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (oder gewillt, dieses zu erlangen) im Sinne der geltenden Bundesverordnung (SR 817.042).\n\n• Berufserfahrung in einem akkreditierten Untersuchungslabor (Leitung und Entwicklung), mehrjährige anerkannte Ausbildung und/oder Erfahrung im Management, idealerweise mit Erfahrung in der Durchführung von Veränderungen.\n\n• Hohes Interesse am öffentlichen Dienst, gute Kenntnisse seiner Funktionsweise sowie der kantonalen und eidgenössischen Strukturen.\n\n• Gewandtheit in Kommunikation, Planung und Organisation sowie im Umgang mit EDV-Systemen (insbesondere LIMS).\n\n• Belastbarkeit, Durchsetzungsvermögen und Fähigkeit zur Krisenbewältigung.\n\n• Sorgfältig, exakt und organisiert.\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache.\n\nKontaktperson\n\nJulien Ducry, Kantonschemiker, T +41 26 305 80 02 oder Catherine Heimann, Adjunktin des Amtsvorstehers, T +41 26 305 80 04",
-      "descriptionByLocale": {
-        "it": "Autorità di nomina / unità amministrativa / istituzione\n\nL'Ufficio per la sicurezza alimentare e gli affari veterinari (LSVW) ha il compito di proteggere i consumatori attraverso ispezioni e analisi contro gli oggetti alimentari e di consumo che sono pericolosi per la salute e contro l'inganno in relazione al cibo, e di garantire il benessere e la salute degli animali, sia per se stessi che per il beneficio dell'uomo.\n\nEntrate nella nostra squadra!\n\nVuoi lavorare per la popolazione di Friburgo e diventare parte di un team dedicato composto da personalità diverse e complementari? Unisciti a noi per perseguire una professione soddisfacente in un ufficio gestibile e allo stesso tempo beneficiare della stabilità e delle risorse di un grande datore di lavoro come lo Stato di Friburgo.\n\nOltre a questo ambiente interessante, ci si può aspettare condizioni di lavoro interessanti: un ambiente di lavoro piacevole, una mensa, posti di lavoro ergonomici, i servizi dello stato come datore di lavoro e ulteriori opportunità di formazione. Promuoviamo anche il bilinguismo attraverso corsi di lingua nella lingua partner. Per ulteriori informazioni, si prega di seguire questo link.\n\nI loro compiti\n\n• In qualità di vice chimico cantonale e membro della direzione LSVW, sostenete il chimico cantonale nella definizione e nell’attuazione della strategia dell’Ufficio nel settore del controllo dei beni alimentari e di consumo e lo rappresenta in sua assenza.\n\n• Come Capo della Sezione Fin, guiderai i laboratori di chimica e biologia e garantirai la qualità e la conformità dei servizi e dei rapporti di analisi.\n\n• Monitorano l'implementazione del sistema di gestione della qualità LSVW e seguono gli indicatori e gli obiettivi dei laboratori.\n\nProfilo desiderato\n\n• Laurea magistrale o di dottorato presso un'università, ETH o FH in chimica, biochimica, alimentare o scienze naturali, completato da un Diploma federale svizzero per il principale controllo alimentare ufficiale (o disposto ad ottenerlo) nel senso dell'ordinanza federale applicabile (SR 817.042).\n\n• Esperienza professionale in un laboratorio di esame accreditato (gestione e sviluppo), diversi anni di formazione riconosciuta e/o esperienza nella gestione, idealmente con esperienza nell'esecuzione dei cambiamenti.\n\n• Alto interesse per il servizio pubblico, buona conoscenza del suo funzionamento e delle strutture cantonali e federali.\n\n• Adaptness nella comunicazione, pianificazione e organizzazione, nonché nel trattare con sistemi informatici (soprattutto LIMS).\n\n• capacità di resistenza, esecuzione e gestione delle crisi.\n\n• Attenzione, preciso e organizzato.\n\n• Padroneggiare la lingua tedesca o francese con una conoscenza molto buona dell'altra lingua.\n\nPersona di contatto\n\nJulien Ducry, chimico cantonale, T +41 26 305 80 02 o Catherine Heimann, congiunzione del capo ufficio, T +41 26 305 80 04",
-        "en": "Appointing authority / administrative unit / institution\n\nThe Office for Food Safety and Veterinary Affairs (LSVW) has the task of protecting consumers by means of inspections and analyses against food and consumer objects which are hazardous to health and against deception in connection with food, and of ensuring the welfare and health of animals, both for themselves and for the benefit of humans.\n\nBecome part of our team!\n\nDo you want to work for the Freiburg population and become part of a dedicated team composed of diverse and complementary personalities? Join us to pursue a fulfilling profession in a manageable office and at the same time benefit from the stability and resources of a large employer such as the State of Freiburg.\n\nIn addition to this interesting environment, you can expect attractive working conditions: a pleasant working environment, a canteen, ergonomic workplaces, the services of the state as an employer and further training opportunities. We also promote bilingualism through language courses in the partner language. For more information, please follow this link.\n\nTheir tasks\n\n• As a deputy cantonal chemist and member of the LSVW management, you support the cantonal chemist in defining and implementing the Office’s strategy in the area of food and consumer goods control and represent him in his absence.\n\n• As Head of Section Fin, you will lead the chemistry and biology laboratories and ensure the quality and conformity of services and analysis reports.\n\n• They monitor the implementation of the LSVW quality management system and follow the indicators and objectives of the laboratories.\n\nDesired profile\n\n• Master’s or doctoral degree from a university, ETH or FH in chemistry, biochemistry, food or natural sciences, supplemented by a Swiss Federal Diploma for the leading official food control (or willing to obtain it) in the sense of the applicable Federal Ordinance (SR 817.042).\n\n• Professional experience in an accredited examination laboratory (management and development), several years of recognised training and/or experience in management, ideally with experience in carrying out changes.\n\n• High interest in the public service, good knowledge of its functioning and of the cantonal and federal structures.\n\n• Adaptness in communication, planning and organization as well as in dealing with computer systems (especially LIMS).\n\n• resilience, enforcement and crisis management capability.\n\n• Careful, accurate and organized.\n\n• Master the German or French language with very good knowledge of the other language.\n\nContact person\n\nJulien Ducry, cantonal chemist, T +41 26 305 80 02 or Catherine Heimann, adjunct of the head of office, T +41 26 305 80 04",
-        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nhttps://vimeo.com/1224819009\n\nWerden Sie Teil unseres Teams!\n\nMöchten Sie sich für die Freiburger Bevölkerung einsetzen und Teil eines engagierten Teams werden, das sich aus vielfältigen und sich ergänzenden Persönlichkeiten zusammensetzt? Schliessen Sie sich uns an, um in einem überschaubaren Amt einen erfüllenden Beruf auszuüben und profitieren Sie gleichzeitig von der Stabilität und den Ressourcen eines grossen Arbeitgebers wie dem Staat Freiburg.\n\nZusätzlich zu diesem interessanten Umfeld erwarten Sie bei uns attraktive Arbeitsbedingungen: ein angenehmes Arbeitsklima, eine Kantine, ergonomische gestaltete Arbeitsplätze, die Leistungen des Staats als Arbeitgeber und Weiterbildungsmöglichkeiten. Zudem fördern wir die Zweisprachigkeit durch Sprachkurse in der Partnersprache. Für weitere Informationen folgen Sie bitte diesem Link .\n\nIhre Aufgaben\n\n• Als stellvertretende-r Kantonschemiker-in und Mitglied der Direktion des LSVW unterstützen Sie den Kantonschemiker bei der Festlegung und Umsetzung der Strategie des Amtes im Bereich der Kontrolle von Lebensmitteln und Gebrauchsgegenständen und vertreten ihn in seiner Abwesenheit.\n\n• Als Sektionschef-fin leiten Sie die Chemie- und Biologielaboratorien und gewährleisten die Qualität und Konformität der Dienstleistungen und Analyseberichte.\n\n• Sie überwachen die Umsetzung des Qualitätsmanagementsystems des LSVW und verfolgen die Indikatoren und Ziele der Laboratorien.\n\nGewünschtes Profil\n\n• Master- oder Doktoratabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, ergänzt durch ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (oder gewillt, dieses zu erlangen) im Sinne der geltenden Bundesverordnung (SR 817.042).\n\n• Berufserfahrung in einem akkreditierten Untersuchungslabor (Leitung und Entwicklung), mehrjährige anerkannte Ausbildung und/oder Erfahrung im Management, idealerweise mit Erfahrung in der Durchführung von Veränderungen.\n\n• Hohes Interesse am öffentlichen Dienst, gute Kenntnisse seiner Funktionsweise sowie der kantonalen und eidgenössischen Strukturen.\n\n• Gewandtheit in Kommunikation, Planung und Organisation sowie im Umgang mit EDV-Systemen (insbesondere LIMS).\n\n• Belastbarkeit, Durchsetzungsvermögen und Fähigkeit zur Krisenbewältigung.\n\n• Sorgfältig, exakt und organisiert.\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache.\n\nKontaktperson\n\nJulien Ducry, Kantonschemiker, T +41 26 305 80 02 oder Catherine Heimann, Adjunktin des Amtsvorstehers, T +41 26 305 80 04",
-        "fr": "Pouvoir de nomination / unité administrative / institution\n\nL'Office de la sécurité alimentaire et des affaires vétérinaires (LSVW) a pour mission de protéger les consommateurs au moyen d'inspections et d'analyses contre les denrées alimentaires et les objets de consommation qui sont dangereux pour la santé et contre la tromperie en rapport avec les denrées alimentaires, et d'assurer le bien-être et la santé des animaux, tant pour eux-mêmes que pour le bénéfice des humains.\n\nFaites partie de notre équipe !\n\nVoulez-vous travailler pour la population de Fribourg et faire partie d'une équipe dédiée composée de personnalités diverses et complémentaires ? Joignez-vous à nous pour exercer une profession accomplie dans un bureau gérable et bénéficier en même temps de la stabilité et des ressources d'un grand employeur comme l'État de Fribourg.\n\nEn plus de cet environnement intéressant, vous pouvez vous attendre à des conditions de travail attrayantes: un environnement de travail agréable, une cantine, des lieux de travail ergonomiques, les services de l'État en tant qu'employeur et des possibilités de formation continue. Nous encourageons également le bilinguisme par des cours de langue dans la langue partenaire. Pour plus d'informations, veuillez suivre ce lien.\n\nLeurs tâches\n\n• En tant que chimiste cantonal adjoint et membre de la direction du LSVW, vous soutenez le chimiste cantonal dans la définition et la mise en œuvre de la stratégie de l'Office dans le domaine du contrôle des denrées alimentaires et des biens de consommation et le représentez en son absence.\n\n• En tant que chef de section Fin, vous dirigerez les laboratoires de chimie et de biologie et assurerez la qualité et la conformité des services et des rapports d'analyse.\n\n• Ils surveillent la mise en œuvre du système de gestion de la qualité du LSVW et suivent les indicateurs et les objectifs des laboratoires.\n\nProfil désiré\n\n• Maîtrise ou doctorat d'une université, de l'ETH ou de la FH en chimie, biochimie, alimentation ou sciences naturelles, complété par un diplôme fédéral suisse pour le principal contrôle officiel des aliments (ou prêt à l'obtenir) au sens de l'ordonnance fédérale applicable (SR 817.042).\n\n• Expérience professionnelle dans un laboratoire d'examen accrédité (gestion et développement), plusieurs années de formation reconnue et/ou d'expérience en gestion, idéalement avec une expérience dans la réalisation de changements.\n\n• Intérêt pour la fonction publique, bonne connaissance de son fonctionnement et des structures cantonales et fédérales.\n\n• Adaptation dans les domaines de la communication, de la planification et de l'organisation, ainsi que dans le traitement des systèmes informatiques (en particulier le SGLI).\n\n• capacité de résilience, d'application et de gestion des crises.\n\n• Attention, précision et organisation.\n\n• Maîtriser l'allemand ou le français avec une très bonne connaissance de l'autre langue.\n\nPersonne à contacter\n\nJulien Ducry, chimiste cantonal, T +41 26 305 80 02 ou Catherine Heimann, adjoint du chef de bureau, T +41 26 305 80 04"
-      },
-      "location": "Givisiez",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stellvertretender-Kantonschemikerin-Saan/1374281057/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:33.772Z",
-      "addressLocality": "Givisiez",
-      "postalCode": "1762",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-08T00:00:00Z",
-      "postedDate": "2026-10-08T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374281057/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Lebensmittelsicherheit und Veterinärwesen",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "stellvertretende-r-kantonschemiker-in-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:29:50.441Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR",
-      "streetAddress": "Givisiez",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:37:33.772Z",
+      "validThrough": "2027-01-06T21:55:39.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -643,7 +643,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Richterin-beim-Zwangsmassnahmengericht-Saan/1374304357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:33.078Z",
+      "crawledAt": "2026-11-04T21:55:38.903Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -696,7 +696,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:37:33.078Z",
+      "validThrough": "2027-01-06T21:55:38.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-au-Tribunal-des-mesures-de-contrainte-Sari/1374304257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:32.382Z",
+      "crawledAt": "2026-11-04T21:55:38.223Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -783,7 +783,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:37:32.382Z",
+      "validThrough": "2027-01-06T21:55:38.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -817,7 +817,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-5-apprenti-e-s-laborantin-e-s-CFC-Orientation-Chimie-Sari/1374306457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:31.685Z",
+      "crawledAt": "2026-11-04T21:55:37.525Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -870,7 +870,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:37:31.685Z",
+      "validThrough": "2027-01-06T21:55:37.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -904,7 +904,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-universitaire-pour-le-domaine-promotion-enfance-jeunesse%2C-projet-FriTime-Sari/1374404957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:30.974Z",
+      "crawledAt": "2026-11-04T21:55:36.851Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -957,7 +957,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:37:30.974Z",
+      "validThrough": "2027-01-07T21:55:36.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -991,7 +991,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-d'administration-Sari/1374412757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:30.280Z",
+      "crawledAt": "2026-11-04T21:55:36.168Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1042,7 +1042,6 @@
       "previousSlugsByLocale": {
         "it": [
           "employe-e-d-administration-etat-de-fribourg-ch",
-          "addetto-a-amministrazione-etat-de-fribourg-givisiez",
           "personale-amministrativo-etat-de-fribourg-givisiez",
           "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
           "administrative-staff-etat-de-fribourg-chatel-st-denis",
@@ -1061,7 +1060,8 @@
           "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
           "administrative-staff-etat-de-fribourg-granges-paccot-488926",
           "verwaltungspersonal-etat-de-fribourg-granges-paccot",
-          "employe-e-d-administration-etat-de-fribourg-granges-paccot"
+          "employe-e-d-administration-etat-de-fribourg-granges-paccot",
+          "addetto-a-amministrazione-etat-de-fribourg-givisiez"
         ],
         "en": [
           "employe-e-d-administration-etat-de-fribourg-ch-3"
@@ -1087,7 +1087,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:37:30.280Z",
+      "validThrough": "2027-01-07T21:55:36.168Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1121,7 +1121,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-M%C3%A9diateur-trice-culturel-le-Sari/1374669957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:29.568Z",
+      "crawledAt": "2026-11-04T21:55:35.483Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1174,7 +1174,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:37:29.568Z",
+      "validThrough": "2027-01-11T21:55:35.483Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1208,7 +1208,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Kulturvermittlerin-Saan/1374670057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:28.848Z",
+      "crawledAt": "2026-11-04T21:55:34.801Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1261,7 +1261,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:37:28.848Z",
+      "validThrough": "2027-01-11T21:55:34.801Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1295,7 +1295,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Leiterin-der-Abteilung-Erwerbung-Saan/1374669757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:28.142Z",
+      "crawledAt": "2026-11-04T21:55:34.119Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1350,7 +1350,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:37:28.142Z",
+      "validThrough": "2027-01-11T21:55:34.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1384,7 +1384,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-du-secteur-Acquisitions-Sari/1374669657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:27.415Z",
+      "crawledAt": "2026-11-04T21:55:33.426Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1437,7 +1437,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:37:27.415Z",
+      "validThrough": "2027-01-11T21:55:33.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1471,7 +1471,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Greffier-i%C3%A8re-Stagiaire-Sari/1374701157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:26.716Z",
+      "crawledAt": "2026-11-04T21:55:32.742Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1524,7 +1524,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:37:26.716Z",
+      "validThrough": "2027-01-11T21:55:32.742Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1558,7 +1558,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Forestier-%C3%A8re-en-Gruy%C3%A8re-Gruy/1374734457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:26.022Z",
+      "crawledAt": "2026-11-04T21:55:32.051Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -1611,7 +1611,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:37:26.022Z",
+      "validThrough": "2027-01-11T21:55:32.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1645,7 +1645,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dozentin-FH-ICT-P%C3%A4dagogin-P%C3%A4dagoge-Saan/1374858457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:25.318Z",
+      "crawledAt": "2026-11-04T21:55:31.364Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1698,7 +1698,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:37:25.318Z",
+      "validThrough": "2027-01-12T21:55:31.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1732,7 +1732,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-d'enseignement-HES-Technop%C3%A9dagogue-Sari/1374858357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:24.590Z",
+      "crawledAt": "2026-11-04T21:55:30.692Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1785,7 +1785,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:37:24.590Z",
+      "validThrough": "2027-01-12T21:55:30.692Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1819,7 +1819,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gesch%C3%A4ftsf%C3%BChrender-Direktorin-und-Lektorat-Sek-2-Saan/1374789157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:23.873Z",
+      "crawledAt": "2026-11-04T21:55:30.010Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1874,7 +1874,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:37:23.873Z",
+      "validThrough": "2027-01-12T21:55:30.010Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1908,7 +1908,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Taxateur-trice-fiscal-e-aupr%C3%A8s-du-secteur-Gruy%C3%A8reBroye-Sari/1374943657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:23.172Z",
+      "crawledAt": "2026-11-04T21:55:29.318Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1961,7 +1961,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:37:23.172Z",
+      "validThrough": "2027-01-13T21:55:29.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1995,7 +1995,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1374974857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:22.479Z",
+      "crawledAt": "2026-11-04T21:55:28.630Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2048,7 +2048,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:37:22.479Z",
+      "validThrough": "2027-01-13T21:55:28.630Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2082,7 +2082,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-sp%C3%A9cialis%C3%A9-e-ECAS-Sari/1374974957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:21.785Z",
+      "crawledAt": "2026-11-04T21:55:27.944Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2135,7 +2135,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:37:21.785Z",
+      "validThrough": "2027-01-13T21:55:27.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2169,7 +2169,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-%C3%A9lectronicien-ne-CFC-Sari/1372326157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:21.069Z",
+      "crawledAt": "2026-11-04T21:55:27.253Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2222,7 +2222,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:37:21.069Z",
+      "validThrough": "2026-12-15T21:55:27.253Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2256,7 +2256,7 @@
       "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Verwaltungssachbearbeiterin-beim-Bezirksgericht-der-Sense-Sens/1375376957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:20.367Z",
+      "crawledAt": "2026-11-04T21:55:26.571Z",
       "addressLocality": "Tafers",
       "postalCode": "1712",
       "addressCountry": "CH",
@@ -2314,7 +2314,7 @@
       "addressRegion": "FR",
       "streetAddress": "Tafers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:20.367Z",
+      "validThrough": "2027-01-18T21:55:26.571Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2348,7 +2348,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Biblioth%C3%A9caire-et-chef-fe-de-groupe-Sari/1375358757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:19.664Z",
+      "crawledAt": "2026-11-04T21:55:25.871Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2401,7 +2401,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:37:19.664Z",
+      "validThrough": "2027-01-18T21:55:25.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2435,7 +2435,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Bibliothekarin-und-Gruppenleiterin-Saan/1375358657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:18.967Z",
+      "crawledAt": "2026-11-04T21:55:25.180Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2490,7 +2490,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:37:18.967Z",
+      "validThrough": "2027-01-18T21:55:25.180Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2524,7 +2524,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Employ%C3%A9-e-d'administration-%C3%A0-l'ORP-Nord%2C-district-Lac-Lac/1375355657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:18.248Z",
+      "crawledAt": "2026-11-04T21:55:24.488Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -2577,7 +2577,7 @@
       "addressRegion": "FR",
       "streetAddress": "Morat",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:18.248Z",
+      "validThrough": "2027-01-18T21:55:24.488Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2611,7 +2611,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Verwaltungsangestellter-beim-RAV-Nord-Seebezirk-See/1375355757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:17.533Z",
+      "crawledAt": "2026-11-04T21:55:23.794Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -2664,7 +2664,7 @@
       "addressRegion": "FR",
       "streetAddress": "Morat",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:17.533Z",
+      "validThrough": "2027-01-18T21:55:23.794Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2698,7 +2698,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Diplomierter-administrativer-Mitarbeiterin%2C-Kommunikationsbeauftragter-Saan/1375354057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:16.802Z",
+      "crawledAt": "2026-11-04T21:55:23.104Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2751,7 +2751,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:37:16.802Z",
+      "validThrough": "2027-01-18T21:55:23.104Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2785,7 +2785,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-dipl%C3%B4m%C3%A9-e-charg%C3%A9-e-de-communication-Sari/1375353957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:16.095Z",
+      "crawledAt": "2026-11-04T21:55:22.419Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2838,7 +2838,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:37:16.095Z",
+      "validThrough": "2027-01-18T21:55:22.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2872,7 +2872,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-HR-Saan/1375441857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:15.393Z",
+      "crawledAt": "2026-11-04T21:55:21.738Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2925,7 +2925,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:37:15.393Z",
+      "validThrough": "2027-01-19T21:55:21.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2959,7 +2959,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-en-Ressources-humaines-Sari/1375441757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:14.691Z",
+      "crawledAt": "2026-11-04T21:55:21.058Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3012,7 +3012,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:37:14.691Z",
+      "validThrough": "2027-01-19T21:55:21.058Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3046,7 +3046,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Secr%C3%A9taire-de-Procureur-Sari/1375598757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:13.925Z",
+      "crawledAt": "2026-11-04T21:55:20.371Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3099,7 +3099,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:13.925Z",
+      "validThrough": "2027-01-20T21:55:20.371Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3124,7 +3124,7 @@
       "description": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant :  CLIQUEZ SUR CE LIEN POUR POSTULER .  N ’utilisez  pas   les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année) ainsi que d'une l ettre de soutien ou de recommandation d'une organisation de travailleurs (art. 55 LJ).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription du poste\n\nLes assesseur-e-s sont des juges non professionnels-les qui disposent d'une compétence décisionnelle en matière judiciaire ( art. 4 LJ ). Un-e assesseur-e est convoqué-e en fonction des besoins de l'autorité concernée. Il/elle perçoit des indemnités de séances conformément à l' art. 79a RJ . Les assesseur-e-s sont élu-e-s par le Grand Conseil, sur préavis du Conseil de la magistrature qui met au concours pour le Grand Conseil les fonctions judiciaires ( art. 12 LJ ).  Les assesseur-e-s des tribunaux des prud'hommes sont choisis paritairement au sein des organisations patronales et au sein des organisations de travailleurs ( art. 55 LJ ).\n\nProfil souhaité\n\n• Etre membre d'une organisation de travailleurs (Art. 55 al. 2 LJ) . Lettre de soutien ou de recommandation de l'organisation à produire\n\n• Domicile dans la circonscription judiciaire concernée (Veveyse)\n\n• Les candidat-e-s doivent jouir de suffisamment de disponibilité pour la fonction (des séances peuvent avoir lieu en journée)\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue française avec des connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch",
       "descriptionByLocale": {
         "it": "Come Applicare\n\nPer richiedere questa posizione, utilizzare il seguente link solo: CLICCA SU QUESTO LINK A POSIZIONE . Non utilizzare i pulsanti \"Applica\" in alto e in basso di questa pagina: la cartella non verrà elaborata. Applicare direttamente inviando i documenti via e-mail a CMcandidatures@en.ch .\n\nFile di applicazione\n\nLe domande devono essere accompagnate da una lettera di presentazione, un breve curriculum vitae, estratti dal verbale penale e dall'Ufficio delle recenti persecuzioni (datato meno di un anno) nonché da una dichiarazione di sostegno o raccomandazione di un'organizzazione operaia (art. 55 LJ).\n\nNon dimenticate di completare il modulo ad hoc citato sul sito del Consiglio giudiziario.\n\nDescrizione del post\n\nI valutatori sono giudici non professionali che hanno competenza decisionale in materia giudiziaria (art. 4 LJ). Il valutatore è convocato secondo le esigenze dell'autorità interessata. Riceverà indennità di riunione ai sensi dell'art. 79a RJ . I valutatori sono eletti dal Gran Consiglio, su avviso del Consiglio giudiziario, che contesta il Gran Consiglio con funzioni giurisdizionali (art. 12 LJ). I valutatori dei tribunali del lavoro sono scelti congiuntamente nelle organizzazioni dei datori di lavoro e nelle organizzazioni dei lavoratori (art. 55 LJ).\n\nProfilo desiderato\n\n• Essere membro di un'organizzazione operaia (art. 55, par. 2 LJ). Lettera di sostegno o raccomandazione dell'organizzazione da produrre\n\n• Casa nel distretto giudiziario interessato (Veveyse)\n\n• I candidati devono avere sufficiente disponibilità per la funzione (le sessioni possono avere luogo durante il giorno)\n\n• Cittadinanza attiva a livello cantonale. Le persone di nazionalità straniera devono possedere un permesso di stabilimento e sono state domiciliate nel cantone per almeno cinque anni. I candidati non devono essere oggetto di un atto di mancanza di proprietà, non sono stati condannati per atti incompatibili con la funzione\n\n• Padroneggiare la lingua francese con la conoscenza del tedesco\n\nInformazioni di contatto\n\nCMcandidatures@en.ch",
-        "en": "How to Apply\n\nPlease note: To apply for this position, use the following link only: CLICK ON THIS LINK TO POSITION . Do not use the \"Apply\" buttons at the top and bottom of this page: your folder would not be processed. Apply directly by sending your documents by e-mail to CMcandidatures@en.ch .\n\nApplication file\n\nApplications must be accompanied by a cover letter, a brief curriculum vitae, extracts from the criminal record and from the Office of recent prosecutions (dated less than one year) as well as a statement of support or recommendation from a workers' organization (art. 55 LJ).\n\nDo not forget to complete the ad hoc form mentioned on the website of the Judicial Council.\n\nDescription of post\n\nThe assessors are non-professional judges who have decision-making competence in judicial matters (art. 4 LJ). An assessor shall be summoned according to the needs of the authority concerned. He/she shall receive meeting allowances in accordance with Art. 79a RJ . The assessors shall be elected by the Grand Council, on notice of the Judicial Council, which shall contest the Grand Council with judicial functions (Art. 12 LJ). The assessors of the courts of labour are chosen jointly within employers' organisations and within workers' organisations (art. 55 LJ).\n\nProfile desired\n\n• Be a member of a workers' organization (Art. 55 para. 2 LJ). Letter of support or recommendation from the organization to be produced\n\n• Home in the judicial district concerned (Veveyse)\n\n• Candidates must have sufficient availability for the function (sessions may take place during the day)\n\n• Citizenship active on the cantonal level. Persons of foreign nationality must hold an establishment permit and have been domiciled in the canton for at least five years. Candidates must not be the subject of an act of lack of property, not have been criminally sentenced for acts incompatible with the function\n\n• Mastering the French language with knowledge of German\n\nContact details\n\nCMcandidatures@en.ch",
+        "en": "How to Apply\n\nPlease note: To apply for this position, use the following link only: CLICK ON THIS LINK TO POSITION . Do not use the \"Apply\" buttons at the top and bottom of this page: your folder would not be processed. Apply directly by sending your documents by e-mail to CMcandidatures@en.ch .\n\nApplication file\n\nApplications must be accompanied by a cover letter, a brief curriculum vitae, extracts from the criminal record and from the Office of recent prosecutions (dated less than one year) as well as a statement of support or recommendation from a workers' organization (art. 55 LJ).\n\nDo not forget to complete the ad hoc form mentioned on the website of the Judicial Council.\n\nDescription of post\n\nThe assessors are non-professional judges who have decision-making competence in judicial matters (art. 4 LJ). An assessor shall be summoned according to the needs of the authority concerned. He/she shall receive meeting allowances in accordance with Art. 79a RJ . The assessors shall be elected by the Grand Council, on notice of the Judicial Council, which shall contest the Grand Council with judicial functions (Art. 12 LJ). The assessors of the courts of labour are chosen jointly within employers' organisations and within workers' organisations (art. 55 LJ).\n\nProfile desired\n\n• Be a member of a workers' organization (Art. 55 para. 2 LJ). Letter of support or recommendation from the organization to be produced\n\n• Home in the judicial district concerned (Veveyse)\n\n• Candidates must have sufficient availability for the",
         "de": "Wie man anwendet\n\nBitte beachten Sie: Um sich für diese Position zu bewerben, verwenden Sie nur den folgenden Link: KLICKEN AUF DIESEM LINK ZU POSITION . Verwenden Sie die Schaltflächen \"Anwenden\" oben und unten auf dieser Seite nicht: Ihr Ordner wird nicht verarbeitet. Bewerben Sie sich direkt, indem Sie Ihre Unterlagen per E-Mail an CMcandidatures@en.ch senden.\n\nAntragsunterlagen\n\nDen Anträgen sind ein Anschreiben, ein kurzer Lebenslauf, Auszüge aus dem Strafregister und aus dem Amt der jüngsten Strafverfolgung (weniger als ein Jahr) sowie eine Unterstützungs- oder Empfehlungserklärung einer Arbeitnehmerorganisation (Art. 55 LJ) beizufügen.\n\nVergessen Sie nicht, das auf der Website des Justizrates erwähnte Ad-hoc-Formular auszufüllen.\n\nBeschreibung der Post\n\nDie Assessoren sind nichtberufliche Richter, die Entscheidungskompetenz in gerichtlichen Angelegenheiten haben (Art. 4 LJ). Ein Bewerter wird entsprechend den Bedürfnissen der betreffenden Behörde vorgeladen. Er erhält Sitzungszulagen gemäß Art. 79a RJ. Die Bewerter werden vom Großen Rat auf Veranlassung des Gerichtsrates gewählt, der den Großen Rat mit gerichtlichen Aufgaben anfechtet (Art. 12 LJ). Die Bewerter der Arbeitsgerichte werden gemeinsam innerhalb der Arbeitgeberverbände und innerhalb der Arbeitnehmerverbände ausgewählt (Art. 55 LJ).\n\nProfil gewünscht\n\n• Mitglied einer Arbeiterorganisation sein (Art. 55 Abs. 2 LJ). Unterstützungs- oder Empfehlungsschreiben der zu erstellenden Organisation\n\n• Haus im betroffenen Gerichtsbezirk (Veveyse)\n\n• Kandidaten müssen für die Funktion ausreichend verfügbar sein (Sitzungen können tagsüber stattfinden)\n\n• Staatsbürgerschaft aktiv auf kantonaler Ebene. Personen mit ausländischer Staatsangehörigkeit müssen eine Niederlassungserlaubnis besitzen und seit mindestens fünf Jahren im Kanton ansässig sein. Kandidaten dürfen nicht Gegenstand einer Handlung des Eigentumsmangels sein, nicht wegen Handlungen strafrechtlich verurteilt worden sein, die mit der Funktion unvereinbar sind\n\n• Beherrschung der französischen Sprache mit Deutschkenntnissen\n\nKontaktdaten\n\nCMcandidatures@de.ch",
         "fr": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant : CLIQUEZ SUR CE LIEN POUR POSTULER . N ’utilisez pas les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année) ainsi que d'une l ettre de soutien ou de recommandation d'une organisation de travailleurs (art. 55 LJ).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription du poste\n\nLes assesseur-e-s sont des juges non professionnels-les qui disposent d'une compétence décisionnelle en matière judiciaire ( art. 4 LJ ). Un-e assesseur-e est convoqué-e en fonction des besoins de l'autorité concernée. Il/elle perçoit des indemnités de séances conformément à l' art. 79a RJ . Les assesseur-e-s sont élu-e-s par le Grand Conseil, sur préavis du Conseil de la magistrature qui met au concours pour le Grand Conseil les fonctions judiciaires ( art. 12 LJ ). Les assesseur-e-s des tribunaux des prud'hommes sont choisis paritairement au sein des organisations patronales et au sein des organisations de travailleurs ( art. 55 LJ ).\n\nProfil souhaité\n\n• Etre membre d'une organisation de travailleurs (Art. 55 al. 2 LJ) . Lettre de soutien ou de recommandation de l'organisation à produire\n\n• Domicile dans la circonscription judiciaire concernée (Veveyse)\n\n• Les candidat-e-s doivent jouir de suffisamment de disponibilité pour la fonction (des séances peuvent avoir lieu en journée)\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue française avec des connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch"
       },
@@ -3133,7 +3133,7 @@
       "url": "https://jobs.fr.ch/job/Ch%C3%A2tel-St-Denis%2C-CH-Assesseur-e-suppl%C3%A9ant-e-%28travailleurs%29-au-Tribunal-des-prud'hommes-de-la-Veveyse-Veve/1375603257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:13.118Z",
+      "crawledAt": "2026-11-04T21:55:19.689Z",
       "addressLocality": "Châtel-St-Denis",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3183,7 +3183,7 @@
       "addressRegion": "FR",
       "streetAddress": "Châtel-St-Denis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:37:13.118Z",
+      "validThrough": "2027-01-20T21:55:19.689Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3217,7 +3217,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Service-acad%C3%A9mique-Sari/1375539357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:12.381Z",
+      "crawledAt": "2026-11-04T21:55:18.979Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3270,7 +3270,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:12.381Z",
+      "validThrough": "2027-01-20T21:55:18.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3304,7 +3304,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Administrativer-Mitarbeiterin-Studiensekretariat-Saan/1375539457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:11.650Z",
+      "crawledAt": "2026-11-04T21:55:18.291Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3357,7 +3357,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:11.650Z",
+      "validThrough": "2027-01-20T21:55:18.291Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3391,7 +3391,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-groupe-aupr%C3%A8s-du-secteur-encaissement-et-contentieux-Sari/1375615657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:10.952Z",
+      "crawledAt": "2026-11-04T21:55:17.595Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3444,7 +3444,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:10.952Z",
+      "validThrough": "2027-01-20T21:55:17.595Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3478,7 +3478,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gruppenleiterin%2C-Abteilung-Steuerbezug-und-Steuerausst%C3%A4nde-Saan/1375615757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:10.240Z",
+      "crawledAt": "2026-11-04T21:55:16.925Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3533,7 +3533,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:10.240Z",
+      "validThrough": "2027-01-20T21:55:16.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3567,7 +3567,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Enteignungskommission-Saan/1375602457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:09.551Z",
+      "crawledAt": "2026-11-04T21:55:16.250Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3617,7 +3617,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:09.551Z",
+      "validThrough": "2027-01-20T21:55:16.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3651,7 +3651,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-aupr%C3%A8s-de-la-Commission-d'expropriation-Sari/1375602557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:08.863Z",
+      "crawledAt": "2026-11-04T21:55:15.564Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3701,7 +3701,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:37:08.863Z",
+      "validThrough": "2027-01-20T21:55:15.564Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3735,7 +3735,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lernende-KauffrauKaufmann-EBA-EFZ-Saan/1370294857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:08.166Z",
+      "crawledAt": "2026-11-04T21:55:14.883Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3794,7 +3794,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:37:08.166Z",
+      "validThrough": "2026-12-22T21:55:14.883Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3828,7 +3828,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-AFP-CFC-Sari/1370294757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:07.458Z",
+      "crawledAt": "2026-11-04T21:55:14.203Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3909,7 +3909,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:37:07.458Z",
+      "validThrough": "2026-12-22T21:55:14.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3943,7 +3943,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Architecte-de-domaine-Formation%2C-affaires-culturelles-et-sport-%28ICT-Architect%29-Sari/1375936257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:06.759Z",
+      "crawledAt": "2026-11-04T21:55:13.493Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3996,7 +3996,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:06.759Z",
+      "validThrough": "2027-01-25T21:55:13.493Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4030,7 +4030,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Verwaltungsmitarbeiterin-Weiterbildung-See/1375938757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:37:06.066Z",
+      "crawledAt": "2026-11-04T21:55:12.815Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -4083,7 +4083,7 @@
       "addressRegion": "FR",
       "streetAddress": "Mont-Vully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:06.066Z",
+      "validThrough": "2027-01-25T21:55:12.815Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4117,7 +4117,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Collaborateur-trice-administratif-ive-%C3%A0-la-formation-Lac/1375938657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:05.314Z",
+      "crawledAt": "2026-11-04T21:55:12.136Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -4170,7 +4170,7 @@
       "addressRegion": "FR",
       "streetAddress": "Mont-Vully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:05.314Z",
+      "validThrough": "2027-01-25T21:55:12.136Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4204,7 +4204,7 @@
       "url": "https://jobs.fr.ch/job/Estavayer-le-Lac%2C-CH-Huissier-%C3%A8re-Broy/1375937857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:04.597Z",
+      "crawledAt": "2026-11-04T21:55:11.445Z",
       "addressLocality": "Estavayer-le-Lac",
       "postalCode": "1470",
       "addressCountry": "CH",
@@ -4257,7 +4257,7 @@
       "addressRegion": "FR",
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:04.597Z",
+      "validThrough": "2027-01-25T21:55:11.445Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4291,7 +4291,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Chef-fe-du-projet-informatique-%28ICT-Project-leader%29-Sari/1375963257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:03.892Z",
+      "crawledAt": "2026-11-04T21:55:10.762Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4344,7 +4344,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:03.892Z",
+      "validThrough": "2027-01-25T21:55:10.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4378,7 +4378,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assesseur-e-au-Tribunal-d'arrondissement-de-la-Sarine-Sari/1375905957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:03.169Z",
+      "crawledAt": "2026-11-04T21:55:10.082Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4428,7 +4428,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:37:03.169Z",
+      "validThrough": "2027-01-25T21:55:10.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4462,7 +4462,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-de-la-Commission-de-recours-en-mati%C3%A8re-de-premier-relev%C3%A9-et-de-renouvellement-Sari/1375905657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:02.470Z",
+      "crawledAt": "2026-11-04T21:55:09.340Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4512,7 +4512,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:37:02.470Z",
+      "validThrough": "2027-01-25T21:55:09.340Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4546,7 +4546,7 @@
       "url": "https://jobs.fr.ch/job/Ch%C3%A2tel-St-Denis%2C-CH-Greffier-%C3%A8re-de-1%C3%A8re-instance-Veve/1375950757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:01.754Z",
+      "crawledAt": "2026-11-04T21:55:08.635Z",
       "addressLocality": "Châtel-St-Denis",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4599,7 +4599,7 @@
       "addressRegion": "FR",
       "streetAddress": "Châtel-St-Denis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:01.754Z",
+      "validThrough": "2027-01-25T21:55:08.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4633,7 +4633,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Greffier-%C3%A8re-p%C3%A9nal-e-de-1%C3%A8re-instance-Sari/1375904857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:01.035Z",
+      "crawledAt": "2026-11-04T21:55:07.946Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -4686,7 +4686,7 @@
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:01.035Z",
+      "validThrough": "2027-01-25T21:55:07.946Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4720,7 +4720,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juges-suppl%C3%A9ant-e-s-au-Tribunal-cantonal-Sari/1375905757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:37:00.317Z",
+      "crawledAt": "2026-11-04T21:55:07.267Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4770,7 +4770,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:37:00.317Z",
+      "validThrough": "2027-01-25T21:55:07.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4804,7 +4804,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Beisitzerin-beim-Bezirksgericht-des-Saanebezirks-Saan/1375906057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:59.614Z",
+      "crawledAt": "2026-11-04T21:55:06.578Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4854,7 +4854,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:36:59.614Z",
+      "validThrough": "2027-01-25T21:55:06.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4888,7 +4888,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ersatzrichterinnen-beim-Kantonsgericht-Saan/1375905857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:58.903Z",
+      "crawledAt": "2026-11-04T21:55:05.885Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4938,7 +4938,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:36:58.903Z",
+      "validThrough": "2027-01-25T21:55:05.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4972,7 +4972,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Rekurskommission-f%C3%BCr-die-Ersterhebung-und-Erneuerung-Saan/1375905557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:58.190Z",
+      "crawledAt": "2026-11-04T21:55:05.212Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5024,7 +5024,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:36:58.190Z",
+      "validThrough": "2027-01-25T21:55:05.212Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5058,7 +5058,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Secr%C3%A9taire-de-juge-Gruy/1376047357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:57.445Z",
+      "crawledAt": "2026-11-04T21:55:04.516Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -5111,7 +5111,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:36:57.445Z",
+      "validThrough": "2027-01-26T21:55:04.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5145,7 +5145,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-Cultures-mara%C3%AEch%C3%A8res-Lac/1376046957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:56.707Z",
+      "crawledAt": "2026-11-04T21:55:03.827Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -5198,7 +5198,7 @@
       "addressRegion": "FR",
       "streetAddress": "Mont-Vully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:36:56.707Z",
+      "validThrough": "2027-01-26T21:55:03.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5232,7 +5232,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Sektion-Gem%C3%BCsebau-See/1376047057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:56.009Z",
+      "crawledAt": "2026-11-04T21:55:03.133Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -5292,7 +5292,7 @@
       "addressRegion": "FR",
       "streetAddress": "Mont-Vully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:36:56.009Z",
+      "validThrough": "2027-01-26T21:55:03.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5326,7 +5326,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-FachfrauFachmann-Betriebsunterhalt-Hauswartin-Saan/1376086757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:55.309Z",
+      "crawledAt": "2026-11-04T21:55:02.423Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5379,7 +5379,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:36:55.309Z",
+      "validThrough": "2027-01-26T21:55:02.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5413,7 +5413,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Agent-e-d'exploitation-Concierge-Sari/1376086657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:54.607Z",
+      "crawledAt": "2026-11-04T21:55:01.734Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5466,7 +5466,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:36:54.607Z",
+      "validThrough": "2027-01-26T21:55:01.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5500,7 +5500,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-in-Microbiology-Sari/1376052157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:53.911Z",
+      "crawledAt": "2026-11-04T21:55:01.060Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5553,7 +5553,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:36:53.911Z",
+      "validThrough": "2027-01-26T21:55:01.060Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5587,7 +5587,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-in-Microbiology-Saan/1376052257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:53.220Z",
+      "crawledAt": "2026-11-04T21:55:00.375Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5642,7 +5642,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:36:53.220Z",
+      "validThrough": "2027-01-26T21:55:00.375Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5676,7 +5676,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dozentin-FH-Saan/1376195857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:52.514Z",
+      "crawledAt": "2026-11-04T21:54:59.702Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5729,7 +5729,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:36:52.514Z",
+      "validThrough": "2027-01-27T21:54:59.702Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5763,7 +5763,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-d'enseignement-HES-Sari/1376195757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:51.805Z",
+      "crawledAt": "2026-11-04T21:54:59.021Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5816,7 +5816,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:36:51.805Z",
+      "validThrough": "2027-01-27T21:54:59.021Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5850,7 +5850,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Doktorandin-mit-Schwerpunkt-Nachhaltigkeit-Saan/1376218957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:51.109Z",
+      "crawledAt": "2026-11-04T21:54:58.322Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5903,7 +5903,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:36:51.109Z",
+      "validThrough": "2027-01-27T21:54:58.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5937,7 +5937,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Doctorant-e-sp%C3%A9cialis%C3%A9-e-en-durabilit%C3%A9-Sari/1376218857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:50.400Z",
+      "crawledAt": "2026-11-04T21:54:57.642Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5990,7 +5990,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:36:50.400Z",
+      "validThrough": "2027-01-27T21:54:57.642Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6024,7 +6024,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1373581157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:49.711Z",
+      "crawledAt": "2026-11-04T21:54:56.960Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6079,7 +6079,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:36:49.711Z",
+      "validThrough": "2026-12-29T21:54:56.960Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6113,7 +6113,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1373581257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:49.016Z",
+      "crawledAt": "2026-11-04T21:54:56.282Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6170,7 +6170,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:36:49.016Z",
+      "validThrough": "2026-12-29T21:54:56.282Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6204,7 +6204,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Aspirant%C2%B7e-de-police-Sari/1370891057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:48.287Z",
+      "crawledAt": "2026-11-04T21:54:55.604Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -6254,7 +6254,7 @@
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:36:48.287Z",
+      "validThrough": "2026-12-29T21:54:55.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6288,7 +6288,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Polizeiaspirant%C2%B7in-Saan/1370891157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:47.565Z",
+      "crawledAt": "2026-11-04T21:54:54.927Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -6335,7 +6335,7 @@
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:36:47.565Z",
+      "validThrough": "2026-12-29T21:54:54.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6369,7 +6369,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Academic-Associate-UAS-Mechanochemical-Process-Development-Sari/1373598257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:46.864Z",
+      "crawledAt": "2026-11-04T21:54:54.250Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6422,7 +6422,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:36:46.864Z",
+      "validThrough": "2026-12-29T21:54:54.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6456,7 +6456,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Mitarbeiter-in-am-Empfang-des-Geb%C3%A4udes-EVA-Saan/1376302457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:46.159Z",
+      "crawledAt": "2026-11-04T21:54:53.575Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -6511,7 +6511,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:36:46.159Z",
+      "validThrough": "2027-01-28T21:54:53.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6545,7 +6545,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-%C3%A0-la-r%C3%A9ception-du-b%C3%A2timent-EVA-Sari/1376302357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:45.454Z",
+      "crawledAt": "2026-11-04T21:54:52.894Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -6598,7 +6598,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:36:45.454Z",
+      "validThrough": "2027-01-28T21:54:52.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6632,7 +6632,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Surveillant-e-de-Biblioth%C3%A8que-Sari/1376299657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:44.750Z",
+      "crawledAt": "2026-11-04T21:54:52.200Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6685,7 +6685,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:44.750Z",
+      "validThrough": "2027-01-28T21:54:52.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6719,7 +6719,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Projektleiterin-Infrastrukturen-Strassenmobilit%C3%A4t-Saan/1376285157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:44.049Z",
+      "crawledAt": "2026-11-04T21:54:51.519Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6774,7 +6774,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:44.049Z",
+      "validThrough": "2027-01-28T21:54:51.519Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6808,7 +6808,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-projets-Infrastructures-de-mobilit%C3%A9-routi%C3%A8re-Sari/1376285057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:43.337Z",
+      "crawledAt": "2026-11-04T21:54:50.835Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6861,7 +6861,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:43.337Z",
+      "validThrough": "2027-01-28T21:54:50.835Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6895,7 +6895,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1376303857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:42.563Z",
+      "crawledAt": "2026-11-04T21:54:50.159Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6950,7 +6950,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:42.563Z",
+      "validThrough": "2027-01-28T21:54:50.159Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6984,7 +6984,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1376303957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:41.852Z",
+      "crawledAt": "2026-11-04T21:54:49.470Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7043,7 +7043,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:41.852Z",
+      "validThrough": "2027-01-28T21:54:49.470Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7077,7 +7077,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gerichtsschreiberpraktikantin-beim-Kantonsgericht-Freiburg-Saan/1376575457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:41.124Z",
+      "crawledAt": "2026-11-04T21:54:48.763Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7113,7 +7113,6 @@
           "gerichtsschreiberpraktikant-in-beim-kantonsgericht-freiburg-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-03T22:05:18.272Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7131,41 +7130,41 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:36:41.124Z",
+      "validThrough": "2027-02-01T21:54:48.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "etat-de-fribourg-06bfd4767d60",
       "slug": "registratore-post-master-traine-etat-de-fribourg-morat",
       "slugByLocale": {
-        "fr": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch",
         "it": "registratore-post-master-traine-etat-de-fribourg-morat",
         "en": "registrar-post-master-trainee-etat-de-fribourg-morat",
-        "de": "registrar-postmaster-trainee-etat-de-fribourg-morat"
+        "de": "registrar-postmaster-trainee-etat-de-fribourg-morat",
+        "fr": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
       "companyDomain": "fr.ch",
       "title": "Greffier-ère - stagiaire post-master",
       "titleByLocale": {
-        "fr": "Greffier-ère - stagiaire post-master",
         "it": "Registratore - post-master traine",
         "en": "Registrar - post-master trainee",
-        "de": "Registrar - Postmaster Trainee"
+        "de": "Registrar - Postmaster Trainee",
+        "fr": "Greffier-ère - stagiaire post-master"
       },
       "description": "Qui sommes-nous?\n\nLe canton de Fribourg comprend sept tribunaux d'arrondissement, dont les sièges se trouvent à Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac et Châtel-Saint-Denis (cinq de langue française, un de langue allemande et un bilingue). Chaque tribunal est composé d'un ou d’une ou de plusieurs présidents et présidentes, d’assesseur-e-s et de greffiers et greffières. Les présidents et présidentes sont des magistrats et magistrates professionnels. Les assesseur-e-s sont des juges laïcs exerçant leur fonction à titre accessoire. Les tribunaux d'arrondissement siègent comme tribunal civil ou comme tribunal pénal et ils forment en outre plusieurs juridictions (tribunal des prud'hommes, tribunal des baux, etc.).\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Rédaction en langue française de prononcés, décisions et de jugements en matière civil et pénale\n\n• Participation aux séances ainsi qu'aux délibérations\n\n• Préparation et tenue de procès verbaux en français\n\n• Informations aux tiers\n\n• Recherches juridiques\n\nProfil souhaité\n\n• Diplôme en droit en droit (MLaw)\n\n• Grande aisance rédactionnelle en français\n\n• Bonnes connaissances des outils informatiques de base (notamment MS Office)\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nchristina.joller@fr.ch, cindy.cao@fr.ch",
       "descriptionByLocale": {
-        "fr": "Qui sommes-nous?\n\nLe canton de Fribourg comprend sept tribunaux d'arrondissement, dont les sièges se trouvent à Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac et Châtel-Saint-Denis (cinq de langue française, un de langue allemande et un bilingue). Chaque tribunal est composé d'un ou d’une ou de plusieurs présidents et présidentes, d’assesseur-e-s et de greffiers et greffières. Les présidents et présidentes sont des magistrats et magistrates professionnels. Les assesseur-e-s sont des juges laïcs exerçant leur fonction à titre accessoire. Les tribunaux d'arrondissement siègent comme tribunal civil ou comme tribunal pénal et ils forment en outre plusieurs juridictions (tribunal des prud'hommes, tribunal des baux, etc.).\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Rédaction en langue française de prononcés, décisions et de jugements en matière civil et pénale\n\n• Participation aux séances ainsi qu'aux délibérations\n\n• Préparation et tenue de procès verbaux en français\n\n• Informations aux tiers\n\n• Recherches juridiques\n\nProfil souhaité\n\n• Diplôme en droit en droit (MLaw)\n\n• Grande aisance rédactionnelle en français\n\n• Bonnes connaissances des outils informatiques de base (notamment MS Office)\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nchristina.joller@fr.ch, cindy.cao@fr.ch",
         "it": "Chi siamo?\n\nIl cantone di Fribourg comprende sette tribunali distrettuali, con sede a Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac e Châtel-Saint-Denis (cinque francofoni, una lingua tedesca e una bilingue). Ogni tribunale è composto da uno o più presidenti e presidenti, valutatori e impiegati e impiegati. I presidenti sono magistrati e magistrati professionali. I valutatori sono giudici laici che agiscono in una capacità accessoria. I tribunali distrettuali siedono come un tribunale civile o come un tribunale penale, e formano anche diversi tribunali (corte di lavoro, tribunali di locazione, ecc.).\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Scrivere in francese di sentenze, decisioni e giudizi in materia civile e penale\n\n• Partecipazione a riunioni e deliberazioni\n\n• Preparazione e manutenzione dei minuti in francese\n\n• Informazioni a terzi\n\n• Ricerca legale\n\nProfilo desiderato\n\n• Laurea in giurisprudenza (MLaw)\n\n• Grande convenienza editoriale in francese\n\n• Buona conoscenza degli strumenti IT di base (compreso MS Office)\n\n• Mastery della lingua francese con buona conoscenza del tedesco\n\nInformazioni di contatto\n\nchristina.joller@fr.ch, cindy.cao@fr.ch",
         "en": "Who are we?\n\nThe canton of Fribourg comprises seven district courts, with seats in Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac and Châtel-Saint-Denis (five French-speaking, one German-speaking and one bilingual). Each court shall consist of one or more presidents and presidents, assessors and clerks and clerks. The presidents are professional magistrates and magistrates. The assessors are lay judges acting in an ancillary capacity. The district courts sit as a civil court or as a criminal court, and they also form several courts (courts of labour, courts of leases, etc.).\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• Writing in French of judgments, decisions and judgements in civil and criminal matters\n\n• Participation in meetings and deliberations\n\n• Preparation and maintenance of minutes in French\n\n• Information to third parties\n\n• Legal research\n\nProfile desired\n\n• Law degree (MLaw)\n\n• Great editorial convenience in French\n\n• Good knowledge of basic IT tools (including MS Office)\n\n• Mastery of the French language with good knowledge of German\n\nContact details\n\nchristina.joller@fr.ch, cindy.cao@fr.ch",
-        "de": "Wer sind wir?\n\nDer Kanton Freiburg umfasst sieben Bezirksgerichte mit Sitzen in Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac und Châtel-Saint-Denis (fünf französischsprachige, ein deutschsprachiges und ein zweisprachiges). Jedes Gericht besteht aus einem oder mehreren Präsidenten und Präsidenten, Gutachtern sowie Sachbearbeitern und Sachbearbeitern. Die Präsidenten sind professionelle Richter und Richter. Die Bewerter sind Laienrichter, die in untergeordneter Funktion handeln. Die Bezirksgerichte sitzen als Zivilgericht oder als Strafgericht und bilden auch mehrere Gerichte (Arbeitsgerichte, Pachtgerichte usw.).\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Zustand Freiburgs zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Schreiben auf Französisch von Urteilen, Entscheidungen und Urteilen in Zivil- und Strafsachen\n\n• Teilnahme an Sitzungen und Beratungen\n\n• Vorbereitung und Pflege von Minuten auf Französisch\n\n• Unterrichtung Dritter\n\n• Juristische Forschung\n\nProfil gewünscht\n\n• Jurastudium (MLaw)\n\n• Große redaktionelle Bequemlichkeit auf Französisch\n\n• Gute Kenntnisse der grundlegenden IT-Tools (einschließlich MS Office)\n\n• Beherrschung der französischen Sprache mit guten Deutschkenntnissen\n\nKontaktdaten\n\nchristina.joller@fr.ch, cindy.cao@fr.ch"
+        "de": "Wer sind wir?\n\nDer Kanton Freiburg umfasst sieben Bezirksgerichte mit Sitzen in Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac und Châtel-Saint-Denis (fünf französischsprachige, ein deutschsprachiges und ein zweisprachiges). Jedes Gericht besteht aus einem oder mehreren Präsidenten und Präsidenten, Gutachtern sowie Sachbearbeitern und Sachbearbeitern. Die Präsidenten sind professionelle Richter und Richter. Die Bewerter sind Laienrichter, die in untergeordneter Funktion handeln. Die Bezirksgerichte sitzen als Zivilgericht oder als Strafgericht und bilden auch mehrere Gerichte (Arbeitsgerichte, Pachtgerichte usw.).\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Zustand Freiburgs zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Schreiben auf Französisch von Urteilen, Entscheidungen und Urteilen in Zivil- und Strafsachen\n\n• Teilnahme an Sitzungen und Beratungen\n\n• Vorbereitung und Pflege von Minuten auf Französisch\n\n• Unterrichtung Dritter\n\n• Juristische Forschung\n\nProfil gewünscht\n\n• Jurastudium (MLaw)\n\n• Große redaktionelle Bequemlichkeit auf Französisch\n\n• Gute Kenntnisse der grundlegenden IT-Tools (einschließlich MS Office)\n\n• Beherrschung der französischen Sprache mit guten Deutschkenntnissen\n\nKontaktdaten\n\nchristina.joller@fr.ch, cindy.cao@fr.ch",
+        "fr": "Qui sommes-nous?\n\nLe canton de Fribourg comprend sept tribunaux d'arrondissement, dont les sièges se trouvent à Granges-Paccot, Tavel, Bulle, Morat, Romont, Estavayer-le-Lac et Châtel-Saint-Denis (cinq de langue française, un de langue allemande et un bilingue). Chaque tribunal est composé d'un ou d’une ou de plusieurs présidents et présidentes, d’assesseur-e-s et de greffiers et greffières. Les présidents et présidentes sont des magistrats et magistrates professionnels. Les assesseur-e-s sont des juges laïcs exerçant leur fonction à titre accessoire. Les tribunaux d'arrondissement siègent comme tribunal civil ou comme tribunal pénal et ils forment en outre plusieurs juridictions (tribunal des prud'hommes, tribunal des baux, etc.).\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Rédaction en langue française de prononcés, décisions et de jugements en matière civil et pénale\n\n• Participation aux séances ainsi qu'aux délibérations\n\n• Préparation et tenue de procès verbaux en français\n\n• Informations aux tiers\n\n• Recherches juridiques\n\nProfil souhaité\n\n• Diplôme en droit en droit (MLaw)\n\n• Grande aisance rédactionnelle en français\n\n• Bonnes connaissances des outils informatiques de base (notamment MS Office)\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nchristina.joller@fr.ch, cindy.cao@fr.ch"
       },
       "location": "Morat",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Greffier-%C3%A8re-stagiaire-post-master-Lac/1376634657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:36:40.429Z",
+      "crawledAt": "2026-11-04T21:54:48.075Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -7182,13 +7181,26 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1376634657/?locale=fr_FR",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "department": "Tribunal de l'arrondissement du Lac",
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
+      "previousSlugs": [
+        "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-04T09:36:40.429Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7205,23 +7217,8 @@
       "addressRegion": "FR",
       "streetAddress": "Morat",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:36:40.429Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:36:40.429Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
-      ]
+      "validThrough": "2027-02-02T21:54:48.075Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etat-de-fribourg-580fd9d156ff",
@@ -7254,7 +7251,7 @@
       "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Gerichtsschreiberpraktikantin-Sens/1374080057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:36:39.743Z",
+      "crawledAt": "2026-11-04T21:54:47.385Z",
       "addressLocality": "Tafers",
       "postalCode": "1712",
       "addressCountry": "CH",
@@ -7312,7 +7309,7 @@
       "addressRegion": "FR",
       "streetAddress": "Tafers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:36:39.743Z",
+      "validThrough": "2027-01-04T21:54:47.385Z",
       "validThroughSource": "last-observed-window"
     }
   ]

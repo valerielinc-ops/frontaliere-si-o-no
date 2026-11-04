@@ -90,12 +90,17 @@ const SECTOR = 'Amministrazione Pubblica';
 // a headless browser). The city publishes each ad on its own portal
 // ("Arbeiten für Zürich", www.stadt-zuerich.ch), one page per posting,
 // carrying the same Referenz-Nr. as the jobs2web tile's `adcode`. The
-// portal's own search component lists every page in one JSON call.
+// portal's own search component lists every page in one JSON call. The index
+// is a convenience, not the identity source: the current site also exposes a
+// deterministic detail URL by Referenz-Nr., which is used when the old index
+// route is unavailable during a portal migration.
 const OFFICIAL_HOST = 'https://www.stadt-zuerich.ch';
 const OFFICIAL_JOBSEARCH_URL = `${OFFICIAL_HOST}/stzh/jobsearch`;
 const OFFICIAL_JOBSEARCH_COMPONENT =
   '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/jcr:content/mainparsys/jobsearch';
 const OFFICIAL_JOBSEARCH_LIMIT = 2000;
+const OFFICIAL_JOB_DETAIL_PATH =
+  '/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.';
 // A Swiss phone number: the recruiter contact block of each ad.
 const CONTACT_PHONE_RE = /(?:\+41|\b0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}\b/;
 
@@ -346,9 +351,11 @@ function officialAdPublication(html, pageUrl) {
 
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
- * One search call lists every page; each page is then fetched politely.
- * Throws when the portal's index cannot be read: without it no posting has
- * its text, and publishing none would empty the whole board.
+ * Prefer the portal index, then fetch each listed page politely. If the index
+ * route is unavailable, probe the current deterministic detail URL for each
+ * requested reference and accept a page only when its embedded reference is
+ * an exact match. This keeps a portal migration from emptying the board while
+ * refusing to attribute a neighbouring or generic page to a tile.
  *
  * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
  * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
@@ -374,6 +381,9 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit, publicat
     });
     index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
   } catch (err) {
+    console.warn(`  ⚠️ Official ad index unavailable; probing current detail URLs by reference — ${err?.message || err}`);
+    const direct = await fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef);
+    if (direct.size > 0) return direct;
     throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
   }
   const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
@@ -392,6 +402,29 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit, publicat
       }
     } catch (err) {
       console.warn(`  ⚠️ Official ad page failed: ${href} — ${err?.message || err}`);
+    }
+    await new Promise((r) => setTimeout(r, delayMs));
+  }
+  return byRef;
+}
+
+async function fetchOfficialAdTextsByReference(wantedRefs, delayMs, publicationByRef) {
+  const byRef = new Map();
+  const refs = [...wantedRefs].filter((ref) => /^\d+$/.test(String(ref)));
+  for (const ref of refs) {
+    if (wantedRefs.size && [...wantedRefs].every((wantedRef) => byRef.has(String(wantedRef)))) break;
+    const pageUrl = `${OFFICIAL_HOST}${OFFICIAL_JOB_DETAIL_PATH}${encodeURIComponent(ref)}.html`;
+    try {
+      const html = await fetchPage(pageUrl);
+      const parsed = parseOfficialAdPage(html);
+      if (!parsed || parsed.ref !== String(ref)) {
+        console.warn(`  ⚠️ Official ad reference mismatch: expected ${ref}, got ${parsed?.ref || 'none'} — ${pageUrl}`);
+      } else {
+        byRef.set(parsed.ref, parsed.description);
+        publicationByRef?.set(parsed.ref, officialAdPublication(html, pageUrl));
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Official ad page failed: ${pageUrl} — ${err?.message || err}`);
     }
     await new Promise((r) => setTimeout(r, delayMs));
   }

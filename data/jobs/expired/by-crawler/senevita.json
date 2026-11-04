@@ -405,22 +405,26 @@
     "slugByLocale": {
       "it": "servizi-di-cura-100-senevita-zh-zurich",
       "en": "care-services-100-senevita-zh-zurich",
-      "de": "pflegedienstleitung-100-senevita-zh-zurich",
+      "de": "pflegedienstleitung-100-senevita-zh-zurich-d29527c9",
       "fr": "services-de-soins-100-senevita-zh-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-03T09:47:25.581Z",
     "previousSlugs": [
+      "pflegedienstleitung-100-senevita-zh-zurich-d29527c9",
       "pflegedienstleitung-100-senevita-zh-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "pflegedienstleitung-100-senevita-zh-zurich-d29527c9",
         "pflegedienstleitung-100-senevita-zh-zurich"
       ],
       "en": [
+        "pflegedienstleitung-100-senevita-zh-zurich-d29527c9",
         "pflegedienstleitung-100-senevita-zh-zurich"
       ],
       "fr": [
+        "pflegedienstleitung-100-senevita-zh-zurich-d29527c9",
         "pflegedienstleitung-100-senevita-zh-zurich"
       ]
     },
@@ -571,6 +575,11 @@
       "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-2f838e2e",
       "dipl-soins-professionnels-hf-50-100-en-service-de-nuit-senevita-dietikon-zh-576ccc67",
       "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon-90377cef",
+      "dipl-professionista-hf-50-100-in-servizio-notturno-senevita-dietikon-zh-9600e6c5",
+      "dipl-care-professional-hf-50-100-on-night-duty-senevita-dietikon-zh-fe961c70",
+      "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-06bda349",
+      "dipl-soins-professionnels-hf-50-100-en-service-de-nuit-senevita-dietikon-zh-4342441f",
+      "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon-f395a68c",
       "dipl-professionista-hf-50-100-in-servizio-notturno-senevita-dietikon-zh",
       "dipl-care-professional-hf-50-100-on-night-duty-senevita-dietikon-zh",
       "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh",
@@ -637,6 +646,11 @@
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-2f838e2e",
         "dipl-soins-professionnels-hf-50-100-en-service-de-nuit-senevita-dietikon-zh-576ccc67",
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon-90377cef",
+        "dipl-professionista-hf-50-100-in-servizio-notturno-senevita-dietikon-zh-9600e6c5",
+        "dipl-care-professional-hf-50-100-on-night-duty-senevita-dietikon-zh-fe961c70",
+        "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-06bda349",
+        "dipl-soins-professionnels-hf-50-100-en-service-de-nuit-senevita-dietikon-zh-4342441f",
+        "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-zh-dietikon-f395a68c",
         "dipl-professionista-hf-50-100-in-servizio-notturno-senevita-dietikon-zh",
         "dipl-care-professional-hf-50-100-on-night-duty-senevita-dietikon-zh",
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh",
@@ -660,6 +674,7 @@
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-7c732670",
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-f7e2df5b",
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-2f838e2e",
+        "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh-06bda349",
         "dipl-pflegefachperson-hf-50-100-im-nachtdienst-senevita-dietikon-zh"
       ],
       "fr": [
@@ -4016,6 +4031,10 @@
       "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-90ec67d1",
       "professional-health-efz-50-senevita-bern-be-67561922",
       "sante-professionnelle-efz-50-senevita-bern-be-4dba710c",
+      "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be-25055392",
+      "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-717be334",
+      "professional-health-efz-50-senevita-bern-be-12825765",
+      "sante-professionnelle-efz-50-senevita-bern-be-3d797f3b",
       "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be",
       "fachfrau-mann-gesundheit-efz-50-senevita-bern-be",
       "professional-health-efz-50-senevita-bern-be",
@@ -4234,6 +4253,8 @@
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-29c4303c",
         "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be-801c35ab",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-90ec67d1",
+        "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be-25055392",
+        "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-717be334",
         "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
       ],
@@ -4441,6 +4462,8 @@
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-29c4303c",
         "professional-health-efz-50-senevita-bern-be-67561922",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-90ec67d1",
+        "professional-health-efz-50-senevita-bern-be-12825765",
+        "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-717be334",
         "professional-health-efz-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
       ],
@@ -4645,6 +4668,7 @@
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-2e1b317e",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-29c4303c",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-90ec67d1",
+        "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-717be334",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
       ],
       "fr": [
@@ -4851,6 +4875,8 @@
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-29c4303c",
         "sante-professionnelle-efz-50-senevita-bern-be-4dba710c",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-90ec67d1",
+        "sante-professionnelle-efz-50-senevita-bern-be-3d797f3b",
+        "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-717be334",
         "sante-professionnelle-efz-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
       ]
@@ -8417,6 +8443,8 @@
       "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich-94fe18bb",
       "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-52e611cc",
       "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich-cea1813b",
+      "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-53839e73",
+      "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich-442962b7",
       "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
       "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich"
     ],
@@ -8622,6 +8650,8 @@
         "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich-94fe18bb",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-52e611cc",
         "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich-cea1813b",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-53839e73",
+        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich-442962b7",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
         "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich"
       ],
@@ -8726,6 +8756,7 @@
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-3397577c",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-6301ce67",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-52e611cc",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-53839e73",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
       ],
       "fr": [
@@ -8829,6 +8860,7 @@
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-3397577c",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-6301ce67",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-52e611cc",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich-53839e73",
         "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
       ]
     },
@@ -10296,6 +10328,8 @@
       "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel-b426a0b9",
       "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-fad46f65",
       "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel-0ef29c10",
+      "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-a18b8e13",
+      "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel-63c27b3f",
       "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs",
       "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel"
     ],
@@ -10504,6 +10538,8 @@
         "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel-b426a0b9",
         "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-fad46f65",
         "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel-0ef29c10",
+        "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-a18b8e13",
+        "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel-63c27b3f",
         "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs",
         "fachfrau-fachmann-gesundheit-60-100-senevita-bs-basel"
       ],
@@ -10612,6 +10648,7 @@
         "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-cd006b4c",
         "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-0073c055",
         "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-fad46f65",
+        "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs-a18b8e13",
         "fachfrau-fachmann-gesundheit-60-100-senevita-basel-bs"
       ]
     },

@@ -29,7 +29,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { applicationReceipt, applicationStage } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, authPageKind, codeField, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -1585,6 +1585,22 @@ const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
 );
+const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
+  String.raw`inviando la candidatura.{0,100}(?:viene creato|crea).{0,60}profilo utente`,
+  String.raw`submitting (?:the )?application.{0,100}(?:creates?|is created).{0,60}user profile`,
+  String.raw`(?:einreichung|bewerbung).{0,100}(?:benutzerprofil|profil).{0,60}(?:wird erstellt|erstellt)`,
+  String.raw`(?:soumission|envoi) de la candidature.{0,100}(?:crée|créé).{0,60}profil utilisateur`,
+].join('|'), 'iu');
+function isUmantisApplicationRoute(url) {
+  try {
+    const parsed = new URL(String(url || ''));
+    return parsed.protocol === 'https:'
+      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+      && /^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
@@ -1617,7 +1633,12 @@ export function ownAccountForm(snapshot, channelType = '') {
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
-  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
+  const umantisProfileCreatedOnSubmit = channelType === 'umantis'
+    && isUmantisApplicationRoute(snapshot.url)
+    && hasCvFileField
+    && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
+  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot)
+    && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit);
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
@@ -1779,6 +1800,109 @@ function fallbackOption(option, language) {
   return text;
 }
 
+// A provider outage must not strand a standard ATS form whose labels are
+// already part of the portal contract. These are exact German field captions
+// observed on employer-site forms; arbitrary questions still require the
+// translation provider so the candidate never receives an invented meaning.
+const DETERMINISTIC_GERMAN_QUESTION_COPIES = Object.freeze({
+  anrede: { key: 'salutation', it: 'Come preferisci essere indicato/a?', de: 'Anrede', fr: 'Comment souhaitez-vous être appelé·e ?', en: 'How would you like to be addressed?' },
+  vorname: { key: 'first_name', it: 'Nome', de: 'Vorname', fr: 'Prénom', en: 'First name' },
+  nachname: { key: 'last_name', it: 'Cognome', de: 'Nachname', fr: 'Nom de famille', en: 'Last name' },
+  'e mail': { key: 'email', it: 'E-mail', de: 'E-Mail', fr: 'E-mail', en: 'Email' },
+  strasse: { key: 'street', it: 'Via', de: 'Strasse', fr: 'Rue', en: 'Street' },
+  straße: { key: 'street', it: 'Strasse', de: 'Straße', fr: 'Rue', en: 'Street' },
+  hausnummer: { key: 'house_number', it: 'Numero civico', de: 'Hausnummer', fr: 'Numéro', en: 'House number' },
+  plz: { key: 'postal_code', it: 'CAP', de: 'PLZ', fr: 'NPA', en: 'Postal code' },
+  ort: { key: 'city', it: 'Località', de: 'Ort', fr: 'Localité', en: 'City' },
+  land: { key: 'country', it: 'Paese', de: 'Land', fr: 'Pays', en: 'Country' },
+  nationalitat: { key: 'nationality', it: 'Nazionalità', de: 'Nationalität', fr: 'Nationalité', en: 'Nationality' },
+  mobile: { key: 'mobile', it: 'Cellulare', de: 'Mobile', fr: 'Portable', en: 'Mobile phone' },
+  'telefon optional': { key: 'phone_optional', it: 'Telefono (facoltativo)', de: 'Telefon (optional)', fr: 'Téléphone (facultatif)', en: 'Phone (optional)' },
+  geburtstag: { key: 'birth_day', it: 'Giorno di nascita', de: 'Geburtstag', fr: 'Jour de naissance', en: 'Day of birth' },
+  monat: { key: 'birth_month', it: 'Mese di nascita', de: 'Monat', fr: 'Mois de naissance', en: 'Birth month' },
+  jahr: { key: 'birth_year', it: 'Anno di nascita', de: 'Jahr', fr: 'Année de naissance', en: 'Birth year' },
+  'ich akzeptiere die datenschutzerklarung': {
+    key: 'privacy',
+    it: 'Accetto l’informativa sulla privacy',
+    de: 'Ich akzeptiere die Datenschutzerklärung',
+    fr: 'J’accepte la politique de confidentialité',
+    en: 'I accept the privacy policy',
+  },
+});
+
+const DETERMINISTIC_GERMAN_OPTION_COPIES = Object.freeze({
+  salutation: Object.freeze({
+    'bitte wahlen': { it: 'Seleziona', de: 'Bitte wählen', fr: 'Sélectionner', en: 'Select' },
+    frau: { it: 'Signora', de: 'Frau', fr: 'Madame', en: 'Ms' },
+    herr: { it: 'Signor', de: 'Herr', fr: 'Monsieur', en: 'Mr' },
+    divers: { it: 'Diverso/a', de: 'Divers', fr: 'Autre', en: 'Other' },
+    andere: { it: 'Altro', de: 'Andere', fr: 'Autre', en: 'Other' },
+  }),
+  birth_month: Object.freeze({
+    januar: { it: 'Gennaio', de: 'Januar', fr: 'Janvier', en: 'January' },
+    februar: { it: 'Febbraio', de: 'Februar', fr: 'Février', en: 'February' },
+    marz: { it: 'Marzo', de: 'März', fr: 'Mars', en: 'March' },
+    april: { it: 'Aprile', de: 'April', fr: 'Avril', en: 'April' },
+    mai: { it: 'Maggio', de: 'Mai', fr: 'Mai', en: 'May' },
+    juni: { it: 'Giugno', de: 'Juni', fr: 'Juin', en: 'June' },
+    juli: { it: 'Luglio', de: 'Juli', fr: 'Juillet', en: 'July' },
+    august: { it: 'Agosto', de: 'August', fr: 'Août', en: 'August' },
+    september: { it: 'Settembre', de: 'September', fr: 'Septembre', en: 'September' },
+    oktober: { it: 'Ottobre', de: 'Oktober', fr: 'Octobre', en: 'October' },
+    november: { it: 'Novembre', de: 'November', fr: 'Novembre', en: 'November' },
+    dezember: { it: 'Dicembre', de: 'Dezember', fr: 'Décembre', en: 'December' },
+  }),
+});
+
+function deterministicGermanQuestionEntry(item) {
+  const sourceQuestion = nativePortalQuestion(item);
+  return DETERMINISTIC_GERMAN_QUESTION_COPIES[normalizedQuestionText(sourceQuestion)] || null;
+}
+
+function deterministicGermanOption(option, entry, language) {
+  const text = String(option || '').trim();
+  const normalized = normalizedQuestionText(text);
+  const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
+  if (known) return known;
+  const booleanOrPlaceholder = fallbackOption(text, language);
+  if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
+  if (/^\d{1,4}$/.test(text)) return text;
+  return null;
+}
+
+function deterministicGermanLocalization(item, language) {
+  const entry = deterministicGermanQuestionEntry(item);
+  if (!entry || !language) return null;
+  const sourceQuestion = nativePortalQuestion(item);
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
+    ? item.applicationOptions
+    : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions.map((option) => deterministicGermanOption(option, entry, language));
+  // A known label is safe to translate, but an unknown option is not: keep
+  // the old fail-closed behavior instead of showing a mixed-language choice.
+  if (candidateOptions.some((option) => !option)) return null;
+  const optionMap = applicationOptions.length
+    ? portalOptionMap({
+      options: candidateOptions,
+      applicationOptions,
+      optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+    })
+    : [];
+  if (applicationOptions.length && optionMap.length !== applicationOptions.length) return null;
+  const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
+  const sameLanguage = language === 'de';
+  return {
+    ...item,
+    question: entry[language] || entry.en,
+    applicationQuestion: sourceQuestion,
+    applicationQuestionLocale: 'de',
+    why: String(item.why || '').trim() || fallback.why,
+    ...(applicationOptions.length ? { applicationOptions, options: optionMap.map((pair) => pair.candidate), optionMap } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: String(item.validation.message || '').trim() || fallback.validation } } : {}),
+    localizationStatus: sameLanguage ? 'same_language' : 'translated',
+  };
+}
+
 function nativePortalQuestion(item) {
   return readablePortalQuestionText(item?.applicationQuestion)
     || readablePortalQuestionText(item?.portalQuestion)
@@ -1845,10 +1969,13 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguageHint = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage) return items;
+  const deterministic = items.map((item) => deterministicGermanLocalization(item, candidateLanguage));
+  const unresolved = items.filter((_item, index) => !deterministic[index]);
+  if (!unresolved.length) return deterministic;
   // Posting/letter language is only a hint. An ATS may render a German form
   // for an Italian-language job, so compare against the native question text.
-  if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
-  const input = items.map((item) => ({
+  if (typeof codex !== 'function') return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
+  const input = unresolved.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
@@ -1870,10 +1997,11 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     });
   } catch (error) {
     log(`portal question localization skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
+    return items.map((item, index) => deterministic[index] || fallbackLocalizedQuestion(item, candidateLanguage));
   }
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
-  const localizedQuestions = items.map((item) => {
+  const localizedQuestions = items.map((item, index) => {
+    if (deterministic[index]) return deterministic[index];
     const copy = byId.get(String(item.id || ''));
     const sourceLocale = localeCode(copy?.sourceLocale);
     if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
@@ -3510,6 +3638,30 @@ async function awaitAuthView(page, before) {
   return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
+/** Open only the job-bound SuccessFactors registration view on the same HTTPS origin. */
+async function openSuccessFactorsRegistrationNavigation(page, snapshot) {
+  const identity = authFormIdentity(snapshot);
+  const frame = identity && page.frames()[identity.frame];
+  const currentUrl = frame?.url?.() || '';
+  const target = successFactorsRegistrationTarget(currentUrl);
+  if (!frame || !target) return null;
+  let before;
+  try {
+    before = new URL(currentUrl);
+    await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const after = new URL(frame.url());
+    if (after.protocol !== 'https:' || after.origin !== before.origin || after.pathname !== before.pathname
+      || after.searchParams.get('career_ns') !== before.searchParams.get('career_ns')
+      || after.searchParams.get('career_job_req_id') !== before.searchParams.get('career_job_req_id')
+      || after.searchParams.get('company') !== before.searchParams.get('company')
+      || after.searchParams.get('login_ns') !== 'register') return null;
+  } catch {
+    return null;
+  }
+  const registration = await awaitAuthView(page, snapshot).catch(() => null);
+  return registration && authPageKind(registration) === 'create' ? registration : null;
+}
+
 /** Only classify a dialog as a cookie manager when its live copy and own choice agree. */
 async function knownCookieDialogSnapshot(page, snapshot) {
   for (const dialog of snapshot?.dialogs || []) {
@@ -3659,8 +3811,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   }
 
   if (kind === 'sign_in' && !account) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
-    return { snapshot: await awaitAuthView(page, snapshot) };
+    if (await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { snapshot: await awaitAuthView(page, snapshot) };
+    const registration = await openSuccessFactorsRegistrationNavigation(page, snapshot);
+    return registration
+      ? { snapshot: registration }
+      : accountHandoff('account', 'no_create_button', 'login');
   }
 
   // With SuccessFactors' OTP verification the candidate is not an account
@@ -4544,7 +4699,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           required: true,
           applicationOptions,
           applicationOptionsKnown: Boolean(field),
-          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions.length ? applicationOptions : item.options || [] : item.options,
+          options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
@@ -4890,8 +5045,8 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
-    // Document-level guard for preserving the files this run selected during
-    // previous-file cleanup; upload retry suppression remains field-scoped in `uploaded`.
+    // Exclude this run's selections from prior-file cleanup checks; upload retry
+    // suppression remains field-scoped in `uploaded`.
     const selectedDocumentsThisRun = new Set();
     const selectedUploadFieldsThisRun = new Map();
     const privacyAcceptedPages = new Set();
@@ -5250,7 +5405,8 @@ export async function submitViaPortal(ctx) {
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
           return removals;
         });
-      for (const document of Object.keys(ctx.files || {}).filter((item) => !sentNow.has(item))) {
+      for (const document of Object.keys(ctx.files || {}).filter((item) =>
+        !sentNow.has(item) && !selectedDocumentsThisRun.has(item))) {
         const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
         const matchingRemoval = earlier.some((item) => item.document === document);
         for (const name of names) {

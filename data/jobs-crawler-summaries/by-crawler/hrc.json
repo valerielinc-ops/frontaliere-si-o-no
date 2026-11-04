@@ -1,7 +1,7 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-11-04T09:30:55.313Z",
+  "generatedAt": "2026-11-04T21:40:58.603Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5338,
-  "avgDurationMs": 5338,
+  "durationMs": 5830,
+  "avgDurationMs": 5830,
   "durationHistory": [
-    5338
+    5830
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hrc-5b605d9d591f",
-      "slug": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz",
+      "slug": "ufficiale-medico-specialista-clinico-m-f-in-ematologia-fmh-o-equivalente-hopital-riviera-chablais-hrc-rennaz",
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
       "companyDomain": "hopitalrivierachablais.ch",
       "title": "Médecin chef de clinique spécialiste H/F en hématologie (FMH ou équivalent)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Rennaz",
       "canton": "VD",
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.106Z",
+      "crawledAt": "2026-11-04T21:40:41.576Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,24 +53,23 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
+      "firstSeenAt": "2026-11-04T09:30:36.106Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:30:36.106Z",
+      "validThrough": "2027-02-02T21:40:41.576Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:30:36.106Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +85,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.139Z",
+      "crawledAt": "2026-11-04T21:40:41.606Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:30:36.139Z",
+      "validThrough": "2027-01-10T21:40:41.606Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/agent-dexploitation-hf-a-100-664",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.137Z",
+      "crawledAt": "2026-11-04T21:40:41.604Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:36.137Z",
+      "validThrough": "2027-01-17T21:40:41.604Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.134Z",
+      "crawledAt": "2026-11-04T21:40:41.601Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:36.134Z",
+      "validThrough": "2027-01-17T21:40:41.601Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-aux-permanences-medicales-a-60-100-666",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.130Z",
+      "crawledAt": "2026-11-04T21:40:41.599Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:30:36.130Z",
+      "validThrough": "2027-01-21T21:40:41.599Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -268,7 +268,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:30:36.127Z",
+      "crawledAt": "2026-11-04T21:40:41.596Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:30:36.127Z",
+      "validThrough": "2027-01-27T21:40:41.596Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -302,5 +302,5 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

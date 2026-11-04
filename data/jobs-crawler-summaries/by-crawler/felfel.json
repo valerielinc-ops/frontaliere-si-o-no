@@ -1,7 +1,7 @@
 {
   "key": "felfel",
   "label": "FELFEL",
-  "generatedAt": "2026-11-04T09:14:48.961Z",
+  "generatedAt": "2026-11-04T21:17:16.278Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 12836,
-  "avgDurationMs": 12836,
+  "durationMs": 11467,
+  "avgDurationMs": 11467,
   "durationHistory": [
-    12836
+    11467
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:14:26.677Z",
+      "crawledAt": "2026-11-04T21:16:57.781Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -61,7 +61,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:14:26.677Z",
+      "validThrough": "2026-12-27T21:16:57.781Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://felfel.jobs.personio.de/job/2816710",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:14:26.674Z",
+      "crawledAt": "2026-11-04T21:16:57.778Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -107,7 +107,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:14:26.674Z",
+      "validThrough": "2027-01-19T21:16:57.778Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842697",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:14:26.671Z",
+      "crawledAt": "2026-11-04T21:16:57.776Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -154,7 +154,7 @@
       "salaryMax": 100500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:14:26.671Z",
+      "validThrough": "2027-01-12T21:16:57.776Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:14:26.668Z",
+      "crawledAt": "2026-11-04T21:16:57.773Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -200,7 +200,7 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:14:26.668Z",
+      "validThrough": "2027-01-06T21:16:57.773Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842832",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:14:26.663Z",
+      "crawledAt": "2026-11-04T21:16:57.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -246,7 +246,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:14:26.663Z",
+      "validThrough": "2027-01-13T21:16:57.766Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -268,7 +268,7 @@
       "url": "https://felfel.jobs.personio.de/job/2829366",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:14:26.653Z",
+      "crawledAt": "2026-11-04T21:16:57.759Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -292,7 +292,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:14:26.653Z",
+      "validThrough": "2027-01-19T21:16:57.759Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -314,7 +314,7 @@
       "url": "https://felfel.jobs.personio.de/job/2829409",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:14:26.646Z",
+      "crawledAt": "2026-11-04T21:16:57.755Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -338,7 +338,7 @@
       "salaryMax": 100500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:14:26.646Z",
+      "validThrough": "2027-01-19T21:16:57.755Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -360,7 +360,7 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:14:26.632Z",
+      "crawledAt": "2026-11-04T21:16:57.746Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -384,7 +384,7 @@
       "salaryMax": 156000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:14:26.632Z",
+      "validThrough": "2027-01-03T21:16:57.746Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -395,5 +395,5 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

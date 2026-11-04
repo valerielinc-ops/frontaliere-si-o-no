@@ -1,7 +1,7 @@
 {
   "key": "gipo",
   "label": "GIPO GISLER POWER AG",
-  "generatedAt": "2026-11-04T09:25:53.348Z",
+  "generatedAt": "2026-11-04T21:34:08.078Z",
   "total": 1,
   "discovered": 12,
   "parsed": 1,
@@ -16,18 +16,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 21966,
-  "avgDurationMs": 21966,
+  "unchangedCount": 0,
+  "durationMs": 19096,
+  "avgDurationMs": 19096,
   "durationHistory": [
-    21966
+    19096
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "gipo-d61ceb9f0a2f",
       "slug": "project-manager-electric-gipo-gisler-power-ag-seedorf-d61ceb9f",
@@ -41,7 +39,7 @@
       "url": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/",
       "source": "GIPO GISLER POWER AG Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:25:42.369Z",
+      "crawledAt": "2026-11-04T21:33:56.310Z",
       "addressLocality": "Seedorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -65,7 +63,7 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-04T09:25:42.369Z",
+      "validThrough": "2026-12-04T21:33:56.310Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -76,5 +74,7 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

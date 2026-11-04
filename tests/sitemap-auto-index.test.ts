@@ -303,7 +303,17 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       new URL('../scripts/ci/reconcile-rehydrated-sitemaps.ts', import.meta.url),
       'utf8',
     );
-    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, \[\], \{\s*keepMissing: false,\s*ignoreShardOwnership: true,\s*\}\)/);
+    expect(source).toContain('const REHYDRATED_SITEMAP_OPTIONS = Object.freeze({');
+    expect(source).toMatch(/keepMissing: false,\s*ignoreShardOwnership: true/);
+    expect(source).toContain('reconcileFinalSitemapsWithDist(distDir, [], REHYDRATED_SITEMAP_OPTIONS)');
+  });
+
+  it('uses strict missing-page checks at the build finalization boundary', () => {
+    const source = fs.readFileSync(
+      new URL('../build-plugins/sitemapAliasPlugin.ts', import.meta.url),
+      'utf8',
+    );
+    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, getFinalSitemapMirrorLocs\(\), \{\s*keepMissing: false,\s*ignoreShardOwnership: false,\s*\}\)/);
   });
 
   it('keeps healthy recovered URLs and removes noindex, noncanonical, and final-dist 404 URLs', async () => {
@@ -324,10 +334,7 @@ describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
       .map((match) => match[1]!);
     expect(shardBuildLocs).toEqual([healthy, missing]);
 
-    await reconcileFinalSitemapsWithDist(distDir, [], {
-      keepMissing: false,
-      ignoreShardOwnership: true,
-    });
+    await reconcileFinalSitemapsWithDist(distDir, []);
     const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
       .map((match) => match[1]!);
     expect(finalLocs).toEqual([healthy]);

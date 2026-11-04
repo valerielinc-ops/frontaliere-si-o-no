@@ -67,7 +67,7 @@ describe('Bing-compatible full-tree crawler', () => {
       }],
     });
 
-    expect(CRAWLER_SCHEMA_VERSION).toBe(4);
+    expect(CRAWLER_SCHEMA_VERSION).toBe(5);
     expect(frontier.schemaVersion).toBe(CRAWLER_SCHEMA_VERSION);
     expect(frontier.templateTable.map((family) => family.id)).toEqual(expect.arrayContaining([
       'event-pages',
@@ -1120,6 +1120,53 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(inventory.sitemapCount).toBe(0);
     expect(inventory.errors).toHaveLength(1);
     expect(inventory.errors[0].error).toMatch(/vuoto|non supportato/);
+  });
+
+  it('keeps sitemap producer references aligned and exposes them on findings', async () => {
+    const root = `${BASE}/sitemap.xml`;
+    const first = `${BASE}/sitemap-first.xml`;
+    const second = `${BASE}/sitemap-second.xml`;
+    const shared = `${BASE}/shared/`;
+    const onlyFirst = `${BASE}/first/`;
+    const documents = new Map([
+      [root, `<sitemapindex><sitemap><loc>${first}</loc></sitemap><sitemap><loc>${second}</loc></sitemap></sitemapindex>`],
+      [first, `<urlset><url><loc>${shared}</loc></url><url><loc>${onlyFirst}</loc></url></urlset>`],
+      [second, `<urlset><url><loc>${shared}</loc></url></urlset>`],
+    ]);
+    const inventory = await collectSitemapInventory({
+      sitemapUrl: root,
+      baseUrl: BASE,
+      fetchImpl: async (url) => new Response(documents.get(url), { status: 200 }),
+    });
+
+    expect(inventory.urls).toEqual([onlyFirst, shared]);
+    expect(inventory.sitemapProducerRefs).toEqual([
+      [inventory.sitemapUrls.indexOf(first)],
+      [inventory.sitemapUrls.indexOf(first), inventory.sitemapUrls.indexOf(second)],
+    ]);
+
+    const partition = partitionFor(shared, 1);
+    const report = await crawlPartition({
+      manifest: inventory,
+      partition,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueRetries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async () => new Response('', { status: 404 }),
+    });
+    expect(report.findings).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        url: shared,
+        code: 'http-error',
+        sitemapProducers: [first, second],
+      }),
+    ]));
+    const summary = aggregateCrawlReports([report], inventory);
+    expect(buildIssueBody(summary)).toContain(
+      `producer sitemap: \`${first}\`, \`${second}\``,
+    );
   });
 
   it('cancels an invalid streamed sitemap chunk before recording the read error', async () => {

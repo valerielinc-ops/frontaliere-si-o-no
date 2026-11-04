@@ -207,7 +207,7 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
     expect(pending).toContain("'job_detail_button'");
 
     const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
-    expect(boardFilter).toContain('openJobAlertForm(keywordLabel, formOrigin)');
+    expect(boardFilter).toContain('openJobAlertForm(config.keywords[0], formOrigin)');
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8'))
       .toContain('formOrigin="job_board_filters"');
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
@@ -240,7 +240,7 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
     ],
     job_board_filters: [
       ['components/community/JobBoard.tsx', 'formOrigin="job_board_filters"'],
-      ['components/community/JobBoardFilterAlertCta.tsx', "openJobAlertForm(keywordLabel, formOrigin)"],
+      ['components/community/JobBoardFilterAlertCta.tsx', "openJobAlertForm(config.keywords[0], formOrigin)"],
     ],
     sticky_banner: [
       ['components/community/JobAlertStickyBanner.tsx', "openJobAlertForm(keyword || undefined, 'sticky_banner')"],

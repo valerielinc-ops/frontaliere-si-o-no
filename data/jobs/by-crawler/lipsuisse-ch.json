@@ -1,0 +1,79 @@
+{
+  "crawlerKey": "lipsuisse-ch",
+  "assembledAt": "2026-11-04T21:50:04.623Z",
+  "runId": "41916006663",
+  "jobs": [
+    {
+      "id": "lipsuisse-ch-a9339341a457",
+      "slug": "carreleur-geneve-1200-lipsuisse-ch-ch",
+      "slugByLocale": {
+        "fr": "carreleur-geneve-1200-lipsuisse-ch-ch",
+        "it": "carreleur-geneve-1200-lipsuisse-ch-ch",
+        "en": "carreleur-geneve-1200-lipsuisse-ch-ch",
+        "de": "carreleur-geneve-1200-lipsuisse-ch-ch"
+      },
+      "company": "LIP Suisse",
+      "companyKey": "lipsuisse-ch",
+      "companyDomain": "lipsuisse.ch",
+      "title": "Carreleur",
+      "titleByLocale": {
+        "fr": "Carreleur",
+        "it": "Carreleur",
+        "en": "Carreleur",
+        "de": "Carreleur"
+      },
+      "description": "Les missions du poste :\n• – Lecture de plans et calculs de surfaces\n• – Chantiers neufs et rénovation\n• – Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n• – Réalisation de douche italienne\n• – Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\n• Le profil recherché :\n• – CFC ou diplôme équivalent\n• – 2 Ans d’expérience minimum dans la branche\n• – Outillé\n• – Véhiculé\n• – Disponible rapidement",
+      "descriptionByLocale": {
+        "fr": "Les missions du poste :\n• – Lecture de plans et calculs de surfaces\n• – Chantiers neufs et rénovation\n• – Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n• – Réalisation de douche italienne\n• – Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\n• Le profil recherché :\n• – CFC ou diplôme équivalent\n• – 2 Ans d’expérience minimum dans la branche\n• – Outillé\n• – Véhiculé\n• – Disponible rapidement",
+        "it": "Les missions du poste :\n• – Lecture de plans et calculs de surfaces\n• – Chantiers neufs et rénovation\n• – Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n• – Réalisation de douche italienne\n• – Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\n• Le profil recherché :\n• – CFC ou diplôme équivalent\n• – 2 Ans d’expérience minimum dans la branche\n• – Outillé\n• – Véhiculé\n• – Disponible rapidement",
+        "en": "Les missions du poste :\n• – Lecture de plans et calculs de surfaces\n• – Chantiers neufs et rénovation\n• – Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n• – Réalisation de douche italienne\n• – Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\n• Le profil recherché :\n• – CFC ou diplôme équivalent\n• – 2 Ans d’expérience minimum dans la branche\n• – Outillé\n• – Véhiculé\n• – Disponible rapidement",
+        "de": "Les missions du poste :\n• – Lecture de plans et calculs de surfaces\n• – Chantiers neufs et rénovation\n• – Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n• – Réalisation de douche italienne\n• – Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\n• Le profil recherché :\n• – CFC ou diplôme équivalent\n• – 2 Ans d’expérience minimum dans la branche\n• – Outillé\n• – Véhiculé\n• – Disponible rapidement"
+      },
+      "location": "Genève, 1200",
+      "canton": "GE",
+      "url": "https://www.lipsuisse.ch/offres-emploi/carreleur-2/",
+      "source": "LIP Suisse Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-04T21:49:56.499Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/carreleur-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T21:49:56.499Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:49:56.499Z"
+    }
+  ]
+}
