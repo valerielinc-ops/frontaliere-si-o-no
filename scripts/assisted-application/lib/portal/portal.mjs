@@ -4726,7 +4726,9 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
-    const selectedFilesThisRun = new Set();
+    // Document-level guard for preserving the files this run selected during
+    // previous-file cleanup; upload retry suppression remains field-scoped in `uploaded`.
+    const selectedDocumentsThisRun = new Set();
     const selectedUploadFieldsThisRun = new Map();
     const privacyAcceptedPages = new Set();
     // Bounded redraw recovery follows the logical wizard page, not the URL or
@@ -5078,7 +5080,7 @@ export async function submitViaPortal(ctx) {
       // draft written since (a planner that sees «successfully uploaded» leaves the field alone). What this
       // run uploaded itself stays.
       const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
-      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document) && !selectedFilesThisRun.has(document))
+      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document) && !selectedDocumentsThisRun.has(document))
         .flatMap((document) => {
           const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
@@ -5182,7 +5184,7 @@ export async function submitViaPortal(ctx) {
             if (paths.length) {
               rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
               const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
-              if (selectedAction?.document) selectedFilesThisRun.add(selectedAction.document);
+              if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
             }
           },
         }));
