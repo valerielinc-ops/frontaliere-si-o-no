@@ -57,8 +57,13 @@ function navigationCounts(value) {
       : record(value)
         ? Object.entries(value).map(([key, count]) => ({ key, value: count }))
         : [];
+  let unmappedTotal = 0;
+  let unmappedValid = Array.isArray(value) || record(value);
   for (const row of rows) {
-    if (!record(row)) continue;
+    if (!record(row)) {
+      unmappedValid = false;
+      continue;
+    }
     const dimensionValue = Array.isArray(row.dimension_values) ? row.dimension_values[0]
       : Array.isArray(row.dimensionValues) ? row.dimensionValues[0]
         : null;
@@ -77,8 +82,17 @@ function navigationCounts(value) {
       swipeforward: 'swipesForward',
       swipesforward: 'swipesForward',
     })[key];
-    if (field && count !== null) counts[field] = count;
+    if (field && count !== null) {
+      counts[field] = count;
+    } else if (!field) {
+      if (count === null || !Number.isSafeInteger(unmappedTotal + count)) {
+        unmappedValid = false;
+      } else {
+        unmappedTotal += count;
+      }
+    }
   }
+  if (unmappedValid) counts.unmappedNavigationActions = unmappedTotal;
   return counts;
 }
 
@@ -161,6 +175,7 @@ function newMetricDocument() {
       tapsBack: null,
       exits: null,
       swipesForward: null,
+      unmappedNavigationActions: null,
     },
     metricStatus: {
       views: 'unavailable',
@@ -174,6 +189,7 @@ function newMetricDocument() {
       tapsBack: 'unavailable',
       exits: 'unavailable',
       swipesForward: 'unavailable',
+      unmappedNavigationActions: 'unavailable',
     },
     availableMetrics: [],
   };

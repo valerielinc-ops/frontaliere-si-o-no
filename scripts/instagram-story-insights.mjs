@@ -4,8 +4,7 @@ import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { collectInstagramStoryInsights } from './lib/instagram-story-insights.mjs';
 import {
   loadPrivateSocialNativeInsights,
-  mergePrivateInstagramStoryPublications,
-  mergePrivateInstagramStorySnapshots,
+  mergePrivateInstagramStoryState,
   updatePrivateSocialNativeInsights,
 } from './lib/social-native-insights-store.mjs';
 
@@ -74,6 +73,10 @@ export async function runInstagramStoryInsights({
     const retainPreviousFailure = result.status === 'no-ready-stories'
       && ['credentials-missing', 'metrics-unavailable', 'partial-metrics'].includes(previousState.status);
     persistedStatus = retainPreviousFailure ? previousState.status : result.status;
+    const instagramStoryState = mergePrivateInstagramStoryState(current, {
+      snapshotAdditions: additions,
+      asOf,
+    });
     return {
       ...current,
       sources: {
@@ -87,16 +90,7 @@ export async function runInstagramStoryInsights({
           ...(additions.length ? { latestSnapshotAt: attemptedAt } : {}),
         },
       },
-      instagramStoryPublications: mergePrivateInstagramStoryPublications(
-        current.instagramStoryPublications,
-        [],
-        { asOf },
-      ),
-      instagramStorySnapshots: mergePrivateInstagramStorySnapshots(
-        current.instagramStorySnapshots,
-        additions,
-        { asOf },
-      ),
+      ...instagramStoryState,
     };
   }, { updatedAt: asOf });
   return {

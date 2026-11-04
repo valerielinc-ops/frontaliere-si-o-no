@@ -1,4 +1,6 @@
 /** Shared storage/API contract for the private Instagram Story insights path. */
+export const INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC = 'unmappedNavigationActions';
+
 export const INSTAGRAM_STORY_METRIC_FIELDS = Object.freeze({
   views: 'views',
   reach: 'reach',
@@ -11,6 +13,7 @@ export const INSTAGRAM_STORY_METRIC_FIELDS = Object.freeze({
   tapsBack: 'navigation',
   exits: 'navigation',
   swipesForward: 'navigation',
+  [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: 'navigation',
 });
 
 export const INSTAGRAM_STORY_METRICS = Object.freeze(Object.keys(INSTAGRAM_STORY_METRIC_FIELDS));

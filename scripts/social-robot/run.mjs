@@ -61,7 +61,7 @@ import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-q
 import { partitionAutomatedDeliveryChannels } from '../lib/social-automation-policy.mjs';
 import {
   loadPrivateSocialNativeInsights,
-  mergePrivateInstagramStoryPublications,
+  mergePrivateInstagramStoryState,
   toInstagramBrowserSnapshotDocument,
   updatePrivateSocialNativeInsights,
 } from '../lib/social-native-insights-store.mjs';
@@ -413,17 +413,17 @@ async function main() {
         if (community?.outcomes || publishedStories.length > 0) {
           try {
             const db = await getFirestoreDb();
+            const asOf = new Date();
             await updatePrivateSocialNativeInsights(db, (current) => ({
               ...current,
               ...(community?.outcomes ? {
                 communityOutcomes: mergeInstagramCommunityOutcomeSnapshots(current.communityOutcomes, community.outcomes),
               } : {}),
-              instagramStoryPublications: mergePrivateInstagramStoryPublications(
-                current.instagramStoryPublications,
-                publishedStories,
-                { asOf: new Date() },
-              ),
-            }), { updatedAt: new Date() });
+              ...mergePrivateInstagramStoryState(current, {
+                publicationAdditions: publishedStories,
+                asOf,
+              }),
+            }), { updatedAt: asOf });
             community.outcomesPersisted = true;
             community.storyPublicationsPersisted = true;
           } catch (error) {
