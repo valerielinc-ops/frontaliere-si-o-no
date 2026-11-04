@@ -224,13 +224,13 @@
     return true;
   }
 
-  /** File inputs may be styled behind an upload button, but not inside a hidden wizard step. */
+  /** File inputs may live in CSS-hidden upload wrappers; explicit inactive steps still stay out. */
   function isMountedFileInput(element) {
     const view = element.ownerDocument.defaultView;
     for (let node = element.parentElement; node && node.nodeType === 1; node = node.parentElement) {
       if (node.hidden || node.hasAttribute('inert') || String(node.getAttribute('aria-hidden') || '').toLowerCase() === 'true') return false;
       const style = view.getComputedStyle(node);
-      if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
+      if (style.visibility === 'collapse') return false;
     }
     return true;
   }
