@@ -237,7 +237,37 @@ export async function fetchRittmeyerOnlyfyListingSource(source, fetchPage = fetc
     throw new Error('Rittmeyer: first listing page exposed conflicting usable advertised counts');
   }
   const advertisedCount = firstPage.rittmeyerListingAdvertisedCount;
-  if (advertisedCount == null) return mergeRittmeyerListingPages([firstPage]);
+  if (advertisedCount == null && firstPage.rittmeyerListingAdvertisedCountStale !== true) {
+    return mergeRittmeyerListingPages([firstPage]);
+  }
+  if (advertisedCount == null) {
+    const firstPageSize = firstPage.length;
+    if (firstPageSize === 0) {
+      throw new Error('Rittmeyer: stale listing count accompanied an empty first page');
+    }
+    const pages = [firstPage];
+    for (let pageNumber = 2; pageNumber <= ONLYFY_LISTING_MAX_PAGES; pageNumber += 1) {
+      const pageUrl = buildRittmeyerOnlyfyListingPageUrl(source.url, pageNumber);
+      const pageRows = parseRittmeyerListingsPage(await fetchPage(pageUrl));
+      if (pageRows.rittmeyerListingCountConflict === true) {
+        throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} exposed conflicting usable advertised counts`);
+      }
+      if (pageRows.length < firstPageSize && pageRows.rittmeyerListingSkippedMalformedRows > 0) {
+        throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} was short after skipping malformed rows`);
+      }
+      if (pageRows.length === 0) {
+        if (pageRows.rittmeyerListingEmptyStateObserved !== true) {
+          throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} was empty without an authoritative empty state`);
+        }
+        return mergeRittmeyerListingPages(pages);
+      }
+      pages.push(pageRows);
+      if (pageRows.length < firstPageSize) {
+        return mergeRittmeyerListingPages(pages);
+      }
+    }
+    throw new Error(`Rittmeyer: stale-count listing reached the ${ONLYFY_LISTING_MAX_PAGES}-page safety cap without a terminal page`);
+  }
   if (firstPage.length > advertisedCount) {
     throw new Error(`Rittmeyer: first listing page has ${firstPage.length} rows, advertised ${advertisedCount}`);
   }

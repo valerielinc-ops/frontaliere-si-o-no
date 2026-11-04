@@ -129,19 +129,20 @@ function readRittmeyerListingCount(listingText, rowCount) {
     return { count: null, conflict: true };
   }
 
-  // Preserve the old fail-closed mismatch for a lone count below the number
-  // of parsed cards. The caller will reject it instead of publishing a
-  // partial snapshot.
-  if (explicitTotals.length === 1) {
-    return { count: explicitTotals[0], conflict: false };
-  }
-  if (rangeTotals.length === 1) {
-    return { count: rangeTotals[0], conflict: false };
-  }
-  if (explicitTotals.length > 1 || rangeTotals.length > 1) {
+  const allTotals = [...new Set([...explicitTotals, ...rangeTotals])];
+  if (allTotals.length > 1) {
     return { count: null, conflict: true };
   }
-  return { count: null, conflict: false };
+
+  // A stale Onlyfy counter can be lower than the cards already rendered on
+  // the page (observed as 10 cards / "1 jobs found"). It cannot be used as a
+  // page bound, but the cards are still a valid signal that pagination needs
+  // to be walked until a terminal page is proven by the caller. Preserve the
+  // distinction from a genuinely conflicting set of usable totals.
+  if (allTotals.length > 0 && usableTotals.length === 0) {
+    return { count: null, conflict: false, stale: true };
+  }
+  return { count: null, conflict: false, stale: false };
 }
 
 export function parseRittmeyerListingsPage(html = '') {
@@ -207,7 +208,11 @@ export function parseRittmeyerListingsPage(html = '') {
     '#jobList, .results, ul.rex-navi2, .job-list, [data-job-list], [data-testid="job-card"], [class*="job-list"], [class*="stellen"], [class*="career"]',
   );
   const listingText = normalizeSpace(document.body?.textContent || listingContainer?.textContent || '');
-  const { count: advertisedCount, conflict: advertisedCountConflict } = readRittmeyerListingCount(
+  const {
+    count: advertisedCount,
+    conflict: advertisedCountConflict,
+    stale: advertisedCountStale,
+  } = readRittmeyerListingCount(
     listingText,
     rows.length,
   );
@@ -215,6 +220,7 @@ export function parseRittmeyerListingsPage(html = '') {
     rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
     rittmeyerListingAdvertisedCount: { value: advertisedCount, enumerable: false },
+    rittmeyerListingAdvertisedCountStale: { value: advertisedCountStale === true, enumerable: false },
     rittmeyerListingCountConflict: { value: advertisedCountConflict, enumerable: false },
     rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     rittmeyerListingEmptyStateObserved: {
