@@ -558,7 +558,7 @@ it('does not expose fallback-language questions from a pre-read when localizatio
     candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
 
   const result = await readPortalRequirements(ctx);
-  expect(result).toEqual({ questions: [], documents: [] });
+  expect(result).toEqual({ questions: [], documents: [], handoff: 'requirements_unavailable' });
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
 });
