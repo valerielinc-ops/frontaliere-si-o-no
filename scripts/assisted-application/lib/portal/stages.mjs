@@ -37,6 +37,11 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+// A SuccessFactors profile/application page may keep the CV in «Meine
+// Dokumente» and expose no file input in the current snapshot. Job-specific
+// questions are still stronger evidence than a bare Apply button on a profile
+// page, so they may prove the same form before the final-click guard.
+const APPLICATION_QUESTION_RE = /(?:work\s+permit|permit\s+for|salary|workload|starting\s+date|notice\s+period|how\s+did\s+you\s+hear|motiv(?:ation|ated)|experience|nebenbeschäftigung|brutto[-\s]jahreslohn|stellenspezifische(?:n|s)?\s+information(?:en)?|wie\s+haben\s+sie\s+von\s+dieser\s+stelle\s+erfahren|was\s+hat\s+dich\s+motiviert|welche\s+erfahrungen|salaire|rémunération|expérience|esperienza|retribuzione)/iu;
 // With no posting key, a submission handoff can bind only a recognized receipt
 // endpoint. A same-origin `/other/` page repeating the role title is not a
 // receipt proof, even when the preceding review route was observed.
@@ -225,9 +230,19 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   // A form's Apply can be a final send. A bare Apply on a profile/summary is
   // insufficient, even if an agent or a learned button calls it a submission.
   const apply = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || ''));
+  const applicationFields = apply.length === 1
+    ? (snapshot?.fields || []).filter(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0))
+    : [];
+  const hasApplicationIdentity = applicationFields.some(field => field.inputType === 'email'
+    || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || ''));
+  const hasCv = snapshot?.uploadedCv === true
+    || applicationFields.some(field => field.kind === 'file' || field.inputType === 'file');
+  const hasApplicationQuestion = applicationFields.some(field => field.kind === 'textarea'
+    || field.inputType === 'textarea'
+    || APPLICATION_QUESTION_RE.test([field.label, field.name, field.section, field.context].filter(Boolean).join(' ')));
   const applicationForm = apply.length === 1 && !apply[0].href && apply[0].formId
-    && (snapshot?.uploadedCv === true || (snapshot?.fields || []).some(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0) && (field.kind === 'file' || field.inputType === 'file')))
-    && (snapshot?.fields || []).some(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0) && (field.inputType === 'email' || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || '')));
+    && hasApplicationIdentity
+    && (hasCv || hasApplicationQuestion);
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
   return { kind: 'form' };
 }
