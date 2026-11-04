@@ -28,6 +28,7 @@ import {
   ledgerFileOid,
   ledgerIndexEntry,
   ledgerIndexHasFile,
+  ledgerLifecycleConflictDigest,
   ledgerIndexRecordCount,
   loadLedgerIndexForWriter,
   setLedgerIndexFile,
@@ -55,6 +56,10 @@ function text(value) {
 
 function object(value) {
   return Boolean(value && typeof value === 'object' && !Array.isArray(value));
+}
+
+function ledgerRecordDigest(type, record) {
+  return type === 'lifecycle' ? ledgerLifecycleConflictDigest(record) : digestDocument(record);
 }
 
 function readJson(file, label) {
@@ -188,7 +193,7 @@ function mergeRecords({
         validateHistoricalRecord(registry, type, record);
         if (!text(record.recordId)) throw new Error(`${label} contains a record without recordId`);
         const previous = ledgerIndexEntry(index, type, record.recordId);
-        if (previous && previous.digest !== digestDocument(record)) {
+        if (previous && previous.digest !== ledgerRecordDigest(type, record)) {
           throw new Error(`${label} contains conflicting duplicate ${record.recordId}`);
         }
         addLedgerRecordToIndex(index, { type, record, file });
@@ -209,7 +214,7 @@ function mergeRecords({
   for (const record of records) {
     const previous = ledgerIndexEntry(index, type, record.recordId);
     if (previous) {
-      if (previous.digest !== digestDocument(record)) {
+      if (previous.digest !== ledgerRecordDigest(type, record)) {
         throw new Error(`${label} has conflicting duplicate ${record.recordId}`);
       }
       skipped += 1;
