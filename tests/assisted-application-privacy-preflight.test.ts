@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan, ownConsent } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { isPrivacyReviewAcknowledgment } from '../functions/src/lib/applicationConsent.js';
+import { isNoticeDialog, isPrivacyReviewAcknowledgment } from '../functions/src/lib/applicationConsent.js';
 
 const { acceptPrivacyStatement, privacyConsentControls, submitViaPortal } = portal as any;
 const preflight = (page: any, options?: any) => (portal as any).registrationPrivacyPreflight(page, options);
@@ -167,6 +167,10 @@ const NOTICE_LINK = '<a id="notice" role="button" tabindex="0" aria-haspopup="di
 const NOTICE_DIALOG = `<div role="dialog" id="noticeDialog" hidden><h2>Datenschutzerklärung</h2><p>Ein synthetischer Text.</p>
   <label><input type="checkbox" id="noticeReview" name="noticeReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label>
   <button type="button" id="noticeAccept" disabled>Akzeptieren</button><button type="button" id="noticeRefuse">Ablehnen</button></div>`;
+const SUCCESSFACTORS_NOTICE_DIALOG = `<div role="dialog" id="noticeDialog" hidden><h2>Einverständniserklärung zur Datenschutzrichtlinie</h2><p>Ein synthetischer Text.</p>
+  <button type="button" id="noticeAccept">Akzeptieren</button><button type="button" id="noticeRefuse">Ablehnen</button></div>`;
+const REGISTRATION_WITH_PAGE_LEVEL_NOTICE = `${ACCOUNT_FORM('', STYLED_CTA, '')
+  .replace('<label for="notice">Datenschutzerklärung:*</label>', '')}<label for="notice">Datenschutzerklärung:*</label>${NOTICE_LINK}`;
 const REGISTRATION = (link = NOTICE_LINK, dialog = NOTICE_DIALOG) => `<form id="registration" action="/register">
   <label for="country">Land/Region des Wohnorts:*</label><select id="country" name="country"><option value="CH" selected>Schweiz</option></select>
   <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
@@ -270,6 +274,11 @@ describe('required privacy notice trigger', () => {
 });
 
 describe('required privacy notice dialog controls', () => {
+  it('recognises the explicit SuccessFactors privacy dialog title and rejects a talent-pool purpose', () => {
+    expect(isNoticeDialog('Einverständniserklärung zur Datenschutzrichtlinie')).toBe(true);
+    expect(isNoticeDialog('Einverständniserklärung zur Datenschutzerklärung für den Talent Pool')).toBe(false);
+  });
+
   const dialogButton = (id: string, text: string, extra = {}) => ({ id, text, disabled: false, dialog: true, dialogId: 'modal', frame: 0, ...extra });
   const box = (id: string, label: string) => ({ id, kind: 'checkbox', name: id, label, checked: false, dialog: true, dialogId: 'modal', frame: 0 });
 
@@ -619,6 +628,15 @@ describe('the same grammar on the canonical consent path', () => {
 describe('the registration, through the real handleAuth', () => {
   it.each([['a native disabled', NATIVE_CTA], ['a CSS-disabled', STYLED_CTA]])('accepts the notice before %s CTA and registers once', async (_name, cta) => {
     const fixture = fakePage([ACCOUNT_FORM(NOTICE_LINK, cta)]);
+    const seen = wireAccount(fixture);
+    const { auth, accounts } = await runRegistration(fixture);
+    expect(auth).toMatchObject({ outcome: 'ok', privacy: 'accepted' });
+    expect(seen).toEqual({ noticeClicks: 1, accepted: 1, ctaClicks: 1, requests: 1 });
+    expect(accounts).toEqual(['save', 'mark:created']);
+  });
+
+  it('accepts SuccessFactors privacy outside the registration form and registers once', async () => {
+    const fixture = fakePage([`${REGISTRATION_WITH_PAGE_LEVEL_NOTICE}${SUCCESSFACTORS_NOTICE_DIALOG}`]);
     const seen = wireAccount(fixture);
     const { auth, accounts } = await runRegistration(fixture);
     expect(auth).toMatchObject({ outcome: 'ok', privacy: 'accepted' });

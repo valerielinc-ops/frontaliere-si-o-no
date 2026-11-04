@@ -7,7 +7,7 @@ import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js
 import { validateAnswer } from './lib/answerRules.js';
 
 export const portalCodeVersion = value => /^[a-f0-9]{64}$/.test(String(value || '')) ? String(value) : null;
-const RECOVERABLE = new Set(['portal:account', 'portal:account_create_unanswered', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate']);
+const RECOVERABLE = new Set(['portal:account', 'portal:account_create_unanswered', 'portal:privacy_not_accepted', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate']);
 
 export function portalCodeChanged(flow, version) {
   return Boolean(portalCodeVersion(version)) && flow?.state === 'owner_takeover'
