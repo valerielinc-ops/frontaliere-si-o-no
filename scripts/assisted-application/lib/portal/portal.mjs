@@ -4890,8 +4890,8 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
-    // Document-level guard for preserving the files this run selected during
-    // previous-file cleanup; upload retry suppression remains field-scoped in `uploaded`.
+    // Exclude this run's selections from prior-file cleanup checks; upload retry
+    // suppression remains field-scoped in `uploaded`.
     const selectedDocumentsThisRun = new Set();
     const selectedUploadFieldsThisRun = new Map();
     const privacyAcceptedPages = new Set();
@@ -5250,7 +5250,8 @@ export async function submitViaPortal(ctx) {
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
           return removals;
         });
-      for (const document of Object.keys(ctx.files || {}).filter((item) => !sentNow.has(item))) {
+      for (const document of Object.keys(ctx.files || {}).filter((item) =>
+        !sentNow.has(item) && !selectedDocumentsThisRun.has(item))) {
         const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
         const matchingRemoval = earlier.some((item) => item.document === document);
         for (const name of names) {
