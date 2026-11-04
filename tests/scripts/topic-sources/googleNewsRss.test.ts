@@ -222,6 +222,20 @@ describe('fetchNewsRssCandidates', () => {
     expect(r.perSeed.x.reason).toMatch(/fetch error|network/i);
   });
 
+  it('does not start a seed after the absolute deadline', async () => {
+    const fetchImpl = vi.fn(async () => makeRes({ text: NEWS_OK_XML }));
+    const r = await fetchNewsRssCandidates({
+      seeds: ['x'],
+      fetchImpl: fetchImpl as any,
+      deadlineMs: 0,
+    });
+
+    expect(r.ok).toBe(false);
+    expect(r.perSeed.x.ok).toBe(false);
+    expect(r.perSeed.x.reason).toMatch(/deadline/i);
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
   it('times out and cancels body readers that ignore abort', async () => {
     const cancel = vi.fn();
     const bodies: ReadableStream<Uint8Array>[] = [];

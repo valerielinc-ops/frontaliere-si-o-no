@@ -181,6 +181,65 @@ describe('fetchAll', () => {
     // orphan + news still populate.
     expect(out.candidates.length).toBeGreaterThan(0);
   });
+
+  it('passes the reserved run deadline to trend evidence fetches', async () => {
+    const deadlineMs = Date.now() + 180_000;
+    const reserveMs = 5_000;
+    let evidenceOptions: { seeds?: string[]; deadlineMs?: number } | undefined;
+    const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; deadlineMs?: number } = {}) => {
+      if (opts.seeds) evidenceOptions = opts;
+      return stubNews(_evidence, opts);
+    };
+
+    await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn,
+      trendsFn: stubTrends,
+      deadlineMs,
+      deadlineReserveMs: reserveMs,
+    });
+
+    expect(evidenceOptions?.deadlineMs).toBe(deadlineMs - reserveMs);
+  });
+
+  it('skips trend evidence when the residual window cannot cover all seed retries', async () => {
+    let evidenceCalls = 0;
+    const newsFn = async (_evidence: unknown, opts: { seeds?: string[] } = {}) => {
+      if (opts.seeds) evidenceCalls += 1;
+      return stubNews(_evidence, opts);
+    };
+
+    await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn,
+      trendsFn: stubTrends,
+      deadlineMs: Date.now() + 30_000,
+    });
+
+    expect(evidenceCalls).toBe(0);
+  });
+
+  it('skips remote work when the effective deadline is already spent', async () => {
+    process.env.DISABLE_DISCOVERY_ORPHAN = '1';
+    let newsCalls = 0;
+    let trendsCalls = 0;
+    const out = await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn: async () => {
+        newsCalls += 1;
+        return [];
+      },
+      trendsFn: async () => {
+        trendsCalls += 1;
+        return [];
+      },
+      deadlineMs: 0,
+    });
+
+    expect(newsCalls).toBe(0);
+    expect(trendsCalls).toBe(0);
+    expect(out.candidates).toEqual([]);
+  });
 });
 
 describe('dedupAgainstProven', () => {

@@ -103,7 +103,11 @@ const SEEDS_FALLBACK = [
 
 const REQUEST_TIMEOUT_MS = 15000;
 const RETRY_DELAY_MS = 1500;
+const MAX_REQUEST_ATTEMPTS = 2;
 const DEFAULT_MAX_PER_SEED = 20;
+
+export const NEWS_RSS_MAX_SEED_DURATION_MS =
+  REQUEST_TIMEOUT_MS * MAX_REQUEST_ATTEMPTS + RETRY_DELAY_MS;
 
 const USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
@@ -246,17 +250,30 @@ export function parseNewsRss(xml) {
   return out;
 }
 
-async function fetchOneSeed(seed, fetchImpl, timeoutMs) {
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(
     seed,
   )}&hl=it&gl=IT&ceid=IT:it`;
   let lastReason = null;
-  for (let attempt = 0; attempt <= 1; attempt++) {
+  for (let attempt = 0; attempt < MAX_REQUEST_ATTEMPTS; attempt++) {
+    const remainingMs = deadlineMs === null ? Infinity : deadlineMs - Date.now();
+    if (remainingMs <= 0) {
+      return { ok: false, items: [], reason: 'deadline exceeded' };
+    }
+    const effectiveTimeoutMs = deadlineMs === null
+      ? timeoutMs
+      : Math.max(1, Math.min(timeoutMs, Math.floor(remainingMs)));
     try {
       const { response: res, text: xml } = await fetchTextWithTimeout(
         fetchImpl,
         url,
-        timeoutMs,
+        effectiveTimeoutMs,
       );
       if (!res || typeof res.ok !== 'boolean') {
         lastReason = 'invalid response';
@@ -269,7 +286,11 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs) {
     } catch (e) {
       lastReason = `fetch error: ${e?.message ?? String(e)}`;
     }
-    if (attempt === 0) await sleep(RETRY_DELAY_MS);
+    if (attempt < MAX_REQUEST_ATTEMPTS - 1) {
+      const retryWindowMs = deadlineMs === null ? RETRY_DELAY_MS : deadlineMs - Date.now();
+      if (retryWindowMs <= 0) break;
+      await sleep(Math.min(RETRY_DELAY_MS, retryWindowMs));
+    }
   }
   return { ok: false, items: [], reason: lastReason ?? 'unknown error' };
 }
@@ -283,6 +304,7 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs) {
  * @param {Function} [opts.fetchImpl]
  * @param {number} [opts.maxPerSeed]
  * @param {number} [opts.timeoutMs]
+ * @param {number} [opts.deadlineMs] absolute deadline for the whole seed loop
  * @returns {Promise<{
  *   ok: boolean,
  *   perSeed: Record<string, {ok: boolean, candidates: any[], reason?: string}>,
@@ -297,6 +319,7 @@ export async function fetchNewsRssCandidates(opts = {}) {
   const timeoutMs = Number.isFinite(opts.timeoutMs) && opts.timeoutMs > 0
     ? opts.timeoutMs
     : REQUEST_TIMEOUT_MS;
+  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
   const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
   if (typeof fetchImpl !== 'function') {
     const empty = {};
@@ -311,7 +334,7 @@ export async function fetchNewsRssCandidates(opts = {}) {
   const seenNorm = new Set();
 
   for (const seed of seeds) {
-    const { ok, items, reason } = await fetchOneSeed(seed, fetchImpl, timeoutMs);
+    const { ok, items, reason } = await fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs);
     const seedCandidates = [];
     if (ok && items.length) {
       // RELEVANCE FILTER (positive): keep only titles containing a
