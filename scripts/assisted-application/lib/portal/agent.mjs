@@ -683,8 +683,7 @@ export async function clickSubmitButton(page, target) {
     // click was dispatched. Every other click failure is ambiguous: the
     // browser may already have sent the event, so let the caller observe the
     // page outcome instead of risking a duplicate application.
-    const message = String(error?.message || error);
-    if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(message)) return 'outcome';
+    if (!isPreDispatchLocatorClickFailure(error)) return 'outcome';
     if (!target?.name || typeof page.getByRole !== 'function') throw error;
     const candidates = page.getByRole('button', { name: target.name, exact: true });
     const count = await candidates.count().catch(() => 0);
@@ -698,14 +697,22 @@ export async function clickSubmitButton(page, target) {
       } catch (candidateError) {
         // A candidate click may have dispatched before rejecting. Do not try
         // another same-name control; the caller must observe the outcome.
-        const candidateMessage = String(candidateError?.message || candidateError);
-        if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(candidateMessage)) return 'outcome';
+        if (!isPreDispatchLocatorClickFailure(candidateError)) return 'outcome';
         // SuccessFactors can replace the button once more while it is being
         // resolved; only a proven pre-dispatch miss may try the next exact-name control.
       }
     }
     throw error;
   }
+}
+
+/** True only when Playwright proves the click did not reach a locator. */
+export function isPreDispatchLocatorClickFailure(error) {
+  const message = String(error?.message || error);
+  if (/performing click action|click action done|waiting for (?:scheduled )?navigations?|waiting for navigation|navigated to|waiting for load state/i.test(message)) return false;
+  if (/locator resolved to 0 elements/i.test(message)) return true;
+  if (/locator resolved\b|element is visible, enabled and stable|scrolling into view/i.test(message)) return false;
+  return /waiting for locator|strict mode violation/i.test(message);
 }
 
 /** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */
