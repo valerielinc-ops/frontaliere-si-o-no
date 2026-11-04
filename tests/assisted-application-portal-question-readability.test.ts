@@ -20,7 +20,9 @@ function extract(html: string) {
   Object.defineProperty(dom.window.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
   dom.window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON() {} });
   vi.stubGlobal('window', dom.window); vi.stubGlobal('document', dom.window.document); vi.stubGlobal('location', dom.window.location);
-  vi.stubGlobal('CSS', { escape: (value: string) => value });
+  const css = { escape: (value: string) => value };
+  vi.stubGlobal('CSS', css);
+  (dom.window as any).CSS = css;
   return { dom, snapshot: extractFieldsInPage() };
 }
 afterEach(() => vi.unstubAllGlobals());
