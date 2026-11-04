@@ -217,6 +217,62 @@ describe('Instagram Story insights collector', () => {
     expect(JSON.stringify(result.additions[0])).not.toContain('tap_reply');
   });
 
+  it('keeps mapped navigation actions when a breakdown also contains a malformed row', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-malformed-row', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [
+                  { dimension_values: ['TAP_FORWARD'], value: 12 },
+                  { dimension_values: ['TAP_REPLY'], value: 6 },
+                  null,
+                ],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: 12, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'available', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).toContain('tapsForward');
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+    expect(JSON.stringify(result.additions[0])).not.toContain('TAP_REPLY');
+  });
+
+  it('does not interpret an empty object navigation payload as zero actions', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-empty-object', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({ data: [{ name: 'navigation', values: [{ value: {} }] }] });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { unmappedNavigationActions: null },
+      metricStatus: { unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
   it('fails the scheduled job when credentials or due Story measurements are unavailable', () => {
     expect(instagramStoryInsightsExitCode({ status: 'credentials-missing' })).toBe(2);
     expect(instagramStoryInsightsExitCode({ status: 'metrics-unavailable' })).toBe(2);

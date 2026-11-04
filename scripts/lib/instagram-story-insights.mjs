@@ -58,7 +58,8 @@ function navigationCounts(value) {
         ? Object.entries(value).map(([key, count]) => ({ key, value: count }))
         : [];
   let unmappedTotal = 0;
-  let unmappedValid = Array.isArray(value) || record(value);
+  let unmappedValid = Array.isArray(value)
+    || (record(value) && (Array.isArray(value.results) || Object.keys(value).length > 0));
   for (const row of rows) {
     if (!record(row)) {
       unmappedValid = false;
