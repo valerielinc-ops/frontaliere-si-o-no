@@ -105,6 +105,23 @@ const REQUEST_TIMEOUT_MS = 15000;
 const RETRY_DELAY_MS = 1500;
 const DEFAULT_MAX_PER_SEED = 20;
 
+/**
+ * Per-request timeout that keeps a multi-seed RSS lookup within a wall-clock
+ * budget, accounting for one retry and its delay per seed.
+ *
+ * @param {number} seedCount
+ * @param {number} budgetMs
+ * @returns {number}
+ */
+export function newsRssTimeoutMsForBudget(seedCount, budgetMs) {
+  const count = Number.isFinite(Number(seedCount)) ? Math.trunc(Number(seedCount)) : 0;
+  const budget = Number(budgetMs);
+  if (count < 1 || !Number.isFinite(budget) || budget <= 0) return 0;
+  const requestSlots = count * 2;
+  const retryWaitMs = count * RETRY_DELAY_MS;
+  return Math.min(REQUEST_TIMEOUT_MS, Math.floor((budget - retryWaitMs) / requestSlots));
+}
+
 const USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
 

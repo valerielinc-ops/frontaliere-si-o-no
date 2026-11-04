@@ -16,6 +16,7 @@ import { fetchOrphanCandidates } from './sources/orphanQuerySource.mjs';
 import { fetchSuggestDiscoveryCandidates } from './sources/googleSuggestSource.mjs';
 import { fetchNewsRssDiscoveryCandidates } from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
+import { newsRssTimeoutMsForBudget } from '../topic-sources/googleNewsRss.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
@@ -23,6 +24,8 @@ const ENV_TRUE = (val) => val === '1' || val === 'true';
 const MAX_TREND_EVIDENCE_SEEDS = 3;
 const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
 const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
+const TREND_EVIDENCE_DEADLINE_MARGIN_MS = 10_000;
+const MIN_TREND_EVIDENCE_TIMEOUT_MS = 1_000;
 
 function isOrphanDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_ORPHAN);
@@ -139,6 +142,7 @@ function buildTrendEvidenceCandidates(trendSignals, newsEvidence, nowMs) {
  *   newsFn?: Function,
  *   trendsFn?: Function,
  *   nowMs?: number,
+ *   deadlineMs?: number,
  * }} [opts]
  * @returns {Promise<{ candidates: DiscoveryCandidate[], perSource: Record<string, number> }>}
  */
@@ -226,17 +230,33 @@ export async function fetchAll(evidence, opts = {}) {
       .slice(0, MAX_TREND_EVIDENCE_SEEDS);
     try {
       const seeds = topTrendSignals.map((candidate) => candidate.headline);
-      const result = await newsFn(evidence, {
+      const evidenceOptions = {
         fetchImpl: opts.fetchImpl,
         seeds,
         nowMs: opts.nowMs,
-      });
-      const newsEvidence = Array.isArray(result) ? result : [];
-      trendBackedCandidates = buildTrendEvidenceCandidates(
-        topTrendSignals,
-        newsEvidence,
-        Number.isFinite(opts.nowMs) ? Number(opts.nowMs) : Date.now(),
-      );
+      };
+      const deadlineMs = Number(opts.deadlineMs);
+      if (Number.isFinite(deadlineMs)) {
+        const remainingMs = deadlineMs - Date.now();
+        const timeoutMs = newsRssTimeoutMsForBudget(
+          seeds.length,
+          remainingMs - TREND_EVIDENCE_DEADLINE_MARGIN_MS,
+        );
+        if (timeoutMs < MIN_TREND_EVIDENCE_TIMEOUT_MS) {
+          console.warn(`[discovery/trends] evidence search skipped=insufficient_wall_budget remaining_ms=${Math.max(0, Math.floor(remainingMs))}`);
+        } else {
+          evidenceOptions.timeoutMs = timeoutMs;
+        }
+      }
+      if (!Number.isFinite(deadlineMs) || evidenceOptions.timeoutMs) {
+        const result = await newsFn(evidence, evidenceOptions);
+        const newsEvidence = Array.isArray(result) ? result : [];
+        trendBackedCandidates = buildTrendEvidenceCandidates(
+          topTrendSignals,
+          newsEvidence,
+          Number.isFinite(opts.nowMs) ? Number(opts.nowMs) : Date.now(),
+        );
+      }
     } catch (err) {
       console.warn(`[discovery/trends] evidence search failed: ${err?.message || err}`);
     }
@@ -317,7 +337,7 @@ export function scoreCandidates(candidates, evidence) {
  * One-shot convenience: fetch + dedup + score. Returns the sorted list.
  *
  * @param {object} evidence
- * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number, nowMs?: number }} [opts]
+ * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number, nowMs?: number, deadlineMs?: number }} [opts]
  * @returns {Promise<{ candidates: ScoredDiscoveryCandidate[], perSource: Record<string, number>, postDedupCount: number }>}
  */
 export async function buildDiscoveryPool(evidence, opts = {}) {

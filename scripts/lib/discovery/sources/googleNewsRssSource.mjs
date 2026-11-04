@@ -65,7 +65,7 @@ export function ageHoursFromPubDate(pubDate, nowMs = Date.now()) {
  * failure — never throws.
  *
  * @param {object} evidence
- * @param {{ fetchImpl?: Function, newsFn?: Function, seeds?: string[], nowMs?: number }} [opts]
+ * @param {{ fetchImpl?: Function, newsFn?: Function, seeds?: string[], nowMs?: number, timeoutMs?: number }} [opts]
  * @returns {Promise<NewsCandidate[]>}
  */
 export async function fetchNewsRssDiscoveryCandidates(evidence, opts = {}) {
@@ -77,6 +77,7 @@ export async function fetchNewsRssDiscoveryCandidates(evidence, opts = {}) {
     result = await newsFn({
       seeds: Array.isArray(opts.seeds) && opts.seeds.length > 0 ? opts.seeds : undefined,
       fetchImpl: opts.fetchImpl,
+      timeoutMs: Number.isFinite(opts.timeoutMs) && opts.timeoutMs > 0 ? opts.timeoutMs : undefined,
     });
   } catch (err) {
     console.warn(`[discovery/news] fetcher threw: ${err?.message || err}`);
