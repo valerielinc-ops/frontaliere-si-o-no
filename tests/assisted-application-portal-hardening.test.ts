@@ -424,6 +424,25 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
   });
 
+  it('recognizes Umantis profile creation when submitting the application creates the account', () => {
+    const snapshot = {
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4',
+      text: 'Inviando la candidatura viene creato un profilo utente.',
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Indirizzo e-mail/login*' },
+        { id: 'password', kind: 'text', inputType: 'password', form: 1, label: 'Password*' },
+        { id: 'cv', kind: 'file', inputType: 'file', form: 2, label: 'Curriculum*' },
+      ],
+      buttons: [{ text: 'Invia candidatura definitiva' }],
+    };
+
+    expect(sendsApplication(snapshot)).toBe(true);
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('recruitingapp-2761.umantis.com', 'careers.example.org') }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, text: '' }, 'umantis')).toBe(false);
+  });
+
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
     const successFactors = {
       url: 'https://career5.successfactors.eu/careers',
