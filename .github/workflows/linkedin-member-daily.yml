@@ -87,7 +87,7 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: >-
           node scripts/load-rc-env.mjs
-          --only-env=LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN,LINKEDIN_MEMBER_URN,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID
+          --only-env=GITHUB_PAT,LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN,LINKEDIN_MEMBER_URN,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID
 
       # The jobs dataset is what separates a real offer from a generated SEO
       # landing page under the same URL shape. Without it the poster skips the
