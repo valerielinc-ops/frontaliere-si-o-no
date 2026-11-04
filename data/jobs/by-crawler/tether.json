@@ -1,7 +1,7 @@
 {
   "crawlerKey": "tether",
-  "assembledAt": "2026-11-04T09:17:56.522Z",
-  "runId": "41804599823",
+  "assembledAt": "2026-11-04T21:19:55.654Z",
+  "runId": "41912757392",
   "jobs": [
     {
       "id": "tether-3dddd8db6d3e",
@@ -34,7 +34,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.160Z",
+      "crawledAt": "2026-11-04T21:19:45.020Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.160Z",
+      "validThrough": "2026-12-04T21:19:45.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.134Z",
+      "crawledAt": "2026-11-04T21:19:44.995Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.134Z",
+      "validThrough": "2026-12-04T21:19:44.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-post-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.130Z",
+      "crawledAt": "2026-11-04T21:19:44.992Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.130Z",
+      "validThrough": "2026-12-04T21:19:44.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -282,7 +282,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.120Z",
+      "crawledAt": "2026-11-04T21:19:44.986Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -303,7 +303,9 @@
       "department": "Engineering",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-02T21:24:26.426Z",
+      "previousSlugs": [
+        "ai-research-engineer-agentic-reinforcement-learning-100-remote-worldwide-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ai-research-engineer-agentic-reinforcement-learning-100-remote-worldwide-tether-ch"
@@ -315,9 +317,7 @@
           "ai-research-engineer-agentic-reinforcement-learning-100-remote-worldwide-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "ai-research-engineer-agentic-reinforcement-learning-100-remote-worldwide-tether-ch"
-      ],
+      "firstSeenAt": "2026-11-02T21:24:26.426Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -333,7 +333,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:17:47.120Z",
+      "validThrough": "2027-02-01T21:19:44.986Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -367,7 +367,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.114Z",
+      "crawledAt": "2026-11-04T21:19:44.980Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.114Z",
+      "validThrough": "2026-12-04T21:19:44.980Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -446,7 +446,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.107Z",
+      "crawledAt": "2026-11-04T21:19:44.970Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -491,7 +491,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.107Z",
+      "validThrough": "2026-12-04T21:19:44.970Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -525,7 +525,7 @@
       "url": "https://tether.recruitee.com/o/p2p-nodejs-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.090Z",
+      "crawledAt": "2026-11-04T21:19:44.953Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -570,7 +570,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.090Z",
+      "validThrough": "2026-12-04T21:19:44.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -604,7 +604,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.087Z",
+      "crawledAt": "2026-11-04T21:19:44.951Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -649,7 +649,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.087Z",
+      "validThrough": "2026-12-04T21:19:44.951Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -683,7 +683,7 @@
       "url": "https://tether.recruitee.com/o/frontend-software-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.082Z",
+      "crawledAt": "2026-11-04T21:19:44.945Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -734,7 +734,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:17:47.082Z",
+      "validThrough": "2027-01-07T21:19:44.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -768,7 +768,7 @@
       "url": "https://tether.recruitee.com/o/senior-product-designer-wallets-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.080Z",
+      "crawledAt": "2026-11-04T21:19:44.943Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -813,7 +813,7 @@
       },
       "streetAddress": "Berne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.080Z",
+      "validThrough": "2026-12-04T21:19:44.943Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -847,7 +847,7 @@
       "url": "https://tether.recruitee.com/o/devops-engineer-100-remote-12",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.077Z",
+      "crawledAt": "2026-11-04T21:19:44.941Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -904,7 +904,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:47.077Z",
+      "validThrough": "2026-12-04T21:19:44.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -938,7 +938,7 @@
       "url": "https://tether.recruitee.com/o/technical-content-creator-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.067Z",
+      "crawledAt": "2026-11-04T21:19:44.931Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -999,7 +999,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:17:47.067Z",
+      "validThrough": "2026-12-08T21:19:44.931Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1033,7 +1033,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-kernel-inference-optimization-100-remoteworldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.057Z",
+      "crawledAt": "2026-11-04T21:19:44.926Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1079,7 +1079,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:17:47.057Z",
+      "validThrough": "2027-02-02T21:19:44.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1113,7 +1113,7 @@
       "url": "https://tether.recruitee.com/o/head-of-ai-expansion-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.047Z",
+      "crawledAt": "2026-11-04T21:19:44.920Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1134,12 +1134,19 @@
       "department": "Expansion",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsabile-ai-expansion-tether-operations-lugano-ticino",
+        "leiter-ai-expansion-tether-operations-lugano-ticino",
+        "responsable-ai-expansion-tether-operations-lugano-ticino",
+        "head-of-ai-expansion-tether-ch",
+        "head-of-ai-expansion-tether-operations-lugano"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "head-of-ai-expansion-tether-operations-lugano"
-        ],
         "it": [
           "head-of-ai-expansion-tether-ch"
+        ],
+        "en": [
+          "head-of-ai-expansion-tether-operations-lugano"
         ],
         "de": [
           "leiter-ai-expansion-tether-operations-lugano-ticino"
@@ -1148,13 +1155,6 @@
           "responsable-ai-expansion-tether-operations-lugano-ticino"
         ]
       },
-      "previousSlugs": [
-        "responsabile-ai-expansion-tether-operations-lugano-ticino",
-        "leiter-ai-expansion-tether-operations-lugano-ticino",
-        "responsable-ai-expansion-tether-operations-lugano-ticino",
-        "head-of-ai-expansion-tether-ch",
-        "head-of-ai-expansion-tether-operations-lugano"
-      ],
       "firstSeenAt": "2026-10-03T09:11:15.110Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1171,7 +1171,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:17:47.047Z",
+      "validThrough": "2027-01-01T21:19:44.920Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1205,7 +1205,7 @@
       "url": "https://tether.recruitee.com/o/event-design-coordinator-remote-europe-switz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.044Z",
+      "crawledAt": "2026-11-04T21:19:44.917Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1250,7 +1250,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:17:47.044Z",
+      "validThrough": "2026-12-16T21:19:44.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1284,7 +1284,7 @@
       "url": "https://tether.recruitee.com/o/senior-technical-product-manager-keet-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.035Z",
+      "crawledAt": "2026-11-04T21:19:44.908Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1334,7 +1334,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:17:47.035Z",
+      "validThrough": "2027-01-04T21:19:44.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1368,7 +1368,7 @@
       "url": "https://tether.recruitee.com/o/vp-of-tech-expansion-100-remote-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.031Z",
+      "crawledAt": "2026-11-04T21:19:44.904Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1413,7 +1413,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:17:47.031Z",
+      "validThrough": "2027-01-04T21:19:44.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1447,7 +1447,7 @@
       "url": "https://tether.recruitee.com/o/credit-lead-underwriter-fintech-payments-expertise-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.028Z",
+      "crawledAt": "2026-11-04T21:19:44.901Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1492,7 +1492,7 @@
       },
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:17:47.028Z",
+      "validThrough": "2027-01-10T21:19:44.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1526,7 +1526,7 @@
       "url": "https://tether.recruitee.com/o/product-manager-on-ramp-swap-100-remote-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.027Z",
+      "crawledAt": "2026-11-04T21:19:44.900Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1571,7 +1571,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:17:47.027Z",
+      "validThrough": "2027-01-04T21:19:44.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1605,7 +1605,7 @@
       "url": "https://tether.recruitee.com/o/ai-technical-product-manager-qvac-100-remote-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.019Z",
+      "crawledAt": "2026-11-04T21:19:44.892Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1653,7 +1653,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:17:47.019Z",
+      "validThrough": "2027-01-04T21:19:44.892Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1687,7 +1687,7 @@
       "url": "https://tether.recruitee.com/o/product-engineering-lead-keet-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.016Z",
+      "crawledAt": "2026-11-04T21:19:44.889Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1738,7 +1738,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:17:47.016Z",
+      "validThrough": "2027-01-05T21:19:44.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1772,7 +1772,7 @@
       "url": "https://tether.recruitee.com/o/product-engineering-lead-qvac-100-remote-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:47.001Z",
+      "crawledAt": "2026-11-04T21:19:44.871Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1823,7 +1823,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:17:47.001Z",
+      "validThrough": "2027-01-08T21:19:44.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1845,10 +1845,10 @@
         "de": "AI Forschung Ingenieur (Model Compression & Quantization)",
         "fr": "AI Recherche Ingénieur (Model Compression & Quantization)"
       },
-      "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI research team, you will drive innovation in model compression and efficient deployment for advanced multimodal AI systems, including large language models (LLMs) and vision-language models (VLMs). Your work will focus on reducing model footprint and computational cost while preserving accuracy, enabling high-performance AI to run efficiently across resource-constrained edge devices. You will apply and advance compression techniques such as quantization, knowledge distillation, and pruning to streamline complex multimodal architectures that integrate text, images, and audio.\n We expect you to have deep expertise in model compression methods and a strong background in multimodal model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel compression strategies that balance model size, latency, throughput, and accuracy. Your responsibilities include building robust compression pipelines, establishing performance and fidelity metrics, and addressing bottlenecks in production inference. The ultimate goal is to deliver scalable, low-memory, low-latency AI systems on edge devices (i.e., smartphones) that maintain high fidelity and tangible real-world value.\n\nResponsibilities\n Break down the key responsibilities in bullet points. It’s helpful to make them actionable and measurable. This could also be grouped into categories for more complex roles.\n\n• Apply low-bit quantization to reduce model size and inference latency for generative AI models (LLMs, VLMs, multimodal) while maintaining accuracy and output quality.\n\n• Leverage knowledge distillation to transfer capabilities from larger teacher models to smaller student models, enabling efficient multimodal reasoning across text, image, and audio inputs.\n\n• Implement pruning techniques to remove redundant parameters and attention heads, reducing computational overhead without sacrificing task performance.\n\n• Analyze trade-offs between model efficiency (size, latency, memory) and accuracy across quantization, distillation, and pruning methods; propose improvements based on empirical findings.\n\n• Research and apply mixed-precision quantization and other advanced compression strategies (e.g., adaptive pruning schedules, distillation with intermediate feature matching) to optimize the accuracy–performance balance.\n\n• Stay current with the latest research in model compression, including emerging techniques for multimodal and generative architectures.\n\n• Document methodologies, experiments, and results clearly to support reproducibility, internal collaboration, and stakeholder communication.\n\n• Author technical papers and publish findings in top-tier conferences (e.g., NeurIPS, ICML, ICLR, CVPR, ACL, AAAI) to advance the field of model compression for multimodal AI.\n\nList the qualifications, certifications, and experience needed for the role. You can split this into mandatory and preferred sections if needed.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Experience with PyTorch deep learning frameworks or equivalent frameworks\n\n• Hands-on experience with model quantization including both Quantization-Aware Training (QAT) and Post-Training Quantization (PTQ).\n\n• Research and hands-on experience with knowledge distillation for compressing large models into smaller, efficient ones.\n\n• Research and hands-on experience with model pruning for compressing large models into smaller, efficient ones.\n\n• Solid understanding of neural network architectures and training processes – Including transformers (e.g., LLMs, VLMs), backpropagation, optimization, and fine-tuning techniques.\n\n• Familiarity with C++ is a plus (especially for implementing low-level quantization kernels or inference optimizations).\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+      "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI research team, you will drive innovation in model compression and efficient deployment for advanced multimodal AI systems, including large language models (LLMs) and vision-language models (VLMs). Your work will focus on reducing model footprint and computational cost while preserving accuracy, enabling high-performance AI to run efficiently across resource-constrained edge devices. You will apply and advance compression techniques such as quantization, knowledge distillation, and pruning to streamline complex multimodal architectures that integrate text, images, and audio.\n We expect you to have deep expertise in model compression methods and a strong background in multimodal model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel compression strategies that balance model size, latency, throughput, and accuracy. Your responsibilities include building robust compression pipelines, establishing performance and fidelity metrics, and addressing bottlenecks in production inference. The ultimate goal is to deliver scalable, low-memory, low-latency AI systems on edge devices (i.e., smartphones) that maintain high fidelity and tangible real-world value.\n\nResponsibilities\n\n• Apply low-bit quantization to reduce model size and inference latency for generative AI models (LLMs, VLMs, multimodal) while maintaining accuracy and output quality.\n\n• Leverage knowledge distillation to transfer capabilities from larger teacher models to smaller student models, enabling efficient multimodal reasoning across text, image, and audio inputs.\n\n• Implement pruning techniques to remove redundant parameters and attention heads, reducing computational overhead without sacrificing task performance.\n\n• Analyze trade-offs between model efficiency (size, latency, memory) and accuracy across quantization, distillation, and pruning methods; propose improvements based on empirical findings.\n\n• Research and apply mixed-precision quantization and other advanced compression strategies (e.g., adaptive pruning schedules, distillation with intermediate feature matching) to optimize the accuracy–performance balance.\n\n• Stay current with the latest research in model compression, including emerging techniques for multimodal and generative architectures.\n\n• Document methodologies, experiments, and results clearly to support reproducibility, internal collaboration, and stakeholder communication.\n\n• Author technical papers and publish findings in top-tier conferences (e.g., NeurIPS, ICML, ICLR, CVPR, ACL, AAAI) to advance the field of model compression for multimodal AI.\n\nList the qualifications, certifications, and experience needed for the role. You can split this into mandatory and preferred sections if needed.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Experience with PyTorch deep learning frameworks or equivalent frameworks\n\n• Hands-on experience with model quantization including both Quantization-Aware Training (QAT) and Post-Training Quantization (PTQ).\n\n• Research and hands-on experience with knowledge distillation for compressing large models into smaller, efficient ones.\n\n• Research and hands-on experience with model pruning for compressing large models into smaller, efficient ones.\n\n• Solid understanding of neural network architectures and training processes – Including transformers (e.g., LLMs, VLMs), backpropagation, optimization, and fine-tuning techniques.\n\n• Familiarity with C++ is a plus (especially for implementing low-level quantization kernels or inference optimizations).\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
       "descriptionByLocale": {
         "it": "Unisciti a Tether e Forma il futuro della finanza digitale\nA Tether, non stiamo solo costruendo prodotti, siamo pionieri di una rivoluzione finanziaria globale. Le nostre soluzioni all'avanguardia consentono alle aziende, dagli scambi e dai portafogli ai processori di pagamento e agli sportelli bancomat, di integrare senza soluzione di continuità i gettoni di riserva in blockchains. Imbragando la potenza della tecnologia blockchain, Tether consente di memorizzare, inviare e ricevere gettoni digitali istantaneamente, in modo sicuro e globale, il tutto ad una frazione del costo. La trasparenza è la base di tutto ciò che facciamo, garantendo fiducia in ogni transazione.\n\nInnovare con Tether\nTether Finance: La nostra innovativa suite di prodotti presenta il più affidabile stablecoin al mondo, USDT , basato su centinaia di milioni di persone in tutto il mondo, insieme ai servizi di tokenizzazione degli asset digitali.\nMa questo è solo l’inizio:\nTether Power: Guidare la crescita sostenibile, le nostre soluzioni energetiche ottimizzano il potere in eccesso per l'estrazione mineraria di Bitcoin utilizzando pratiche eco-friendly nelle strutture all'avanguardia e geo-diverse.\nTether Data: Riduciamo i costi delle infrastrutture e miglioriamo le comunicazioni globali con soluzioni all'avanguardia come KEET , la nostra app di punta che ridefinisce la condivisione dei dati sicura e privata.\nTether Education: Democratizzazione dell'accesso all'apprendimento digitale di alto livello, forniamo agli individui di prosperare nelle economie digitali e di gig, guidando la crescita globale e l'opportunità.\nTether Evolution: All'incrocio tra tecnologia e potenziale umano, stiamo spingendo i confini di ciò che è possibile, realizzando un futuro in cui innovazione e capacità umane si fondono in modi potenti e senza precedenti.\n\nPerché unirsi a noi?\nIl nostro team è una potenza di talento globale, lavorando da remoto da ogni angolo del mondo. Se siete appassionati di fare un segno nello spazio fintech, questa è la vostra opportunità di collaborare con alcune delle menti più brillanti, spingendo i confini e stabilendo nuovi standard. Siamo cresciuti veloci, siamo stati magra, e assicurato il nostro posto come leader nel settore.\nSe avete eccellenti capacità di comunicazione inglese e siete pronti a contribuire alla piattaforma più innovativa del pianeta, Tether è il posto per voi.\nSei pronto a far parte del futuro?\n\nRiguardo al lavoro\nCome membro del nostro team di ricerca AI, guiderai l'innovazione nella compressione del modello e nell'implementazione efficiente per sistemi AI multimodali avanzati, compresi i modelli di lingua (LLMs) e i modelli di visione (VLMs). Il vostro lavoro si concentrerà sulla riduzione dell'impronta del modello e dei costi computazionali, preservando al contempo l'accuratezza, consentendo AI ad alte prestazioni di eseguire in modo efficiente attraverso i dispositivi di bordo con restrizioni alle risorse. Applicare e avanzare tecniche di compressione come la quantizzazione, la distillazione delle conoscenze e la potatura per semplificare complesse architetture multimodali che integrano testo, immagini e audio.\nCi aspettiamo di avere una profonda esperienza nei metodi di compressione del modello e un forte background in architetture multimodali modello. Adottiamo un approccio pratico e ricercato per sviluppare, testare e implementare nuove strategie di compressione che bilanciano la dimensione del modello, la latenza, il throughput e l'accuratezza. Le tue responsabilità includono la costruzione di robuste tubazioni di compressione, la definizione di metriche di performance e fedeltà, e l'affrontare i colli di bottiglia nell'inferenza di produzione. L'obiettivo finale è quello di fornire sistemi AI scalabili, a bassa memoria, a bassa latenza su dispositivi edge (cioè smartphone) che mantengono alta fedeltà e valore tangibile del mondo reale.\n\nresponsabilità\nRipartire le responsabilità chiave nei punti di proiettile. È utile farli agire e misurabili. Questo potrebbe anche essere raggruppato in categorie per ruoli più complessi.\n\n• Applicare la quantizzazione a basso bit per ridurre le dimensioni del modello e la latenza di inferenza per i modelli di AI generativi (LLM, VLM, multimodali) mantenendo la precisione e la qualità di uscita.\n\n• Distillazione delle conoscenze per trasferire le capacità da modelli di insegnanti più grandi a modelli di studenti più piccoli, consentendo un efficiente ragionamento multimodale tra testo, immagine e input audio.\n\n• Implementare tecniche di potatura per rimuovere i parametri ridondanti e teste di attenzione, riducendo overhead computazionale senza sacrificare le prestazioni del compito.\n\n• Analizzare i trade-off tra l'efficienza del modello (dimensione, latenza, memoria) e l'accuratezza attraverso metodi di quantizzazione, distillazione e potatura; proporre miglioramenti basati sui risultati empirici.\n\n• La ricerca e l'applicazione di quantizzazione a precisione mista e di altre strategie di compressione avanzate (ad esempio, programmi di potatura adattiva, distillazione con caratteristiche intermedie di corrispondenza) per ottimizzare l'equilibrio di precisione-performance.\n\n• Rimani attuale con l'ultima ricerca nella compressione dei modelli, comprese le tecniche emergenti per architetture multimodali e generative.\n\n• Metodologie, esperimenti e risultati dei documenti per supportare chiaramente la riproducibilità, la collaborazione interna e la comunicazione degli stakeholder.\n\n• Autore di documenti tecnici e pubblicare i risultati in conferenze di alto livello (ad esempio, NeurIPS, ICML, ICLR, CVPR, ACL, AAAI) per far progredire il campo di compressione del modello per l'IA multimodale.\n\nElenca le qualifiche, le certificazioni e l'esperienza necessaria per il ruolo. È possibile dividere questo in sezioni obbligatorie e preferite se necessario.\n\n• Una laurea in Informatica o campo correlato. Idealmente PhD in NLP, Machine Learning, o un campo correlato, completato da un solido track record in AI R&D (con buone pubblicazioni in conferenze A*).\n\n• Esperienza con quadri di apprendimento profondi di PyTorch o quadri equivalenti\n\n• Esperienza pratica con quantizzazione del modello, inclusi sia Quantization-Aware Training (QAT) che Post-Training Quantization (PTQ).\n\n• Ricerca e esperienza pratica con distillazione della conoscenza per la compressione di grandi modelli in quelli più piccoli ed efficienti.\n\n• Ricerca e esperienza pratica con potatura modello per la compressione di grandi modelli in quelli più piccoli ed efficienti.\n\n• Solida comprensione delle architetture di rete neurali e dei processi di formazione – Compresi trasformatori (ad esempio, LLM, VLM), backpropagazione, ottimizzazione e tecniche di fine-tuning.\n\n• La familiarità con C++ è un plus (soprattutto per l'implementazione di kernel di quantizzazione a basso livello o ottimizzazione delle inferenze).\n\nInformazioni importanti per i candidati\nLe truffe di reclutamento sono diventate sempre più comuni. Per proteggersi, si prega di tenere a mente il seguente quando si applica per i ruoli:\n\n• Applicare solo attraverso i nostri canali ufficiali. Non utilizziamo piattaforme o agenzie di terze parti per il reclutamento, a meno che non sia chiaro. Tutti i ruoli aperti sono elencati nella nostra pagina di carriera ufficiale: https://tether.recruitee.com/\n\n• Verificare l’identità del reclutatore. Tutti i nostri reclutatori hanno verificato i profili LinkedIn. Se non sei sicuro, puoi confermare la loro identità controllando il loro profilo o contattandoci attraverso il nostro sito web.\n\n• Siate cauti di metodi di comunicazione insoliti. Non conduciamo interviste su WhatsApp, Telegram o SMS. Tutte le comunicazioni vengono effettuate tramite e-mail e piattaforme aziendali ufficiali.\n\n• Doppio indirizzo email. Tutte le comunicazioni da noi verranno da e-mail che terminano in @ tether.to o @ tether.io\n\n• Non chiederemo mai il pagamento o i dettagli finanziari. Se qualcuno chiede informazioni finanziarie personali o il pagamento in qualsiasi momento durante il processo di assunzione, è una truffa. Si prega di segnalare immediatamente.\n\nQuando in dubbio, non esitate a raggiungere il nostro sito ufficiale.",
-        "en": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nAs a member of our AI research team, you will drive innovation in model compression and efficient deployment for advanced multimodal AI systems, including large language models (LLMs) and vision-language models (VLMs). Your work will focus on reducing model footprint and computational cost while preserving accuracy, enabling high-performance AI to run efficiently across resource-constrained edge devices. You will apply and advance compression techniques such as quantization, knowledge distillation, and pruning to streamline complex multimodal architectures that integrate text, images, and audio.\nWe expect you to have deep expertise in model compression methods and a strong background in multimodal model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel compression strategies that balance model size, latency, throughput, and accuracy. Your responsibilities include building robust compression pipelines, establishing performance and fidelity metrics, and addressing bottlenecks in production inference. The ultimate goal is to deliver scalable, low-memory, low-latency AI systems on edge devices (i.e., smartphones) that maintain high fidelity and tangible real-world value.\n\nResponsibilities\nBreak down the key responsibilities in bullet points. It’s helpful to make them actionable and measurable. This could also be grouped into categories for more complex roles.\n\n• Apply low-bit quantization to reduce model size and inference latency for generative AI models (LLMs, VLMs, multimodal) while maintaining accuracy and output quality.\n\n• Leverage knowledge distillation to transfer capabilities from larger teacher models to smaller student models, enabling efficient multimodal reasoning across text, image, and audio inputs.\n\n• Implement pruning techniques to remove redundant parameters and attention heads, reducing computational overhead without sacrificing task performance.\n\n• Analyze trade-offs between model efficiency (size, latency, memory) and accuracy across quantization, distillation, and pruning methods; propose improvements based on empirical findings.\n\n• Research and apply mixed-precision quantization and other advanced compression strategies (e.g., adaptive pruning schedules, distillation with intermediate feature matching) to optimize the accuracy–performance balance.\n\n• Stay current with the latest research in model compression, including emerging techniques for multimodal and generative architectures.\n\n• Document methodologies, experiments, and results clearly to support reproducibility, internal collaboration, and stakeholder communication.\n\n• Author technical papers and publish findings in top-tier conferences (e.g., NeurIPS, ICML, ICLR, CVPR, ACL, AAAI) to advance the field of model compression for multimodal AI.\n\nList the qualifications, certifications, and experience needed for the role. You can split this into mandatory and preferred sections if needed.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Experience with PyTorch deep learning frameworks or equivalent frameworks\n\n• Hands-on experience with model quantization including both Quantization-Aware Training (QAT) and Post-Training Quantization (PTQ).\n\n• Research and hands-on experience with knowledge distillation for compressing large models into smaller, efficient ones.\n\n• Research and hands-on experience with model pruning for compressing large models into smaller, efficient ones.\n\n• Solid understanding of neural network architectures and training processes – Including transformers (e.g., LLMs, VLMs), backpropagation, optimization, and fine-tuning techniques.\n\n• Familiarity with C++ is a plus (especially for implementing low-level quantization kernels or inference optimizations).\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "en": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nAs a member of our AI research team, you will drive innovation in model compression and efficient deployment for advanced multimodal AI systems, including large language models (LLMs) and vision-language models (VLMs). Your work will focus on reducing model footprint and computational cost while preserving accuracy, enabling high-performance AI to run efficiently across resource-constrained edge devices. You will apply and advance compression techniques such as quantization, knowledge distillation, and pruning to streamline complex multimodal architectures that integrate text, images, and audio.\nWe expect you to have deep expertise in model compression methods and a strong background in multimodal model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel compression strategies that balance model size, latency, throughput, and accuracy. Your responsibilities include building robust compression pipelines, establishing performance and fidelity metrics, and addressing bottlenecks in production inference. The ultimate goal is to deliver scalable, low-memory, low-latency AI systems on edge devices (i.e., smartphones) that maintain high fidelity and tangible real-world value.\n\nResponsibilities\n\n• Apply low-bit quantization to reduce model size and inference latency for generative AI models (LLMs, VLMs, multimodal) while maintaining accuracy and output quality.\n\n• Leverage knowledge distillation to transfer capabilities from larger teacher models to smaller student models, enabling efficient multimodal reasoning across text, image, and audio inputs.\n\n• Implement pruning techniques to remove redundant parameters and attention heads, reducing computational overhead without sacrificing task performance.\n\n• Analyze trade-offs between model efficiency (size, latency, memory) and accuracy across quantization, distillation, and pruning methods; propose improvements based on empirical findings.\n\n• Research and apply mixed-precision quantization and other advanced compression strategies (e.g., adaptive pruning schedules, distillation with intermediate feature matching) to optimize the accuracy–performance balance.\n\n• Stay current with the latest research in model compression, including emerging techniques for multimodal and generative architectures.\n\n• Document methodologies, experiments, and results clearly to support reproducibility, internal collaboration, and stakeholder communication.\n\n• Author technical papers and publish findings in top-tier conferences (e.g., NeurIPS, ICML, ICLR, CVPR, ACL, AAAI) to advance the field of model compression for multimodal AI.\n\nList the qualifications, certifications, and experience needed for the role. You can split this into mandatory and preferred sections if needed.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Experience with PyTorch deep learning frameworks or equivalent frameworks\n\n• Hands-on experience with model quantization including both Quantization-Aware Training (QAT) and Post-Training Quantization (PTQ).\n\n• Research and hands-on experience with knowledge distillation for compressing large models into smaller, efficient ones.\n\n• Research and hands-on experience with model pruning for compressing large models into smaller, efficient ones.\n\n• Solid understanding of neural network architectures and training processes – Including transformers (e.g., LLMs, VLMs), backpropagation, optimization, and fine-tuning techniques.\n\n• Familiarity with C++ is a plus (especially for implementing low-level quantization kernels or inference optimizations).\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
         "de": "Treten Sie Tether bei und gestalten Sie die Zukunft der digitalen Finanzen\nBei Tether bauen wir nicht nur Produkte, wir sind Vorreiter einer globalen Finanzrevolution. Unsere innovativen Lösungen ermöglichen es Unternehmen - von Börsen und Wallets bis hin zu Zahlungsprozessoren und Geldautomaten -, reservegestützte Token nahtlos in Blockchains zu integrieren. Durch die Nutzung der Blockchain-Technologie können Sie digitale Token sofort, sicher und global zu einem Bruchteil der Kosten speichern, senden und empfangen. Transparenz ist das Fundament von allem, was wir tun, und gewährleistet das Vertrauen in jede Transaktion.\n\nInnovation mit Tether\nTether Finance: Unsere innovative Produktsuite verfügt über den weltweit vertrauenswürdigsten Stablecoin, USDT, auf den sich Hunderte von Millionen Menschen weltweit verlassen, neben bahnbrechenden Tokenisierungsdiensten für digitale Vermögenswerte.\nAber das ist erst der Anfang:\nTether Power: Unsere Energielösungen, die nachhaltiges Wachstum vorantreiben, optimieren überschüssige Energie für den Bitcoin-Mining mit umweltfreundlichen Praktiken in hochmodernen, geodiversen Anlagen.\nTether Data: Durch die Förderung von Durchbrüchen in der KI und Peer-to-Peer-Technologie senken wir die Infrastrukturkosten und verbessern die globale Kommunikation mit innovativen Lösungen wie KEET, unserer Flaggschiff-App, die den sicheren und privaten Datenaustausch neu definiert.\nTether Education: Indem wir den Zugang zu erstklassigem digitalem Lernen demokratisieren, befähigen wir Einzelpersonen, in den digitalen und Gig-Wirtschaften zu gedeihen und das globale Wachstum und die Chancen zu fördern.\nTether Evolution: An der Schnittstelle von Technologie und menschlichem Potenzial erweitern wir die Grenzen des Möglichen und gestalten eine Zukunft, in der Innovation und menschliche Fähigkeiten auf leistungsstarke, beispiellose Weise verschmelzen.\n\nWarum mitmachen?\nUnser Team ist ein globales Talent-Powerhouse, das aus der Ferne aus allen Ecken der Welt arbeitet. Wenn Sie sich leidenschaftlich für eine Marke im Fintech-Bereich interessieren, ist dies Ihre Gelegenheit, mit einigen der klügsten Köpfe zusammenzuarbeiten, Grenzen zu überschreiten und neue Standards zu setzen. Wir sind schnell gewachsen, sind schlank geblieben und haben uns unseren Platz als Marktführer in der Branche gesichert.\nWenn Sie über ausgezeichnete Englisch-Kommunikationsfähigkeiten verfügen und bereit sind, zur innovativsten Plattform der Welt beizutragen, ist Tether der richtige Ort für Sie.\nBist du bereit, Teil der Zukunft zu sein?\n\nÜber den Job\nAls Mitglied unseres KI-Forschungsteams werden Sie Innovationen in der Modellkomprimierung und effizienten Bereitstellung für fortschrittliche multimodale KI-Systeme vorantreiben, einschließlich großer Sprachmodelle (LLMs) und Vision-Sprachmodelle (VLMs). Ihre Arbeit wird sich darauf konzentrieren, den Modellfußabdruck und die Rechenkosten zu reduzieren und gleichzeitig die Genauigkeit zu erhalten, sodass Hochleistungs-KI effizient über ressourcenbeschränkte Edge-Geräte laufen kann. Sie werden Kompressionstechniken wie Quantisierung, Wissensdestillation und Beschneiden anwenden und vorantreiben, um komplexe multimodale Architekturen zu optimieren, die Text, Bilder und Audio integrieren.\nWir erwarten von Ihnen fundiertes Fachwissen in Modellkompressionsmethoden und einen starken Hintergrund in multimodalen Modellarchitekturen. Sie werden einen praktischen, forschungsorientierten Ansatz verfolgen, um neuartige Kompressionsstrategien zu entwickeln, zu testen und zu implementieren, die Modellgröße, Latenz, Durchsatz und Genauigkeit ausgleichen. Ihre Aufgaben umfassen den Aufbau robuster Kompressionspipelines, die Festlegung von Leistungs- und Treuemetriken und die Behebung von Engpässen bei der Produktionsschlussfolgerung. Das ultimative Ziel ist es, skalierbare, speicherarme und latenzarme KI-Systeme auf Edge-Geräten (d. H. Smartphones) bereitzustellen, die eine hohe Genauigkeit und einen greifbaren realen Wert beibehalten.\n\nZuständigkeiten\nAufschlüsselung der wichtigsten Verantwortlichkeiten in Aufzählungspunkten. Es ist hilfreich, sie umsetzbar und messbar zu machen. Dies könnte auch in Kategorien für komplexere Rollen zusammengefasst werden.\n\n• Wenden Sie die Low-Bit-Quantisierung an, um die Modellgröße und die Inferenzlatenz für generative KI-Modelle (LLMs, VLMs, multimodal) zu reduzieren und gleichzeitig die Genauigkeit und Ausgabequalität zu erhalten.\n\n• Nutzen Sie die Wissensdestillation, um Fähigkeiten von größeren Lehrermodellen auf kleinere Schülermodelle zu übertragen, was eine effiziente multimodale Argumentation über Text-, Bild- und Audioeingänge ermöglicht.\n\n• Implementieren Sie Beschneidungstechniken, um redundante Parameter und Aufmerksamkeitsköpfe zu entfernen und den Rechenaufwand zu reduzieren, ohne die Aufgabenleistung zu beeinträchtigen.\n\n• Analysieren Sie Kompromisse zwischen Modelleffizienz (Größe, Latenz, Gedächtnis) und Genauigkeit über Quantisierungs-, Destillations- und Beschneidungsmethoden hinweg; schlagen Sie Verbesserungen basierend auf empirischen Erkenntnissen vor.\n\n• Forschung und Anwendung von Mixed-Präzisions-Quantisierung und anderen fortschrittlichen Kompressionsstrategien (z. B. adaptive Beschneidungspläne, Destillation mit intermediärer Merkmalsabstimmung), um die Genauigkeits-Leistungsbilanz zu optimieren.\n\n• Bleiben Sie auf dem Laufenden mit der neuesten Forschung zur Modellkompression, einschließlich neuer Techniken für multimodale und generative Architekturen.\n\n• Dokumentieren Sie Methoden, Experimente und Ergebnisse klar, um Reproduzierbarkeit, interne Zusammenarbeit und Stakeholder-Kommunikation zu unterstützen.\n\n• Autoren technischer Arbeiten und Veröffentlichungen in hochkarätigen Konferenzen (z. B. NeurIPS, ICML, ICLR, CVPR, ACL, AAAI), um das Gebiet der Modellkompression für multimodale KI voranzutreiben.\n\nListen Sie die Qualifikationen, Zertifizierungen und Erfahrungen auf, die für die Rolle erforderlich sind. Sie können dies bei Bedarf in obligatorische und bevorzugte Abschnitte aufteilen.\n\n• Ein Abschluss in Informatik oder verwandten Bereich. Idealerweise PhD in NLP, Machine Learning oder einem verwandten Bereich, ergänzt durch eine solide Erfolgsbilanz in AI R & D (mit guten Publikationen in A * Konferenzen).\n\n• Erfahrung mit PyTorch Deep Learning Frameworks oder gleichwertigen Frameworks\n\n• Praktische Erfahrung mit der Modellquantisierung, einschließlich Quantization-Aware Training (QAT) und Post-Training Quantization (PTQ).\n\n• Forschung und praktische Erfahrung mit Wissensdestillation zum Komprimieren großer Modelle in kleinere, effiziente Modelle.\n\n• Forschung und praktische Erfahrung mit dem Beschneiden von Modellen zum Komprimieren großer Modelle in kleinere, effiziente Modelle.\n\n• Solides Verständnis von neuronalen Netzwerkarchitekturen und Trainingsprozessen - einschließlich Transformatoren (z. B. LLMs, VLMs), Backpropagation, Optimierung und Feinabstimmungstechniken.\n\n• Die Vertrautheit mit C++ ist ein Plus (insbesondere für die Implementierung von Low-Level-Quantisierungskernels oder Inferenzoptimierungen).\n\nWichtige Informationen für Kandidaten\nRekrutierungsbetrug ist immer häufiger geworden. Um sich zu schützen, beachten Sie bitte Folgendes, wenn Sie sich für Rollen bewerben:\n\n• Bewerben Sie sich nur über unsere offiziellen Kanäle. Wir verwenden keine Plattformen oder Agenturen von Drittanbietern für die Rekrutierung, es sei denn, dies ist eindeutig angegeben. Alle offenen Rollen sind auf unserer offiziellen Karriereseite aufgeführt: https://tether.recruitee.com/\n\n• Überprüfen Sie die Identität des Recruiters. Alle unsere Recruiter haben LinkedIn-Profile verifiziert. Wenn sie unsicher sind, können sie ihre identität bestätigen, indem sie ihr profil überprüfen oder uns über unsere website kontaktieren.\n\n• Seien Sie vorsichtig bei ungewöhnlichen Kommunikationsmethoden. Wir führen keine Interviews über WhatsApp, Telegram oder SMS. Die gesamte Kommunikation erfolgt über offizielle Firmen-E-Mails und Plattformen.\n\n• Überprüfen Sie die E-Mail-Adressen. Die gesamte Kommunikation von uns erfolgt über E-Mails, die auf @ tether.to oder @ tether.io enden.\n\n• Wir werden niemals Zahlungen oder finanzielle Details verlangen. Wenn jemand zu irgendeinem Zeitpunkt während des Einstellungsprozesses nach persönlichen Finanzinformationen oder Zahlungen fragt, ist dies ein Betrug. Bitte melden Sie es sofort.\n\nIm zweifelsfall, fühlen sie sich frei, über unsere offizielle website zu erreichen.",
         "fr": "Rejoignez Tether et formez l'avenir du financement numérique\nChez Tether, nous ne sommes pas seulement des produits de construction, nous sommes pionniers d'une révolution financière mondiale. Nos solutions de pointe permettent aux entreprises, depuis les échanges et les portefeuilles jusqu'aux processeurs de paiement et aux distributeurs automatiques de billets, d'intégrer de façon transparente les jetons à l'aide de réserves dans toutes les chaînes de blocs. En exploitant la puissance de la technologie blockchain, Tether vous permet de stocker, d'envoyer et de recevoir des jetons numériques instantanément, en toute sécurité et globalement, à une fraction du coût. La transparence est le fondement de tout ce que nous faisons, assurant la confiance dans chaque transaction.\n\nInnover avec Tether\nTether Finance: Notre suite de produits innovants dispose de la plus fiable écurie du monde, USDT, sur laquelle s'appuient des centaines de millions de monde entier, ainsi que des services de tokenisation numériques.\nMais c'est juste le début:\nTether Power : Pour une croissance durable, nos solutions énergétiques optimisent l'excès de puissance pour l'exploitation minière Bitcoin en utilisant des pratiques écologiques dans les installations géo-divers de pointe.\nTether Data: En alimentant les percées dans l'IA et la technologie pair à pair, nous réduisons les coûts d'infrastructure et améliorons les communications mondiales avec des solutions de pointe comme KEET , notre application phare qui redéfinit le partage de données sécurisé et privé.\nTether Education : Démocratisant l'accès à l'apprentissage numérique de haut niveau, nous autonomisons les individus à prospérer dans les économies du numérique et des concerts, favorisant la croissance mondiale et les opportunités.\nÉvolution de l'enseignement : À l'intersection de la technologie et du potentiel humain, nous repoussons les limites de ce qui est possible, écrivant un avenir où l'innovation et les capacités humaines fusionnent de manière puissante et sans précédent.\n\nPourquoi nous rejoindre ?\nNotre équipe est une puissance mondiale de talents, travaillant à distance de tous les coins du monde. Si vous êtes passionné par la marque dans l'espace fintech, c'est l'occasion de collaborer avec certains des esprits les plus brillants, de repousser les frontières et de fixer de nouvelles normes. Nous avons grandi rapidement, sommes restés maigres et nous avons obtenu notre place de leader dans l'industrie.\nSi vous avez d'excellentes compétences en communication anglaise et êtes prêt à contribuer à la plateforme la plus innovante de la planète, Tether est l'endroit pour vous.\nÊtes-vous prêt à faire partie du futur ?\n\nSur le travail\nEn tant que membre de notre équipe de recherche sur l'IA, vous piloterez l'innovation dans la compression des modèles et le déploiement efficace pour les systèmes d'IA multimodaux avancés, y compris les grands modèles de langage (LLM) et les modèles de langage de vision (VLM). Votre travail se concentrera sur la réduction de l'empreinte du modèle et des coûts de calcul tout en préservant la précision, permettant à l'IA haute performance de fonctionner efficacement sur les périphériques de bord aux ressources limitées. Vous appliquerez et avancerez des techniques de compression telles que la quantification, la distillation des connaissances et la taille pour rationaliser les architectures multimodales complexes qui intègrent le texte, les images et l'audio.\nNous nous attendons à ce que vous ayez une expertise profonde dans les méthodes de compression des modèles et une solide expérience dans les architectures de modèles multimodales. Vous adopterez une approche pratique et axée sur la recherche pour développer, tester et mettre en œuvre de nouvelles stratégies de compression qui équilibrent la taille, la latence, le débit et la précision du modèle. Vos responsabilités comprennent la construction de pipelines de compression robustes, l'établissement de mesures de performance et de fidélité et la résolution des goulets d'étranglement dans l'inférence de production. L'objectif ultime est de fournir des systèmes AI évolutifs, à faible mémoire et à faible latence sur les périphériques de bord (c.-à-d. smartphones) qui maintiennent une haute fidélité et une valeur réelle tangible.\n\nResponsabilités\nDivisez les principales responsabilités en points. Il est utile de les rendre actionables et mesurables. Cela pourrait également être groupé en catégories pour des rôles plus complexes.\n\n• Appliquer une quantification à faible débit pour réduire la taille du modèle et la latence d'inférence pour les modèles d'IA génératifs (LLM, VLM, multimodal) tout en maintenant la précision et la qualité de sortie.\n\n• Tirer parti de la distillation des connaissances pour transférer les capacités des plus grands modèles d'enseignants aux plus petits modèles d'élèves, permettant un raisonnement multimodal efficace à travers le texte, l'image et les entrées audio.\n\n• Mettre en œuvre des techniques de taille pour éliminer les paramètres redondants et les têtes d'attention, réduire les frais généraux de calcul sans sacrifier la performance des tâches.\n\n• Analyser les compromis entre l'efficacité du modèle (taille, latence, mémoire) et la précision des méthodes de quantification, de distillation et de taille; proposer des améliorations basées sur des résultats empiriques.\n\n• Recherche et application de la quantification de précision mixte et d'autres stratégies de compression avancées (p. ex. calendriers de taille adaptatifs, distillation avec correspondance intermédiaire) pour optimiser l'équilibre précision-performance.\n\n• Restez à jour avec les dernières recherches sur la compression des modèles, y compris les techniques émergentes pour les architectures multimodales et génératrices.\n\n• Documenter clairement les méthodologies, les expériences et les résultats pour appuyer la reproductibilité, la collaboration interne et la communication avec les intervenants.\n\n• Auteur d'articles techniques et publication de conclusions dans des conférences de haut niveau (p. ex. NeurIPS, ICML, ICLR, CVPR, ACL, AAAI) pour faire progresser le domaine de la compression de modèles pour l'IA multimodale.\n\nÉnumérez les qualifications, les certifications et l'expérience nécessaires au rôle. Vous pouvez diviser cela en sections obligatoires et préférées si nécessaire.\n\n• Diplôme en informatique ou domaine connexe. Idéalement, le doctorat en NLP, en apprentissage automatique ou dans un domaine connexe, complété par une solide expérience en R-D en intelligence artificielle (avec de bonnes publications dans des conférences A*).\n\n• Expérience des cadres d'apprentissage en profondeur PyTorch ou des cadres équivalents\n\n• Expérience pratique de la quantification des modèles, y compris à la fois la Quantization-Aware Training (QAT) et la Quantization après la formation (PTQ).\n\n• Recherche et expérience pratique de la distillation des connaissances pour la compression de grands modèles en modèles plus petits et efficaces.\n\n• Recherche et expérience pratique de la taille des modèles pour la compression des grands modèles en modèles plus petits et efficaces.\n\n• Compréhension solide des architectures réseau neuronales et des processus de formation – Y compris les transformateurs (p. ex., les LLM, les VLM), la rétropropagation, l'optimisation et les techniques de réglage fin.\n\n• Familiarité avec C++ est un plus (surtout pour la mise en œuvre de noyaux de quantification de bas niveau ou des optimisations d'inférence).\n\nInformations importantes pour les candidats\nLes escroqueries de recrutement sont devenues de plus en plus fréquentes. Pour vous protéger, veuillez garder à l'esprit ce qui suit lors de la demande de rôles :\n\n• Appliquer uniquement par nos canaux officiels. Nous n'utilisons pas de plates-formes ou d'agences tierces pour le recrutement, sauf indication claire. Tous les rôles ouverts sont énumérés sur notre page officielle des carrières : https://tether.recruitee.com/\n\n• Vérifier l'identité du recruteur. Tous nos recruteurs ont vérifié les profils LinkedIn. Si vous n'êtes pas sûr, vous pouvez confirmer leur identité en vérifiant leur profil ou en nous contactant via notre site Web.\n\n• Faites attention aux méthodes de communication inhabituelles. Nous ne menons pas d'entrevues sur WhatsApp, Telegram ou SMS. Toute communication se fait par le biais de courriels et de plateformes officiels de l'entreprise.\n\n• Vérifiez les adresses e-mail. Toute communication de nous viendra de courriels se terminant par @ tether.to ou @ tether.io\n\n• Nous ne demanderons jamais de paiement ou de détails financiers. Si quelqu'un demande des renseignements financiers personnels ou un paiement à tout moment pendant le processus d'embauche, c'est une escroquerie. Veuillez le signaler immédiatement.\n\nEn cas de doute, n'hésitez pas à contacter notre site officiel."
       },
@@ -1857,7 +1857,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-zurich",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.995Z",
+      "crawledAt": "2026-11-04T21:19:44.863Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1908,7 +1908,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:46.995Z",
+      "validThrough": "2026-12-04T21:19:44.863Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1942,7 +1942,7 @@
       "url": "https://tether.recruitee.com/o/frontend-desktop-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.992Z",
+      "crawledAt": "2026-11-04T21:19:44.860Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1993,7 +1993,7 @@
       },
       "streetAddress": "Berne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:17:46.992Z",
+      "validThrough": "2027-01-10T21:19:44.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2027,7 +2027,7 @@
       "url": "https://tether.recruitee.com/o/frontend-desktop-engineer-internal",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.977Z",
+      "crawledAt": "2026-11-04T21:19:44.845Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2078,7 +2078,7 @@
       },
       "streetAddress": "Berne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:17:46.977Z",
+      "validThrough": "2027-01-10T21:19:44.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2112,7 +2112,7 @@
       "url": "https://tether.recruitee.com/o/corporate-development-portfolio-manager-fintech-digital-assets-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.960Z",
+      "crawledAt": "2026-11-04T21:19:44.827Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2159,7 +2159,7 @@
       },
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:17:46.960Z",
+      "validThrough": "2027-01-10T21:19:44.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2193,7 +2193,7 @@
       "url": "https://tether.recruitee.com/o/ai-filmmaker-100-remote-worldwide-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.958Z",
+      "crawledAt": "2026-11-04T21:19:44.824Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2241,7 +2241,7 @@
       },
       "streetAddress": "Berne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:17:46.958Z",
+      "validThrough": "2027-01-11T21:19:44.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2275,7 +2275,7 @@
       "url": "https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.922Z",
+      "crawledAt": "2026-11-04T21:19:44.788Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2326,7 +2326,7 @@
       },
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:17:46.922Z",
+      "validThrough": "2027-01-13T21:19:44.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2360,7 +2360,7 @@
       "url": "https://tether.recruitee.com/o/mobile-engineer-react-native-100-remote-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.907Z",
+      "crawledAt": "2026-11-04T21:19:44.773Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2411,7 +2411,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:17:46.907Z",
+      "validThrough": "2027-01-12T21:19:44.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2445,7 +2445,7 @@
       "url": "https://tether.recruitee.com/o/developer-productivity-engineer-100-remote-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.903Z",
+      "crawledAt": "2026-11-04T21:19:44.769Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2496,7 +2496,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:17:46.903Z",
+      "validThrough": "2027-01-13T21:19:44.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2530,7 +2530,7 @@
       "url": "https://tether.recruitee.com/o/head-of-underwriting-digital-asset-financing-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:46.882Z",
+      "crawledAt": "2026-11-04T21:19:44.748Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2581,90 +2581,8 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:17:46.882Z",
+      "validThrough": "2027-01-20T21:19:44.748Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tether-ebed190aa8ce",
-      "slug": "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-lugano",
-      "slugByLocale": {
-        "it": "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-lugano",
-        "en": "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
-        "de": "ai-forschung-ingenieur-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma",
-        "fr": "ai-recherche-ingenieur-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
-      },
-      "company": "Tether Operations",
-      "companyKey": "tether",
-      "companyDomain": "tether.io",
-      "title": "AI Research Engineer (Multi-Modal Reinforcement Learning) - 100% Remote Worldwide",
-      "titleByLocale": {
-        "it": "AI Ricerca Ingegnere (Multi-Modal Reinforcement Learning) - 100% Remote Worldwide",
-        "en": "AI Research Engineer (Multi-Modal Reinforcement Learning) - 100% Remote Worldwide",
-        "de": "AI Forschung Ingenieur (Multi-Modal Reinforcement Learning) - 100% Remote Worldwide",
-        "fr": "AI Recherche Ingénieur (Multi-Modal Reinforcement Learning) - 100% Remote Worldwide"
-      },
-      "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of the AI model team, you will drive innovation in multi-modal reinforcement learning to advance next-generation intelligent systems. Your work will focus on optimizing decision-making and adaptive behavior across integrated data modalities such as text, images and audio to deliver enhanced intelligence, robust performance, and domain-specific capabilities for real-world challenges. You will develop and scale reinforcement learning techniques within complex multi-modal architectures, including diffusion-based generative models and autoregressive models for multimodal understanding, as well as resource-efficient models designed for constrained hardware environments. This includes conducting research on reinforcement learning algorithms for multimodal models, spanning diffusion models for image autoregressive models for multimodal reasoning, and unified multimodal frameworks.\n You are expected to have deep expertise in designing multi-modal reinforcement learning systems and a strong background in advanced model architectures, with a hands-on, research-driven approach to building and deploying novel algorithms and training frameworks. You will design and develop RL infrastructure and reward modeling strategies to enable efficient large-scale training, improve training stability, and mitigate reward hacking and related failure modes. Your responsibilities also include curating multi-modal simulation environments and training datasets, improving baseline policy performance across modalities, and identifying and resolving bottlenecks in multi-modal learning and reward optimization. In addition, you will explore next-generation reinforcement learning paradigms that more directly and effectively learn from environment feedback, with the goal of unlocking superior, domain-adapted AI performance in dynamic, real-world environments.\n\nResponsibilities\n\n• Conduct research on reinforcement learning algorithms for multimodal models, including diffusion-based approaches for image autoregressive models for multimodal understanding, and unified frameworks that integrate multiple modalities.\n\n• Design and build reinforcement learning infrastructure that supports scalable, distributed training across multimodal systems while maintaining efficiency and reliability.\n\n• Develop and refine reward modeling strategies that improve training stability, align model behavior with desired outcomes, and mitigate reward hacking and related failure modes.\n\n• Create and curate multimodal simulation environments and datasets to support robust training, evaluation, and benchmarking of reinforcement learning systems.\n\n• Design and conduct rigorous benchmarking and evaluation protocols to measure model performance, track progress against baselines, and validate improvements across multimodal tasks.\n\n• Analyze and optimize policy performance across modalities by identifying bottlenecks in training, credit assignment, and cross-modal alignment.\n\n• Investigate and develop next-generation reinforcement learning paradigms that more effectively learn from environment feedback, with the goal of achieving superior state-of-the-art (SOTA) performance.\n\n• Publish research findings in top-tier conferences such as ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV etc.\n\n• A Master's degree in Computer Science or a related field is required; a PhD in Machine Learning, NLP, Computer Vision, or a closely related discipline is preferred, along with a strong track record of AI research and publications in top-tier conferences.\n\n• Proven experience running large-scale reinforcement learning experiments in multimodal and vision-centric systems, including online RL settings, with demonstrated impact on domain-specific decision-making and measurable improvements in policy performance.\n\n• Deep understanding of reinforcement learning algorithms and optimization methods applied to vision and multimodal learning problems, with a focus on improving policy stability, exploration, and sample efficiency in complex, high-dimensional environments involving images, video, and other modalities.\n\n• Strong proficiency in PyTorch and deep learning frameworks for vision and multimodal AI, with hands-on experience building end-to-end RL pipelines covering simulation, training, evaluation, and deployment in production-grade systems.\n\n• Demonstrated ability to apply empirical research to solve core RL challenges in multimodal and vision tasks, such as sample inefficiency, exploration-exploitation tradeoffs, and training instability, along with experience designing robust evaluation frameworks and iterating on algorithmic improvements to advance agent performance.\n\n• Proven track record of research publications in top-tier conferences such as ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-      "descriptionByLocale": {
-        "it": "Unisciti a Tether e dai forma al futuro della finanza digitale\nIn Tether non stiamo solo costruendo prodotti, siamo pionieri di una rivoluzione finanziaria globale. Le nostre soluzioni all'avanguardia consentono alle aziende, dagli scambi e portafogli ai processori di pagamento e agli sportelli bancomat, di integrare perfettamente token garantiti da riserve attraverso blockchain. Sfruttando la potenza della tecnologia blockchain, Tether ti consente di archiviare, inviare e ricevere token digitali in modo istantaneo, sicuro e globale, il tutto a una frazione del costo. La trasparenza è il fondamento di tutto ciò che facciamo, garantendo fiducia in ogni transazione.\n\nInnovare con Tether\nTether Finance: la nostra suite di prodotti innovativa comprende la stablecoin più affidabile al mondo, USDT, su cui fanno affidamento centinaia di milioni di persone in tutto il mondo, insieme a servizi pionieristici di tokenizzazione delle risorse digitali.\nMa questo è solo l’inizio:\nTether Power: guidando la crescita sostenibile, le nostre soluzioni energetiche ottimizzano l'energia in eccesso per il mining di Bitcoin utilizzando pratiche ecocompatibili in strutture all'avanguardia e geodiversificate.\nTether Data: alimentando innovazioni nell'intelligenza artificiale e nella tecnologia peer-to-peer, riduciamo i costi dell'infrastruttura e miglioriamo le comunicazioni globali con soluzioni all'avanguardia come KEET, la nostra app di punta che ridefinisce la condivisione sicura e privata dei dati.\nTether Education: democratizzando l’accesso all’apprendimento digitale di alto livello, consentiamo alle persone di prosperare nelle economie digitali e gig economy, guidando la crescita e le opportunità globali.\nTether Evolution: all'intersezione tra tecnologia e potenziale umano, stiamo spingendo i confini di ciò che è possibile, creando un futuro in cui innovazione e capacità umane si fondono in modi potenti e senza precedenti.\n\nPerché unirti a noi?\nIl nostro team è una potenza globale di talenti, che lavora in remoto da ogni angolo del mondo. Se la tua passione è lasciare il segno nel settore fintech, questa è la tua occasione per collaborare con alcune delle menti più brillanti, spingendo oltre i confini e stabilendo nuovi standard. Siamo cresciuti rapidamente, siamo rimasti snelli e ci siamo assicurati il ​​posto di leader nel settore.\nSe hai eccellenti capacità di comunicazione in inglese e sei pronto a contribuire alla piattaforma più innovativa del pianeta, Tether è il posto che fa per te.\nSei pronto a far parte del futuro?\n\nRiguardo al lavoro\nIn qualità di membro del team del modello AI, guiderai l'innovazione nell'apprendimento per rinforzo multimodale per far avanzare i sistemi intelligenti di prossima generazione. Il tuo lavoro si concentrerà sull'ottimizzazione del processo decisionale e del comportamento adattivo attraverso modalità di dati integrate come testo, immagini e audio per fornire intelligenza avanzata, prestazioni robuste e capacità specifiche del dominio per le sfide del mondo reale. Svilupperai e scalerai tecniche di apprendimento per rinforzo all'interno di architetture multimodali complesse, inclusi modelli generativi basati sulla diffusione e modelli autoregressivi per la comprensione multimodale, nonché modelli efficienti in termini di risorse progettati per ambienti hardware vincolati. Ciò include la conduzione di ricerche sugli algoritmi di apprendimento per rinforzo per modelli multimodali, modelli di diffusione estesi per modelli autoregressivi di immagini per il ragionamento multimodale e strutture multimodali unificate. Ci si aspetta che tu abbia una profonda esperienza nella progettazione di sistemi di apprendimento di rinforzo multimodale e un forte background in architetture di modelli avanzati, con un approccio pratico e orientato alla ricerca per costruire e implementare nuovi algoritmi e quadri di formazione. Progetterai e svilupperai l'infrastruttura RL e le strategie di modellazione della ricompensa per consentire una formazione efficiente su larga scala, migliorare la stabilità della formazione e mitigare l'hacking della ricompensa e le relative modalità di fallimento. Le tue responsabilità includono anche la cura degli ambienti di simulazione multimodale e dei set di dati di formazione, il miglioramento delle prestazioni delle politiche di base attraverso le modalità e l'identificazione e la risoluzione dei colli di bottiglia nell'apprendimento multimodale e nell'ottimizzazione delle ricompense.\n\nInoltre, esplorerai i paradigmi di apprendimento per rinforzo di prossima generazione che apprendono in modo più diretto ed efficace dal feedback ambientale, con l'obiettivo di sbloccare prestazioni IA superiori e adattate al dominio in ambienti dinamici e reali.\n\nResponsabilità\n\n• Condurre ricerche sugli algoritmi di apprendimento per rinforzo per modelli multimodali, compresi approcci basati sulla diffusione per modelli autoregressivi di immagini per la comprensione multimodale e strutture unificate che integrano più modalità.\n\n• Progettare e costruire un'infrastruttura di apprendimento per rinforzo che supporti una formazione scalabile e distribuita su sistemi multimodali mantenendo efficienza e affidabilità.\n\n• Sviluppare e perfezionare strategie di modellazione delle ricompense che migliorano la stabilità della formazione, allineano il comportamento del modello con i risultati desiderati e mitigano l'hacking delle ricompense e le relative modalità di fallimento.\n\n• Creare e curare ambienti e set di dati di simulazione multimodale per supportare una solida formazione, valutazione e benchmarking dei sistemi di apprendimento per rinforzo.\n\n• Progettare e condurre rigorosi protocolli di benchmarking e valutazione per misurare le prestazioni del modello, tenere traccia dei progressi rispetto alle linee di base e convalidare i miglioramenti nelle attività multimodali.\n\n• Analizzare e ottimizzare le prestazioni delle politiche attraverso le modalità identificando i colli di bottiglia nella formazione, nell'assegnazione dei crediti e nell'allineamento intermodale.\n\n• Studiare e sviluppare paradigmi di apprendimento per rinforzo di prossima generazione che apprendono in modo più efficace dal feedback ambientale, con l'obiettivo di raggiungere prestazioni all'avanguardia (SOTA) superiori.\n\n• Pubblicare i risultati della ricerca in conferenze di alto livello come ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV ecc.\n\n• È richiesto un Master in Informatica o un campo correlato; è preferibile un dottorato di ricerca in Machine Learning, PNL, Computer Vision o una disciplina strettamente correlata, insieme a una solida esperienza nella ricerca sull'intelligenza artificiale e nelle pubblicazioni in conferenze di alto livello.\n\n• Comprovata esperienza nell'esecuzione di esperimenti di apprendimento per rinforzo su larga scala in sistemi multimodali e incentrati sulla visione, comprese le impostazioni RL online, con impatto dimostrato sul processo decisionale specifico del dominio e miglioramenti misurabili nelle prestazioni delle politiche.\n\n• Comprensione approfondita degli algoritmi di apprendimento per rinforzo e dei metodi di ottimizzazione applicati alla visione e ai problemi di apprendimento multimodale, con particolare attenzione al miglioramento della stabilità delle politiche, dell'esplorazione e dell'efficienza dei campioni in ambienti complessi e ad alta dimensione che coinvolgono immagini, video e altre modalità.\n\n• Ottima conoscenza di PyTorch e dei framework di deep learning per la visione e l'intelligenza artificiale multimodale, con esperienza pratica nella creazione di pipeline RL end-to-end che coprono simulazione, formazione, valutazione e implementazione in sistemi di produzione.\n\n• Dimostrata capacità di applicare la ricerca empirica per risolvere le principali sfide RL in compiti multimodali e di visione, come l'inefficienza dei campioni, i compromessi esplorazione-sfruttamento e l'instabilità della formazione, insieme all'esperienza nella progettazione di solidi quadri di valutazione e nell'iterazione di miglioramenti algoritmici per migliorare le prestazioni degli agenti.\n\n• Comprovata esperienza di pubblicazioni di ricerca in conferenze di alto livello come ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV ecc.\n\nInformazioni importanti per i candidati\nLe truffe relative al reclutamento sono diventate sempre più comuni. Per proteggerti, tieni presente quanto segue quando fai domanda per un ruolo:\n\n• Candidati solo attraverso i nostri canali ufficiali. Non utilizziamo piattaforme o agenzie di terze parti per il reclutamento se non chiaramente indicato. Tutti i ruoli aperti sono elencati nella nostra pagina ufficiale delle carriere: https://tether.recruitee.com/\n\n• Verificare l'identità del reclutatore. Tutti i nostri reclutatori hanno profili LinkedIn verificati. Se non sei sicuro, puoi confermare la loro identità controllando il loro profilo o contattandoci tramite il nostro sito web.\n\n• Prestare attenzione ai metodi di comunicazione insoliti. Non conduciamo interviste tramite WhatsApp, Telegram o SMS. Tutte le comunicazioni avvengono tramite e-mail e piattaforme ufficiali dell'azienda.\n\n• Ricontrolla gli indirizzi e-mail. Tutte le nostre comunicazioni arriveranno da e-mail che terminano con @ tether.to o @ tether.io\n\n• Non richiederemo mai pagamenti o dettagli finanziari. Se qualcuno chiede informazioni finanziarie personali o un pagamento in qualsiasi momento durante il processo di assunzione, si tratta di una truffa. Per favore segnalatelo immediatamente.\n\nIn caso di dubbi, non esitate a contattarci tramite il nostro sito Web ufficiale.",
-        "en": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nAs a member of the AI model team, you will drive innovation in multi-modal reinforcement learning to advance next-generation intelligent systems. Your work will focus on optimizing decision-making and adaptive behavior across integrated data modalities such as text, images and audio to deliver enhanced intelligence, robust performance, and domain-specific capabilities for real-world challenges. You will develop and scale reinforcement learning techniques within complex multi-modal architectures, including diffusion-based generative models and autoregressive models for multimodal understanding, as well as resource-efficient models designed for constrained hardware environments. This includes conducting research on reinforcement learning algorithms for multimodal models, spanning diffusion models for image autoregressive models for multimodal reasoning, and unified multimodal frameworks.\nYou are expected to have deep expertise in designing multi-modal reinforcement learning systems and a strong background in advanced model architectures, with a hands-on, research-driven approach to building and deploying novel algorithms and training frameworks. You will design and develop RL infrastructure and reward modeling strategies to enable efficient large-scale training, improve training stability, and mitigate reward hacking and related failure modes. Your responsibilities also include curating multi-modal simulation environments and training datasets, improving baseline policy performance across modalities, and identifying and resolving bottlenecks in multi-modal learning and reward optimization. In addition, you will explore next-generation reinforcement learning paradigms that more directly and effectively learn from environment feedback, with the goal of unlocking superior, domain-adapted AI performance in dynamic, real-world environments.\n\nResponsibilities\n\n• Conduct research on reinforcement learning algorithms for multimodal models, including diffusion-based approaches for image autoregressive models for multimodal understanding, and unified frameworks that integrate multiple modalities.\n\n• Design and build reinforcement learning infrastructure that supports scalable, distributed training across multimodal systems while maintaining efficiency and reliability.\n\n• Develop and refine reward modeling strategies that improve training stability, align model behavior with desired outcomes, and mitigate reward hacking and related failure modes.\n\n• Create and curate multimodal simulation environments and datasets to support robust training, evaluation, and benchmarking of reinforcement learning systems.\n\n• Design and conduct rigorous benchmarking and evaluation protocols to measure model performance, track progress against baselines, and validate improvements across multimodal tasks.\n\n• Analyze and optimize policy performance across modalities by identifying bottlenecks in training, credit assignment, and cross-modal alignment.\n\n• Investigate and develop next-generation reinforcement learning paradigms that more effectively learn from environment feedback, with the goal of achieving superior state-of-the-art (SOTA) performance.\n\n• Publish research findings in top-tier conferences such as ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV etc.\n\n• A Master's degree in Computer Science or a related field is required; a PhD in Machine Learning, NLP, Computer Vision, or a closely related discipline is preferred, along with a strong track record of AI research and publications in top-tier conferences.\n\n• Proven experience running large-scale reinforcement learning experiments in multimodal and vision-centric systems, including online RL settings, with demonstrated impact on domain-specific decision-making and measurable improvements in policy performance.\n\n• Deep understanding of reinforcement learning algorithms and optimization methods applied to vision and multimodal learning problems, with a focus on improving policy stability, exploration, and sample efficiency in complex, high-dimensional environments involving images, video, and other modalities.\n\n• Strong proficiency in PyTorch and deep learning frameworks for vision and multimodal AI, with hands-on experience building end-to-end RL pipelines covering simulation, training, evaluation, and deployment in production-grade systems.\n\n• Demonstrated ability to apply empirical research to solve core RL challenges in multimodal and vision tasks, such as sample inefficiency, exploration-exploitation tradeoffs, and training instability, along with experience designing robust evaluation frameworks and iterating on algorithmic improvements to advance agent performance.\n\n• Proven track record of research publications in top-tier conferences such as ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-        "de": "Treten Sie Tether bei und gestalten Sie die Zukunft des digitalen Finanzwesens\nBei Tether entwickeln wir nicht nur Produkte, wir sind Vorreiter einer globalen Finanzrevolution. Unsere hochmodernen Lösungen ermöglichen es Unternehmen – von Börsen und Wallets bis hin zu Zahlungsabwicklern und Geldautomaten –, rücklagegesicherte Token nahtlos über Blockchains hinweg zu integrieren. Durch die Nutzung der Leistungsfähigkeit der Blockchain-Technologie ermöglicht Ihnen Tether das sofortige, sichere und globale Speichern, Senden und Empfangen digitaler Token – und das alles zu einem Bruchteil der Kosten. Transparenz ist die Grundlage unseres Handelns und gewährleistet Vertrauen bei jeder Transaktion.\n\nInnovation mit Tether\nTether Finance: Unsere innovative Produktsuite umfasst den vertrauenswürdigsten Stablecoin der Welt, USDT, auf den Hunderte Millionen Menschen auf der ganzen Welt vertrauen, sowie bahnbrechende Dienste zur Tokenisierung digitaler Vermögenswerte.\nAber das ist erst der Anfang:\nTether Power: Unsere Energielösungen fördern nachhaltiges Wachstum und optimieren den überschüssigen Strom für das Bitcoin-Mining durch umweltfreundliche Verfahren in hochmodernen, geografisch vielfältigen Anlagen.\nTether Data: Wir treiben Durchbrüche in der KI- und Peer-to-Peer-Technologie voran, senken Infrastrukturkosten und verbessern die globale Kommunikation mit modernsten Lösungen wie KEET, unserer Flaggschiff-App, die den sicheren und privaten Datenaustausch neu definiert.\nTether Education: Durch die Demokratisierung des Zugangs zu erstklassigem digitalen Lernen ermöglichen wir Einzelpersonen, in der Digital- und Gig-Wirtschaft erfolgreich zu sein und so globales Wachstum und Chancen voranzutreiben.\nTether Evolution: An der Schnittstelle von Technologie und menschlichem Potenzial verschieben wir die Grenzen des Möglichen und gestalten eine Zukunft, in der Innovation und menschliche Fähigkeiten auf kraftvolle, beispiellose Weise verschmelzen.\n\nWarum sollten Sie bei uns mitmachen?\nUnser Team ist ein globales Talent-Powerhouse, das von überall auf der Welt aus arbeitet. Wenn es Ihnen am Herzen liegt, sich im Fintech-Bereich einen Namen zu machen, ist dies Ihre Gelegenheit, mit einigen der klügsten Köpfe zusammenzuarbeiten, Grenzen zu überschreiten und neue Standards zu setzen. Wir sind schnell gewachsen, schlank geblieben und haben uns unseren Platz als Branchenführer gesichert.\nWenn Sie über ausgezeichnete Englischkenntnisse verfügen und bereit sind, einen Beitrag zur innovativsten Plattform der Welt zu leisten, ist Tether der richtige Ort für Sie.\nSind Sie bereit, Teil der Zukunft zu sein?\n\nÜber den Job\nAls Mitglied des KI-Modellteams treiben Sie Innovationen im multimodalen Verstärkungslernen voran, um intelligente Systeme der nächsten Generation voranzutreiben. Der Schwerpunkt Ihrer Arbeit liegt auf der Optimierung der Entscheidungsfindung und des adaptiven Verhaltens über integrierte Datenmodalitäten wie Text, Bilder und Audio hinweg, um verbesserte Intelligenz, robuste Leistung und domänenspezifische Fähigkeiten für reale Herausforderungen bereitzustellen. Sie entwickeln und skalieren verstärkende Lerntechniken innerhalb komplexer multimodaler Architekturen, einschließlich diffusionsbasierter generativer Modelle und autoregressiver Modelle für multimodales Verständnis sowie ressourceneffizienter Modelle, die für eingeschränkte Hardwareumgebungen entwickelt wurden. Dazu gehört die Erforschung von Reinforcement-Learning-Algorithmen für multimodale Modelle, Spanning-Diffusion-Modellen für bildautoregressive Modelle für multimodales Denken und einheitlicher multimodaler Frameworks. Von Ihnen wird erwartet, dass Sie über fundierte Fachkenntnisse im Entwurf multimodaler Reinforcement-Learning-Systeme und einen fundierten Hintergrund in fortgeschrittenen Modellarchitekturen verfügen, mit einem praxisorientierten, forschungsorientierten Ansatz für die Erstellung und Bereitstellung neuartiger Algorithmen und Trainings-Frameworks. Sie entwerfen und entwickeln RL-Infrastruktur- und Belohnungsmodellierungsstrategien, um ein effizientes groß angelegtes Training zu ermöglichen, die Trainingsstabilität zu verbessern und Belohnungs-Hacking und damit verbundene Fehlermodi einzudämmen. Zu Ihren Aufgaben gehört auch die Kuratierung multimodaler Simulationsumgebungen und Trainingsdatensätze, die Verbesserung der grundlegenden Richtlinienleistung über alle Modalitäten hinweg sowie die Identifizierung und Behebung von Engpässen beim multimodalen Lernen und der Belohnungsoptimierung.\n\nDarüber hinaus werden Sie sich mit Reinforcement-Learning-Paradigmen der nächsten Generation befassen, die direkter und effektiver aus Umgebungsfeedback lernen, mit dem Ziel, eine überlegene, domänenangepasste KI-Leistung in dynamischen, realen Umgebungen zu erzielen.\n\nVerantwortlichkeiten\n\n• Führen Sie Forschung zu Reinforcement-Learning-Algorithmen für multimodale Modelle durch, einschließlich diffusionsbasierter Ansätze für bildautoregressive Modelle für multimodales Verständnis und einheitliche Frameworks, die mehrere Modalitäten integrieren.\n\n• Entwerfen und bauen Sie eine Infrastruktur für verstärkendes Lernen, die skalierbares, verteiltes Training über multimodale Systeme hinweg unterstützt und gleichzeitig Effizienz und Zuverlässigkeit beibehält.\n\n• Entwickeln und verfeinern Sie Belohnungsmodellierungsstrategien, die die Trainingsstabilität verbessern, das Modellverhalten an den gewünschten Ergebnissen ausrichten und Belohnungs-Hacking und damit verbundene Fehlermodi abschwächen.\n\n• Erstellen und kuratieren Sie multimodale Simulationsumgebungen und Datensätze, um solides Training, Bewertung und Benchmarking von Reinforcement-Learning-Systemen zu unterstützen.\n\n• Entwerfen und führen Sie strenge Benchmarking- und Bewertungsprotokolle durch, um die Modellleistung zu messen, den Fortschritt anhand von Ausgangswerten zu verfolgen und Verbesserungen bei multimodalen Aufgaben zu validieren.\n\n• Analysieren und optimieren Sie die Leistung von Richtlinien über alle Modalitäten hinweg, indem Sie Engpässe bei Schulung, Kreditzuweisung und modalübergreifender Ausrichtung identifizieren.\n\n• Untersuchen und entwickeln Sie Reinforcement-Learning-Paradigmen der nächsten Generation, die effektiver aus dem Feedback der Umgebung lernen, mit dem Ziel, eine überlegene State-of-the-Art-Leistung (SOTA) zu erreichen.\n\n• Veröffentlichen Sie Forschungsergebnisse auf hochrangigen Konferenzen wie ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV usw.\n\n• Ein Master-Abschluss in Informatik oder einem verwandten Bereich ist erforderlich; Ein Doktortitel in maschinellem Lernen, NLP, Computer Vision oder einer eng verwandten Disziplin wird bevorzugt, zusammen mit einer starken Erfolgsbilanz in der KI-Forschung und Veröffentlichungen auf hochrangigen Konferenzen.\n\n• Nachgewiesene Erfahrung bei der Durchführung groß angelegter Reinforcement-Learning-Experimente in multimodalen und visionszentrierten Systemen, einschließlich Online-RL-Einstellungen, mit nachgewiesener Auswirkung auf domänenspezifische Entscheidungsfindung und messbaren Verbesserungen der Richtlinienleistung.\n\n• Tiefes Verständnis von Reinforcement-Learning-Algorithmen und Optimierungsmethoden, die auf visuelle und multimodale Lernprobleme angewendet werden, mit Schwerpunkt auf der Verbesserung der Richtlinienstabilität, Exploration und Stichprobeneffizienz in komplexen, hochdimensionalen Umgebungen mit Bildern, Videos und anderen Modalitäten.\n\n• Starke Kenntnisse in PyTorch und Deep-Learning-Frameworks für Vision und multimodale KI, mit praktischer Erfahrung beim Aufbau von End-to-End-RL-Pipelines, die Simulation, Schulung, Evaluierung und Bereitstellung in produktionstauglichen Systemen umfassen.\n\n• Nachgewiesene Fähigkeit, empirische Forschung anzuwenden, um zentrale RL-Herausforderungen bei multimodalen und Vision-Aufgaben zu lösen, wie z. B. Stichprobenineffizienz, Kompromisse zwischen Exploration und Ausbeutung und Trainingsinstabilität, zusammen mit Erfahrung im Entwerfen robuster Bewertungsrahmen und der Iteration algorithmischer Verbesserungen zur Verbesserung der Agentenleistung.\n\n• Nachgewiesene Erfolgsbilanz von Forschungspublikationen auf hochrangigen Konferenzen wie ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV usw.\n\nWichtige Informationen für Kandidaten\nRekrutierungsbetrug kommt immer häufiger vor. Um sich selbst zu schützen, beachten Sie bitte Folgendes, wenn Sie sich auf Stellen bewerben:\n\n• Bewerben Sie sich ausschließlich über unsere offiziellen Kanäle. Wir nutzen für die Rekrutierung keine Plattformen oder Agenturen Dritter, sofern dies nicht ausdrücklich angegeben ist. Alle offenen Stellen sind auf unserer offiziellen Karriereseite aufgeführt: https://tether.recruitee.com/\n\n• Überprüfen Sie die Identität des Personalvermittlers. Alle unsere Personalvermittler verfügen über verifizierte LinkedIn-Profile. Wenn Sie sich nicht sicher sind, können Sie ihre Identität bestätigen, indem Sie ihr Profil überprüfen oder uns über unsere Website kontaktieren.\n\n• Seien Sie vorsichtig bei ungewöhnlichen Kommunikationsmethoden. Wir führen keine Interviews über WhatsApp, Telegram oder SMS durch. Die gesamte Kommunikation erfolgt über offizielle E-Mails und Plattformen des Unternehmens.\n\n• Überprüfen Sie Ihre E-Mail-Adressen noch einmal. Die gesamte Kommunikation von uns erfolgt über E-Mails mit der Endung @ tether.to oder @ tether.io\n\n• Wir werden Sie niemals nach Zahlungs- oder Finanzdaten fragen. Wenn jemand zu irgendeinem Zeitpunkt während des Einstellungsprozesses nach persönlichen Finanzinformationen oder Zahlungen fragt, handelt es sich um Betrug. Bitte melden Sie es umgehend.\n\nIm Zweifelsfall können Sie sich gerne über unsere offizielle Website an uns wenden.",
-        "fr": "Rejoignez Tether et façonnez l'avenir de la finance numérique\nChez Tether, nous ne nous contentons pas de créer des produits, nous sommes les pionniers d’une révolution financière mondiale. Nos solutions de pointe permettent aux entreprises (des bourses et portefeuilles aux processeurs de paiement et aux distributeurs automatiques) d'intégrer de manière transparente les jetons adossés à des réserves dans les blockchains. En exploitant la puissance de la technologie blockchain, Tether vous permet de stocker, d'envoyer et de recevoir des jetons numériques instantanément, en toute sécurité et à l'échelle mondiale, le tout pour une fraction du coût. La transparence est le fondement de tout ce que nous faisons, garantissant la confiance dans chaque transaction.\n\nInnover avec Tether\nTether Finance : notre suite de produits innovants comprend le stablecoin le plus fiable au monde, l'USDT, sur lequel s'appuient des centaines de millions de personnes dans le monde, ainsi que des services pionniers de tokenisation d'actifs numériques.\nMais ce n'est qu'un début :\nTether Power : Favorisant une croissance durable, nos solutions énergétiques optimisent l’énergie excédentaire pour l’exploitation minière de Bitcoin en utilisant des pratiques respectueuses de l’environnement dans des installations de pointe et géodiverses.\nTether Data : En alimentant les percées dans l'IA et la technologie peer-to-peer, nous réduisons les coûts d'infrastructure et améliorons les communications mondiales avec des solutions de pointe comme KEET, notre application phare qui redéfinit le partage de données sécurisé et privé.\nTether Education : en démocratisant l'accès à un apprentissage numérique de haut niveau, nous permettons aux individus de s'épanouir dans l'économie numérique et des petits boulots, stimulant ainsi la croissance et les opportunités mondiales.\nTether Evolution : À l'intersection de la technologie et du potentiel humain, nous repoussons les limites de ce qui est possible, en créant un avenir où l'innovation et les capacités humaines fusionnent de manière puissante et sans précédent.\n\nPourquoi nous rejoindre ?\nNotre équipe est une centrale mondiale de talents, travaillant à distance depuis tous les coins du monde. Si vous souhaitez vous démarquer dans le domaine de la fintech, c'est l'occasion de collaborer avec certains des esprits les plus brillants, de repousser les limites et d'établir de nouvelles normes. Nous avons connu une croissance rapide, sommes restés minces et avons assuré notre place de leader du secteur.\nSi vous possédez d'excellentes compétences en communication en anglais et êtes prêt à contribuer à la plateforme la plus innovante de la planète, Tether est fait pour vous.\nÊtes-vous prêt à faire partie du futur ?\n\nÀ propos du travail\nEn tant que membre de l'équipe de modèles d'IA, vous stimulerez l'innovation dans l'apprentissage par renforcement multimodal afin de faire progresser les systèmes intelligents de nouvelle génération. Votre travail se concentrera sur l'optimisation de la prise de décision et du comportement adaptatif à travers des modalités de données intégrées telles que le texte, les images et l'audio afin de fournir une intelligence améliorée, des performances robustes et des capacités spécifiques au domaine pour relever les défis du monde réel. Vous développerez et mettrez à l'échelle des techniques d'apprentissage par renforcement au sein d'architectures multimodales complexes, y compris des modèles génératifs basés sur la diffusion et des modèles autorégressifs pour une compréhension multimodale, ainsi que des modèles économes en ressources conçus pour des environnements matériels contraints. Cela comprend la conduite de recherches sur les algorithmes d'apprentissage par renforcement pour les modèles multimodaux, les modèles de diffusion couvrant les modèles autorégressifs d'images pour le raisonnement multimodal et les cadres multimodaux unifiés. Vous devez posséder une expertise approfondie dans la conception de systèmes d'apprentissage par renforcement multimodal et une solide expérience en architectures de modèles avancées, avec une approche pratique et axée sur la recherche pour créer et déployer de nouveaux algorithmes et cadres de formation. Vous concevrez et développerez une infrastructure RL et des stratégies de modélisation des récompenses pour permettre une formation efficace à grande échelle, améliorer la stabilité de la formation et atténuer le piratage des récompenses et les modes de défaillance associés. Vos responsabilités incluent également la gestion des environnements de simulation multimodaux et des ensembles de données de formation, l'amélioration des performances politiques de base dans toutes les modalités, ainsi que l'identification et la résolution des goulots d'étranglement dans l'apprentissage multimodal et l'optimisation des récompenses.\n\nDe plus, vous explorerez les paradigmes d'apprentissage par renforcement de nouvelle génération qui apprennent plus directement et plus efficacement des commentaires de l'environnement, dans le but de débloquer des performances d'IA supérieures et adaptées au domaine dans des environnements dynamiques et réels.\n\nResponsabilités\n\n• Mener des recherches sur les algorithmes d'apprentissage par renforcement pour les modèles multimodaux, y compris les approches basées sur la diffusion pour les modèles autorégressifs d'images pour la compréhension multimodale et les cadres unifiés intégrant plusieurs modalités.\n\n• Concevoir et construire une infrastructure d'apprentissage par renforcement qui prend en charge une formation évolutive et distribuée sur des systèmes multimodaux tout en maintenant l'efficacité et la fiabilité.\n\n• Développer et affiner des stratégies de modélisation des récompenses qui améliorent la stabilité de la formation, alignent le comportement du modèle sur les résultats souhaités et atténuent le piratage des récompenses et les modes d'échec associés.\n\n• Créer et organiser des environnements de simulation multimodaux et des ensembles de données pour prendre en charge une formation, une évaluation et une analyse comparative robustes des systèmes d'apprentissage par renforcement.\n\n• Concevoir et mettre en œuvre des protocoles rigoureux d'analyse comparative et d'évaluation pour mesurer les performances du modèle, suivre les progrès par rapport aux références et valider les améliorations dans les tâches multimodales.\n\n• Analyser et optimiser les performances des politiques dans toutes les modalités en identifiant les goulots d'étranglement dans la formation, l'attribution de crédits et l'alignement intermodal.\n\n• Étudier et développer des paradigmes d'apprentissage par renforcement de nouvelle génération qui apprennent plus efficacement à partir des commentaires de l'environnement, dans le but d'atteindre des performances de pointe (SOTA) supérieures.\n\n• Publier les résultats de la recherche dans des conférences de premier plan telles que ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV, etc.\n\n• Une maîtrise en informatique ou dans un domaine connexe est requise ; un doctorat en apprentissage automatique, PNL, vision par ordinateur ou dans une discipline étroitement liée est préférable, ainsi qu'une solide expérience en matière de recherche sur l'IA et de publications dans des conférences de haut niveau.\n\n• Expérience avérée dans la conduite d'expériences d'apprentissage par renforcement à grande échelle dans des systèmes multimodaux et centrés sur la vision, y compris les paramètres RL en ligne, avec un impact démontré sur la prise de décision spécifique à un domaine et des améliorations mesurables de la performance politique.\n\n• Compréhension approfondie des algorithmes d'apprentissage par renforcement et des méthodes d'optimisation appliquées aux problèmes de vision et d'apprentissage multimodal, en mettant l'accent sur l'amélioration de la stabilité des politiques, de l'exploration et de l'efficacité des échantillons dans des environnements complexes de haute dimension impliquant des images, des vidéos et d'autres modalités.\n\n• Forte maîtrise de PyTorch et des cadres d'apprentissage profond pour la vision et l'IA multimodale, avec une expérience pratique dans la création de pipelines RL de bout en bout couvrant la simulation, la formation, l'évaluation et le déploiement dans des systèmes de production.\n\n• Capacité démontrée à appliquer la recherche empirique pour résoudre les principaux défis RL dans les tâches multimodales et de vision, telles que l'inefficacité des échantillons, les compromis exploration-exploitation et l'instabilité de la formation, ainsi qu'une expérience dans la conception de cadres d'évaluation robustes et dans l'itération d'améliorations algorithmiques pour améliorer les performances des agents.\n\n• Expérience avérée en matière de publications de recherche dans des conférences de premier plan telles que ICML, NeurIPS, ICLR, CVPR, ICCV, ECCV, etc.\n\nInformations importantes pour les candidats\nLes escroqueries au recrutement sont devenues de plus en plus courantes. Pour vous protéger, veuillez garder les points suivants à l’esprit lorsque vous postulez à des postes :\n\n• Postulez uniquement via nos canaux officiels. Nous n'utilisons pas de plateformes ou d'agences tierces pour le recrutement, sauf indication contraire. Tous les postes ouverts sont répertoriés sur notre page carrière officielle : https://tether.recruitee.com/\n\n• Vérifiez l'identité du recruteur. Tous nos recruteurs ont des profils LinkedIn vérifiés. En cas de doute, vous pouvez confirmer leur identité en vérifiant leur profil ou en nous contactant via notre site Web.\n\n• Méfiez-vous des méthodes de communication inhabituelles. Nous ne menons pas d'entretiens par WhatsApp, Telegram ou SMS. Toutes les communications se font via les e-mails et les plateformes officielles de l'entreprise.\n\n• Vérifiez à nouveau les adresses e-mail. Toutes les communications de notre part proviendront d'e-mails se terminant par @ tether.to ou @ tether.io\n\n• Nous ne demanderons jamais de paiement ou de détails financiers. Si quelqu’un demande des informations financières personnelles ou un paiement à tout moment du processus d’embauche, il s’agit d’une arnaque. Veuillez le signaler immédiatement.\n\nEn cas de doute, n'hésitez pas à nous contacter via notre site officiel."
-      },
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide",
-      "source": "tether-careers-crawler",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-02T09:44:01.780Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "remote",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "workModel": "remote",
-      "sector": "Fintech / Blockchain",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide/c/new",
-      "department": "Engineering",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
-        "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
-          "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:46:16.140Z",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Lugano",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T09:44:01.780Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
