@@ -4,7 +4,7 @@
  * emitters has replaced its HTML with a noindex document.
  */
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -16,6 +16,7 @@ const HEALTHY = `${BASE}/cerca-lavoro-svizzera/ricerca-indexable-lugano/`;
 const LATE_NOINDEX = `${BASE}/cerca-lavoro-svizzera/ricerca-late-overwrite/`;
 const LATE_CANONICAL_DRIFT = `${BASE}/cerca-lavoro-svizzera/ricerca-canonical-drift/`;
 const ALLOWED_BRIDGE = `${BASE}/cerca-lavoro-svizzera/ricerca-previous-slug/`;
+const MISSING_FOREIGN = `${BASE}/cerca-lavoro-svizzera/ricerca-missing-foreign/`;
 
 const urlBlock = (loc: string) =>
   `  <url>\n    <loc>${loc}</loc>\n    <lastmod>2026-09-26</lastmod>\n  </url>`;
@@ -103,5 +104,36 @@ describe('reconcileSitemapSearchClustersWithDist', () => {
     await reconcileSitemapSearchClustersWithDist(distDir);
 
     expect(fs.readFileSync(jobsPath, 'utf-8')).toContain(LATE_NOINDEX);
+  });
+
+  it('applies assembled-dist truth to foreign cluster URLs on a locale shard', async () => {
+    const clusterPath = path.join(distDir, 'sitemap-search-clusters-001.xml');
+    fs.writeFileSync(
+      clusterPath,
+      urlset([HEALTHY, LATE_NOINDEX, LATE_CANONICAL_DRIFT, ALLOWED_BRIDGE, MISSING_FOREIGN]),
+      'utf-8',
+    );
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'en';
+    vi.resetModules();
+    try {
+      const { reconcileFinalSitemapsWithDist } = await import('../build-plugins/sitemapAliasPlugin');
+      await reconcileFinalSitemapsWithDist(distDir, [], {
+        keepMissing: false,
+        ignoreShardOwnership: true,
+      });
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      vi.resetModules();
+    }
+
+    const first = fs.readFileSync(clusterPath, 'utf-8');
+    expect(first).not.toContain(LATE_NOINDEX);
+    expect(first).not.toContain(LATE_CANONICAL_DRIFT);
+    expect(first).not.toContain(MISSING_FOREIGN);
+    expect(first).toContain(HEALTHY);
+    expect(first).toContain(ALLOWED_BRIDGE);
   });
 });
