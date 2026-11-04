@@ -87,7 +87,7 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: >-
           node scripts/load-rc-env.mjs
-          --only-env=GITHUB_PAT,LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN,LINKEDIN_MEMBER_URN,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID
+          --only-env=LINKEDIN_MEMBER_CLIENT_ID,LINKEDIN_MEMBER_CLIENT_SECRET,LINKEDIN_MEMBER_ACCESS_TOKEN,LINKEDIN_MEMBER_REFRESH_TOKEN,LINKEDIN_MEMBER_URN,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID
 
       # The jobs dataset is what separates a real offer from a generated SEO
       # landing page under the same URL shape. Without it the poster skips the
@@ -156,6 +156,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(linkedin): track posted member content [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
           # Stats assembly can leave untracked files in the checkout. Preserve
           # them during a retry rebase, and fail if the ledger is not persisted.
           bash scripts/lib/git-push-with-retry.sh \
