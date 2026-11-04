@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-11-02T21:32:50.483Z",
+  "generatedAt": "2026-11-04T09:29:15.933Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 10222,
-  "avgDurationMs": 10222,
+  "durationMs": 8723,
+  "avgDurationMs": 8723,
   "durationHistory": [
-    10222
+    8723
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:32:35.387Z",
+      "crawledAt": "2026-11-04T09:29:02.010Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:32:35.387Z",
+      "validThrough": "2026-12-14T09:29:02.010Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.apgsga.ch/publication/business-controller-zuerich/3lsx02be41yerdi7irbbhu8s3oxeh5u7j18a5e0pcsvv1eyyr6oc2mfwuwlnsdk3",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:32:34.910Z",
+      "crawledAt": "2026-11-04T09:29:01.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:32:34.910Z",
+      "validThrough": "2026-12-29T09:29:01.540Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-linux-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:32:34.419Z",
+      "crawledAt": "2026-11-04T09:29:01.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:32:34.419Z",
+      "validThrough": "2026-12-29T09:29:01.062Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -173,7 +173,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:32:33.527Z",
+      "crawledAt": "2026-11-04T09:29:00.594Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:32:33.527Z",
+      "validThrough": "2026-12-29T09:29:00.594Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -218,7 +218,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-winterthur/hi5os0s3vixaka2knct0m1ltfa93z2bqfno4nyr51c3rlzddmd83zvngq70jih6j",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:32:33.045Z",
+      "crawledAt": "2026-11-04T09:29:00.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -241,7 +241,7 @@
       "salarySource": "estimated",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:32:33.045Z",
+      "validThrough": "2027-01-03T09:29:00.127Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -263,7 +263,7 @@
       "url": "https://jobs.apgsga.ch/publication/conseil-de-vente-service-externe-lausanne/n7atrp716yq5pf468ywp8kd7r4h527fvg4ao4ziopzrz2m1nb3xqquxljo8cep06",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-02T21:32:32.566Z",
+      "crawledAt": "2026-11-04T09:28:59.657Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:32:32.566Z",
+      "validThrough": "2027-01-10T09:28:59.657Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -308,7 +308,7 @@
       "url": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:32:32.083Z",
+      "crawledAt": "2026-11-04T09:28:59.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -332,7 +332,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:32:32.083Z",
+      "validThrough": "2027-01-19T09:28:59.189Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -343,5 +343,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
 }
