@@ -404,11 +404,12 @@ describe('httpFetchAndReadWithRetry', () => {
         retryBaseMs: 0,
         readResponse: (response) => response.text(),
       });
-      await vi.runAllTimersAsync();
-
-      await expect(pending).rejects.toMatchObject({
+      const failure = expect(pending).rejects.toMatchObject({
         name: expect.stringMatching(/TimeoutError|AbortError/),
       });
+      await vi.runAllTimersAsync();
+
+      await failure;
       expect(fetchImpl).toHaveBeenCalledTimes(2);
     } finally {
       vi.useRealTimers();
