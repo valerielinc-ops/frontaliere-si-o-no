@@ -127,7 +127,12 @@ describe('OpenAgenda: mappatura sul record evento', () => {
     expect(mapOpenAgendaEvent(raw(70000003), ACG)).toBeNull();
     const cancelled = mapOpenAgendaEvent(raw(70000004), ACG)!;
     expect(cancelled.eventStatus).toBe('cancelled');
-    const ld = eventLd({ ...cancelled, sourceKey: 'openagenda', sourceName: 'OpenAgenda' } as never, 'it') as Record<string, unknown>;
+    const ld = eventLd({
+      ...cancelled,
+      performer: { '@type': 'Person', name: 'Artista annullato di prova' },
+      sourceKey: 'openagenda',
+      sourceName: 'OpenAgenda',
+    } as never, 'it') as Record<string, unknown>;
     expect(ld.eventStatus).toBe('https://schema.org/EventCancelled');
   });
 });
