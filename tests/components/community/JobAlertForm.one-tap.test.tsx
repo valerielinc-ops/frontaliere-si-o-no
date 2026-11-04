@@ -91,10 +91,10 @@ describe('JobAlertForm — contextual one-tap creation', () => {
       'foo@example.com',
       expect.objectContaining({ keywords: ['infermiere'], cantonFilter: ['TI'] }),
     ));
-    expect(createdMock).toHaveBeenCalledWith(expect.objectContaining({
+    await waitFor(() => expect(createdMock).toHaveBeenCalledWith(expect.objectContaining({
       surface: 'inline_card',
       authPath: 'post_auth_replay',
-    }));
+    })));
   });
 
   it('creates the prefilled alert directly for an authenticated eligible user', async () => {
@@ -136,11 +136,11 @@ describe('JobAlertForm — contextual one-tap creation', () => {
     fireEvent.click(triggerCard!);
 
     await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1), { timeout: 3000 });
-    expect(ctaClickMock.mock.calls).toEqual([
+    await waitFor(() => expect(ctaClickMock.mock.calls).toEqual([
       ['inline_card', 'accept', 'infermiere'],
       ['inline_card', 'success', 'infermiere'],
-    ]);
-    expect(document.getElementById('job-alert-form')).toBeNull();
+    ]));
+    await waitFor(() => expect(document.getElementById('job-alert-form')).toBeNull());
   });
 
   it.each([
