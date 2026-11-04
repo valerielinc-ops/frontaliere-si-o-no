@@ -109,7 +109,9 @@ export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
-import { extractEventPeopleFromText, extractEventPeopleFromTitle, fillEventPeopleDefaults, normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
+import { normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
+import { isDescriptionSupportedByEventFacts } from '../scripts/lib/event-description-policy.mjs';
+import { normalizeSchemaOrgDateTime, normalizeSchemaOrgItemAvailability } from '../scripts/lib/schema-org-values.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
@@ -163,9 +165,8 @@ interface SiteEvent {
   sourceName: string;
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
   // fields the original tio-agenda MVP never had. Input slices may omit them;
-  // eventLd() completes optional fields with deterministic defaults when a
-  // source slice is partial. A price has no default: unknown prices remain
-  // unstated, while the Event still carries an unpriced Offer.
+  // eventLd() emits optional metadata only when the source provides it and
+  // omits Event markup when required location facts are missing.
   description?: string;
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
@@ -459,10 +460,11 @@ function localizedTitle(event: SiteEvent, locale: Locale): string {
 
 function localizedDescription(event: SiteEvent, locale: Locale): string | undefined {
   if (event.descriptionRewriteValidated !== true) return undefined;
-  const localized = cleanRenderableEventText(event.descriptionByLocale?.[locale]);
-  if (localized) return localized;
-  const fallback = cleanRenderableEventText(event.description);
-  return fallback || undefined;
+  for (const candidate of [event.descriptionByLocale?.[locale], event.description]) {
+    const description = cleanRenderableEventText(candidate);
+    if (description && isDescriptionSupportedByEventFacts(description, event)) return description;
+  }
+  return undefined;
 }
 
 const REPLACEMENT_CHARACTER = '\uFFFD';
@@ -1668,20 +1670,14 @@ export function zurichOffset(isoDate: string): string {
 /**
  * schema.org/Event object for one agenda entry.
  *
- * A validated rewrite is used when the cache has an exact
- * id+sourceDescriptionHash hit. Until then, Event JSON-LD gets only a
- * deterministic factual sentence built from event fields; it never falls
- * back to crawler prose. Older and partial slices are completed at
- * detail-page render time with deterministic catalog/venue/image defaults.
- * Offers always exist, but a numeric amount is emitted only with a verified
- * source price. `price: 0` is reserved for a confidently free event; unknown
- * prices get an unpriced Offer, with a ticket URL only when the source gives one.
- * Performer and organizer never carry an address (crawlers
- * stamped the venue "Fiescheralp 4" as performer). A recurring series is its
- * first occurrence plus an `eventSchedule`, not one event of eight weeks; the
- * source gives only the first and last date, so the schedule has no frequency.
+ * A validated rewrite is used only while its facts still agree with the
+ * structured event record. Unknown location, price, organizer and performer
+ * facts stay absent. Google Event markup is reserved for one specific
+ * occurrence; recurring listings do not describe a single event page.
  */
-export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
+export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> | null {
+  if (event.recurring === true) return null;
+
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
   // can ship events with an unresolved canton (''). Never stamp Ticino/TI
   // on those — addressLocality falls back to the crawled venue (a town
@@ -1692,23 +1688,23 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const addressPostalCode = cleanRenderableEventText(event.address?.postalCode);
   const addressRegion = cleanRenderableEventText(event.address?.region);
   const comune = cleanRenderableEventText(event.comune);
-  // `location.name` is required by Google's Event enhancement even when the
-  // source has no named venue. Keep it source-backed where possible and use
-  // the resolved locality/canton as the deterministic structural fallback.
-  const venueName = eventVenue(event) || comune || (event.canton ? cantonName : 'Svizzera');
-  const locality = addressLocality || comune || (event.canton ? cantonName : venueName || 'Svizzera');
+  // A municipality is a valid representative location when the event has no
+  // more specific venue. A canton or country is not a venue/locality.
+  const locality = addressLocality || comune;
+  const venueName = cleanRenderableEventText(event.venue) || locality;
+  const title = localizedTitle(event, locale);
+  const startDate = cleanRenderableEventText(event.startDate);
+  const hasLocationAddress = Boolean(locality || addressStreet || addressPostalCode);
+  if (!title || !/^\d{4}-\d{2}-\d{2}$/.test(startDate) || !venueName || !hasLocationAddress) return null;
+
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
-  // Keep a same-day endDate at the same precision as startDate. A date-only
-  // endDate sorts before a timed startDate for consumers comparing timestamps.
-  // Distinct multi-day end dates stay date-only because the source has no end time.
-  const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
-  const isSeries = hasMultiDay && event.recurring === true;
-  const endIso = isSeries ? undefined : event.endDate === event.startDate ? startIso : event.endDate;
+  // The source model has no endTime. Keep the end date-only rather than
+  // inventing an end instant from startTime, including for same-day events.
+  const endIso = event.endDate;
   const cat = categoryLabel(event.category, locale);
   const when = humanDateRange(event.startDate, event.endDate, locale);
-  const title = localizedTitle(event, locale);
-  const factualDescription = `${title} — ${cat} ${COPY[locale].at} ${venueName || locality || 'Svizzera'} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}`
+  const factualDescription = `${title} — ${cat} ${COPY[locale].at} ${venueName}${locality && venueName !== locality ? ` (${locality}${cantonName ? `, ${cantonName}` : ''})` : ''}, ${when}`
     + `${event.startTime ? ` ${event.startTime}` : ''}.`;
   const rewriteDescription = event.descriptionRewriteValidated === true
     ? localizedDescription(event, locale)?.trim()
@@ -1718,17 +1714,9 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     : factualDescription;
   const sourceUrl = eventSourceUrl(event.url, event);
   const eventSource = eventSourceRecord(event.sourceKey);
-  const descriptionPerformer = extractEventPeopleFromText(event.description, { includePerformer: 'explicit' }).performer
-    || (rewriteDescription
-      ? extractEventPeopleFromText(rewriteDescription, { includePerformer: 'explicit' }).performer
-      : undefined);
-  const titlePerformer = extractEventPeopleFromTitle(event.title, { category: event.category }).performer;
-  const eventWithDefaults = fillEventPeopleDefaults(
-    withoutAddressPeople({ ...event, title, venue: venueName || undefined }, eventSource),
-    eventSource,
-  ) as SiteEvent;
-  const performer = eventWithDefaults.performer
-    || normalizeEventPeople(descriptionPerformer || titlePerformer, sourceUrl, sourceUrl);
+  const eventWithPeople = withoutAddressPeople({ ...event, title, venue: venueName }, eventSource) as SiteEvent;
+  const organizer = normalizeEventPeople(eventWithPeople.organizer, sourceUrl, event.url);
+  const performer = normalizeEventPeople(eventWithPeople.performer, sourceUrl, event.url);
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
   const confidentlyFree = confidentPrice && (
@@ -1739,45 +1727,39 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   // lowestTicketPrice) is a floor, not THE price; preserve a valid upper bound
   // when the source supplies one.
   const fromPrice = isFromEventPrice(event.price);
+  const currency = typeof event.price?.currency === 'string' ? event.price.currency.trim().toUpperCase() : '';
+  let hasValidCurrency = false;
+  if (/^[A-Z]{3}$/.test(currency)) {
+    try {
+      hasValidCurrency = currency !== 'XXX'
+        && new Intl.NumberFormat('en', { style: 'currency', currency }).resolvedOptions().currency === currency;
+    } catch {
+      hasValidCurrency = false;
+    }
+  }
   const highPrice = fromPrice && typeof event.price?.highPrice === 'number' && event.price.highPrice > (event.price.amount ?? 0)
     ? event.price.highPrice
     : undefined;
-  const offerUrl = event.price?.url || canonicalUrl || sourceUrl;
-  const sourceTicketUrl = event.price?.url;
-  const offer = confidentPrice
+  const validFrom = normalizeSchemaOrgDateTime(event.price?.validFrom);
+  const availability = normalizeSchemaOrgItemAvailability(event.price?.availability);
+  const offer = confidentPrice && hasValidCurrency
     ? {
       '@type': fromPrice ? 'AggregateOffer' : 'Offer',
       ...(fromPrice
         ? { lowPrice: event.price!.amount, ...(highPrice !== undefined ? { highPrice } : {}) }
       : { price: confidentlyFree ? 0 : event.price!.amount }),
-      priceCurrency: event.price?.currency || 'CHF',
-      availability: event.price?.availability || 'https://schema.org/InStock',
-      validFrom: event.price?.validFrom || event.startDate,
-      url: offerUrl,
+      priceCurrency: currency,
+      ...(availability ? { availability } : {}),
+      ...(validFrom ? { validFrom } : {}),
+      ...(event.price?.url ? { url: event.price.url } : {}),
     }
-    : {
-      '@type': 'Offer',
-      ...(event.price?.availability ? { availability: event.price.availability } : {}),
-      ...(event.price?.validFrom ? { validFrom: event.price.validFrom } : {}),
-      ...(sourceTicketUrl ? { url: sourceTicketUrl } : {}),
-    };
+    : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: title,
     startDate: startIso,
     ...(endIso ? { endDate: endIso } : {}),
-    ...(isSeries
-      ? {
-        eventSchedule: {
-          '@type': 'Schedule',
-          startDate: event.startDate,
-          endDate: event.endDate,
-          ...(event.startTime ? { startTime: `${event.startTime}:00` } : {}),
-          scheduleTimezone: 'Europe/Zurich',
-        },
-      }
-      : {}),
     eventStatus: event.eventStatus ? EVENT_STATUS_LD[event.eventStatus] : 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
@@ -1787,7 +1769,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         '@type': 'PostalAddress',
         ...(addressStreet ? { streetAddress: addressStreet } : {}),
         ...(addressPostalCode ? { postalCode: addressPostalCode } : {}),
-        addressLocality: locality,
+        ...(locality ? { addressLocality: locality } : {}),
         ...(addressRegion || event.canton ? { addressRegion: addressRegion || event.canton } : {}),
         addressCountry: 'CH',
       },
@@ -1797,7 +1779,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     },
     ...(description ? { description } : {}),
     image: eventImage,
-    organizer: normalizeEventPeople(eventWithDefaults.organizer, sourceUrl, sourceUrl),
+    ...(organizer ? { organizer } : {}),
     ...(performer ? { performer } : {}),
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
@@ -1805,8 +1787,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     url: canonicalUrl || sourceUrl,
     ...(canonicalUrl && sourceUrl ? { sameAs: [sourceUrl] } : {}),
     // Only a confident source field may assert free admission.
-    ...(confidentlyFree ? { isAccessibleForFree: true } : {}),
-    offers: offer,
+    ...(confidentlyFree && offer ? { isAccessibleForFree: true } : {}),
+    ...(offer ? { offers: offer } : {}),
   };
 }
 
@@ -4483,7 +4465,8 @@ export function renderEventDetailPage(params: {
   // keeps the source's actual past dates and status; EventScheduled covers an
   // event that took place as planned, while known cancelled/postponed states
   // remain distinct.
-  const eventLdScript = inlineScriptJson(eventLd(event, locale, canonicalUrl));
+  const eventSchema = eventLd(event, locale, canonicalUrl);
+  const eventLdScript = eventSchema ? inlineScriptJson(eventSchema) : '';
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

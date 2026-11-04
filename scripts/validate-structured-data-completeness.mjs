@@ -18,6 +18,7 @@ import {
   toStructuredDataJobPostingError,
   validateMandatoryJobPostingFields,
 } from './lib/jobposting-mandatory-fields.mjs';
+import { validateEventStructuredData } from './lib/event-structured-data-validation.mjs';
 
 const DIST = join(process.cwd(), 'dist');
 
@@ -146,124 +147,8 @@ function validateJobPosting(schema, filePath) {
 }
 
 function validateEvent(schema, filePath) {
-  const errors = [];
-  if (schema['@type'] !== 'Event') return errors;
-
-  // Mandatory fields for Event rich results (Google + deploy-blocking)
-  const stringChecks = [
-    ['name', schema.name],
-    ['startDate', schema.startDate],
-    ['endDate', schema.endDate],
-    ['eventStatus', schema.eventStatus],
-    ['eventAttendanceMode', schema.eventAttendanceMode],
-  ];
-  for (const [field, value] of stringChecks) {
-    if (!isNonEmpty(value)) {
-      errors.push({ file: filePath, type: 'Event', field, message: `Event missing "${field}"` });
-    }
-  }
-
-  // A description is optional while the event waits for an exact rewrite-cache
-  // hit. When present, it still needs to be substantial enough for rich data.
-  if (schema.description !== undefined) {
-    const desc = String(schema.description || '').trim();
-    if (desc.length < 30) {
-      errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
-    }
-  }
-
-  // location must exist with a non-empty name and addressLocality
-  if (!schema.location || typeof schema.location !== 'object') {
-    errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });
-  } else {
-    if (!isNonEmpty(schema.location.name)) {
-      errors.push({ file: filePath, type: 'Event', field: 'location.name', message: 'Event missing "location.name"' });
-    }
-    const addr = schema.location.address;
-    if (!addr || !isNonEmpty(addr.addressLocality)) {
-      errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
-    }
-  }
-
-  // These fields are part of the current Event page contract. Legacy
-  // fixtures may still fail here, which is intentional: a regression that
-  // drops a deterministic default must block the build instead of passing as
-  // an absent optional value. Performer exists only when the source names one;
-  // an Offer is emitted even when its price is unknown.
-  for (const field of ['image', 'organizer', 'offers']) {
-    if (schema[field] === undefined || schema[field] === null) {
-      errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
-    }
-  }
-  if (schema.image !== undefined && schema.image !== null) {
-    const hasImage = Array.isArray(schema.image)
-      ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
-      : isNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
-    if (!hasImage) errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event "image" is empty' });
-  }
-  for (const [field, value] of [['organizer', schema.organizer], ['performer', schema.performer]]) {
-    if (value === undefined || value === null) continue;
-    const entities = Array.isArray(value) ? value : [value];
-    if (entities.length === 0 || entities.some((entity) => entity === null || typeof entity !== 'object' || !isNonEmpty(entity.name))) {
-      errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
-    }
-  }
-
-  // A source-backed price is complete and strictly validated. When the source
-  // has no price, an unpriced Offer is allowed without inventing a ticket URL,
-  // amount, currency or availability. A zero still needs the free-access claim
-  // that supports it. AggregateOffer uses lowPrice instead of price.
-  const offerIsObject = schema.offers !== null && typeof schema.offers === 'object' && !Array.isArray(schema.offers);
-  const offerType = offerIsObject ? String(schema.offers['@type'] || 'Offer').split('/').pop() : '';
-  const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
-  if (schema.offers !== undefined && schema.offers !== null) {
-    if (!offerIsObject) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
-    } else {
-      const hasPrice = Object.prototype.hasOwnProperty.call(schema.offers, offerAmountField);
-      const price = schema.offers[offerAmountField];
-      if (!hasPrice) {
-        if (!Object.prototype.hasOwnProperty.call(schema.offers, '@type') || offerType !== 'Offer') {
-          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use an explicit Offer' });
-        }
-        for (const field of ['priceCurrency', 'availability', 'validFrom', 'url']) {
-          if (Object.prototype.hasOwnProperty.call(schema.offers, field) && !isNonEmpty(schema.offers[field])) {
-            errors.push({ file: filePath, type: 'Event', field: `offers.${field}`, message: `Event offers.${field} is empty` });
-          }
-        }
-      } else {
-        if (typeof price !== 'number' || !Number.isFinite(price)) {
-          errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must be a finite number` });
-        } else if (price === 0 && schema.isAccessibleForFree !== true) {
-          errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField}=0 requires isAccessibleForFree=true` });
-        } else if (price < 0) {
-          errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must not be negative` });
-        }
-        if (!isNonEmpty(schema.offers.priceCurrency)) {
-          errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
-        }
-        for (const field of ['availability', 'validFrom', 'url']) {
-          if (!isNonEmpty(schema.offers[field])) {
-            const hasEmptyValue = Object.prototype.hasOwnProperty.call(schema.offers, field);
-            errors.push({
-              file: filePath,
-              type: 'Event',
-              field: `offers.${field}`,
-              message: `Event offers ${hasEmptyValue ? 'has an empty' : 'missing'} "${field}"`,
-            });
-          }
-        }
-      }
-    }
-  }
-  const freeOfferAmount = offerType === 'AggregateOffer' ? schema.offers?.lowPrice : schema.offers?.price;
-  if (schema.isAccessibleForFree === true && freeOfferAmount !== 0) {
-    errors.push({ file: filePath, type: 'Event', field: 'isAccessibleForFree', message: `isAccessibleForFree=true requires offers.${offerAmountField}=0` });
-  }
-
-  return errors;
+  return validateEventStructuredData(schema, filePath);
 }
-
 function validateWebApplication(schema, filePath) {
   const errors = [];
   const type = schema['@type'];

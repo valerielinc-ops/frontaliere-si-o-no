@@ -1,11 +1,12 @@
 import { cleanEventText, parsePriceText, withEventPriceSource } from './events-utils.mjs';
+import { normalizeSchemaOrgDateTime, normalizeSchemaOrgItemAvailability } from './schema-org-values.mjs';
 
 /**
  * Small normalizers for optional schema.org Event metadata.
  *
- * They preserve named source entities and usable HTTP(S) URLs. When a source
- * record has no organizer, fillEventPeopleDefaults() adds the configured
- * catalog; a performer exists only when the source names one.
+ * They preserve source-named event people and usable HTTP(S) URLs. A source
+ * or catalog label and an event-page URL are not substitutes for the actual
+ * event host or participant.
  */
 
 function absoluteHttpUrl(value, baseUrl) {
@@ -18,13 +19,22 @@ function absoluteHttpUrl(value, baseUrl) {
   }
 }
 
+function pageUrlIdentity(value, baseUrl) {
+  const absolute = absoluteHttpUrl(value, baseUrl);
+  if (!absolute) return undefined;
+  const url = new URL(absolute);
+  url.search = '';
+  url.hash = '';
+  const pathname = url.pathname.replace(/\/+$/u, '') || '/';
+  return `${url.origin}${pathname}`;
+}
+
 function sourceType(value) {
   const values = Array.isArray(value) ? value : [value];
   return values.find((entry) => typeof entry === 'string' && entry.trim())?.trim();
 }
 
 const OFFER_METADATA_FIELDS = ['availability', 'validFrom', 'url'];
-const KNOWN_AVAILABILITY_VALUES = new Set(['InStock', 'SoldOut', 'PreOrder', 'Discontinued', 'OnlineOnly', 'LimitedAvailability']);
 
 function offerEntries(value) {
   const entries = Array.isArray(value) ? value : [value];
@@ -165,10 +175,9 @@ function normalizedOfferField(field, value, baseUrl) {
   const raw = value.trim();
   if (field === 'url') return absoluteHttpUrl(raw, baseUrl);
   if (field === 'availability') {
-    if (KNOWN_AVAILABILITY_VALUES.has(raw)) return `https://schema.org/${raw}`;
-    const absolute = absoluteHttpUrl(raw, baseUrl);
-    return absolute;
+    return normalizeSchemaOrgItemAvailability(raw);
   }
+  if (field === 'validFrom') return normalizeSchemaOrgDateTime(raw);
   return raw;
 }
 
@@ -246,16 +255,14 @@ export function firstEventImageUrl(value, baseUrl) {
 /**
  * Normalize schema.org organizer/performer values while preserving the source
  * entity type and URL when present. A singular source value stays singular;
- * arrays stay arrays so the dataset does not invent cardinality. When a
- * caller supplies `fallbackUrl`, it is the verified page that published the
- * named entity (never a guessed organization homepage) and is used only when
- * the source omitted the entity URL.
+ * arrays stay arrays so the dataset does not invent cardinality. The event
+ * page URL is discarded when an older crawl persisted it as an entity URL.
  */
-export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
+export function normalizeEventPeople(value, baseUrl, eventPageUrl) {
   if (value === undefined || value === null) return undefined;
   const inputWasArray = Array.isArray(value);
   const entries = inputWasArray ? value : [value];
-  const normalizedFallbackUrl = absoluteHttpUrl(fallbackUrl, baseUrl);
+  const eventPageIdentity = pageUrlIdentity(eventPageUrl, baseUrl);
   const seen = new Set();
   const people = [];
 
@@ -263,7 +270,8 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
     const rawName = typeof entry === 'string' ? entry : entry?.name;
     const name = typeof rawName === 'string' ? rawName.replace(/\s+/g, ' ').trim() : '';
     if (!name) continue;
-    const url = absoluteHttpUrl(typeof entry === 'object' ? entry?.url : undefined, baseUrl) || normalizedFallbackUrl;
+    const sourceUrl = absoluteHttpUrl(typeof entry === 'object' ? entry?.url : undefined, baseUrl);
+    const url = sourceUrl && pageUrlIdentity(sourceUrl, baseUrl) !== eventPageIdentity ? sourceUrl : undefined;
     const key = `${name.toLowerCase()}|${url || ''}`;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -279,40 +287,63 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
   return inputWasArray ? people : people[0];
 }
 
-/**
- * Ensure every crawled event has deterministic people metadata. Source
- * entities remain authoritative; when a source has no named entity, the
- * catalog organization is the explicit fallback for a missing organizer. A
- * venue does not perform: performer stays absent without a source name.
- */
+/** Normalize only source-named event people; a catalog is not the event host. */
 export function fillEventPeopleDefaults(event, source = {}) {
-  const sourceName = sourceText(source?.label) || sourceText(event?.sourceName) || 'Frontaliere Ticino';
   const baseUrl = absoluteHttpUrl(event?.url, source?.homepage)
     || absoluteHttpUrl(source?.homepage)
     || 'https://frontaliereticino.ch';
-  const eventUrl = absoluteHttpUrl(event?.url, baseUrl);
-  const sourceHomepage = absoluteHttpUrl(source?.homepage, baseUrl) || eventUrl;
-  const organizer = normalizeEventPeople(event?.organizer, baseUrl, eventUrl || sourceHomepage)
-    || {
-      '@type': 'Organization',
-      name: sourceName,
-      ...(sourceHomepage ? { url: sourceHomepage } : {}),
-    };
-  const performer = normalizeEventPeople(event?.performer, baseUrl);
-  return { ...event, organizer, ...(performer ? { performer } : {}) };
+  const organizer = normalizeEventPeople(event?.organizer, baseUrl, event?.url);
+  const performer = normalizeEventPeople(event?.performer, baseUrl, event?.url);
+  const { organizer: _organizer, performer: _performer, ...rest } = event;
+  return {
+    ...rest,
+    ...(organizer ? { organizer } : {}),
+    ...(performer ? { performer } : {}),
+  };
 }
 
-const foldName = (value) => String(value ?? '').replace(/\s+/g, ' ').trim().toLowerCase();
+const ADDRESS_NAME_STOPWORDS = new Set(['de', 'du', 'des', 'la', 'le', 'les', 'd', 'l']);
+const ADDRESS_TOKEN_ALIASES = Object.freeze({
+  av: 'avenue',
+  ave: 'avenue',
+  bd: 'boulevard',
+  rte: 'route',
+  ch: 'chemin',
+  pl: 'place',
+  str: 'strasse',
+  strasse: 'strasse',
+});
+
+function comparisonToken(value) {
+  const token = String(value).normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase();
+  return ADDRESS_TOKEN_ALIASES[token] || token;
+}
+
+function nameTokens(value) {
+  const text = String(value ?? '');
+  const tokens = [];
+  for (const match of text.matchAll(/[\p{L}\p{N}]+/gu)) {
+    const key = comparisonToken(match[0]);
+    if (key && !ADDRESS_NAME_STOPWORDS.has(key)) tokens.push({ key, start: match.index });
+  }
+  return tokens;
+}
+
+const foldName = (value) => nameTokens(value).map(({ key }) => key).join(' ');
 
 function nameWithoutAddress(name, addressParts) {
-  const folded = foldName(name);
+  const nameText = String(name ?? '');
+  const tokens = nameTokens(nameText);
+  const folded = tokens.map(({ key }) => key);
   for (const part of addressParts) {
-    if (folded === part) return '';
-    if (folded.endsWith(` ${part}`)) {
-      return String(name).replace(/\s+/g, ' ').trim().slice(0, folded.length - part.length).replace(/[\s,;:–—-]+$/u, '');
-    }
+    const addressTokens = nameTokens(part).map(({ key }) => key);
+    if (!addressTokens.length || addressTokens.length > folded.length) continue;
+    const suffixStart = folded.length - addressTokens.length;
+    if (!addressTokens.every((token, index) => folded[suffixStart + index] === token)) continue;
+    if (suffixStart === 0) return '';
+    return nameText.slice(0, tokens[suffixStart].start).replace(/[\s,;:–—-]+$/u, '').trim();
   }
-  return String(name);
+  return nameText;
 }
 
 function cleanEntities(value, addressParts, droppedNames = []) {

@@ -401,7 +401,7 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.address ? { address: metadata.address } : {}),
       ...(metadata.venue ? { venue: metadata.venue } : {}),
       ...(metadata.price ? { price: metadata.price } : {}),
-      ...(metadata.organizer ? { organizer: normalizeEventPeople(metadata.organizer, ev.url, ev.url) } : {}),
+      ...(metadata.organizer ? { organizer: normalizeEventPeople(metadata.organizer, ev.url) } : {}),
       ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };

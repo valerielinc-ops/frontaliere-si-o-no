@@ -4,7 +4,9 @@ import {
   EVENT_DESCRIPTION_REWRITE_MODEL,
   applyDescriptionRewrite,
   findSharedSourceNgram,
+  factsForPrompt,
   isValidRewriteCacheEntry,
+  isDescriptionSupportedByEventFacts,
   rewriteCacheKey,
   sanitizeEventForPublication,
   sourceDescriptionHash,
@@ -81,6 +83,30 @@ describe('event description publication policy', () => {
     expect(applyDescriptionRewrite(EVENT, { entries: { [rewriteCacheKey(EVENT.id, 'wrong')]: entry } }).description).toBeUndefined();
   });
 
+  it('does not reuse a cached tariff that lacks confident structured price provenance', () => {
+    const event = { ...EVENT, price: { amount: 10, currency: 'CHF', isFree: false } };
+    const hash = sourceDescriptionHash(event)!;
+    const descriptions = {
+      it: 'L’ingresso costa 10 CHF. La visita si svolge al Museo civico.',
+      en: 'Admission costs 10 CHF. The visit takes place at the Civic Museum.',
+      de: 'Der Eintritt kostet 10 CHF. Der Besuch findet im Stadtmuseum statt.',
+      fr: 'L’entrée coûte 10 CHF. La visite a lieu au musée civique.',
+    };
+    const entry = {
+      id: event.id,
+      sourceDescriptionHash: hash,
+      description: descriptions.it,
+      descriptionByLocale: descriptions,
+      model: EVENT_DESCRIPTION_REWRITE_MODEL,
+      promptVersion: EVENT_DESCRIPTION_PROMPT_VERSION,
+      rewrittenAt: '2026-10-06T08:00:00.000Z',
+    };
+
+    expect(factsForPrompt(event).price).toBeUndefined();
+    expect(applyDescriptionRewrite(event, { entries: { [rewriteCacheKey(event.id, hash)]: entry } }).descriptionRewriteValidated).toBeUndefined();
+    expect(isDescriptionSupportedByEventFacts(descriptions.it, event)).toBe(false);
+  });
+
   it('keeps a v1 cache entry valid across the prompt-only policy upgrade', () => {
     const hash = sourceDescriptionHash(EVENT)!;
     const entry = {
@@ -142,6 +168,51 @@ describe('event description rewrite validator', () => {
       sourceTexts: source,
       factTexts: [...facts, '{"amount":25,"currency":"CHF"}'],
     }).ok).toBe(true);
+  });
+
+  it('does not allow source prose alone to authorize a monetary claim', () => {
+    expect(validateRewriteDescription('L’ingresso costa 10 CHF. La visita è indicata nella scheda.', {
+      sourceTexts: ['L’ingresso costa 10 CHF. Il ridotto del museo è di 10 CHF.'],
+      factTexts: ['Mostra al museo', '2026-10-12', 'Museo civico', 'Lugano'],
+    })).toMatchObject({ ok: false });
+  });
+
+  it('rejects an amount next to admission language even when the number also appears in the event date', () => {
+    expect(validateRewriteDescription('L’ingresso costa 10. La visita si svolge al Museo civico.', {
+      sourceTexts: ['L’ingresso costa 10 CHF. Il ridotto del museo è di 10 CHF.'],
+      factTexts: ['Mostra al museo', '2026-10-12', 'Museo civico', 'Lugano'],
+    })).toMatchObject({ ok: false, code: 'new-date-or-price' });
+  });
+
+  it('rejects a free-admission claim unless the structured event price confirms it', () => {
+    const description = 'L’ingresso è gratuito. La visita si svolge al Museo civico.';
+    expect(validateRewriteDescription(description, { factTexts: facts })).toMatchObject({ ok: false, code: 'new-date-or-price' });
+    expect(validateRewriteDescription(description, {
+      factTexts: ['Museo civico', '2026-10-12', '{"price":{"amount":0,"currency":"CHF","isFree":true}}'],
+    }).ok).toBe(true);
+  });
+
+  it('exposes only the selected ticket price and its minimum-price semantics to rewrites', () => {
+    const event = {
+      ...EVENT,
+      price: {
+        amount: 40,
+        highPrice: 85,
+        currency: 'CHF',
+        isFree: false,
+        priceSource: 'classicascona',
+        priceField: 'offers.lowPrice',
+        priceConflicts: [{ amount: 5.3, currency: 'CHF', isFree: false, priceSource: 'myswitzerland' }],
+      },
+    };
+    const factsForRewrite = factsForPrompt(event);
+    expect(factsForRewrite.price).toEqual({ amount: 40, currency: 'CHF', isFree: false, isFrom: true });
+
+    const factTexts = [JSON.stringify(factsForRewrite)];
+    expect(validateRewriteDescription('The concert costs CHF 85. The performance takes place at Museo civico.', { factTexts }).ok).toBe(false);
+    expect(validateRewriteDescription('The concert costs CHF 5.30. The performance takes place at Museo civico.', { factTexts }).ok).toBe(false);
+    expect(validateRewriteDescription('The ticket price starts at CHF 40. The performance takes place at Museo civico.', { factTexts }).ok).toBe(true);
+    expect(validateRewriteDescription('The concert costs CHF 40. The performance takes place at Museo civico.', { factTexts }).ok).toBe(false);
   });
 
   it('accepts equivalent translated venue, date, number and currency forms from structured facts', () => {

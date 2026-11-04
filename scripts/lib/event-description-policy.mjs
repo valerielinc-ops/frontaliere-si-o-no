@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import { hasConfidentPrice, isFromEventPrice } from './events-utils.mjs';
 
 export const EVENT_DESCRIPTION_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-5.6-luna';
@@ -323,7 +324,7 @@ export function sourceDescriptionTexts(event) {
 export function sourceDescriptionRecord(event) {
   const fields = readDescriptionFields(event, DESCRIPTION_FIELDS);
   if (!fields.fallback && Object.keys(fields.byLocale).length === 0) return null;
-  const facts = Object.fromEntries(FACT_FIELDS.filter((field) => event?.[field] !== undefined).map((field) => [field, event[field]]));
+  const facts = descriptionFacts(event);
   return {
     id: event.id,
     sourceKey: event.sourceKey,
@@ -333,6 +334,21 @@ export function sourceDescriptionRecord(event) {
     ...(Object.keys(fields.byLocale).length ? { sourceDescriptionByLocale: fields.byLocale } : {}),
     facts,
   };
+}
+
+function descriptionFacts(event) {
+  const facts = Object.fromEntries(FACT_FIELDS.filter((field) => event?.[field] !== undefined).map((field) => [field, event[field]]));
+  if (!hasConfidentPrice(event?.price)) {
+    delete facts.price;
+  } else {
+    facts.price = {
+      amount: event.price.amount,
+      currency: event.price.currency,
+      isFree: event.price.isFree === true || event.price.amount === 0,
+      ...(isFromEventPrice(event.price) ? { isFrom: true } : {}),
+    };
+  }
+  return facts;
 }
 
 /**
@@ -428,6 +444,11 @@ export function applyDescriptionRewrite(event, cache) {
   const entry = entries?.[rewriteCacheKey(factual.id, hash)];
   if (!isValidRewriteCacheEntry(entry, { id: factual.id, sourceHash: hash })) return factual;
   const descriptionByLocale = cacheEntryDescriptions(entry);
+  const validation = validateRewriteBundle(descriptionByLocale, {
+    sourceTexts: sourceDescriptionTexts(event),
+    factTexts: [JSON.stringify(factsForPrompt(event))],
+  });
+  if (!validation.ok) return factual;
   return {
     ...factual,
     description: descriptionByLocale.it,
@@ -908,6 +929,58 @@ function nameFailureDetail(run) {
   return 'single-token-unknown-name';
 }
 
+function trustedStructuredPrices(factTexts) {
+  const prices = [];
+  for (const factText of factTexts) {
+    try {
+      const parsed = JSON.parse(String(factText));
+      const price = parsed && typeof parsed === 'object' && !Array.isArray(parsed) && parsed.price && typeof parsed.price === 'object'
+        ? parsed.price
+        : parsed;
+      if (!price || typeof price !== 'object' || Array.isArray(price) || typeof price.currency !== 'string') continue;
+      const amount = typeof price.amount === 'number' && Number.isFinite(price.amount) ? price.amount : null;
+      if (amount !== null || price.isFree === true) {
+        prices.push({
+          amount,
+          isFree: price.isFree === true || amount === 0,
+          isFrom: price.isFrom === true,
+        });
+      }
+    } catch {
+      // Facts that are not a serialized structured object cannot establish a price.
+    }
+  }
+  return prices;
+}
+
+function hasAdmissionPriceLanguage(text) {
+  return /\b(?:admission|admissions|entry|entrance|ticket|tickets|price|prices|fee|fees|cost|costs|costing|ingresso|ingressi|entrata|entrate|accesso|accessi|biglietto|biglietti|prezzo|prezzi|costo|costi|tariffa|tariffe|eintritt|eintritte|eintrittspreis|preis|preise|kosten|gebühr|gebühren|entrée|entrées|billet|billets|prix|tarif|tarifs|coût|coûts)\b/iu.test(text);
+}
+
+function admissionPriceAmounts(text) {
+  const terms = String.raw`(?:admission|admissions|entry|entrance|ticket|tickets|price|prices|fee|fees|cost|costs|ingresso|ingressi|entrata|entrate|accesso|accessi|biglietto|biglietti|prezzo|prezzi|costo|costi|tariffa|tariffe|eintritt|eintritte|eintrittspreis|preis|preise|kosten|gebühr|gebühren|entrée|entrées|billet|billets|prix|tarif|tarifs|coût|coûts)`;
+  const amounts = new Set();
+  for (const pattern of [
+    new RegExp(String.raw`\b${terms}\b[^.!?]{0,36}?(\d+(?:[.,]\d+)?)`, 'giu'),
+    new RegExp(String.raw`(\d+(?:[.,]\d+)?)[^.!?]{0,36}?\b${terms}\b`, 'giu'),
+  ]) {
+    for (const match of text.matchAll(pattern)) {
+      const amount = Number(match[1].replace(',', '.'));
+      if (Number.isFinite(amount)) {
+        const amountIndex = match.index + match[0].lastIndexOf(match[1]);
+        const beforeAmount = text.slice(Math.max(0, amountIndex - 48), amountIndex);
+        const isFromClaim = /\b(?:from|start(?:s|ing)?\s+(?:at|from)|da|dès|ab|a\s+partire\s+da|à\s+partir\s+de)\b[^.!?]{0,32}$/iu.test(beforeAmount);
+        amounts.add({ amount, isFromClaim });
+      }
+    }
+  }
+  return amounts;
+}
+
+function hasFreeAdmissionLanguage(text) {
+  return /\b(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)\s+(?:is\s+)?free|no\s+(?:charge|fee)|ingresso\s+(?:è\s+)?(?:gratuito|gratuita|gratis|libero|libera)|entrata\s+(?:è\s+)?(?:gratuita|gratis|libera)|accesso\s+(?:è\s+)?(?:gratuito|gratuita|gratis|libero|libera)|(?:eintritt|eintrittspreis)\s+(?:ist\s+)?(?:frei|kostenlos|gratis)|(?:frei|kostenlos|gratis)\s+eintritt|entrée\s+(?:est\s+)?(?:gratuite|libre)|entrée\s+libre|gratuit(?:e|s)?\s+(?:entrée|accès)|(?:gratuit|gratuitement|libre)\s+(?:pour\s+)?(?:l['’]entrée|accès))\b/iu.test(text);
+}
+
 function containsPromotionalLanguage(candidate) {
   return comparisonTokens(candidate).some((token) => PROMOTIONAL_WORDS.has(token));
 }
@@ -929,15 +1002,33 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
   if (findSharedSourceNgram(text, sourceTexts)) return { ok: false, code: 'source-ngram-8' };
   if (containsPromotionalLanguage(text)) return { ok: false, code: 'promotional-language' };
 
-  const allowedContext = [...sourceTexts, ...factTexts].join(' ');
-  const allowedNumbers = numericValues(allowedContext);
+  // Source prose can mention unrelated tariffs (for example, a museum's
+  // reduced admission price). Numeric, date, time, and currency claims in a
+  // rewrite must be backed by the structured event facts, never by nearby
+  // prose alone.
+  const factualContext = factTexts.join(' ');
+  const allowedNumbers = numericValues(factualContext);
   if ([...numericValues(text)].some((number) => !allowedNumbers.has(number))) return { ok: false, code: 'new-number' };
-  const allowedStructuredFacts = structuredFactSignatures(allowedContext);
+  const allowedStructuredFacts = structuredFactSignatures(factualContext);
   if ([...structuredFactSignatures(text)].some((signature) => !allowedStructuredFacts.has(signature))) {
     return { ok: false, code: 'new-date-or-price' };
   }
-  const allowedCurrencies = currencySignatures(allowedContext);
+  const allowedCurrencies = currencySignatures(factualContext);
   if ([...currencySignatures(text)].some((currency) => !allowedCurrencies.has(currency))) {
+    return { ok: false, code: 'new-date-or-price' };
+  }
+
+  const trustedPrices = trustedStructuredPrices(factTexts);
+  if ([...admissionPriceAmounts(text)].some(({ amount, isFromClaim }) => (
+    !trustedPrices.some((price) => price.amount === amount && (!price.isFrom || isFromClaim))
+  ))) {
+    return { ok: false, code: 'new-date-or-price' };
+  }
+  const freeAdmissionClaim = hasFreeAdmissionLanguage(text);
+  if (freeAdmissionClaim && !trustedPrices.some((price) => price.isFree)) {
+    return { ok: false, code: 'new-date-or-price' };
+  }
+  if (hasAdmissionPriceLanguage(text) && trustedPrices.length === 0) {
     return { ok: false, code: 'new-date-or-price' };
   }
 
@@ -965,5 +1056,12 @@ export function validateRewriteBundle(descriptions, { sourceTexts = [], factText
 
 export function factsForPrompt(event) {
   const factual = sanitizeEventForPublication(event);
-  return Object.fromEntries(FACT_FIELDS.filter((field) => factual?.[field] !== undefined).map((field) => [field, factual[field]]));
+  return descriptionFacts(factual);
+}
+
+/** Revalidate stored public prose against the event's current structured facts. */
+export function isDescriptionSupportedByEventFacts(description, event) {
+  return validateRewriteDescription(description, {
+    factTexts: [JSON.stringify(factsForPrompt(event))],
+  }).ok;
 }
