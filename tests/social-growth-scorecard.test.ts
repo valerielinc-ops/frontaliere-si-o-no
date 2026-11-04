@@ -955,7 +955,8 @@ describe('cross-social growth scorecard', () => {
     });
 
     expect(scorecard.channelPilots.instagram).toMatchObject({
-      contractVersion: 4,
+      contractVersion: 5,
+      deliveryState: 'live',
       cadenceIncreaseAllowed: false,
       minimumOrganicPilotDays: 28,
       audienceMetricStatus: 'no-audience-observations',
@@ -975,19 +976,23 @@ describe('cross-social growth scorecard', () => {
     expect(scorecard.channelPilots.instagram.cadenceCap).toContain('Graph API, Reels, and robot');
     expect(scorecard.channelPilots).toMatchObject({
       linkedinCompanyPage: {
+        deliveryState: 'blocked',
         readinessStatus: 'delivery-held-or-unconfigured',
         sourceStatus: 'organization-social-permission-missing',
       },
       x: {
+        deliveryState: 'not-inventoried',
         readinessStatus: 'delivery-held-or-unconfigured',
         sourceStatus: 'account-and-oauth-not-configured',
       },
       whatsappChannels: {
+        deliveryState: 'not-inventoried',
         readinessStatus: 'delivery-held-or-unconfigured',
         sourceStatus: 'account-and-oauth-not-configured',
       },
     });
     expect(scorecard.channelPilots.tiktok).toMatchObject({
+      deliveryState: 'draft-only',
       readinessStatus: 'delivery-held-or-unconfigured',
       cadenceIncreaseAllowed: false,
       promotionStatus: 'descriptive-only-protocol-unqualified',

@@ -1,3 +1,5 @@
+import { summarizeInstagramCommunityQuestionDemand } from './instagram-community-topics.mjs';
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 const WEEK_MS = 7 * DAY_MS;
 export const COMMUNITY_OUTCOME_RETENTION_WEEKS = 26;
@@ -78,6 +80,7 @@ function summarizeInteraction(target, event, nowMs) {
 /** Build a private, content-free weekly summary from the local hashed event journal. */
 export function buildInstagramCommunityOutcomeSnapshot({
   interactions = [],
+  questionTopicSignals = [],
   asOf = new Date(),
   source = 'graph',
   runStatus = 'completed',
@@ -129,7 +132,7 @@ export function buildInstagramCommunityOutcomeSnapshot({
     .slice(-retentionWeeks);
   const trackedFrom = orderedWeeks[0]?.weekStart || currentWeek;
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     generatedAt: new Date(nowMs).toISOString(),
     latestRun: { source, status: String(runStatus).slice(0, 80), coverage },
     trackedFrom,
@@ -138,6 +141,7 @@ export function buildInstagramCommunityOutcomeSnapshot({
       : new Date(isoMs(trackingStartedAt)).toISOString(),
     eventsTruncated: Boolean(truncated),
     coverageGap: false,
+    questionTopicDemand: summarizeInstagramCommunityQuestionDemand(questionTopicSignals, { asOf: new Date(nowMs) }),
     weeks: orderedWeeks,
   };
 }
@@ -146,7 +150,7 @@ export function buildInstagramCommunityOutcomeSnapshot({
 export function mergeInstagramCommunityOutcomeSnapshots(existing, incoming, {
   retentionWeeks = COMMUNITY_OUTCOME_RETENTION_WEEKS,
 } = {}) {
-  if (!incoming || incoming.schemaVersion !== 1 || !Array.isArray(incoming.weeks)) return existing || null;
+  if (!incoming || ![1, 2].includes(incoming.schemaVersion) || !Array.isArray(incoming.weeks)) return existing || null;
   const incomingHasTrackingGap = Boolean(existing?.trackingStartedAt && incoming.trackingStartedAt
     && incoming.trackingStartedAt > existing.trackingStartedAt);
   const observedCount = (week) => Object.values(week?.bySurface || {})
@@ -170,7 +174,7 @@ export function mergeInstagramCommunityOutcomeSnapshots(existing, incoming, {
     .sort((left, right) => left.weekStart.localeCompare(right.weekStart))
     .slice(-retentionWeeks);
   return {
-    schemaVersion: 1,
+    schemaVersion: incoming.schemaVersion === 2 || existing?.schemaVersion === 2 ? 2 : 1,
     generatedAt: incoming.generatedAt,
     latestRun: incoming.latestRun,
     trackedFrom: weeks[0]?.weekStart || incoming.trackedFrom,
@@ -179,6 +183,9 @@ export function mergeInstagramCommunityOutcomeSnapshots(existing, incoming, {
       : incoming.trackingStartedAt || existing?.trackingStartedAt,
     eventsTruncated: Boolean(existing?.eventsTruncated || incoming.eventsTruncated),
     coverageGap: Boolean(existing?.coverageGap || incoming.coverageGap || incomingHasTrackingGap),
+    ...(incoming.schemaVersion === 2
+      ? { questionTopicDemand: incoming.questionTopicDemand }
+      : existing?.questionTopicDemand ? { questionTopicDemand: existing.questionTopicDemand } : {}),
     weeks,
   };
 }

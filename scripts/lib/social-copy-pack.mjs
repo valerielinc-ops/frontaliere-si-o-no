@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 4;
 export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v4';
 export const SOCIAL_COPY_PACK_MAX_AGE_DAYS = 45;
+export const SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION = 'social-copy-angle-matched-block-v4';
 const LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION = 1;
 const LEGACY_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v1';
 const SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 2;
@@ -559,7 +560,7 @@ function parseSocialCopyExperimentConfig(value) {
   if (!isRecord(config) || Number(config.schemaVersion) !== 4
     || config.enabled !== true
     || !/^[a-z0-9][a-z0-9-]{0,63}$/.test(String(config.experimentId || ''))) return null;
-  if (config.protocolVersion !== 'social-copy-angle-matched-block-v3'
+  if (config.protocolVersion !== SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION
     || !isRecord(config.registrations) || !isRecord(config.registrationDeadlines)
     || !isRecord(config.winners)) return null;
   const registrationIds = Object.keys(config.registrations);

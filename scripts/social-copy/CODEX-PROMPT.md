@@ -167,6 +167,11 @@ automatic stretch goal, not a forecast, causal estimate, or proof that a
 template caused growth. Do not combine channel targets into a global total.
 Use a qualified target gap to suggest useful content themes, while preserving
 the existing limits on winner claims and posting volume.
+Keep experiment winner classes distinct: `engagement` means only the registered
+share/save/comment outcome; `post-attributed-follower-growth` requires an exact
+native follows metric. A positive channel-level audience trend is only a
+promotion guard for engagement experiments, not proof that their copy caused
+follower growth.
 If the scorecard includes `siteOutcomeGrowth`, use a channel/event result only
 when its status is `available`. This is a rolling 30-day session key-event rate
 from exact social UTM sources, requiring at least 25 daily observations across
@@ -189,6 +194,12 @@ pairs from active-pilot pairs with a publication recorded in the trailing 30-day
 ledger. Read the target status against the active-pilot denominator; unconfigured
 or non-publishing channels are outside that comparison, not zero-performance
 failures. The wider UTM mapping count reports tracking coverage only.
+Read `channelPilots[*].deliveryState` as the source of truth for operational
+coverage: `live` has an existing publisher; `draft-only` prepares content while
+delivery is held; `blocked` has a configured route that lacks a required grant;
+`not-inventoried` has no verified account or integration. Editorial coverage in
+the pack never upgrades a channel's delivery state. Keep analytics readiness,
+audience coverage, and content-pilot status separate from publication capability.
 If a sanitized published-article topic inventory is supplied, use its recent
 topic labels and cluster counts to make this week’s editorial angles more
 specific to material the site actually publishes. It contains topics and dates
@@ -231,6 +242,13 @@ sources; answer-open counts show interaction only. Do not derive success rates
 or claim that a category causes social engagement.
 The report contains no search text. Suppressed, empty, or unavailable
 categories are unknown, not zero.
+If `instagramCommunityQuestionDemand.status` is `available`, use only its
+closed categories to prioritize a future explainer. The 30-day bands count
+distinct public comments classified locally; they are not unique people,
+audience size, market demand, social-trend evidence, or content performance.
+No comment text, username, identifier, or DM is provided. Suppressed or
+not-collected demand is unknown, not zero. Verify every factual claim against
+a current authoritative source before publication.
 The scorecard marks account-level net follower growth as incomplete until a
 dated channel baseline qualifies. Private daily follower snapshots are enabled
 for Instagram and Facebook, but a missing or insufficient baseline is not

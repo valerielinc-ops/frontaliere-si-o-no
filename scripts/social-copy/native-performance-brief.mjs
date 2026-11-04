@@ -6,6 +6,13 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { loadPrivateSocialNativeInsights } from '../lib/social-native-insights-store.mjs';
 import { socialCopyRevisionId } from '../lib/social-copy-revision.mjs';
+import {
+  INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
+  INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS,
+  INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
+  INSTAGRAM_COMMUNITY_TOPIC_SOURCE,
+  INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
+} from '../lib/instagram-community-topics.mjs';
 
 export const NATIVE_BRIEF_MINIMUM_OBSERVATIONS = 3;
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -13,6 +20,8 @@ export const NATIVE_BRIEF_BASELINE_DAYS = 30;
 const WINDOW_TOLERANCE_HOURS = 6;
 const PACK_ID_RE = /^[a-f0-9]{16}$/u;
 const TEMPLATE_ID_RE = /^[a-z0-9][a-z0-9-]{0,31}$/u;
+const COMMUNITY_TOPIC_CATEGORIES = new Set(INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES);
+const COMMUNITY_TOPIC_COUNT_BANDS = new Set(INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS);
 
 function record(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -194,6 +203,43 @@ function buildInstagramStoryBrief(rows, {
   };
 }
 
+function instagramCommunityQuestionDemand(outcomes) {
+  const source = outcomes?.questionTopicDemand;
+  if (!record(source) || source.source !== INSTAGRAM_COMMUNITY_TOPIC_SOURCE
+    || source.windowDays !== INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS
+    || source.minimumPerCategory !== INSTAGRAM_COMMUNITY_TOPIC_MINIMUM
+    || !Array.isArray(source.categories)) {
+    return {
+      status: 'not-collected',
+      windowDays: INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
+      minimumPerCategory: INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
+      categories: [],
+    };
+  }
+  const bandsByCategory = new Map();
+  const conflictingCategories = new Set();
+  for (const row of source.categories) {
+    if (!record(row) || !COMMUNITY_TOPIC_CATEGORIES.has(row.category)
+      || !COMMUNITY_TOPIC_COUNT_BANDS.has(row.countBand)) continue;
+    if (bandsByCategory.has(row.category) && bandsByCategory.get(row.category) !== row.countBand) {
+      conflictingCategories.add(row.category);
+    } else {
+      bandsByCategory.set(row.category, row.countBand);
+    }
+  }
+  const uniqueCategories = [...bandsByCategory.entries()]
+    .filter(([category]) => !conflictingCategories.has(category))
+    .map(([category, countBand]) => ({ category, countBand }))
+    .sort((left, right) => left.category.localeCompare(right.category));
+  const available = source.status === 'available' && uniqueCategories.length > 0;
+  return {
+    status: available ? 'available' : 'suppressed',
+    windowDays: INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
+    minimumPerCategory: INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
+    categories: available ? uniqueCategories : [],
+  };
+}
+
 function publishedAtMs(row) {
   const parsed = Date.parse(String(row.publishedAt || row.ts || row.day || row.date || ''));
   return Number.isFinite(parsed) ? parsed : null;
@@ -368,7 +414,8 @@ export function buildNativeSocialPerformanceBrief({
       asOfMs,
       baselineDays: NATIVE_BRIEF_BASELINE_DAYS,
     }),
-    interpretation: 'Descriptive only; native metrics use channel-specific windows and exact post IDs. copyAngleId is the tested editorial angle; copyRevisionId fingerprints its exact hook/CTA wording. Revision fingerprints are diagnostic and do not qualify winners. Story metrics use a recent 30-day baseline, exact first-hour and near-24h windows, and per-reach rates when denominators exist. No winner, causal claim, or cross-platform rate is inferred. Missing metrics are not zero.',
+    instagramCommunityQuestionDemand: instagramCommunityQuestionDemand(nativeInsights?.communityOutcomes),
+    interpretation: 'Descriptive only; native metrics use channel-specific windows and exact post IDs. copyAngleId is the tested editorial angle; copyRevisionId fingerprints its exact hook/CTA wording. Revision fingerprints are diagnostic and do not qualify winners. Story metrics use a recent 30-day baseline, exact first-hour and near-24h windows, and per-reach rates when denominators exist. Community topic demand contains only closed-category bands from public comments, suppressed below ten comments per category; it contains no text, usernames, IDs, or DM content and is not a trend or audience-size measure. No winner, causal claim, or cross-platform rate is inferred. Missing metrics are not zero.',
   };
 }
 
