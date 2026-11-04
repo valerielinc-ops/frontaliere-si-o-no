@@ -5,6 +5,7 @@ import {
   mergePrivateSocialFollowerGainSnapshots,
   mergePrivateSocialInsightPosts,
   mergePrivateInstagramStoryPublications,
+  mergePrivateInstagramStoryState,
   mergePrivateInstagramStorySnapshots,
   normalizeInstagramPrivateSnapshots,
   savePrivateSocialNativeInsights,
@@ -13,6 +14,7 @@ import {
   SOCIAL_NATIVE_INSIGHTS_DOCUMENT,
   toInstagramBrowserSnapshotDocument,
 } from '../scripts/lib/social-native-insights-store.mjs';
+import { INSTAGRAM_STORY_METRICS } from '../scripts/lib/instagram-story-contract.mjs';
 
 describe('private social native insights store', () => {
   it('merges LinkedIn follower-gain days by date, retains explicit zeroes, and prunes beyond retention', () => {
@@ -76,7 +78,6 @@ describe('private social native insights store', () => {
       storyId: `story-${String(index).padStart(3, '0')}`,
       publishedAt: new Date(firstPublishedMs + index * 60 * 60 * 1000).toISOString(),
     }));
-    const retainedPublications = mergePrivateInstagramStoryPublications([], publications, { asOf });
     const snapshots = publications.map((publication, index) => {
       const snapshotAgeHours = index === 0 ? 23 : 0.5;
       return {
@@ -89,15 +90,16 @@ describe('private social native insights store', () => {
         metricStatus: {},
       };
     });
-    const retainedStoryIds = new Set(retainedPublications.map(({ storyId }) => storyId));
-    const retainedSnapshots = mergePrivateInstagramStorySnapshots([], snapshots, {
+    const state = mergePrivateInstagramStoryState({}, {
+      publicationAdditions: publications,
+      snapshotAdditions: snapshots,
       asOf,
-      publicationIds: retainedStoryIds,
     });
+    const retainedStoryIds = new Set(state.instagramStoryPublications.map(({ storyId }) => storyId));
 
-    expect(retainedPublications).toHaveLength(400);
-    expect(retainedSnapshots).toHaveLength(400);
-    expect(retainedSnapshots.every(({ storyId }) => retainedStoryIds.has(storyId))).toBe(true);
+    expect(state.instagramStoryPublications).toHaveLength(400);
+    expect(state.instagramStorySnapshots).toHaveLength(400);
+    expect(state.instagramStorySnapshots.every(({ storyId }) => retainedStoryIds.has(storyId))).toBe(true);
   });
 
   it('reads and writes the private Firestore document without exposing per-post data in its result', async () => {
@@ -142,6 +144,73 @@ describe('private social native insights store', () => {
     expect(path).toBe(`${SOCIAL_NATIVE_INSIGHTS_COLLECTION}/${SOCIAL_NATIVE_INSIGHTS_DOCUMENT}`);
     expect(loaded.posts).toEqual(document.posts);
     expect(stored).toMatchObject({ storeUpdatedAt: asOf.toISOString() });
+  });
+
+  it('loads legacy Story snapshots with newly added metrics marked unavailable', async () => {
+    const asOf = new Date('2026-11-03T12:00:00.000Z');
+    const publication = {
+      storyId: 'legacy-story',
+      publishedAt: '2026-11-03T11:30:00.000Z',
+      sourceMediaId: null,
+      followUpFormat: null,
+      copyPackId: null,
+      copyTemplateId: null,
+      copyAngleId: null,
+      copyPillarId: null,
+      copyRevisionId: null,
+    };
+    const metrics = Object.fromEntries(INSTAGRAM_STORY_METRICS.map((name) => [name, null]));
+    const metricStatus = Object.fromEntries(INSTAGRAM_STORY_METRICS.map((name) => [name, 'unavailable']));
+    delete metrics.unmappedNavigationActions;
+    delete metricStatus.unmappedNavigationActions;
+    const legacy = {
+      schemaVersion: 1,
+      sources: {},
+      posts: [],
+      instagramStoryPublications: [publication],
+      instagramStorySnapshots: [{
+        ...publication,
+        snapshotAt: asOf.toISOString(),
+        snapshotAgeHours: 0.5,
+        measurementWindow: 'first-hour',
+        metrics,
+        availableMetrics: [],
+        metricStatus,
+      }],
+    };
+    let stored: Record<string, any> = structuredClone(legacy);
+    let writes = 0;
+    const reference = {
+      get: async () => ({ exists: true, data: () => stored }),
+    };
+    const db = {
+      collection: () => ({ doc: () => reference }),
+      runTransaction: async (callback: (transaction: any) => Promise<unknown>) => callback({
+        get: async () => ({ exists: true, data: () => stored }),
+        set: (_reference: unknown, document: Record<string, unknown>) => {
+          stored = structuredClone(document);
+          writes += 1;
+        },
+      }),
+    };
+
+    const loaded = await loadPrivateSocialNativeInsights(db, { asOf });
+    expect(loaded.instagramStorySnapshots[0]).toMatchObject({
+      metrics: { unmappedNavigationActions: null },
+      metricStatus: { unmappedNavigationActions: 'unavailable' },
+      availableMetrics: [],
+    });
+    expect(stored.instagramStorySnapshots[0].metrics).not.toHaveProperty('unmappedNavigationActions');
+
+    await updatePrivateSocialNativeInsights(db, (current) => ({
+      ...current,
+      sources: { ...current.sources, instagramStoryInsights: { status: 'no-ready-stories' } },
+    }), { updatedAt: asOf });
+    expect(writes).toBe(1);
+    expect(stored.instagramStorySnapshots[0]).toMatchObject({
+      metrics: { unmappedNavigationActions: null },
+      metricStatus: { unmappedNavigationActions: 'unavailable' },
+    });
   });
 
   it('rejects malformed or oversized snapshots before writing', async () => {

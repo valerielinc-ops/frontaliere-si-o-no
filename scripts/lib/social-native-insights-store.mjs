@@ -4,6 +4,7 @@ import {
   INSTAGRAM_STORY_MAX_ROWS,
   INSTAGRAM_STORY_MEASUREMENT_WINDOW_IDS,
   INSTAGRAM_STORY_RETENTION_DAYS,
+  INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
 } from './instagram-story-contract.mjs';
 
 export { INSTAGRAM_STORY_MAX_ROWS, INSTAGRAM_STORY_RETENTION_DAYS };
@@ -37,6 +38,39 @@ const INSTAGRAM_DECIMAL_METRICS = new Set([
 
 function record(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function normalizePersistedSocialNativeInsights(document) {
+  if (!record(document) || document.schemaVersion !== 1 || !Array.isArray(document.instagramStorySnapshots)) {
+    return document;
+  }
+  let changed = false;
+  const instagramStorySnapshots = document.instagramStorySnapshots.map((snapshot) => {
+    if (!record(snapshot) || !record(snapshot.metrics) || !record(snapshot.metricStatus)) return snapshot;
+    const hasMetric = Object.prototype.hasOwnProperty.call(
+      snapshot.metrics,
+      INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
+    );
+    const hasMetricStatus = Object.prototype.hasOwnProperty.call(
+      snapshot.metricStatus,
+      INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC,
+    );
+    if (hasMetric && hasMetricStatus) return snapshot;
+
+    changed = true;
+    return {
+      ...snapshot,
+      metrics: {
+        ...snapshot.metrics,
+        ...(!hasMetric ? { [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: null } : {}),
+      },
+      metricStatus: {
+        ...snapshot.metricStatus,
+        ...(!hasMetricStatus ? { [INSTAGRAM_STORY_UNMAPPED_NAVIGATION_ACTION_METRIC]: 'unavailable' } : {}),
+      },
+    };
+  });
+  return changed ? { ...document, instagramStorySnapshots } : document;
 }
 
 function metric(value, name = '') {
@@ -229,6 +263,31 @@ export function mergePrivateInstagramStorySnapshots(existing, additions, {
     .slice(-INSTAGRAM_STORY_MAX_ROWS);
 }
 
+/** Merge bounded Story publications and snapshots together so retention cannot orphan a snapshot. */
+export function mergePrivateInstagramStoryState(existing, {
+  publicationAdditions = [],
+  snapshotAdditions = [],
+  asOf = new Date(),
+  retentionDays = INSTAGRAM_STORY_RETENTION_DAYS,
+} = {}) {
+  const current = record(existing) ? existing : {};
+  const publications = mergePrivateInstagramStoryPublications(
+    current.instagramStoryPublications,
+    publicationAdditions,
+    { asOf, retentionDays },
+  );
+  const publicationIds = new Set(publications.map(({ storyId }) => storyId));
+  const snapshots = mergePrivateInstagramStorySnapshots(
+    current.instagramStorySnapshots,
+    snapshotAdditions,
+    { asOf, retentionDays, publicationIds },
+  );
+  return {
+    instagramStoryPublications: publications,
+    instagramStorySnapshots: snapshots,
+  };
+}
+
 /** Merge one channel's new observations without replacing other private channels. */
 export function mergePrivateSocialInsightPosts(existingPosts, additions) {
   const byKey = new Map();
@@ -360,7 +419,7 @@ function documentReference(db) {
 /** Load private per-post analytics from Firestore; never mirror it into the public repository. */
 export async function loadPrivateSocialNativeInsights(db, { asOf = new Date() } = {}) {
   const snapshot = await documentReference(db).get();
-  const document = snapshot.exists ? snapshot.data() : EMPTY_DOCUMENT;
+  const document = snapshot.exists ? normalizePersistedSocialNativeInsights(snapshot.data()) : EMPTY_DOCUMENT;
   validateSocialNativeInsightsDocument(document, { asOf });
   return document;
 }
@@ -386,7 +445,7 @@ export async function updatePrivateSocialNativeInsights(db, updateDocument, { up
   const reference = documentReference(db);
   return db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(reference);
-    const current = snapshot.exists ? snapshot.data() : EMPTY_DOCUMENT;
+    const current = snapshot.exists ? normalizePersistedSocialNativeInsights(snapshot.data()) : EMPTY_DOCUMENT;
     validateSocialNativeInsightsDocument(current, { asOf: updatedAt });
     const next = await updateDocument(current);
     validateSocialNativeInsightsDocument(next, { asOf: updatedAt });
