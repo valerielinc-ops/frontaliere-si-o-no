@@ -341,3 +341,19 @@ jobs:
         run: |
           echo "::error::Runtime reliability watchdog remains degraded after safe targeted repair attempt"
           exit 1
+
+  # A failed deploy may leave a partial R2 generation, so `watch` must stay
+  # skipped for that workflow_run. GitHub reports a workflow with only a
+  # skipped job as a failed zero-job startup, though; keep the trigger
+  # observable and green with an explicit no-op job instead.
+  skip-failed-source:
+    if: >-
+      ${{ github.event_name == 'workflow_run' &&
+          github.event.workflow_run.conclusion != 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record skipped source run
+        run: |
+          echo "Runtime reliability watchdog skipped the failed source run (${{ github.event.workflow_run.conclusion }})."
+          echo "The scheduled and manual watchdog paths remain responsible for probing the live runtime."
