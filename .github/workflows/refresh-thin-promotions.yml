@@ -47,6 +47,95 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  compare-checkout-materialization:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    # Two sequential seven-minute checkout phases plus the summary step.
+    timeout-minutes: 16
+    steps:
+      - name: Checkout legacy sparse profile (baseline)
+        id: legacy_checkout
+        # A timeout in the legacy baseline is evidence, not a reason to skip
+        # the candidate measurement. The candidate outcome remains mandatory.
+        continue-on-error: true
+        uses: actions/checkout@v7
+        with:
+          # Keep ref, fetch mode, and credentials identical: only the sparse
+          # profile changes between the two materialization phases.
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: checkout-legacy
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 7
+
+      - name: Checkout narrowed sparse profile (candidate)
+        id: narrowed_checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: checkout-narrowed
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            /.gitattributes
+            /.npmrc
+            /data/thin-page-promotions-active.json
+            /data/thin-page-promotions.jsonl
+            /package-lock.json
+            /package.json
+            /scripts/ci/
+            /scripts/fetch-thin-page-promotions.mjs
+            /scripts/lib/
+            /scripts/load-rc-env.mjs
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 7
+
+      - name: Publish linked checkout materialization comparison
+        if: always()
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          LEGACY_OUTCOME: ${{ steps.legacy_checkout.outcome }}
+          NARROWED_OUTCOME: ${{ steps.narrowed_checkout.outcome }}
+        run: |
+          set -u
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          {
+            echo "## Checkout materialization comparison"
+            echo "- Runner: \`${RUNNER_NAME}\`"
+            echo "- Ref: \`${HEAD_SHA}\`"
+            echo "- Phase: \`actions/checkout@v7\` sparse materialization"
+            echo "- Population: the same PR head, fetched shallow and blobless"
+            echo "- Legacy profile (root wildcard): \`${LEGACY_OUTCOME}\` (step cap: 7 minutes)"
+            echo "- Narrowed profile: \`${NARROWED_OUTCOME}\` (step cap: 7 minutes)"
+            echo "- Run: ${run_url}"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$NARROWED_OUTCOME" != "success" ]; then
+            echo "::error::narrowed checkout did not complete successfully within its seven-minute step cap"
+            exit 1
+          fi
+
   validate-history-fetch:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -142,7 +231,10 @@ jobs:
           # validation checkout above. The former generated `/*` profile
           # excluded large data leaves but still materialized almost all code;
           # run 41792863124 fetched in under a second and then timed out in
-          # this checkout's seven-minute materialization step.
+          # this checkout's seven-minute materialization step. The PR-only
+          # compare-checkout-materialization job measures both profiles on the
+          # same head and runner; its linked run is the pre-merge evidence for
+          # this seven-minute cap.
           sparse-checkout: |
             /.gitattributes
             /.npmrc
