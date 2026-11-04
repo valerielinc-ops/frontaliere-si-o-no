@@ -218,6 +218,37 @@ describe('portal field extraction', () => {
     expect(result.snapshot).toMatchObject({ text: receipt.text, buttons: [] });
   });
 
+  it('does not discard an active consent banner merely because its role is site chrome', async () => {
+    const url = 'https://careers.helsana.ch/';
+    const snapshot = extract(`<div id="cookie-banner" role="banner">
+      <p>Mit der weiteren Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p>
+      <button type="button">Akzeptieren</button>
+      <button type="button" aria-label="Schließen"></button>
+    </div>`, url);
+    const accept = snapshot.buttons.find((button: any) => button.text === 'Akzeptieren');
+    const close = snapshot.buttons.find((button: any) => button.ariaLabel === 'Schließen');
+    expect(accept).toMatchObject({ cookieSurface: 'banner', chrome: true });
+    expect(close).toMatchObject({ cookieSurface: 'banner', chrome: true });
+    let dismissed = false;
+    const frame = {
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage === extractFieldsInPage
+        ? { ...snapshot, buttons: dismissed ? [] : snapshot.buttons }
+        : evaluateInPage(args)),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          expect(selector).toBe(`[data-aa-id="${accept.id}"]`);
+          dismissed = true;
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(dismissed).toBe(true);
+  });
+
   it('reads generic consent copy from the frame that owns its controls', async () => {
     const url = 'https://careers.helsana.ch/';
     let dismissed = false;
