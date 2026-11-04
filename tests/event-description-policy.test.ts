@@ -116,6 +116,19 @@ describe('event description publication policy', () => {
     expect(isDescriptionSupportedByEventFacts(description, event)).toBe(false);
   });
 
+  it('uses the sanitized fact boundary for cached validation', () => {
+    const event = Object.create({ venue: 'Inherited Hall' });
+    Object.assign(event, EVENT);
+    delete event.venue;
+    const description = 'The event takes place at the Inherited Hall. The listing keeps the declared local information.';
+    const expected = validateRewriteDescription(description, {
+      factTexts: [JSON.stringify(factsForPrompt(event))],
+    }).ok;
+
+    expect(expected).toBe(false);
+    expect(isDescriptionSupportedByEventFacts(description, event)).toBe(expected);
+  });
+
   it('keeps a v1 cache entry valid across the prompt-only policy upgrade', () => {
     const hash = sourceDescriptionHash(EVENT)!;
     const entry = {

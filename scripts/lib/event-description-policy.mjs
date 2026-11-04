@@ -1104,11 +1104,10 @@ export function isDescriptionSupportedByEventFacts(description, event) {
   if (!normalizedDescription) return false;
 
   if (event && typeof event === 'object') {
-    // `descriptionFacts` is the exact input used by `factsForPrompt`, without
-    // re-hashing or carrying any description text. Keeping this signature in
-    // the cache makes the optimization safe if a caller mutates an event
-    // object between renders.
-    const factText = JSON.stringify(descriptionFacts(event));
+    // Keep the cache signature on the same sanitized fact boundary as the
+    // publication path. This also makes the optimization safe if a caller
+    // mutates an event object between renders.
+    const factText = JSON.stringify(factsForPrompt(event));
     let cached = EVENT_DESCRIPTION_SUPPORT_CACHE.get(event);
     if (!cached || cached.factText !== factText) {
       const factTexts = [factText];
