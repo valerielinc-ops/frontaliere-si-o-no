@@ -249,16 +249,21 @@ describe('portal runner self-correction', () => {
 
   it('level 1: re-resolves an agent-named send button after SuccessFactors replaces its ref', async () => {
     const stale = { click: vi.fn().mockRejectedValue(new Error('locator.click: Timeout while waiting for locator')) };
+    const form = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const dialog = { getAttribute: () => '' };
+    const liveButton = { form, closest: () => dialog };
     const fresh = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
       click: vi.fn().mockResolvedValue(undefined),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(liveButton)),
     };
     const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(fresh) };
-    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const frame = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const page = { mainFrame: () => frame };
 
-    await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler' })).resolves.toBe('role');
-    expect(page.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
+    await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler', frame, formId: 'f2' })).resolves.toBe('role');
+    expect(frame.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
     expect(fresh.click).toHaveBeenCalledWith({ timeout: 6000 });
   });
 
@@ -284,27 +289,33 @@ describe('portal runner self-correction', () => {
     expect(page.getByRole).not.toHaveBeenCalled();
   });
 
-  it('level 1: stops after the first ambiguous fallback click', async () => {
-    let dispatches = 0;
-    const first = {
+  it('level 1: leaves a same-name control in another form untouched and returns the original miss', async () => {
+    const originalMiss = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const ownerMiss = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f8"]');
+    const nonOwnerForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f1' : '' };
+    const ownerForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const noDialog = { getAttribute: () => '' };
+    const nonOwner = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
-      click: vi.fn(async () => {
-        dispatches += 1;
-        throw new Error('locator.click: Timeout while waiting for navigation');
-      }),
+      click: vi.fn(),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read({ form: nonOwnerForm, closest: () => noDialog })),
     };
-    const second = {
+    const owner = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
-      click: vi.fn().mockResolvedValue(undefined),
+      click: vi.fn().mockRejectedValue(ownerMiss),
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read({ form: ownerForm, closest: () => noDialog })),
     };
-    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? first : second) };
-    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? nonOwner : owner) };
+    const frame = { getByRole: vi.fn().mockReturnValue(candidates) };
+    const page = { mainFrame: () => frame };
 
-    await expect(clickSubmitButton(page as any, { locator: { click: vi.fn().mockRejectedValue(new Error('waiting for locator')) }, name: 'Postuler' })).resolves.toBe('outcome');
-    expect(dispatches).toBe(1);
-    expect(second.click).not.toHaveBeenCalled();
+    await expect(clickSubmitButton(page as any, {
+      locator: { click: vi.fn().mockRejectedValue(originalMiss) }, name: 'Postuler', frame, formId: 'f2',
+    })).rejects.toBe(originalMiss);
+    expect(nonOwner.click).not.toHaveBeenCalled();
+    expect(owner.click).toHaveBeenCalledOnce();
   });
 
   it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {
