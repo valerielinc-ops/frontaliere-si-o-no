@@ -1,7 +1,7 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-11-03T21:28:13.091Z",
-  "runId": "41718485933",
+  "assembledAt": "2026-11-04T09:18:35.920Z",
+  "runId": "41804454129",
   "jobs": [
     {
       "id": "puk-zuerich-9946db8a3246",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/163206/1987/pub/10/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:28:02.537Z",
+      "crawledAt": "2026-11-04T09:18:27.686Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich",
           "infirmiere-certifiee-en-hf-fh-pour-le-service-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
@@ -157,7 +156,8 @@
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
           "dipl-professionnels-des-soins-infirmiers-dipl-infirmiere-hf-fh-pour-la-station-e0-f0-psychiatrische-universitatsklinik",
           "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-per-la-station-e0-f0-psychiatrische-universitatsklinik-zurich",
-          "dipl-nursing-professional-dipl-nurse-hf-fh-for-station-e0-f0-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-nursing-professional-dipl-nurse-hf-fh-for-station-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich"
         ],
         "en": [
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
@@ -185,7 +185,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:28:02.537Z",
+      "validThrough": "2026-12-04T09:18:27.686Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -220,7 +220,7 @@
       "url": "https://apply.refline.ch/163206/2813/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:28:01.699Z",
+      "crawledAt": "2026-11-04T09:18:26.718Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:28:01.699Z",
+      "validThrough": "2027-01-27T09:18:26.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://apply.refline.ch/163206/2750/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:28:01.282Z",
+      "crawledAt": "2026-11-04T09:18:26.294Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -366,7 +366,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:28:01.282Z",
+      "validThrough": "2026-12-04T09:18:26.294Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -400,7 +400,7 @@
       "url": "https://apply.refline.ch/163206/2779/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:28:00.861Z",
+      "crawledAt": "2026-11-04T09:18:25.871Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -455,7 +455,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:28:00.861Z",
+      "validThrough": "2026-12-17T09:18:25.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -490,7 +490,7 @@
       "url": "https://apply.refline.ch/163206/2805/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:28:00.436Z",
+      "crawledAt": "2026-11-04T09:18:25.423Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -548,7 +548,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:28:00.436Z",
+      "validThrough": "2027-01-21T09:18:25.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -582,7 +582,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:28:00.015Z",
+      "crawledAt": "2026-11-04T09:18:23.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -639,7 +639,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:28:00.015Z",
+      "validThrough": "2026-12-04T09:18:23.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -673,7 +673,7 @@
       "url": "https://apply.refline.ch/163206/2785/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:59.596Z",
+      "crawledAt": "2026-11-04T09:18:23.478Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -720,7 +720,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:27:59.596Z",
+      "validThrough": "2026-12-24T09:18:23.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -755,7 +755,7 @@
       "url": "https://apply.refline.ch/163206/2496/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:59.177Z",
+      "crawledAt": "2026-11-04T09:18:23.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -801,7 +801,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:59.177Z",
+      "validThrough": "2026-12-04T09:18:23.056Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -836,7 +836,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:58.752Z",
+      "crawledAt": "2026-11-04T09:18:22.634Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -916,7 +916,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:58.752Z",
+      "validThrough": "2026-12-04T09:18:22.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -950,7 +950,7 @@
       "url": "https://apply.refline.ch/163206/2769/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:58.332Z",
+      "crawledAt": "2026-11-04T09:18:22.201Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1005,7 +1005,7 @@
       },
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:27:58.332Z",
+      "validThrough": "2026-12-09T09:18:22.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1040,7 +1040,7 @@
       "url": "https://apply.refline.ch/163206/2804/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:57.912Z",
+      "crawledAt": "2026-11-04T09:18:21.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1099,7 +1099,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:27:57.912Z",
+      "validThrough": "2027-01-18T09:18:21.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1134,7 +1134,7 @@
       "url": "https://apply.refline.ch/163206/2783/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:57.494Z",
+      "crawledAt": "2026-11-04T09:18:21.358Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1190,7 +1190,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:27:57.494Z",
+      "validThrough": "2026-12-23T09:18:21.358Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1225,7 +1225,7 @@
       "url": "https://apply.refline.ch/163206/2810/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:57.077Z",
+      "crawledAt": "2026-11-04T09:18:20.935Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1287,7 +1287,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:57.077Z",
+      "validThrough": "2027-01-27T09:18:20.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1322,7 +1322,7 @@
       "url": "https://apply.refline.ch/163206/2720/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:56.659Z",
+      "crawledAt": "2026-11-04T09:18:20.514Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1386,7 +1386,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:56.659Z",
+      "validThrough": "2026-12-04T09:18:20.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1421,7 +1421,7 @@
       "url": "https://apply.refline.ch/163206/2809/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:56.241Z",
+      "crawledAt": "2026-11-04T09:18:20.094Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1483,7 +1483,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:56.241Z",
+      "validThrough": "2027-01-27T09:18:20.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1518,7 +1518,7 @@
       "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:55.824Z",
+      "crawledAt": "2026-11-04T09:18:19.673Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1571,7 +1571,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:55.824Z",
+      "validThrough": "2026-12-04T09:18:19.673Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1606,7 +1606,7 @@
       "url": "https://apply.refline.ch/163206/2741/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:55.407Z",
+      "crawledAt": "2026-11-04T09:18:19.249Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1653,7 +1653,7 @@
       },
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:55.407Z",
+      "validThrough": "2026-12-04T09:18:19.249Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1688,7 +1688,7 @@
       "url": "https://apply.refline.ch/163206/2692/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:54.963Z",
+      "crawledAt": "2026-11-04T09:18:18.826Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1741,7 +1741,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:54.963Z",
+      "validThrough": "2026-12-04T09:18:18.826Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1775,7 +1775,7 @@
       "url": "https://apply.refline.ch/163206/2712/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:52.958Z",
+      "crawledAt": "2026-11-04T09:18:17.560Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1830,7 +1830,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:52.958Z",
+      "validThrough": "2026-12-04T09:18:17.560Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1865,7 +1865,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:52.536Z",
+      "crawledAt": "2026-11-04T09:18:17.133Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1915,7 +1915,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:52.536Z",
+      "validThrough": "2026-12-04T09:18:17.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1950,7 +1950,7 @@
       "url": "https://apply.refline.ch/163206/2788/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:52.118Z",
+      "crawledAt": "2026-11-04T09:18:16.713Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2006,7 +2006,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:27:52.118Z",
+      "validThrough": "2027-01-03T09:18:16.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2040,7 +2040,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:51.698Z",
+      "crawledAt": "2026-11-04T09:18:16.288Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2102,7 +2102,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:51.698Z",
+      "validThrough": "2026-12-04T09:18:16.288Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2137,7 +2137,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:51.278Z",
+      "crawledAt": "2026-11-04T09:18:15.865Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2187,7 +2187,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:51.278Z",
+      "validThrough": "2026-12-04T09:18:15.865Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2222,7 +2222,7 @@
       "url": "https://apply.refline.ch/163206/2792/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:50.860Z",
+      "crawledAt": "2026-11-04T09:18:15.446Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2281,7 +2281,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:27:50.860Z",
+      "validThrough": "2027-01-10T09:18:15.446Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2316,7 +2316,7 @@
       "url": "https://apply.refline.ch/163206/2800/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:50.441Z",
+      "crawledAt": "2026-11-04T09:18:13.868Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2363,7 +2363,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:27:50.441Z",
+      "validThrough": "2027-01-14T09:18:13.868Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2398,7 +2398,7 @@
       "url": "https://apply.refline.ch/163206/2795/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:50.021Z",
+      "crawledAt": "2026-11-04T09:18:13.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2451,16 +2451,16 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:27:50.021Z",
+      "validThrough": "2027-01-12T09:18:13.447Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-9ece0abdb74e",
       "slug": "responsabile-tecnica-responsabile-tecnico-per-la-tecnica-e-la-manutenzione-zurigo-psychiatrische-universitatsklinik",
       "slugByLocale": {
-        "de": "leiterin-leiter-technik-und-instandhaltung-zurich-puk-zuerich-zurich",
         "it": "responsabile-tecnica-responsabile-tecnico-per-la-tecnica-e-la-manutenzione-zurigo-psychiatrische-universitatsklinik",
         "en": "head-of-technology-and-maintenance-zurich-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "leiterin-leiter-technik-und-instandhaltung-zurich-puk-zuerich-zurich",
         "fr": "responsable-technologie-et-maintenance-zurich-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -2468,25 +2468,25 @@
       "companyDomain": "pukzh.ch",
       "title": "Leiterin / Leiter Technik und Instandhaltung Zürich",
       "titleByLocale": {
-        "de": "Leiterin / Leiter Technik und Instandhaltung Zürich",
         "it": "Responsabile tecnica / responsabile tecnico per la tecnica e la manutenzione, Zurigo",
         "en": "Head of Technology and Maintenance Zurich",
+        "de": "Leiterin / Leiter Technik und Instandhaltung Zürich",
         "fr": "Responsable Technologie et Maintenance Zurich"
       },
       "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Infrastruktur und Technik ist verantwortlich für Bauprojekte, die Wartung und Instandhaltung der betriebstechnischen Anlagen und Gebäude sowie der Gärtnerei mit Aussenanlagen.\nDer Bereich Technik und Instandhaltung Zürich gewährleistet für Patienten und Mitarbeitende an 365 Tagen während 24 Stunden den sicheren Betrieb unserer 25 Standorte. Auf der Basis einer ganzheitlichen Instandhaltungsstrategie wird für den sicheren Gebäudeunterhalt und für die Instandhaltung der Gebäudeinfrastruktur gesorgt. Ein Pikettdienst bietet rund um die Uhr Support.\nFür diese Organisationseinheit suchen wir per sofort oder nach Vereinbarung einen/eine\nIhre Aufgaben\n• Personelle und fachliche Führung der Mitarbeitenden des Bereichs Technik und Instandhaltung Zürich\n• Aufbau, Führung und Weiterentwicklung des Bereichs Technik und Instandhaltung Zürich (Elektrowerkstatt, HLKS-Werkstatt, Malerei, Schreinerei und Aussenliegenschaften) unter Mitberücksichtigung der Rahmenbedingungen der Strategie und der Organisationsentwicklung der PUK sowie der betrieblichen Anforderungen im psychiatrischen Klinikbetrieb\n• Organisieren und Leisten von Piketteinsätzen\n• Betreuung, Unterhalt und Mutationen des Alarmierungssystems\n• Mitarbeit und Leitung von Projekten\n• Stellvertretung der Leitung Objektmanagement/Technik\nIhr Profil\n• Technische oder handwerkliche Grundausbildung zum Elektroinstallateur mit EFZ, Eidg. Dipl. Elektroinstallateur, Werkstattleiter/in oder HF in technischer Fachrichtung\n• Ausgezeichnete ICT-Anwenderkenntnisse und hervorragende Deutschkenntnisse\n• Eigenständig und eigenverantwortlich handelnde Persönlichkeit mit Selbstvertrauen und Entscheidungsfähigkeit\n• Hohe Kommunikations- und Kooperationsfähigkeit sowie ausgeprägte Sozialkompetenz und ausgewogene Kritikfähigkeit und Selbstreflektion\n• Ausgeprägte Leadership-Fähigkeiten mit hoher Empathie und Toleranz in diversen Teams\n• Erfahrung in Projekten und der Budgetierung\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Nachhaltig unterwegs: Beteiligung am ZVV-Bonus Pass oder Generalabonnement\nKontakt:\nUrs Morgenegg\nLeiter Objektmanagement/Technik\n+41 58 384 21 50\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
       "descriptionByLocale": {
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Infrastruktur und Technik ist verantwortlich für Bauprojekte, die Wartung und Instandhaltung der betriebstechnischen Anlagen und Gebäude sowie der Gärtnerei mit Aussenanlagen.\nDer Bereich Technik und Instandhaltung Zürich gewährleistet für Patienten und Mitarbeitende an 365 Tagen während 24 Stunden den sicheren Betrieb unserer 25 Standorte. Auf der Basis einer ganzheitlichen Instandhaltungsstrategie wird für den sicheren Gebäudeunterhalt und für die Instandhaltung der Gebäudeinfrastruktur gesorgt. Ein Pikettdienst bietet rund um die Uhr Support.\nFür diese Organisationseinheit suchen wir per sofort oder nach Vereinbarung einen/eine\nIhre Aufgaben\n• Personelle und fachliche Führung der Mitarbeitenden des Bereichs Technik und Instandhaltung Zürich\n• Aufbau, Führung und Weiterentwicklung des Bereichs Technik und Instandhaltung Zürich (Elektrowerkstatt, HLKS-Werkstatt, Malerei, Schreinerei und Aussenliegenschaften) unter Mitberücksichtigung der Rahmenbedingungen der Strategie und der Organisationsentwicklung der PUK sowie der betrieblichen Anforderungen im psychiatrischen Klinikbetrieb\n• Organisieren und Leisten von Piketteinsätzen\n• Betreuung, Unterhalt und Mutationen des Alarmierungssystems\n• Mitarbeit und Leitung von Projekten\n• Stellvertretung der Leitung Objektmanagement/Technik\nIhr Profil\n• Technische oder handwerkliche Grundausbildung zum Elektroinstallateur mit EFZ, Eidg. Dipl. Elektroinstallateur, Werkstattleiter/in oder HF in technischer Fachrichtung\n• Ausgezeichnete ICT-Anwenderkenntnisse und hervorragende Deutschkenntnisse\n• Eigenständig und eigenverantwortlich handelnde Persönlichkeit mit Selbstvertrauen und Entscheidungsfähigkeit\n• Hohe Kommunikations- und Kooperationsfähigkeit sowie ausgeprägte Sozialkompetenz und ausgewogene Kritikfähigkeit und Selbstreflektion\n• Ausgeprägte Leadership-Fähigkeiten mit hoher Empathie und Toleranz in diversen Teams\n• Erfahrung in Projekten und der Budgetierung\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Nachhaltig unterwegs: Beteiligung am ZVV-Bonus Pass oder Generalabonnement\nKontakt:\nUrs Morgenegg\nLeiter Objektmanagement/Technik\n+41 58 384 21 50\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n100%\nIl reparto Infrastrutture e Tecnologia è responsabile per i progetti di costruzione, la manutenzione e la manutenzione delle strutture operative e degli edifici, così come il vivaio con strutture esterne.\nIl reparto tecnico e manutenzione di Zurigo garantisce il funzionamento sicuro delle nostre 25 sedi per pazienti e dipendenti 365 giorni per 24 ore. Sulla base di una strategia di manutenzione olistica, la manutenzione ed il mantenimento sicuri dell'edificio e la manutenzione dell'infrastruttura di costruzione sono garantiti. Un servizio piquet offre supporto per tutto l'orologio.\nPer questa unità organizzativa stiamo cercando un / un\nI loro compiti\n• Personale e gestione tecnica del personale di Zurigo\n• Istituzione, gestione e sviluppo del dipartimento tecnico e manutenzione di Zurigo (officina elettrica, laboratorio HLKS, pittura, carpenteria e proprietà esterne) tenendo conto delle condizioni quadro della strategia e dello sviluppo organizzativo del PUK, nonché delle esigenze operative nell'operazione ospedaliera psichiatrica\n• Organizzare ed eseguire inserti di picchetta\n• Supporto, manutenzione e mutazioni del sistema di allarme\n• Cooperazione e gestione dei progetti\n• Capo aggiunto della gestione degli oggetti/tecnologia\nIl tuo profilo\n• Formazione tecnica o artigianale di base come installatore elettrico con EFZ, Eidg. Dipl. Installatore elettrico, officina manager o specialista tecnico HF\n• Ottima conoscenza degli utenti ICT e ottima conoscenza del tedesco\n• Personalità attiva indipendente e responsabile con autostima e capacità decisionale\n• Alte capacità di comunicazione e cooperazione, nonché forti competenze sociali e critiche equilibrate e autoriflessione\n• Forte capacità di leadership con elevata empatia e tolleranza in team diversi\n• Esperienza in progetti e budget\nLa nostra offerta\n• Insieme per le persone: cooperazione interdisciplinare per la cura psichiatrica olistica\n• Spazio per idee: Alta responsabilità personale e possibilità di progettazione\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Combinando famiglia e lavoro: accesso alla propria crèche\n• Focus sulla salute: Varie offerte per la salute, oasi verdi e un team di assistenza in-house\n• Viaggi sostenibili: partecipazione al passo ZVV-Bonus o abbonamento generale\nContatto:\nUrs Morgenegg\nResponsabile Gestione oggetti/tecnologia\n+41 58 384 21 50\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
         "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n100%\nThe Infrastructure and Technology department is responsible for construction projects, the maintenance and maintenance of operational facilities and buildings as well as the nursery with outdoor facilities.\nThe Zurich Technical and Maintenance department ensures the safe operation of our 25 locations for patients and employees 365 days for 24 hours. On the basis of a holistic maintenance strategy, safe building maintenance and maintenance of the building infrastructure are ensured. A piquet service offers support around the clock.\nFor this organizational unit we are looking for an / an\nTheir tasks\n• Personnel and technical management of Zurich Technical and Maintenance staff\n• Establishment, management and further development of the Zurich Technical and Maintenance department (electrical workshop, HLKS workshop, painting, carpentry and external properties) taking into account the framework conditions of the strategy and organizational development of the PUK as well as the operational requirements in the psychiatric hospital operation\n• Organizing and performing piquette inserts\n• Support, maintenance and mutations of the alarm system\n• Cooperation and management of projects\n• Deputy Head of Object Management/Technology\nYour profile\n• Basic technical or craftsmanship training as an electrical installer with EFZ, Eidg. Dipl. Electrical installer, workshop manager or HF technical specialist\n• Excellent knowledge of ICT users and excellent knowledge of German\n• Independent and responsible acting personality with self-confidence and decision-making ability\n• High communication and cooperation skills as well as strong social skills and balanced criticism and self-reflection\n• Strong leadership skills with high empathy and tolerance in diverse teams\n• Experience in projects and budgeting\nOur offer\n• Together for people: Interdisciplinary cooperation for holistic psychiatric care\n• Space for ideas: High personal responsibility and design possibilities\n• Strong in the team: appreciative cooperation and mutual support\n• Combining family and work: access to the company’s own crèche\n• Focus on health: Various health-promoting offers, green oases and an in-house care team\n• Sustainable travel: participation in the ZVV-Bonus Pass or general subscription\nContact:\nUrs Morgenegg\nHead of Object Management/Technology\n+41 58 384 21 50\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Infrastruktur und Technik ist verantwortlich für Bauprojekte, die Wartung und Instandhaltung der betriebstechnischen Anlagen und Gebäude sowie der Gärtnerei mit Aussenanlagen.\nDer Bereich Technik und Instandhaltung Zürich gewährleistet für Patienten und Mitarbeitende an 365 Tagen während 24 Stunden den sicheren Betrieb unserer 25 Standorte. Auf der Basis einer ganzheitlichen Instandhaltungsstrategie wird für den sicheren Gebäudeunterhalt und für die Instandhaltung der Gebäudeinfrastruktur gesorgt. Ein Pikettdienst bietet rund um die Uhr Support.\nFür diese Organisationseinheit suchen wir per sofort oder nach Vereinbarung einen/eine\nIhre Aufgaben\n• Personelle und fachliche Führung der Mitarbeitenden des Bereichs Technik und Instandhaltung Zürich\n• Aufbau, Führung und Weiterentwicklung des Bereichs Technik und Instandhaltung Zürich (Elektrowerkstatt, HLKS-Werkstatt, Malerei, Schreinerei und Aussenliegenschaften) unter Mitberücksichtigung der Rahmenbedingungen der Strategie und der Organisationsentwicklung der PUK sowie der betrieblichen Anforderungen im psychiatrischen Klinikbetrieb\n• Organisieren und Leisten von Piketteinsätzen\n• Betreuung, Unterhalt und Mutationen des Alarmierungssystems\n• Mitarbeit und Leitung von Projekten\n• Stellvertretung der Leitung Objektmanagement/Technik\nIhr Profil\n• Technische oder handwerkliche Grundausbildung zum Elektroinstallateur mit EFZ, Eidg. Dipl. Elektroinstallateur, Werkstattleiter/in oder HF in technischer Fachrichtung\n• Ausgezeichnete ICT-Anwenderkenntnisse und hervorragende Deutschkenntnisse\n• Eigenständig und eigenverantwortlich handelnde Persönlichkeit mit Selbstvertrauen und Entscheidungsfähigkeit\n• Hohe Kommunikations- und Kooperationsfähigkeit sowie ausgeprägte Sozialkompetenz und ausgewogene Kritikfähigkeit und Selbstreflektion\n• Ausgeprägte Leadership-Fähigkeiten mit hoher Empathie und Toleranz in diversen Teams\n• Erfahrung in Projekten und der Budgetierung\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Nachhaltig unterwegs: Beteiligung am ZVV-Bonus Pass oder Generalabonnement\nKontakt:\nUrs Morgenegg\nLeiter Objektmanagement/Technik\n+41 58 384 21 50\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nLe département Infrastructure et Technologie est responsable des projets de construction, de l'entretien et de l'entretien des installations opérationnelles et des bâtiments ainsi que de la pépinière avec des installations extérieures.\nLe service technique et d'entretien de Zurich assure le fonctionnement sûr de nos 25 sites pour les patients et les employés 365 jours pendant 24 heures. Sur la base d ' une stratégie globale d ' entretien, l ' entretien et l ' entretien sûrs des bâtiments sont assurés. Un service de piquet offre un support 24 heures sur 24.\nPour cette unité organisationnelle, nous recherchons\nLeurs tâches\n• Personnel et gestion technique du personnel technique et de maintenance de Zurich\n• Création, gestion et développement du département technique et d'entretien de Zurich (atelier électrique, atelier HLKS, peinture, menuiserie et propriétés extérieures) en tenant compte des conditions-cadres de la stratégie et du développement organisationnel du PUK ainsi que des exigences opérationnelles de l'opération hospitalière psychiatrique\n• Organisation et exécution de piquettes inserts\n• Soutien, entretien et mutations du système d'alarme\n• Coopération et gestion des projets\n• Chef adjoint de la gestion des objets/de la technologie\nVotre profil\n• Formation technique ou artisanale de base en tant qu'installateur électrique avec EFZ, Eidg. Dipl. Installateur électrique, responsable d'atelier ou spécialiste technique HF\n• Excellente connaissance des utilisateurs des TIC et excellente connaissance de l'allemand\n• Personnalité agissante indépendante et responsable, avec confiance en soi et capacité de décision\n• Compétences élevées en matière de communication et de coopération ainsi que compétences sociales fortes et critique équilibrée et autoréflexion\n• Fortes compétences en leadership avec une grande empathie et tolérance dans diverses équipes\n• Expérience en matière de projets et de budgétisation\nNotre offre\n• Ensemble pour les personnes: coopération interdisciplinaire pour des soins psychiatriques holistiques\n• Espace d'idées : Haute responsabilité personnelle et possibilités de conception\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Combiner famille et travail : accès à la crèche de l'entreprise\n• Focus sur la santé : diverses offres de promotion de la santé, des oasis vertes et une équipe de soins à domicile\n• Voyage durable : participation au col ZVV-Bonus ou abonnement général\nPersonne à contacter:\nUrs Morgenegg\nChef de la gestion des objets/technologie\n+41 58 384 21 50\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/163206/2817/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:49.601Z",
+      "crawledAt": "2026-11-04T09:18:13.025Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2504,13 +2504,15 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/163206/2817/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2817",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "leiterin-leiter-technik-und-instandhaltung-zurich-puk-zuerich-zurich",
+        "leiterin-leiter-technik-e-instandhaltung-zurich-psychiatrische-universitatsklinik-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiterin-leiter-technik-und-instandhaltung-zurich-puk-zuerich-zurich",
@@ -2523,10 +2525,7 @@
           "leiterin-leiter-technik-und-instandhaltung-zurich-puk-zuerich-zurich"
         ]
       },
-      "previousSlugs": [
-        "leiterin-leiter-technik-und-instandhaltung-zurich-puk-zuerich-zurich",
-        "leiterin-leiter-technik-e-instandhaltung-zurich-psychiatrische-universitatsklinik-zurich"
-      ],
+      "firstSeenAt": "2026-11-03T21:27:49.601Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2542,9 +2541,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:27:49.601Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:27:49.601Z"
+      "validThrough": "2027-02-02T09:18:13.025Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-82cfe235a023",
@@ -2578,7 +2576,7 @@
       "url": "https://apply.refline.ch/163206/2807/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:49.183Z",
+      "crawledAt": "2026-11-04T09:18:12.604Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2637,7 +2635,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:27:49.183Z",
+      "validThrough": "2027-01-25T09:18:12.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2672,7 +2670,7 @@
       "url": "https://apply.refline.ch/163206/2743/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:48.765Z",
+      "crawledAt": "2026-11-04T09:18:12.182Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2719,7 +2717,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:48.765Z",
+      "validThrough": "2026-12-04T09:18:12.182Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2753,7 +2751,7 @@
       "url": "https://apply.refline.ch/163206/2742/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:48.347Z",
+      "crawledAt": "2026-11-04T09:18:11.761Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2800,7 +2798,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:48.347Z",
+      "validThrough": "2026-12-04T09:18:11.761Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2835,7 +2833,7 @@
       "url": "https://apply.refline.ch/163206/2796/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:47.924Z",
+      "crawledAt": "2026-11-04T09:18:11.338Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2888,7 +2886,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:27:47.924Z",
+      "validThrough": "2027-01-12T09:18:11.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2923,7 +2921,7 @@
       "url": "https://apply.refline.ch/163206/2745/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:47.499Z",
+      "crawledAt": "2026-11-04T09:18:10.912Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2970,7 +2968,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:47.499Z",
+      "validThrough": "2026-12-04T09:18:10.912Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3005,7 +3003,7 @@
       "url": "https://apply.refline.ch/163206/2695/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:47.083Z",
+      "crawledAt": "2026-11-04T09:18:10.450Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3059,7 +3057,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:47.083Z",
+      "validThrough": "2026-12-04T09:18:10.450Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3093,7 +3091,7 @@
       "url": "https://apply.refline.ch/163206/2694/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:46.664Z",
+      "crawledAt": "2026-11-04T09:18:10.028Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3157,7 +3155,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:46.664Z",
+      "validThrough": "2026-12-04T09:18:10.028Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3191,7 +3189,7 @@
       "url": "https://apply.refline.ch/163206/2744/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:46.244Z",
+      "crawledAt": "2026-11-04T09:18:09.580Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3238,7 +3236,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:46.244Z",
+      "validThrough": "2026-12-04T09:18:09.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3272,7 +3270,7 @@
       "url": "https://apply.refline.ch/163206/2797/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:45.827Z",
+      "crawledAt": "2026-11-04T09:18:09.159Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3325,7 +3323,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:27:45.827Z",
+      "validThrough": "2027-01-12T09:18:09.159Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3359,7 +3357,7 @@
       "url": "https://apply.refline.ch/163206/2801/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:45.407Z",
+      "crawledAt": "2026-11-04T09:18:08.731Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3418,7 +3416,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:27:45.407Z",
+      "validThrough": "2027-01-14T09:18:08.731Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3452,7 +3450,7 @@
       "url": "https://apply.refline.ch/163206/2772/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:43.799Z",
+      "crawledAt": "2026-11-04T09:18:08.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3516,7 +3514,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:27:43.799Z",
+      "validThrough": "2026-12-11T09:18:08.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3551,7 +3549,7 @@
       "url": "https://apply.refline.ch/163206/2786/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:43.382Z",
+      "crawledAt": "2026-11-04T09:18:07.888Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3598,7 +3596,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:27:43.382Z",
+      "validThrough": "2026-12-25T09:18:07.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3633,7 +3631,7 @@
       "url": "https://apply.refline.ch/163206/2519/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:42.962Z",
+      "crawledAt": "2026-11-04T09:18:07.466Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3688,7 +3686,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:42.962Z",
+      "validThrough": "2026-12-04T09:18:07.466Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3723,7 +3721,7 @@
       "url": "https://apply.refline.ch/163206/2746/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:42.536Z",
+      "crawledAt": "2026-11-04T09:18:07.043Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3770,7 +3768,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:42.536Z",
+      "validThrough": "2026-12-04T09:18:07.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3805,7 +3803,7 @@
       "url": "https://apply.refline.ch/163206/2802/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:42.118Z",
+      "crawledAt": "2026-11-04T09:18:06.624Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3857,7 +3855,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:27:42.118Z",
+      "validThrough": "2027-01-17T09:18:06.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3892,7 +3890,7 @@
       "url": "https://apply.refline.ch/163206/2728/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:41.699Z",
+      "crawledAt": "2026-11-04T09:18:06.081Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3951,7 +3949,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:41.699Z",
+      "validThrough": "2026-12-04T09:18:06.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3986,7 +3984,7 @@
       "url": "https://apply.refline.ch/163206/2738/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:41.277Z",
+      "crawledAt": "2026-11-04T09:18:05.658Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4044,7 +4042,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:41.277Z",
+      "validThrough": "2026-12-04T09:18:05.658Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4079,7 +4077,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:40.858Z",
+      "crawledAt": "2026-11-04T09:18:03.614Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4137,7 +4135,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:40.858Z",
+      "validThrough": "2026-12-04T09:18:03.614Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4172,7 +4170,7 @@
       "url": "https://apply.refline.ch/163206/2715/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:40.436Z",
+      "crawledAt": "2026-11-04T09:18:03.111Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4225,7 +4223,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:40.436Z",
+      "validThrough": "2026-12-04T09:18:03.111Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4260,7 +4258,7 @@
       "url": "https://apply.refline.ch/163206/2710/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:40.017Z",
+      "crawledAt": "2026-11-04T09:18:02.690Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4313,7 +4311,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:40.017Z",
+      "validThrough": "2026-12-04T09:18:02.690Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4348,7 +4346,7 @@
       "url": "https://apply.refline.ch/163206/2790/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:39.599Z",
+      "crawledAt": "2026-11-04T09:18:02.269Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4406,7 +4404,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:27:39.599Z",
+      "validThrough": "2027-01-06T09:18:02.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4441,7 +4439,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:39.180Z",
+      "crawledAt": "2026-11-04T09:18:01.848Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4499,7 +4497,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:39.180Z",
+      "validThrough": "2026-12-04T09:18:01.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4534,7 +4532,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:38.759Z",
+      "crawledAt": "2026-11-04T09:18:01.424Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4595,7 +4593,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:38.759Z",
+      "validThrough": "2026-12-04T09:18:01.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4630,7 +4628,7 @@
       "url": "https://apply.refline.ch/163206/2763/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:38.338Z",
+      "crawledAt": "2026-11-04T09:18:01.004Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4689,7 +4687,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:38.338Z",
+      "validThrough": "2026-12-04T09:18:01.004Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4724,7 +4722,7 @@
       "url": "https://apply.refline.ch/163206/2626/pub/7/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:37.919Z",
+      "crawledAt": "2026-11-04T09:18:00.582Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4777,7 +4775,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:37.919Z",
+      "validThrough": "2026-12-04T09:18:00.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4812,7 +4810,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/5/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:37.501Z",
+      "crawledAt": "2026-11-04T09:18:00.161Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4871,7 +4869,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:37.501Z",
+      "validThrough": "2026-12-04T09:18:00.161Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4906,7 +4904,7 @@
       "url": "https://apply.refline.ch/163206/2811/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:37.084Z",
+      "crawledAt": "2026-11-04T09:17:59.739Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4964,7 +4962,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:37.084Z",
+      "validThrough": "2027-01-27T09:17:59.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4999,7 +4997,7 @@
       "url": "https://apply.refline.ch/163206/2799/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:36.666Z",
+      "crawledAt": "2026-11-04T09:17:59.284Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5052,7 +5050,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:27:36.666Z",
+      "validThrough": "2027-01-13T09:17:59.284Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5087,7 +5085,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:36.249Z",
+      "crawledAt": "2026-11-04T09:17:58.852Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5222,7 +5220,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:36.249Z",
+      "validThrough": "2026-12-04T09:17:58.852Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5257,7 +5255,7 @@
       "url": "https://apply.refline.ch/163206/2814/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:35.832Z",
+      "crawledAt": "2026-11-04T09:17:58.427Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5312,7 +5310,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:27:35.832Z",
+      "validThrough": "2027-01-28T09:17:58.427Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5347,7 +5345,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:35.412Z",
+      "crawledAt": "2026-11-04T09:17:58.005Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5411,7 +5409,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:35.412Z",
+      "validThrough": "2026-12-04T09:17:58.005Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5446,7 +5444,7 @@
       "url": "https://apply.refline.ch/163206/2755/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:34.973Z",
+      "crawledAt": "2026-11-04T09:17:57.583Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5499,7 +5497,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:34.973Z",
+      "validThrough": "2026-12-04T09:17:57.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5534,7 +5532,7 @@
       "url": "https://apply.refline.ch/163206/2776/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:33.859Z",
+      "crawledAt": "2026-11-04T09:17:57.153Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5583,7 +5581,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:27:33.859Z",
+      "validThrough": "2026-12-15T09:17:57.153Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5618,7 +5616,7 @@
       "url": "https://apply.refline.ch/163206/2766/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:33.439Z",
+      "crawledAt": "2026-11-04T09:17:56.733Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5667,7 +5665,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:27:33.439Z",
+      "validThrough": "2026-12-08T09:17:56.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5702,7 +5700,7 @@
       "url": "https://apply.refline.ch/163206/2793/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:33.021Z",
+      "crawledAt": "2026-11-04T09:17:56.311Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5759,7 +5757,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:27:33.021Z",
+      "validThrough": "2027-01-10T09:17:56.311Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5794,7 +5792,7 @@
       "url": "https://apply.refline.ch/163206/2778/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:32.602Z",
+      "crawledAt": "2026-11-04T09:17:55.870Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5849,7 +5847,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:27:32.602Z",
+      "validThrough": "2026-12-16T09:17:55.870Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5884,7 +5882,7 @@
       "url": "https://apply.refline.ch/163206/2806/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:32.180Z",
+      "crawledAt": "2026-11-04T09:17:55.445Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5942,7 +5940,7 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:27:32.180Z",
+      "validThrough": "2027-01-21T09:17:55.445Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5977,7 +5975,7 @@
       "url": "https://apply.refline.ch/163206/2815/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:31.755Z",
+      "crawledAt": "2026-11-04T09:17:53.950Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6030,7 +6028,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:27:31.755Z",
+      "validThrough": "2027-02-01T09:17:53.950Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6065,7 +6063,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:31.313Z",
+      "crawledAt": "2026-11-04T09:17:53.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6125,16 +6123,16 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:31.313Z",
+      "validThrough": "2026-12-04T09:17:53.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-2b3ba1a50d73",
       "slug": "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
       "slugByLocale": {
-        "de": "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
         "it": "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
         "en": "assistant-psychologist-assistant-psychologist-psychiatrische-universitatsklinik-zurich-rheinau",
+        "de": "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
         "fr": "assistant-psychologue-assistant-psychologue-psychiatrische-universitatsklinik-zurich-rheinau"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -6142,16 +6140,16 @@
       "companyDomain": "pukzh.ch",
       "title": "Assistenzpsychologin / Assistenzpsychologen",
       "titleByLocale": {
-        "de": "Assistenzpsychologin / Assistenzpsychologen",
         "it": "Assistente psicologo / Assistente psicologo",
         "en": "Assistant psychologist / Assistant psychologist",
+        "de": "Assistenzpsychologin / Assistenzpsychologen",
         "fr": "Assistant psychologue / Assistant psychologue"
       },
       "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n80-100%\nFür unser Zentrum für Stationäre Forensische Therapie in Rheinau suchen wir per sofort oder nach Vereinbarung, befristet für 12 Monate, eine/n\nIhre Aufgaben\n• Fallführend zuständig für die Durchführung gerichtlich angeordneter, stationärer Massnahmen\n• Fachgerechte deliktpräventive, forensische Behandlungen im Einzel- und Gruppensetting\n• Legalprognostische Einschätzungen (Risk-Assessment) in Zusammenarbeit mit dem pluridisziplinären Team\n• Psychodiagnostische Untersuchungen\n• Fach- und termingerechte Berichterstattung, Dokumentation und Korrespondenz\n• Durchführung von Gruppentherapien\nIhr Profil\n• Abgeschlossenes Psychologiestudium mit Schwerpunkt Psychopathologie des Erwachsenenalters (Master oder äquivalent)\n• Mindestens 1 Jahr Berufserfahrung ab Masterabschluss, klinisch-forensische Erfahrung von Vorteil\n• Laufende psychotherapeutische Zusatzausbildung\n• Teamorientiertes, interprofessionelles Handeln und gute Kommunikationsfähigkeit\n• Analytisches Denken sowie Einfühlungs- und Durchsetzungsvermögen\n• Interesse an forensischen Fragestellungen und modernen forensischen Behandlungsprinzipien\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Klinik, Forschung und Lehre vereint: Arbeiten in einem universitären Umfeld mit internationaler Vernetzung\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\nKontakt:\nAnnika Heye\nLeitende Psychologin\n+41 58 384 92 98\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
       "descriptionByLocale": {
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n80-100%\nFür unser Zentrum für Stationäre Forensische Therapie in Rheinau suchen wir per sofort oder nach Vereinbarung, befristet für 12 Monate, eine/n\nIhre Aufgaben\n• Fallführend zuständig für die Durchführung gerichtlich angeordneter, stationärer Massnahmen\n• Fachgerechte deliktpräventive, forensische Behandlungen im Einzel- und Gruppensetting\n• Legalprognostische Einschätzungen (Risk-Assessment) in Zusammenarbeit mit dem pluridisziplinären Team\n• Psychodiagnostische Untersuchungen\n• Fach- und termingerechte Berichterstattung, Dokumentation und Korrespondenz\n• Durchführung von Gruppentherapien\nIhr Profil\n• Abgeschlossenes Psychologiestudium mit Schwerpunkt Psychopathologie des Erwachsenenalters (Master oder äquivalent)\n• Mindestens 1 Jahr Berufserfahrung ab Masterabschluss, klinisch-forensische Erfahrung von Vorteil\n• Laufende psychotherapeutische Zusatzausbildung\n• Teamorientiertes, interprofessionelles Handeln und gute Kommunikationsfähigkeit\n• Analytisches Denken sowie Einfühlungs- und Durchsetzungsvermögen\n• Interesse an forensischen Fragestellungen und modernen forensischen Behandlungsprinzipien\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Klinik, Forschung und Lehre vereint: Arbeiten in einem universitären Umfeld mit internationaler Vernetzung\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\nKontakt:\nAnnika Heye\nLeitende Psychologin\n+41 58 384 92 98\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n80-100%\nPer il nostro Centro di Terapia Forense Inpatiente a Rheinau, stiamo cercando un immediato o su appuntamento, temporaneamente per 12 mesi,\nI loro compiti\n• Causa principale responsabile dell'attuazione delle misure di carattere stazionario\n• Prevenzione professionale di tort, trattamenti forensi nell'impostazione individuale e di gruppo\n• Valutazione prognostica legale (valutazione del rischio) in collaborazione con il team pluridisciplinare\n• Esami psicodiagnostici\n• Rapporto tecnico e tempestivo, documentazione e corrispondenza\n• Condurre terapie di gruppo\nIl tuo profilo\n• Laurea completa in psicologia con focus sulla psicopatologia dell'età adulta (master o equivalente)\n• Almeno 1 anno di esperienza professionale da master, esperienza clinica-forensica benefica\n• Formazione psicoterapeutica complementare\n• Azione interprofessionale e buone capacità di comunicazione\n• Il pensiero analitico e l'empatia e l'affermazione\n• Interessi in questioni forensi e moderni principi di trattamento forense\nLa nostra offerta\n• Sviluppo con prospettiva: Diverse percorsi di carriera in una delle più grandi cliniche psichiatriche in Svizzera\n• Clinica, ricerca e insegnamento uniti: lavorare in un ambiente universitario con la rete internazionale\n• Insieme per le persone: cooperazione interdisciplinare per la cura psichiatrica olistica\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Più tempo per il relax: almeno 25 giorni di vacanza e possibilità di congedo non pagato\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\nContatto:\nAnnika Heye\npsicologo senior\n+41 58 384 92 98\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
         "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n80-100%\nFor our Center for Inpatient Forensic Therapy in Rheinau, we are looking for an immediately or by appointment, temporarily for 12 months,\nTheir tasks\n• Case-leading responsible for the implementation of court-ordered, stationary measures\n• Professional tort prevention, forensic treatments in individual and group setting\n• Legal prognostic assessments (risk assessment) in cooperation with the pluridisciplinary team\n• Psychodiagnostic examinations\n• Technical and timely reporting, documentation and correspondence\n• Conducting group therapies\nYour profile\n• Completed psychology degree with focus on psychopathology of adulthood (master or equivalent)\n• At least 1 year of professional experience from master’s degree, clinical-forensic experience beneficial\n• Ongoing supplementary psychotherapeutic training\n• Team-oriented, interprofessional action and good communication skills\n• Analytical thinking and empathy and assertiveness\n• Interest in forensic issues and modern forensic treatment principles\nOur offer\n• Development with perspective: Diverse career paths in one of the largest psychiatric clinics in Switzerland\n• Clinic, research and teaching united: working in a university environment with international networking\n• Together for people: Interdisciplinary cooperation for holistic psychiatric care\n• Strong in the team: appreciative cooperation and mutual support\n• More time for relaxation: at least 25 days of holiday and possibility for unpaid leave\n• Future provision with added value: 60% employer contribution to the pension fund\nContact:\nAnnika Heye\nSenior psychologist\n+41 58 384 92 98\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n80-100%\nFür unser Zentrum für Stationäre Forensische Therapie in Rheinau suchen wir per sofort oder nach Vereinbarung, befristet für 12 Monate, eine/n\nIhre Aufgaben\n• Fallführend zuständig für die Durchführung gerichtlich angeordneter, stationärer Massnahmen\n• Fachgerechte deliktpräventive, forensische Behandlungen im Einzel- und Gruppensetting\n• Legalprognostische Einschätzungen (Risk-Assessment) in Zusammenarbeit mit dem pluridisziplinären Team\n• Psychodiagnostische Untersuchungen\n• Fach- und termingerechte Berichterstattung, Dokumentation und Korrespondenz\n• Durchführung von Gruppentherapien\nIhr Profil\n• Abgeschlossenes Psychologiestudium mit Schwerpunkt Psychopathologie des Erwachsenenalters (Master oder äquivalent)\n• Mindestens 1 Jahr Berufserfahrung ab Masterabschluss, klinisch-forensische Erfahrung von Vorteil\n• Laufende psychotherapeutische Zusatzausbildung\n• Teamorientiertes, interprofessionelles Handeln und gute Kommunikationsfähigkeit\n• Analytisches Denken sowie Einfühlungs- und Durchsetzungsvermögen\n• Interesse an forensischen Fragestellungen und modernen forensischen Behandlungsprinzipien\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Klinik, Forschung und Lehre vereint: Arbeiten in einem universitären Umfeld mit internationaler Vernetzung\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\nKontakt:\nAnnika Heye\nLeitende Psychologin\n+41 58 384 92 98\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n80-100%\nPour notre Centre de médecine légale à Rheinau, nous recherchons immédiatement ou sur rendez-vous, temporairement pendant 12 mois,\nLeurs tâches\n• Responsable de l ' application des mesures fixes ordonnées par les tribunaux\n• Prévention professionnelle de la responsabilité délictuelle, traitement médico-légal en milieu individuel et en groupe\n• Évaluations pronostiques juridiques (évaluation des risques) en coopération avec l'équipe pluridisciplinaire\n• Examens psychodiagnostiques\n• Rapports techniques et en temps opportun, documentation et correspondance\n• Conduite de thérapies de groupe\nVotre profil\n• Diplôme de psychologie terminé avec l'accent sur la psychopathologie de l'âge adulte (maîtrise ou équivalent)\n• Au moins 1 an d'expérience professionnelle de maîtrise, expérience clinique-forensique bénéfique\n• Formation psychothérapeutique complémentaire continue\n• Action interprofessionnelle axée sur l'équipe et bonne communication\n• Pensée analytique, empathie et affirmation\n• Intérêt pour les questions médico-légales et les principes modernes de traitement médico-légal\nNotre offre\n• Développement avec perspective : Divers parcours de carrière dans l'une des plus grandes cliniques psychiatriques de Suisse\n• Clinique, recherche et enseignement unis : travailler dans un environnement universitaire avec des réseaux internationaux\n• Ensemble pour les personnes: coopération interdisciplinaire pour des soins psychiatriques holistiques\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Plus de temps pour se détendre: au moins 25 jours de vacances et possibilité de congé sans solde\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\nPersonne à contacter:\nAnnika Salut\nPsychologue principal\n+41 58 384 92 98\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
       },
       "location": "Rheinau",
@@ -6159,7 +6157,7 @@
       "url": "https://apply.refline.ch/163206/2816/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:30.895Z",
+      "crawledAt": "2026-11-04T09:17:53.085Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6177,13 +6175,15 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/163206/2816/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2816",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
+        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
@@ -6196,10 +6196,7 @@
           "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
         ]
       },
-      "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
-        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
-      ],
+      "firstSeenAt": "2026-08-27T00:34:48.746Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -6215,9 +6212,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:27:30.895Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-27T00:34:48.746Z"
+      "validThrough": "2027-02-02T09:17:53.085Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-0071db77b20d",
@@ -6250,7 +6246,7 @@
       "url": "https://apply.refline.ch/163206/2784/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:30.454Z",
+      "crawledAt": "2026-11-04T09:17:52.624Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6304,7 +6300,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:27:30.454Z",
+      "validThrough": "2026-12-24T09:17:52.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6338,7 +6334,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:30.035Z",
+      "crawledAt": "2026-11-04T09:17:52.201Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6396,7 +6392,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:30.035Z",
+      "validThrough": "2026-12-04T09:17:52.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6430,7 +6426,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:29.612Z",
+      "crawledAt": "2026-11-04T09:17:51.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6485,7 +6481,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:29.612Z",
+      "validThrough": "2026-12-04T09:17:51.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6519,7 +6515,7 @@
       "url": "https://apply.refline.ch/163206/2657/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:29.194Z",
+      "crawledAt": "2026-11-04T09:17:51.357Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6572,7 +6568,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:29.194Z",
+      "validThrough": "2026-12-04T09:17:51.357Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6606,7 +6602,7 @@
       "url": "https://apply.refline.ch/163206/2719/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:28.357Z",
+      "crawledAt": "2026-11-04T09:17:50.495Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6660,7 +6656,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:28.357Z",
+      "validThrough": "2026-12-04T09:17:50.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6694,7 +6690,7 @@
       "url": "https://apply.refline.ch/163206/1385/pub/14/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:27.937Z",
+      "crawledAt": "2026-11-04T09:17:50.063Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6749,7 +6745,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:27.937Z",
+      "validThrough": "2026-12-04T09:17:50.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6783,7 +6779,7 @@
       "url": "https://apply.refline.ch/163206/2812/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:26.256Z",
+      "crawledAt": "2026-11-04T09:17:48.350Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6842,7 +6838,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:26.256Z",
+      "validThrough": "2027-01-27T09:17:48.350Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6876,7 +6872,7 @@
       "url": "https://apply.refline.ch/163206/2770/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:25.827Z",
+      "crawledAt": "2026-11-04T09:17:47.925Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6929,7 +6925,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:27:25.827Z",
+      "validThrough": "2026-12-10T09:17:47.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6964,7 +6960,7 @@
       "url": "https://apply.refline.ch/163206/2808/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:25.406Z",
+      "crawledAt": "2026-11-04T09:17:47.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7019,7 +7015,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:27:25.406Z",
+      "validThrough": "2027-01-26T09:17:47.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7053,7 +7049,7 @@
       "url": "https://apply.refline.ch/163206/2794/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:24.965Z",
+      "crawledAt": "2026-11-04T09:17:47.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7105,7 +7101,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:27:24.965Z",
+      "validThrough": "2027-01-12T09:17:47.071Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7140,7 +7136,7 @@
       "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:27:24.028Z",
+      "crawledAt": "2026-11-04T09:17:46.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7288,7 +7284,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:27:24.028Z",
+      "validThrough": "2026-12-04T09:17:46.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7374,7 +7370,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-03T09:22:45.876Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

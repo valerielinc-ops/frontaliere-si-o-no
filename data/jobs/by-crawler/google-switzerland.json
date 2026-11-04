@@ -1,7 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-11-03T21:27:08.403Z",
-  "runId": "41718485933",
+  "assembledAt": "2026-11-04T09:15:22.697Z",
+  "runId": "41804454129",
   "jobs": [
     {
       "id": "google-switzerland-93a8572772f9",
@@ -34,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/128594980477248198-security-sales-specialist-google-cloud-german",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:27:00.364Z",
+      "crawledAt": "2026-11-04T09:15:14.150Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:27:00.364Z",
+      "validThrough": "2027-01-25T09:15:14.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:59.663Z",
+      "crawledAt": "2026-11-04T09:15:13.610Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -161,7 +161,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:26:59.663Z",
+      "validThrough": "2026-12-04T09:15:13.610Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -195,7 +195,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:59.116Z",
+      "crawledAt": "2026-11-04T09:15:13.065Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -239,8 +239,87 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:26:59.116Z",
+      "validThrough": "2026-12-04T09:15:13.065Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-47cdd4103552",
+      "slug": "staff-software-engineer-aai-research-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "staff-software-engineer-aai-research-google-switzerland-zurich",
+        "it": "staff-software-engineer-aai-research-google-switzerland-zurich",
+        "de": "staff-software-engineer-aai-research-google-switzerland-zurich",
+        "fr": "staff-software-engineer-aai-research-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Staff Software Engineer, AAI Research",
+      "titleByLocale": {
+        "en": "Staff Software Engineer, AAI Research",
+        "it": "Staff Software Ingegnere, AAI Ricerca",
+        "de": "Staff Software Ingenieur, AAI Forschung",
+        "fr": "Staff Software Ingénieur, AAI Recherche"
+      },
+      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience working with Large Language Models (LLMs) and building agents.\n\nPreferred qualifications:\n\n• Solid understanding of essential concepts such as tokens, context, Retrieval-Augmented Generation (RAG), and function calling.\n\n• Solid understanding of core ML concepts, training algorithms, and best practices for evaluation.\n\n• Strong understanding of data and familiarity with basic statistical analysis concepts (e.g., variance, p-value, bias) and general data science principles.\n\n• Familiarity with running quality interactions, involving understanding business goals, defining technical metrics, implementing evaluation frameworks, designing experiments, analyzing results, performing RCAs, formulating hypotheses, and conducting ablation or live experiments.\n\n• Proficiency in Python.\n\nAbout the job\n Google Cloud's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google Cloud's needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. You will anticipate our customer needs and be empowered to act like an owner, take action and innovate. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe agent benchmark engineering team drives the discovery and expansion of next-generation agent capabilities, empowering customers to deploy high-performance AI systems.\n\nYou will deliver robust, production-ready agentic systems by leading the engineering of the ML quality feedback loop including: hypothesis-driven quality iteration, experimental systems optimization, data engineering for analysis.\n\nThe Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n\nResponsibilities\n\n• Execute quality iterations on reference agents identifying potential model or agent framework improvements.\n\n• Source or facilitate creation of datasets for evaluation and training to improve model performance for Cloud customers.\n\n• Design new agentic systems and context engineering algorithms, utilizing existing models and identifying the need for new training/evaluation objectives where necessary.\n\n• Define and implement metrics that correspond to business problems.\n\n• Prototype and iterate on the solution working closely with customers, product management and business development.",
+      "descriptionByLocale": {
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience working with Large Language Models (LLMs) and building agents.\n\nPreferred qualifications:\n\n• Solid understanding of essential concepts such as tokens, context, Retrieval-Augmented Generation (RAG), and function calling.\n\n• Solid understanding of core ML concepts, training algorithms, and best practices for evaluation.\n\n• Strong understanding of data and familiarity with basic statistical analysis concepts (e.g., variance, p-value, bias) and general data science principles.\n\n• Familiarity with running quality interactions, involving understanding business goals, defining technical metrics, implementing evaluation frameworks, designing experiments, analyzing results, performing RCAs, formulating hypotheses, and conducting ablation or live experiments.\n\n• Proficiency in Python.\n\nAbout the job\n Google Cloud's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google Cloud's needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. You will anticipate our customer needs and be empowered to act like an owner, take action and innovate. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe agent benchmark engineering team drives the discovery and expansion of next-generation agent capabilities, empowering customers to deploy high-performance AI systems.\n\nYou will deliver robust, production-ready agentic systems by leading the engineering of the ML quality feedback loop including: hypothesis-driven quality iteration, experimental systems optimization, data engineering for analysis.\n\nThe Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n\nResponsibilities\n\n• Execute quality iterations on reference agents identifying potential model or agent framework improvements.\n\n• Source or facilitate creation of datasets for evaluation and training to improve model performance for Cloud customers.\n\n• Design new agentic systems and context engineering algorithms, utilizing existing models and identifying the need for new training/evaluation objectives where necessary.\n\n• Define and implement metrics that correspond to business problems.\n\n• Prototype and iterate on the solution working closely with customers, product management and business development.",
+        "it": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience working with Large Language Models (LLMs) and building agents.\n\nPreferred qualifications:\n\n• Solid understanding of essential concepts such as tokens, context, Retrieval-Augmented Generation (RAG), and function calling.\n\n• Solid understanding of core ML concepts, training algorithms, and best practices for evaluation.\n\n• Strong understanding of data and familiarity with basic statistical analysis concepts (e.g., variance, p-value, bias) and general data science principles.\n\n• Familiarity with running quality interactions, involving understanding business goals, defining technical metrics, implementing evaluation frameworks, designing experiments, analyzing results, performing RCAs, formulating hypotheses, and conducting ablation or live experiments.\n\n• Proficiency in Python.\n\nAbout the job\n Google Cloud's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google Cloud's needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. You will anticipate our customer needs and be empowered to act like an owner, take action and innovate. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe agent benchmark engineering team drives the discovery and expansion of next-generation agent capabilities, empowering customers to deploy high-performance AI systems.\n\nYou will deliver robust, production-ready agentic systems by leading the engineering of the ML quality feedback loop including: hypothesis-driven quality iteration, experimental systems optimization, data engineering for analysis.\n\nThe Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n\nResponsibilities\n\n• Execute quality iterations on reference agents identifying potential model or agent framework improvements.\n\n• Source or facilitate creation of datasets for evaluation and training to improve model performance for Cloud customers.\n\n• Design new agentic systems and context engineering algorithms, utilizing existing models and identifying the need for new training/evaluation objectives where necessary.\n\n• Define and implement metrics that correspond to business problems.\n\n• Prototype and iterate on the solution working closely with customers, product management and business development.",
+        "de": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience working with Large Language Models (LLMs) and building agents.\n\nPreferred qualifications:\n\n• Solid understanding of essential concepts such as tokens, context, Retrieval-Augmented Generation (RAG), and function calling.\n\n• Solid understanding of core ML concepts, training algorithms, and best practices for evaluation.\n\n• Strong understanding of data and familiarity with basic statistical analysis concepts (e.g., variance, p-value, bias) and general data science principles.\n\n• Familiarity with running quality interactions, involving understanding business goals, defining technical metrics, implementing evaluation frameworks, designing experiments, analyzing results, performing RCAs, formulating hypotheses, and conducting ablation or live experiments.\n\n• Proficiency in Python.\n\nAbout the job\n Google Cloud's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google Cloud's needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. You will anticipate our customer needs and be empowered to act like an owner, take action and innovate. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe agent benchmark engineering team drives the discovery and expansion of next-generation agent capabilities, empowering customers to deploy high-performance AI systems.\n\nYou will deliver robust, production-ready agentic systems by leading the engineering of the ML quality feedback loop including: hypothesis-driven quality iteration, experimental systems optimization, data engineering for analysis.\n\nThe Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n\nResponsibilities\n\n• Execute quality iterations on reference agents identifying potential model or agent framework improvements.\n\n• Source or facilitate creation of datasets for evaluation and training to improve model performance for Cloud customers.\n\n• Design new agentic systems and context engineering algorithms, utilizing existing models and identifying the need for new training/evaluation objectives where necessary.\n\n• Define and implement metrics that correspond to business problems.\n\n• Prototype and iterate on the solution working closely with customers, product management and business development.",
+        "fr": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience working with Large Language Models (LLMs) and building agents.\n\nPreferred qualifications:\n\n• Solid understanding of essential concepts such as tokens, context, Retrieval-Augmented Generation (RAG), and function calling.\n\n• Solid understanding of core ML concepts, training algorithms, and best practices for evaluation.\n\n• Strong understanding of data and familiarity with basic statistical analysis concepts (e.g., variance, p-value, bias) and general data science principles.\n\n• Familiarity with running quality interactions, involving understanding business goals, defining technical metrics, implementing evaluation frameworks, designing experiments, analyzing results, performing RCAs, formulating hypotheses, and conducting ablation or live experiments.\n\n• Proficiency in Python.\n\nAbout the job\n Google Cloud's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google Cloud's needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. You will anticipate our customer needs and be empowered to act like an owner, take action and innovate. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe agent benchmark engineering team drives the discovery and expansion of next-generation agent capabilities, empowering customers to deploy high-performance AI systems.\n\nYou will deliver robust, production-ready agentic systems by leading the engineering of the ML quality feedback loop including: hypothesis-driven quality iteration, experimental systems optimization, data engineering for analysis.\n\nThe Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n\nResponsibilities\n\n• Execute quality iterations on reference agents identifying potential model or agent framework improvements.\n\n• Source or facilitate creation of datasets for evaluation and training to improve model performance for Cloud customers.\n\n• Design new agentic systems and context engineering algorithms, utilizing existing models and identifying the need for new training/evaluation objectives where necessary.\n\n• Define and implement metrics that correspond to business problems.\n\n• Prototype and iterate on the solution working closely with customers, product management and business development."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-04T09:15:12.507Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research",
+      "jobReqId": "98438078061781702",
+      "requirements": [
+        "Bachelor's degree or equivalent practical experience.",
+        "8 years of experience working with Large Language Models (LLMs) and building agents."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree or equivalent practical experience.",
+          "8 years of experience working with Large Language Models (LLMs) and building agents."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-02T09:15:12.507Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T09:15:12.507Z"
     },
     {
       "id": "google-switzerland-bae93388287a",
@@ -273,7 +352,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:58.565Z",
+      "crawledAt": "2026-11-04T09:15:11.939Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -320,7 +399,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:26:58.565Z",
+      "validThrough": "2027-01-28T09:15:11.939Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -354,7 +433,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:58.035Z",
+      "crawledAt": "2026-11-04T09:15:11.242Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -404,7 +483,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:26:58.035Z",
+      "validThrough": "2026-12-30T09:15:11.242Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -438,7 +517,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/119732976081609414-software-engineer-ii-coop-and-marketplaces",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:57.487Z",
+      "crawledAt": "2026-11-04T09:15:10.700Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -485,7 +564,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:26:57.487Z",
+      "validThrough": "2027-01-11T09:15:10.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -519,7 +598,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:56.939Z",
+      "crawledAt": "2026-11-04T09:15:10.165Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -565,15 +644,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:26:56.939Z",
+      "validThrough": "2027-01-12T09:15:10.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-60a69ad6bee4",
       "slug": "responsabile-senior-del-prodotto-ecosistemi-di-ia-ia-di-frontiera-deepmind-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich",
         "it": "responsabile-senior-del-prodotto-ecosistemi-di-ia-ia-di-frontiera-deepmind-google-switzerland-zurich",
+        "en": "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich",
         "de": "senior-produktmanager-ki-okosysteme-frontier-ai-deepmind-google-switzerland-zurich",
         "fr": "gestionnaire-principal-des-produits-ecosystemes-d-ia-ia-frontiere-deepmind-google-switzerland-zurich"
       },
@@ -582,24 +661,24 @@
       "companyDomain": "google.com",
       "title": "Senior Product Manager, AI Ecosystems, Frontier AI, DeepMind",
       "titleByLocale": {
-        "en": "Senior Product Manager, AI Ecosystems, Frontier AI, DeepMind",
         "it": "Responsabile senior del prodotto, Ecosistemi di IA, IA di frontiera, DeepMind",
+        "en": "Senior Product Manager, AI Ecosystems, Frontier AI, DeepMind",
         "de": "Senior-Produktmanager, KI-Ökosysteme, Frontier AI, DeepMind",
         "fr": "Gestionnaire principal des produits, Écosystèmes d'IA, IA Frontière, DeepMind"
       },
       "description": "Google welcomes people with disabilities.\nNote: By applying to this position you will have an opportunity to share your preferred working location from the following: Paris, France; Zürich, Switzerland; London, UK; Mountain View, CA, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related technical field, or equivalent practical experience.\n\n• 8 years of experience in building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements.\n\nPreferred qualifications:\n\n• Experience building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements.\n\n• Understanding of the current open-weight model and agent landscape, including on-device and cloud inference stacks, fine-tuning and RL post-training workflows, procedural curricula, formal verification, and open-source developer tooling.\n\n• Deep understanding of AI foundation models, reinforcement learning, post-training techniques, and autonomous agent systems (such as planning, tool use, memory, and environment interaction).\n\n• Ability to stay up-to-speed on all relevant research in open-weight foundation models, domain-specialized variants, interactive RL environments, multi-agent simulation, and agent harnesses.\n\nAbout the job\n As a Product Manager at DeepMind, you will be responsible for shipping AI research breakthroughs into Google’s AI models, products, and open ecosystems. As a Product Manager on Frontier AI within DeepMind, you will be working with AI researchers who are focused on making advances across new model architectures, AGI, and applications like Agents and Robotics. As the Product Manager for AI Ecosystems within Frontier AI, your job will be to guide the strategy and execution across our open-weight models specialized variants (such as the broader Gemmaverse ecosystem) as well as our open interactive training environments, agent harnesses, and privacy-preserving evaluation sandboxes.\n\nYou will understand how frontier research breakthroughs can be translated into ecosystems of open AI systems and creating an impactful two-way flywheel between the global open-source community and Google’s core foundation models like Gemini and Gemma. You will help research teams navigate technical, safety, and ecosystem tradeoffs, build collaborations with core model development teams, and partner with Google product areas (such as Cloud, Android, Pixel, and Search) as well as external developers, enterprises, academic researchers, and public-sector institutions to address real-world needs across on-device AI, sovereign and regulated workflows, scientific discovery, and societal benefit. In addition to shipping open-weight model variants, training recipes, and interactive environments, you will build the developer tooling, open-source runtime integrations, and communication strategy so that our open AI systems achieve widespread adoption and set the industry standard.\n Artificial intelligence will be one of humanity’s most transformative inventions. At Google DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nFrance: €130000 - €133000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $192000 - $278000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Understand the implications of new foundational research breakthroughs—across model architectures, multimodality, on-device efficiency, reinforcement learning, interactive environments, and trainable agent harnesses—on our open-weight model family (Gemma variants) and the broader AI ecosystem.\n\n• Build collaborations with research teams, core model development teams, and product teams to ship open-weight model variants, post-training and mid-training environment runtimes, and modular agent harnesses—creating a two-way flywheel where open-source ecosystem innovations directly accelerate internal model training and product capabilities.\n\n• Work with Google product areas and external partners to understand customer and societal needs that are best met through customizable open-weight models, on-device deployment, and zero-data-leakage evaluation and regulatory sandboxes.\n\n• Build a thriving open ecosystem of developer tooling, standardized environment SDKs, formal verification and safety guardrails, and day-one integrations with popular open-source frameworks, agent protocols, and inference runtimes.",
       "descriptionByLocale": {
-        "en": "Google welcomes people with disabilities.\nNote: By applying to this position you will have an opportunity to share your preferred working location from the following: Paris, France; Zürich, Switzerland; London, UK; Mountain View, CA, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related technical field, or equivalent practical experience.\n\n• 8 years of experience in building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements.\n\nPreferred qualifications:\n\n• Experience building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements.\n\n• Understanding of the current open-weight model and agent landscape, including on-device and cloud inference stacks, fine-tuning and RL post-training workflows, procedural curricula, formal verification, and open-source developer tooling.\n\n• Deep understanding of AI foundation models, reinforcement learning, post-training techniques, and autonomous agent systems (such as planning, tool use, memory, and environment interaction).\n\n• Ability to stay up-to-speed on all relevant research in open-weight foundation models, domain-specialized variants, interactive RL environments, multi-agent simulation, and agent harnesses.\n\nAbout the job\n As a Product Manager at DeepMind, you will be responsible for shipping AI research breakthroughs into Google’s AI models, products, and open ecosystems. As a Product Manager on Frontier AI within DeepMind, you will be working with AI researchers who are focused on making advances across new model architectures, AGI, and applications like Agents and Robotics. As the Product Manager for AI Ecosystems within Frontier AI, your job will be to guide the strategy and execution across our open-weight models specialized variants (such as the broader Gemmaverse ecosystem) as well as our open interactive training environments, agent harnesses, and privacy-preserving evaluation sandboxes.\n\nYou will understand how frontier research breakthroughs can be translated into ecosystems of open AI systems and creating an impactful two-way flywheel between the global open-source community and Google’s core foundation models like Gemini and Gemma. You will help research teams navigate technical, safety, and ecosystem tradeoffs, build collaborations with core model development teams, and partner with Google product areas (such as Cloud, Android, Pixel, and Search) as well as external developers, enterprises, academic researchers, and public-sector institutions to address real-world needs across on-device AI, sovereign and regulated workflows, scientific discovery, and societal benefit. In addition to shipping open-weight model variants, training recipes, and interactive environments, you will build the developer tooling, open-source runtime integrations, and communication strategy so that our open AI systems achieve widespread adoption and set the industry standard.\n Artificial intelligence will be one of humanity’s most transformative inventions. At Google DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nFrance: €130000 - €133000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $192000 - $278000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Understand the implications of new foundational research breakthroughs—across model architectures, multimodality, on-device efficiency, reinforcement learning, interactive environments, and trainable agent harnesses—on our open-weight model family (Gemma variants) and the broader AI ecosystem.\n\n• Build collaborations with research teams, core model development teams, and product teams to ship open-weight model variants, post-training and mid-training environment runtimes, and modular agent harnesses—creating a two-way flywheel where open-source ecosystem innovations directly accelerate internal model training and product capabilities.\n\n• Work with Google product areas and external partners to understand customer and societal needs that are best met through customizable open-weight models, on-device deployment, and zero-data-leakage evaluation and regulatory sandboxes.\n\n• Build a thriving open ecosystem of developer tooling, standardized environment SDKs, formal verification and safety guardrails, and day-one integrations with popular open-source frameworks, agent protocols, and inference runtimes.",
-        "it": "Google accoglie persone con disabilità.\nNota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita dalle seguenti: Parigi, Francia; Zurigo, Svizzera; Londra, Regno Unito; Mountain View, CA, USA.\n\nTitolo minimo:\n\n• Laurea in Informatica, un campo tecnico correlato, o esperienza pratica equivalente.\n\n• 8 anni di esperienza nella costruzione di prodotti AI, piattaforme di sviluppo open-source, SDKs, o ecosistemi di modelli radicati in modelli significativi, progressivi algoritmici, o sistemi.\n\nQualifiche preferenziali:\n\n• Esperienza di costruzione prodotti AI, piattaforme di sviluppo open-source, SDKs, o modelli ecosistemi radicati in modelli significativi, progressivi algoritmici, o sistemi.\n\n• Comprendere l'attuale modello open-weight e l'agente paesaggio, tra cui on-device e cloud inference stack, fine-tuning e RL post-training workflow, curricula procedurali, verifica formale e open-source sviluppatore tooling.\n\n• Profonda comprensione dei modelli di fondazione AI, l'apprendimento di rinforzo, le tecniche di post-formazione e i sistemi di agente autonomi (come la pianificazione, l'uso degli strumenti, la memoria e l'interazione dell'ambiente).\n\n• Capacità di rimanere up-to-speed su tutte le ricerche rilevanti in modelli di fondazione a peso aperto, varianti di dominio-specializzate, ambienti RL interattivi, simulazione multi-agent e imbracature agente.\n\nRiguardo al lavoro\n Come Product Manager presso DeepMind, sarete responsabili per la spedizione di scoperte di ricerca AI nei modelli, prodotti e ecosistemi aperti di Google. Come Product Manager di Frontier AI all'interno di DeepMind, lavorerai con i ricercatori dell'IA che si concentrano sul fare progressi nelle nuove architetture dei modelli, AGI e applicazioni come Agenti e Robotics. Come Product Manager di AI Ecosystems all'interno di Frontier AI, il vostro lavoro sarà quello di guidare la strategia e l'esecuzione attraverso i nostri modelli open-weight varianti specializzate (come l'ecosistema Gemmaverse più ampio) così come i nostri ambienti di formazione interattivi aperti, imbracature degli agenti e sandbox di valutazione di conservazione della privacy.\n\nCapirete come le scoperte della ricerca di frontiera possono essere tradotte in ecosistemi aperti AI e la creazione di un volano a due vie efficace tra la comunità open source globale e i modelli di base di Google come Gemini e Gemma. Aiuterai i team di ricerca a navigare tra i tradeoff tecnici, di sicurezza e di ecosistemi, a costruire collaborazioni con team di sviluppo del modello core e a collaborare con le aree di prodotto di Google (come Cloud, Android, Pixel e Search) nonché con sviluppatori esterni, imprese, ricercatori accademici e istituzioni di settore pubblico per affrontare le esigenze del mondo reale attraverso i flussi di lavoro on-device, sovrani e regolamentati, la scoperta scientifica e il beneficio sociale. Oltre alle varianti di modello open-weight di spedizione, ricette di formazione e ambienti interattivi, si costruirà lo sviluppatore tooling, le integrazioni runtime open source e la strategia di comunicazione in modo che i nostri sistemi AI aperti raggiungere l'adozione diffusa e impostare lo standard del settore.\n L’intelligenza artificiale sarà una delle invenzioni più trasformative dell’umanità. A Google DeepMind, siamo un laboratorio AI pionieristico con team interdisciplinari eccezionali focalizzati sull'avanzamento dello sviluppo AI per risolvere complesse sfide globali e accelerare l'innovazione di prodotto di alta qualità per miliardi di utenti. Utilizziamo le nostre tecnologie per un ampio beneficio pubblico e una scoperta scientifica, assicurando la sicurezza e l'etica sono sempre la nostra massima priorità.\n Stiamo spingendo i confini attraverso più domini. I nostri team globali offrono diverse opportunità di apprendimento e percorsi di carriera diversificati per coloro che sono spinti a raggiungere risultati eccezionali attraverso lo sforzo collettivo.\n\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nFrancia: €130000 - €133000 (EUR) + 20% target bonus + equità + benefici\n\nScopri di più sui vantaggi di Google .\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nUS: $192000 - $278000 (USD) + 20% target bonus + equity + benefici\n\nScopri di più sui vantaggi di Google .\n responsabilità\n\n• Comprendere le implicazioni di nuove scoperte di ricerca fondazionali — attraverso architetture di modelli, multimodalità, efficienza on-device, apprendimento di rinforzo, ambienti interattivi e imbracature di agenti trainabili — sulla nostra famiglia modello open-weight (varianti Gemma) e l'ecosistema AI più ampio.\n\n• Costruire collaborazioni con team di ricerca, team di sviluppo del modello core e team di prodotti per fornire varianti di modelli open-weight, post-training e mid-training ambiente runtime, e imbracature di agenti modulari, creando un volano a due vie in cui le innovazioni di ecosistema open-source accelerano direttamente la formazione del modello interno e le capacità di prodotto.\n\n• Lavorare con le aree di prodotto di Google e i partner esterni per comprendere le esigenze del cliente e della società che sono meglio soddisfatti attraverso modelli personalizzabili a peso aperto, distribuzione on-device e valutazione zero-data-leakage e sandbox regolamentari.\n\n• Costruire un ecosistema aperto fiorente di strumenti di sviluppo, SDKs ambiente standardizzato, verifica formale e guardrails di sicurezza, e integrazioni day-one con popolari framework open-source, protocolli di agente e runtime di inferenza.",
-        "de": "Google begrüßt Menschen mit Behinderungen.\nHinweis: Wenn Sie sich für diese Position bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter folgenden Adressen zu teilen: Paris, Frankreich; Zürich, Schweiz; London, Großbritannien; Mountain View, CA, USA.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik, einem verwandten technischen Bereich oder gleichwertige praktische Erfahrung.\n\n• 8 Jahre Erfahrung in der Entwicklung von KI-Produkten, Open-Source-Entwicklerplattformen, SDKs oder Modellökosystemen, die auf bedeutenden Modell-, Algorithmus- oder Systementwicklungen beruhen.\n\nBevorzugte Qualifikationen:\n\n• Erleben Sie die Entwicklung von KI-Produkten, Open-Source-Entwicklerplattformen, SDKs oder Modellökosystemen, die auf bedeutenden Modell-, Algorithmus- oder Systementwicklungen beruhen.\n\n• Verständnis des aktuellen Open-Gewicht-Modells und der Agentenlandschaft, einschließlich On-Device- und Cloud-Inferenz-Stacks, Feinabstimmung und RL-Post-Training-Workflows, prozedurale Curricula, formale Verifizierung und Open-Source-Entwickler-Tooling.\n\n• Tiefes Verständnis von KI-Grundlagenmodellen, Reinforcement Learning, Post-Training-Techniken und autonomen Agentensystemen (wie Planung, Werkzeugnutzung, Speicher- und Umgebungsinteraktion).\n\n• Fähigkeit, bei allen relevanten Forschungen in Open-weight-Stiftungsmodellen, domänenspezialisierten Varianten, interaktiven RL-Umgebungen, Multi-Agenten-Simulationen und Agent-Geschirren auf dem neuesten Stand zu bleiben.\n\nÜber den Job\n Als Produktmanager bei DeepMind sind Sie für den Versand von KI-Forschungsdurchbrüchen in die KI-Modelle, Produkte und offenen Ökosysteme von Google verantwortlich. Als Produktmanager für Frontier AI bei DeepMind arbeiten Sie mit KI-Forschern zusammen, die sich auf Fortschritte bei neuen Modellarchitekturen, AGI und Anwendungen wie Agents und Robotics konzentrieren. Als Produktmanager für KI-Ökosysteme innerhalb von Frontier AI besteht Ihre Aufgabe darin, die Strategie und Umsetzung in unseren auf offene Gewichte spezialisierten Varianten (wie dem breiteren Gemmaverse-Ökosystem) sowie in unseren offenen interaktiven Trainingsumgebungen, Agentengeschirren und datenschutzbewahrenden Bewertungs-Sandboxen zu steuern.\n\nSie werden verstehen, wie bahnbrechende Forschungsdurchbrüche in Ökosysteme offener KI-Systeme übersetzt werden können und ein wirkungsvolles Zwei-Wege-Schwungrad zwischen der globalen Open-Source-Community und Googles Kernmodellen wie Gemini und Gemma schaffen. Sie helfen Forschungsteams dabei, technische, Sicherheits- und Ökosystem-Kompromisse zu bewältigen, Kooperationen mit Kernmodellentwicklungsteams aufzubauen und mit Google-Produktbereichen (wie Cloud, Android, Pixel und Search) sowie externen Entwicklern, Unternehmen, akademischen Forschern und Institutionen des öffentlichen Sektors zusammenzuarbeiten, um die realen Bedürfnisse von On-Device-KI, souveränen und regulierten Workflows, wissenschaftlicher Entdeckung und gesellschaftlichem Nutzen zu erfüllen. Neben dem Versand von Modellvarianten mit offenem Gewicht, Trainingsrezepten und interaktiven Umgebungen erstellen Sie die Entwicklertools, Open-Source-Runtime-Integrationen und Kommunikationsstrategien, damit unsere offenen KI-Systeme eine breite Akzeptanz erreichen und den Industriestandard setzen.\n Künstliche Intelligenz wird eine der transformativsten Erfindungen der Menschheit sein. Bei Google DeepMind sind wir ein wegweisendes KI-Labor mit außergewöhnlichen interdisziplinären Teams, die sich darauf konzentrieren, die KI-Entwicklung voranzutreiben, um komplexe globale Herausforderungen zu lösen und qualitativ hochwertige Produktinnovationen für Milliarden von Nutzern zu beschleunigen. Wir nutzen unsere Technologien für den breiten öffentlichen Nutzen und wissenschaftliche Entdeckungen, Sicherheit und Ethik sind immer unsere höchste Priorität.\n Wir verschieben die Grenzen über mehrere Domains hinweg. Unsere globalen Teams bieten vielfältige Lernmöglichkeiten und vielfältige Karrierewege für diejenigen, die durch gemeinsame Anstrengungen außergewöhnliche Ergebnisse erzielen wollen.\n\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nFrankreich: €130000 - €133000 (EUR) + 20% Bonusziel + Eigenkapital + Vorteile\n\nErfahren Sie mehr über die Vorteile bei Google.\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nUS: $192000 - $278.000 (USD) + 20% Bonusziel + Eigenkapital + Vorteile\n\nErfahren Sie mehr über die Vorteile bei Google.\n Zuständigkeiten\n\n• Verstehen Sie die Auswirkungen neuer grundlegender Forschungsdurchbrüche - über Modellarchitekturen, Multimodalität, On-Device-Effizienz, Reinforcement Learning, interaktive Umgebungen und trainierbare Agentensysteme - auf unsere Open-weight-Modellfamilie (Gemma-Varianten) und das breitere KI-Ökosystem.\n\n• Aufbau von Kooperationen mit Forschungsteams, Kernmodellentwicklungsteams und Produktteams, um Modellvarianten mit offenem Gewicht, Laufzeiten für Post-Trainings- und Mid-Trainingsumgebungen und modulare Agentengurte zu liefern - wodurch ein Zwei-Wege-Schwungrad entsteht, in dem Open-Source-Ökosysteminnovationen das interne Modelltraining und die Produktfähigkeiten direkt beschleunigen.\n\n• Arbeiten Sie mit Google-Produktbereichen und externen Partnern zusammen, um die Bedürfnisse der Kunden und der Gesellschaft zu verstehen, die am besten durch anpassbare Open-weight-Modelle, On-Device-Bereitstellung und Zero-Data-Leckage-Evaluierung und regulatorische Sandboxen erfüllt werden.\n\n• Bauen Sie ein florierendes offenes Ökosystem aus Entwicklertools, standardisierten Umgebungs-SDKs, formalen Verifizierungs- und Sicherheitsleitplanken und Day-One-Integrationen mit gängigen Open-Source-Frameworks, Agentenprotokollen und Inferenzlaufzeiten auf.",
-        "fr": "Google accueille les personnes handicapées.\nRemarque: En postulant à ce poste, vous aurez l'occasion de partager votre lieu de travail préféré parmi les suivants: Paris, France; Zurich, Suisse; Londres, Royaume-Uni; Mountain View, CA, États-Unis.\n\nTitres minimums:\n\n• Baccalauréat en informatique, domaine technique connexe ou expérience pratique équivalente.\n\n• 8 ans d'expérience dans la construction de produits d'IA, de plates-formes de développeurs open-source, de SDK ou d'écosystèmes modèles enracinés dans des avancées significatives de modèles, d'algorithmes ou de systèmes.\n\nQualifications privilégiées:\n\n• Expérimentez la construction de produits d'IA, de plates-formes de développeurs open-source, de SDKs ou d'écosystèmes modèles enracinés dans des avancées significatives de modèles, d'algorithmes ou de systèmes.\n\n• Compréhension du paysage actuel de modèles et d'agents à poids ouvert, y compris les piles d'inférence sur les appareils et les nuages, les workflows de réglage fin et de RL après la formation, les programmes de procédures, la vérification formelle et l'outillage de développeurs à source ouverte.\n\n• Connaissance approfondie des modèles de base de l'IA, renforcement de l'apprentissage, techniques de post-formation et systèmes d'agents autonomes (comme la planification, l'utilisation des outils, la mémoire et l'interaction environnementale).\n\n• Capacité de rester à l'affût de toutes les recherches pertinentes dans les modèles de fondation à poids ouvert, les variantes spécialisées de domaine, les environnements RL interactifs, la simulation multi-agents et les harnais d'agents.\n\nSur le travail\n En tant que gestionnaire de produits chez DeepMind, vous serez responsable de l'expédition des percées de recherche sur l'IA dans les modèles, produits et écosystèmes ouverts de Google. En tant que gestionnaire de produit sur l'IA Frontière au sein de DeepMind, vous travaillerez avec des chercheurs sur l'IA qui s'emploient à faire des progrès dans de nouvelles architectures modèles, l'AGI et des applications comme Agents et Robotics. En tant que gestionnaire de produits pour les écosystèmes d'IA au sein de Frontier AI, votre travail sera de guider la stratégie et l'exécution à travers nos modèles à poids ouvert des variantes spécialisées (comme l'écosystème Gemmaver) ainsi que nos environnements de formation interactifs ouverts, les harnais d'agents et les boîtes à sable d'évaluation de préservation de la vie privée.\n\nVous comprendrez comment les percées de la recherche sur les frontières peuvent se traduire en écosystèmes de systèmes d'IA ouverts et créer un volant bidirectionnel impacté entre la communauté open-source mondiale et les modèles de base de Google, comme Gemini et Gemma. Vous aiderez les équipes de recherche à faire des compromis techniques, sécuritaires et écosystémiques, à établir des collaborations avec des équipes de développement de modèles de base, et à établir des partenariats avec des domaines de produits Google (tels que Cloud, Android, Pixel et Search) ainsi qu'avec des développeurs externes, des entreprises, des chercheurs universitaires et des institutions du secteur public afin de répondre aux besoins réels de l'IA, des flux de travail souverains et réglementés, des découvertes scientifiques et des avantages sociaux. En plus d'expédier des variantes de modèles open-weight, des recettes de formation et des environnements interactifs, vous allez construire l'outillage développeur, les intégrations d'autonomie open-source et la stratégie de communication afin que nos systèmes d'IA ouverts atteignent une large adoption et de définir la norme de l'industrie.\n L'intelligence artificielle sera l'une des inventions les plus transformatrices de l'humanité. Chez Google DeepMind, nous sommes un laboratoire d'IA pionnier avec des équipes interdisciplinaires exceptionnelles axées sur le développement de l'IA pour résoudre des défis mondiaux complexes et accélérer l'innovation de produits de haute qualité pour des milliards d'utilisateurs. Nous utilisons nos technologies à des fins d'intérêt général et de découverte scientifique, en veillant à ce que la sécurité et l'éthique soient toujours notre priorité absolue.\n Nous repoussons les frontières entre plusieurs domaines. Nos équipes mondiales offrent diverses possibilités d'apprentissage et des parcours de carrière variés pour ceux qui sont motivés par des résultats exceptionnels grâce à des efforts collectifs.\n\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nFrance : 130000 € - 133000 € (EUR) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nÉtats-Unis : 192000 - 278000 $ (USD) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\n Responsabilités\n\n• Comprendre les implications des nouvelles percées de la recherche fondamentale – à travers les architectures de modèles, la multimodalité, l'efficacité sur les appareils, le renforcement de l'apprentissage, les environnements interactifs et les harnais d'agents formateurs – sur notre famille de modèles à poids ouvert (variantes de Gemma) et sur l'écosystème plus large de l'IA.\n\n• Bâtir des collaborations avec des équipes de recherche, des équipes de développement de modèles de base et des équipes de produits pour expédier des variantes de modèles à poids libre, des cycles d'environnement post-formation et de milieu de formation et des harnais d'agents modulaires, créant un volant bidirectionnel où les innovations écosystémiques à source ouverte accélèrent directement la formation interne de modèles et les capacités de produits.\n\n• Collaborer avec les secteurs de produits Google et les partenaires externes pour comprendre les besoins des clients et de la société qui sont le mieux satisfaits grâce à des modèles de poids ouvert personnalisables, le déploiement sur les appareils, et l'évaluation zéro fuite de données et des bacs à sable réglementaires.\n\n• Bâtir un écosystème ouvert prospère d'outils de développement, de SDK d'environnement normalisé, de vérifications formelles et de garde-corps de sécurité, et d'intégrations d'une journée avec des cadres open-source populaires, des protocoles d'agents et des durées d'inférence."
+        "it": "Google accoglie persone con disabilità.\nNota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita dalle seguenti: Parigi, Francia; Zurigo, Svizzera; Londra, Regno Unito; Mountain View, CA, USA.\n\nTitolo minimo:\n\n• Laurea in Informatica, un campo tecnico correlato, o esperienza pratica equivalente.\n\n• 8 anni di esperienza nella costruzione di prodotti AI, piattaforme di sviluppo open-source, SDKs, o ecosistemi di modelli radicati in modelli significativi, progressivi algoritmici, o sistemi.\n\nQualifiche preferenziali:\n\n• Esperienza di costruzione prodotti AI, piattaforme di sviluppo open-source, SDKs, o modelli ecosistemi radicati in modelli significativi, progressivi algoritmici, o sistemi.\n\n• Comprendere l'attuale modello open-weight e l'agente paesaggio, tra cui on-device e cloud inference stack, fine-tuning e RL post-training workflow, curricula procedurali, verifica formale e open-source sviluppatore tooling.\n\n• Profonda comprensione dei modelli di fondazione AI, l'apprendimento di rinforzo, le tecniche di post-formazione e i sistemi di agente autonomi (come la pianificazione, l'uso degli strumenti, la memoria e l'interazione dell'ambiente).\n\n• Capacità di rimanere up-to-speed su tutte le ricerche rilevanti in modelli di fondazione a peso aperto, varianti di dominio-specializzate, ambienti RL interattivi, simulazione multi-agent e imbracature agente.\n\nRiguardo al lavoro\nCome Product Manager presso DeepMind, sarete responsabili per la spedizione di scoperte di ricerca AI nei modelli, prodotti e ecosistemi aperti di Google. Come Product Manager di Frontier AI all'interno di DeepMind, lavorerai con i ricercatori dell'IA che si concentrano sul fare progressi nelle nuove architetture dei modelli, AGI e applicazioni come Agenti e Robotics. Come Product Manager di AI Ecosystems all'interno di Frontier AI, il vostro lavoro sarà quello di guidare la strategia e l'esecuzione attraverso i nostri modelli open-weight varianti specializzate (come l'ecosistema Gemmaverse più ampio) così come i nostri ambienti di formazione interattivi aperti, imbracature degli agenti e sandbox di valutazione di conservazione della privacy.\n\nCapirete come le scoperte della ricerca di frontiera possono essere tradotte in ecosistemi aperti AI e la creazione di un volano a due vie efficace tra la comunità open source globale e i modelli di base di Google come Gemini e Gemma. Aiuterai i team di ricerca a navigare tra i tradeoff tecnici, di sicurezza e di ecosistemi, a costruire collaborazioni con team di sviluppo del modello core e a collaborare con le aree di prodotto di Google (come Cloud, Android, Pixel e Search) nonché con sviluppatori esterni, imprese, ricercatori accademici e istituzioni di settore pubblico per affrontare le esigenze del mondo reale attraverso i flussi di lavoro on-device, sovrani e regolamentati, la scoperta scientifica e il beneficio sociale. Oltre alle varianti di modello open-weight di spedizione, ricette di formazione e ambienti interattivi, si costruirà lo sviluppatore tooling, le integrazioni runtime open source e la strategia di comunicazione in modo che i nostri sistemi AI aperti raggiungere l'adozione diffusa e impostare lo standard del settore.\nL’intelligenza artificiale sarà una delle invenzioni più trasformative dell’umanità. A Google DeepMind, siamo un laboratorio AI pionieristico con team interdisciplinari eccezionali focalizzati sull'avanzamento dello sviluppo AI per risolvere complesse sfide globali e accelerare l'innovazione di prodotto di alta qualità per miliardi di utenti. Utilizziamo le nostre tecnologie per un ampio beneficio pubblico e una scoperta scientifica, assicurando la sicurezza e l'etica sono sempre la nostra massima priorità.\nStiamo spingendo i confini attraverso più domini. I nostri team globali offrono diverse opportunità di apprendimento e percorsi di carriera diversificati per coloro che sono spinti a raggiungere risultati eccezionali attraverso lo sforzo collettivo.\n\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nFrancia: €130000 - €133000 (EUR) + 20% target bonus + equità + benefici\n\nScopri di più sui vantaggi di Google .\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nUS: $192000 - $278000 (USD) + 20% target bonus + equity + benefici\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Comprendere le implicazioni di nuove scoperte di ricerca fondazionali — attraverso architetture di modelli, multimodalità, efficienza on-device, apprendimento di rinforzo, ambienti interattivi e imbracature di agenti trainabili — sulla nostra famiglia modello open-weight (varianti Gemma) e l'ecosistema AI più ampio.\n\n• Costruire collaborazioni con team di ricerca, team di sviluppo del modello core e team di prodotti per fornire varianti di modelli open-weight, post-training e mid-training ambiente runtime, e imbracature di agenti modulari, creando un volano a due vie in cui le innovazioni di ecosistema open-source accelerano direttamente la formazione del modello interno e le capacità di prodotto.\n\n• Lavorare con le aree di prodotto di Google e i partner esterni per comprendere le esigenze del cliente e della società che sono meglio soddisfatti attraverso modelli personalizzabili a peso aperto, distribuzione on-device e valutazione zero-data-leakage e sandbox regolamentari.\n\n• Costruire un ecosistema aperto fiorente di strumenti di sviluppo, SDKs ambiente standardizzato, verifica formale e guardrails di sicurezza, e integrazioni day-one con popolari framework open-source, protocolli di agente e runtime di inferenza.",
+        "en": "Google welcomes people with disabilities.\nNote: By applying to this position you will have an opportunity to share your preferred working location from the following: Paris, France; Zürich, Switzerland; London, UK; Mountain View, CA, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related technical field, or equivalent practical experience.\n\n• 8 years of experience in building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements.\n\nPreferred qualifications:\n\n• Experience building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements.\n\n• Understanding of the current open-weight model and agent landscape, including on-device and cloud inference stacks, fine-tuning and RL post-training workflows, procedural curricula, formal verification, and open-source developer tooling.\n\n• Deep understanding of AI foundation models, reinforcement learning, post-training techniques, and autonomous agent systems (such as planning, tool use, memory, and environment interaction).\n\n• Ability to stay up-to-speed on all relevant research in open-weight foundation models, domain-specialized variants, interactive RL environments, multi-agent simulation, and agent harnesses.\n\nAbout the job\nAs a Product Manager at DeepMind, you will be responsible for shipping AI research breakthroughs into Google’s AI models, products, and open ecosystems. As a Product Manager on Frontier AI within DeepMind, you will be working with AI researchers who are focused on making advances across new model architectures, AGI, and applications like Agents and Robotics. As the Product Manager for AI Ecosystems within Frontier AI, your job will be to guide the strategy and execution across our open-weight models specialized variants (such as the broader Gemmaverse ecosystem) as well as our open interactive training environments, agent harnesses, and privacy-preserving evaluation sandboxes.\n\nYou will understand how frontier research breakthroughs can be translated into ecosystems of open AI systems and creating an impactful two-way flywheel between the global open-source community and Google’s core foundation models like Gemini and Gemma. You will help research teams navigate technical, safety, and ecosystem tradeoffs, build collaborations with core model development teams, and partner with Google product areas (such as Cloud, Android, Pixel, and Search) as well as external developers, enterprises, academic researchers, and public-sector institutions to address real-world needs across on-device AI, sovereign and regulated workflows, scientific discovery, and societal benefit. In addition to shipping open-weight model variants, training recipes, and interactive environments, you will build the developer tooling, open-source runtime integrations, and communication strategy so that our open AI systems achieve widespread adoption and set the industry standard.\nArtificial intelligence will be one of humanity’s most transformative inventions. At Google DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\nWe are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nFrance: €130000 - €133000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $192000 - $278000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Understand the implications of new foundational research breakthroughs—across model architectures, multimodality, on-device efficiency, reinforcement learning, interactive environments, and trainable agent harnesses—on our open-weight model family (Gemma variants) and the broader AI ecosystem.\n\n• Build collaborations with research teams, core model development teams, and product teams to ship open-weight model variants, post-training and mid-training environment runtimes, and modular agent harnesses—creating a two-way flywheel where open-source ecosystem innovations directly accelerate internal model training and product capabilities.\n\n• Work with Google product areas and external partners to understand customer and societal needs that are best met through customizable open-weight models, on-device deployment, and zero-data-leakage evaluation and regulatory sandboxes.\n\n• Build a thriving open ecosystem of developer tooling, standardized environment SDKs, formal verification and safety guardrails, and day-one integrations with popular open-source frameworks, agent protocols, and inference runtimes.",
+        "de": "Google begrüßt Menschen mit Behinderungen.\nHinweis: Wenn Sie sich für diese Position bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter folgenden Adressen zu teilen: Paris, Frankreich; Zürich, Schweiz; London, Großbritannien; Mountain View, CA, USA.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik, einem verwandten technischen Bereich oder gleichwertige praktische Erfahrung.\n\n• 8 Jahre Erfahrung in der Entwicklung von KI-Produkten, Open-Source-Entwicklerplattformen, SDKs oder Modellökosystemen, die auf bedeutenden Modell-, Algorithmus- oder Systementwicklungen beruhen.\n\nBevorzugte Qualifikationen:\n\n• Erleben Sie die Entwicklung von KI-Produkten, Open-Source-Entwicklerplattformen, SDKs oder Modellökosystemen, die auf bedeutenden Modell-, Algorithmus- oder Systementwicklungen beruhen.\n\n• Verständnis des aktuellen Open-Gewicht-Modells und der Agentenlandschaft, einschließlich On-Device- und Cloud-Inferenz-Stacks, Feinabstimmung und RL-Post-Training-Workflows, prozedurale Curricula, formale Verifizierung und Open-Source-Entwickler-Tooling.\n\n• Tiefes Verständnis von KI-Grundlagenmodellen, Reinforcement Learning, Post-Training-Techniken und autonomen Agentensystemen (wie Planung, Werkzeugnutzung, Speicher- und Umgebungsinteraktion).\n\n• Fähigkeit, bei allen relevanten Forschungen in Open-weight-Stiftungsmodellen, domänenspezialisierten Varianten, interaktiven RL-Umgebungen, Multi-Agenten-Simulationen und Agent-Geschirren auf dem neuesten Stand zu bleiben.\n\nÜber den Job\nAls Produktmanager bei DeepMind sind Sie für den Versand von KI-Forschungsdurchbrüchen in die KI-Modelle, Produkte und offenen Ökosysteme von Google verantwortlich. Als Produktmanager für Frontier AI bei DeepMind arbeiten Sie mit KI-Forschern zusammen, die sich auf Fortschritte bei neuen Modellarchitekturen, AGI und Anwendungen wie Agents und Robotics konzentrieren. Als Produktmanager für KI-Ökosysteme innerhalb von Frontier AI besteht Ihre Aufgabe darin, die Strategie und Umsetzung in unseren auf offene Gewichte spezialisierten Varianten (wie dem breiteren Gemmaverse-Ökosystem) sowie in unseren offenen interaktiven Trainingsumgebungen, Agentengeschirren und datenschutzbewahrenden Bewertungs-Sandboxen zu steuern.\n\nSie werden verstehen, wie bahnbrechende Forschungsdurchbrüche in Ökosysteme offener KI-Systeme übersetzt werden können und ein wirkungsvolles Zwei-Wege-Schwungrad zwischen der globalen Open-Source-Community und Googles Kernmodellen wie Gemini und Gemma schaffen. Sie helfen Forschungsteams dabei, technische, Sicherheits- und Ökosystem-Kompromisse zu bewältigen, Kooperationen mit Kernmodellentwicklungsteams aufzubauen und mit Google-Produktbereichen (wie Cloud, Android, Pixel und Search) sowie externen Entwicklern, Unternehmen, akademischen Forschern und Institutionen des öffentlichen Sektors zusammenzuarbeiten, um die realen Bedürfnisse von On-Device-KI, souveränen und regulierten Workflows, wissenschaftlicher Entdeckung und gesellschaftlichem Nutzen zu erfüllen. Neben dem Versand von Modellvarianten mit offenem Gewicht, Trainingsrezepten und interaktiven Umgebungen erstellen Sie die Entwicklertools, Open-Source-Runtime-Integrationen und Kommunikationsstrategien, damit unsere offenen KI-Systeme eine breite Akzeptanz erreichen und den Industriestandard setzen.\nKünstliche Intelligenz wird eine der transformativsten Erfindungen der Menschheit sein. Bei Google DeepMind sind wir ein wegweisendes KI-Labor mit außergewöhnlichen interdisziplinären Teams, die sich darauf konzentrieren, die KI-Entwicklung voranzutreiben, um komplexe globale Herausforderungen zu lösen und qualitativ hochwertige Produktinnovationen für Milliarden von Nutzern zu beschleunigen. Wir nutzen unsere Technologien für den breiten öffentlichen Nutzen und wissenschaftliche Entdeckungen, Sicherheit und Ethik sind immer unsere höchste Priorität.\nWir verschieben die Grenzen über mehrere Domains hinweg. Unsere globalen Teams bieten vielfältige Lernmöglichkeiten und vielfältige Karrierewege für diejenigen, die durch gemeinsame Anstrengungen außergewöhnliche Ergebnisse erzielen wollen.\n\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nFrankreich: €130000 - €133000 (EUR) + 20% Bonusziel + Eigenkapital + Vorteile\n\nErfahren Sie mehr über die Vorteile bei Google.\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nUS: $192000 - $278.000 (USD) + 20% Bonusziel + Eigenkapital + Vorteile\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Verstehen Sie die Auswirkungen neuer grundlegender Forschungsdurchbrüche - über Modellarchitekturen, Multimodalität, On-Device-Effizienz, Reinforcement Learning, interaktive Umgebungen und trainierbare Agentensysteme - auf unsere Open-weight-Modellfamilie (Gemma-Varianten) und das breitere KI-Ökosystem.\n\n• Aufbau von Kooperationen mit Forschungsteams, Kernmodellentwicklungsteams und Produktteams, um Modellvarianten mit offenem Gewicht, Laufzeiten für Post-Trainings- und Mid-Trainingsumgebungen und modulare Agentengurte zu liefern - wodurch ein Zwei-Wege-Schwungrad entsteht, in dem Open-Source-Ökosysteminnovationen das interne Modelltraining und die Produktfähigkeiten direkt beschleunigen.\n\n• Arbeiten Sie mit Google-Produktbereichen und externen Partnern zusammen, um die Bedürfnisse der Kunden und der Gesellschaft zu verstehen, die am besten durch anpassbare Open-weight-Modelle, On-Device-Bereitstellung und Zero-Data-Leckage-Evaluierung und regulatorische Sandboxen erfüllt werden.\n\n• Bauen Sie ein florierendes offenes Ökosystem aus Entwicklertools, standardisierten Umgebungs-SDKs, formalen Verifizierungs- und Sicherheitsleitplanken und Day-One-Integrationen mit gängigen Open-Source-Frameworks, Agentenprotokollen und Inferenzlaufzeiten auf.",
+        "fr": "Google accueille les personnes handicapées.\nRemarque: En postulant à ce poste, vous aurez l'occasion de partager votre lieu de travail préféré parmi les suivants: Paris, France; Zurich, Suisse; Londres, Royaume-Uni; Mountain View, CA, États-Unis.\n\nTitres minimums:\n\n• Baccalauréat en informatique, domaine technique connexe ou expérience pratique équivalente.\n\n• 8 ans d'expérience dans la construction de produits d'IA, de plates-formes de développeurs open-source, de SDK ou d'écosystèmes modèles enracinés dans des avancées significatives de modèles, d'algorithmes ou de systèmes.\n\nQualifications privilégiées:\n\n• Expérimentez la construction de produits d'IA, de plates-formes de développeurs open-source, de SDKs ou d'écosystèmes modèles enracinés dans des avancées significatives de modèles, d'algorithmes ou de systèmes.\n\n• Compréhension du paysage actuel de modèles et d'agents à poids ouvert, y compris les piles d'inférence sur les appareils et les nuages, les workflows de réglage fin et de RL après la formation, les programmes de procédures, la vérification formelle et l'outillage de développeurs à source ouverte.\n\n• Connaissance approfondie des modèles de base de l'IA, renforcement de l'apprentissage, techniques de post-formation et systèmes d'agents autonomes (comme la planification, l'utilisation des outils, la mémoire et l'interaction environnementale).\n\n• Capacité de rester à l'affût de toutes les recherches pertinentes dans les modèles de fondation à poids ouvert, les variantes spécialisées de domaine, les environnements RL interactifs, la simulation multi-agents et les harnais d'agents.\n\nSur le travail\nEn tant que gestionnaire de produits chez DeepMind, vous serez responsable de l'expédition des percées de recherche sur l'IA dans les modèles, produits et écosystèmes ouverts de Google. En tant que gestionnaire de produit sur l'IA Frontière au sein de DeepMind, vous travaillerez avec des chercheurs sur l'IA qui s'emploient à faire des progrès dans de nouvelles architectures modèles, l'AGI et des applications comme Agents et Robotics. En tant que gestionnaire de produits pour les écosystèmes d'IA au sein de Frontier AI, votre travail sera de guider la stratégie et l'exécution à travers nos modèles à poids ouvert des variantes spécialisées (comme l'écosystème Gemmaver) ainsi que nos environnements de formation interactifs ouverts, les harnais d'agents et les boîtes à sable d'évaluation de préservation de la vie privée.\n\nVous comprendrez comment les percées de la recherche sur les frontières peuvent se traduire en écosystèmes de systèmes d'IA ouverts et créer un volant bidirectionnel impacté entre la communauté open-source mondiale et les modèles de base de Google, comme Gemini et Gemma. Vous aiderez les équipes de recherche à faire des compromis techniques, sécuritaires et écosystémiques, à établir des collaborations avec des équipes de développement de modèles de base, et à établir des partenariats avec des domaines de produits Google (tels que Cloud, Android, Pixel et Search) ainsi qu'avec des développeurs externes, des entreprises, des chercheurs universitaires et des institutions du secteur public afin de répondre aux besoins réels de l'IA, des flux de travail souverains et réglementés, des découvertes scientifiques et des avantages sociaux. En plus d'expédier des variantes de modèles open-weight, des recettes de formation et des environnements interactifs, vous allez construire l'outillage développeur, les intégrations d'autonomie open-source et la stratégie de communication afin que nos systèmes d'IA ouverts atteignent une large adoption et de définir la norme de l'industrie.\nL'intelligence artificielle sera l'une des inventions les plus transformatrices de l'humanité. Chez Google DeepMind, nous sommes un laboratoire d'IA pionnier avec des équipes interdisciplinaires exceptionnelles axées sur le développement de l'IA pour résoudre des défis mondiaux complexes et accélérer l'innovation de produits de haute qualité pour des milliards d'utilisateurs. Nous utilisons nos technologies à des fins d'intérêt général et de découverte scientifique, en veillant à ce que la sécurité et l'éthique soient toujours notre priorité absolue.\nNous repoussons les frontières entre plusieurs domaines. Nos équipes mondiales offrent diverses possibilités d'apprentissage et des parcours de carrière variés pour ceux qui sont motivés par des résultats exceptionnels grâce à des efforts collectifs.\n\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nFrance : 130000 € - 133000 € (EUR) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nÉtats-Unis : 192000 - 278000 $ (USD) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Comprendre les implications des nouvelles percées de la recherche fondamentale – à travers les architectures de modèles, la multimodalité, l'efficacité sur les appareils, le renforcement de l'apprentissage, les environnements interactifs et les harnais d'agents formateurs – sur notre famille de modèles à poids ouvert (variantes de Gemma) et sur l'écosystème plus large de l'IA.\n\n• Bâtir des collaborations avec des équipes de recherche, des équipes de développement de modèles de base et des équipes de produits pour expédier des variantes de modèles à poids libre, des cycles d'environnement post-formation et de milieu de formation et des harnais d'agents modulaires, créant un volant bidirectionnel où les innovations écosystémiques à source ouverte accélèrent directement la formation interne de modèles et les capacités de produits.\n\n• Collaborer avec les secteurs de produits Google et les partenaires externes pour comprendre les besoins des clients et de la société qui sont le mieux satisfaits grâce à des modèles de poids ouvert personnalisables, le déploiement sur les appareils, et l'évaluation zéro fuite de données et des bacs à sable réglementaires.\n\n• Bâtir un écosystème ouvert prospère d'outils de développement, de SDK d'environnement normalisé, de vérifications formelles et de garde-corps de sécurité, et d'intégrations d'une journée avec des cadres open-source populaires, des protocoles d'agents et des durées d'inférence."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/129187054603903686-senior-product-manager-ai-ecosystems-frontier-ai-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:56.343Z",
+      "crawledAt": "2026-11-04T09:15:09.666Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -624,11 +703,25 @@
       ],
       "requirementsByLocale": {
         "en": [
-          "Bachelor's degree in Computer Science, a related technical field, or equivalent practical experience.",
-          "8 years of experience in building AI products, open-source developer platforms, SDKs, or model ecosystems rooted in significant model, algorithmic, or systems advancements."
+          "Bachelor's degree in Computer Science, a related technical field, or equivalent practical experience."
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
+        ],
+        "de": [
+          "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-03T21:26:56.343Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -643,23 +736,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:26:56.343Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:26:56.343Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
-        ],
-        "de": [
-          "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
-        ],
-        "fr": [
-          "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-product-manager-ai-ecosystems-frontier-ai-deepmind-google-switzerland-zurich"
-      ]
+      "validThrough": "2027-02-02T09:15:09.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-4221e9f81a91",
@@ -692,7 +770,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/108135834237969094-principal-engineer-hybrid-cloud-environment",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:55.808Z",
+      "crawledAt": "2026-11-04T09:15:09.115Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -736,7 +814,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:26:55.808Z",
+      "validThrough": "2027-01-22T09:15:09.115Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -770,7 +848,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81313308207915718-group-product-manager-search-content-platform",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:55.278Z",
+      "crawledAt": "2026-11-04T09:15:08.578Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -827,7 +905,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:26:55.278Z",
+      "validThrough": "2026-12-19T09:15:08.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -861,7 +939,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86601143093732038-software-engineering-manager-securityprivacy",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:54.738Z",
+      "crawledAt": "2026-11-04T09:15:08.043Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -911,7 +989,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:26:54.738Z",
+      "validThrough": "2026-12-30T09:15:08.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -945,7 +1023,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/122439536427836102-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:54.209Z",
+      "crawledAt": "2026-11-04T09:15:07.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -988,7 +1066,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:26:54.209Z",
+      "validThrough": "2026-12-23T09:15:07.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1022,7 +1100,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/115399839411249862-applied-ml-graph-neural-network-research-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:53.657Z",
+      "crawledAt": "2026-11-04T09:15:06.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1080,7 +1158,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:26:53.657Z",
+      "validThrough": "2027-01-08T09:15:06.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1114,7 +1192,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/101053210633872070-senior-software-engineer-search-quality",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:53.100Z",
+      "crawledAt": "2026-11-04T09:15:06.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1161,7 +1239,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:26:53.100Z",
+      "validThrough": "2027-01-26T09:15:06.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1195,7 +1273,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/132589149738672838-software-engineer-iii-retail-advertiser-intelligence-google-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:52.555Z",
+      "crawledAt": "2026-11-04T09:15:05.886Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1239,7 +1317,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:26:52.555Z",
+      "validThrough": "2027-02-01T09:15:05.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1273,7 +1351,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:52.006Z",
+      "crawledAt": "2026-11-04T09:15:05.341Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1318,7 +1396,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:26:52.006Z",
+      "validThrough": "2026-12-09T09:15:05.341Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1352,7 +1430,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:51.467Z",
+      "crawledAt": "2026-11-04T09:15:04.807Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1395,7 +1473,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:26:51.467Z",
+      "validThrough": "2026-12-04T09:15:04.807Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1429,7 +1507,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110546686085866182-staff-software-engineer-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:50.918Z",
+      "crawledAt": "2026-11-04T09:15:04.213Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1489,7 +1567,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T21:26:50.918Z",
+      "validThrough": "2027-01-07T09:15:04.213Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1523,7 +1601,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79953021198312134-senior-ux-design-manager-youtube-studio-and-support",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:50.373Z",
+      "crawledAt": "2026-11-04T09:15:03.679Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1573,7 +1651,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:26:50.373Z",
+      "validThrough": "2026-12-24T09:15:03.679Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1607,7 +1685,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/92934080961618630-security-engineer-operational-technology-google-cloud-ciso",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:49.780Z",
+      "crawledAt": "2026-11-04T09:15:03.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1656,7 +1734,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:26:49.780Z",
+      "validThrough": "2027-01-15T09:15:03.137Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1690,7 +1768,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79119194099983046-software-engineer-iii-merchant-shopping-intelligence-and-agents",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:49.246Z",
+      "crawledAt": "2026-11-04T09:15:02.594Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1734,7 +1812,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:26:49.246Z",
+      "validThrough": "2027-01-06T09:15:02.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1768,7 +1846,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:48.677Z",
+      "crawledAt": "2026-11-04T09:15:02.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1823,7 +1901,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:26:48.677Z",
+      "validThrough": "2027-01-18T09:15:02.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1857,7 +1935,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/100862281352389318-senior-product-manager-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:48.076Z",
+      "crawledAt": "2026-11-04T09:15:01.516Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1916,7 +1994,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:26:48.076Z",
+      "validThrough": "2027-01-14T09:15:01.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1950,7 +2028,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:47.547Z",
+      "crawledAt": "2026-11-04T09:15:01.000Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2020,7 +2098,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:26:47.547Z",
+      "validThrough": "2026-12-04T09:15:01.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2054,7 +2132,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123274137962455750-senior-security-engineer-google-threat-intelligence-group-threat-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:47.011Z",
+      "crawledAt": "2026-11-04T09:15:00.433Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2111,7 +2189,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:26:47.011Z",
+      "validThrough": "2027-01-05T09:15:00.433Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2145,7 +2223,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/103614681884566214-senior-engineering-traffic-analyst-search-antiscraper",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:46.397Z",
+      "crawledAt": "2026-11-04T09:14:59.893Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2203,7 +2281,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:26:46.397Z",
+      "validThrough": "2027-02-01T09:14:59.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2237,7 +2315,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:45.703Z",
+      "crawledAt": "2026-11-04T09:14:59.359Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2282,7 +2360,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:26:45.703Z",
+      "validThrough": "2027-01-27T09:14:59.359Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2316,7 +2394,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112693881165750982-software-engineer-iii-aiml-youtube-shopping-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:44.997Z",
+      "crawledAt": "2026-11-04T09:14:58.851Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2362,7 +2440,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:26:44.997Z",
+      "validThrough": "2027-01-06T09:14:58.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2396,7 +2474,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110222556983632582-software-engineer-iii-site-reliability-engineering-prod-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:44.452Z",
+      "crawledAt": "2026-11-04T09:14:58.324Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2440,7 +2518,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:26:44.452Z",
+      "validThrough": "2027-01-04T09:14:58.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2474,7 +2552,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/84561862556820166-data-scientist-product-ms-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:43.293Z",
+      "crawledAt": "2026-11-04T09:14:57.249Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2518,7 +2596,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:26:43.293Z",
+      "validThrough": "2027-01-02T09:14:57.249Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2552,7 +2630,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:42.741Z",
+      "crawledAt": "2026-11-04T09:14:56.713Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2596,7 +2674,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:26:42.741Z",
+      "validThrough": "2026-12-04T09:14:56.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2630,7 +2708,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123236883416130246-staff-research-engineer-generative-ai-cloud-ai-research-coscientist",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:42.192Z",
+      "crawledAt": "2026-11-04T09:14:56.191Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2690,7 +2768,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:26:42.192Z",
+      "validThrough": "2027-01-08T09:14:56.191Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2724,7 +2802,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:41.621Z",
+      "crawledAt": "2026-11-04T09:14:55.666Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2771,7 +2849,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T21:26:41.621Z",
+      "validThrough": "2027-01-04T09:14:55.666Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2805,7 +2883,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:41.073Z",
+      "crawledAt": "2026-11-04T09:14:55.127Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2850,7 +2928,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:26:41.073Z",
+      "validThrough": "2027-01-27T09:14:55.127Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2884,7 +2962,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:40.515Z",
+      "crawledAt": "2026-11-04T09:14:54.588Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2952,7 +3030,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T21:26:40.515Z",
+      "validThrough": "2026-12-04T09:14:54.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2986,7 +3064,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104448828152652486-research-scientist-user-signals-from-agentic-logs-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:39.960Z",
+      "crawledAt": "2026-11-04T09:14:54.035Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3047,7 +3125,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:26:39.960Z",
+      "validThrough": "2027-01-19T09:14:54.035Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3081,7 +3159,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:39.419Z",
+      "crawledAt": "2026-11-04T09:14:53.523Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3126,7 +3204,86 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:26:39.419Z",
+      "validThrough": "2027-01-22T09:14:53.523Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-9777c4779c16",
+      "slug": "software-engineer-iii-information-security-google-switzerland-zurich",
+      "slugByLocale": {
+        "it": "software-engineer-iii-information-security-google-switzerland-zurich",
+        "en": "software-engineer-iii-information-security-google-switzerland-zurich",
+        "de": "software-engineer-iii-information-security-google-switzerland-zurich",
+        "fr": "software-engineer-iii-information-security-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Software Engineer III, Information Security",
+      "titleByLocale": {
+        "it": "Software Ingegnere III, Information Security",
+        "en": "Software Engineer III, Information Security",
+        "de": "Software Ingenieur III, Information Security",
+        "fr": "Software Ingénieur III, Information Security"
+      },
+      "description": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Rust coding language.\n\n• System Architecture, Compilers, Open Source Technologies, Open Source Contributor, Programming Language Implementation experience.\n\n• Security and API Design experience.\n\n• Foundations in security engineering, computer and network security.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\nThe Core team builds the technical foundation behind Google’s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google’s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €106000 - €108000 (EUR) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Design and implement new techniques and make them work for extremely large scale software systems across many product teams. Help deploy exploit mitigations, retrofit spatial safety to C++ and transition Google to memory safe programming languages such as Rust.\n\n• Build strong partnerships and collaborate with partner teams in Google's Memory Safety program, as well as with industry and academia.\n\n• Fix memory safety across all Google products. From initial security research and tactical exploit mitigations to engineering away classes of problems and addressing their root cause.\n\n• Research and apply innovative techniques for memory safety, from program analysis to machine learning.",
+      "descriptionByLocale": {
+        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione. Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Monaco, Germania; Zurigo, Svizzera.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, o 1 anno di esperienza con un grado avanzato.\n\n• 2 anni di software per la costruzione di esperienze per la privacy dei dati o la sicurezza (ad esempio, l'identità e la gestione degli accessi).\n\nPreferiti:\n\n• Laurea magistrale o dottorato in Informatica o campi tecnici correlati.\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza con la lingua di codifica Rust.\n\n• Architettura di sistema, Compilers, Tecnologie Open Source, Contributor Open Source, Linguaggio di programmazione esperienza di attuazione.\n\n• Sicurezza e API Design esperienza.\n\n• Fondamenti in ingegneria della sicurezza, sicurezza informatica e di rete.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e la memorizzazione dei dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. In qualità di ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\nIl team Core costruisce il fondamento tecnico dietro i prodotti di punta di Google. Siamo proprietari e sostenitori per gli elementi di progettazione sottostanti, piattaforme di sviluppo, componenti di prodotto e infrastrutture a Google. Questi sono i mattoni essenziali per esperienze eccellenti, sicure e coerenti per i nostri utenti e guidare il ritmo di innovazione per ogni sviluppatore. Guardiamo attraverso i prodotti di Google per costruire soluzioni centrali, abbattere le barriere tecniche e rafforzare i sistemi esistenti. Come team Core, abbiamo un mandato e un'opportunità unica per influenzare importanti decisioni tecniche in tutta l'azienda. La retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nGermania: €106000 - €108000 (EUR) + 15% target bonus + equità + prestazioni\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Progettare e implementare nuove tecniche e farli lavorare per sistemi software di grandi dimensioni in molti team di prodotti. Aiuta a implementare le mitigazioni di exploit, a riadattare la sicurezza spaziale a C++ e a trasferire Google a linguaggi di programmazione sicuri come Rust.\n\n• Costruire partnership forti e collaborare con i team partner nel programma Memory Safety di Google, così come con l'industria e l'accademia.\n\n• Fissare la sicurezza della memoria su tutti i prodotti Google. Dalla ricerca iniziale di sicurezza e dalle mitigazioni tattiche di exploit all'ingegneria classi di problemi e affrontando la loro causa principale.\n\n• Ricerca e applica tecniche innovative per la sicurezza della memoria, dall'analisi del programma all'apprendimento automatico.",
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Rust coding language.\n\n• System Architecture, Compilers, Open Source Technologies, Open Source Contributor, Programming Language Implementation experience.\n\n• Security and API Design experience.\n\n• Foundations in security engineering, computer and network security.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\nThe Core team builds the technical foundation behind Google’s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google’s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €106000 - €108000 (EUR) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Design and implement new techniques and make them work for extremely large scale software systems across many product teams. Help deploy exploit mitigations, retrofit spatial safety to C++ and transition Google to memory safe programming languages such as Rust.\n\n• Build strong partnerships and collaborate with partner teams in Google's Memory Safety program, as well as with industry and academia.\n\n• Fix memory safety across all Google products. From initial security research and tactical exploit mitigations to engineering away classes of problems and addressing their root cause.\n\n• Research and apply innovative techniques for memory safety, from program analysis to machine learning.",
+        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses. Hinweis: Wenn Sie sich für diese Stelle bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsplatz in München, Deutschland, Zürich, Schweiz, zu teilen.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 2 Jahre Erfahrung in der Erstellung von Software für Datenschutz oder Sicherheit (z. B. Identitäts- und Zugriffsmanagement).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereichen.\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung mit der Programmiersprache Rust.\n\n• Systemarchitektur, Compiler, Open Source Technologien, Open Source Contributor, Programmiersprache Implementierungserfahrung.\n\n• Sicherheit und API Design Erfahrung.\n\n• Grundlagen in Security Engineering, Computer- und Netzwerksicherheit.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und enthusiastisch zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\nDas Core-Team bildet die technische Grundlage für die Flaggschiffprodukte von Google. Wir sind Eigentümer und Befürworter der zugrunde liegenden Designelemente, Entwicklerplattformen, Produktkomponenten und Infrastruktur bei Google. Dies sind die wesentlichen Bausteine für hervorragende, sichere und kohärente Erlebnisse für unsere Benutzer und treiben das Innovationstempo für jeden Entwickler voran. Wir schauen uns die Produkte von Google an, um zentrale Lösungen zu entwickeln, technische Barrieren abzubauen und bestehende Systeme zu stärken. Als Kernteam haben wir ein Mandat und eine einzigartige Gelegenheit, wichtige technische Entscheidungen im gesamten Unternehmen zu beeinflussen. Die individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Aus- oder Weiterbildung bestimmt.\n\nDeutschland: 106000 € - 108000 € (EUR) + 15% Bonusziel + Eigenkapital + Leistungen\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Entwerfen und implementieren Sie neue Techniken und lassen Sie sie für extrem große Softwaresysteme in vielen Produktteams arbeiten. Helfen Sie bei der Bereitstellung von Exploits, der Nachrüstung der räumlichen Sicherheit für C++ und der Umstellung von Google auf speichersichere Programmiersprachen wie Rust.\n\n• Aufbau starker Partnerschaften und Zusammenarbeit mit Partnerteams im Google Memory Safety-Programm sowie mit Industrie und Wissenschaft.\n\n• Beheben Sie die Speichersicherheit für alle Google-Produkte. Von anfänglicher Sicherheitsforschung und taktischen Exploit-Abschwächungen bis hin zur Entwicklung von Problemklassen und deren Ursachen.\n\n• Erforschung und Anwendung innovativer Techniken für die Speichersicherheit, von der Programmanalyse bis zum maschinellen Lernen.",
+        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche. Remarque: En postulant à ce poste, vous aurez l'occasion de partager votre lieu de travail préféré parmi les suivants: Munich, Allemagne; Zurich, Suisse.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, ou 1 an d'expérience avec un diplôme avancé.\n\n• 2 ans d'expérience dans la création de logiciels pour la protection des données ou la sécurité (p. ex. gestion de l'identité et de l'accès).\n\nTitres préférés:\n\n• Maîtrise ou doctorat en informatique ou domaines techniques connexes.\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience avec le langage de codage Rust.\n\n• Architecture système, Compilateurs, Technologies Open Source, Contributeur Open Source, Expérience de mise en œuvre de langage de programmation.\n\n• Sécurité et API Expérience de conception.\n\n• Fondations en ingénierie de la sécurité, sécurité informatique et réseau.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et l'autre. Nos produits doivent traiter l'information à grande échelle et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la récupération d'information, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur en logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google.Vous aurez l'occasion de changer d'équipes et de projets au fur et à mesure que vous et notre entreprise à rythme rapide grandirez et évoluerez. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes dans l'ensemble de la pile alors que nous continuons à faire avancer la technologie.\nL'équipe de base construit la base technique derrière les produits phares de Google. Nous sommes propriétaires et défenseurs des éléments de conception sous-jacents, des plateformes de développement, des composants de produits et de l'infrastructure chez Google. Ce sont les éléments essentiels pour des expériences excellentes, sûres et cohérentes pour nos utilisateurs et stimuler le rythme de l'innovation pour chaque développeur. Nous regardons les produits de Google pour construire des solutions centrales, briser les barrières techniques et renforcer les systèmes existants. En tant qu'équipe principale, nous avons un mandat et une occasion unique d'influer sur les décisions techniques importantes de l'entreprise. La rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nAllemagne: 106000 € - 108000 € (EUR) + 15% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Concevoir et mettre en œuvre de nouvelles techniques et les faire fonctionner pour des systèmes logiciels à très grande échelle dans de nombreuses équipes de produits. Aidez à déployer exploiter les mesures d'atténuation, à moderniser la sécurité spatiale en C++ et à transférer Google vers des langages de programmation sécurisés comme Rust.\n\n• Bâtir des partenariats solides et collaborer avec des équipes partenaires dans le programme de sécurité de la mémoire de Google, ainsi qu'avec l'industrie et le milieu universitaire.\n\n• Fixer la sécurité de la mémoire sur tous les produits Google. De la recherche initiale sur la sécurité et de l'exploitation tactique des mesures d'atténuation à l'ingénierie des classes de problèmes et à la résolution de leurs causes profondes.\n\n• Recherche et application de techniques novatrices pour la sécurité de la mémoire, de l'analyse des programmes à l'apprentissage automatique."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-04T09:14:53.003Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
+      "jobReqId": "75492331247018694",
+      "requirements": [
+        "Bachelor’s degree or equivalent practical experience.",
+        "2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.",
+        "2 years of experience building software for data privacy or security (e.g., identity and access management)."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor’s degree or equivalent practical experience.",
+          "2 years of experience building software for data privacy or security (e.g., identity and access management)."
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:23:23.766Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:14:53.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3160,7 +3317,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81427103366423238-staff-software-engineer-generative-ai-commerce",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:38.884Z",
+      "crawledAt": "2026-11-04T09:14:52.461Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3208,86 +3365,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T21:26:38.884Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "google-switzerland-9777c4779c16",
-      "slug": "software-engineer-iii-information-security-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "software-engineer-iii-information-security-google-switzerland-zurich",
-        "en": "software-engineer-iii-information-security-google-switzerland-zurich",
-        "de": "software-engineer-iii-information-security-google-switzerland-zurich",
-        "fr": "software-engineer-iii-information-security-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Software Engineer III, Information Security",
-      "titleByLocale": {
-        "it": "Software Ingegnere III, Information Security",
-        "en": "Software Engineer III, Information Security",
-        "de": "Software Ingenieur III, Information Security",
-        "fr": "Software Ingénieur III, Information Security"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Rust coding language.\n\n• System Architecture, Compilers, Open Source Technologies, Open Source Contributor, Programming Language Implementation experience.\n\n• Security and API Design experience.\n\n• Foundations in security engineering, computer and network security.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\nThe Core team builds the technical foundation behind Google’s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google’s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €106000 - €108000 (EUR) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Design and implement new techniques and make them work for extremely large scale software systems across many product teams. Help deploy exploit mitigations, retrofit spatial safety to C++ and transition Google to memory safe programming languages such as Rust.\n\n• Build strong partnerships and collaborate with partner teams in Google's Memory Safety program, as well as with industry and academia.\n\n• Fix memory safety across all Google products. From initial security research and tactical exploit mitigations to engineering away classes of problems and addressing their root cause.\n\n• Research and apply innovative techniques for memory safety, from program analysis to machine learning.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione. Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Monaco, Germania; Zurigo, Svizzera.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, o 1 anno di esperienza con un grado avanzato.\n\n• 2 anni di software per la costruzione di esperienze per la privacy dei dati o la sicurezza (ad esempio, l'identità e la gestione degli accessi).\n\nPreferiti:\n\n• Laurea magistrale o dottorato in Informatica o campi tecnici correlati.\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza con la lingua di codifica Rust.\n\n• Architettura di sistema, Compilers, Tecnologie Open Source, Contributor Open Source, Linguaggio di programmazione esperienza di attuazione.\n\n• Sicurezza e API Design esperienza.\n\n• Fondamenti in ingegneria della sicurezza, sicurezza informatica e di rete.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e la memorizzazione dei dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. In qualità di ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\nIl team Core costruisce il fondamento tecnico dietro i prodotti di punta di Google. Siamo proprietari e sostenitori per gli elementi di progettazione sottostanti, piattaforme di sviluppo, componenti di prodotto e infrastrutture a Google. Questi sono i mattoni essenziali per esperienze eccellenti, sicure e coerenti per i nostri utenti e guidare il ritmo di innovazione per ogni sviluppatore. Guardiamo attraverso i prodotti di Google per costruire soluzioni centrali, abbattere le barriere tecniche e rafforzare i sistemi esistenti. Come team Core, abbiamo un mandato e un'opportunità unica per influenzare importanti decisioni tecniche in tutta l'azienda. La retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nGermania: €106000 - €108000 (EUR) + 15% target bonus + equità + prestazioni\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Progettare e implementare nuove tecniche e farli lavorare per sistemi software di grandi dimensioni in molti team di prodotti. Aiuta a implementare le mitigazioni di exploit, a riadattare la sicurezza spaziale a C++ e a trasferire Google a linguaggi di programmazione sicuri come Rust.\n\n• Costruire partnership forti e collaborare con i team partner nel programma Memory Safety di Google, così come con l'industria e l'accademia.\n\n• Fissare la sicurezza della memoria su tutti i prodotti Google. Dalla ricerca iniziale di sicurezza e dalle mitigazioni tattiche di exploit all'ingegneria classi di problemi e affrontando la loro causa principale.\n\n• Ricerca e applica tecniche innovative per la sicurezza della memoria, dall'analisi del programma all'apprendimento automatico.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Rust coding language.\n\n• System Architecture, Compilers, Open Source Technologies, Open Source Contributor, Programming Language Implementation experience.\n\n• Security and API Design experience.\n\n• Foundations in security engineering, computer and network security.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\nThe Core team builds the technical foundation behind Google’s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google’s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €106000 - €108000 (EUR) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Design and implement new techniques and make them work for extremely large scale software systems across many product teams. Help deploy exploit mitigations, retrofit spatial safety to C++ and transition Google to memory safe programming languages such as Rust.\n\n• Build strong partnerships and collaborate with partner teams in Google's Memory Safety program, as well as with industry and academia.\n\n• Fix memory safety across all Google products. From initial security research and tactical exploit mitigations to engineering away classes of problems and addressing their root cause.\n\n• Research and apply innovative techniques for memory safety, from program analysis to machine learning.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses. Hinweis: Wenn Sie sich für diese Stelle bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsplatz in München, Deutschland, Zürich, Schweiz, zu teilen.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 2 Jahre Erfahrung in der Erstellung von Software für Datenschutz oder Sicherheit (z. B. Identitäts- und Zugriffsmanagement).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereichen.\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung mit der Programmiersprache Rust.\n\n• Systemarchitektur, Compiler, Open Source Technologien, Open Source Contributor, Programmiersprache Implementierungserfahrung.\n\n• Sicherheit und API Design Erfahrung.\n\n• Grundlagen in Security Engineering, Computer- und Netzwerksicherheit.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und enthusiastisch zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\nDas Core-Team bildet die technische Grundlage für die Flaggschiffprodukte von Google. Wir sind Eigentümer und Befürworter der zugrunde liegenden Designelemente, Entwicklerplattformen, Produktkomponenten und Infrastruktur bei Google. Dies sind die wesentlichen Bausteine für hervorragende, sichere und kohärente Erlebnisse für unsere Benutzer und treiben das Innovationstempo für jeden Entwickler voran. Wir schauen uns die Produkte von Google an, um zentrale Lösungen zu entwickeln, technische Barrieren abzubauen und bestehende Systeme zu stärken. Als Kernteam haben wir ein Mandat und eine einzigartige Gelegenheit, wichtige technische Entscheidungen im gesamten Unternehmen zu beeinflussen. Die individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Aus- oder Weiterbildung bestimmt.\n\nDeutschland: 106000 € - 108000 € (EUR) + 15% Bonusziel + Eigenkapital + Leistungen\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Entwerfen und implementieren Sie neue Techniken und lassen Sie sie für extrem große Softwaresysteme in vielen Produktteams arbeiten. Helfen Sie bei der Bereitstellung von Exploits, der Nachrüstung der räumlichen Sicherheit für C++ und der Umstellung von Google auf speichersichere Programmiersprachen wie Rust.\n\n• Aufbau starker Partnerschaften und Zusammenarbeit mit Partnerteams im Google Memory Safety-Programm sowie mit Industrie und Wissenschaft.\n\n• Beheben Sie die Speichersicherheit für alle Google-Produkte. Von anfänglicher Sicherheitsforschung und taktischen Exploit-Abschwächungen bis hin zur Entwicklung von Problemklassen und deren Ursachen.\n\n• Erforschung und Anwendung innovativer Techniken für die Speichersicherheit, von der Programmanalyse bis zum maschinellen Lernen.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche. Remarque: En postulant à ce poste, vous aurez l'occasion de partager votre lieu de travail préféré parmi les suivants: Munich, Allemagne; Zurich, Suisse.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, ou 1 an d'expérience avec un diplôme avancé.\n\n• 2 ans d'expérience dans la création de logiciels pour la protection des données ou la sécurité (p. ex. gestion de l'identité et de l'accès).\n\nTitres préférés:\n\n• Maîtrise ou doctorat en informatique ou domaines techniques connexes.\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience avec le langage de codage Rust.\n\n• Architecture système, Compilateurs, Technologies Open Source, Contributeur Open Source, Expérience de mise en œuvre de langage de programmation.\n\n• Sécurité et API Expérience de conception.\n\n• Fondations en ingénierie de la sécurité, sécurité informatique et réseau.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et l'autre. Nos produits doivent traiter l'information à grande échelle et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la récupération d'information, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur en logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google.Vous aurez l'occasion de changer d'équipes et de projets au fur et à mesure que vous et notre entreprise à rythme rapide grandirez et évoluerez. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes dans l'ensemble de la pile alors que nous continuons à faire avancer la technologie.\nL'équipe de base construit la base technique derrière les produits phares de Google. Nous sommes propriétaires et défenseurs des éléments de conception sous-jacents, des plateformes de développement, des composants de produits et de l'infrastructure chez Google. Ce sont les éléments essentiels pour des expériences excellentes, sûres et cohérentes pour nos utilisateurs et stimuler le rythme de l'innovation pour chaque développeur. Nous regardons les produits de Google pour construire des solutions centrales, briser les barrières techniques et renforcer les systèmes existants. En tant qu'équipe principale, nous avons un mandat et une occasion unique d'influer sur les décisions techniques importantes de l'entreprise. La rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nAllemagne: 106000 € - 108000 € (EUR) + 15% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Concevoir et mettre en œuvre de nouvelles techniques et les faire fonctionner pour des systèmes logiciels à très grande échelle dans de nombreuses équipes de produits. Aidez à déployer exploiter les mesures d'atténuation, à moderniser la sécurité spatiale en C++ et à transférer Google vers des langages de programmation sécurisés comme Rust.\n\n• Bâtir des partenariats solides et collaborer avec des équipes partenaires dans le programme de sécurité de la mémoire de Google, ainsi qu'avec l'industrie et le milieu universitaire.\n\n• Fixer la sécurité de la mémoire sur tous les produits Google. De la recherche initiale sur la sécurité et de l'exploitation tactique des mesures d'atténuation à l'ingénierie des classes de problèmes et à la résolution de leurs causes profondes.\n\n• Recherche et application de techniques novatrices pour la sécurité de la mémoire, de l'analyse des programmes à l'apprentissage automatique."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:26:38.341Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
-      "jobReqId": "75492331247018694",
-      "requirements": [
-        "Bachelor’s degree or equivalent practical experience.",
-        "2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.",
-        "2 years of experience building software for data privacy or security (e.g., identity and access management)."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree or equivalent practical experience.",
-          "2 years of experience building software for data privacy or security (e.g., identity and access management)."
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:23:23.766Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:26:38.341Z",
+      "validThrough": "2027-01-03T09:14:52.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3374,7 +3452,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-04T09:15:41.440Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
