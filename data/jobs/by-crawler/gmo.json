@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-11-04T09:15:51.411Z",
-  "runId": "41804745135",
+  "assembledAt": "2026-11-04T21:19:38.919Z",
+  "runId": "41912934034",
   "jobs": [
     {
       "id": "gmo-06d32a1fe66e",
@@ -35,7 +35,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.614Z",
+      "crawledAt": "2026-11-04T21:19:34.029Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -78,85 +78,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:15:46.614Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "gmo-785f6aa1a91e",
-      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
-      "slugByLocale": {
-        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
-        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
-        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1",
-        "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-      },
-      "slugDisambiguator": "785f6aa1",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Médecin interniste généraliste FMH",
-      "titleByLocale": {
-        "it": "Generalista internista medico FMH",
-        "en": "Generalist internist physician FMH",
-        "de": "Generalist Internist Arzt FMH",
-        "fr": "Médecin interniste généraliste FMH"
-      },
-      "description": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !",
-      "descriptionByLocale": {
-        "it": "Per arricchire la nostra offerta medica e servire meglio la popolazione locale, stiamo cercando un Internist Medical Officer titolare di FMH Generalist, pronto per essere coinvolto nel nostro team dinamico in Cité Generations - Health House in Onex.\nIn qualità di professionista indipendente, avrete l'opportunità di seguire i vostri pazienti nel reparto medicina interna, partecipando alle attività di servizio di emergenza. Questo vi permetterà di diversificare le vostre competenze in un ambiente stimolante.\nIl vostro ambiente di lavoro:\nSe state progettando di passare a una pratica privata, vi offriamo uno spazio multidisciplinare ideale. Vi forniamo tutti gli strumenti necessari per garantire una pratica medica di alta qualità.\n• Flessibilità e autonomia professionale:\n• Scegli il tuo tasso di attività in base alle tue aspirazioni professionali e personali.\n• Richiesto:\n• Diritto di pratica e di autorizzazione ad addebitare AOS\n• Interessante? Inviaci la tua richiesta!",
-        "en": "To enrich our medical offer and better serve the local population, we are looking for an Internist Medical Officer FMH holder Generalist, ready to get involved in our dynamic team in Cité Generations - Health House in Onex.\nAs an independent professional, you will have the opportunity to follow your patients in the internal medicine department while participating in the emergency service activities. This will allow you to diversify your skills in a stimulating environment.\nYour work environment:\nIf you are planning to move to a private practice, we offer you an ideal multidisciplinary space. We provide you with all the necessary tools to guarantee high quality medical practice.\n• Flexibility and professional autonomy:\n• Choose your activity rate according to your professional and personal aspirations.\n• Required:\n• Right of practice and authorisation to charge AOS\n• Interested? Send us your application!",
-        "de": "Um unser medizinisches Angebot zu bereichern und der lokalen Bevölkerung besser zu dienen, suchen wir einen Internist Medical Officer FMH Generalist, der bereit ist, sich in unserem dynamischen Team in Cité Generations - Health House in Onex zu engagieren.\nAls unabhängiger Fachmann haben Sie die Möglichkeit, Ihren Patienten in der internen Medizinabteilung zu folgen, während Sie an den Notfallaktivitäten teilnehmen. Dies ermöglicht es Ihnen, Ihre Fähigkeiten in einer anregenden Umgebung zu diversifizieren.\nIhr Arbeitsumfeld:\nWenn Sie planen, in eine Privatpraxis zu ziehen, bieten wir Ihnen einen idealen multidisziplinären Raum. Wir stellen Ihnen alle notwendigen Werkzeuge zur Verfügung, um eine qualitativ hochwertige medizinische Praxis zu gewährleisten.\n• Flexibilität und berufliche Autonomie:\n• Wählen Sie Ihre Aktivitätsrate nach Ihren beruflichen und persönlichen Ambitionen.\n• Vorgeschrieben:\n• Ausübungsrecht und Ermächtigung zur Erhebung von AOS\n• Interessiert? Schicken Sie uns Ihre Bewerbung!",
-        "fr": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !"
-      },
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.613Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:15:39.486Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Onex",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:15:46.613Z",
+      "validThrough": "2026-12-28T21:19:34.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -191,7 +113,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-expert-18",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.613Z",
+      "crawledAt": "2026-11-04T21:19:34.028Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -238,7 +160,7 @@
       },
       "streetAddress": "Petit-Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:15:46.613Z",
+      "validThrough": "2026-12-28T21:19:34.028Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -273,7 +195,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.612Z",
+      "crawledAt": "2026-11-04T21:19:34.027Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -316,7 +238,85 @@
       },
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:15:46.612Z",
+      "validThrough": "2026-12-28T21:19:34.027Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gmo-785f6aa1a91e",
+      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
+      "slugByLocale": {
+        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
+        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
+        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1",
+        "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+      },
+      "slugDisambiguator": "785f6aa1",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Médecin interniste généraliste FMH",
+      "titleByLocale": {
+        "it": "Generalista internista medico FMH",
+        "en": "Generalist internist physician FMH",
+        "de": "Generalist Internist Arzt FMH",
+        "fr": "Médecin interniste généraliste FMH"
+      },
+      "description": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !",
+      "descriptionByLocale": {
+        "it": "Per arricchire la nostra offerta medica e servire meglio la popolazione locale, stiamo cercando un Internist Medical Officer titolare di FMH Generalist, pronto per essere coinvolto nel nostro team dinamico in Cité Generations - Health House in Onex.\nIn qualità di professionista indipendente, avrete l'opportunità di seguire i vostri pazienti nel reparto medicina interna, partecipando alle attività di servizio di emergenza. Questo vi permetterà di diversificare le vostre competenze in un ambiente stimolante.\nIl vostro ambiente di lavoro:\nSe state progettando di passare a una pratica privata, vi offriamo uno spazio multidisciplinare ideale. Vi forniamo tutti gli strumenti necessari per garantire una pratica medica di alta qualità.\n• Flessibilità e autonomia professionale:\n• Scegli il tuo tasso di attività in base alle tue aspirazioni professionali e personali.\n• Richiesto:\n• Diritto di pratica e di autorizzazione ad addebitare AOS\n• Interessante? Inviaci la tua richiesta!",
+        "en": "To enrich our medical offer and better serve the local population, we are looking for an Internist Medical Officer FMH holder Generalist, ready to get involved in our dynamic team in Cité Generations - Health House in Onex.\nAs an independent professional, you will have the opportunity to follow your patients in the internal medicine department while participating in the emergency service activities. This will allow you to diversify your skills in a stimulating environment.\nYour work environment:\nIf you are planning to move to a private practice, we offer you an ideal multidisciplinary space. We provide you with all the necessary tools to guarantee high quality medical practice.\n• Flexibility and professional autonomy:\n• Choose your activity rate according to your professional and personal aspirations.\n• Required:\n• Right of practice and authorisation to charge AOS\n• Interested? Send us your application!",
+        "de": "Um unser medizinisches Angebot zu bereichern und der lokalen Bevölkerung besser zu dienen, suchen wir einen Internist Medical Officer FMH Generalist, der bereit ist, sich in unserem dynamischen Team in Cité Generations - Health House in Onex zu engagieren.\nAls unabhängiger Fachmann haben Sie die Möglichkeit, Ihren Patienten in der internen Medizinabteilung zu folgen, während Sie an den Notfallaktivitäten teilnehmen. Dies ermöglicht es Ihnen, Ihre Fähigkeiten in einer anregenden Umgebung zu diversifizieren.\nIhr Arbeitsumfeld:\nWenn Sie planen, in eine Privatpraxis zu ziehen, bieten wir Ihnen einen idealen multidisziplinären Raum. Wir stellen Ihnen alle notwendigen Werkzeuge zur Verfügung, um eine qualitativ hochwertige medizinische Praxis zu gewährleisten.\n• Flexibilität und berufliche Autonomie:\n• Wählen Sie Ihre Aktivitätsrate nach Ihren beruflichen und persönlichen Ambitionen.\n• Vorgeschrieben:\n• Ausübungsrecht und Ermächtigung zur Erhebung von AOS\n• Interessiert? Schicken Sie uns Ihre Bewerbung!",
+        "fr": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !"
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-04T21:19:34.027Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:15:39.486Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T21:19:34.027Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -351,7 +351,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.607Z",
+      "crawledAt": "2026-11-04T21:19:34.025Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -394,7 +394,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:15:46.607Z",
+      "validThrough": "2026-12-28T21:19:34.025Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.606Z",
+      "crawledAt": "2026-11-04T21:19:34.024Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -472,7 +472,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:15:46.606Z",
+      "validThrough": "2026-12-28T21:19:34.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -507,7 +507,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.605Z",
+      "crawledAt": "2026-11-04T21:19:34.023Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -561,7 +561,7 @@
       },
       "streetAddress": "Petit-Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:15:46.605Z",
+      "validThrough": "2026-12-04T21:19:34.023Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -596,7 +596,7 @@
       "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.604Z",
+      "crawledAt": "2026-11-04T21:19:34.022Z",
       "addressLocality": "Le Lignon",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -643,7 +643,7 @@
       },
       "streetAddress": "Le Lignon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:15:46.604Z",
+      "validThrough": "2027-01-05T21:19:34.022Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -678,7 +678,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.594Z",
+      "crawledAt": "2026-11-04T21:19:34.016Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -732,7 +732,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:15:46.594Z",
+      "validThrough": "2026-12-04T21:19:34.016Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -767,7 +767,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.593Z",
+      "crawledAt": "2026-11-04T21:19:34.015Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -815,7 +815,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:15:46.593Z",
+      "validThrough": "2026-12-04T21:19:34.015Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -850,7 +850,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.592Z",
+      "crawledAt": "2026-11-04T21:19:34.014Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -903,7 +903,7 @@
       },
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:15:46.592Z",
+      "validThrough": "2026-12-10T21:19:34.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -938,7 +938,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-responsable-a-100-103",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.582Z",
+      "crawledAt": "2026-11-04T21:19:34.007Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -987,7 +987,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:15:46.582Z",
+      "validThrough": "2027-01-07T21:19:34.007Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1022,7 +1022,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-105",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.581Z",
+      "crawledAt": "2026-11-04T21:19:34.006Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1071,7 +1071,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:15:46.581Z",
+      "validThrough": "2027-01-20T21:19:34.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1106,7 +1106,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-a-70-106",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.575Z",
+      "crawledAt": "2026-11-04T21:19:34.005Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1155,88 +1155,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:15:46.575Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "gmo-9fef9e68dc08",
-      "slug": "assistente-medico-al-60-gmo-1213-onex-9fef9e68",
-      "slugByLocale": {
-        "it": "assistente-medico-al-60-gmo-1213-onex-9fef9e68",
-        "en": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
-        "de": "assistent-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
-        "fr": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
-      },
-      "slugDisambiguator": "9fef9e68",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Assistant·e médical·e à 60%",
-      "titleByLocale": {
-        "it": "Assistente medico al 60%",
-        "en": "Medical assistant at 60%",
-        "de": "Assistent·e médical·e à 60%",
-        "fr": "Assistant·e médical·e à 60%"
-      },
-      "description": "Nous recherchons un·e assistant·e médical·e qualifié·e et motivé·e pour rejoindre notre équipe de médecine interne générale à 60%.\nVotre mission :\nDans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin.\nVos compétences :\n- CFC d'assistant· e médical· e\n- Vous avez votre droit de pratique sur le canton de Genève,\n- Vous avez l'esprit d'équipe,\n- Vous êtes flexible et motivé· e,\n- Vous êtes organisé· e et avez le sens des priorités,\n- Vous êtes discret· e et consciencieux-se,",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un assistente medico qualificato e motivato per unirsi al nostro 60% team di medicina interna generale.\nLa vostra missione:\nNell'ambito delle vostre attività, dovrete accogliere e consigliare i pazienti in un ambiente professionale e sicuro, nonché gestire appuntamenti, segretariato, ecc. Sarà necessario preparare attrezzature mediche, assistere i medici, se necessario, e eseguire la cura sotto la responsabilità del medico.\nLe tue capacità:\n- Assistente medico CFC\n- Hai il diritto di praticare nel Cantone di Ginevra,\n- Hai uno spirito di squadra,\n- Sei flessibile e motivato.\n- Siete organizzati e avete un senso di priorità,\n- Sei discreto e coscienzioso,",
-        "en": "We are looking for a qualified and motivated medical assistant to join our 60% team of general internal medicine.\nYour mission:\nAs part of your activities, you will have to welcome and advise patients in a professional and secure environment as well as manage appointments, secretariat, etc. You will need to prepare medical equipment, assist practitioners, if necessary, and perform care under the responsibility of the physician.\nYour skills:\n- Medical assistant CFC\n- You have your right to practice in the Canton of Geneva,\n- You have a team spirit,\n- You are flexible and motivated.\n- You are organized and have a sense of priority,\n- You are discreet and conscientious,",
-        "de": "Wir suchen einen qualifizierten und motivierten medizinischen Assistenten, der sich unserem 60% -Team der allgemeinen inneren Medizin anschließt.\nIhre Mission:\nIm Rahmen Ihrer Aktivitäten müssen Sie Patienten in einem professionellen und sicheren Umfeld begrüßen und beraten sowie Termine, Sekretariat usw. verwalten. Sie müssen medizinische Geräte vorbereiten, bei Bedarf Praktiker unterstützen und die Pflege unter der Verantwortung des Arztes durchführen.\nIhre Fähigkeiten:\n- Medizinische Assistenz CFC\n- Sie haben das Recht, im Kanton Genf zu praktizieren,\n- Du hast einen Teamgeist,\n- Sie sind flexibel und motiviert.\n- Sie sind organisiert und haben ein Gefühl der Priorität,\n- Du bist diskret und gewissenhaft,",
-        "fr": "Nous recherchons un·e assistant·e médical·e qualifié·e et motivé·e pour rejoindre notre équipe de médecine interne générale à 60%.\nVotre mission :\nDans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin.\nVos compétences :\n- CFC d'assistant· e médical· e\n- Vous avez votre droit de pratique sur le canton de Genève,\n- Vous avez l'esprit d'équipe,\n- Vous êtes flexible et motivé· e,\n- Vous êtes organisé· e et avez le sens des priorités,\n- Vous êtes discret· e et consciencieux-se,"
-      },
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-60-107",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.573Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-60-107",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
-        ],
-        "de": [
-          "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
-        ]
-      },
-      "firstSeenAt": "2026-11-02T21:28:15.926Z",
-      "salaryMin": 36300,
-      "salaryMax": 54900,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36300,
-          "maxValue": 54900,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Onex",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:15:46.573Z",
+      "validThrough": "2027-01-26T21:19:34.005Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1271,7 +1190,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medicale-a-50-108",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.572Z",
+      "crawledAt": "2026-11-04T21:19:34.004Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1320,7 +1239,88 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:15:46.572Z",
+      "validThrough": "2027-02-01T21:19:34.004Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gmo-9fef9e68dc08",
+      "slug": "assistente-medico-al-60-gmo-1213-onex-9fef9e68",
+      "slugByLocale": {
+        "it": "assistente-medico-al-60-gmo-1213-onex-9fef9e68",
+        "en": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
+        "de": "assistent-e-medical-e-a-60-gmo-1213-onex-9fef9e68",
+        "fr": "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+      },
+      "slugDisambiguator": "9fef9e68",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Assistant·e médical·e à 60%",
+      "titleByLocale": {
+        "it": "Assistente medico al 60%",
+        "en": "Medical assistant at 60%",
+        "de": "Assistent·e médical·e à 60%",
+        "fr": "Assistant·e médical·e à 60%"
+      },
+      "description": "Nous recherchons un·e assistant·e médical·e qualifié·e et motivé·e pour rejoindre notre équipe de médecine interne générale à 60%.\nVotre mission :\nDans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin.\nVos compétences :\n- CFC d'assistant· e médical· e\n- Vous avez votre droit de pratique sur le canton de Genève,\n- Vous avez l'esprit d'équipe,\n- Vous êtes flexible et motivé· e,\n- Vous êtes organisé· e et avez le sens des priorités,\n- Vous êtes discret· e et consciencieux-se,",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un assistente medico qualificato e motivato per unirsi al nostro 60% team di medicina interna generale.\nLa vostra missione:\nNell'ambito delle vostre attività, dovrete accogliere e consigliare i pazienti in un ambiente professionale e sicuro, nonché gestire appuntamenti, segretariato, ecc. Sarà necessario preparare attrezzature mediche, assistere i medici, se necessario, e eseguire la cura sotto la responsabilità del medico.\nLe tue capacità:\n- Assistente medico CFC\n- Hai il diritto di praticare nel Cantone di Ginevra,\n- Hai uno spirito di squadra,\n- Sei flessibile e motivato.\n- Siete organizzati e avete un senso di priorità,\n- Sei discreto e coscienzioso,",
+        "en": "We are looking for a qualified and motivated medical assistant to join our 60% team of general internal medicine.\nYour mission:\nAs part of your activities, you will have to welcome and advise patients in a professional and secure environment as well as manage appointments, secretariat, etc. You will need to prepare medical equipment, assist practitioners, if necessary, and perform care under the responsibility of the physician.\nYour skills:\n- Medical assistant CFC\n- You have your right to practice in the Canton of Geneva,\n- You have a team spirit,\n- You are flexible and motivated.\n- You are organized and have a sense of priority,\n- You are discreet and conscientious,",
+        "de": "Wir suchen einen qualifizierten und motivierten medizinischen Assistenten, der sich unserem 60% -Team der allgemeinen inneren Medizin anschließt.\nIhre Mission:\nIm Rahmen Ihrer Aktivitäten müssen Sie Patienten in einem professionellen und sicheren Umfeld begrüßen und beraten sowie Termine, Sekretariat usw. verwalten. Sie müssen medizinische Geräte vorbereiten, bei Bedarf Praktiker unterstützen und die Pflege unter der Verantwortung des Arztes durchführen.\nIhre Fähigkeiten:\n- Medizinische Assistenz CFC\n- Sie haben das Recht, im Kanton Genf zu praktizieren,\n- Du hast einen Teamgeist,\n- Sie sind flexibel und motiviert.\n- Sie sind organisiert und haben ein Gefühl der Priorität,\n- Du bist diskret und gewissenhaft,",
+        "fr": "Nous recherchons un·e assistant·e médical·e qualifié·e et motivé·e pour rejoindre notre équipe de médecine interne générale à 60%.\nVotre mission :\nDans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin.\nVos compétences :\n- CFC d'assistant· e médical· e\n- Vous avez votre droit de pratique sur le canton de Genève,\n- Vous avez l'esprit d'équipe,\n- Vous êtes flexible et motivé· e,\n- Vous êtes organisé· e et avez le sens des priorités,\n- Vous êtes discret· e et consciencieux-se,"
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-60-107",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-04T21:19:34.004Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-60-107",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-60-gmo-1213-onex-9fef9e68"
+        ]
+      },
+      "firstSeenAt": "2026-11-02T21:28:15.926Z",
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-01T21:19:34.004Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1355,7 +1355,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-50-80-109",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.571Z",
+      "crawledAt": "2026-11-04T21:19:34.003Z",
       "addressLocality": "Les Acacias",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1401,7 +1401,7 @@
       },
       "streetAddress": "Les Acacias",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:15:46.571Z",
+      "validThrough": "2027-02-01T21:19:34.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1436,7 +1436,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-80-110",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.555Z",
+      "crawledAt": "2026-11-04T21:19:33.990Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1482,7 +1482,7 @@
       },
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:15:46.555Z",
+      "validThrough": "2027-02-01T21:19:33.990Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1517,7 +1517,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-en-pharmacie-111",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.549Z",
+      "crawledAt": "2026-11-04T21:19:33.985Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1566,7 +1566,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:15:46.549Z",
+      "validThrough": "2027-02-01T21:19:33.985Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1601,7 +1601,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-en-hematologie-112",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:15:46.547Z",
+      "crawledAt": "2026-11-04T21:19:33.983Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1650,7 +1650,7 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:15:46.547Z",
+      "validThrough": "2027-02-02T21:19:33.983Z",
       "validThroughSource": "last-observed-window"
     }
   ]

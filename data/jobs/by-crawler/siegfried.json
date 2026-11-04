@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-04T09:17:42.032Z",
-  "runId": "41804745135",
+  "assembledAt": "2026-11-04T21:20:53.441Z",
+  "runId": "41912934034",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:37.311Z",
+      "crawledAt": "2026-11-04T21:20:47.393Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:37.311Z",
+      "validThrough": "2026-12-04T21:20:47.393Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slug": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
-        "en": "lab-technician-ad-siegfried-evionnaz",
+        "en": "nb-t-a-siegfried-evionnaz",
         "de": "lab-techniker-ad-siegfried-evionnaz",
         "fr": "lab-technician-ad-siegfried-ch"
       },
@@ -118,7 +118,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:36.383Z",
+      "crawledAt": "2026-11-04T21:20:46.676Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,14 +163,14 @@
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
         "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "nb-t-a-siegfried-evionnaz"
+        "lab-technician-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-ad-siegfried-ch"
         ],
         "en": [
-          "nb-t-a-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -197,7 +197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:36.383Z",
+      "validThrough": "2026-12-04T21:20:46.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:34.945Z",
+      "crawledAt": "2026-11-04T21:20:45.997Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:34.945Z",
+      "validThrough": "2026-12-04T21:20:45.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:32.219Z",
+      "crawledAt": "2026-11-04T21:20:45.365Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,7 +369,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:32.219Z",
+      "validThrough": "2026-12-04T21:20:45.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:30.832Z",
+      "crawledAt": "2026-11-04T21:20:44.694Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,7 +451,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:30.832Z",
+      "validThrough": "2026-12-04T21:20:44.694Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -485,7 +485,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:30.111Z",
+      "crawledAt": "2026-11-04T21:20:44.096Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,7 +536,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:30.111Z",
+      "validThrough": "2026-12-04T21:20:44.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -570,7 +570,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:29.264Z",
+      "crawledAt": "2026-11-04T21:20:43.487Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,7 +621,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:29.264Z",
+      "validThrough": "2026-12-04T21:20:43.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -655,7 +655,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:17:27.658Z",
+      "crawledAt": "2026-11-04T21:20:42.784Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,7 +704,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:17:27.658Z",
+      "validThrough": "2026-12-04T21:20:42.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -714,7 +714,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -738,7 +738,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:17:26.172Z",
+      "crawledAt": "2026-11-04T21:20:42.173Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,14 +767,14 @@
         "fr": [
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
           "production-maintenance-manager-siegfried-zofingen",
-          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+          "entretien-de-la-tete-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
         "production-maintenance-manager-siegfried-zofingen",
-        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+        "entretien-de-la-tete-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-09-09T14:06:01.758Z",
       "salaryMin": 85500,
@@ -794,7 +794,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:17:26.172Z",
+      "validThrough": "2026-12-08T21:20:42.173Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -828,7 +828,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:17:25.287Z",
+      "crawledAt": "2026-11-04T21:20:41.464Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -878,7 +878,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:17:25.287Z",
+      "validThrough": "2026-12-13T21:20:41.464Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -912,7 +912,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:24.038Z",
+      "crawledAt": "2026-11-04T21:20:40.758Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,7 +963,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:17:24.038Z",
+      "validThrough": "2027-01-18T21:20:40.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +997,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:22.594Z",
+      "crawledAt": "2026-11-04T21:20:40.061Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1048,7 +1048,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:22.594Z",
+      "validThrough": "2027-01-24T21:20:40.061Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1082,7 +1082,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:17:21.300Z",
+      "crawledAt": "2026-11-04T21:20:39.144Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1133,7 +1133,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:17:21.300Z",
+      "validThrough": "2027-01-26T21:20:39.144Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1141,7 +1141,7 @@
       "slug": "lab-supervisore-stability-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-stability-siegfried-evionnaz",
-        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
+        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
         "de": "lab-vorgesetzter-stability-siegfried-evionnaz",
         "fr": "lab-supervisor-stability-siegfried-ch"
       },
@@ -1167,7 +1167,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-04T09:17:20.603Z",
+      "crawledAt": "2026-11-04T21:20:38.449Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1188,14 +1188,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "lab-supervisor-stability-siegfried-ch",
-        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-stability-siegfried-ch"
         ],
         "en": [
-          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
         ],
         "de": [
           "lab-supervisor-stability-siegfried-ch"
@@ -1219,7 +1219,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:17:20.603Z",
+      "validThrough": "2027-01-27T21:20:38.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1253,7 +1253,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-04T09:17:19.841Z",
+      "crawledAt": "2026-11-04T21:20:37.822Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1304,8 +1304,82 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:17:19.841Z",
+      "validThrough": "2027-01-31T21:20:37.822Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siegfried-3d4a1312757a",
+      "slug": "stage-engineering-maintenance-siegfried-ch",
+      "slugByLocale": {
+        "fr": "stage-engineering-maintenance-siegfried-ch",
+        "it": "stage-engineering-maintenance-siegfried-ch",
+        "en": "stage-engineering-maintenance-siegfried-ch",
+        "de": "stage-engineering-maintenance-siegfried-ch"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Stage - Engineering & Maintenance",
+      "titleByLocale": {
+        "fr": "Stage - Engineering & Maintenance",
+        "it": "Stage - Engineering & Maintenance",
+        "en": "Stage - Engineering & Maintenance",
+        "de": "Stage - Engineering & Maintenance"
+      },
+      "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nGérer un ou plusieurs projets d'investissement ;\nRédiger des URS et/ou des cahiers des charges en lien avec les demandeurs ; Réaliser des études de projets ;\nSuivre des réalisations et piloter des sociétés extérieures ;\nGarantir le respect de la sécurité, des plannings et des budgets ;\nSupporter le responsable de l'engineering/maintenance dans certain de ces projets.\n Your \n• Profile:\n Vous êtes en dernière année d'ingénieur ou finalisez un Master Spécialisé.\n Vous parlez couramment français et l'anglais est un atout majeur.\n Vous êtes curieux, ambitieux, rigoureux et aimez travailler en équipe.\n\nYour Benefits:\n Disponible pour une année de césure / stage d'une année\n Début : 1er juillet 2027 au 31 aout 2028\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nGérer un ou plusieurs projets d'investissement ;\nRédiger des URS et/ou des cahiers des charges en lien avec les demandeurs ; Réaliser des études de projets ;\nSuivre des réalisations et piloter des sociétés extérieures ;\nGarantir le respect de la sécurité, des plannings et des budgets ;\nSupporter le responsable de l'engineering/maintenance dans certain de ces projets.\n Your \n• Profile:\n Vous êtes en dernière année d'ingénieur ou finalisez un Master Spécialisé.\n Vous parlez couramment français et l'anglais est un atout majeur.\n Vous êtes curieux, ambitieux, rigoureux et aimez travailler en équipe.\n\nYour Benefits:\n Disponible pour une année de césure / stage d'une année\n Début : 1er juillet 2027 au 31 aout 2028\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nGérer un ou plusieurs projets d'investissement ;\nRédiger des URS et/ou des cahiers des charges en lien avec les demandeurs ; Réaliser des études de projets ;\nSuivre des réalisations et piloter des sociétés extérieures ;\nGarantir le respect de la sécurité, des plannings et des budgets ;\nSupporter le responsable de l'engineering/maintenance dans certain de ces projets.\n Your \n• Profile:\n Vous êtes en dernière année d'ingénieur ou finalisez un Master Spécialisé.\n Vous parlez couramment français et l'anglais est un atout majeur.\n Vous êtes curieux, ambitieux, rigoureux et aimez travailler en équipe.\n\nYour Benefits:\n Disponible pour une année de césure / stage d'une année\n Début : 1er juillet 2027 au 31 aout 2028\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nGérer un ou plusieurs projets d'investissement ;\nRédiger des URS et/ou des cahiers des charges en lien avec les demandeurs ; Réaliser des études de projets ;\nSuivre des réalisations et piloter des sociétés extérieures ;\nGarantir le respect de la sécurité, des plannings et des budgets ;\nSupporter le responsable de l'engineering/maintenance dans certain de ces projets.\n Your \n• Profile:\n Vous êtes en dernière année d'ingénieur ou finalisez un Master Spécialisé.\n Vous parlez couramment français et l'anglais est un atout majeur.\n Vous êtes curieux, ambitieux, rigoureux et aimez travailler en équipe.\n\nYour Benefits:\n Disponible pour une année de césure / stage d'une année\n Début : 1er juillet 2027 au 31 aout 2028\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nGérer un ou plusieurs projets d'investissement ;\nRédiger des URS et/ou des cahiers des charges en lien avec les demandeurs ; Réaliser des études de projets ;\nSuivre des réalisations et piloter des sociétés extérieures ;\nGarantir le respect de la sécurité, des plannings et des budgets ;\nSupporter le responsable de l'engineering/maintenance dans certain de ces projets.\n Your \n• Profile:\n Vous êtes en dernière année d'ingénieur ou finalisez un Master Spécialisé.\n Vous parlez couramment français et l'anglais est un atout majeur.\n Vous êtes curieux, ambitieux, rigoureux et aimez travailler en équipe.\n\nYour Benefits:\n Disponible pour une année de césure / stage d'une année\n Début : 1er juillet 2027 au 31 aout 2028\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Evionnaz",
+      "canton": "VS",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-04T21:20:37.164Z",
+      "addressLocality": "Evionnaz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-04",
+      "postedDate": "2026-11-04",
+      "postingDateSource": "reported",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobReqId": "R26_827",
+      "hiringOrganization": "Siegfried Evionnaz SA",
+      "needsRetranslation": true,
+      "salaryMin": 49000,
+      "salaryMax": 74500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49000,
+          "maxValue": 74500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1902",
+      "addressRegion": "VS",
+      "streetAddress": "Evionnaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-02T21:20:37.164Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:20:37.164Z"
     },
     {
       "id": "siegfried-aef2ae1f8a79",
@@ -1398,92 +1472,6 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-03T21:25:51.251Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "siegfried-c5133cc75e5e",
-      "slug": "responsabile-del-progetto-analitico-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "responsabile-del-progetto-analitico-siegfried-zofingen",
-        "en": "analytical-project-manager-siegfried-ch",
-        "de": "analytischer-projektmanager-siegfried-zofingen",
-        "fr": "gestionnaire-de-projet-analytique-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Analytical Project Manager",
-      "titleByLocale": {
-        "it": "Responsabile del progetto analitico",
-        "en": "Analytical Project Manager",
-        "de": "Analytischer Projektmanager",
-        "fr": "Gestionnaire de projet analytique"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nOver the past years, Siegfried AG has strengthened its position as a leading global partner in the pharmaceutical industry. To support our continued growth, we are expanding our capabilities at our site in Zofingen, Switzerland.\n\nThe Zofingen site manufactures complex active ingredients for human and veterinary medicine, as well as additives for food and beverages.\n\nMore than 90 colleagues in our laboratories develop innovative processes and ensure compliance with the highest quality standards. Through their expertise, they contribute to reliable, efficient and customer-oriented production. We offer a dynamic working environment with varied responsibilities and challenging assignments.\n Your Profile:\n Your Role\n\n• Coordinate all analytical activities within assigned projects, including method development, transfer, validation and troubleshooting, from initial evaluation through commercial production\n\n• Provide scientific leadership and analytical expertise for assigned Small Molecules projects and technologies\n\n• Represent Siegfried in project-related customer meetings, both on-site and virtually\n\n• Serve as the key interface between Analytics, Chemical Development, Production, Quality Assurance and other specialist functions\n\n• Support the transfer of analytical knowledge and methods from Analytical Development to Quality Control\n\n• Prepare, maintain and review analytical documentation including specifications, method descriptions, validation and transfer reports, development and campaign reports\n\n• Represent analytical topics during customer audits and authority inspections\n\n• Track and monitor analytical project costs against the project budget\n\n• Ensure compliance with current Good Manufacturing Practice (cGMP) requirements and safety standards within the area of responsibility\n\n• Contribute to consistently high standards of quality and safety\n\nYour Profile\n Technical Expertise\n\n• A Master’s or PhD degree in Chemistry, Pharmacy or a comparable academic qualification provides the right foundation for this role\n\n• 2–3 years of professional experience in pharmaceutical analytics\n\n• Strong knowledge of chromatographic analytical techniques (e.g. High-Performance Liquid Chromatography (HPLC), Gas Chromatography (GC)) for Small Molecules is essential\n\n• Knowledge of spectroscopic and wet chemistry analytical techniques for Small Molecules is an advantage\n\n• Experience working in a Good Manufacturing Practice (GMP)-regulated environment is an advantage\n\nPersonal Strengths\n\n• Experience in project management helps you structure your daily work effectively. You are service- and customer-oriented and enjoy working as part of a team\n\n• Good written and spoken German and English skills\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• With or without a car – you benefit: either discounted parking or a CHF 60 mobility allowance per month\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Attenti a crescere\" , persönlich und beruflich: Bei Siegfried erwarten Sie scunende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, eg. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nIl tuo ruolo:\nNegli ultimi anni, Siegfried AG ha rafforzato la sua posizione di partner globale leader nel settore farmaceutico. Per sostenere la nostra crescita continua, stiamo espandendo le nostre capacità nel nostro sito a Zofingen, Svizzera.\n\nIl sito Zofingen produce principi attivi complessi per la medicina umana e veterinaria, nonché additivi per alimenti e bevande.\n\nPiù di 90 colleghi nei nostri laboratori sviluppano processi innovativi e garantiscono il rispetto dei più elevati standard di qualità. Attraverso la loro esperienza, contribuiscono alla produzione affidabile, efficiente e orientata al cliente. Offriamo un ambiente di lavoro dinamico con diverse responsabilità e compiti impegnativi.\nIl tuo profilo:\nIl tuo ruolo\n\n• Coordinare tutte le attività analitiche all'interno di progetti assegnati, tra cui sviluppo dei metodi, trasferimento, convalida e risoluzione dei problemi, dalla valutazione iniziale attraverso la produzione commerciale\n\n• Fornire leadership scientifica e competenze analitiche per i progetti e le tecnologie di Small Molecules assegnati\n\n• Rappresenta Siegfried in incontri con i clienti legati al progetto, sia in loco che virtualmente\n\n• Servire come interfaccia chiave tra analisi, sviluppo chimico, produzione, garanzia di qualità e altre funzioni specialistiche\n\n• Sostenere il trasferimento di conoscenze e metodi analitici dallo sviluppo analitico al controllo della qualità\n\n• Preparare, mantenere e rivedere la documentazione analitica, comprese le specifiche, le descrizioni dei metodi, le relazioni di convalida e trasferimento, i rapporti di sviluppo e campagna\n\n• Rappresentare argomenti analitici durante le verifiche dei clienti e le ispezioni delle autorità\n\n• Tracciare e monitorare i costi di progetto analitici contro il budget del progetto\n\n• Assicurare il rispetto delle attuali esigenze e standard di sicurezza di Good Manufacturing Practice (cGMP) nell'ambito della responsabilità\n\n• Contribuire a standard sempre elevati di qualità e sicurezza\n\nIl tuo profilo\nCompetenza tecnica\n\n• Un Master o PhD laurea in Chimica, Farmacia o una qualifica accademica comparabile fornisce la giusta base per questo ruolo\n\n• 2-3 anni di esperienza professionale nell'analisi farmaceutica\n\n• La forte conoscenza delle tecniche analitiche cromatografiche (ad esempio la cromatografia liquida ad alta intensità (HPLC), la cromatografia a gas (GC) per le piccole molecole è essenziale\n\n• La conoscenza delle tecniche analitiche spettroscopiche e umide della chimica per le piccole molecole è un vantaggio\n\n• L'esperienza di lavoro in un ambiente regolamentato di buona fabbricazione (GMP) è un vantaggio\n\nPunti di forza personali\n\n• L'esperienza nella gestione dei progetti ti aiuta a strutturare il tuo lavoro quotidiano in modo efficace. Siete orientati al servizio e al cliente e godetevi il lavoro come parte di un team\n\n• Buono scritto e parlato tedesco e inglese competenze\n\nI vostri vantaggi:\n\n• Ore lavorative flessibili permettono di combinare famiglia, tempo libero e carriera\n\n• Con o senza auto – beneficiate di un parcheggio scontato o di un assegno di mobilità CHF 60 al mese\n\n• Assicurazione sanitaria: sconti fino al 10% su assicurazioni aggiuntive con i nostri partner per te e la tua partner/famiglia\n\n• Il nostro piano di acquisto azionario è generoso e personalizzato\n\n• Indennità di famiglia: tutti i dipendenti che beneficiano di un'indennità per l'infanzia e/o l'istruzione ricevono un'indennità mensile aggiuntiva\n\n• Indennità d'invalidità: Siegfried AG aumenta l'indennitaÁ del 10% rispetto al tasso di legge cantonale\n\n• Opportunità di formazione aggiuntive individuali\n\n• Fondo pensione: Il nostro fondo pensione aziendale è attraente e i contributi possono essere organizzati individualmente\n\n• Staff ristorante / caffetteria: pasti a condizioni preferenziali\n\n• Posizione centrale: Vicino alla stazione ferroviaria con ottimi collegamenti pubblici\n\n• Vantaggi aziendali esclusivi e sconti per i nostri dipendenti\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften portareen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Pazienteinnen und Pazienteen weltweit. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce siti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nOver the past years, Siegfried AG has strengthened its position as a leading global partner in the pharmaceutical industry. To support our continued growth, we are expanding our capabilities at our site in Zofingen, Switzerland.\n\nThe Zofingen site manufactures complex active ingredients for human and veterinary medicine, as well as additives for food and beverages.\n\nMore than 90 colleagues in our laboratories develop innovative processes and ensure compliance with the highest quality standards. Through their expertise, they contribute to reliable, efficient and customer-oriented production. We offer a dynamic working environment with varied responsibilities and challenging assignments.\nYour Profile:\nYour Role\n\n• Coordinate all analytical activities within assigned projects, including method development, transfer, validation and troubleshooting, from initial evaluation through commercial production\n\n• Provide scientific leadership and analytical expertise for assigned Small Molecules projects and technologies\n\n• Represent Siegfried in project-related customer meetings, both on-site and virtually\n\n• Serve as the key interface between Analytics, Chemical Development, Production, Quality Assurance and other specialist functions\n\n• Support the transfer of analytical knowledge and methods from Analytical Development to Quality Control\n\n• Prepare, maintain and review analytical documentation including specifications, method descriptions, validation and transfer reports, development and campaign reports\n\n• Represent analytical topics during customer audits and authority inspections\n\n• Track and monitor analytical project costs against the project budget\n\n• Ensure compliance with current Good Manufacturing Practice (cGMP) requirements and safety standards within the area of responsibility\n\n• Contribute to consistently high standards of quality and safety\n\nYour Profile\nTechnical Expertise\n\n• A Master’s or PhD degree in Chemistry, Pharmacy or a comparable academic qualification provides the right foundation for this role\n\n• 2–3 years of professional experience in pharmaceutical analytics\n\n• Strong knowledge of chromatographic analytical techniques (e.g. High-Performance Liquid Chromatography (HPLC), Gas Chromatography (GC)) for Small Molecules is essential\n\n• Knowledge of spectroscopic and wet chemistry analytical techniques for Small Molecules is an advantage\n\n• Experience working in a Good Manufacturing Practice (GMP)-regulated environment is an advantage\n\nPersonal Strengths\n\n• Experience in project management helps you structure your daily work effectively. You are service- and customer-oriented and enjoy working as part of a team\n\n• Good written and spoken German and English skills\n\nYour Benefits:\n\n• Flexible working hours make it possible to combine family, leisure time and career\n\n• With or without a car – you benefit: either discounted parking or a CHF 60 mobility allowance per month\n\n• Health insurance: Discounts of up to 10% on additional insurances with our partners for you and your partner/family\n\n• Our stock purchase plan is generous and individually tailored\n\n• Family allowance: all employees entitled to child and/or education allowances receive an additional monthly family allowance\n\n• Child allowance: Siegfried AG increases the child allowance by 10% compared to the cantonal statutory rate\n\n• Individual further training opportunities by arrangement\n\n• Pension fund: Our company pension fund is attractive and contributions can be arranged individually\n\n• Staff restaurant / cafeteria: meals at preferential conditions\n\n• Central location: Close to the train station with very good public transport connections\n\n• Exclusive corporate benefits and discounts for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Sie langfristige Möglichkeiten bieten, sich erhalten und etwas zu nutzen.\n\nIhre Rolle:\nIn den vergangenen Jahren hat die Siegfried AG ihre Position als führender globaler Partner in der Pharmaindustrie gestärkt. Um unser weiteres Wachstum zu unterstützen, erweitern wir unsere Kapazitäten an unserem Standort in Zofingen, Schweiz.\n\nAm Standort Zofingen werden komplexe Wirkstoffe für die Human- und Veterinärmedizin sowie Zusatzstoffe für Lebensmittel und Getränke hergestellt.\n\nMehr als 90 Kollegen in unseren Labors entwickeln innovative Prozesse und sorgen für die Einhaltung höchster Qualitätsstandards. Durch ihre Expertise tragen sie zu einer zuverlässigen, effizienten und kundenorientierten Produktion bei. Wir bieten ein dynamisches Arbeitsumfeld mit vielfältigen Verantwortlichkeiten und herausfordernden Aufgaben.\nIhr Profil:\nDeine Rolle\n\n• Koordinieren Sie alle analytischen Aktivitäten innerhalb zugewiesener Projekte, einschließlich Methodenentwicklung, Transfer, Validierung und Fehlerbehebung, von der Erstbewertung bis zur kommerziellen Produktion\n\n• Bereitstellung von wissenschaftlicher Führung und analytischem Fachwissen für zugewiesene Small Molecules-Projekte und -Technologien\n\n• Repräsentieren Sie Siegfried in projektbezogenen Kundengesprächen vor Ort und virtuell\n\n• Dienen als zentrale Schnittstelle zwischen Analytik, chemischer Entwicklung, Produktion, Qualitätssicherung und anderen Fachfunktionen\n\n• Unterstützung des Transfers von analytischem Wissen und Methoden von der analytischen Entwicklung zur Qualitätskontrolle\n\n• Erstellung, Pflege und Überprüfung der analytischen Dokumentation, einschließlich Spezifikationen, Methodenbeschreibungen, Validierungs- und Transferberichte, Entwicklungs- und Kampagnenberichte\n\n• Repräsentieren Sie analytische Themen während Kundenaudits und Behördeninspektionen\n\n• Verfolgen und überwachen Sie die analytischen Projektkosten im Vergleich zum Projektbudget\n\n• Gewährleistung der Einhaltung der aktuellen Anforderungen der Good Manufacturing Practice (cGMP) und Sicherheitsstandards im Verantwortungsbereich\n\n• Beitrag zu gleichbleibend hohen Qualitäts- und Sicherheitsstandards\n\nIhr Profil\nTechnische Expertise\n\n• Ein Master- oder PhD-Abschluss in Chemie, Pharmazie oder eine vergleichbare akademische Qualifikation bietet die richtige Grundlage für diese Rolle\n\n• 2–3 Jahre Berufserfahrung in der Pharmaanalytik\n\n• Ein fundiertes Wissen über chromatographische Analysetechniken (z. B. Hochleistungs-Flüssigkeitschromatographie (HPLC), Gaschromatographie (GC) für kleine Moleküle ist unerlässlich)\n\n• Kenntnisse der spektroskopischen und nasschemischen Analysetechniken für kleine Moleküle sind von Vorteil\n\n• Erfahrung in einer Good Manufacturing Practice (GMP) regulierten Umgebung ist von Vorteil\n\nPersönliche Stärken\n\n• Erfahrung im Projektmanagement hilft Ihnen, Ihre tägliche Arbeit effektiv zu strukturieren. Sie sind service- und kundenorientiert und arbeiten gerne im Team\n\n• Gute geschriebene und gesprochene Deutsch- und Englischkenntnisse\n\nIhre Vorteile:\n\n• Flexible Arbeitszeiten ermöglichen die Verbindung von Familie, Freizeit und Beruf\n\n• Mit oder ohne Auto – Sie profitieren: entweder ermäßigter Parkplatz oder ein Mobilitätsgeld von CHF 60 pro Monat\n\n• Krankenversicherung: Rabatte von bis zu 10% auf Zusatzversicherungen mit unseren Partnern für Sie und Ihre Partnerin/Familie\n\n• Unser Aktienkaufplan ist großzügig und individuell zugeschnitten\n\n• Familienzulage: Alle Arbeitnehmer, die Anspruch auf Kinder- und/oder Bildungszulage haben, erhalten eine zusätzliche monatliche Familienzulage\n\n• Kindergeld: Siegfried AG erhöht Kindergeld um 10% gegenüber dem kantonalen gesetzlichen Satz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Vereinbarung\n\n• Pensionskasse: Unsere Betriebsrente ist attraktiv und Beiträge können individuell gestaltet werden\n\n• Personalrestaurant / Cafeteria: Mahlzeiten zu Vorzugsbedingungen\n\n• Zentrale Lage: Nahe dem Bahnhof mit sehr guter Anbindung an den öffentlichen Nahverkehr\n\n• Exklusive Unternehmensvorteile und Rabatte für unsere Mitarbeiter\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried einer der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach Vereinigungen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", persönlich und beruflich: Bei Siegfried erwarten Sie spanende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angeehen Partner der pharmazeutischen Industrie stopen wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nVotre rôle :\nAu cours des dernières années, Siegfried AG a renforcé sa position de partenaire mondial de premier plan dans l'industrie pharmaceutique. Pour soutenir notre croissance continue, nous développons nos capacités sur notre site à Zofingen, en Suisse.\n\nLe site Zofingen fabrique des ingrédients actifs complexes pour la médecine humaine et vétérinaire, ainsi que des additifs pour les aliments et les boissons.\n\nPlus de 90 collègues de nos laboratoires développent des processus innovants et assurent le respect des normes de qualité les plus élevées. Grâce à leur expertise, ils contribuent à une production fiable, efficace et orientée vers le client. Nous offrons un environnement de travail dynamique avec des responsabilités variées et des tâches difficiles.\nVotre profil:\nVotre rôle\n\n• Coordonner toutes les activités analytiques dans le cadre des projets assignés, y compris l'élaboration, le transfert, la validation et le dépannage des méthodes, depuis l'évaluation initiale jusqu'à la production commerciale\n\n• Fournir un leadership scientifique et une expertise analytique pour les projets et les technologies assignés aux petites molécules\n\n• Représenter Siegfried dans les réunions de clients liées au projet, à la fois sur place et pratiquement\n\n• Servir d'interface clé entre l'analyse, le développement chimique, la production, l'assurance de la qualité et d'autres fonctions spécialisées\n\n• Appuyer le transfert des connaissances et des méthodes analytiques du développement analytique au contrôle qualité\n\n• Préparer, tenir à jour et examiner la documentation analytique, y compris les spécifications, les descriptions des méthodes, les rapports de validation et de transfert, les rapports de développement et les rapports de campagne\n\n• Représenter les sujets analytiques lors des audits des clients et des inspections des autorités\n\n• Suivre et suivre les coûts analytiques du projet par rapport au budget du projet\n\n• Assurer la conformité aux exigences actuelles des bonnes pratiques de fabrication (BPF) et aux normes de sécurité dans le domaine de responsabilité\n\n• Contribuer à des normes de qualité et de sécurité élevées\n\nVotre profil\nExpertise technique\n\n• Une maîtrise ou un doctorat en chimie, en pharmacie ou une qualification universitaire comparable constitue le fondement de ce rôle\n\n• 2–3 ans d'expérience professionnelle en analyse pharmaceutique\n\n• Une bonne connaissance des techniques d'analyse chromatographique (p. ex. chromatographie liquide à haute performance (HPLC), chromatographie en phase gazeuse (GC)) pour les petites molécules est essentielle.\n\n• Connaissance des techniques d'analyse spectroscopique et de chimie humide pour les petites molécules est un avantage\n\n• L'expérience de travail dans un environnement réglementé par les bonnes pratiques de fabrication (BPF) est un avantage\n\nForces personnelles\n\n• L'expérience en gestion de projet vous aide à structurer efficacement votre travail quotidien. Vous êtes orienté service et client et aimez travailler dans une équipe\n\n• Bonnes compétences écrites et parlées en allemand et en anglais\n\nVos avantages :\n\n• Des horaires flexibles permettent de combiner la famille, les loisirs et la carrière\n\n• Avec ou sans voiture – vous bénéficiez d'un parking à prix réduit ou d'une prime de mobilité de CHF 60 par mois\n\n• Assurance maladie: Réductions jusqu'à 10% sur les assurances supplémentaires avec nos partenaires pour vous et votre partenaire/famille\n\n• Notre plan d'achat d'actions est généreux et personnalisé\n\n• Allocation familiale: tous les salariés ayant droit à des allocations familiales et/ou d'éducation reçoivent une allocation familiale mensuelle supplémentaire\n\n• Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10 % par rapport au taux légal cantonal\n\n• Possibilités individuelles de formation continue par arrangement\n\n• Fonds de pension: Notre fonds de pension d'entreprise est attrayant et les cotisations peuvent être organisées individuellement\n\n• Restaurant du personnel / cafétéria: repas à des conditions préférentielles\n\n• Situation centrale: Près de la gare avec de très bonnes liaisons de transport public\n\n• Avantages et rabais exclusifs pour nos employés\n\nGegründet 1873 à Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften ringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (API) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Project-Manager_R26_774",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-03T09:21:21.167Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca e Sviluppo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-26",
-      "postedDate": "2026-10-26",
-      "postingDateSource": "reported",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Project-Manager_R26_774",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_774",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "analytical-project-manager-siegfried-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analytical-project-manager-siegfried-ch"
-        ],
-        "de": [
-          "analytical-project-manager-siegfried-ch"
-        ],
-        "fr": [
-          "analytical-project-manager-siegfried-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-26T09:19:27.533Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4800",
-      "addressRegion": "AG",
-      "streetAddress": "Zofingen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:21:21.167Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }
