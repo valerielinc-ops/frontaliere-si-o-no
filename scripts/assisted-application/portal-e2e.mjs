@@ -1213,7 +1213,9 @@ async function hiddenFutureStepFileCheck({ executablePath, check }) {
     </form></body></html>`);
     const fileFields = (await extractFields(page)).fields.filter((field) => field.kind === 'file');
     check('Portal snapshots omit file inputs under hidden future steps but keep an active input styled behind its upload control',
-      fileFields.length === 1 && fileFields[0].required === false);
+      fileFields.length === 1 && fileFields[0].domId === 'active-cv'
+      && fileFields[0].label === 'Upload CV' && fileFields[0].required === false,
+      { visibleFileCount: fileFields.length, visibleFileDomId: fileFields[0]?.domId || '', visibleFileLabel: fileFields[0]?.label || '' });
   } finally {
     await browser.close();
   }
