@@ -4,20 +4,20 @@
   "generatorSha256": "a464be3a4bf497f3ace863e441e3654ecafbbe3539cb4975bfd228e98ed18c8e",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fc50ab2fa18ebfadd5bf69bb11ccced54c6b7fdb",
+  "sourceCommit": "a69c1f61927eaa353787cd0b4fb0a3ce31132b44",
   "artifactObservation": {
     "generatorSha256": "a464be3a4bf497f3ace863e441e3654ecafbbe3539cb4975bfd228e98ed18c8e",
     "sourceRef": "main",
-    "sourceCommit": "fc50ab2fa18ebfadd5bf69bb11ccced54c6b7fdb"
+    "sourceCommit": "a69c1f61927eaa353787cd0b4fb0a3ce31132b44"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 683,
+  "crawlerCount": 687,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:76de17fe6ac0859331c3d5a255bc8683ede6b467b264506346c9ac85ca8f2b31",
+    "rosterDigest": "sha256:83486ef3743b2e626b75586a2d9c3b445439e1d2a207bdafcd14eac2ac47be2d",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -149,10 +149,12 @@
     "scripts/update-buergenstock-hotels-jobs.mjs",
     "scripts/update-buersten-technik-jobs.mjs",
     "scripts/update-c-and-a-schweiz-jobs.mjs",
+    "scripts/update-caisse-des-medecins-ch-jobs.mjs",
     "scripts/update-canton-ticino-osc-jobs.mjs",
     "scripts/update-canton-valais-jobs.mjs",
     "scripts/update-careers-jobs.mjs",
     "scripts/update-caritas-schweiz-jobs.mjs",
+    "scripts/update-cdg-beratungen-jobs.mjs",
     "scripts/update-cds-savognin-jobs.mjs",
     "scripts/update-cereneo-jobs.mjs",
     "scripts/update-cern-jobs.mjs",
@@ -187,6 +189,7 @@
     "scripts/update-constellium-jobs.mjs",
     "scripts/update-coopers-jobs.mjs",
     "scripts/update-cordenpharma-jobs.mjs",
+    "scripts/update-creditx-ch-jobs.mjs",
     "scripts/update-croix-rouge-fribourgeoise-jobs.mjs",
     "scripts/update-crr-suva-sion-jobs.mjs",
     "scripts/update-cs-bregaglia-jobs.mjs",
@@ -236,6 +239,7 @@
     "scripts/update-everest-re-jobs.mjs",
     "scripts/update-fachkraft-jobs.mjs",
     "scripts/update-faulhaber-jobs.mjs",
+    "scripts/update-favresa-ch-jobs.mjs",
     "scripts/update-felfel-jobs.mjs",
     "scripts/update-ferring-jobs.mjs",
     "scripts/update-fhgr-jobs.mjs",
@@ -1578,8 +1582,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "f6f0776af17fd6abec581225ede57bfffbcaf92c8b72046af0cdde94b38c252f",
-      "artifactSha256": "8d972ad03766da126b4da212b9c75c5c3157a1bfad1a52e339d74954c57794ef",
+      "sourceSha256": "0de5c239ca5f6ba92a39ddcfca0ef6bfb2a0e9c811bc9cbebbe1b042ce022b78",
+      "artifactSha256": "968a0dbfac70c4821a4f541231e8c3d904fac6db8fffd0469e4657103a2f3be0",
       "generatorSha256": "a464be3a4bf497f3ace863e441e3654ecafbbe3539cb4975bfd228e98ed18c8e",
       "members": [
         "seco-jobroom",
@@ -1599,7 +1603,11 @@
         "lipsuisse-ch",
         "mountains-ch",
         "skan-com",
-        "zindel-united-swiss"
+        "zindel-united-swiss",
+        "caisse-des-medecins-ch",
+        "cdg-beratungen",
+        "creditx-ch",
+        "favresa-ch"
       ]
     },
     {
