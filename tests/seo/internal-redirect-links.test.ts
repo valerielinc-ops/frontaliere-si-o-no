@@ -4,6 +4,12 @@ import path from 'node:path';
 import { renderHubChrome } from '../../build-plugins/shared/hubChrome';
 import { buildRootHubPath } from '../../build-plugins/borderWaitData';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from '../../build-plugins/shared/borderWaitLegacyRedirects';
+// Keep internal-link checks aligned with the Worker-owned edge redirect map.
+// A path that is unconditionally 301'd must never be a canonical navigation
+// target, even when its origin fallback happens to be a live HTML page.
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — plain JS Worker module, no type declarations.
+import { EDGE_LEGACY_REDIRECTS } from '../../infra/cloudflare-worker/locale-router.js';
 
 const root = path.resolve(__dirname, '../..');
 const faqHubCategorySources = readdirSync(path.join(root, 'data/faq-hub'))
@@ -36,6 +42,7 @@ const redirectPaths = new Set([
   '/costo-della-vita/',
   '/guida-frontaliere/nuova-legge-frontalieri-2024/',
   '/fisco-frontalieri/',
+  ...Object.keys(EDGE_LEGACY_REDIRECTS),
 ]);
 
 function literalHrefs(source: string): string[] {

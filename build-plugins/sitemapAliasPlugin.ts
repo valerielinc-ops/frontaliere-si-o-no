@@ -56,6 +56,7 @@ import {
   localeOfDistPath,
   shouldEmitLocale,
 } from './shared/localeEmitFilter';
+import { isApexNonFinalLoc } from './shared/edgeRedirectMembership';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -112,6 +113,11 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   for (const file of entries) {
     if (EXCLUDED_SITEMAP_FILES.has(file)) continue;
     if (!SITEMAP_FILE_PATTERN.test(file)) continue;
+    // The sitemap index must not advertise a sitemap file that the apex
+    // Worker itself answers with a 301/410 (for example the old
+    // sitemap-jobs-ticino.xml alias). File discovery is a separate contract
+    // from URLset reconciliation, so enforce it here as well.
+    if (isApexNonFinalLoc(`${BASE_URL}/${file}`)) continue;
     if (seen.has(file)) continue;
     seen.add(file);
     let lastmod: string | undefined;
@@ -159,6 +165,11 @@ async function reconcileSitemapFamilyWithDist(
   const locs = [...new Set(files.flatMap(({ xml }) => extractSitemapLocs(xml)))];
   if (locs.length === 0) return 0;
 
+  // The final HTML tree cannot see an unconditional edge 301/410. Keep this
+  // membership check alongside the dist-truth predicate so a live-looking
+  // origin fallback can never re-advertise an edge-owned non-final URL.
+  const edgeNonFinalLocs = new Set(locs.filter(isApexNonFinalLoc));
+
   const kept = new Set(await dropOverwrittenLocs(distDir, locs, {
     inspectForeignPresent: true,
     keepMissing: options.keepMissing ?? true,
@@ -167,7 +178,7 @@ async function reconcileSitemapFamilyWithDist(
     foreignDirectoryIndex: options.foreignDirectoryIndex,
     label: familyLabel,
   }));
-  const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
+  const dropLocs = [...new Set(locs.filter((loc) => edgeNonFinalLocs.has(loc) || !kept.has(loc)))];
   if (dropLocs.length === 0) return 0;
 
   let dropped = 0;
@@ -185,7 +196,8 @@ async function reconcileSitemapFamilyWithDist(
   if (dropped > 0) {
     console.log(
       `\x1b[33m[sitemap-alias]\x1b[0m final dist-truth reconciliation removed ${dropped} ` +
-        `${familyLabel} URL(s) whose final HTML was noindex, redirect, or non-self-canonical ` +
+        `${familyLabel} URL(s) whose edge response or final HTML was non-final ` +
+        `(edge redirect/gone, noindex, redirect, or non-self-canonical) ` +
         `(files=${changedFiles.join(', ')})`,
     );
   }
