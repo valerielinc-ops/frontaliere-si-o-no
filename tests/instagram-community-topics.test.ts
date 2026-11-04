@@ -31,7 +31,17 @@ describe('privacy-safe Instagram community topic signals', () => {
   it('uses Unicode letter boundaries for accented question words and category terms', () => {
     expect(classifyInstagramCommunityQuestion("Où trouver l'école"))
       .toBe('vita-famiglia');
+    expect(classifyInstagramCommunityQuestion("\u200bOù trouver l'e\u0301cole"))
+      .toBe('vita-famiglia');
     expect(classifyInstagramCommunityQuestion('antécole?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('Dove c\'è traffico?'))
+      .toBe('mobilita-valichi');
+    expect(classifyInstagramCommunityQuestion('Is there traffic?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('Dove\u200bma fisco'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('no\u200btax?'))
       .toBeNull();
   });
 
