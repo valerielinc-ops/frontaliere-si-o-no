@@ -1163,6 +1163,10 @@ describe('Bing-compatible full-tree crawler', () => {
         sitemapProducers: [first, second],
       }),
     ]));
+    const summary = aggregateCrawlReports([report], inventory);
+    expect(buildIssueBody(summary)).toContain(
+      `producer sitemap: \`${first}\`, \`${second}\``,
+    );
   });
 
   it('cancels an invalid streamed sitemap chunk before recording the read error', async () => {
