@@ -2659,7 +2659,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Collapses the 300px xlw rail gutter (both auth-gate and job-detail views
  // below) when ArticleRailAdStack resolves an all-empty verdict per side —
  // shared with JobOrphanView/JobExpiredView/BlogArticles (issue 4830).
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: true });
 
  // Canton-aware {canton}/{cantonPrep} interpolation params for the H1,
  // subtitle and CTAs. Derived from the URL-driven `initialFilterCanton`
