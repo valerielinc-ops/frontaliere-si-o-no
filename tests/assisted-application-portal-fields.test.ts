@@ -218,6 +218,48 @@ describe('portal field extraction', () => {
     expect(result.snapshot).toMatchObject({ text: receipt.text, buttons: [] });
   });
 
+  it('reads generic consent copy from the frame that owns its controls', async () => {
+    const url = 'https://careers.helsana.ch/';
+    let dismissed = false;
+    const main = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function) => evaluateInPage === extractFieldsInPage
+        ? { url, fields: [], buttons: [], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Helsana careers' }
+        : 'Helsana careers'),
+    };
+    const bannerSnapshot = {
+      url,
+      fields: [],
+      buttons: [
+        { id: 'accept', text: 'Akzeptieren', disabled: false, frame: 1 },
+        { id: 'close', text: '', ariaLabel: 'Schließen', disabled: false, frame: 1 },
+      ],
+      links: [],
+      dialogs: [],
+      errors: [],
+      captcha: false,
+      passwordVisible: false,
+      text: 'Mit der weiteren Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.',
+    };
+    const banner = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => {
+        if (evaluateInPage === extractFieldsInPage) return { ...bannerSnapshot, buttons: dismissed ? [] : bannerSnapshot.buttons };
+        if (args && typeof args === 'object' && 'copyPattern' in args) return true;
+        return bannerSnapshot.text;
+      }),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => { expect(selector).toBe('[data-aa-id="accept"]'); dismissed = true; }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [main, banner], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, { ...bannerSnapshot, text: 'Helsana careers' } as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(dismissed).toBe(true);
+  });
+
   it('does not pair generic consent copy with controls from another container', async () => {
     const url = 'https://careers.example/apply';
     const { window } = new JSDOM(`<!doctype html><html><body>

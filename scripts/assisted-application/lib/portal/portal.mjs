@@ -1057,7 +1057,13 @@ async function isPageCookieConsentControl(page, snapshot, button) {
   const frame = Number(button.frame) || 0;
   const closeControls = (snapshot?.buttons || []).filter(candidate => (Number(candidate.frame) || 0) === frame
     && !candidate.disabled && !candidate.chrome && COOKIE_DISMISS_RE.test(cookieControlLabel(candidate)));
-  if (!closeControls.length || !COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(snapshot?.text))) return false;
+  if (!closeControls.length) return false;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const ownerFrame = frames[frame]
+    || (frame === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+  const ownerText = await ownerFrame?.evaluate?.(() => document.body?.innerText || '').catch(() => '') || '';
+  const consentText = ownerText || (frame === 0 ? snapshot?.text : '');
+  if (!COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(consentText))) return false;
   return genericCookieControlsShareContainer(page, button, closeControls);
 }
 
