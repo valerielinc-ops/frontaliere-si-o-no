@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sulzer",
-  "assembledAt": "2026-11-03T21:35:22.484Z",
-  "runId": "41720973312",
+  "assembledAt": "2026-11-04T09:30:59.742Z",
+  "runId": "41806684140",
   "jobs": [
     {
       "id": "sulzer-7bb36661ae73",
@@ -34,7 +34,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:35:13.256Z",
+      "crawledAt": "2026-11-04T09:30:50.758Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:35:13.256Z",
+      "validThrough": "2026-12-31T09:30:50.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:35:12.515Z",
+      "crawledAt": "2026-11-04T09:30:49.919Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:35:12.515Z",
+      "validThrough": "2027-01-04T09:30:49.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/R-D-Chemical-Recycling-Intern_JR104882-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:35:11.757Z",
+      "crawledAt": "2026-11-04T09:30:49.066Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:35:11.757Z",
+      "validThrough": "2027-01-06T09:30:49.066Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -282,7 +282,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:35:10.698Z",
+      "crawledAt": "2026-11-04T09:30:48.185Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:35:10.698Z",
+      "validThrough": "2027-01-07T09:30:48.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Machine-Diagnostics-Engineer_JR103447-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-03T21:35:09.404Z",
+      "crawledAt": "2026-11-04T09:30:46.737Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:35:09.404Z",
+      "validThrough": "2027-01-21T09:30:46.737Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -421,7 +421,7 @@
       "slugByLocale": {
         "it": "supporto-ict-sulzer-winterthur",
         "en": "ict-support-specialist-sulzer-winterthur",
-        "de": "ict-supporter-sulzer-ch",
+        "de": "ict-supporter-sulzer-winterthur",
         "fr": "soutien-aux-tic-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -447,7 +447,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/ICT-Supporter_JR105348",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T21:35:08.631Z",
+      "crawledAt": "2026-11-04T09:30:45.873Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -467,8 +467,7 @@
       "requirementsByLocale": {},
       "jobReqId": "JR105348",
       "previousSlugs": [
-        "ict-supporter-sulzer-ch",
-        "ict-supporter-sulzer-winterthur"
+        "ict-supporter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -478,7 +477,7 @@
           "ict-supporter-sulzer-ch"
         ],
         "de": [
-          "ict-supporter-sulzer-winterthur"
+          "ict-supporter-sulzer-ch"
         ],
         "fr": [
           "ict-supporter-sulzer-ch"
@@ -501,7 +500,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:35:08.631Z",
+      "validThrough": "2027-01-24T09:30:45.873Z",
       "validThroughSource": "last-observed-window"
     }
   ]
