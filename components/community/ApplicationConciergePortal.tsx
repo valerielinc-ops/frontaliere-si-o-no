@@ -217,7 +217,6 @@ export default function ApplicationConciergePortal({
   const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
-  useEffect(() => { setSelectedProposalCategory(null); }, [serviceId, previewService?.serviceId]);
   useEffect(() => {
     locationEditedByUser.current = false;
     serviceLocationLoaded.current = Boolean(previewService?.applicantLocation);
