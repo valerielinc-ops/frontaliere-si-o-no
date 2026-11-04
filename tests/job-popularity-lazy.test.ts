@@ -162,7 +162,7 @@ describe('the map is shipped as a runtime data file', () => {
         locale: 'it',
         sources: ['reddit', 'google-news-rss'],
         totalScore: 0.86,
-        redditPermalink: 'https://www.reddit.com/r/Ticino/comments/abc123/topic/',
+        redditPermalink: 'https://www.reddit.com/r/Ticino/comments/abc123/',
       }],
     });
     expect(feed.candidates[0].keyword.length).toBeLessThanOrEqual(180);
@@ -212,7 +212,7 @@ describe('the map is shipped as a runtime data file', () => {
           locale: 'it',
           sources: ['reddit'],
           totalScore: 0.75,
-          redditPermalink: 'https://www.reddit.com/r/Ticino/comments/abc123/topic/',
+          redditPermalink: 'https://www.reddit.com/r/Ticino/comments/abc123/',
         }],
       });
       expect(fs.existsSync(path.join(root, 'dist', 'data', 'experimental-candidates.json'))).toBe(false);

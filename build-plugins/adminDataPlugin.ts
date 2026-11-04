@@ -107,13 +107,15 @@ function boundedFeedText(value: unknown, maxLength: number): string | null {
 function normalizeRedditPermalink(value: unknown): string | null {
  if (typeof value !== 'string' || value.length > 2048) return null;
  try {
+  const rawAuthority = value.match(/^https:\/\/([^/?#]+)/iu)?.[1];
   const url = new URL(value);
   if (url.protocol !== 'https:' || url.hostname !== 'www.reddit.com'
    || url.username || url.password || url.port
-   || !/^\/r\/[a-z0-9_]+\/comments\/[a-z0-9]+(?:\/|$)/iu.test(url.pathname)) return null;
-  url.search = '';
-  url.hash = '';
-  return url.href;
+   || rawAuthority?.toLowerCase() !== 'www.reddit.com') return null;
+  const match = url.pathname.match(/^\/r\/([a-z0-9_]+)\/comments\/([a-z0-9]+)(?:\/[^/]*)?\/?$/iu);
+  if (!match) return null;
+  // Preserve only the public post identity, not Reddit's title-derived slug.
+  return `https://www.reddit.com/r/${match[1]}/comments/${match[2]}/`;
  } catch {
   return null;
  }
