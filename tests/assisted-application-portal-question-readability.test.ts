@@ -25,6 +25,19 @@ function extract(html: string) {
 }
 afterEach(() => vi.unstubAllGlobals());
 
+it('keeps collapsed future fields out of read-ahead in the portal and extension readers', () => {
+  const { dom } = extract(`<form>
+    <label for="active-cv">Current CV *</label><input id="active-cv" type="file" required>
+    <section style="visibility:collapse"><label for="collapsed-cv">Later CV *</label><input id="collapsed-cv" type="file" required></section>
+  </form>`);
+  const readAheadLabels = extractFieldsInPage({ includeHidden: true }).fields.map((field: any) => field.label);
+  expect(readAheadLabels).toEqual(['Current CV *']);
+  dom.window.eval(readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8'));
+  const extensionReadAheadLabels = (dom.window as any).CompilaRunnerFields({ includeHidden: true }).fields.map((field: any) => field.label);
+  expect(extensionReadAheadLabels).toEqual(['Current CV *']);
+  dom.window.close();
+});
+
 const mirrorPrompt = 'I accept the Candidates Privacy Notice. *';
 const mirrorQuestion = `<label for="resumator-questionnaire-q722664">${mirrorPrompt}</label><input type="hidden" id="resumator-questionnaire-q722664" name="resumator-questionnaire[722664]" value="I agree">`;
 const mirrorChoice = '<label><input type="checkbox" id="resumator-checkbox-722664-1" name="resumator-checkbox-722664-1" value="I agree">I agree</label>';

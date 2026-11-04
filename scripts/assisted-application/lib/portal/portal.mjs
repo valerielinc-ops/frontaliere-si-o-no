@@ -1536,6 +1536,29 @@ const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
 export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
+const portalUploadFieldIdentity = (field) => [
+  field?.domId && `dom:${field.domId}`,
+  field?.name && `name:${field.name}`,
+  field?.label && `label:${field.label}`,
+  field?.section && `section:${field.section}`,
+  field?.context && `context:${field.context}`,
+].filter(Boolean).join('|') || field?.id || '';
+export const portalUploadActionKey = (url, pageEpoch, field, fileFields = [field], selectedRecords = []) => {
+  const fieldIdentity = portalUploadFieldIdentity(field);
+  const baseKey = uploadedPortalFieldKey(`${url}|step:${pageEpoch}`, { id: fieldIdentity });
+  const matchingFields = fileFields.filter((item) => portalUploadFieldIdentity(item) === fieldIdentity);
+  const groupIndex = matchingFields.findIndex((item) => item.id === field?.id);
+  const selectedRecord = selectedRecords.find((item) => item.fieldId === field?.id)
+    || (matchingFields.length === 1 && selectedRecords.find((item) => item.domId && item.domId === field?.domId))
+    || (matchingFields.length === 1 && selectedRecords.find((item) => item.groupSize === 1 && item.groupIndex === groupIndex));
+  if (selectedRecord) return selectedRecord.key;
+  if (matchingFields.length > 1 && selectedRecords.some((item) => !matchingFields.some((candidate) =>
+    candidate.id === item.fieldId || (item.domId && candidate.domId === item.domId)))) return null;
+  if (matchingFields.length === 1 && selectedRecords.some((item) => item.groupSize > 1)) return null;
+  return matchingFields.length > 1
+    ? `${baseKey}|field:${field?.id || `index:${groupIndex}`}`
+    : baseKey;
+};
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
 const isCvFileField = (field) => {
@@ -4136,13 +4159,13 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page, uploaded = new Set()) {
+async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
   const url = page.url();
   const snapshot = await extractFields(page, NAVIGATION);
   const fields = snapshot.fields || [];
   for (const field of fields) {
     if (!field.required) continue;
-    const uploadedKey = uploadedPortalFieldKey(url, field);
+    const uploadedKey = uploadedKeyForField ? uploadedKeyForField(field, fields, url) : uploadedPortalFieldKey(url, field);
     const filled = field.kind === 'file' || field.inputType === 'file'
       ? uploaded.has(uploadedKey)
         || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
@@ -4854,10 +4877,37 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    // Document-level guard for preserving the files this run selected during
+    // previous-file cleanup; upload retry suppression remains field-scoped in `uploaded`.
+    const selectedDocumentsThisRun = new Set();
+    const selectedUploadFieldsThisRun = new Map();
     const privacyAcceptedPages = new Set();
     // Bounded redraw recovery follows the logical wizard page, not the URL or
     // the loop counter (portals often keep one address for every SPA step).
     let pageEpoch = 0;
+    const uploadKeyForField = (fieldId, fields, url = page.url(), epoch = pageEpoch) => {
+      const field = fields.find((item) => item.id === fieldId) || { id: fieldId };
+      const baseKey = uploadedPortalFieldKey(`${url}|step:${epoch}`, { id: portalUploadFieldIdentity(field) });
+      const fileFields = fields.filter(isFileField);
+      const matchingFields = fileFields.filter((item) => portalUploadFieldIdentity(item) === portalUploadFieldIdentity(field));
+      const records = selectedUploadFieldsThisRun.get(baseKey) || [];
+      return portalUploadActionKey(url, epoch, field, matchingFields, records);
+    };
+    const rememberUploadSelection = (fieldId, fields, url = page.url(), epoch = pageEpoch) => {
+      const field = fields.find((item) => item.id === fieldId) || { id: fieldId };
+      const baseKey = uploadedPortalFieldKey(`${url}|step:${epoch}`, { id: portalUploadFieldIdentity(field) });
+      const fileFields = fields.filter(isFileField);
+      const matchingFields = fileFields.filter((item) => portalUploadFieldIdentity(item) === portalUploadFieldIdentity(field));
+      const groupIndex = matchingFields.findIndex((item) => item.id === field.id);
+      const records = selectedUploadFieldsThisRun.get(baseKey) || [];
+      const key = portalUploadActionKey(url, epoch, field, matchingFields, records);
+      if (key === null) return null;
+      if (!records.some((item) => item.key === key || item.fieldId === field.id)) {
+        records.push({ key, fieldId: field.id, domId: field.domId || '', groupIndex, groupSize: matchingFields.length });
+        selectedUploadFieldsThisRun.set(baseKey, records);
+      }
+      return key;
+    };
     const redraws = new Map();
     // How often a page was loaded again because the portal asked for it, by address.
     const refreshes = new Map();
@@ -5056,7 +5106,14 @@ export async function submitViaPortal(ctx) {
             noteUpload('cv');
             uploadedCvUrls.add(page.url());
           }
-          if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
+          if (opened.cv !== 'unavailable' && opened.cvFieldKey) {
+            const uploadedField = snapshot.fields.find((field) => uploadedPortalFieldKey(page.url(), field) === opened.cvFieldKey)
+              || snapshot.fields.find(isCvFileField);
+            if (uploadedField) {
+              const key = rememberUploadSelection(uploadedField.id, snapshot.fields);
+              if (key) uploaded.add(key);
+            }
+          }
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
         if (opened.coverLetter) {
@@ -5174,7 +5231,7 @@ export async function submitViaPortal(ctx) {
       // draft written since (a planner that sees «successfully uploaded» leaves the field alone). What this
       // run uploaded itself stays.
       const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
-      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document))
+      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document) && !selectedDocumentsThisRun.has(document))
         .flatMap((document) => {
           const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
@@ -5234,10 +5291,17 @@ export async function submitViaPortal(ctx) {
         candidateQuestions = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
-        const uploadKey = (fieldId) => uploadedPortalFieldKey(
-          page.url(), snapshot.fields.find((field) => field.id === fieldId) || { id: fieldId },
-        );
-        const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+        const uploadKey = (fieldId) => uploadKeyForField(fieldId, snapshot.fields, page.url(), pageEpoch);
+        const uploadKeys = new Map(plannedActions.filter((action) => action.action === 'upload')
+          .map((action) => [action.fieldId, uploadKey(action.fieldId)]));
+        if ([...uploadKeys.values()].some((key) => key === null)) {
+          evidence.steps.at(-1).uploadIdentityAmbiguous = true;
+          return await handoff('portal_needs_candidate');
+        }
+        const actions = plannedActions.filter((action) => {
+          if (action.action !== 'upload') return true;
+          return !uploaded.has(uploadKeys.get(action.fieldId));
+        });
         const plannedUrl = page.url();
         const redrawKey = `${pageEpoch}|${plannedUrl}`;
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
@@ -5266,7 +5330,14 @@ export async function submitViaPortal(ctx) {
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
-          onUploadSelection: (fieldId, paths) => selectedUploads.set(fieldId, paths),
+          onUploadSelection: (fieldId, paths) => {
+            selectedUploads.set(fieldId, paths);
+            if (paths.length) {
+              rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
+              const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
+              if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
+            }
+          },
         }));
         if (!redrawn) {
           for (const action of actions.filter((item) => item.action === 'upload')) {
@@ -5282,6 +5353,10 @@ export async function submitViaPortal(ctx) {
               const optionalCoverLetter = action.document === 'cover_letter'
                 && field?.required === false && !field.invalid;
               if (optionalCoverLetter) {
+                // This selection belongs to the current run, even when its
+                // upload receipt is missing. Do not retry it on a redraw or
+                // mistake its still-visible filename for an older upload.
+                uploaded.add(uploadKey(action.fieldId));
                 if (result) {
                   result.ok = false;
                   result.error ||= 'upload_not_confirmed';
@@ -5448,7 +5523,9 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page, uploaded)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+              finalByAgent = await submitLocator(page, agent.submitRef);
+            }
           }
         }
       }
@@ -5560,7 +5637,7 @@ export async function submitViaPortal(ctx) {
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
-      if (await requiredLeftEmpty(page, uploaded)) {
+      if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
@@ -5576,7 +5653,9 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         after = await extractFields(page, NAVIGATION);
-        if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
+        if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+          return await handoff('portal_required_fields_unfilled');
+        }
         const repairedControls = await controlsFor(after, known);
         const receiptResult = await confirmedReceipt(after);
         if (receiptResult) return receiptResult;
