@@ -407,13 +407,15 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
  *
  * @param {string|URL} url
  * @param {RequestInit} [options]  native fetch options (headers, method, body…)
- * @param {Object} [opts] — { retries, retryBaseMs, timeout, label }
+ * @param {Object} [opts] — { retries, retryBaseMs, timeout, label, fetchImpl }
  *   timeout: per-attempt abort timeout in ms (default 30000)
+ *   fetchImpl: optional fetch implementation for deterministic callers/tests
  * @returns {Promise<Response>}
  */
 export async function httpFetchWithRetry(url, options = {}, opts = {}) {
   const timeout = Number.isFinite(opts.timeout) ? opts.timeout : 30000;
   const label = opts.label || String(url);
+  const fetchImpl = typeof opts.fetchImpl === 'function' ? opts.fetchImpl : globalThis.fetch;
   return fetchWithRetry(
     async () => {
       // Bound ONLY the connection/header phase, never the body read. We use a
@@ -426,12 +428,12 @@ export async function httpFetchWithRetry(url, options = {}, opts = {}) {
       // signal still takes precedence (left as-is, no extra timer).
       let res;
       if (options.signal || !(timeout > 0)) {
-        res = await fetch(url, options);
+        res = await fetchImpl(url, options);
       } else {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeout);
         try {
-          res = await fetch(url, { ...options, signal: controller.signal });
+          res = await fetchImpl(url, { ...options, signal: controller.signal });
         } finally {
           clearTimeout(timer);
         }

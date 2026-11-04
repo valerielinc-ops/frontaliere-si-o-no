@@ -91,6 +91,7 @@ import {
   normalizeCorpusCommit,
   prepareCorpusContentOverlay,
 } from './lib/article-corpus-overlay.mjs';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -107,19 +108,34 @@ const MANIFEST_URL = `${ARTICLES_API_BASE}/manifest.json`;
 const PUBLISHED_SLUGS_URL = `${ARTICLES_API_BASE}/slugs.json`;
 const LIVE_SITE_BASE = (process.env.ARTICLE_HUB_SITE_BASE ?? 'https://frontaliereticino.ch').replace(/\/$/, '');
 const LIVE_HUB_TIMEOUT_MS = 20_000;
+const LIVE_HUB_FETCH_RETRIES = 2;
+const LIVE_HUB_RETRY_BASE_MS = 1_000;
 const FETCH_HEADERS = {
   'User-Agent': 'frontaliere-article-hub-refresh/1.0',
 };
 const LIVE_ARTICLE_INDEX_CDN_BASE = (process.env.ARTICLE_HUB_CDN_BASE ?? 'https://cdn.frontaliereticino.ch').replace(/\/$/, '');
 const LIVE_ARTICLE_INDEX_FRESHNESS_BUCKET_MS = 5 * 60 * 1000;
 
+function fetchArticleHubResource(
+  url,
+  { fetchImpl = globalThis.fetch, headers = FETCH_HEADERS, label = url } = {},
+) {
+  return httpFetchWithRetry(url, { headers }, {
+    timeout: LIVE_HUB_TIMEOUT_MS,
+    retries: LIVE_HUB_FETCH_RETRIES,
+    retryBaseMs: LIVE_HUB_RETRY_BASE_MS,
+    label,
+    fetchImpl,
+  });
+}
+
 export async function fetchPublishedCorpusCommit({
   manifestUrl = MANIFEST_URL,
   fetchImpl = globalThis.fetch,
 } = {}) {
-  const response = await fetchImpl(manifestUrl, {
-    headers: FETCH_HEADERS,
-    signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+  const response = await fetchArticleHubResource(manifestUrl, {
+    fetchImpl,
+    label: `published corpus manifest ${manifestUrl}`,
   });
   if (!response.ok) throw new Error(`HTTP ${response.status} for ${manifestUrl}`);
   const payload = await response.json();
@@ -163,9 +179,8 @@ function publishedSectionKey(section) {
 async function fetchPublishedSection(section) {
   if (!publishedSlugsPromiseBySection.has(section)) {
     const promise = (async () => {
-      const response = await fetch(PUBLISHED_SLUGS_URL, {
-        headers: FETCH_HEADERS,
-        signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+      const response = await fetchArticleHubResource(PUBLISHED_SLUGS_URL, {
+        label: `${section} published article registry ${PUBLISHED_SLUGS_URL}`,
       });
       if (!response.ok) throw new Error(`HTTP ${response.status} for ${PUBLISHED_SLUGS_URL}`);
       const payload = await response.json();
@@ -198,9 +213,8 @@ async function fetchLiveHubSlugs(section) {
   const hubPath = ARTICLE_PATH_BASE[section]?.it;
   if (!hubPath) throw new Error(`no Italian hub path configured for ${section}`);
   const url = `${LIVE_SITE_BASE}${hubPath}`;
-  const response = await fetch(url, {
-    headers: FETCH_HEADERS,
-    signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+  const response = await fetchArticleHubResource(url, {
+    label: `${section} live Italian hub ${url}`,
   });
   if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
   const slugs = renderedSlugs(await response.text(), hubPath);
@@ -236,13 +250,13 @@ async function fetchLiveArticleIndexEntries(section, full = false) {
   const urls = [baseUrl, rotatingArticleIndexUrl(baseUrl)];
   const variants = await Promise.all(urls.map(async (url) => {
     try {
-      const response = await fetch(url, {
+      const response = await fetchArticleHubResource(url, {
         headers: {
           ...FETCH_HEADERS,
           Origin: LIVE_SITE_BASE,
           Referer: `${LIVE_SITE_BASE}${ARTICLE_PATH_BASE[section]?.it ?? '/'}`,
         },
-        signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+        label: `${section} runtime article index ${url}`,
       });
       if (!response.ok) return null;
       const payload = await response.json();
@@ -740,9 +754,8 @@ export async function checkCorpusFreshness(
 ) {
   let manifest;
   try {
-    const res = await fetch(MANIFEST_URL, {
-      headers: FETCH_HEADERS,
-      signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+    const res = await fetchArticleHubResource(MANIFEST_URL, {
+      label: `${section} corpus manifest ${MANIFEST_URL}`,
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     manifest = await res.json();
