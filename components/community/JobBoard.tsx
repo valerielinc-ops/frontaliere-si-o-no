@@ -2416,10 +2416,12 @@ JobCard.displayName = 'JobCard';
  *
  * The center column keeps its own `space-y-6` rhythm (the wrapped branch root),
  * so existing listing/editorial spacing is unchanged; the shell only adds the
- * banner above and the rail gutters beside it.
+ * banner above and the rail gutters beside it. Listing geometry stays reserved
+ * after a rail reports empty: collapsing a desktop track after the first paint
+ * reallocates its width to `min-w-0`, rewraps job cards, and records CLS.
  */
 const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => {
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: false });
  return (
  <div className="space-y-6">
  {isDesktopLg && (
