@@ -8749,7 +8749,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   ? String((selectedJob as { publisherJobId?: string | null }).publisherJobId || '')
   : null;
  const detailAlertButtonJsx = detailAlertButtonVisible && selectedJob ? (
-  <Suspense fallback={null}>
+  <Suspense key="job-detail-alert-button" fallback={null}>
    <JobDetailJobAlertButton
     jobId={detailAlertJobId}
     keyword={detailAlertKeyword}
