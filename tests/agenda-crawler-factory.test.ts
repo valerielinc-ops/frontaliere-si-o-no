@@ -119,15 +119,12 @@ describe('createAgendaCrawler — crawl()', () => {
     expect(byId['src:evt-2'].endDate).toBeUndefined(); // seen once — no extension
 
     // Per-event sourceKey/sourceName — attribution and source-specific
-    // rendering consume these fields from each normalized event.
+    // rendering consume these fields from each normalized event. The crawler
+    // does not promote its catalog label to an event organizer.
     for (const e of result.events) {
       expect(e.sourceKey).toBe(TEST_SOURCE_KEY);
       expect(e.sourceName).toBe('Test Agenda Factory Fixture');
-      expect(e.organizer).toEqual({
-        '@type': 'Organization',
-        name: 'Test Agenda Factory Fixture',
-        url: 'https://example.test/agenda',
-      });
+      expect(e.organizer).toBeUndefined();
       expect(e.performer).toBeUndefined();
     }
 
