@@ -802,7 +802,7 @@ interface JobBoardFilterParams {
 }
 
 interface JobBoardProps {
- /** Called after useful listing content commits over an external static snapshot. */
+ /** Called after authoritative listing content commits over an external static snapshot. */
  onInitialContentReady?: () => void;
  onPostJob?: () => void;
  initialJobSlug?: string;
@@ -5971,10 +5971,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) || returnVisitResultsPending;
  const initialContentReadyRef = useRef(false);
  useLayoutEffect(() => {
-  if (initialContentReadyRef.current || jobsLoading || jobs.length === 0 || resultsResolving) return;
+  // The slim first page is enough to paint the SPA, but not enough to release
+  // the external snapshot: the authoritative catalog can still replace the
+  // result set and card/ad geometry after the deferred interaction load.
+  if (initialContentReadyRef.current || jobsLoading || fullLoadPending || jobs.length === 0 || resultsResolving) return;
   initialContentReadyRef.current = true;
   onInitialContentReady?.();
- }, [jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
+ }, [fullLoadPending, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
  // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
