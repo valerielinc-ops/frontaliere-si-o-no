@@ -1,8 +1,11 @@
-import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+const gitMock = vi.hoisted(() => vi.fn());
+vi.mock('node:child_process', () => ({ execFileSync: gitMock }));
 import {
   addLedgerRecordToIndex,
   createLedgerIndexState,
@@ -23,6 +26,14 @@ function observation(recordId: string, value = 'ok') {
     recordId,
     value,
   };
+}
+
+function gitBlobOid(file: string) {
+  const content = fs.readFileSync(file);
+  return createHash('sha1')
+    .update(`blob ${content.byteLength}\0`)
+    .update(content)
+    .digest('hex');
 }
 
 describe('loop-fleet durable ledger index', () => {
@@ -101,8 +112,14 @@ describe('loop-fleet durable ledger index', () => {
       fs.mkdirSync(ledgerDir, { recursive: true });
       const shard = path.join(ledgerDir, 'loop-observations-run-1.jsonl');
       fs.writeFileSync(shard, '{"recordId":"one"}\n');
-      execFileSync('git', ['-C', repo, 'init', '--quiet']);
-      execFileSync('git', ['-C', repo, 'add', 'data/loop-fleet/ledger/loop-observations-run-1.jsonl']);
+      gitMock.mockImplementation((_command: string, args: string[]) => {
+        if (args.includes('rev-parse')) return `${repo}\n`;
+        if (args.includes('ls-files')) return 'data/loop-fleet/ledger/loop-observations-run-1.jsonl\0';
+        if (args.includes('hash-object')) {
+          return `${gitBlobOid(path.join(repo, args[args.length - 1]))}\n`;
+        }
+        throw new Error(`unexpected git command: ${args.join(' ')}`);
+      });
 
       const indexedOid = ledgerFileOid(ledgerDir, shard);
       expect(indexedOid).toMatch(/^[0-9a-f]{40,64}$/u);
