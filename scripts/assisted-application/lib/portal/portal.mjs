@@ -1955,10 +1955,13 @@ async function clickFirst(page, snapshot, patterns) {
     }).map((control) => Number(control.frame)).filter((frame) => Number.isSafeInteger(frame) && frame >= 0))];
     const formFrames = formFrameNumbers.map((frame) => frames[frame]).filter(Boolean);
     const lateRoles = pattern === CREATE_ACCOUNT_RE ? ['link', 'button'] : ['link'];
+    const firstVisibleRole = (root, role) => root.getByRole(role, { name: pattern })
+      .filter({ visible: true })
+      .first();
     for (const frame of formFrames) {
       if (typeof frame?.getByRole !== 'function') continue;
       for (const role of lateRoles) {
-        const frameControl = frame.getByRole(role, { name: pattern }).first();
+        const frameControl = firstVisibleRole(frame, role);
         const frameControlVisible = await frameControl.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
         if (frameControlVisible) {
           await clickPortalLink(page, frameControl);
@@ -1966,12 +1969,16 @@ async function clickFirst(page, snapshot, patterns) {
         }
       }
     }
-    for (const role of lateRoles) {
-      const control = page.getByRole(role, { name: pattern }).first();
-      const controlVisible = await control.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
-      if (controlVisible) {
-        await clickPortalLink(page, control);
-        return role;
+    // Once the snapshot identifies an auth form in a child frame, a same-named
+    // main-frame control is site chrome, not the auth action we are looking for.
+    if (!authForm || authForm.frame === 0) {
+      for (const role of lateRoles) {
+        const control = firstVisibleRole(page, role);
+        const controlVisible = await control.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+        if (controlVisible) {
+          await clickPortalLink(page, control);
+          return role;
+        }
       }
     }
   }
