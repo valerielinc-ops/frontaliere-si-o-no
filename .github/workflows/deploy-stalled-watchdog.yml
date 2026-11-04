@@ -48,9 +48,14 @@ on:
   workflow_dispatch: {}
 
 concurrency:
-  # This is the same durable claim used by deploy.yml's final rearm and its
-  # in-workflow schedule resolver; at most one resolver may dispatch.
-  group: deploy-rearm-dispatch
+  # Keep workflow admission separate from the resolver's durable job claim.
+  # A workflow_run can arrive while the source workflow is still releasing its
+  # job-level claim; requesting that same group at workflow level can fail the
+  # observer before Actions materializes any job. Failed-source runs acquire
+  # the shared claim below only when their resolver job is scheduled. A
+  # successful source completion gets a per-run no-op group so it cannot evict
+  # a real resolver.
+  group: ${{ github.event_name == 'workflow_run' && format('deploy-stalled-watchdog-workflow-run-{0}', github.run_id) || 'deploy-stalled-watchdog' }}
   cancel-in-progress: false
 
 permissions:
@@ -61,6 +66,16 @@ permissions:
 jobs:
   reconcile:
     name: Reconcile a stalled deploy tip
+    # A successful Deploy completion needs only the explicit no-op job below;
+    # every other trigger remains eligible for the queue/HEAD resolver.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion != 'success'
+    # This is the same durable claim used by deploy.yml's final rearm and its
+    # in-workflow schedule resolver; at most one resolver may dispatch.
+    concurrency:
+      group: deploy-rearm-dispatch
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -102,3 +117,21 @@ jobs:
           REARM_MAX_BUILDS_PER_SHA: '2'
           REARM_SKIP_LOCALE_RECOVERY: '1'
         run: node scripts/ci/rearm-deploy-build.mjs
+
+  # A healthy workflow_run still creates a watchdog event because the trigger
+  # is completion-based. Keep that event observable and green instead of
+  # letting a filtered resolver leave the whole workflow with zero jobs.
+  skip-successful-source:
+    name: Record successful source run
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record healthy source run
+        env:
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: >-
+          echo "Deploy stalled watchdog skipped successful source run
+          ${SOURCE_RUN_ID}; no re-arm needed."
