@@ -281,6 +281,36 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
 }
 
 /**
+ * Umantis vacancy pages use the same tenant and vacancy id for their direct
+ * application form. This route is used only when the saved apply URL is the
+ * exact same posting address; a matching numeric id by itself is not enough.
+ */
+function umantisApplicationEntryUrl({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    if (apply.protocol !== 'https:' || posting.protocol !== 'https:'
+      || !/(?:^|\.)umantis\.com$/i.test(apply.hostname)
+      || apply.origin !== posting.origin
+      || apply.pathname.replace(/\/+$/, '') !== posting.pathname.replace(/\/+$/, '')) return '';
+    const match = /^\/vacancies\/(\d+)\/description\/(\d+)\/?$/i.exec(posting.pathname);
+    if (!match) return '';
+    return `${posting.origin}/Vacancies/${match[1]}/Application/New/${match[2]}`;
+  } catch {
+    return '';
+  }
+}
+
+function verifiedPostingEntryFor(ctx = {}) {
+  if (isVerifiedPostingEntry(ctx)) return true;
+  const applicationUrl = umantisApplicationEntryUrl(ctx);
+  return Boolean(applicationUrl && isVerifiedPostingEntry({
+    applyUrl: applicationUrl,
+    postingUrl: ctx.postingUrl,
+  }));
+}
+
+/**
  * A URL pair that proves the application belongs to the selected posting.
  * This is stronger than the rendered posting text: Umantis can show a generic
  * application form without repeating the employer or vacancy title.
@@ -300,7 +330,7 @@ export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
-  return directUrl;
+  return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
 }
 
 function portalChannelType(ctx = {}) {
@@ -4504,7 +4534,7 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  const verifiedPostingEntry = verifiedJobs2WebEntry || isVerifiedPostingEntry(ctx);
+  const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx);
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
@@ -4634,7 +4664,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
-  const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
+  const enteredFromMatchingPosting = verifiedPostingEntryFor(ctx);
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
