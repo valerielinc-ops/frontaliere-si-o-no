@@ -5,6 +5,7 @@ import path from 'node:path';
 import { getFirestoreDb } from './firestore-admin.mjs';
 
 export const SOCIAL_PUBLISH_RESERVATION_COLLECTION = 'social_publish_reservations';
+export const SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING = 'SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING';
 export const SOCIAL_PUBLISH_RESERVATION_SCHEMA_VERSION = 1;
 export const SOCIAL_PUBLISH_TIME_ZONE = 'Europe/Zurich';
 export const SOCIAL_PUBLISH_RESERVATION_RETENTION_DAYS = 3;
@@ -38,6 +39,10 @@ const LEDGER_FILES = Object.freeze({
   ]),
 });
 const ACTIVE_STATUSES = new Set(['reserved', 'published']);
+
+export function isMissingSocialPublishReservationDocumentError(error) {
+  return error?.code === SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING;
+}
 
 function digest(value) {
   return createHash('sha256').update(String(value)).digest('hex');
@@ -651,7 +656,11 @@ async function updateSocialPublishReservation({
       if (identityStillActive && release) return false;
       if (identityStillActive && refresh && !unpublishedConfirmed) return false;
     }
-    if (!snapshot.exists && !identity) throw new Error('social publish reservation document is missing');
+    if (!snapshot.exists && !identity) {
+      const error = new Error('social publish reservation document is missing');
+      error.code = SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING;
+      throw error;
+    }
     const stored = validateStoredDocument(snapshot.exists ? snapshot.data() : null, platform, accountHash, capGroup);
     const bucket = stored.days[day];
     const locatedBucket = Object.entries(stored.days)

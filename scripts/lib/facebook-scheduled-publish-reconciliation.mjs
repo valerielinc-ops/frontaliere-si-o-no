@@ -1,5 +1,8 @@
 import { GRAPH_API } from './instagram-graph-constants.mjs';
-import { socialPublishReservationKey } from './social-publish-reservations.mjs';
+import {
+  isMissingSocialPublishReservationDocumentError,
+  socialPublishReservationKey,
+} from './social-publish-reservations.mjs';
 
 function facebookTimestamp(value) {
   if (typeof value === 'number' && Number.isFinite(value)) return value < 10_000_000_000 ? value * 1000 : value;
@@ -58,6 +61,7 @@ export async function reconcileFacebookScheduledPosts({
   let pending = 0;
   let uncertain = 0;
   let reconciled = 0;
+  let legacyReservationMissing = 0;
 
   const refreshHold = async (row, unpublishedConfirmed = false) => {
     needsHoldRefresh.set(row.id, { row, unpublishedConfirmed });
@@ -138,6 +142,14 @@ export async function reconcileFacebookScheduledPosts({
           now: nowDate,
         });
       } catch (error) {
+        if (isMissingSocialPublishReservationDocumentError(error)) {
+          // Rows written before the shared reservation gate was introduced
+          // have native publication evidence but no Firestore document to
+          // settle. The next reservation batch seeds its state from this
+          // reconciled ledger; this is not an uncertain publication.
+          legacyReservationMissing += 1;
+          continue;
+        }
         uncertain += 1;
         warn(`⚠️ Facebook actual publication reservation remains held for ${row.id}: ${error.message}`);
       }
@@ -163,5 +175,8 @@ export async function reconcileFacebookScheduledPosts({
   }
 
   if (reconciled > 0) log(`✅ reconciled ${reconciled} Facebook scheduled post(s) to actual publish time`);
+  if (legacyReservationMissing > 0) {
+    log('ℹ️', `${legacyReservationMissing} confirmed Facebook scheduled post(s) predate the shared reservation ledger`);
+  }
   return { checked: due.length, reconciled, pending, uncertain };
 }

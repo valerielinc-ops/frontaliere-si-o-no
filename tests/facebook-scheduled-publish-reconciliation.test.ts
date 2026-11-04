@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { reconcileFacebookScheduledPosts } from '../scripts/lib/facebook-scheduled-publish-reconciliation.mjs';
+import { SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING } from '../scripts/lib/social-publish-reservations.mjs';
 
 const makeResponse = (data: unknown, ok = true, status = ok ? 200 : 500) => ({
   ok,
@@ -54,6 +55,37 @@ describe('Facebook scheduled-post reconciliation', () => {
       publishedAt: '2026-11-02T23:04:12.000Z',
     }));
     expect(refreshReservation).not.toHaveBeenCalled();
+  });
+
+  it('keeps confirmed legacy ledger rows successful when the shared reservation document is absent', async () => {
+    const rows = [makeRow()];
+    const markPublished = vi.fn(async () => {
+      throw Object.assign(new Error('social publish reservation document is missing'), {
+        code: SOCIAL_PUBLISH_RESERVATION_DOCUMENT_MISSING,
+      });
+    });
+    const log = vi.fn();
+    const result = await reconcileFacebookScheduledPosts({
+      rows,
+      pageId: 'page-1',
+      token: 'test-token',
+      fetchImpl: async () => makeResponse({
+        id: '123_456',
+        is_published: true,
+        created_time: '2026-11-02T23:04:12+0000',
+      }),
+      now,
+      saveRows: vi.fn(async () => {}),
+      markPublished,
+      log,
+    });
+
+    expect(result).toEqual({ checked: 1, reconciled: 1, pending: 0, uncertain: 0 });
+    expect(rows[0].actualPublishedAt).toBe('2026-11-02T23:04:12.000Z');
+    expect(log).toHaveBeenCalledWith(
+      'ℹ️',
+      '1 confirmed Facebook scheduled post(s) predate the shared reservation ledger',
+    );
   });
 
   it('keeps an unpublished schedule reserved through today and tomorrow', async () => {
