@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-91x8qn",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel",
+      "slug": "montatore-trice-per-la-consegna-a-domicilio-di-elettrodomestici-fust-meierskappel",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Meierskappel",
@@ -45,10 +45,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel",
+        "it": "montatore-trice-per-la-consegna-a-domicilio-di-elettrodomestici-fust-meierskappel",
+        "en": "home-delivery-installer-for-electrical-household-appliances-fust-meierskappel",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel"
+        "fr": "monteur-monteuse-de-livraison-a-domicile-d-appareils-electromenagers-fust-meierskappel"
       },
       "requirementsByLocale": {},
       "addressLocality": "Meierskappel",
@@ -73,7 +73,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel"
+        ],
+        "en": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel"
+        ],
+        "fr": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel"
+        ]
+      },
+      "previousSlugs": [
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-meierskappel"
+      ]
     },
     {
       "id": "company-xyj94y",

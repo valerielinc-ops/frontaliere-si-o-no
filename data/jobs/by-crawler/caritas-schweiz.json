@@ -265,12 +265,12 @@
     },
     {
       "id": "caritas-schweiz-99562f004696",
-      "slug": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen",
+      "slug": "gestione-divisione-diakonie-40-50-caritas-schweiz-st-gallen",
       "slugByLocale": {
         "de": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen",
-        "it": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen",
-        "en": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen",
-        "fr": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        "it": "gestione-divisione-diakonie-40-50-caritas-schweiz-st-gallen",
+        "en": "divisional-management-diakonie-40-50-caritas-schweiz-st-gallen",
+        "fr": "gestion-divisionnaire-diakonie-40-50-caritas-schweiz-st-gallen"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -335,7 +335,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:24:21.179Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:24:21.179Z"
+      "firstSeenAt": "2026-11-04T09:24:21.179Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        ],
+        "en": [
+          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        ],
+        "fr": [
+          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+      ]
     },
     {
       "id": "caritas-schweiz-4972e95ee6b3",

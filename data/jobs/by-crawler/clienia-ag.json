@@ -186,7 +186,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -267,7 +267,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -277,7 +278,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -7455,12 +7456,12 @@
     },
     {
       "id": "clienia-ag-3db3bf701804",
-      "slug": "diplomierte-pflegefachperson-come-dauernachtwache-con-triagefunktion-80-clienia-ag-pfaffikon",
+      "slug": "infermiere-a-diplomato-a-per-il-turno-notturno-fisso-con-funzione-di-triage-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-zurich",
-        "it": "diplomierte-pflegefachperson-come-dauernachtwache-con-triagefunktion-80-clienia-ag-pfaffikon",
-        "en": "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-pfaffikon",
-        "fr": "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-pfaffikon"
+        "it": "infermiere-a-diplomato-a-per-il-turno-notturno-fisso-con-funzione-di-triage-80-clienia-ag-pfaffikon-zh",
+        "en": "certified-nurse-as-a-permanent-night-watch-with-triage-function-80-clienia-ag-pfaffikon-zh",
+        "fr": "infirmiere-certifiee-comme-une-garde-de-nuit-permanente-avec-fonction-de-triage-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7508,11 +7509,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-come-dauernachtwache-con-triagefunktion-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-zurich",
+        "diplomierte-pflegefachperson-come-dauernachtwache-con-triagefunktion-80-clienia-ag-pfaffikon",
+        "diplomierte-pflegefachperson-als-dauernachtwache-mit-triagefunktion-80-clienia-ag-pfaffikon"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,

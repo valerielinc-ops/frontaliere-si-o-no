@@ -7136,12 +7136,12 @@
     },
     {
       "id": "etat-de-fribourg-06bfd4767d60",
-      "slug": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch",
+      "slug": "registratore-post-master-traine-etat-de-fribourg-morat",
       "slugByLocale": {
         "fr": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch",
-        "it": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch",
-        "en": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch",
-        "de": "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        "it": "registratore-post-master-traine-etat-de-fribourg-morat",
+        "en": "registrar-post-master-trainee-etat-de-fribourg-morat",
+        "de": "registrar-postmaster-trainee-etat-de-fribourg-morat"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7207,7 +7207,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:36:40.429Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:36:40.429Z"
+      "firstSeenAt": "2026-11-04T09:36:40.429Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-stagiaire-post-master-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-580fd9d156ff",

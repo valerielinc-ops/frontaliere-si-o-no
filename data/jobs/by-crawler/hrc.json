@@ -426,12 +426,12 @@
     },
     {
       "id": "hrc-5b605d9d591f",
-      "slug": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz",
+      "slug": "ufficiale-medico-specialista-clinico-m-f-in-ematologia-fmh-o-equivalente-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz",
-        "it": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz",
-        "en": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz",
-        "de": "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        "it": "ufficiale-medico-specialista-clinico-m-f-in-ematologia-fmh-o-equivalente-hopital-riviera-chablais-hrc-rennaz",
+        "en": "medical-officer-clinical-specialist-m-f-in-hematology-fmh-or-equivalent-hopital-riviera-chablais-hrc-rennaz",
+        "de": "medical-officer-clinical-specialist-m-w-in-hamatologie-fmh-oder-gleichwertig-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -493,7 +493,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:30:36.106Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:30:36.106Z"
+      "firstSeenAt": "2026-11-04T09:30:36.106Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        ],
+        "en": [
+          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        ],
+        "de": [
+          "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-de-clinique-specialiste-h-f-en-hematologie-fmh-ou-equivalent-hrc-rennaz"
+      ]
     }
   ]
 }

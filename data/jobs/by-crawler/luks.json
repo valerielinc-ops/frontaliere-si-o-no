@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17594,12 +17594,12 @@
     },
     {
       "id": "luks-f14886c1f556",
-      "slug": "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen",
+      "slug": "specialista-specialista-ingegneria-operativa-hf-40-100-mo-a-fr-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen",
-        "it": "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen",
-        "en": "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen",
-        "fr": "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen"
+        "it": "specialista-specialista-ingegneria-operativa-hf-40-100-mo-a-fr-luzerner-kantonsspital-luks-wolhusen",
+        "en": "specialist-specialist-operational-engineering-hf-40-100-mo-to-fr-luzerner-kantonsspital-luks-wolhusen",
+        "fr": "specialiste-specialiste-genie-operationnel-hf-40-100-mo-a-fr-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17661,7 +17661,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:23:52.348Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:23:52.348Z"
+      "firstSeenAt": "2026-11-04T09:23:52.348Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-hf-40-100-mo-bis-fr-luks-wolhusen"
+      ]
     },
     {
       "id": "luks-fe00da125074",

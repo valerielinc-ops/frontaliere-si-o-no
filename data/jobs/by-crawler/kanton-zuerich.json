@@ -745,12 +745,12 @@
     },
     {
       "id": "kanton-zuerich-7b2d03ddc56c",
-      "slug": "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich",
+      "slug": "procuratrice-procuratore-con-funzione-di-sostituzione-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "staatsanwaltin-staatsanwalt-mit-springerfunktion-kanton-zuerich-zurich",
-        "it": "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich",
-        "en": "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich",
-        "fr": "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich"
+        "it": "procuratrice-procuratore-con-funzione-di-sostituzione-kantonale-verwaltung-zurich-zurich",
+        "en": "prosecutor-public-prosecutor-with-springer-function-kantonale-verwaltung-zurich-zurich",
+        "fr": "procureur-procureur-avec-fonction-springer-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -802,11 +802,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "staatsanwaltin-staatsanwalt-mit-springerfunktion-kanton-zuerich-zurich"
+          "staatsanwaltin-staatsanwalt-mit-springerfunktion-kanton-zuerich-zurich",
+          "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "staatsanwaltin-staatsanwalt-mit-springerfunktion-kanton-zuerich-zurich"
+        "staatsanwaltin-staatsanwalt-mit-springerfunktion-kanton-zuerich-zurich",
+        "staatsanwaltin-staatsanwalt-mit-springerfunktion-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -1485,12 +1493,12 @@
     },
     {
       "id": "kanton-zuerich-8567ea001ff4",
-      "slug": "senior-projektleiter-in-digitale-vorhaben-kantonale-verwaltung-zurich",
+      "slug": "responsabile-di-progetto-senior-per-iniziative-digitali-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich",
-        "it": "senior-projektleiter-in-digitale-vorhaben-kantonale-verwaltung-zurich",
-        "en": "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich",
-        "fr": "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich"
+        "it": "responsabile-di-progetto-senior-per-iniziative-digitali-kantonale-verwaltung-zurich-zurich",
+        "en": "senior-project-manager-digital-initiatives-kantonale-verwaltung-zurich-zurich",
+        "fr": "chef-fe-de-projet-senior-projets-numeriques-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1542,11 +1550,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich",
+          "senior-projektleiter-in-digitale-vorhaben-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich"
+        "senior-projektleiter-in-digitale-vorhaben-kanton-zuerich-zurich",
+        "senior-projektleiter-in-digitale-vorhaben-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -5463,12 +5479,12 @@
     },
     {
       "id": "kanton-zuerich-53b0a7fa5c64",
-      "slug": "collaboratore-trice-in-datenmanagement-befristet-kantonale-verwaltung-zurich",
+      "slug": "addetto-a-alla-gestione-dei-dati-a-tempo-determinato-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-datenmanagement-befristet-kanton-zuerich-zurich",
-        "it": "collaboratore-trice-in-datenmanagement-befristet-kantonale-verwaltung-zurich",
-        "en": "mitarbeiter-in-datenmanagement-befristet-kantonale-verwaltung-zurich-zurich",
-        "fr": "mitarbeiter-in-datenmanagement-befristet-kantonale-verwaltung-zurich-zurich"
+        "it": "addetto-a-alla-gestione-dei-dati-a-tempo-determinato-kantonale-verwaltung-zurich-zurich",
+        "en": "data-management-employee-fixed-term-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-trice-en-gestion-des-donnees-poste-a-duree-determinee-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5520,11 +5536,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-datenmanagement-befristet-kanton-zuerich-zurich"
+          "mitarbeiter-in-datenmanagement-befristet-kanton-zuerich-zurich",
+          "collaboratore-trice-in-datenmanagement-befristet-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-datenmanagement-befristet-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-datenmanagement-befristet-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-datenmanagement-befristet-kanton-zuerich-zurich"
+        "mitarbeiter-in-datenmanagement-befristet-kanton-zuerich-zurich",
+        "collaboratore-trice-in-datenmanagement-befristet-kantonale-verwaltung-zurich",
+        "mitarbeiter-in-datenmanagement-befristet-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8818,12 +8843,12 @@
     },
     {
       "id": "kanton-zuerich-fcf258bcd4ec",
-      "slug": "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich",
+      "slug": "tirocinante-hms-nel-settore-del-personale-scolastico-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich",
-        "it": "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich",
-        "en": "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich",
-        "fr": "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich"
+        "it": "tirocinante-hms-nel-settore-del-personale-scolastico-kantonale-verwaltung-zurich-zurich",
+        "en": "hms-intern-human-resources-schools-kantonale-verwaltung-zurich-zurich",
+        "fr": "stagiaire-hms-ressources-humaines-ecoles-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8890,7 +8915,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:34:29.586Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:34:29.586Z"
+      "firstSeenAt": "2026-11-04T09:34:29.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praktikant-in-personal-schulen-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-f1e64fa3a0ac",
@@ -11174,12 +11213,12 @@
     },
     {
       "id": "kanton-zuerich-515f78465d3e",
-      "slug": "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich",
+      "slug": "responsabile-del-team-trasformazione-e-sviluppo-organizzativo-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-transformation-organisationsentwicklung-kanton-zuerich-zurich",
-        "it": "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich",
-        "en": "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich",
-        "fr": "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich"
+        "it": "responsabile-del-team-trasformazione-e-sviluppo-organizzativo-kantonale-verwaltung-zurich-zurich",
+        "en": "team-leader-transformation-organizational-development-kantonale-verwaltung-zurich-zurich",
+        "fr": "responsable-d-equipe-transformation-et-developpement-organisationnel-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11231,11 +11270,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-transformation-organisationsentwicklung-kanton-zuerich-zurich"
+          "teamleiter-in-transformation-organisationsentwicklung-kanton-zuerich-zurich",
+          "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-transformation-organisationsentwicklung-kanton-zuerich-zurich"
+        "teamleiter-in-transformation-organisationsentwicklung-kanton-zuerich-zurich",
+        "teamleiter-in-transformation-organisationsentwicklung-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14745,12 +14792,12 @@
     },
     {
       "id": "kanton-zuerich-836ff813c73a",
-      "slug": "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich",
+      "slug": "tirocinante-hms-nella-formazione-aziendale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich",
-        "it": "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich",
-        "en": "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich",
-        "fr": "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich"
+        "it": "tirocinante-hms-nella-formazione-aziendale-kantonale-verwaltung-zurich-zurich",
+        "en": "hms-intern-vocational-training-kantonale-verwaltung-zurich-zurich",
+        "fr": "stagiaire-hms-en-formation-en-entreprise-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14817,7 +14864,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:33:51.117Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:33:51.117Z"
+      "firstSeenAt": "2026-11-04T09:33:51.117Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praktikant-in-betriebliche-bildung-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-a8b9cb45a8e2",

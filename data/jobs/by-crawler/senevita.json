@@ -7291,7 +7291,7 @@
         "it": "cuocere-cucinare-80-senevita-be-bern",
         "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
-        "fr": "cuisinier-ere-80-senevita-be-bern"
+        "fr": "cuire-cuir-80-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7338,7 +7338,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-80-senevita-be-bern",
-        "cuire-cuir-80-senevita-be-bern"
+        "cuisinier-ere-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7349,7 +7349,7 @@
         ],
         "fr": [
           "kochin-koch-80-senevita-be-bern",
-          "cuire-cuir-80-senevita-be-bern"
+          "cuisinier-ere-80-senevita-be-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T15:13:56.696Z",
@@ -7372,12 +7372,12 @@
     },
     {
       "id": "senevita-1db1c3075d73",
-      "slug": "kochin-koch-auf-abruf-senevita-zh-buchs",
+      "slug": "cuocere-cucinare-su-richiesta-senevita-zh-buchs",
       "slugByLocale": {
         "de": "kochin-koch-auf-abruf-senevita-zh-buchs",
-        "it": "kochin-koch-auf-abruf-senevita-zh-buchs",
-        "en": "kochin-koch-auf-abruf-senevita-zh-buchs",
-        "fr": "kochin-koch-auf-abruf-senevita-zh-buchs"
+        "it": "cuocere-cucinare-su-richiesta-senevita-zh-buchs",
+        "en": "cook-cook-on-demand-senevita-zh-buchs",
+        "fr": "cuisiner-sur-demande-senevita-zh-buchs"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7439,7 +7439,21 @@
       "streetAddress": "ZH Buchs",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-04T09:27:26.790Z"
+      "firstSeenAt": "2026-11-04T09:27:26.790Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-auf-abruf-senevita-zh-buchs"
+        ],
+        "en": [
+          "kochin-koch-auf-abruf-senevita-zh-buchs"
+        ],
+        "fr": [
+          "kochin-koch-auf-abruf-senevita-zh-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-auf-abruf-senevita-zh-buchs"
+      ]
     },
     {
       "id": "senevita-d4ffe8ba1fea",
@@ -8882,7 +8896,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8928,7 +8942,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8938,7 +8952,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -16206,12 +16220,12 @@
     },
     {
       "id": "senevita-77375ee0f117",
-      "slug": "servicefachperson-efz-40-60-senevita-zh-zurich",
+      "slug": "addetto-a-al-servizio-efz-40-60-senevita-zh-zurich",
       "slugByLocale": {
         "de": "servicefachperson-efz-40-60-senevita-zh-zurich",
-        "it": "servicefachperson-efz-40-60-senevita-zh-zurich",
-        "en": "servicefachperson-efz-40-60-senevita-zh-zurich",
-        "fr": "servicefachperson-efz-40-60-senevita-zh-zurich"
+        "it": "addetto-a-al-servizio-efz-40-60-senevita-zh-zurich",
+        "en": "service-specialist-efz-40-60-senevita-zh-zurich",
+        "fr": "specialiste-des-services-efz-40-60-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16274,7 +16288,21 @@
       "streetAddress": "ZH Zürich",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-04T09:26:24.599Z"
+      "firstSeenAt": "2026-11-04T09:26:24.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicefachperson-efz-40-60-senevita-zh-zurich"
+        ],
+        "en": [
+          "servicefachperson-efz-40-60-senevita-zh-zurich"
+        ],
+        "fr": [
+          "servicefachperson-efz-40-60-senevita-zh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "servicefachperson-efz-40-60-senevita-zh-zurich"
+      ]
     },
     {
       "id": "senevita-eda9cdee4ad8",

@@ -751,12 +751,12 @@
     },
     {
       "id": "ottos-3eba7ab5dc69",
-      "slug": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly",
+      "slug": "alimentare-non-alimentare-ausiliario-venditore-m-f-otto-s-ag-marly",
       "slugByLocale": {
         "fr": "vendeur-auxiliaire-food-non-food-h-f-ottos-marly",
-        "it": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly",
-        "en": "vendeur-auxiliaire-food-non-food-h-f-ottos-marly",
-        "de": "vendeur-auxiliaire-food-non-food-h-f-ottos-marly"
+        "it": "alimentare-non-alimentare-ausiliario-venditore-m-f-otto-s-ag-marly",
+        "en": "food-non-food-auxiliary-seller-m-f-otto-s-ag-marly",
+        "de": "lebensmittel-nichtlebensmittel-hilfsverkaufer-m-w-otto-s-ag-marly"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -808,11 +808,19 @@
       "pensum": "40 - 60%",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-marly",
+          "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly"
+        ],
+        "en": [
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-marly"
+        ],
+        "de": [
           "vendeur-auxiliaire-food-non-food-h-f-ottos-marly"
         ]
       },
       "previousSlugs": [
-        "vendeur-auxiliaire-food-non-food-h-f-ottos-marly"
+        "vendeur-auxiliaire-food-non-food-h-f-ottos-marly",
+        "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -4328,9 +4336,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4381,17 +4389,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",

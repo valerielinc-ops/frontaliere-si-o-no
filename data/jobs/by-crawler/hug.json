@@ -3173,12 +3173,12 @@
     },
     {
       "id": "hug-8e55d9595493",
-      "slug": "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc-crans-montana-100-hug-crans-montana",
+      "slug": "formazione-di-manager-o-dipendenti-in-hotel-afp-cfc-stewardship-crans-montana-100-hug-crans-montana",
       "slugByLocale": {
         "fr": "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc",
-        "it": "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc-crans-montana-100-hug-crans-montana",
-        "en": "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc",
-        "de": "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc"
+        "it": "formazione-di-manager-o-dipendenti-in-hotel-afp-cfc-stewardship-crans-montana-100-hug-crans-montana",
+        "en": "manager-s-or-employee-s-training-in-hotels-afp-cfc-stewardship-crans-montana-100-hug-crans-montana",
+        "de": "manager-oder-mitarbeiterschulung-in-hotels-afp-cfc-stewardship-crans-montana-100-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3225,11 +3225,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc",
+          "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc-crans-montana-100-hug-crans-montana"
+        ],
+        "en": [
+          "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc"
+        ],
+        "de": [
           "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc"
+        "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc",
+        "apprentissage-de-gestionnaire-ou-employe-ou-employee-en-hotellerie-intendance-afp-cfc-crans-montana-100-hug-crans-montana"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3253,12 +3261,12 @@
     },
     {
       "id": "hug-8cba6a743114",
-      "slug": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana",
+      "slug": "cucinare-o-cucinare-imparare-cfc-crans-montana-100-hug-crans-montana",
       "slugByLocale": {
         "fr": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana",
-        "it": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana",
-        "en": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana",
-        "de": "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana"
+        "it": "cucinare-o-cucinare-imparare-cfc-crans-montana-100-hug-crans-montana",
+        "en": "cook-or-cook-learning-cfc-crans-montana-100-hug-crans-montana",
+        "de": "kochen-oder-kochen-lernen-cfc-crans-montana-100-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3321,7 +3329,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:27:50.800Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:27:50.800Z"
+      "firstSeenAt": "2026-11-04T09:27:50.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana"
+        ],
+        "en": [
+          "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana"
+        ],
+        "de": [
+          "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-cuisinier-ou-cuisiniere-cfc-crans-montana-100-hug-crans-montana"
+      ]
     },
     {
       "id": "hug-be7a15b9528a",

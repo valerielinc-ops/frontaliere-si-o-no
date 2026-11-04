@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-f2301ed73017",
-      "slug": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-9d59b490d5",
+      "slug": "meccatronico-a-di-impianti-a-fune-parsenn-100-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "it": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-9d59b490d5",
-        "en": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "fr": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        "it": "meccatronico-a-di-impianti-a-fune-parsenn-100-davos-klosters-bergbahnen-ag-davos",
+        "en": "cable-car-mechatronics-technician-parsenn-100-davos-klosters-bergbahnen-ag-davos",
+        "fr": "mecatronicien-ne-de-remontees-mecaniques-parsenn-100-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -72,10 +72,18 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T09:27:08.619Z",
       "previousSlugs": [
-        "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
+        "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-9d59b490d5"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
+          "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-9d59b490d5"
+        ],
+        "en": [
+          "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
           "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
         ]
       }

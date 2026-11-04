@@ -93,12 +93,12 @@
     },
     {
       "id": "hopital-la-tour-fd3402d505cf",
-      "slug": "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin",
+      "slug": "radiologia-tecnica-all-80-cdi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin",
-        "it": "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin",
-        "en": "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin",
-        "de": "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin"
+        "it": "radiologia-tecnica-all-80-cdi-hopital-de-la-tour-meyrin",
+        "en": "radiology-technician-at-80-cdi-hopital-de-la-tour-meyrin",
+        "de": "radiologietechniker-bei-80-cdi-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -171,7 +171,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T09:29:26.571Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:29:26.571Z"
+      "firstSeenAt": "2026-11-04T09:29:26.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80-cdi-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-21f037f09490",
@@ -1562,12 +1576,12 @@
     },
     {
       "id": "hopital-la-tour-e37141e1f9dd",
-      "slug": "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin",
+      "slug": "segretario-medico-in-radiologia-all-80-cdi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin",
-        "it": "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin",
-        "en": "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin",
-        "de": "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin"
+        "it": "segretario-medico-in-radiologia-all-80-cdi-hopital-de-la-tour-meyrin",
+        "en": "medical-secretary-in-radiology-at-80-cdi-hopital-de-la-tour-meyrin",
+        "de": "medizinische-sekretarin-fur-radiologie-bei-80-cdi-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -1640,7 +1654,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T09:29:26.557Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:29:26.557Z"
+      "firstSeenAt": "2026-11-04T09:29:26.557Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-en-radiologie-a-80-cdi-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-2c25b5aa8ec1",

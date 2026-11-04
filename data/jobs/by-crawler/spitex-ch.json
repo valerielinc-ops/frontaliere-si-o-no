@@ -657,12 +657,12 @@
     },
     {
       "id": "spitex-ch-d2d8d61d35c6",
-      "slug": "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen",
+      "slug": "infermiere-a-diplomato-a-sss-sup-con-responsabilita-principale-della-gestione-dei-casi-spitex-regiokirchspiel",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
-        "it": "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen",
-        "en": "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
-        "fr": "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
+        "it": "infermiere-a-diplomato-a-sss-sup-con-responsabilita-principale-della-gestione-dei-casi-spitex-regiokirchspiel",
+        "en": "dipl-nurse-hf-fh-as-main-case-management-spitex-regiokirchspiel-kleindottingen",
+        "fr": "dipl-infirmiere-hf-h-comme-principale-gestion-de-cas-spitex-regiokirchspiel-kleindottingen"
       },
       "company": "Spitex RegioKirchspiel",
       "companyKey": "spitex-ch",
@@ -711,11 +711,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
+          "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
+        "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
+        "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -737,12 +745,12 @@
     },
     {
       "id": "spitex-ch-4bdff1b2a75c",
-      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+      "slug": "posto-di-apprendistato-come-operatrice-operatore-sociosanitario-afc-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen",
-        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen",
-        "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen"
+        "it": "posto-di-apprendistato-come-operatrice-operatore-sociosanitario-afc-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "en": "apprenticeship-as-a-specialist-health-specialist-efz-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-la-sante-efz-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -791,11 +799,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen"
+        ],
+        "fr": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-spitex-ch-ehrendingen",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       ],
       "salaryMin": 79000,
       "salaryMax": 110500,
@@ -821,8 +837,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-spitex-ch-kaisten",
         "it": "infermiere-laureata-hf-spitex-kaisten-kaisten",
-        "en": "diplomierte-pflegefachperson-hf-spitex-kaisten",
-        "fr": "diplomierte-pflegefachperson-hf-spitex-kaisten"
+        "en": "graduated-nurse-hf-spitex-kaisten-kaisten",
+        "fr": "infirmiere-diplomee-hf-spitex-kaisten-kaisten"
       },
       "company": "Spitex Kaisten",
       "companyKey": "spitex-ch",
@@ -873,16 +889,15 @@
           "diplomierte-pflegefachperson-hf-spitex-ch-kaisten"
         ],
         "en": [
-          "graduated-nurse-hf-spitex-kaisten-kaisten"
+          "diplomierte-pflegefachperson-hf-spitex-kaisten"
         ],
         "fr": [
-          "infirmiere-diplomee-hf-spitex-kaisten-kaisten"
+          "diplomierte-pflegefachperson-hf-spitex-kaisten"
         ]
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-spitex-ch-kaisten",
-        "graduated-nurse-hf-spitex-kaisten-kaisten",
-        "infirmiere-diplomee-hf-spitex-kaisten-kaisten"
+        "diplomierte-pflegefachperson-hf-spitex-kaisten"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -904,12 +919,12 @@
     },
     {
       "id": "spitex-ch-7454687c236a",
-      "slug": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
+      "slug": "team-management-care-60-100-spitex-mutschellen-reusstal-bremgarten-ag",
       "slugByLocale": {
         "de": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
-        "it": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
+        "it": "team-management-care-60-100-spitex-mutschellen-reusstal-bremgarten-ag",
         "en": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
-        "fr": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        "fr": "soins-de-gestion-d-equipe-60-100-spitex-mutschellen-reusstal-bremgarten-ag"
       },
       "company": "Spitex Mutschellen-Reusstal",
       "companyKey": "spitex-ch",
@@ -972,16 +987,27 @@
       "streetAddress": "Bremgarten AG",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-09T09:15:22.269Z"
+      "firstSeenAt": "2026-10-09T09:15:22.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        ],
+        "fr": [
+          "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+      ]
     },
     {
       "id": "spitex-ch-3da36851f78a",
-      "slug": "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken",
+      "slug": "gestione-operazioni-aggiunto-spitex-80-100-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
       "slugByLocale": {
         "de": "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken",
-        "it": "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken",
-        "en": "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken",
-        "fr": "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken"
+        "it": "gestione-operazioni-aggiunto-spitex-80-100-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
+        "en": "deputy-operations-management-spitex-80-100-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
+        "fr": "gestion-des-operations-adjointe-spitex-80-100-spitex-dulliken-obergosgen-starrkirch-wil-dulliken"
       },
       "company": "Spitex Dulliken, Obergösgen, Starrkirch-Wil",
       "companyKey": "spitex-ch",
@@ -1043,16 +1069,30 @@
       "streetAddress": "Dulliken",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-04T09:24:06.647Z"
+      "firstSeenAt": "2026-11-04T09:24:06.647Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken"
+        ],
+        "en": [
+          "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken"
+        ],
+        "fr": [
+          "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-betriebsleitung-spitex-80-100-spitex-ch-dulliken"
+      ]
     },
     {
       "id": "spitex-ch-e91fba735223",
-      "slug": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+      "slug": "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
-        "it": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "en": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "fr": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+        "it": "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+        "en": "care-professional-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+        "fr": "professionnel-de-soins-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1100,11 +1140,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil"
+          "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
+          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil"
+        "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
+        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,
@@ -1126,12 +1174,12 @@
     },
     {
       "id": "spitex-ch-942bcc82b303",
-      "slug": "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+      "slug": "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil",
-        "it": "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
-        "en": "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
-        "fr": "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
+        "it": "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+        "en": "care-professional-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
+        "fr": "professionnel-de-soins-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1179,11 +1227,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil"
+          "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil",
+          "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil"
+        "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil",
+        "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil"
       ],
       "salaryMin": 54900,
       "salaryMax": 76800,
@@ -1205,12 +1261,12 @@
     },
     {
       "id": "spitex-ch-82ee758c21aa",
-      "slug": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+      "slug": "professionista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
-        "it": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
-        "en": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
-        "fr": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
+        "it": "professionista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "en": "care-professional-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "fr": "professionnel-de-soins-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1258,11 +1314,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg"
+          "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg"
+        "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
       ],
       "salaryMin": 64000,
       "salaryMax": 89600,
@@ -1364,12 +1428,12 @@
     },
     {
       "id": "spitex-ch-b5662e0a41eb",
-      "slug": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
+      "slug": "operatore-trice-sociosanitario-a-afc-50-70-con-opzione-di-ruolo-aggiuntivo-come-formatore-trice-pratico-a-spitex",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
-        "it": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
-        "en": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
-        "fr": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        "it": "operatore-trice-sociosanitario-a-afc-50-70-con-opzione-di-ruolo-aggiuntivo-come-formatore-trice-pratico-a-spitex",
+        "en": "healthcare-specialist-efz-50-70-with-option-of-an-additional-role-as-a-practical-trainer-spitex-zimmerberg-ag-langnau-am",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-50-70-avec-option-pour-un-role-supplementaire-de-formateur-rice-pratique"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1418,11 +1482,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
+          "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
+        "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis"
       ],
       "salaryMin": 55300,
       "salaryMax": 94200,
@@ -1443,12 +1515,12 @@
     },
     {
       "id": "spitex-ch-edcfa038a285",
-      "slug": "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg",
+      "slug": "operatore-trice-sociosanitario-a-afc-60-80-spitex-zimmerberg-ag-kilchberg",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
-        "it": "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg",
-        "en": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
-        "fr": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
+        "it": "operatore-trice-sociosanitario-a-afc-60-80-spitex-zimmerberg-ag-kilchberg",
+        "en": "healthcare-specialist-efz-60-80-spitex-zimmerberg-ag-kilchberg",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-60-80-spitex-zimmerberg-ag-kilchberg"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1497,11 +1569,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
+          "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
+        "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
+        "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg"
       ],
       "salaryMin": 63200,
       "salaryMax": 107600,
@@ -1523,12 +1603,12 @@
     },
     {
       "id": "spitex-ch-83e088961fad",
-      "slug": "fachfrau-mann-gesundheit-cfc-60-90-spitex-zimmerberg-ag-thalwil",
+      "slug": "operatore-trice-sociosanitario-a-afc-60-90-spitex-zimmerberg-ag-thalwil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil",
-        "it": "fachfrau-mann-gesundheit-cfc-60-90-spitex-zimmerberg-ag-thalwil",
-        "en": "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil",
-        "fr": "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil"
+        "it": "operatore-trice-sociosanitario-a-afc-60-90-spitex-zimmerberg-ag-thalwil",
+        "en": "healthcare-specialist-efz-60-90-spitex-zimmerberg-ag-thalwil",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-60-90-spitex-zimmerberg-ag-thalwil"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1577,11 +1657,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil",
+          "fachfrau-mann-gesundheit-cfc-60-90-spitex-zimmerberg-ag-thalwil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil"
+        "fachfrau-mann-gesundheit-efz-60-90-spitex-ch-thalwil",
+        "fachfrau-mann-gesundheit-cfc-60-90-spitex-zimmerberg-ag-thalwil"
       ],
       "salaryMin": 71100,
       "salaryMax": 121100,
@@ -1603,12 +1691,12 @@
     },
     {
       "id": "spitex-ch-9a650029244d",
-      "slug": "fachfrau-mann-gesundheit-cfc-40-60-spitex-gau-oensingen",
+      "slug": "operatore-trice-sociosanitario-a-afc-40-60-spitex-gau-oensingen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen",
-        "it": "fachfrau-mann-gesundheit-cfc-40-60-spitex-gau-oensingen",
-        "en": "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen",
-        "fr": "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen"
+        "it": "operatore-trice-sociosanitario-a-afc-40-60-spitex-gau-oensingen",
+        "en": "healthcare-specialist-efz-40-60-spitex-gau-oensingen",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-40-60-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
@@ -1657,11 +1745,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen",
+          "fachfrau-mann-gesundheit-cfc-40-60-spitex-gau-oensingen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen"
+        "fachfrau-mann-gesundheit-efz-40-60-spitex-ch-oensingen",
+        "fachfrau-mann-gesundheit-cfc-40-60-spitex-gau-oensingen"
       ],
       "salaryMin": 43800,
       "salaryMax": 74700,
@@ -1688,7 +1784,7 @@
         "de": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson",
         "it": "infermiere-a-diplomato-a-sss-sup-con-senza-responsabilita-specialistica-operatore-trice-sociosanitario-a-afc-operatore",
         "en": "registered-nurse-hf-fh-with-without-specialist-responsibility-healthcare-professional-efz-care-professional-efz",
-        "fr": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson-betreuung-efz-assistentin-in-gesundheit-und-soziales-ags-pflegeassistent-in-spitex-oberaargau"
+        "fr": "infirmier-ere-es-hes-avec-sans-responsabilite-specialisee-assistant-e-en-soins-et-sante-communautaire-cfc-assistant-e"
       },
       "company": "Spitex Oberaargau AG",
       "companyKey": "spitex-ch",
@@ -1740,12 +1836,12 @@
           "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson"
         ],
         "fr": [
-          "infirmier-ere-es-hes-avec-sans-responsabilite-specialisee-assistant-e-en-soins-et-sante-communautaire-cfc-assistant-e"
+          "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson-betreuung-efz-assistentin-in-gesundheit-und-soziales-ags-pflegeassistent-in-spitex-oberaargau"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson",
-        "infirmier-ere-es-hes-avec-sans-responsabilite-specialisee-assistant-e-en-soins-et-sante-communautaire-cfc-assistant-e"
+        "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson-betreuung-efz-assistentin-in-gesundheit-und-soziales-ags-pflegeassistent-in-spitex-oberaargau"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1770,7 +1866,7 @@
       "slug": "pflegefachperson-hf-fh-per-eine-fixe-nacht-pro-woche-spitex-linth-uznach",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch-uznach",
-        "en": "fachperson-gesundheit-oder-pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-linth-uznach",
+        "en": "nurse-hf-fh-for-a-fixed-night-per-week-spitex-linth-uznach",
         "fr": "infirmiere-hf-fh-pour-une-nuit-fixe-par-semaine-spitex-linth-uznach",
         "it": "pflegefachperson-hf-fh-per-eine-fixe-nacht-pro-woche-spitex-linth-uznach"
       },
@@ -1827,12 +1923,12 @@
           "fachperson-gesundheit-oder-pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch"
         ],
         "en": [
-          "nurse-hf-fh-for-a-fixed-night-per-week-spitex-linth-uznach"
+          "fachperson-gesundheit-oder-pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-linth-uznach"
         ]
       },
       "previousSlugs": [
         "fachperson-gesundheit-oder-pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-ch",
-        "nurse-hf-fh-for-a-fixed-night-per-week-spitex-linth-uznach"
+        "fachperson-gesundheit-oder-pflegefachperson-hf-fh-fur-eine-fixe-nacht-pro-woche-spitex-linth-uznach"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

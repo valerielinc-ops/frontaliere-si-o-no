@@ -9169,12 +9169,12 @@
     },
     {
       "id": "upd-117ce8f465b9",
-      "slug": "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern",
+      "slug": "infermiera-infermiera-specialista-notte-permanente-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern",
-        "it": "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern",
-        "en": "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern",
-        "fr": "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern"
+        "it": "infermiera-infermiera-specialista-notte-permanente-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "nurse-nurse-specialist-permanent-night-watch-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "infirmiere-infirmiere-specialiste-surveillance-de-nuit-permanente-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9236,16 +9236,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:29:42.254Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:29:42.254Z"
+      "firstSeenAt": "2026-11-04T09:29:42.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-dauernachtwache-upd-bern"
+      ]
     },
     {
       "id": "upd-40b9ca417ea6",
-      "slug": "psychologiepraktikum-bek-upd-bern",
+      "slug": "stage-di-psicologia-bek-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "psychologiepraktikum-bek-upd-bern",
-        "it": "psychologiepraktikum-bek-upd-bern",
-        "en": "psychologiepraktikum-bek-upd-bern",
-        "fr": "psychologiepraktikum-bek-upd-bern"
+        "it": "stage-di-psicologia-bek-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "psychology-internship-bek-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stage-en-psychologie-bek-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9307,7 +9321,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:29:42.245Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:29:42.245Z"
+      "firstSeenAt": "2026-11-04T09:29:42.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologiepraktikum-bek-upd-bern"
+        ],
+        "en": [
+          "psychologiepraktikum-bek-upd-bern"
+        ],
+        "fr": [
+          "psychologiepraktikum-bek-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "psychologiepraktikum-bek-upd-bern"
+      ]
     },
     {
       "id": "upd-45110cb71bd7",

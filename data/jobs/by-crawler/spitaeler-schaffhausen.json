@@ -4246,12 +4246,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-114859cd3f6e",
-      "slug": "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen",
+      "slug": "chirurgia-subassista-100-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen",
-        "it": "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
+        "it": "chirurgia-subassista-100-spitaler-schaffhausen-schaffhausen",
+        "en": "sub-assistant-surgery-100-spitaler-schaffhausen-schaffhausen",
+        "fr": "chirurgie-auxiliaire-100-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4313,7 +4313,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:31:40.550Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-04T13:45:35.369Z"
+      "firstSeenAt": "2026-09-04T13:45:35.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
+      ]
     }
   ]
 }

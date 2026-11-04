@@ -19818,10 +19818,10 @@
     },
     {
       "id": "physioswiss-3344911f41e9",
-      "slug": "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-physio-swiss-esslingen",
+      "slug": "fisioterapista-diplomato-a-60-100-a-esslingen-zurich-physio-swiss-8133-esslingen",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-8133-esslingen-physioswiss-ch",
-        "it": "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-physio-swiss-esslingen",
+        "it": "fisioterapista-diplomato-a-60-100-a-esslingen-zurich-physio-swiss-8133-esslingen",
         "en": "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-physio-swiss-esslingen",
         "fr": "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-physio-swiss-esslingen"
       },
@@ -19871,11 +19871,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-8133-esslingen-physioswiss-ch"
+          "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-8133-esslingen-physioswiss-ch",
+          "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-physio-swiss-esslingen"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-8133-esslingen-physioswiss-ch"
+        "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-8133-esslingen-physioswiss-ch",
+        "dipl-physiotherapeut-in-60-100-in-esslingen-zurich-physio-swiss-esslingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19898,12 +19900,12 @@
     },
     {
       "id": "physioswiss-dea79faec1a6",
-      "slug": "physiotherapeut-in-m-w-60-100-physio-swiss-aarau",
+      "slug": "fisioterapista-m-f-60-100-physio-swiss-argovia",
       "slugByLocale": {
         "de": "physiotherapeut-in-m-w-60-100-physio-points-ag-bahnhofstrasse-102-5000-aarau-kanton-aargau",
-        "it": "physiotherapeut-in-m-w-60-100-physio-swiss-aarau",
-        "en": "physiotherapeut-in-m-w-60-100-physio-swiss-aarau",
-        "fr": "physiotherapeut-in-m-w-60-100-physio-swiss-aarau"
+        "it": "fisioterapista-m-f-60-100-physio-swiss-argovia",
+        "en": "physiotherapist-m-f-60-100-physio-swiss-argovia",
+        "fr": "physiotherapeute-h-f-60-100-physio-swiss-argovia"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19950,11 +19952,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-m-w-60-100-physio-points-ag-bahnhofstrasse-102-5000-aarau-kanton-aargau"
+          "physiotherapeut-in-m-w-60-100-physio-points-ag-bahnhofstrasse-102-5000-aarau-kanton-aargau",
+          "physiotherapeut-in-m-w-60-100-physio-swiss-aarau"
+        ],
+        "en": [
+          "physiotherapeut-in-m-w-60-100-physio-swiss-aarau"
+        ],
+        "fr": [
+          "physiotherapeut-in-m-w-60-100-physio-swiss-aarau"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-m-w-60-100-physio-points-ag-bahnhofstrasse-102-5000-aarau-kanton-aargau"
+        "physiotherapeut-in-m-w-60-100-physio-points-ag-bahnhofstrasse-102-5000-aarau-kanton-aargau",
+        "physiotherapeut-in-m-w-60-100-physio-swiss-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -19978,12 +19988,12 @@
     },
     {
       "id": "physioswiss-1f8f8fc6e775",
-      "slug": "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil",
+      "slug": "fisioterapista-m-f-60-100-physio-swiss-argovia-acc3cd",
       "slugByLocale": {
         "de": "physiotherapeut-in-m-w-60-100-physio-points-ag-zelgweg-11-5405-dattwil-kanton-aargau",
-        "it": "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil",
-        "en": "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil",
-        "fr": "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil"
+        "it": "fisioterapista-m-f-60-100-physio-swiss-argovia-acc3cd",
+        "en": "physiotherapist-m-f-60-100-physio-swiss-argovia-acc3cd",
+        "fr": "physiotherapeute-h-f-60-100-physio-swiss-argovia-acc3cd"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20030,11 +20040,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-m-w-60-100-physio-points-ag-zelgweg-11-5405-dattwil-kanton-aargau"
+          "physiotherapeut-in-m-w-60-100-physio-points-ag-zelgweg-11-5405-dattwil-kanton-aargau",
+          "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil"
+        ],
+        "en": [
+          "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil"
+        ],
+        "fr": [
+          "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-m-w-60-100-physio-points-ag-zelgweg-11-5405-dattwil-kanton-aargau"
+        "physiotherapeut-in-m-w-60-100-physio-points-ag-zelgweg-11-5405-dattwil-kanton-aargau",
+        "physiotherapeut-in-m-w-60-100-physio-swiss-dattwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -20058,12 +20076,12 @@
     },
     {
       "id": "physioswiss-7f5745004330",
-      "slug": "physiotherapeut-in-m-w-physio-swiss-dattwil",
+      "slug": "fisioterapista-m-f-physio-swiss-argovia",
       "slugByLocale": {
         "de": "physiotherapeut-in-m-w-physio-points-ag-tafernweg-1-5405-dattwil-kanton-aargau-website",
-        "it": "physiotherapeut-in-m-w-physio-swiss-dattwil",
-        "en": "physiotherapeut-in-m-w-physio-swiss-dattwil",
-        "fr": "physiotherapeut-in-m-w-physio-swiss-dattwil"
+        "it": "fisioterapista-m-f-physio-swiss-argovia",
+        "en": "physiotherapist-m-f-physio-swiss-argovia",
+        "fr": "physiotherapeute-h-f-physio-swiss-argovia"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20110,11 +20128,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-m-w-physio-points-ag-tafernweg-1-5405-dattwil-kanton-aargau-website"
+          "physiotherapeut-in-m-w-physio-points-ag-tafernweg-1-5405-dattwil-kanton-aargau-website",
+          "physiotherapeut-in-m-w-physio-swiss-dattwil"
+        ],
+        "en": [
+          "physiotherapeut-in-m-w-physio-swiss-dattwil"
+        ],
+        "fr": [
+          "physiotherapeut-in-m-w-physio-swiss-dattwil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-m-w-physio-points-ag-tafernweg-1-5405-dattwil-kanton-aargau-website"
+        "physiotherapeut-in-m-w-physio-points-ag-tafernweg-1-5405-dattwil-kanton-aargau-website",
+        "physiotherapeut-in-m-w-physio-swiss-dattwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
