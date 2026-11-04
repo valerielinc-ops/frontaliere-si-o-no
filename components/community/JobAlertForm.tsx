@@ -584,13 +584,13 @@ export default function JobAlertForm({
  // what the user typed and make the extra step explicit.
  const saved = savePendingJobAlert(config, ctaOrigin);
  if (!saved.ok) {
-  setPendingStorageFailed(true);
-  // The inline card can submit without opening the form first. Keep the
-  // storage failure visible so the guest can still choose an explicit sign-in
-  // retry instead of losing the only actionable feedback below the card.
-  setExpanded(true);
-  trackCurrentCtaAction('error', ctaKeyword);
-  return;
+ setPendingStorageFailed(true);
+ // The inline card can submit without opening the form first. Keep the
+ // storage failure visible so the guest can still choose an explicit sign-in
+ // retry instead of losing the only actionable feedback below the card.
+ setExpanded(true);
+ trackCurrentCtaAction('error', ctaKeyword);
+ return;
  }
  setPendingStorageFailed(false);
  onRequireAuth?.();
@@ -632,9 +632,9 @@ export default function JobAlertForm({
      resetForm();
      maybeShowEnrichmentPrompt(authEmail, created);
      try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
- } catch (err: any) {
-   trackCtaAction('inline_card', 'error', oneTapKeyword);
-   showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
+   } catch (err: any) {
+     trackCtaAction('inline_card', 'error', oneTapKeyword);
+     showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
    } finally {
      setSaving(false);
    }
