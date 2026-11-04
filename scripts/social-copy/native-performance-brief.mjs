@@ -143,7 +143,7 @@ function buildInstagramStoryBrief(rows, {
     const storyRows = [...group.rows.values()];
     for (const name of [
       'views', 'reach', 'totalInteractions', 'replies', 'shares', 'follows', 'profileVisits',
-      'tapsForward', 'tapsBack', 'exits', 'swipesForward',
+      'tapsForward', 'tapsBack', 'exits', 'swipesForward', 'unmappedNavigationActions',
     ]) {
       const values = storyRows
         .filter((row) => row.availableMetrics?.includes(name))

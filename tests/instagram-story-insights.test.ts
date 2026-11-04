@@ -97,12 +97,14 @@ describe('Instagram Story insights collector', () => {
         metrics: {
           views: 25, reach: 25, totalInteractions: 25, replies: 25, shares: 25, follows: 25,
           profileVisits: 25, tapsForward: 12, tapsBack: 3, exits: 2, swipesForward: 1,
+          unmappedNavigationActions: 0,
         },
-        availableMetrics: ['views', 'reach', 'totalInteractions', 'replies', 'shares', 'follows', 'profileVisits', 'tapsForward', 'tapsBack', 'exits', 'swipesForward'],
+        availableMetrics: ['views', 'reach', 'totalInteractions', 'replies', 'shares', 'follows', 'profileVisits', 'tapsForward', 'tapsBack', 'exits', 'swipesForward', 'unmappedNavigationActions'],
         metricStatus: {
           views: 'available', reach: 'available', totalInteractions: 'available', replies: 'available',
           shares: 'available', follows: 'available', profileVisits: 'available', tapsForward: 'available',
           tapsBack: 'available', exits: 'available', swipesForward: 'available',
+          unmappedNavigationActions: 'available',
         },
       }],
       accessToken: 'token',
@@ -189,6 +191,7 @@ describe('Instagram Story insights collector', () => {
                   { dimension_values: ['TAP_BACK'], value: 3 },
                   { dimension_values: ['TAP_EXIT'], value: 2 },
                   { dimension_values: ['SWIPE_FORWARD'], value: 1 },
+                  { dimension_values: ['TAP_REPLY'], value: 6 },
                 ],
               }],
             },
@@ -199,14 +202,19 @@ describe('Instagram Story insights collector', () => {
     });
 
     expect(result.additions[0]).toMatchObject({
-      metrics: { tapsForward: 12, tapsBack: 3, exits: 2, swipesForward: 1 },
+      metrics: {
+        tapsForward: 12, tapsBack: 3, exits: 2, swipesForward: 1,
+        unmappedNavigationActions: 6,
+      },
       metricStatus: {
         tapsForward: 'available',
         tapsBack: 'available',
         exits: 'available',
         swipesForward: 'available',
+        unmappedNavigationActions: 'available',
       },
     });
+    expect(JSON.stringify(result.additions[0])).not.toContain('tap_reply');
   });
 
   it('fails the scheduled job when credentials or due Story measurements are unavailable', () => {
@@ -251,8 +259,8 @@ describe('Instagram Story insights collector', () => {
       sleepImpl: async () => {},
     });
 
-    expect(calls).toEqual(['reach']);
-    expect(failedRetry).toMatchObject({ status: 'partial-metrics', attempted: 1, retryableUnavailable: 1 });
+    expect(calls).toEqual(['reach', 'navigation']);
+    expect(failedRetry).toMatchObject({ status: 'partial-metrics', attempted: 2, retryableUnavailable: 6 });
     expect(failedRetry.additions[0]).toMatchObject({ metrics: { views: 25, reach: null } });
 
     const recovered = await collectInstagramStoryInsights({
@@ -261,18 +269,19 @@ describe('Instagram Story insights collector', () => {
       accessToken: 'token',
       asOf: new Date(AS_OF.getTime() + 15 * 60 * 1000),
       fetchImpl: async (input) => {
-        calls.push(new URL(String(input)).searchParams.get('metric') || '');
-        return metricResponse('reach');
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        calls.push(metric);
+        return metricResponse(metric);
       },
       sleepImpl: async () => {},
     });
 
-    expect(calls).toEqual(['reach', 'reach']);
-    expect(recovered).toMatchObject({ status: 'partial-metrics', attempted: 1, retryableUnavailable: 0 });
+    expect(calls).toEqual(['reach', 'navigation', 'reach', 'navigation']);
+    expect(recovered).toMatchObject({ status: 'partial-metrics', attempted: 2, retryableUnavailable: 0 });
     expect(recovered.additions[0]).toMatchObject({
-      metrics: { views: 25, reach: 25 },
-      availableMetrics: ['views', 'reach'],
+      metrics: { views: 25, reach: 25, unmappedNavigationActions: 0 },
     });
+    expect(recovered.additions[0]?.availableMetrics).toContain('unmappedNavigationActions');
   });
 
   it('keeps rounded ages below each exclusive measurement-window boundary', async () => {

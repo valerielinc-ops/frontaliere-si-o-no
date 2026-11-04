@@ -11,6 +11,7 @@ export const INSTAGRAM_STORY_METRIC_FIELDS = Object.freeze({
   tapsBack: 'navigation',
   exits: 'navigation',
   swipesForward: 'navigation',
+  unmappedNavigationActions: 'navigation',
 });
 
 export const INSTAGRAM_STORY_METRICS = Object.freeze(Object.keys(INSTAGRAM_STORY_METRIC_FIELDS));

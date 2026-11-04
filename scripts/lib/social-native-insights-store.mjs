@@ -183,10 +183,14 @@ export function mergePrivateInstagramStoryPublications(existing, additions, {
 export function mergePrivateInstagramStorySnapshots(existing, additions, {
   asOf = new Date(),
   retentionDays = INSTAGRAM_STORY_RETENTION_DAYS,
+  publicationIds = null,
 } = {}) {
   const asOfMs = new Date(asOf).getTime();
   if (!Number.isFinite(asOfMs) || !Number.isSafeInteger(retentionDays) || retentionDays < 1) {
     throw new TypeError('Instagram Story snapshot retention and asOf must be valid');
+  }
+  if (publicationIds !== null && !(publicationIds instanceof Set)) {
+    throw new TypeError('publicationIds must be a Set when supplied');
   }
   const cutoff = asOfMs - retentionDays * 24 * 60 * 60 * 1000;
   const byWindow = new Map();
@@ -196,6 +200,7 @@ export function mergePrivateInstagramStorySnapshots(existing, additions, {
   ]) {
     if (!record(row)) continue;
     const storyId = String(row.storyId || '').trim();
+    if (publicationIds && !publicationIds.has(storyId)) continue;
     const publishedAt = asIso(row.publishedAt);
     const snapshotAt = asIso(row.snapshotAt);
     const publishedMs = publishedAt ? Date.parse(publishedAt) : NaN;

@@ -224,9 +224,9 @@ describe('native social copy performance brief', () => {
 
   it('limits Story feedback to recent exact windows and reports engagement per reach', () => {
     const stories = [
-      { storyId: 'story-a', publishedAt: '2026-10-29T12:00:00.000Z', reach: 100, views: 120, totalInteractions: 10, follows: 2 },
-      { storyId: 'story-b', publishedAt: '2026-10-30T12:00:00.000Z', reach: 200, views: 240, totalInteractions: 20, follows: 4 },
-      { storyId: 'story-c', publishedAt: '2026-10-31T12:00:00.000Z', reach: 400, views: 480, totalInteractions: 40, follows: 8 },
+      { storyId: 'story-a', publishedAt: '2026-10-29T12:00:00.000Z', reach: 100, views: 120, totalInteractions: 10, follows: 2, unmappedNavigationActions: 1 },
+      { storyId: 'story-b', publishedAt: '2026-10-30T12:00:00.000Z', reach: 200, views: 240, totalInteractions: 20, follows: 4, unmappedNavigationActions: 2 },
+      { storyId: 'story-c', publishedAt: '2026-10-31T12:00:00.000Z', reach: 400, views: 480, totalInteractions: 40, follows: 8, unmappedNavigationActions: 3 },
       { storyId: 'story-old', publishedAt: '2026-09-20T12:00:00.000Z', reach: 10, views: 1000, totalInteractions: 500, follows: 100 },
     ].map((row) => ({
       ...row,
@@ -241,8 +241,9 @@ describe('native social copy performance brief', () => {
         reach: row.reach,
         totalInteractions: row.totalInteractions,
         follows: row.follows,
+        unmappedNavigationActions: row.unmappedNavigationActions,
       },
-      availableMetrics: ['views', 'reach', 'totalInteractions', 'follows'],
+      availableMetrics: ['views', 'reach', 'totalInteractions', 'follows', 'unmappedNavigationActions'],
     }));
 
     const brief = buildNativeSocialPerformanceBrief({
@@ -268,6 +269,9 @@ describe('native social copy performance brief', () => {
     });
     expect(brief.instagramStories.variants[0]?.metrics.followsPerThousandReach).toMatchObject({
       status: 'descriptive-sample', observations: 3, median: 20,
+    });
+    expect(brief.instagramStories.variants[0]?.metrics.unmappedNavigationActions).toMatchObject({
+      status: 'descriptive-sample', observations: 3, median: 2,
     });
     expect(brief.instagramStories.interpretation).toContain('linked-feed-post proxies');
     expect(JSON.stringify(brief.instagramStories)).not.toContain('"angleId"');

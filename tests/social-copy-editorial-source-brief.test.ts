@@ -298,4 +298,42 @@ describe('sanitized editorial source brief', () => {
       recentPublisherNews: { available: false, status: 'no-qualified-categories', categories: [] },
     });
   });
+
+  it('counts a second publisher for a deduplicated topic without inflating unique item count', () => {
+    const demandVocabularyPath = path.join(fixtureDirectory(), 'demand-vocabulary.json');
+    const experimentalCandidatesPath = path.join(fixtureDirectory(), 'experimental-candidates.json');
+    writeFileSync(demandVocabularyPath, JSON.stringify({
+      generatedAt: '2026-11-02T12:00:00.000Z',
+      stableKeywords: [],
+    }));
+    const newsRows = [
+      ['LAMal reform headline alpha', 'https://www.rsi.ch/news/a'],
+      ['LAMal reform headline alpha', 'https://www.swissinfo.ch/news/a'],
+      ['LAMal reform headline beta', 'https://www.rsi.ch/news/b'],
+      ['LAMal reform headline gamma', 'https://www.rsi.ch/news/c'],
+    ].map(([keyword, sourceUrl]) => ({
+      keyword,
+      sources: ['googleNewsRss'],
+      demandSignals: {
+        googleNewsRssPubDate: 'Mon, 02 Nov 2026 12:00:00 GMT',
+        googleNewsRssSourceUrl: sourceUrl,
+      },
+    }));
+    writeFileSync(experimentalCandidatesPath, JSON.stringify({
+      generatedAt: '2026-11-02T12:00:00.000Z',
+      candidates: newsRows,
+    }));
+
+    const brief = buildEditorialSourceBrief({
+      articleDirectory: fixtureDirectory(),
+      eventDirectory: fixtureDirectory(),
+      demandVocabularyPath,
+      experimentalCandidatesPath,
+      asOf: '2026-11-03T12:00:00.000Z',
+    });
+
+    expect(brief.topicDiscovery.recentPublisherNews.categories).toEqual([
+      { category: 'salute', itemCountBand: '3-5', publisherDomainCountBand: '2' },
+    ]);
+  });
 });
