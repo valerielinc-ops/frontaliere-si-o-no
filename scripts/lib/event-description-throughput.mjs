@@ -18,7 +18,7 @@ export const REJECTION_WAIT_BASE_MS = 60 * 60 * 1000;
 export const QUOTA_BACKOFF_BASE_MS = 15_000;
 export const QUOTA_BACKOFF_MAX_MS = 120_000;
 
-export {
+import {
   adaptThroughput,
   CIRCUIT_BREAKER_THRESHOLD,
   DEFAULT_EVENTS_PER_SHARD,
@@ -32,6 +32,21 @@ export {
   normalizeShardCount,
   QUOTA_ERROR_THRESHOLD,
 } from './event-description-throughput-plan.mjs';
+
+export {
+  adaptThroughput,
+  CIRCUIT_BREAKER_THRESHOLD,
+  DEFAULT_EVENTS_PER_SHARD,
+  DEFAULT_SHARD_COUNT,
+  EVENTS_PER_SHARD_RAMP,
+  MAX_EVENTS_PER_SHARD,
+  MAX_SHARD_COUNT,
+  MIN_EVENTS_PER_SHARD,
+  MIN_SHARD_COUNT,
+  normalizeEventsPerShard,
+  normalizeShardCount,
+  QUOTA_ERROR_THRESHOLD,
+};
 
 /** Hash the stable event id; the partition never depends on input ordering. */
 export function eventIdShard(id, shardCount) {
