@@ -210,7 +210,11 @@ async function datasetGone(jobId, fetchImpl) {
 
 export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, resolve }) {
   const gone = await datasetGone(order?.jobId, fetchImpl);
-  const url = posting?.applyUrl && !/^mailto:/i.test(posting.applyUrl) ? posting.applyUrl : order?.jobUrl;
+  // Check the employer's listing page before its ATS/application endpoint. Some ATS apply URLs
+  // are stale or redirect to a generic homepage while the listing itself is still open.
+  const url = posting?.postingUrl && !/^mailto:/i.test(posting.postingUrl)
+    ? posting.postingUrl
+    : posting?.applyUrl && !/^mailto:/i.test(posting.applyUrl) ? posting.applyUrl : order?.jobUrl;
   let page = { result: 'uncertain', code: 'not_checked', reason: 'no public url' };
   // The employer as the posting's own data names it (Workday's legal entity), for the runner's check that the
   // form is the posting's where the page shows only a brand (portal.mjs sameEmployerFamily).
@@ -248,6 +252,6 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
  * channel is the ATS behind it (Coop: SuccessFactors' sign-in says nothing about the posting being open).
  * The same choice as the runner's check before submitting.
  */
-export function postingAddressOf(draft) {
-  return draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl || '';
+export function postingAddressOf(draft, order = null) {
+  return draft?.job?.postingUrl || order?.jobUrl || draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl || '';
 }

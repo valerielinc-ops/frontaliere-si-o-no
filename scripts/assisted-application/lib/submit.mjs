@@ -275,7 +275,7 @@ export async function submitApplication(ctx) {
   const liveness = await checkPostingLiveness({
     order,
     // The posting's own page when the channel is the ATS behind it (postingAddressOf).
-    posting: { applyUrl: postingAddressOf(draft) },
+    posting: { applyUrl: postingAddressOf(draft, order) },
     fetchImpl: ctx.fetchImpl || fetch,
     resolve: ctx.resolve,
   });
@@ -555,7 +555,7 @@ export async function submitApplication(ctx) {
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
-        postingUrl: order.jobUrl || channel.postingUrl || '',
+        postingUrl: draft.job?.postingUrl || order.jobUrl || channel.postingUrl || '',
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.

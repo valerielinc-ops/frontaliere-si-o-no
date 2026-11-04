@@ -594,7 +594,7 @@ async function closedPostingsAmong({ db, docs, nowMs, postingClosed, postingLook
 export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fetch, resolve }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
-  return postingSaysClosed(await checkPostingLiveness({ order, posting: { applyUrl: postingAddressOf(draft) }, fetchImpl, resolve }));
+  return postingSaysClosed(await checkPostingLiveness({ order, posting: { applyUrl: postingAddressOf(draft, order) }, fetchImpl, resolve }));
 }
 
 /**

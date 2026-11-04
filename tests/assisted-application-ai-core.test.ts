@@ -482,6 +482,7 @@ describe('job posting fetch', () => {
         return new Response(JSON.stringify({
           description: 'Cerchiamo un infermiere.',
           requirements: ['Diploma SUP'],
+          url: 'https://acme.ch/jobs/1',
           applyUrl: 'https://acme.wd3.myworkdayjobs.com/x/apply',
           titleByLocale: { it: 'Infermiere' },
           addressLocality: 'Lugano',
@@ -490,7 +491,14 @@ describe('job posting fetch', () => {
       },
     });
     expect(calls).toEqual(['https://cdn.frontaliereticino.ch/data/job-detail/acme-123.json']);
-    expect(posting).toMatchObject({ source: 'job_detail', text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1', text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
+  });
+
+  it('falls back to the order URL when a retained legacy detail has no posting URL', async () => {
+    const posting = await fetchJobPosting({ jobId: 'acme-123', jobUrl: 'https://acme.ch/jobs/1' }, {
+      fetchImpl: async () => new Response(JSON.stringify({ description: 'Descrizione del lavoro.' }), { status: 200 }),
+    });
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1' });
   });
 
   it('falls back to the employer page but never follows a redirect to a private host', async () => {
