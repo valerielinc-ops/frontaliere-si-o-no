@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-11-03T21:55:17.257Z",
-  "runId": "41719982681",
+  "assembledAt": "2026-11-04T09:20:23.069Z",
+  "runId": "41805782176",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -35,7 +35,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-03T21:55:12.211Z",
+      "crawledAt": "2026-11-04T09:20:16.784Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:55:12.211Z",
+      "validThrough": "2027-01-06T09:20:16.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -104,7 +104,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-03T21:55:11.965Z",
+      "crawledAt": "2026-11-04T09:20:16.526Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:55:11.965Z",
+      "validThrough": "2027-01-27T09:20:16.526Z",
       "validThroughSource": "last-observed-window"
     }
   ]

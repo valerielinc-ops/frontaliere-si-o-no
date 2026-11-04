@@ -1,7 +1,7 @@
 {
   "key": "edmond-de-rothschild",
   "label": "Edmond de Rothschild",
-  "generatedAt": "2026-11-03T21:54:25.157Z",
+  "generatedAt": "2026-11-04T09:24:48.702Z",
   "total": 6,
   "discovered": null,
   "parsed": 5,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8484,
-  "avgDurationMs": 8484,
+  "durationMs": 7483,
+  "avgDurationMs": 7483,
   "durationHistory": [
-    8484
+    7483
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "edmond-de-rothschild-3967a1f10d6c",
-      "slug": "client-service-officer-m-f-edmond-de-rothschild-ch",
+      "slug": "ufficio-di-servizi-doganali-m-f-edmond-de-rothschild-switzerland",
       "company": "Edmond de Rothschild",
       "companyKey": "edmond-de-rothschild",
       "companyDomain": "edmond-de-rothschild.com",
       "title": "CLIENT SERVICE OFFICER (M/F)",
-      "needsRetranslation": true,
       "location": "Switzerland",
       "canton": "GE",
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3081",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:54:00.867Z",
+      "crawledAt": "2026-11-04T09:24:24.384Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -54,23 +54,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3081",
       "jobReqId": "3081",
+      "firstSeenAt": "2026-11-03T21:54:00.867Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:54:00.867Z",
+      "validThrough": "2027-02-01T09:24:24.384Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:54:00.867Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +85,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2796",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:54:02.917Z",
+      "crawledAt": "2026-11-04T09:24:26.678Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -110,7 +109,7 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:54:02.917Z",
+      "validThrough": "2026-12-04T09:24:26.678Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -132,7 +131,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3056",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:54:02.419Z",
+      "crawledAt": "2026-11-04T09:24:26.090Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -156,7 +155,7 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:54:02.419Z",
+      "validThrough": "2026-12-28T09:24:26.090Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -179,7 +178,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3080",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:54:01.915Z",
+      "crawledAt": "2026-11-04T09:24:25.545Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -203,7 +202,7 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T21:54:01.915Z",
+      "validThrough": "2026-12-04T09:24:25.545Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -225,7 +224,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3088",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-03T21:54:01.426Z",
+      "crawledAt": "2026-11-04T09:24:25.012Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -249,7 +248,7 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:54:01.426Z",
+      "validThrough": "2027-01-20T09:24:25.012Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -298,7 +297,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-03T09:47:54.801Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -308,5 +307,5 @@
       }
     }
   ],
-  "codeCommit": "f69eb7eea2c4618703d81c57a33d59a886d5cec8"
+  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
 }
