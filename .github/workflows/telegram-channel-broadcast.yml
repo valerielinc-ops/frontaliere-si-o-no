@@ -48,9 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     # Raised from 10 → 20 (#6182): same dataset-growth pattern as
     # fb-jobs-daily-schedule.yml (#4764) and reddit-jobs-daily-schedule.yml —
-    # this job's daily (jobs) mode also runs `assemble-jobs-dataset.mjs
-    # --stats` on a full checkout (sparse removed in #6133, above the 1.5GB
-    # crossover), so it shares the same shrinking margin as its two siblings.
+    # this job's daily (jobs) mode also runs no-summary assembly with a
+    # content-addressed cache on a full checkout (sparse removed in #6133,
+    # above the 1.5GB crossover), so it shares the same shrinking margin as
+    # its two siblings.
     # The ledger push can spend several minutes in the shared main-writer
     # retry convoy after assembly; 20 minutes was cut off at 12m10s in #10543.
     timeout-minutes: 30
@@ -104,9 +105,33 @@ jobs:
             echo "TELEGRAM_SEND=1" >> "$GITHUB_ENV"
           fi
 
-      - name: Assemble jobs dataset
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
         if: env.MODE == 'jobs'
-        run: node scripts/assemble-jobs-dataset.mjs --stats
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --no-summaries
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: env.MODE == 'jobs' && steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Assemble jobs dataset
+        id: assemble
+        if: env.MODE == 'jobs'
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+
+      - name: Save assemble-jobs cache
+        if: env.MODE == 'jobs' && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Broadcast jobs digest
         if: env.MODE == 'jobs' && (inputs.dry_run != true && inputs.dry_run != 'true')
