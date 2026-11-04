@@ -87,11 +87,38 @@ describe('per-slot first-party creative delivery', () => {
   it.each(['loading', 'waiting_response', 'idle', 'waiting_width'])('does not cover a %s Google slot', async state => {
     const empty = frame(state); await start(); expect(empty.host.childElementCount).toBe(0);
   });
+  it('fills a still-pending slot when Funding Choices confirms an ad blocker', async () => {
+    const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    await start();
+    expect(empty.host.querySelector('a')).not.toBeNull();
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'adblock_detected' }));
+  });
+  it('fills a stalled React/GPT wrapper without clearing its pending request marker', async () => {
+    const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');
+    const ins = w.document.createElement('ins'); ins.setAttribute('data-ft-ad-stalled', 'response_stalled'); empty.google.append(ins);
+    await start();
+    expect(empty.host.querySelector('a')).not.toBeNull();
+    expect(empty.google.hasAttribute('data-ft-ad-request-pending')).toBe(true);
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'response_stalled' }));
+  });
+  it('refreshes on a Funding Choices blocker signal and respects an allowlisted result', async () => {
+    const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');
+    await start();
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
+    await vi.advanceTimersByTimeAsync(200);
+    expect(empty.host.querySelector('a')).not.toBeNull();
+    w.__ftAdBlock = { blocked: true, adsAllowed: true };
+    w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
+    await vi.advanceTimersByTimeAsync(200);
+    expect(empty.host.childElementCount).toBe(0);
+  });
   it('fills a blocked SDK slot after retries are exhausted without touching Google markup', async () => {
     const empty = frame('waiting_width');
     const script = w.document.createElement('script'); script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; script.dataset.failed = '1'; script.dataset.ftScriptState = 'retry_wait'; w.document.head.append(script);
     await start(); expect(empty.host.childElementCount).toBe(0);
-    script.dataset.ftScriptState = 'failed'; await vi.advanceTimersByTimeAsync(200);
+    script.dataset.ftScriptState = 'failed'; await vi.advanceTimersByTimeAsync(1200);
     expect(empty.host.querySelector('a')).not.toBeNull(); expect(script.dataset.ftScriptState).toBe('failed');
   });
   it('uses unenrolled control when Firebase is unavailable', async () => {

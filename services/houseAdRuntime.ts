@@ -11,7 +11,12 @@ export function installHouseAds(
   config: { publicConfigUrl: string; consentKey: string; consentEvent: string },
 ) {
   type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number> };
-  type HouseWindow = Window & { __ftHouseAds?: { refresh: () => void }; __ftAdsConsentDecision?: string };
+  type HouseWindow = Window & {
+    __ftHouseAds?: { refresh: () => void };
+    __ftAdsConsentDecision?: string;
+    __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean };
+    __ftAdBlockProbe?: string;
+  };
   const w = window as HouseWindow;
   if (w.__ftHouseAds) { w.__ftHouseAds.refresh(); return w.__ftHouseAds; }
   // Without DOM observation we cannot guarantee yielding to a late Google
@@ -20,7 +25,7 @@ export function installHouseAds(
   const variants = ['control', 'time_saved', 'profile_match', 'in_control', 'swiss_work', 'next_chapter'];
   const entries = new Map<HTMLElement, Entry>();
   const eligibleFrames = new Set<HTMLElement>();
-  const started = new WeakMap<HTMLElement, number>();
+  const eligibleSince = new WeakMap<HTMLElement, number>();
   const counted = new WeakMap<HTMLElement, Set<string>>();
   let assignment: { variant: HouseAdVariant; enrolled: boolean } = { variant: 'control', enrolled: false };
   let ready = false;
@@ -40,10 +45,12 @@ export function installHouseAds(
     try { return allowed() && !/\/(automatizza-ricerca-lavoro-svizzera|automate-job-search-switzerland|arbeitssuche-schweiz-automatisieren|automatiser-recherche-emploi-suisse)(\/|$)/.test(location.pathname); }
     catch { return false; }
   };
+  const blockerConfirmed = () => (w.__ftAdBlock?.blocked === true || w.__ftAdBlockProbe === 'blocked') && w.__ftAdBlock?.adsAllowed !== true;
   const report = (name: string, data: Record<string, string | number>) => { if (permitted() && analyticsAllowed()) emit(name, data); };
   const remove = (frame: HTMLElement, keepEligible = false) => {
     const entry = entries.get(frame);
     if (entry) { clearTimeout(entry.timer); entry.creative.remove(); entries.delete(frame); }
+    eligibleSince.delete(frame);
     if (frame.hasAttribute('data-ft-house-active')) {
       frame.removeAttribute('data-ft-house-active');
       frame.style.removeProperty('--ft-house-height');
@@ -93,7 +100,6 @@ export function installHouseAds(
       if (!google) continue;
       let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
       if (!host) { host = document.createElement('span'); host.setAttribute('data-ft-house-host', ''); frame.append(host); }
-      if (!started.has(frame)) { started.set(frame, Date.now()); setTimeout(schedule, 12050); }
       const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
       const isFilled = state === 'filled' || google.matches('ins[data-ad-status="filled"]') || !!google.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
       if (isFilled) { remove(frame); continue; }
@@ -103,11 +109,22 @@ export function installHouseAds(
       const scriptSelector = frame.dataset.ftHouseLibrary === 'gpt' ? 'gpt.js' : 'adsbygoogle.js';
       const failed = Array.from(document.querySelectorAll<HTMLScriptElement>('script[data-failed="1"]')).some(s => s.src.includes(scriptSelector) && !['retry_wait','loading','loaded','waiting_response'].includes(s.dataset.ftScriptState || ''));
       const cmpFailed = !!document.querySelector('script[src*="fundingchoicesmessages.google.com"][data-ft-script-state="failed"]');
-      const terminal = ['unfilled', 'unavailable', 'collapsed'].includes(state) || google.matches('ins[data-ad-status="unfilled"]') || !!google.querySelector('ins[data-ad-status="unfilled"]');
+      const googleUnfilled = google.matches('ins[data-ad-status="unfilled"]') || !!google.querySelector('ins[data-ad-status="unfilled"]');
+      const terminal = ['unfilled', 'unavailable', 'collapsed'].includes(state) || googleUnfilled;
+      const stalled = google.hasAttribute('data-ft-ad-stalled') || !!google.querySelector('[data-ft-ad-stalled]');
+      const blocked = blockerConfirmed();
       const decision = w.__ftAdsConsentDecision || read(config.consentKey, true);
-      const eligible = !pending && (terminal || failed || (cmpFailed && !decision));
-      if (!eligible) { remove(frame); continue; }
-      if (Date.now() - started.get(frame)! < 12000) continue;
+      const eligible = blocked || stalled || (!pending && (terminal || failed || (cmpFailed && !decision)));
+      if (!eligible) { eligibleSince.delete(frame); remove(frame); continue; }
+      // A blocker or a confirmed 45s request stall should reach the inline
+      // creative immediately. Definitive no-fill/failure gets only a short
+      // grace for a fill event already queued by Google.
+      if (!blocked && !stalled && !entries.has(frame)) {
+        const since = eligibleSince.get(frame);
+        if (since === undefined) { eligibleSince.set(frame, Date.now()); setTimeout(schedule, 1000); continue; }
+        if (Date.now() - since < 1000) continue;
+      }
+      eligibleSince.delete(frame);
       // A rail may currently have a zero-width track after Google's empty
       // callback. Announce eligibility before measuring; its React adapter
       // restores the track, then the next layout mutation supplies real width.
@@ -125,7 +142,14 @@ export function installHouseAds(
       }
       remove(frame, true);
       const placement = (frame.dataset.house || google.dataset.adPlacement || google.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
-      const data = { campaign: 'job_search_automation', experiment_id: 'house_creatives_v1', experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), creative_id: `${assignment.variant}_v1`, component: `${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
+      const fallbackReason = blocked ? 'adblock_detected'
+        : stalled ? 'response_stalled'
+        : failed ? 'script_failed'
+        : googleUnfilled ? 'google_no_fill'
+        : cmpFailed && !decision ? 'consent_loader_failed'
+        : state === 'collapsed' ? 'ad_collapsed'
+        : 'ad_unavailable';
+      const data = { campaign: 'job_search_automation', experiment_id: 'house_creatives_v1', experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), creative_id: `${assignment.variant}_v1`, component: `${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
       const creative = render({ variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
         if (!permitted()) return;
         report('house_ad_click', { ...data, action: 'click' });
@@ -136,6 +160,7 @@ export function installHouseAds(
       frame.style.setProperty('--ft-house-height', `${height}px`);
       frame.setAttribute('data-ft-house-active', '');
       entries.set(frame, { creative, seen: counted.get(frame)?.has(`${path}:${data.creative_id}:${format}`) || false, data });
+      report('house_ad_rendered', { ...data, action: 'render' });
     }
     measure();
   }
@@ -162,8 +187,8 @@ export function installHouseAds(
     if (records.every(r => (r.target as Element).closest?.('[data-ft-house-host]'))) return;
     schedule();
   });
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
-  for (const name of [config.consentEvent, 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
+  for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
   window.addEventListener('scroll', measure, { passive: true });
   document.addEventListener('visibilitychange', measure);
   const api = { refresh }; w.__ftHouseAds = api; return api;
