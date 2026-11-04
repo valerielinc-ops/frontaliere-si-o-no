@@ -338,6 +338,7 @@
     "dist:shrink:dry": "node scripts/dist-shrink.mjs --dist=dist --dry=true"
   },
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "@google/genai": "^2.24.0",
     "@huggingface/transformers": "^4.3.0",
     "@myriaddreamin/typst-ts-node-compiler": "0.7.0",

@@ -58,6 +58,7 @@ const BASE_EVENT = {
   venue: 'zondacrypto-Arena',
   comune: 'Davos',
   canton: 'GR',
+  performer: { '@type': 'Person', name: 'Giocatore di prova' },
   url: 'https://www.tio.ch/agenda/day/20261226/7001',
   sourceKey: 'tio-agenda',
   sourceName: 'Tio.ch Agenda',

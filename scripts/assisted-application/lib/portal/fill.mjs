@@ -750,7 +750,7 @@ async function dateRegistered(locator, value) {
  * none has been in flight for UPLOAD_QUIET_MS — bounded, and a short pause on
  * a form that sends its files with the submit.
  */
-async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
+async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now, onSelection = () => {} } = {}) {
   const inFlight = new Set();
   const uploads = new Set();
   const failed = new Set();
@@ -781,6 +781,9 @@ async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, 
   page.on('response', received);
   try {
     await setFiles();
+    // Record the selected files before waiting for portal-side processing:
+    // an upload can return an error after the browser has already selected it.
+    onSelection();
     const deadline = now() + settleMs;
     let quietSince = now();
     while (now() < deadline) {
@@ -860,8 +863,9 @@ export async function applyActions(page, fields, actions, files, {
         // Every file of a requested document when the input takes several, else the first.
         const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
         const selectedPaths = selectedUploadPaths(paths, multiple);
-        const receipt = await chooseFiles(page, locator, selectedPaths.length > 1 ? selectedPaths : selectedPaths[0]);
-        onUploadSelection(field.id, selectedPaths);
+        const receipt = await chooseFiles(page, locator, selectedPaths.length > 1 ? selectedPaths : selectedPaths[0], {
+          onSelection: () => onUploadSelection(field.id, selectedPaths),
+        });
         uploaded = selectedPaths.length;
         results.push({ fieldId: field.id, ok: true, files: uploaded, ...(receipt.accepted ? { uploadAccepted: true } : {}) });
         await pause();

@@ -61,6 +61,7 @@ const EVENT = {
   url: 'https://www.tio.ch/agenda/day/20260704/42',
   sourceKey: 'tio-agenda',
   sourceName: 'Tio.ch Agenda',
+  performer: { '@type': 'Person', name: 'Artista di prova' },
 };
 
 describe('slugifyEvent', () => {
@@ -255,7 +256,7 @@ describe('eventLd source attribution (#3125)', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
     expect(ld.organizer).toBeUndefined();
-    expect(ld.performer).toBeUndefined();
+    expect(ld.performer.name).toBe('Artista di prova');
   });
 
   it('emits named organizer/performer metadata when the crawler supplies it', () => {
@@ -269,7 +270,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.performer).toEqual(withPeople.performer);
   });
 
-  it('does not infer performers from prose or a venue label', () => {
+  it('omits Event markup when the source has no verified performer', () => {
     const description = 'Il trio con la cantante albanese-svizzera Elina Duni, il chitarrista britannico Rob Luft e il flicornista svizzero Matthieu Michel è noto per il suo dialogo fluido tra jazz, folk e chanson. Incontra il Vision String Quartet di Berlino.';
     const sourceEvent = {
       ...EVENT,
@@ -280,16 +281,16 @@ describe('eventLd source attribution (#3125)', () => {
       venue: 'Teatro del Gatto',
       url: 'https://www.tio.ch/agenda/day/20260928/63833',
     };
-    const ld = eventLd(sourceEvent as never, 'it') as Record<string, any>;
-    expect(ld.performer).toBeUndefined();
+    expect(eventLd(sourceEvent as never, 'it')).toBeNull();
 
     const unknown = eventLd({
       ...EVENT,
       title: 'Zytturm Konzert',
       category: 'Konzert',
       description: 'Ein toller Abend mit Musik.',
-    } as never, 'it') as Record<string, any>;
-    expect(unknown.performer).toBeUndefined();
+      performer: undefined,
+    } as never, 'it');
+    expect(unknown).toBeNull();
   });
 
   it('does not use the event page as an organizer homepage', () => {
@@ -385,11 +386,19 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd({
       ...EVENT,
       venue: 'Fiescheralp 4',
-      performer: { '@type': 'Organization', name: 'Fiescheralp 4' },
+      performer: { '@type': 'Person', name: 'Artista di prova' },
       organizer: { '@type': 'Organization', name: 'Schweizer Skischule Fiesch Fiescheralp 4', url: 'https://example.com/e' },
     } as never, 'it') as Record<string, any>;
-    expect(ld.performer).toBeUndefined();
+    expect(ld.performer.name).toBe('Artista di prova');
     expect(ld.organizer).toEqual({ '@type': 'Organization', name: 'Schweizer Skischule Fiesch', url: 'https://example.com/e' });
+  });
+
+  it('omits Event markup when the venue is the only apparent performer', () => {
+    expect(eventLd({
+      ...EVENT,
+      venue: 'Fiescheralp 4',
+      performer: { '@type': 'Organization', name: 'Fiescheralp 4' },
+    } as never, 'it')).toBeNull();
   });
 
   it('keeps a named act that only looks like an address, and a venue organizing its own show', () => {
