@@ -215,7 +215,7 @@ describe('draft mode', () => {
   });
 
   it('resolves SuccessFactors from the published job page when the saved apply URL is retired', async () => {
-    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
     const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
     const successFactorsUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
     const page = `<html><body><h1>IT Management Assistenz (a) 80%</h1><p>${'IT Management Assistenz bei Helsana. '.repeat(30)}</p><a>Jetzt bewerben</a><script>j2w.init({ ssoCompanyId: 'Helsana', ssoUrl: 'https://career5.successfactors.eu', locale: 'de_DE' }); j2w.Apply.init({ applyWithLinkedIn2Config: { internalId: '34525-de_DE' } });</script></body></html>`;
@@ -227,8 +227,8 @@ describe('draft mode', () => {
         if (init.method === 'HEAD') return new Response(null, { status: 200 });
         return new Response(JSON.stringify({
           description: POSTING,
-          url: postingUrl,
           applyUrl,
+          slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
           titleByLocale: { de: 'IT Management Assistenz (a) 80%' },
           addressLocality: 'Dübendorf',
         }), { status: 200 });
@@ -743,7 +743,7 @@ describe('submit mode', () => {
 
   it('resolves a legacy Helsana submit from published detail when the saved apply URL is retired', async () => {
     const jobId = 'helsana-872317162e36';
-    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
     const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
     const successFactorsUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
     const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
@@ -751,7 +751,11 @@ describe('submit mode', () => {
     const calls: string[] = [];
     const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
       calls.push(`${init.method || 'GET'} ${url}`);
-      if (url === detailUrl) return new Response(JSON.stringify({ description: POSTING, url: postingUrl, applyUrl: staleApplyUrl }), { status: 200 });
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING,
+        applyUrl: staleApplyUrl,
+        slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
+      }), { status: 200 });
       if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
       if (url === postingUrl && init.method === 'HEAD') return new Response(null, { status: 200 });
       if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });

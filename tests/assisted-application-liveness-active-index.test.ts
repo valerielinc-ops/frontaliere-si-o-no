@@ -33,13 +33,20 @@ describe('assisted-application liveness active-ID corroboration', () => {
   it('gets the canonical page from published detail for a legacy order with a stale apply URL', async () => {
     const jobId = 'helsana-872317162e36';
     const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
-    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff/1426391333/';
     const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
     const fetchImpl = vi.fn(async (url: string) => url === detailUrl
-      ? json({ description: 'Published posting description', url: postingUrl, applyUrl: staleApplyUrl })
+      ? json({
+        description: 'Published posting description',
+        applyUrl: staleApplyUrl,
+        slugByLocale: { de: 'it-management-assistenz-a-80-helsana-dubendorf-stettbach-homeoff' },
+      })
       : new Response('', { status: 404 }));
 
-    await expect(resolvePostingAddressOf({ channel: { applyUrl: staleApplyUrl } }, { jobId, jobUrl: staleApplyUrl }, {
+    await expect(resolvePostingAddressOf({
+      job: { postingUrl: staleApplyUrl, applyUrl: staleApplyUrl },
+      channel: { applyUrl: staleApplyUrl },
+    }, { jobId, jobUrl: staleApplyUrl }, {
       fetchImpl, resolve: publicDns,
     })).resolves.toBe(postingUrl);
     expect(fetchImpl).toHaveBeenCalledWith(detailUrl, expect.anything());
