@@ -650,6 +650,7 @@ export default function JobAlertForm({
        return;
      }
      if (authUser && oneTapEligible) {
+       if (saving) return;
        void handleOneTapCreate();
        return;
      }

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import JobAlertForm from '@/components/community/JobAlertForm';
 
 const {
@@ -143,6 +143,38 @@ describe('JobAlertForm — contextual one-tap creation', () => {
       ['inline_card', 'success', 'infermiere'],
     ]));
     await waitFor(() => expect(document.getElementById('job-alert-form')).toBeNull());
+  });
+
+  it('ignores a second collapsed-card click while the one-tap create is pending', async () => {
+    let releaseCreate!: (value: { id: string }) => void;
+    createAlertMock.mockImplementationOnce(
+      () => new Promise<{ id: string }>((resolve) => { releaseCreate = resolve; }),
+    );
+    render(
+      <JobAlertForm
+        authUser={{ uid: 'user-1', email: 'fixture@example.invalid' }}
+        initialKeyword="infermiere"
+        initialCantonCode="TI"
+      />,
+    );
+
+    await screen.findByTestId('job-alert-one-tap');
+    const triggerCard = document.querySelector<HTMLButtonElement>('button[aria-controls="job-alert-form"]');
+    expect(triggerCard).not.toBeNull();
+    fireEvent.click(triggerCard!);
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+
+    fireEvent.click(triggerCard!);
+    expect(createAlertMock).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      releaseCreate({ id: 'one-tap-alert' });
+    });
+    await waitFor(() => expect(ctaClickMock).toHaveBeenCalledWith(
+      'inline_card',
+      'success',
+      'infermiere',
+    ));
   });
 
   it.each([
