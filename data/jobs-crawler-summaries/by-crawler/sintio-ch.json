@@ -1,7 +1,7 @@
 {
   "key": "sintio-ch",
   "label": "Sintio",
-  "generatedAt": "2026-11-03T09:44:14.961Z",
+  "generatedAt": "2026-11-04T21:51:32.585Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4837,
-  "avgDurationMs": 4837,
+  "durationMs": 5830,
+  "avgDurationMs": 5830,
   "durationHistory": [
-    4837
+    5830
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
       "source": "Sintio Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:43:57.270Z",
+      "crawledAt": "2026-11-04T21:51:09.688Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -57,7 +57,7 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:43:57.270Z",
+      "validThrough": "2027-01-07T21:51:09.688Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T21:56:45.801Z",
       "_qualityScore": 93,
@@ -72,5 +72,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "2b66641bc73f7b341396f3a1a3691e026c902ff6"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }
