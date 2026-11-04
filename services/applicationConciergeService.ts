@@ -160,8 +160,8 @@ export function conciergeProposalDisplayStatus(proposal: ApplicationConciergePro
 }
 
 const PROPOSAL_CATEGORY_ORDER: readonly ApplicationConciergeProposalCategory[] = [
-  'proposed',
   'needs_information',
+  'proposed',
   'accepted',
   'queued',
   'submitted',
