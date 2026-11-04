@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import {
   loadJobPopularity,
@@ -7,7 +8,14 @@ import {
   EMPTY_JOB_POPULARITY,
   __resetJobPopularityCache,
 } from '../services/jobPopularityService';
-import { COPIED_DATA_FILES, JOB_POPULARITY_MIN_VIEWS, trimJobPopularity } from '../build-plugins/adminDataPlugin';
+import {
+  adminDataPlugin,
+  COPIED_DATA_FILES,
+  EXPERIMENTAL_CANDIDATE_FEED_FILE_PATH,
+  JOB_POPULARITY_MIN_VIEWS,
+  projectExperimentalCandidateFeed,
+  trimJobPopularity,
+} from '../build-plugins/adminDataPlugin';
 
 // Issue #5001 — /cerca-lavoro-ticino/ measured Lighthouse mobile perf 0.03, the
 // worst template on the site. Cause: components/community/JobBoard.tsx STATICALLY
@@ -115,6 +123,116 @@ describe('job-popularity is not bundled into the JobBoard chunk', () => {
 describe('the map is shipped as a runtime data file', () => {
   it('adminDataPlugin copies data/job-popularity.json to dist/data/', () => {
     expect(COPIED_DATA_FILES).toContain('data/job-popularity.json');
+  });
+
+  it('projects only the allowlisted candidate fields into the versioned public feed', () => {
+    const rawKeyword = `  ${'Reddit trend '.repeat(20)}  `;
+    const feed = projectExperimentalCandidateFeed(JSON.stringify({
+      generatedAt: '2026-11-04T00:00:00.000Z',
+      sources: { redditTicino: { reason: 'private source diagnostics' } },
+      candidates: [{
+        id: '0123abcd',
+        keyword: rawKeyword,
+        normalizedKeyword: 'private normalized value',
+        angle: '  Practical guide  ',
+        locale: 'it',
+        sources: ['redditTicino', 'googleNewsRss', 'untrusted-label'],
+        demandSignals: {
+          redditUrl: 'https://www.reddit.com/r/Ticino/comments/abc123/topic/?utm_source=private#comments',
+          redditScore: 1234,
+          redditComments: 56,
+          redditSubreddit: 'Ticino',
+          rawPostBody: 'private raw post content',
+        },
+        rationale: 'private ranking rationale',
+        demandScore: 0.9,
+        noveltyScore: 0.8,
+        totalScore: 0.86,
+        unusedField: 'must not escape',
+      }],
+    }));
+
+    expect(feed).toEqual({
+      schemaVersion: 1,
+      generatedAt: '2026-11-04T00:00:00.000Z',
+      candidates: [{
+        id: '0123abcd',
+        keyword: rawKeyword.trim().replace(/\s+/gu, ' ').slice(0, 180),
+        angle: 'Practical guide',
+        locale: 'it',
+        sources: ['reddit', 'google-news-rss'],
+        totalScore: 0.86,
+        redditPermalink: 'https://www.reddit.com/r/Ticino/comments/abc123/topic/',
+      }],
+    });
+    expect(feed.candidates[0].keyword.length).toBeLessThanOrEqual(180);
+    expect(JSON.stringify(feed)).not.toMatch(/rationale|demandSignals|redditScore|redditComments|normalizedKeyword|private raw|unusedField/u);
+  });
+
+  it('returns a valid empty feed for missing or malformed miner output', () => {
+    const empty = { schemaVersion: 1, generatedAt: null, candidates: [] };
+    expect(projectExperimentalCandidateFeed(null)).toEqual(empty);
+    expect(projectExperimentalCandidateFeed('{malformed')).toEqual(empty);
+    expect(projectExperimentalCandidateFeed(JSON.stringify({ generatedAt: 'not-a-date', candidates: [] }))).toEqual(empty);
+  });
+
+  it('emits the projected feed to dist/data without copying the raw miner file', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'topic-candidates-runtime-'));
+    const source = path.join(root, 'data', 'experimental-candidates.json');
+    const output = path.join(root, 'dist', EXPERIMENTAL_CANDIDATE_FEED_FILE_PATH);
+    const rawPayload = JSON.stringify({
+      generatedAt: '2026-11-04T00:00:00.000Z',
+      candidates: [{
+        id: '0123abcd',
+        keyword: 'Public topic',
+        locale: 'it',
+        sources: ['redditTicino'],
+        demandSignals: { redditUrl: 'https://www.reddit.com/r/Ticino/comments/abc123/topic/', redditScore: 1234 },
+        rationale: 'must not be copied',
+        totalScore: 0.75,
+      }],
+    });
+    try {
+      fs.mkdirSync(path.dirname(source), { recursive: true });
+      fs.writeFileSync(source, rawPayload);
+      expect(COPIED_DATA_FILES).toContain('data/experimental-candidate-feed.json');
+      expect(COPIED_DATA_FILES).not.toContain('data/experimental-candidates.json');
+
+      const plugin = adminDataPlugin(root);
+      const closeBundle = (plugin as unknown as { closeBundle: () => void }).closeBundle;
+      closeBundle();
+
+      expect(JSON.parse(fs.readFileSync(output, 'utf8'))).toEqual({
+        schemaVersion: 1,
+        generatedAt: '2026-11-04T00:00:00.000Z',
+        candidates: [{
+          id: '0123abcd',
+          keyword: 'Public topic',
+          angle: null,
+          locale: 'it',
+          sources: ['reddit'],
+          totalScore: 0.75,
+          redditPermalink: 'https://www.reddit.com/r/Ticino/comments/abc123/topic/',
+        }],
+      });
+      expect(fs.existsSync(path.join(root, 'dist', 'data', 'experimental-candidates.json'))).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('emits an empty versioned CDN feed when the raw miner input is absent', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'topic-candidates-empty-'));
+    const output = path.join(root, 'dist', EXPERIMENTAL_CANDIDATE_FEED_FILE_PATH);
+    try {
+      const plugin = adminDataPlugin(root);
+      const closeBundle = (plugin as unknown as { closeBundle: () => void }).closeBundle;
+      closeBundle();
+      expect(JSON.parse(fs.readFileSync(output, 'utf8'))).toEqual({ schemaVersion: 1, generatedAt: null, candidates: [] });
+      expect(fs.existsSync(path.join(root, 'dist', 'data', 'experimental-candidates.json'))).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('the loader URL matches the copied path', () => {
