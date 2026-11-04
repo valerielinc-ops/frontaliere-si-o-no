@@ -155,11 +155,15 @@ export default function AssistedApplicationAutomationPanel({
     setEmailSubject(draft?.applicationEmail?.subject || '');
     setEmailBody(draft?.applicationEmail?.body || '');
     setAnswers(flow?.answers || {});
-    setRequestedDocuments(draft?.requiredDocuments || []);
-    setPostalSubmission(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
-    setRequestedDocumentsDirty(false);
-    setPostalSubmissionDirty(false);
-  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, draft?.requiredDocuments, flow?.answers, flow?.postalSubmission]);
+  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
+
+  useEffect(() => {
+    if (!requestedDocumentsDirty) setRequestedDocuments(draft?.requiredDocuments || []);
+  }, [draft?.requiredDocuments, requestedDocumentsDirty]);
+
+  useEffect(() => {
+    if (!postalSubmissionDirty) setPostalSubmission(flow?.postalSubmission || EMPTY_POSTAL_SUBMISSION);
+  }, [flow?.postalSubmission, postalSubmissionDirty]);
 
   const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
     if (busy) return false;
