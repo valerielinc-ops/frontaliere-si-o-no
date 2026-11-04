@@ -3675,8 +3675,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
-    // later sign-in that fails is then no reason to create it again.
-    await ctx.accounts.mark(host, { status: 'created', lastSignInAt: Date.now() });
+    // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
+    // proves an unverified account is usable (including SuccessFactors' login-only recovery), so do not restart
+    // OTP registration on the next run.
+    const signedInAt = Date.now();
+    await ctx.accounts.mark(host, {
+      status: 'created',
+      lastSignInAt: signedInAt,
+      verifiedAt: account.verifiedAt || signedInAt,
+    });
     return { snapshot: after, reopen: true, pressed };
   }
 

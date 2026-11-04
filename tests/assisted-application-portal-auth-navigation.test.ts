@@ -412,7 +412,17 @@ describe('assisted portal account navigation', () => {
     const url = 'https://career5.successfactors.eu/career';
     const values = new Map<string, string>();
     let signedIn = false;
-    const accountMark = vi.fn(async () => {});
+    let showRegistration = false;
+    const registrationClick = vi.fn(async () => {});
+    const account = {
+      email: 'runner@example.test',
+      password: 'synthetic-password',
+      status: 'pending',
+      verifiedAt: null as number | null,
+    };
+    const accountMark = vi.fn(async (_host: string, patch: Record<string, unknown>) => {
+      Object.assign(account, patch);
+    });
     const loginFields = [
       { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form', frame: 0 },
       { id: 'password', kind: 'text', inputType: 'password', label: 'Kennwort:*', required: true, formId: 'login-form', frame: 0 },
@@ -426,7 +436,10 @@ describe('assisted portal account navigation', () => {
       : {
         url,
         fields: loginFields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
-        buttons: [{ id: 'login', text: 'Anmelden', disabled: false, frame: 0, formId: 'login-form' }],
+        buttons: [
+          { id: 'login', text: 'Anmelden', disabled: false, frame: 0, formId: 'login-form' },
+          ...(showRegistration ? [{ id: 'register', text: 'Registrieren', disabled: false, frame: 0, formId: 'login-form' }] : []),
+        ],
         links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
       };
     const unavailableRole = {
@@ -442,7 +455,10 @@ describe('assisted portal account navigation', () => {
         const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
         const locator: any = {
           first: () => locator,
-          click: vi.fn(async () => { if (id === 'login') signedIn = true; }),
+          click: vi.fn(async () => {
+            if (id === 'login') signedIn = true;
+            if (id === 'register') await registrationClick();
+          }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
           count: vi.fn(async () => 0),
@@ -463,7 +479,7 @@ describe('assisted portal account navigation', () => {
       snapshot: currentSnapshot() as any,
       ctx: {
         accounts: {
-          load: vi.fn(async () => ({ email: 'runner@example.test', password: 'synthetic-password', status: 'pending', verifiedAt: null })),
+          load: vi.fn(async () => account),
           mark: accountMark,
         },
       },
@@ -474,6 +490,25 @@ describe('assisted portal account navigation', () => {
       ['password', 'synthetic-password'],
     ]));
     expect(result).toMatchObject({ snapshot: { text: 'Bewerbung' }, reopen: true, pressed: 'id' });
-    expect(accountMark).toHaveBeenCalledWith('career5.successfactors.eu', expect.objectContaining({ status: 'created' }));
+    expect(accountMark).toHaveBeenCalledWith('career5.successfactors.eu', expect.objectContaining({
+      status: 'created',
+      verifiedAt: expect.any(Number),
+    }));
+
+    signedIn = false;
+    showRegistration = true;
+    const secondRun = await handleAuth({
+      page: page as any,
+      snapshot: currentSnapshot() as any,
+      ctx: {
+        accounts: {
+          load: vi.fn(async () => account),
+          mark: accountMark,
+        },
+      },
+    });
+
+    expect(secondRun).toMatchObject({ snapshot: { text: 'Bewerbung' }, reopen: true, pressed: 'id' });
+    expect(registrationClick).not.toHaveBeenCalled();
   });
 });
