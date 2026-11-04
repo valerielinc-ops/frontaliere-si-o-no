@@ -180,6 +180,9 @@ export const SEO_GATE_CLASSES = Object.freeze({
   'audit:all/page-weight': gate('B',
     'Googlebot indicizza solo i primi 2MB di HTML; <img> senza width/height causa CLS (Core Web Vitals). Baseline 0',
     [SRC.googlebotLimits, SRC.coreWebVitals, SRC.optimizeCls]),
+  'validate:sitemap-family-coverage': gate('B',
+    'una diminuzione non dichiarata delle URL uniche nelle famiglie sitemap è una regressione del segnale di scoperta; il ratchet conserva la copertura precedente senza sequestrare publish',
+    [SRC.sitemaps]),
 
   // ── C — advisory ─────────────────────────────────────────────────────────
   // Declassato da A a C il 2026-10-02, su decisione del proprietario: era

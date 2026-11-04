@@ -61,6 +61,13 @@ describe('validate-dist failure classification', () => {
     expect(unclassified.unclassified).toEqual(['audit:sitemap-canonicals']);
   });
 
+  it('classifies sitemap family coverage as an issue-only regression gate', () => {
+    const v = evaluateIntegrity(['validate:sitemap-family-coverage']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.quality).toEqual(['validate:sitemap-family-coverage']);
+    expect(v.blocking).toEqual([]);
+  });
+
   it('reports an unclassified gate apart from a classified one, without blocking', () => {
     const v = evaluateIntegrity(['audit:all/title-length', 'validate:crawler-summaries']);
     expect(v.integrityOk).toBe(true);
@@ -138,9 +145,12 @@ describe('validate-dist failure classification', () => {
     // («nessun gate dovrebbe bloccare la pubblicazione ma aprire solo una
     // issue»): `validate:og-images`, added unclassified by #11924, sequestered
     // publish on runs 37543977878 and 37571743923 while the deploy was live.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(32);
+    // 2026-11-04: raised 32 → 33 by classifying the sitemap family coverage
+    // regression gate, which was wired into post-deploy validation but missing
+    // from the shared table.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(33);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
-    expect(topLevel).toHaveLength(14);
+    expect(topLevel).toHaveLength(15);
     // Every entry carries a rationale string, not a bare flag.
     for (const [gate, why] of Object.entries(QUALITY_GATES)) {
       expect(String(why).length, `${gate} needs a rationale`).toBeGreaterThan(10);
