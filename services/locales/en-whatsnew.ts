@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+  'whatsNew.v31002.title': 'Your next action is easier to spot',
+  'whatsNew.v31002.concierge.title': 'Requests and applications, clearly organized',
+  'whatsNew.v31002.concierge.desc': 'Requests for information appear first, and application statuses are grouped into expandable sections.',
   "whatsNew.v39917.title": "A starting point from social media",
   "whatsNew.v39917.socialHub.title": "Key resources on one page",
   "whatsNew.v39917.socialHub.desc": "The page brings together jobs, salary tools, border updates, practical guides and the weekly digest.",
