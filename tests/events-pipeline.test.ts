@@ -448,7 +448,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       contentUrl: expect.stringContaining('/images/events/catalog/'),
     });
     expect(ld.organizer).toBeUndefined();
-    expect(ld.performer).toBeUndefined();
+    expect(ld.performer?.name).toBeTruthy();
     expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
     // When the source provides an end date, its calendar day must not precede
@@ -470,6 +470,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           venue: 'Teatro Sociale Bellinzona',
           comune: 'Bellinzona',
           canton: 'TI',
+          performer: { '@type': 'Person', name: 'Solista di prova' },
           url: 'https://www.tio.ch/agenda/day/20260704/62101',
           sourceKey: 'tio-agenda',
           sourceName: 'Tio.ch Agenda',
@@ -490,6 +491,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         canton: 'TI',
         comune: 'Lugano',
         venue: 'Museo civico',
+        performer: { '@type': 'Person', name: 'Curatrice di prova' },
         url: 'https://example.test/events/1',
         sourceKey: 'guidle',
         sourceName: 'Guidle',
@@ -513,6 +515,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         comune: 'Lugano',
         canton: 'TI',
         address: { street: 'Via Chiosso 9', postalCode: '6948', locality: 'Porza' },
+        performer: { '@type': 'Person', name: 'Interprete di prova' },
         url: 'https://www.tio.ch/agenda/day/20260924/62309',
         sourceKey: 'tio-agenda',
         sourceName: 'Tio.ch Agenda',
@@ -537,6 +540,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         venue: 'Teatro Sociale',
         comune: 'Bellinzona',
         canton: 'TI',
+        performer: { '@type': 'Person', name: 'Orchestra di prova' },
         url: 'https://www.tio.ch/agenda/day/20260704/62103',
         sourceKey: 'tio-agenda',
         sourceName: 'Tio.ch Agenda',
@@ -560,6 +564,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         comune: 'Bellinzona',
         recurring: false,
         canton: 'TI',
+        performer: { '@type': 'Person', name: 'Interprete di prova' },
         url: 'https://www.tio.ch/agenda/day/20261115/62103',
         sourceKey: 'tio-agenda',
         sourceName: 'Tio.ch Agenda',
@@ -581,6 +586,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         venue: 'Museo civico',
         comune: 'Lugano',
         canton: 'TI',
+        performer: { '@type': 'Person', name: 'Curatrice di prova' },
         url: 'https://www.tio.ch/agenda/day/20260704/62104',
         sourceKey: 'tio-agenda',
         sourceName: 'Tio.ch Agenda',
@@ -621,6 +627,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         venue: 'Teatro Sociale',
         comune: 'Bellinzona',
         canton: 'TI',
+        performer: { '@type': 'Person', name: 'Interprete di prova' },
         url: 'https://www.tio.ch/agenda/day/20260115/62105',
         sourceKey: 'tio-agenda',
         sourceName: 'Tio.ch Agenda',
@@ -654,10 +661,15 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     venue: 'Centro sportivo',
     comune: 'Lugano',
     canton: 'TI',
+    performer: { '@type': 'Person', name: 'Insegnante di prova' },
     url: 'https://www.tio.ch/agenda/day/20260704/63071',
     sourceKey: 'tio-agenda',
     sourceName: 'Tio.ch Agenda',
   };
+
+  it('omits Google Event markup when no source-backed performer is available', () => {
+    expect(eventLd({ ...baseEvent, performer: undefined }, 'it')).toBeNull();
+  });
 
   // A tio-agenda winner publishes a price only when the assembler gave it a
   // structured MySwitzerland/Guidle tariff of the same event.

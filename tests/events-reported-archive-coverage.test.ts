@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
+import { normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
 import { publishedEventRoutes } from '../scripts/lib/events-retention.mjs';
 import {
   eventLd,
@@ -168,7 +169,15 @@ describe('reported GSC event archive coverage', () => {
         const hasSupportedLocation = Boolean(
           event.comune || event.address?.locality || event.address?.street || event.address?.postalCode,
         );
-        expect(event.recurring === true || !hasSupportedLocation, reportedPath).toBe(true);
+        const locality = event.address?.locality?.trim() || event.comune?.trim() || '';
+        const cleanedPeople = withoutAddressPeople({
+          ...event,
+          venue: event.venue?.trim() || locality,
+        }, { label: event.sourceName });
+        const hasSourceBackedPerformer = Boolean(
+          normalizeEventPeople(cleanedPeople.performer, event.url, event.url),
+        );
+        expect(event.recurring === true || !hasSupportedLocation || !hasSourceBackedPerformer, reportedPath).toBe(true);
         expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
         continue;
       }
