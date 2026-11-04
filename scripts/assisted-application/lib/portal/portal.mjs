@@ -5110,7 +5110,21 @@ export async function submitViaPortal(ctx) {
             const result = results.find((item) => item.fieldId === action.fieldId);
             const field = snapshot.fields.find((item) => item.id === action.fieldId);
             const files = selectedUploads.get(action.fieldId) || [];
-            if (!result?.ok || !field || !await uploadReceipt(page, locatorFor(page, field), files, { acceptedResponse: result.uploadAccepted === true })) {
+            const confirmed = result?.ok && field
+              && await uploadReceipt(page, locatorFor(page, field), files, { acceptedResponse: result.uploadAccepted === true });
+            if (!confirmed) {
+              // A generated cover letter is optional. If its upload is not
+              // confirmed, omit it and continue; a missing required file still
+              // stops the application below the same fail-closed boundary.
+              const optionalCoverLetter = action.document === 'cover_letter'
+                && field?.required === false && !field.invalid;
+              if (optionalCoverLetter) {
+                if (result) {
+                  result.ok = false;
+                  result.error ||= 'upload_not_confirmed';
+                } else results.push({ fieldId: action.fieldId, ok: false, error: 'upload_not_confirmed' });
+                continue;
+              }
               if (result) {
                 result.ok = false;
                 result.error ||= 'upload_not_confirmed';
