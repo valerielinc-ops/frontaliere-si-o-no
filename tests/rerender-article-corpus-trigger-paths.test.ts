@@ -161,6 +161,16 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     expect(isHubCovered(source)).toBe(true);
   });
 
+  it('rerenders existing article and hub pages when shared shell fingerprints change', () => {
+    for (const source of [
+      'tests/articles-shell-contract-fingerprint.json',
+      'tests/third-party-shell-assets-fingerprint.json',
+    ]) {
+      expect(isCovered(source)).toBe(true);
+      expect(isHubCovered(source)).toBe(true);
+    }
+  });
+
   it('covers every module the driver renders with, behind shims and symlinks', () => {
     const driver = fs.readFileSync(path.join(ROOT, DRIVER), 'utf8');
     const loaded = [...driver.matchAll(/await import\('(\.\.\/build-plugins\/[^']+)'\)/g)].map((m) =>
