@@ -164,6 +164,14 @@ test('adaptive planner stays dependency-free for its no-npm-ci workflow job', ()
 });
 
 test('pre-install shard initialization stays dependency-free', () => {
+  const initializationStart = workflow.indexOf('- name: Initialize private shard artifact');
+  const setupStart = workflow.indexOf('- name: Setup Node.js', initializationStart);
+  assert.ok(initializationStart >= 0, 'pre-install initialization step not found');
+  assert.ok(setupStart > initializationStart, 'initialization must remain before runtime setup');
+  const initialization = workflow.slice(initializationStart, setupStart);
+  assert.match(initialization, /node scripts\/initialize-event-description-shard\.mjs/u);
+  assert.doesNotMatch(initialization, /node scripts\/event-description-rewrite\.mjs/u);
+
   const { files, packageImports } = scanImportClosure({
     entries: ['scripts/initialize-event-description-shard.mjs'],
   });
