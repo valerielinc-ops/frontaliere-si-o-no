@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-04T13:55:58.317Z",
+  "updatedAt": "2026-11-04T13:56:34.268Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -248530,12 +248530,12 @@
     },
     "caisse-des-medecins@thonex": {
       "key": "caisse-des-medecins@thonex",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-09T08:17:17.455Z",
-      "updatedAt": "2026-11-04T13:39:44.647Z",
+      "updatedAt": "2026-11-04T13:56:34.185Z",
       "name": "CAISSE DES MEDECINS",
       "city": "Thônex",
       "zip": "1226",
@@ -248812,7 +248812,9 @@
           "logoSourceUrl": "https://caisse-des-medecins.ch/app/uploads/2026/08/cropped-favicon-1-192x192.jpg",
           "employerSiteName": "Caisse des médecins"
         }
-      ]
+      ],
+      "promotionPr": "16976",
+      "promotionBranch": "prospector/promote-2026-11-04"
     },
     "caiv.ch": {
       "key": "caiv.ch",
@@ -275354,12 +275356,12 @@
     },
     "cdg-beratungen@winterthur": {
       "key": "cdg-beratungen@winterthur",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-04T10:01:44.194Z",
-      "updatedAt": "2026-11-04T13:40:34.271Z",
+      "updatedAt": "2026-11-04T13:56:34.185Z",
       "name": "cdg Beratungen AG",
       "city": "Winterthur",
       "zip": "8400",
@@ -275599,7 +275601,9 @@
           "logoSourceUrl": "https://cdg-beratungen.ch/wp-content/uploads/favicon.png",
           "employerSiteName": "cdg Beratungen &#8211; Die KMU Partner"
         }
-      ]
+      ],
+      "promotionPr": "16976",
+      "promotionBranch": "prospector/promote-2026-11-04"
     },
     "cdi-conseils-et-developpements-informatiques@givisiez": {
       "key": "cdi-conseils-et-developpements-informatiques@givisiez",
@@ -1801294,12 +1801298,12 @@
     },
     "favre-s-a@corcelles-pres-payerne": {
       "key": "favre-s-a@corcelles-pres-payerne",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-27T09:11:10.673Z",
-      "updatedAt": "2026-11-04T13:40:28.522Z",
+      "updatedAt": "2026-11-04T13:56:34.185Z",
       "name": "Favre S.A.",
       "secoEmployerName": "Favre S.A.",
       "city": "Corcelles-près-Payerne",
@@ -1801558,7 +1801562,9 @@
           "logoSourceUrl": "https://www.favresa.ch/content/files/images/logos/logos/fsa-cdff-cfr-logo.svg",
           "employerSiteName": "Favre SA"
         }
-      ]
+      ],
+      "promotionPr": "16976",
+      "promotionBranch": "prospector/promote-2026-11-04"
     },
     "brauchli@forel-lavaux": {
       "key": "brauchli@forel-lavaux",
@@ -1865355,12 +1865361,12 @@
     },
     "creditx@sion": {
       "key": "creditx@sion",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-04T13:39:24.888Z",
+      "updatedAt": "2026-11-04T13:56:34.185Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -1865620,7 +1865626,9 @@
           "logoSourceUrl": "https://creditx.ch/favicon.ico?favicon.0tapaohsdwvhp.ico",
           "employerSiteName": "CreditX"
         }
-      ]
+      ],
+      "promotionPr": "16976",
+      "promotionBranch": "prospector/promote-2026-11-04"
     },
     "garage-pro-service@ardon": {
       "key": "garage-pro-service@ardon",
