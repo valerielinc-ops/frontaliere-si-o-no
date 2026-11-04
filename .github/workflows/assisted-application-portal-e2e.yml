@@ -36,8 +36,9 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    # The 2026-10-20 run used ~30 min through browser integration; reserve time for setup and cleanup.
-    timeout-minutes: 45
+    # Recent full runs take 41–42 min; #16433 hit the 45 min cap. Keep all scenarios
+    # and reserve about 15 min for setup and run-to-run variance.
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v7
