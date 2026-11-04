@@ -53,6 +53,17 @@ import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { permitOmitted, permitStatusOf } from './lib/permitStatus.js';
 import { portalQuestionText, readablePortalQuestionText } from './lib/portalQuestionText.js';
 import { defaultStartDate, minDateFor, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
+import {
+  buildPostalApplicationPacket,
+  POSTAL_PACKET_CONTENT_TYPE,
+  POSTAL_PACKET_FILE_NAME,
+  POSTAL_PACKET_MAX_SOURCE_BYTES,
+  postalPacketChecklistStatus,
+  postalPacketExemptionLabel,
+  postalPacketReadiness,
+  postalPacketSources,
+  PostalPacketError,
+} from './assistedApplicationPostalPacket.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 import { randomUUID } from 'node:crypto';
 import {
@@ -84,6 +95,7 @@ const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
 // The candidate's editable Word copies (owner decision 2026-10-03): built at each request, never stored, never sent.
 const WORD_FILES = new Set(['letter.docx', 'cv.docx']);
+const POSTAL_PACKET_FILE = 'postal-packet.pdf';
 // What the runner records as sent (draft.sent.files).
 const KEPT_KINDS = new Set(['letter', 'cv', 'dossier', 'documents', 'document']);
 // The letter, the CV and every file of every requested document, at most.
@@ -238,6 +250,75 @@ export function buildWordCopy(file, { order, orderId, flow, draft, nowMs }) {
   return null;
 }
 
+function postalPacketChecklist({ draft, flow, orderId, locale }) {
+  return requiredDocumentsFor(draft, flow).map((document) => {
+    const given = flow?.documents?.[document.id] || {};
+    const exemption = (document.exemptions || []).includes(given.exemption) ? given.exemption : '';
+    const files = documentFilesOf(flow, orderId, document.id);
+    const status = exemption ? 'exempt'
+      : document.delivery === 'offline' ? (Number(given.preparedAt) ? 'prepared' : 'manual')
+        : document.delivery === 'service' || files.length ? 'included' : 'missing';
+    const reason = exemption ? ` (${postalPacketExemptionLabel(locale, exemption)})` : '';
+    return {
+      label: `${document.label}${reason}`,
+      status: postalPacketChecklistStatus(locale, status),
+      instructions: document.instructions || '',
+    };
+  });
+}
+
+async function postalPacketFile({ bucket, order, orderId, flow, draft }) {
+  if (!bucket) throw new PostalPacketError('storage_unavailable', 503);
+  const readiness = postalPacketReadiness({ order, orderId, flow, draft });
+  if (!readiness.ready) throw new PostalPacketError('postal_packet_not_ready', 409, readiness);
+  const { cv, documents } = postalPacketSources({ order, orderId, flow, draft });
+  const sources = [
+    { key: cv.key, type: String(cv.type || '').toLowerCase(), name: cv.name, label: 'Curriculum vitae', purpose: 'document' },
+    ...documents.map((file) => ({ key: file.key, type: String(file.detectedType || '').toLowerCase(), name: file.name, label: file.label, purpose: file.purpose })),
+  ];
+  const metadata = [];
+  let totalBytes = 0;
+  for (const source of sources) {
+    if (!isAssistedApplicationCvKey(orderId, source.key)) throw new PostalPacketError('postal_packet_file_unavailable', 409);
+    let details;
+    try {
+      [details] = await bucket.file(source.key).getMetadata();
+    } catch {
+      throw new PostalPacketError('postal_packet_file_unavailable', 409, { fileName: source.name });
+    }
+    const size = Number(details?.size);
+    if (!Number.isSafeInteger(size) || size <= 0) throw new PostalPacketError('postal_packet_file_unavailable', 409, { fileName: source.name });
+    totalBytes += size;
+    if (totalBytes > POSTAL_PACKET_MAX_SOURCE_BYTES) throw new PostalPacketError('postal_packet_too_large', 413, { maxBytes: POSTAL_PACKET_MAX_SOURCE_BYTES });
+    metadata.push({ ...source, size });
+  }
+
+  const files = [];
+  for (const source of metadata) {
+    let buffer;
+    try {
+      [buffer] = await bucket.file(source.key).download();
+    } catch {
+      throw new PostalPacketError('postal_packet_file_unavailable', 409, { fileName: source.name });
+    }
+    if (!Buffer.isBuffer(buffer) || buffer.length !== source.size || detectDocumentType(buffer.subarray(0, 16)) !== source.type) {
+      throw new PostalPacketError('postal_packet_file_invalid', 422, { fileName: source.name });
+    }
+    files.push({ ...source, buffer });
+  }
+
+  const buffer = await buildPostalApplicationPacket({
+    locale: draft?.language || order?.locale || 'it',
+    jobTitle: draft?.job?.title || order?.jobTitle || '',
+    companyName: order?.companyName || '',
+    postalSubmission: flow.postalSubmission,
+    coverLetterText: draft?.coverLetter?.text || '',
+    checklist: postalPacketChecklist({ draft, flow, orderId, locale: draft?.language || order?.locale || 'it' }),
+    files,
+  });
+  return { buffer, contentType: POSTAL_PACKET_CONTENT_TYPE, fileName: POSTAL_PACKET_FILE_NAME };
+}
+
 /**
  * What the candidate keeps once the application left (owner decision 2026-10-03): the files the runner
  * recorded as sent or, for an older order and a record of which nothing can be signed, the stored letter
@@ -342,6 +423,9 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   // School reports, test results… the posting requires besides the CV and the letter.
   const documents = documentsView(draft, flow, documentUrls);
   const openDocuments = openRequiredDocuments(draft, flow?.documents || {}, flow);
+  const postalPacket = flow?.postalSubmission?.enabled === true
+    ? postalPacketReadiness({ order, orderId, flow, draft })
+    : null;
   const channel = draft?.channel || {};
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale });
@@ -381,6 +465,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
       instructions: cleanBlock(flow.postalSubmission.instructions, 2000),
       officialFormUrl: safeHttpsUrl(flow.postalSubmission.officialFormUrl),
     } : null,
+    postalPacket,
     // A WhatsApp application: done once the candidate has its link and steps
     // (the «inviata» e-mail); the page repeats the link.
     whatsappUrl: whatsappUrlOf(order, state),
@@ -432,7 +517,8 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
+      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0
+        && (flow?.postalSubmission?.enabled !== true || postalPacket?.ready === true),
       reject: !stale && state === 'candidate_review',
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
@@ -792,11 +878,20 @@ export async function handleAssistedApplicationReview(req, deps) {
       const token = String(req.query?.t || '');
       const authorization = await authorize(token, { ...deps, nowMs });
       const { orderId, round, kind } = authorization;
-      // An editable Word copy: the page's token checks, then built in memory and answered as a file.
+      // Editable Word copies and the protected paper packet are built only for this signed page.
       if (req.query?.file !== undefined) {
-        if (kind !== 'review' || !WORD_FILES.has(String(req.query.file))) throw new ReviewError('not_found', 404);
+        if (kind !== 'review') throw new ReviewError('not_found', 404);
         const { order, flow, draft } = await loadAll(deps.db, orderId);
-        const file = buildWordCopy(String(req.query.file), { order, orderId, flow, draft, nowMs });
+        const requestedFile = String(req.query.file);
+        if (requestedFile === POSTAL_PACKET_FILE) {
+          if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
+          if (flow.state !== 'candidate_handoff' || flow?.postalSubmission?.enabled !== true || draft?.status !== 'ready') {
+            throw new ReviewError('not_allowed', 409);
+          }
+          return { status: 200, file: await postalPacketFile({ bucket: deps.bucket, order, orderId, flow, draft }) };
+        }
+        if (!WORD_FILES.has(requestedFile)) throw new ReviewError('not_found', 404);
+        const file = buildWordCopy(requestedFile, { order, orderId, flow, draft, nowMs });
         if (!file) throw new ReviewError('not_found', 404);
         return { status: 200, file };
       }
@@ -1013,6 +1108,10 @@ export async function handleAssistedApplicationReview(req, deps) {
         answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
         answerSuggestionDismissals, nowMs, answerActor: 'candidate', communicationLocale, requireAnswerContracts: deps.requireAnswerContracts === true });
     }
+    if (action === 'approve' && flow?.postalSubmission?.enabled === true) {
+      const readiness = postalPacketReadiness({ order, orderId, flow, draft });
+      if (!readiness.ready) throw new ReviewError('postal_packet_not_ready', 409, readiness);
+    }
     const event = {
       approve: { type: 'candidate_approve' },
       reject: { type: 'candidate_reject', feedback: cleanBlock(body.feedback, 2000) },
@@ -1045,7 +1144,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
-    if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
+    if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError || error instanceof PostalPacketError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
     if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;

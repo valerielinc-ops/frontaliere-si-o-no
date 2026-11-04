@@ -143,6 +143,7 @@ export interface ReviewFormField {
 
 /** An editable Word copy the server builds on request (functions/src/assistedApplicationReview.js buildWordCopy): never the file that leaves. */
 export type ReviewWordFile = 'letter.docx' | 'cv.docx';
+export type ReviewDownloadFile = ReviewWordFile | 'postal-packet.pdf';
 
 /** A file the candidate keeps after the sending (keptDocumentsOf). */
 export interface ReviewKeptDocument {
@@ -191,6 +192,14 @@ export interface ReviewPayload {
     envelopeMarking: string;
     instructions: string;
     officialFormUrl: string | null;
+  } | null;
+  /** Preflight for the single PDF offered when a paper application is ready. */
+  postalPacket?: {
+    ready: boolean;
+    unsupportedFiles: string[];
+    tooLarge: boolean;
+    estimatedBytes: number;
+    maxBytes: number;
   } | null;
   /** Sent as a WhatsApp application (PastaHR): the link the candidate opens from the phone. */
   whatsappUrl?: string | null;
@@ -281,12 +290,34 @@ export async function fetchReview(token: string): Promise<ReviewPayload | Follow
   return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload | FollowupPayload>;
 }
 
-/** The download link of a Word copy: the page's token, the file the server builds. */
-export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+/** Download link from the signed candidate page. */
+export function reviewFileUrl(token: string, file: ReviewDownloadFile): string {
   const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
   url.searchParams.set('t', token);
   url.searchParams.set('file', file);
   return url.toString();
+}
+
+/** Backwards-compatible helper for an editable Word copy. */
+export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+  return reviewFileUrl(token, file);
+}
+
+/** Downloads the assembled postal dossier and surfaces a structured API error to the page. */
+export async function downloadPostalPacket(token: string): Promise<void> {
+  const response = await fetch(reviewFileUrl(token, 'postal-packet.pdf'), { method: 'GET', cache: 'no-store' });
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new ReviewRequestError(typeof body?.error === 'string' ? body.error : 'postal_packet_download_failed', body?.fields || {});
+  }
+  const blob = await response.blob();
+  if (blob.type !== 'application/pdf') throw new ReviewRequestError('postal_packet_download_failed');
+  const href = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = href;
+  link.download = 'dossier-candidatura-cartacea.pdf';
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(href), 30_000);
 }
 
 export async function sendReviewAction(

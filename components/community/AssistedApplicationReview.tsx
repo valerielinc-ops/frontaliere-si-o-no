@@ -1,6 +1,6 @@
 import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
+import { CheckCircle2, Clock3, Copy, Download, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
@@ -16,6 +16,7 @@ import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPri
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
   fetchReview,
+  downloadPostalPacket,
   ReviewRequestError,
   sendReviewAction,
   type FollowupPayload,
@@ -242,6 +243,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   // Fields the candidate touched: their rule is checked as they type.
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [busy, setBusy] = useState<string | null>(null);
+  const [packetDownloadError, setPacketDownloadError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
@@ -342,6 +344,19 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         else setFieldErrors(reason.fields || {});
       }
       return false;
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const downloadPacket = async () => {
+    if (busy) return;
+    setBusy('postal_packet');
+    setPacketDownloadError(null);
+    try {
+      await downloadPostalPacket(token);
+    } catch (reason) {
+      setPacketDownloadError(reason instanceof ReviewRequestError ? reason.code : 'postal_packet_download_failed');
     } finally {
       setBusy(null);
     }
@@ -659,6 +674,15 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           />
         )}
 
+        {data?.postalSubmission && data.state === 'candidate_review' && data.postalPacket && !data.postalPacket.ready && (
+          <div className="rounded-lg border border-warning-border bg-warning-subtle/40 p-3 text-sm text-body" role="status">
+            {data.postalPacket.tooLarge
+              ? t('jobBoard.assisted.review.postal.packetTooLarge', { mb: Math.round(data.postalPacket.maxBytes / (1024 * 1024)) })
+              : t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket.unsupportedFiles.join(', ') || 'CV' })}
+            {data.postalPacket.unsupportedFiles.length > 0 && <p className="mt-1 text-xs">{data.postalPacket.unsupportedFiles.join(', ')}</p>}
+          </div>
+        )}
+
         {data && data.ready && (data.state === 'candidate_review' || data.state === 'candidate_handoff') && data.coverLetter && (
           <div className="space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
@@ -882,6 +906,19 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               <h2 id="postal-submission-title" className="text-base font-bold text-heading">{t('jobBoard.assisted.review.postal.title')}</h2>
               <p className="mt-1 text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.postal.body')}</p>
             </div>
+            {data.postalPacket?.ready ? (
+              <button type="button" onClick={() => { void downloadPacket(); }} disabled={Boolean(busy)} aria-busy={busy === 'postal_packet'} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
+                {busy === 'postal_packet' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Download className="h-4 w-4" aria-hidden="true" />}
+                {t('jobBoard.assisted.review.postal.downloadPacket')}
+              </button>
+            ) : (
+              <p className="rounded-lg border border-warning-border bg-warning-subtle/40 p-3 text-sm text-body" role="status">
+                {data.postalPacket?.tooLarge
+                  ? t('jobBoard.assisted.review.postal.packetTooLarge', { mb: Math.round((data.postalPacket?.maxBytes || 0) / (1024 * 1024)) })
+                  : t('jobBoard.assisted.review.postal.packetUnsupported', { files: data.postalPacket?.unsupportedFiles.join(', ') || 'CV' })}
+              </p>
+            )}
+            {packetDownloadError && <p className="text-sm text-danger" role="alert">{t('jobBoard.assisted.review.postal.packetDownloadError')}</p>}
             <dl className="grid gap-3 rounded-lg border border-edge bg-surface p-3 text-sm sm:grid-cols-2">
               <div><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.recipient')}</dt><dd className="mt-1 break-words text-body">{data.postalSubmission.recipient}</dd></div>
               <div><dt className="text-xs font-semibold uppercase tracking-wide text-muted">{t('jobBoard.assisted.review.postal.deadline')}</dt><dd className="mt-1 break-words text-body">{data.postalSubmission.deadline}</dd></div>
