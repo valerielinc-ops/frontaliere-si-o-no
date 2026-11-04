@@ -2,6 +2,12 @@ import crypto from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 import {
+  emptyRewriteStats,
+  REJECTION_MEMORY_SCHEMA_VERSION,
+  THROUGHPUT_SCHEMA_VERSION,
+} from './event-description-empty-shard.mjs';
+
+import {
   EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
   EVENT_DESCRIPTION_POLICY_VERSION,
   EVENT_DESCRIPTION_PROMPT_VERSION,
@@ -11,8 +17,6 @@ import {
   sourceDescriptionHash,
 } from './event-description-policy.mjs';
 
-export const THROUGHPUT_SCHEMA_VERSION = 1;
-export const REJECTION_MEMORY_SCHEMA_VERSION = 1;
 export const MAX_REJECTION_RUNS = 3;
 export const REJECTION_WAIT_BASE_MS = 60 * 60 * 1000;
 export const QUOTA_BACKOFF_BASE_MS = 15_000;
@@ -340,58 +344,8 @@ export function readJsonFile(filePath, fallback = null) {
   }
 }
 
-export function emptyRewriteStats({ shardIndex = 0, shardCount = 1, limit = 0, startedAt = new Date().toISOString() } = {}) {
-  return {
-    throughputSchemaVersion: THROUGHPUT_SCHEMA_VERSION,
-    shardIndex,
-    shardCount,
-    limit,
-    startedAt,
-    completedAt: startedAt,
-    durationMs: 0,
-    calls: 0,
-    attempts: 0,
-    eventAttempts: 0,
-    retries: 0,
-    accepted: 0,
-    acceptedByModel: 0,
-    acceptedByFallback: 0,
-    rejected: 0,
-    quotaErrors: 0,
-    timeoutErrors: 0,
-    brokerErrors: 0,
-    circuitBreakerTrips: 0,
-    circuitOpen: false,
-    circuitReason: '',
-    transportFailures: 0,
-    inputChars: 0,
-    outputChars: 0,
-    inputBudgetSkipped: 0,
-    elapsedMs: 0,
-    observedElapsedMs: 0,
-    backoffMs: 0,
-    rejectionCodes: {},
-    rejectionDetails: {},
-    selectedNeverAttempted: 0,
-    selectedRetries: 0,
-    acceptedNeverAttempted: 0,
-    acceptedRetries: 0,
-    rejectedNeverAttempted: 0,
-    rejectedRetries: 0,
-    parkedFallbackCandidates: 0,
-    parkedUnchanged: 0,
-    totalCandidateRecords: 0,
-    selected: 0,
-    queueRemaining: 0,
-    toAttempt: 0,
-    neverAttempted: 0,
-    retryable: 0,
-    waitingRetry: 0,
-    parked: 0,
-    model: '',
-    promptVersion: '',
-    policyVersion: '',
-    rejectionMemorySchemaVersion: REJECTION_MEMORY_SCHEMA_VERSION,
-    quota: { tokenCountersExposed: false },
-  };
-}
+export {
+  emptyRewriteStats,
+  REJECTION_MEMORY_SCHEMA_VERSION,
+  THROUGHPUT_SCHEMA_VERSION,
+};

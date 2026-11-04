@@ -163,6 +163,18 @@ test('adaptive planner stays dependency-free for its no-npm-ci workflow job', ()
   ]);
 });
 
+test('pre-install shard initialization stays dependency-free', () => {
+  const { files, packageImports } = scanImportClosure({
+    entries: ['scripts/initialize-event-description-shard.mjs'],
+  });
+  assert.equal(packageImports.length, 0);
+  assert.deepEqual(files, [
+    'scripts/initialize-event-description-shard.mjs',
+    'scripts/lib/event-description-empty-shard.mjs',
+    'scripts/lib/event-description-throughput-plan.mjs',
+  ]);
+});
+
 test('hash partition is deterministic, disjoint and exhaustive', () => {
   const queue = Array.from({ length: 97 }, (_, index) => ({ id: `event-${index}` }));
   const first = partitionQueue(queue, 4);

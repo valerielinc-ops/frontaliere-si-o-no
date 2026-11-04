@@ -1,13 +1,21 @@
 import crypto from 'node:crypto';
 import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import {
+  EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  EVENT_DESCRIPTION_POLICY_VERSION,
+  EVENT_DESCRIPTION_PROMPT_VERSION,
+  EVENT_DESCRIPTION_REWRITE_MODEL,
+} from './event-description-empty-shard.mjs';
 import { hasConfidentPrice, isFromEventPrice } from './events-utils.mjs';
 
 export const EVENT_DESCRIPTION_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
-export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-5.6-luna';
-export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v3';
-export const EVENT_DESCRIPTION_POLICY_VERSION = 'event-description-policy-v3';
-export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 2;
+export {
+  EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  EVENT_DESCRIPTION_POLICY_VERSION,
+  EVENT_DESCRIPTION_PROMPT_VERSION,
+  EVENT_DESCRIPTION_REWRITE_MODEL,
+};
 export const EVENT_DESCRIPTION_MIN_SHARED_NGRAM = 8;
 export const EVENT_DESCRIPTION_MIN_CHARS = 30;
 const ACCEPTED_CACHE_PROMPT_VERSIONS = new Set([
