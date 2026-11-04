@@ -158,7 +158,10 @@ jobs:
           # Keep this list equal to the scheduled writer below. The workflow
           # only needs its runtime closure, not the repository's application
           # tree; a root `/*` sparse profile still made checkout materialize
-          # almost all source files before this job could measure history.
+          # almost all source files before this job could measure history. The
+          # PR-only comparison below records both materialization outcomes for
+          # the same PR-head SHA; the PR description links the current-head run
+          # used as pre-merge evidence for this cap.
           sparse-checkout: |
             /.gitattributes
             /.npmrc
@@ -237,9 +240,10 @@ jobs:
           # excluded large data leaves but still materialized almost all code;
           # run 41792863124 fetched in under a second and then timed out in
           # this checkout's seven-minute materialization step. The PR-only
-          # compare-checkout-materialization job measures both profiles on the
-          # same head and runner; its linked run is the pre-merge evidence for
-          # this seven-minute cap.
+          # compare-checkout-materialization job writes both profile outcomes
+          # for the same PR-head SHA, runner, and checkout phase; the PR
+          # description links the current-head run used as pre-merge evidence
+          # for this seven-minute cap.
           sparse-checkout: |
             /.gitattributes
             /.npmrc
