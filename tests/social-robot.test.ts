@@ -1310,6 +1310,16 @@ describe('robot helpers', () => {
 describe('Mac host launch agent', () => {
   const script = path.join(ROOT, 'scripts', 'social-robot', 'launchd.sh');
 
+  it('declares the Firestore fallback dependency as a runtime package', () => {
+    const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
+      dependencies?: Record<string, string>;
+      devDependencies?: Record<string, string>;
+    };
+
+    expect(manifest.dependencies?.['abort-controller']).toBe('^3.0.0');
+    expect(manifest.devDependencies?.['abort-controller']).toBeUndefined();
+  });
+
   type LaunchFixture = {
     root: string;
     repo: string;
