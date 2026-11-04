@@ -200,8 +200,8 @@ describe('parseOfficialAdPage', () => {
 // Referenz-Nr. has no official ad page used to go out as a synthetic tile
 // summary ("{title} bei der Stadtverwaltung Zürich … Weitere Details … finden
 // Sie auf der offiziellen Stellenplattform"); it is not published any more.
-// Without the portal index no tile has its text, so the run fails instead of
-// emptying the board.
+// Without either the portal index or a matching current detail page no tile
+// has its text, so the run fails instead of emptying the board.
 describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
   const fixture = fs.readFileSync(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
@@ -214,7 +214,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     + `<div id="job-${id}-desktop-section-adcode-value">${ref}</div></li>`;
   const listing = `<ul>${tile('1101', 'Gärtner*in', '51726')}${tile('1102', 'Werkstattleiter*in', '99999')}</ul>`;
 
-  function mockPortal({ indexOk }: { indexOk: boolean }) {
+  function mockPortal({ indexOk, directAdOk = false }: { indexOk: boolean; directAdOk?: boolean }) {
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const u = String(url);
       if (u.startsWith('https://jobs.stadt-zuerich.ch/search/')) return new Response(listing, { status: 200 });
@@ -224,6 +224,7 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
           : new Response('unavailable', { status: 503 });
       }
       if (u.includes('job-detailseite.61759.html')) return new Response(fixture, { status: 200 });
+      if (directAdOk && u.includes('job-detailseite.51726.html')) return new Response(fixture, { status: 200 });
       return new Response('', { status: 404 });
     }));
   }
@@ -240,7 +241,14 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     for (const job of jobs) expect(job.description).not.toMatch(/bei der Stadtverwaltung Zürich/);
   }, 20_000);
 
-  it('fails the run when the official index cannot be read', async () => {
+  it('recovers through the current reference URL when the legacy official index is unavailable', async () => {
+    mockPortal({ indexOk: false, directAdOk: true });
+    const jobs = await fetchAllStadtZuerichJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
+    expect(jobs[0].description).toContain('Aufgaben');
+  }, 20_000);
+
+  it('fails the run when neither official source can be read', async () => {
     mockPortal({ indexOk: false });
     await expect(fetchAllStadtZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
   }, 20_000);
