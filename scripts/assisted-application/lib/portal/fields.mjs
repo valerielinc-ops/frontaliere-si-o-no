@@ -111,10 +111,22 @@ function nativeQuestionText(value, counter = null) {
   const MIN_TYPED_BOX_PX = 2;
   const typedInto = (element) => element.tagName === 'TEXTAREA'
     || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
+  const hiddenAncestor = (element) => {
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      if (node.hasAttribute('hidden') || node.hasAttribute('inert')
+        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return true;
+      const ancestorStyle = window.getComputedStyle(node);
+      if (ancestorStyle.display === 'none' || ['hidden', 'collapse'].includes(ancestorStyle.visibility)) return true;
+    }
+    return false;
+  };
   const visible = (element) => {
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
-    if (element.type === 'file') return style.display !== 'none' || rect.width >= 0; // file inputs are often hidden behind a button
+    // Keep a file input hidden only by its own styling: many portals pair it
+    // with a visible upload button. A hidden wizard step is different; its
+    // ancestor must keep the file out of the current page snapshot.
+    if (element.type === 'file') return !hiddenAncestor(element);
     const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
     const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
@@ -133,7 +145,8 @@ function nativeQuestionText(value, counter = null) {
   // visibility-scoped so stale steps and hidden traps are ignored.
   const mountedForReadAhead = (element) => {
     for (let node = element; node; node = node.parentElement) {
-      if (node.hasAttribute('hidden') || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return false;
+      if (node.hasAttribute('hidden') || node.hasAttribute('inert')
+        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return false;
       const style = window.getComputedStyle(node);
       if (style.display === 'none' || style.visibility === 'hidden') return false;
     }
