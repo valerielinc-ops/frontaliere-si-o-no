@@ -873,13 +873,14 @@ export function hasEmittedJobDetailPage(
   np: typeof npT,
   distDir: string,
   href: string,
+  inspectForeignLocales = false,
 ): boolean {
   if (MID_PLUGINS_FAST) {
     const plain = plainJobHrefRelativePath(href);
     if (plain !== null) {
       const distRoot = np.resolve(distDir);
       const pageFile = `${distRoot}${np.sep}${plain.split('/').join(np.sep)}${np.sep}index.html`;
-      if (!shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
+      if (!inspectForeignLocales && !shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
       const memo = jobDetailExistenceMemo;
       if (memo) {
         const known = memo.get(pageFile);
@@ -901,7 +902,7 @@ export function hasEmittedJobDetailPage(
     const pageFile = np.resolve(distRoot, relativePath, 'index.html');
     if (!pageFile.startsWith(`${distRoot}${np.sep}`)) return false;
     // The output for a sibling locale is produced by its own matrix build.
-    if (!shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
+    if (!inspectForeignLocales && !shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
     return fs.existsSync(pageFile);
   } catch {
     return false;
@@ -915,13 +916,14 @@ function emittedJobArchiveItems(
   jobSlugs: readonly string[],
   jobPerLocale: Record<HubLocale, Record<string, string>>,
   locale: HubLocale,
+  inspectForeignLocales = false,
 ): Array<{ slug: string; href: string }> {
   const localeMap = jobPerLocale[locale];
   const itMap = jobPerLocale.it;
   const emitted: Array<{ slug: string; href: string }> = [];
   for (const slug of jobSlugs) {
     const href = localeMap[slug] || itMap[slug];
-    if (!href || !hasEmittedJobDetailPage(fs, np, distDir, href)) continue;
+    if (!href || !hasEmittedJobDetailPage(fs, np, distDir, href, inspectForeignLocales)) continue;
     emitted.push({ slug, href });
   }
   return emitted;
@@ -941,7 +943,7 @@ export function countEmittedJobArchivePages(
   locale: HubLocale = 'it',
 ): number {
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
-  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, true);
 }
 
 /** Count the rendered archive pages from one shared registry read, per locale. */
@@ -954,7 +956,7 @@ export function countEmittedJobArchivePagesByLocale(
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
   const counts = {} as Record<HubLocale, number>;
   for (const locale of HUB_LOCALES) {
-    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, true);
   }
   return counts;
 }
@@ -966,8 +968,9 @@ function countEmittedJobArchivePagesForLocale(
   slugs: readonly string[],
   perLocale: Record<HubLocale, Record<string, string>>,
   locale: HubLocale,
+  inspectForeignLocales = false,
 ): number {
-  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale).length;
+  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale, inspectForeignLocales).length;
   return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
 }
 
