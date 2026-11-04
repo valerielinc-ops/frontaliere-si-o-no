@@ -1,25 +1,12 @@
 /**
- * AdBlock detection — client-only, dual-signal probe (#3654).
+ * AdBlock detection — Funding Choices signal with a local DOM-bait fallback (#3654).
  *
- * Two independent signals, combined so a false positive on either alone does
- * not trip the gate:
- *   1. Bait element — an offscreen div using classnames that ad-blocker
- *      cookbook filters (EasyList/EasyPrivacy and most commercial blockers)
- *      hide via CSS (`display:none`/`visibility:hidden`/zero box). This is
- *      the same technique documented publicly by the IAB and reproduced by
- *      most "detect adblock" write-ups (including the pattern visible on
- *      ispazio.net via public inspection of their page — a hidden bait node
- *      + computed-style check, no code copied, only the technique).
- *   2. Network probe — a `fetch()` to a known ad-serving script URL
- *      (AdSense's own `adsbygoogle.js`, already loaded elsewhere on this
- *      site for real ads). Network-level blockers (uBlock Origin, Brave
- *      Shields, etc.) reject this at the request level; the promise
- *      rejection/opaque failure is itself the signal, no response body is
- *      read or required.
- *
- * Both checks are best-effort and resolve `false` (no ad blocker detected)
- * on any ambiguity — the gate must never trap a user due to a detection
- * false positive.
+ * Funding Choices is the primary signal and can report allowlisting. If it
+ * stays silent, an offscreen bait node gives a best-effort fallback for
+ * cosmetic filters. This detector deliberately does not make a second
+ * request to an advertising host: network failure also means offline, DNS,
+ * or a transient outage, so it is not reliable evidence of an extension.
+ * Ambiguous results remain "not detected" so the gate cannot trap a visitor.
  */
 
 const BAIT_CLASSNAMES = [
@@ -32,12 +19,9 @@ const BAIT_CLASSNAMES = [
  'ad-container',
 ].join(' ');
 
-const NETWORK_PROBE_URL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-
 const SETTLE_DELAY_MS = 120;
 /** How long to keep re-checking the bait before giving up on it. */
 const BAIT_DEADLINE_MS = 900;
-const NETWORK_TIMEOUT_MS = 1500;
 
 function detectViaBaitElement(): Promise<boolean> {
  return new Promise((resolve) => {
@@ -90,38 +74,6 @@ function detectViaBaitElement(): Promise<boolean> {
  });
 }
 
-function detectViaNetworkProbe(): Promise<boolean> {
- if (typeof fetch === 'undefined') return Promise.resolve(false);
- return new Promise((resolve) => {
- const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
- const timer = globalThis.setTimeout(() => {
- controller?.abort();
- resolve(false); // Timeout is ambiguous (slow network) — do not count as blocked.
- }, NETWORK_TIMEOUT_MS);
- fetch(NETWORK_PROBE_URL, { method: 'HEAD', mode: 'no-cors', signal: controller?.signal })
- .then(() => {
- globalThis.clearTimeout(timer);
- resolve(false);
- })
- .catch(() => {
- // The request may settle after a jsdom document has been torn down. Use the
- // host timer rather than the document-bound window so that a late rejection
- // cannot become an unhandled ReferenceError during test cleanup.
- globalThis.clearTimeout(timer);
- // A rejected fetch to a known ad-serving host is the network-level
- // block signal (DNS sinkhole, blocklist rule, extension request
- // interception all surface as a rejected promise here).
- resolve(true);
- });
- });
-}
-
-/**
- * Resolve whether an ad blocker is active. Runs both signals in parallel;
- * either one alone is sufficient to report `true` (OR combination) since
- * both are independently indicative and neither has known false-positive
- * modes beyond "ambiguous" (which resolves to `false` internally already).
- */
 /**
  * What the page already knows about this visitor's ad blocker.
  *
@@ -220,15 +172,12 @@ export async function detectAdBlockDetailed(opts: AdBlockDetectOptions = {}): Pr
  const none: AdBlockSignal = { blocked: false, adsAllowed: false, source: 'heuristic', status: null };
  if (typeof window === 'undefined') return none;
  try {
- // Both start now. Google's answer wins when it arrives — it is maintained
- // against the filter lists, it separates extension-level from network-level
- // blocking, and it reports whether the visitor already allowlisted the site,
- // which no bait element can ever know. Running the local probe concurrently
- // rather than after means a silent Funding Choices costs the wait once, not
- // the wait plus a probe.
- const heuristic = Promise.all([detectViaBaitElement(), detectViaNetworkProbe()])
- .then(([baitBlocked, networkBlocked]) => baitBlocked || networkBlocked)
- .catch(() => false);
+ // Google's answer wins when it arrives — it is maintained against the filter
+ // lists, distinguishes extension-level from network-level blocking, and can
+ // report an allowlisting. Start only the local DOM probe in parallel: it
+ // makes no request and keeps a silent Funding Choices fallback bounded to
+ // its existing wait rather than adding probe time afterward.
+ const heuristic = detectViaBaitElement().catch(() => false);
 
  const fc = await waitForFcSignal(FC_WAIT_MS);
  // An allowlisted visitor is settled whichever read this is: Funding Choices
@@ -236,10 +185,8 @@ export async function detectAdBlockDetailed(opts: AdBlockDetectOptions = {}): Pr
  if (fc && (fc.adsAllowed || !opts.live)) return fc;
 
  // Either Funding Choices never reported, or this is a live re-read and its
- // verdict is too old to decide. Silence is weak evidence of a network-level
- // blocker, its own script being a common target, but it is equally
- // consistent with a slow network — so read the probe rather than convict on
- // silence.
+ // verdict is too old to decide. A silent/slow network is ambiguous, so use
+ // only the local bait as a fallback rather than making a second ad request.
  return {
  ...none,
  adsAllowed: fc?.adsAllowed ?? false,

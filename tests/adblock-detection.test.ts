@@ -4,11 +4,11 @@ import { detectAdBlock, detectAdBlockDetailed } from '@/services/adBlockDetectio
 // services/adBlockDetection.ts prefers Funding Choices' own answer — Google
 // already detects ad blockers on this page and does it about twice as well
 // (measured 2026-06-16..08-17: ~5% extension rate vs 2.5% for the local probe)
-// — and falls back to the two local signals (bait element + network probe,
-// OR'd) only when Funding Choices never reports. Both run through window.setTimeout guards, so
-// fake timers + vi.advanceTimersByTimeAsync are required to flush them
-// deterministically — same pattern as tests/header-bidding-script-error.test.ts
-// and tests/resilient-import.test.ts.
+// — and falls back to a local DOM bait only when Funding Choices never reports.
+// The fallback makes no network request, avoiding a duplicate ad-host request
+// and preventing a network outage from being misreported as an extension.
+// The bait uses window.setTimeout, so fake timers +
+// vi.advanceTimersByTimeAsync flush it deterministically.
 
 interface BaitStyle {
   height: number;
@@ -36,23 +36,10 @@ function mockBait({ height, display, visibility }: BaitStyle): void {
 
 const CLEAN_BAIT: BaitStyle = { height: 1, display: 'block', visibility: 'visible' };
 
-function mockNetworkResolved(): void {
-  vi.stubGlobal('fetch', vi.fn(() => Promise.resolve(new Response(null, { status: 200 }))));
-}
-
-function mockNetworkRejected(): void {
-  vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('blocked'))));
-}
-
-function mockNetworkNeverResolves(): void {
-  vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(() => { /* never settles */ })));
-}
-
 describe('detectAdBlock', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     mockBait(CLEAN_BAIT);
-    mockNetworkResolved();
   });
 
   afterEach(() => {
@@ -82,28 +69,18 @@ describe('detectAdBlock', () => {
     await expect(result).resolves.toBe(true);
   });
 
-  it('reports blocked when the network probe rejects even if the bait is clean', async () => {
-    mockNetworkRejected();
+  it('does not make an extra ad-host request or treat network failure as blocker evidence', async () => {
+    const fetch = vi.fn(() => Promise.reject(new Error('blocked')));
+    vi.stubGlobal('fetch', fetch);
     const result = detectAdBlock();
-    // The bait is clean here, so the probe polls until BAIT_DEADLINE_MS (900ms)
-    // instead of concluding after a single 120ms look — advance past it.
-    await vi.advanceTimersByTimeAsync(1000);
-    await expect(result).resolves.toBe(true);
-  });
-
-  it('reports not blocked when neither signal trips', async () => {
-    const result = detectAdBlock();
-    // The bait is clean here, so the probe polls until BAIT_DEADLINE_MS (900ms)
-    // instead of concluding after a single 120ms look — advance past it.
     await vi.advanceTimersByTimeAsync(1000);
     await expect(result).resolves.toBe(false);
+    expect(fetch).not.toHaveBeenCalled();
   });
 
-  it('treats a network timeout as ambiguous, not blocked, when the bait is clean', async () => {
-    mockNetworkNeverResolves();
+  it('reports not blocked when the bait stays visible', async () => {
     const result = detectAdBlock();
-    // Past NETWORK_TIMEOUT_MS (1500ms) and SETTLE_DELAY_MS (120ms) both.
-    await vi.advanceTimersByTimeAsync(2000);
+    await vi.advanceTimersByTimeAsync(1000);
     await expect(result).resolves.toBe(false);
   });
 
@@ -120,7 +97,6 @@ describe('detectAdBlockDetailed — Funding Choices signal', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     mockBait(CLEAN_BAIT);
-    mockNetworkResolved();
   });
 
   afterEach(() => {
@@ -132,6 +108,8 @@ describe('detectAdBlockDetailed — Funding Choices signal', () => {
   });
 
   it('takes Google\'s verdict over the local probe when it is already there', async () => {
+    const fetch = vi.fn();
+    vi.stubGlobal('fetch', fetch);
     (window as unknown as Record<string, unknown>).__ftFcAdBlockBridge = 1;
     (window as unknown as Record<string, unknown>).__ftAdBlock = {
       blocked: true, allowAds: null, adsAllowed: false, status: 'EXTENSION_LEVEL_AD_BLOCKER',
@@ -142,6 +120,7 @@ describe('detectAdBlockDetailed — Funding Choices signal', () => {
     expect(result).toEqual({
       blocked: true, adsAllowed: false, source: 'funding_choices', status: 'EXTENSION_LEVEL_AD_BLOCKER',
     });
+    expect(fetch).not.toHaveBeenCalled();
   });
 
   it('reports adsAllowed so an allowlisted visitor is never gated again', async () => {
