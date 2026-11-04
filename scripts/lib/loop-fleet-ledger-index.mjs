@@ -266,24 +266,39 @@ export function writeLedgerIndex(ledgerDir, state) {
   return true;
 }
 
-/** Return tracked Git blob IDs when the ledger directory belongs to a worktree. */
+/** Return current-worktree Git blob IDs for tracked ledger files. */
 export function trackedLedgerFileOids(ledgerDir) {
   try {
-    const root = execFileSync('git', ['-C', path.resolve(ledgerDir), 'rev-parse', '--show-toplevel'], {
+    const targetDir = path.resolve(ledgerDir);
+    const root = execFileSync('git', ['-C', targetDir, 'rev-parse', '--show-toplevel'], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
-    const output = execFileSync('git', ['-C', root, 'ls-files', '-s'], {
+    const relativeLedgerDir = path.relative(root, targetDir).split(path.sep).join('/');
+    const ledgerPrefix = relativeLedgerDir ? `${relativeLedgerDir}/` : '';
+    const output = execFileSync('git', [
+      '-C', root, 'ls-files', '-z', '--full-name', '--', relativeLedgerDir || '.',
+    ], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     });
-    const ledgerPrefix = `${path.relative(root, path.resolve(ledgerDir)).split(path.sep).join('/')}/`;
     const result = new Map();
-    for (const line of output.split(/\r?\n/u)) {
-      const match = line.match(/^\d+\s+([0-9a-f]{40,64})\s+\d+\t(.+)$/iu);
-      if (!match || !match[2].startsWith(ledgerPrefix)) continue;
-      const name = match[2].slice(ledgerPrefix.length);
-      if (name && name !== LOOP_FLEET_LEDGER_INDEX_FILE && !name.includes('/')) result.set(name, match[1].toLowerCase());
+    for (const relativeFile of output.split('\0')) {
+      if (!relativeFile || !relativeFile.startsWith(ledgerPrefix)) continue;
+      const name = relativeFile.slice(ledgerPrefix.length);
+      if (!name || name === LOOP_FLEET_LEDGER_INDEX_FILE || name.includes('/')) continue;
+      let oid;
+      try {
+        oid = execFileSync('git', ['-C', root, 'hash-object', '--', relativeFile], {
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        }).trim().toLowerCase();
+      } catch {
+        // A tracked file deleted from the worktree remains absent from the
+        // map, so the manifest check below reports the missing shard.
+        continue;
+      }
+      if (GIT_OID_RE.test(oid)) result.set(name, oid);
     }
     return result;
   } catch {

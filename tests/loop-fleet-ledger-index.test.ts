@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -9,6 +10,8 @@ import {
   ledgerIndexLifecycleEvent,
   ledgerIndexRecordCount,
   ledgerLifecycleConflictDigest,
+  ledgerFileOid,
+  loadLedgerIndexForWriter,
   readLedgerIndex,
   setLedgerIndexFile,
   writeLedgerIndex,
@@ -89,5 +92,31 @@ describe('loop-fleet durable ledger index', () => {
       recordedAt: '2026-11-04T12:02:00.000Z',
       execution: { runId: '2', sha: 'b'.repeat(40) },
     }));
+  });
+
+  it('rejects an unstaged rewrite of an indexed tracked shard', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-index-worktree-'));
+    try {
+      const ledgerDir = path.join(repo, 'data', 'loop-fleet', 'ledger');
+      fs.mkdirSync(ledgerDir, { recursive: true });
+      const shard = path.join(ledgerDir, 'loop-observations-run-1.jsonl');
+      fs.writeFileSync(shard, '{"recordId":"one"}\n');
+      execFileSync('git', ['-C', repo, 'init', '--quiet']);
+      execFileSync('git', ['-C', repo, 'add', 'data/loop-fleet/ledger/loop-observations-run-1.jsonl']);
+
+      const indexedOid = ledgerFileOid(ledgerDir, shard);
+      expect(indexedOid).toMatch(/^[0-9a-f]{40,64}$/u);
+      const state = createLedgerIndexState();
+      setLedgerIndexFile(state, shard, indexedOid);
+      writeLedgerIndex(ledgerDir, state);
+
+      fs.appendFileSync(shard, '{"recordId":"two"}\n');
+
+      expect(() => loadLedgerIndexForWriter(ledgerDir)).toThrow(
+        'ledger file loop-observations-run-1.jsonl changed after it was indexed',
+      );
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
 });
