@@ -41,6 +41,24 @@ describe('privacy-safe Instagram community topic signals', () => {
       .toBe('mobilita-valichi');
     expect(classifyInstagramCommunityQuestion('Is there trafficjam?'))
       .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is ｔｒａｆｆｉｃ?'))
+      .toBe('mobilita-valichi');
+    expect(classifyInstagramCommunityQuestion('How is traffic\u200bjam?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is traffic\u0338?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is website traffic?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is traffic to a website?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How much traffic on our website?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How much traffic to our site?'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('How is traffic on the road?'))
+      .toBe('mobilita-valichi');
+    expect(classifyInstagramCommunityQuestion('How is traffic and tax?'))
+      .toBeNull();
     expect(classifyInstagramCommunityQuestion('Dove\u200bma fisco'))
       .toBeNull();
     expect(classifyInstagramCommunityQuestion('no\u200btax?'))
