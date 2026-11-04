@@ -22,7 +22,18 @@ import {
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
-import { canonicalJson } from '../lib/canonical-json-digest.mjs';
+import { digestDocument } from '../lib/canonical-json-digest.mjs';
+import {
+  addLedgerRecordToIndex,
+  ledgerFileOid,
+  ledgerIndexEntry,
+  ledgerIndexHasFile,
+  ledgerLifecycleConflictDigest,
+  ledgerIndexRecordCount,
+  loadLedgerIndexForWriter,
+  setLedgerIndexFile,
+  writeLedgerIndex,
+} from '../lib/loop-fleet-ledger-index.mjs';
 import {
   ledgerShardName,
   listLoopFleetLedgerFiles,
@@ -45,6 +56,10 @@ function text(value) {
 
 function object(value) {
   return Boolean(value && typeof value === 'object' && !Array.isArray(value));
+}
+
+function ledgerRecordDigest(type, record) {
+  return type === 'lifecycle' ? ledgerLifecycleConflictDigest(record) : digestDocument(record);
 }
 
 function readJson(file, label) {
@@ -153,39 +168,65 @@ function validateHistoricalRecord(registry, type, record) {
   return record;
 }
 
-function sameRecord(left, right) {
-  return canonicalJson(left) === canonicalJson(right);
-}
-
-function mergeRecords({ ledgerDir, fileName, shardId, records, registry, loopId, type }) {
+function mergeRecords({
+  ledgerDir,
+  fileName,
+  shardId,
+  records,
+  registry,
+  loopId,
+  type,
+  index,
+  trackedFileOids,
+}) {
   const existingFiles = listLoopFleetLedgerFiles(ledgerDir, fileName);
-  const existing = existingFiles.flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
   const label = `ledger ${fileName}`;
   const target = path.join(path.resolve(ledgerDir), ledgerShardName(fileName, shardId));
-  const byId = new Map();
-  for (const record of existing) {
-    validateHistoricalRecord(registry, type, record);
-    if (!text(record.recordId)) throw new Error(`${label} contains a record without recordId`);
-    if (byId.has(record.recordId) && !sameRecord(byId.get(record.recordId), record)) {
-      throw new Error(`${label} contains conflicting duplicate ${record.recordId}`);
+  for (const file of existingFiles) {
+    const fileNameOnly = path.basename(file);
+    // Indexed shards were validated before their immutable Git blob ID was
+    // recorded. Only a shard absent from that manifest is parsed here; a
+    // changed tracked blob fails closed before this loop starts.
+    const fileWasIndexed = ledgerIndexHasFile(index, fileNameOnly);
+    if (!fileWasIndexed) {
+      for (const record of readJsonl(file, `ledger ${fileNameOnly}`)) {
+        validateHistoricalRecord(registry, type, record);
+        if (!text(record.recordId)) throw new Error(`${label} contains a record without recordId`);
+        const previous = ledgerIndexEntry(index, type, record.recordId);
+        if (previous && previous.digest !== ledgerRecordDigest(type, record)) {
+          throw new Error(`${label} contains conflicting duplicate ${record.recordId}`);
+        }
+        addLedgerRecordToIndex(index, { type, record, file });
+      }
     }
-    byId.set(record.recordId, record);
+    // A legacy/unindexed target may legitimately receive its first append in
+    // this run. Leave its manifest slot unset until the final post-append OID
+    // is computed; an already indexed target must still fail closed if it is
+    // rewritten.
+    const manifestOid = fileNameOnly === path.basename(target) && !fileWasIndexed
+      ? null
+      : trackedFileOids?.get(fileNameOnly) ?? null;
+    setLedgerIndexFile(index, fileNameOnly, manifestOid);
   }
+  const existing = ledgerIndexRecordCount(index, type);
   let appended = 0;
   let skipped = 0;
   for (const record of records) {
-    const previous = byId.get(record.recordId);
+    const previous = ledgerIndexEntry(index, type, record.recordId);
     if (previous) {
-      if (!sameRecord(previous, record)) throw new Error(`${label} has conflicting duplicate ${record.recordId}`);
+      if (previous.digest !== ledgerRecordDigest(type, record)) {
+        throw new Error(`${label} has conflicting duplicate ${record.recordId}`);
+      }
       skipped += 1;
       continue;
     }
     const write = appendJsonlSerialized(target, record, { label: `ledger ${path.basename(target)}` });
-    byId.set(record.recordId, record);
+    addLedgerRecordToIndex(index, { type, record, file: target });
     if (write.appended) appended += 1;
     else skipped += 1;
   }
-  return { appended, skipped, existing: existing.length };
+  if (fs.existsSync(target)) setLedgerIndexFile(index, path.basename(target), ledgerFileOid(ledgerDir, target));
+  return { appended, skipped, existing };
 }
 
 export function mergeLoopFleetLedger({
@@ -226,6 +267,7 @@ export function mergeLoopFleetLedger({
   if (!records.health.length) throw new Error('input artifact has no health records');
 
   const targetDir = path.resolve(ledgerDir);
+  const { index, trackedFileOids } = loadLedgerIndexForWriter(targetDir);
   const results = {};
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
     results[type] = mergeRecords({
@@ -236,8 +278,11 @@ export function mergeLoopFleetLedger({
       registry,
       loopId,
       type,
+      index,
+      trackedFileOids,
     });
   }
+  writeLedgerIndex(targetDir, index);
   return {
     loopId,
     runId: expected.runId,
