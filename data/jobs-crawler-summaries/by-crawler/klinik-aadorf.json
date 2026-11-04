@@ -1,7 +1,7 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-11-04T09:19:22.630Z",
+  "generatedAt": "2026-11-04T21:17:30.341Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5751,
-  "avgDurationMs": 5751,
+  "durationMs": 8300,
+  "avgDurationMs": 8300,
   "durationHistory": [
-    5751
+    8300
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:19:04.531Z",
+      "crawledAt": "2026-11-04T21:17:14.589Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T09:19:04.531Z",
+      "validThrough": "2026-12-04T21:17:14.589Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -95,7 +95,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:19:04.034Z",
+      "crawledAt": "2026-11-04T21:17:13.557Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T09:19:04.034Z",
+      "validThrough": "2026-12-04T21:17:13.557Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -152,7 +152,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:19:03.528Z",
+      "crawledAt": "2026-11-04T21:17:13.067Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T09:19:03.528Z",
+      "validThrough": "2026-12-04T21:17:13.067Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -208,7 +208,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:19:03.043Z",
+      "crawledAt": "2026-11-04T21:17:12.441Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:03.043Z",
+      "validThrough": "2026-12-23T21:17:12.441Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-04T09:19:02.549Z",
+      "crawledAt": "2026-11-04T21:17:11.763Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -298,7 +298,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-04T09:19:02.549Z",
+      "validThrough": "2026-12-04T21:17:11.763Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -309,5 +309,5 @@
       }
     }
   ],
-  "codeCommit": "cb7c5afeaa7d8923acc2947e38d0de4bce6d6e09"
+  "codeCommit": "67178c555d4142dc0aee19ca61c5a08fd59ce063"
 }

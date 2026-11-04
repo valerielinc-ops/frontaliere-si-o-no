@@ -2365,54 +2365,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "primario-a-medicina-interna-regionalspital-surselva-ilanz",
-    "title": "Chefarzt*ärztin Innere Medizin",
-    "titleByLocale": {
-      "it": "Primario/a Medicina interna",
-      "en": "Chefarzt*ärztin Innere Medizin",
-      "de": "Chefarzt*ärztin Innere Medizin",
-      "fr": "Chefarzt*ärztin Innere Medizin"
-    },
-    "company": "Regionalspital Surselva",
-    "companyKey": "rss-surselva",
-    "location": "Ilanz",
-    "addressLocality": "Ilanz",
-    "descriptionByLocale": {
-      "it": "Chefarzt*ärztin Innere Medizin — Regionalspital Surselva (RSS). Abteilung: Ärzte. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-      "en": "Chefarzt*ärztin Innere Medizin — Regionalspital Surselva (RSS). Abteilung: Ärzte. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-      "de": "Chefarzt*ärztin Innere Medizin — Regionalspital Surselva (RSS). Abteilung: Ärzte. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-      "fr": "Chefarzt*ärztin Innere Medizin — Regionalspital Surselva (RSS). Abteilung: Ärzte. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten"
-    },
-    "slugByLocale": {
-      "it": "primario-a-medicina-interna-regionalspital-surselva-ilanz",
-      "en": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
-      "de": "chefarzt-arztin-innere-medizin-regionalspital-surselva-ilanz",
-      "fr": "chefarzt-arztin-innere-medizin-rss-surselva-ch"
-    },
-    "sector": "Sanità / Assistenza",
-    "expiredAt": "2026-05-30T23:27:45.617Z",
-    "previousSlugs": [
-      "chefarzt-arztin-innere-medizin-rss-surselva-ch",
-      "chefarzt-in-m-w-d-innere-medizin-regionalspital-surselva-ilanz",
-      "medicina-interna-regionalspital-surselva-ilanz"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "chefarzt-arztin-innere-medizin-rss-surselva-ch"
-      ],
-      "it": [
-        "chefarzt-arztin-innere-medizin-rss-surselva-ch",
-        "chefarzt-in-m-w-d-innere-medizin-regionalspital-surselva-ilanz"
-      ]
-    },
-    "postalCode": "7130",
-    "streetAddress": "Spitalstrasse 6",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "infermiere-diplomato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
     "title": "dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 %",
     "titleByLocale": {
@@ -2715,5 +2667,132 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistente-medico-ambulatoriale-o-operatore-sanitario-per-il-pronto-soccorso-50-regionalspital-surselva-ilanz",
+    "title": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %",
+    "titleByLocale": {
+      "it": "Assistente medico ambulatoriale o operatore sanitario per il pronto soccorso 50%",
+      "en": "Med. Practice assistant or health specialist for the emergency department 50%",
+      "de": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %",
+      "fr": "Médicament. Assistant de pratique ou spécialiste de la santé pour le service d'urgence 50%"
+    },
+    "company": "Regionalspital Surselva",
+    "companyKey": "rss-surselva",
+    "location": "Ilanz",
+    "addressLocality": "Ilanz",
+    "descriptionByLocale": {
+      "it": "Med. Assistente di pratica o specialista di salute per il reparto di emergenza 50%\nimmediatamente o per accordo\nRegionalspital Surselva AG fornisce l'assistenza di base e di emergenza estesa per circa 2.000 abitanti e stagionalmente circa 20.000 ospiti di vacanza nella regione turistica di Bündner Oberland. I nostri circa 320 dipendenti trattano con infrastrutture moderne (CT, MRI, IMC, ecc.) circa 2.600 pazienti ambulatoriali e 16.000 pazienti ambulatoriali ogni anno nelle cliniche di chirurgia e ortopedia/traumatologia con neurochirurgia e urologia, medicina interna con cardiologia, oncologia, pneumologia gastroenterologica e reumatologia, ginecologia e ostetricia. La Regionalspital Surselva AG è premiata con l’etichetta “Swiss Olympic Medical Base omologata dalla Swiss Olympic”. Attraverso la collaborazione con il Center Hospital di Chur, è possibile offrire una vasta gamma di servizi.\n\nI loro compiti principali:\n\n• Assistenza nella cura e monitoraggio dei pazienti in emergenza\n\n• Vari lavori amministrativi/organizzativi\n\n• Assistenza in piccole procedure chirurgiche nel reparto di emergenza\n\n• Cooperazione interdisciplinare con LIPS, Tagesklinik & Ärzteschaft\n\nIl tuo profilo:\n\n• Laurea come assistente medico EFZ o professionista sanitario EFZ\n\n• Sono impegnati, flessibili, fisicamente e psicologicamente resilienti e irradiano un atteggiamento positivo\n\n• Il lavoro di squadra costruttivo è importante per voi e partecipare attivamente a esso\n\n• qualità del lavoro, disponibilità e capacità di imparare, capacità di assorbire e\nLa capacità di concentrazione ti distingue da\n\n• Possono organizzarsi molto bene e impostare correttamente le priorità anche nei momenti di stress.\n\nOffriamo\n\n• Un lavoro interessante e responsabile così come le condizioni di lavoro contemporaneo, moderni modelli di tempo di lavoro, cinque settimane di vacanze e una settimana di compensazione, vari vantaggi (fornitori interni + esterni) per i dipendenti.\n\n• Lo stipendio è pagato secondo la raccomandazione del BSH Grigioni. Inoltre, l'Oberland Bündner come una delle zone di montagna più belle della Svizzera offre ricche opportunità di svago in estate e in inverno.\n\n• Prestazioni dei dipendenti\n\nAbbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione.\n\nSi prega di fornire ulteriori informazioni:\n\nChloe Mall\nCapo di emergenza\nTelefono: +41 81 926 51 25\n\nSi prega di rivolgersi alla vostra domanda a:\npersonalostendis@spitalilanz.ch o\nDirettamente online\n\nApplicare online\nRegionalspital Surselva AG- Personaldienst - Spitalstrasse 6 -7130 Ilanz- +41 81 926 59 22",
+      "en": "Med. Practice assistant or health specialist for the emergency department 50%\nimmediately or by agreement\nRegionalspital Surselva AG provides the extended basic and emergency care for approximately 22,000 inhabitants and seasonally around 20,000 holiday guests in the tourism region of Bündner Oberland. Our approximately 320 employees treat with modern infrastructure (CT, MRI, IMC, etc.) about 2,600 inpatient and 16,000 outpatient patients annually in the clinics of surgery and orthopaedics/traumatology with neurosurgery and urology, internal medicine with cardiology, oncology, gastroenterology pneumology and rheumatology, gynecology and obstetrics, pediatrics and anesthesia. Regionalspital Surselva AG is awarded the “Swiss Olympic Medical Base approved by Swiss Olympic” label. Through the cooperation with the Center Hospital in Chur, an extended range of services can be offered.\n\nTheir main tasks:\n\n• Assistance in the care and monitoring of patients in an emergency\n\n• Various administrative/organisational work\n\n• Assistance in small surgical procedures in the emergency department\n\n• Interdisciplinary cooperation with LIPS, Tagesklinik & Ärzteschaft\n\nYour profile:\n\n• Degree as medical practice assistant EFZ or health professional EFZ\n\n• They are engaged, flexible, physically and psychologically resilient and radiate a positive attitude\n\n• Constructive teamwork is important to you and you actively participate in it\n\n• quality of work, willingness and capacity to learn, capacity to absorb, and\nConcentration ability distinguishes you from\n\n• They can organize themselves very well and set priorities correctly even in moments of stress.\n\nWe offer\n\n• An interesting and responsible job as well as contemporary employment conditions, modern working time models, five weeks of holidays and one week of compensation, various benefits (internal + external providers) for employees.\n\n• The salary is paid according to the recommendation of the BSH Graubünden. In addition, the Bündner Oberland as one of the most beautiful mountain areas in Switzerland offers rich opportunities for leisure in summer and winter.\n\n• Employee benefits\n\nHave we aroused your interest? We look forward to your application.\n\nPlease provide further information:\n\nMs Chloe Mall\nHead of Emergency\nTelephone: +41 81 926 51 25\n\nPlease address your application to:\npersonalostendis@spitalilanz.ch or\nDirectly online\n\nApply online\nRegionalspital Surselva AG- Personaldienst - Spitalstrasse 6 -7130 Ilanz- +41 81 926 59 22",
+      "de": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %\nper sofort oder nach Vereinbarung\nDie Regionalspital Surselva AG stellt die erweiterte Grund- und Notfallversorgung für ca. 22‘000 Einwohner und saisonal rund 20‘000 Feriengäste der Tourismusregion Bündner Oberland sicher. Unsere rund 320 Mitarbeitenden behandeln mit zeitgemässer Infrastruktur (CT, MRI, IMC, etc.) jährlich rund 2‘600 stationäre und 16‘000 ambulante Patienten in den Kliniken Chirurgie und Orthopädie/Traumatologie mit Neurochirurgie und Urologie, Innere Medizin mit Kardiologie, Onkologie, Gastroenterologie Pneumologie und Rheumatologie, Gynäkologie und Geburtshilfe, Pädiatrie und Anästhesie. Die Regionalspital Surselva AG ist mit dem Label „Swiss Olympic Medical Base approved by Swiss Olympic“ ausgezeichnet. Durch die Kooperation mit dem Zentrumsspital in Chur kann ein erweitertes Leistungsspektrum angeboten werden.\n\nIhre Hauptaufgaben:\n\n• Mitarbeit bei der Betreuung und Überwachung von Patienten auf dem Notfall\n\n• Diverse administrative/organisatorische Arbeiten\n\n• Assistenz bei kleinen chirurgischen Eingriffen auf der Notfallstation\n\n• Interdisziplinäre Zusammenarbeit mit der LIPS, Tagesklinik & Ärzteschaft\n\nIhr Profil:\n\n• Abschluss als Medizinische Praxisassistenz EFZ oder Fachperson Gesundheit EFZ\n\n• Sie sind engagiert, flexibel, physisch und psychisch belastbar und strahlen eine positive Grundhaltung aus\n\n• Eine konstruktive Teamarbeit ist Ihnen wichtig und Sie beteiligen sich aktiv daran\n\n• Qualität der Arbeit, Lernbereitschaft und -fähigkeit, Aufnahmefähigkeit und\nKonzentrations-fähigkeit zeichnen Sie aus\n\n• Sie können sich sehr gut organisieren und Prioritäten auch in Stressmomenten richtig setzen.\n\nWir bieten\n\n• Eine interessante und verantwortungsvolle Tätigkeit sowie zeitgemässe Anstellungsbedingungen, moderne Arbeitszeitmodelle, fünf Wochen Ferien und eine Woche Kompensation, diverse Vergünstigungen (intern + externe Anbieter) für Mitarbeitende.\n\n• Die Besoldung erfolgt gemäss Empfehlung des BSH Graubünden. Darüber hinaus bietet das Bündner Oberland als eines der schönsten Berggebiete der Schweiz im Sommer wie im Winter reichhaltige Möglichkeiten der Freizeitgestaltung.\n\n• Mitarbeiter Benefits\n\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\n\nNähere Auskünfte erteilt Ihnen gerne:\n\nFrau Chloe Mall\nLeiterin Notfall\nTelefon: +41 81 926 51 25\n\nIhre Bewerbung richten Sie bitte an:\npersonalostendis@spitalilanz.ch oder\ndirekt online\n\nOnline bewerben\nRegionalspital Surselva AG- Personaldienst - Spitalstrasse 6 -7130 Ilanz- +41 81 926 59 22",
+      "fr": "Médicament. Assistant de pratique ou spécialiste de la santé pour le service d'urgence 50%\nimmédiatement ou par accord\nRegionalspital Surselva AG fournit les soins de base et d'urgence prolongés pour environ 22 000 habitants et chaque saison environ 20 000 visiteurs de vacances dans la région touristique de Bündner Oberland. Nos quelque 320 employés traitent avec une infrastructure moderne (CT, IRM, IMC, etc.) environ 2 600 patients hospitalisés et 16 000 patients externes chaque année dans les cliniques de chirurgie et d'orthopédie/traumatologie avec neurochirurgie et urologie, la médecine interne avec cardiologie, oncologie, gastroentérologie pneumologie et rhumatologie, gynécologie et obstétrique, pédiatrie et anesthésie. Regionalspital Surselva AG reçoit la base médicale olympique suisse approuvée par le label Swiss Olympic. Grâce à la coopération avec le Centre hospitalier de Chur, un large éventail de services peut être offert.\n\nLeurs principales tâches:\n\n• Assistance aux soins et au suivi des patients en cas d'urgence\n\n• Divers travaux administratifs/organisationnels\n\n• Assistance aux petites interventions chirurgicales dans le service des urgences\n\n• Coopération interdisciplinaire avec LIPS, Tagesklinik & Ärzteschaft\n\nVotre profil:\n\n• Diplôme d'assistant en médecine EFZ ou professionnel de la santé EFZ\n\n• Ils sont engagés, flexibles, physiquement et psychologiquement résistants et rayonnent d'une attitude positive\n\n• Le travail d'équipe constructif est important pour vous et vous y participez activement\n\n• qualité du travail, volonté et capacité d'apprendre, capacité d'absorber,\nLa capacité de concentration vous distingue de\n\n• Ils peuvent s'organiser très bien et fixer des priorités correctement même dans les moments de stress.\n\nNous offrons\n\n• Un emploi intéressant et responsable ainsi que des conditions d'emploi contemporaines, des modèles modernes de temps de travail, cinq semaines de vacances et une semaine de rémunération, divers avantages (internes et externes) pour les salariés.\n\n• Le salaire est payé selon la recommandation de la BSH Graubünden. En outre, l'Oberland de Bündner comme l'une des plus belles régions de montagne en Suisse offre de riches possibilités de loisirs en été et en hiver.\n\n• Avantages sociaux\n\nAvons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature.\n\nVeuillez fournir des renseignements complémentaires:\n\nMme Chloe Mall\nChef de l'urgence\nTéléphone: +41 81 926 51 25\n\nVeuillez adresser votre demande à :\npersonalostendis@spitalilanz.ch ou\nDirectement en ligne\n\nAppliquer en ligne\nRegionalspital Surselva AG- Personaldienst - Spitalstrasse 6 -7130 Ilanz- +41 81 926 59 22"
+    },
+    "slugByLocale": {
+      "it": "assistente-medico-ambulatoriale-o-operatore-sanitario-per-il-pronto-soccorso-50-regionalspital-surselva-ilanz",
+      "en": "med-practice-assistant-or-health-specialist-for-the-emergency-department-50-regionalspital-surselva-ilanz",
+      "de": "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch",
+      "fr": "medicament-assistant-de-pratique-ou-specialiste-de-la-sante-pour-le-service-d-urgence-50-regionalspital-surselva-ilanz"
+    },
+    "sector": "Sanità / Assistenza",
+    "expiredAt": "2026-11-04T21:19:13.596Z",
+    "previousSlugs": [
+      "medicament-assistant-de-pratique-ou-specialiste-de-la-sante-pour-le-service-d-urgence-50-regionalspital-surselva-ilanz",
+      "med-practice-assistant-or-health-specialist-for-the-emergency-department-50-regionalspital-surselva-ilanz",
+      "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz",
+      "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz",
+      "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medicament-assistant-de-pratique-ou-specialiste-de-la-sante-pour-le-service-d-urgence-50-regionalspital-surselva-ilanz",
+        "med-practice-assistant-or-health-specialist-for-the-emergency-department-50-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
+      ],
+      "en": [
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
+      ],
+      "de": [
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
+      ],
+      "fr": [
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
+      ]
+    },
+    "postalCode": "7130",
+    "streetAddress": "Spitalstrasse 6",
+    "salaryMin": 40800,
+    "salaryMax": 57000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/ly0rv6trksp0bq4q42bgxg3gjyas9yk2j6p3ypc8cm6bbyl32zl04spj7fnegwj6",
+    "firstSeenAt": "2026-05-17T10:58:29.224Z"
+  },
+  {
+    "slug": "capo-medico-medicina-interna-regionalspital-surselva-ilanz",
+    "title": "Chefarzt*ärztin Innere Medizin",
+    "titleByLocale": {
+      "it": "Capo Medico Medicina Interna",
+      "en": "Chief physician internal medicine",
+      "de": "Chefarzt*ärztin Innere Medizin",
+      "fr": "Médecin-chef en médecine interne"
+    },
+    "company": "Regionalspital Surselva",
+    "companyKey": "rss-surselva",
+    "location": "Ilanz",
+    "addressLocality": "Ilanz",
+    "descriptionByLocale": {
+      "it": "Regionalspital Surselva AG fornisce assistenza di base e di emergenza per circa 2.000 residenti, così come gli ospiti di vacanza stagionali aggiunti nella regione turistica. I nostri dipendenti trattano circa 2.400 pazienti malati e 16.000 pazienti ambulatoriali ogni anno nelle aree di chirurgia / ortopedia, medicina interna, ginecologia / ostetricia, pediatrica e anestesia. Le moderne infrastrutture e la collaborazione con Chur Center Hospital consentono una vasta gamma di servizi.\n\nA causa del ritiro del nostro medico capo a lungo termine, stiamo cercando il nostro\nclinica medica, *n\n\nMedicina interna del medico principale\n\nI loro compiti principali:\n\n• Gestione medica e organizzativa della Clinica per la Medicina Interna\n\n• Garantire la cura dei pazienti di alta qualità secondo gli standard scientifici attuali\n\n• Leadership, promozione e sviluppo del team medico\n\n• Membro della direzione ospedaliera\n\n• Ulteriori sviluppi dello spettro medico dei servizi\n\n• Cooperazione interdisciplinare con altri dipartimenti specializzati\n\n• Partecipazione a progetti strategici e strutturali\n\n• Collaborazione attiva con medici di famiglia / referral e istituzioni partner\n\nIl tuo profilo:\n\n• Specialista:in Medicina Interna Generale FMH (o equivalente)\n\n• Competenza internastica estesa di base\n\n• Esperienza di leadership in una posizione senior\n\n• Alto livello di competenza professionale e forte senso di responsabilità\n\n• Impegno a qualità, innovazione e ulteriore sviluppo\n\n• Prontezza per l'integrazione a lungo termine nella regione\n\nOffriamo:\n\n• Una posizione di leadership responsabile con un ampio ambito creativo\n\n• Piacevole atmosfera di lavoro in una delle zone di montagna più belle della Svizzera con una posizione molto buona e la qualità della vita\n\n• Retribuzione attraente e servizi aggiuntivi\n\n• Sostegno all'ulteriore istruzione e formazione\n\n• Infrastrutture moderne\n\n• Un team motivato e collaborativo\n\n• Prestazioni dei dipendenti\n\nAbbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione.\n\nSi prega di fornire ulteriori informazioni:\n\nDottor Med. Gieri Cathomas, Presidente del Consiglio\nRegionalspital Surselva AG\ng.cathomas@spitalilanz.ch\n\nSi prega di rivolgersi alla domanda a:\ndirektion@spitalilanz.ch",
+      "en": "Regionalspital Surselva AG provides basic and emergency care for around 22,000 residents as well as seasonally additional holiday guests in the tourist region. Our employees treat approximately 2,400 inpatient and 16,000 outpatient patients annually in the areas of surgery/orthopedics, internal medicine, gynecology/obstetrics, pediatrics and anesthesia. Modern infrastructure and cooperation with Chur Center Hospital enable an extended range of services.\n\nDue to the retirement of our long-term chief doctor, we are looking for our\nmedical clinic, *n\n\nChief physician internal medicine\n\nTheir main tasks:\n\n• Medical and organizational management of the Clinic for Internal Medicine\n\n• Ensuring high-quality patient care according to current scientific standards\n\n• Leadership, promotion and development of the medical team\n\n• Member of hospital management\n\n• Further development of the medical spectrum of services\n\n• Interdisciplinary cooperation with other specialist departments\n\n• Participation in strategic and structural projects\n\n• Active cooperation with family doctors / referrals and partner institutions\n\nYour profile:\n\n• Specialist:in General Internal Medicine FMH (or equivalent)\n\n• Broad internistic competence in extended basic care\n\n• Leadership experience in a senior position\n\n• High level of professional competence and a strong sense of responsibility\n\n• Commitment to quality, innovation and further development\n\n• Readiness for long-term integration into the region\n\nWe offer:\n\n• A responsible leadership position with a large creative scope\n\n• Pleasant working atmosphere in one of the most beautiful mountain areas in Switzerland with a very good location and quality of life\n\n• Attractive remuneration and additional services\n\n• Support for further education and training\n\n• Modernly equipped infrastructure\n\n• A motivated and collaborative team\n\n• Employee benefits\n\nHave we aroused your interest? We look forward to your application.\n\nPlease provide further information:\n\nDr med. Gieri Cathomas, Chairman of the Board\nRegionalspital Surselva AG\ng.cathomas@spitalilanz.ch\n\nPlease address your application to:\ndirektion@spitalilanz.ch",
+      "de": "Die Regionalspital Surselva AG stellt die Grund- und Notfallversorgung für rund 22‘000 Einwohner sowie saisonal zusätzliche Feriengäste der Tourismusregion sicher. Unsere Mitarbeitenden behandeln jährlich etwa 2‘400 stationäre und 16‘000 ambulante Patienten in den Bereichen Chirurgie/Orthopädie, Innere Medizin, Gynäkologie/Geburtshilfe, Pädiatrie und Anästhesie. Moderne Infrastruktur sowie die Zusammenarbeit mit dem Zentrumsspital Chur ermöglichen ein erweitertes Leistungsspektrum.\n\nAufgrund der Pensionierung unseres langjährigen Chefarztes suchen wir für unsere\nMedizinische Klinik eine*n\n\nChefarzt*ärztin Innere Medizin\n\nIhre Hauptaufgaben:\n\n• Medizinische und organisatorische Leitung der Klinik für Innere Medizin\n\n• Sicherstellung einer hochwertigen Patientenversorgung nach aktuellen wissenschaftlichen Standards\n\n• Führung, Förderung und Weiterentwicklung des ärztlichen Teams\n\n• Mitglied der Spitalleitung\n\n• Weiterentwicklung des medizinischen Leistungsspektrums\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachabteilungen\n\n• Mitwirkung an strategischen und strukturellen Projekten\n\n• Aktive Zusammenarbeit mit Hausärzten / Zuweisern und Partnerinstitutionen\n\nIhr Profil:\n\n• Facharzt:in für Allgemeine Innere Medizin FMH (oder äquivalent)\n\n• Breite internistische Kompetenz in der erweiterten Grundversorgung\n\n• Führungserfahrung in leitender Position\n\n• Hohe fachliche Kompetenz und ausgeprägtes Verantwortungsbewusstsein\n\n• Engagement für Qualität, Innovation und Weiterentwicklung\n\n• Bereitschaft zur langfristigen Integration in die Region\n\nWir bieten:\n\n• Eine verantwortungsvolle Führungsposition mit grossem Gestaltungsspielraum\n\n• Angenehmes Arbeitsklima in einem der schönsten Berggebiete der Schweiz mit sehr guter Standort- und Lebensqualität\n\n• Attraktive Vergütungen und Zusatzleistungen\n\n• Unterstützung bei Fort- und Weiterbildungen\n\n• Modern ausgestattete Infrastruktur\n\n• Ein motiviertes und kollegiales Team\n\n• Mitarbeiter Benefits\n\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\n\nNähere Auskünfte erteilt Ihnen gerne:\n\nHerr Dr. med. Gieri Cathomas, Verwaltungsratspräsident\nRegionalspital Surselva AG\ng.cathomas@spitalilanz.ch\n\nIhre Bewerbung richten Sie bitte an:\ndirektion@spitalilanz.ch",
+      "fr": "Regionalspital Surselva AG fournit des soins de base et d'urgence pour environ 22 000 résidents ainsi que des vacances supplémentaires saisonnières dans la région touristique. Nos employés traitent environ 2 400 patients hospitalisés et 16 000 patients externes chaque année dans les domaines de la chirurgie/orthopédie, de la médecine interne, de la gynécologie/obstétrique, de la pédiatrie et de l'anesthésie. L'infrastructure moderne et la coopération avec l'hôpital Chur Center permettent une gamme étendue de services.\n\nEn raison de la retraite de notre médecin en chef à long terme, nous cherchons notre\nclinique médicale, *n\n\nMédecin-chef en médecine interne\n\nLeurs principales tâches:\n\n• Gestion médicale et organisationnelle de la Clinique de médecine interne\n\n• Assurer des soins de qualité aux patients selon les normes scientifiques actuelles\n\n• Leadership, promotion et développement de l'équipe médicale\n\n• Membre de la direction des hôpitaux\n\n• Développement du spectre médical des services\n\n• Coopération interdisciplinaire avec d'autres départements spécialisés\n\n• Participation à des projets stratégiques et structurels\n\n• Coopération active avec les médecins de famille et les institutions partenaires\n\nVotre profil:\n\n• Spécialiste:en médecine interne générale FMH (ou équivalent)\n\n• Grande compétence interniste en soins de base étendus\n\n• Expérience de leadership dans un poste de responsabilité\n\n• Haute compétence professionnelle et sens des responsabilités\n\n• Engagement en faveur de la qualité, de l'innovation et du développement\n\n• Préparation à une intégration à long terme dans la région\n\nNous offrons:\n\n• Un poste de leadership responsable avec une grande créativité\n\n• Ambiance de travail agréable dans l'une des plus belles régions de montagne en Suisse avec un très bon emplacement et la qualité de vie\n\n• Rémunération attrayante et services supplémentaires\n\n• Appui à la formation continue\n\n• Infrastructure moderne\n\n• Une équipe motivée et collaborative\n\n• Avantages sociaux\n\nAvons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature.\n\nVeuillez fournir des renseignements complémentaires:\n\nDr Med. Gieri Cathomas, Président du Conseil\nRégionale Surselva AG\ng.cathomas@spitalilanz.ch\n\nVeuillez adresser votre demande à :\ndriektion@spitalilanz.ch"
+    },
+    "slugByLocale": {
+      "it": "capo-medico-medicina-interna-regionalspital-surselva-ilanz",
+      "en": "chief-physician-internal-medicine-regionalspital-surselva-ilanz",
+      "de": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
+      "fr": "medecin-chef-en-medecine-interne-regionalspital-surselva-ilanz"
+    },
+    "sector": "Sanità / Assistenza",
+    "expiredAt": "2026-11-04T21:19:13.596Z",
+    "previousSlugs": [
+      "medicina-interna-del-medico-principale-regionalspital-surselva-ilanz",
+      "chefarzt-arztin-innere-medizin-regionalspital-surselva-ilanz",
+      "capo-medico-m-f-d-medicina-interna-regionalspital-surselva-ilanz",
+      "chef-de-service-m-f-d-medecine-interne-regionalspital-surselva-ilanz",
+      "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz",
+      "chefarzt-arztin-innere-medizin-rss-surselva-ch",
+      "primario-a-medicina-interna-regionalspital-surselva-ilanz",
+      "chefarzt-in-m-w-d-innere-medizin-regionalspital-surselva-ilanz",
+      "medicina-interna-regionalspital-surselva-ilanz"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medicina-interna-del-medico-principale-regionalspital-surselva-ilanz",
+        "capo-medico-m-f-d-medicina-interna-regionalspital-surselva-ilanz",
+        "chef-de-service-m-f-d-medecine-interne-regionalspital-surselva-ilanz",
+        "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz",
+        "chefarzt-arztin-innere-medizin-rss-surselva-ch",
+        "primario-a-medicina-interna-regionalspital-surselva-ilanz",
+        "chefarzt-in-m-w-d-innere-medizin-regionalspital-surselva-ilanz"
+      ],
+      "de": [
+        "chefarzt-arztin-innere-medizin-regionalspital-surselva-ilanz"
+      ],
+      "en": [
+        "chefarzt-arztin-innere-medizin-rss-surselva-ch"
+      ],
+      "fr": [
+        "chefarzt-arztin-innere-medizin-rss-surselva-ch"
+      ]
+    },
+    "postalCode": "7130",
+    "streetAddress": "Spitalstrasse 6",
+    "salaryMin": 110500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://link.ostendis.com/publication/chefarzt-aerztin-innere-medizin/vfved3sr4cwqlwso2tg4m5txxrdg060j0hvr62sbytz1ct2m5v243ok7t0htl00v",
+    "firstSeenAt": "2026-06-26T12:17:14.406Z"
   }
 ]
