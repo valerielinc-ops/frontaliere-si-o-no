@@ -385,6 +385,19 @@ export function parseTrendsRss(xml) {
 const LOMBARDIA_HINT_RE =
   /\b(lombard|varese|como|milano|gallarate|busto|tradate|cantello|ponte\s*tresa|chiasso|luino|val\s*ceresio|bregaglia)\b/i;
 
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function timeoutWithinDeadline(value, maximumMs) {
+  const maxMs = Math.max(0, Math.floor(Number(maximumMs) || 0));
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return maxMs;
+  return Math.min(maxMs, Math.max(0, Math.floor(deadlineMs - Date.now())));
+}
+
 /**
  * @param {object} [opts]
  * @param {object} [opts.winnerFingerprint] — optional Phase-1 fingerprint.
@@ -392,15 +405,17 @@ const LOMBARDIA_HINT_RE =
  * @param {Function} [opts.playwrightFallback] — test override.
  * @param {Function} [opts.sleepFn] — test override (default real timer).
  * @param {number} [opts.rssRequestTimeoutMs] — RSS header/body deadline.
+ * @param {number} [opts.deadlineMs] — absolute cutoff for this source.
  * @returns {Promise<{ ok: boolean, perGeo: Record<string, {ok: boolean, candidates: any[], reason?: string}>, candidates: any[] }>}
  */
 export async function fetchGoogleTrendsCandidates(opts = {}) {
   const seeds = buildSeedList(opts.winnerFingerprint ?? null);
   const sleepFn = opts.sleepFn ?? sleep;
+  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
   const fallback = opts.playwrightFallback ?? playwrightFallback;
 
   let googleTrends = opts.googleTrendsImpl;
-  if (!googleTrends) {
+  if (!googleTrends && deadlineMs === null) {
     try {
       const mod = await import('google-trends-api');
       googleTrends = mod.default ?? mod;
@@ -420,8 +435,11 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
   const perGeo = {};
   const all = [];
   const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
-  const rssImpl = opts.fetchTrendsRssImpl ?? ((geo) =>
-    fetchTrendsRss(geo, fetchImpl, opts.rssRequestTimeoutMs));
+  const maxRssTimeoutMs = Number.isFinite(opts.rssRequestTimeoutMs)
+    ? Math.max(1, Math.floor(opts.rssRequestTimeoutMs))
+    : REQUEST_TIMEOUT_MS;
+  const rssImpl = opts.fetchTrendsRssImpl ?? ((geo, timeoutMs) =>
+    fetchTrendsRss(geo, fetchImpl, timeoutMs));
 
   // Pull country-level RSS once per RSS-enabled geo BEFORE the per-seed lib
   // loop. RSS is unblocked from CI IPs and doesn't need keyword seeds — it
@@ -438,8 +456,16 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
   const rssByGeo = new Map();
   for (const geo of GEOS) {
     if (!geo.rss) continue;
+    const rssTimeoutMs = timeoutWithinDeadline(deadlineMs, maxRssTimeoutMs);
+    if (rssTimeoutMs <= 0) {
+      rssByGeo.set(geo.sourceKey, []);
+      continue;
+    }
     try {
-      const xml = await rssImpl(geo.id);
+      const rssPromise = Promise.resolve().then(() => rssImpl(geo.id, rssTimeoutMs));
+      const xml = deadlineMs === null
+        ? await rssPromise
+        : await withTimeout(rssPromise, rssTimeoutMs, 'trends-rss');
       const allItems = parseTrendsRss(xml);
       const relevant = allItems.filter(
         (it) => FRONTALIERI_DOMAIN_RE.test(it.query) || LOMBARDIA_HINT_RE.test(it.query),
@@ -503,23 +529,29 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
     }
 
     // SHORT-CIRCUIT: if RSS gave us ANY items for this geo, skip the
-    // per-seed lib loop entirely. The lib path is broken from CI IPs and
-    // the per-geo retry budget (14 seeds × ~12s with retries) can blow
-    // past the 5-minute safeRun timeout, surfacing as 'unavailable' for
-    // ALL geos. RSS is the reliable path; lib is only a "nice to have"
-    // for local runs where the IP isn't blocked.
+    // per-seed lib loop entirely. RSS is the reliable CI path; related
+    // queries are only a best-effort addition when RSS has no candidates.
     if (collected.length > 0) {
       perGeo[geo.sourceKey] = { ok: true, candidates: collected };
       for (const c of collected) all.push(c);
       continue;
     }
 
-    // Hard cap on lib-loop iterations. The lib path is broken from CI IPs;
-    // running through 14 seeds × 3 retries × 12s + Playwright per geo
-    // blows past the 5-minute safeRun budget and surfaces as 'unavailable'
-    // for every geo. With RSS as primary, the lib loop exists only as a
-    // best-effort fallback for geos without RSS (IT-25 = Lombardia) or
-    // when RSS came back empty.
+    // Deadline-bound article discovery uses the abortable RSS path only. The
+    // related-queries client and Playwright fallback cannot be cancelled; keep
+    // them for the weekly miner, which invokes this source without a deadline.
+    if (deadlineMs !== null) {
+      perGeo[geo.sourceKey] = {
+        ok: false,
+        candidates: [],
+        reason: 'non-abortable related queries skipped for bounded discovery',
+      };
+      continue;
+    }
+
+    // Hard cap on lib-loop iterations. RSS stays primary; the lib loop is a
+    // best-effort fallback for geos without RSS (IT-25 = Lombardia) or when
+    // RSS came back empty.
     const MAX_LIB_SEEDS = 3;
     let libSeedsTried = 0;
     for (const seed of seeds) {
@@ -565,7 +597,7 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
           : rawMsg;
 
         // ONE Playwright fallback attempt per geo, on first error only —
-        // avoids spending 14 × Playwright launches if Trends is down.
+        // avoids spending multiple Playwright launches if Trends is down.
         if (!fallbackTried) {
           fallbackTried = true;
           try {

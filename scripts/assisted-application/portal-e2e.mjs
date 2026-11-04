@@ -162,7 +162,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
+  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
@@ -605,6 +605,8 @@ function fakePortal() {
           <label for="pcode">Country Phone Code*</label><input id="pcode" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="pc1" autocomplete="off">
           <ul role="listbox"><li id="pill" role="option" data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="pc1">United States of America (+1)</li></ul>
           <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
+          <label for="letter">Cover Letter</label><input id="letter" type="file" name="letter">
+          <div id="letter-status" aria-live="polite"></div>
           <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required>
           <div id="cv-status" aria-live="polite"></div>
           ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete" style="width:24px;height:24px"></button></div>' : ''}
@@ -634,6 +636,16 @@ function fakePortal() {
             const response = await fetch('/wd/upload', request);
             if (response.ok) el('cv-status').textContent = el('cv').files[0].name + ' successfully uploaded';
             else el('cv-status').textContent = el('cv').files[0].name;
+          });
+          el('letter').addEventListener('change', async () => {
+            const body = new FormData();
+            body.append('letter', el('letter').files[0]);
+            const request = ${workday.coverLetterUploadFails
+              ? "{ method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: el('letter').files[0].name }) }"
+              : "{ method: 'POST', body }"};
+            const response = await fetch('/wd/upload-letter', request);
+            if (response.ok) el('letter-status').textContent = el('letter').files[0].name + ' successfully uploaded';
+            else el('letter-status').textContent = el('letter').files[0].name;
           });
           const addProfileRow = (kind) => {
             const root = el(kind + '-rows');
@@ -687,6 +699,11 @@ function fakePortal() {
     if (route === 'POST /wd/upload') {
       await readBody(req);
       res.writeHead(workday.uploadFails ? 500 : 204);
+      return res.end();
+    }
+    if (route === 'POST /wd/upload-letter') {
+      await readBody(req);
+      res.writeHead(workday.coverLetterUploadFails ? 500 : 204);
       return res.end();
     }
     if (route === 'POST /wd/delete-file') {
@@ -1160,6 +1177,18 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
       { section: 'experience', added: 2, skipped: 1 },
       { section: 'education', added: 2, skipped: 0 },
   ])), profileSections);
+  workday.coverLetterUploadFails = true;
+  const applicationsBeforeOptionalLetter = state.applications.length;
+  const optionalLetterFailure = await run(job, profileCandidate);
+  workday.coverLetterUploadFails = false;
+  const uploadsAfterOptionalLetterFailure = optionalLetterFailure.evidence.uploads || [];
+  check('Workday: an unconfirmed optional cover letter does not block the required CV or application',
+    optionalLetterFailure.event.type === 'submit_succeeded'
+    && state.applications.length === applicationsBeforeOptionalLetter + 1
+    && state.applications.at(-1)?.hasCv === true
+    && uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cv')
+    && !uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cover_letter')
+    && optionalLetterFailure.evidence.steps.some((step) => (step.failures || []).some((failure) => failure.error === 'upload_not_confirmed')));
 }
 
 async function main() {

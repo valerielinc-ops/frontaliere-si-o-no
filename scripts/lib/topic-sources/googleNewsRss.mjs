@@ -250,25 +250,21 @@ export function parseNewsRss(xml) {
   return out;
 }
 
-function normalizeDeadlineMs(value) {
-  if (value === null || value === undefined) return null;
-  const number = Number(value);
-  return Number.isFinite(number) && number >= 0 ? number : null;
-}
-
 async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(
     seed,
   )}&hl=it&gl=IT&ceid=IT:it`;
   let lastReason = null;
   for (let attempt = 0; attempt < MAX_REQUEST_ATTEMPTS; attempt++) {
-    const remainingMs = deadlineMs === null ? Infinity : deadlineMs - Date.now();
-    if (remainingMs <= 0) {
+    if (!hasDeadlineWindow(deadlineMs, 1)) {
       return { ok: false, items: [], reason: 'deadline exceeded' };
     }
     const effectiveTimeoutMs = deadlineMs === null
       ? timeoutMs
-      : Math.max(1, Math.min(timeoutMs, Math.floor(remainingMs)));
+      : timeoutWithinDeadline(deadlineMs, timeoutMs);
+    if (effectiveTimeoutMs <= 0) {
+      return { ok: false, items: [], reason: 'deadline exceeded' };
+    }
     try {
       const { response: res, text: xml } = await fetchTextWithTimeout(
         fetchImpl,
@@ -287,12 +283,37 @@ async function fetchOneSeed(seed, fetchImpl, timeoutMs, deadlineMs = null) {
       lastReason = `fetch error: ${e?.message ?? String(e)}`;
     }
     if (attempt < MAX_REQUEST_ATTEMPTS - 1) {
-      const retryWindowMs = deadlineMs === null ? RETRY_DELAY_MS : deadlineMs - Date.now();
+      const remainingMs = remainingDeadlineMs(deadlineMs);
+      const retryWindowMs = remainingMs === null ? RETRY_DELAY_MS : remainingMs;
       if (retryWindowMs <= 0) break;
       await sleep(Math.min(RETRY_DELAY_MS, retryWindowMs));
     }
   }
   return { ok: false, items: [], reason: lastReason ?? 'unknown error' };
+}
+
+function normalizeNonNegativeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.max(0, number) : null;
+}
+
+function remainingDeadlineMs(value) {
+  if (value === null) return null;
+  return Math.floor(value - Date.now());
+}
+
+function timeoutWithinDeadline(value, maximumMs) {
+  const maxMs = Math.max(0, Math.floor(Number(maximumMs) || 0));
+  const remainingMs = remainingDeadlineMs(value);
+  return remainingMs === null ? maxMs : Math.min(maxMs, Math.max(0, remainingMs));
+}
+
+function hasDeadlineWindow(value, minimumMs = 0) {
+  if (value === null) return true;
+  const minimum = Number(minimumMs);
+  const safeMinimumMs = Number.isFinite(minimum) && minimum > 0 ? minimum : 0;
+  return value - Date.now() >= safeMinimumMs;
 }
 
 /**
@@ -319,7 +340,7 @@ export async function fetchNewsRssCandidates(opts = {}) {
   const timeoutMs = Number.isFinite(opts.timeoutMs) && opts.timeoutMs > 0
     ? opts.timeoutMs
     : REQUEST_TIMEOUT_MS;
-  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
+  const deadlineMs = normalizeNonNegativeDeadlineMs(opts.deadlineMs);
   const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
   if (typeof fetchImpl !== 'function') {
     const empty = {};

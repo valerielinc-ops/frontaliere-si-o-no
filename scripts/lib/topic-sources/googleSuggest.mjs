@@ -217,14 +217,42 @@ export function parseSuggestPayload(text) {
     .filter((c) => !!c);
 }
 
-async function fetchOneSeed(seed, fetchImpl) {
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function hasDeadlineWindow(value, minimumMs = 0) {
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return true;
+  const minimum = Number(minimumMs);
+  const safeMinimumMs = Number.isFinite(minimum) && minimum > 0 ? minimum : 0;
+  return deadlineMs - Date.now() >= safeMinimumMs;
+}
+
+function timeoutWithinDeadline(value, maximumMs) {
+  const maxMs = Math.max(0, Math.floor(Number(maximumMs) || 0));
+  const deadlineMs = normalizeDeadlineMs(value);
+  if (deadlineMs === null) return maxMs;
+  return Math.min(maxMs, Math.max(0, Math.floor(deadlineMs - Date.now())));
+}
+
+async function fetchOneSeed(seed, fetchImpl, deadlineMs) {
   const url = `https://suggestqueries.google.com/complete/search?client=firefox&hl=it&q=${encodeURIComponent(
     seed,
   )}`;
   let lastReason = null;
   for (let attempt = 0; attempt <= 1; attempt++) {
+    if (!hasDeadlineWindow(deadlineMs, 1)) {
+      return { ok: false, completions: [], reason: 'discovery deadline reached' };
+    }
     try {
-      const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
+      const responseTimeoutMs = timeoutWithinDeadline(deadlineMs, REQUEST_TIMEOUT_MS);
+      if (responseTimeoutMs <= 0) {
+        return { ok: false, completions: [], reason: 'discovery deadline reached' };
+      }
+      const res = await fetchWithTimeout(fetchImpl, url, responseTimeoutMs);
       const state = RESPONSE_STATES.get(res) ?? {
         controller: new AbortController(),
         activeReader: null,
@@ -235,7 +263,11 @@ async function fetchOneSeed(seed, fetchImpl) {
         lastReason = `HTTP ${res.status}`;
         cancelResponseBody(res, state);
       } else {
-        const text = await readTextWithTimeout(res, state, REQUEST_TIMEOUT_MS);
+        const bodyTimeoutMs = timeoutWithinDeadline(deadlineMs, REQUEST_TIMEOUT_MS);
+        if (bodyTimeoutMs <= 0) {
+          throw new DOMException('The discovery deadline was reached', 'TimeoutError');
+        }
+        const text = await readTextWithTimeout(res, state, bodyTimeoutMs);
         const completions = parseSuggestPayload(text);
         if (!Array.isArray(completions)) {
           lastReason = 'malformed json';
@@ -246,7 +278,9 @@ async function fetchOneSeed(seed, fetchImpl) {
     } catch (e) {
       lastReason = `fetch error: ${e?.message ?? String(e)}`;
     }
-    if (attempt === 0) await sleep(RETRY_DELAY_MS);
+    if (attempt === 0 && hasDeadlineWindow(deadlineMs, RETRY_DELAY_MS + 1)) {
+      await sleep(RETRY_DELAY_MS);
+    }
   }
   return { ok: false, completions: [], reason: lastReason ?? 'unknown error' };
 }
@@ -259,6 +293,7 @@ async function fetchOneSeed(seed, fetchImpl) {
  * @param {object} [opts]
  * @param {string[]} [opts.seeds] — defaults to SEEDS_FALLBACK.
  * @param {Function} [opts.fetchImpl] — test seam, defaults to globalThis.fetch.
+ * @param {number} [opts.deadlineMs] — absolute cutoff for this source.
  * @returns {Promise<{
  *   ok: boolean,
  *   perSeed: Record<string, {ok: boolean, candidates: any[], reason?: string}>,
@@ -268,6 +303,7 @@ async function fetchOneSeed(seed, fetchImpl) {
 export async function fetchSuggestCandidates(opts = {}) {
   const seeds = Array.isArray(opts.seeds) && opts.seeds.length ? opts.seeds : SEEDS_FALLBACK;
   const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
+  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
   if (typeof fetchImpl !== 'function') {
     const empty = {};
     for (const seed of seeds) {
@@ -281,7 +317,7 @@ export async function fetchSuggestCandidates(opts = {}) {
   const seenNorm = new Set();
 
   for (const seed of seeds) {
-    const { ok, completions, reason } = await fetchOneSeed(seed, fetchImpl);
+    const { ok, completions, reason } = await fetchOneSeed(seed, fetchImpl, deadlineMs);
     const seedCandidates = [];
     if (ok && completions.length) {
       // Apply denylist BEFORE the rank-cap so dropped entries don't push
