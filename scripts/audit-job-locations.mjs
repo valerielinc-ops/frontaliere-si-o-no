@@ -92,6 +92,10 @@ import { cantonNamedByLocation, splitJobLocation } from './lib/job-location-disp
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import {
+  cantonFromPublishedPostalCode,
+  compareCrawlerPublishedLocation,
+} from './lib/crawler-location-equivalence.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -119,6 +123,7 @@ const results = {
   geocodeResults: [],    // Results from Nominatim verification
   companyDefaultFallback: [], // cantonMismatch subset where stored canton == company's modal canton
   crawlerLocationRewritten: [], // assemble replaced the locality the crawler recorded (BFS-independent)
+  crawlerLocationUnresolved: [], // source is a facility/region without enough locality evidence
   crawlerCantonStampDiffers: [], // same place, crawler's per-company canton stamp is stale — context only
   hirslandenCorrelation: [], // one source-to-published row per Hirslanden job
   hirslandenCorrelationMissing: [], // no unambiguous source URL/stable ID
@@ -195,29 +200,18 @@ function loadCrawlerRecords() {
 }
 const crawlerRecordById = loadCrawlerRecords();
 
-/* Same-place test between the crawler's locality and the published one.
- * Tolerates the decoration crawlers add around a city name — "Geneva,
- * Switzerland", "Baden, Aargau", "Luzern / hybrid", "Pratteln 1" — so those do
- * not read as a rewrite when the published city is the very city named inside. */
-function sameRecordedPlace(crawlerCity, publishedCity) {
-  const a = crawlerCity.toLowerCase();
-  const b = publishedCity.toLowerCase();
-  if (!a || !b) return false;
-  // `swissCityFromLocationField()` intentionally extracts known Swiss tokens
-  // from decorated fields, but a foreign field such as `Baden-Württemberg`
-  // contains the Swiss homonym `Baden` as well. Never let that fuzzy rescue
-  // certify a stored locality before the source-canton guard gets a chance.
-  if (isLocationExplicitlyForeign(crawlerCity)) return false;
-  if (a === b) return true;
-  // Strip only a trailing source canton/country marker before comparing. The
-  // Galenica record is `Seewen SZ` while assembly publishes `Seewen`; feeding
-  // the decorated value directly to the municipality parser leaves the
-  // official locality unresolved and makes the independent source look like
-  // a rewrite.
-  const normalized = splitJobLocation(crawlerCity, '').city.toLowerCase();
-  if (normalized === b) return true;
-  const inner = swissCityFromLocationField(crawlerCity);
-  return Boolean(inner) && inner.toLowerCase() === b;
+function crawlerPlaceRelation(crawlerRecord, job, publishedCity) {
+  if (!crawlerRecord || !publishedCity) return 'unknown';
+  const sourceLocation = crawlerRecord.city || crawlerRecord.location || '';
+  if (!sourceLocation) return 'unknown';
+  return compareCrawlerPublishedLocation({
+    sourceLocation,
+    publishedLocation: publishedCity,
+    sourcePostalCode: crawlerRecord.sourcePostalCode,
+    publishedPostalCode: job?.postalCode,
+    sourceCanton: crawlerRecord.sourceLocationCanton || crawlerRecord.canton,
+    publishedCanton: job?.canton,
+  });
 }
 
 function crawlerEvidence(crawlerRecord) {
@@ -326,9 +320,12 @@ function hirslandenCorrelationEntry({ job, id, company, city, rawLocation, canto
   if (correlationStatus === 'found' && !record?.sourceStableId) correlationStatus = 'stable-id-missing';
 
   const sourceLocation = record?.city || record?.location || '';
-  const locationRelation = correlationStatus !== 'found'
-    ? 'unresolved'
-    : (sourceLocation && city && sameRecordedPlace(sourceLocation, city) ? 'same-place' : 'rewritten');
+  const relation = correlationStatus !== 'found'
+    ? 'unknown'
+    : crawlerPlaceRelation(record, job, city);
+  const locationRelation = relation === 'same'
+    ? 'same-place'
+    : relation === 'different' ? 'rewritten' : 'unresolved';
 
   return {
     company,
@@ -375,7 +372,7 @@ function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   // source row also names that locality; never let a missing or different
   // source place certify a published city by canton alone.
   const samePlace = sourceLocation && (
-    sameRecordedPlace(sourceLocation, city)
+    crawlerPlaceRelation(crawlerRecord, { canton: storedCanton }, city) === 'same'
     || sourceBackedPlaceMatchesCanton(sourceLocation, city, sourceCanton, storedCanton)
   );
   if (!samePlace) return false;
@@ -535,8 +532,16 @@ for (const job of jobsToAudit) {
       cantonUpper,
       lookup: crawlerLookup,
     });
-    if (crawlerCity && city && !sameRecordedPlace(crawlerCity, city)) {
+    const relation = crawlerCity && city
+      ? crawlerPlaceRelation(crawlerRecord, job, city)
+      : 'unknown';
+    if (relation === 'different') {
       results.crawlerLocationRewritten.push(entry);
+    } else if (relation === 'unknown' && crawlerCity && city) {
+      results.crawlerLocationUnresolved.push({
+        ...entry,
+        relation: 'unknown-source-locality',
+      });
     } else if (crawlerRecord.canton && cantonUpper && crawlerRecord.canton !== cantonUpper) {
       results.crawlerCantonStampDiffers.push(entry);
     }
@@ -561,7 +566,20 @@ for (const job of jobsToAudit) {
   const isSwiss = isKnownSwissMunicipality(city);
 
   // Check 2: What canton does our engine infer?
-  const inferredCanton = inferAnyCanton(city);
+  const postalCanton = cantonFromPublishedPostalCode({
+    city,
+    postalCode: job.postalCode,
+    storedCanton: cantonUpper,
+  });
+  const sourceCanton = crawlerRecord
+    ? inferCantonFromJobEvidence({
+        cityText: city,
+        locationText: crawlerRecord.location || crawlerRecord.city,
+        crawlerCanton: crawlerRecord.canton,
+        sourceLocationCanton: crawlerRecord.sourceLocationCanton,
+      })
+    : '';
+  const inferredCanton = postalCanton || sourceCanton || inferAnyCanton(city);
 
   // Check 3: Is the city explicitly foreign?
   const isForeign = isLocationExplicitlyForeign(city);
@@ -659,6 +677,7 @@ console.log(`📭 Empty location:        ${results.emptyLocation.length}`);
 console.log(`🔤 Lowercase canton:      ${results.lowercaseCanton.length}`);
 console.log(`🏢 Company-default fallback (suspected): ${results.companyDefaultFallback.length}`);
 console.log(`📌 Crawler locality rewritten by dataset: ${results.crawlerLocationRewritten.length}${crawlerRecordById.size ? '' : ' (by-crawler slices unavailable — check skipped)'}`);
+console.log(`🟡 Crawler locality relation unresolved (source is not a concrete place): ${results.crawlerLocationUnresolved.length}`);
 console.log(`ℹ️  Crawler canton stamp differs (same place, benign): ${results.crawlerCantonStampDiffers.length}`);
 console.log(`🔗 Hirslanden source correlations: ${results.hirslandenCorrelation.length} (missing=${results.hirslandenCorrelationMissing.length}, ambiguous=${results.hirslandenCorrelationAmbiguous.length})`);
 console.log(`🔁 Location already names its canton/country: ${results.redundantLocationMarker.length}`);
@@ -713,6 +732,24 @@ if (results.crawlerLocationRewritten.length > 0) {
     byTarget[key] = (byTarget[key] || 0) + 1;
   }
   for (const [key, count] of Object.entries(byTarget).sort((a, b) => b[1] - a[1]).slice(0, 20)) {
+    console.log(`  ${count.toString().padStart(4)} × ${key}`);
+  }
+}
+
+// A facility, employer region or multi-site label cannot prove that the
+// assembler moved a posting to the wrong municipality. Keep those rows in the
+// artifact for follow-up, but do not call them contradictions or route a
+// parser fix from an unresolvable source value.
+if (results.crawlerLocationUnresolved.length > 0) {
+  console.log('\n' + '─'.repeat(70));
+  console.log('🟡 CRAWLER LOCALITY RELATION UNRESOLVED (INSUFFICIENT SOURCE EVIDENCE)');
+  console.log('─'.repeat(70));
+  const byCrawler = {};
+  for (const o of results.crawlerLocationUnresolved) {
+    const key = `${o.crawler} — ${o.company} — source="${o.crawlerLocation}" (${o.crawlerCanton}) → published="${o.publishedLocation}" (${o.storedCanton})`;
+    byCrawler[key] = (byCrawler[key] || 0) + 1;
+  }
+  for (const [key, count] of Object.entries(byCrawler).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${count.toString().padStart(4)} × ${key}`);
   }
 }
@@ -957,6 +994,7 @@ writeFileSync(reportPath, JSON.stringify({
     lowercaseCanton: results.lowercaseCanton.length,
     companyDefaultFallback: results.companyDefaultFallback.length,
     crawlerLocationRewritten: results.crawlerLocationRewritten.length,
+    crawlerLocationUnresolved: results.crawlerLocationUnresolved.length,
     crawlerCantonStampDiffers: results.crawlerCantonStampDiffers.length,
     hirslandenCorrelation: results.hirslandenCorrelation.length,
     hirslandenCorrelationMissing: results.hirslandenCorrelationMissing.length,
@@ -996,6 +1034,7 @@ writeFileSync(reportPath, JSON.stringify({
   lowercaseCantons: results.lowercaseCanton,
   companyDefaultFallback: results.companyDefaultFallback,
   crawlerLocationRewritten: results.crawlerLocationRewritten,
+  crawlerLocationUnresolved: results.crawlerLocationUnresolved,
   crawlerCantonStampDiffers: results.crawlerCantonStampDiffers,
   hirslandenCorrelation: results.hirslandenCorrelation,
   hirslandenCorrelationMissing: results.hirslandenCorrelationMissing,

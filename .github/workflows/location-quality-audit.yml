@@ -116,6 +116,7 @@ jobs:
           const s = r.summary;
           const pct = (n) => (r.audited > 0 ? ((n / r.audited) * 100).toFixed(2) : '0.00');
           const rewritten = s.crawlerLocationRewritten || 0;
+          const unresolved = s.crawlerLocationUnresolved || 0;
           const stampDiffers = s.crawlerCantonStampDiffers || 0;
           // A published LOCALITY that contradicts the crawler's own record is a
           // wrong location by construction — no municipality database has to
@@ -156,6 +157,7 @@ jobs:
           md += `| ⚠️ Canton mismatch (BFS disagrees with stored canton) | ${s.cantonMismatch} | ${pct(s.cantonMismatch)}% |\n`;
           md += `| 🚨 Foreign city tagged as Swiss canton | ${s.foreignInSwiss} | ${pct(s.foreignInSwiss)}% |\n`;
           md += `| 📌 Published locality contradicts the crawler record | ${rewritten} | ${pct(rewritten)}% |\n`;
+          md += `| 🟡 Crawler locality relation unresolved (source is not a concrete place) | ${unresolved} | ${pct(unresolved)}% |\n`;
           md += `| ❓ Custom/unknown location (matches no canonical Swiss location) | ${s.customLocation} | ${pct(s.customLocation)}% |\n`;
           md += `| 🏢 Suspected company-default fallback | ${s.companyDefaultFallback} | ${pct(s.companyDefaultFallback)}% |\n`;
           md += `| 📭 Empty location | ${s.emptyLocation} | ${pct(s.emptyLocation)}% |\n`;
@@ -168,7 +170,7 @@ jobs:
           md += hasRealBugs
             ? `🚨 **Canton mismatch, foreign-tagged-as-Swiss and/or published-locality-rewritten are non-zero** — these are the three categories the dataset must never produce (location must always resolve to a real Swiss canton, and the published locality must never contradict the crawler's own record). Check the full report artifact for offending companies/cities.\n\n`
             : `No canton-mismatch / foreign-tagged-as-Swiss / locality-rewritten bugs this run.\n\n`;
-          md += `_\`📌 Published locality contradicts the crawler record\` is BFS-independent, which is exactly why it matters: it catches jobs moved onto a city that IS a real BFS municipality, so every BFS-backed row above signs them off as correct. The destination is usually an everyday word that happens to name a village — "Alle" (JU) is German for "all" — so start from the "Rewritten INTO" table in the artifact and add repeat offenders to \`TEXT_RESCUE_AMBIGUOUS_TOKENS\`. ${r.crawlerRecordsIndexed || 0} crawler records indexed this run._\n\n`;
+          md += `_\`📌 Published locality contradicts the crawler record\` is BFS-independent and now requires concrete source-backed evidence (municipality, matching postal locality, or a validated alias). Facility and region labels that cannot establish one municipality remain in the informational \`🟡\` row instead of being misreported as parser contradictions. ${r.crawlerRecordsIndexed || 0} crawler records indexed this run._\n\n`;
           if (byCrawler.length) {
             // BY CRAWLER, not by company: the repair is an edit to exactly one
             // scripts/lib/<crawler>-job-parser.mjs, and the crawler key IS that
