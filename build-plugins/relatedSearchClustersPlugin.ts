@@ -5331,7 +5331,7 @@ export async function reconcileSitemapSearchClustersWithDist(
   if (advertised.length === 0) return 0;
   const kept = new Set(
     (await dropOverwrittenLocs(distDir, advertised, {
-      inspectForeignPresent: options.inspectForeignPresent,
+      inspectForeignPresent: options.inspectForeignPresent ?? true,
       keepMissing: options.keepMissing,
       ignoreShardOwnership: options.ignoreShardOwnership,
       foreignDirectoryIndex: options.foreignDirectoryIndex,

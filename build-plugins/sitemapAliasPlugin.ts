@@ -573,6 +573,15 @@ export async function reconcileFinalSitemapsWithDist(
   mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
   options: { keepMissing?: boolean; ignoreShardOwnership?: boolean } = {},
 ): Promise<void> {
+  // Family-level passes run earlier while a locale shard may legitimately be
+  // missing a sibling locale's HTML. This function is the final producer
+  // boundary: absent local pages are no longer a hand-off, so the default is
+  // the strict dist-truth contract. A shard still preserves genuinely foreign
+  // locs through dropOverwrittenLocs' ownership check.
+  const finalOptions = {
+    keepMissing: options.keepMissing ?? false,
+    ignoreShardOwnership: options.ignoreShardOwnership,
+  };
   // Tempi per famiglia (`[sitemap-alias-detail]`): sono la sola attribuzione
   // possibile dei ~9-11 minuti del plugin senza un secondo run profilato.
   const __detail = async <T>(step: string, run: () => Promise<T> | T): Promise<T> => {
@@ -588,7 +597,7 @@ export async function reconcileFinalSitemapsWithDist(
     options.ignoreShardOwnership ? new Set<string>() : collectForeignDirectoryCandidates(distDir),
   ));
   await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir, {
-    ...options,
+    ...finalOptions,
     // A locale shard may contain a foreign-locale bridge emitted directly to
     // dist/. Inspect present pages, but keep genuinely missing foreign pages
     // until the assembled-dist pass can evaluate them all together.
@@ -596,15 +605,15 @@ export async function reconcileFinalSitemapsWithDist(
     foreignDirectoryIndex,
   }));
   await __detail('jobs', () => reconcileSitemapJobsWithDist(distDir, mirrorLocs, {
-    ...options,
+    ...finalOptions,
     foreignDirectoryIndex,
   }));
-  await __detail('fuel', () => reconcileSitemapFuelWithDist(distDir, options));
+  await __detail('fuel', () => reconcileSitemapFuelWithDist(distDir, finalOptions));
   await __detail('articles', () =>
-    reconcileArticleSitemapsWithDist(distDir, { ...options, foreignDirectoryIndex }),
+    reconcileArticleSitemapsWithDist(distDir, { ...finalOptions, foreignDirectoryIndex }),
   );
   await __detail('remaining-static', () =>
-    reconcileRemainingSitemapsWithDist(distDir, { ...options, foreignDirectoryIndex }),
+    reconcileRemainingSitemapsWithDist(distDir, { ...finalOptions, foreignDirectoryIndex }),
   );
 }
 
@@ -645,7 +654,10 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           : [staticPagesFlushed, fuelDailyPagesFlushed];
         if (shouldAwaitJobsSeoPagesFlushed()) buildSignals.push(jobsSeoPagesFlushed);
         await Promise.all(buildSignals);
-        await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
+        await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs(), {
+          keepMissing: false,
+          ignoreShardOwnership: false,
+        });
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized

@@ -130,6 +130,9 @@ function applyRescueResult(report, url, result, manifest, manifestSet) {
     ...item,
     root,
     status: result.status,
+    ...(oldFindings.find((old) => Array.isArray(old.sitemapProducers))?.sitemapProducers
+      ? { sitemapProducers: oldFindings.find((old) => Array.isArray(old.sitemapProducers)).sitemapProducers }
+      : {}),
   }));
   for (const item of nextFindings) {
     increment(report.codeCounts, item.code);
@@ -397,7 +400,10 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
 function formatUrlList(items, maxSamples) {
   return items.slice(0, maxSamples).map((item) => {
     const detail = item.detail ? ` — ${item.detail}` : '';
-    return `- \`${item.url}\`${detail}`;
+    const producers = Array.isArray(item.sitemapProducers) && item.sitemapProducers.length > 0
+      ? ` — producer sitemap: ${item.sitemapProducers.map((producer) => `\`${producer}\``).join(', ')}`
+      : '';
+    return `- \`${item.url}\`${detail}${producers}`;
   }).join('\n');
 }
 
