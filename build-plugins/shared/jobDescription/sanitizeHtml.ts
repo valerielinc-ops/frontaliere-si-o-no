@@ -75,6 +75,16 @@ const DROP_WITH_CONTENT = new Set([
 /** Allowed `href` forms: http(s), mailto, tel, same-site path, fragment. */
 const SAFE_HREF_RE = /^(?:https?:|mailto:|tel:|\/|#)/i;
 
+/**
+ * Cloudflare's email-obfuscation endpoint is injected by some employer ATS
+ * pages as a same-origin link (`/cdn-cgi/l/email-protection#...`). The
+ * endpoint itself is not a real site page and returns 404 when crawlers
+ * request it without the fragment, so keeping it would publish a broken
+ * internal link. The visible email text remains useful when the href is
+ * dropped by `rebuildAnchor`.
+ */
+const CLOUDFLARE_EMAIL_PROTECTION_RE = /^\/cdn-cgi\/l\/email-protection(?:[/?#]|$)/i;
+
 /** Tag at the current position. Lenient on attributes (MS-Word pastes put
  *  unescaped quotes inside `style="…"`): everything up to the first `>`. */
 const TAG_RE = /<(\/?)([a-zA-Z][a-zA-Z0-9:-]*)((?:\s|\/)[^>]*)?>/y;
@@ -98,6 +108,7 @@ function decodeHrefEntities(value: string): string {
 export function safeHref(raw: string): string | null {
   const resolved = decodeHrefEntities(String(raw || '')).replace(/[\u0000- \u007f-\u009f]/g, '');
   if (!resolved || !SAFE_HREF_RE.test(resolved)) return null;
+  if (CLOUDFLARE_EMAIL_PROTECTION_RE.test(resolved)) return null;
   return resolved
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
