@@ -452,8 +452,8 @@ export function mapDetailPageToLocaleData(html, locale, baseUrl) {
   const address = extractAddress(first.location?.address);
   const addressLocality = cleanText(first.location?.address?.addressLocality) || undefined;
   const imageSourceUrl = occurrences.map((occurrence) => firstEventImageUrl(occurrence.image, SITE_ORIGIN)).find(Boolean);
-  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, baseUrl || SITE_ORIGIN, baseUrl)).find(Boolean)
-    || normalizeEventPeople(textPeople.organizer, baseUrl || SITE_ORIGIN, baseUrl);
+  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, baseUrl || SITE_ORIGIN)).find(Boolean)
+    || normalizeEventPeople(textPeople.organizer, baseUrl || SITE_ORIGIN);
   const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean)
     || normalizeEventPeople(textPeople.performer, SITE_ORIGIN)
     || normalizeEventPeople(titlePeople.performer, SITE_ORIGIN);
@@ -510,7 +510,7 @@ export function mapGuidleEvent(code, localeResults) {
   const imageSourceUrl = LOCALES.map((locale) => localeResults[locale]?.imageSourceUrl).find(Boolean);
   const organizerSource = LOCALES.map((locale) => localeResults[locale]?.organizer).find(Boolean);
   const organizer = organizerSource
-    ? normalizeEventPeople(organizerSource, primary.url || SITE_ORIGIN, primary.url || SITE_ORIGIN)
+    ? normalizeEventPeople(organizerSource, primary.url || SITE_ORIGIN)
     : undefined;
   const performer = LOCALES.map((locale) => localeResults[locale]?.performer).find(Boolean);
 

@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 import { publishedEventRoutes } from '../scripts/lib/events-retention.mjs';
 import {
+  eventLd,
   historicalEventSlugMigrations,
   pathForEventDetail,
   renderEventDetailPage,
@@ -161,8 +162,17 @@ describe('reported GSC event archive coverage', () => {
       const canonical = readTagByAttr(page.html, 'rel', 'canonical');
       expect(readAttr(canonical, ['href']), reportedPath).toBe(`https://frontaliereticino.ch${page.urlPath}`);
       expect(page.html, reportedPath).not.toContain('Pagina archiviata');
-      expect(page.html, reportedPath).toMatch(/"@type"\s*:\s*"Event"/);
       expect(page.html, reportedPath).toContain(event.startDate);
+      const structuredEvent = eventLd(event, locale, `https://frontaliereticino.ch${page.urlPath}`);
+      if (!structuredEvent) {
+        const hasSupportedLocation = Boolean(
+          event.comune || event.address?.locality || event.address?.street || event.address?.postalCode,
+        );
+        expect(event.recurring === true || !hasSupportedLocation, reportedPath).toBe(true);
+        expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
+        continue;
+      }
+      expect(page.html, reportedPath).toMatch(/"@type"\s*:\s*"Event"/);
       const expectedStatus = event.eventStatus === 'cancelled'
         ? 'https://schema.org/EventCancelled'
         : event.eventStatus === 'postponed'

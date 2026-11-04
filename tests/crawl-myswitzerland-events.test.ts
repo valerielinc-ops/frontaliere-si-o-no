@@ -150,7 +150,54 @@ describe('extractDateInfo', () => {
     const info = extractDateInfo(hit);
     expect(info?.startDate).toBe('2026-07-04');
     expect(info?.endDate).toBe('2026-07-11');
+    expect(info?.startTime).toBeUndefined();
     expect(info?.recurring).toBe(true);
+  });
+
+  it('uses a nested currentdatebetween range instead of generated daily execution dates', () => {
+    const hit = {
+      applicableDates: {
+        rules: [{
+          conditions: {
+            and: [
+              { or: [{ type: 'dayofweek', value: 2 }, { type: 'dayofweek', value: 3 }] },
+              { type: 'currentdatebetween', from: '20220313T090000Z', to: '20291231T160000Z' },
+            ],
+          },
+        }],
+      },
+      executionDates: [1790812800, 1790899200, 1790985600],
+    };
+    expect(extractDateInfo(hit)).toEqual({
+      startDate: '2022-03-13',
+      endDate: '2029-12-31',
+      recurring: true,
+    });
+  });
+
+  it('does not infer recurrence from a bounded single occurrence', () => {
+    const hit = {
+      applicableDates: {
+        rules: [{ conditions: { currentdatebetween: { type: 'currentdatebetween', from: '20260704T170000Z', to: '20260705T200000Z' } } }],
+      },
+    };
+    expect(extractDateInfo(hit)).toEqual({
+      startDate: '2026-07-04',
+      endDate: '2026-07-05',
+      recurring: false,
+    });
+  });
+
+  it.each([
+    { from: '20220313T090000Z' },
+    { to: '20291231T160000Z' },
+  ])('does not invent an event range when currentdatebetween has only one bound (%o)', (bounds) => {
+    const hit = {
+      applicableDates: {
+        rules: [{ conditions: { and: [{ type: 'currentdatebetween', ...bounds }] } }],
+      },
+    };
+    expect(extractDateInfo(hit)).toBeNull();
   });
 
   it('falls back to executionDates (unix seconds) when there are no rules', () => {
@@ -158,6 +205,12 @@ describe('extractDateInfo', () => {
     const info = extractDateInfo(hit);
     expect(info?.startDate).toBeTruthy();
     expect(info?.recurring).toBe(false);
+  });
+
+  it('does not infer a start time from midnight timestamps in a recurring execution list', () => {
+    const info = extractDateInfo({ executionDates: [1790812800, 1790899200, 1790985600] });
+    expect(info?.recurring).toBe(true);
+    expect(info?.startTime).toBeUndefined();
   });
 
   it('returns null when no usable date exists at all', () => {
@@ -777,6 +830,49 @@ describe('mergeDetailEventMetadata', () => {
     });
   });
 
+  it('does not promote a localized event page URL to the organizer URL', () => {
+    const primaryUrl = 'https://www.myswitzerland.com/it/eventi/example-event/';
+    const candidateUrl = 'https://www.myswitzerland.com/en/events/example-event/';
+    const merged = mergeDetailEventMetadata(
+      {
+        '@type': 'MusicEvent',
+        organizer: { '@type': 'Organization', name: 'Organizzatore principale' },
+      },
+      {
+        '@type': 'MusicEvent',
+        organizer: {
+          '@type': 'Organization',
+          name: 'Organizzatore principale',
+          url: candidateUrl,
+        },
+      },
+      primaryUrl,
+      candidateUrl,
+    );
+
+    expect(merged?.organizer).toEqual({ '@type': 'Organization', name: 'Organizzatore principale' });
+  });
+
+  it('filters the candidate event URL when the first locale had no JSON-LD', () => {
+    const primaryUrl = 'https://www.myswitzerland.com/it/eventi/example-event/';
+    const candidateUrl = 'https://www.myswitzerland.com/en/events/example-event/';
+    const merged = mergeDetailEventMetadata(
+      null,
+      {
+        '@type': 'MusicEvent',
+        organizer: {
+          '@type': 'Organization',
+          name: 'Organizzatore principale',
+          url: candidateUrl,
+        },
+      },
+      primaryUrl,
+      candidateUrl,
+    );
+
+    expect(merged?.organizer).toEqual({ '@type': 'Organization', name: 'Organizzatore principale' });
+  });
+
   it('merges a later organizer URL into a matching primary entry without dropping siblings', () => {
     const merged = mergeDetailEventMetadata(
       {
@@ -938,11 +1034,7 @@ describe('mapEventRecord', () => {
     expect(event.recurring).toBe(false);
     expect(event.price).toBeUndefined();
     expect(event.address).toBeUndefined();
-    expect(event.organizer).toEqual({
-      '@type': 'Organization',
-      name: 'MySwitzerland',
-      url: 'https://www.myswitzerland.com/en/',
-    });
+    expect(event.organizer).toBeUndefined();
     expect(event.performer).toBeUndefined();
     expect(imageSourceUrl).toBe('https://cdn.myswitzerland.com/images/abc.jpg');
     expect(place).toBe('Lugano');
@@ -1132,7 +1224,6 @@ describe('mapEventRecord', () => {
     expect(event.organizer).toEqual({
       '@type': 'Organization',
       name: 'Noise Reduction & Musikbüro Rote Fabrik',
-      url: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
     });
     expect(event.performer).toEqual({ name: 'Autechre' });
     expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
@@ -1162,7 +1253,6 @@ describe('mapEventRecord', () => {
     expect(event.organizer).toEqual({
       '@type': 'Organization',
       name: 'Noise Reduction & Musikbüro Rote Fabrik',
-      url: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
     });
     expect(event.performer).toEqual({ name: 'Autechre' });
   });
