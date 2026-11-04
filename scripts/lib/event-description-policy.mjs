@@ -962,13 +962,13 @@ function trustedStructuredPrices(factTexts) {
   return prices;
 }
 
-function buildFactValidationContext(factTexts) {
+function buildFactValidationContext(factTexts, requireStructuredPriceEvidence = true) {
   const factualContext = factTexts.join(' ');
   return {
     allowedNumbers: numericValues(factualContext),
     allowedStructuredFacts: structuredFactSignatures(factualContext),
     allowedCurrencies: currencySignatures(factualContext),
-    trustedPrices: trustedStructuredPrices(factTexts),
+    ...(requireStructuredPriceEvidence ? { trustedPrices: trustedStructuredPrices(factTexts) } : {}),
     names: allowedNamePhrases([], factTexts),
   };
 }
@@ -1031,7 +1031,7 @@ export function validateRewriteDescription(candidate, {
   // reduced admission price). Numeric, date, time, and currency claims in a
   // rewrite must be backed by the structured event facts, never by nearby
   // prose alone.
-  const validationContext = factValidationContext || buildFactValidationContext(factTexts);
+  const validationContext = factValidationContext || buildFactValidationContext(factTexts, requireStructuredPriceEvidence);
   const allowedNumbers = validationContext.allowedNumbers;
   if ([...numericValues(text)].some((number) => !allowedNumbers.has(number))) return { ok: false, code: 'new-number' };
   const allowedStructuredFacts = validationContext.allowedStructuredFacts;
