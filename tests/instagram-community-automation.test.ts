@@ -15,6 +15,7 @@ import {
   runInstagramCommunityAutomation,
   shouldSendPrivateReply,
 } from '../scripts/lib/instagram-community-automation.mjs';
+import { mergeInstagramCommunityOutcomeSnapshots } from '../scripts/lib/instagram-community-outcomes.mjs';
 import { socialCopyRevisionId } from '../scripts/lib/social-copy-revision.mjs';
 
 const NOW = new Date('2026-10-10T12:00:00.000Z');
@@ -266,6 +267,24 @@ describe('Instagram community automation', () => {
     expect(persisted).not.toContain('person-0');
     expect(JSON.stringify(result.outcomes.questionTopicDemand)).not.toContain('topic-comment');
     rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('preserves rolling topic demand when a legacy schema-1 collector has no topic result', () => {
+    const questionTopicDemand = {
+      status: 'available',
+      categories: [{ category: 'lavoro-contratti', countBand: '10-24' }],
+    };
+    const merged = mergeInstagramCommunityOutcomeSnapshots({
+      schemaVersion: 2,
+      questionTopicDemand,
+      weeks: [],
+    }, {
+      schemaVersion: 1,
+      generatedAt: '2026-10-11T12:00:00.000Z',
+      latestRun: 'legacy-browser-run',
+      weeks: [],
+    });
+    expect(merged).toMatchObject({ schemaVersion: 2, questionTopicDemand });
   });
 
   it('does not replay a community POST after its response is lost', async () => {
