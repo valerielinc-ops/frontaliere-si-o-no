@@ -253,6 +253,69 @@ describe('Instagram Story insights collector', () => {
     expect(JSON.stringify(result.additions[0])).not.toContain('TAP_REPLY');
   });
 
+  it('marks the unmapped total unavailable when a mapped action has no valid count', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-mapped-missing-count', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [
+                  { dimension_values: ['TAP_FORWARD'], value: 12 },
+                  { dimension_values: ['TAP_FORWARD'], value: null },
+                ],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: 12, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'available', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
+  it('marks the unmapped total unavailable when a breakdown row has no action key', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-row-no-action-key', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [{ value: 3 }],
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
   it('does not interpret an empty object navigation payload as zero actions', async () => {
     const result = await collectInstagramStoryInsights({
       publications: [{ storyId: 'story-navigation-empty-object', publishedAt: PUBLISHED_AT }],
@@ -269,6 +332,61 @@ describe('Instagram Story insights collector', () => {
     expect(result.additions[0]).toMatchObject({
       metrics: { unmappedNavigationActions: null },
       metricStatus: { unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+  });
+
+  it('does not count arbitrary numeric object properties as navigation actions', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-object-metadata', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{ name: 'navigation', values: [{ value: { '2026': 7, action_count: 3 } }] }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
+    });
+    expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
+    expect(JSON.stringify(result.additions[0])).not.toContain('action_count');
+  });
+
+  it('treats empty Meta breakdown results with wrapper metadata as unavailable', async () => {
+    const result = await collectInstagramStoryInsights({
+      publications: [{ storyId: 'story-navigation-empty-results', publishedAt: PUBLISHED_AT }],
+      accessToken: 'token',
+      asOf: AS_OF,
+      fetchImpl: async (input) => {
+        const metric = new URL(String(input)).searchParams.get('metric') || '';
+        if (metric !== 'navigation') return metricResponse(metric);
+        return response({
+          data: [{
+            name: 'navigation',
+            total_value: {
+              value: 0,
+              breakdowns: [{
+                dimension_keys: ['story_navigation_action_type'],
+                results: [],
+                sample_size: 0,
+              }],
+            },
+          }],
+        });
+      },
+      sleepImpl: async () => {},
+    });
+
+    expect(result.additions[0]).toMatchObject({
+      metrics: { tapsForward: null, unmappedNavigationActions: null },
+      metricStatus: { tapsForward: 'metric-unavailable', unmappedNavigationActions: 'metric-unavailable' },
     });
     expect(result.additions[0]?.availableMetrics).not.toContain('unmappedNavigationActions');
   });
