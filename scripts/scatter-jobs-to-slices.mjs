@@ -541,7 +541,7 @@ function diagnosticFindProjectionJob(projectionEntries, entry, sliceJob) {
  * @param {{sliceJob?: object, projectedJob?: object, missingBridges?: Array<object>}} options
  * @returns {{classes: string[], changes: object}}
  */
-export function scatterParityClassHandler({ sliceJob = {}, projectedJob = {}, missingBridges = [] } = {}) {
+export function classifyScatterParityChanges({ sliceJob = {}, projectedJob = {}, missingBridges = [] } = {}) {
   const classes = [];
   const changes = {};
   if (!localeMapsEqual(projectedJob.titleByLocale, sliceJob.titleByLocale)) {
@@ -689,7 +689,7 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
       });
       if (applied.changed) {
         pendingWrites.total++;
-        const classReport = scatterParityClassHandler({
+        const classReport = classifyScatterParityChanges({
           sliceJob,
           projectedJob: applied.job,
           missingBridges: missing,
@@ -810,6 +810,77 @@ export function mergeLocaleMap(sliceMap, assembledMap) {
     // If assembled is empty but slice has content, keep slice (don't destroy)
   }
   return merged;
+}
+
+/**
+ * Apply one known scatter-parity class to a prospective slice job.
+ *
+ * The caller supplies a cloned job and invokes this dispatcher only for
+ * classes proven by the projection. Unknown classes are a fail-closed no-op;
+ * they must not guess a field or bypass the existing bridge caps and ownership
+ * rules. Keeping the mutations here makes each observed parity class map to
+ * exactly one bounded repair path.
+ *
+ * @param {string} className
+ * @param {{job?: object, assembled?: object, mergedTitle?: object, mergedDescription?: object, mergedSlug?: object, missingBridges?: Array<{locale: string|null, slug: string}>}} options
+ * @returns {boolean} whether this handler changed the supplied job
+ */
+export function scatterParityClassHandler(className, {
+  job,
+  assembled = {},
+  mergedTitle,
+  mergedDescription,
+  mergedSlug,
+  missingBridges = [],
+} = {}) {
+  if (!job || typeof job !== 'object') return false;
+
+  switch (className) {
+    case 'title': {
+      const next = mergedTitle ?? mergeLocaleMap(job.titleByLocale, assembled.titleByLocale);
+      if (localeMapsEqual(next, job.titleByLocale)) return false;
+      job.titleByLocale = next;
+      return true;
+    }
+    case 'description': {
+      const next = mergedDescription ?? mergeLocaleMap(job.descriptionByLocale, assembled.descriptionByLocale);
+      if (localeMapsEqual(next, job.descriptionByLocale)) return false;
+      job.descriptionByLocale = next;
+      return true;
+    }
+    case 'slug': {
+      const next = mergedSlug ?? mergeLocaleMap(job.slugByLocale, assembled.slugByLocale);
+      if (localeMapsEqual(next, job.slugByLocale)) return false;
+      job.slugByLocale = next;
+      return true;
+    }
+    case 'retranslation':
+      return carryForwardMarks(job, assembled) > 0;
+    case 'bridge': {
+      let changed = false;
+      for (const { locale, slug } of Array.isArray(missingBridges) ? missingBridges : []) {
+        if (locale) {
+          changed = addPreviousSlugForLocale(
+            job,
+            locale,
+            slug,
+            DEFAULT_PREV_SLUG_CAP,
+            `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`,
+          ) || changed;
+        } else {
+          changed = promotePreviousSlugToLegacy(
+            job,
+            slug,
+            LEGACY_PREV_SLUGS_CAP,
+            'scatter-jobs-to-slices/carry-forward-legacy',
+          ) || changed;
+        }
+      }
+      return changed;
+    }
+    default:
+      return false;
+  }
 }
 
 /**
@@ -967,14 +1038,14 @@ export function applyAssembledToSliceJob(sliceJob, assembled, {
   // committed slice, or the next assembly discards the work item.
   const carriesRetranslationMark = assembled?.needsRetranslation === true
     && sliceJob?.needsRetranslation !== true;
-  const changed =
-    !localeMapsEqual(mergedTitle, sliceJob.titleByLocale) ||
-    !localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale) ||
-    !localeMapsEqual(mergedSlug, sliceJob.slugByLocale) ||
-    hasMissingBridgesPreRename ||
-    carriesRetranslationMark;
+  const changeClasses = [];
+  if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) changeClasses.push('title');
+  if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) changeClasses.push('description');
+  if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) changeClasses.push('slug');
+  if (hasMissingBridgesPreRename) changeClasses.push('bridge');
+  if (carriesRetranslationMark) changeClasses.push('retranslation');
 
-  if (!changed) return { job: sliceJob, changed: false };
+  if (changeClasses.length === 0) return { job: sliceJob, changed: false };
 
   // Defensive merge: never overwrite a non-empty locale value with an empty one.
   // The assembled data may have had locales stripped by ensureLocaleFields when
@@ -992,14 +1063,23 @@ export function applyAssembledToSliceJob(sliceJob, assembled, {
     previousSlugsByLocale: sliceJob.previousSlugsByLocale && typeof sliceJob.previousSlugsByLocale === 'object'
       ? Object.fromEntries(Object.entries(sliceJob.previousSlugsByLocale).map(([locale, slugs]) => [locale, Array.isArray(slugs) ? [...slugs] : slugs]))
       : sliceJob.previousSlugsByLocale,
-    titleByLocale: mergedTitle,
-    descriptionByLocale: mergedDesc,
-    slugByLocale: mergedSlug,
+    titleByLocale: sliceJob.titleByLocale,
+    descriptionByLocale: sliceJob.descriptionByLocale,
+    slugByLocale: sliceJob.slugByLocale,
   };
 
-  // Marks are monotone: carry the assembled-side evidence onto the slice but
-  // never clear a mark already present on the committed source of truth.
-  carryForwardMarks(updatedJob, assembled);
+  // Apply only classes proven by the projection. The dispatcher is the single
+  // class-level mutation path; unknown classes remain a fail-closed no-op.
+  for (const className of changeClasses) {
+    if (className === 'bridge') continue;
+    scatterParityClassHandler(className, {
+      job: updatedJob,
+      assembled,
+      mergedTitle,
+      mergedDescription: mergedDesc,
+      mergedSlug,
+    });
+  }
 
   // Detect per-locale slug changes and record with locale context.
   // Route through the canonical journal-backed helper (instead of a
@@ -1056,12 +1136,8 @@ export function applyAssembledToSliceJob(sliceJob, assembled, {
   const missingBridges = preserveLocationSpecificSlugs
     ? []
     : collectMissingAssembledBridges(updatedJob, assembled, { skipBridges });
-  for (const { locale, slug } of missingBridges) {
-    if (locale) {
-      addPreviousSlugForLocale(updatedJob, locale, slug, DEFAULT_PREV_SLUG_CAP, `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`);
-    } else {
-      promotePreviousSlugToLegacy(updatedJob, slug, LEGACY_PREV_SLUGS_CAP, 'scatter-jobs-to-slices/carry-forward-legacy');
-    }
+  if (missingBridges.length > 0) {
+    scatterParityClassHandler('bridge', { job: updatedJob, missingBridges });
   }
 
   return { job: updatedJob, changed: true };
