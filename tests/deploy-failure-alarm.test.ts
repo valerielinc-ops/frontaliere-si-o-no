@@ -246,6 +246,7 @@ describe('il workflow osservatore: forma pinnata', () => {
     expect(cond).toContain("github.event.workflow_run.conclusion == 'failure'");
     expect(cond).toContain("github.event.workflow_run.conclusion == 'timed_out'");
     expect(cond).toContain("github.event.workflow_run.conclusion == 'startup_failure'");
+    expect(cond).toContain('!github.event.workflow_run.conclusion');
     expect(cond).not.toMatch(/cancelled/);
   });
 
@@ -300,7 +301,15 @@ describe('il workflow osservatore: forma pinnata', () => {
 describe('il reporter esterno sopravvive al checkout fallito', () => {
   const steps = WF.jobs.alarm.steps as Array<Record<string, any>>;
   const opener = steps.find((step) => step.name === 'Open or update the deploy alarm issue');
+  const greenFallback = steps.find((step) => step.name === 'Resolve deploy alarm when the API confirms green');
   const fallback = steps.find((step) => step.name === 'Open or update deploy alarm without the checkout (fallback)');
+
+  it('recupera gli eventi workflow_run senza conclusion tramite il digest API', () => {
+    expect(greenFallback, 'il percorso verde recuperato deve esistere').toBeDefined();
+    expect(String(greenFallback?.if)).toContain("steps.digest.outputs.verdict == 'resolve'");
+    expect(String(greenFallback?.if)).toContain('!inputs.dry_run');
+    expect(String(greenFallback?.run)).toContain('--resolve');
+  });
 
   it('ha un fallback API che apre la stessa issue canonica', () => {
     expect(opener?.id).toBe('open');
@@ -308,6 +317,8 @@ describe('il reporter esterno sopravvive al checkout fallito', () => {
     expect(String(fallback?.if)).toContain('always()');
     expect(String(fallback?.if)).toContain("steps.open.outcome != 'success'");
     expect(String(fallback?.if)).toContain("github.event.workflow_run.conclusion == 'failure'");
+    expect(String(fallback?.if)).toContain('!github.event.workflow_run.conclusion');
+    expect(String(fallback?.if)).toContain("steps.digest.outcome != 'success'");
     expect(fallback?.['continue-on-error']).toBe(true);
     expect(fallback?.env?.ALARM_SHA).toBe('${{ github.sha }}');
     expect(String(fallback?.run)).toContain('gh api');
