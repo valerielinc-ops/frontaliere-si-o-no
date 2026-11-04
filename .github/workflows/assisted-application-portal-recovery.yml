@@ -54,7 +54,9 @@ jobs:
   recover:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Includes two npm installs, apt/browser setup and two bounded Firestore
+    # reconciliation steps. Keep enough headroom for slow hosted-runner mirrors.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
         with:
@@ -84,7 +86,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Prepare the read-only public-form browser
         run: npx playwright install --with-deps chromium
-        timeout-minutes: 5
+        # `--with-deps` also downloads Ubuntu packages; five minutes cut off a
+        # normal 21 MB dependency install on a slow mirror in run 41899569696.
+        timeout-minutes: 15
       - name: Revalidate legacy operational portal contracts
         # A PR explicitly marked [no-application-recovery] ships code only. Do
         # not mutate candidate records or queue real submissions as a side
