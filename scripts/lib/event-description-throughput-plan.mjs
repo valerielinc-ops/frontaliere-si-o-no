@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs';
-
 /**
  * Dependency-free throughput planning for the event-description workflow.
  *
@@ -18,14 +16,6 @@ export const MAX_EVENTS_PER_SHARD = 10_000;
 export const QUOTA_ERROR_THRESHOLD = 2;
 export const CIRCUIT_BREAKER_THRESHOLD = QUOTA_ERROR_THRESHOLD;
 export const EVENTS_PER_SHARD_RAMP = 8;
-
-export function readJsonFile(filePath, fallback = null) {
-  try {
-    return JSON.parse(readFileSync(filePath, 'utf8'));
-  } catch {
-    return fallback;
-  }
-}
 
 function integerInRange(value, { min, max, fallback }) {
   const parsed = Number.parseInt(String(value), 10);

@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { readFileSync } from 'node:fs';
 
 import {
   EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
@@ -30,7 +31,6 @@ export {
   normalizeEventsPerShard,
   normalizeShardCount,
   QUOTA_ERROR_THRESHOLD,
-  readJsonFile,
 } from './event-description-throughput-plan.mjs';
 
 /** Hash the stable event id; the partition never depends on input ordering. */
@@ -317,6 +317,13 @@ export function countPendingEvents(dataset, cache) {
   return summarizeRewriteQueue(dataset, cache).pending;
 }
 
+export function readJsonFile(filePath, fallback = null) {
+  try {
+    return JSON.parse(readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
 
 export function emptyRewriteStats({ shardIndex = 0, shardCount = 1, limit = 0, startedAt = new Date().toISOString() } = {}) {
   return {
