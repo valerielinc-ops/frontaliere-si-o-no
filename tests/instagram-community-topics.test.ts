@@ -39,6 +39,10 @@ describe('privacy-safe Instagram community topic signals', () => {
       .toBe('mobilita-valichi');
     expect(classifyInstagramCommunityQuestion('Is there traffic?'))
       .toBeNull();
+    expect(classifyInstagramCommunityQuestion('Dove\u200bma fisco'))
+      .toBeNull();
+    expect(classifyInstagramCommunityQuestion('no\u200btax?'))
+      .toBeNull();
   });
 
   it('deduplicates hashed comment keys, drops expired/unknown records, and suppresses every category below ten', () => {
