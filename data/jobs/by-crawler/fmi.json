@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fmi",
-  "assembledAt": "2026-11-02T21:26:10.048Z",
-  "runId": "41525136431",
+  "assembledAt": "2026-11-04T09:19:22.450Z",
+  "runId": "41804599823",
   "jobs": [
     {
       "id": "fmi-0ac06fbabc27",
@@ -35,7 +35,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-langzeitpflege/90ce8148-065f-4daf-95de-74bcdd06ed04",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:26:01.224Z",
+      "crawledAt": "2026-11-04T09:19:12.055Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:26:01.224Z",
+      "validThrough": "2026-12-04T09:19:12.055Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -138,7 +138,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fuer-jede-lebenslage/ef8d65b4-c50a-49e4-b981-93c840035a5e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:26:00.753Z",
+      "crawledAt": "2026-11-04T09:19:11.523Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:26:00.753Z",
+      "validThrough": "2026-12-04T09:19:11.523Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -189,7 +189,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -216,7 +216,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-psychiatrie-stationaer/cc3657be-a4d0-4367-ba22-674570a9d744",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:26:00.246Z",
+      "crawledAt": "2026-11-04T09:19:11.000Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
-        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
+        "psychiatric-nurse-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -256,7 +256,7 @@
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
-          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
+          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "psycholog-in-psychiatrie-80-fmi-unterseen"
@@ -282,7 +282,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:26:00.246Z",
+      "validThrough": "2026-12-04T09:19:11.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -317,7 +317,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/445a97be-e8b9-4774-830b-ba7a0dfa28a1",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:59.776Z",
+      "crawledAt": "2026-11-04T09:19:10.466Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -413,7 +413,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:59.776Z",
+      "validThrough": "2026-12-04T09:19:10.466Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -447,7 +447,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/individuelle-einsaetze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann-gesundheit-efz-oder-assistent-in-gesundheit-und-soziales/c63d0192-89b3-48c4-bbd0-c427e3ff058e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:59.353Z",
+      "crawledAt": "2026-11-04T09:19:10.014Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:59.353Z",
+      "validThrough": "2026-12-04T09:19:10.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -547,7 +547,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/zivildienst-pflege-und-betreuung/a068f18b-1040-48e1-b11b-2b2ee5bd41bb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:58.854Z",
+      "crawledAt": "2026-11-04T09:19:09.493Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:58.854Z",
+      "validThrough": "2026-12-04T09:19:09.493Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -641,7 +641,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-psychiatrie/6eacc015-9bcb-412b-a2e3-7d085fd7153d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:58.438Z",
+      "crawledAt": "2026-11-04T09:19:09.041Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -697,7 +697,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:58.438Z",
+      "validThrough": "2026-12-04T09:19:09.041Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -732,7 +732,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf/aff489f8-5b07-4860-8567-83167d830719",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:58.053Z",
+      "crawledAt": "2026-11-04T09:19:08.605Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -779,7 +779,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:58.053Z",
+      "validThrough": "2026-12-04T09:19:08.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +814,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/experte-expertin-notfallpflege/daec2cf0-3bef-45c6-b4e8-3208b5aae34b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:57.577Z",
+      "crawledAt": "2026-11-04T09:19:08.103Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -864,7 +864,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:57.577Z",
+      "validThrough": "2026-12-04T09:19:08.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -898,7 +898,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie/a50b8252-267c-427d-8396-168297695861",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:57.185Z",
+      "crawledAt": "2026-11-04T09:19:07.695Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -984,7 +984,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:57.185Z",
+      "validThrough": "2026-12-04T09:19:07.695Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1018,7 +1018,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/fb161cc4-f887-4014-a16b-3b4da26c7472",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:56.704Z",
+      "crawledAt": "2026-11-04T09:19:07.191Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1086,7 +1086,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:56.704Z",
+      "validThrough": "2026-12-04T09:19:07.191Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1120,7 +1120,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/0f106ebd-a8af-4986-bcda-b3a4f2ecfc2e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:56.225Z",
+      "crawledAt": "2026-11-04T09:19:06.639Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1190,7 +1190,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:56.225Z",
+      "validThrough": "2026-12-04T09:19:06.639Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1225,7 +1225,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/stellvertretende-wohngruppenleitung/c53d8be6-4dcc-4c7f-a169-bd61d3cd55aa",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:55.739Z",
+      "crawledAt": "2026-11-04T09:19:06.139Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1268,7 +1268,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:55.739Z",
+      "validThrough": "2026-12-04T09:19:06.139Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1276,7 +1276,7 @@
       "slug": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
-        "en": "pflegepersonal-spitaler-fmi-ag-unterseen",
+        "en": "nursing-staff-spitaler-fmi-ag-unterseen",
         "de": "pflegepersonal-fmi-unterseen",
         "fr": "personnel-soignant-spitaler-fmi-ag-unterseen"
       },
@@ -1303,7 +1303,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegepersonal/9c227446-7612-4b79-b0fc-6a28403139e2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:55.256Z",
+      "crawledAt": "2026-11-04T09:19:05.619Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1351,7 +1351,7 @@
         "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
         "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen",
         "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen",
-        "nursing-staff-spitaler-fmi-ag-unterseen"
+        "pflegepersonal-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1379,7 +1379,7 @@
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
           "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen",
           "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
-          "nursing-staff-spitaler-fmi-ag-unterseen"
+          "pflegepersonal-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "ernahrungsberater-in-60-80-fmi-unterseen",
@@ -1411,7 +1411,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:55.256Z",
+      "validThrough": "2026-12-04T09:19:05.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1445,7 +1445,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-gesundheit-efz/f315d841-ffae-4aed-8a37-0ea65fdc93d0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:54.866Z",
+      "crawledAt": "2026-11-04T09:19:05.207Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1511,7 +1511,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:54.866Z",
+      "validThrough": "2026-12-04T09:19:05.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1545,7 +1545,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027/c45ec92b-a03c-41a2-96b7-e0fdb0bc6462",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:54.472Z",
+      "crawledAt": "2026-11-04T09:19:04.795Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1607,7 +1607,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:54.472Z",
+      "validThrough": "2026-12-04T09:19:04.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1641,7 +1641,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027/a30626f2-2c18-430f-aee3-45601b11149c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:53.991Z",
+      "crawledAt": "2026-11-04T09:19:04.290Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1684,7 +1684,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:53.991Z",
+      "validThrough": "2026-12-04T09:19:04.290Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1718,7 +1718,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-interlaken-2027/9603ba2d-4b72-431c-8374-3c3d4dfaf493",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:53.498Z",
+      "crawledAt": "2026-11-04T09:19:03.793Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1778,7 +1778,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:53.498Z",
+      "validThrough": "2026-12-04T09:19:03.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1812,7 +1812,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027/236c98b5-290e-49d0-853c-87be82a07f46",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:53.021Z",
+      "crawledAt": "2026-11-04T09:19:03.271Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1874,7 +1874,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:53.021Z",
+      "validThrough": "2026-12-04T09:19:03.271Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1908,7 +1908,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027/2baa4758-741f-402e-baaa-0b448d2c10c9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:52.612Z",
+      "crawledAt": "2026-11-04T09:19:02.831Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1970,7 +1970,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:52.612Z",
+      "validThrough": "2026-12-04T09:19:02.831Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2004,7 +2004,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027/8225ef49-9e67-43f0-80b3-bf8ee8ae8951",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:52.141Z",
+      "crawledAt": "2026-11-04T09:19:02.332Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2069,7 +2069,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:52.141Z",
+      "validThrough": "2026-12-04T09:19:02.332Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2104,7 +2104,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-station-medizin/6062bcbc-38c1-4dc3-a814-538ae85be262",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:51.654Z",
+      "crawledAt": "2026-11-04T09:19:01.817Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2154,7 +2154,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:51.654Z",
+      "validThrough": "2026-12-04T09:19:01.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2188,7 +2188,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/4cb91fc1-ca49-4791-b8e3-df610fbcd5ae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:51.143Z",
+      "crawledAt": "2026-11-04T09:19:01.309Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2282,7 +2282,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:51.143Z",
+      "validThrough": "2026-12-04T09:19:01.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2316,7 +2316,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/3c68714d-5929-4a32-8bcc-1261b38bd3a0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:50.661Z",
+      "crawledAt": "2026-11-04T09:19:00.799Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2359,7 +2359,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:50.661Z",
+      "validThrough": "2026-12-04T09:19:00.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2393,7 +2393,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:50.259Z",
+      "crawledAt": "2026-11-04T09:19:00.189Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2461,7 +2461,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:50.259Z",
+      "validThrough": "2026-12-04T09:19:00.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2495,7 +2495,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben/8acf3d4c-798c-4510-bde3-57af39a33a49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:49.781Z",
+      "crawledAt": "2026-11-04T09:18:59.682Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2538,7 +2538,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:49.781Z",
+      "validThrough": "2026-12-04T09:18:59.682Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2573,7 +2573,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/wohngruppenleitung/15513cd2-5c07-4092-b3b0-c780a56fec49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:49.299Z",
+      "crawledAt": "2026-11-04T09:18:59.168Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2627,7 +2627,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:49.299Z",
+      "validThrough": "2026-12-04T09:18:59.168Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2662,7 +2662,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in/3d689cbc-b87d-4b32-b872-bb511137902e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:48.836Z",
+      "crawledAt": "2026-11-04T09:18:58.655Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2711,7 +2711,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:48.836Z",
+      "validThrough": "2026-12-04T09:18:58.655Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2746,7 +2746,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/473dcc71-145d-4530-9be9-b83e8c36904b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:48.427Z",
+      "crawledAt": "2026-11-04T09:18:58.229Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2797,7 +2797,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:48.427Z",
+      "validThrough": "2026-12-04T09:18:58.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2831,7 +2831,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/85ced034-128c-4aa8-ba64-5c81a4eaa220",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:48.015Z",
+      "crawledAt": "2026-11-04T09:18:57.793Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2874,7 +2874,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:48.015Z",
+      "validThrough": "2026-12-04T09:18:57.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2909,7 +2909,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/476409a8-cda5-4e04-ac79-6bfc0dde1dcb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:47.556Z",
+      "crawledAt": "2026-11-04T09:18:57.275Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2973,7 +2973,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:47.556Z",
+      "validThrough": "2026-12-04T09:18:57.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3007,7 +3007,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/bb78f6e2-e974-4c3a-ac2b-07cae42f1ea7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:47.077Z",
+      "crawledAt": "2026-11-04T09:18:56.778Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3050,7 +3050,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:47.077Z",
+      "validThrough": "2026-12-04T09:18:56.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3085,7 +3085,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/eb38263b-bb56-445c-948f-e6914357813d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:46.606Z",
+      "crawledAt": "2026-11-04T09:18:56.262Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3151,7 +3151,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:46.606Z",
+      "validThrough": "2026-12-04T09:18:56.262Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3186,7 +3186,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-intensivpflege/efdeb34b-9424-4f00-b03f-661737c71c2b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:46.150Z",
+      "crawledAt": "2026-11-04T09:18:55.744Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3235,7 +3235,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:46.150Z",
+      "validThrough": "2026-12-04T09:18:55.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3269,7 +3269,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/cc3f4360-ceb8-4c92-a0ba-c83f392fdac8",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:45.672Z",
+      "crawledAt": "2026-11-04T09:18:55.233Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3318,7 +3318,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:45.672Z",
+      "validThrough": "2026-12-04T09:18:55.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3353,7 +3353,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme/9dbdf88b-fbd5-45b0-90bd-b1dc2ab6d431",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:45.250Z",
+      "crawledAt": "2026-11-04T09:18:54.807Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3402,7 +3402,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:45.250Z",
+      "validThrough": "2026-12-04T09:18:54.807Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3437,7 +3437,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitender-arzt-leitende-aerztin-innere-medizin/a7fbda1e-5885-4878-84e9-d47181b41815",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:44.844Z",
+      "crawledAt": "2026-11-04T09:18:54.261Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3486,7 +3486,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:44.844Z",
+      "validThrough": "2026-12-04T09:18:54.261Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3520,7 +3520,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehilfe/01a01453-fa3c-434d-ba13-b0f4baa193a9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:44.334Z",
+      "crawledAt": "2026-11-04T09:18:53.726Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3569,7 +3569,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:44.334Z",
+      "validThrough": "2026-12-04T09:18:53.726Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3604,7 +3604,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/studierende-r-rettungssanitaeter-in-hf/11d40920-6d9d-4cad-8a58-77fd73ea095c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:43.939Z",
+      "crawledAt": "2026-11-04T09:18:53.301Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3658,7 +3658,7 @@
       },
       "streetAddress": "Wilderswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:43.939Z",
+      "validThrough": "2026-12-04T09:18:53.301Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3692,7 +3692,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/technische-r-sterilisationsassistent-in/40d9df3b-2633-4646-93ed-1fafc19fc900",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:43.541Z",
+      "crawledAt": "2026-11-04T09:18:52.860Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3741,7 +3741,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:43.541Z",
+      "validThrough": "2026-12-04T09:18:52.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3775,7 +3775,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/medizinaltechniker-in/2635d189-fa12-49ea-9406-4e6bbce4d8b2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:43.132Z",
+      "crawledAt": "2026-11-04T09:18:52.432Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3837,7 +3837,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:43.132Z",
+      "validThrough": "2026-12-04T09:18:52.432Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3872,7 +3872,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fachperson-efz-assistenzperson-gesundheit-und-soziales-im-pflegepool/baa9310e-8e8f-4ee3-817c-70dd9d26b098",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:42.623Z",
+      "crawledAt": "2026-11-04T09:18:51.914Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3923,7 +3923,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:42.623Z",
+      "validThrough": "2026-12-10T09:18:51.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3958,7 +3958,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-wintersaison/27b03ec7-e83e-4695-a877-31460c490d90",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:42.080Z",
+      "crawledAt": "2026-11-04T09:18:51.413Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4007,7 +4007,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:25:42.080Z",
+      "validThrough": "2026-12-16T09:18:51.413Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4042,7 +4042,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/d029739e-3036-4fd8-8913-e1e546620990",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:41.610Z",
+      "crawledAt": "2026-11-04T09:18:50.881Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4091,7 +4091,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:25:41.610Z",
+      "validThrough": "2026-12-20T09:18:50.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4126,7 +4126,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung/225ab539-6eb7-43cb-bff1-3e1096d5c834",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:41.130Z",
+      "crawledAt": "2026-11-04T09:18:50.443Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4182,7 +4182,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:25:41.130Z",
+      "validThrough": "2026-12-27T09:18:50.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4217,7 +4217,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fh/a3b75b26-996b-471d-954f-2e52be77d968",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:40.658Z",
+      "crawledAt": "2026-11-04T09:18:49.915Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4268,7 +4268,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:25:40.658Z",
+      "validThrough": "2026-12-27T09:18:49.915Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4303,7 +4303,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-reinigung-operationstrakt-und-notfallstation/7ff57a66-733a-4863-8385-747f14d5cf99",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:40.186Z",
+      "crawledAt": "2026-11-04T09:18:49.409Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4358,7 +4358,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:25:40.186Z",
+      "validThrough": "2026-12-28T09:18:49.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4393,7 +4393,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitende-pflegefachperson/6566dff5-d994-42d3-8f02-ceccd3b4fd28",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:39.760Z",
+      "crawledAt": "2026-11-04T09:18:48.990Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4442,7 +4442,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:25:39.760Z",
+      "validThrough": "2026-12-31T09:18:48.990Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4477,7 +4477,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/einkaeufer-in-mit-strategischen-aufgaben/dad61292-3278-4995-a1b7-3f5defdad5d4",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:39.350Z",
+      "crawledAt": "2026-11-04T09:18:48.577Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4526,7 +4526,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:25:39.350Z",
+      "validThrough": "2027-01-03T09:18:48.577Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4561,7 +4561,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-mit-vertiefung-in-palliative-care-fuer-die-interdisziplinaere-privatstation/c5f1305f-9bfd-448e-b988-67c597a2509d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:38.868Z",
+      "crawledAt": "2026-11-04T09:18:48.077Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4612,7 +4612,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:25:38.868Z",
+      "validThrough": "2027-01-04T09:18:48.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4646,7 +4646,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberarzt-oberaerztin/196f99df-cade-4506-a9fb-9a9cd2ec79dd",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:38.376Z",
+      "crawledAt": "2026-11-04T09:18:47.550Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4695,7 +4695,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:25:38.376Z",
+      "validThrough": "2027-01-14T09:18:47.550Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4729,7 +4729,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/arztsekretaer-in-orthopaedie/b794c860-de5c-4225-ae37-50b21d4d825a",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:37.906Z",
+      "crawledAt": "2026-11-04T09:18:47.052Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4778,7 +4778,7 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:25:37.906Z",
+      "validThrough": "2027-01-14T09:18:47.052Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4813,7 +4813,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/projekt-prozessmanager-in-finanzen/7b17dc37-2a93-4649-a7df-23bec1eea8c6",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:37.427Z",
+      "crawledAt": "2026-11-04T09:18:46.557Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4862,7 +4862,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:25:37.427Z",
+      "validThrough": "2027-01-14T09:18:46.557Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4896,7 +4896,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/apotheker-in/fe2ad6c5-6f1e-4985-ab91-0950454ee4a2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:36.949Z",
+      "crawledAt": "2026-11-04T09:18:46.061Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4945,7 +4945,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:25:36.949Z",
+      "validThrough": "2027-01-17T09:18:46.061Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4979,7 +4979,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/arztsekretaer-in-orthopaedie/56f0e06b-ab08-40b0-8a53-eaebf1f7dfae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:36.443Z",
+      "crawledAt": "2026-11-04T09:18:45.528Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5030,7 +5030,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:25:36.443Z",
+      "validThrough": "2027-01-20T09:18:45.528Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5065,7 +5065,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/wohngruppenleitung/7f94e54b-a604-4f11-8629-62efc3dbc3a2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:36.049Z",
+      "crawledAt": "2026-11-04T09:18:45.062Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5113,7 +5113,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:25:36.049Z",
+      "validThrough": "2027-01-21T09:18:45.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5148,7 +5148,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitung-pflege-mit-verantwortung-fuer-den-stationaeren-oder-ambulanten-bereich/14d115ac-7da9-4b42-b6ef-dd9e65bd4347",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:35.565Z",
+      "crawledAt": "2026-11-04T09:18:44.566Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5199,7 +5199,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:25:35.565Z",
+      "validThrough": "2027-01-25T09:18:44.566Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5234,7 +5234,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-apotheke-pharmaassistent-in/1637d75d-d535-4bab-8628-c48e9c5a79f3",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:35.079Z",
+      "crawledAt": "2026-11-04T09:18:44.063Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5283,7 +5283,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:25:35.079Z",
+      "validThrough": "2027-01-25T09:18:44.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5317,7 +5317,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitende-aerztin-leitender-arzt-nephrologie/1900ef27-d1c5-4962-bf42-5d48d5f536f5",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:34.650Z",
+      "crawledAt": "2026-11-04T09:18:43.604Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5366,7 +5366,7 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:25:34.650Z",
+      "validThrough": "2027-01-26T09:18:43.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5401,7 +5401,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberaerztin-oberarzt-oder-fachaerztin-facharzt-radiologie/5b44c9c0-98c7-4ef2-b507-e47a588504f9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:34.161Z",
+      "crawledAt": "2026-11-04T09:18:43.043Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5452,16 +5452,16 @@
       },
       "streetAddress": "Unterseen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:25:34.161Z",
+      "validThrough": "2027-01-28T09:18:43.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-0589dc9d57f4",
       "slug": "esperto-a-in-cure-d-emergenza-infermiere-a-diplomato-a-con-formazione-imc-60-100-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
-        "de": "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
         "it": "esperto-a-in-cure-d-emergenza-infermiere-a-diplomato-a-con-formazione-imc-60-100-spitaler-fmi-ag-frutigen",
         "en": "emergency-nursing-expert-registered-nurse-with-imc-training-60-100-spitaler-fmi-ag-frutigen",
+        "de": "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
         "fr": "expert-e-en-soins-d-urgence-infirmier-ere-diplome-e-avec-une-formation-imc-60-100-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
@@ -5469,25 +5469,25 @@
       "companyDomain": "spitalfmi.ch",
       "title": "Expert:in Notfallpflege / Dipl.Pflegefachperson mit IMC Ausbildung 60 - 100%",
       "titleByLocale": {
-        "de": "Expert:in Notfallpflege / Dipl.Pflegefachperson mit IMC Ausbildung 60 - 100%",
         "it": "Esperto/a in cure d’emergenza / Infermiere/a diplomato/a con formazione IMC 60 - 100%",
         "en": "Emergency nursing expert / Registered nurse with IMC training 60 - 100%",
+        "de": "Expert:in Notfallpflege / Dipl.Pflegefachperson mit IMC Ausbildung 60 - 100%",
         "fr": "Expert·e en soins d’urgence / infirmier·ère diplômé·e avec une formation IMC 60 - 100%"
       },
       "description": "Dein Aufgabengebiet\n\n• Betreuung und Behandlung von Menschen mit vielfältigen medizinischen Anliegen in einem lebhaften,\nanspruchsvollen und touristisch geprägten alpinen Einzugsgebiet\n\n• Fachgerechte Versorgung von Patientinnen und Patienten aller Altersgruppen und Nationalitäten in unterschiedlichsten akuten und notfallmedizinischen Situationen\n\n• Selbstständige und eigenverantwortliche Gestaltung des Arbeitsalltags in enger interprofessioneller\nZusammenarbeit mit der Akutpflegestation und\nweiteren Fachbereichen\n\nDeine Kompetenzen\n\n• Nachdiplomstudium als Expert:in Notfallpflege oder Pflegefachfrau/mann mit IMC Weiterbildung und\nErfahrung Notfall\n\n• belastbare, selbständige und teamfähige Persönlichkeit mit ausgeprägtem Verantwortungsbewusstsein, hoher Motivation und empathischen Auftreten\n\n• Freude an der aktiven Mitgestaltung von Arbeitsprozessen, sowie Interesse an fachlichen und organisatorischen Herausforderungen\n\n• Fremdsprachenkenntnisse sind von Vorteil\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Karin Völkel, Leiterin Pflege Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
       "descriptionByLocale": {
-        "de": "Dein Aufgabengebiet\n\n• Betreuung und Behandlung von Menschen mit vielfältigen medizinischen Anliegen in einem lebhaften,\nanspruchsvollen und touristisch geprägten alpinen Einzugsgebiet\n\n• Fachgerechte Versorgung von Patientinnen und Patienten aller Altersgruppen und Nationalitäten in unterschiedlichsten akuten und notfallmedizinischen Situationen\n\n• Selbstständige und eigenverantwortliche Gestaltung des Arbeitsalltags in enger interprofessioneller\nZusammenarbeit mit der Akutpflegestation und\nweiteren Fachbereichen\n\nDeine Kompetenzen\n\n• Nachdiplomstudium als Expert:in Notfallpflege oder Pflegefachfrau/mann mit IMC Weiterbildung und\nErfahrung Notfall\n\n• belastbare, selbständige und teamfähige Persönlichkeit mit ausgeprägtem Verantwortungsbewusstsein, hoher Motivation und empathischen Auftreten\n\n• Freude an der aktiven Mitgestaltung von Arbeitsprozessen, sowie Interesse an fachlichen und organisatorischen Herausforderungen\n\n• Fremdsprachenkenntnisse sind von Vorteil\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Karin Völkel, Leiterin Pflege Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
         "it": "Le tue responsabilità\n\n• cura e trattamento delle persone con diverse preoccupazioni mediche in un vivace,\nimpegnativo e turistico area di cattura alpina\n\n• Assistenza professionale per i pazienti di tutte le età e nazionalità in un'ampia varietà di situazioni mediche acute e di emergenza\n\n• Design indipendente e responsabile del lavoro quotidiano in stretta interprofessionale\ncooperazione con l'unità di cura acuta e\nAltre aree di competenza\n\nLe tue competenze\n\n• Studi post-laurea come esperto: in assistenza di emergenza o infermieristica con IMC ulteriore formazione e formazione\nEsperienza di emergenza\n\n• personalità resiliente, indipendente e capace di squadra con un pronunciato senso di responsabilità, alta motivazione e aspetto empatico\n\n• Godetevi la partecipazione attiva dei processi di lavoro, nonché l'interesse per le sfide professionali e organizzative\n\n• Le competenze linguistiche straniere sono un vantaggio\n\n• Grande cooperazione di tutti i gruppi professionali: tutti parlano di cooperazione interdisciplinare e cross-professionale - lo facciamo anche noi! Progetti e gruppi di lavoro sono deliberatamente messi insieme in modo interdisciplinare e professionale. E promuoviamo anche consapevolmente lo scambio informale tra gruppi professionali attraverso varie attività.\n\n• Famiglia, tempo libero e lavoro (tu): Vi offriamo interessanti modelli di lavoro (tempo), l'acquisto di congedo non pagato o l'opportunità di lavorare part-time in tutte le aree, incluso nella squadra. Siamo felici di rispondere alle esigenze individuali.\n\n• Lavorare con qualità della vita (tu): Lavorare per un mondo di montagna unico? Un bagno nel lago al lavoro? Attività all'aperto illimitate nei giorni liberi? È il vostro desiderio di vivere e lavorare in una grande regione turistica e ricreativa? Te lo compiamo!\n\n• Ambiente di lavoro amichevole (tu): I nuovi dipendenti lo sentono già il primo giorno lavorativo: Con noi sarete accolti e supportati. Anche nella vita di tutti i giorni vi avvicinate apertamente, salutatevi e vi piace aiutare. Siamo orgogliosi del modo in cui i dipendenti si trattano e si prendono cura di esso.\n\nPer domande sul lavoro, si prega di contattare Karin Völkel, responsabile della cura Frutigen.\n\nInformazioni su di noi\n\nL'ospedale fmi AG con oltre 1.600 dipendenti comprende i due ospedali acuti Interlaken e Frutigen, la psichiatria dell'ospedale fmi AG, il centro sanitario di Meiringen, i centri senior di Frutigen e Interlaken, il servizio di emergenza con 5 sedi, la clinica walk-in di Interlaken e varie pratiche. Come moderno gruppo ospedaliero, forniamo cure mediche e psichiatriche ambulatoriale e ambulatorio, multidisciplinari nell'Oberland Bernese orientale e centrale.\n\nUbicazione: Hospital Frutigen\n\nGli ospedali fmi AG includono gli ospedali acuti Interlaken e Frutigen, il centro sanitario Meiringen, i parchi senior Frutigen e Weissenau, il servizio di ambulanza e la clinica di walk-in nell'Oberland Bernese.",
         "en": "Your responsibilities\n\n• care and treatment of people with diverse medical concerns in a lively,\nchallenging and touristic Alpine catchment area\n\n• Professional care for patients of all age groups and nationalities in a wide variety of acute and emergency medical situations\n\n• Independent and self-responsible design of everyday work in close interprofessional\ncooperation with the acute care unit and\nOther areas of expertise\n\nYour skills\n\n• Postgraduate studies as an expert: in emergency care or nursing specialist with IMC further education and training\nExperience Emergency\n\n• resilient, independent and team-capable personality with a pronounced sense of responsibility, high motivation and empathetic appearance\n\n• Enjoy the active participation of work processes, as well as interest in professional and organizational challenges\n\n• Foreign language skills are an advantage\n\n• Great cooperation of all professional groups: Everyone talks about interdisciplinary and cross-professional cooperation - we do it too! Projects and working groups are deliberately put together in an interdisciplinary and professional manner. And we also consciously promote the informal exchange between professional groups through various activities.\n\n• Family, leisure and work (you): We offer you attractive working (time) models, the purchase of unpaid leave or the opportunity to work part-time in all areas, including in the squad. We are happy to respond to individual needs.\n\n• Working with quality of life (you): Working with a view to a unique mountain world? A bath in the lake at work? Unlimited outdoor activities on days off? Is it your desire to live and work in a great tourism and recreational region? We fulfill it to you!\n\n• Friendly working atmosphere (you): New employees already feel it on the first working day: With us you will be welcomed and supported. Even in everyday life you openly approach each other, greet each other and like to help. We are proud of the way employees treat each other and take care of it.\n\nFor questions about the job, please contact Karin Völkel, Head of Care Frutigen.\n\nAbout us\n\nThe hospital fmi AG with over 1,600 employees includes the two acute hospitals Interlaken and Frutigen, the psychiatry of hospital fmi AG, the health center in Meiringen, the senior centers in Frutigen and Interlaken, the emergency service with 5 locations, the walk-in clinic in Interlaken and various practices. As a modern hospital group, we provide outpatient and inpatient, multidisciplinary medical and psychiatric care in the eastern and central Bernese Oberland.\n\nLocation: Hospital Frutigen\n\nThe hospitals fmi AG include the acute hospitals Interlaken and Frutigen, the health center Meiringen, the senior parks Frutigen and Weissenau, the ambulance service and the walk-in clinic in the Bernese Oberland.",
+        "de": "Dein Aufgabengebiet\n\n• Betreuung und Behandlung von Menschen mit vielfältigen medizinischen Anliegen in einem lebhaften,\nanspruchsvollen und touristisch geprägten alpinen Einzugsgebiet\n\n• Fachgerechte Versorgung von Patientinnen und Patienten aller Altersgruppen und Nationalitäten in unterschiedlichsten akuten und notfallmedizinischen Situationen\n\n• Selbstständige und eigenverantwortliche Gestaltung des Arbeitsalltags in enger interprofessioneller\nZusammenarbeit mit der Akutpflegestation und\nweiteren Fachbereichen\n\nDeine Kompetenzen\n\n• Nachdiplomstudium als Expert:in Notfallpflege oder Pflegefachfrau/mann mit IMC Weiterbildung und\nErfahrung Notfall\n\n• belastbare, selbständige und teamfähige Persönlichkeit mit ausgeprägtem Verantwortungsbewusstsein, hoher Motivation und empathischen Auftreten\n\n• Freude an der aktiven Mitgestaltung von Arbeitsprozessen, sowie Interesse an fachlichen und organisatorischen Herausforderungen\n\n• Fremdsprachenkenntnisse sind von Vorteil\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Karin Völkel, Leiterin Pflege Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
         "fr": "Vos responsabilités\n\n• soins et le traitement de personnes avec des préoccupations médicales diverses dans un\nbassin alpin difficile et touristique\n\n• Soins professionnels pour les patients de tous groupes d'âge et de toutes nationalités dans une grande variété de situations médicales aiguës et d'urgence\n\n• Conception indépendante et autoresponsable du travail quotidien en interprofessionnel étroit\ncoopération avec l'unité de soins actifs et\nAutres domaines de compétence\n\nVos compétences\n\n• Études supérieures en tant qu'expert: en soins d'urgence ou spécialiste des soins infirmiers avec formation et perfectionnement IMC\nExpérience d'urgence\n\n• personnalité résiliente, indépendante et capable d'équipe avec un sens prononcé des responsabilités, une motivation élevée et une apparence empathique\n\n• Profitez de la participation active des processus de travail, ainsi que l'intérêt pour les défis professionnels et organisationnels\n\n• Les compétences linguistiques sont un avantage\n\n• Grande coopération de tous les groupes professionnels: Tout le monde parle de coopération interdisciplinaire et interprofessionnelle - nous le faisons aussi! Les projets et les groupes de travail sont délibérément regroupés de manière interdisciplinaire et professionnelle. Et nous promouvons consciemment l'échange informel entre les groupes professionnels par le biais de diverses activités.\n\n• Famille, loisirs et travail (vous): Nous vous proposons des modèles attrayants de travail (temps), l'achat de congés non payés ou la possibilité de travailler à temps partiel dans tous les domaines, y compris dans l'équipe. Nous sommes heureux de répondre aux besoins individuels.\n\n• Travailler avec la qualité de vie (vous): Travailler en vue d'un monde montagneux unique? Un bain dans le lac au travail ? Activités extérieures illimitées en jours de congé? Est-ce votre désir de vivre et de travailler dans une grande région touristique et récréative? Nous vous l'accomplissons !\n\n• Ambiance de travail amicale (vous): Les nouveaux employés le ressentent déjà le premier jour de travail : avec nous vous serez accueillis et soutenus. Même dans la vie quotidienne, vous vous approchez ouvertement les uns des autres, vous vous saluez et vous aimez aider. Nous sommes fiers de la façon dont les employés se traitent et s'en occupent.\n\nPour toute question au sujet de l'emploi, veuillez contacter Karin Völkel, Chef de Care Frutigen.\n\nÀ propos de nous\n\nL'hôpital fmi AG avec plus de 1600 employés comprend les deux hôpitaux actifs Interlaken et Frutigen, la psychiatrie de l'hôpital fmi AG, le centre de santé à Meiringen, les centres seniors à Frutigen et Interlaken, le service d'urgence avec 5 emplacements, la clinique de marche à Interlaken et diverses pratiques. En tant que groupe hospitalier moderne, nous fournissons des soins ambulatoires et hospitaliers, médicaux multidisciplinaires et psychiatriques dans l'Oberland bernois de l'est et du centre.\n\nLieu: Hôpital Frutigen\n\nLes hôpitaux fmi AG comprennent les hôpitaux actifs Interlaken et Frutigen, le centre de santé Meiringen, les parcs seniors Frutigen et Weissenau, le service d'ambulance et la clinique ambulatoire dans l'Oberland bernois."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Frutigen",
       "canton": "BE",
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung/c94e2866-4aed-49f8-8961-35769c3d542e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:25:33.671Z",
+      "crawledAt": "2026-11-04T09:18:42.490Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5504,6 +5504,92 @@
       "postedDate": "2026-11-02",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung/c94e2866-4aed-49f8-8961-35769c3d542e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
+        "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
+          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
+        ],
+        "en": [
+          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
+        ],
+        "fr": [
+          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
+        ]
+      },
+      "firstSeenAt": "2026-09-28T21:14:38.403Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-31T09:18:42.490Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "fmi-66843d4188f8",
+      "slug": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
+      "slugByLocale": {
+        "de": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
+        "it": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
+        "en": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen",
+        "fr": "fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz-50-100-fmi-frutigen"
+      },
+      "company": "Spitäler fmi AG",
+      "companyKey": "fmi",
+      "companyDomain": "spitalfmi.ch",
+      "title": "FaBe (Fachfrau Betreuung EFZ / Fachmann Betreuung EFZ) 50 - 100%",
+      "titleByLocale": {
+        "de": "FaBe (Fachfrau Betreuung EFZ / Fachmann Betreuung EFZ) 50 - 100%",
+        "it": "FaBe (Fachfrau Betreuung CFC / Fachmann Betreuung CFC) 50 - 100%",
+        "en": "FaBe (Fachfrau Betreuung EFZ / Fachmann Betreuung EFZ) 50 - 100%",
+        "fr": "FaBe (Fachfrau Betreuung EFZ / Fachmann Betreuung EFZ) 50 - 100%"
+      },
+      "description": "Dein Aufgabengebiet\n\n• Liebevolle Betreuung und Begleitung von Babys und Kleinkindern im Alltag\n\n• Bedürfnisorientierte Pflege: Du übernimmst die tägliche Pflege, das Füttern (Schoppen/Brei) und begleitest die individuellen Schlaf- und Ruhephasen der Säuglinge.\n\n• Altersgerechte Förderung: Du gestaltest eine anregende Umgebung und förderst die Babys spielerisch in ihrer motorischen, sprachlichen und sensorischen Entwicklung.\n\n• Beobachten der Kinder und Eingehen auf ihre individuellen Bedürfnisse\n\n• Unterstützung des Teams bei alltäglichen Aufgaben rund um die Kinderbetreuung\n\nDeine Kompetenzen\n\n• Qualifikation: Abgeschlossene Ausbildung als Fachperson Betreuung (FaBe) EFZ, Fachrichtung Kinder (oder eine gleichwertige, in der Schweiz anerkannte Ausbildung).\n\n• Erfahrung: Idealerweise konntest du bereits Erfahrung in der spezifischen Betreuung von Säuglingen und Kleinkindern sammeln.\n\n• Persönlichkeit: Du bist eine herzliche, geduldige und empathische Persönlichkeit mit einer hohen Beobachtungsgabe und Belastbarkeit.\n\n• Kommunikation: Du sprichst fliessend Deutsch und hast Freude an der engen Zusammenarbeit im Team und mit den Eltern.\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an M. Sc. Naëmi Huber, Leitende Psychologin / Psychiatrie Station Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+      "descriptionByLocale": {
+        "de": "Dein Aufgabengebiet\n\n• Liebevolle Betreuung und Begleitung von Babys und Kleinkindern im Alltag\n\n• Bedürfnisorientierte Pflege: Du übernimmst die tägliche Pflege, das Füttern (Schoppen/Brei) und begleitest die individuellen Schlaf- und Ruhephasen der Säuglinge.\n\n• Altersgerechte Förderung: Du gestaltest eine anregende Umgebung und förderst die Babys spielerisch in ihrer motorischen, sprachlichen und sensorischen Entwicklung.\n\n• Beobachten der Kinder und Eingehen auf ihre individuellen Bedürfnisse\n\n• Unterstützung des Teams bei alltäglichen Aufgaben rund um die Kinderbetreuung\n\nDeine Kompetenzen\n\n• Qualifikation: Abgeschlossene Ausbildung als Fachperson Betreuung (FaBe) EFZ, Fachrichtung Kinder (oder eine gleichwertige, in der Schweiz anerkannte Ausbildung).\n\n• Erfahrung: Idealerweise konntest du bereits Erfahrung in der spezifischen Betreuung von Säuglingen und Kleinkindern sammeln.\n\n• Persönlichkeit: Du bist eine herzliche, geduldige und empathische Persönlichkeit mit einer hohen Beobachtungsgabe und Belastbarkeit.\n\n• Kommunikation: Du sprichst fliessend Deutsch und hast Freude an der engen Zusammenarbeit im Team und mit den Eltern.\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an M. Sc. Naëmi Huber, Leitende Psychologin / Psychiatrie Station Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "it": "Dein Aufgabengebiet\n\n• Liebevolle Betreuung und Begleitung von Babys und Kleinkindern im Alltag\n\n• Bedürfnisorientierte Pflege: Du übernimmst die tägliche Pflege, das Füttern (Schoppen/Brei) und begleitest die individuellen Schlaf- und Ruhephasen der Säuglinge.\n\n• Altersgerechte Förderung: Du gestaltest eine anregende Umgebung und förderst die Babys spielerisch in ihrer motorischen, sprachlichen und sensorischen Entwicklung.\n\n• Beobachten der Kinder und Eingehen auf ihre individuellen Bedürfnisse\n\n• Unterstützung des Teams bei alltäglichen Aufgaben rund um die Kinderbetreuung\n\nDeine Kompetenzen\n\n• Qualifikation: Abgeschlossene Ausbildung als Fachperson Betreuung (FaBe) EFZ, Fachrichtung Kinder (oder eine gleichwertige, in der Schweiz anerkannte Ausbildung).\n\n• Erfahrung: Idealerweise konntest du bereits Erfahrung in der spezifischen Betreuung von Säuglingen und Kleinkindern sammeln.\n\n• Persönlichkeit: Du bist eine herzliche, geduldige und empathische Persönlichkeit mit einer hohen Beobachtungsgabe und Belastbarkeit.\n\n• Kommunikation: Du sprichst fliessend Deutsch und hast Freude an der engen Zusammenarbeit im Team und mit den Eltern.\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an M. Sc. Naëmi Huber, Leitende Psychologin / Psychiatrie Station Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "en": "Dein Aufgabengebiet\n\n• Liebevolle Betreuung und Begleitung von Babys und Kleinkindern im Alltag\n\n• Bedürfnisorientierte Pflege: Du übernimmst die tägliche Pflege, das Füttern (Schoppen/Brei) und begleitest die individuellen Schlaf- und Ruhephasen der Säuglinge.\n\n• Altersgerechte Förderung: Du gestaltest eine anregende Umgebung und förderst die Babys spielerisch in ihrer motorischen, sprachlichen und sensorischen Entwicklung.\n\n• Beobachten der Kinder und Eingehen auf ihre individuellen Bedürfnisse\n\n• Unterstützung des Teams bei alltäglichen Aufgaben rund um die Kinderbetreuung\n\nDeine Kompetenzen\n\n• Qualifikation: Abgeschlossene Ausbildung als Fachperson Betreuung (FaBe) EFZ, Fachrichtung Kinder (oder eine gleichwertige, in der Schweiz anerkannte Ausbildung).\n\n• Erfahrung: Idealerweise konntest du bereits Erfahrung in der spezifischen Betreuung von Säuglingen und Kleinkindern sammeln.\n\n• Persönlichkeit: Du bist eine herzliche, geduldige und empathische Persönlichkeit mit einer hohen Beobachtungsgabe und Belastbarkeit.\n\n• Kommunikation: Du sprichst fliessend Deutsch und hast Freude an der engen Zusammenarbeit im Team und mit den Eltern.\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an M. Sc. Naëmi Huber, Leitende Psychologin / Psychiatrie Station Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "fr": "Dein Aufgabengebiet\n\n• Liebevolle Betreuung und Begleitung von Babys und Kleinkindern im Alltag\n\n• Bedürfnisorientierte Pflege: Du übernimmst die tägliche Pflege, das Füttern (Schoppen/Brei) und begleitest die individuellen Schlaf- und Ruhephasen der Säuglinge.\n\n• Altersgerechte Förderung: Du gestaltest eine anregende Umgebung und förderst die Babys spielerisch in ihrer motorischen, sprachlichen und sensorischen Entwicklung.\n\n• Beobachten der Kinder und Eingehen auf ihre individuellen Bedürfnisse\n\n• Unterstützung des Teams bei alltäglichen Aufgaben rund um die Kinderbetreuung\n\nDeine Kompetenzen\n\n• Qualifikation: Abgeschlossene Ausbildung als Fachperson Betreuung (FaBe) EFZ, Fachrichtung Kinder (oder eine gleichwertige, in der Schweiz anerkannte Ausbildung).\n\n• Erfahrung: Idealerweise konntest du bereits Erfahrung in der spezifischen Betreuung von Säuglingen und Kleinkindern sammeln.\n\n• Persönlichkeit: Du bist eine herzliche, geduldige und empathische Persönlichkeit mit einer hohen Beobachtungsgabe und Belastbarkeit.\n\n• Kommunikation: Du sprichst fliessend Deutsch und hast Freude an der engen Zusammenarbeit im Team und mit den Eltern.\n\n• Tolle Zusammenarbeit aller Berufsgruppen: Alle reden von interdisziplinärer und berufsgruppenübergreifender Zusammenarbeit - wir tun es auch! Projekte und Arbeitsgruppen werden bewusst interdisziplinär und -professionell zusammengestellt. Und auch den informellen Austausch zwischen Berufsgruppen fördern wir bewusst durch verschiedene Aktivitäten.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an M. Sc. Naëmi Huber, Leitende Psychologin / Psychiatrie Station Frutigen.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Frutigen\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland."
+      },
+      "needsRetranslation": true,
+      "location": "Frutigen",
+      "canton": "BE",
+      "url": "https://jobs.spitalfmi.ch/offene-stellen/fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz/bb86d476-144b-43fe-9dc3-5fdedb540471",
+      "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T09:18:41.954Z",
+      "addressLocality": "Frutigen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3714",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-03",
+      "postedDate": "2026-11-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/fabe-fachfrau-betreuung-efz-fachmann-betreuung-efz/bb86d476-144b-43fe-9dc3-5fdedb540471",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
@@ -5523,25 +5609,169 @@
       },
       "streetAddress": "Frutigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:25:33.671Z",
+      "validThrough": "2027-02-01T09:18:41.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:14:38.403Z",
+      "firstSeenAt": "2026-11-04T09:18:41.954Z"
+    },
+    {
+      "id": "fmi-8481ce5a2a32",
+      "slug": "risorse-umane-projekt-e-prozessmanager-in-80-100-spitaler-fmi-ag-unterseen",
+      "slugByLocale": {
+        "de": "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen",
+        "it": "risorse-umane-projekt-e-prozessmanager-in-80-100-spitaler-fmi-ag-unterseen",
+        "en": "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen",
+        "fr": "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
+      },
+      "company": "Spitäler fmi AG",
+      "companyKey": "fmi",
+      "companyDomain": "spitalfmi.ch",
+      "title": "HR-Projekt- und Prozessmanager:in 80-100%",
+      "titleByLocale": {
+        "de": "HR-Projekt- und Prozessmanager:in 80-100%",
+        "it": "Risorse Umane-Projekt- e Prozessmanager:in 80-100%",
+        "en": "HR-Projekt- und Prozessmanager:in 80-100%",
+        "fr": "Ressources Humaines-Projekt- und Prozessmanager:in 80-100%"
+      },
+      "description": "Dein Aufgabengebiet\n\n• Leitung unserer HR-Digitalisierungsprojekte von der Konzeption bis zum Go-Live\n\n• Kontinuierliche Weiterentwicklung und Modernisierung der HR-Prozesse\n\n• Planung und Steuerung der Projektabläufe, Termine und Meilensteine\n\n• Verantwortung für Datenmigration, Tests und Abnahmen\n\n• Befähigung von Führungspersonen und Anwender:innen durch Schulung und praxisnahen Anleitungen\n\nDeine Kompetenzen\n\n• höherer Ausbildung (FH, HF oder Universität) im Bereich HR oder vergleichbare Qualifikation\n\n• Erfahrung in der Digitalisierung von HR-Prozessen, BC-Kenntnisse von Vorteil\n\n• Sicherheit im Projekt- und Prozessmanagement\n\n• Pragmatische, umsetzungsstarke Art und Freude an Veränderungen\n\n• hohe Affinität für IT-Produkte und Branchenerfahrung im Gesundheitswesen von Vorteil\n\n• Attraktive Anstellungsbedingungen: Unsere Anstellungsbedingungen richten sich nach dem GAV Berner Spitäler und Kliniken . In verschiedenen Bereichen überbieten wir die GAV-Standards und honorieren zum Beispiel bei den Dienstaltersgeschenken bereits die 2- und 5-jährige Betriebszugehörigkeit mit Freitagen.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Angélique Hulliger, Leiterin Human Resources.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+      "descriptionByLocale": {
+        "de": "Dein Aufgabengebiet\n\n• Leitung unserer HR-Digitalisierungsprojekte von der Konzeption bis zum Go-Live\n\n• Kontinuierliche Weiterentwicklung und Modernisierung der HR-Prozesse\n\n• Planung und Steuerung der Projektabläufe, Termine und Meilensteine\n\n• Verantwortung für Datenmigration, Tests und Abnahmen\n\n• Befähigung von Führungspersonen und Anwender:innen durch Schulung und praxisnahen Anleitungen\n\nDeine Kompetenzen\n\n• höherer Ausbildung (FH, HF oder Universität) im Bereich HR oder vergleichbare Qualifikation\n\n• Erfahrung in der Digitalisierung von HR-Prozessen, BC-Kenntnisse von Vorteil\n\n• Sicherheit im Projekt- und Prozessmanagement\n\n• Pragmatische, umsetzungsstarke Art und Freude an Veränderungen\n\n• hohe Affinität für IT-Produkte und Branchenerfahrung im Gesundheitswesen von Vorteil\n\n• Attraktive Anstellungsbedingungen: Unsere Anstellungsbedingungen richten sich nach dem GAV Berner Spitäler und Kliniken . In verschiedenen Bereichen überbieten wir die GAV-Standards und honorieren zum Beispiel bei den Dienstaltersgeschenken bereits die 2- und 5-jährige Betriebszugehörigkeit mit Freitagen.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Angélique Hulliger, Leiterin Human Resources.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "it": "Dein Aufgabengebiet\n\n• Leitung unserer HR-Digitalisierungsprojekte von der Konzeption bis zum Go-Live\n\n• Kontinuierliche Weiterentwicklung und Modernisierung der HR-Prozesse\n\n• Planung und Steuerung der Projektabläufe, Termine und Meilensteine\n\n• Verantwortung für Datenmigration, Tests und Abnahmen\n\n• Befähigung von Führungspersonen und Anwender:innen durch Schulung und praxisnahen Anleitungen\n\nDeine Kompetenzen\n\n• höherer Ausbildung (FH, HF oder Universität) im Bereich HR oder vergleichbare Qualifikation\n\n• Erfahrung in der Digitalisierung von HR-Prozessen, BC-Kenntnisse von Vorteil\n\n• Sicherheit im Projekt- und Prozessmanagement\n\n• Pragmatische, umsetzungsstarke Art und Freude an Veränderungen\n\n• hohe Affinität für IT-Produkte und Branchenerfahrung im Gesundheitswesen von Vorteil\n\n• Attraktive Anstellungsbedingungen: Unsere Anstellungsbedingungen richten sich nach dem GAV Berner Spitäler und Kliniken . In verschiedenen Bereichen überbieten wir die GAV-Standards und honorieren zum Beispiel bei den Dienstaltersgeschenken bereits die 2- und 5-jährige Betriebszugehörigkeit mit Freitagen.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Angélique Hulliger, Leiterin Human Resources.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "en": "Dein Aufgabengebiet\n\n• Leitung unserer HR-Digitalisierungsprojekte von der Konzeption bis zum Go-Live\n\n• Kontinuierliche Weiterentwicklung und Modernisierung der HR-Prozesse\n\n• Planung und Steuerung der Projektabläufe, Termine und Meilensteine\n\n• Verantwortung für Datenmigration, Tests und Abnahmen\n\n• Befähigung von Führungspersonen und Anwender:innen durch Schulung und praxisnahen Anleitungen\n\nDeine Kompetenzen\n\n• höherer Ausbildung (FH, HF oder Universität) im Bereich HR oder vergleichbare Qualifikation\n\n• Erfahrung in der Digitalisierung von HR-Prozessen, BC-Kenntnisse von Vorteil\n\n• Sicherheit im Projekt- und Prozessmanagement\n\n• Pragmatische, umsetzungsstarke Art und Freude an Veränderungen\n\n• hohe Affinität für IT-Produkte und Branchenerfahrung im Gesundheitswesen von Vorteil\n\n• Attraktive Anstellungsbedingungen: Unsere Anstellungsbedingungen richten sich nach dem GAV Berner Spitäler und Kliniken . In verschiedenen Bereichen überbieten wir die GAV-Standards und honorieren zum Beispiel bei den Dienstaltersgeschenken bereits die 2- und 5-jährige Betriebszugehörigkeit mit Freitagen.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Angélique Hulliger, Leiterin Human Resources.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "fr": "Dein Aufgabengebiet\n\n• Leitung unserer HR-Digitalisierungsprojekte von der Konzeption bis zum Go-Live\n\n• Kontinuierliche Weiterentwicklung und Modernisierung der HR-Prozesse\n\n• Planung und Steuerung der Projektabläufe, Termine und Meilensteine\n\n• Verantwortung für Datenmigration, Tests und Abnahmen\n\n• Befähigung von Führungspersonen und Anwender:innen durch Schulung und praxisnahen Anleitungen\n\nDeine Kompetenzen\n\n• höherer Ausbildung (FH, HF oder Universität) im Bereich HR oder vergleichbare Qualifikation\n\n• Erfahrung in der Digitalisierung von HR-Prozessen, BC-Kenntnisse von Vorteil\n\n• Sicherheit im Projekt- und Prozessmanagement\n\n• Pragmatische, umsetzungsstarke Art und Freude an Veränderungen\n\n• hohe Affinität für IT-Produkte und Branchenerfahrung im Gesundheitswesen von Vorteil\n\n• Attraktive Anstellungsbedingungen: Unsere Anstellungsbedingungen richten sich nach dem GAV Berner Spitäler und Kliniken . In verschiedenen Bereichen überbieten wir die GAV-Standards und honorieren zum Beispiel bei den Dienstaltersgeschenken bereits die 2- und 5-jährige Betriebszugehörigkeit mit Freitagen.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Angélique Hulliger, Leiterin Human Resources.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland."
+      },
+      "needsRetranslation": true,
+      "location": "Unterseen",
+      "canton": "BE",
+      "url": "https://jobs.spitalfmi.ch/offene-stellen/hr-projekt-und-prozessmanager-in/99cffd40-4697-4903-b5cb-46c71e5a6d67",
+      "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T09:18:41.438Z",
+      "addressLocality": "Unterseen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3800",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-03",
+      "postedDate": "2026-11-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/hr-projekt-und-prozessmanager-in/99cffd40-4697-4903-b5cb-46c71e5a6d67",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
-          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
-        ],
-        "en": [
-          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
-        ],
-        "fr": [
-          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
+          "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
         ]
       },
       "previousSlugs": [
-        "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
-        "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen-2"
-      ]
+        "hr-projekt-und-prozessmanager-in-80-100-fmi-unterseen"
+      ],
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-01T09:18:41.438Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T09:18:41.438Z"
+    },
+    {
+      "id": "fmi-3a0e84238823",
+      "slug": "responsabile-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
+      "slugByLocale": {
+        "de": "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
+        "it": "responsabile-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
+        "en": "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
+        "fr": "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+      },
+      "company": "Spitäler fmi AG",
+      "companyKey": "fmi",
+      "companyDomain": "spitalfmi.ch",
+      "title": "Leiter:in Unternehmensentwicklung 80-100%",
+      "titleByLocale": {
+        "de": "Leiter:in Unternehmensentwicklung 80-100%",
+        "it": "Responsabile Unternehmensentwicklung 80-100%",
+        "en": "Leiter:in Unternehmensentwicklung 80-100%",
+        "fr": "Leiter:in Unternehmensentwicklung 80-100%"
+      },
+      "description": "Dein Aufgabengebiet\n\nStrategisch\n• Aufbau und kontinuierliche Weiterentwicklung des Bereichs Unternehmensentwicklung sowie der dazugehörigen strategischen Führungsinstrumente und Prozesse\n\n• Fachliche Führung und Koordination des Strategie- und Unternehmensentwicklungsprozesses, von der Erarbeitung strategischer Grundlagen bis zur Ableitung der Jahresziele\n\n• Erstellung und Auswertung von Markt-, Wettbewerbs- und Umfeldanalysen unter Einbezug von Spitallisten, Tarifentwicklungen und demografische Trends\n\n• Identifikation und Bewertung innovativer Geschäftsfelder und neuer Dienstleistungsangebote\n\n• Initiierung und bereichsübergreifende Steuerung ausgewählter strategischer Initiativen in den Bereichen Digitalisierung, Prozessoptimierung und Ambulantisierung\n\n• Erstellen von Machbarkeitsstudien und Business Cases zur Erschliessung neuer Geschäftsfelder\n\n• Analyse und Beurteilung möglicher Kooperationen und Fusionen\n\n• Begleitung von Infrastrukturprojekten wie Neubauten und Standorterweiterungen\n\nOperativ und intern\n• Konzeption und Begleitung bereichsübergreifender Organisationsentwicklungs- und Change-Vorhaben einschliesslich der Weiterentwicklung von Aufbau- und Ablauforganisation\n\n• Übergeordnete Koordination der Grossprojekte sowie Steuerung, Priorisierung und Reporting des unternehmensweiten Projekt-Portfolios\n\n• Fachliche und personelle Führung sowie Weiterentwicklung des Teams Unternehmensentwicklung\n\n• Führen von Projekten und Mitarbeit in verschiedenen Arbeitsgruppen und Gremien\n\nExtern\n• Aktive Pflege und Ausbau bestehender Partnerschaften und Kooperationen\n\n• Vorbereitung und Begleitung von Verhandlungen mit Partnern, Behörden und Versicherern\n\n• Aufbau und Pflege relevanter Netzwerke im Gesundheitswesen\n\nDeine Kompetenzen\n\n• Abgeschlossenes Studium in Wirtschaft, Organisationsentwicklung, Psychologie oder einer vergleichbaren Fachrichtung\n\n• Ausgewiesene Erfahrung in einer vergleichbaren Funktion\n\n• Unternehmerisches Denken mit dem Blick für Geschäftsopportunitäten sowie einem sicheren Verständnis der strategischen Unternehmensführung\n\n• Gute Kenntnisse des Schweizer Gesundheitswesens und ein Verständnis für die künftigen Anforderungen im Schweizer Gesundheitsmarkt\n\n• Adressatengerechte Kommunikationsfähigkeiten sowie ausgeprägtes dienstleistungs- und lösungsorientiertes Denken und Handeln\n\n• Analytische Stärke, hohe Umsetzungsorientierung und diplomatisches Geschick im Umgang mit unterschiedlichen Anspruchsgruppen\n\n• Aus- und Weiterbildungen: Aus- oder Weiterbildungsvorhaben, welche auch im betrieblichen Interesse sind, unterstützen wir ausgesprochen grosszügig, denn die fachliche und persönliche Weiterentwicklung unserer Mitarbeitenden ist uns sehr wichtig. Dies auch im Hinblick auf die Besetzung von Kaderstellen, denn interne Besetzungen werden von uns bevorzugt.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Frau Stephanie Hackethal, CEO / Vorsitzende der Geschäftsleitung.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+      "descriptionByLocale": {
+        "de": "Dein Aufgabengebiet\n\nStrategisch\n• Aufbau und kontinuierliche Weiterentwicklung des Bereichs Unternehmensentwicklung sowie der dazugehörigen strategischen Führungsinstrumente und Prozesse\n\n• Fachliche Führung und Koordination des Strategie- und Unternehmensentwicklungsprozesses, von der Erarbeitung strategischer Grundlagen bis zur Ableitung der Jahresziele\n\n• Erstellung und Auswertung von Markt-, Wettbewerbs- und Umfeldanalysen unter Einbezug von Spitallisten, Tarifentwicklungen und demografische Trends\n\n• Identifikation und Bewertung innovativer Geschäftsfelder und neuer Dienstleistungsangebote\n\n• Initiierung und bereichsübergreifende Steuerung ausgewählter strategischer Initiativen in den Bereichen Digitalisierung, Prozessoptimierung und Ambulantisierung\n\n• Erstellen von Machbarkeitsstudien und Business Cases zur Erschliessung neuer Geschäftsfelder\n\n• Analyse und Beurteilung möglicher Kooperationen und Fusionen\n\n• Begleitung von Infrastrukturprojekten wie Neubauten und Standorterweiterungen\n\nOperativ und intern\n• Konzeption und Begleitung bereichsübergreifender Organisationsentwicklungs- und Change-Vorhaben einschliesslich der Weiterentwicklung von Aufbau- und Ablauforganisation\n\n• Übergeordnete Koordination der Grossprojekte sowie Steuerung, Priorisierung und Reporting des unternehmensweiten Projekt-Portfolios\n\n• Fachliche und personelle Führung sowie Weiterentwicklung des Teams Unternehmensentwicklung\n\n• Führen von Projekten und Mitarbeit in verschiedenen Arbeitsgruppen und Gremien\n\nExtern\n• Aktive Pflege und Ausbau bestehender Partnerschaften und Kooperationen\n\n• Vorbereitung und Begleitung von Verhandlungen mit Partnern, Behörden und Versicherern\n\n• Aufbau und Pflege relevanter Netzwerke im Gesundheitswesen\n\nDeine Kompetenzen\n\n• Abgeschlossenes Studium in Wirtschaft, Organisationsentwicklung, Psychologie oder einer vergleichbaren Fachrichtung\n\n• Ausgewiesene Erfahrung in einer vergleichbaren Funktion\n\n• Unternehmerisches Denken mit dem Blick für Geschäftsopportunitäten sowie einem sicheren Verständnis der strategischen Unternehmensführung\n\n• Gute Kenntnisse des Schweizer Gesundheitswesens und ein Verständnis für die künftigen Anforderungen im Schweizer Gesundheitsmarkt\n\n• Adressatengerechte Kommunikationsfähigkeiten sowie ausgeprägtes dienstleistungs- und lösungsorientiertes Denken und Handeln\n\n• Analytische Stärke, hohe Umsetzungsorientierung und diplomatisches Geschick im Umgang mit unterschiedlichen Anspruchsgruppen\n\n• Aus- und Weiterbildungen: Aus- oder Weiterbildungsvorhaben, welche auch im betrieblichen Interesse sind, unterstützen wir ausgesprochen grosszügig, denn die fachliche und persönliche Weiterentwicklung unserer Mitarbeitenden ist uns sehr wichtig. Dies auch im Hinblick auf die Besetzung von Kaderstellen, denn interne Besetzungen werden von uns bevorzugt.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Frau Stephanie Hackethal, CEO / Vorsitzende der Geschäftsleitung.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "it": "Dein Aufgabengebiet\n\nStrategisch\n• Aufbau und kontinuierliche Weiterentwicklung des Bereichs Unternehmensentwicklung sowie der dazugehörigen strategischen Führungsinstrumente und Prozesse\n\n• Fachliche Führung und Koordination des Strategie- und Unternehmensentwicklungsprozesses, von der Erarbeitung strategischer Grundlagen bis zur Ableitung der Jahresziele\n\n• Erstellung und Auswertung von Markt-, Wettbewerbs- und Umfeldanalysen unter Einbezug von Spitallisten, Tarifentwicklungen und demografische Trends\n\n• Identifikation und Bewertung innovativer Geschäftsfelder und neuer Dienstleistungsangebote\n\n• Initiierung und bereichsübergreifende Steuerung ausgewählter strategischer Initiativen in den Bereichen Digitalisierung, Prozessoptimierung und Ambulantisierung\n\n• Erstellen von Machbarkeitsstudien und Business Cases zur Erschliessung neuer Geschäftsfelder\n\n• Analyse und Beurteilung möglicher Kooperationen und Fusionen\n\n• Begleitung von Infrastrukturprojekten wie Neubauten und Standorterweiterungen\n\nOperativ und intern\n• Konzeption und Begleitung bereichsübergreifender Organisationsentwicklungs- und Change-Vorhaben einschliesslich der Weiterentwicklung von Aufbau- und Ablauforganisation\n\n• Übergeordnete Koordination der Grossprojekte sowie Steuerung, Priorisierung und Reporting des unternehmensweiten Projekt-Portfolios\n\n• Fachliche und personelle Führung sowie Weiterentwicklung des Teams Unternehmensentwicklung\n\n• Führen von Projekten und Mitarbeit in verschiedenen Arbeitsgruppen und Gremien\n\nExtern\n• Aktive Pflege und Ausbau bestehender Partnerschaften und Kooperationen\n\n• Vorbereitung und Begleitung von Verhandlungen mit Partnern, Behörden und Versicherern\n\n• Aufbau und Pflege relevanter Netzwerke im Gesundheitswesen\n\nDeine Kompetenzen\n\n• Abgeschlossenes Studium in Wirtschaft, Organisationsentwicklung, Psychologie oder einer vergleichbaren Fachrichtung\n\n• Ausgewiesene Erfahrung in einer vergleichbaren Funktion\n\n• Unternehmerisches Denken mit dem Blick für Geschäftsopportunitäten sowie einem sicheren Verständnis der strategischen Unternehmensführung\n\n• Gute Kenntnisse des Schweizer Gesundheitswesens und ein Verständnis für die künftigen Anforderungen im Schweizer Gesundheitsmarkt\n\n• Adressatengerechte Kommunikationsfähigkeiten sowie ausgeprägtes dienstleistungs- und lösungsorientiertes Denken und Handeln\n\n• Analytische Stärke, hohe Umsetzungsorientierung und diplomatisches Geschick im Umgang mit unterschiedlichen Anspruchsgruppen\n\n• Aus- und Weiterbildungen: Aus- oder Weiterbildungsvorhaben, welche auch im betrieblichen Interesse sind, unterstützen wir ausgesprochen grosszügig, denn die fachliche und persönliche Weiterentwicklung unserer Mitarbeitenden ist uns sehr wichtig. Dies auch im Hinblick auf die Besetzung von Kaderstellen, denn interne Besetzungen werden von uns bevorzugt.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Frau Stephanie Hackethal, CEO / Vorsitzende der Geschäftsleitung.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "en": "Dein Aufgabengebiet\n\nStrategisch\n• Aufbau und kontinuierliche Weiterentwicklung des Bereichs Unternehmensentwicklung sowie der dazugehörigen strategischen Führungsinstrumente und Prozesse\n\n• Fachliche Führung und Koordination des Strategie- und Unternehmensentwicklungsprozesses, von der Erarbeitung strategischer Grundlagen bis zur Ableitung der Jahresziele\n\n• Erstellung und Auswertung von Markt-, Wettbewerbs- und Umfeldanalysen unter Einbezug von Spitallisten, Tarifentwicklungen und demografische Trends\n\n• Identifikation und Bewertung innovativer Geschäftsfelder und neuer Dienstleistungsangebote\n\n• Initiierung und bereichsübergreifende Steuerung ausgewählter strategischer Initiativen in den Bereichen Digitalisierung, Prozessoptimierung und Ambulantisierung\n\n• Erstellen von Machbarkeitsstudien und Business Cases zur Erschliessung neuer Geschäftsfelder\n\n• Analyse und Beurteilung möglicher Kooperationen und Fusionen\n\n• Begleitung von Infrastrukturprojekten wie Neubauten und Standorterweiterungen\n\nOperativ und intern\n• Konzeption und Begleitung bereichsübergreifender Organisationsentwicklungs- und Change-Vorhaben einschliesslich der Weiterentwicklung von Aufbau- und Ablauforganisation\n\n• Übergeordnete Koordination der Grossprojekte sowie Steuerung, Priorisierung und Reporting des unternehmensweiten Projekt-Portfolios\n\n• Fachliche und personelle Führung sowie Weiterentwicklung des Teams Unternehmensentwicklung\n\n• Führen von Projekten und Mitarbeit in verschiedenen Arbeitsgruppen und Gremien\n\nExtern\n• Aktive Pflege und Ausbau bestehender Partnerschaften und Kooperationen\n\n• Vorbereitung und Begleitung von Verhandlungen mit Partnern, Behörden und Versicherern\n\n• Aufbau und Pflege relevanter Netzwerke im Gesundheitswesen\n\nDeine Kompetenzen\n\n• Abgeschlossenes Studium in Wirtschaft, Organisationsentwicklung, Psychologie oder einer vergleichbaren Fachrichtung\n\n• Ausgewiesene Erfahrung in einer vergleichbaren Funktion\n\n• Unternehmerisches Denken mit dem Blick für Geschäftsopportunitäten sowie einem sicheren Verständnis der strategischen Unternehmensführung\n\n• Gute Kenntnisse des Schweizer Gesundheitswesens und ein Verständnis für die künftigen Anforderungen im Schweizer Gesundheitsmarkt\n\n• Adressatengerechte Kommunikationsfähigkeiten sowie ausgeprägtes dienstleistungs- und lösungsorientiertes Denken und Handeln\n\n• Analytische Stärke, hohe Umsetzungsorientierung und diplomatisches Geschick im Umgang mit unterschiedlichen Anspruchsgruppen\n\n• Aus- und Weiterbildungen: Aus- oder Weiterbildungsvorhaben, welche auch im betrieblichen Interesse sind, unterstützen wir ausgesprochen grosszügig, denn die fachliche und persönliche Weiterentwicklung unserer Mitarbeitenden ist uns sehr wichtig. Dies auch im Hinblick auf die Besetzung von Kaderstellen, denn interne Besetzungen werden von uns bevorzugt.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Frau Stephanie Hackethal, CEO / Vorsitzende der Geschäftsleitung.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland.",
+        "fr": "Dein Aufgabengebiet\n\nStrategisch\n• Aufbau und kontinuierliche Weiterentwicklung des Bereichs Unternehmensentwicklung sowie der dazugehörigen strategischen Führungsinstrumente und Prozesse\n\n• Fachliche Führung und Koordination des Strategie- und Unternehmensentwicklungsprozesses, von der Erarbeitung strategischer Grundlagen bis zur Ableitung der Jahresziele\n\n• Erstellung und Auswertung von Markt-, Wettbewerbs- und Umfeldanalysen unter Einbezug von Spitallisten, Tarifentwicklungen und demografische Trends\n\n• Identifikation und Bewertung innovativer Geschäftsfelder und neuer Dienstleistungsangebote\n\n• Initiierung und bereichsübergreifende Steuerung ausgewählter strategischer Initiativen in den Bereichen Digitalisierung, Prozessoptimierung und Ambulantisierung\n\n• Erstellen von Machbarkeitsstudien und Business Cases zur Erschliessung neuer Geschäftsfelder\n\n• Analyse und Beurteilung möglicher Kooperationen und Fusionen\n\n• Begleitung von Infrastrukturprojekten wie Neubauten und Standorterweiterungen\n\nOperativ und intern\n• Konzeption und Begleitung bereichsübergreifender Organisationsentwicklungs- und Change-Vorhaben einschliesslich der Weiterentwicklung von Aufbau- und Ablauforganisation\n\n• Übergeordnete Koordination der Grossprojekte sowie Steuerung, Priorisierung und Reporting des unternehmensweiten Projekt-Portfolios\n\n• Fachliche und personelle Führung sowie Weiterentwicklung des Teams Unternehmensentwicklung\n\n• Führen von Projekten und Mitarbeit in verschiedenen Arbeitsgruppen und Gremien\n\nExtern\n• Aktive Pflege und Ausbau bestehender Partnerschaften und Kooperationen\n\n• Vorbereitung und Begleitung von Verhandlungen mit Partnern, Behörden und Versicherern\n\n• Aufbau und Pflege relevanter Netzwerke im Gesundheitswesen\n\nDeine Kompetenzen\n\n• Abgeschlossenes Studium in Wirtschaft, Organisationsentwicklung, Psychologie oder einer vergleichbaren Fachrichtung\n\n• Ausgewiesene Erfahrung in einer vergleichbaren Funktion\n\n• Unternehmerisches Denken mit dem Blick für Geschäftsopportunitäten sowie einem sicheren Verständnis der strategischen Unternehmensführung\n\n• Gute Kenntnisse des Schweizer Gesundheitswesens und ein Verständnis für die künftigen Anforderungen im Schweizer Gesundheitsmarkt\n\n• Adressatengerechte Kommunikationsfähigkeiten sowie ausgeprägtes dienstleistungs- und lösungsorientiertes Denken und Handeln\n\n• Analytische Stärke, hohe Umsetzungsorientierung und diplomatisches Geschick im Umgang mit unterschiedlichen Anspruchsgruppen\n\n• Aus- und Weiterbildungen: Aus- oder Weiterbildungsvorhaben, welche auch im betrieblichen Interesse sind, unterstützen wir ausgesprochen grosszügig, denn die fachliche und persönliche Weiterentwicklung unserer Mitarbeitenden ist uns sehr wichtig. Dies auch im Hinblick auf die Besetzung von Kaderstellen, denn interne Besetzungen werden von uns bevorzugt.\n\n• Familie, Freizeit und Beruf (Du): Wir bieten dir attraktive Arbeits(zeit-)modelle, den Bezug von unbezahltem Urlaub oder die Möglichkeit zur Teilzeitarbeit in allen Bereichen, auch im Kader. Auf individuelle Bedürfnisse gehen wir gerne ein.\n\n• Arbeiten mit Lebensqualität (Du): Arbeiten mit Blick auf eine einmalige Bergwelt? Ein Bad im See am Feierabend? Unbegrenzte Outdoor-Aktivitäten an freien Tagen? Ist es dein Wunsch, in einer grossartigen Tourismus- und Erholungsregion zu leben und zu arbeiten? Wir erfüllen ihn dir!\n\n• Freundliches Arbeitsklima (Du): Neue Mitarbeitende spüren es schon am ersten Arbeitstag: Bei uns wirst du willkommen geheissen und unterstützt. Auch im Alltag geht man offen aufeinander zu, grüsst einander und hilft gerne. Wir sind stolz auf diesen Umgang der Mitarbeitenden untereinander und tragen Sorge dazu.\n\nFür Fragen zur Stelle wende dich gerne an Frau Stephanie Hackethal, CEO / Vorsitzende der Geschäftsleitung.\n\nÜber uns\n\nZur Spitäler fmi AG mit über 1'600 Mitarbeitenden gehören die beiden Akutspitäler Interlaken und Frutigen, die Psychiatrie der Spitäler fmi AG, das Gesundheitszentrum in Meiringen, die Seniorenzentren in Frutigen und Interlaken, der Rettungsdienst mit 5 Standorten, die Walk-in-Clinic in Interlaken sowie verschiedene Praxen. Als moderne Spitalgruppe gewährleisten wir die ambulante und stationäre, multidisziplinäre medizinische und psychiatrische Versorgung im östlichen und zentralen Berner Oberland.\n\nStandort: Spital Interlaken\n\nZur Spitäler fmi AG gehören die Akutspitäler Interlaken und Frutigen, das Gesundheitszentrum Meiringen, die Seniorenparks Frutigen und Weissenau, der Rettungsdienst und die Walk-in-Clinic im Berner Oberland."
+      },
+      "needsRetranslation": true,
+      "location": "Unterseen",
+      "canton": "BE",
+      "url": "https://jobs.spitalfmi.ch/offene-stellen/leiter-in-unternehmensentwicklung/d382e1b5-9320-428e-9481-466a8b8f68b5",
+      "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T09:18:40.913Z",
+      "addressLocality": "Unterseen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3800",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-03",
+      "postedDate": "2026-11-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/leiter-in-unternehmensentwicklung/d382e1b5-9320-428e-9481-466a8b8f68b5",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+      ],
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-01T09:18:40.913Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T09:18:40.913Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-11-02T21:25:16.043Z",
-  "runId": "41525136431",
+  "assembledAt": "2026-11-04T09:16:04.303Z",
+  "runId": "41804599823",
   "jobs": [
     {
       "id": "faulhaber-e099cf383828",
@@ -49,7 +49,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:25:09.446Z",
+      "crawledAt": "2026-11-04T09:15:57.481Z",
       "previousSlugs": [
         "production-shift-leader-croglio-faulhaber"
       ],
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:25:09.446Z",
+      "validThrough": "2026-12-04T09:15:57.481Z",
       "validThroughSource": "last-observed-window"
     }
   ]

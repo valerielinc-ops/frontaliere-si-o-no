@@ -1,7 +1,7 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-11-02T21:23:53.828Z",
-  "runId": "41525136431",
+  "assembledAt": "2026-11-04T09:19:03.799Z",
+  "runId": "41804599823",
   "jobs": [
     {
       "id": "schulthess-klinik-64b48f2b6b3b",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
         "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-zurich",
-        "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+        "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
         "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:44.999Z",
+      "crawledAt": "2026-11-04T09:18:57.407Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
           "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
         ],
         "de": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess"
         ]
       },
       "firstSeenAt": "2026-09-11T13:33:15.603Z",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:23:44.999Z",
+      "validThrough": "2026-12-11T09:18:57.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/e7f5a02e-b37e-4d50-b8c3-ce008b0ebf47",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:44.995Z",
+      "crawledAt": "2026-11-04T09:18:57.404Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:23:44.995Z",
+      "validThrough": "2026-12-17T09:18:57.404Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +194,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/cb300619-f117-472e-8e8d-335c4f038eb6",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:44.992Z",
+      "crawledAt": "2026-11-04T09:18:57.402Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:23:44.992Z",
+      "validThrough": "2027-01-29T09:18:57.402Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -280,7 +280,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung/6b7dae22-2c37-4ac9-b66b-88a790a091c5",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:44.987Z",
+      "crawledAt": "2026-11-04T09:18:57.399Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -331,90 +331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:23:44.987Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "schulthess-klinik-ef203133631f",
-      "slug": "reumatologia-medico-senior-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "reumatologia-medico-senior-schulthess-klinik-zurich",
-        "en": "senior-physician-rheumatology-schulthess-klinik-zurich",
-        "de": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich",
-        "fr": "rhumatologie-chez-le-medecin-principal-schulthess-klinik-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Oberarzt / Oberärztin Rheumatologie",
-      "titleByLocale": {
-        "it": "Reumatologia medico senior",
-        "en": "Senior physician rheumatology",
-        "de": "Oberarzt / Oberärztin Rheumatologie",
-        "fr": "Rhumatologie chez le médecin principal"
-      },
-      "description": "Aufgaben:\n• Betreuung der Sprechstunde mit dem gesamten Spektrum rheumatologischer Erkrankungen einschliesslich Osteoporose\n\n• Spitalinterne Konsiliartätigkeit\n\n• Möglichkeit zur Mitarbeit in der Sonographie-Sprechstunde\n\n• Teaching und Supervision von Assistenzärztinnen und ärzten\n\nAnforderungen:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologieung\n\n• Freude an der interdisziplinären Zusammenarbeit und an der Aus- und Weiterbildung junger Kolleginnen und Kollegen\n\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Cura delle ore di consultazione con l'intero spettro delle malattie reumatologiche tra cui l'osteoporosi\n\n• Servizi di consulenza ospedaliera interna\n\n• Opportunità di partecipare alla consultazione sonografia\n\n• Insegnamento e supervisione dei medici assistenti\n\nRequisiti\n• Formazione specialistica in reumatologia\n\n• La cooperazione interdisciplinare e l'istruzione e la formazione dei giovani colleghi\n\n• Volontà a formare il dipartimento, assumendo responsabilità di leadership e competenze organizzative\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Care of consultation hours with the entire spectrum of rheumatological diseases including osteoporosis\n\n• Internal hospital consultancy services\n\n• Opportunity to participate in the sonography consultation\n\n• Teaching and supervision of assistant doctors\n\nRequirements\n• Specialist training in rheumatology\n\n• Enjoying the interdisciplinary cooperation and the education and training of young colleagues\n\n• Willingness to shape the department, assuming leadership responsibility and organizational skills\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Betreuung der Sprechstunde mit dem gesamten Spektrum rheumatologischer Erkrankungen einschliesslich Osteoporose\n\n• Spitalinterne Konsiliartätigkeit\n\n• Möglichkeit zur Mitarbeit in der Sonographie-Sprechstunde\n\n• Teaching und Supervision von Assistenzärztinnen und ärzten\n\nAnforderungen:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologieung\n\n• Freude an der interdisziplinären Zusammenarbeit und an der Aus- und Weiterbildung junger Kolleginnen und Kollegen\n\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Prise en charge des heures de consultation avec tout le spectre des maladies rhumatologiques, y compris l'ostéoporose\n\n• Services de conseil hospitalier interne\n\n• Possibilité de participer à la consultation en sonographie\n\n• Enseignement et supervision des médecins adjoints\n\nExigences\n• Formation spécialisée en rhumatologie\n\n• Profitez de la coopération interdisciplinaire et de l'éducation et de la formation de jeunes collègues\n\n• Volonté de façonner le ministère en assumant la responsabilité du leadership et les compétences organisationnelles\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/oberarzt-oberaerztin-rheumatologie/80b383ed-c642-450a-8422-c8bf703f03ce",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:44.977Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2130",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
-        ],
-        "en": [
-          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
-        ],
-        "fr": [
-          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T20:05:33.455Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:23:44.977Z",
+      "validThrough": "2027-01-26T09:18:57.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,7 +366,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/cb21f8f4-78f5-4eb2-bd59-fb63262a7b67",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:23:44.973Z",
+      "crawledAt": "2026-11-04T09:18:57.395Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -498,16 +415,176 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:23:44.973Z",
+      "validThrough": "2027-01-28T09:18:57.395Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "schulthess-klinik-933af8db8a55",
+      "slug": "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "de": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+        "it": "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich",
+        "en": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+        "fr": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Mitarbeiterin / Mitarbeiter Reinigung",
+      "titleByLocale": {
+        "de": "Mitarbeiterin / Mitarbeiter Reinigung",
+        "it": "Mitarbeiterin / Collaboratore/trice Reinigung",
+        "en": "Mitarbeiterin / Mitarbeiter Reinigung",
+        "fr": "Mitarbeiterin / Mitarbeiter Reinigung"
+      },
+      "description": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Tagesdienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat). Befristet bis 31.08.2027\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Tagesdienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat). Befristet bis 31.08.2027\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "it": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Tagesdienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat). Befristet bis 31.08.2027\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "en": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Tagesdienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat). Befristet bis 31.08.2027\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Tagesdienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat). Befristet bis 31.08.2027\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/7d85d010-0c0a-40a4-93b1-10283e169b11",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T09:18:57.392Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2125",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+      ],
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-02T09:18:57.392Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T09:18:57.392Z"
+    },
+    {
+      "id": "schulthess-klinik-ffc5e126d99b",
+      "slug": "mitarbeiterin-collaboratore-trice-archiv-post-scanning-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "de": "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich",
+        "it": "mitarbeiterin-collaboratore-trice-archiv-post-scanning-schulthess-klinik-zurich",
+        "en": "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich",
+        "fr": "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Mitarbeiterin / Mitarbeiter Archiv, Post & Scanning",
+      "titleByLocale": {
+        "de": "Mitarbeiterin / Mitarbeiter Archiv, Post & Scanning",
+        "it": "Mitarbeiterin / Collaboratore/trice Archiv, Post & Scanning",
+        "en": "Mitarbeiterin / Mitarbeiter Archiv, Post & Scanning",
+        "fr": "Mitarbeiterin / Mitarbeiter Archiv, Post & Scanning"
+      },
+      "description": "Aufgaben:\n• Sicherstellung eines reibungslosen Ablaufs im Bereich Archiv, Post und Scanning\n\n• Scannen und fachgerechte Archivierung der handschriftlichen Dokumenten\n\n• Scannen und Weiterleitung von Kostengutsprachen, Rechnungen und weiteren Dokumente an die zuständigen Stellen\n\n• Zuordnung und Bereitstellung der Krankengeschichten für die zuständigen Stellen\n\n• Sortieren und verteilen der eingehenden und ausgehenden Post\n\n• Nachführen der Postverteilzettel\n\n• Erstellen der Briefmarken nach Bedarf\n\n• Bewirtschaftung und Kontrolle der Postboxen\n\nAnforderungen:\n• Versierter Umgang mit MS Office\n\n• Gute Anwenderkenntnisse in internen Systemen, idealerweise InesKIS und FlexiCapture\n\n• Strukturierte, speditive und präzise Arbeitsweise\n\n• Ausgeprägte Sozialkompetenz und Teamfähigkeit\n\n• Hohe Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Selbstständige, flexible und lösungsorientierte Arbeitsweise\n\n• Gute Organisationsfähigkeit und Freude an administrativen Tätigkeiten\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Sicherstellung eines reibungslosen Ablaufs im Bereich Archiv, Post und Scanning\n\n• Scannen und fachgerechte Archivierung der handschriftlichen Dokumenten\n\n• Scannen und Weiterleitung von Kostengutsprachen, Rechnungen und weiteren Dokumente an die zuständigen Stellen\n\n• Zuordnung und Bereitstellung der Krankengeschichten für die zuständigen Stellen\n\n• Sortieren und verteilen der eingehenden und ausgehenden Post\n\n• Nachführen der Postverteilzettel\n\n• Erstellen der Briefmarken nach Bedarf\n\n• Bewirtschaftung und Kontrolle der Postboxen\n\nAnforderungen:\n• Versierter Umgang mit MS Office\n\n• Gute Anwenderkenntnisse in internen Systemen, idealerweise InesKIS und FlexiCapture\n\n• Strukturierte, speditive und präzise Arbeitsweise\n\n• Ausgeprägte Sozialkompetenz und Teamfähigkeit\n\n• Hohe Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Selbstständige, flexible und lösungsorientierte Arbeitsweise\n\n• Gute Organisationsfähigkeit und Freude an administrativen Tätigkeiten\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "it": "Aufgaben:\n• Sicherstellung eines reibungslosen Ablaufs im Bereich Archiv, Post und Scanning\n\n• Scannen und fachgerechte Archivierung der handschriftlichen Dokumenten\n\n• Scannen und Weiterleitung von Kostengutsprachen, Rechnungen und weiteren Dokumente an die zuständigen Stellen\n\n• Zuordnung und Bereitstellung der Krankengeschichten für die zuständigen Stellen\n\n• Sortieren und verteilen der eingehenden und ausgehenden Post\n\n• Nachführen der Postverteilzettel\n\n• Erstellen der Briefmarken nach Bedarf\n\n• Bewirtschaftung und Kontrolle der Postboxen\n\nAnforderungen:\n• Versierter Umgang mit MS Office\n\n• Gute Anwenderkenntnisse in internen Systemen, idealerweise InesKIS und FlexiCapture\n\n• Strukturierte, speditive und präzise Arbeitsweise\n\n• Ausgeprägte Sozialkompetenz und Teamfähigkeit\n\n• Hohe Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Selbstständige, flexible und lösungsorientierte Arbeitsweise\n\n• Gute Organisationsfähigkeit und Freude an administrativen Tätigkeiten\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "en": "Aufgaben:\n• Sicherstellung eines reibungslosen Ablaufs im Bereich Archiv, Post und Scanning\n\n• Scannen und fachgerechte Archivierung der handschriftlichen Dokumenten\n\n• Scannen und Weiterleitung von Kostengutsprachen, Rechnungen und weiteren Dokumente an die zuständigen Stellen\n\n• Zuordnung und Bereitstellung der Krankengeschichten für die zuständigen Stellen\n\n• Sortieren und verteilen der eingehenden und ausgehenden Post\n\n• Nachführen der Postverteilzettel\n\n• Erstellen der Briefmarken nach Bedarf\n\n• Bewirtschaftung und Kontrolle der Postboxen\n\nAnforderungen:\n• Versierter Umgang mit MS Office\n\n• Gute Anwenderkenntnisse in internen Systemen, idealerweise InesKIS und FlexiCapture\n\n• Strukturierte, speditive und präzise Arbeitsweise\n\n• Ausgeprägte Sozialkompetenz und Teamfähigkeit\n\n• Hohe Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Selbstständige, flexible und lösungsorientierte Arbeitsweise\n\n• Gute Organisationsfähigkeit und Freude an administrativen Tätigkeiten\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Aufgaben:\n• Sicherstellung eines reibungslosen Ablaufs im Bereich Archiv, Post und Scanning\n\n• Scannen und fachgerechte Archivierung der handschriftlichen Dokumenten\n\n• Scannen und Weiterleitung von Kostengutsprachen, Rechnungen und weiteren Dokumente an die zuständigen Stellen\n\n• Zuordnung und Bereitstellung der Krankengeschichten für die zuständigen Stellen\n\n• Sortieren und verteilen der eingehenden und ausgehenden Post\n\n• Nachführen der Postverteilzettel\n\n• Erstellen der Briefmarken nach Bedarf\n\n• Bewirtschaftung und Kontrolle der Postboxen\n\nAnforderungen:\n• Versierter Umgang mit MS Office\n\n• Gute Anwenderkenntnisse in internen Systemen, idealerweise InesKIS und FlexiCapture\n\n• Strukturierte, speditive und präzise Arbeitsweise\n\n• Ausgeprägte Sozialkompetenz und Teamfähigkeit\n\n• Hohe Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Selbstständige, flexible und lösungsorientierte Arbeitsweise\n\n• Gute Organisationsfähigkeit und Freude an administrativen Tätigkeiten\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-archiv-post-scanning/10b3bde0-e13c-4f79-8695-313882bcf85c",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T09:18:57.386Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2098",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-02T09:18:57.386Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T09:18:57.386Z"
     },
     {
       "id": "schulthess-klinik-eeade1126952",
       "slug": "specialista-di-radiologia-schulthess-klinik-zurich",
       "slugByLocale": {
-        "de": "radiologiefachperson-schulthess-klinik-zurich",
         "it": "specialista-di-radiologia-schulthess-klinik-zurich",
         "en": "radiology-specialist-schulthess-klinik-zurich",
+        "de": "radiologiefachperson-schulthess-klinik-zurich",
         "fr": "specialiste-de-radiologie-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
@@ -515,24 +592,25 @@
       "companyDomain": "schulthess-klinik.ch",
       "title": "Radiologiefachperson",
       "titleByLocale": {
-        "de": "Radiologiefachperson",
         "it": "Specialista di radiologia",
         "en": "Radiology specialist",
+        "de": "Radiologiefachperson",
         "fr": "Spécialiste de radiologie"
       },
       "description": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "it": "Compiti:\n• Cura dei pazienti delle varie cliniche specializzate\n\n• Empatia e professionalità per la condotta professionale e indipendente degli esami radiologici digitali convenzionali\n\n• Funzionamento delle più moderne attrezzature tecniche (DR, CR, PACS)\n\n• Telefono, scritto e personale contatto con assegnatori interni ed esterni\n\n• Registrazione dei servizi forniti\n\n• Aspetto amichevole e competente per un processo liscio presso la reception\n\nRequisiti\n• Personalità socialmente competente, flessibile e resiliente con una forte idea di servizio\n\n• Istruzione di specialisti della radiologia e esperienza professionale iniziale\n\n• Giocatore di squadra, forte nella comunicazione, affidabile, auto-iniziale\n\n• Buona conoscenza MS-Office\n\n• Molto buone competenze linguistiche tedesche nella parola e nella scrittura sono un prerequisito, ulteriori competenze linguistiche orali e scritte sono desiderabili\n\n• Talenti organizzativi e applicazione sicura della terminologia medica\n\nOffriamo:\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Tempo di cambio pagato\n\n• 15 minuti di pausa pagata al giorno\n\n• Equilibrio di vita/Amico della famiglia\n\n• Cibo economico nel ristorante del personale\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
         "en": "Tasks:\n• Care of patients of the various specialist clinics\n\n• Empathy and professionalism for the professional and independent conduct of conventional digital radiological examinations\n\n• Operation of the most modern technical equipment (DR, CR, PACS)\n\n• Telephone, written and personal contact with internal and external assignors\n\n• Recording of services provided\n\n• Friendly and competent appearance for a smooth process at the reception area\n\nRequirements\n• Socially competent, flexible and resilient personality with a strong idea of service\n\n• Education of radiology specialist and initial professional experience\n\n• Team player, strong in communication, reliable, self-initiated\n\n• Good MS-Office knowledge\n\n• Very good German language skills in word and writing are a prerequisite, further oral and written foreign language skills are desirable\n\n• Organizational talent and safe application of medical terminology\n\nWe offer:\n• Attractive social benefits and numerous benefits\n\n• Paid changing time\n\n• 15 minutes paid break per day\n\n• Work-Life Balance / Family Friendliness\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Betreuung der Patienten der verschiedenen Fachkliniken\n\n• Einfühlungsvermögen und Professionalität für die fachgerechte und selbstständige Durchführung von konventionellen digitalen radiologischen Untersuchungen\n\n• Bedienung der modernsten technischen Geräte (DR, CR, PACS)\n\n• Telefonische, schriftliche und persönliche Kontaktaufnahme zu internen und externen Zuweisern\n\n• Erfassung der erbrachten Leistungen\n\n• Freundlicher und kompetenter Auftritt für einen reibungslosen Ablauf am Empfangsbereich\n\nAnforderungen:\n• Sozialkompetente, flexible und belastbare Persönlichkeit mit ausgeprägtem Dienstleistungsgedanken\n\n• Ausbildung Radiologiefachperson und erste Berufserfahrung\n\n• Teamplayer, kommunikationsstark, zuverlässig, eigeninitiativ\n\n• Gute MS-Office-Kenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung, weitere mündliche und schriftliche Fremdsprachenkenntnisse wünschenswert\n\n• Organisationstalent und sichere Anwendung der medizinischen Terminologie\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte Umkleidezeit\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "fr": "Tâches :\n• Soins aux patients des différentes cliniques spécialisées\n\n• Empathie et professionnalisme pour la conduite professionnelle et indépendante des examens radiologiques numériques conventionnels\n\n• Utilisation de l'équipement technique le plus moderne (DR, CR, PACS)\n\n• Contacts téléphoniques, écrits et personnels avec des cédants internes et externes\n\n• Enregistrement des services fournis\n\n• Aspect amical et compétent pour un processus en douceur à la réception\n\nExigences\n• Personnalité socialement compétente, flexible et résiliente avec une forte idée de service\n\n• Formation de spécialiste en radiologie et expérience professionnelle initiale\n\n• Joueur d'équipe, forte en communication, fiable, auto-initiale\n\n• Bonne connaissance de l'Office des États membres\n\n• Très bonnes compétences linguistiques en allemand en paroles et en écriture sont une condition préalable, d'autres compétences linguistiques orales et écrites étrangères sont souhaitables\n\n• Compétences organisationnelles et application sûre de la terminologie médicale\n\nNous offrons:\n• Prestations sociales attractives et nombreuses prestations\n\n• Temps de changement payé\n\n• 15 minutes de pause payé par jour\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/9711dbfb-2289-4dd0-ad94-0c1237851361",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-02T21:23:44.932Z",
+      "crawledAt": "2026-11-04T09:18:57.383Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -551,9 +629,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2034",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "radiologiefachperson-schulthess-klinik-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ]
       },
+      "firstSeenAt": "2026-11-02T21:23:44.932Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -568,23 +659,92 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:23:44.932Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:23:44.932Z",
+      "validThrough": "2027-02-01T09:18:57.383Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "schulthess-klinik-ef203133631f",
+      "slug": "reumatologia-medico-senior-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "reumatologia-medico-senior-schulthess-klinik-zurich",
+        "en": "senior-physician-rheumatology-schulthess-klinik-zurich",
+        "de": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich",
+        "fr": "rhumatologie-chez-le-medecin-principal-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Oberarzt/Oberärztin Rheumatologie",
+      "titleByLocale": {
+        "it": "Reumatologia medico senior",
+        "en": "Senior physician rheumatology",
+        "de": "Oberarzt/Oberärztin Rheumatologie",
+        "fr": "Rhumatologie chez le médecin principal"
+      },
+      "description": "Aufgaben:\n• Selbständige Betreuung von Patientinnen und Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen einschliesslich Osteoporose\n\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\n• Möglichkeit zur Mitarbeit in der Sonographie-Sprechstunde\n\n• Fachliche Vertiefung in der Sonographie des Bewegungsapparates, der interventionellen Schmerztherapie (auch unter Bildverstärkerkontrolle), der Manuellen Medizin, der Osteologie und der Kapillaroskopie\n\n• Enge interdisziplinäre Zusammenarbeit mit den orthopädischen Fachgebieten sowie der Neurologie, Manuellen Medizin und Sportmedizin\n\nAnforderungen:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n\n• Freude an der interdisziplinären Zusammenarbeit und an der Aus- und Weiterbildung junger Kolleginnen und Kollegen\n\n• Interesse an der Mitgestaltung und Weiterentwicklung des Fachbereichs sowie Bereitschaft zur Übernahme von Führungsverantwortung\n\n• Eigeninitiative, Organisationsgeschick und Freude an der Teamarbeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Cura delle ore di consultazione con l'intero spettro delle malattie reumatologiche tra cui l'osteoporosi\n\n• Servizi di consulenza ospedaliera interna\n\n• Opportunità di partecipare alla consultazione sonografia\n\n• Insegnamento e supervisione dei medici assistenti\n\nRequisiti\n• Formazione specialistica in reumatologia\n\n• La cooperazione interdisciplinare e l'istruzione e la formazione dei giovani colleghi\n\n• Volontà a formare il dipartimento, assumendo responsabilità di leadership e competenze organizzative\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Care of consultation hours with the entire spectrum of rheumatological diseases including osteoporosis\n\n• Internal hospital consultancy services\n\n• Opportunity to participate in the sonography consultation\n\n• Teaching and supervision of assistant doctors\n\nRequirements\n• Specialist training in rheumatology\n\n• Enjoying the interdisciplinary cooperation and the education and training of young colleagues\n\n• Willingness to shape the department, assuming leadership responsibility and organizational skills\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Selbständige Betreuung von Patientinnen und Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen einschliesslich Osteoporose\n\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\n• Möglichkeit zur Mitarbeit in der Sonographie-Sprechstunde\n\n• Fachliche Vertiefung in der Sonographie des Bewegungsapparates, der interventionellen Schmerztherapie (auch unter Bildverstärkerkontrolle), der Manuellen Medizin, der Osteologie und der Kapillaroskopie\n\n• Enge interdisziplinäre Zusammenarbeit mit den orthopädischen Fachgebieten sowie der Neurologie, Manuellen Medizin und Sportmedizin\n\nAnforderungen:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n\n• Freude an der interdisziplinären Zusammenarbeit und an der Aus- und Weiterbildung junger Kolleginnen und Kollegen\n\n• Interesse an der Mitgestaltung und Weiterentwicklung des Fachbereichs sowie Bereitschaft zur Übernahme von Führungsverantwortung\n\n• Eigeninitiative, Organisationsgeschick und Freude an der Teamarbeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Prise en charge des heures de consultation avec tout le spectre des maladies rhumatologiques, y compris l'ostéoporose\n\n• Services de conseil hospitalier interne\n\n• Possibilité de participer à la consultation en sonographie\n\n• Enseignement et supervision des médecins adjoints\n\nExigences\n• Formation spécialisée en rhumatologie\n\n• Profitez de la coopération interdisciplinaire et de l'éducation et de la formation de jeunes collègues\n\n• Volonté de façonner le ministère en assumant la responsabilité du leadership et les compétences organisationnelles\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/oberarzt-oberaerztin-rheumatologie/80b383ed-c642-450a-8422-c8bf703f03ce",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-04T09:18:57.357Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2130",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-schulthess-klinik-zurich"
+          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
         ],
         "en": [
-          "radiologiefachperson-schulthess-klinik-zurich"
+          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
         ],
         "fr": [
-          "radiologiefachperson-schulthess-klinik-zurich"
+          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
         ]
       },
-      "previousSlugs": [
-        "radiologiefachperson-schulthess-klinik-zurich"
-      ]
+      "firstSeenAt": "2026-10-28T20:05:33.455Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:18:57.357Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
