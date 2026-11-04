@@ -260,6 +260,7 @@ function postalPacketChecklist({ draft, flow, orderId, locale }) {
         : document.delivery === 'service' || files.length ? 'included' : 'missing';
     const reason = exemption ? ` (${postalPacketExemptionLabel(locale, exemption)})` : '';
     return {
+      documentId: document.id,
       label: `${document.label}${reason}`,
       status: postalPacketChecklistStatus(locale, status),
       instructions: document.instructions || '',

@@ -37,12 +37,12 @@ const safeText = (value) => String(value ?? '')
 const COPY = {
   it: {
     title: 'Dossier per la candidatura cartacea',
-    packetNote: 'Questo PDF riunisce il CV e i file caricati. Le pagine introduttive sono istruzioni: non inserirle nella busta. Aggiungi gli originali e i documenti indicati come cartacei.',
+    packetNote: 'Questo PDF riunisce il CV e i file caricati. Le pagine introduttive sono istruzioni: non inserirle nella busta. Aggiungi gli originali e i documenti indicati come cartacei. I PDF firmati digitalmente restano separati per conservare il file originale: scaricali dalla pagina protetta e segui le istruzioni del bando.',
     job: 'Candidatura', recipient: 'Destinatario', address: 'Indirizzo postale', deadline: 'Scadenza',
     marking: 'Dicitura sulla busta', instructions: 'Istruzioni di spedizione', form: 'Modulo ufficiale',
     checklist: 'Documenti richiesti', included: 'incluso nel PDF', manual: 'da aggiungere fisicamente',
-    prepared: 'segnato come preparato; aggiungere fisicamente', exempt: 'esente', missing: 'non incluso',
-    files: 'File allegati al PDF (in questo ordine)', letterTitle: 'Bozza della lettera manoscritta - NON spedire questa pagina',
+    prepared: 'segnato come preparato; aggiungere fisicamente', exempt: 'esente', missing: 'non incluso', signedSeparateShort: 'PDF firmato digitalmente da aggiungere separatamente',
+    files: 'File del dossier (il riepilogo indica cosa e incluso)', includedStatus: 'incluso nel PDF', signedSeparate: 'PDF firmato digitalmente: scarica e aggiungi separatamente il file originale', letterTitle: 'Bozza della lettera manoscritta - NON spedire questa pagina',
     letterNote: 'Ricopia a mano la bozza qui sotto. Completa il termine di disponibilita nella riga dedicata. Inserisci nella busta la lettera scritta a mano, non questa stampa.',
     availability: 'Termine di disponibilita: ______________________________________________',
     noLetter: 'La bozza della lettera non e disponibile. Chiedi assistenza prima di spedire.',
@@ -52,12 +52,12 @@ const COPY = {
   },
   en: {
     title: 'Paper application packet',
-    packetNote: 'This PDF combines your CV and uploaded files. The introductory pages are instructions: do not put them in the envelope. Add originals and items marked as paper documents.',
+    packetNote: 'This PDF combines your CV and uploaded files. The introductory pages are instructions: do not put them in the envelope. Add originals and items marked as paper documents. Digitally signed PDFs remain separate to preserve the original file: download them from the protected page and follow the posting instructions.',
     job: 'Application', recipient: 'Recipient', address: 'Mailing address', deadline: 'Deadline',
     marking: 'Text for the envelope', instructions: 'Mailing instructions', form: 'Official form',
     checklist: 'Required documents', included: 'included in this PDF', manual: 'add separately on paper',
-    prepared: 'marked prepared; add separately on paper', exempt: 'exempt', missing: 'not included',
-    files: 'Files included in this PDF (in this order)', letterTitle: 'Handwritten letter draft - DO NOT MAIL THIS PAGE',
+    prepared: 'marked prepared; add separately on paper', exempt: 'exempt', missing: 'not included', signedSeparateShort: 'digitally signed PDF to add separately',
+    files: 'Dossier files (the list shows what is included)', includedStatus: 'included in this PDF', signedSeparate: 'digitally signed PDF: download and add the original file separately', letterTitle: 'Handwritten letter draft - DO NOT MAIL THIS PAGE',
     letterNote: 'Copy the draft below by hand. Complete the availability term on the marked line. Put the handwritten letter in the envelope, not this printout.',
     availability: 'Availability date/term: ______________________________________________',
     noLetter: 'The letter draft is unavailable. Ask for assistance before mailing.',
@@ -67,12 +67,12 @@ const COPY = {
   },
   de: {
     title: 'Unterlagenpaket fuer die Papierbewerbung',
-    packetNote: 'Dieses PDF enthaelt den Lebenslauf und die hochgeladenen Dateien. Die ersten Seiten enthalten Hinweise und gehoeren nicht in den Umschlag. Fuege Originale und als Papierunterlagen gekennzeichnete Dokumente hinzu.',
+    packetNote: 'Dieses PDF enthaelt den Lebenslauf und die hochgeladenen Dateien. Die ersten Seiten enthalten Hinweise und gehoeren nicht in den Umschlag. Fuege Originale und als Papierunterlagen gekennzeichnete Dokumente hinzu. Digital signierte PDFs bleiben separat, damit die Originaldatei erhalten bleibt: Lade sie auf der geschuetzten Seite herunter und beachte die Hinweise der Ausschreibung.',
     job: 'Bewerbung', recipient: 'Empfaenger', address: 'Postadresse', deadline: 'Frist',
     marking: 'Vermerk auf dem Umschlag', instructions: 'Versandhinweise', form: 'Offizielles Formular',
     checklist: 'Erforderliche Unterlagen', included: 'in diesem PDF enthalten', manual: 'auf Papier separat beilegen',
-    prepared: 'als vorbereitet markiert; separat beilegen', exempt: 'befreit', missing: 'nicht enthalten',
-    files: 'Enthaltene Dateien (in dieser Reihenfolge)', letterTitle: 'Entwurf des handschriftlichen Anschreibens - NICHT VERSENDEN',
+    prepared: 'als vorbereitet markiert; separat beilegen', exempt: 'befreit', missing: 'nicht enthalten', signedSeparateShort: 'digital signiertes PDF separat beilegen',
+    files: 'Dateien des Dossiers (die Liste zeigt, was enthalten ist)', includedStatus: 'in diesem PDF enthalten', signedSeparate: 'digital signiertes PDF: Originaldatei separat herunterladen und beilegen', letterTitle: 'Entwurf des handschriftlichen Anschreibens - NICHT VERSENDEN',
     letterNote: 'Schreibe den folgenden Entwurf von Hand ab. Ergaenze die Verfuegbarkeit in der markierten Zeile. Lege den handschriftlichen Brief bei, nicht diesen Ausdruck.',
     availability: 'Verfuegbarkeit ab: ______________________________________________',
     noLetter: 'Der Briefentwurf ist nicht verfuegbar. Bitte vor dem Versand Hilfe anfordern.',
@@ -82,12 +82,12 @@ const COPY = {
   },
   fr: {
     title: 'Dossier de candidature papier',
-    packetNote: 'Ce PDF regroupe votre CV et les fichiers televerses. Les premieres pages sont des instructions : ne les mettez pas dans l’enveloppe. Ajoutez les originaux et les documents marques comme papier.',
+    packetNote: 'Ce PDF regroupe votre CV et les fichiers televerses. Les premieres pages sont des instructions : ne les mettez pas dans l’enveloppe. Ajoutez les originaux et les documents marques comme papier. Les PDF signes numeriquement restent separes pour conserver le fichier original : telechargez-les depuis la page securisee et suivez les instructions de l’annonce.',
     job: 'Candidature', recipient: 'Destinataire', address: 'Adresse postale', deadline: 'Echeance',
     marking: 'Mention sur l’enveloppe', instructions: 'Instructions d’envoi', form: 'Formulaire officiel',
     checklist: 'Documents requis', included: 'inclus dans ce PDF', manual: 'a ajouter separement sur papier',
-    prepared: 'indique comme prepare ; a ajouter separement', exempt: 'dispense', missing: 'non inclus',
-    files: 'Fichiers inclus dans ce PDF (dans cet ordre)', letterTitle: 'Projet de lettre manuscrite - NE PAS ENVOYER CETTE PAGE',
+    prepared: 'indique comme prepare ; a ajouter separement', exempt: 'dispense', missing: 'non inclus', signedSeparateShort: 'PDF signe numeriquement a ajouter separement',
+    files: 'Fichiers du dossier (la liste indique ceux qui sont inclus)', includedStatus: 'inclus dans ce PDF', signedSeparate: 'PDF signe numeriquement : telechargez et ajoutez separement le fichier original', letterTitle: 'Projet de lettre manuscrite - NE PAS ENVOYER CETTE PAGE',
     letterNote: 'Recopiez le projet ci-dessous a la main. Completez le delai de disponibilite sur la ligne indiquee. Joignez la lettre manuscrite, pas cette impression.',
     availability: 'Delai de disponibilite : ______________________________________________',
     noLetter: 'Le projet de lettre est indisponible. Demandez de l’aide avant l’envoi.',
@@ -257,6 +257,11 @@ function addImagePage(pdf, image, { photo = false } = {}) {
   page.drawImage(image, { x: (A4[0] - width) / 2, y: (A4[1] - height) / 2, width, height });
 }
 
+function hasDigitalSignature(buffer) {
+  const text = buffer.toString('latin1');
+  return /\/SigFlags\b/.test(text) || (/\/ByteRange\s*\[/.test(text) && /\/Contents\s*</.test(text));
+}
+
 async function appendFile(pdf, file) {
   const type = String(file.type || '').toLowerCase();
   if (type === 'pdf') {
@@ -293,6 +298,7 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   if (unsupported.length) throw new PostalPacketError('postal_packet_unsupported_file', 422, { files: unsupported.slice(0, 12).map((file) => cleanName(file.name)) });
   const totalBytes = (files || []).reduce((sum, file) => sum + (Buffer.isBuffer(file.buffer) ? file.buffer.length : 0), 0);
   if (totalBytes > POSTAL_PACKET_MAX_SOURCE_BYTES) throw new PostalPacketError('postal_packet_too_large', 413);
+  const signedPdfFiles = new Set((files || []).filter((file) => file.type === 'pdf' && hasDigitalSignature(file.buffer)));
 
   const pdf = await PDFDocument.create();
   pdf.setTitle('Paper application packet');
@@ -312,8 +318,14 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   writer.field(copy.instructions, postalSubmission.instructions);
   if (postalSubmission.officialFormUrl) writer.field(copy.form, postalSubmission.officialFormUrl);
   writer.section(copy.checklist);
+  const signedDocumentIds = new Set([...signedPdfFiles]
+    .map((file) => file.documentId)
+    .filter(Boolean));
   for (const item of checklist || []) {
-    writer.line(`${item.label}: ${item.status}`, { size: 10, bold: true, gapAfter: 1 });
+    const status = signedDocumentIds.has(item.documentId)
+      ? `${item.status}; ${copy.signedSeparateShort}`
+      : item.status;
+    writer.line(`${item.label}: ${status}`, { size: 10, bold: true, gapAfter: 1 });
     if (item.instructions) writer.line(item.instructions, { size: 9.5, indent: 8, gapAfter: 4 });
   }
   writer.line(copy.manualNote, { size: 9, gapAfter: 4 });
@@ -324,10 +336,13 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   writer.line(copy.availability, { size: 10.5, bold: true, gapAfter: 8 });
 
   writer.newPage(copy.files);
-  for (const file of files || []) writer.line(`${file.label || copy.includedFile}: ${cleanName(file.name)}`, { size: 10, gapAfter: 2 });
+  for (const file of files || []) {
+    const status = signedPdfFiles.has(file) ? copy.signedSeparate : copy.includedStatus;
+    writer.line(`${file.label || copy.includedFile}: ${cleanName(file.name)} - ${status}`, { size: 10, gapAfter: 2 });
+  }
   if (!files?.length) writer.line(copy.missing, { size: 10 });
 
-  for (const file of files || []) await appendFile(pdf, file);
+  for (const file of files || []) if (!signedPdfFiles.has(file)) await appendFile(pdf, file);
   const bytes = await pdf.save({ useObjectStreams: true });
   return Buffer.from(bytes);
 }
