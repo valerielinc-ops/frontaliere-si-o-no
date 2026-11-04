@@ -1,0 +1,24 @@
+{
+  "companyKey": "hirshleifers",
+  "companyName": "Hirshleifers",
+  "companyHost": "hirshleifers.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://hirshleifers.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Luxury Retail Stock Associate",
+    "Luxury Client Advisor, CHANEL & Women's Designer Collections",
+    "KITH Treats Ice Cream Swirler",
+    "Security Guard"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:27.237Z",
+  "candidateKey": "hirshleifers@applytojob.com"
+}

@@ -1,0 +1,27 @@
+{
+  "companyKey": "laudinella-ch",
+  "companyName": "Laudinella Hotel Group AG",
+  "companyHost": "hotelcareer.ch",
+  "verifiedEmployerDomain": "laudinella.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/laudinella-group-4419"
+  ],
+  "detailTemplate": "/jobs/laudinella-group-4419/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "Barista",
+    "Barkeeper",
+    "Chef de Partie",
+    "Chef de Rang",
+    "Commis de rang"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-04T13:19:28.997Z",
+  "candidateKey": "laudinella-hotel@st-moritz"
+}

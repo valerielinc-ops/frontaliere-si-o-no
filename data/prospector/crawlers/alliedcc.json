@@ -1,0 +1,25 @@
+{
+  "companyKey": "alliedcc",
+  "companyName": "Allied Community Care",
+  "companyHost": "alliedcc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alliedcc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Direct Support Professional",
+    "Direct Support Professional",
+    "Direct Support Professional",
+    "Direct Support Professional",
+    "Direct Support Professional"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:34.818Z",
+  "candidateKey": "alliedcc@applytojob.com"
+}

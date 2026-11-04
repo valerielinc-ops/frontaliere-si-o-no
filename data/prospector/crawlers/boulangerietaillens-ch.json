@@ -1,0 +1,24 @@
+{
+  "companyKey": "boulangerietaillens-ch",
+  "companyName": "Taillens SA Boulangerie - Pâtisserie & Tea-Room Salon de the",
+  "companyHost": "boulangerietaillens.ch",
+  "verifiedEmployerDomain": "boulangerietaillens.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.boulangerietaillens.ch/fr/l-entreprise/activites-et-offres-d-emplois-71/"
+  ],
+  "detailTemplate": "/fr/job_offer/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Livreur Taux d’activité 100% Lieu de travail Crans-Montana Entrée en fonction a définir Livreur",
+    "Chef/fe de rang en Tea-Room 100% Taux d’activité 100% Lieu de travail Crans-Montana Entrée en fonction selon accord Chef/fe de rang en Tea-Room 100%"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-04T13:22:47.553Z",
+  "candidateKey": "taillens-boulangerie-patisserie-tea-room-salon-de-the@crans-montana"
+}

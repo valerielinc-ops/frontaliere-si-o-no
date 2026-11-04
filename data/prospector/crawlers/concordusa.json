@@ -1,0 +1,25 @@
+{
+  "companyKey": "concordusa",
+  "companyName": "Concord USA",
+  "companyHost": "concordusa.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://concordusa.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 19,
+  "sampleTitles": [
+    "AI Developer",
+    "Business Intelligence Engineer",
+    "Data Modeler – Healthcare Payer (Erwin)",
+    "Data Scientist II",
+    "Ecommerce Site Merchandising Assistant - Salesforce Commerce Cloud (SFCC)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:28.504Z",
+  "candidateKey": "concordusa@applytojob.com"
+}

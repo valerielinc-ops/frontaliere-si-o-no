@@ -1,0 +1,24 @@
+{
+  "companyKey": "tbxnet",
+  "companyName": "Toolbox OTT",
+  "companyHost": "tbxnet.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://tbxnet.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "COMMERCIAL SOLUTION ARCHITECT-REMOTE",
+    "INTEGRATIONS TECHNICAL SPECIALIST",
+    "JR TECHNICAL RECRUITER - REMOTE",
+    "TECHNICAL PROGRAM MANAGER"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-04T13:13:24.704Z",
+  "candidateKey": "tbxnet@applytojob.com"
+}
