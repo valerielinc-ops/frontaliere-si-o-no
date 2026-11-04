@@ -272,9 +272,9 @@ async function postalPacketFile({ bucket, order, orderId, flow, draft }) {
   if (!bucket) throw new PostalPacketError('storage_unavailable', 503);
   const readiness = postalPacketReadiness({ order, orderId, flow, draft });
   if (!readiness.ready) throw new PostalPacketError('postal_packet_not_ready', 409, readiness);
-  const { cv, documents } = postalPacketSources({ order, orderId, flow, draft });
+  const { cv, documents, includeHandwrittenLetter } = postalPacketSources({ order, orderId, flow, draft });
   const sources = [
-    { key: cv.key, type: String(cv.type || '').toLowerCase(), name: cv.name, label: 'Curriculum vitae', purpose: 'document' },
+    ...(cv ? [{ key: cv.key, type: String(cv.type || '').toLowerCase(), name: cv.name, label: 'Curriculum vitae', purpose: 'document' }] : []),
     ...documents.map((file) => ({ key: file.key, type: String(file.detectedType || '').toLowerCase(), name: file.name, label: file.label, purpose: file.purpose })),
   ];
   const metadata = [];
@@ -313,7 +313,8 @@ async function postalPacketFile({ bucket, order, orderId, flow, draft }) {
     jobTitle: draft?.job?.title || order?.jobTitle || '',
     companyName: order?.companyName || '',
     postalSubmission: flow.postalSubmission,
-    coverLetterText: draft?.coverLetter?.text || '',
+    coverLetterText: includeHandwrittenLetter ? draft?.coverLetter?.text || '' : '',
+    includeHandwrittenLetter,
     checklist: postalPacketChecklist({ draft, flow, orderId, locale: draft?.language || order?.locale || 'it' }),
     files,
   });
