@@ -13,7 +13,12 @@ import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
-import { savePendingJobAlert, consumePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
+import {
+  acknowledgePendingJobAlert,
+  peekPendingJobAlert,
+  savePendingJobAlert,
+  type PendingJobAlertOrigin,
+} from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import { Analytics } from '@/services/analytics';
@@ -520,16 +525,17 @@ export default function JobAlertForm({
   // After the auth round-trip, replay a stashed alert intent so a logged-out
   // "create" completes itself instead of forcing a re-entry + re-submit
   // (the 536 click -> 39 create / 93% drop at exactly this step).
- const pendingConsumedRef = useRef(false);
+ const pendingReplayInFlightRef = useRef(false);
  useEffect(() => {
     // Firebase may expose a signed-in user before the provider email has been
     // copied to the top-level user object (notably Facebook). Do not consume
     // the intent until the shared resolver has a usable address, or the alert
     // would be lost before `createAlert` can validate it.
-    if (!authUser || !authEmail || pendingConsumedRef.current) return;
-    const pending = consumePendingJobAlert();
+    if (!authUser || !authEmail || pendingReplayInFlightRef.current) return;
+    const pending = peekPendingJobAlert();
     if (!pending) return;
-    pendingConsumedRef.current = true;
+    pendingReplayInFlightRef.current = true;
+    setSaving(true);
     // Issue 9576: the replay is attributed to the CTA the guest submitted from
     // (the surface that emitted the impression), with the auth hop recorded
     // apart in `authPath`. Only an intent stored before the origin was carried
@@ -542,6 +548,7 @@ export default function JobAlertForm({
     (async () => {
       try {
         const created = await persistAlert(authUser.uid, authEmail, pending.config, replaySurface, "post_auth_replay");
+        acknowledgePendingJobAlert(pending);
         if (pending.origin) {
           trackCtaAction(pending.origin, "success", replayKeyword);
           track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_succeeded", replayKeyword));
@@ -553,14 +560,18 @@ export default function JobAlertForm({
         maybeShowEnrichmentPrompt(authEmail, created);
         try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
       } catch (err: any) {
-        // Surface the failure (e.g. quota full = permanent) instead of swallowing
-        // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
-        // the now-authenticated user can re-submit manually if needed.
+        // Surface the failure instead of swallowing it, but leave the exact
+        // intent parked. A later auth recovery/remount retries the same
+        // idempotent create; the in-flight guard prevents duplicate attempts
+        // during this render while the request is unresolved.
+        pendingReplayInFlightRef.current = false;
         if (pending.origin) {
           trackCtaAction(pending.origin, "error", replayKeyword);
           track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_failed", replayKeyword));
         }
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
+      } finally {
+        setSaving(false);
       }
     })();
   }, [authEmail, authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackCtaAction]);

@@ -549,6 +549,50 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     expect(localStorage.getItem(PENDING_KEY)).toBeNull();
   });
 
+  it('retains a failed replay for a later auth recovery and clears it after success', async () => {
+    localStorage.setItem(PENDING_KEY, JSON.stringify({
+      value: {
+        origin: 'job_board_filters',
+        config: {
+          keywords: ['Tecnologia'],
+          locations: [],
+          contractTypes: [],
+          sectors: [],
+          cantonFilter: null,
+          frequency: 'weekly',
+          locale: 'it',
+        },
+      },
+      savedAt: Date.now(),
+    }));
+    createAlertMock
+      .mockRejectedValueOnce(new Error('temporary create failure'))
+      .mockResolvedValueOnce({ id: 'retry-success' });
+
+    const { rerender } = render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertAuthHandoff).toHaveBeenCalledWith(
+      'job_board_filters',
+      'replay_failed',
+      'Tecnologia',
+    ));
+    expect(createAlertMock).toHaveBeenCalledTimes(1);
+    expect(localStorage.getItem(PENDING_KEY)).not.toBeNull();
+
+    // A state refresh after auth recovery retries the parked, same-idempotency
+    // intent. It must not require the visitor to rebuild the criteria.
+    rerender(<JobAlertForm authUser={{ ...authUser }} />);
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertAuthHandoff).toHaveBeenCalledWith(
+      'job_board_filters',
+      'replay_succeeded',
+      'Tecnologia',
+    ));
+    expect(createAlertMock).toHaveBeenCalledTimes(2);
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+    expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1);
+  });
+
   it('keeps a job-detail handoff origin on a signed-in form create', async () => {
     requestJobAlertOpen('infermiere', 'job_detail_button');
     render(<JobAlertForm authUser={authUser} />);
