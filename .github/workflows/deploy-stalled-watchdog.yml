@@ -131,7 +131,7 @@ jobs:
     steps:
       - name: Record healthy source run
         env:
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          WATCHDOG_RUN_ID: ${{ github.event.workflow_run.id }}
         run: >-
           echo "Deploy stalled watchdog skipped successful source run
-          ${SOURCE_RUN_ID}; no re-arm needed."
+          ${WATCHDOG_RUN_ID}; no re-arm needed."
