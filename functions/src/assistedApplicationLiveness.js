@@ -260,13 +260,21 @@ export function postingAddressOf(draft, order = null) {
  * Resolve a legacy draft's canonical posting page from the same published job detail used to build new drafts.
  * Older orders can have only a stale application endpoint in `order.jobUrl` and no `draft.job.postingUrl`.
  */
-export async function resolvePostingAddressOf(draft, order = null, { fetchImpl = fetch, resolve } = {}) {
+export async function resolvePublishedPostingAddressOf(draft, order = null, { fetchImpl = fetch, resolve } = {}) {
   if (draft?.job?.postingUrl) return draft.job.postingUrl;
   try {
     const posting = await fetchJobPosting(order, { fetchImpl, resolve });
-    if (posting?.postingUrl) return posting.postingUrl;
+    if (posting?.source === 'job_detail' && posting.postingUrl) return posting.postingUrl;
   } catch {
     // The saved order or channel address remains a best-effort fallback.
   }
+  return '';
+}
+
+export async function resolvePostingAddressOf(draft, order = null, options = {}) {
+  const publishedPostingUrl = Object.hasOwn(options, 'publishedPostingUrl')
+    ? options.publishedPostingUrl
+    : await resolvePublishedPostingAddressOf(draft, order, options);
+  if (publishedPostingUrl) return publishedPostingUrl;
   return postingAddressOf(draft, order);
 }

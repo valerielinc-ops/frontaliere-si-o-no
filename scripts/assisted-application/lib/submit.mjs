@@ -38,7 +38,7 @@ import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
-import { resolvePostingAddressOf } from './liveness.mjs';
+import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
@@ -273,7 +273,8 @@ export async function submitApplication(ctx) {
   };
 
   const fetchImpl = ctx.fetchImpl || fetch;
-  const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
+  const publishedPostingUrl = await resolvePublishedPostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
+  const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve, publishedPostingUrl });
   const liveness = await checkPostingLiveness({
     order,
     // The published job detail is canonical for legacy drafts whose order URL is an old application endpoint.
@@ -476,7 +477,7 @@ export async function submitApplication(ctx) {
   // 2026-10-02, an ORIOR Jobs2Web draft, or Helsana's retired apply URL):
   // resolve from the published posting, not a stale saved application endpoint.
   if (channel.type === 'employer_site' && (postingUrl || applyUrl)) {
-    const routeUrl = postingUrl || applyUrl;
+    const routeUrl = publishedPostingUrl || channel.postingUrl || channel.applyUrl || draft.job?.applyUrl || postingUrl;
     const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
     if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
       applyUrl = routeUrl;
