@@ -1004,6 +1004,44 @@ function yieldToMainThread(): Promise<void> {
  });
 }
 
+/** Keep the first full-catalog work out of the input task that requests it. */
+function scheduleAfterInteractionPaint(callback: () => void): () => void {
+ if (typeof window === 'undefined') {
+  callback();
+  return () => {};
+ }
+
+ let cancelled = false;
+ let idleHandle: number | null = null;
+ let frameHandle: number | null = null;
+ let timeoutHandle: number | null = null;
+ const run = (): void => {
+  if (!cancelled) callback();
+ };
+ const browserWindow = window as Window & {
+  requestIdleCallback?: (idleCallback: () => void, options?: { timeout: number }) => number;
+  cancelIdleCallback?: (handle: number) => void;
+ };
+
+ // Idle callbacks are scheduled outside the input event. The fallback adds a
+ // frame plus a timer so browsers without requestIdleCallback get a paint
+ // boundary before the catalog continuation starts.
+ if (typeof browserWindow.requestIdleCallback === 'function') {
+  idleHandle = browserWindow.requestIdleCallback(run, { timeout: 1000 });
+ } else {
+  frameHandle = browserWindow.requestAnimationFrame(() => {
+   timeoutHandle = browserWindow.setTimeout(run, 0);
+  });
+ }
+
+ return () => {
+  cancelled = true;
+  if (idleHandle !== null) browserWindow.cancelIdleCallback?.(idleHandle);
+  if (frameHandle !== null) browserWindow.cancelAnimationFrame(frameHandle);
+  if (timeoutHandle !== null) browserWindow.clearTimeout(timeoutHandle);
+ };
+}
+
 async function normalizeJobPool(rawJobs: readonly unknown[]): Promise<JobListing[]> {
  const normalized: JobListing[] = [];
  const BATCH_SIZE = 512;
@@ -2782,11 +2820,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [jobBoardInteractionObserved, setJobBoardInteractionObserved] = useState(false);
  const jobBoardInteractionSeenRef = useRef(false);
  const catalogInteractionWaitersRef = useRef(new Set<() => void>());
+ const catalogInteractionReadyRef = useRef(false);
+ const catalogInteractionReleaseCancelRef = useRef<(() => void) | null>(null);
  const noteJobBoardInteraction = useCallback(() => {
   if (jobBoardInteractionSeenRef.current) return;
   jobBoardInteractionSeenRef.current = true;
-  setJobBoardInteractionObserved(true);
-  for (const resume of [...catalogInteractionWaitersRef.current]) resume();
+  catalogInteractionReleaseCancelRef.current = scheduleAfterInteractionPaint(() => {
+   catalogInteractionReleaseCancelRef.current = null;
+   catalogInteractionReadyRef.current = true;
+   setJobBoardInteractionObserved(true);
+   for (const resume of [...catalogInteractionWaitersRef.current]) resume();
+  });
+ }, []);
+ useEffect(() => () => {
+  catalogInteractionReleaseCancelRef.current?.();
+  catalogInteractionReleaseCancelRef.current = null;
  }, []);
  useEffect(() => {
   const interactionSurface = '#main-content, main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
@@ -3657,7 +3705,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setFullLoadPending(true);
 
  const waitForCatalogInteraction = (): Promise<void> => new Promise((resolve) => {
-  if (jobBoardInteractionSeenRef.current) {
+  // `seen` records intent; only `ready` means the input has crossed a paint
+  // boundary and the full catalog may safely start.
+  if (catalogInteractionReadyRef.current) {
    resolve();
    return;
   }
