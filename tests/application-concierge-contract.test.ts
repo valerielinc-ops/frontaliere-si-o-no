@@ -8,6 +8,7 @@ import {
   acceptedPositionsCount,
   serviceIsActive,
   serviceIsExpired,
+  servicePositionLimit,
 } from '../functions/src/applicationConciergeConstants.js';
 
 describe('application concierge contract', () => {
@@ -36,5 +37,17 @@ describe('application concierge contract', () => {
     expect(acceptedPositionsCount({ acceptedPositionsCount: 4 })).toBe(4);
     expect(acceptedPositionsCount({ acceptedPositionsCount: -1 })).toBe(0);
     expect(acceptedPositionsCount({ acceptedPositionsCount: 'not-a-number' })).toBe(0);
+  });
+
+  it('keeps stored service limits within the product-wide position cap', () => {
+    expect(servicePositionLimit({ maxPositions: 7 })).toBe(7);
+    expect(servicePositionLimit({ maxPositions: 10 })).toBe(10);
+    expect(servicePositionLimit({ maxPositions: 20 })).toBe(10);
+    expect(servicePositionLimit({ maxPositions: '20' })).toBe(10);
+    expect(servicePositionLimit({})).toBe(10);
+    expect(servicePositionLimit({ maxPositions: 0 })).toBe(10);
+    expect(servicePositionLimit({ maxPositions: 'invalid' })).toBe(10);
+    expect(servicePositionLimit({ maxPositions: -1 })).toBe(0);
+    expect(servicePositionLimit({ maxPositions: 2.8 })).toBe(2);
   });
 });

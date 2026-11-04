@@ -43,7 +43,6 @@ import {
   APPLICATION_CONCIERGE_CANDIDATE_ANSWERS_VERSION,
   APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
   APPLICATION_CONCIERGE_MATCHING_VERSION,
-  APPLICATION_CONCIERGE_MAX_POSITIONS,
   APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
   APPLICATION_CONCIERGE_PROPOSAL_STATUSES,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
@@ -51,6 +50,7 @@ import {
   openProposalsCount,
   serviceIsActive,
   serviceIsExpired,
+  servicePositionLimit,
   timestampMillis,
 } from './applicationConciergeConstants.js';
 import { CANDIDATE_LANGUAGE_LEVELS, CANDIDATE_LANGUAGE_OPTIONS } from './lib/languageFacts.js';
@@ -228,11 +228,11 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     renewal: data.renewal === true,
     amountTotal: [2999, 3999].includes(data.nextAmountTotal) ? data.nextAmountTotal : [2999, 3999].includes(data.expectedAmountTotal) ? data.expectedAmountTotal : 3999,
     renewalOffer: admin || renewalEnabled ? conciergeRenewalOffer(data) : null,
-    maxPositions: Number(data.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS,
+    maxPositions: servicePositionLimit(data),
     acceptedPositionsCount: acceptedPositionsCount(data),
     openProposalsCount: openProposalsCount(data, proposals.filter(proposal => proposal.status === 'proposed').length),
     maxOpenProposals: APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
-    remainingPositions: Math.max(0, (Number(data.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(data)),
+    remainingPositions: Math.max(0, servicePositionLimit(data) - acceptedPositionsCount(data)),
     paidAt: timestampToIso(data.paidAt),
     expiresAt: timestampToIso(data.expiresAt),
     createdAt: timestampToIso(data.createdAt),
@@ -668,6 +668,14 @@ function proposalJobData(data) {
   };
 }
 
+async function throwPositionLimitReachedIfCurrent(serviceRef) {
+  const snapshot = await serviceRef.get();
+  const service = snapshot.exists ? snapshot.data() || {} : null;
+  if (service && acceptedPositionsCount(service) >= servicePositionLimit(service)) {
+    throw new ApplicationConciergeError('position_limit_reached', 409);
+  }
+}
+
 async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt = Date.now()) {
   if (!validId(proposalId)) throw new ApplicationConciergeError('invalid_proposal_id', 400);
   const loadedService = await loadService(db, serviceId);
@@ -690,6 +698,9 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   }
   if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
   assertActive(service);
+  if (acceptedPositionsCount(service) >= servicePositionLimit(service)) {
+    throw new ApplicationConciergeError('position_limit_reached', 409);
+  }
   const sourceKey = cvKeyForService(serviceId, service.cvStorageKey);
   if (!sourceKey) throw new ApplicationConciergeError('cv_required', 409);
   if (service.consentVersion !== APPLICATION_CONCIERGE_CONSENT_VERSION || timestampMillis(service.consentedAt) <= 0) {
@@ -722,7 +733,10 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
     }
     throw error;
   }
-  if (!uploaded) throw new ApplicationConciergeError('proposal_requires_verification', 409);
+  if (!uploaded) {
+    await throwPositionLimitReachedIfCurrent(serviceRef);
+    throw new ApplicationConciergeError('proposal_requires_verification', 409);
+  }
   const childApplicationId = uploaded.targetId;
   let published;
   try {
@@ -744,7 +758,7 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
         throw new ApplicationConciergeError('proposal_requires_verification', 409);
       }
       const accepted = acceptedPositionsCount(currentService);
-      const maxPositions = Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
+      const maxPositions = servicePositionLimit(currentService);
       if (accepted >= maxPositions) throw new ApplicationConciergeError('position_limit_reached', 409);
       const openCount = openProposalsCount(currentService, fallbackOpenCount);
       const now = Timestamp.fromMillis(nowMs);
@@ -802,6 +816,7 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   }
   if (!published) {
     await copy.abandon();
+    await throwPositionLimitReachedIfCurrent(serviceRef);
     throw new ApplicationConciergeError('proposal_requires_verification', 409);
   }
 
@@ -968,7 +983,7 @@ async function createProposal(db, raw, adminEmail) {
   const service = snapshot.data() || {};
   const evaluatedFactsRevision = eligibilityFactsRevision(service);
   assertActive(service);
-  if (acceptedPositionsCount(service) >= (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) {
+  if (acceptedPositionsCount(service) >= servicePositionLimit(service)) {
     throw new ApplicationConciergeError('position_limit_reached', 409);
   }
   const job = proposalJobData(raw);
@@ -1014,7 +1029,7 @@ async function createProposal(db, raw, adminEmail) {
       throw new ApplicationConciergeError('proposal_requires_verification', 409);
     }
     if (currentProposalSnapshot.exists) throw new ApplicationConciergeError('duplicate_proposal', 409);
-    if (acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) {
+    if (acceptedPositionsCount(currentService) >= servicePositionLimit(currentService)) {
       throw new ApplicationConciergeError('position_limit_reached', 409);
     }
     const openCount = openProposalsCount(currentService, fallbackOpenCount);
