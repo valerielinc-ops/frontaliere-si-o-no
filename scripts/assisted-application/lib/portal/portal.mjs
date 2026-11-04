@@ -1571,7 +1571,8 @@ const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
 function isUmantisApplicationRoute(url) {
   try {
     const parsed = new URL(String(url || ''));
-    return /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+    return parsed.protocol === 'https:'
+      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
       && /^\/vacancies\/\d+\/application\/new\/\d+\/?$/i.test(parsed.pathname);
   } catch {
     return false;

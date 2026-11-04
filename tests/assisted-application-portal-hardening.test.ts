@@ -440,6 +440,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(sendsApplication(snapshot)).toBe(true);
     expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
     expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('recruitingapp-2761.umantis.com', 'careers.example.org') }, 'umantis')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('https:', 'http:') }, 'umantis')).toBe(false);
     expect(ownAccountForm({ ...snapshot, text: '' }, 'umantis')).toBe(false);
   });
 
