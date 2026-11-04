@@ -252,6 +252,6 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
  * channel is the ATS behind it (Coop: SuccessFactors' sign-in says nothing about the posting being open).
  * The same choice as the runner's check before submitting.
  */
-export function postingAddressOf(draft) {
-  return draft?.channel?.postingUrl || draft?.job?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl || '';
+export function postingAddressOf(draft, order = null) {
+  return draft?.job?.postingUrl || order?.jobUrl || draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl || '';
 }

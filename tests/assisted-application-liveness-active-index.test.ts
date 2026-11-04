@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
 import { parseActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
-import { checkPostingLiveness } from '../functions/src/assistedApplicationLiveness.js';
+import { checkPostingLiveness, postingAddressOf } from '../functions/src/assistedApplicationLiveness.js';
 
 const JOB_ID = 'medbase-ccaaa7fa003b';
 const POSTING_URL = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Frauenfeld/Apprenticeship_R15163';
@@ -30,6 +30,17 @@ function activeIndex(ids: string[], generatedAt = new Date().toISOString()) {
 }
 
 describe('assisted-application liveness active-ID corroboration', () => {
+  it('prefers the canonical job posting URL over a legacy channel posting URL', () => {
+    expect(postingAddressOf({
+      channel: { postingUrl: 'https://example.test/talentcommunity/apply/stale' },
+      job: { postingUrl: 'https://example.test/job/active', applyUrl: 'https://example.test/talentcommunity/apply/stale' },
+    })).toBe('https://example.test/job/active');
+    expect(postingAddressOf({
+      channel: { postingUrl: 'https://example.test/talentcommunity/apply/stale' },
+      job: { applyUrl: 'https://example.test/talentcommunity/apply/stale' },
+    }, { jobUrl: 'https://example.test/job/active' })).toBe('https://example.test/job/active');
+  });
+
   it('rejects an index containing IDs outside the shared job-ID grammar', () => {
     const generatedAt = new Date().toISOString();
     const payload = JSON.stringify({

@@ -413,14 +413,20 @@ export async function buildDraft(ctx) {
   // → SAP SuccessFactors), or expose that ATS in its Jobs2Web boot config
   // (ORIOR): the channel is the ATS's, with its account.
   if (channel.type === 'employer_site') {
-    const target = await resolveApplyUrl(posting.postingUrl || channel.applyUrl, { fetchImpl, resolve: ctx.resolve });
-    if (target.via) {
+    const postingUrl = posting.postingUrl || channel.applyUrl;
+    const target = await resolveApplyUrl(postingUrl, { fetchImpl, resolve: ctx.resolve });
+    const applyUrl = target.via ? target.applyUrl : postingUrl;
+    const resolvedChannel = classifyApplicationChannel({ applyUrl, postingText, applicationEmail: requirements.applicationEmail });
+    // A published posting URL can already be the ATS's job-bound route. In
+    // that case there is no redirect to resolve, but the channel still needs
+    // to be classified from the route rather than the stale saved apply URL.
+    if (target.via || resolvedChannel.type !== 'employer_site') {
       channel = {
-        ...classifyApplicationChannel({ applyUrl: target.applyUrl, postingText, applicationEmail: requirements.applicationEmail }),
-        postingUrl: posting.postingUrl || channel.applyUrl,
-        via: target.via,
+        ...resolvedChannel,
+        postingUrl,
+        ...(target.via ? { via: target.via } : {}),
       };
-      log('apply redirect', target.via, channel.type);
+      log('apply redirect', target.via || 'posting URL', channel.type);
     }
   }
   // The portal's own required questions, read ahead on a single-page form

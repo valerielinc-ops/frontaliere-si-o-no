@@ -251,6 +251,35 @@ describe('draft mode', () => {
     expect(calls).not.toContain(`GET ${applyUrl}`);
   });
 
+  it('classifies a published SuccessFactors job route even when the saved apply URL is stale', async () => {
+    const postingUrl = 'https://career5.successfactors.eu/career/job/34525';
+    const applyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const page = `<html><body><h1>IT Management Assistenz (a) 80%</h1><p>${'IT Management Assistenz bei Helsana. '.repeat(30)}</p><a>Jetzt bewerben</a></body></html>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
+        return new Response(JSON.stringify({
+          description: POSTING,
+          url: postingUrl,
+          applyUrl,
+          titleByLocale: { de: 'IT Management Assistenz (a) 80%' },
+          addressLocality: 'Dübendorf',
+        }), { status: 200 });
+      }
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      return new Response('', { status: 404 });
+    });
+
+    const draft = await buildDraft({
+      order: { ...order, jobId: 'helsana-872317162e36', jobUrl: applyUrl, jobTitle: 'IT Management Assistenz (a) 80%', companyName: 'Helsana' },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+
+    expect(draft.channel).toMatchObject({ type: 'successfactors', applyUrl: postingUrl, postingUrl });
+  });
+
   it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
     const draft = await buildDraft({
       order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
@@ -660,7 +689,7 @@ describe('submit mode', () => {
     const portalDraft = {
       ...baseDraft,
       job: { title: 'Senior IT Manager - CIO Office', postingUrl, applyUrl },
-      channel: { type: 'successfactors', applyUrl, host: 'jobs.six-group.com', requiresAccount: false },
+      channel: { type: 'successfactors', applyUrl, postingUrl: applyUrl, host: 'jobs.six-group.com', requiresAccount: false },
     };
     const fetchImpl = fakeFetch();
     const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
