@@ -9,6 +9,7 @@ describe('assisted portal account navigation', () => {
     const click = vi.fn(async () => { pageKind = 'create'; });
     const linkLocator = {
       first: () => linkLocator,
+      filter: () => linkLocator,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click,
@@ -92,6 +93,7 @@ describe('assisted portal account navigation', () => {
     const unrelatedClick = vi.fn(async () => {});
     const linkLocator = {
       first: () => linkLocator,
+      filter: () => linkLocator,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click,
@@ -135,6 +137,7 @@ describe('assisted portal account navigation', () => {
     };
     const unrelatedLink = {
       first: () => unrelatedLink,
+      filter: () => unrelatedLink,
       waitFor: vi.fn(async () => {}),
       getAttribute: vi.fn(async () => '/career?login_ns=register'),
       click: unrelatedClick,
@@ -185,6 +188,152 @@ describe('assisted portal account navigation', () => {
     ]);
   });
 
+  it('finds the visible late create-account button when a hidden duplicate comes first', async () => {
+    let pageKind: 'sign_in' | 'create' = 'sign_in';
+    const click = vi.fn(async () => { pageKind = 'create'; });
+    const hiddenAccountButton = {
+      waitFor: vi.fn(async () => { throw new Error('hidden account button selected'); }),
+    };
+    const visibleAccountButton = {
+      waitFor: vi.fn(async () => {}),
+      getAttribute: vi.fn(async () => null),
+      click,
+    };
+    const accountButtons = {
+      first: () => hiddenAccountButton,
+      filter: vi.fn((options: { visible: boolean }) => {
+        expect(options).toEqual({ visible: true });
+        return { first: () => visibleAccountButton };
+      }),
+    };
+    const missingLink = {
+      first: () => missingLink,
+      filter: () => missingLink,
+      waitFor: vi.fn(async () => { throw new Error('form link not found'); }),
+    };
+    const loginFields = [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', required: true, formId: 'login-form' },
+    ];
+    const registrationFields = [
+      ...loginFields,
+      { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Passwort bestätigen:*', required: true },
+    ];
+    const formFrame = {
+      url: () => URL,
+      getByRole: vi.fn((role: string) => role === 'button' ? accountButtons : missingLink),
+      evaluate: vi.fn(async () => ({
+        url: URL,
+        fields: pageKind === 'sign_in' ? loginFields : registrationFields,
+        buttons: pageKind === 'sign_in' ? [{ id: 'login', text: 'Login', formId: 'login-form' }] : [],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      })),
+    };
+    const hostFrame = {
+      url: () => URL,
+      evaluate: vi.fn(async () => ({
+        url: URL,
+        fields: [],
+        buttons: [],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      })),
+    };
+    const page = {
+      url: () => URL,
+      frames: () => [hostFrame, formFrame],
+      mainFrame: () => hostFrame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({
+        first: () => ({ waitFor: vi.fn(async () => { throw new Error('main-frame control not found'); }) }),
+      })),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: URL,
+        fields: loginFields.map((field) => ({ ...field, frame: 1 })),
+        buttons: [{ id: 'login', text: 'Login', frame: 1, formId: 'login-form' }],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(click).toHaveBeenCalledOnce();
+    expect(accountButtons.filter).toHaveBeenCalledOnce();
+    expect(formFrame.getByRole).toHaveBeenCalledWith('button', { name: expect.any(RegExp) });
+    expect(page.getByRole).not.toHaveBeenCalled();
+    expect(result.snapshot.fields.map((field: any) => field.label)).toEqual([
+      'E-Mail-Adresse:*', 'Passwort:*', 'Passwort bestätigen:*',
+    ]);
+  });
+
+  it('does not click a matching main-frame account button when auth fields are in a child frame', async () => {
+    const mainClick = vi.fn(async () => {});
+    const mainButton = {
+      getAttribute: vi.fn(async () => null),
+      waitFor: vi.fn(async () => {}),
+      click: mainClick,
+    };
+    const mainButtons = {
+      first: () => mainButton,
+      filter: vi.fn(() => ({ first: () => mainButton })),
+    };
+    const missingControl = {
+      first: () => missingControl,
+      filter: () => missingControl,
+      waitFor: vi.fn(async () => { throw new Error('auth-frame control not found'); }),
+    };
+    const formFrame = {
+      url: () => URL,
+      getByRole: vi.fn(() => missingControl),
+    };
+    const hostFrame = { url: () => URL };
+    const page = {
+      url: () => URL,
+      frames: () => [hostFrame, formFrame],
+      mainFrame: () => hostFrame,
+      getByRole: vi.fn(() => mainButtons),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: {
+        url: URL,
+        fields: [
+          { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse:*', frame: 1, formId: 'login-form' },
+          { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort:*', frame: 1, formId: 'login-form' },
+        ],
+        buttons: [{ id: 'login', text: 'Login', frame: 1, formId: 'login-form' }],
+        links: [],
+        dialogs: [],
+        captcha: false,
+        passwordVisible: true,
+        errors: [],
+        text: '',
+      } as any,
+      ctx: { accounts: { load: vi.fn(async () => null) } } as any,
+    });
+
+    expect(result).toMatchObject({ handoff: 'account', accountFailure: { code: 'no_create_button', stage: 'login' } });
+    expect(page.getByRole).not.toHaveBeenCalled();
+    expect(mainClick).not.toHaveBeenCalled();
+  });
+
   it('does not use a matching account link from an unrelated frame', async () => {
     const unrelatedClick = vi.fn(async () => {});
     const unrelatedLink = {
@@ -195,6 +344,7 @@ describe('assisted portal account navigation', () => {
     };
     const formFrame = {
       getByRole: vi.fn(() => ({
+        filter: () => ({ first: () => ({ waitFor: vi.fn(async () => { throw new Error('form link not found'); }) }) }),
         first: () => ({ waitFor: vi.fn(async () => { throw new Error('form link not found'); }) }),
       })),
     };
