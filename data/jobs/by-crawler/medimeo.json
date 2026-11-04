@@ -421,12 +421,12 @@
     },
     {
       "id": "medimeo-be44784326df",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis-medimeo-ag-zurich",
+      "slug": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-60-80-inizio-a-tempo-parziale-in-uno-studio-moderno",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis-medimeo-ag-zurich",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis"
+        "it": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-60-80-inizio-a-tempo-parziale-in-uno-studio-moderno",
+        "en": "specialist-gynecology-and-obstetrics-60-80-part-time-start-in-modern-practice-medimeo-ag-region-zurich",
+        "fr": "gynecologie-specialisee-et-obstetrique-60-80-debut-a-temps-partiel-dans-la-pratique-moderne-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -473,11 +473,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis-medimeo-ag-zurich"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-60-80-teilzeitstart-in-moderner-praxis-medimeo-ag-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -501,12 +509,12 @@
     },
     {
       "id": "medimeo-3463bfe7e910",
-      "slug": "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-per-la-patient-innen-medimeo-ag-olten",
+      "slug": "medica-specialista-in-medicina-interna-medico-specialista-in-medicina-generale-50-100-finalmente-tempo-per-i-pazienti",
       "slugByLocale": {
         "de": "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient",
-        "it": "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-per-la-patient-innen-medimeo-ag-olten",
-        "en": "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient",
-        "fr": "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient"
+        "it": "medica-specialista-in-medicina-interna-medico-specialista-in-medicina-generale-50-100-finalmente-tempo-per-i-pazienti",
+        "en": "specialist-in-internal-medicine-specialist-in-general-medicine-50-100-finally-time-for-patients-medimeo-ag-olten-aargau",
+        "fr": "medecin-specialiste-en-medecine-interne-medecin-specialiste-en-medecine-generale-50-100-enfin-du-temps-pour-les-patient"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -553,11 +561,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient",
+          "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-per-la-patient-innen-medimeo-ag-olten"
+        ],
+        "en": [
+          "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient"
+        ],
+        "fr": [
           "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient"
         ]
       },
       "previousSlugs": [
-        "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient"
+        "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-fur-die-patient",
+        "facharztin-innere-medizin-facharzt-allgemeinmedizin-50-100-endlich-zeit-per-la-patient-innen-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

@@ -2944,12 +2944,12 @@
     },
     {
       "id": "valora-16380920ef82",
-      "slug": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+      "slug": "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
-        "it": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-        "en": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-        "fr": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        "it": "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
+        "en": "production-employees-m-f-d-valora-group-emmenbrucke",
+        "fr": "employes-de-production-h-f-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2998,11 +2998,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        ],
+        "en": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
+        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
+        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -3024,12 +3032,12 @@
     },
     {
       "id": "valora-cdd42fc63236",
-      "slug": "verkauferin-verkaufer-avec-20-std-valora-ittigen",
+      "slug": "addetta-addetto-alle-vendite-con-20-ore-valora-group-ittigen",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-avec-20-std-valora-ittigen",
-        "it": "verkauferin-verkaufer-avec-20-std-valora-ittigen",
-        "en": "verkauferin-verkaufer-avec-20-std-valora-ittigen",
-        "fr": "verkauferin-verkaufer-avec-20-std-valora-ittigen"
+        "it": "addetta-addetto-alle-vendite-con-20-ore-valora-group-ittigen",
+        "en": "saleswoman-salesman-with-20-hrs-valora-group-ittigen",
+        "fr": "vendeur-avec-20-heures-valora-group-ittigen"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3093,7 +3101,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:18:26.151Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:18:26.151Z"
+      "firstSeenAt": "2026-11-04T09:18:26.151Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-avec-20-std-valora-ittigen"
+        ],
+        "en": [
+          "verkauferin-verkaufer-avec-20-std-valora-ittigen"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-avec-20-std-valora-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-avec-20-std-valora-ittigen"
+      ]
     }
   ]
 }

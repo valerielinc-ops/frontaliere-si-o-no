@@ -780,12 +780,12 @@
     },
     {
       "id": "pfister-11c5393b1eb1",
-      "slug": "polydesignerin-3d-w-m-d-pfister-emmen",
+      "slug": "polydesigner-in-3d-m-f-d-mobel-pfister-ag-emmen",
       "slugByLocale": {
         "de": "polydesignerin-3d-w-m-d-pfister-emmen",
-        "it": "polydesignerin-3d-w-m-d-pfister-emmen",
-        "en": "polydesignerin-3d-w-m-d-pfister-emmen",
-        "fr": "polydesignerin-3d-w-m-d-pfister-emmen"
+        "it": "polydesigner-in-3d-m-f-d-mobel-pfister-ag-emmen",
+        "en": "3d-poly-designer-m-f-d-mobel-pfister-ag-emmen",
+        "fr": "polydesigner-en-3d-h-f-d-mobel-pfister-ag-emmen"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -852,16 +852,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:23:39.435Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:23:39.435Z"
+      "firstSeenAt": "2026-11-04T09:23:39.435Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polydesignerin-3d-w-m-d-pfister-emmen"
+        ],
+        "en": [
+          "polydesignerin-3d-w-m-d-pfister-emmen"
+        ],
+        "fr": [
+          "polydesignerin-3d-w-m-d-pfister-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "polydesignerin-3d-w-m-d-pfister-emmen"
+      ]
     },
     {
       "id": "pfister-5c2cb9e866f0",
-      "slug": "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
+      "slug": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln",
       "slugByLocale": {
         "de": "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
-        "it": "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
-        "en": "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
-        "fr": "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
+        "it": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln",
+        "en": "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln",
+        "fr": "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -927,7 +941,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:23:37.876Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:23:37.876Z"
+      "firstSeenAt": "2026-11-04T09:23:37.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
+        ],
+        "en": [
+          "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
+        ],
+        "fr": [
+          "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
+      ]
     },
     {
       "id": "pfister-92063d183f3c",
@@ -1006,12 +1034,12 @@
     },
     {
       "id": "pfister-c084b7e7b272",
-      "slug": "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+      "slug": "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "de": "einkaufsdisponentin-w-m-d-pfister-suhr",
-        "it": "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
-        "en": "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
-        "fr": "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
+        "it": "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr",
+        "en": "purchase-dispatcher-m-f-d-mobel-pfister-ag-suhr",
+        "fr": "expediteur-d-achat-h-f-d-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -1062,11 +1090,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "einkaufsdisponentin-w-m-d-pfister-suhr"
+          "einkaufsdisponentin-w-m-d-pfister-suhr",
+          "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
+        ],
+        "en": [
+          "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
+        ],
+        "fr": [
+          "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
         ]
       },
       "previousSlugs": [
-        "einkaufsdisponentin-w-m-d-pfister-suhr"
+        "einkaufsdisponentin-w-m-d-pfister-suhr",
+        "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5354,9 +5390,9 @@
       "slug": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "it": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
-        "en": "immobilien-administrator-mobel-pfister-ag-suhr",
+        "en": "real-estate-management-business-mobel-pfister-ag-suhr",
         "de": "sachbearbeiterin-immobilienbewirtschaftung-gewerbe-pfister-suhr",
-        "fr": "administrateur-immobilier-mobel-pfister-ag-suhr"
+        "fr": "gestion-immobiliere-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -5412,8 +5448,8 @@
         "immobilien-accountant-mobel-pfister-ag-suhr",
         "comptable-immobilier-mobel-pfister-ag-suhr",
         "sachbearbeiterin-immobilienbewirtschaftung-gewerbe-pfister-suhr",
-        "real-estate-management-business-mobel-pfister-ag-suhr",
-        "gestion-immobiliere-mobel-pfister-ag-suhr"
+        "immobilien-administrator-mobel-pfister-ag-suhr",
+        "administrateur-immobilier-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5428,14 +5464,14 @@
         ],
         "en": [
           "personnel-real-estate-accountants-mobel-pfister-ag-suhr",
-          "real-estate-management-business-mobel-pfister-ag-suhr"
+          "immobilien-administrator-mobel-pfister-ag-suhr"
         ],
         "de": [
           "sachbearbeiter-in-immobilienbuchhaltung-pfister-suhr"
         ],
         "fr": [
           "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
-          "gestion-immobiliere-mobel-pfister-ag-suhr"
+          "administrateur-immobilier-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:21.817Z",
@@ -5461,7 +5497,7 @@
       "id": "pfister-0d61f03b0343",
       "slug": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
-        "it": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
+        "it": "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr",
         "en": "installer-carpenter-f-m-d-mobel-pfister-ag-suhr",
         "de": "monteurin-schreinerin-w-m-d-pfister-suhr",
         "fr": "installateur-menuisier-f-m-d-mobel-pfister-ag-suhr"
@@ -5514,14 +5550,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
-        "monteurin-schreinerin-w-m-d-pfister-suhr",
-        "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr"
+        "monteurin-schreinerin-w-m-d-pfister-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
-          "monteurin-schreinerin-w-m-d-pfister-suhr",
-          "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr"
+          "monteurin-schreinerin-w-m-d-pfister-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:18.345Z",
@@ -5548,7 +5582,7 @@
       "slug": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
       "slugByLocale": {
         "it": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
-        "en": "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach",
+        "en": "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
         "de": "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
         "fr": "vendeur-specialise-dans-les-cuisines-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
       },
@@ -5600,14 +5634,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
-        "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
+        "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach"
         ],
         "en": [
-          "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
+          "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:13.556Z",

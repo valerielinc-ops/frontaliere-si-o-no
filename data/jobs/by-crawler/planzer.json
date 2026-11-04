@@ -749,12 +749,12 @@
     },
     {
       "id": "planzer-6a8798ddf812",
-      "slug": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
+      "slug": "chauffeur-cat-c-m-f-d-planzer-domat-ems",
       "slugByLocale": {
         "de": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
-        "it": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
+        "it": "chauffeur-cat-c-m-f-d-planzer-domat-ems",
         "en": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
-        "fr": "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+        "fr": "chauffeur-cat-c-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -817,7 +817,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:13:12.789Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:13:12.789Z"
+      "firstSeenAt": "2026-11-04T09:13:12.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
+          "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+      ]
     },
     {
       "id": "planzer-3bc145e4c319",

@@ -420,12 +420,12 @@
     },
     {
       "id": "schulthess-klinik-933af8db8a55",
-      "slug": "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich",
+      "slug": "addetta-addetto-alle-pulizie-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
-        "it": "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+        "it": "addetta-addetto-alle-pulizie-schulthess-klinik-zurich",
+        "en": "employee-employee-cleaning-schulthess-klinik-zurich",
+        "fr": "nettoyage-des-employes-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -474,11 +474,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+          "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+        "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+        "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -500,12 +508,12 @@
     },
     {
       "id": "schulthess-klinik-ffc5e126d99b",
-      "slug": "mitarbeiterin-collaboratore-trice-archiv-post-scanning-schulthess-klinik-zurich",
+      "slug": "addetta-addetto-all-archivio-alla-posta-e-alla-scansione-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich",
-        "it": "mitarbeiterin-collaboratore-trice-archiv-post-scanning-schulthess-klinik-zurich",
-        "en": "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
+        "it": "addetta-addetto-all-archivio-alla-posta-e-alla-scansione-schulthess-klinik-zurich",
+        "en": "employee-employee-archive-post-scanning-schulthess-klinik-zurich",
+        "fr": "employe-employe-archive-post-scanning-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -554,11 +562,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich",
+          "mitarbeiterin-collaboratore-trice-archiv-post-scanning-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich"
+        "mitarbeiterin-mitarbeiter-archiv-post-amp-scanning-schulthess-klinik-zurich",
+        "mitarbeiterin-collaboratore-trice-archiv-post-scanning-schulthess-klinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

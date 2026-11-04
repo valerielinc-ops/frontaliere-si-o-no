@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { isDeepStrictEqual } from 'node:util';
 import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
-import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
+import { JOB_ACTIVE_IDS_URL, JOB_DETAIL_BASE } from '../functions/src/assistedApplicationAiJob.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -739,6 +739,43 @@ describe('submit mode', () => {
     });
     expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     expect(runner).toHaveBeenCalledTimes(1);
+  });
+
+  it('resolves a legacy Helsana submit from published detail when the saved apply URL is retired', async () => {
+    const jobId = 'helsana-872317162e36';
+    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const successFactorsUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const page = `<html><body><h1>IT Management Assistenz (a) 80%</h1><p>${'IT Management Assistenz bei Helsana. '.repeat(30)}</p><a>Jetzt bewerben</a><script>j2w.init({ ssoCompanyId: 'Helsana', ssoUrl: 'https://career5.successfactors.eu', locale: 'de_DE' }); j2w.Apply.init({ applyWithLinkedIn2Config: { internalId: '34525-de_DE' } });</script></body></html>`;
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === detailUrl) return new Response(JSON.stringify({ description: POSTING, url: postingUrl, applyUrl: staleApplyUrl }), { status: 200 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (url === postingUrl && init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === postingUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === staleApplyUrl) return new Response(null, { status: 301, headers: { location: '/' } });
+      return new Response('', { status: 404 });
+    });
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+
+    const event = await submitApplication({
+      order: { ...order, jobId, jobUrl: staleApplyUrl, jobTitle: 'IT Management Assistenz (a) 80%', companyName: 'Helsana' },
+      orderId: ORDER_ID,
+      draft: { ...baseDraft, channel: { type: 'employer_site', applyUrl: staleApplyUrl, host: 'careers.helsana.ch', requiresAccount: false }, job: { applyUrl: staleApplyUrl } },
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      cvBuffer: cvPdf(), cvType: 'pdf', bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns,
+      fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    expect(runner).toHaveBeenCalledTimes(1);
+    expect((runner.mock.calls as any)[0][0]).toMatchObject({ applyUrl: successFactorsUrl, postingUrl, channelType: 'successfactors' });
+    expect(calls).toContain(`GET ${postingUrl}`);
+    expect(calls.some((call) => call.endsWith(staleApplyUrl))).toBe(false);
   });
 
   // Coop, 2026-10-02: jobs.coopjobs.ch → Prospective.ch redirect → SAP SuccessFactors.

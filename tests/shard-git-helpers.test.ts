@@ -336,7 +336,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       writeFileSync(join(source, entry, 'index.html'), '<html>job</html>');
 
       const output = runHelperScript(
-        `SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" "${prefix}" test-shard ticino-hash-v1; `
+        `cd "${stage}"; SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" "${prefix}" test-shard ticino-hash-v1; `
           + 'echo "RC=$? REASON=$SHARD_DELTA_REASON"',
       );
       expect(output).toBe('RC=0 REASON=');
@@ -700,6 +700,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       const authLog = join(root, 'classify-auth.log');
       const transientLog = join(root, 'classify-transient.log');
       const http2Log = join(root, 'classify-http2-transient.log');
+      const commitRefsRulesLog = join(root, 'classify-commit-refs-rules-transient.log');
       writeFileSync(
         authLog,
         'ERROR: Permission to nanakokyobashi-rgb/frontaliere-uri-it.git denied to deploy key\n' +
@@ -710,12 +711,14 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
         http2Log,
         'error: RPC failed; curl 92 HTTP/2 stream 3 was not closed cleanly: INTERNAL_ERROR\n',
       );
+      writeFileSync(commitRefsRulesLog, 'remote: fatal error in commit_refs_rules\n');
       const out = runHelperScript(
         `shard_push_error_is_auth "${authLog}" && echo AUTH; ` +
           `shard_push_error_is_auth "${transientLog}" || echo TRANSIENT; ` +
-          `shard_push_error_is_transient "${http2Log}" && echo HTTP2`,
+          `shard_push_error_is_transient "${http2Log}" && echo HTTP2; ` +
+          `shard_push_error_is_transient "${commitRefsRulesLog}" && echo COMMIT_REFS_RULES`,
       );
-      expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT', 'HTTP2']);
+      expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT', 'HTTP2', 'COMMIT_REFS_RULES']);
       const reasons = runHelperScript(
         `shard_push_failure_reason "${authLog}"; echo; ` +
           `shard_push_failure_reason "${transientLog}"`,

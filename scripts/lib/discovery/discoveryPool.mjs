@@ -14,7 +14,10 @@
 
 import { fetchOrphanCandidates } from './sources/orphanQuerySource.mjs';
 import { fetchSuggestDiscoveryCandidates } from './sources/googleSuggestSource.mjs';
-import { fetchNewsRssDiscoveryCandidates } from './sources/googleNewsRssSource.mjs';
+import {
+  fetchNewsRssDiscoveryCandidates,
+  NEWS_RSS_MAX_SEED_DURATION_MS,
+} from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
@@ -23,6 +26,29 @@ const ENV_TRUE = (val) => val === '1' || val === 'true';
 const MAX_TREND_EVIDENCE_SEEDS = 3;
 const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
 const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
+const MIN_TREND_EVIDENCE_WINDOW_MS = MAX_TREND_EVIDENCE_SEEDS * NEWS_RSS_MAX_SEED_DURATION_MS;
+
+function normalizeDeadlineMs(value) {
+  if (value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function normalizeReserveMs(value) {
+  if (value === null || value === undefined) return 0;
+  const number = Number(value);
+  return Number.isFinite(number) && number > 0 ? number : 0;
+}
+
+function effectiveNewsDeadlineMs(opts) {
+  const deadlineMs = normalizeDeadlineMs(opts.deadlineMs);
+  if (deadlineMs === null) return null;
+  return Math.max(0, deadlineMs - normalizeReserveMs(opts.deadlineReserveMs));
+}
+
+function hasDeadlineWindow(deadlineMs, minimumMs = 0) {
+  return deadlineMs === null || deadlineMs - Date.now() >= minimumMs;
+}
 
 function isOrphanDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_ORPHAN);
@@ -139,6 +165,8 @@ function buildTrendEvidenceCandidates(trendSignals, newsEvidence, nowMs) {
  *   newsFn?: Function,
  *   trendsFn?: Function,
  *   nowMs?: number,
+ *   deadlineMs?: number,
+ *   deadlineReserveMs?: number,
  * }} [opts]
  * @returns {Promise<{ candidates: DiscoveryCandidate[], perSource: Record<string, number> }>}
  */
@@ -147,6 +175,7 @@ export async function fetchAll(evidence, opts = {}) {
   const suggestFn = opts.suggestFn || fetchSuggestDiscoveryCandidates;
   const newsFn = opts.newsFn || fetchNewsRssDiscoveryCandidates;
   const trendsFn = opts.trendsFn || fetchTrendsDiscoveryCandidates;
+  const newsDeadlineMs = effectiveNewsDeadlineMs(opts);
   const perSource = { orphan: 0, suggest: 0, news: 0, trends: 0, trendSignals: 0 };
   const merged = [];
 
@@ -162,8 +191,10 @@ export async function fetchAll(evidence, opts = {}) {
   }
 
   // Remote sources — fetch in parallel; each source already swallows errors.
+  // A caller with a run-wide deadline gets the effective deadline on the RSS
+  // source. Other callers retain the historical unbounded behavior.
   const remoteJobs = [];
-  if (!isSuggestDisabled()) {
+  if (hasDeadlineWindow(newsDeadlineMs) && !isSuggestDisabled()) {
     remoteJobs.push(
       suggestFn(evidence, { fetchImpl: opts.fetchImpl })
         .then((arr) => ({ kind: 'suggest', arr: Array.isArray(arr) ? arr : [] }))
@@ -173,9 +204,11 @@ export async function fetchAll(evidence, opts = {}) {
         }),
     );
   }
-  if (!isNewsDisabled()) {
+  if (hasDeadlineWindow(newsDeadlineMs) && !isNewsDisabled()) {
+    const newsOptions = { fetchImpl: opts.fetchImpl };
+    if (newsDeadlineMs !== null) newsOptions.deadlineMs = newsDeadlineMs;
     remoteJobs.push(
-      newsFn(evidence, { fetchImpl: opts.fetchImpl })
+      newsFn(evidence, newsOptions)
         .then((arr) => ({ kind: 'news', arr: Array.isArray(arr) ? arr : [] }))
         .catch((err) => {
           console.warn(`[discovery] news source failed: ${err?.message || err}`);
@@ -183,7 +216,7 @@ export async function fetchAll(evidence, opts = {}) {
         }),
     );
   }
-  if (!isTrendsDisabled()) {
+  if (hasDeadlineWindow(newsDeadlineMs) && !isTrendsDisabled()) {
     remoteJobs.push(
       trendsFn(evidence, { fetchImpl: opts.fetchImpl })
         .then((arr) => ({ kind: 'trends', arr: Array.isArray(arr) ? arr : [] }))
@@ -212,7 +245,12 @@ export async function fetchAll(evidence, opts = {}) {
   // results provide HTTPS URLs. This keeps bare queries from becoming
   // synthetic discovery:// URLs in create-article.
   let trendBackedCandidates = [];
-  if (!isNewsDisabled() && !isTrendsDisabled() && trendSignals.length > 0) {
+  if (
+    !isNewsDisabled()
+    && !isTrendsDisabled()
+    && trendSignals.length > 0
+    && hasDeadlineWindow(newsDeadlineMs, MIN_TREND_EVIDENCE_WINDOW_MS)
+  ) {
     const seenSignalHeadlines = new Set();
     const topTrendSignals = trendSignals
       .slice()
@@ -230,6 +268,7 @@ export async function fetchAll(evidence, opts = {}) {
         fetchImpl: opts.fetchImpl,
         seeds,
         nowMs: opts.nowMs,
+        ...(newsDeadlineMs !== null ? { deadlineMs: newsDeadlineMs } : {}),
       });
       const newsEvidence = Array.isArray(result) ? result : [];
       trendBackedCandidates = buildTrendEvidenceCandidates(
@@ -240,6 +279,13 @@ export async function fetchAll(evidence, opts = {}) {
     } catch (err) {
       console.warn(`[discovery/trends] evidence search failed: ${err?.message || err}`);
     }
+  } else if (
+    !isNewsDisabled()
+    && !isTrendsDisabled()
+    && trendSignals.length > 0
+    && newsDeadlineMs !== null
+  ) {
+    console.error('[discovery/trends] evidence search skipped: insufficient deadline window');
   }
 
   // When the same Google News item appears in both the regular news pool and
@@ -317,7 +363,7 @@ export function scoreCandidates(candidates, evidence) {
  * One-shot convenience: fetch + dedup + score. Returns the sorted list.
  *
  * @param {object} evidence
- * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number, nowMs?: number }} [opts]
+ * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number, nowMs?: number, deadlineMs?: number, deadlineReserveMs?: number }} [opts]
  * @returns {Promise<{ candidates: ScoredDiscoveryCandidate[], perSource: Record<string, number>, postDedupCount: number }>}
  */
 export async function buildDiscoveryPool(evidence, opts = {}) {

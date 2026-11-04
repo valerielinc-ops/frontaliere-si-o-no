@@ -268,12 +268,12 @@
     },
     {
       "id": "holcim-9b6ebefa9d19",
-      "slug": "operational-technology-manager-holcim-ch",
+      "slug": "gestione-della-tecnologia-operativa-holcim-group-untervaz",
       "slugByLocale": {
         "de": "operational-technology-manager-holcim-ch",
-        "it": "operational-technology-manager-holcim-ch",
+        "it": "gestione-della-tecnologia-operativa-holcim-group-untervaz",
         "en": "operational-technology-manager-holcim-ch",
-        "fr": "operational-technology-manager-holcim-ch"
+        "fr": "gestionnaire-des-technologies-operationnelles-holcim-group-untervaz"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -336,7 +336,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:27:08.206Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:27:08.206Z"
+      "firstSeenAt": "2026-11-04T09:27:08.206Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-technology-manager-holcim-ch"
+        ],
+        "fr": [
+          "operational-technology-manager-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operational-technology-manager-holcim-ch"
+      ]
     },
     {
       "id": "holcim-d568554a4494",
@@ -1701,10 +1712,10 @@
     },
     {
       "id": "holcim-9bb2f6ee45d3",
-      "slug": "rmx-quality-excellence-manager-holcim-ch",
+      "slug": "rmx-manager-dell-eccellenza-della-qualita-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "rmx-quality-excellence-manager-holcim-ch",
-        "it": "rmx-quality-excellence-manager-holcim-ch",
+        "it": "rmx-manager-dell-eccellenza-della-qualita-holcim-group-wurenlingen",
         "en": "rmx-quality-excellence-manager-holcim-ch",
         "fr": "rmx-quality-excellence-manager-holcim-ch"
       },
@@ -1769,7 +1780,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:26:59.303Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:26:59.303Z"
+      "firstSeenAt": "2026-11-04T09:26:59.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rmx-quality-excellence-manager-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rmx-quality-excellence-manager-holcim-ch"
+      ]
     },
     {
       "id": "holcim-960650fcd523",

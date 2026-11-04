@@ -1737,7 +1737,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -1786,7 +1786,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1796,7 +1796,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -10502,12 +10502,12 @@
     },
     {
       "id": "unispital-basel-d2ce9e1225d5",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+      "slug": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "it": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
+        "en": "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10569,7 +10569,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:23:15.129Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:23:15.129Z"
+      "firstSeenAt": "2026-11-04T09:23:15.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-9385b82fc2f9",
@@ -10734,12 +10748,12 @@
     },
     {
       "id": "unispital-basel-c7e9180f1aec",
-      "slug": "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel",
+      "slug": "assistente-medico-a-di-studio-radiologia-interventistica-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "med-praxisassistent-in-interventionelle-radiologie-unispital-basel-ch",
-        "it": "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel",
-        "en": "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel",
-        "fr": "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel"
+        "it": "assistente-medico-a-di-studio-radiologia-interventistica-universitatsspital-basel-basel",
+        "en": "medical-practice-assistant-interventional-radiology-universitatsspital-basel-basel",
+        "fr": "assistant-e-medical-e-radiologie-interventionnelle-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10787,11 +10801,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-interventionelle-radiologie-unispital-basel-ch"
+          "med-praxisassistent-in-interventionelle-radiologie-unispital-basel-ch",
+          "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-interventionelle-radiologie-unispital-basel-ch"
+        "med-praxisassistent-in-interventionelle-radiologie-unispital-basel-ch",
+        "med-praxisassistent-in-interventionelle-radiologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10817,7 +10839,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -10864,7 +10886,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10872,7 +10895,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -10986,7 +11009,7 @@
       "slugByLocale": {
         "en": "operator-gmp-cell-therapy-products-unispital-basel-ch",
         "it": "operator-gmp-cell-therapy-products-unispital-basel-ch",
-        "de": "operator-gmp-cell-therapy-products-unispital-basel-ch",
+        "de": "operator-gmp-zelltherapieprodukte-universitatsspital-basel-basel",
         "fr": "operator-gmp-cell-therapy-products-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
@@ -11053,12 +11076,12 @@
     },
     {
       "id": "unispital-basel-d1f13de1b182",
-      "slug": "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel",
+      "slug": "responsabile-delle-applicazioni-applicazioni-cliniche-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "applikationsmanager-in-klinische-applikationen-unispital-basel-ch",
-        "it": "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel",
-        "en": "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel",
-        "fr": "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel"
+        "it": "responsabile-delle-applicazioni-applicazioni-cliniche-universitatsspital-basel-basel",
+        "en": "application-manager-clinical-applications-universitatsspital-basel-basel",
+        "fr": "gestionnaire-d-applications-applications-cliniques-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11106,11 +11129,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "applikationsmanager-in-klinische-applikationen-unispital-basel-ch"
+          "applikationsmanager-in-klinische-applikationen-unispital-basel-ch",
+          "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "applikationsmanager-in-klinische-applikationen-unispital-basel-ch"
+        "applikationsmanager-in-klinische-applikationen-unispital-basel-ch",
+        "applikationsmanager-in-klinische-applikationen-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11133,12 +11164,12 @@
     },
     {
       "id": "unispital-basel-744abb6dfbba",
-      "slug": "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel",
+      "slug": "case-handler-servizi-pazienti-ent-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-patienten-services-hno-unispital-basel-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel",
-        "en": "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel",
-        "fr": "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel"
+        "it": "case-handler-servizi-pazienti-ent-universitatsspital-basel-basel",
+        "en": "case-handler-patient-services-ent-universitatsspital-basel-basel",
+        "fr": "gestionnaire-de-cas-services-aux-patients-ent-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11185,11 +11216,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-patienten-services-hno-unispital-basel-ch"
+          "sachbearbeiterin-sachbearbeiter-patienten-services-hno-unispital-basel-ch",
+          "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-patienten-services-hno-unispital-basel-ch"
+        "sachbearbeiterin-sachbearbeiter-patienten-services-hno-unispital-basel-ch",
+        "sachbearbeiterin-sachbearbeiter-patienten-services-hno-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
+import { JOB_ACTIVE_IDS_URL, JOB_DETAIL_BASE } from '../functions/src/assistedApplicationAiJob.js';
 import { parseActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
-import { checkPostingLiveness, postingAddressOf } from '../functions/src/assistedApplicationLiveness.js';
+import { checkPostingLiveness, postingAddressOf, resolvePostingAddressOf } from '../functions/src/assistedApplicationLiveness.js';
 
 const JOB_ID = 'medbase-ccaaa7fa003b';
 const POSTING_URL = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Frauenfeld/Apprenticeship_R15163';
@@ -30,6 +30,21 @@ function activeIndex(ids: string[], generatedAt = new Date().toISOString()) {
 }
 
 describe('assisted-application liveness active-ID corroboration', () => {
+  it('gets the canonical page from published detail for a legacy order with a stale apply URL', async () => {
+    const jobId = 'helsana-872317162e36';
+    const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';
+    const postingUrl = 'https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-IT-Management-Assistenz/1426391333/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const fetchImpl = vi.fn(async (url: string) => url === detailUrl
+      ? json({ description: 'Published posting description', url: postingUrl, applyUrl: staleApplyUrl })
+      : new Response('', { status: 404 }));
+
+    await expect(resolvePostingAddressOf({ channel: { applyUrl: staleApplyUrl } }, { jobId, jobUrl: staleApplyUrl }, {
+      fetchImpl, resolve: publicDns,
+    })).resolves.toBe(postingUrl);
+    expect(fetchImpl).toHaveBeenCalledWith(detailUrl, expect.anything());
+  });
+
   it('prefers the canonical job posting URL over a legacy channel posting URL', () => {
     expect(postingAddressOf({
       channel: { postingUrl: 'https://example.test/talentcommunity/apply/stale' },

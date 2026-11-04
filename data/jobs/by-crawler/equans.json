@@ -8703,12 +8703,12 @@
     },
     {
       "id": "equans-c532b8f2a285",
-      "slug": "technische-r-hauswart-in-equans-zurich-2",
+      "slug": "custode-tecnico-a-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "technische-r-hauswart-in-equans-zurich",
-        "it": "technische-r-hauswart-in-equans-zurich-2",
-        "en": "technische-r-hauswart-in-equans-zurich-2",
-        "fr": "technische-r-hauswart-in-equans-zurich-2"
+        "it": "custode-tecnico-a-equans-switzerland-zurich",
+        "en": "technical-caretaker-equans-switzerland-zurich-9b24ea",
+        "fr": "techniciens-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8774,21 +8774,29 @@
       "firstSeenAt": "2026-09-02T23:09:43.925Z",
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-hauswart-in-equans-zurich"
+          "technische-r-hauswart-in-equans-zurich",
+          "technische-r-hauswart-in-equans-zurich-2"
+        ],
+        "en": [
+          "technische-r-hauswart-in-equans-zurich-2"
+        ],
+        "fr": [
+          "technische-r-hauswart-in-equans-zurich-2"
         ]
       },
       "previousSlugs": [
-        "technische-r-hauswart-in-equans-zurich"
+        "technische-r-hauswart-in-equans-zurich",
+        "technische-r-hauswart-in-equans-zurich-2"
       ]
     },
     {
       "id": "equans-f7526c00214d",
-      "slug": "techniker-in-equans-zurich",
+      "slug": "tecnico-a-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "techniker-in-equans-zurich",
-        "it": "techniker-in-equans-zurich",
-        "en": "techniker-in-equans-zurich",
-        "fr": "techniker-in-equans-zurich"
+        "it": "tecnico-a-equans-switzerland-zurich",
+        "en": "technician-equans-switzerland-zurich",
+        "fr": "technicien-ne-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8851,16 +8859,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:16:11.992Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:16:11.992Z"
+      "firstSeenAt": "2026-11-04T09:16:11.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-equans-zurich"
+        ],
+        "en": [
+          "techniker-in-equans-zurich"
+        ],
+        "fr": [
+          "techniker-in-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-equans-zurich"
+      ]
     },
     {
       "id": "equans-603b66a8ddb4",
-      "slug": "collaboratore-trice-empfang-40-do-fr-equans-switzerland-zug",
+      "slug": "addetto-a-alla-reception-40-gio-ven-equans-switzerland-zug",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-40-do-amp-fr-equans-zug",
-        "it": "collaboratore-trice-empfang-40-do-fr-equans-switzerland-zug",
-        "en": "mitarbeiter-in-empfang-40-do-fr-equans-switzerland-zug",
-        "fr": "mitarbeiter-in-empfang-40-do-fr-equans-switzerland-zug"
+        "it": "addetto-a-alla-reception-40-gio-ven-equans-switzerland-zug",
+        "en": "reception-staff-member-40-thu-fri-equans-switzerland-zug",
+        "fr": "collaborateur-rice-a-l-accueil-40-jeudi-vendredi-equans-switzerland-zug"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8909,11 +8931,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-40-do-amp-fr-equans-zug"
+          "mitarbeiter-in-empfang-40-do-amp-fr-equans-zug",
+          "collaboratore-trice-empfang-40-do-fr-equans-switzerland-zug"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-40-do-fr-equans-switzerland-zug"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-40-do-fr-equans-switzerland-zug"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-40-do-amp-fr-equans-zug"
+        "mitarbeiter-in-empfang-40-do-amp-fr-equans-zug",
+        "collaboratore-trice-empfang-40-do-fr-equans-switzerland-zug",
+        "mitarbeiter-in-empfang-40-do-fr-equans-switzerland-zug"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,

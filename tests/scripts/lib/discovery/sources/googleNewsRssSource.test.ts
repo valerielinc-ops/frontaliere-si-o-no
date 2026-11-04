@@ -6,6 +6,7 @@ import {
   fetchNewsRssDiscoveryCandidates,
   ageHoursFromPubDate,
   publisherHostFromSourceUrl,
+  NEWS_RSS_MAX_SEED_DURATION_MS,
 } from '../../../../../scripts/lib/discovery/sources/googleNewsRssSource.mjs';
 
 describe('publisherHostFromSourceUrl (issue #4101)', () => {
@@ -42,6 +43,10 @@ describe('ageHoursFromPubDate', () => {
 });
 
 describe('fetchNewsRssDiscoveryCandidates', () => {
+  it('exposes the bounded per-seed RSS duration', () => {
+    expect(NEWS_RSS_MAX_SEED_DURATION_MS).toBe(31_500);
+  });
+
   const stubNewsFn = (candidates: any[]) => async (_opts: any) => ({
     ok: candidates.length > 0,
     perSeed: {},
@@ -115,5 +120,20 @@ describe('fetchNewsRssDiscoveryCandidates', () => {
     };
     const out = await fetchNewsRssDiscoveryCandidates({}, { newsFn: throwingFn });
     expect(out).toEqual([]);
+  });
+
+  it('forwards an absolute deadline to the RSS fetcher', async () => {
+    const deadlineMs = Date.now() + 60_000;
+    let receivedOptions: any;
+    const out = await fetchNewsRssDiscoveryCandidates({}, {
+      deadlineMs,
+      newsFn: async (options) => {
+        receivedOptions = options;
+        return { candidates: [] };
+      },
+    });
+
+    expect(out).toEqual([]);
+    expect(receivedOptions.deadlineMs).toBe(deadlineMs);
   });
 });
