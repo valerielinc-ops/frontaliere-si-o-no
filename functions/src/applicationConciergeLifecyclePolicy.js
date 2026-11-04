@@ -11,11 +11,14 @@ import {
 
 export const CONCIERGE_DAY_MS = 24 * 60 * 60 * 1000;
 export const CONCIERGE_REFRESH_INTERVAL_MS = 3 * CONCIERGE_DAY_MS;
-export const CONCIERGE_FRESH_PENDING_INTERVAL_MS = 15 * 60 * 1000;
+// Pending frontier scans can run for almost the full worker timeout. Keep the
+// lifecycle sweep as a 15-minute poll, but start an expensive pending scan at
+// most once per hour.
+export const CONCIERGE_FRESH_PENDING_INTERVAL_MS = 60 * 60 * 1000;
 export const CONCIERGE_RETRY_INTERVAL_MS = 60 * 60 * 1000;
 // Several matcher deploys can land during one rollout window.  Let the latest
 // version settle before starting a full scan for each active service; the
-// lifecycle sweep still retries every 15 minutes and never drops the refresh.
+// lifecycle sweep still polls every 15 minutes and never drops the refresh.
 export const CONCIERGE_MATCHING_VERSION_SETTLE_MS = 60 * 60 * 1000;
 export const CONCIERGE_RENEWAL_DISCOUNT_MS = 3 * CONCIERGE_DAY_MS;
 export const CONCIERGE_RENEWAL_PRICE_EUR_CENTS = 2999;
