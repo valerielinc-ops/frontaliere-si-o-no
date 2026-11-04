@@ -154,6 +154,8 @@ jobs:
         id: plan
         if: steps.admission.outputs.admitted == 'true'
         run: |
+          # The planner is dependency-free by contract; this job intentionally
+          # skips npm ci and must not import the full event policy graph.
           node scripts/plan-event-description-rewrite.mjs \
             --requested-shards "$REQUESTED_SHARDS" \
             --requested-events-per-shard "$REQUESTED_EVENTS_PER_SHARD" \

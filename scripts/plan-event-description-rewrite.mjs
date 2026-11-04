@@ -10,7 +10,7 @@ import {
   normalizeEventsPerShard,
   normalizeShardCount,
   readJsonFile,
-} from './lib/event-description-throughput.mjs';
+} from './lib/event-description-throughput-plan.mjs';
 
 function argument(name, fallback = '') {
   const index = process.argv.indexOf(name);

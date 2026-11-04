@@ -29,6 +29,7 @@ import {
   EVENT_DESCRIPTION_ARTIFACT_KEY_NAME,
   stageEventDescriptionArtifactKey,
 } from '../scripts/lib/event-description-artifact-key.mjs';
+import { scanImportClosure } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 
 const workflow = readFileSync(path.join(process.cwd(), '.github/workflows/event-description-rewrite.yml'), 'utf8');
 
@@ -149,6 +150,17 @@ test('planner emits every workflow output without replacing existing step output
     direction: plan.direction,
     reason: plan.reason,
   });
+});
+
+test('adaptive planner stays dependency-free for its no-npm-ci workflow job', () => {
+  const { files, packageImports } = scanImportClosure({
+    entries: ['scripts/plan-event-description-rewrite.mjs'],
+  });
+  assert.equal(packageImports.length, 0);
+  assert.deepEqual(files, [
+    'scripts/lib/event-description-throughput-plan.mjs',
+    'scripts/plan-event-description-rewrite.mjs',
+  ]);
 });
 
 test('hash partition is deterministic, disjoint and exhaustive', () => {
